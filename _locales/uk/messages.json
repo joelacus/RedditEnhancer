@@ -1,0 +1,69 @@
+{
+  "extensionName": {
+    "message": "Reddit Enhancer"
+  },
+
+  "extensionDescription": {
+    "message": "Різноманітні налаштування для персоналізації роботи Reddit."
+  },
+
+  "textAbout": {
+    "message": "приблизно"
+  },
+
+  "textBuyMeACoffee": {
+    "message": "Купи мені каву"
+  },
+
+  "textPremium": {
+    "message": "Преміум"
+  },
+
+  "textGetPremium": {
+    "message": "Отримайте Преміум"
+  },
+
+  "textDarkMode": {
+    "message": "Темний режим"
+  },
+
+  "textExpandLayout": {
+    "message": "Розгорнути канал / публікацію"
+  },
+
+  "textCenter": {
+    "message": "центр"
+  },
+
+  "textWidth": {
+    "message": "Ширина"
+  },
+
+  "textFitImage": {
+    "message": "Масштабуйте високі зображення відповідно до публікації"
+  },
+
+  "textImageScroll": {
+    "message": "Додайте смугу прокрутки до високих зображень"
+  },
+
+  "textBackground": {
+    "message": "Фон"
+  },
+
+  "textBlur": {
+    "message": "Розмиття"
+  },
+
+  "textShadow": {
+    "message": "Тіні"
+  },
+
+  "textUseCustom": {
+    "message": "Використовуйте настроювані"
+  },
+
+  "textCustomBgInputPlaceholder": {
+    "message": "Спеціальне фонове посилання"
+  }
+}

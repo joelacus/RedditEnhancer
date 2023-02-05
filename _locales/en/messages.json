@@ -1,0 +1,73 @@
+{
+  "extensionVersion": {
+    "message": "0.2.0 Beta"
+  },
+
+  "extensionName": {
+    "message": "Reddit Enhancer"
+  },
+
+  "extensionDescription": {
+    "message": "Various tweaks to customise your Reddit experience."
+  },
+
+  "textAbout": {
+    "message": "About"
+  },
+
+  "textBuyMeACoffee": {
+    "message": "Buy Me A Coffee"
+  },
+
+  "textPremium": {
+    "message": "Premium"
+  },
+
+  "textGetPremium": {
+    "message": "Get Premium"
+  },
+
+  "textDarkMode": {
+    "message": "Dark Mode"
+  },
+
+  "textExpandLayout": {
+    "message": "Expand Feed / Post"
+  },
+
+  "textCenter": {
+    "message": "Center"
+  },
+
+  "textWidth": {
+    "message": "Width"
+  },
+
+  "textFitImage": {
+    "message": "Scale Tall Images To Fit Post"
+  },
+
+  "textImageScroll": {
+    "message": "Add Scrollbar To Tall Images"
+  },
+
+  "textBackground": {
+    "message": "Background"
+  },
+
+  "textBlur": {
+    "message": "Blur"
+  },
+
+  "textShadow": {
+    "message": "Drop Shadows"
+  },
+
+  "textUseCustom": {
+    "message": "Use Custom"
+  },
+
+  "textCustomBgInputPlaceholder": {
+    "message": "Custom Background Link"
+  }
+}

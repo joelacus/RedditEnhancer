@@ -1,0 +1,69 @@
+{
+  "extensionName": {
+    "message": "Reddit Enhancer"
+  },
+
+  "extensionDescription": {
+    "message": "Vários ajustes para personalizar sua experiência no Reddit."
+  },
+
+  "textAbout": {
+    "message": "Sobre"
+  },
+
+  "textBuyMeACoffee": {
+    "message": "Compre-me um café"
+  },
+
+  "textPremium": {
+    "message": "Premium"
+  },
+
+  "textGetPremium": {
+    "message": "Obter Premium"
+  },
+
+  "textDarkMode": {
+    "message": "Modo Escuro"
+  },
+
+  "textExpandLayout": {
+    "message": "Expandir Feed / Postagem"
+  },
+
+  "textCenter": {
+    "message": "Centro"
+  },
+
+  "textWidth": {
+    "message": "Largura"
+  },
+
+  "textFitImage": {
+    "message": "Dimensionar imagens altas para caber no post"
+  },
+
+  "textImageScroll": {
+    "message": "Adicionar barra de rolagem a imagens altas"
+  },
+
+  "textBackground": {
+    "message": "Fundo"
+  },
+
+  "textBlur": {
+    "message": "Desfocar"
+  },
+
+  "textShadow": {
+    "message": "Sombras Projetadas"
+  },
+
+  "textUseCustom": {
+    "message": "Usar personalizado"
+  },
+
+  "textCustomBgInputPlaceholder": {
+    "message": "Link de fundo personalizado"
+  }
+}

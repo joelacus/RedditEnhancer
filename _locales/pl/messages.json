@@ -1,0 +1,69 @@
+{
+  "extensionName": {
+    "message": "Reddit Enhancer"
+  },
+
+  "extensionDescription": {
+    "message": "Różne poprawki, aby dostosować wrażenia z Reddit."
+  },
+
+  "textAbout": {
+    "message": "O"
+  },
+
+  "textBuyMeACoffee": {
+    "message": "Kup mi kawę"
+  },
+
+  "textPremium": {
+    "message": "Premia"
+  },
+
+  "textGetPremium": {
+    "message": "Zdobądź Premię"
+  },
+
+  "textDarkMode": {
+    "message": "Tryb Ciemny"
+  },
+
+  "textExpandLayout": {
+    "message": "Rozwiń Kanał / Opublikuj"
+  },
+
+  "textCenter": {
+    "message": "Środek"
+  },
+
+  "textWidth": {
+    "message": "Szerokość"
+  },
+
+  "textFitImage": {
+    "message": "Skaluj wysokie obrazy, aby pasowały do postu"
+  },
+
+  "textImageScroll": {
+    "message": "Dodaj pasek przewijania do wysokich obrazów"
+  },
+
+  "textBackground": {
+    "message": "Tło"
+  },
+
+  "textBlur": {
+    "message": "Rozmazać"
+  },
+
+  "textShadow": {
+    "message": "Rzuć cienie"
+  },
+
+  "textUseCustom": {
+    "message": "Użyj niestandardowego"
+  },
+
+  "textCustomBgInputPlaceholder": {
+    "message": "Niestandardowy link w tle"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "extensionName": {
+    "message": "Reddit Enhancer"
+  },
+
+  "extensionDescription": {
+    "message": "Verschillende tweaks om uw Reddit-ervaring aan te passen."
+  },
+
+  "textAbout": {
+    "message": "Over"
+  },
+
+  "textBuyMeACoffee": {
+    "message": "Koop me een koffie"
+  },
+
+  "textPremium": {
+    "message": "Premie"
+  },
+
+  "textGetPremium": {
+    "message": "Krijg Premium"
+  },
+
+  "textDarkMode": {
+    "message": "Donkere Modus"
+  },
+
+  "textExpandLayout": {
+    "message": "Vouw Feed / Post uit"
+  },
+
+  "textCenter": {
+    "message": "Centrum"
+  },
+
+  "textWidth": {
+    "message": "Breedte"
+  },
+
+  "textFitImage": {
+    "message": "Schaal grote afbeeldingen om op de post te passen"
+  },
+
+  "textImageScroll": {
+    "message": "Voeg schuifbalk toe aan hoge afbeeldingen"
+  },
+
+  "textBackground": {
+    "message": "Achtergrond"
+  },
+
+  "textBlur": {
+    "message": "Vervagen"
+  },
+
+  "textShadow": {
+    "message": "Slagschaduwen"
+  },
+
+  "textUseCustom": {
+    "message": "Aangepast gebruiken"
+  },
+
+  "textCustomBgInputPlaceholder": {
+    "message": "Aangepaste achtergrondlink"
+  }
+}

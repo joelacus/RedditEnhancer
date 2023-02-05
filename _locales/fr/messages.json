@@ -1,0 +1,69 @@
+{
+  "extensionName": {
+    "message": "Reddit Enhancer"
+  },
+
+  "extensionDescription": {
+    "message": "Divers ajustements pour personnaliser votre expérience Reddit."
+  },
+
+  "textAbout": {
+    "message": "À propos"
+  },
+
+  "textBuyMeACoffee": {
+    "message": "Achetez-moi un café"
+  },
+
+  "textPremium": {
+    "message": "Premium"
+  },
+
+  "textGetPremium": {
+    "message": "Obtenir Premium"
+  },
+
+  "textDarkMode": {
+    "message": "Thème Sombre"
+  },
+
+  "textExpandLayout": {
+    "message": "Élargir Le Fil / La Publication"
+  },
+
+  "textCenter": {
+    "message": "Centre"
+  },
+
+  "textWidth": {
+    "message": "Largeur"
+  },
+
+  "textFitImage": {
+    "message": "Mettre à l'échelle les images hautes pour s'adapter à la publication"
+  },
+
+  "textImageScroll": {
+    "message": "Ajouter une barre de défilement aux images hautes"
+  },
+
+  "textBackground": {
+    "message": "Arrière-plan"
+  },
+
+  "textBlur": {
+    "message": "Flou"
+  },
+
+  "textShadow": {
+    "message": "Ombres portées"
+  },
+
+  "textUseCustom": {
+    "message": "Utiliser la personnalisation"
+  },
+
+  "textCustomBgInputPlaceholder": {
+    "message": "Lien d'arrière-plan personnalisé"
+  }
+}
