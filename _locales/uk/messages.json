@@ -65,5 +65,13 @@
 
   "textCustomBgInputPlaceholder": {
     "message": "Спеціальне фонове посилання"
+  },
+
+  "textNewReddit": {
+    "message": "новий Reddit"
+  },
+
+  "textOldReddit": {
+    "message": "Старий Reddit"
   }
 }

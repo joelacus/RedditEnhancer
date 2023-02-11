@@ -1,6 +1,6 @@
 {
   "extensionVersion": {
-    "message": "0.2.0 Beta"
+    "message": "0.3.0 Beta"
   },
 
   "extensionName": {
@@ -69,5 +69,13 @@
 
   "textCustomBgInputPlaceholder": {
     "message": "Custom Background Link"
+  },
+
+  "textNewReddit": {
+    "message": "New Reddit"
+  },
+
+  "textOldReddit": {
+    "message": "Old Reddit"
   }
 }

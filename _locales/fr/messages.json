@@ -65,5 +65,13 @@
 
   "textCustomBgInputPlaceholder": {
     "message": "Lien d'arrière-plan personnalisé"
+  },
+
+  "textNewReddit": {
+    "message": "Nouveau Reddit"
+  },
+
+  "textOldReddit": {
+    "message": "Vieux Reddit"
   }
 }

@@ -65,5 +65,13 @@
 
   "textCustomBgInputPlaceholder": {
     "message": "Niestandardowy link w tle"
+  },
+
+  "textNewReddit": {
+    "message": "Nowy Reddit"
+  },
+
+  "textOldReddit": {
+    "message": "Stary Reddit"
   }
 }
