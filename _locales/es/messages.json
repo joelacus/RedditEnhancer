@@ -16,11 +16,11 @@
   },
 
   "textPremium": {
-    "message": "Premium"
+    "message": "Reddit Enhancer Más"
   },
 
   "textGetPremium": {
-    "message": "Obtener Premium"
+    "message": "Mejora"
   },
 
   "textDarkMode": {
@@ -73,5 +73,69 @@
 
   "textOldReddit": {
     "message": "Viejo Reddit"
+  },
+
+  "textAuto": {
+    "message": "Auto"
+  },
+
+  "textDisabled": {
+    "message": "Desactivado"
+  },
+
+  "textSystemTheme": {
+    "message": "Tema del sistema"
+  },
+
+  "textTimeRange": {
+    "message": "Intervalo de tiempo"
+  },
+
+  "textStartTime": {
+    "message": "Hora de inicio (24)"
+  },
+
+  "textEndTime": {
+    "message": "Hora de finalización (24)"
+  },
+
+  "textUiTweaks": {
+    "message": "Ajustes Adicionales"
+  },
+
+  "textHideRedditPremium": {
+    "message": "Ocultar 'Reddit Premium'"
+  },
+
+  "textHideCreatePost": {
+    "message": "Ocultar 'Crear publicación'"
+  },
+
+  "textHideCoinButton": {
+    "message": "Ocultar el botón 'Moneda'"
+  },
+
+  "textHideAdvertiseButton": {
+    "message": "Ocultar el botón 'Anunciar'"
+  },
+
+  "textHideModerationButton": {
+    "message": "Ocultar el botón 'Moderación'"
+  },
+
+  "textHidePopularButton": {
+    "message": "Ocultar el botón 'Popular'"
+  },
+
+  "textHideHappeningNowButton": {
+    "message": "Ocultar el botón 'Lo que está pasando'"
+  },
+
+  "textHideChatButton": {
+    "message": "Ocultar el botón 'Chat'"
+  },
+
+  "textHideSidebar": {
+    "message": "Ocultar la barra lateral"
   }
 }

@@ -16,11 +16,11 @@
   },
 
   "textPremium": {
-    "message": "Premie"
+    "message": "Reddit Enhancer Plus"
   },
 
   "textGetPremium": {
-    "message": "Krijg Premium"
+    "message": "Upgrade"
   },
 
   "textDarkMode": {
@@ -73,5 +73,69 @@
 
   "textOldReddit": {
     "message": "Oude Reddit"
+  },
+
+  "textAuto": {
+    "message": "Auto"
+  },
+
+  "textDisabled": {
+    "message": "Uitgeschakeld"
+  },
+
+  "textSystemTheme": {
+    "message": "Systeem Thema"
+  },
+
+  "textTimeRange": {
+    "message": "Tijdsbestek"
+  },
+
+  "textStartTime": {
+    "message": "Starttijd (24)"
+  },
+
+  "textEndTime": {
+    "message": "Eindtijd (24)"
+  },
+
+  "textUiTweaks": {
+    "message": "Aanvullende Aanpassingen"
+  },
+
+  "textHideRedditPremium": {
+    "message": "Verberg 'Reddit Premium'"
+  },
+
+  "textHideCreatePost": {
+    "message": "Verberg 'Bericht maken'"
+  },
+
+  "textHideCoinButton": {
+    "message": "Verberg de knop 'Munt'"
+  },
+
+  "textHideAdvertiseButton": {
+    "message": "Verberg de knop 'Adverteren'"
+  },
+
+  "textHideModerationButton": {
+    "message": "Verberg de knop 'Moderatie'"
+  },
+
+  "textHidePopularButton": {
+    "message": "Verberg de knop 'Populair'"
+  },
+
+  "textHideHappeningNowButton": {
+    "message": "Verberg de knop 'Actueel'"
+  },
+
+  "textHideChatButton": {
+    "message": "Verberg de 'Chat' knop"
+  },
+
+  "textHideSidebar": {
+    "message": "Verberg de zijbalk"
   }
 }

@@ -16,11 +16,11 @@
   },
 
   "textPremium": {
-    "message": "Premium"
+    "message": "Reddit Enhancer Più"
   },
 
   "textGetPremium": {
-    "message": "Ottieni Premium"
+    "message": "Aggiornamento"
   },
 
   "textDarkMode": {
@@ -73,5 +73,69 @@
 
   "textOldReddit": {
     "message": "Vecchio Reddit"
+  },
+
+  "textAuto": {
+    "message": "Auto"
+  },
+
+  "textDisabled": {
+    "message": "Disabilitato"
+  },
+
+  "textSystemTheme": {
+    "message": "Tema di Sistema"
+  },
+
+  "textTimeRange": {
+    "message": "Intervallo di Tempo"
+  },
+
+  "textStartTime": {
+    "message": "Ora di Inizio (24)"
+  },
+
+  "textEndTime": {
+    "message": "Tempo Scaduto (24)"
+  },
+
+  "textUiTweaks": {
+    "message": "Aggiustamenti Aggiuntivi"
+  },
+
+  "textHideRedditPremium": {
+    "message": "Nascondi 'Reddit Premium'"
+  },
+
+  "textHideCreatePost": {
+    "message": "Nascondi 'Crea una pubblicazione'"
+  },
+
+  "textHideCoinButton": {
+    "message": "Nascondi il pulsante 'Moneta'"
+  },
+
+  "textHideAdvertiseButton": {
+    "message": "Nascondi il pulsante 'Pubblicità'"
+  },
+
+  "textHideModerationButton": {
+    "message": "Nascondi il pulsante 'Moderazione'"
+  },
+
+  "textHidePopularButton": {
+    "message": "Nascondi il pulsante 'Popolari'"
+  },
+
+  "textHideHappeningNowButton": {
+    "message": "Nascondi il pulsante 'In primo piano'"
+  },
+
+  "textHideChatButton": {
+    "message": "Nascondi il pulsante 'Chat'"
+  },
+
+  "textHideSidebar": {
+    "message": "Nascondi la barra laterale"
   }
 }

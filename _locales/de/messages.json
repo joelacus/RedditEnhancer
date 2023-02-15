@@ -16,11 +16,11 @@
   },
 
   "textPremium": {
-    "message": "Prämie"
+    "message": "Reddit Enhancer Plus"
   },
 
   "textGetPremium": {
-    "message": "Premium Bekommen"
+    "message": "Aktualisierung"
   },
 
   "textDarkMode": {
@@ -73,5 +73,69 @@
 
   "textOldReddit": {
     "message": "Alter Reddit"
+  },
+
+  "textAuto": {
+    "message": "Auto"
+  },
+
+  "textDisabled": {
+    "message": "Behinderte"
+  },
+
+  "textSystemTheme": {
+    "message": "Systemthema"
+  },
+
+  "textTimeRange": {
+    "message": "Zeitspanne"
+  },
+
+  "textStartTime": {
+    "message": "Startzeit (24)"
+  },
+
+  "textEndTime": {
+    "message": "Endzeit (24)"
+  },
+
+  "textUiTweaks": {
+    "message": "Zusätzliche Anpassungen"
+  },
+
+  "textHideRedditPremium": {
+    "message": "Ausblenden der 'Reddit Premium'"
+  },
+
+  "textHideCreatePost": {
+    "message": "Ausblenden von 'Beitrag erstellen'"
+  },
+
+  "textHideCoinButton": {
+    "message": "Ausblenden der 'Coin' Schaltfläche"
+  },
+
+  "textHideAdvertiseButton": {
+    "message": "Ausblenden der 'Werbung' Schaltfläche"
+  },
+
+  "textHideModerationButton": {
+    "message": "Ausblenden der 'Moderation' Schaltfläche"
+  },
+
+  "textHidePopularButton": {
+    "message": "Ausblenden der 'Beliebt' Schaltfläche"
+  },
+
+  "textHideHappeningNowButton": {
+    "message": "Ausblenden der 'Aktuell' Schaltfläche"
+  },
+
+  "textHideChatButton": {
+    "message": "Ausblenden der 'Chat' Schaltfläche"
+  },
+
+  "textHideSidebar": {
+    "message": "Die Seitenleiste Ausblenden"
   }
 }

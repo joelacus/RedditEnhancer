@@ -1,6 +1,6 @@
 {
   "extensionVersion": {
-    "message": "0.3.0 Beta"
+    "message": "0.4.0 Beta"
   },
 
   "extensionName": {
@@ -20,11 +20,11 @@
   },
 
   "textPremium": {
-    "message": "Premium"
+    "message": "Reddit Enhancer Plus"
   },
 
   "textGetPremium": {
-    "message": "Get Premium"
+    "message": "Upgrade"
   },
 
   "textDarkMode": {
@@ -77,5 +77,69 @@
 
   "textOldReddit": {
     "message": "Old Reddit"
+  },
+
+  "textAuto": {
+    "message": "Auto"
+  },
+
+  "textDisabled": {
+    "message": "Disabled"
+  },
+
+  "textSystemTheme": {
+    "message": "System Theme"
+  },
+
+  "textTimeRange": {
+    "message": "Time Range"
+  },
+
+  "textStartTime": {
+    "message": "Start Time (24)"
+  },
+
+  "textEndTime": {
+    "message": "End Time (24)"
+  },
+
+  "textUiTweaks": {
+    "message": "Extra Tweaks"
+  },
+
+  "textHideRedditPremium": {
+    "message": "Hide 'Reddit Premium'"
+  },
+
+  "textHideCreatePost": {
+    "message": "Hide 'Create Post'"
+  },
+
+  "textHideCoinButton": {
+    "message": "Hide the 'Coin' Button"
+  },
+
+  "textHideAdvertiseButton": {
+    "message": "Hide the 'Advertise' Button"
+  },
+
+  "textHideModerationButton": {
+    "message": "Hide the 'Moderation' Button"
+  },
+
+  "textHidePopularButton": {
+    "message": "Hide the 'Popular' Button"
+  },
+
+  "textHideHappeningNowButton": {
+    "message": "Hide the 'Happening Now' Button"
+  },
+
+  "textHideChatButton": {
+    "message": "Hide the 'Chat' Button"
+  },
+
+  "textHideSidebar": {
+    "message": "Hide the Sidebar"
   }
 }

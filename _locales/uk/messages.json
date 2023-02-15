@@ -16,11 +16,11 @@
   },
 
   "textPremium": {
-    "message": "Преміум"
+    "message": "Reddit Enhancer Плюс"
   },
 
   "textGetPremium": {
-    "message": "Отримайте Преміум"
+    "message": "Оновлення"
   },
 
   "textDarkMode": {
@@ -73,5 +73,69 @@
 
   "textOldReddit": {
     "message": "Старий Reddit"
+  },
+
+  "textAuto": {
+    "message": "Авто"
+  },
+
+  "textDisabled": {
+    "message": "Вимкнено"
+  },
+
+  "textSystemTheme": {
+    "message": "Тема системи"
+  },
+
+  "textTimeRange": {
+    "message": "Часовий діапазон"
+  },
+
+  "textStartTime": {
+    "message": "Час початку (24)"
+  },
+
+  "textEndTime": {
+    "message": "Час закінчення (24)"
+  },
+
+  "textUiTweaks": {
+    "message": "Додаткові коригування"
+  },
+
+  "textHideRedditPremium": {
+    "message": "Сховати 'Reddit Premium'"
+  },
+
+  "textHideCreatePost": {
+    "message": "Сховати 'Створити запис'"
+  },
+
+  "textHideCoinButton": {
+    "message": "Сховати кнопку 'Монета'"
+  },
+
+  "textHideAdvertiseButton": {
+    "message": "Сховати кнопку 'Оголошення'"
+  },
+
+  "textHideModerationButton": {
+    "message": "Сховати кнопку 'Модерація'"
+  },
+
+  "textHidePopularButton": {
+    "message": "Сховати кнопку 'Популярні'"
+  },
+
+  "textHideHappeningNowButton": {
+    "message": "Сховати кнопку 'Зараз відбувається'"
+  },
+
+  "textHideChatButton": {
+   "message": "Сховати кнопку 'Чат'"
+  },
+
+  "textHideSidebar": {
+    "message": "Сховати бічну панель"
   }
 }
