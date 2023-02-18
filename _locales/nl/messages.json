@@ -137,5 +137,49 @@
 
   "textHideSidebar": {
     "message": "Verberg de zijbalk"
+  },
+
+  "textHeader": {
+    "message": "Kop"
+  },
+
+  "textHeaderHeight": {
+    "message": "Hoogte van de kop"
+  },
+
+  "textFeed": {
+    "message": "Feed"
+  },
+
+  "textSidebar": {
+    "message": "Zijbalk"
+  },
+
+  "textTopBarButtons": {
+    "message": "Knoppen bovenbalk"
+  },
+
+  "textHideGap": {
+    "message": "Verberg interface-gaten"
+  },
+
+  "textSmoothResize": {
+    "message": "Soepele aanpassing grootte"
+  },
+
+  "textMain": {
+    "message": "Hoofd"
+  },
+
+  "textStickySort": {
+    "message": "Vastgezette sortering"
+  },
+
+  "textHideUsername": {
+    "message": "Verberg gebruikersnaam"
+  },
+
+  "textHideKarma": {
+    "message": "Verberg karma"
   }
 }

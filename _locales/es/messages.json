@@ -137,5 +137,49 @@
 
   "textHideSidebar": {
     "message": "Ocultar la barra lateral"
+  },
+
+  "textHeader": {
+    "message": "Encabezado"
+  },
+
+  "textHeaderHeight": {
+    "message": "Altura del encabezado"
+  },
+
+  "textFeed": {
+    "message": "Feed"
+  },
+
+  "textSidebar": {
+    "message": "Barra lateral"
+  },
+
+  "textTopBarButtons": {
+    "message": "Botones de la barra superior"
+  },
+
+  "textHideGap": {
+    "message": "Ocultar espacios vacíos de la interfaz"
+  },
+
+  "textSmoothResize": {
+    "message": "Redimensionamiento Suave"
+  },
+
+  "textMain": {
+    "message": "Principal"
+  },
+
+  "textStickySort": {
+    "message": "Ordenamiento Fijo"
+  },
+
+  "textHideUsername": {
+    "message": "Ocultar Nombre de Usuario"
+  },
+
+  "textHideKarma": {
+    "message": "Ocultar Karma"
   }
 }

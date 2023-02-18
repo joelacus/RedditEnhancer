@@ -137,5 +137,49 @@
 
   "textHideSidebar": {
     "message": "Die Seitenleiste Ausblenden"
+  },
+
+  "textHeader": {
+    "message": "Kopfzeile"
+  },
+
+  "textHeaderHeight": {
+    "message": "Kopfzeilenhöhe"
+  },
+
+  "textFeed": {
+    "message": "Feed"
+  },
+
+  "textSidebar": {
+    "message": "Seitenleiste"
+  },
+
+  "textTopBarButtons": {
+    "message": "Schaltflächen in der oberen Leiste"
+  },
+
+  "textHideGap": {
+    "message": "Lücken in der Benutzeroberfläche ausblenden"
+  },
+
+  "textSmoothResize": {
+    "message": "Sanfte Größenanpassung"
+  },
+
+  "textMain": {
+    "message": "Hauptbereich"
+  },
+
+  "textStickySort": {
+    "message": "Fixiertes Sortieren"
+  },
+
+  "textHideUsername": {
+    "message": "Benutzernamen ausblenden"
+  },
+
+  "textHideKarma": {
+    "message": "Karma ausblenden"
   }
 }

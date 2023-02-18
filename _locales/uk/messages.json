@@ -137,5 +137,49 @@
 
   "textHideSidebar": {
     "message": "Сховати бічну панель"
+  },
+
+  "textHeader": {
+    "message": "Заголовок"
+  },
+
+  "textHeaderHeight": {
+    "message": "Висота заголовка"
+  },
+
+  "textFeed": {
+    "message": "Стрічка новин"
+  },
+
+  "textSidebar": {
+    "message": "Бічна панель"
+  },
+
+  "textTopBarButtons": {
+    "message": "Кнопки верхньої панелі"
+  },
+
+  "textHideGap": {
+    "message": "Приховати прогалини в інтерфейсі"
+  },
+
+  "textSmoothResize": {
+    "message": "Плавна зміна розміру"
+  },
+
+  "textMain": {
+    "message": "Головний"
+  },
+
+  "textStickySort": {
+    "message": "Приклеєний порядок"
+  },
+
+  "textHideUsername": {
+    "message": "Сховати ім'я користувача"
+  },
+
+  "textHideKarma": {
+    "message": "Сховати карму"
   }
 }

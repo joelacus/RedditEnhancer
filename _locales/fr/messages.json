@@ -137,5 +137,49 @@
 
   "textHideSidebar": {
     "message": "Masquer la barre latérale"
+  },
+
+  "textHeader": {
+    "message": "En-tête"
+  },
+
+  "textHeaderHeight": {
+    "message": "Hauteur de l'en-tête"
+  },
+
+  "textFeed": {
+    "message": "Fil d'actualité"
+  },
+
+  "textSidebar": {
+    "message": "Barre latérale"
+  },
+
+  "textTopBarButtons": {
+    "message": "Boutons de la barre supérieure"
+  },
+
+  "textHideGap": {
+    "message": "Masquer les écarts d'interface"
+  },
+
+  "textSmoothResize": {
+    "message": "Redimensionnement fluide"
+  },
+
+  "textMain": {
+    "message": "Principal"
+  },
+
+  "textStickySort": {
+    "message": "Tri épinglé"
+  },
+
+  "textHideUsername": {
+    "message": "Masquer le nom d'utilisateur"
+  },
+
+  "textHideKarma": {
+    "message": "Masquer le karma"
   }
 }
