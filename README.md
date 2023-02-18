@@ -12,7 +12,7 @@ If you notice any translation issues or would like to contribute new languages, 
 |Firefox|Chrome|Edge|
 |---|---|---|
 |<p align="center"><a href="https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/" ><img src="/icons/firefox_64x64.png"></a></p>|<p align="center"><a href=""><img src="/icons/chrome_64x64.png"></a></p>|<p align="center"><a href=""><img src="/icons/edge_64x64.png"></a></p>|
-|[Download](https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/)|Pending Review|[Download](https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk)|
+|[Download](https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/)|[Download](https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa)|[Download](https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk)|
 
 ## Features
 |Feature|Description|Reddit Version Support|
@@ -27,7 +27,12 @@ If you notice any translation issues or would like to contribute new languages, 
 |Auto Dark Mode|You can either set it to enable light/dark mode automatically based on your system theme, or during a certain period of time in the day between user specified times.|New|
 |Browser Sync|Syncs with your browser account so you can automatically use the same settings on multiple computers.|New/Old|
 |Auto hide cookie prompt|Automatically hides the cookie popup if you haven't already accepted/dismissed it.|New|
-|Hide Various Elements|This allows you to hide certain elements on the webpage you don't use to clean up the interface.|New|
+|Hide The Interface Gaps|This will remove all the gaps between the interface elements if you don't like that style.|New|
+|Hide Create Post|You can hide the 'Create Post' bar at the top of your feed if you don't use or want to see it.|New|
+|Sticky Sort|This keeps the feed sort options "Best, Hot, New, etc" at the top even when you scroll down the page.|New|
+|Hide The Sidebar|You can hide the sidebar if you want, as well as just hiding the reddit premium section.|New|
+|Hide Username and Karma|You can hide your username and/or karma in the top bar.|New|
+|Hide Buttons In The Top Bar|This allows you to individually hide the buttons in the top bar you don't use to clean up the interface.|New|
 
 |Premium Feature|Description|Reddit Version Support|
 |---|---|:---:|
