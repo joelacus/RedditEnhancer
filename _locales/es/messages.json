@@ -163,10 +163,6 @@
     "message": "Ocultar espacios vacíos de la interfaz"
   },
 
-  "textSmoothResize": {
-    "message": "Redimensionamiento Suave"
-  },
-
   "textMain": {
     "message": "Principal"
   },
@@ -181,5 +177,13 @@
 
   "textHideKarma": {
     "message": "Ocultar Karma"
+  },
+
+  "textReloadPage": {
+    "message": "Recargar página"
+  },
+
+  "textShowRising": {
+    "message": "Mostrar siempre el botón 'En Alza' de clasificación"
   }
 }

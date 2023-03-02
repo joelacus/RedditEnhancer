@@ -163,10 +163,6 @@
     "message": "Verberg interface-gaten"
   },
 
-  "textSmoothResize": {
-    "message": "Soepele aanpassing grootte"
-  },
-
   "textMain": {
     "message": "Hoofd"
   },
@@ -181,5 +177,13 @@
 
   "textHideKarma": {
     "message": "Verberg karma"
+  },
+
+  "textReloadPage": {
+    "message": "Pagina herladen"
+  },
+
+  "textShowRising": {
+    "message": "Toon altijd de knop 'Rising' sorteren"
   }
 }

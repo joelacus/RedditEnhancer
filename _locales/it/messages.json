@@ -163,10 +163,6 @@
     "message": "Nascondi gli spazi vuoti dell'interfaccia"
   },
 
-  "textSmoothResize": {
-    "message": "Ridimensionamento fluido"
-  },
-
   "textMain": {
     "message": "Principale"
   },
@@ -181,5 +177,13 @@
 
   "textHideKarma": {
     "message": "Nascondi karma"
+  },
+
+  "textReloadPage": {
+    "message": "Ricarica pagina"
+  },
+
+  "textShowRising": {
+    "message": "Mostra sempre il pulsante di ordinamento 'In crescita'"
   }
 }

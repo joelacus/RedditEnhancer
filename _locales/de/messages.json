@@ -163,10 +163,6 @@
     "message": "Lücken in der Benutzeroberfläche ausblenden"
   },
 
-  "textSmoothResize": {
-    "message": "Sanfte Größenanpassung"
-  },
-
   "textMain": {
     "message": "Hauptbereich"
   },
@@ -181,5 +177,13 @@
 
   "textHideKarma": {
     "message": "Karma ausblenden"
+  },
+
+  "textReloadPage": {
+    "message": "Seite neu laden"
+  },
+
+  "textShowRising": {
+    "message": "Zeige den Button 'Aufsteigend' immer"
   }
 }
