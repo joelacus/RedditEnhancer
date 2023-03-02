@@ -11,7 +11,7 @@ If you notice any translation issues or would like to contribute new languages, 
 ## Download
 |Firefox|Chrome|Edge|
 |---|---|---|
-|<p align="center"><a href="https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/" ><img src="/icons/firefox_64x64.png"></a></p>|<p align="center"><a href=""><img src="/icons/chrome_64x64.png"></a></p>|<p align="center"><a href=""><img src="/icons/edge_64x64.png"></a></p>|
+|<p align="center"><a href="https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/" ><img src="/icons/firefox_64x64.png"></a></p>|<p align="center"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/chrome_64x64.png"></a></p>|<p align="center"><a href="https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk"><img src="/icons/edge_64x64.png"></a></p>|
 |[Download](https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/)|[Download](https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa)|[Download](https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk)|
 
 ## Features
@@ -31,8 +31,9 @@ If you notice any translation issues or would like to contribute new languages, 
 |Hide Create Post|You can hide the 'Create Post' bar at the top of your feed if you don't use or want to see it.|New|
 |Sticky Sort|This keeps the feed sort options "Best, Hot, New, etc" at the top even when you scroll down the page.|New|
 |Hide The Sidebar|You can hide the sidebar if you want, as well as just hiding the reddit premium section.|New|
-|Hide Username and Karma|You can hide your username and/or karma in the top bar.|New|
+|Hide Username and/or Karma|You can hide your username and/or karma in the top bar.|New/Old|
 |Hide Buttons In The Top Bar|This allows you to individually hide the buttons in the top bar you don't use to clean up the interface.|New|
+|Always Show Rising Sort Button|The sort by rising button is no longer hidden in a pointless submenu. Can be disabled.|New|
 
 |Premium Feature|Description|Reddit Version Support|
 |---|---|:---:|
