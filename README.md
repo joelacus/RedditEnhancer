@@ -9,10 +9,10 @@ Feel free to suggest new features and report any bugs on the Issues page.
 If you notice any translation issues or would like to contribute new languages, please feel free to help.
 
 ## Download
-|Firefox|Chrome|Edge|
-|---|---|---|
-|<p align="center"><a href="https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/" ><img src="/icons/firefox_64x64.png"></a></p>|<p align="center"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/chrome_64x64.png"></a></p>|<p align="center"><a href="https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk"><img src="/icons/edge_64x64.png"></a></p>|
-|[Download](https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/)|[Download](https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa)|[Download](https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk)|
+|Firefox|Chrome|Edge|Opera|
+|---|---|---|---|
+|<p align="center"><a href="https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/" ><img src="/icons/firefox_64x64.png"></a></p>|<p align="center"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/chrome_64x64.png"></a></p>|<p align="center"><a href="https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk"><img src="/icons/edge_64x64.png"></a></p>|<p align="center"><a href="" ><img src="/icons/opera_64x64.png"></a></p>|
+|[Download](https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/)|[Download](https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa)|[Download](https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk)|Pending Review|
 
 ## Features
 |Feature|Description|Reddit Version Support|
@@ -24,16 +24,21 @@ If you notice any translation issues or would like to contribute new languages, 
 |Add Scrollbar To Tall Images|This, alternatively from above, adds a scrollbar to tall images so you can see the full width of the image, but scroll on the image to see more.|New|
 |Drop Shadows|This adds a drop shadow around the feed, post and other elements so that they stand out more if you use a background image, or light mode.|New|
 |Dark Mode|Auto enable dark mode if not already set on Reddit.|New|
-|Auto Dark Mode|You can either set it to enable light/dark mode automatically based on your system theme, or during a certain period of time in the day between user specified times.|New|
+|Auto Dark Mode|You can either set it to enable light/dark mode automatically based on your browser theme, or during a certain period of time in the day between user specified times.|New|
 |Browser Sync|Syncs with your browser account so you can automatically use the same settings on multiple computers.|New/Old|
 |Auto hide cookie prompt|Automatically hides the cookie popup if you haven't already accepted/dismissed it.|New|
 |Hide The Interface Gaps|This will remove all the gaps between the interface elements if you don't like that style.|New|
 |Hide Create Post|You can hide the 'Create Post' bar at the top of your feed if you don't use or want to see it.|New|
 |Sticky Sort|This keeps the feed sort options "Best, Hot, New, etc" at the top even when you scroll down the page.|New|
-|Hide The Sidebar|You can hide the sidebar if you want, as well as just hiding the reddit premium section.|New|
+|Hide The Home Sidebar|Hides the sidebar on the reddit home page.|New|
+|Hide The Sub Reddit Sidebar|Hides the sidebar on sub reddit pages.|New|
+|Hide Reddit Premium|Hides the reddit premium section in the sidebar.|New/Old|
+|Hide Policy Section|Hides the content/privacy policy section in the sidebar.|New|
+|Hide Get New Reddit|Hides the "Get New Reddit" button on old reddit.|Old|
 |Hide Username and/or Karma|You can hide your username and/or karma in the top bar.|New/Old|
-|Hide Buttons In The Top Bar|This allows you to individually hide the buttons in the top bar you don't use to clean up the interface.|New|
+|Hide Buttons In The Header|This allows you to individually hide the buttons in the header you don't use to clean up the interface.|New|
 |Always Show Rising Sort Button|The sort by rising button is no longer hidden in a pointless submenu. Can be disabled.|New|
+|Open Links To Sub Reddit In New Tab|This makes sub reddit links open in a new tab, instead of the current one.|New|
 
 |Premium Feature|Description|Reddit Version Support|
 |---|---|:---:|
