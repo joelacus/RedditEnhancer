@@ -83,8 +83,8 @@
     "message": "Desabilitada"
   },
 
-  "textSystemTheme": {
-    "message": "Tema do sistema"
+  "textBrowserTheme": {
+    "message": "Tema do navegador"
   },
 
   "textTimeRange": {
@@ -99,8 +99,8 @@
     "message": "Fim do tempo (24)"
   },
 
-  "textUiTweaks": {
-    "message": "Ajustes Adicionais"
+  "textStyleTweaks": {
+    "message": "Estilo"
   },
 
   "textHideRedditPremium": {
@@ -135,8 +135,16 @@
     "message": "Ocultar o botão 'Chat'"
   },
 
-  "textHideSidebar": {
-    "message": "Ocultar a barra lateral"
+  "textHideHomeSidebar": {
+    "message": "Ocultar a barra lateral da página inicial"
+  },
+
+  "textHideSubSidebar": {
+    "message": "Ocultar a barra lateral do Sub Reddit"
+  },
+
+  "textFeed": {
+    "message": "Feed"
   },
 
   "textHeader": {
@@ -147,16 +155,12 @@
     "message": "Altura do cabeçalho"
   },
 
-  "textFeed": {
-    "message": "Feed"
-  },
-
   "textSidebar": {
     "message": "Barra lateral"
   },
 
-  "textTopBarButtons": {
-    "message": "Botões da barra superior"
+  "textHeaderButtons": {
+    "message": "Botões do cabeçalho"
   },
 
   "textHideGap": {
@@ -185,5 +189,33 @@
 
   "textShowRising": {
     "message": "Sempre mostrar o botão de classificação 'Em ascensão'"
+  },
+
+  "textToTop": {
+    "message": "Show 'Scroll To Top' Button"
+  },
+
+  "textHideGetNewReddit": {
+    "message": "Ocultar 'Get New Reddit'"
+  },
+
+  "textHideSidebarPolicy": {
+    "message": "Ocultar seção de políticas"
+  },
+
+  "textHideElements": {
+    "message": "Ocultar Elementos"
+  },
+
+  "textProductivity": {
+    "message": "Produtividade"
+  },
+
+  "textOpenSubInNewTab": {
+    "message": "Abrir links para Sub Reddit em uma nova guia"
+  },
+
+  "textSearch": {
+    "message": "Pesquisar"
   }
 }

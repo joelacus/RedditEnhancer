@@ -83,8 +83,8 @@
     "message": "Uitgeschakeld"
   },
 
-  "textSystemTheme": {
-    "message": "Systeem Thema"
+  "textBrowserTheme": {
+    "message": "Browser Thema"
   },
 
   "textTimeRange": {
@@ -99,8 +99,8 @@
     "message": "Eindtijd (24)"
   },
 
-  "textUiTweaks": {
-    "message": "Aanvullende Aanpassingen"
+  "textStyleTweaks": {
+    "message": "Stijl"
   },
 
   "textHideRedditPremium": {
@@ -135,8 +135,16 @@
     "message": "Verberg de 'Chat' knop"
   },
 
-  "textHideSidebar": {
-    "message": "Verberg de zijbalk"
+  "textHideHomeSidebar": {
+    "message": "Verberg de zijbalk van de startpagina"
+  },
+
+  "textHideSubSidebar": {
+    "message": "Verberg de zijbalk van Sub Reddit"
+  },
+
+  "textSidebar": {
+    "message": "Zijbalk"
   },
 
   "textHeader": {
@@ -151,12 +159,8 @@
     "message": "Feed"
   },
 
-  "textSidebar": {
-    "message": "Zijbalk"
-  },
-
-  "textTopBarButtons": {
-    "message": "Knoppen bovenbalk"
+  "textHeaderButtons": {
+    "message": "Koptekst Knoppen"
   },
 
   "textHideGap": {
@@ -185,5 +189,33 @@
 
   "textShowRising": {
     "message": "Toon altijd de knop 'Rising' sorteren"
+  },
+
+  "textToTop": {
+    "message": "Show 'Scroll To Top' Button"
+  },
+
+  "textHideGetNewReddit": {
+    "message": "Verberg 'Get New Reddit'"
+  },
+
+  "textHideSidebarPolicy": {
+    "message": "Sectie Beleid verbergen"
+  },
+
+  "textHideElements": {
+    "message": "Elementen Verbergen"
+  },
+
+  "textProductivity": {
+    "message": "productiviteit"
+  },
+
+  "textOpenSubInNewTab": {
+    "message": "Links naar Sub Reddit in een nieuw tabblad openen"
+  },
+
+  "textSearch": {
+    "message": "Zoeken"
   }
 }

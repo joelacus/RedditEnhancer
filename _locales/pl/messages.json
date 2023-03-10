@@ -83,8 +83,8 @@
     "message": "Wyłączony"
   },
 
-  "textSystemTheme": {
-    "message": "Motyw Systemowy"
+  "textBrowserTheme": {
+    "message": "Motyw przeglądarki"
   },
 
   "textTimeRange": {
@@ -99,8 +99,8 @@
     "message": "Koniec Czasu (24hr)"
   },
 
-  "textUiTweaks": {
-    "message": "Dodatkowe Korekty"
+  "textStyleTweaks": {
+    "message": "Styl"
   },
 
   "textHideRedditPremium": {
@@ -135,8 +135,16 @@
     "message": "Ukryj przycisk 'Czat'"
   },
 
-  "textHideSidebar": {
-    "message": "Ukryj boczną belkę"
+  "textHideHomeSidebar": {
+    "message": "Ukryj pasek boczny strony głównej"
+  },
+
+  "textHideSubSidebar": {
+    "message": "Ukryj pasek boczny Sub Reddit"
+  },
+
+  "textSidebar": {
+    "message": "Pasek boczny"
   },
 
   "textHeader": {
@@ -151,12 +159,8 @@
     "message": "Strumień"
   },
 
-  "textSidebar": {
-    "message": "Pasek boczny"
-  },
-
-  "textTopBarButtons": {
-    "message": "Przyciski paska górnego"
+  "textHeaderButtons": {
+    "message": "Przyciski nagłówka"
   },
 
   "textHideGap": {
@@ -185,5 +189,33 @@
 
   "textShowRising": {
     "message": "Zawsze pokaż przycisk sortowania 'Rising'"
+  },
+
+  "textToTop": {
+    "message": "Show 'Scroll To Top' Button"
+  },
+
+  "textHideGetNewReddit": {
+    "message": "Ukryj 'Get New Reddit'"
+  },
+
+  "textHideSidebarPolicy": {
+    "message": "Ukryj sekcję zasad"
+  },
+
+  "textHideElements": {
+    "message": "Ukryj Elementy"
+  },
+
+  "textProductivity": {
+    "message": "Wydajność"
+  },
+
+  "textOpenSubInNewTab": {
+    "message": "Otwórz linki do Sub Reddit w nowej karcie"
+  },
+
+  "textSearch": {
+    "message": "Szukaj"
   }
 }

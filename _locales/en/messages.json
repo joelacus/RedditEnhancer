@@ -1,6 +1,6 @@
 {
   "extensionVersion": {
-    "message": "0.6.3 Beta"
+    "message": "0.7.1 Beta"
   },
 
   "extensionName": {
@@ -87,8 +87,8 @@
     "message": "Disabled"
   },
 
-  "textSystemTheme": {
-    "message": "System Theme"
+  "textBrowserTheme": {
+    "message": "Browser Theme"
   },
 
   "textTimeRange": {
@@ -103,8 +103,8 @@
     "message": "End Time (24)"
   },
 
-  "textUiTweaks": {
-    "message": "Extra Tweaks"
+  "textStyleTweaks": {
+    "message": "Style"
   },
 
   "textHideRedditPremium": {
@@ -139,8 +139,16 @@
     "message": "Hide the 'Chat' Button"
   },
 
-  "textHideSidebar": {
-    "message": "Hide the Sidebar"
+  "textHideHomeSidebar": {
+    "message": "Hide the Home Page Sidebar"
+  },
+
+  "textHideSubSidebar": {
+    "message": "Hide the Sub Reddit Sidebar"
+  },
+
+  "textSidebar": {
+    "message": "Sidebar"
   },
 
   "textHeader": {
@@ -155,12 +163,8 @@
     "message": "Feed"
   },
 
-  "textSidebar": {
-    "message": "Sidebar"
-  },
-
-  "textTopBarButtons": {
-    "message": "Top Bar Buttons"
+  "textHeaderButtons": {
+    "message": "Header Buttons"
   },
 
   "textHideGap": {
@@ -193,5 +197,29 @@
 
   "textToTop": {
     "message": "Show 'Scroll To Top' Button"
+  },
+
+  "textHideGetNewReddit": {
+    "message": "Hide 'Get New Reddit'"
+  },
+
+  "textHideSidebarPolicy": {
+    "message": "Hide Policies Section"
+  },
+
+  "textHideElements": {
+    "message": "Hide Elements"
+  },
+
+  "textProductivity": {
+    "message": "Productivity"
+  },
+
+  "textOpenSubInNewTab": {
+    "message": "Open Links To Sub Reddit In New Tab"
+  },
+
+  "textSearch": {
+    "message": "Search"
   }
 }

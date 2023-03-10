@@ -83,8 +83,8 @@
     "message": "Behinderte"
   },
 
-  "textSystemTheme": {
-    "message": "Systemthema"
+  "textBrowserTheme": {
+    "message": "Browser-Thema"
   },
 
   "textTimeRange": {
@@ -99,8 +99,8 @@
     "message": "Endzeit (24)"
   },
 
-  "textUiTweaks": {
-    "message": "Zusätzliche Anpassungen"
+  "textStyleTweaks": {
+    "message": "Stil"
   },
 
   "textHideRedditPremium": {
@@ -135,8 +135,16 @@
     "message": "Ausblenden der 'Chat' Schaltfläche"
   },
 
-  "textHideSidebar": {
-    "message": "Die Seitenleiste Ausblenden"
+  "textHideHomeSidebar": {
+    "message": "Startseiten-Seitenleiste ausblenden"
+  },
+
+  "textHideSubSidebar": {
+    "message": "Subreddit-Seitenleiste ausblenden"
+  },
+
+  "textSidebar": {
+    "message": "Seitenleiste"
   },
 
   "textHeader": {
@@ -151,12 +159,8 @@
     "message": "Feed"
   },
 
-  "textSidebar": {
-    "message": "Seitenleiste"
-  },
-
-  "textTopBarButtons": {
-    "message": "Schaltflächen in der oberen Leiste"
+  "textHeaderButtons": {
+    "message": "Kopfzeilen-Schaltflächen"
   },
 
   "textHideGap": {
@@ -185,5 +189,33 @@
 
   "textShowRising": {
     "message": "Zeige den Button 'Aufsteigend' immer"
+  },
+
+  "textToTop": {
+    "message": "Show 'Scroll To Top' Button"
+  },
+
+  "textHideGetNewReddit": {
+    "message": "Verstecke 'Get New Reddit'"
+  },
+
+  "textHideSidebarPolicy": {
+    "message": "Richtlinienabschnitt Ausblenden"
+  },
+
+  "textHideElements": {
+    "message": "Elemente Ausblenden"
+  },
+
+  "textProductivity": {
+    "message": "Produktivität"
+  },
+
+  "textOpenSubInNewTab": {
+    "message": "Links zu Subreddits in neuem Tab öffnen"
+  },
+
+  "textSearch": {
+    "message": "Suche"
   }
 }

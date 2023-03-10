@@ -83,8 +83,8 @@
     "message": "Вимкнено"
   },
 
-  "textSystemTheme": {
-    "message": "Тема системи"
+  "textBrowserTheme": {
+    "message": "Тема браузера"
   },
 
   "textTimeRange": {
@@ -99,8 +99,8 @@
     "message": "Час закінчення (24)"
   },
 
-  "textUiTweaks": {
-    "message": "Додаткові коригування"
+  "textStyleTweaks": {
+    "message": "Стиль"
   },
 
   "textHideRedditPremium": {
@@ -135,8 +135,16 @@
    "message": "Сховати кнопку 'Чат'"
   },
 
-  "textHideSidebar": {
-    "message": "Сховати бічну панель"
+  "textHideHomeSidebar": {
+    "message": "Приховати бічну панель домашньої сторінки"
+  },
+
+  "textHideSubSidebar": {
+    "message": "Приховати бічну панель Sub Reddit"
+  },
+
+  "textSidebar": {
+    "message": "Бічна панель"
   },
 
   "textHeader": {
@@ -151,12 +159,8 @@
     "message": "Стрічка новин"
   },
 
-  "textSidebar": {
-    "message": "Бічна панель"
-  },
-
-  "textTopBarButtons": {
-    "message": "Кнопки верхньої панелі"
+  "textHeaderButtons": {
+    "message": "Кнопки заголовка"
   },
 
   "textHideGap": {
@@ -185,5 +189,33 @@
 
   "textShowRising": {
     "message": "Завжди показувати кнопку сортування 'Rising'"
+  },
+
+  "textToTop": {
+    "message": "Show 'Scroll To Top' Button"
+  },
+
+  "textHideGetNewReddit": {
+    "message": "Приховати 'Get New Reddit'"
+  },
+
+  "textHideSidebarPolicy": {
+    "message": "Приховати розділ правил"
+  },
+
+  "textHideElements": {
+    "message": "Приховати елементи"
+  },
+
+  "textProductivity": {
+    "message": "Продуктивність"
+  },
+
+  "textOpenSubInNewTab": {
+    "message": "Відкривати посилання на підфорум у новій вкладці"
+  },
+
+  "textSearch": {
+    "message": "Пошук"
   }
 }

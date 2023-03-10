@@ -83,8 +83,8 @@
     "message": "Désactivé"
   },
 
-  "textSystemTheme": {
-    "message": "Thème Système"
+  "textBrowserTheme": {
+    "message": "Thème du navigateur"
   },
 
   "textTimeRange": {
@@ -99,8 +99,8 @@
     "message": "Heure de Fin (24)"
   },
 
-  "textUiTweaks": {
-    "message": "Ajustements Supplémentaires"
+  "textStyleTweaks": {
+    "message": "Style"
   },
 
   "textHideRedditPremium": {
@@ -135,8 +135,16 @@
     "message": "Masquer le bouton 'Chat'"
   },
 
-  "textHideSidebar": {
-    "message": "Masquer la barre latérale"
+  "textHideHomeSidebar": {
+    "message": "Masquer la barre latérale de la page d'accueil"
+  },
+
+  "textHideSubSidebar": {
+    "message": "Masquer la barre latérale de Sub Reddit"
+  },
+
+  "textSidebar": {
+    "message": "Barre Latérale"
   },
 
   "textHeader": {
@@ -151,12 +159,8 @@
     "message": "Fil d'actualité"
   },
 
-  "textSidebar": {
-    "message": "Barre latérale"
-  },
-
-  "textTopBarButtons": {
-    "message": "Boutons de la barre supérieure"
+  "textHeaderButtons": {
+    "message": "Boutons d'en-tête"
   },
 
   "textHideGap": {
@@ -185,5 +189,33 @@
 
   "textShowRising": {
     "message": "Toujours afficher le bouton de tri 'En hausse'"
+  },
+
+  "textToTop": {
+    "message": "Show 'Scroll To Top' Button"
+  },
+
+  "textHideGetNewReddit": {
+    "message": "Masquer 'Get New Reddit'"
+  },
+
+  "textHideSidebarPolicy": {
+    "message": "Masquer la section Politiques"
+  },
+
+  "textHideElements": {
+    "message": "Masquer les éléments"
+  },
+
+  "textProductivity": {
+    "message": "Productivité"
+  },
+
+  "textOpenSubInNewTab": {
+    "message": "Ouvrir les liens vers les sous-reddits dans un nouvel onglet"
+  },
+
+  "textSearch": {
+    "message": "Rechercher"
   }
 }
