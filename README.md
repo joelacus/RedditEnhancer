@@ -33,12 +33,13 @@ If you notice any translation issues or would like to contribute new languages, 
 |Hide The Home Sidebar|Hides the sidebar on the reddit home page.|New|
 |Hide The Sub Reddit Sidebar|Hides the sidebar on sub reddit pages.|New|
 |Hide Reddit Premium|Hides the reddit premium section in the sidebar.|New/Old|
-|Hide Policy Section|Hides the content/privacy policy section in the sidebar.|New|
+|Hide Policies Section|Hides the content/privacy policy section in the sidebar.|New|
 |Hide Get New Reddit|Hides the "Get New Reddit" button on old reddit.|Old|
 |Hide Username and/or Karma|You can hide your username and/or karma in the top bar.|New/Old|
 |Hide Buttons In The Header|This allows you to individually hide the buttons in the header you don't use to clean up the interface.|New|
 |Always Show Rising Sort Button|The sort by rising button is no longer hidden in a pointless submenu. Can be disabled.|New|
 |Open Links To Sub Reddit In New Tab|This makes sub reddit links open in a new tab, instead of the current one.|New|
+|Hide Promoted Links|Hides the promoted links/posts in the main feed.|New|
 
 |Premium Feature|Description|Reddit Version Support|
 |---|---|:---:|
