@@ -40,6 +40,11 @@ If you notice any translation issues or would like to contribute new languages, 
 |Always Show Rising Sort Button|The sort by rising button is no longer hidden in a pointless submenu. Can be disabled.|New|
 |Open Links To Sub Reddit In New Tab|This makes sub reddit links open in a new tab, instead of the current one.|New|
 |Hide Promoted Links|Hides the promoted links/posts in the main feed.|New|
+|Add 'Scroll To Top' Button|Adds a new button to the header to scroll the page to the top.|New|
+|Add 'r/All' Button|Adds a new button to the header for 'r/All'.|New|
+|Move The Feeds Section In The Side Menu To The Top|Move the feeds section in the side menu to the top.|New|
+|Alternative Video Player|Replaces the default reddit video player with videojs. This is more reliable and loads video faster. It also has an option to change the playback speed.|New|
+
 
 |Premium Feature|Description|Reddit Version Support|
 |---|---|:---:|
