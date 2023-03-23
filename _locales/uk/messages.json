@@ -31,7 +31,7 @@
     "message": "Розгорнути канал / публікацію"
   },
 
-  "textCenter": {
+  "textCentre": {
     "message": "центр"
   },
 
@@ -104,35 +104,35 @@
   },
 
   "textHideRedditPremium": {
-    "message": "Сховати 'Reddit Premium'"
+    "message": "Сховати «Reddit Premium»"
   },
 
   "textHideCreatePost": {
-    "message": "Сховати 'Створити запис'"
+    "message": "Сховати «Створити запис»"
   },
 
   "textHideCoinButton": {
-    "message": "Сховати кнопку 'Монета'"
+    "message": "Сховати кнопку «Монета»"
   },
 
   "textHideAdvertiseButton": {
-    "message": "Сховати кнопку 'Оголошення'"
+    "message": "Сховати кнопку «Оголошення»"
   },
 
   "textHideModerationButton": {
-    "message": "Сховати кнопку 'Модерація'"
+    "message": "Сховати кнопку «Модерація»"
   },
 
   "textHidePopularButton": {
-    "message": "Сховати кнопку 'Популярні'"
+    "message": "Сховати кнопку «Популярні»"
   },
 
   "textHideHappeningNowButton": {
-    "message": "Сховати кнопку 'Зараз відбувається'"
+    "message": "Сховати кнопку «Зараз відбувається»"
   },
 
   "textHideChatButton": {
-   "message": "Сховати кнопку 'Чат'"
+   "message": "Сховати кнопку «Чат»"
   },
 
   "textHideHomeSidebar": {
@@ -188,15 +188,15 @@
   },
 
   "textShowRising": {
-    "message": "Завжди показувати кнопку сортування 'Rising'"
+    "message": "Завжди показувати кнопку сортування «Rising»"
   },
 
   "textToTop": {
-    "message": "Show 'Scroll To Top' Button"
+    "message": "Додайте кнопку «Прокрутити вгору»."
   },
 
   "textHideGetNewReddit": {
-    "message": "Приховати 'Get New Reddit'"
+    "message": "Приховати «Get New Reddit»"
   },
 
   "textHideSidebarPolicy": {
@@ -217,5 +217,45 @@
 
   "textSearch": {
     "message": "Пошук"
+  },
+
+  "textHidePromoted": {
+    "message": "Приховати рекламні посилання"
+  },
+
+  "textEmojiPicker": {
+    "message": "Вибір емодзі"
+  },
+
+  "textShowAllButton": {
+    "message": "Додати кнопку «r/All»"
+  },
+
+  "textVideoPlayerReplacement": {
+    "message": "Альтернативний відеоплеєр"
+  },
+
+  "textImages": {
+    "message": "Зображення"
+  },
+
+  "textSortBar": {
+    "message": "Панель сортування"
+  },
+
+  "textOther": {
+    "message": "додатковий"
+  },
+
+  "textHideCreatePostButton": {
+    "message": "Сховати кнопку «Створити публікацію»"
+  },
+
+  "textHideNotificationButton": {
+    "message": "Сховати кнопку «Сповіщення»"
+  },
+
+  "textMoveFeedToTopInSidemenu": {
+    "message": "Перемістіть розділ каналу в бічному меню вгору"
   }
 }

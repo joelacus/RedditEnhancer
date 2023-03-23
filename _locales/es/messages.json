@@ -31,7 +31,7 @@
     "message": "Expandir Feed / Publicación"
   },
 
-  "textCenter": {
+  "textCentre": {
     "message": "Centro"
   },
 
@@ -104,35 +104,35 @@
   },
 
   "textHideRedditPremium": {
-    "message": "Ocultar 'Reddit Premium'"
+    "message": "Ocultar “Reddit Premium”"
   },
 
   "textHideCreatePost": {
-    "message": "Ocultar 'Crear publicación'"
+    "message": "Ocultar “Crear publicación”"
   },
 
   "textHideCoinButton": {
-    "message": "Ocultar el botón 'Moneda'"
+    "message": "Ocultar el botón “Moneda”"
   },
 
   "textHideAdvertiseButton": {
-    "message": "Ocultar el botón 'Anunciar'"
+    "message": "Ocultar el botón “Anunciar”"
   },
 
   "textHideModerationButton": {
-    "message": "Ocultar el botón 'Moderación'"
+    "message": "Ocultar el botón “Moderación”"
   },
 
   "textHidePopularButton": {
-    "message": "Ocultar el botón 'Popular'"
+    "message": "Ocultar el botón “Popular”"
   },
 
   "textHideHappeningNowButton": {
-    "message": "Ocultar el botón 'Lo que está pasando'"
+    "message": "Ocultar el botón “Lo que está pasando”"
   },
 
   "textHideChatButton": {
-    "message": "Ocultar el botón 'Chat'"
+    "message": "Ocultar el botón “Chat”"
   },
 
   "textHideHomeSidebar": {
@@ -188,15 +188,15 @@
   },
 
   "textShowRising": {
-    "message": "Mostrar siempre el botón 'En Alza' de clasificación"
+    "message": "Mostrar siempre el botón “En Alza” de clasificación"
   },
 
   "textToTop": {
-    "message": "Show 'Scroll To Top' Button"
+    "message": "Agregar el botón “Desplazarse hacia arriba”"
   },
 
   "textHideGetNewReddit": {
-    "message": "Ocultar 'Get New Reddit'"
+    "message": "Ocultar “Get New Reddit”"
   },
 
   "textHideSidebarPolicy": {
@@ -217,5 +217,45 @@
 
   "textSearch": {
     "message": "Buscar"
+  },
+
+  "textHidePromoted": {
+    "message": "Ocultar Enlaces Promocionados"
+  },
+
+  "textEmojiPicker": {
+    "message": "Selector de emojis"
+  },
+
+  "textShowAllButton": {
+    "message": "Agregar botón “r/All”"
+  },
+
+  "textVideoPlayerReplacement": {
+    "message": "Reproductor de video alternativo"
+  },
+
+  "textImages": {
+    "message": "Imágenes"
+  },
+
+  "textSortBar": {
+    "message": "Ordenar barra"
+  },
+
+  "textOther": {
+    "message": "Otro"
+  },
+
+  "textHideCreatePostButton": {
+    "message": "Ocultar el botón “Crear publicación”"
+  },
+
+  "textHideNotificationButton": {
+    "message": "Ocultar botón de “Notificación”"
+  },
+
+  "textMoveFeedToTopInSidemenu": {
+    "message": "Mover la sección de alimentación en el menú lateral a la parte superior"
   }
 }

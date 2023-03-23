@@ -31,7 +31,7 @@
     "message": "Espandi Feed / Pubblica"
   },
 
-  "textCenter": {
+  "textCentre": {
     "message": "Centro"
   },
 
@@ -104,35 +104,35 @@
   },
 
   "textHideRedditPremium": {
-    "message": "Nascondi 'Reddit Premium'"
+    "message": "Nascondi “Reddit Premium”"
   },
 
   "textHideCreatePost": {
-    "message": "Nascondi 'Crea una pubblicazione'"
+    "message": "Nascondi “Crea una pubblicazione”"
   },
 
   "textHideCoinButton": {
-    "message": "Nascondi il pulsante 'Moneta'"
+    "message": "Nascondi il pulsante “Moneta”"
   },
 
   "textHideAdvertiseButton": {
-    "message": "Nascondi il pulsante 'Pubblicità'"
+    "message": "Nascondi il pulsante “Pubblicità”"
   },
 
   "textHideModerationButton": {
-    "message": "Nascondi il pulsante 'Moderazione'"
+    "message": "Nascondi il pulsante “Moderazione”"
   },
 
   "textHidePopularButton": {
-    "message": "Nascondi il pulsante 'Popolari'"
+    "message": "Nascondi il pulsante “Popolari”"
   },
 
   "textHideHappeningNowButton": {
-    "message": "Nascondi il pulsante 'In primo piano'"
+    "message": "Nascondi il pulsante “In primo piano”"
   },
 
   "textHideChatButton": {
-    "message": "Nascondi il pulsante 'Chat'"
+    "message": "Nascondi il pulsante “Chat”"
   },
 
   "textHideHomeSidebar": {
@@ -188,15 +188,15 @@
   },
 
   "textShowRising": {
-    "message": "Mostra sempre il pulsante di ordinamento 'In crescita'"
+    "message": "Mostra sempre il pulsante di ordinamento “In crescita”"
   },
 
   "textToTop": {
-    "message": "Show 'Scroll To Top' Button"
+    "message": "Aggiungi il pulsante “Scorri verso l'alto”"
   },
 
   "textHideGetNewReddit": {
-    "message": "Nascondi 'Get New Reddit'"
+    "message": "Nascondi “Get New Reddit”"
   },
 
   "textHideSidebarPolicy": {
@@ -217,5 +217,45 @@
 
   "textSearch": {
     "message": "Cerca"
+  },
+
+  "textHidePromoted": {
+    "message": "Nascondi Link Sponsorizzati"
+  },
+
+  "textEmojiPicker": {
+    "message": "Selettore di emoji"
+  },
+
+  "textShowAllButton": {
+    "message": "Aggiungi il pulsante “r/All”"
+  },
+
+  "textVideoPlayerReplacement": {
+    "message": "Lettore video alternativo"
+  },
+
+  "textImages": {
+    "message": "Immagini"
+  },
+
+  "textSortBar": {
+    "message": "Barra di ordinamento"
+  },
+
+  "textOther": {
+    "message": "Altro"
+  },
+
+  "textHideCreatePostButton": {
+    "message": "Nascondi il pulsante “Crea post”"
+  },
+
+  "textHideNotificationButton": {
+    "message": "Nascondi pulsante “Notifica”"
+  },
+
+  "textMoveFeedToTopInSidemenu": {
+    "message": "Sposta la sezione Feed nel menu laterale verso l'alto"
   }
 }

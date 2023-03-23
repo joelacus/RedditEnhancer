@@ -31,7 +31,7 @@
     "message": "Élargir Le Fil / La Publication"
   },
 
-  "textCenter": {
+  "textCentre": {
     "message": "Centre"
   },
 
@@ -104,35 +104,35 @@
   },
 
   "textHideRedditPremium": {
-    "message": "Masquer 'Reddit Premium'"
+    "message": "Masquer « Reddit Premium »"
   },
 
   "textHideCreatePost": {
-    "message": "Masquer 'Créer une publication'"
+    "message": "Masquer « Créer une publication »"
   },
 
   "textHideCoinButton": {
-    "message": "Masquer le bouton 'Pièce'"
+    "message": "Masquer le bouton « Pièce »"
   },
 
   "textHideAdvertiseButton": {
-    "message": "Masquer le bouton 'Annoncer'"
+    "message": "Masquer le bouton « Annoncer »"
   },
 
   "textHideModerationButton": {
-    "message": "Masquer le bouton 'Modération'"
+    "message": "Masquer le bouton « Modération »"
   },
 
   "textHidePopularButton": {
-    "message": "Masquer le bouton 'Populaire'"
+    "message": "Masquer le bouton « Populaire »"
   },
 
   "textHideHappeningNowButton": {
-    "message": "Masquer le bouton 'En ce moment'"
+    "message": "Masquer le bouton « En ce moment »"
   },
 
   "textHideChatButton": {
-    "message": "Masquer le bouton 'Chat'"
+    "message": "Masquer le bouton « Chat »"
   },
 
   "textHideHomeSidebar": {
@@ -188,15 +188,15 @@
   },
 
   "textShowRising": {
-    "message": "Toujours afficher le bouton de tri 'En hausse'"
+    "message": "Toujours afficher le bouton de tri « En hausse »"
   },
 
   "textToTop": {
-    "message": "Show 'Scroll To Top' Button"
+    "message": "Ajouter le bouton « Défiler vers le haut »"
   },
 
   "textHideGetNewReddit": {
-    "message": "Masquer 'Get New Reddit'"
+    "message": "Masquer « Get New Reddit »"
   },
 
   "textHideSidebarPolicy": {
@@ -217,5 +217,45 @@
 
   "textSearch": {
     "message": "Rechercher"
+  },
+
+  "textHidePromoted": {
+    "message": "Masquer les liens sponsorisés"
+  },
+
+  "textEmojiPicker": {
+    "message": "Sélecteur d'émoticônes"
+  },
+
+  "textShowAllButton": {
+    "message": "Ajouter le bouton « r/All »"
+  },
+
+  "textVideoPlayerReplacement": {
+    "message": "Lecteur vidéo alternatif"
+  },
+
+  "textImages": {
+    "message": "Images"
+  },
+
+  "textSortBar": {
+    "message": "Barre de tri"
+  },
+
+  "textOther": {
+    "message": "Autre"
+  },
+
+  "textHideCreatePostButton": {
+    "message": "Masquer le bouton « Créer un article »"
+  },
+
+  "textHideNotificationButton": {
+    "message": "Masquer le bouton « Notification »"
+  },
+
+  "textMoveFeedToTopInSidemenu": {
+    "message": "Déplacez la section Flux dans le menu latéral vers le haut"
   }
 }

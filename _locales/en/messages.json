@@ -1,6 +1,6 @@
 {
   "extensionVersion": {
-    "message": "0.7.1 Beta"
+    "message": "0.9.0 Beta"
   },
 
   "extensionName": {
@@ -35,8 +35,8 @@
     "message": "Expand Feed / Post"
   },
 
-  "textCenter": {
-    "message": "Center"
+  "textCentre": {
+    "message": "Centre"
   },
 
   "textWidth": {
@@ -196,7 +196,7 @@
   },
 
   "textToTop": {
-    "message": "Show 'Scroll To Top' Button"
+    "message": "Add 'Scroll To Top' Button"
   },
 
   "textHideGetNewReddit": {
@@ -221,5 +221,45 @@
 
   "textSearch": {
     "message": "Search"
+  },
+
+  "textHidePromoted": {
+    "message": "Hide Promoted Links"
+  },
+
+  "textEmojiPicker": {
+    "message": "Emoji Picker"
+  },
+
+  "textShowAllButton": {
+    "message": "Add 'r/All' Button"
+  },
+
+  "textVideoPlayerReplacement": {
+    "message": "Alternative Video Player"
+  },
+
+  "textImages": {
+    "message": "Images"
+  },
+
+  "textSortBar": {
+    "message": "Sort Bar"
+  },
+
+  "textOther": {
+    "message": "Other"
+  },
+
+  "textHideCreatePostButton": {
+    "message": "Hide 'Create Post' Button"
+  },
+
+  "textHideNotificationButton": {
+    "message": "Hide 'Notification' Button"
+  },
+
+  "textMoveFeedToTopInSidemenu": {
+    "message": "Move The Feed Section In The Side Menu To The Top"
   }
 }

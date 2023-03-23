@@ -31,7 +31,7 @@
     "message": "Vouw Feed / Post uit"
   },
 
-  "textCenter": {
+  "textCentre": {
     "message": "Centrum"
   },
 
@@ -104,35 +104,35 @@
   },
 
   "textHideRedditPremium": {
-    "message": "Verberg 'Reddit Premium'"
+    "message": "Verberg “Reddit Premium”"
   },
 
   "textHideCreatePost": {
-    "message": "Verberg 'Bericht maken'"
+    "message": "Verberg “Bericht maken”"
   },
 
   "textHideCoinButton": {
-    "message": "Verberg de knop 'Munt'"
+    "message": "Verberg de knop “Munt”"
   },
 
   "textHideAdvertiseButton": {
-    "message": "Verberg de knop 'Adverteren'"
+    "message": "Verberg de knop “Adverteren”"
   },
 
   "textHideModerationButton": {
-    "message": "Verberg de knop 'Moderatie'"
+    "message": "Verberg de knop “Moderatie”"
   },
 
   "textHidePopularButton": {
-    "message": "Verberg de knop 'Populair'"
+    "message": "Verberg de knop “Populair”"
   },
 
   "textHideHappeningNowButton": {
-    "message": "Verberg de knop 'Actueel'"
+    "message": "Verberg de knop “Actueel”"
   },
 
   "textHideChatButton": {
-    "message": "Verberg de 'Chat' knop"
+    "message": "Verberg de “Chat” knop"
   },
 
   "textHideHomeSidebar": {
@@ -188,15 +188,15 @@
   },
 
   "textShowRising": {
-    "message": "Toon altijd de knop 'Rising' sorteren"
+    "message": "Toon altijd de knop “Rising” sorteren"
   },
 
   "textToTop": {
-    "message": "Show 'Scroll To Top' Button"
+    "message": "Knop “Scroll naar boven” toevoegen"
   },
 
   "textHideGetNewReddit": {
-    "message": "Verberg 'Get New Reddit'"
+    "message": "Verberg “Get New Reddit”"
   },
 
   "textHideSidebarPolicy": {
@@ -217,5 +217,45 @@
 
   "textSearch": {
     "message": "Zoeken"
+  },
+
+  "textHidePromoted": {
+    "message": "Verberg Gepromote Links"
+  },
+
+  "textEmojiPicker": {
+    "message": "Emoji-kiezer"
+  },
+
+  "textShowAllButton": {
+    "message": "Knop “r/All” toevoegen"
+  },
+
+  "textVideoPlayerReplacement": {
+    "message": "Alternatieve videospeler"
+  },
+
+  "textImages": {
+    "message": "Afbeeldingen"
+  },
+
+  "textSortBar": {
+    "message": "Sorteerbalk"
+  },
+
+  "textOther": {
+    "message": "Ander"
+  },
+
+  "textHideCreatePostButton": {
+    "message": "Knop “Bericht maken” Verbergen"
+  },
+
+  "textHideNotificationButton": {
+    "message": "Knop “Melding” Verbergen"
+  },
+
+  "textMoveFeedToTopInSidemenu": {
+    "message": "Sposta la sezione Feed nel menu laterale verso l'alto"
   }
 }

@@ -31,7 +31,7 @@
     "message": "Erweitern Sie Feed / Beitrag"
   },
 
-  "textCenter": {
+  "textCentre": {
     "message": "Center"
   },
 
@@ -104,35 +104,35 @@
   },
 
   "textHideRedditPremium": {
-    "message": "Ausblenden der 'Reddit Premium'"
+    "message": "Ausblenden der „Reddit Premium“"
   },
 
   "textHideCreatePost": {
-    "message": "Ausblenden von 'Beitrag erstellen'"
+    "message": "Ausblenden von „Beitrag erstellen“"
   },
 
   "textHideCoinButton": {
-    "message": "Ausblenden der 'Coin' Schaltfläche"
+    "message": "Ausblenden der „Coin“ Schaltfläche"
   },
 
   "textHideAdvertiseButton": {
-    "message": "Ausblenden der 'Werbung' Schaltfläche"
+    "message": "Ausblenden der „Werbung“ Schaltfläche"
   },
 
   "textHideModerationButton": {
-    "message": "Ausblenden der 'Moderation' Schaltfläche"
+    "message": "Ausblenden der „Moderation“ Schaltfläche"
   },
 
   "textHidePopularButton": {
-    "message": "Ausblenden der 'Beliebt' Schaltfläche"
+    "message": "Ausblenden der „Beliebt“ Schaltfläche"
   },
 
   "textHideHappeningNowButton": {
-    "message": "Ausblenden der 'Aktuell' Schaltfläche"
+    "message": "Ausblenden der „Aktuell“ Schaltfläche"
   },
 
   "textHideChatButton": {
-    "message": "Ausblenden der 'Chat' Schaltfläche"
+    "message": "Ausblenden der „Chat“ Schaltfläche"
   },
 
   "textHideHomeSidebar": {
@@ -188,15 +188,15 @@
   },
 
   "textShowRising": {
-    "message": "Zeige den Button 'Aufsteigend' immer"
+    "message": "Zeige den Button „Aufsteigend“ immer"
   },
 
   "textToTop": {
-    "message": "Show 'Scroll To Top' Button"
+    "message": "Fügen Sie die Schaltfläche „Nach oben scrollen“ hinzu"
   },
 
   "textHideGetNewReddit": {
-    "message": "Verstecke 'Get New Reddit'"
+    "message": "Verstecke „Get New Reddit“"
   },
 
   "textHideSidebarPolicy": {
@@ -217,5 +217,45 @@
 
   "textSearch": {
     "message": "Suche"
+  },
+
+  "textHidePromoted": {
+    "message": "Beworbene Links Ausblenden"
+  },
+
+  "textEmojiPicker": {
+    "message": "Emoji-Auswahl"
+  },
+
+  "textShowAllButton": {
+    "message": "Fügen Sie die Schaltfläche „r/All“ hinzu"
+  },
+
+  "textVideoPlayerReplacement": {
+    "message": "Alternativer Videoplayer"
+  },
+
+  "textImages": {
+    "message": "Bilder"
+  },
+
+  "textSortBar": {
+    "message": "Sortierleiste"
+  },
+
+  "textOther": {
+    "message": "Weiter"
+  },
+
+  "textHideCreatePostButton": {
+    "message": "Schaltfläche „Beitrag erstellen“ Ausblenden"
+  },
+
+  "textHideNotificationButton": {
+    "message": "Schaltfläche „Benachrichtigung“ Ausblenden"
+  },
+
+  "textMoveFeedToTopInSidemenu": {
+    "message": "Verschieben Sie den Feed-Bereich im Seitenmenü nach oben"
   }
 }

@@ -31,7 +31,7 @@
     "message": "Rozwiń Kanał / Opublikuj"
   },
 
-  "textCenter": {
+  "textCentre": {
     "message": "Środek"
   },
 
@@ -104,35 +104,35 @@
   },
 
   "textHideRedditPremium": {
-    "message": "Ukryj 'Reddit Premium'"
+    "message": "Ukryj „Reddit Premium”"
   },
 
   "textHideCreatePost": {
-    "message": "Ukryj 'Utwórz wpis'"
+    "message": "Ukryj „Utwórz wpis”"
   },
 
   "textHideCoinButton": {
-    "message": "Ukryj przycisk 'Moneta'"
+    "message": "Ukryj przycisk „Moneta”"
   },
 
   "textHideAdvertiseButton": {
-    "message": "Ukryj przycisk 'Reklamuj'"
+    "message": "Ukryj przycisk „Reklamuj”"
   },
 
   "textHideModerationButton": {
-    "message": "Ukryj przycisk 'Moderacja'"
+    "message": "Ukryj przycisk „Moderacja”"
   },
 
   "textHidePopularButton": {
-    "message": "Ukryj przycisk 'Popularne'"
+    "message": "Ukryj przycisk „Popularne”"
   },
 
   "textHideHappeningNowButton": {
-    "message": "Ukryj przycisk 'Aktualności'"
+    "message": "Ukryj przycisk „Aktualności”"
   },
 
   "textHideChatButton": {
-    "message": "Ukryj przycisk 'Czat'"
+    "message": "Ukryj przycisk „Czat”"
   },
 
   "textHideHomeSidebar": {
@@ -188,15 +188,15 @@
   },
 
   "textShowRising": {
-    "message": "Zawsze pokaż przycisk sortowania 'Rising'"
+    "message": "Zawsze pokaż przycisk sortowania „Rising”"
   },
 
   "textToTop": {
-    "message": "Show 'Scroll To Top' Button"
+    "message": "Dodaj przycisk „Przewiń do góry”"
   },
 
   "textHideGetNewReddit": {
-    "message": "Ukryj 'Get New Reddit'"
+    "message": "Ukryj „Get New Reddit”"
   },
 
   "textHideSidebarPolicy": {
@@ -217,5 +217,45 @@
 
   "textSearch": {
     "message": "Szukaj"
+  },
+
+  "textHidePromoted": {
+    "message": "Ukryj Promowane Linki"
+  },
+
+  "textEmojiPicker": {
+    "message": "Selektor emotikonów"
+  },
+
+  "textShowAllButton": {
+    "message": "Dodaj przycisk „r/All”"
+  },
+
+  "textVideoPlayerReplacement": {
+    "message": "Alternatywny odtwarzacz wideo"
+  },
+
+  "textImages": {
+    "message": "Obrazy"
+  },
+
+  "textSortBar": {
+    "message": "Pasek sortowania"
+  },
+
+  "textOther": {
+    "message": "Inny"
+  },
+
+  "textHideCreatePostButton": {
+    "message": "Ukryj przycisk „Utwórz post”"
+  },
+
+  "textHideNotificationButton": {
+    "message": "Ukryj przycisk „Powiadomienie”"
+  },
+
+  "textMoveFeedToTopInSidemenu": {
+    "message": "Przenieś sekcję podawania w bocznym menu na górę"
   }
 }
