@@ -17,9 +17,9 @@ If you notice any translation issues or would like to contribute new languages, 
 ## Features
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
-|Expand Feed/Post|This makes the feed/post wider so you can see more content and make more use of your screen.|New|
-|Adjust Feed/Post Width|Change how wide/narrow the above feature makes the feed/post.|New|
-|Center Feed/Post|Centers the feed/post to the middle of the screen.|New|
+|Expand Feed/Post|This makes the feed/post wider so you can see more content and make more use of your screen.|New/Old|
+|Adjust Feed/Post Width|Change how wide/narrow the above feature makes the feed/post.|New/Old|
+|Center Feed/Post|Centers the feed/post to the middle of the screen.|New/Old|
 |Scale Tall Images To Fit Post|This makes tall images that would otherwise be cropped for being too tall, fit the height of the post.|New|
 |Add Scrollbar To Tall Images|This, alternatively from above, adds a scrollbar to tall images so you can see the full width of the image, but scroll on the image to see more.|New|
 |Drop Shadows|This adds a drop shadow around the feed, post and other elements so that they stand out more if you use a background image, or light mode.|New|
@@ -29,8 +29,8 @@ If you notice any translation issues or would like to contribute new languages, 
 |Auto hide cookie prompt|Automatically hides the cookie popup if you haven't already accepted/dismissed it.|New|
 |Hide The Interface Gaps|This will remove all the gaps between the interface elements if you don't like that style.|New|
 |Hide Create Post|You can hide the 'Create Post' bar at the top of your feed if you don't use or want to see it.|New|
-|Sticky Sort|This keeps the feed sort options "Best, Hot, New, etc" at the top even when you scroll down the page.|New|
-|Hide The Home Sidebar|Hides the sidebar on the reddit home page.|New|
+|Sticky Sort|This keeps the feed sort options "Best, Hot, New, etc" at the top even when you scroll down the page.|New/Old|
+|Hide The Home Sidebar|Hides the sidebar on the reddit home page.|New/Old|
 |Hide The Sub Reddit Sidebar|Hides the sidebar on sub reddit pages.|New|
 |Hide Reddit Premium|Hides the reddit premium section in the sidebar.|New/Old|
 |Hide Policies Section|Hides the content/privacy policy section in the sidebar.|New|
@@ -40,10 +40,16 @@ If you notice any translation issues or would like to contribute new languages, 
 |Always Show Rising Sort Button|The sort by rising button is no longer hidden in a pointless submenu. Can be disabled.|New|
 |Open Links To Sub Reddit In New Tab|This makes sub reddit links open in a new tab, instead of the current one.|New|
 |Hide Promoted Links|Hides the promoted links/posts in the main feed.|New|
-|Add 'Scroll To Top' Button|Adds a new button to the header to scroll the page to the top.|New|
+|Add 'Scroll To Top' Button|Adds a new button to the header to scroll the page to the top.|New/Old|
 |Add 'r/All' Button|Adds a new button to the header for 'r/All'.|New|
 |Move The Feeds Section In The Side Menu To The Top|Move the feeds section in the side menu to the top.|New|
 |Alternative Video Player|Replaces the default reddit video player with videojs. This is more reliable and loads video faster. It also has an option to change the playback speed.|New|
+|Modernise old reddit|Makes old reddit look more like new reddit.|Old|
+|Hide "See Full Image"|Hides the "See Full Image" button on tall image posts.|New|
+|Add Scrollbar To Long Text Posts|This adds a scrollbar to long text posts on the feed so you can read a bit more. There is a limit.|New|
+|Hide Side Menu|This hides the side menu on the old reddit feed.|Old|
+|Hide Header subreddit List|Hides the sub reddit list in the header on old reddit.|Old|
+|Limit Post Comments|Limit the number of comments on a post, when opened in a dedicated tab/window.|New/Old|
 
 
 |Premium Feature|Description|Reddit Version Support|
