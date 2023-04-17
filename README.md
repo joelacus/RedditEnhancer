@@ -2,11 +2,11 @@
 
 A browser extension to tweak the user interface on Reddit.
 
-Mostly supports New Reddit, with limited support for Old Reddit.
+Supports New Reddit and Old Reddit.
 
 Feel free to suggest new features and report any bugs on the Issues page.
 
-If you notice any translation issues or would like to contribute new languages, please feel free to help.
+I welcome any help if you would like to improve or contribute new language translations.
 
 ## Download
 |Firefox|Chrome|Edge|Opera|
