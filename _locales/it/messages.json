@@ -257,5 +257,33 @@
 
   "textMoveFeedToTopInSidemenu": {
     "message": "Sposta la sezione Feed nel menu laterale verso l'alto"
+  },
+
+  "textTextPost": {
+    "message": "Testo"
+  },
+
+  "textTextScroll": {
+    "message": "Aggiungi barra di scorrimento a messaggi di testo lunghi"
+  },
+
+  "textHideSeeFullImage": {
+    "message": "Nascondi “Vedi Immagine Intera”"
+  },
+
+  "textModerniseOldReddit": {
+    "message": "Modernizza il old.reddit"
+  },
+
+  "textHideHeaderSubBar": {
+    "message": "Nascondi l'elenco Subreddit dell'intestazione"
+  },
+
+  "textHideSideMenuOld": {
+    "message": "Nascondi Menu Laterale"
+  },
+
+  "textPostCommentsLimit": {
+    "message": "Limita i commenti sui post"
   }
 }

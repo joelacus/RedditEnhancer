@@ -257,5 +257,29 @@
 
   "textMoveFeedToTopInSidemenu": {
     "message": "Mova a seção de alimentação no menu lateral para o topo"
+  },
+
+  "textTextPost": {
+    "message": "Texto"
+  },
+
+  "textTextScroll": {
+    "message": "Adicionar barra de rolagem a postagens de texto longo"
+  },
+
+  "textHideSeeFullImage": {
+    "message": "Ocultar “Ver Imagem Completa”"
+  },
+
+  "textModerniseOldReddit": {
+    "message": "Modernizar old.reddit"
+  },
+
+  "textHideHeaderSubBar": {
+    "message": "Ocultar lista de subreddit de cabeçalho"
+  },
+
+  "textHideSideMenuOld": {
+    "message": "Limitar comentários de postagem"
   }
 }

@@ -257,5 +257,33 @@
 
   "textMoveFeedToTopInSidemenu": {
     "message": "Sposta la sezione Feed nel menu laterale verso l'alto"
+  },
+
+  "textTextPost": {
+    "message": "Tekst"
+  },
+
+  "textTextScroll": {
+    "message": "Schuifbalk toevoegen aan lange tekstberichten"
+  },
+
+  "textHideSeeFullImage": {
+    "message": "Verberg “See Full Image”"
+  },
+
+  "textModerniseOldReddit": {
+    "message": "Moderniseer old.reddit"
+  },
+
+  "textHideHeaderSubBar": {
+    "message": "Hide Header Subreddit-lijst"
+  },
+
+  "textHideSideMenuOld": {
+    "message": "Zijmenu Verbergen"
+  },
+
+  "textPostCommentsLimit": {
+    "message": "Beperk reacties op berichten"
   }
 }

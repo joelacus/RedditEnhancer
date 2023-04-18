@@ -252,10 +252,38 @@
   },
 
   "textHideNotificationButton": {
-    "message": "Masquer le bouton « Notification »"
+    "message": "Masquer le bouton « Notification« "
   },
 
   "textMoveFeedToTopInSidemenu": {
     "message": "Déplacez la section Flux dans le menu latéral vers le haut"
+  },
+
+  "textTextPost": {
+    "message": "Texte"
+  },
+
+  "textTextScroll": {
+    "message": "Ajouter une barre de défilement aux messages de texte long"
+  },
+
+  "textHideSeeFullImage": {
+    "message": "Masquer « Voir l'image Complète »"
+  },
+
+  "textModerniseOldReddit": {
+    "message": "Moderniser old.reddit"
+  },
+
+  "textHideHeaderSubBar": {
+    "message": "Masquer la liste des subreddits d'en-tête"
+  },
+
+  "textHideSideMenuOld": {
+    "message": "Masquer le menu latéral"
+  },
+
+  "textPostCommentsLimit": {
+    "message": "Limiter les commentaires de publication"
   }
 }

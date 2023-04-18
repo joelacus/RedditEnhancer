@@ -257,5 +257,33 @@
 
   "textMoveFeedToTopInSidemenu": {
     "message": "Перемістіть розділ каналу в бічному меню вгору"
+  },
+
+  "textTextPost": {
+    "message": "текст"
+  },
+
+  "textTextScroll": {
+    "message": "Додайте смугу прокрутки до довгих текстових повідомлень"
+  },
+
+  "textHideSeeFullImage": {
+    "message": "Приховати «See Full Image»"
+  },
+
+  "textModerniseOldReddit": {
+    "message": "Модернізуйте old.reddit"
+  },
+
+  "textHideHeaderSubBar": {
+    "message": "Приховати список Subreddit заголовка"
+  },
+
+  "textHideSideMenuOld": {
+    "message": "Приховати бічне меню"
+  },
+
+  "textPostCommentsLimit": {
+    "message": "Обмеження публікації коментарів"
   }
 }

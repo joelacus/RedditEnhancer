@@ -1,6 +1,6 @@
 {
   "extensionVersion": {
-    "message": "0.9.0 Beta"
+    "message": "0.11.0 Beta"
   },
 
   "extensionName": {
@@ -261,5 +261,33 @@
 
   "textMoveFeedToTopInSidemenu": {
     "message": "Move The Feed Section In The Side Menu To The Top"
+  },
+
+  "textTextPost": {
+    "message": "Text"
+  },
+
+  "textTextScroll": {
+    "message": "Add Scrollbar To Long Text Posts"
+  },
+
+  "textHideSeeFullImage": {
+    "message": "Hide 'See Full Image'"
+  },
+
+  "textModerniseOldReddit": {
+    "message": "Modernise old.reddit"
+  },
+
+  "textHideHeaderSubBar": {
+    "message": "Hide Header subreddit List"
+  },
+
+  "textHideSideMenuOld": {
+    "message": "Hide Side Menu"
+  },
+
+  "textPostCommentsLimit": {
+    "message": "Limit Post Comments"
   }
 }

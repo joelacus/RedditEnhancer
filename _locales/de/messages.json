@@ -136,11 +136,11 @@
   },
 
   "textHideHomeSidebar": {
-    "message": "Startseiten-Seitenleiste ausblenden"
+    "message": "Startseiten-Seitenleiste Ausblenden"
   },
 
   "textHideSubSidebar": {
-    "message": "Subreddit-Seitenleiste ausblenden"
+    "message": "Subreddit-Seitenleiste Ausblenden"
   },
 
   "textSidebar": {
@@ -164,7 +164,7 @@
   },
 
   "textHideGap": {
-    "message": "Lücken in der Benutzeroberfläche ausblenden"
+    "message": "Lücken in der Benutzeroberfläche Ausblenden"
   },
 
   "textMain": {
@@ -176,11 +176,11 @@
   },
 
   "textHideUsername": {
-    "message": "Benutzernamen ausblenden"
+    "message": "Benutzernamen Ausblenden"
   },
 
   "textHideKarma": {
-    "message": "Karma ausblenden"
+    "message": "Karma Ausblenden"
   },
 
   "textReloadPage": {
@@ -257,5 +257,33 @@
 
   "textMoveFeedToTopInSidemenu": {
     "message": "Verschieben Sie den Feed-Bereich im Seitenmenü nach oben"
+  },
+
+  "textTextPost": {
+    "message": "Text"
+  },
+
+  "textTextScroll": {
+    "message": "Bildlaufleiste zu langen Textbeiträgen hinzufügen"
+  },
+
+  "textHideSeeFullImage": {
+    "message": "„Ganzes Bild anzeigen“ Ausblenden"
+  },
+
+  "textModerniseOldReddit": {
+    "message": "old.reddit Modernisieren"
+  },
+
+  "textHideHeaderSubBar": {
+    "message": "Header-Subreddit-Leiste Ausblenden"
+  },
+
+  "textHideSideMenuOld": {
+    "message": "Seitenmenü Ausblenden"
+  },
+
+  "textPostCommentsLimit": {
+    "message": "Post-Kommentare einschränken"
   }
 }
