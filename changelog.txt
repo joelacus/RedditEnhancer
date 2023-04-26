@@ -1,0 +1,105 @@
+version 0.13.0
+- Removed components for premium features. All features are now free.
+- Optimsed translation functions.
+- Fixed some bugs.
+
+version 0.12.0
+- Added an option to auto expand the feed/post to 100% if the screen/window is a certain width.
+
+version 0.11.0
+- Limit post comments.
+- Sticky Sort now supports old reddit.
+- Bug fixes and improvements.
+
+version 0.10.0
+- Expand Feed/Post now supports old reddit.
+- Added an option to make old reddit look more like new reddit.
+- Added an option to hide the "See Full Image" button on tall images.
+- Added an option to add a scroll bar to long text posts on the feed.
+- Scroll To Top now supports old reddit.
+- Hide home page sidebar now supports old reddit.
+- Added an option to hide the header subreddit list on old reddit.
+- Added an option to hide the home page side menu on old reddit.
+
+version 0.9.0
+- Added an option for a "Scroll To Top" button in the header.
+- Added an option to hide the 'Notification' button in the header.
+- Added an option to hide the 'Create Post' button in the header.
+- Added an option to show an 'r/All' button in the header.
+- Added an option to move the feed section in the side menu to the top.
+- Added an option to replace the video player with an alternative to fix video load issues. You can also change playback speed.
+- Added an option for user preferred add-on language.
+- Bug fixes and general improvements.
+
+version 0.8.0
+- Added an option to hide promoted links/posts.
+- General improvements.
+
+version 0.7.2
+- Improved some code
+
+version 0.7.0
+- Restructured the menu and added a search filter.
+- Added an option to individually hide the home page sidebar and the sub reddit sidebar.
+- Added an option to hide the content/privacy policy section in the sidebar.
+- Added an option to open sub reddit links in a new tab.
+- Added an option to hide the "Get New Reddit" button on old.reddit.
+- Improved some icons.
+
+version 0.6.3
+- Fixed a couple bugs
+
+version 0.6.2
+- Faster loads
+- Fixed bugs
+
+version 0.6.1
+- Fixed bug
+
+version 0.6.0
+- Major code improvements resulting in faster loads.
+- Resizing feed/post is now adjustable by steps of 2 instead of 5.
+- The sort by rising button is no longer hidden in a pointless submenu.
+- Hide Username and/or Karma now supports old reddit.
+- Hide Reddit Premium banner now supports old reddit.
+- Removed redundant "Smooth Resize" option.
+
+version 0.5.0
+- Added an option to hide the gap between interface elements.
+- Added an option to hide your username in the top bar.
+- Added an option to hide your karma in the top bar.
+- Added an option to toggle smooth feed/post resizing.
+- Added an option to keep the post sort bar visible at the top.
+- Improved code
+
+version 0.4.1
+- Fixed bugs
+- Improved code
+
+version 0.4.0
+- Auto Dark/Light Mode option based on your system theme.
+- Auto Dark Mode option if the current time is within a custom time range.
+- New "Extra Tweaks" section, including the ability to:
+- Hide the "Create Post" section.
+- Hide the Sidebar.
+- Hide the "Reddit Premium" card in the sidebar.
+- Hide the "Popular" button in the top bar.
+- Hide the "Coin" button in the top bar.
+- Hide the "Happening Now" button in the top bar.
+- Hide the "Chat" button in the top bar.
+- Hide the "Moderation" button in the top bar.
+- Hide the "Advertise" button in the top bar.
+- Fixed bugs
+
+
+version 0.3.1
+- Fixed bugs
+
+
+version 0.3.0
+
+- Added custom background support for old reddit
+- Added background blur support for old reddit
+- Filter options for new and old reddit
+- Cleaned up some code
+- Fixed a couple bugs
