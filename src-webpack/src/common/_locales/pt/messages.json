@@ -1,0 +1,277 @@
+{
+  "extensionName": {
+    "message": "Reddit Enhancer"
+  },
+
+  "extensionDescription": {
+    "message": "Vários ajustes para personalizar sua experiência no Reddit."
+  },
+
+  "textAbout": {
+    "message": "Sobre"
+  },
+
+  "textBuyMeACoffee": {
+    "message": "Compre-me um café"
+  },
+
+  "textDarkMode": {
+    "message": "Modo Escuro"
+  },
+
+  "textExpandLayout": {
+    "message": "Expandir Feed / Postagem"
+  },
+
+  "textCentre": {
+    "message": "Centro"
+  },
+
+  "textWidth": {
+    "message": "Largura"
+  },
+
+  "textFitImage": {
+    "message": "Dimensionar imagens altas para caber no post"
+  },
+
+  "textImageScroll": {
+    "message": "Adicionar barra de rolagem a imagens altas"
+  },
+
+  "textBackground": {
+    "message": "Fundo"
+  },
+
+  "textBlur": {
+    "message": "Desfocar"
+  },
+
+  "textShadow": {
+    "message": "Sombras Projetadas"
+  },
+
+  "textUseCustom": {
+    "message": "Usar personalizado"
+  },
+
+  "textCustomBgInputPlaceholder": {
+    "message": "Link de fundo personalizado"
+  },
+
+  "textNewReddit": {
+    "message": "Novo Reddit"
+  },
+
+  "textOldReddit": {
+    "message": "Velho Reddit"
+  },
+
+  "textAuto": {
+    "message": "Auto"
+  },
+
+  "textDisabled": {
+    "message": "Desabilitada"
+  },
+
+  "textBrowserTheme": {
+    "message": "Tema do navegador"
+  },
+
+  "textTimeRange": {
+    "message": "Intervalo de tempo"
+  },
+
+  "textStartTime": {
+    "message": "Hora de início (24)"
+  },
+
+  "textEndTime": {
+    "message": "Fim do tempo (24)"
+  },
+
+  "textStyleTweaks": {
+    "message": "Estilo"
+  },
+
+  "textHideRedditPremium": {
+    "message": "Ocultar “Reddit Premium”"
+  },
+
+  "textHideCreatePost": {
+    "message": "Ocultar “Criar publicação”"
+  },
+
+  "textHideCoinButton": {
+    "message": "Ocultar botão “Moeda”"
+  },
+
+  "textHideAdvertiseButton": {
+    "message": "Ocultar botão “Anunciar”"
+  },
+
+  "textHideModerationButton": {
+    "message": "Ocultar botão “Moderação”"
+  },
+
+  "textHidePopularButton": {
+    "message": "Ocultar botão “Populares”"
+  },
+
+  "textHideHappeningNowButton": {
+    "message": "Ocultar botão “Acontecendo agora”"
+  },
+
+  "textHideChatButton": {
+    "message": "Ocultar o botão “Chat”"
+  },
+
+  "textHideHomeSidebar": {
+    "message": "Ocultar a barra lateral da página inicial"
+  },
+
+  "textHideSubSidebar": {
+    "message": "Ocultar a barra lateral do Sub Reddit"
+  },
+
+  "textFeed": {
+    "message": "Feed"
+  },
+
+  "textHeader": {
+    "message": "Cabeçalho"
+  },
+
+  "textHeaderHeight": {
+    "message": "Altura do cabeçalho"
+  },
+
+  "textSidebar": {
+    "message": "Barra lateral"
+  },
+
+  "textHeaderButtons": {
+    "message": "Botões do cabeçalho"
+  },
+
+  "textHideGap": {
+    "message": "Ocultar lacunas na interface"
+  },
+
+  "textMain": {
+    "message": "Principal"
+  },
+
+  "textStickySort": {
+    "message": "Ordenação Adesiva"
+  },
+
+  "textHideUsername": {
+    "message": "Ocultar Nome de Usuário"
+  },
+
+  "textHideKarma": {
+    "message": "Ocultar Karma"
+  },
+
+  "textReloadPage": {
+    "message": "Recarregar página"
+  },
+
+  "textShowRising": {
+    "message": "Sempre mostrar o botão de classificação “Em ascensão”"
+  },
+
+  "textToTop": {
+    "message": "Adicionar botão “Rolar para cima”"
+  },
+
+  "textHideGetNewReddit": {
+    "message": "Ocultar “Get New Reddit”"
+  },
+
+  "textHideSidebarPolicy": {
+    "message": "Ocultar seção de políticas"
+  },
+
+  "textHideElements": {
+    "message": "Ocultar Elementos"
+  },
+
+  "textProductivity": {
+    "message": "Produtividade"
+  },
+
+  "textOpenSubInNewTab": {
+    "message": "Abrir links para Sub Reddit em uma nova guia"
+  },
+
+  "textSearch": {
+    "message": "Pesquisar"
+  },
+
+  "textHidePromoted": {
+    "message": "Ocultar Links Promovidos"
+  },
+
+  "textShowAllButton": {
+    "message": "Adicionar botão “r/All”"
+  },
+
+  "textVideoPlayerReplacement": {
+    "message": "Leitor de vídeo alternativo"
+  },
+
+  "textImages": {
+    "message": "Imagens"
+  },
+
+  "textSortBar": {
+    "message": "Barra de classificação"
+  },
+
+  "textOther": {
+    "message": "Outro"
+  },
+
+  "textHideCreatePostButton": {
+    "message": "Ocultar botão “Criar postagem”"
+  },
+
+  "textHideNotificationButton": {
+    "message": "Ocultar o botão “Notificação”"
+  },
+
+  "textMoveFeedToTopInSidemenu": {
+    "message": "Mova a seção de alimentação no menu lateral para o topo"
+  },
+
+  "textTextPost": {
+    "message": "Texto"
+  },
+
+  "textTextScroll": {
+    "message": "Adicionar barra de rolagem a postagens de texto longo"
+  },
+
+  "textHideSeeFullImage": {
+    "message": "Ocultar “Ver Imagem Completa”"
+  },
+
+  "textModerniseOldReddit": {
+    "message": "Modernizar old.reddit"
+  },
+
+  "textHideHeaderSubBar": {
+    "message": "Ocultar lista de subreddit de cabeçalho"
+  },
+
+  "textHideSideMenuOld": {
+    "message": "Limitar comentários de postagem"
+  },
+
+  "textAutoExpand": {
+    "message": "Expanda para 100% se a largura da janela/tela for menor que:"
+  }
+}

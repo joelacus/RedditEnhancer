@@ -1,0 +1,195 @@
+/* ===== Popup / Icons ===== */
+
+/* Icons */
+.icon-background:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f03e";
+}
+.icon-light-off:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 400;
+	font-size: 25px;
+	content: "\f0eb";
+}
+.icon-light-on:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f0eb";
+}
+.icon-dark-mode:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f186";
+}
+.icon-layout:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\e4ba";
+}
+.icon-loader:before, .icon-improved-loader:before, .icon-custom-loader:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f110";
+}
+.icon-anim:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f176";
+}
+.icon-scale:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f422";
+}
+.icon-scroll:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f07d";
+}
+.icon-blur:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f043";
+}
+.icon-clock:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f017";
+}
+.icon-auto:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f085";
+}
+.icon-hide:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f070";
+}
+.icon-show:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f06e";
+}
+.icon-height:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f338";
+}
+.icon-circle:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 16px;
+	content: "\f111";
+}
+.icon-sticky-note:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f249";
+}
+.icon-user:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f007";
+}
+.icon-user-slash:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f506";
+}
+.icon-play:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f04b";
+}
+.icon-cheveron-up:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f077";
+}
+.icon-cheveron-down:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f078";
+}
+.icon-paint-roller:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f5aa";
+}
+.icon-gear:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f013";
+}
+.icon-arrow-square:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f08e";
+}
+.icon-right-left:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f362";
+}
+.icon-turn-up:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f3bf";
+}
+.icon-ellipsis:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f141";
+}
+.icon-spray-can:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f5bd";
+}
+.icon-comments:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f086";
+}
+/*.icon-text:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f031";
+}
+.icon-border:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f0c8";
+}*/

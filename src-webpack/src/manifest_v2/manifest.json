@@ -1,0 +1,53 @@
+{
+  "manifest_version": 2,
+
+  "name": "__MSG_extensionName__",
+  "version": "0.13.0",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "en",
+
+  "icons": { "32": "icons/icon-32.png",
+             "48": "icons/icon-48.png",
+             "64": "icons/icon-64.png",
+             "128": "icons/icon-128.png"
+  },
+
+  "permissions": ["storage",
+                  "tabs",
+                  "webNavigation"],
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.reddit.com/*"],
+      "js": ["content_first.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["*://*.reddit.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+
+  "web_accessible_resources": ["_locales/**/*"],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "browser_action": {
+    "browser_style": true,
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "64": "icons/icon-64.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{46abbc04-ce38-475f-9ef8-e0a4a59d0c9f}"
+    }
+  }
+}
