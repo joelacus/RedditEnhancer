@@ -19,6 +19,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |---|---|:---:|
 |Expand Feed/Post|This makes the feed/post wider so you can see more content and make more use of your screen.|New/Old|
 |Adjust Feed/Post Width|Change how wide/narrow the above feature makes the feed/post.|New/Old|
+|Auto Expand|This will automatically expand the feed/post to 100%, overriding the above option if the screen/window is less than the set value (default 1000px).|New|
 |Center Feed/Post|Centers the feed/post to the middle of the screen.|New/Old|
 |Scale Tall Images To Fit Post|This makes tall images that would otherwise be cropped for being too tall, fit the height of the post.|New|
 |Add Scrollbar To Tall Images|This, alternatively from above, adds a scrollbar to tall images so you can see the full width of the image, but scroll on the image to see more.|New|
@@ -50,9 +51,26 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide Side Menu|This hides the side menu on the old reddit feed.|Old|
 |Hide Header subreddit List|Hides the sub reddit list in the header on old reddit.|Old|
 |Limit Post Comments|Limit the number of comments on a post, when opened in a dedicated tab/window.|New/Old|
-
-
-|Premium Feature|Description|Reddit Version Support|
-|---|---|:---:|
 |Custom Background|Add a custom background to the webpage. You can paste and store multiple image links.|New/Old|
 |Blur Background|Adds a blur filter to the custom background image.|New/Old|
+
+## Build
+Clone repo and cd to build directory:
+```
+git clone https://github.com/joelacus/RedditEnhancer.git;cd RedditEnhancer/src-webpack
+```
+Install dependencies:
+```
+npm install --save-dev webpack terser-webpack-plugin mini-css-extract-plugin html-minimizer-webpack-plugin css-minimizer-webpack-plugin css-loader copy-webpack-plugin path
+```
+```
+npm --save install video.js
+```
+Build for manifest version 2:
+```
+npm run build-m2
+```
+Build for manifest version 3:
+```
+npm run build-m3
+```
