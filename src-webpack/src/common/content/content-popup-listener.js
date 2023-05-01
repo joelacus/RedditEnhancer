@@ -3,7 +3,6 @@
 // Listens for commands from the settings popup to enable/disable/change tweaks.
 
 import { loadStart } from '../content-first/content-first-load-start'
-import { initClassNames2 } from './content-init-classes'
 import { load_saves } from './content-load-saves'
 import { useCustomBackground } from './functions/custom_background'
 import { setCustomBackground } from './functions/custom_background'
@@ -21,6 +20,8 @@ import { hideUsername } from './functions/hide_username_and_karma'
 import { hideKarma } from './functions/hide_username_and_karma'
 import { hideHomeSidebar } from './functions/hide_sidebar'
 import { hideSubSidebar } from './functions/hide_sidebar'
+import { hidePostSidebar } from './functions/hide_sidebar'
+import { hideUserSidebar } from './functions/hide_sidebar'
 import { hideCoinButton } from './functions/hide_header_buttons'
 import { hidePopularButton } from './functions/hide_header_buttons'
 import { hideHappeningNowButton } from './functions/hide_header_buttons'
@@ -47,6 +48,7 @@ import { moderniseOldReddit } from './functions/modernise_old_reddit'
 import { hideHeaderSubBar } from './functions/hide_header_sub_bar'
 import { hideSideMenuOld } from './functions/hide_side_menu_old'
 import { autoExpandValue } from './functions/auto_expand_value'
+import { limitInfinityScroll } from './functions/limit_infinity_scroll'
 //import { expandPostOptions } from './functions/expand_post_options'
 //import { headerHeight } from './content-functions'
 
@@ -140,12 +142,17 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		hideSideMenuOld(value);
 	} else if (key == "autoExpandValue") {
 		autoExpandValue(value);
+	} else if (key == "hidePostSidebar") {
+		hidePostSidebar(value);
+	} else if (key == "hideUserSidebar") {
+		hideUserSidebar(value);
+	} else if (key == "limitInfinityScroll") {
+		limitInfinityScroll(value);
 	}/*  else if (key == "headerHeight") {
 		headerHeight(value);
 	} else if (key == "expandPostOptions") {
 		expandPostOptions(value);
 	}*/ else if (key == "loadSaves") {
-		initClassNames2();
 		setTimeout(function () {
 			loadStart();
 			load_saves();

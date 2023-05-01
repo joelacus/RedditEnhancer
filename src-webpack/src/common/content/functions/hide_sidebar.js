@@ -46,3 +46,43 @@ let hideSubSidebar = function(value) {
 	}
 }
 export { hideSubSidebar };
+
+
+// Hide Post Sidebar
+let hidePostSidebar = function(value) {
+	var link = window.location.href
+	if (link.indexOf("old.reddit.com") >= 0) { // old reddit
+		// do nothing
+	} else {
+		if (value == true) {
+			if (document.querySelector('.re-sidebar-post')) {
+				document.querySelector('.re-sidebar-post').classList.add('re-hide');
+			}
+		} else if (value == false) {
+			if (document.querySelector('.re-sidebar-post')) {
+				document.querySelector('.re-sidebar-post').classList.remove('re-hide');
+			}
+		}
+	}
+}
+export { hidePostSidebar };
+
+
+// Hide User Sidebar
+let hideUserSidebar = function(value) {
+	var link = window.location.href
+	if (link.indexOf("old.reddit.com") >= 0) { // old reddit
+		// do nothing
+	} else {
+		if (value == true) {
+			if (document.querySelector('.re-sidebar-user')) {
+				document.querySelector('.re-sidebar-user').classList.add('re-hide');
+			}
+		} else if (value == false) {
+			if (document.querySelector('.re-sidebar-user')) {
+				document.querySelector('.re-sidebar-user').classList.remove('re-hide');
+			}
+		}
+	}
+}
+export { hideUserSidebar };

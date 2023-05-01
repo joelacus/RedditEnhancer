@@ -8,9 +8,9 @@ var webpack = require('webpack');
 
 module.exports = {
 	mode: 'production',
-	//devtool: "source-map",
+	devtool: "source-map",
 	entry: {
-		background: './src/manifest_v2/background.js',
+		background: './src/common/background.js',
 		content: './src/common/content-index.js',
 		content_first: './src/common/content-first-index.js',
 		'popup/popup': './src/common/popup/popup-index.js'
@@ -51,7 +51,7 @@ module.exports = {
 		})
 	],
 	optimization: {
-		minimize: true,
+		minimize: false,
 		minimizer: [
 			new HtmlMinimizerPlugin(),
 			new CssMinimizerPlugin(),

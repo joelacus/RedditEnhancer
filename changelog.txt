@@ -1,3 +1,10 @@
+version 0.14.0
+- This add-on no longer requires the webNavigation permission to function and has been removed.
+- Added an option to limit the infinity scroll to show only 25 posts at a time.
+- Added an option to hide the post sidebar.
+- Added an option to hide the user sidebar.
+- Fixed some bugs and improved some code.
+
 version 0.13.0
 - Removed components for premium features. All features are now free.
 - Optimsed translation functions.

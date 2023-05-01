@@ -1,6 +1,6 @@
 {
   "extensionVersion": {
-    "message": "0.13.0"
+    "message": "0.14.0"
   },
 
   "extensionName": {
@@ -289,5 +289,17 @@
 
   "textLimitCommentsInfo": {
     "message": "Only works for posts opened in a new tab/window."
+  },
+
+  "textHidePostSidebar": {
+    "message": "Hide the Post Sidebar"
+  },
+
+  "textHideUserSidebar": {
+    "message": "Hide the User Sidebar"
+  },
+
+  "textLimitInfinityScroll": {
+    "message": "Limit Infinity Scroll"
   }
 }

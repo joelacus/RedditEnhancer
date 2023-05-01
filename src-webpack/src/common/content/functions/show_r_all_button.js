@@ -23,7 +23,7 @@ let showAllButton = function(value) {
 				container.insertBefore(a, container.querySelector('[href="/r/popular/"]').nextSibling);
 			}
 		} else if (value == false) {
-			if (container) {
+			if (document.querySelector('.re-all-button')) {
 				document.querySelector('.re-all-button').style.display = "none"
 			}
 		}

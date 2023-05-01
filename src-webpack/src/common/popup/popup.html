@@ -230,6 +230,22 @@
 					</label>
 				</li>
 				<li class="container container-3 r-new">
+					<span class="menu-item-icon icon-hide icon-hide-post-sidebar"></span>
+					<span id="textHidePostSidebar" data-search="sidebar"></span>
+					<label class="switch">
+						<input id="checkbox-hide-post-sidebar" type="checkbox">
+						<span class="indicator"></span>
+					</label>
+				</li>
+				<li class="container container-3 r-new">
+					<span class="menu-item-icon icon-hide icon-hide-user-sidebar"></span>
+					<span id="textHideUserSidebar" data-search="sidebar"></span>
+					<label class="switch">
+						<input id="checkbox-hide-user-sidebar" type="checkbox">
+						<span class="indicator"></span>
+					</label>
+				</li>
+				<li class="container container-3 r-new">
 					<span class="menu-item-icon icon-hide hide-sidebar-policy"></span>
 					<span id="textHideSidebarPolicy" data-search="sidebar,privacy,policy"></span>
 					<label class="switch">
@@ -379,6 +395,8 @@
 						<input id="checkbox-text-scroll-post" type="checkbox">
 						<span class="indicator"></span>
 					</label>
+					<div></div>
+					<p>There is a limit. You may have to open the post if it is very long.</p>
 				</li>
 				<li class="sub-header r-both">
 					<span id="textSortBar"></span>
@@ -470,6 +488,19 @@
 						<span class="indicator"></span>
 					</label>
 				</li>-->
+				<li class="container container-3 r-new">
+					<span class="menu-item-icon icon-limit-infinity-scroll">
+						<svg class="icon" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m1.5e-6 241.1c0-80.1 65-145.1 145.1-145.1 38.5 0 75.4 15.3 102.6 42.5l72.3 72.2 72.2-72.2c27.3-27.2 64.2-42.5 102.7-42.5 80.1 0 145.1 65 145.1 145.1v29.7c0 80.2-65 145.2-145.1 145.2-38.5 0-75.4-15.3-102.6-42.5l-72.3-72.2-72.2 72.2c-27.3 27.2-64.2 42.5-102.7 42.5-80.1 0-145.1-65-145.1-145.1zm274.7 14.9-72.2-72.2c-15.2-15.2-35.9-23.8-57.4-23.8-44.8 0-81.1 36.3-81.1 81.1v29.7c0 44.8 36.3 81.1 81.1 81.1 21.5 0 42.2-8.5 57.4-23.8zm90.5 0 72.2 72.2c15.2 15.2 35.9 23.8 57.4 23.8 44.8 0 81.1-36.3 81.1-81.1v-29.8c0-44.8-36.3-81.1-81.1-81.1-21.5 0-42.2 8.5-57.4 23.8l-72.1 72.2z"/></svg>
+						<svg class="icon-slash" style="display: none;" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m145.1 96c-17.975 0-35.115 3.4273-51.006 9.4102 18.123 14.166 59.725 46.751 74.1 57.984 12.844 3.8242 24.681 10.78 34.307 20.406l30.041 30.041c31.66 24.786 135.75 106.44 257.45 201.91 1.6418 0.05582 3.2658 0.24414 4.9141 0.24414 80.1 0 145.1-64.999 145.1-145.2v-29.701c0-80.1-65-145.1-145.1-145.1-38.5 0-75.401 15.3-102.7 42.5l-72.199 72.199-72.301-72.199c-27.2-27.2-64.1-42.5-102.6-42.5zm-95.25 35.844c-30.487 26.605-49.85 65.642-49.85 109.26v29.801c0 80.1 65 145.1 145.1 145.1 38.5 0 75.401-15.3 102.7-42.5l48.496-48.496-50.814-39.828-42.982 42.924c-15.2 15.3-35.9 23.801-57.4 23.801-44.8 0-81.1-36.3-81.1-81.1v-29.701c0-28.871 15.122-54.143 37.832-68.514zm444.95 28.156c44.8 0 81.1 36.3 81.1 81.1v29.801c0 44.8-36.3 81.1-81.1 81.1-21.5 0-42.2-8.6008-57.4-23.801l-72.201-72.199h0.10156l72.1-72.199c15.2-15.3 35.9-23.801 57.4-23.801z"/><path d="m38.8 5.1c-10.4-8.2-25.5-6.3-33.7 4.1s-6.3 25.5 4.1 33.7l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7c-601.7-472.17-317.2-248.63-592-464z"/></svg>
+					</span>
+					<span id="textLimitInfinityScroll" data-search="pagination"></span>
+					<label class="switch">
+						<input id="checkbox-limit-infinity-scroll" type="checkbox">
+						<span class="indicator"></span>
+					</label>
+					<div></div>
+					<p> Experimental. This won't necessarily reduce bandwidth usage, but should instead help prevent the page from becoming slow by stopping reddit from adding new posts until you click 'Load More' at the bottom of the feed. When you click 'Load More' it will clear the first 25 posts, and show the next 25.</p>
+				</li>
 			</ul>
 
 			<!-- Style Tweaks -->

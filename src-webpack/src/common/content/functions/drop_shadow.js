@@ -23,7 +23,7 @@ let addDropShadow = function(value) {
 				document.querySelector(".re-sidebar").firstChild.classList.add("re-drop-shadow-children");
 				document.querySelector(".re-post-container").classList.add("re-drop-shadow");
 			} else if (value == false) {
-				document.querySelector(".re-sidebar").classList.remove("re-drop-shadow-children");
+				document.querySelector(".re-sidebar").firstChild.classList.remove("re-drop-shadow-children");
 				document.querySelector(".re-post-container").classList.remove("re-drop-shadow");
 			}
 		} else if (link.indexOf("/search/") >= 0) { // search
@@ -34,6 +34,14 @@ let addDropShadow = function(value) {
 			} else if (value == false) {
 				document.querySelector(".re-sidebar").classList.remove("re-drop-shadow-children");
 				document.querySelector(".re-post-container").classList.remove("re-drop-shadow-children");
+			}
+		} else if (link.indexOf("/user/") >= 0) { // user
+			if (value == true) {
+				document.querySelector(".re-sidebar").firstChild.classList.add("re-drop-shadow-children");
+				document.querySelector(".re-feed-container").classList.add("re-drop-shadow-children");
+			} else if (value == false) {
+				document.querySelector(".re-sidebar").firstChild.classList.remove("re-drop-shadow-children");
+				document.querySelector(".re-feed-container").classList.remove("re-drop-shadow-children");
 			}
 		} else { // feed
 			if (value == true) {
@@ -81,11 +89,15 @@ let addDropShadow = function(value) {
 			}
 		}
 		// remove shadow from "back to top"
-		var buttons = document.querySelector(".re-sidebar").getElementsByTagName('button');
-		var lang = ['back to top','zurück nach oben','ir arriba','volver al principio','retourner en haut','retourner en haut','torna in cima','voltar ao topo']
-		for (var i = 0; i < buttons.length; i++) {
-			if (lang.includes(buttons[i].innerText.toLowerCase())) {
-				buttons[i].parentNode.parentNode.style.boxShadow = "none"
+		if (document.querySelector(".re-sidebar")) {
+			var buttons = document.querySelector(".re-sidebar").getElementsByTagName('button');
+			if (buttons) {
+				var lang = ['back to top','zurück nach oben','ir arriba','volver al principio','retourner en haut','retourner en haut','torna in cima','voltar ao topo']
+				for (var i = 0; i < buttons.length; i++) {
+					if (lang.includes(buttons[i].innerText.toLowerCase())) {
+						buttons[i].parentNode.parentNode.style.boxShadow = "none"
+					}
+				}
 			}
 		}
 	}

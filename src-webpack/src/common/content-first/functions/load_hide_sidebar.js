@@ -50,3 +50,48 @@ let loadHideSubSidebar = function() {
 	});
 }
 export { loadHideSubSidebar };
+
+
+// Hide Post Sidebar
+let loadHidePostSidebar = function() {
+	BROWSER_API.storage.sync.get(['hidePostSidebar'], function(result) {
+		var link = window.location.href
+		if (link.indexOf("old.reddit.com") >= 0) { // old reddit
+			// do nothing
+		} else {
+			if (result.hidePostSidebar == true) {
+				if (document.querySelector('.re-sidebar-post')) {
+					document.querySelector('.re-sidebar-post').classList.add('re-hide');
+				}
+			} else if (result.hidePostSidebar == false) {
+				if (document.querySelector('.re-sidebar-post')) {
+					document.querySelector('.re-sidebar-post').classList.remove('re-hide');
+				}
+			}
+		}
+	});
+}
+export { loadHidePostSidebar };
+
+
+// Hide User Sidebar
+let loadHideUserSidebar = function() {
+	BROWSER_API.storage.sync.get(['hideUserSidebar'], function(result) {
+		console.log(result.hideUserSidebar)
+		var link = window.location.href
+		if (link.indexOf("old.reddit.com") >= 0) { // old reddit
+			// do nothing
+		} else {
+			if (result.hideUserSidebar == true) {
+				if (document.querySelector('.re-sidebar-user')) {
+					document.querySelector('.re-sidebar-user').classList.add('re-hide');
+				}
+			} else if (result.hideUserSidebar == false) {
+				if (document.querySelector('.re-sidebar-user')) {
+					document.querySelector('.re-sidebar-user').classList.remove('re-hide');
+				}
+			}
+		}
+	});
+}
+export { loadHideUserSidebar };

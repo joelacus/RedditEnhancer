@@ -5,7 +5,7 @@ let alwaysShowRisingButton = function(value) {
 		// do nothing
 	} else { // new reddit
 		if ((typeof value == 'undefined')||(value == true)) {
-			if (link.indexOf("/comments/") <= 0) { // not post page
+			if ((link.indexOf("/comments/") <= 0)&&(link.indexOf("/user/") <= 0)) { // not post page
 				// hides overflow button
 				if (document.querySelector("#ListingSort--Overflow")) {
 					document.querySelector("#ListingSort--Overflow").parentNode.parentNode.style.display = "none"	

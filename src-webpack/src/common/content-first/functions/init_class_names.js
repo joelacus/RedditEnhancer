@@ -8,6 +8,8 @@ import { loadHideRedditPremium } from './load_hide_reddit_premium'
 import { loadExpandContent } from './load_expand_content'
 import { loadHideHomeSidebar } from './load_hide_sidebar'
 import { loadHideSubSidebar } from './load_hide_sidebar'
+import { loadHidePostSidebar } from './load_hide_sidebar'
+import { loadHideUserSidebar } from './load_hide_sidebar'
 import { loadHideCoinButton } from './load_hide_header_buttons'
 import { loadHidePopularButton } from './load_hide_header_buttons'
 import { loadHideHappeningNowButton } from './load_hide_header_buttons'
@@ -42,7 +44,14 @@ export function initClassNames() {
 			observerID();
 			observerHeaderButtons();
 			//observerFavBarFilter();
-		} else { // feed
+		} else if (link.indexOf("/user/") >= 0) { // user
+			console.log("user here")
+			observerUserFeedContainerAndFeed();
+			observerUserSidebar();
+			observerUserSort();
+			observerID();
+			observerHeaderButtons();
+		} else { // feed/sub
 			observerFeedContainerAndFeed();
 			observerSidebar();
 			observerCreatePost();
@@ -136,9 +145,10 @@ function observerPostSidebar() {
 		parent: document.querySelector('body'),
 		recursive: true,
 		done: function(el) {
-			el.parentNode.parentNode.classList.add('re-sidebar');
+			el.parentNode.parentNode.classList.add('re-sidebar', 're-sidebar-post');
 			loadHideGap();
 			loadDropShadow();
+			loadHidePostSidebar();
 		}
 	});
 }
@@ -450,6 +460,56 @@ function observerHeaderButtons() {
 		});
 	}
 }
+
+
+/* ===== User ===== */
+
+// Sort
+function observerUserSort() {
+	waitForAddedNode({
+		query: '.re-feed .icon-new_fill',
+		parent: document.querySelector('body'),
+		recursive: true,
+		done: function(el) {
+			el.parentNode.parentNode.parentNode.classList.add('re-sort');
+			loadStickySort();
+		}
+	});
+}
+
+
+// Sidebar User
+function observerUserSidebar() {
+	waitForAddedNode({
+		query: '.re-feed > div:nth-child(2)',
+		parent: document.querySelector('body'),
+		recursive: true,
+		done: function(el) {
+			console.log(el)
+			el.classList.add('re-sidebar', 're-sidebar-user');
+			loadHideUserSidebar();
+		}
+	});
+}
+
+
+// Feed Container And Feed
+function observerUserFeedContainerAndFeed() {
+	waitForAddedNode({
+		query: '.ListingLayout-outerContainer div[data-scroller-first=""]',
+		parent: document.querySelector('body'),
+		recursive: true,
+		done: function(el) {
+			el.parentElement.classList.add('re-feed-container');
+			el.parentElement.parentElement.parentElement.classList.add('re-feed');
+			loadExpandContent();
+			loadLayoutCentre();
+			loadHideGap();
+			loadDropShadow();
+		}
+	});
+}
+
 
 
 /* ===== Popular ===== */

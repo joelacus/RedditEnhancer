@@ -13,6 +13,32 @@ export function loadStyles() {
 	styleScrollText();
 	styleOldReddit();
 	styleModerniseOldReddit();
+	stylePagination();
+	styleLoadMore();
+}
+
+
+function styleLoadMore() {
+	// Create new style element
+	const style = document.createElement('style');
+	style.textContent = `.re-load-more {
+							width: 100%;
+							height: 30px;
+							text-align: center;
+						}`
+	// Append style element to the head
+	document.head.insertBefore(style, document.head.firstChild);
+}
+
+
+function stylePagination() {
+	// Create new style element
+	const style = document.createElement('style');
+	style.textContent = `.re-post.hide {
+							display: none;
+						}`
+	// Append style element to the head
+	document.head.insertBefore(style, document.head.firstChild);
 }
 
 function styleModerniseOldReddit() {

@@ -16,6 +16,7 @@ import { textPostScroll } from './functions/text_post_scroll'
 import { hideSeeFullImage } from './functions/hide_see_full_image'
 import { moderniseOldReddit } from './functions/modernise_old_reddit'
 import { autoExpandValue } from './functions/auto_expand_value'
+import { limitInfinityScroll } from './functions/limit_infinity_scroll'
 //import { headerHeight } from './content-functions'
 //import { expandPostOptions } from './functions/expand_post_options'
 
@@ -73,10 +74,14 @@ export function load_saves() {
 	BROWSER_API.storage.sync.get(['moderniseOldReddit'], function(result) {
 		moderniseOldReddit(result.moderniseOldReddit);
 	});
-	// Auto Expand Feed/Post To 100% At Value
-	BROWSER_API.storage.sync.get(['autoExpandValue'], function(result) {
-		autoExpandValue(result.autoExpandValue);
+	// Limit Infinity Scroll
+	BROWSER_API.storage.sync.get(['limitInfinityScroll'], function(result) {
+		limitInfinityScroll(result.limitInfinityScroll);
 	});
+	// Expand Post Options
+	/*BROWSER_API.storage.sync.get(['expandPostOptions'], function(result) {
+		expandPostOptions(result.expandPostOptions);
+	});*/
 	// Header Height
 	/*BROWSER_API.storage.sync.get(['headerHeight'], function(result) {
 		headerHeight(result.headerHeight);

@@ -360,6 +360,40 @@ function restoreOptions() {
 		console.log("Hide Sub Sidebar: "+value)
 	}
 
+	// Hide Post Sidebar
+	BROWSER_API.storage.sync.get(['hidePostSidebar'], function(result) {
+		setHidePostSidebar(result)
+	});
+	function setHidePostSidebar(result) {
+		if (result.hidePostSidebar == true) {
+			document.querySelector("#checkbox-hide-post-sidebar").checked = true
+			document.querySelector(".icon-hide-post-sidebar").style.color = "var(--accent)"
+			document.querySelector(".icon-hide-elements").style.color = "var(--accent)"
+			var value = true
+		} else if ((typeof result.hidePostSidebar == 'undefined')||(result.hidePostSidebar == false)) {
+			document.querySelector("#checkbox-hide-post-sidebar").checked = false
+			var value = false
+		}
+		console.log("Hide Post Sidebar: "+value)
+	}
+
+	// Hide User Sidebar
+	BROWSER_API.storage.sync.get(['hideUserSidebar'], function(result) {
+		setHideUserSidebar(result)
+	});
+	function setHideUserSidebar(result) {
+		if (result.hideUserSidebar == true) {
+			document.querySelector("#checkbox-hide-user-sidebar").checked = true
+			document.querySelector(".icon-hide-user-sidebar").style.color = "var(--accent)"
+			document.querySelector(".icon-hide-elements").style.color = "var(--accent)"
+			var value = true
+		} else if ((typeof result.hideUserSidebar == 'undefined')||(result.hideUserSidebar == false)) {
+			document.querySelector("#checkbox-hide-user-sidebar").checked = false
+			var value = false
+		}
+		console.log("Hide User Sidebar: "+value)
+	}
+
 	// Hide Sidebar Policy
 	BROWSER_API.storage.sync.get(['hideSidebarPolicy'], function(result) {
 		setHideSidebarPolicy(result)
@@ -952,6 +986,26 @@ function restoreOptions() {
 			var value = 1000
 		}
 		console.log("Expand Post/Feed To 100% At Width: "+value+"px")
+	}
+
+
+	// Limit Infinity Scroll
+	BROWSER_API.storage.sync.get(['limitInfinityScroll'], function(result) {
+		setLimitInfinityScroll(result)
+	});
+	function setLimitInfinityScroll(result) {
+		if (result.limitInfinityScroll == true) {
+			document.querySelector("#checkbox-limit-infinity-scroll").checked = true
+			document.querySelector(".icon-limit-infinity-scroll .icon").style.display = "none"
+			document.querySelector(".icon-limit-infinity-scroll .icon-slash").style.display = ""
+			document.querySelector(".icon-limit-infinity-scroll").style.fill = "var(--accent)"
+			document.querySelector(".icon-productivity-tweaks").style.color = "var(--accent)"
+			var value = true
+		} else if ((typeof result.limitInfinityScroll == 'undefined')||(result.limitInfinityScroll == false)) {
+			document.querySelector("#checkbox-limit-infinity-scroll").checked = false
+			var value = false
+		}
+		console.log("Limit Infinity Scroll: "+value)
 	}
 
 

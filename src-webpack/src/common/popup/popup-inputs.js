@@ -793,6 +793,64 @@ document.querySelector("#checkbox-hide-sub-sidebar").addEventListener("change", 
 });
 
 
+// Toggle - Hide Post Sidebar
+document.querySelector("#checkbox-hide-post-sidebar").addEventListener("change", function(e) {
+	var hidePostSidebar = document.querySelector("#checkbox-hide-post-sidebar").checked
+	if (hidePostSidebar == true) {
+		BROWSER_API.storage.sync.set({hidePostSidebar: true});
+		document.querySelector(".icon-hide-post-sidebar").style.color = "var(--accent)"
+		BROWSER_API.tabs.query({currentWindow: true}, function (tabs){
+			tabs.forEach(function(tab){
+				if ((tab.url.match('https:\/\/.*.reddit.com\/.*'))&&(tab.discarded == false)) {
+					BROWSER_API.tabs.sendMessage(tab.id, {hidePostSidebar: true});
+					BROWSER_API.tabs.sendMessage(tab.id, {loadSaves: true});
+				};
+			});
+		});
+	} else if (hidePostSidebar == false) {
+		BROWSER_API.storage.sync.set({hidePostSidebar: false});
+		document.querySelector(".icon-hide-post-sidebar").style.color = ""
+		BROWSER_API.tabs.query({currentWindow: true}, function (tabs){
+			tabs.forEach(function(tab){
+				if ((tab.url.match('https:\/\/.*.reddit.com\/.*'))&&(tab.discarded == false)) {
+					BROWSER_API.tabs.sendMessage(tab.id, {hidePostSidebar: false});
+					BROWSER_API.tabs.sendMessage(tab.id, {loadSaves: true});
+				};
+			});
+		});
+	}
+});
+
+
+// Toggle - Hide User Sidebar
+document.querySelector("#checkbox-hide-user-sidebar").addEventListener("change", function(e) {
+	var hideUserSidebar = document.querySelector("#checkbox-hide-user-sidebar").checked
+	if (hideUserSidebar == true) {
+		BROWSER_API.storage.sync.set({hideUserSidebar: true});
+		document.querySelector(".icon-hide-user-sidebar").style.color = "var(--accent)"
+		BROWSER_API.tabs.query({currentWindow: true}, function (tabs){
+			tabs.forEach(function(tab){
+				if ((tab.url.match('https:\/\/.*.reddit.com\/.*'))&&(tab.discarded == false)) {
+					BROWSER_API.tabs.sendMessage(tab.id, {hideUserSidebar: true});
+					BROWSER_API.tabs.sendMessage(tab.id, {loadSaves: true});
+				};
+			});
+		});
+	} else if (hideUserSidebar == false) {
+		BROWSER_API.storage.sync.set({hideUserSidebar: false});
+		document.querySelector(".icon-hide-user-sidebar").style.color = ""
+		BROWSER_API.tabs.query({currentWindow: true}, function (tabs){
+			tabs.forEach(function(tab){
+				if ((tab.url.match('https:\/\/.*.reddit.com\/.*'))&&(tab.discarded == false)) {
+					BROWSER_API.tabs.sendMessage(tab.id, {hideUserSidebar: false});
+					BROWSER_API.tabs.sendMessage(tab.id, {loadSaves: true});
+				};
+			});
+		});
+	}
+});
+
+
 // Toggle - Hide Sidebar Policy
 document.querySelector("#checkbox-hide-sidebar-policy").addEventListener("change", function(e) {
 	var hideSidebarPolicy = document.querySelector("#checkbox-hide-sidebar-policy").checked
@@ -1652,4 +1710,35 @@ document.querySelector('#auto-expand-value').addEventListener('keyup', function(
 			};
 		});
 	});
+});
+
+
+// Toggle - Limit Infinity Scroll
+document.querySelector("#checkbox-limit-infinity-scroll").addEventListener("change", function(e) {
+	var limitInfinityScroll = document.querySelector("#checkbox-limit-infinity-scroll").checked
+	if (limitInfinityScroll == true) {
+		BROWSER_API.storage.sync.set({limitInfinityScroll: true});
+		document.querySelector(".icon-limit-infinity-scroll .icon").style.display = "none"
+		document.querySelector(".icon-limit-infinity-scroll .icon-slash").style.display = ""
+		document.querySelector(".icon-limit-infinity-scroll").style.fill = "var(--accent)"
+		BROWSER_API.tabs.query({currentWindow: true}, function (tabs){
+			tabs.forEach(function(tab){
+				if ((tab.url.match('https:\/\/.*.reddit.com\/.*'))&&(tab.discarded == false)) {
+					BROWSER_API.tabs.sendMessage(tab.id, {limitInfinityScroll: true});
+				};
+			});
+		});
+	} else if (limitInfinityScroll == false) {
+		BROWSER_API.storage.sync.set({limitInfinityScroll: false});
+		document.querySelector(".icon-limit-infinity-scroll .icon").style.display = ""
+		document.querySelector(".icon-limit-infinity-scroll .icon-slash").style.display = "none"
+		document.querySelector(".icon-limit-infinity-scroll").style.fill = ""
+		BROWSER_API.tabs.query({currentWindow: true}, function (tabs){
+			tabs.forEach(function(tab){
+				if ((tab.url.match('https:\/\/.*.reddit.com\/.*'))&&(tab.discarded == false)) {
+					BROWSER_API.tabs.sendMessage(tab.id, {limitInfinityScroll: false});
+				};
+			});
+		});
+	}
 });
