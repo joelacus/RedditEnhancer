@@ -33,6 +33,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Sticky Sort|This keeps the feed sort options "Best, Hot, New, etc" at the top even when you scroll down the page.|New/Old|
 |Hide The Home Sidebar|Hides the sidebar on the reddit home page.|New/Old|
 |Hide The Sub Reddit Sidebar|Hides the sidebar on sub reddit pages.|New|
+|Hide The Post Sidebar|Hides the sidebar on post pages.|New|
+|Hide The User Sidebar|Hides the sidebar on profile/user pages.|New|
 |Hide Reddit Premium|Hides the reddit premium section in the sidebar.|New/Old|
 |Hide Policies Section|Hides the content/privacy policy section in the sidebar.|New|
 |Hide Get New Reddit|Hides the "Get New Reddit" button on old reddit.|Old|
@@ -53,6 +55,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Limit Post Comments|Limit the number of comments on a post, when opened in a dedicated tab/window.|New/Old|
 |Custom Background|Add a custom background to the webpage. You can paste and store multiple image links.|New/Old|
 |Blur Background|Adds a blur filter to the custom background image.|New/Old|
+|Limit Infinity Scroll|This will limit the infinity scroll to show only 25 posts at a time. When you click 'Load More' at the bottom of the feed, it will clear the first 25 posts and show the next 25.|New|
 
 ## Build
 Clone repo and cd to build directory:
