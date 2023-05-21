@@ -1,4 +1,7 @@
 version 0.15.0
+- Bug fix.
+
+version 0.15.0
 - Added an option to open posts in a new tab.
 - Added an option to show the 'Controversial' sort button.
 - Added an option to set a default feed sort option.

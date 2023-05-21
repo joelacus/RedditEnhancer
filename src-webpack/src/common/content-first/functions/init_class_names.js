@@ -314,7 +314,7 @@ function observerRedditPremium() {
 		});
 	} else { // new reddit
 		waitForAddedNode({
-			query: '.icon-premium_fill',
+			query: '.re-sidebar .icon-premium_fill',
 			parent: document.querySelector('body'),
 			recursive: true,
 			done: function(el) {
