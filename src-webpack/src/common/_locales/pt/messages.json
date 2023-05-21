@@ -273,5 +273,25 @@
 
   "textAutoExpand": {
     "message": "Expanda para 100% se a largura da janela/tela for menor que:"
+  },
+
+  "textHidePostSidebar": {
+    "message": "Ocultar a barra lateral do post"
+  },
+
+  "textHideUserSidebar": {
+    "message": "Ocultar a barra lateral do usuário"
+  },
+
+  "textLimitInfinityScroll": {
+    "message": "Limitar Rolagem Infinita"
+  },
+
+  "textOpenPostInNewTab": {
+    "message": "Abrir links para postagens em uma nova guia"
+  },
+
+  "textControversialSort": {
+    "message": "Mostrar o botão de classificação “Polêmicos”"
   }
 }

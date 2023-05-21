@@ -1,3 +1,10 @@
+version 0.15.0
+- Added an option to open posts in a new tab.
+- Added an option to show the 'Controversial' sort button.
+- Added an option to set a default feed sort option.
+- Added an option to set a default comments sort option.
+- Bug fixes and improvements.
+
 version 0.14.0
 - This add-on no longer requires the webNavigation permission to function and has been removed.
 - Added an option to limit the infinity scroll to show only 25 posts at a time.

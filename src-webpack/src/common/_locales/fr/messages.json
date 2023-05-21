@@ -240,7 +240,7 @@
   },
 
   "textHideNotificationButton": {
-    "message": "Masquer le bouton « Notification« "
+    "message": "Masquer le bouton « Notification »"
   },
 
   "textMoveFeedToTopInSidemenu": {
@@ -277,5 +277,25 @@
 
   "textAutoExpand": {
     "message": "Agrandir à 100% si la largeur de la fenêtre/de l'écran est inférieure à:"
+  },
+
+  "textHidePostSidebar": {
+    "message": "Masquer la barre latérale de la page publication"
+  },
+
+  "textHideUserSidebar": {
+    "message": "Masquer la barre latérale de la page utilisateur"
+  },
+
+  "textLimitInfinityScroll": {
+    "message": "Limiter le défilement infini"
+  },
+
+  "textOpenPostInNewTab": {
+    "message": "Ouvrir les liens vers les publications dans un nouvel onglet"
+  },
+
+  "textControversialSort": {
+    "message": "Afficher le bouton de tri «Controversés»"
   }
 }

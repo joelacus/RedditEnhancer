@@ -7,6 +7,7 @@ import { alwaysShowRisingButton } from './functions/always_show_rising'
 import { fitImage } from './functions/image_options'
 import { imageScroll } from './functions/image_options'
 import { openSubInNewTab } from './functions/open_sub_links_in_new_tab'
+import { openPostInNewTab } from './functions/open_post_links_in_new_tab'
 import { hidePromoted } from './functions/hide_promoted'
 import { showToTopButton } from './functions/scroll_to_top'
 import { showAllButton } from './functions/show_r_all_button'
@@ -17,6 +18,7 @@ import { hideSeeFullImage } from './functions/hide_see_full_image'
 import { moderniseOldReddit } from './functions/modernise_old_reddit'
 import { autoExpandValue } from './functions/auto_expand_value'
 import { limitInfinityScroll } from './functions/limit_infinity_scroll'
+import { showControversialSortButton } from './functions/show_controversial_sort_button'
 //import { headerHeight } from './content-functions'
 //import { expandPostOptions } from './functions/expand_post_options'
 
@@ -29,6 +31,10 @@ export function load_saves() {
 	// Always Show Rising Button
 	BROWSER_API.storage.sync.get(['alwaysShowRisingButton'], function(result) {
 		alwaysShowRisingButton(result.alwaysShowRisingButton);
+	});
+	// Show Controversial Sort Button
+	BROWSER_API.storage.sync.get(['showControversialSortButton'], function(result) {
+		showControversialSortButton(result.showControversialSortButton);
 	});
 	// Scale Tall Images
 	BROWSER_API.storage.sync.get(['fitImage'], function(result) {
@@ -49,6 +55,10 @@ export function load_saves() {
 	// Open Sub Links In New Tab
 	BROWSER_API.storage.sync.get(['openSubInNewTab'], function(result) {
 		openSubInNewTab(result.openSubInNewTab);
+	});
+	// Open Post Links In New Tab
+	BROWSER_API.storage.sync.get(['openPostInNewTab'], function(result) {
+		openPostInNewTab(result.openPostInNewTab);
 	});
 	// Show To Top Button
 	BROWSER_API.storage.sync.get(['showToTopButton'], function(result) {
@@ -85,10 +95,6 @@ export function load_saves() {
 	// Header Height
 	/*BROWSER_API.storage.sync.get(['headerHeight'], function(result) {
 		headerHeight(result.headerHeight);
-	});*/
-	// Expand Post Options
-	/*BROWSER_API.storage.sync.get(['expandPostOptions'], function(result) {
-		expandPostOptions(result.expandPostOptions);
 	});*/
 }
 load_saves();

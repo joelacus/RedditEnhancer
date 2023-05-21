@@ -277,5 +277,25 @@
 
   "textAutoExpand": {
     "message": "Розширити до 100%, якщо ширина вікна/екрана менша:"
+  },
+
+  "textHidePostSidebar": {
+    "message": "Приховати бічну панель публікації"
+  },
+
+  "textHideUserSidebar": {
+    "message": "Приховати бічну панель користувача"
+  },
+
+  "textLimitInfinityScroll": {
+    "message": "Обмеження нескінченності прокручування"
+  },
+
+  "textOpenPostInNewTab": {
+    "message": "Відкрийте посилання на публікації в новій вкладці"
+  },
+
+  "textControversialSort": {
+    "message": "Показати кнопку «Суперечливе» сортування"
   }
 }

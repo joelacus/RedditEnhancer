@@ -4,9 +4,9 @@ let textPostScroll = function(value) {
 		// do nothing
 	} else { // new reddit
 		if ((value == true)||(value == undefined)) {
-			document.querySelector('body').classList.add('re-text-scroll');
+			document.body.classList.add('re-text-scroll');
 		} else if (value == false) {
-			document.querySelector('body').classList.remove('re-text-scroll');
+			document.body.classList.remove('re-text-scroll');
 		}
 	}
 }

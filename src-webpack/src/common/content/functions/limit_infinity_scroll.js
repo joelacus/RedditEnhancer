@@ -1,8 +1,6 @@
 let limitInfinityScroll = function(value) {
 	var link = window.location.href
-	if (link.indexOf("old.reddit.com") >= 0) { // old reddit
-		// do nothing
-	} else { // new reddit
+	if ((link.indexOf("old.reddit.com") <= 0)&&(link.indexOf('/comments/') <= 0)&&(link.indexOf('/settings/') <= 0)&&(link.indexOf('/user/') <= 0)) { // new reddit, not post, not settings, not user
 		if (value == true) {
 			// start observer and hide all posts
 			postObserver(true);
@@ -10,7 +8,6 @@ let limitInfinityScroll = function(value) {
 			// show the first batch of hidden posts
 			const hiddenPosts = document.querySelectorAll('.re-post.hide');
 			for (let i = 0; i < 25 && i < hiddenPosts.length; i++) {
-				console.log(hiddenPosts[i])
 				hiddenPosts[i].classList.remove('hide');
 			}
 
@@ -61,7 +58,9 @@ let limitInfinityScroll = function(value) {
 				post.classList.remove('hide');
 			});
 			// remove load more button
-			document.querySelector('.re-load-more').remove();
+			if (document.querySelector('.re-load-more')) {
+				document.querySelector('.re-load-more').remove();
+			}
 		}
 	}
 }
@@ -87,9 +86,7 @@ const observer = new MutationObserver(function(mutations_list) {
 	mutations_list.forEach(mutation => {
 		if (mutation.addedNodes.length) {
 			const currentItems = feedContainer.childElementCount;
-			console.log(currentItems)
 			if (currentItems >= maxItems) {
-				console.log("remove node")
 				mutation.addedNodes.forEach(node => {
 					node.remove();
 				});
@@ -100,7 +97,6 @@ const observer = new MutationObserver(function(mutations_list) {
 			divs.forEach(function(div) {
 				// remove if div is empty
 				if (div.innerHTML === "") {
-					console.log("remove div")
 					div.remove();
 				}
 			});

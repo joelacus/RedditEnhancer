@@ -181,6 +181,12 @@
 	font-size: 25px;
 	content: "\f086";
 }
+.icon-sort:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	font-size: 25px;
+	content: "\f160";
+}
 /*.icon-text:before {
 	font-family: 'Font Awesome 6 Free';
 	font-weight: 900;

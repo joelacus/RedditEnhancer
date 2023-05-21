@@ -77,7 +77,6 @@ export { loadHidePostSidebar };
 // Hide User Sidebar
 let loadHideUserSidebar = function() {
 	BROWSER_API.storage.sync.get(['hideUserSidebar'], function(result) {
-		console.log(result.hideUserSidebar)
 		var link = window.location.href
 		if (link.indexOf("old.reddit.com") >= 0) { // old reddit
 			// do nothing

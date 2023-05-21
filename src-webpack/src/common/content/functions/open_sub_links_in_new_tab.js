@@ -1,4 +1,4 @@
-// Hide Create Post
+// Open links to subreddit in new tab
 let openSubInNewTab = function(value) {
 	var link = window.location.href
 	if (link.indexOf("old.reddit.com") >= 0) { // old reddit

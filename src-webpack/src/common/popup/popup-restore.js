@@ -730,6 +730,26 @@ function restoreOptions() {
 	}
 
 
+	// Show Controversial Sort Button
+	BROWSER_API.storage.sync.get(['showControversialSortButton'], function(result) {
+		setShowControversialSortButton(result)
+	});
+	function setShowControversialSortButton(result) {
+		if (result.showControversialSortButton == true) {
+			document.querySelector("#checkbox-controversial-sort-button").checked = true
+			document.querySelector(".icon-controversial-sort-button .icon").style.display = "none"
+			document.querySelector(".icon-controversial-sort-button .icon-slash").style.display = ""
+			document.querySelector(".icon-controversial-sort-button").style.fill = "var(--accent)"
+			document.querySelector(".icon-productivity-tweaks").style.color = "var(--accent)"
+			var value = true
+		} else if ((typeof result.showControversialSortButton == 'undefined')||(result.showControversialSortButton == false)) {
+			document.querySelector("#checkbox-controversial-sort-button").checked = false
+			var value = false
+		}
+		console.log("Show Controversial Sort Button: "+value)
+	}
+
+
 	// Hide Get New Reddit
 	BROWSER_API.storage.sync.get(['hideGetNewReddit'], function(result) {
 		setHideGetNewReddit(result)
@@ -763,6 +783,24 @@ function restoreOptions() {
 			var value = false
 		}
 		console.log("Open Sub Links In New Tab: "+value)
+	}
+
+
+	// Open Post Links In New Tab
+	BROWSER_API.storage.sync.get(['openPostInNewTab'], function(result) {
+		setOPostPostInNewTab(result)
+	});
+	function setOPostPostInNewTab(result) {
+		if (result.openPostInNewTab == true) {
+			document.querySelector("#checkbox-open-post-new-tab").checked = true
+			document.querySelector(".open-post-new-tab").style.color = "var(--accent)"
+			document.querySelector(".icon-productivity-tweaks").style.color = "var(--accent)"
+			var value = true
+		} else if ((typeof result.openPostInNewTab == 'undefined')||(result.openPostInNewTab == false)) {
+			document.querySelector("#checkbox-open-post-new-tab").checked = false
+			var value = false
+		}
+		console.log("Open Post Links In New Tab: "+value)
 	}
 
 
@@ -1006,6 +1044,82 @@ function restoreOptions() {
 			var value = false
 		}
 		console.log("Limit Infinity Scroll: "+value)
+	}
+
+
+	// Enable Default Feed Sort Option
+	BROWSER_API.storage.sync.get(['enableDefaultFeedSortOption'], function(result) {
+		setEnableDefaultFeedSortOption(result)
+	});
+	function setEnableDefaultFeedSortOption(result) {
+		if (result.enableDefaultFeedSortOption == true) {
+			document.querySelector("#checkbox-default-feed-sort-option").checked = true
+			document.querySelector(".icon-default-feed-sort-option").style.color = "var(--accent)"
+			document.querySelector(".icon-productivity-tweaks").style.color = "var(--accent)"
+			var value = true
+		} else if ((typeof result.enableDefaultFeedSortOption == 'undefined')||(result.enableDefaultFeedSortOption == false)) {
+			document.querySelector("#checkbox-default-feed-sort-option").checked = false
+			var value = false
+		}
+		console.log("Enable Default Feed Sort Option: "+value)
+	}
+
+
+	// Default Feed Sort Option
+	BROWSER_API.storage.sync.get(['defaultFeedSortOption'], function(result) {
+		setDefaultFeedSortOption(result)
+	});
+	function setDefaultFeedSortOption(result) {
+		setTimeout(function() { // delay for translation
+			if (typeof result.defaultFeedSortOption != 'undefined') {
+				const text = document.querySelector('#feed-sort-'+result.defaultFeedSortOption).textContent;
+				document.querySelector("#select-feed-sort-option .select").querySelector('span').textContent = text;
+				var value = result.defaultFeedSortOption
+			} else if (typeof result.defaultFeedSortOption == 'undefined') {
+				const text = document.querySelector('#feed-sort-best').textContent;
+				document.querySelector("#select-feed-sort-option .select").querySelector('span').textContent = text;
+				var value = "best"
+			}
+			console.log("Default Feed Sort Option: "+value)
+		},500);
+	}	
+
+
+	// Enable Default Comments Sort Option
+	BROWSER_API.storage.sync.get(['enableDefaultCommentsSortOption'], function(result) {
+		setEnableDefaultCommentsSortOption(result)
+	});
+	function setEnableDefaultCommentsSortOption(result) {
+		if (result.enableDefaultCommentsSortOption == true) {
+			document.querySelector("#checkbox-default-comments-sort-option").checked = true
+			document.querySelector(".icon-default-comments-sort-option").style.color = "var(--accent)"
+			document.querySelector(".icon-productivity-tweaks").style.color = "var(--accent)"
+			var value = true
+		} else if ((typeof result.enableDefaultCommentsSortOption == 'undefined')||(result.enableDefaultCommentsSortOption == false)) {
+			document.querySelector("#checkbox-default-comments-sort-option").checked = false
+			var value = false
+		}
+		console.log("Enable Default Comments Sort Option: "+value)
+	}
+
+
+	// Default Comments Sort Option
+	BROWSER_API.storage.sync.get(['defaultCommentsSortOption'], function(result) {
+		setDefaultCommentsSortOption(result)
+	});
+	function setDefaultCommentsSortOption(result) {
+		setTimeout(function() { // delay for translation
+			if (typeof result.defaultCommentsSortOption != 'undefined') {
+				const text = document.querySelector('#comments-sort-'+result.defaultCommentsSortOption).textContent;
+				document.querySelector("#select-comments-sort-option .select").querySelector('span').textContent = text;
+				var value = result.defaultCommentsSortOption
+			} else if (typeof result.defaultCommentsSortOption == 'undefined') {
+				const text = document.querySelector('#comments-sort-best').textContent;
+				document.querySelector("#select-comments-sort-option .select").querySelector('span').textContent = text;
+				var value = "best"
+			}
+			console.log("Default Comments Sort Option: "+value)
+		},500);
 	}
 
 

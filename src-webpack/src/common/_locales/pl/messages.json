@@ -277,5 +277,25 @@
 
   "textAutoExpand": {
     "message": "Rozwiń do 100%, jeśli szerokość okna/ekranu jest mniejsza niż:"
+  },
+
+  "textHidePostSidebar": {
+    "message": "Ukryj pasek boczny posta"
+  },
+
+  "textHideUserSidebar": {
+    "message": "Ukryj pasek boczny użytkownika"
+  },
+
+  "textLimitInfinityScroll": {
+    "message": "Ogranicz nieskończone przewijanie"
+  },
+
+  "textOpenPostInNewTab": {
+    "message": "Otwórz linki do postów w nowej karcie"
+  },
+
+  "textControversialSort": {
+    "message": "Mostrar o botão de classificação „Controverso”"
   }
 }

@@ -276,6 +276,26 @@
   },
 
   "textAutoExpand": {
-    "message": "Auf 100 % erweitern, wenn die Fenster-/Bildschirmbreite kleiner ist als:"
+    "message": "Auf 100% erweitern, wenn die Fenster-/Bildschirmbreite kleiner ist als:"
+  },
+
+  "textHidePostSidebar": {
+    "message": "Blenden Sie die Seitenleiste des Beitrags aus"
+  },
+
+  "textHideUserSidebar": {
+    "message": "Blenden Sie die Benutzerseitenleiste aus"
+  },
+
+  "textLimitInfinityScroll": {
+    "message": "Begrenzen Sie das unendliche Scrollen"
+  },
+
+  "textOpenPostInNewTab": {
+    "message": "Öffnen Sie Links zu Beiträgen in einem neuen Tab"
+  },
+
+  "textControversialSort": {
+    "message": "Zeigen Sie die Sortierschaltfläche „Kontrovers“ an"
   }
 }

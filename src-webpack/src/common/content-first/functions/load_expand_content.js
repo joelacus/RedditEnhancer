@@ -109,50 +109,72 @@ let loadLayoutCentre = function() {
 			var main_elms = document.querySelector("#AppRouter-main-content").childElementCount;
 			if (result.layoutCentre == true) {
 				var link = window.location.href
-				if (link.indexOf("/comments/") <= 0) { //home and sub
-					document.querySelector('.re-feed').classList.remove('re-centre-feed-1','re-centre-feed-2','re-centre-feed-3');
-					if ((link.indexOf("reddit.com/r/all") >= 0)||(link.indexOf("reddit.com/r/popular") >= 0)||(link.indexOf("reddit.com/r/") <= 0)) { // r/all, popular and home
-						BROWSER_API.storage.sync.get(['hideHomeSidebar'], function(result) {
-							if (main_elms == 2) {
-								if (result.hideHomeSidebar === true) {
-									document.querySelector('.re-feed').classList.add('re-centre-feed-3');
-								} else {
-									document.querySelector('.re-feed').classList.add('re-centre-feed-2');
-								}
-							} else {
-								if (result.hideHomeSidebar === true) {
-									//document.querySelector('.re-feed').classList.add('re-centre-feed-2');
-								} else {
-									document.querySelector('.re-feed').classList.add('re-centre-feed-1');
-								}
-							}
-						});
-					} else { // sub
-						BROWSER_API.storage.sync.get(['hideSubSidebar'], function(result) {
-							if (main_elms == 2) {
-								if (result.hideSubSidebar === true) {
-									document.querySelector('.re-feed').classList.add('re-centre-feed-3');
-								} else {
-									document.querySelector('.re-feed').classList.add('re-centre-feed-2');
-								}
-							} else {
-								if (result.hideSubSidebar === true) {
-									//document.querySelector('.re-feed').classList.add('re-centre-feed-2');
-								} else {
-									document.querySelector('.re-feed').classList.add('re-centre-feed-1');
-								}
-							}
-						});
-					}
-				} else { // post
-					if (!document.querySelector('#overlayScrollContainer')) {
-						document.querySelector('.re-feed').classList.remove('re-centre-feed-1','re-centre-feed-2','re-centre-feed-3');
+				document.querySelector('.re-feed').classList.remove('re-centre-feed-1','re-centre-feed-2','re-centre-feed-3');
+				if (link.indexOf("reddit.com/user/") >= 0) { // user
+					BROWSER_API.storage.sync.get(['hideUserSidebar'], function(result) {
 						if (main_elms == 2) {
-							document.querySelector('.re-feed').classList.add('re-centre-feed-2');
+							if (result.hideUserSidebar === true) {
+								document.querySelector('.re-feed').classList.add('re-centre-feed-3');
+							} else {
+								document.querySelector('.re-feed').classList.add('re-centre-feed-2');
+							}
 						} else {
-							document.querySelector('.re-feed').classList.add('re-centre-feed-1');
+							if (result.hideUserSidebar === true) {
+								//
+							} else {
+								document.querySelector('.re-feed').classList.add('re-centre-feed-1');
+							}
 						}
-					}
+					});
+				} else if (link.indexOf("/comments/") >= 0) { // post
+					document.querySelector('.re-feed').classList.remove('re-centre-feed-1','re-centre-feed-2','re-centre-feed-3');
+					BROWSER_API.storage.sync.get(['hidePostSidebar'], function(result) {
+						if (main_elms == 2) {
+							if (result.hidePostSidebar === true) {
+								document.querySelector('.re-feed').classList.add('re-centre-feed-3');
+							} else {
+								document.querySelector('.re-feed').classList.add('re-centre-feed-2');
+							}
+						} else {
+							if (result.hidePostSidebar === true) {
+								//
+							} else {
+								document.querySelector('.re-feed').classList.add('re-centre-feed-1');
+							}
+						}
+					});
+				} else if ((link.indexOf("reddit.com/r/popular") >= 0)||(link.indexOf("reddit.com/r/all") >= 0)||(link.indexOf("reddit.com/r/") <= 0)) { // r/all, r/popular, home
+					BROWSER_API.storage.sync.get(['hideHomeSidebar'], function(result) {
+						if (main_elms == 2) {
+							if (result.hideHomeSidebar === true) {
+								document.querySelector('.re-feed').classList.add('re-centre-feed-3');
+							} else {
+								document.querySelector('.re-feed').classList.add('re-centre-feed-2');
+							}
+						} else {
+							if (result.hideHomeSidebar === true) {
+								//
+							} else {
+								document.querySelector('.re-feed').classList.add('re-centre-feed-1');
+							}
+						}
+					});
+				} else if (link.indexOf("reddit.com/r/") >= 0) { // sub
+					BROWSER_API.storage.sync.get(['hideSubSidebar'], function(result) {
+						if (main_elms == 2) {
+							if (result.hideSubSidebar === true) {
+								document.querySelector('.re-feed').classList.add('re-centre-feed-3');
+							} else {
+								document.querySelector('.re-feed').classList.add('re-centre-feed-2');
+							}
+						} else {
+							if (result.hideSubSidebar === true) {
+								//
+							} else {
+								document.querySelector('.re-feed').classList.add('re-centre-feed-1');
+							}
+						}
+					});
 				}
 				startObserver();
 			} else if (result.layoutCentre == false) {

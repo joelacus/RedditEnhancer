@@ -7,9 +7,9 @@ let newPlayer = function(value) {
 		// do nothing
 	} else { // new reddit
 		if (value == true) {
-			videoObserver(true)
+			videoObserver(true);
 		} else if (value == false) {
-			videoObserver(false)
+			videoObserver(false);
 		}
 	}
 }

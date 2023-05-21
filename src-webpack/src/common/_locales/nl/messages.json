@@ -277,5 +277,25 @@
 
   "textAutoExpand": {
     "message": "Uitbreiden tot 100% als de venster-/schermbreedte kleiner is dan:"
+  },
+
+  "textHidePostSidebar": {
+    "message": "Verberg de berichtzijbalk"
+  },
+
+  "textHideUserSidebar": {
+    "message": "Verberg de gebruikerszijbalk"
+  },
+
+  "textLimitInfinityScroll": {
+    "message": "Beperk oneindig scrollen"
+  },
+
+  "textOpenPostInNewTab": {
+    "message": "Links openen om op een nieuw tabblad te posten"
+  },
+
+  "textControversialSort": {
+    "message": "Toon de “Controversiële” sorteerknop"
   }
 }

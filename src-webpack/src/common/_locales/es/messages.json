@@ -277,5 +277,25 @@
 
   "textAutoExpand": {
     "message": "Expanda al 100 % si el ancho de la ventana/pantalla es inferior a:"
+  },
+
+  "textHidePostSidebar": {
+    "message": "Ocultar la barra lateral de la publicación"
+  },
+
+  "textHideUserSidebar": {
+    "message": "Ocultar la barra lateral del usuario"
+  },
+
+  "textLimitInfinityScroll": {
+    "message": "Límite de desplazamiento infinito"
+  },
+
+  "textOpenPostInNewTab": {
+    "message": "Abrir enlaces a publicaciones en una nueva pestaña"
+  },
+
+  "textControversialSort": {
+    "message": "Mostrar o botão de classificação “Más polémicos”"
   }
 }

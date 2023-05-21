@@ -37,6 +37,7 @@ import { stickySort } from './functions/sticky_sort'
 import { hideGetNewReddit } from './functions/hide_get_new_reddit'
 import { hideSidebarPolicy } from './functions/hide_sidebar_policy'
 import { openSubInNewTab } from './functions/open_sub_links_in_new_tab'
+import { openPostInNewTab } from './functions/open_post_links_in_new_tab'
 import { hidePromoted } from './functions/hide_promoted'
 import { showToTopButton } from './functions/scroll_to_top'
 import { showAllButton } from './functions/show_r_all_button'
@@ -49,6 +50,7 @@ import { hideHeaderSubBar } from './functions/hide_header_sub_bar'
 import { hideSideMenuOld } from './functions/hide_side_menu_old'
 import { autoExpandValue } from './functions/auto_expand_value'
 import { limitInfinityScroll } from './functions/limit_infinity_scroll'
+import { showControversialSortButton } from './functions/show_controversial_sort_button'
 //import { expandPostOptions } from './functions/expand_post_options'
 //import { headerHeight } from './content-functions'
 
@@ -120,6 +122,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		hideSidebarPolicy(value);
 	} else if (key == "openSubInNewTab") {
 		openSubInNewTab(value);
+	} else if (key == "openPostInNewTab") {
+		openPostInNewTab(value);
 	} else if (key == "hidePromoted") {
 		hidePromoted(value);
 	} else if (key == "showToTopButton") {
@@ -148,6 +152,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		hideUserSidebar(value);
 	} else if (key == "limitInfinityScroll") {
 		limitInfinityScroll(value);
+	} else if (key == "showControversialSortButton") {
+		showControversialSortButton(value);
 	}/*  else if (key == "headerHeight") {
 		headerHeight(value);
 	} else if (key == "expandPostOptions") {

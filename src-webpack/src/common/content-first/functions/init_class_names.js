@@ -31,24 +31,21 @@ import { loadHideSideMenuOld } from './load_hide_side_menu_old'
 export function initClassNames() {
 	var link = window.location.href
 	if (link.indexOf("old.reddit.com") <= 0) { // new reddit
-		if (link.indexOf("/comments/") >= 0) { // post
+		if (link.indexOf("/user/") >= 0) { // user
+			observerUserSidebar();
+			observerUserFeedContainerAndFeed();
+			observerUserSort();
+			observerID();
+			observerHeaderButtons();
+		} else if (link.indexOf("/comments/") >= 0) { // post
 			observerFeedConainter();
 			observerPostSidebar();
 			observerPostConainter();
 			observerID();
 			observerHeaderButtons();
-			//observerFavBarFilter();
 		} else if (link.indexOf("/search/") >= 0) { // search
 			observerSearchContainer();
 			observerSearchSidebar();
-			observerID();
-			observerHeaderButtons();
-			//observerFavBarFilter();
-		} else if (link.indexOf("/user/") >= 0) { // user
-			console.log("user here")
-			observerUserFeedContainerAndFeed();
-			observerUserSidebar();
-			observerUserSort();
 			observerID();
 			observerHeaderButtons();
 		} else { // feed/sub
@@ -60,13 +57,11 @@ export function initClassNames() {
 			observerID();
 			observerHeaderButtons();
 			observerPolicy();
-			//observerFavBarFilter();
 		}
 	} else { // old reddit
 		observerBody();
 		observerRedditPremium();
 		observerID();
-		//observerGetNewReddit();
 		observerSidebarOld();
 		observerMainOld();
 		observerHeaderSubBar();
@@ -145,10 +140,12 @@ function observerPostSidebar() {
 		parent: document.querySelector('body'),
 		recursive: true,
 		done: function(el) {
-			el.parentNode.parentNode.classList.add('re-sidebar', 're-sidebar-post');
-			loadHideGap();
-			loadDropShadow();
-			loadHidePostSidebar();
+			if (!el.parentNode.parentNode.classList.contains('re-sidebar')) {
+				el.parentNode.parentNode.classList.add('re-sidebar', 're-sidebar-post');
+				loadHideGap();
+				loadDropShadow();
+				loadHidePostSidebar();
+			}
 		}
 	});
 }
@@ -481,11 +478,19 @@ function observerUserSort() {
 // Sidebar User
 function observerUserSidebar() {
 	waitForAddedNode({
-		query: '.re-feed > div:nth-child(2)',
+		query: '.ListingLayout-outerContainer [style="margin-left:24px;margin-top:0"]',
 		parent: document.querySelector('body'),
 		recursive: true,
 		done: function(el) {
-			console.log(el)
+			el.classList.add('re-sidebar', 're-sidebar-user');
+			loadHideUserSidebar();
+		}
+	});
+	waitForAddedNode({
+		query: '.ListingLayout-outerContainer [style="margin-left: 24px; margin-top: 0px;"]',
+		parent: document.querySelector('body'),
+		recursive: true,
+		done: function(el) {
 			el.classList.add('re-sidebar', 're-sidebar-user');
 			loadHideUserSidebar();
 		}
@@ -624,4 +629,21 @@ function observerStickySort() {
 			}
 		});
 	}
+}
+
+
+/* ===== Post Overlay ===== */
+// Post Sidebar
+export function observerPostOverlay() {
+	waitForAddedNode({
+		query: '#overlayScrollContainer > div:nth-child(2) > div:nth-child(2)',
+		parent: document.querySelector('body'),
+		recursive: true,
+		done: function(el) {
+			//if (!el.classList.contains('re-sidebar')) {
+				el.classList.add('re-sidebar-post');
+				loadHidePostSidebar();	
+			//}
+		}
+	});
 }

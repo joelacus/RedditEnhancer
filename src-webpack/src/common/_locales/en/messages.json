@@ -1,6 +1,6 @@
 {
   "extensionVersion": {
-    "message": "0.14.0"
+    "message": "0.15.0"
   },
 
   "extensionName": {
@@ -36,11 +36,11 @@
   },
 
   "textFitImage": {
-    "message": "Scale Tall Images To Fit Post"
+    "message": "Scale Tall Images to Fit Post"
   },
 
   "textImageScroll": {
-    "message": "Add Scrollbar To Tall Images"
+    "message": "Add Scrollbar to Tall Images"
   },
 
   "textBackground": {
@@ -184,7 +184,7 @@
   },
 
   "textShowRising": {
-    "message": "Always Show The 'Rising' Sort Button"
+    "message": "Always Show the 'Rising' Sort Button"
   },
 
   "textToTop": {
@@ -208,7 +208,7 @@
   },
 
   "textOpenSubInNewTab": {
-    "message": "Open Links To Sub Reddit In New Tab"
+    "message": "Open Links to subreddits in a New Tab"
   },
 
   "textSearch": {
@@ -283,14 +283,6 @@
     "message": "Expand to 100% if the window/screen width is less than:"
   },
 
-  "textVideoPlayerInfo": {
-    "message": "Fast, lightweight video player with speed controls based on videojs. Try this if you have loading issues with reddit's own player."
-  },
-
-  "textLimitCommentsInfo": {
-    "message": "Only works for posts opened in a new tab/window."
-  },
-
   "textHidePostSidebar": {
     "message": "Hide the Post Sidebar"
   },
@@ -301,5 +293,65 @@
 
   "textLimitInfinityScroll": {
     "message": "Limit Infinity Scroll"
+  },
+
+  "textVideoPlayerInfo": {
+    "message": "Fast, lightweight video player with speed controls based on videojs. Try this if you have loading issues with reddit's own player."
+  },
+
+  "textLimitCommentsInfo": {
+    "message": "Only works for posts opened in a new tab/window."
+  },
+
+  "textLimitInfinityScrollInfo": {
+    "message": "Experimental. This won't necessarily reduce bandwidth usage, but should instead help prevent the page from becoming slow by stopping reddit from adding new posts until you click 'Load More' at the bottom of the feed. When you click 'Load More' it will clear the first 25 posts, and show the next 25."
+  },
+
+  "textOpenPostInNewTab": {
+    "message": "Open Links to Posts in a New Tab"
+  },
+
+  "textControversialSort": {
+    "message": "Show the 'Controversial' Sort Button"
+  },
+
+  "textDefaultFeedSortOption": {
+    "message": "Default Feed Sort Option"
+  },
+
+  "textDefaultCommentsSortOption": {
+    "message": "Default Comments Sort Option"
+  },
+
+  "textBest": {
+    "message": "Best"
+  },
+
+  "textHot": {
+    "message": "Hot"
+  },
+
+  "textNew": {
+    "message": "New"
+  },
+
+  "textTop": {
+    "message": "Top"
+  },
+
+  "textControversial": {
+    "message": "Controversial"
+  },
+
+  "textRising": {
+    "message": "Rising"
+  },
+
+  "textOld": {
+    "message": "Old"
+  },
+
+  "textQa": {
+    "message": "Q&a"
   }
 }

@@ -277,5 +277,25 @@
 
   "textAutoExpand": {
     "message": "Espandi al 100% se la larghezza della finestra/schermo è inferiore a:"
+  },
+
+  "textHidePostSidebar": {
+    "message": "Nascondi la barra laterale del post"
+  },
+
+  "textHideUserSidebar": {
+    "message": "Nascondi la barra laterale utente"
+  },
+
+  "textLimitInfinityScroll": {
+    "message": "Limita scorrimento infinito"
+  },
+
+  "textOpenPostInNewTab": {
+    "message": "Apri i collegamenti ai post in una nuova scheda"
+  },
+
+  "textControversialSort": {
+    "message": "Mostra il pulsante di ordinamento “Controversi”"
   }
 }

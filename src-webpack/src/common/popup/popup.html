@@ -204,6 +204,14 @@
 				</li>
 				<li class="sub-header r-both">
 					<span id="textSidebar"></span>
+				</li>				
+				<li class="container container-3 r-both">
+					<span class="menu-item-icon icon-hide icon-hide-home-sidebar"></span>
+					<span id="textHideHomeSidebar" data-search="sidebar"></span>
+					<label class="switch">
+						<input id="checkbox-hide-home-sidebar" type="checkbox">
+						<span class="indicator"></span>
+					</label>
 				</li>
 				<li class="container container-3 r-both">
 					<span class="menu-item-icon icon-hide hide-reddit-premium"></span>
@@ -213,11 +221,11 @@
 						<span class="indicator"></span>
 					</label>
 				</li>
-				<li class="container container-3 r-both">
-					<span class="menu-item-icon icon-hide icon-hide-home-sidebar"></span>
-					<span id="textHideHomeSidebar" data-search="sidebar"></span>
+				<li class="container container-3 r-new">
+					<span class="menu-item-icon icon-hide hide-sidebar-policy"></span>
+					<span id="textHideSidebarPolicy" data-search="sidebar,privacy,policy"></span>
 					<label class="switch">
-						<input id="checkbox-hide-home-sidebar" type="checkbox">
+						<input id="checkbox-hide-sidebar-policy" type="checkbox">
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -242,14 +250,6 @@
 					<span id="textHideUserSidebar" data-search="sidebar"></span>
 					<label class="switch">
 						<input id="checkbox-hide-user-sidebar" type="checkbox">
-						<span class="indicator"></span>
-					</label>
-				</li>
-				<li class="container container-3 r-new">
-					<span class="menu-item-icon icon-hide hide-sidebar-policy"></span>
-					<span id="textHideSidebarPolicy" data-search="sidebar,privacy,policy"></span>
-					<label class="switch">
-						<input id="checkbox-hide-sidebar-policy" type="checkbox">
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -412,11 +412,71 @@
 				<li class="container container-3 r-new">
 					<span class="menu-item-icon always-show-rising-button">
 						<svg width="25" height="20" vversion="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><image transform="matrix(12.709 0 0 12.709 -56.795 -133.56)" width="60.854" height="60.854" style="display:none;fill:#000000" preserveAspectRatio="none"/><path transform="matrix(12.709 0 0 12.709 -56.795 -133.56)" d="m21.754 20.284-16.271 16.271c-2.3076 2.3076 0.044095 4.6594 0.044095 4.6594l5.6442 5.6442c2.2489 2.2489 4.5565-0.05879 4.5565-0.05879l8.2752-8.2752 5.6956 5.5707c2.3481 2.3481 4.5786 0.11759 4.5786 0.11759l13.816-13.611 3.4688 3.6156s2.4061 1.9162 3.2336-1.2347l0.02939-17.064s-4e-6 -2.5726-2.5869-2.455l-16.962 1e-6c-3.2693 1.2703-1.2935 3.19-1.2935 3.19l3.6452 3.7477-5.5854 5.5854-5.6442-5.6442c-2.3517-2.3517-4.6447-0.05879-4.6447-0.05879" style="paint-order:normal"/><path transform="matrix(12.709 0 0 12.709 -56.795 -133.56)" d="m42.17 20.357-3.7036-3.7036h13.096v13.096l-3.704-3.704-15.874 15.874-7.9371-7.9371-10.568 10.568-5.6442-5.6442 16.271-16.271 7.893 7.893z" style="display:none;paint-order:stroke fill markers"/></svg>
-
 					</span>
 					<span id="textShowRising" data-search=""></span>
 					<label class="switch">
 						<input id="checkbox-always-show-rising-button" type="checkbox">
+						<span class="indicator"></span>
+					</label>
+				</li>
+				<li class="container container-3 r-new">
+					<span class="menu-item-icon icon-controversial-sort-button">
+						<svg class="icon" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m112.53 511.39c-12.64-2.1536-22.338-6.9424-31.119-15.367-13.657-13.102-19.182-29.192-16.661-48.517 1.997-15.31 5.8487-20.658 39.112-54.306l30.58-30.934 24.094 24.027-29.061 29.232c-24.071 24.212-29.357 30.235-30.782 35.075-4.6396 15.757 10.376 30.685 26.555 26.398 4.9673-1.3159 10.224-5.9047 35.075-30.617l29.232-29.069 24.004 24.004-26.798 26.961c-14.739 14.829-30.429 29.682-34.867 33.007-11.22 8.4067-26.425 12.311-39.363 10.106zm90.742-139.5-109.29-109.3 24.044-24.044 55.878 55.828 267.37-294.38h60.481c66.759 0 66.068-0.083857 71.399 8.6595 2.5547 4.1898 2.684 7.3239 2.6889 65.169l5e-3 60.768-96.582 87.673c-53.12 48.22-119.36 108.37-147.21 133.66l-50.625 45.987 55.837 55.887-11.634 11.695c-6.3988 6.4323-11.959 11.695-12.355 11.695s-49.901-49.183-110.01-109.3zm204.66-130.61 134.85-122.36-0.30914-42.62-0.30911-42.62-84.438-0.72699-26.752 29.235c-14.714 16.079-73.175 80.276-129.91 142.66l-103.16 113.42 59.457 59.611 7.8597-7.1207c-0.53938 0.48867 0.38602-0.33943 142.71-129.48z" style="stroke-width:1.3748"/></svg>
+						<svg class="icon-slash" style="display: none;" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m112.53 511.39c-12.64-2.1536-22.338-6.9424-31.119-15.367-13.657-13.102-19.182-29.192-16.661-48.517 1.997-15.31 5.8487-20.658 39.112-54.306l30.58-30.934 24.094 24.027-29.061 29.232c-24.071 24.212-29.357 30.235-30.782 35.075-4.6396 15.757 10.376 30.685 26.555 26.398 4.9673-1.3159 10.224-5.9047 35.075-30.617l29.232-29.069 24.004 24.004-26.798 26.961c-14.739 14.829-30.429 29.682-34.867 33.007-11.22 8.4067-26.425 12.311-39.363 10.106zm90.742-139.5-109.29-109.3 24.044-24.044 55.878 55.828 267.37-294.38h60.481c66.759 0 66.068-0.083857 71.399 8.6595 2.5547 4.1898 2.684 7.3239 2.6889 65.169l5e-3 60.768-96.582 87.673c-53.12 48.22-119.36 108.37-147.21 133.66l-50.625 45.987 55.837 55.887-11.634 11.695c-6.3988 6.4323-11.959 11.695-12.355 11.695s-49.901-49.183-110.01-109.3z" style="stroke-width:1.3748"/></svg>
+					</span>
+					<span id="textControversialSort" data-search=""></span>
+					<label class="switch">
+						<input id="checkbox-controversial-sort-button" type="checkbox">
+						<span class="indicator"></span>
+					</label>
+				</li>
+				<li class="container container-3 r-new">
+					<span class="menu-item-icon icon-sort icon-default-feed-sort-option"></span>
+					<span id="textDefaultFeedSortOption" data-search=""></span>
+					<div></div>
+					<div></div>
+					<div id="select-feed-sort-option" class="dropdown">
+						<div class="select">
+							<span id="chosen-feed-sort-option">Sort Option</span>
+							<div class="icon-cheveron-down"></div>
+						</div>
+						<input type="hidden" name="version">
+						<ul id="select-feed-sort-option-menu" class="dropdown-menu">
+							<li id="feed-sort-best"><span id="textBest"></span></li>
+							<li id="feed-sort-hot"><span id="textHot"></span></li>
+							<li id="feed-sort-new"><span id="textNew"></span></li>
+							<li id="feed-sort-top"><span id="textTop"></span></li>
+							<li id="feed-sort-controversial"><span id="textControversial"></span></li>
+							<li id="feed-sort-rising"><span id="textRising"></span></li>
+						</ul>
+					</div>
+					<label class="switch">
+						<input id="checkbox-default-feed-sort-option" type="checkbox">
+						<span class="indicator"></span>
+					</label>
+				</li>
+				<li class="container container-3 r-new">
+					<span class="menu-item-icon icon-sort icon-default-comments-sort-option"></span>
+					<span id="textDefaultCommentsSortOption" data-search=""></span>
+					<div></div>
+					<div></div>
+					<div id="select-comments-sort-option" class="dropdown">
+						<div class="select">
+							<span id="chosen-comments-sort-option">Sort Option</span>
+							<div class="icon-cheveron-down"></div>
+						</div>
+						<input type="hidden" name="version">
+						<ul id="select-comments-sort-option-menu" class="dropdown-menu">
+							<li id="comments-sort-confidence"><span id="textBest"></span></li>
+							<li id="comments-sort-top"><span id="textTop"></span></li>
+							<li id="comments-sort-new"><span id="textNew"></span></li>
+							<li id="comments-sort-controversial"><span id="textControversial"></span></li>
+							<li id="comments-sort-old"><span id="textOld"></span></li>
+							<li id="comments-sort-qa"><span id="textQa"></span></li>
+						</ul>
+					</div>
+					<label class="switch">
+						<input id="checkbox-default-comments-sort-option" type="checkbox">
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -443,6 +503,14 @@
 				</li>
 				<li class="sub-header r-both">
 					<span id="textOther"></span>
+				</li>
+				<li class="container container-3 r-new">
+					<span class="menu-item-icon icon-arrow-square open-post-new-tab"></span>
+					<span id="textOpenPostInNewTab" data-search="tab"></span>
+					<label class="switch">
+						<input id="checkbox-open-post-new-tab" type="checkbox">
+						<span class="indicator"></span>
+					</label>
 				</li>
 				<li class="container container-3 r-new">
 					<span class="menu-item-icon icon-arrow-square open-sub-new-tab"></span>
@@ -499,7 +567,7 @@
 						<span class="indicator"></span>
 					</label>
 					<div></div>
-					<p> Experimental. This won't necessarily reduce bandwidth usage, but should instead help prevent the page from becoming slow by stopping reddit from adding new posts until you click 'Load More' at the bottom of the feed. When you click 'Load More' it will clear the first 25 posts, and show the next 25.</p>
+					<p id="textLimitInfinityScrollInfo"></p>
 				</li>
 			</ul>
 
