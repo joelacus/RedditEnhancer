@@ -7,7 +7,7 @@ if (link.includes('/comments/')) {
 	BROWSER_API.storage.sync.get(['enableDefaultCommentsSortOption','defaultCommentsSortOption'], function(result) {
 		if (result.enableDefaultCommentsSortOption === true) {
 			// Sets the default comments sort option on page load
-			if (typeof result.defaultCommentsSortOption != undefined) {
+			if (result.defaultCommentsSortOption != undefined) {
 				var link = window.location.href;
 				var urlParams = new URLSearchParams(document.location.search);
 				if (urlParams.size != 0) {
@@ -44,7 +44,7 @@ if (link.includes('/comments/')) {
 	// Set default feed sort option if true
 	BROWSER_API.storage.sync.get(['enableDefaultFeedSortOption','defaultFeedSortOption'], function(result) {
 		if (result.enableDefaultFeedSortOption === true) {
-			if (typeof result.defaultFeedSortOption != null) {
+			if (result.defaultFeedSortOption != undefined) {
 				var link = window.location.href;
 				// remove trailing /
 				if (link.endsWith('/')) {

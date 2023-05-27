@@ -1,6 +1,6 @@
 {
   "name": "reddit_enhancer_webpack",
-  "version": "0.15.1",
+  "version": "0.15.2",
   "description": "",
   "scripts": {
     "build-m2": "webpack --config ./webpack-m2.conf.js",

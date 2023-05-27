@@ -1114,7 +1114,7 @@ function restoreOptions() {
 				document.querySelector("#select-comments-sort-option .select").querySelector('span').textContent = text;
 				var value = result.defaultCommentsSortOption
 			} else if (typeof result.defaultCommentsSortOption == 'undefined') {
-				const text = document.querySelector('#comments-sort-best').textContent;
+				const text = document.querySelector('#comments-sort-confidence').textContent;
 				document.querySelector("#select-comments-sort-option .select").querySelector('span').textContent = text;
 				var value = "best"
 			}
