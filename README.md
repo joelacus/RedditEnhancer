@@ -56,6 +56,10 @@ I welcome any help if you would like to improve or contribute new language trans
 |Custom Background|Add a custom background to the webpage. You can paste and store multiple image links.|New/Old|
 |Blur Background|Adds a blur filter to the custom background image.|New/Old|
 |Limit Infinity Scroll|This will limit the infinity scroll to show only 25 posts at a time. When you click 'Load More' at the bottom of the feed, it will clear the first 25 posts and show the next 25.|New|
+|Show 'Controversial' Sort Button|Shows the 'Controversial' button in the post sort menus.|New|
+|Default Feed Sort Option|Set how you want the feed to be sorted automatically when the page loads.|New|
+|Default Comments Sort Option|Set how you want the comments to be sorted automatically when the page loads.|New|
+|Open Links to Post in a New Tab|Open posts in a new tab.|New|
 
 ## Build
 Clone repo and cd to build directory:
