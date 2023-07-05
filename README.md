@@ -60,6 +60,11 @@ I welcome any help if you would like to improve or contribute new language trans
 |Default Feed Sort Option|Set how you want the feed to be sorted automatically when the page loads.|New|
 |Default Comments Sort Option|Set how you want the comments to be sorted automatically when the page loads.|New|
 |Open Links to Post in a New Tab|Open posts in a new tab.|New|
+|Add Post Numbers|Number each post to keep track of how many you have scrolled passed.|New|
+|Hide NSFW Posts|Hide any posts marked as NSFW.|New|
+|Hide the "Get the best of" Popups|Hide the popups prompting you to turn on notifications.|New|
+|Show navigation buttons to scroll to the next/previous root comment on a post|Scroll to the next/previous root/first comments on a post.|New|
+
 
 ## Build
 Clone repo and cd to build directory:
