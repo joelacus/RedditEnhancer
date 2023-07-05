@@ -1,10 +1,12 @@
 // Hide Home Sidebar
-let loadHideHomeSidebar = function() {
-	BROWSER_API.storage.sync.get(['hideHomeSidebar'], function(result) {
-		var link = window.location.href
-		if (link.indexOf("old.reddit.com") >= 0) { // old reddit
+let loadHideHomeSidebar = function () {
+	BROWSER_API.storage.sync.get(['hideHomeSidebar'], function (result) {
+		var link = window.location.href;
+		if (link.indexOf('old.reddit.com') >= 0) {
+			// old reddit
 			if (result.hideHomeSidebar == true) {
-				if (link.indexOf("old.reddit.com/r/") <= 0) { // home page
+				if (link.indexOf('old.reddit.com/r/') <= 0) {
+					// home page
 					if (document.querySelector('.side')) {
 						document.querySelector('.side').classList.add('re-hide');
 					}
@@ -26,15 +28,15 @@ let loadHideHomeSidebar = function() {
 			}
 		}
 	});
-}
+};
 export { loadHideHomeSidebar };
 
-
 // Hide Sub Sidebar
-let loadHideSubSidebar = function() {
-	BROWSER_API.storage.sync.get(['hideSubSidebar'], function(result) {
-		var link = window.location.href
-		if (link.indexOf("old.reddit.com") >= 0) { // old reddit
+let loadHideSubSidebar = function () {
+	BROWSER_API.storage.sync.get(['hideSubSidebar'], function (result) {
+		var link = window.location.href;
+		if (link.indexOf('old.reddit.com') >= 0) {
+			// old reddit
 			// do nothing
 		} else {
 			if (result.hideSubSidebar == true) {
@@ -48,15 +50,15 @@ let loadHideSubSidebar = function() {
 			}
 		}
 	});
-}
+};
 export { loadHideSubSidebar };
 
-
 // Hide Post Sidebar
-let loadHidePostSidebar = function() {
-	BROWSER_API.storage.sync.get(['hidePostSidebar'], function(result) {
-		var link = window.location.href
-		if (link.indexOf("old.reddit.com") >= 0) { // old reddit
+let loadHidePostSidebar = function () {
+	BROWSER_API.storage.sync.get(['hidePostSidebar'], function (result) {
+		var link = window.location.href;
+		if (link.indexOf('old.reddit.com') >= 0) {
+			// old reddit
 			// do nothing
 		} else {
 			if (result.hidePostSidebar == true) {
@@ -70,15 +72,15 @@ let loadHidePostSidebar = function() {
 			}
 		}
 	});
-}
+};
 export { loadHidePostSidebar };
 
-
 // Hide User Sidebar
-let loadHideUserSidebar = function() {
-	BROWSER_API.storage.sync.get(['hideUserSidebar'], function(result) {
-		var link = window.location.href
-		if (link.indexOf("old.reddit.com") >= 0) { // old reddit
+let loadHideUserSidebar = function () {
+	BROWSER_API.storage.sync.get(['hideUserSidebar'], function (result) {
+		var link = window.location.href;
+		if (link.indexOf('old.reddit.com') >= 0) {
+			// old reddit
 			// do nothing
 		} else {
 			if (result.hideUserSidebar == true) {
@@ -92,5 +94,5 @@ let loadHideUserSidebar = function() {
 			}
 		}
 	});
-}
+};
 export { loadHideUserSidebar };

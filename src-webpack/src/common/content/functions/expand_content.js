@@ -1,19 +1,20 @@
-import { loadExpandContent } from '../../content-first/functions/load_expand_content'
-import { startObserver } from '../../content-first/functions/load_expand_content'
-import { stopObserver } from '../../content-first/functions/load_expand_content'
+import { loadExpandContent } from '../../content-first/functions/load_expand_content';
+import { startObserver } from '../../content-first/functions/load_expand_content';
+import { stopObserver } from '../../content-first/functions/load_expand_content';
 
 // Expand Layout
-let expandLayout = function(value) {
+let expandLayout = function (value) {
 	// Check reddit version
-	var link = window.location.href
-	if (link.indexOf("old.reddit.com") >= 0) { // old reddit
+	var link = window.location.href;
+	if (link.indexOf('old.reddit.com') >= 0) {
+		// old reddit
 		if (value == true) {
 			const reMain = document.querySelector('#re-main');
 			if (!reMain) {
 				const main = document.createElement('div');
-				main.id = "re-main"
+				main.id = 're-main';
 				const container = document.createElement('div');
-				container.id = "re-container"
+				container.id = 're-container';
 				const body = document.querySelector('body');
 				const sidemenu = document.querySelector('.listing-chooser');
 				const side = document.querySelector('.side');
@@ -21,7 +22,7 @@ let expandLayout = function(value) {
 				const sort = document.querySelector('#header .tabmenu');
 				body.insertBefore(main, side);
 				if (sidemenu) {
-					main.append(sidemenu);	
+					main.append(sidemenu);
 				}
 				container.append(content);
 				container.append(side);
@@ -36,7 +37,8 @@ let expandLayout = function(value) {
 				document.querySelector('#re-container').classList.remove('re-resize');
 			}
 		}
-	} else { // new reddit
+	} else {
+		// new reddit
 		if (value == true) {
 			if (document.querySelector('.re-feed')) {
 				document.querySelector('.re-feed').classList.add('re-resize');
@@ -68,21 +70,20 @@ let expandLayout = function(value) {
 };
 export { expandLayout };
 
-
 // Expand Layout Width
-let expandLayoutWidth = function(value) {
-	document.documentElement.style.setProperty('--re-content-width', value+'%');
+let expandLayoutWidth = function (value) {
+	document.documentElement.style.setProperty('--re-content-width', value + '%');
 };
 export { expandLayoutWidth };
 
-
 // Layout Centre
-let layoutCentre = function(value) {
-	var link = window.location.href
-	if (link.indexOf("old.reddit.com") >= 0) {// old reddit
+let layoutCentre = function (value) {
+	var link = window.location.href;
+	if (link.indexOf('old.reddit.com') >= 0) {
+		// old reddit
 		if (value == true) {
-			if (link.indexOf("old.reddit.com/r/") <= 0) {
-				BROWSER_API.storage.sync.get(['hideHomeSidebar'], function(result) {
+			if (link.indexOf('old.reddit.com/r/') <= 0) {
+				BROWSER_API.storage.sync.get(['hideHomeSidebar'], function (result) {
 					if (result.hideHomeSidebar != true) {
 						document.querySelector('#re-container').classList.add('re-centre-container-old');
 					} else {
@@ -95,13 +96,15 @@ let layoutCentre = function(value) {
 		} else if (value == false) {
 			document.querySelector('#re-container').classList.remove('re-centre-container-old');
 		}
-	} else { //new reddit
-		var main_elms = document.querySelector("#AppRouter-main-content").childElementCount;
+	} else {
+		//new reddit
+		var main_elms = document.querySelector('#AppRouter-main-content').childElementCount;
 		if (value == true) {
-			var link = window.location.href
-			document.querySelector('.re-feed').classList.remove('re-centre-feed-1','re-centre-feed-2','re-centre-feed-3');
-			if (link.indexOf("reddit.com/user/") >= 0) { // user
-				BROWSER_API.storage.sync.get(['hideUserSidebar'], function(result) {
+			var link = window.location.href;
+			document.querySelector('.re-feed').classList.remove('re-centre-feed-1', 're-centre-feed-2', 're-centre-feed-3');
+			if (link.indexOf('reddit.com/user/') >= 0) {
+				// user
+				BROWSER_API.storage.sync.get(['hideUserSidebar'], function (result) {
 					if (main_elms == 2) {
 						if (result.hideUserSidebar === true) {
 							document.querySelector('.re-feed').classList.add('re-centre-feed-3');
@@ -116,9 +119,10 @@ let layoutCentre = function(value) {
 						}
 					}
 				});
-			} else if (link.indexOf("/comments/") >= 0) { // post
-				document.querySelector('.re-feed').classList.remove('re-centre-feed-1','re-centre-feed-2','re-centre-feed-3');
-				BROWSER_API.storage.sync.get(['hidePostSidebar'], function(result) {
+			} else if (link.indexOf('/comments/') >= 0) {
+				// post
+				document.querySelector('.re-feed').classList.remove('re-centre-feed-1', 're-centre-feed-2', 're-centre-feed-3');
+				BROWSER_API.storage.sync.get(['hidePostSidebar'], function (result) {
 					if (main_elms == 2) {
 						if (result.hidePostSidebar === true) {
 							document.querySelector('.re-feed').classList.add('re-centre-feed-3');
@@ -133,8 +137,9 @@ let layoutCentre = function(value) {
 						}
 					}
 				});
-			} else if ((link.indexOf("reddit.com/r/popular") >= 0)||(link.indexOf("reddit.com/r/all") >= 0)||(link.indexOf("reddit.com/r/") <= 0)) { // r/all, r/popular, home
-				BROWSER_API.storage.sync.get(['hideHomeSidebar'], function(result) {
+			} else if (link.indexOf('reddit.com/r/popular') >= 0 || link.indexOf('reddit.com/r/all') >= 0 || link.indexOf('reddit.com/r/') <= 0) {
+				// r/all, r/popular, home
+				BROWSER_API.storage.sync.get(['hideHomeSidebar'], function (result) {
 					if (main_elms == 2) {
 						if (result.hideHomeSidebar === true) {
 							document.querySelector('.re-feed').classList.add('re-centre-feed-3');
@@ -149,8 +154,9 @@ let layoutCentre = function(value) {
 						}
 					}
 				});
-			} else if (link.indexOf("reddit.com/r/") >= 0) { // sub
-				BROWSER_API.storage.sync.get(['hideSubSidebar'], function(result) {
+			} else if (link.indexOf('reddit.com/r/') >= 0) {
+				// sub
+				BROWSER_API.storage.sync.get(['hideSubSidebar'], function (result) {
 					if (main_elms == 2) {
 						if (result.hideSubSidebar === true) {
 							document.querySelector('.re-feed').classList.add('re-centre-feed-3');
@@ -169,7 +175,7 @@ let layoutCentre = function(value) {
 			startObserver();
 		} else if (value == false) {
 			stopObserver();
-			document.querySelector('.re-feed').classList.remove('re-centre-feed-1','re-centre-feed-2','re-centre-feed-3');
+			document.querySelector('.re-feed').classList.remove('re-centre-feed-1', 're-centre-feed-2', 're-centre-feed-3');
 		}
 	}
 };

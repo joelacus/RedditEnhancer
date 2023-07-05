@@ -1,5 +1,5 @@
-// Header Height/
-let headerHeight = function(value) {
+// Header Height
+/*let headerHeight = function(value) {
 	var link = window.location.href
 	if (link.indexOf("/search/") <= 0) { // search
 		if (value == 4) {
@@ -15,4 +15,4 @@ let headerHeight = function(value) {
 		}
 	}
 }
-export { headerHeight };
+export { headerHeight };*/

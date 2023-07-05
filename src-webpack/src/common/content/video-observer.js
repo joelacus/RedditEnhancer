@@ -1,21 +1,19 @@
 /* ===== Video Player Observer And Replacer ===== */
 
-
 // Add videojs styles
 let link = document.createElement('link');
 link.rel = 'stylesheet';
 link.href = BROWSER_API.runtime.getURL('/videojs/video-js.css');
 document.head.appendChild(link);
 
-
 // Replace the reddit video player
 function replaceVideoPlayer(target) {
 	// Check if the new player is already added
-	var videoSibling = target.parentNode.querySelectorAll(".video-js");
+	var videoSibling = target.parentNode.querySelectorAll('.video-js');
 	if (videoSibling.length === 0) {
 		// Get reddit video source and poster
 		const poster = target.querySelector('shreddit-player').getAttribute('poster');
-		const type = target.querySelector('shreddit-player').querySelector("source").getAttribute('type');
+		const type = target.querySelector('shreddit-player').querySelector('source').getAttribute('type');
 		const src = target.querySelector('shreddit-player').getAttribute('src');
 		const source = src.split('.m3u8')[0] + '.m3u8';
 		const preview = target.querySelector('shreddit-player').getAttribute('preview');
@@ -45,20 +43,16 @@ function replaceVideoPlayer(target) {
 		}
 
 		// Hide original player
-		target.style.display = "none"
+		target.style.display = 'none';
 
 		// Attach new player to DOM
 		target.insertAdjacentElement('afterend', video);
 	}
-	var videoSibling = Array.prototype.slice.call(
-    	target.parentNode.querySelectorAll(".video-js"),
-   		0, -1
-	);
-	videoSibling.forEach(function(item) {
-	    item.remove();
+	var videoSibling = Array.prototype.slice.call(target.parentNode.querySelectorAll('.video-js'), 0, -1);
+	videoSibling.forEach(function (item) {
+		item.remove();
 	});
 }
-
 
 // Observe html for videos to trigger replacement function
 const observer = new MutationObserver((mutationsList) => {
@@ -70,7 +64,6 @@ const observer = new MutationObserver((mutationsList) => {
 		}
 	}
 });
-
 
 // Toggle Observer
 export function videoObserver(i) {
@@ -86,11 +79,11 @@ export function videoObserver(i) {
 		observer.disconnect();
 		// show original players
 		document.querySelectorAll('media-telemetry-observer').forEach((node) => {
-			node.style.display = ""
+			node.style.display = '';
 		});
 		// remove new players
 		document.querySelectorAll('.video-js').forEach((node) => {
-			node.remove()
+			node.remove();
 		});
 	}
 }

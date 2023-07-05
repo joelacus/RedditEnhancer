@@ -1,6 +1,6 @@
 /* ===== Content First - HEAD Observer ===== */
 
-import { loadStart } from './content-first-load-start'
+import { loadStart } from './content-first-load-start';
 
 // Waits for page to load the <head> element before starting to load tweaks.
 

@@ -1,3 +1,12 @@
+version 0.16.0
+- Added an option to number posts.
+- Added an option to hide NSFW posts.
+- Added an option to hide the "Get the best of" popups.
+- Added an option to show navigation buttons to scroll to the next/previous root comment on a post.
+- Optimised and improved extension code.
+- Reduced extension file size by 30%.
+- Updated translations.
+
 version 0.15.2
 - Bug fix.
 

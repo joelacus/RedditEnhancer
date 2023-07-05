@@ -1,6 +1,8 @@
-let limitInfinityScroll = function(value) {
-	var link = window.location.href
-	if ((link.indexOf("old.reddit.com") <= 0)&&(link.indexOf('/comments/') <= 0)&&(link.indexOf('/settings/') <= 0)&&(link.indexOf('/user/') <= 0)) { // new reddit, not post, not settings, not user
+// Limit Infinity Scroll
+let limitInfinityScroll = function (value) {
+	var link = window.location.href;
+	if (link.indexOf('old.reddit.com') <= 0 && link.indexOf('/comments/') <= 0 && link.indexOf('/settings/') <= 0 && link.indexOf('/user/') <= 0) {
+		// new reddit, not post, not settings, not user
 		if (value == true) {
 			// start observer and hide all posts
 			postObserver(true);
@@ -13,7 +15,7 @@ let limitInfinityScroll = function(value) {
 
 			// load more posts
 			function loadMore() {
-				window.scrollTo({top: 0, behavior: 'smooth'});
+				window.scrollTo({ top: 0, behavior: 'smooth' });
 				// get all posts
 				const posts = document.querySelectorAll('.re-post');
 
@@ -31,9 +33,9 @@ let limitInfinityScroll = function(value) {
 				}
 
 				// scroll to the top
-				setTimeout(function(){
-					window.scrollTo({top: 0, behavior: 'smooth'});
-				}, 500)
+				setTimeout(function () {
+					window.scrollTo({ top: 0, behavior: 'smooth' });
+				}, 500);
 			}
 
 			// create load more button
@@ -48,13 +50,12 @@ let limitInfinityScroll = function(value) {
 
 			// hide pseudo loading post
 			loadMoreButton.previousSibling.classList.add('re-hide');
-
-		} else if ((value == false)||(value == undefined)) {
+		} else if (value == false || value == undefined) {
 			// stop observer
 			postObserver(false);
 			// show all posts
 			const posts = document.querySelectorAll('.re-post');
-			posts.forEach(function(post) {
+			posts.forEach(function (post) {
 				post.classList.remove('hide');
 			});
 			// remove load more button
@@ -63,17 +64,17 @@ let limitInfinityScroll = function(value) {
 			}
 		}
 	}
-}
+};
 export { limitInfinityScroll };
 
-
 // Observe for posts added to post container
-const observer = new MutationObserver(function(mutations_list) {
+const observer = new MutationObserver(function (mutations_list) {
 	// detect post and hide it
-	mutations_list.forEach(function(mutation) {
-		mutation.addedNodes.forEach(function(node) {
+	mutations_list.forEach(function (mutation) {
+		mutation.addedNodes.forEach(function (node) {
 			if (node.tagName === 'DIV') {
-				if (node.querySelector('.Post')) { // check if it isn't an ad
+				if (node.querySelector('.Post')) {
+					// check if it isn't an ad
 					node.classList.add('re-post', 'hide');
 				}
 			}
@@ -83,20 +84,20 @@ const observer = new MutationObserver(function(mutations_list) {
 	// remove new posts if max threshold is reached
 	const feedContainer = document.querySelector('.re-feed-container');
 	const maxItems = 50;
-	mutations_list.forEach(mutation => {
+	mutations_list.forEach((mutation) => {
 		if (mutation.addedNodes.length) {
 			const currentItems = feedContainer.childElementCount;
 			if (currentItems >= maxItems) {
-				mutation.addedNodes.forEach(node => {
+				mutation.addedNodes.forEach((node) => {
 					node.remove();
 				});
 			}
 			// reddit for some reason adds empty divs to the body and could cause the page to lag.
 			// get all top level divs in body
 			const divs = document.body.querySelectorAll(':scope > div');
-			divs.forEach(function(div) {
+			divs.forEach(function (div) {
 				// remove if div is empty
-				if (div.innerHTML === "") {
+				if (div.innerHTML === '') {
 					div.remove();
 				}
 			});
@@ -104,16 +105,18 @@ const observer = new MutationObserver(function(mutations_list) {
 	});
 });
 
-
 // Toggle Observer
 export function postObserver(i) {
 	if (i === true) {
 		// get existing posts
-		document.querySelector('.re-feed-container').querySelectorAll(':scope > div').forEach((div) => {
-			if (div.querySelector('.Post')) {
-				div.classList.add('re-post', 'hide');
-			}
-		});
+		document
+			.querySelector('.re-feed-container')
+			.querySelectorAll(':scope > div')
+			.forEach((div) => {
+				if (div.querySelector('.Post')) {
+					div.classList.add('re-post', 'hide');
+				}
+			});
 		// start observer
 		observer.observe(document.querySelector('.re-feed-container'), { childList: true, subtree: true });
 	} else if (i === false) {

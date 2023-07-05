@@ -1,51 +1,55 @@
 {
-  "manifest_version": 3,
+	"manifest_version": 3,
 
-  "name": "__MSG_extensionName__",
-  "version": "0.15.2",
-  "description": "__MSG_extensionDescription__",
-  "default_locale": "en",
+	"name": "__MSG_extensionName__",
+	"version": "0.16.0",
+	"description": "__MSG_extensionDescription__",
+	"default_locale": "en",
 
-  "icons": { "32": "icons/icon-32.png",
-             "48": "icons/icon-48.png",
-             "64": "icons/icon-64.png",
-             "128": "icons/icon-128.png"
-  },
+	"icons": {
+		"32": "icons/icon-32.png",
+		"48": "icons/icon-48.png",
+		"64": "icons/icon-64.png",
+		"128": "icons/icon-128.png"
+	},
 
-  "permissions": ["storage",
-                  "tabs"],
+	"permissions": ["storage", "tabs"],
 
-  "content_scripts": [
-    {
-      "matches": ["*://*.reddit.com/*"],
-      "js": ["content_first.js"],
-      "run_at": "document_start"
-    },
-    {
-      "matches": ["*://*.reddit.com/*"],
-      "js": ["content.js"]
-    }
-  ],
+	"content_scripts": [
+		{
+			"matches": ["*://*.reddit.com/*"],
+			"js": ["content_first.js"],
+			"run_at": "document_start"
+		},
+		{
+			"matches": ["*://*.reddit.com/*"],
+			"js": ["content.js"]
+		}
+	],
 
-  "web_accessible_resources": [
-    {
-      "resources":  ["_locales/**/*","videojs/video-js.css","videojs/video.min.js"],
-      "matches": ["<all_urls>"]
-    }
-  ],
+	"web_accessible_resources": [
+		{
+			"resources": [
+				"_locales/**/*",
+				"videojs/video-js.css",
+				"videojs/video.min.js"
+			],
+			"matches": ["<all_urls>"]
+		}
+	],
 
-  "background": {
-    "service_worker": "background.js"
-  },
+	"background": {
+		"service_worker": "background.js"
+	},
 
-  "action": {
-    "browser_style": true,
-    "default_popup": "popup/popup.html",
-    "default_icon": {
-      "32": "icons/icon-32.png",
-      "48": "icons/icon-48.png",
-      "64": "icons/icon-64.png",
-      "128": "icons/icon-128.png"
-    }
-  }
+	"action": {
+		"browser_style": true,
+		"default_popup": "popup/popup.html",
+		"default_icon": {
+			"32": "icons/icon-32.png",
+			"48": "icons/icon-48.png",
+			"64": "icons/icon-64.png",
+			"128": "icons/icon-128.png"
+		}
+	}
 }

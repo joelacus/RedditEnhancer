@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="fa-solid.css" />
+		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="popup.css" />
 	</head>
 	<body>
@@ -15,13 +14,13 @@
 
 		<!-- = Search and Version = -->
 		<div class="search-filter">
-			<input id="search" type="text" name="search" autocomplete="off">
+			<input id="search" type="text" name="search" autocomplete="off" />
 			<div id="select-version" class="dropdown">
 				<div class="select">
 					<span id="chosen-version"></span>
-					<div class="icon-cheveron-down"></div>
+					<div class="dropdown-icon icon-cheveron-down"></div>
 				</div>
-				<input type="hidden" name="version">
+				<input type="hidden" name="version" />
 				<ul id="select-version-menu" class="dropdown-menu">
 					<li id="new-reddit"><span id="textNewReddit"></span></li>
 					<li id="old-reddit"><span id="textOldReddit"></span></li>
@@ -46,14 +45,14 @@
 					<span class="menu-item-icon icon-dark-mode"></span>
 					<span id="textDarkMode3" data-search="night"></span>
 					<label class="switch">
-						<input id="checkbox-dark-mode" type="checkbox">
+						<input id="checkbox-dark-mode" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-2 r-new">
 					<div class="option-title">
 						<span class="menu-item-icon icon-auto"></span>
-						<span id="textAuto" style="align-self: center;" data-search="dark,night"></span>
+						<span id="textAuto" style="align-self: center" data-search="dark,night"></span>
 					</div>
 					<div class="tab-switcher-column">
 						<div id="btn-dm-disabled" class="tab-active"><span id="textDisabled" data-search="dark,night"></span></div>
@@ -64,12 +63,12 @@
 				<li class="container container-6 r-new">
 					<span class="menu-item-icon icon-clock"></span>
 					<label id="textStartTime" for="time-start" data-search="dark,night"></label>
-					<input type="time" id="dm-time-start" name="time-start" class="time-input">
+					<input type="time" id="dm-time-start" name="time-start" class="time-input" />
 				</li>
 				<li class="container container-6 r-new">
 					<span class="menu-item-icon icon-clock"></span>
 					<label id="textEndTime" for="time-end" data-search="dark,night"></label>
-					<input type="time" id="dm-time-end" name="time-end" class="time-input">
+					<input type="time" id="dm-time-end" name="time-end" class="time-input" />
 				</li>
 			</ul>
 
@@ -88,33 +87,30 @@
 					<span class="menu-item-icon icon-layout"></span>
 					<span id="textExpandLayout3" data-search="resize,content"></span>
 					<label class="switch">
-						<input id="checkbox-expand-layout" type="checkbox">
+						<input id="checkbox-expand-layout" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-5 r-both">
-					<span class="menu-item-icon"></span>
+					<span class="menu-item-icon no-icon"></span>
 					<span id="textWidth" data-search="resize,content"></span>
-					<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-view-width">
+					<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-view-width" />
 					<span id="expand-view-width" class="input-value"></span>
 				</li>
 				<li class="container container-3 r-both">
-					<span class="menu-item-icon"></span>
+					<span class="menu-item-icon no-icon"></span>
 					<span id="textAutoExpand" data-search="auto"></span>
-					<input id="auto-expand-value" type="text" name="auto-expand-value" placeholder="px" maxlength="4">
+					<input id="auto-expand-value" type="text" name="auto-expand-value" placeholder="px" maxlength="4" />
 				</li>
 				<li class="container container-3 r-both">
-					<span class="menu-item-icon icon-centre">
-						<svg class="icon" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path transform="matrix(.81203 0 0 .81203 60.149 48.121)" d="m501.02 165.49c12.516-12.516 32.739-12.516 45.255 0s12.516 32.739 0 45.255l-13.223 13.223 148.99 0.0707c17.678 0 32.032 14.354 32.032 32.032s-14.354 32.032-32.032 32.032l-148.99-0.0707 13.223 13.223c12.516 12.516 12.516 32.739 0 45.255s-32.739 12.516-45.255 0l-67.882-67.882c-6.2225-6.2225-9.3338-14.425-9.4045-22.557v-0.14142c0.0707-4.3134 0.91924-8.4146 2.4042-12.162 1.4849-3.7477 3.8184-7.2125 6.9296-10.324l0.0707-0.0707z"/><path transform="matrix(.81203 0 0 .81203 60.149 48.121)" d="m106.95 224-13.223-13.223c-12.516-12.516-12.516-32.739 0-45.255s32.739-12.516 45.255 0l67.953 67.953c6.2225 6.2225 9.2631 14.354 9.3338 22.486v0.14142c-0.0707 4.3134-0.91924 8.4146-2.4042 12.162-1.5556 3.8184-3.8891 7.2832-6.9296 10.324l-67.882 67.882c-12.516 12.516-32.739 12.516-45.255 0s-12.516-32.739 0-45.255l13.152-13.152-148.99-0.0707c-17.678 0-32.032-14.354-32.032-32.032s14.354-32.032 32.032-32.032z"/><path transform="matrix(.81203 0 0 .81203 .058466 48.121)" d="m433.41 58.961v394.07c0 21.797-17.61 39.407-39.407 39.407s-39.407-17.61-39.407-39.407v-394.07c0-21.797 17.61-39.407 39.407-39.407s39.407 17.61 39.407 39.407z" style="stroke-width:1.2315"/></svg>
-					</span>
+					<span class="menu-item-icon icon-centre"></span>
 					<span id="textCentre" data-search="centre,center,middle"></span>
 					<label class="switch">
-						<input id="checkbox-layout-centre" type="checkbox">
+						<input id="checkbox-layout-centre" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 			</ul>
-
 
 			<!-- Hide Elements -->
 			<li id="hide-elements" class="menu-item-link r-both btn-hide-elements">
@@ -137,19 +133,23 @@
 					<span class="menu-item-icon icon-user hide-username"></span>
 					<span id="textHideUsername" data-search="id,username"></span>
 					<label class="switch">
-						<input id="checkbox-hide-username" type="checkbox">
+						<input id="checkbox-hide-username" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-both">
-					<span class="menu-item-icon icon-hide-karma">
-						<svg  class="icon" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m305.8 506.2c-12.748-8.6373-23.998-19.087-32.636-30.313l-7.71-10.02 14.57-6.8279c8.0137-3.7554 20.378-10.843 27.476-15.749l12.905-8.9214 12.905 8.9214c7.0979 4.9068 19.462 11.994 27.476 15.749l14.57 6.8279-7.71 10.02c-14.469 18.804-37.11 36.109-47.241 36.109-4.0415 0-8.8904-1.9244-14.605-5.7964zm-144.03-63.885c-21.539-3.8876-24.45-7.1521-28.401-31.843-8.1681-51.056 9.4821-106.4 45.722-143.36l11.02-11.239-11.811-12.185c-32.29-33.311-47.903-74.64-46.083-121.98 0.96825-25.183 4.0196-38.776 10.06-44.817 9.854-9.8541 63.253-12.31 93.206-4.2864 26.779 7.1731 54.113 22.78 73.933 42.214l10.986 10.772 10.986-10.772c19.82-19.433 47.154-35.041 73.933-42.214 18.942-5.0739 54.747-6.3161 74.526-2.5856 23.711 4.4721 27.241 10.815 28.766 51.689 1.768 47.399-13.84 88.689-46.109 121.98l-11.811 12.185 11.02 11.239c36.514 37.24 53.678 91.439 45.777 144.55-3.5805 24.066-8.1745 28.199-35.387 31.835-49.844 6.6593-100.97-9.5747-137.35-43.617l-14.428-13.499-13.265 12.673c-38.273 36.566-92.662 52.761-145.29 43.262zm176.31-111.29c39.109-10.187 64.782-47.977 58.3-85.817-10.694-62.433-85.718-87.389-129.9-43.209-54.341 54.341-2.2275 148.26 71.598 129.03zm-238.99-28.892c-18.417-14.506-34.654-36.218-34.654-46.34 0-8.0778 10.147-22.704 26.575-38.305 19.579-18.593 18.442-18.539 26.731-1.2638 3.8664 8.0579 10.909 20.261 15.649 27.119l8.6193 12.468-9.7085 14.44c-5.3397 7.9419-12.275 20.037-15.413 26.877s-6.3026 12.437-7.0341 12.437c-0.73149-5.8e-4 -5.5759-3.3453-10.765-7.4327zm424.81-5.0039c-3.1373-6.8407-10.073-18.936-15.413-26.877l-9.7085-14.44 8.6192-12.468c4.7406-6.8575 11.783-19.061 15.649-27.119 8.2894-17.276 7.1524-17.329 26.731 1.2638 27.417 26.037 31.45 37.661 19.199 55.339-10.188 14.702-33.103 36.74-38.202 36.74-0.64432 0-3.7384-5.5969-6.8756-12.438zm-207-221.6c-5.3339-5.1907-27.083-18.367-38.863-23.543l-12.341-5.4236 4.9021-7.0252c12.595-18.05 39.654-39.532 49.794-39.532 10.151 0 37.202 21.486 49.821 39.572l4.9294 7.0648-11.507 4.8785c-6.3287 2.6832-18.777 9.7329-27.663 15.666-8.8859 5.9332-16.247 10.788-16.359 10.788-0.11151 0-1.3332-1.1001-2.7148-2.4446z" style="stroke-width:1.7155"/></svg>
-						<svg class="icon-slash" style="display: none;" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g><path d="m38.8 5.1c-10.4-8.2-25.5-6.3-33.7 4.1s-6.3 25.5 4.1 33.7l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7c-601.7-472.17-317.2-248.63-592-464z"/><path d="m320.4 0c-10.14 0-37.198 21.484-49.793 39.533l-4.9023 7.0234 12.34 5.4238c11.779 5.1766 33.529 18.352 38.863 23.543 1.3816 1.3445 2.6033 2.4453 2.7148 2.4453 0.11149 0 7.4735-4.8539 16.359-10.787 8.8859-5.9332 21.333-12.983 27.662-15.666l11.508-4.8789-4.9297-7.0645c-12.619-18.086-39.671-39.572-49.822-39.572zm-124.97 67.844c-23.823-0.37329-46.992 2.8959-53.15 9.0547-6.0407 6.0407-9.0923 19.634-10.061 44.816-0.17585 4.5738-0.13918 9.0734 0.01 13.533 13.122 10.243 92.153 72.222 117.34 91.949 3.6655-8.9037 9.1765-17.46 16.916-25.199 44.18-44.18 119.2-19.224 129.9 43.209 4.8052 28.053-8.0883 56.051-31 72.822 36.421 28.558 69.161 54.224 138.66 108.75 1.4683-3.9203 2.5101-8.8012 3.4492-15.113 7.9012-53.108-9.2634-107.31-45.777-144.55l-11.021-11.24 11.812-12.184c32.269-33.29 47.875-74.582 46.107-121.98-1.5247-40.874-5.0546-47.215-28.766-51.687-19.779-3.7305-55.583-2.4899-74.525 2.584-26.779 7.1731-54.114 22.781-73.934 42.215l-10.986 10.771-10.986-10.771c-19.82-19.433-47.153-35.042-73.932-42.215-11.232-3.0088-25.763-4.5436-40.057-4.7676zm-86.809 135.56c-3.1992 0.15126-7.8103 4.7855-17.6 14.082-16.428 15.601-26.574 30.227-26.574 38.305 0 10.122 16.235 31.834 34.652 46.34 5.1895 4.0874 10.034 7.433 10.766 7.4336 0.73147 6e-4 3.8979-5.5968 7.0352-12.438 3.1373-6.8407 10.072-18.935 15.412-26.877l9.709-14.439-8.6191-12.469c-4.7406-6.8575-11.784-19.061-15.65-27.119-4.1447-8.6378-5.9316-12.97-9.1309-12.818zm423.57 0c-3.1992-0.15126-4.9881 4.1806-9.1328 12.818-3.8664 8.0579-10.908 20.262-15.648 27.119l-8.6191 12.469 9.707 14.439c5.3396 7.9419 12.277 20.036 15.414 26.877 3.1373 6.8407 6.2307 12.438 6.875 12.438 5.0991 0 28.013-22.038 38.201-36.74 12.251-17.678 8.2178-29.301-19.199-55.338-9.7893-9.2966-14.398-13.931-17.598-14.082zm-376.4 11.467c6.2851 10.162 13.765 19.797 22.514 28.822l11.811 12.184-11.02 11.24c-36.24 36.96-53.891 92.301-45.723 143.36 3.9501 24.691 6.8617 27.954 28.4 31.842 52.628 9.4989 107.02-6.6961 145.29-43.262l13.266-12.672 14.428 13.498c30.837 28.851 72.262 44.848 114.52 45.021l-143.56-112.52c-23.794-4.4288-42.896-20.833-53.242-41.73zm164.62 219.5-12.904 8.9199c-7.0979 4.9068-19.463 11.995-27.477 15.75l-14.57 6.8281 7.7109 10.02c8.6386 11.226 19.887 21.675 32.635 30.312 5.7146 3.872 10.564 5.7969 14.605 5.7969 10.131 0 32.773-17.306 47.242-36.109l7.709-10.02-14.57-6.8281c-8.0137-3.7554-20.377-10.843-27.475-15.75z" style="stroke-width:1.7155"/></g></svg>
-
-					</span>
+					<span class="menu-item-icon icon-karma icon-hide-karma"></span>
 					<span id="textHideKarma" data-search="karma"></span>
 					<label class="switch">
-						<input id="checkbox-hide-karma" type="checkbox">
+						<input id="checkbox-hide-karma" type="checkbox" />
+						<span class="indicator"></span>
+					</label>
+				</li>
+				<li class="container container-3 r-new">
+					<span class="menu-item-icon icon-bell icon-hide-turn-on-notifications"></span>
+					<span id="textHideTurnOnNotificationsPopup" data-search="popup,notifications"></span>
+					<label class="switch">
+						<input id="checkbox-hide-turn-on-notifications" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -157,7 +157,7 @@
 					<span class="menu-item-icon icon-hide hide-get-new-reddit"></span>
 					<span id="textHideGetNewReddit" data-search="get,new,beta"></span>
 					<label class="switch">
-						<input id="checkbox-hide-get-new-reddit" type="checkbox">
+						<input id="checkbox-hide-get-new-reddit" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -165,32 +165,34 @@
 					<span class="menu-item-icon icon-hide icon-hide-header-sub-bar"></span>
 					<span id="textHideHeaderSubBar" data-search=""></span>
 					<label class="switch">
-						<input id="checkbox-hide-header-sub-bar" type="checkbox">
+						<input id="checkbox-hide-header-sub-bar" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="sub-header r-both">
 					<span id="textMain"></span>
 				</li>
-				<li class="container container-3 r-new">					
-					<span class="menu-item-icon icon-hide-create-post">
-						<svg class="icon" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m359.38 39.385c0-21.785-17.6-39.385-39.385-39.385-21.785 0-39.385 17.6-39.385 39.385v177.23h-177.23c-21.785 0-39.385 17.6-39.385 39.385 0 21.785 17.6 39.385 39.385 39.385h177.23v177.23c0 21.785 17.6 39.385 39.385 39.385 21.785 0 39.385-17.6 39.385-39.385v-177.23h177.23c21.785 0 39.385-17.6 39.385-39.385 0-21.785-17.6-39.385-39.385-39.385h-177.23z" style="stroke-width:1.2308"/></svg>
-						<svg class="icon-slash" style="display: none;" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g><path d="m38.8 5.1c-10.4-8.2-25.5-6.3-33.7 4.1s-6.3 25.5 4.1 33.7l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7c-601.7-472.17-317.2-248.63-592-464z"/><path d="m320 0c-21.785 0-39.385 17.6-39.385 39.385v177.23h-44.537c15.484 12.122 91.927 72.107 123.31 96.711v-17.941h177.23c21.785 0 39.385-17.6 39.385-39.385 0-21.785-17.6-39.385-39.385-39.385h-177.23v-177.23c0-21.785-17.6-39.385-39.385-39.385zm-216.62 216.62c-21.785 0-39.385 17.6-39.385 39.385 0 21.785 17.6 39.385 39.385 39.385h155.12l-100.5-78.77h-54.623zm177.23 96.098v159.9c0 21.785 17.6 39.385 39.385 39.385 21.785 0 39.385-17.6 39.385-39.385v-98.164l-78.77-61.738z" style="stroke-width:1.2308"/></g></svg>
-					</span>
+				<li class="container container-3 r-new">
+					<span class="menu-item-icon icon-plus icon-hide-create-post"></span>
 					<span id="textHideCreatePost" data-search=""></span>
 					<label class="switch">
-						<input id="checkbox-hide-create-post" type="checkbox">
+						<input id="checkbox-hide-create-post" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon icon-hide-promoted">
-						<svg class="icon" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m96 32c-35.3 0-64 28.7-64 64v320c0 35.3 28.7 64 64 64h448c35.3 0 64-28.7 64-64v-320c0-35.3-28.7-64-64-64zm165.5 141.3 72 144c5.9 11.9 1.1 26.3-10.7 32.2s-26.3 1.1-32.2-10.7l-5.4-10.8h-90.4l-5.4 10.7c-5.9 11.9-20.3 16.7-32.2 10.7s-16.7-20.3-10.7-32.2l72-144c4.1-8.1 12.4-13.3 21.5-13.3s17.4 5.1 21.5 13.3zm-21.5 64.4-21.2 42.3h42.3zm184 18.3a24 24 0 1 0 0 48 24 24 0 1 0 0-48zm24-43.9v-28.1c0-13.3 10.7-24 24-24s24 10.7 24 24v144c0 13.3-10.7 24-24 24-6.6 0-12.6-2.7-17-7-9.4 4.5-19.9 7-31 7-39.8 0-72-32.2-72-72s32.2-72 72-72c8.4 0 16.5 1.4 24 4.1z"/></svg>
-						<svg class="icon-slash" style="display: none;" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m96 32c-23.52 0-44.055 12.778-55.178 31.723 77.844 60.967 128.22 100.39 167.04 130.76l10.643-21.283c4.1-8.1 12.4-13.299 21.5-13.299s17.4 5.0988 21.5 13.299v0.10156l52.031 104.06c9.3286 7.3114 35.077 27.514 47.162 36.99-5.5438-10.206-8.6934-21.907-8.6934-34.352 0-39.8 32.2-72 72-72 8.4 0 16.5 1.3996 24 4.0996v-28.1c0-13.3 10.7-24 24-24s24 10.7 24 24v96 48c0 13.3-10.7 24-24 24-6.6 0-12.6-2.7-17-7-9.4 4.5-19.9 7-31 7-6.3927 0-12.556-0.91314-18.455-2.4727 51.851 40.667 58.004 45.455 161.02 126.29 24.176-9.1487 41.434-32.47 41.434-59.818v-320c0-35.3-28.7-64-64-64h-448zm-64 85.852v298.15c0 35.3 28.7 64 64 64h398.05l-168.62-132.16c-0.85532 0.57766-1.6794 1.1903-2.627 1.6641-11.8 5.9-26.301 1.1008-32.201-10.699l-5.4004-10.801h-90.398l-5.4004 10.699c-5.9 11.9-20.301 16.701-32.201 10.701s-16.699-20.301-10.699-32.201l39.373-78.744-153.87-120.6zm392 138.15a24 24 0 0 0 0 48 24 24 0 0 0 0-48zm-199.54 12.701-5.6621 11.299h20.078l-14.416-11.299z"/><path d="m38.8 5.1c-10.4-8.2-25.5-6.3-33.7 4.1s-6.3 25.5 4.1 33.7l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7c-601.7-472.17-317.2-248.63-592-464z"/></svg>
-					</span>
+					<span class="menu-item-icon icon-ad icon-hide-promoted"></span>
 					<span id="textHidePromoted" data-search="ad,promoted"></span>
 					<label class="switch">
-						<input id="checkbox-hide-promoted" type="checkbox">
+						<input id="checkbox-hide-promoted" type="checkbox" />
+						<span class="indicator"></span>
+					</label>
+				</li>
+				<li class="container container-3 r-new">
+					<span class="menu-item-icon icon-nsfw icon-hide-nsfw"></span>
+					<span id="textHideNSFW" data-search="nsfw"></span>
+					<label class="switch">
+						<input id="checkbox-hide-nsfw" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -198,58 +200,58 @@
 					<span class="menu-item-icon icon-hide icon-hide-side-menu-old"></span>
 					<span id="textHideSideMenuOld" data-search=""></span>
 					<label class="switch">
-						<input id="checkbox-hide-side-menu-old" type="checkbox">
+						<input id="checkbox-hide-side-menu-old" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="sub-header r-both">
 					<span id="textSidebar"></span>
-				</li>				
+				</li>
 				<li class="container container-3 r-both">
-					<span class="menu-item-icon icon-hide icon-hide-home-sidebar"></span>
+					<span class="menu-item-icon icon-show icon-hide-home-sidebar"></span>
 					<span id="textHideHomeSidebar" data-search="sidebar"></span>
 					<label class="switch">
-						<input id="checkbox-hide-home-sidebar" type="checkbox">
+						<input id="checkbox-hide-home-sidebar" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-both">
-					<span class="menu-item-icon icon-hide hide-reddit-premium"></span>
+					<span class="menu-item-icon icon-show hide-reddit-premium"></span>
 					<span id="textHideRedditPremium" data-search="sidebar,premium"></span>
 					<label class="switch">
-						<input id="checkbox-hide-reddit-premium" type="checkbox">
+						<input id="checkbox-hide-reddit-premium" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon icon-hide hide-sidebar-policy"></span>
+					<span class="menu-item-icon icon-show hide-sidebar-policy"></span>
 					<span id="textHideSidebarPolicy" data-search="sidebar,privacy,policy"></span>
 					<label class="switch">
-						<input id="checkbox-hide-sidebar-policy" type="checkbox">
+						<input id="checkbox-hide-sidebar-policy" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon icon-hide icon-hide-sub-sidebar"></span>
+					<span class="menu-item-icon icon-show icon-hide-sub-sidebar"></span>
 					<span id="textHideSubSidebar" data-search="sidebar"></span>
 					<label class="switch">
-						<input id="checkbox-hide-sub-sidebar" type="checkbox">
+						<input id="checkbox-hide-sub-sidebar" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon icon-hide icon-hide-post-sidebar"></span>
+					<span class="menu-item-icon icon-show icon-hide-post-sidebar"></span>
 					<span id="textHidePostSidebar" data-search="sidebar"></span>
 					<label class="switch">
-						<input id="checkbox-hide-post-sidebar" type="checkbox">
+						<input id="checkbox-hide-post-sidebar" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon icon-hide icon-hide-user-sidebar"></span>
+					<span class="menu-item-icon icon-show icon-hide-user-sidebar"></span>
 					<span id="textHideUserSidebar" data-search="sidebar"></span>
 					<label class="switch">
-						<input id="checkbox-hide-user-sidebar" type="checkbox">
+						<input id="checkbox-hide-user-sidebar" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -257,91 +259,66 @@
 					<span id="textHeaderButtons"></span>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon hide-popular-button">
-						<svg class="icon" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m252.43 503.33c-202.76-54.6-255.8-325.34-88.427-451.38 155.2-116.86 378.91-25.881 408.65 166.19 27.711 179.03-144.59 332.48-320.22 285.19zm111.77-29.682c169.72-35.509 234.96-244.25 115.73-370.31-172.27-182.15-471.98 26.021-359.9 249.98 14.278 28.53 25.66 42.583 30.146 39.772 3.7266-2.3357 48.064-39.434 110.36-101.73l110.56-110.56h-109.34v-32.289l162.72 2.9455 2.9454 162.72h-32.289v-109.27l-109.37 109.27c-60.155 60.098-109.37 110.59-109.37 112.19 0 6.8772 58.434 37.436 85.36 44.64 35.988 9.6286 65.403 10.386 102.44 2.6379z" style="stroke-width:5.335"/></svg>
-						<svg class="icon-slash" style="display: none;" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m321.56 0.029297c-53.871-0.81708-109.06 15.406-157.56 51.926-24.061 18.118-43.419 39.291-58.58 62.318 5.9364 4.6378 23.209 18.168 27.975 21.889 72.962-105.71 235.93-149.77 346.53-32.82 85.756 90.669 76.076 224.11 0.73243 305.1 11.603 9.1028 12.624 9.8976 25.537 20.029 50.736-54.257 78.935-129.66 66.449-210.33-20.441-132.05-132.57-216.32-251.09-218.12zm-59.807 148.49v32.287h109.34l-79.414 79.416c4.6999 3.6827 21.46 16.833 26.945 21.133l76.506-76.439v109.27h32.289l-1.4727-81.361-1.4726-81.361zm-179.02 9.0996c-53.622 133.59 13.6 303.68 169.69 345.71 79.13 21.308 157.52 1.7805 217.31-42.391l-26.381-20.678c-22.911 15.509-49.386 27.158-79.158 33.387l-6e-3 0.01c-37.033 7.7485-66.447 6.99-102.44-2.6387-26.926-7.2038-85.359-37.763-85.359-44.641 0-1.5928 48.546-51.388 107.94-110.75l-26.971-21.139c-60.572 60.323-103.53 96.313-107.2 98.607-4.4861 2.8119-15.869-11.242-30.146-39.771-30.987-61.921-30.395-122.59-9.8241-174.18z" style="stroke-width:5.335"/><path d="m38.8 5.1c-10.4-8.2-25.5-6.3-33.7 4.1s-6.3 25.5 4.1 33.7l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7c-601.7-472.17-317.2-248.63-592-464z"/></svg>
-					</span>
+					<span class="menu-item-icon icon-popular hide-popular-button"></span>
 					<span id="textHidePopularButton" data-search=""></span>
 					<label class="switch">
-						<input id="checkbox-hide-popular-button" type="checkbox">
+						<input id="checkbox-hide-popular-button" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon hide-coin-button">
-						<svg class="icon" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m224.2 508.54c-177.42-57.164-227.67-310.96-88.999-449.52 53.567-53.524 77.985-60.935 193.32-58.671 81.742 1.6082 93.306 3.0894 117.7 15.097 183.02 90.12 184.75 384.11 2.8248 479.5-28.634 15.013-33.623 15.714-120.29 16.906-49.733 0.6348-96.782-0.8464-104.55-3.3115zm89.031-37.45c165.18-49.051 185.11-329.78 29.653-417.52-104.01-58.698-228.41 23.205-248.28 163.47-22.441 158.36 92.216 291.59 218.63 254.04zm-86.201-92.554c-94.284-43.652-98.214-197.8-6.2422-244.74 26.6-13.575 69.205-14.428 93.486-1.8727 19.519 10.093 19.772 10.971 10.814 37.486-8.4746 25.075-7.7128 24.603-22.658 14.135-42.571-29.819-100.83 10.829-100.83 70.346 0 66.242 45.689 96.083 108.12 70.607 6.8452-2.7931 10.841 0.9522 15.541 14.384 9.6384 27.653 8.1254 31.464-16.395 41.275-29.518 11.812-53.857 11.328-81.832-1.6187zm210.46 81.032c154.36-76.922 141.28-362.64-19.112-417.29-36.807-12.542-41.741-11.306-20.793 5.2054 52.026 41.009 86.592 124.73 86.592 209.72 0 80.635-20.283 133.67-72.648 189.96-29.559 31.776-21.068 35.828 25.962 12.392z" style="stroke-width:5.6513"/></svg>
-						<svg class="icon-slash" style="display: none;" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m289.3 0.027344c-82.673 0.63356-107.23 12.162-154.1 58.996-14.98 14.968-27.623 31.341-38.271 48.605 6.4517 5.0424 22.505 17.621 27.379 21.426 47.492-82.914 138.97-120.4 218.57-75.477 105.45 59.51 130.11 207.77 83.562 312.34 10.15 7.9616 16.935 13.281 28.508 22.359 20.519-37.665 29.223-78.489 29.223-131.07 0-84.994-34.566-168.71-86.592-209.72-20.948-16.511-16.014-17.747 20.793-5.2051 138.33 47.136 166.97 266.05 73.232 374.75 13.234 10.383 12.971 10.168 27.805 21.807 106.76-124.24 81.923-347.01-73.191-423.39-24.392-12.007-35.955-13.488-117.7-15.096-14.417-0.28301-27.414-0.41668-39.225-0.32617zm-20.9 123.04c-17.011 0.34067-34.311 3.9468-47.611 10.734-17.714 9.0412-31.832 22.084-42.471 37.523 3.8317 2.996 35.187 27.601 40.02 31.383 20.413-27.494 55.7-39.045 84.092-19.158 14.945 10.468 14.184 10.94 22.658-14.135 8.9581-26.515 8.7046-27.393-10.814-37.486-12.141-6.2776-28.862-9.202-45.873-8.8613zm-193.37 28.518c-53.773 138.07 6.5703 311.02 149.17 356.96v-2e-3c7.771 2.4651 54.819 3.9473 104.55 3.3125 86.671-1.1913 91.659-1.8933 120.29-16.906 12.627-6.6204 24.277-14.283 35.135-22.682l-29.225-22.904c-5.5918 3.6762-11.352 7.1629-17.469 10.211-47.028 23.434-55.518 19.381-25.959-12.395 5.9042-6.347 11.344-12.652 16.449-18.961l-25.945-20.336c-22.092 29.509-51.766 52.214-88.803 63.213-126.41 37.541-241.07-95.687-218.63-254.04 2.1063-14.865 5.4504-29.028 9.7559-42.484zm83.318 65.303c-14.711 61.211 8.6197 133.85 68.684 161.66 27.974 12.946 52.313 13.428 81.83 1.6172 20.468-8.1893 24.768-12.388 20.07-29.572l-28.861-22.621c-57.42 18.697-98.475-11.299-98.475-74.07 0-1.0113 0.14836-1.9706 0.18164-2.9707z" style="stroke-width:5.6513"/><path d="m38.8 5.1c-10.4-8.2-25.5-6.3-33.7 4.1s-6.3 25.5 4.1 33.7l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7c-601.7-472.17-317.2-248.63-592-464z"/></svg>
-					</span>
+					<span class="menu-item-icon icon-coin hide-coin-button"></span>
 					<span id="textHideCoinButton" data-search=""></span>
 					<label class="switch">
-						<input id="checkbox-hide-coin-button" type="checkbox">
+						<input id="checkbox-hide-coin-button" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon hide-happening-now-button">
-						<svg class="icon" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(26.257 0 0 26.257 28.135 -19.692)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" style="fill:none"><path d="m15.305 7.2842v2.7631"/><path d="m11.621 5.4419v6.4473"/><path d="m7.9356 7.2839v2.7632"/><path d="m15.257 1.5h-8.2822c-3.2024 0-5.7423 2.5399-5.7423 5.7423v3.2025c0 3.2024 2.5399 5.7423 5.7423 5.7423h1.8773v3.3129l3.3128-3.3129h3.0921c3.2024 0 5.7423-2.5399 5.7423-5.7423v-3.2025c0-3.2024-2.5399-5.7423-5.7423-5.7423z"/></g></svg>
-						<svg class="icon-slash" style="display: none;" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g><g transform="matrix(26.257 0 0 26.257 28.135 -19.692)" style="fill:inherit;"><path d="m15.305 6.5352a0.75 0.75 0 0 0-0.75 0.75v2.7617a0.75 0.75 0 0 0 0.75 0.75 0.75 0.75 0 0 0 0.75-0.75v-2.7617a0.75 0.75 0 0 0-0.75-0.75z" style="fill:inherit;"/><path d="m11.621 4.6914a0.75 0.75 0 0 0-0.75004 0.74996v5.8703c0.41973 0.3292 0.8271 0.64865 1.3178 1.0336a0.75 0.75 0 0 0 0.18217-0.45666v-6.4473a0.75 0.75 0 0 0-0.74996-0.74996z" style="fill:inherit;"/><path d="m7.9355 6.5332a0.75 0.75 0 0 0-0.74996 0.74996v1.139c0.40936 0.32071 0.90331 0.7078 1.5 1.1756v-2.3146a0.75 0.75 0 0 0-0.75004-0.74996z" style="fill:inherit;"/><path d="m6.9746 0.75c-2.3738 0-4.4344 1.263-5.5665 3.1527 0.42555 0.33331 0.85841 0.67238 1.1769 0.92172 0.83704-1.5481 2.4676-2.5744 4.3895-2.5744h8.2832c2.8058 0 4.9922 2.1864 4.9922 4.9922v3.2031c0 2.5358-1.7881 4.5597-4.203 4.9269 0.43248 0.33933 1.0016 0.78585 1.4728 1.1556 2.474-0.91466 4.2303-3.2813 4.2303-6.0825v-3.2031c0-3.599-2.8932-6.4922-6.4922-6.4922zm-6.2975 4.9038c-0.12668 0.50801-0.19474 1.0398-0.19474 1.5884v3.2031c0 3.599 2.8932 6.4921 6.4922 6.4921h1.127v2.5625a0.75008 0.75008 0 0 0 1.2812 0.53127l3.0919-3.0938h2.5988l-1.9137-1.5h-0.99566a0.75008 0.75008 0 0 0-0.52933 0.21877l-2.0332 2.0332v-1.5019a0.75008 0.75008 0 0 0-0.74996-0.75004h-1.877c-2.8058 0-4.9922-2.1863-4.9922-4.9921v-3.2031c0-0.18384 0.010531-0.36464 0.028862-0.54272z" style="fill:inherit;"/></g><path d="m38.8 5.1c-10.4-8.2-25.5-6.3-33.7 4.1s-6.3 25.5 4.1 33.7l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7c-601.7-472.17-317.2-248.63-592-464z"/></g></svg>
-
-					</span>
+					<span class="menu-item-icon icon-happening-now hide-happening-now-button"></span>
 					<span id="textHideHappeningNowButton" data-search=""></span>
 					<label class="switch">
-						<input id="checkbox-hide-happening-now-button" type="checkbox">
+						<input id="checkbox-hide-happening-now-button" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon hide-moderation-button">
-						<svg class="icon" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m282.32 504.59c-87.663-31.929-157.3-82.242-183.46-135.51-20.601-31.746-14.476-55.18-16.287-159.91-1.3899-109.9-0.40038-132 6.3717-142.33 6.8225-10.412 24.824-16.304 120.8-39.532l112.78-27.297 110.43 27.552c60.736 15.154 113.95 31.076 118.26 35.382 6.6398 6.64 7.5845 29.04 6.2129 147.32-1.5227 131.29-2.2836 140.73-12.952 160.66-24.738 46.203-76.329 87.132-149.7 118.77-57.804 24.922-77.722 27.564-112.45 14.914zm122.21-55.813c54.394-26.637 96.494-63.315 112.08-97.64 9.0908-20.028 10.16-35.024 10.263-143.98l0.11417-121.63-19.649-5.1716c-10.806-2.8444-57.382-14.605-103.5-26.134l-83.85-20.963-83.827 20.965c-46.104 11.53-92.855 23.341-103.89 26.246l-20.061 5.2812 1.7223 124.14c-0.42496 53.345-6.0466 121.88 16.049 148.51 25.963 44.167 90.72 89.569 162.7 114.07 33.381 11.363 45.545 8.787 111.85-23.684z" style="stroke-width:5.2399"/></svg>
-						<svg class="icon-slash" style="display: none;" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m322.53 0-112.78 27.297c-95.976 23.229-113.98 29.121-120.8 39.533-3.1326 4.7809-4.9857 12.528-5.9805 29.869 8.4737 6.6269 23.896 18.708 29.727 23.262l-0.47461-34.211 20.061-5.2812c11.034-2.9046 57.785-14.716 103.89-26.246l83.828-20.965 83.85 20.963c46.118 11.529 92.694 23.29 103.5 26.135l19.648 5.1699-0.11328 121.63c-0.10317 108.96-1.1729 123.95-10.264 143.98-7.8928 17.387-22.611 35.374-42.264 52.357 11.834 9.2837 13.511 10.592 26.764 20.99 18.663-16.808 33.28-34.745 43.363-53.578 10.669-19.926 11.43-29.363 12.953-160.65 1.3716-118.28 0.42687-140.68-6.2129-147.32-4.3076-4.3056-57.526-20.227-118.26-35.381zm-240.37 157.16c0.06602 15.246 0.15084 30.724 0.41992 52 1.8111 104.73-4.3141 128.17 16.287 159.91 26.161 53.272 95.802 103.58 183.46 135.51v2e-3c34.731 12.65 54.649 10.008 112.45-14.914 24.827-10.705 47.095-22.496 66.738-35.174l-27.855-21.832c-9.2676 5.639-18.891 11.095-29.123 16.105l4e-3 4e-3c-66.309 32.471-78.473 35.046-111.85 23.684-71.98-24.501-136.74-69.901-162.7-114.07-22.096-26.631-16.474-95.163-16.049-148.51l-0.39062-28.117z" style="stroke-width:5.2399"/><path d="m38.8 5.1c-10.4-8.2-25.5-6.3-33.7 4.1s-6.3 25.5 4.1 33.7l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7c-601.7-472.17-317.2-248.63-592-464z"/></svg>
-					</span>
+					<span class="menu-item-icon icon-mod hide-moderation-button"></span>
 					<span id="textHideModerationButton" data-search=""></span>
 					<label class="switch">
-						<input id="checkbox-hide-moderation-button" type="checkbox">
+						<input id="checkbox-hide-moderation-button" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon hide-chat-button">
-						<svg class="icon" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m71.63 505.97c-12.002-6.7166-11.227-15.05 6.6786-71.777l15.377-48.718-13.047-35.943c-94.84-261.28 229.21-469.92 418.84-269.68 81.631 86.202 98.764 186.43 49.231 288-60.294 123.63-207.29 177.52-334.95 122.79-21.933-9.4014-22.726-9.3462-77.699 5.4015-38.217 10.253-58.311 13.349-64.426 9.927zm311.26-36.237c108.94-33.648 178.28-149.6 153.18-256.13-47.879-203.19-321.96-238.79-413.36-53.705-27.272 55.219-29.648 137.11-5.5147 190.05l14.55 31.912-12.576 42.551c-6.9165 23.403-11.931 43.287-11.142 44.184 0.78836 0.89906 21.772-3.6998 46.629-10.219l45.195-11.854 26.898 11.572c56.412 24.268 103.84 27.806 156.15 11.646zm-189.46-194.63c-4.597-4.5971-8.3581-12.803-8.3581-18.236 0-22.691 28.7-34.366 44.831-18.236 16.13 16.13 4.456 44.831-18.236 44.831-5.4328 0-13.639-3.7611-18.236-8.3582zm106.38 0c-4.5971-4.5971-8.3582-12.803-8.3582-18.236 0-22.691 28.7-34.366 44.829-18.236 16.13 16.13 4.456 44.831-18.236 44.831-5.4329 0-13.639-3.7611-18.236-8.3582zm106.38 0c-16.13-16.13-4.456-44.831 18.236-44.831 12.691 0 26.594 13.903 26.594 26.594 0 22.691-28.7 34.366-44.831 18.236z" style="stroke-width:5.3188"/></svg>
-						<svg class="icon-slash" style="display: none;" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m319.89 0.0058594c-84.028 0.59738-164.97 45.657-212.68 115.67 5.8564 4.575 23.395 18.317 28.168 22.043 101.64-159.44 354.84-118.7 400.69 75.887 16.327 69.278-7.3143 142.52-55.787 194.54 12.108 9.4994 13.152 10.311 26.693 20.936 16.428-17.858 30.572-38.336 41.732-61.219 49.533-101.57 32.398-201.8-49.232-288-53.331-56.319-117.3-80.294-179.58-79.852zm-236.18 158.37c-23.84 55.459-28.378 121.43-3.0684 191.16l13.047 35.943-15.377 48.719c-17.905 56.727-18.68 65.061-6.6777 71.777l2e-3 6e-3c6.115 3.4219 26.209 0.32488 64.426-9.9277 54.973-14.748 55.767-14.802 77.699-5.4004 88.029 37.736 185.24 23.813 256.89-28.994l-27.381-21.461c-18.242 12.657-38.493 22.78-60.375 29.539l8e-3 4e-3c-52.316 16.159-99.74 12.622-156.15-11.646l-26.899-11.573-45.195 11.854c-24.857 6.5196-45.839 11.12-46.627 10.221-0.78837-0.89789 4.2241-20.782 11.141-44.186l12.576-42.551-14.549-31.912c-21.106-46.295-21.935-114.74-3.5684-168.12zm340.71 71.893c-22.691 0-34.365 28.7-18.236 44.83 16.131 16.13 44.83 4.4568 44.83-18.234 0-12.691-13.903-26.596-26.594-26.596zm-105.68 0.8711c-13.719-0.26915-27.285 10.124-27.285 25.725 0 1.0861 0.2501 2.337 0.52735 3.5938 5.072 3.9743 23.038 18.071 29.027 22.766 20.695-2.3828 30.679-29.19 15.273-44.596-5.0404-5.0406-11.307-7.3659-17.543-7.4883zm-128.6 10.654c-3.1193 4.1021-5.0586 9.2083-5.0586 15.07 1e-5 5.4328 3.7604 13.639 8.3574 18.236h2e-3c4.597 4.597 12.802 8.3594 18.234 8.3594 8.2633 0 15.038-3.8305 19.568-9.4492z" style="stroke-width:5.3188"/><path d="m38.8 5.1c-10.4-8.2-25.5-6.3-33.7 4.1s-6.3 25.5 4.1 33.7l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7c-601.7-472.17-317.2-248.63-592-464z"/></svg>
-					</span>
+					<span class="menu-item-icon icon-chat hide-chat-button"></span>
 					<span id="textHideChatButton" data-search=""></span>
 					<label class="switch">
-						<input id="checkbox-hide-chat-button" type="checkbox">
+						<input id="checkbox-hide-chat-button" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon hide-notification-button">
-						<svg  class="icon" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m303.62 509.29c-19.879-7.1009-33.719-23.623-36.674-43.78l-1.0714-7.3099h108.42l-1.0556 7.3099c-4.6725 32.357-39.787 54.438-69.623 43.78zm-208.02-104.18c-18.316-5.7127-23.975-21.019-20.32-54.964 3.6566-33.963 17.515-59.109 42.979-77.986 29.274-21.702 35.597-36.722 35.672-84.75 0.0262-16.539 0.71937-35.264 1.5405-41.613 8.8444-68.372 53.654-120.72 120.76-141.06 20.843-6.3192 66.876-6.3192 87.719 0 59.371 18 99.643 58.868 116.26 117.98 2.64 9.393 3.5144 18.705 4.6964 50.015 1.7581 46.571 2.9244 55.429 8.8952 67.556 6.0918 12.373 13.363 20.645 27.831 31.658 27.17 20.683 40.204 45.166 43.445 81.61 2.8688 32.253-2.7454 46.198-20.751 51.545-11.141 3.3086-438.12 3.3203-448.72 0.0123zm436.83-38.861c-0.12866-30.848-10.222-51.329-34.721-70.46-34.713-27.106-45.273-51.892-45.273-106.27 0-48.056-4.1141-67.798-19.397-93.079-44.618-73.807-145.07-86.096-205.97-25.198-30.088 30.088-37.488 51.692-39.241 114.56-1.0463 37.516-1.5699 43.544-4.6112 53.093-7.513 23.59-18.98 39.55-41.028 57.102-25.866 20.592-34.472 37.316-34.472 66.992v10.562h424.74l-0.0305-7.3099z" style="stroke-width:1.5389"/><path d="m352 80c0-17.7-14.3-32-32-32s-32 14.3-32 32v144h-144c-17.7 0-32 14.3-32 32s14.3 32 32 32h144v144c0 17.7 14.3 32 32 32s32-14.3 32-32v-144h144c17.7 0 32-14.3 32-32s-14.3-32-32-32h-144z" style="display:none"/><path d="m96 32c-35.3 0-64 28.7-64 64v320c0 35.3 28.7 64 64 64h448c35.3 0 64-28.7 64-64v-320c0-35.3-28.7-64-64-64zm165.5 141.3 72 144c5.9 11.9 1.1 26.3-10.7 32.2s-26.3 1.1-32.2-10.7l-5.4-10.8h-90.4l-5.4 10.7c-5.9 11.9-20.3 16.7-32.2 10.7s-16.7-20.3-10.7-32.2l72-144c4.1-8.1 12.4-13.3 21.5-13.3s17.4 5.1 21.5 13.3zm-21.5 64.4-21.2 42.3h42.3zm184 18.3a24 24 0 1 0 0 48 24 24 0 1 0 0-48zm24-43.9v-28.1c0-13.3 10.7-24 24-24s24 10.7 24 24v144c0 13.3-10.7 24-24 24-6.6 0-12.6-2.7-17-7-9.4 4.5-19.9 7-31 7-39.8 0-72-32.2-72-72s32.2-72 72-72c8.4 0 16.5 1.4 24 4.1z" style="display:none"/></svg>
-						<svg class="icon-slash" style="display: none;" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g><path d="m320.08 0c-16.719 0-33.44 1.5807-43.861 4.7402-67.103 20.344-111.91 72.687-120.76 141.06-0.17597 1.3603-0.29813 4.9255-0.45703 7.2793 4.9887 3.896 26.535 20.782 33.111 25.926 2.1347-57.381 10.031-78.848 38.941-107.76 60.898-60.898 161.35-48.609 205.97 25.197 15.283 25.281 19.398 45.024 19.398 93.08 0 54.375 10.558 79.161 45.271 106.27 24.499 19.131 34.594 39.611 34.723 70.459l0.0293 7.3106h-96.27c15.815 12.406 23.326 18.29 42.441 33.287 36.797-0.41226 63.111-0.98245 65.689-1.748 18.005-5.347 23.619-19.292 20.75-51.545-3.2416-36.444-16.275-60.926-43.445-81.609-14.468-11.014-21.738-19.285-27.83-31.658-5.9708-12.128-7.1384-20.985-8.8965-67.557-1.182-31.31-2.0553-40.623-4.6953-50.016-16.613-59.107-56.885-99.975-116.26-117.97-10.422-3.1596-27.14-4.7402-43.859-4.7402zm-167.22 212.59c-2.6254 28.933-11.27 42.271-34.613 59.576-25.464 18.877-39.322 44.024-42.979 77.986-3.6548 33.945 2.0023 49.25 20.318 54.963 6.7316 2.0996 176.23 2.7098 305.64 2.1406l-42.984-33.691h-250.54v-10.562c0-29.675 8.6062-46.4 34.473-66.992 22.048-17.553 33.514-33.511 41.027-57.102 0.22667-0.71174 0.35277-1.4145 0.55273-2.1016zm113 245.62 1.0723 7.3106c2.9544 20.158 16.794 36.678 36.674 43.779 29.836 10.657 64.951-11.422 69.623-43.779l1.0547-7.3106h-54.211z" style="stroke-width:1.5389"/><path d="m38.8 5.1c-10.4-8.2-25.5-6.3-33.7 4.1s-6.3 25.5 4.1 33.7l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7c-601.7-472.17-317.2-248.63-592-464z"/></g></svg>
-					</span>
+					<span class="menu-item-icon icon-notification hide-notification-button"></span>
 					<span id="textHideNotificationButton" data-search="notification"></span>
 					<label class="switch">
-						<input id="checkbox-hide-notification-button" type="checkbox">
+						<input id="checkbox-hide-notification-button" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon hide-create-post-button">
-						<svg class="icon" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m359.38 39.385c0-21.785-17.6-39.385-39.385-39.385-21.785 0-39.385 17.6-39.385 39.385v177.23h-177.23c-21.785 0-39.385 17.6-39.385 39.385 0 21.785 17.6 39.385 39.385 39.385h177.23v177.23c0 21.785 17.6 39.385 39.385 39.385 21.785 0 39.385-17.6 39.385-39.385v-177.23h177.23c21.785 0 39.385-17.6 39.385-39.385 0-21.785-17.6-39.385-39.385-39.385h-177.23z" style="stroke-width:1.2308"/></svg>
-						<svg class="icon-slash" style="display: none;" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g><path d="m38.8 5.1c-10.4-8.2-25.5-6.3-33.7 4.1s-6.3 25.5 4.1 33.7l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7c-601.7-472.17-317.2-248.63-592-464z"/><path d="m320 0c-21.785 0-39.385 17.6-39.385 39.385v177.23h-44.537c15.484 12.122 91.927 72.107 123.31 96.711v-17.941h177.23c21.785 0 39.385-17.6 39.385-39.385 0-21.785-17.6-39.385-39.385-39.385h-177.23v-177.23c0-21.785-17.6-39.385-39.385-39.385zm-216.62 216.62c-21.785 0-39.385 17.6-39.385 39.385 0 21.785 17.6 39.385 39.385 39.385h155.12l-100.5-78.77h-54.623zm177.23 96.098v159.9c0 21.785 17.6 39.385 39.385 39.385 21.785 0 39.385-17.6 39.385-39.385v-98.164l-78.77-61.738z" style="stroke-width:1.2308"/></g></svg>
-					</span>
+					<span class="menu-item-icon icon-plus hide-create-post-button"></span>
 					<span id="textHideCreatePostButton" data-search="create,add,post"></span>
 					<label class="switch">
-						<input id="checkbox-hide-create-post-button" type="checkbox">
+						<input id="checkbox-hide-create-post-button" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon hide-advertise-button">
-						<svg class="icon" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m214.99 504.23c-27.004-13.733-37.082-39.723-37.082-95.632 0-40.709 1.5769-48.148 11.308-53.357 26.491-14.178 34.644 0.61088 37.065 67.238l1.4921 41.064h17.599c17.412 0 17.617-0.37487 19.288-35.198 3.0444-63.472 48.176-68.399 48.176-5.2589 0 66.928-47.822 106.59-97.847 81.146zm86.816-151.97-154.76-42.827-31.456 14.401c-39.941 18.285-52.583 14.466-68.613-20.732-16.156-35.473-17.813-143.61-2.7265-177.89 16.46-37.402 33.108-43.64 68.538-25.687l29.736 15.068 161.82-58.985c97.519-35.548 166.22-57.588 172.89-55.47 16.49 5.2336 41.784 37.997 39.76 51.497-3.3978 22.652-21.361 26.623-37.333 8.2503-17.752-20.418-22.371-17.72-35.851 20.941-22.189 63.638-10.944 248.93 16.122 265.65 2.974 1.838 11.852-4.0707 19.729-13.131 16.233-18.671 33.965-14.308 37.46 9.2172 2.3009 15.488-33.575 53.748-49.708 53.011-5.969-0.27471-80.495-19.769-165.61-43.325zm96.753-36.842c-17.699-78.39-17.776-174.05-0.18829-234.65 3.7454-12.907 2.5715-12.735-54.051 7.9312-31.834 11.618-90.452 32.756-130.26 46.972l-72.379 25.847-26.79-11.851c-14.735-6.5178-28.362-10.282-30.283-8.3636-5.1925 5.1834-4.234 135.71 1.0353 140.99 2.4908 2.4973 16.128-1.0947 30.305-7.9825l25.775-12.523 125.16 34.464c148.44 40.876 136.18 39.091 131.68 19.167zm140.57 4.4648c-31.462-18.447-40.435-29.438-35.189-43.106 7.6872-20.033 31.449-15.272 74.354 14.896 17.929 12.607 21.802 36.446 6.8533 42.182-13.17 5.0538-13.99 4.8049-46.018-13.974zm-31.527-106.84c-10.571-10.571-8.4811-26.974 4.3076-33.82 28.895-15.464 94.248-3.4032 94.248 17.393 0 21.134-80.441 34.54-98.557 16.426zm2.1789-90.175c-16.504-16.504-7.1075-29.474 39.805-54.94 22.49-12.209 27.724-13.14 35.868-6.3798 16.739 13.892 8.0238 31.155-25.968 51.441-36.915 22.029-37.45 22.135-49.706 9.8808z" style="stroke-width:5.8665"/></svg>
-						<svg class="icon-slash" style="display: none;" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m475.27 0.023438c-13.405 0.80664-79.5 22.261-170.92 55.588l-161.82 58.984-29.736-15.068c-15.718-7.9651-27.729-11.14-37.678-8.9727 26.498 20.73 68.274 53.449 83.125 65.049l55.824-19.936c39.807-14.216 98.426-35.352 130.26-46.971 56.623-20.666 57.796-20.838 54.051-7.9316-17.588 60.605-17.512 156.26 0.1875 234.65l2e-3 -2e-3c2.8126 12.455 8.6509 17.819-23.623 10.107 24.322 19.072 51.029 40.015 88.104 69.1 0.98827 0.18425 3.9775 0.93288 4.375 0.95117 16.132 0.7376 52.008-37.522 49.707-53.01-3.4955-23.525-21.228-27.888-37.461-9.2168-7.8769 9.0599-16.754 14.969-19.729 13.131-27.066-16.721-38.31-202.01-16.121-265.65 13.48-38.662 18.098-41.359 35.85-20.941 15.972 18.373 33.936 14.402 37.334-8.25 2.0246-13.5-23.27-46.262-39.76-51.496-0.41721-0.13235-1.077-0.17096-1.9707-0.11719zm101.19 57.357c-5.4985-0.30463-12.815 2.922-26.871 10.553-46.913 25.466-56.309 38.436-39.805 54.939v2e-3c12.256 12.254 12.79 12.148 49.705-9.8809 33.992-20.285 42.708-37.549 25.969-51.441-3.054-2.5351-5.6989-3.9891-8.998-4.1719zm-532.84 69.578c-14.365 35.919-12.554 141.2 3.3594 176.14 16.031 35.198 28.672 39.016 68.613 20.73l31.455-14.4 154.76 42.826-4e-3 -0.01c16.892 4.6746 29.042 7.8262 44.646 12.062l-90.779-71.15-113.95-31.379-25.775 12.523c-14.177 6.8878-27.814 10.48-30.305 7.9824-4.2562-4.2665-5.6317-89.339-3.2929-124.97zm502.95 45.262c-13.043 0.03-25.633 2.1753-34.662 7.0078-12.788 6.8458-14.875 23.25-4.3066 33.82 18.119 18.111 98.555 4.7052 98.555-16.428 0-14.297-30.891-24.466-59.586-24.4zm-27.041 92.512c-7.5655 0.50674-12.707 4.5327-15.59 12.045-5.2455 13.669 3.7254 24.658 35.188 43.105h2e-3c32.028 18.778 32.848 19.026 46.018 13.973 14.948-5.7365 11.075-29.574-6.8535-42.182-26.816-18.855-46.154-27.786-58.764-26.941zm-313.69 85.666c-4.5275-0.43372-10.004 1.2993-16.627 4.8438-9.7311 5.2088-11.309 12.648-11.309 53.357 0 55.909 10.078 81.9 37.082 95.633l-2e-3 2e-3c50.026 25.44 97.848-14.218 97.848-81.146 0-63.14-45.131-58.212-48.176 5.2598-1.6704 34.823-1.8753 35.197-19.287 35.197h-17.6l-1.4922-41.064c-1.8154-49.97-6.855-70.781-20.438-72.082z" style="stroke-width:5.8665"/><path d="m38.8 5.1c-10.4-8.2-25.5-6.3-33.7 4.1s-6.3 25.5 4.1 33.7l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7c-601.7-472.17-317.2-248.63-592-464z"/></svg>
-					</span>
+					<span class="menu-item-icon icon-advertise hide-advertise-button"></span>
 					<span id="textHideAdvertiseButton" data-search=""></span>
 					<label class="switch">
-						<input id="checkbox-hide-advertise-button" type="checkbox">
+						<input id="checkbox-hide-advertise-button" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -365,7 +342,7 @@
 					<span class="menu-item-icon icon-scale"></span>
 					<span id="textFitImage" data-search="post,tall,image"></span>
 					<label class="switch">
-						<input id="checkbox-fit-image" type="checkbox">
+						<input id="checkbox-fit-image" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -373,7 +350,7 @@
 					<span class="menu-item-icon icon-scroll"></span>
 					<span id="textImageScroll" data-search="post,tall,image,scroll"></span>
 					<label class="switch">
-						<input id="checkbox-image-scroll" type="checkbox">
+						<input id="checkbox-image-scroll" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -381,7 +358,7 @@
 					<span class="menu-item-icon icon-hide icon-hide-see-full-image"></span>
 					<span id="textHideSeeFullImage" data-search=""></span>
 					<label class="switch">
-						<input id="checkbox-hide-see-full-image" type="checkbox">
+						<input id="checkbox-hide-see-full-image" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -392,11 +369,11 @@
 					<span class="menu-item-icon icon-scroll icon-text-scroll-post"></span>
 					<span id="textTextScroll" data-search="post"></span>
 					<label class="switch">
-						<input id="checkbox-text-scroll-post" type="checkbox">
+						<input id="checkbox-text-scroll-post" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 					<div></div>
-					<p>There is a limit. You may have to open the post if it is very long.</p>
+					<p id="textTextScrollInfo"></p>
 				</li>
 				<li class="sub-header r-both">
 					<span id="textSortBar"></span>
@@ -405,28 +382,23 @@
 					<span class="menu-item-icon icon-sticky-note sticky-sort"></span>
 					<span id="textStickySort" data-search="fix,top,filter"></span>
 					<label class="switch">
-						<input id="checkbox-sticky-sort" type="checkbox">
+						<input id="checkbox-sticky-sort" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon always-show-rising-button">
-						<svg width="25" height="20" vversion="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><image transform="matrix(12.709 0 0 12.709 -56.795 -133.56)" width="60.854" height="60.854" style="display:none;fill:#000000" preserveAspectRatio="none"/><path transform="matrix(12.709 0 0 12.709 -56.795 -133.56)" d="m21.754 20.284-16.271 16.271c-2.3076 2.3076 0.044095 4.6594 0.044095 4.6594l5.6442 5.6442c2.2489 2.2489 4.5565-0.05879 4.5565-0.05879l8.2752-8.2752 5.6956 5.5707c2.3481 2.3481 4.5786 0.11759 4.5786 0.11759l13.816-13.611 3.4688 3.6156s2.4061 1.9162 3.2336-1.2347l0.02939-17.064s-4e-6 -2.5726-2.5869-2.455l-16.962 1e-6c-3.2693 1.2703-1.2935 3.19-1.2935 3.19l3.6452 3.7477-5.5854 5.5854-5.6442-5.6442c-2.3517-2.3517-4.6447-0.05879-4.6447-0.05879" style="paint-order:normal"/><path transform="matrix(12.709 0 0 12.709 -56.795 -133.56)" d="m42.17 20.357-3.7036-3.7036h13.096v13.096l-3.704-3.704-15.874 15.874-7.9371-7.9371-10.568 10.568-5.6442-5.6442 16.271-16.271 7.893 7.893z" style="display:none;paint-order:stroke fill markers"/></svg>
-					</span>
+					<span class="menu-item-icon icon-rising always-show-rising-button"></span>
 					<span id="textShowRising" data-search=""></span>
 					<label class="switch">
-						<input id="checkbox-always-show-rising-button" type="checkbox">
+						<input id="checkbox-always-show-rising-button" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon icon-controversial-sort-button">
-						<svg class="icon" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m112.53 511.39c-12.64-2.1536-22.338-6.9424-31.119-15.367-13.657-13.102-19.182-29.192-16.661-48.517 1.997-15.31 5.8487-20.658 39.112-54.306l30.58-30.934 24.094 24.027-29.061 29.232c-24.071 24.212-29.357 30.235-30.782 35.075-4.6396 15.757 10.376 30.685 26.555 26.398 4.9673-1.3159 10.224-5.9047 35.075-30.617l29.232-29.069 24.004 24.004-26.798 26.961c-14.739 14.829-30.429 29.682-34.867 33.007-11.22 8.4067-26.425 12.311-39.363 10.106zm90.742-139.5-109.29-109.3 24.044-24.044 55.878 55.828 267.37-294.38h60.481c66.759 0 66.068-0.083857 71.399 8.6595 2.5547 4.1898 2.684 7.3239 2.6889 65.169l5e-3 60.768-96.582 87.673c-53.12 48.22-119.36 108.37-147.21 133.66l-50.625 45.987 55.837 55.887-11.634 11.695c-6.3988 6.4323-11.959 11.695-12.355 11.695s-49.901-49.183-110.01-109.3zm204.66-130.61 134.85-122.36-0.30914-42.62-0.30911-42.62-84.438-0.72699-26.752 29.235c-14.714 16.079-73.175 80.276-129.91 142.66l-103.16 113.42 59.457 59.611 7.8597-7.1207c-0.53938 0.48867 0.38602-0.33943 142.71-129.48z" style="stroke-width:1.3748"/></svg>
-						<svg class="icon-slash" style="display: none;" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m112.53 511.39c-12.64-2.1536-22.338-6.9424-31.119-15.367-13.657-13.102-19.182-29.192-16.661-48.517 1.997-15.31 5.8487-20.658 39.112-54.306l30.58-30.934 24.094 24.027-29.061 29.232c-24.071 24.212-29.357 30.235-30.782 35.075-4.6396 15.757 10.376 30.685 26.555 26.398 4.9673-1.3159 10.224-5.9047 35.075-30.617l29.232-29.069 24.004 24.004-26.798 26.961c-14.739 14.829-30.429 29.682-34.867 33.007-11.22 8.4067-26.425 12.311-39.363 10.106zm90.742-139.5-109.29-109.3 24.044-24.044 55.878 55.828 267.37-294.38h60.481c66.759 0 66.068-0.083857 71.399 8.6595 2.5547 4.1898 2.684 7.3239 2.6889 65.169l5e-3 60.768-96.582 87.673c-53.12 48.22-119.36 108.37-147.21 133.66l-50.625 45.987 55.837 55.887-11.634 11.695c-6.3988 6.4323-11.959 11.695-12.355 11.695s-49.901-49.183-110.01-109.3z" style="stroke-width:1.3748"/></svg>
-					</span>
+					<span class="menu-item-icon icon-sword icon-controversial-sort-button"></span>
 					<span id="textControversialSort" data-search=""></span>
 					<label class="switch">
-						<input id="checkbox-controversial-sort-button" type="checkbox">
+						<input id="checkbox-controversial-sort-button" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -440,7 +412,7 @@
 							<span id="chosen-feed-sort-option">Sort Option</span>
 							<div class="icon-cheveron-down"></div>
 						</div>
-						<input type="hidden" name="version">
+						<input type="hidden" name="version" />
 						<ul id="select-feed-sort-option-menu" class="dropdown-menu">
 							<li id="feed-sort-best"><span id="textBest"></span></li>
 							<li id="feed-sort-hot"><span id="textHot"></span></li>
@@ -451,7 +423,7 @@
 						</ul>
 					</div>
 					<label class="switch">
-						<input id="checkbox-default-feed-sort-option" type="checkbox">
+						<input id="checkbox-default-feed-sort-option" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -465,7 +437,7 @@
 							<span id="chosen-comments-sort-option">Sort Option</span>
 							<div class="icon-cheveron-down"></div>
 						</div>
-						<input type="hidden" name="version">
+						<input type="hidden" name="version" />
 						<ul id="select-comments-sort-option-menu" class="dropdown-menu">
 							<li id="comments-sort-confidence"><span id="textBest"></span></li>
 							<li id="comments-sort-top"><span id="textTop"></span></li>
@@ -476,7 +448,7 @@
 						</ul>
 					</div>
 					<label class="switch">
-						<input id="checkbox-default-comments-sort-option" type="checkbox">
+						<input id="checkbox-default-comments-sort-option" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -487,17 +459,15 @@
 					<span class="menu-item-icon icon-cheveron-up icon-scroll-to-top"></span>
 					<span id="textToTop" data-search="top,scroll"></span>
 					<label class="switch">
-						<input id="checkbox-show-to-top-button" type="checkbox">
+						<input id="checkbox-show-to-top-button" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon icon-show-r-all">
-						<svg width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path transform="matrix(1.4378 0 0 1.4378 -140.08 -112.07)" d="m320 77.945c-98.183 0-178.05 79.872-178.05 178.05s79.872 178.05 178.05 178.05 178.05-79.872 178.05-178.05-79.872-178.05-178.05-178.05zm0 26c84.131 0 152.05 67.923 152.05 152.05s-67.923 152.05-152.05 152.05-152.05-67.923-152.05-152.05 67.923-152.05 152.05-152.05z" style="color:inherit;paint-order:stroke markers fill"/><path transform="matrix(1.4378 0 0 1.4378 -140.08 -112.07)" d="m392.4 180.53v215.87h26v-215.87z" style="color:inherit;paint-order:stroke markers fill"/><path transform="matrix(1.4378 0 0 1.4378 -140.08 -112.07)" d="m314.42 252.73v176.37h26v-176.37z" style="color:inherit;paint-order:stroke markers fill"/><path transform="matrix(1.4378 0 0 1.4378 -140.08 -112.07)" d="m246.19 324.76v89.842h26v-89.842z" style="color:inherit;paint-order:stroke markers fill"/></svg>
-					</span>
+					<span class="menu-item-icon icon-all icon-show-r-all"></span>
 					<span id="textShowAllButton" data-search="all"></span>
 					<label class="switch">
-						<input id="checkbox-show-r-all-button" type="checkbox">
+						<input id="checkbox-show-r-all-button" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -505,18 +475,39 @@
 					<span id="textOther"></span>
 				</li>
 				<li class="container container-3 r-new">
+					<span class="menu-item-icon icon-numbers icon-show-post-numbers"></span>
+					<span id="textShowPostNumbers" data-search="numbers"></span>
+					<label class="switch">
+						<input id="checkbox-show-post-numbers" type="checkbox" />
+						<span class="indicator"></span>
+					</label>
+				</li>
+				<li class="container container-3 r-new">
+					<span class="menu-item-icon icon-comment-arrows icon-scroll-to-next-root-comment"></span>
+					<span id="textScrollToNextRootComment" data-search="scroll,arrows,comment,first"></span>
+					<label class="switch">
+						<input id="checkbox-scroll-to-next-root-comment" type="checkbox" />
+						<span class="indicator"></span>
+					</label>
+				</li>
+				<li class="container container-3 r-new">
 					<span class="menu-item-icon icon-arrow-square open-post-new-tab"></span>
 					<span id="textOpenPostInNewTab" data-search="tab"></span>
 					<label class="switch">
-						<input id="checkbox-open-post-new-tab" type="checkbox">
+						<input id="checkbox-open-post-new-tab" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
+					<div></div>
+					<div>
+						<p id="textOpenPostInNewTabInfo"></p>
+						<a id="textOpenPostInNewTabInfoLink" href="https://www.reddit.com/settings/feed" target="_blank" style="text-decoration: underline"></a>
+					</div>
 				</li>
 				<li class="container container-3 r-new">
 					<span class="menu-item-icon icon-arrow-square open-sub-new-tab"></span>
 					<span id="textOpenSubInNewTab" data-search="tab"></span>
 					<label class="switch">
-						<input id="checkbox-open-sub-new-tab" type="checkbox">
+						<input id="checkbox-open-sub-new-tab" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -524,7 +515,7 @@
 					<span class="menu-item-icon icon-play icon-new-player"></span>
 					<span id="textVideoPlayerReplacement" data-search="video,player"></span>
 					<label class="switch">
-						<input id="checkbox-new-player" type="checkbox">
+						<input id="checkbox-new-player" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 					<div></div>
@@ -534,7 +525,7 @@
 					<span class="menu-item-icon icon-turn-up icon-sidemenu-feed-top"></span>
 					<span id="textMoveFeedToTopInSidemenu" data-search="feed,sidemenu,top"></span>
 					<label class="switch">
-						<input id="checkbox-sidemenu-feed-top" type="checkbox">
+						<input id="checkbox-sidemenu-feed-top" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -543,7 +534,7 @@
 					<span id="textPostCommentsLimit" data-search="comments,limit"></span>
 					<div></div>
 					<div></div>
-					<input type="range" min="-10" max="500" value="0" step="10" class="slider" id="input-post-comments-limit">
+					<input type="range" min="-10" max="500" value="0" step="10" class="slider" id="input-post-comments-limit" />
 					<span id="post-comments-limit-value" class="input-value"></span>
 					<div></div>
 					<p id="textLimitCommentsInfo"></p>
@@ -557,13 +548,10 @@
 					</label>
 				</li>-->
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon icon-limit-infinity-scroll">
-						<svg class="icon" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m1.5e-6 241.1c0-80.1 65-145.1 145.1-145.1 38.5 0 75.4 15.3 102.6 42.5l72.3 72.2 72.2-72.2c27.3-27.2 64.2-42.5 102.7-42.5 80.1 0 145.1 65 145.1 145.1v29.7c0 80.2-65 145.2-145.1 145.2-38.5 0-75.4-15.3-102.6-42.5l-72.3-72.2-72.2 72.2c-27.3 27.2-64.2 42.5-102.7 42.5-80.1 0-145.1-65-145.1-145.1zm274.7 14.9-72.2-72.2c-15.2-15.2-35.9-23.8-57.4-23.8-44.8 0-81.1 36.3-81.1 81.1v29.7c0 44.8 36.3 81.1 81.1 81.1 21.5 0 42.2-8.5 57.4-23.8zm90.5 0 72.2 72.2c15.2 15.2 35.9 23.8 57.4 23.8 44.8 0 81.1-36.3 81.1-81.1v-29.8c0-44.8-36.3-81.1-81.1-81.1-21.5 0-42.2 8.5-57.4 23.8l-72.1 72.2z"/></svg>
-						<svg class="icon-slash" style="display: none;" fill="inherit" width="30" height="24" version="1.1" viewBox="0 0 640 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path d="m145.1 96c-17.975 0-35.115 3.4273-51.006 9.4102 18.123 14.166 59.725 46.751 74.1 57.984 12.844 3.8242 24.681 10.78 34.307 20.406l30.041 30.041c31.66 24.786 135.75 106.44 257.45 201.91 1.6418 0.05582 3.2658 0.24414 4.9141 0.24414 80.1 0 145.1-64.999 145.1-145.2v-29.701c0-80.1-65-145.1-145.1-145.1-38.5 0-75.401 15.3-102.7 42.5l-72.199 72.199-72.301-72.199c-27.2-27.2-64.1-42.5-102.6-42.5zm-95.25 35.844c-30.487 26.605-49.85 65.642-49.85 109.26v29.801c0 80.1 65 145.1 145.1 145.1 38.5 0 75.401-15.3 102.7-42.5l48.496-48.496-50.814-39.828-42.982 42.924c-15.2 15.3-35.9 23.801-57.4 23.801-44.8 0-81.1-36.3-81.1-81.1v-29.701c0-28.871 15.122-54.143 37.832-68.514zm444.95 28.156c44.8 0 81.1 36.3 81.1 81.1v29.801c0 44.8-36.3 81.1-81.1 81.1-21.5 0-42.2-8.6008-57.4-23.801l-72.201-72.199h0.10156l72.1-72.199c15.2-15.3 35.9-23.801 57.4-23.801z"/><path d="m38.8 5.1c-10.4-8.2-25.5-6.3-33.7 4.1s-6.3 25.5 4.1 33.7l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7c-601.7-472.17-317.2-248.63-592-464z"/></svg>
-					</span>
+					<span class="menu-item-icon icon-infinity icon-limit-infinity-scroll"></span>
 					<span id="textLimitInfinityScroll" data-search="pagination"></span>
 					<label class="switch">
-						<input id="checkbox-limit-infinity-scroll" type="checkbox">
+						<input id="checkbox-limit-infinity-scroll" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 					<div></div>
@@ -583,23 +571,18 @@
 					<span id="textStyleTweaks2"></span>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon hide-gap">
-						<svg class="hide-gap" fill="inherit" width="30.8" height="25" enable-background="new 0 0 817.3 250" version="1.1" viewBox="0 0 30.8 25" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-							<rect y="9.9675" width="30.8" height="5.0649" fill="inherit" style="stroke-width:.1001"/>
-							<path d="m15.41-2e-7c-6.91 0-12.51 5.6-12.51 12.5 0 6.9 5.6 12.5 12.5 12.5 6.9 0 12.5-5.6 12.5-12.5 0-6.9-5.59-12.5-12.49-12.5m8.06 12.5c0 4.45-3.61 8.07-8.07 8.07-4.45 0-8.06-3.61-8.06-8.07 0-4.45 3.61-8.06 8.06-8.06 4.46 0 8.07 3.61 8.07 8.06" fill="inherit" style="stroke-width:.1"/>
-						</svg>
-					</span>
+					<span class="menu-item-icon icon-tfl hide-gap"></span>
 					<span id="textHideGap" data-search="border,edge,gap,space"></span>
 					<label class="switch">
-						<input id="checkbox-hide-gap" type="checkbox">
+						<input id="checkbox-hide-gap" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-3 r-new">
-					<span class="menu-item-icon icon-light-off"></span>
+					<span class="menu-item-icon icon-light-off icon-shadow"></span>
 					<span id="textShadow" data-search="shadow"></span>
 					<label class="switch">
-						<input id="checkbox-shadow" type="checkbox">
+						<input id="checkbox-shadow" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -618,13 +601,13 @@
 					<span class="menu-item-icon icon-spray-can icon-modern-old-reddit"></span>
 					<span id="textModerniseOldReddit" data-search="shadow"></span>
 					<label class="switch">
-						<input id="checkbox-modern-old-reddit" type="checkbox">
+						<input id="checkbox-modern-old-reddit" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
-					<div style="position: relative;margin-top: 16px;width: 400px;">
+					<div style="position: relative; margin-top: 16px; width: 400px">
 						<span>Experimental</span>
 						<p>Makes old reddit look more like new reddit.</p>
-						<p>Does not currently work with custom community themes. Please <b>disable</b> this option in your reddit preferences:<br><b>"allow subreddits to show me custom themes"</b>.</p>
+						<p>Does not currently work with custom community themes. Please <b>disable</b> this option in your reddit preferences:<br /><b>"allow subreddits to show me custom themes"</b>.</p>
 					</div>
 				</li>
 				<!--
@@ -652,7 +635,6 @@
 				</li>-->
 			</ul>
 
-
 			<!-- Background -->
 			<li id="background" class="menu-item-link r-both btn-bg-image">
 				<span class="menu-item-icon icon-background"></span>
@@ -668,25 +650,25 @@
 					<span class="menu-item-icon icon-background"></span>
 					<span id="textUseCustom" data-search="background,image"></span>
 					<label class="switch">
-						<input id="checkbox-background" type="checkbox">
+						<input id="checkbox-background" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
 				<li class="container container-5 r-both">
 					<span class="menu-item-icon icon-blur"></span>
 					<span id="textBlur" data-search="background,image"></span>
-					<input type="range" min="0" max="30" value="0" step="1" class="slider" id="input-bg-blur">
+					<input type="range" min="0" max="30" value="0" step="1" class="slider" id="input-bg-blur" />
 					<span id="bg-blur-value" class="input-value"></span>
 				</li>
 				<li class="container r-both">
 					<form class="custom-input-container" data-search="background,image">
-						<input type="text" id="input-custom-background" name="custom"/>
-						<button class="btn btn-add-custom-background" type="submit"></button>
+						<input type="text" id="input-custom-background" name="custom" />
+						<button class="btn btn-add-custom-background icon icon-plus" type="submit"></button>
 					</form>
 				</li>
 				<li class="container r-both">
-					<button class="btn-edit-backgrounds" data-search="background,image"></button>
-					<button class="btn-edit-backgrounds-save"></button>
+					<button class="btn-edit-backgrounds btn-icon icon-bin" data-search="background,image"></button>
+					<button class="btn-edit-backgrounds-save btn-icon icon-check"></button>
 					<div class="p-grid-bg"></div>
 				</li>
 			</ul>
@@ -714,9 +696,9 @@
 			<div id="select-lang" class="dropdown">
 				<div class="select">
 					<span id="chosen-lang">Language</span>
-					<div class="icon-cheveron-down"></div>
+					<div class="dropdown-icon icon-cheveron-up"></div>
 				</div>
-				<input type="hidden" name="version">
+				<input type="hidden" name="version" />
 				<ul id="select-lang-menu" class="dropdown-menu-up">
 					<li id="en-GB"><span>English (UK)</span></li>
 					<li id="en-US"><span>English (US)</span></li>
@@ -731,7 +713,6 @@
 				</ul>
 			</div>
 		</div>
-
 	</body>
 	<!-- = Scripts = -->
 	<script src="popup.js"></script>

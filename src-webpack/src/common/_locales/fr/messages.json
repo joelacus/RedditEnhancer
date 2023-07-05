@@ -1,301 +1,329 @@
 {
-  "extensionName": {
-    "message": "Reddit Enhancer"
-  },
-
-  "extensionDescription": {
-    "message": "Divers ajustements pour personnaliser votre expérience Reddit."
-  },
-
-  "textAbout": {
-    "message": "À propos"
-  },
-
-  "textBuyMeACoffee": {
-    "message": "Achetez-moi un café"
-  },
-
-  "textDarkMode": {
-    "message": "Thème Sombre"
-  },
-
-  "textExpandLayout": {
-    "message": "Élargir Le Fil / La Publication"
-  },
-
-  "textCentre": {
-    "message": "Centre"
-  },
-
-  "textWidth": {
-    "message": "Largeur"
-  },
-
-  "textFitImage": {
-    "message": "Mettre à l'échelle les images hautes pour s'adapter à la publication"
-  },
-
-  "textImageScroll": {
-    "message": "Ajouter une barre de défilement aux images hautes"
-  },
-
-  "textBackground": {
-    "message": "Arrière-plan"
-  },
-
-  "textBlur": {
-    "message": "Flou"
-  },
-
-  "textShadow": {
-    "message": "Ombres portées"
-  },
-
-  "textUseCustom": {
-    "message": "Utiliser la personnalisation"
-  },
-
-  "textCustomBgInputPlaceholder": {
-    "message": "Lien d'arrière-plan personnalisé"
-  },
-
-  "textNewReddit": {
-    "message": "Nouveau Reddit"
-  },
-
-  "textOldReddit": {
-    "message": "Vieux Reddit"
-  },
-
-  "textAuto": {
-    "message": "Auto"
-  },
-
-  "textDisabled": {
-    "message": "Désactivé"
-  },
-
-  "textBrowserTheme": {
-    "message": "Thème du navigateur"
-  },
-
-  "textTimeRange": {
-    "message": "Intervalle de Temps"
-  },
-
-  "textStartTime": {
-    "message": "Heure de Début (24)"
-  },
-
-  "textEndTime": {
-    "message": "Heure de Fin (24)"
-  },
-
-  "textStyleTweaks": {
-    "message": "Style"
-  },
-
-  "textHideRedditPremium": {
-    "message": "Masquer « Reddit Premium »"
-  },
-
-  "textHideCreatePost": {
-    "message": "Masquer « Créer une publication »"
-  },
-
-  "textHideCoinButton": {
-    "message": "Masquer le bouton « Pièce »"
-  },
-
-  "textHideAdvertiseButton": {
-    "message": "Masquer le bouton « Annoncer »"
-  },
-
-  "textHideModerationButton": {
-    "message": "Masquer le bouton « Modération »"
-  },
-
-  "textHidePopularButton": {
-    "message": "Masquer le bouton « Populaire »"
-  },
-
-  "textHideHappeningNowButton": {
-    "message": "Masquer le bouton « En ce moment »"
-  },
-
-  "textHideChatButton": {
-    "message": "Masquer le bouton « Chat »"
-  },
-
-  "textHideHomeSidebar": {
-    "message": "Masquer la barre latérale de la page d'accueil"
-  },
-
-  "textHideSubSidebar": {
-    "message": "Masquer la barre latérale de Sub Reddit"
-  },
-
-  "textSidebar": {
-    "message": "Barre Latérale"
-  },
-
-  "textHeader": {
-    "message": "En-tête"
-  },
-
-  "textHeaderHeight": {
-    "message": "Hauteur de l'en-tête"
-  },
-
-  "textFeed": {
-    "message": "Fil d'actualité"
-  },
-
-  "textHeaderButtons": {
-    "message": "Boutons d'en-tête"
-  },
-
-  "textHideGap": {
-    "message": "Masquer les écarts d'interface"
-  },
-
-  "textMain": {
-    "message": "Principal"
-  },
-
-  "textStickySort": {
-    "message": "Tri épinglé"
-  },
-
-  "textHideUsername": {
-    "message": "Masquer le nom d'utilisateur"
-  },
-
-  "textHideKarma": {
-    "message": "Masquer le karma"
-  },
-
-  "textReloadPage": {
-    "message": "Recharger la page"
-  },
-
-  "textShowRising": {
-    "message": "Toujours afficher le bouton de tri « En hausse »"
-  },
-
-  "textToTop": {
-    "message": "Ajouter le bouton « Défiler vers le haut »"
-  },
-
-  "textHideGetNewReddit": {
-    "message": "Masquer « Get New Reddit »"
-  },
-
-  "textHideSidebarPolicy": {
-    "message": "Masquer la section Politiques"
-  },
-
-  "textHideElements": {
-    "message": "Masquer les éléments"
-  },
-
-  "textProductivity": {
-    "message": "Productivité"
-  },
-
-  "textOpenSubInNewTab": {
-    "message": "Ouvrir les liens vers les sous-reddits dans un nouvel onglet"
-  },
-
-  "textSearch": {
-    "message": "Rechercher"
-  },
-
-  "textHidePromoted": {
-    "message": "Masquer les liens sponsorisés"
-  },
-
-  "textShowAllButton": {
-    "message": "Ajouter le bouton « r/All »"
-  },
-
-  "textVideoPlayerReplacement": {
-    "message": "Lecteur vidéo alternatif"
-  },
-
-  "textImages": {
-    "message": "Images"
-  },
-
-  "textSortBar": {
-    "message": "Barre de tri"
-  },
-
-  "textOther": {
-    "message": "Autre"
-  },
-
-  "textHideCreatePostButton": {
-    "message": "Masquer le bouton « Créer un article »"
-  },
-
-  "textHideNotificationButton": {
-    "message": "Masquer le bouton « Notification »"
-  },
-
-  "textMoveFeedToTopInSidemenu": {
-    "message": "Déplacez la section Flux dans le menu latéral vers le haut"
-  },
-
-  "textTextPost": {
-    "message": "Texte"
-  },
-
-  "textTextScroll": {
-    "message": "Ajouter une barre de défilement aux messages de texte long"
-  },
-
-  "textHideSeeFullImage": {
-    "message": "Masquer « Voir l'image Complète »"
-  },
-
-  "textModerniseOldReddit": {
-    "message": "Moderniser old.reddit"
-  },
-
-  "textHideHeaderSubBar": {
-    "message": "Masquer la liste des subreddits d'en-tête"
-  },
-
-  "textHideSideMenuOld": {
-    "message": "Masquer le menu latéral"
-  },
-
-  "textPostCommentsLimit": {
-    "message": "Limiter les commentaires de publication"
-  },
-
-  "textAutoExpand": {
-    "message": "Agrandir à 100% si la largeur de la fenêtre/de l'écran est inférieure à:"
-  },
-
-  "textHidePostSidebar": {
-    "message": "Masquer la barre latérale de la page publication"
-  },
-
-  "textHideUserSidebar": {
-    "message": "Masquer la barre latérale de la page utilisateur"
-  },
-
-  "textLimitInfinityScroll": {
-    "message": "Limiter le défilement infini"
-  },
-
-  "textOpenPostInNewTab": {
-    "message": "Ouvrir les liens vers les publications dans un nouvel onglet"
-  },
-
-  "textControversialSort": {
-    "message": "Afficher le bouton de tri «Controversés»"
-  }
+	"extensionName": {
+		"message": "Reddit Enhancer"
+	},
+
+	"extensionDescription": {
+		"message": "Divers ajustements pour personnaliser votre expérience Reddit."
+	},
+
+	"textAbout": {
+		"message": "À propos"
+	},
+
+	"textBuyMeACoffee": {
+		"message": "Achetez-moi un café"
+	},
+
+	"textDarkMode": {
+		"message": "Thème Sombre"
+	},
+
+	"textExpandLayout": {
+		"message": "Élargir Le Fil / La Publication"
+	},
+
+	"textCentre": {
+		"message": "Centre"
+	},
+
+	"textWidth": {
+		"message": "Largeur"
+	},
+
+	"textFitImage": {
+		"message": "Mettre à l'échelle les images hautes pour s'adapter à la publication"
+	},
+
+	"textImageScroll": {
+		"message": "Ajouter une barre de défilement aux images hautes"
+	},
+
+	"textBackground": {
+		"message": "Arrière-plan"
+	},
+
+	"textBlur": {
+		"message": "Flou"
+	},
+
+	"textShadow": {
+		"message": "Ombres portées"
+	},
+
+	"textUseCustom": {
+		"message": "Utiliser la personnalisation"
+	},
+
+	"textCustomBgInputPlaceholder": {
+		"message": "Lien d'arrière-plan personnalisé"
+	},
+
+	"textNewReddit": {
+		"message": "Nouveau Reddit"
+	},
+
+	"textOldReddit": {
+		"message": "Vieux Reddit"
+	},
+
+	"textAuto": {
+		"message": "Auto"
+	},
+
+	"textDisabled": {
+		"message": "Désactivé"
+	},
+
+	"textBrowserTheme": {
+		"message": "Thème du navigateur"
+	},
+
+	"textTimeRange": {
+		"message": "Intervalle de Temps"
+	},
+
+	"textStartTime": {
+		"message": "Heure de Début (24)"
+	},
+
+	"textEndTime": {
+		"message": "Heure de Fin (24)"
+	},
+
+	"textStyleTweaks": {
+		"message": "Style"
+	},
+
+	"textHideRedditPremium": {
+		"message": "Masquer « Reddit Premium »"
+	},
+
+	"textHideCreatePost": {
+		"message": "Masquer « Créer une publication »"
+	},
+
+	"textHideCoinButton": {
+		"message": "Masquer le bouton « Pièce »"
+	},
+
+	"textHideAdvertiseButton": {
+		"message": "Masquer le bouton « Annoncer »"
+	},
+
+	"textHideModerationButton": {
+		"message": "Masquer le bouton « Modération »"
+	},
+
+	"textHidePopularButton": {
+		"message": "Masquer le bouton « Populaire »"
+	},
+
+	"textHideHappeningNowButton": {
+		"message": "Masquer le bouton « En ce moment »"
+	},
+
+	"textHideChatButton": {
+		"message": "Masquer le bouton « Chat »"
+	},
+
+	"textHideHomeSidebar": {
+		"message": "Masquer la barre latérale de la page d'accueil"
+	},
+
+	"textHideSubSidebar": {
+		"message": "Masquer la barre latérale de Sub Reddit"
+	},
+
+	"textSidebar": {
+		"message": "Barre Latérale"
+	},
+
+	"textHeader": {
+		"message": "En-tête"
+	},
+
+	"textHeaderHeight": {
+		"message": "Hauteur de l'en-tête"
+	},
+
+	"textFeed": {
+		"message": "Fil d'actualité"
+	},
+
+	"textHeaderButtons": {
+		"message": "Boutons d'en-tête"
+	},
+
+	"textHideGap": {
+		"message": "Masquer les écarts d'interface"
+	},
+
+	"textMain": {
+		"message": "Principal"
+	},
+
+	"textStickySort": {
+		"message": "Tri épinglé"
+	},
+
+	"textHideUsername": {
+		"message": "Masquer le nom d'utilisateur"
+	},
+
+	"textHideKarma": {
+		"message": "Masquer le karma"
+	},
+
+	"textReloadPage": {
+		"message": "Recharger la page"
+	},
+
+	"textShowRising": {
+		"message": "Toujours afficher le bouton de tri « En hausse »"
+	},
+
+	"textToTop": {
+		"message": "Ajouter le bouton « Défiler vers le haut »"
+	},
+
+	"textHideGetNewReddit": {
+		"message": "Masquer « Get New Reddit »"
+	},
+
+	"textHideSidebarPolicy": {
+		"message": "Masquer la section Politiques"
+	},
+
+	"textHideElements": {
+		"message": "Masquer les éléments"
+	},
+
+	"textProductivity": {
+		"message": "Productivité"
+	},
+
+	"textOpenSubInNewTab": {
+		"message": "Ouvrir les liens vers les sous-reddits dans un nouvel onglet"
+	},
+
+	"textSearch": {
+		"message": "Rechercher"
+	},
+
+	"textHidePromoted": {
+		"message": "Masquer les liens sponsorisés"
+	},
+
+	"textShowAllButton": {
+		"message": "Ajouter le bouton « r/All »"
+	},
+
+	"textVideoPlayerReplacement": {
+		"message": "Lecteur vidéo alternatif"
+	},
+
+	"textImages": {
+		"message": "Images"
+	},
+
+	"textSortBar": {
+		"message": "Barre de tri"
+	},
+
+	"textOther": {
+		"message": "Autre"
+	},
+
+	"textHideCreatePostButton": {
+		"message": "Masquer le bouton « Créer un article »"
+	},
+
+	"textHideNotificationButton": {
+		"message": "Masquer le bouton « Notification »"
+	},
+
+	"textMoveFeedToTopInSidemenu": {
+		"message": "Déplacez la section Flux dans le menu latéral vers le haut"
+	},
+
+	"textTextPost": {
+		"message": "Texte"
+	},
+
+	"textTextScroll": {
+		"message": "Ajouter une barre de défilement aux messages de texte long"
+	},
+
+	"textHideSeeFullImage": {
+		"message": "Masquer « Voir l'image Complète »"
+	},
+
+	"textModerniseOldReddit": {
+		"message": "Moderniser old.reddit"
+	},
+
+	"textHideHeaderSubBar": {
+		"message": "Masquer la liste des subreddits d'en-tête"
+	},
+
+	"textHideSideMenuOld": {
+		"message": "Masquer le menu latéral"
+	},
+
+	"textPostCommentsLimit": {
+		"message": "Limiter les commentaires de publication"
+	},
+
+	"textAutoExpand": {
+		"message": "Agrandir à 100% si la largeur de la fenêtre/de l'écran est inférieure à:"
+	},
+
+	"textHidePostSidebar": {
+		"message": "Masquer la barre latérale de la page publication"
+	},
+
+	"textHideUserSidebar": {
+		"message": "Masquer la barre latérale de la page utilisateur"
+	},
+
+	"textLimitInfinityScroll": {
+		"message": "Limiter le défilement infini"
+	},
+
+	"textOpenPostInNewTab": {
+		"message": "Ouvrir les liens vers les publications dans un nouvel onglet"
+	},
+
+	"textControversialSort": {
+		"message": "Afficher le bouton de tri «Controversés»"
+	},
+
+	"textTextScrollInfo": {
+		"message": "Il existe une limite. Vous devrez peut-être ouvrir le message s'il est très long."
+	},
+
+	"textHideNSFW": {
+		"message": "Masquer les messages NSFW"
+	},
+
+	"textHideTurnOnNotificationsPopup": {
+		"message": "Masquer la fenêtre contextuelle «Activer les notifications»"
+	},
+
+	"textScrollToNextRootComment": {
+		"message": "Afficher les boutons pour faire défiler le commentaire racine suivant / précédent"
+	},
+
+	"textOpenPostInNewTabInfo": {
+		"message": "Vous pouvez maintenant l'activer officiellement dans Reddit."
+	},
+
+	"textOpenPostInNewTabInfoLink": {
+		"message": "Paramètres de votre compte > Paramètres du flux > Ouvrir les publications dans un nouvel onglet"
+	},
+
+	"textShowPostNumbers": {
+		"message": "Ajouter des numéros de publications"
+	}
 }

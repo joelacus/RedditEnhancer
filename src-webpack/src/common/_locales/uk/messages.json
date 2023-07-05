@@ -1,301 +1,329 @@
 {
-  "extensionName": {
-    "message": "Reddit Enhancer"
-  },
-
-  "extensionDescription": {
-    "message": "Різноманітні налаштування для персоналізації роботи Reddit."
-  },
-
-  "textAbout": {
-    "message": "приблизно"
-  },
-
-  "textBuyMeACoffee": {
-    "message": "Купи мені каву"
-  },
-
-  "textDarkMode": {
-    "message": "Темний режим"
-  },
-
-  "textExpandLayout": {
-    "message": "Розгорнути канал / публікацію"
-  },
-
-  "textCentre": {
-    "message": "центр"
-  },
-
-  "textWidth": {
-    "message": "Ширина"
-  },
-
-  "textFitImage": {
-    "message": "Масштабуйте високі зображення відповідно до публікації"
-  },
-
-  "textImageScroll": {
-    "message": "Додайте смугу прокрутки до високих зображень"
-  },
-
-  "textBackground": {
-    "message": "Фон"
-  },
-
-  "textBlur": {
-    "message": "Розмиття"
-  },
-
-  "textShadow": {
-    "message": "Тіні"
-  },
-
-  "textUseCustom": {
-    "message": "Використовуйте настроювані"
-  },
-
-  "textCustomBgInputPlaceholder": {
-    "message": "Спеціальне фонове посилання"
-  },
-
-  "textNewReddit": {
-    "message": "новий Reddit"
-  },
-
-  "textOldReddit": {
-    "message": "Старий Reddit"
-  },
-
-  "textAuto": {
-    "message": "Авто"
-  },
-
-  "textDisabled": {
-    "message": "Вимкнено"
-  },
-
-  "textBrowserTheme": {
-    "message": "Тема браузера"
-  },
-
-  "textTimeRange": {
-    "message": "Часовий діапазон"
-  },
-
-  "textStartTime": {
-    "message": "Час початку (24)"
-  },
-
-  "textEndTime": {
-    "message": "Час закінчення (24)"
-  },
-
-  "textStyleTweaks": {
-    "message": "Стиль"
-  },
-
-  "textHideRedditPremium": {
-    "message": "Сховати «Reddit Premium»"
-  },
-
-  "textHideCreatePost": {
-    "message": "Сховати «Створити запис»"
-  },
-
-  "textHideCoinButton": {
-    "message": "Сховати кнопку «Монета»"
-  },
-
-  "textHideAdvertiseButton": {
-    "message": "Сховати кнопку «Оголошення»"
-  },
-
-  "textHideModerationButton": {
-    "message": "Сховати кнопку «Модерація»"
-  },
-
-  "textHidePopularButton": {
-    "message": "Сховати кнопку «Популярні»"
-  },
-
-  "textHideHappeningNowButton": {
-    "message": "Сховати кнопку «Зараз відбувається»"
-  },
-
-  "textHideChatButton": {
-   "message": "Сховати кнопку «Чат»"
-  },
-
-  "textHideHomeSidebar": {
-    "message": "Приховати бічну панель домашньої сторінки"
-  },
-
-  "textHideSubSidebar": {
-    "message": "Приховати бічну панель Sub Reddit"
-  },
-
-  "textSidebar": {
-    "message": "Бічна панель"
-  },
-
-  "textHeader": {
-    "message": "Заголовок"
-  },
-
-  "textHeaderHeight": {
-    "message": "Висота заголовка"
-  },
-
-  "textFeed": {
-    "message": "Стрічка новин"
-  },
-
-  "textHeaderButtons": {
-    "message": "Кнопки заголовка"
-  },
-
-  "textHideGap": {
-    "message": "Приховати прогалини в інтерфейсі"
-  },
-
-  "textMain": {
-    "message": "Головний"
-  },
-
-  "textStickySort": {
-    "message": "Приклеєний порядок"
-  },
-
-  "textHideUsername": {
-    "message": "Сховати ім'я користувача"
-  },
-
-  "textHideKarma": {
-    "message": "Сховати карму"
-  },
-
-  "textReloadPage": {
-    "message": "Перезавантажити сторінку"
-  },
-
-  "textShowRising": {
-    "message": "Завжди показувати кнопку сортування «Rising»"
-  },
-
-  "textToTop": {
-    "message": "Додайте кнопку «Прокрутити вгору»."
-  },
-
-  "textHideGetNewReddit": {
-    "message": "Приховати «Get New Reddit»"
-  },
-
-  "textHideSidebarPolicy": {
-    "message": "Приховати розділ правил"
-  },
-
-  "textHideElements": {
-    "message": "Приховати елементи"
-  },
-
-  "textProductivity": {
-    "message": "Продуктивність"
-  },
-
-  "textOpenSubInNewTab": {
-    "message": "Відкривати посилання на підфорум у новій вкладці"
-  },
-
-  "textSearch": {
-    "message": "Пошук"
-  },
-
-  "textHidePromoted": {
-    "message": "Приховати рекламні посилання"
-  },
-
-  "textShowAllButton": {
-    "message": "Додати кнопку «r/All»"
-  },
-
-  "textVideoPlayerReplacement": {
-    "message": "Альтернативний відеоплеєр"
-  },
-
-  "textImages": {
-    "message": "Зображення"
-  },
-
-  "textSortBar": {
-    "message": "Панель сортування"
-  },
-
-  "textOther": {
-    "message": "додатковий"
-  },
-
-  "textHideCreatePostButton": {
-    "message": "Сховати кнопку «Створити публікацію»"
-  },
-
-  "textHideNotificationButton": {
-    "message": "Сховати кнопку «Сповіщення»"
-  },
-
-  "textMoveFeedToTopInSidemenu": {
-    "message": "Перемістіть розділ каналу в бічному меню вгору"
-  },
-
-  "textTextPost": {
-    "message": "текст"
-  },
-
-  "textTextScroll": {
-    "message": "Додайте смугу прокрутки до довгих текстових повідомлень"
-  },
-
-  "textHideSeeFullImage": {
-    "message": "Приховати «See Full Image»"
-  },
-
-  "textModerniseOldReddit": {
-    "message": "Модернізуйте old.reddit"
-  },
-
-  "textHideHeaderSubBar": {
-    "message": "Приховати список Subreddit заголовка"
-  },
-
-  "textHideSideMenuOld": {
-    "message": "Приховати бічне меню"
-  },
-
-  "textPostCommentsLimit": {
-    "message": "Обмеження публікації коментарів"
-  },
-
-  "textAutoExpand": {
-    "message": "Розширити до 100%, якщо ширина вікна/екрана менша:"
-  },
-
-  "textHidePostSidebar": {
-    "message": "Приховати бічну панель публікації"
-  },
-
-  "textHideUserSidebar": {
-    "message": "Приховати бічну панель користувача"
-  },
-
-  "textLimitInfinityScroll": {
-    "message": "Обмеження нескінченності прокручування"
-  },
-
-  "textOpenPostInNewTab": {
-    "message": "Відкрийте посилання на публікації в новій вкладці"
-  },
-
-  "textControversialSort": {
-    "message": "Показати кнопку «Суперечливе» сортування"
-  }
+	"extensionName": {
+		"message": "Reddit Enhancer"
+	},
+
+	"extensionDescription": {
+		"message": "Різноманітні налаштування для персоналізації роботи Reddit."
+	},
+
+	"textAbout": {
+		"message": "приблизно"
+	},
+
+	"textBuyMeACoffee": {
+		"message": "Купи мені каву"
+	},
+
+	"textDarkMode": {
+		"message": "Темний режим"
+	},
+
+	"textExpandLayout": {
+		"message": "Розгорнути канал / публікацію"
+	},
+
+	"textCentre": {
+		"message": "центр"
+	},
+
+	"textWidth": {
+		"message": "Ширина"
+	},
+
+	"textFitImage": {
+		"message": "Масштабуйте високі зображення відповідно до публікації"
+	},
+
+	"textImageScroll": {
+		"message": "Додайте смугу прокрутки до високих зображень"
+	},
+
+	"textBackground": {
+		"message": "Фон"
+	},
+
+	"textBlur": {
+		"message": "Розмиття"
+	},
+
+	"textShadow": {
+		"message": "Тіні"
+	},
+
+	"textUseCustom": {
+		"message": "Використовуйте настроювані"
+	},
+
+	"textCustomBgInputPlaceholder": {
+		"message": "Спеціальне фонове посилання"
+	},
+
+	"textNewReddit": {
+		"message": "новий Reddit"
+	},
+
+	"textOldReddit": {
+		"message": "Старий Reddit"
+	},
+
+	"textAuto": {
+		"message": "Авто"
+	},
+
+	"textDisabled": {
+		"message": "Вимкнено"
+	},
+
+	"textBrowserTheme": {
+		"message": "Тема браузера"
+	},
+
+	"textTimeRange": {
+		"message": "Часовий діапазон"
+	},
+
+	"textStartTime": {
+		"message": "Час початку (24)"
+	},
+
+	"textEndTime": {
+		"message": "Час закінчення (24)"
+	},
+
+	"textStyleTweaks": {
+		"message": "Стиль"
+	},
+
+	"textHideRedditPremium": {
+		"message": "Сховати «Reddit Premium»"
+	},
+
+	"textHideCreatePost": {
+		"message": "Сховати «Створити запис»"
+	},
+
+	"textHideCoinButton": {
+		"message": "Сховати кнопку «Монета»"
+	},
+
+	"textHideAdvertiseButton": {
+		"message": "Сховати кнопку «Оголошення»"
+	},
+
+	"textHideModerationButton": {
+		"message": "Сховати кнопку «Модерація»"
+	},
+
+	"textHidePopularButton": {
+		"message": "Сховати кнопку «Популярні»"
+	},
+
+	"textHideHappeningNowButton": {
+		"message": "Сховати кнопку «Зараз відбувається»"
+	},
+
+	"textHideChatButton": {
+		"message": "Сховати кнопку «Чат»"
+	},
+
+	"textHideHomeSidebar": {
+		"message": "Приховати бічну панель домашньої сторінки"
+	},
+
+	"textHideSubSidebar": {
+		"message": "Приховати бічну панель Sub Reddit"
+	},
+
+	"textSidebar": {
+		"message": "Бічна панель"
+	},
+
+	"textHeader": {
+		"message": "Заголовок"
+	},
+
+	"textHeaderHeight": {
+		"message": "Висота заголовка"
+	},
+
+	"textFeed": {
+		"message": "Стрічка новин"
+	},
+
+	"textHeaderButtons": {
+		"message": "Кнопки заголовка"
+	},
+
+	"textHideGap": {
+		"message": "Приховати прогалини в інтерфейсі"
+	},
+
+	"textMain": {
+		"message": "Головний"
+	},
+
+	"textStickySort": {
+		"message": "Приклеєний порядок"
+	},
+
+	"textHideUsername": {
+		"message": "Сховати ім'я користувача"
+	},
+
+	"textHideKarma": {
+		"message": "Сховати карму"
+	},
+
+	"textReloadPage": {
+		"message": "Перезавантажити сторінку"
+	},
+
+	"textShowRising": {
+		"message": "Завжди показувати кнопку сортування «Rising»"
+	},
+
+	"textToTop": {
+		"message": "Додайте кнопку «Прокрутити вгору»."
+	},
+
+	"textHideGetNewReddit": {
+		"message": "Приховати «Get New Reddit»"
+	},
+
+	"textHideSidebarPolicy": {
+		"message": "Приховати розділ правил"
+	},
+
+	"textHideElements": {
+		"message": "Приховати елементи"
+	},
+
+	"textProductivity": {
+		"message": "Продуктивність"
+	},
+
+	"textOpenSubInNewTab": {
+		"message": "Відкривати посилання на підфорум у новій вкладці"
+	},
+
+	"textSearch": {
+		"message": "Пошук"
+	},
+
+	"textHidePromoted": {
+		"message": "Приховати рекламні посилання"
+	},
+
+	"textShowAllButton": {
+		"message": "Додати кнопку «r/All»"
+	},
+
+	"textVideoPlayerReplacement": {
+		"message": "Альтернативний відеоплеєр"
+	},
+
+	"textImages": {
+		"message": "Зображення"
+	},
+
+	"textSortBar": {
+		"message": "Панель сортування"
+	},
+
+	"textOther": {
+		"message": "додатковий"
+	},
+
+	"textHideCreatePostButton": {
+		"message": "Сховати кнопку «Створити публікацію»"
+	},
+
+	"textHideNotificationButton": {
+		"message": "Сховати кнопку «Сповіщення»"
+	},
+
+	"textMoveFeedToTopInSidemenu": {
+		"message": "Перемістіть розділ каналу в бічному меню вгору"
+	},
+
+	"textTextPost": {
+		"message": "текст"
+	},
+
+	"textTextScroll": {
+		"message": "Додайте смугу прокрутки до довгих текстових повідомлень"
+	},
+
+	"textHideSeeFullImage": {
+		"message": "Приховати «See Full Image»"
+	},
+
+	"textModerniseOldReddit": {
+		"message": "Модернізуйте old.reddit"
+	},
+
+	"textHideHeaderSubBar": {
+		"message": "Приховати список Subreddit заголовка"
+	},
+
+	"textHideSideMenuOld": {
+		"message": "Приховати бічне меню"
+	},
+
+	"textPostCommentsLimit": {
+		"message": "Обмеження публікації коментарів"
+	},
+
+	"textAutoExpand": {
+		"message": "Розширити до 100%, якщо ширина вікна/екрана менша:"
+	},
+
+	"textHidePostSidebar": {
+		"message": "Приховати бічну панель публікації"
+	},
+
+	"textHideUserSidebar": {
+		"message": "Приховати бічну панель користувача"
+	},
+
+	"textLimitInfinityScroll": {
+		"message": "Обмеження нескінченності прокручування"
+	},
+
+	"textOpenPostInNewTab": {
+		"message": "Відкрийте посилання на публікації в новій вкладці"
+	},
+
+	"textControversialSort": {
+		"message": "Показати кнопку «Суперечливе» сортування"
+	},
+
+	"textTextScrollInfo": {
+		"message": "Є обмеження. Можливо, вам доведеться відкрити публікацію, якщо вона дуже довга."
+	},
+
+	"textHideNSFW": {
+		"message": "Сховати повідомлення NSFW"
+	},
+
+	"textHideTurnOnNotificationsPopup": {
+		"message": "Сховати спливаюче вікно «Увімкнути сповіщення»"
+	},
+
+	"textScrollToNextRootComment": {
+		"message": "Кнопки шоу, щоб прокрутити до наступного/попереднього коментаря кореня"
+	},
+
+	"textOpenPostInNewTabInfo": {
+		"message": "Тепер ви можете офіційно ввімкнути це на Reddit."
+	},
+
+	"textOpenPostInNewTabInfoLink": {
+		"message": "User Settings > Feed Settings > Open posts in new tab"
+	},
+
+	"textShowPostNumbers": {
+		"message": "Додайте номери Post"
+	}
 }

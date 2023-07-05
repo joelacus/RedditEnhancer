@@ -1,9 +1,12 @@
 // Scale Tall Images To Fit Post
-let fitImage = function(value) {
-	var link = window.location.href
-	if (link.indexOf("old.reddit.com") >= 0) { // old reddit
+
+let fitImage = function (value) {
+	var link = window.location.href;
+	if (link.indexOf('old.reddit.com') >= 0) {
+		// old reddit
 		// do nothing
-	} else { // new reddit
+	} else {
+		// new reddit
 		if (value == true) {
 			document.querySelector('body').classList.remove('re-image-scroll');
 			document.querySelector('body').classList.add('re-fit-image');
@@ -11,21 +14,22 @@ let fitImage = function(value) {
 			document.querySelector('body').classList.remove('re-fit-image');
 		}
 	}
-}
+};
 export { fitImage };
 
-
-let imageScroll = function(value) {
-	var link = window.location.href
-	if (link.indexOf("old.reddit.com") >= 0) { // old reddit
+let imageScroll = function (value) {
+	var link = window.location.href;
+	if (link.indexOf('old.reddit.com') >= 0) {
+		// old reddit
 		// do nothing
-	} else { // new reddit
-		if ((value == true)||(value == undefined)) {
+	} else {
+		// new reddit
+		if (value == true || value == undefined) {
 			document.querySelector('body').classList.remove('re-fit-image');
 			document.querySelector('body').classList.add('re-image-scroll');
 		} else if (value == false) {
 			document.querySelector('body').classList.remove('re-image-scroll');
 		}
 	}
-}
+};
 export { imageScroll };

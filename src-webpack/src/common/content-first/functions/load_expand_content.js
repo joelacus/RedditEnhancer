@@ -1,16 +1,17 @@
 // Expand Card View
-export function loadExpandContent(){
-	BROWSER_API.storage.sync.get(['expandLayout','expandLayoutWidth'], function(result) {
+export function loadExpandContent() {
+	BROWSER_API.storage.sync.get(['expandLayout', 'expandLayoutWidth'], function (result) {
 		// Resize content frames if true
 		if (result.expandLayout == true) {
 			// Check reddit version
-			var link = window.location.href
-			if (link.indexOf("old.reddit.com") >= 0) { // old reddit
+			var link = window.location.href;
+			if (link.indexOf('old.reddit.com') >= 0) {
+				// old reddit
 				// Restructure HTML
 				const main = document.createElement('div');
-				main.id = "re-main"
+				main.id = 're-main';
 				const container = document.createElement('div');
-				container.id = "re-container"
+				container.id = 're-container';
 				const body = document.querySelector('body');
 				const sidemenu = document.querySelector('.listing-chooser');
 				const side = document.querySelector('.side');
@@ -18,13 +19,12 @@ export function loadExpandContent(){
 				const sort = document.querySelector('#header .tabmenu');
 				body.insertBefore(main, side);
 				if (sidemenu) {
-					main.append(sidemenu);	
+					main.append(sidemenu);
 				}
 				container.append(content);
 				container.append(side);
 				main.append(container);
 				content.insertBefore(sort, content.firstChild);
-			
 
 				// Apply resize
 				if (result.expandLayout == true) {
@@ -39,14 +39,15 @@ export function loadExpandContent(){
 
 				// Apply prefix/suffix to vars
 				if (result.expandLayoutWidth != undefined) {
-					var value = result.expandLayoutWidth+"%"
+					var value = result.expandLayoutWidth + '%';
 				} else {
-					var value = "80%"
+					var value = '80%';
 				}
 
 				// Set css root variable
 				document.documentElement.style.setProperty('--re-content-width', value);
-			} else { // new reddit
+			} else {
+				// new reddit
 				// Apply class
 				if (document.querySelector('.re-feed')) {
 					document.querySelector('.re-feed').classList.add('re-resize');
@@ -63,36 +64,36 @@ export function loadExpandContent(){
 
 				// Apply prefix/suffix to vars
 				if (result.expandLayoutWidth != undefined) {
-					var value = result.expandLayoutWidth+"%"
+					var value = result.expandLayoutWidth + '%';
 				} else {
-					var value = "80%"
+					var value = '80%';
 				}
 
 				// Set css root variable
 				document.documentElement.style.setProperty('--re-content-width', value);
 
 				// Remove 1600px max in-line width style from feed
-				document.querySelector('.re-feed.re-resize').style = ""
+				document.querySelector('.re-feed.re-resize').style = '';
 			}
 		} else if (result.expandLayout == false) {
-			document.documentElement.style.setProperty('--re-content-width', result.expandLayoutWidth+"%");
+			document.documentElement.style.setProperty('--re-content-width', result.expandLayoutWidth + '%');
 		}
 		if (result.expandLayoutWidth == undefined) {
 			// Set css root variable
-			document.documentElement.style.setProperty('--re-content-width', "80%");
+			document.documentElement.style.setProperty('--re-content-width', '80%');
 		}
 	});
 }
 
-
 // Layout Centre
-let loadLayoutCentre = function() {
-	BROWSER_API.storage.sync.get(['layoutCentre'], function(result) {
-		var link = window.location.href
-		if (link.indexOf("old.reddit.com") >= 0) {// old reddit
+let loadLayoutCentre = function () {
+	BROWSER_API.storage.sync.get(['layoutCentre'], function (result) {
+		var link = window.location.href;
+		if (link.indexOf('old.reddit.com') >= 0) {
+			// old reddit
 			if (result.layoutCentre == true) {
-				if (link.indexOf("old.reddit.com/r/") <= 0) {
-					BROWSER_API.storage.sync.get(['hideHomeSidebar'], function(result) {
+				if (link.indexOf('old.reddit.com/r/') <= 0) {
+					BROWSER_API.storage.sync.get(['hideHomeSidebar'], function (result) {
 						if (result.hideHomeSidebar != true) {
 							document.querySelector('#re-container').classList.add('re-centre-container-old');
 						} else {
@@ -105,13 +106,15 @@ let loadLayoutCentre = function() {
 			} else if (result.layoutCentre == false) {
 				document.querySelector('#re-container').classList.remove('re-centre-container-old');
 			}
-		} else { //new reddit
-			var main_elms = document.querySelector("#AppRouter-main-content").childElementCount;
+		} else {
+			//new reddit
+			var main_elms = document.querySelector('#AppRouter-main-content').childElementCount;
 			if (result.layoutCentre == true) {
-				var link = window.location.href
-				document.querySelector('.re-feed').classList.remove('re-centre-feed-1','re-centre-feed-2','re-centre-feed-3');
-				if (link.indexOf("reddit.com/user/") >= 0) { // user
-					BROWSER_API.storage.sync.get(['hideUserSidebar'], function(result) {
+				var link = window.location.href;
+				document.querySelector('.re-feed').classList.remove('re-centre-feed-1', 're-centre-feed-2', 're-centre-feed-3');
+				if (link.indexOf('reddit.com/user/') >= 0) {
+					// user
+					BROWSER_API.storage.sync.get(['hideUserSidebar'], function (result) {
 						if (main_elms == 2) {
 							if (result.hideUserSidebar === true) {
 								document.querySelector('.re-feed').classList.add('re-centre-feed-3');
@@ -126,9 +129,10 @@ let loadLayoutCentre = function() {
 							}
 						}
 					});
-				} else if (link.indexOf("/comments/") >= 0) { // post
-					document.querySelector('.re-feed').classList.remove('re-centre-feed-1','re-centre-feed-2','re-centre-feed-3');
-					BROWSER_API.storage.sync.get(['hidePostSidebar'], function(result) {
+				} else if (link.indexOf('/comments/') >= 0) {
+					// post
+					document.querySelector('.re-feed').classList.remove('re-centre-feed-1', 're-centre-feed-2', 're-centre-feed-3');
+					BROWSER_API.storage.sync.get(['hidePostSidebar'], function (result) {
 						if (main_elms == 2) {
 							if (result.hidePostSidebar === true) {
 								document.querySelector('.re-feed').classList.add('re-centre-feed-3');
@@ -143,8 +147,9 @@ let loadLayoutCentre = function() {
 							}
 						}
 					});
-				} else if ((link.indexOf("reddit.com/r/popular") >= 0)||(link.indexOf("reddit.com/r/all") >= 0)||(link.indexOf("reddit.com/r/") <= 0)) { // r/all, r/popular, home
-					BROWSER_API.storage.sync.get(['hideHomeSidebar'], function(result) {
+				} else if (link.indexOf('reddit.com/r/popular') >= 0 || link.indexOf('reddit.com/r/all') >= 0 || link.indexOf('reddit.com/r/') <= 0) {
+					// r/all, r/popular, home
+					BROWSER_API.storage.sync.get(['hideHomeSidebar'], function (result) {
 						if (main_elms == 2) {
 							if (result.hideHomeSidebar === true) {
 								document.querySelector('.re-feed').classList.add('re-centre-feed-3');
@@ -159,8 +164,9 @@ let loadLayoutCentre = function() {
 							}
 						}
 					});
-				} else if (link.indexOf("reddit.com/r/") >= 0) { // sub
-					BROWSER_API.storage.sync.get(['hideSubSidebar'], function(result) {
+				} else if (link.indexOf('reddit.com/r/') >= 0) {
+					// sub
+					BROWSER_API.storage.sync.get(['hideSubSidebar'], function (result) {
 						if (main_elms == 2) {
 							if (result.hideSubSidebar === true) {
 								document.querySelector('.re-feed').classList.add('re-centre-feed-3');
@@ -179,27 +185,26 @@ let loadLayoutCentre = function() {
 				startObserver();
 			} else if (result.layoutCentre == false) {
 				stopObserver();
-				document.querySelector('.re-feed').classList.remove('re-centre-feed-1','re-centre-feed-2','re-centre-feed-3');
+				document.querySelector('.re-feed').classList.remove('re-centre-feed-1', 're-centre-feed-2', 're-centre-feed-3');
 			}
 		}
 	});
-}
+};
 export { loadLayoutCentre };
-
 
 // Watch for sidemenu show/hide and reapply centre
 let isObserverRunning = false;
 
 const observer = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {
-		if (mutation.type === "childList") {
+		if (mutation.type === 'childList') {
 			loadLayoutCentre();
 		}
 	});
 });
 
 export function startObserver() {
-	var target = document.getElementById("AppRouter-main-content");
+	var target = document.getElementById('AppRouter-main-content');
 	if (target) {
 		if (isObserverRunning === true) {
 			//console.log('Observer is already running');

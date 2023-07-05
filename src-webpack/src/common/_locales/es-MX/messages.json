@@ -1,5 +1,9 @@
 {
-  "textShowRising": {
-    "message": "Mostrar siempre el botón 'Subiendo' de clasificación"
-  }
+	"textShowRising": {
+		"message": "Mostrar siempre el botón 'Subiendo' de clasificación"
+	},
+
+	"textOpenPostInNewTabInfoLink": {
+		"message": "Ajustes de usuario > Ajustes de feed > Abrir posts en pestañas nuevas"
+	}
 }

@@ -1,5 +1,5 @@
 // Auto Expand Feed/Post To 100% At Value
-let autoExpandValue = function(widthVariable) {
+let autoExpandValue = function (widthVariable) {
 	const styleSheetId = 're-auto-expand';
 	let styleSheet = document.getElementById(styleSheetId);
 
@@ -12,7 +12,7 @@ let autoExpandValue = function(widthVariable) {
 
 	// If variable doesn't exist
 	if (!widthVariable) {
-		var widthVariable = 1000
+		var widthVariable = 1000;
 	}
 
 	// Rule template
@@ -25,10 +25,10 @@ let autoExpandValue = function(widthVariable) {
 
 	// Remove any existing rules
 	while (styleSheet.sheet.cssRules.length > 0) {
-	  styleSheet.sheet.deleteRule(0);
+		styleSheet.sheet.deleteRule(0);
 	}
 
 	// Add the new rule
 	styleSheet.sheet.insertRule(mediaQuery, 0);
-}
+};
 export { autoExpandValue };

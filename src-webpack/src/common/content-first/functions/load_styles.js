@@ -3,35 +3,44 @@
 export function loadStyles() {
 	// Create new style element
 	const style = document.createElement('style');
-	style.textContent = styleHide+
-						styleResize+
-						styleHideGap+
-						styleDropShadow+
-						styleStickySort+
-						styleImageOptions+
-						styleLayoutCentre+
-						styleOther+
-						styleVideoPlayer+
-						styleScrollText+
-						styleOldReddit+
-						styleModerniseOldReddit+
-						stylePagination+
-						styleLoadMore
+	style.textContent = styleHide + styleResize + styleHideGap + styleDropShadow + styleStickySort + styleImageOptions + styleLayoutCentre + styleOther + styleVideoPlayer + styleScrollText + styleOldReddit + styleModerniseOldReddit + stylePagination + styleLoadMore + styleScrollToComment + stylePostNumber;
 	// Append style element to the head
 	document.head.insertBefore(style, document.head.firstChild);
 }
+
+const stylePostNumber = `.re-post-number {
+							margin-top: 8px;
+						}`;
+
+const styleScrollToComment = `.re-scroll-to-comment-container {
+							position: fixed;
+							top: calc(50% - 32px);
+							left: 48px;
+							display: flex;
+							flex-direction: column;
+							grid-gap: 8px;
+							z-index: 9999;
+						}
+						#re-next-comment,#re-prev-comment {
+							cursor: pointer;
+							padding: 4px;
+							border-radius: 2px;
+							background-color: rgba(0,0,0,0.4);
+							color: #fff;
+						}
+						#re-next-comment:hover ,#re-prev-comment:hover {
+							background-color: rgba(0,0,0,0.6);
+						}`;
 
 const styleLoadMore = `.re-load-more {
 							width: 100%;
 							height: 30px;
 							text-align: center;
-						}`
-
+						}`;
 
 const stylePagination = `.re-post.hide {
 							display: none;
-						}`
-
+						}`;
 
 const styleModerniseOldReddit = `body.re-modernise {
 							background-color: #030303 !important;
@@ -319,8 +328,7 @@ const styleModerniseOldReddit = `body.re-modernise {
 							max-width: 185px;
 							background-size: 100% auto;
 							background-position: center;
-						}`
-
+						}`;
 
 const styleOldReddit = `#re-main {
 							display: flex;
@@ -351,8 +359,7 @@ const styleOldReddit = `#re-main {
 						}
 						#header a, #header span {
 							color: #369;
-						}`
-
+						}`;
 
 const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 						cursor: pointer;
@@ -368,14 +375,12 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 					.re-to-top-button span {
 						color: inherit;
 						font-size: inherit;
-					}`
-
+					}`;
 
 const styleScrollText = `.re-text-scroll div[data-click-id="text"][style="max-height: 250px;"], .re-text-scroll div[data-click-id="text"][style="max-height:250px"] {
 							overflow-y: scroll;
 							mask-image: linear-gradient(180deg,#000 90%,transparent)
-						}`
-
+						}`;
 
 const styleVideoPlayer = `.video-js .vjs-big-play-button,
 						.video-js:hover .vjs-big-play-button,
@@ -395,8 +400,7 @@ const styleVideoPlayer = `.video-js .vjs-big-play-button,
 						}
 						.video-js .vjs-control-bar {
 							background-color: rgba(26, 26, 27, 0.7) !important;
-						}`
-
+						}`;
 
 const styleImageOptions = `.re-fit-image .ImageBox-image {
 							height: 100%;
@@ -422,31 +426,27 @@ const styleImageOptions = `.re-fit-image .ImageBox-image {
 						}
 						.re-hide-see-full-image .media-element div:last-child {
 							display: none;
-						}`
-
+						}`;
 
 const styleStickySort = `.re-sticky-sort {
 							position: sticky;
 							top: 48px;
 							z-index: 99;
-						}`
-
+						}`;
 
 const styleDropShadow = `.re-drop-shadow, .re-drop-shadow-children > div {
 							box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 						}
 						.re-feed-container {
 							box-shadow: none !important;
-						}`
-
+						}`;
 
 const styleHide = `.re-hide {
 						display: none !important;
 					}
 					.re-invisible {
 						visibility: hidden !important;
-					}`
-
+					}`;
 
 const styleResize = `.re-feed.re-resize {
 							width: var(--re-content-width);
@@ -483,8 +483,7 @@ const styleResize = `.re-feed.re-resize {
 						#overlayScrollContainer > div {
 							max-width: var(--re-content-width);
 							background-color: var(--comments-overlay-background);
-						}`
-
+						}`;
 
 const styleHideGap = `.re-feed.re-hide-gap {
 							padding: 0;
@@ -530,8 +529,7 @@ const styleHideGap = `.re-feed.re-hide-gap {
 						}
 						.re-post-container.re-hide-gap {
 							max-width: 100% !important;
-						}`
-
+						}`;
 
 const styleLayoutCentre = `.re-feed.re-centre-feed-1 {
 							translate: 168px;
@@ -541,4 +539,4 @@ const styleLayoutCentre = `.re-feed.re-centre-feed-1 {
 						}
 						.re-feed.re-centre-feed-3 {
 							translate: -136px;
-						}`
+						}`;
