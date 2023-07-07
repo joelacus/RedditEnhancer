@@ -4,7 +4,6 @@
 
 import { loadStart } from '../content-first/content-first-load-start';
 import { load_saves } from './content-load-saves';
-//import { loadHidePostSidebar } from '../content-first/functions/load_hide_sidebar'
 import { observerPostOverlay } from '../content-first/functions/init_class_names';
 
 // Detect mutation in page url

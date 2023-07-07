@@ -25,6 +25,7 @@ import { loadHideSidebarPolicy } from './load_hide_sidebar_policy';
 import { loadHideHeaderSubBar } from './load_hide_header_sub_bar';
 import { loadHideSideMenuOld } from './load_hide_side_menu_old';
 import { loadHideTurnOnNotificationsPopup } from './load_hide_turn_on_notifications_popup';
+import { scrollToNextRootComment } from '../../content/functions/scroll_to_next_root_comment';
 
 // Add class names to elements
 export function initClassNames() {
@@ -642,6 +643,7 @@ export function observerPostOverlay() {
 			//if (!el.classList.contains('re-sidebar')) {
 			el.classList.add('re-sidebar-post');
 			loadHidePostSidebar();
+			scrollToNextRootComment();
 			//}
 		},
 	});

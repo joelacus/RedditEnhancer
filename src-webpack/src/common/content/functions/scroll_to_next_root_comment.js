@@ -42,11 +42,19 @@ let scrollToNextRootComment = function (value) {
 					find_root_comments();
 					const reRootComments = Array.from(document.getElementsByClassName('re-root-comment'));
 					// get current postion
-					const currentScrollPosition = window.scrollY;
+					if (document.querySelector('#overlayScrollContainer')) {
+						var currentScrollPosition = document.querySelector('#overlayScrollContainer').scrollTop;
+					} else {
+						var currentScrollPosition = window.scrollY;
+					}
 					let previousComment = null;
 					// find the previous "re-root-comment" element above the current scroll position
 					for (let i = reRootComments.length - 1; i >= 0; i--) {
-						const commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 45);
+						if (document.querySelector('#overlayScrollContainer')) {
+							var commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 100);
+						} else {
+							var commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 45);
+						}
 						if (commentOffsetTop < currentScrollPosition) {
 							previousComment = reRootComments[i];
 							break;
@@ -54,8 +62,13 @@ let scrollToNextRootComment = function (value) {
 					}
 					// scroll to comment
 					if (previousComment) {
-						const scrollToPosition = previousComment.getBoundingClientRect().top + currentScrollPosition - 45;
-						window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+						if (document.querySelector('#overlayScrollContainer')) {
+							const scrollToPosition = Math.floor(previousComment.getBoundingClientRect().top + currentScrollPosition - 100);
+							document.querySelector('#overlayScrollContainer').scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+						} else {
+							const scrollToPosition = Math.floor(previousComment.getBoundingClientRect().top + currentScrollPosition - 45);
+							window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+						}
 					}
 				});
 				container.append(prevBtn);
@@ -70,11 +83,19 @@ let scrollToNextRootComment = function (value) {
 					find_root_comments();
 					const reRootComments = Array.from(document.getElementsByClassName('re-root-comment'));
 					// get current postion
-					const currentScrollPosition = window.scrollY;
+					if (document.querySelector('#overlayScrollContainer')) {
+						var currentScrollPosition = document.querySelector('#overlayScrollContainer').scrollTop;
+					} else {
+						var currentScrollPosition = window.scrollY;
+					}
 					let nextComment = null;
 					// find the next "re-root-comment" element below the current scroll position
 					for (let i = 0; i < reRootComments.length; i++) {
-						const commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 45);
+						if (document.querySelector('#overlayScrollContainer')) {
+							var commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 100);
+						} else {
+							var commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 45);
+						}
 						if (commentOffsetTop > currentScrollPosition) {
 							nextComment = reRootComments[i];
 							break;
@@ -82,14 +103,23 @@ let scrollToNextRootComment = function (value) {
 					}
 					// scroll to comment
 					if (nextComment) {
-						const scrollToPosition = nextComment.getBoundingClientRect().top + currentScrollPosition - 45;
-						window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+						if (document.querySelector('#overlayScrollContainer')) {
+							const scrollToPosition = Math.floor(nextComment.getBoundingClientRect().top + currentScrollPosition - 100);
+							document.querySelector('#overlayScrollContainer').scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+						} else {
+							const scrollToPosition = Math.floor(nextComment.getBoundingClientRect().top + currentScrollPosition - 45);
+							window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+						}
 					}
 				});
 				container.append(nextBtn);
 
 				// Append container to body
 				document.querySelector('body').appendChild(container);
+			} else {
+				document.querySelectorAll('.re-scroll-to-comment-container').forEach(function (el) {
+					el.remove();
+				});
 			}
 		} else if (value == false) {
 			document.querySelectorAll('.re-scroll-to-comment-container').forEach(function (el) {
