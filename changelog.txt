@@ -1,3 +1,6 @@
+version 0.16.1
+- Bug fix
+
 version 0.16.0
 - Added an option to number posts.
 - Added an option to hide NSFW posts.
