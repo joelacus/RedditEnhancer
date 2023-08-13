@@ -304,7 +304,7 @@
 	},
 
 	"textHideNSFW": {
-		"message": "Сховати повідомлення NSFW"
+		"message": "Сховати повідомлення NSFW/L"
 	},
 
 	"textHideTurnOnNotificationsPopup": {
@@ -325,5 +325,53 @@
 
 	"textShowPostNumbers": {
 		"message": "Додайте номери Post"
+	},
+
+	"textBackup": {
+		"message": "Резервне копіювання"
+	},
+
+	"textRestore": {
+		"message": "Відновлення"
+	},
+
+	"textRestoreConfigTitle": {
+		"message": "Відновити конфігурацію резервної копії Reddit Enhancer"
+	},
+
+	"textChooseBackupFile": {
+		"message": "Виберіть файл резервної копії"
+	},
+
+	"textOr": {
+		"message": "АБО"
+	},
+
+	"textDrag": {
+		"message": "Перетягніть"
+	},
+
+	"textHere": {
+		"message": "сюди"
+	},
+
+	"textRestoreBackup": {
+		"message": "Відновити резервну копію"
+	},
+
+	"textBackupRestored": {
+		"message": "Резервну копію відновлено!"
+	},
+
+	"textCloseTab": {
+		"message": "Тепер ви можете закрити цю вкладку/вікно."
+	},
+
+	"textUpload": {
+		"message": "Завантажити"
+	},
+
+	"textCustomCSS": {
+		"message": "Custom CSS"
 	}
 }

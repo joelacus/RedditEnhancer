@@ -1,9 +1,9 @@
 /* ===== Popup / Restore ===== */
 
 import { addBackgroundListeners } from './popup-functions';
-import { tabShowOldVersion } from './popup-inputs';
-import { tabDmSystem } from './popup-inputs';
-import { tabDmTime } from './popup-inputs';
+import { tabShowOldVersion } from './inputs/version_select';
+import { tabDmSystem } from './inputs/inputs_dark_mode';
+import { tabDmTime } from './inputs/inputs_dark_mode';
 
 /* = Restore Save On Popup Load = */
 window.onload = function () {
@@ -270,14 +270,11 @@ function restoreOptions() {
 
 	// Background Blur
 	BROWSER_API.storage.sync.get(['bgBlur'], function (result) {
-		setBgBlur(result);
-	});
-	function setBgBlur(result) {
 		if (typeof result.bgBlur != 'undefined') {
 			document.querySelector('#input-bg-blur').value = result.bgBlur;
 			document.querySelector('#bg-blur-value').innerText = result.bgBlur + 'px';
 			if (result.bgBlur != 0) {
-				document.querySelector('.icon-blur').style.backgroundColor = 'var(--accent)';
+				document.querySelector('.icon-bg-blur').style.backgroundColor = 'var(--accent)';
 			}
 			var value = result.bgBlur;
 		} else if (typeof result.bgBlur == 'undefined') {
@@ -286,7 +283,7 @@ function restoreOptions() {
 			var value = 0;
 		}
 		console.log('Background Blur: ' + value + 'px');
-	}
+	});
 
 	// Hide Reddit Premium
 	BROWSER_API.storage.sync.get(['hideRedditPremium'], function (result) {
@@ -1183,6 +1180,470 @@ function restoreOptions() {
 		}
 		console.log('Show Post Numbers: ' + value);
 	}
+
+	// Override Drop Shadow
+	BROWSER_API.storage.sync.get(['overrideDropShadow'], function (result) {
+		setOverrideDropShadow(result);
+	});
+	function setOverrideDropShadow(result) {
+		if (result.overrideDropShadow == true) {
+			document.querySelector('.icon-drop-shadow-override').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-shadow-override').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.overrideDropShadow == 'undefined' || result.overrideDropShadow == false) {
+			document.querySelector('#checkbox-shadow-override').checked = false;
+			var value = false;
+		}
+		console.log('Override Drop Shadow: ' + value);
+	}
+
+	// Override Drop Shadow CSS
+	BROWSER_API.storage.sync.get(['overrideDropShadowCSS'], function (result) {
+		setOverrideDropShadowCSS(result);
+	});
+	function setOverrideDropShadowCSS(result) {
+		if (typeof result.overrideDropShadowCSS != 'undefined') {
+			document.querySelector('#input-shadow-override-css').value = result.overrideDropShadowCSS;
+			var value = result.overrideDropShadowCSS;
+		} else {
+			document.querySelector('#input-shadow-override-css').value = '';
+			var value = '';
+		}
+		console.log('Override Drop Shadow CSS: ' + value);
+	}
+
+	// Post Max Height
+	BROWSER_API.storage.sync.get(['postMaxHeight'], function (result) {
+		setPostMaxHeight(result);
+	});
+	function setPostMaxHeight(result) {
+		if (typeof result.postMaxHeight != 'undefined') {
+			if (result.postMaxHeight > 304 && result.postMaxHeight <= 1000) {
+				document.querySelector('.icon-feed-post-max-height').style.backgroundColor = 'var(--accent)';
+				document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+				document.querySelector('#input-feed-post-max-height').value = result.postMaxHeight;
+				document.querySelector('#feed-post-max-height-value').innerText = result.postMaxHeight + 'px';
+				var value = result.postMaxHeight + 'px';
+			} else {
+				document.querySelector('#input-feed-post-max-height').value = 296;
+				document.querySelector('#feed-post-max-height-value').innerText = '512px';
+				var value = 'default (512px)';
+			}
+		} else if (typeof result.postMaxHeight == 'undefined') {
+			document.querySelector('#input-feed-post-max-height').value = 296;
+			document.querySelector('#feed-post-max-height-value').innerText = '512px';
+			var value = 'default (512px)';
+		}
+		console.log('Max Post Height: ' + value);
+	}
+
+	// Bionic Reader - Comments
+	/*BROWSER_API.storage.sync.get(['bionicReaderComments'], function (result) {
+		setBionicReaderComments(result);
+	});
+	function setBionicReaderComments(result) {
+		if (result.bionicReaderComments == true) {
+			document.querySelector('.icon-bionic-reader-comments').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-bionic-reader-comments').classList.remove('icon-book');
+			document.querySelector('.icon-bionic-reader-comments').classList.add('icon-book-open');
+			document.querySelector('#checkbox-bionic-reader-comments').checked = true;
+			document.querySelector('.icon-accessibility').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.bionicReaderComments == 'undefined' || result.bionicReaderComments == false) {
+			document.querySelector('#checkbox-bionic-reader-comments').checked = false;
+			var value = false;
+		}
+		console.log('Bionic Reader Comments: ' + value);
+	}
+
+	// Bionic Reader - Posts
+	BROWSER_API.storage.sync.get(['bionicReaderPosts'], function (result) {
+		setBionicReaderPosts(result);
+	});
+	function setBionicReaderPosts(result) {
+		if (result.bionicReaderPosts == true) {
+			document.querySelector('.icon-bionic-reader-posts').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-bionic-reader-posts').classList.remove('icon-book');
+			document.querySelector('.icon-bionic-reader-posts').classList.add('icon-book-open');
+			document.querySelector('#checkbox-bionic-reader-posts').checked = true;
+			document.querySelector('.icon-accessibility').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.bionicReaderPosts == 'undefined' || result.bionicReaderPosts == false) {
+			document.querySelector('#checkbox-bionic-reader-posts').checked = false;
+			var value = false;
+		}
+		console.log('Bionic Reader Posts: ' + value);
+	}*/
+
+	// Theme Header Background Colour
+	BROWSER_API.storage.sync.get(['themeHeaderBackgroundColour'], function (result) {
+		setThemeHeaderBackgroundColour(result);
+	});
+	function setThemeHeaderBackgroundColour(result) {
+		if (result.themeHeaderBackgroundColour == true) {
+			document.querySelector('.icon-header-bg-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-header-bg-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeHeaderBackgroundColour == 'undefined' || result.themeHeaderBackgroundColour == false) {
+			document.querySelector('#checkbox-header-bg-colour').checked = false;
+			var value = false;
+		}
+		console.log('Header Background Colour: ' + value);
+	}
+
+	// Theme Header Background Colour CSS
+	BROWSER_API.storage.sync.get(['themeHeaderBackgroundColourCSS'], function (result) {
+		setThemeHeaderBackgroundColourCSS(result);
+	});
+	function setThemeHeaderBackgroundColourCSS(result) {
+		if (typeof result.themeHeaderBackgroundColourCSS != 'undefined') {
+			document.querySelector('#input-header-bg-colour-css').value = result.themeHeaderBackgroundColourCSS;
+			var value = result.themeHeaderBackgroundColourCSS;
+		} else {
+			document.querySelector('#input-header-bg-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Header Background Colour CSS: ' + value);
+	}
+
+	// Theme Header Text Colour
+	BROWSER_API.storage.sync.get(['themeHeaderTextColour'], function (result) {
+		setThemeHeaderTextColour(result);
+	});
+	function setThemeHeaderTextColour(result) {
+		if (result.themeHeaderTextColour == true) {
+			document.querySelector('.icon-header-text-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-header-text-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeHeaderTextColour == 'undefined' || result.themeHeaderTextColour == false) {
+			document.querySelector('#checkbox-header-text-colour').checked = false;
+			var value = false;
+		}
+		console.log('Header Text Colour: ' + value);
+	}
+
+	// Theme Header Text Colour CSS
+	BROWSER_API.storage.sync.get(['themeHeaderTextColourCSS'], function (result) {
+		setThemeHeaderTextColourCSS(result);
+	});
+	function setThemeHeaderTextColourCSS(result) {
+		if (typeof result.themeHeaderTextColourCSS != 'undefined') {
+			document.querySelector('#input-header-text-colour-css').value = result.themeHeaderTextColourCSS;
+			var value = result.themeHeaderTextColourCSS;
+		} else {
+			document.querySelector('#input-header-text-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Header Text Colour CSS: ' + value);
+	}
+
+	// Theme Sort Background Colour
+	BROWSER_API.storage.sync.get(['themeSortBackgroundColour'], function (result) {
+		setThemeSortBackgroundColour(result);
+	});
+	function setThemeSortBackgroundColour(result) {
+		if (result.themeSortBackgroundColour == true) {
+			document.querySelector('.icon-sort-bg-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-sort-bg-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeSortBackgroundColour == 'undefined' || result.themeSortBackgroundColour == false) {
+			document.querySelector('#checkbox-sort-bg-colour').checked = false;
+			var value = false;
+		}
+		console.log('Sort Background Colour: ' + value);
+	}
+
+	// Theme Sort Background Colour CSS
+	BROWSER_API.storage.sync.get(['themeSortBackgroundColourCSS'], function (result) {
+		setThemeSortBackgroundColourCSS(result);
+	});
+	function setThemeSortBackgroundColourCSS(result) {
+		if (typeof result.themeSortBackgroundColourCSS != 'undefined') {
+			document.querySelector('#input-sort-bg-colour-css').value = result.themeSortBackgroundColourCSS;
+			var value = result.themeSortBackgroundColourCSS;
+		} else {
+			document.querySelector('#input-sort-bg-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Sort Background Colour CSS: ' + value);
+	}
+
+	// Theme Sort Text Colour
+	BROWSER_API.storage.sync.get(['themeSortTextColour'], function (result) {
+		setThemeSortTextColour(result);
+	});
+	function setThemeSortTextColour(result) {
+		if (result.themeSortTextColour == true) {
+			document.querySelector('.icon-sort-text-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-sort-text-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeSortTextColour == 'undefined' || result.themeSortTextColour == false) {
+			document.querySelector('#checkbox-sort-text-colour').checked = false;
+			var value = false;
+		}
+		console.log('Sort Text Colour: ' + value);
+	}
+
+	// Theme Sort Text Colour CSS
+	BROWSER_API.storage.sync.get(['themeSortTextColourCSS'], function (result) {
+		setThemeSortTextColourCSS(result);
+	});
+	function setThemeSortTextColourCSS(result) {
+		if (typeof result.themeSortTextColourCSS != 'undefined') {
+			document.querySelector('#input-sort-text-colour-css').value = result.themeSortTextColourCSS;
+			var value = result.themeSortTextColourCSS;
+		} else {
+			document.querySelector('#input-sort-text-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Sort Text Colour CSS: ' + value);
+	}
+
+	// Theme Sort Text Colour 2
+	BROWSER_API.storage.sync.get(['themeSortTextColour2'], function (result) {
+		setThemeSortTextColour2(result);
+	});
+	function setThemeSortTextColour2(result) {
+		if (result.themeSortTextColour2 == true) {
+			document.querySelector('.icon-sort-text-colour-2').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-sort-text-colour-2').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeSortTextColour2 == 'undefined' || result.themeSortTextColour2 == false) {
+			document.querySelector('#checkbox-sort-text-colour-2').checked = false;
+			var value = false;
+		}
+		console.log('Sort Text Colour 2: ' + value);
+	}
+
+	// Theme Sort Text Colour 2 CSS
+	BROWSER_API.storage.sync.get(['themeSortTextColour2CSS'], function (result) {
+		setThemeSortTextColour2CSS(result);
+	});
+	function setThemeSortTextColour2CSS(result) {
+		if (typeof result.themeSortTextColour2CSS != 'undefined') {
+			document.querySelector('#input-sort-text-colour-2-css').value = result.themeSortTextColour2CSS;
+			var value = result.themeSortTextColour2CSS;
+		} else {
+			document.querySelector('#input-sort-text-colour-2-css').value = '';
+			var value = '';
+		}
+		console.log('Sort Text Colour 2 CSS: ' + value);
+	}
+
+	// Theme Sort Border Colour
+	BROWSER_API.storage.sync.get(['themeSortBorderColour'], function (result) {
+		setThemeSortBorderColour(result);
+	});
+	function setThemeSortBorderColour(result) {
+		if (result.themeSortBorderColour == true) {
+			document.querySelector('.icon-sort-border-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-sort-border-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeSortBorderColour == 'undefined' || result.themeSortBorderColour == false) {
+			document.querySelector('#checkbox-sort-border-colour').checked = false;
+			var value = false;
+		}
+		console.log('Sort Border Colour: ' + value);
+	}
+
+	// Theme Sort Border Colour CSS
+	BROWSER_API.storage.sync.get(['themeSortBorderColourCSS'], function (result) {
+		setThemeSortBorderColourCSS(result);
+	});
+	function setThemeSortBorderColourCSS(result) {
+		if (typeof result.themeSortBorderColourCSS != 'undefined') {
+			document.querySelector('#input-sort-border-colour-css').value = result.themeSortBorderColourCSS;
+			var value = result.themeSortBorderColourCSS;
+		} else {
+			document.querySelector('#input-sort-border-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Sort Border Colour CSS: ' + value);
+	}
+
+	// Theme Post Background Colour
+	BROWSER_API.storage.sync.get(['themePostBackgroundColour'], function (result) {
+		setThemePostBackgroundColour(result);
+	});
+	function setThemePostBackgroundColour(result) {
+		if (result.themePostBackgroundColour == true) {
+			document.querySelector('.icon-post-bg-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-post-bg-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themePostBackgroundColour == 'undefined' || result.themePostBackgroundColour == false) {
+			document.querySelector('#checkbox-post-bg-colour').checked = false;
+			var value = false;
+		}
+		console.log('Post Background Colour: ' + value);
+	}
+
+	// Theme Post Background Colour CSS
+	BROWSER_API.storage.sync.get(['themePostBackgroundColourCSS'], function (result) {
+		setThemePostBackgroundColourCSS(result);
+	});
+	function setThemePostBackgroundColourCSS(result) {
+		if (typeof result.themePostBackgroundColourCSS != 'undefined') {
+			document.querySelector('#input-post-bg-colour-css').value = result.themePostBackgroundColourCSS;
+			var value = result.themePostBackgroundColourCSS;
+		} else {
+			document.querySelector('#input-post-bg-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Post Background Colour CSS: ' + value);
+	}
+
+	// Theme Post Text Colour
+	BROWSER_API.storage.sync.get(['themePostTextColour1'], function (result) {
+		setThemePostTextColour1(result);
+	});
+	function setThemePostTextColour1(result) {
+		if (result.themePostTextColour1 == true) {
+			document.querySelector('.icon-post-text-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-post-text-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themePostTextColour1 == 'undefined' || result.themePostTextColour1 == false) {
+			document.querySelector('#checkbox-post-text-colour').checked = false;
+			var value = false;
+		}
+		console.log('Post Text Colour: ' + value);
+	}
+
+	// Theme Post Text Colour CSS
+	BROWSER_API.storage.sync.get(['themePostTextColour1CSS'], function (result) {
+		setThemePostTextColour1CSS(result);
+	});
+	function setThemePostTextColour1CSS(result) {
+		if (typeof result.themePostTextColour1CSS != 'undefined') {
+			document.querySelector('#input-post-text-colour-css').value = result.themePostTextColour1CSS;
+			var value = result.themePostTextColour1CSS;
+		} else {
+			document.querySelector('#input-post-text-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Post Text Colour CSS: ' + value);
+	}
+
+	// Theme Post Visited Title Colour
+	BROWSER_API.storage.sync.get(['themePostVisitedTitleColour'], function (result) {
+		setThemePostVisitedTitleColour(result);
+	});
+	function setThemePostVisitedTitleColour(result) {
+		if (result.themePostVisitedTitleColour == true) {
+			document.querySelector('.icon-post-visited-title-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-post-visited-title-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themePostVisitedTitleColour == 'undefined' || result.themePostVisitedTitleColour == false) {
+			document.querySelector('#checkbox-post-visited-title-colour').checked = false;
+			var value = false;
+		}
+		console.log('Post Visited Title Colour: ' + value);
+	}
+
+	// Theme Post Visited Title Colour CSS
+	BROWSER_API.storage.sync.get(['themePostVisitedTitleColourCSS'], function (result) {
+		setThemePostVisitedTitleColourCSS(result);
+	});
+	function setThemePostVisitedTitleColourCSS(result) {
+		if (typeof result.themePostVisitedTitleColourCSS != 'undefined') {
+			document.querySelector('#input-post-visited-title-colour-css').value = result.themePostVisitedTitleColourCSS;
+			var value = result.themePostVisitedTitleColourCSS;
+		} else {
+			document.querySelector('#input-post-visited-title-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Post Visited Title Colour CSS: ' + value);
+	}
+
+	// Theme Post Text Colour 2
+	BROWSER_API.storage.sync.get(['themePostTextColour2'], function (result) {
+		setThemePostTextColour2(result);
+	});
+	function setThemePostTextColour2(result) {
+		if (result.themePostTextColour2 == true) {
+			document.querySelector('.icon-post-text-colour-2').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-post-text-colour-2').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeHeaderTextColour == 'undefined' || result.themeSortTextColour == false) {
+			document.querySelector('#checkbox-post-text-colour-2').checked = false;
+			var value = false;
+		}
+		console.log('Post Text Colour 2 : ' + value);
+	}
+
+	// Theme Post Text Colour 2 CSS
+	BROWSER_API.storage.sync.get(['themePostTextColour2CSS'], function (result) {
+		setThemePostTextColour2CSS(result);
+	});
+	function setThemePostTextColour2CSS(result) {
+		if (typeof result.themePostTextColour2CSS != 'undefined') {
+			document.querySelector('#input-post-text-colour-2-css').value = result.themePostTextColour2CSS;
+			var value = result.themePostTextColour2CSS;
+		} else {
+			document.querySelector('#input-post-text-colour-2-css').value = '';
+			var value = '';
+		}
+		console.log('Post Text Colour 2 CSS: ' + value);
+	}
+
+	// Theme Post Border Colour
+	BROWSER_API.storage.sync.get(['themePostBorderColour'], function (result) {
+		setThemePostBorderColour(result);
+	});
+	function setThemePostBorderColour(result) {
+		if (result.themePostBorderColour == true) {
+			document.querySelector('.icon-post-border-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-post-border-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themePostBorderColour == 'undefined' || result.themePostBorderColour == false) {
+			document.querySelector('#checkbox-post-border-colour').checked = false;
+			var value = false;
+		}
+		console.log('Post Border Colour: ' + value);
+	}
+
+	// Theme Post Border Colour CSS
+	BROWSER_API.storage.sync.get(['themePostBorderColourCSS'], function (result) {
+		setThemePostBorderColourCSS(result);
+	});
+	function setThemePostBorderColourCSS(result) {
+		if (typeof result.themePostBorderColourCSS != 'undefined') {
+			document.querySelector('#input-post-border-colour-css').value = result.themePostBorderColourCSS;
+			var value = result.themePostBorderColourCSS;
+		} else {
+			document.querySelector('#input-post-border-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Post Border Colour CSS: ' + value);
+	}
+
+	// Theme Blur
+	BROWSER_API.storage.sync.get(['themeBlur'], function (result) {
+		if (typeof result.themeBlur != 'undefined') {
+			document.querySelector('#input-theme-blur').value = result.themeBlur;
+			document.querySelector('#theme-blur-value').innerText = result.themeBlur + 'px';
+			if (result.bgBlur != 0) {
+				document.querySelector('.icon-theme-blur').style.backgroundColor = 'var(--accent)';
+			}
+			var value = result.themeBlur;
+		} else if (typeof result.themeBlur == 'undefined') {
+			document.querySelector('#input-theme-blur').value = 5;
+			document.querySelector('#theme-blur-value').innerText = '5px';
+			var value = 0;
+		}
+		console.log('Theme Blur: ' + value + 'px');
+	});
 
 	// Pre-Select Search Input
 	document.querySelector('#search').focus();

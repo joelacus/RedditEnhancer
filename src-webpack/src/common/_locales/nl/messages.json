@@ -304,7 +304,7 @@
 	},
 
 	"textHideNSFW": {
-		"message": "Verberg NSFW berichten"
+		"message": "Verberg NSFW/L berichten"
 	},
 
 	"textHideTurnOnNotificationsPopup": {
@@ -325,5 +325,53 @@
 
 	"textShowPostNumbers": {
 		"message": "Nummer toevoegen aan post"
+	},
+
+	"textBackup": {
+		"message": "Backup"
+	},
+
+	"textRestore": {
+		"message": "Herstellen"
+	},
+
+	"textRestoreConfigTitle": {
+		"message": "Herstel Reddit Enhancer Backup Config"
+	},
+
+	"textChooseBackupFile": {
+		"message": "Kies een back-upbestand"
+	},
+
+	"textOr": {
+		"message": "OF"
+	},
+
+	"textDrag": {
+		"message": "Sleep"
+	},
+
+	"textHere": {
+		"message": "hierheen"
+	},
+
+	"textRestoreBackup": {
+		"message": "Back-up terugzetten"
+	},
+
+	"textBackupRestored": {
+		"message": "Back-up hersteld!"
+	},
+
+	"textCloseTab": {
+		"message": "U kunt dit tabblad/venster nu sluiten."
+	},
+
+	"textUpload": {
+		"message": "Uploaden"
+	},
+
+	"textCustomCSS": {
+		"message": "Custom CSS"
 	}
 }

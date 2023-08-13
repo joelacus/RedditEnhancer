@@ -96,14 +96,9 @@ let addDropShadow = function (value) {
 		}
 		// remove shadow from "back to top"
 		if (document.querySelector('.re-sidebar')) {
-			var buttons = document.querySelector('.re-sidebar').getElementsByTagName('button');
-			if (buttons) {
-				var lang = ['back to top', 'zurück nach oben', 'ir arriba', 'volver al principio', 'retourner en haut', 'retourner en haut', 'torna in cima', 'voltar ao topo'];
-				for (var i = 0; i < buttons.length; i++) {
-					if (lang.includes(buttons[i].innerText.toLowerCase())) {
-						buttons[i].parentNode.parentNode.style.boxShadow = 'none';
-					}
-				}
+			const lastDiv = document.querySelector('.re-sidebar').lastElementChild;
+			if (lastDiv.querySelector('[style="top:calc(100vh - 8px)"]')) {
+				lastDiv.style.boxShadow = 'none';
 			}
 		}
 	}

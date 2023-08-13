@@ -288,3 +288,19 @@
 	mask: url('../icons/ui/icon-numbers.svg');
 	-webkit-mask: url('../icons/ui/icon-numbers.svg');
 }
+.icon-ruler {
+	mask: url('../icons/ui/ruler-vertical-solid.svg');
+	-webkit-mask: url('../icons/ui/ruler-vertical-solid.svg');
+}
+.icon-accessibility {
+	mask: url('../icons/ui/universal-access-solid.svg');
+	-webkit-mask: url('../icons/ui/universal-access-solid.svg');
+}
+.icon-book {
+	mask: url('../icons/ui/book-solid.svg');
+	-webkit-mask: url('../icons/ui/book-solid.svg');
+}
+.icon-book-open {
+	mask: url('../icons/ui/book-open-solid.svg');
+	-webkit-mask: url('../icons/ui/book-open-solid.svg');
+}

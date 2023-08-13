@@ -25,7 +25,8 @@ import { loadHideSidebarPolicy } from './load_hide_sidebar_policy';
 import { loadHideHeaderSubBar } from './load_hide_header_sub_bar';
 import { loadHideSideMenuOld } from './load_hide_side_menu_old';
 import { loadHideTurnOnNotificationsPopup } from './load_hide_turn_on_notifications_popup';
-import { scrollToNextRootComment } from '../../content/functions/scroll_to_next_root_comment';
+import { scrollToNextRootComment } from '../../content/functions/productivity/scroll_to_next_root_comment';
+import { loadOverrideDropShadow } from './load_override_drop_shadow';
 
 // Add class names to elements
 export function initClassNames() {
@@ -148,6 +149,7 @@ function observerPostSidebar() {
 				el.parentNode.parentNode.classList.add('re-sidebar', 're-sidebar-post');
 				loadHideGap();
 				loadDropShadow();
+				loadOverrideDropShadow();
 				loadHidePostSidebar();
 			}
 		},
@@ -199,6 +201,7 @@ function observerSearchSidebar() {
 			el.classList.add('re-sidebar');
 			el.parentNode.classList.add('re-search-sidebar');
 			loadDropShadow();
+			loadOverrideDropShadow();
 		},
 	});
 }
@@ -223,6 +226,7 @@ function observerFeedContainerAndFeed() {
 			loadLayoutCentre();
 			loadHideGap();
 			loadDropShadow();
+			loadOverrideDropShadow();
 		},
 	});
 }
@@ -516,6 +520,7 @@ function observerUserFeedContainerAndFeed() {
 			loadLayoutCentre();
 			loadHideGap();
 			loadDropShadow();
+			loadOverrideDropShadow();
 		},
 	});
 }

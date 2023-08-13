@@ -2,25 +2,28 @@
 
 // Applies certain tweaks after the page has loaded.
 
-import { darkModeAuto } from './functions/dark_mode';
-import { alwaysShowRisingButton } from './functions/always_show_rising';
-import { fitImage } from './functions/image_options';
-import { imageScroll } from './functions/image_options';
-import { openSubInNewTab } from './functions/open_sub_links_in_new_tab';
-import { openPostInNewTab } from './functions/open_post_links_in_new_tab';
-import { hidePromoted } from './functions/hide_promoted';
-import { showToTopButton } from './functions/scroll_to_top';
-import { showAllButton } from './functions/show_r_all_button';
-import { newPlayer } from './functions/video_player';
-import { sidemenuFeedTop } from './functions/sidemenu_feed_top';
-import { textPostScroll } from './functions/text_post_scroll';
-import { hideSeeFullImage } from './functions/hide_see_full_image';
-import { moderniseOldReddit } from './functions/modernise_old_reddit';
-import { limitInfinityScroll } from './functions/limit_infinity_scroll';
-import { showControversialSortButton } from './functions/show_controversial_sort_button';
-import { hideNSFW } from './functions/hide_nsfw';
-import { scrollToNextRootComment } from './functions/scroll_to_next_root_comment';
-import { showPostNumbers } from './functions/show_post_numbers';
+import { darkModeAuto } from './functions/dark_mode/dark_mode';
+import { alwaysShowRisingButton } from './functions/productivity/always_show_rising';
+import { fitImage } from './functions/productivity/image_options';
+import { imageScroll } from './functions/productivity/image_options';
+import { openSubInNewTab } from './functions/productivity/open_sub_links_in_new_tab';
+import { openPostInNewTab } from './functions/productivity/open_post_links_in_new_tab';
+import { hidePromoted } from './functions/hide_elements/hide_promoted';
+import { showToTopButton } from './functions/productivity/scroll_to_top';
+import { showAllButton } from './functions/productivity/show_r_all_button';
+import { newPlayer } from './functions/productivity/video_player';
+import { sidemenuFeedTop } from './functions/productivity/sidemenu_feed_top';
+import { textPostScroll } from './functions/productivity/text_post_scroll';
+import { hideSeeFullImage } from './functions/hide_elements/hide_see_full_image';
+import { moderniseOldReddit } from './functions/style/modernise_old_reddit';
+import { limitInfinityScroll } from './functions/productivity/limit_infinity_scroll';
+import { showControversialSortButton } from './functions/productivity/show_controversial_sort_button';
+import { hideNSFW } from './functions/hide_elements/hide_nsfw';
+import { scrollToNextRootComment } from './functions/productivity/scroll_to_next_root_comment';
+import { showPostNumbers } from './functions/productivity/show_post_numbers';
+import { autoExpandValue } from './functions/expand_feed_post/auto_expand_value';
+//import { bionicReaderComments } from './functions/accessibility/bionic_reader';
+//import { bionicReaderPosts } from './functions/accessibility/bionic_reader';
 //import { headerHeight } from './content-functions'
 //import { expandPostOptions } from './functions/expand_post_options'
 
@@ -101,6 +104,18 @@ export function load_saves() {
 	BROWSER_API.storage.sync.get(['showPostNumbers'], function (result) {
 		showPostNumbers(result.showPostNumbers);
 	});
+	// Feed Auto Expand
+	BROWSER_API.storage.sync.get(['autoExpandValue'], function (result) {
+		autoExpandValue(result.autoExpandValue);
+	});
+	// Enable Bionic Reader For Comments
+	/*BROWSER_API.storage.sync.get(['bionicReaderComments'], function (result) {
+		bionicReaderComments(result.bionicReaderComments);
+	});
+	// Enable Bionic Reader For Posts
+	BROWSER_API.storage.sync.get(['bionicReaderPosts'], function (result) {
+		bionicReaderPosts(result.bionicReaderPosts);
+	});*/
 	// Expand Post Options
 	/*BROWSER_API.storage.sync.get(['expandPostOptions'], function(result) {
 		expandPostOptions(result.expandPostOptions);
@@ -111,3 +126,14 @@ export function load_saves() {
 	});*/
 }
 load_saves();
+
+setTimeout(function () {
+	// Show To Top Button
+	BROWSER_API.storage.sync.get(['showToTopButton'], function (result) {
+		showToTopButton(result.showToTopButton);
+	});
+	// Add r/All Button To Side Menu
+	BROWSER_API.storage.sync.get(['showAllButton'], function (result) {
+		showAllButton(result.showAllButton);
+	});
+}, 5000);

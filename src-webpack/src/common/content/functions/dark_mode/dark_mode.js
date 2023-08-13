@@ -1,4 +1,4 @@
-import { darkModeTimeCalc } from '../../popup/popup-functions';
+import { darkModeTimeCalc } from '../../../popup/popup-functions';
 
 // Dark Mode Auto
 let darkModeAuto = function (value) {

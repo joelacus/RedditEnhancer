@@ -304,7 +304,7 @@
 	},
 
 	"textHideNSFW": {
-		"message": "Masquer les messages NSFW"
+		"message": "Masquer les messages NSFW/L"
 	},
 
 	"textHideTurnOnNotificationsPopup": {
@@ -325,5 +325,53 @@
 
 	"textShowPostNumbers": {
 		"message": "Ajouter des numéros de publications"
+	},
+
+	"textBackup": {
+		"message": "Sauvegarde"
+	},
+
+	"textRestore": {
+		"message": "Restaurer"
+	},
+
+	"textRestoreConfigTitle": {
+		"message": "Restaurer la configuration de sauvegarde de Reddit Enhancer"
+	},
+
+	"textChooseBackupFile": {
+		"message": "Choisissez le fichier de sauvegarde"
+	},
+
+	"textOr": {
+		"message": "OU"
+	},
+
+	"textDrag": {
+		"message": "Faites glisser"
+	},
+
+	"textHere": {
+		"message": "ici"
+	},
+
+	"textRestoreBackup": {
+		"message": "Restaurer la sauvegarde"
+	},
+
+	"textBackupRestored": {
+		"message": "Sauvegarde restaurée!"
+	},
+
+	"textCloseTab": {
+		"message": "Vous pouvez maintenant fermer cet onglet/fenêtre."
+	},
+
+	"textUpload": {
+		"message": "Télécharger"
+	},
+
+	"textCustomCSS": {
+		"message": "Custom CSS"
 	}
 }

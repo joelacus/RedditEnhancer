@@ -1,6 +1,5 @@
-import { loadExpandContent } from '../../content-first/functions/load_expand_content';
-import { startObserver } from '../../content-first/functions/load_expand_content';
-import { stopObserver } from '../../content-first/functions/load_expand_content';
+import { startObserver } from '../../../content-first/functions/load_expand_content';
+import { stopObserver } from '../../../content-first/functions/load_expand_content';
 
 // Expand Layout
 let expandLayout = function (value) {

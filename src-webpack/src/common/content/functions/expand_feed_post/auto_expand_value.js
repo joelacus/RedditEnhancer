@@ -21,6 +21,9 @@ let autoExpandValue = function (widthVariable) {
 								width: 100% !important;
 								max-width: 100% !important;
 							}
+							.re-feed.re-centre-feed-1 {
+								translate: none !important;
+							}
 						}`;
 
 	// Remove any existing rules

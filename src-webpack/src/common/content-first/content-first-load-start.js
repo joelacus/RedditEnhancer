@@ -5,6 +5,7 @@ import { loadHideUsernameAndKarma } from './functions/load_hide_username_and_kar
 import { loadCustomBackground } from './functions/load_custom_background';
 import { loadHideGetNewReddit } from './functions/load_hide_get_new_reddit';
 import { initClassNames } from './functions/init_class_names';
+import './functions/load_custom_theme_colours';
 
 // Start applying changes
 export function loadStart() {

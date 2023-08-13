@@ -8,12 +8,13 @@ var webpack = require('webpack');
 
 module.exports = {
 	mode: 'production',
-	//devtool: "source-map",
+	//devtool: 'source-map',
 	entry: {
 		background: './src/common/background.js',
 		content: './src/common/content-index.js',
 		content_first: './src/common/content-first-index.js',
 		'popup/popup': './src/common/popup/popup-index.js',
+		restore_config: './src/common/restore_config.js',
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist/chrome'),
@@ -75,6 +76,21 @@ module.exports = {
 					context: 'node_modules/video.js/dist/',
 					from: 'video-js.css',
 					to: 'videojs',
+				},
+				{
+					context: path.resolve(__dirname, 'src/common'),
+					from: 'restore_config.html',
+					to: 'restore_config.html',
+				},
+				{
+					context: path.resolve(__dirname, 'src/common'),
+					from: 'restore_config.css',
+					to: 'restore_config.css',
+				},
+				{
+					context: path.resolve(__dirname, '.'),
+					from: 'changelog.txt',
+					to: 'changelog.txt',
 				},
 			],
 		}),

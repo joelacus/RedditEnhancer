@@ -1,4 +1,4 @@
-import { loadCustomBackground } from '../../content-first/functions/load_custom_background';
+import { loadCustomBackground } from '../../../content-first/functions/load_custom_background';
 
 // Use Custom Background
 let useCustomBackground = function (value) {

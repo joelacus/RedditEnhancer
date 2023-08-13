@@ -6,9 +6,9 @@ let hideSeeFullImage = function (value) {
 		// do nothing
 	} else {
 		// new reddit
-		if (value == true || value == undefined) {
+		if (value == true) {
 			document.querySelector('body').classList.add('re-hide-see-full-image');
-		} else if (value == false) {
+		} else if (value == false || value == undefined) {
 			document.querySelector('body').classList.remove('re-hide-see-full-image');
 		}
 	}

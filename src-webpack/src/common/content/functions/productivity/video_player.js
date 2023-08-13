@@ -1,4 +1,4 @@
-import { videoObserver } from '../video-observer';
+import { videoObserver } from '../../video-observer';
 
 // New Player
 let newPlayer = function (value) {

@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 
 	"name": "__MSG_extensionName__",
-	"version": "0.16.1",
+	"version": "0.17.0",
 	"description": "__MSG_extensionDescription__",
 	"default_locale": "en",
 
@@ -29,7 +29,7 @@
 
 	"web_accessible_resources": [
 		{
-			"resources": ["_locales/**/*", "videojs/video-js.css", "videojs/video.min.js"],
+			"resources": ["_locales/**/*", "videojs/video-js.css", "videojs/video.min.js", "changelog.txt"],
 			"matches": ["<all_urls>"]
 		}
 	],

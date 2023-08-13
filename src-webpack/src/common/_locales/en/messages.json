@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "0.16.1"
+		"message": "0.17.0"
 	},
 
 	"extensionName": {
@@ -360,7 +360,7 @@
 	},
 
 	"textHideNSFW": {
-		"message": "Hide NSFW Posts"
+		"message": "Hide NSFW/L Posts"
 	},
 
 	"textHideTurnOnNotificationsPopup": {
@@ -381,5 +381,137 @@
 
 	"textShowPostNumbers": {
 		"message": "Add Post Numbers"
+	},
+
+	"textBackup": {
+		"message": "Backup"
+	},
+
+	"textRestore": {
+		"message": "Restore"
+	},
+
+	"textRestoreConfigTitle": {
+		"message": "Restore Reddit Enhancer Backup Config"
+	},
+
+	"textChooseBackupFile": {
+		"message": "Choose backup file"
+	},
+
+	"textOr": {
+		"message": "OR"
+	},
+
+	"textDrag": {
+		"message": "Drag"
+	},
+
+	"textHere": {
+		"message": "here"
+	},
+
+	"textRestoreBackup": {
+		"message": "Restore Backup"
+	},
+
+	"textBackupRestored": {
+		"message": "Backup Restored!"
+	},
+
+	"textCloseTab": {
+		"message": "You can now close this tab/window."
+	},
+
+	"textUpload": {
+		"message": "Upload"
+	},
+
+	"textCustomCSS": {
+		"message": "Custom CSS"
+	},
+
+	"textFeedPostMaxHeight": {
+		"message": "Feed Post Max Height"
+	},
+
+	"textPost": {
+		"message": "Post"
+	},
+
+	"textAccessibility": {
+		"message": "Accessibility"
+	},
+
+	"textBionicReader": {
+		"message": "Bionic Reader"
+	},
+
+	"textBionicReaderPosts": {
+		"message": "Bionic Reader For Posts"
+	},
+
+	"textBionicReaderComments": {
+		"message": "Bionic Reader For Comments"
+	},
+
+	"textThemeBlur": {
+		"message": "Theme Blur"
+	},
+
+	"textThemeBlurInfo": {
+		"message": "Use translucent colours 'rgba(0,0,0,0.5)' to see blur effect."
+	},
+
+	"textThemeColours": {
+		"message": "Theme Colours"
+	},
+
+	"textBorderColour": {
+		"message": "Border Colour"
+	},
+
+	"textTextColour": {
+		"message": "Text Colour"
+	},
+
+	"textPostVisitedTitleColour": {
+		"message": "Visited Post Title Colour"
+	},
+
+	"textHeaderBgColour": {
+		"message": "Header Background Colour"
+	},
+
+	"textHeaderTextColour": {
+		"message": "Header Text Colour"
+	},
+
+	"textSortBgColour": {
+		"message": "Sort Background Colour"
+	},
+
+	"textSortTextColour": {
+		"message": "Sort Text Colour"
+	},
+
+	"textSortBorderColour": {
+		"message": "Sort Border Colour"
+	},
+
+	"textPostBgColour": {
+		"message": "Post Background Colour"
+	},
+
+	"textPostTextColour": {
+		"message": "Post Text and Icon Colour"
+	},
+
+	"textPostTitleContentColour": {
+		"message": "Post Title and Text Content Colour"
+	},
+
+	"textPostBorderColour": {
+		"message": "Post Border Colour"
 	}
 }

@@ -304,7 +304,7 @@
 	},
 
 	"textHideNSFW": {
-		"message": "Ukryj posty NSFW"
+		"message": "Ukryj posty NSFW/L"
 	},
 
 	"textHideTurnOnNotificationsPopup": {
@@ -325,5 +325,53 @@
 
 	"textShowPostNumbers": {
 		"message": "Dodaj liczby post"
+	},
+
+	"textBackup": {
+		"message": "Kopia zapasowa"
+	},
+
+	"textRestore": {
+		"message": "Przywrócić"
+	},
+
+	"textRestoreConfigTitle": {
+		"message": "Przywróć konfigurację kopii zapasowej Reddit Enhancer"
+	},
+
+	"textChooseBackupFile": {
+		"message": "Wybierz plik kopii zapasowej"
+	},
+
+	"textOr": {
+		"message": "LUB"
+	},
+
+	"textDrag": {
+		"message": "Przeciągnij"
+	},
+
+	"textHere": {
+		"message": "tutaj"
+	},
+
+	"textRestoreBackup": {
+		"message": "Przywracania kopii zapasowej"
+	},
+
+	"textBackupRestored": {
+		"message": "Przywrócono kopię zapasową!"
+	},
+
+	"textCloseTab": {
+		"message": "Możesz teraz zamknąć tę kartę/okno."
+	},
+
+	"textUpload": {
+		"message": "Wgrywać"
+	},
+
+	"textCustomCSS": {
+		"message": "Custom CSS"
 	}
 }

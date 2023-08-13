@@ -9,8 +9,11 @@ let hideNSFW = function (value) {
 		if (value == true) {
 			// hide any nsfw posts
 			document.querySelectorAll('.Post').forEach(function (item) {
-				const found = Array.from(item.querySelectorAll('span')).find((el) => el.textContent === 'nsfw');
-				if (found != undefined) {
+				const found = Array.from(item.querySelectorAll('span')).find((el) => {
+					const spanText = el.textContent.toLowerCase();
+					return spanText.includes('nsfw') || spanText.includes('nsfl');
+				});
+				if (found) {
 					item.parentNode.parentNode.classList.add('re-hide');
 				}
 			});
@@ -21,8 +24,11 @@ let hideNSFW = function (value) {
 			observer.disconnect();
 			// show any nsfw posts
 			document.querySelectorAll('.Post').forEach(function (item) {
-				const found = Array.from(item.querySelectorAll('span')).find((el) => el.textContent === 'nsfw');
-				if (found != undefined) {
+				const found = Array.from(item.querySelectorAll('span')).find((el) => {
+					const spanText = el.textContent.toLowerCase();
+					return spanText.includes('nsfw') || spanText.includes('nsfl');
+				});
+				if (found) {
 					item.parentNode.parentNode.classList.remove('re-hide');
 				}
 			});
@@ -36,8 +42,11 @@ const observer = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {
 		mutation.addedNodes.forEach(function (addedNode) {
 			document.querySelectorAll('.Post').forEach(function (item) {
-				const found = Array.from(item.querySelectorAll('span')).find((el) => el.textContent === 'nsfw');
-				if (found != undefined) {
+				const found = Array.from(item.querySelectorAll('span')).find((el) => {
+					const spanText = el.textContent.toLowerCase();
+					return spanText.includes('nsfw') || spanText.includes('nsfl');
+				});
+				if (found) {
 					item.parentNode.parentNode.classList.add('re-hide');
 				}
 			});

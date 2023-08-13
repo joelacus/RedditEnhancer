@@ -1,5 +1,17 @@
+version 0.17.0
+- Added backup/restore feature for settings.
+- Added custom CSS option for drop shadows.
+- Added custom CSS overrides for some website theme colours.
+- Added an option to increase, or decrease, the max height of posts on the feed. Default 512px. New range is 304px to 1000px. The post content will adapt to the new size.
+- The addon version changelog can now be viewed inside the addon popup by clicking the version number.
+- The "Hide NSFW Posts" option will now also hide NSFL posts.
+- Improved handling of search results in the addon.
+- Bug fixes and improvements.
+
+
 version 0.16.1
-- Bug fix
+- Bug fix.
+
 
 version 0.16.0
 - Added an option to number posts.
@@ -10,11 +22,14 @@ version 0.16.0
 - Reduced extension file size by 30%.
 - Updated translations.
 
+
 version 0.15.2
 - Bug fix.
 
+
 version 0.15.1
 - Bug fix.
+
 
 version 0.15.0
 - Added an option to open posts in a new tab.
@@ -23,6 +38,7 @@ version 0.15.0
 - Added an option to set a default comments sort option.
 - Bug fixes and improvements.
 
+
 version 0.14.0
 - This add-on no longer requires the webNavigation permission to function and has been removed.
 - Added an option to limit the infinity scroll to show only 25 posts at a time.
@@ -30,18 +46,22 @@ version 0.14.0
 - Added an option to hide the user sidebar.
 - Fixed some bugs and improved some code.
 
+
 version 0.13.0
 - Removed components for premium features. All features are now free.
 - Optimsed translation functions.
 - Fixed some bugs.
 
+
 version 0.12.0
 - Added an option to auto expand the feed/post to 100% if the screen/window is a certain width.
+
 
 version 0.11.0
 - Limit post comments.
 - Sticky Sort now supports old reddit.
 - Bug fixes and improvements.
+
 
 version 0.10.0
 - Expand Feed/Post now supports old reddit.
@@ -53,6 +73,7 @@ version 0.10.0
 - Added an option to hide the header subreddit list on old reddit.
 - Added an option to hide the home page side menu on old reddit.
 
+
 version 0.9.0
 - Added an option for a "Scroll To Top" button in the header.
 - Added an option to hide the 'Notification' button in the header.
@@ -63,12 +84,15 @@ version 0.9.0
 - Added an option for user preferred add-on language.
 - Bug fixes and general improvements.
 
+
 version 0.8.0
 - Added an option to hide promoted links/posts.
 - General improvements.
 
+
 version 0.7.2
-- Improved some code
+- Improved some code.
+
 
 version 0.7.0
 - Restructured the menu and added a search filter.
@@ -78,15 +102,19 @@ version 0.7.0
 - Added an option to hide the "Get New Reddit" button on old.reddit.
 - Improved some icons.
 
+
 version 0.6.3
-- Fixed a couple bugs
+- Fixed a couple bugs.
+
 
 version 0.6.2
-- Faster loads
-- Fixed bugs
+- Faster loads.
+- Bug fixes.
+
 
 version 0.6.1
-- Fixed bug
+- Fixed a bug.
+
 
 version 0.6.0
 - Major code improvements resulting in faster loads.
@@ -96,17 +124,19 @@ version 0.6.0
 - Hide Reddit Premium banner now supports old reddit.
 - Removed redundant "Smooth Resize" option.
 
+
 version 0.5.0
 - Added an option to hide the gap between interface elements.
 - Added an option to hide your username in the top bar.
 - Added an option to hide your karma in the top bar.
 - Added an option to toggle smooth feed/post resizing.
 - Added an option to keep the post sort bar visible at the top.
-- Improved code
+- Improved code.
+
 
 version 0.4.1
-- Fixed bugs
-- Improved code
+- Bug fixes and improvements.
+
 
 version 0.4.0
 - Auto Dark/Light Mode option based on your system theme.
@@ -121,17 +151,16 @@ version 0.4.0
 - Hide the "Chat" button in the top bar.
 - Hide the "Moderation" button in the top bar.
 - Hide the "Advertise" button in the top bar.
-- Fixed bugs
+- Bug fixes.
 
 
 version 0.3.1
-- Fixed bugs
+- Bug fixes.
 
 
 version 0.3.0
-
-- Added custom background support for old reddit
-- Added background blur support for old reddit
-- Filter options for new and old reddit
-- Cleaned up some code
-- Fixed a couple bugs
+- Added custom background support for old reddit.
+- Added background blur support for old reddit.
+- Filter options for new and old reddit.
+- Cleaned up some code.
+- Fixed a couple bugs.
