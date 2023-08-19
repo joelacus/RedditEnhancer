@@ -2,7 +2,7 @@
 
 A browser extension to tweak the user interface on Reddit.
 
-Supports New Reddit and Old Reddit.
+Mostly supports New Reddit, with some support for Old Reddit.
 
 Feel free to suggest new features and report any bugs on the Issues page.
 
@@ -23,7 +23,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Center Feed/Post|Centers the feed/post to the middle of the screen.|New/Old|
 |Scale Tall Images To Fit Post|This makes tall images that would otherwise be cropped for being too tall, fit the height of the post.|New|
 |Add Scrollbar To Tall Images|This, alternatively from above, adds a scrollbar to tall images so you can see the full width of the image, but scroll on the image to see more.|New|
-|Drop Shadows|This adds a drop shadow around the feed, post and other elements so that they stand out more if you use a background image, or light mode.|New|
+|Drop Shadows|This adds a drop shadow around the feed, post and other elements so that they stand out more if you use a background image, or light mode. You can also use custom CSS.|New|
 |Dark Mode|Auto enable dark mode if not already set on Reddit.|New|
 |Auto Dark Mode|You can either set it to enable light/dark mode automatically based on your browser theme, or during a certain period of time in the day between user specified times.|New|
 |Browser Sync|Syncs with your browser account so you can automatically use the same settings on multiple computers.|New/Old|
@@ -64,7 +64,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide NSFW Posts|Hide any posts marked as NSFW.|New|
 |Hide the "Get the best of" Popups|Hide the popups prompting you to turn on notifications.|New|
 |Show navigation buttons to scroll to the next/previous root comment on a post|Scroll to the next/previous root/first comments on a post.|New|
-
+|Theme Colours + Blur|You can change various theme colours for the website, and add blur to translucent UI elements.|New|
+|Feed Post Max Height|Increase, or decrease, the max height of posts on the feed. Default 512px. New range is 304px to 1000px. The post content will adapt to the new size.|New|
 
 ## Build
 Clone repo and cd to build directory:
