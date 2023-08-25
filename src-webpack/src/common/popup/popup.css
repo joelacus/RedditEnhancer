@@ -61,7 +61,8 @@ a {
 	color: var(--text);
 	text-decoration: none;
 }
-input {
+input,
+textarea {
 	height: auto;
 	width: auto;
 	color: var(--text);
@@ -72,15 +73,20 @@ input {
 	font-size: 16px;
 	transition: background-color 0.1s ease-in-out;
 }
+textarea {
+	resize: none;
+}
 input[type='text'] {
 	height: 28px;
 	width: 100%;
 }
-input:focus {
+input:focus,
+textarea:focus {
 	border-color: var(--accent);
 	outline: none;
 }
-input:hover {
+input:hover,
+textarea:hover {
 	background-color: var(--bg-tint-2);
 }
 input:disabled {
@@ -121,12 +127,17 @@ input:disabled {
 	font-size: 16px;
 	padding-right: 8px;
 }
-.container-2 {
+.container-1 {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 }
-.container-2 .option-title {
+.container-1 .option-title {
+	display: grid;
+	grid-template-columns: 50px auto;
+	margin-bottom: 5px;
+}
+.container-2 {
 	display: grid;
 	grid-template-columns: 50px auto;
 	margin-bottom: 5px;
@@ -483,12 +494,11 @@ input:disabled {
 
 /* Tab Switcher */
 .tab-switcher {
-	position: absolute;
-	top: 32px;
-	left: 5px;
+	position: relative;
 	display: grid;
 	grid-template-columns: auto auto;
-	width: 460px;
+	width: 100%;
+	height: auto;
 	font-size: 16px;
 }
 .tab-switcher-column {
@@ -498,11 +508,15 @@ input:disabled {
 	width: 100%;
 	font-size: 16px;
 }
+
+.tab-switcher div,
 .tab-switcher-column div {
 	border: solid 1px transparent;
 }
+.tab-switcher .tab-active,
 .tab-switcher-column .tab-active {
-	border: solid 1px var(--accent);
+	background-color: var(--bg-tint-2);
+	border-color: var(--accent);
 }
 .tab-switcher div,
 .tab-switcher-column div {
@@ -514,9 +528,7 @@ input:disabled {
 .tab-switcher div:hover,
 .tab-switcher-column div:hover {
 	cursor: pointer;
-}
-.tab-active {
-	background-color: var(--bg-tint-2);
+	background-color: var(--bg-tint-1);
 }
 
 /* Time Input */
@@ -634,7 +646,8 @@ input:disabled {
 }
 
 /* Show/Hide  */
-.hide {
+.hide,
+.hidden {
 	display: none;
 }
 .grid {
@@ -769,4 +782,8 @@ input:disabled {
 	opacity: 0.2;
 	margin-top: 1px;
 	margin-bottom: 1px;
+}
+#input-theme-exceptions {
+	position: relative;
+	width: 100%;
 }

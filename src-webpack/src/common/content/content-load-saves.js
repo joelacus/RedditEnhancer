@@ -127,6 +127,7 @@ export function load_saves() {
 }
 load_saves();
 
+// Run again
 setTimeout(function () {
 	// Show To Top Button
 	BROWSER_API.storage.sync.get(['showToTopButton'], function (result) {

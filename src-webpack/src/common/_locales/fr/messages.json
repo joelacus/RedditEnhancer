@@ -372,6 +372,118 @@
 	},
 
 	"textCustomCSS": {
-		"message": "Custom CSS"
+		"message": "CSS Personnalisé"
+	},
+
+	"textFeedPostMaxHeight": {
+		"message": "Hauteur maximale du publication"
+	},
+
+	"textPost": {
+		"message": "Publication"
+	},
+
+	"textAccessibility": {
+		"message": "Accessibilité"
+	},
+
+	"textBionicReader": {
+		"message": "Lecteur bionique"
+	},
+
+	"textBionicReaderPosts": {
+		"message": "Lecteur bionique pour publication"
+	},
+
+	"textBionicReaderComments": {
+		"message": "Lecteur bionique pour commentaires"
+	},
+
+	"textThemeBlur": {
+		"message": "Thème flou"
+	},
+
+	"textThemeBlurInfo": {
+		"message": "Utilisez des couleurs translucides 'rgba(0,0,0,0.5)' pour voir l'effet de flou."
+	},
+
+	"textThemeColours": {
+		"message": "Couleurs du thème"
+	},
+
+	"textBorderColour": {
+		"message": "Couleur de bordure"
+	},
+
+	"textTextColour": {
+		"message": "Couleur du texte"
+	},
+
+	"textPostVisitedTitleColour": {
+		"message": "Couleur du titre du publication visité"
+	},
+
+	"textHeaderBgColour": {
+		"message": "Couleur d'arrière-plan de l'en-tête"
+	},
+
+	"textHeaderTextColour": {
+		"message": "Couleur du texte d'en-tête"
+	},
+
+	"textSortBgColour": {
+		"message": "Trier la couleur d'arrière-plan"
+	},
+
+	"textSortTextColour": {
+		"message": "Trier la couleur du texte"
+	},
+
+	"textSortBorderColour": {
+		"message": "Trier la couleur de la bordure"
+	},
+
+	"textPostBgColour": {
+		"message": "Couleur d'arrière-plan de la publication"
+	},
+
+	"textPostTextColour": {
+		"message": "Texte de la publication et couleur des icônes"
+	},
+
+	"textPostTitleContentColour": {
+		"message": "Titre de publication et couleur du contenu du texte"
+	},
+
+	"textPostBorderColour": {
+		"message": "Couleur de la bordure du publication"
+	},
+
+	"textWhitelistBlacklist": {
+		"message": "Liste Blanche / Liste Noire"
+	},
+
+	"textWhitelist": {
+		"message": "Liste Blanche"
+	},
+
+	"textBlacklist": {
+		"message": "Liste Noire"
+	},
+
+	"textThemeBlacklistInfo": {
+		"message": "Utilisez les couleurs de thème globalement, à l'exception de ces subreddits:"
+	},
+
+	"textThemeWhitelistInfo": {
+		"message": "Utilisez uniquement les couleurs de thème pour ces subreddits:"
+	},
+
+	"textHideSubSidebarBlacklistInfo": {
+		"message": "Masquer globalement, sauf sur ces subreddits:"
+	},
+
+	"textHideSubSidebarWhitelistInfo": {
+		"message": "Cachez-vous uniquement sur ces subreddits:"
 	}
 }

@@ -101,16 +101,12 @@ let loadDropShadow = function () {
 				}
 			}
 			// remove shadow from "back to top"
-			if (document.querySelector('.re-sidebar')) {
-				var buttons = document.querySelector('.re-sidebar').getElementsByTagName('button');
-				if (buttons) {
-					var lang = ['back to top', 'zurück nach oben', 'ir arriba', 'volver al principio', 'retourner en haut', 'retourner en haut', 'torna in cima', 'voltar ao topo'];
-					for (var i = 0; i < buttons.length; i++) {
-						if (lang.includes(buttons[i].innerText.toLowerCase())) {
-							buttons[i].parentNode.parentNode.style.boxShadow = 'none';
-						}
-					}
-				}
+			if (document.querySelector('.re-sidebar-post')) {
+				document.querySelector('.re-sidebar-post .re-drop-shadow-children').lastElementChild.style.boxShadow = 'none';
+			} else if (document.querySelector('.re-sidebar-sub')) {
+				document.querySelector('.re-sidebar-sub.re-drop-shadow-children').lastElementChild.style.boxShadow = 'none';
+			} else if (document.querySelector('.re-sidebar')) {
+				document.querySelector('.re-sidebar').lastElementChild.style.boxShadow = 'none';
 			}
 		}
 	});

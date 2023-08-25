@@ -372,6 +372,118 @@
 	},
 
 	"textCustomCSS": {
-		"message": "Custom CSS"
+		"message": "CSS Personalizado"
+	},
+
+	"textFeedPostMaxHeight": {
+		"message": "Altura máxima del Publicación"
+	},
+
+	"textPost": {
+		"message": "Publicación"
+	},
+
+	"textAccessibility": {
+		"message": "Accesibilidad"
+	},
+
+	"textBionicReader": {
+		"message": "Lector bionica"
+	},
+
+	"textBionicReaderPosts": {
+		"message": "Lector bionica para publicaciones"
+	},
+
+	"textBionicReaderComments": {
+		"message": "Lector bionica para comentarios"
+	},
+
+	"textThemeBlur": {
+		"message": "Desenfoque de tema"
+	},
+
+	"textThemeBlurInfo": {
+		"message": "Use colores translúcidos 'rgba (0,0,0,0.5)' para ver el efecto de desenfoque."
+	},
+
+	"textThemeColours": {
+		"message": "Colores del tema"
+	},
+
+	"textBorderColour": {
+		"message": "Color del borde"
+	},
+
+	"textTextColour": {
+		"message": "Color del texto"
+	},
+
+	"textPostVisitedTitleColour": {
+		"message": "Color del título de la publicación visitada"
+	},
+
+	"textHeaderBgColour": {
+		"message": "Color de fondo del encabezado"
+	},
+
+	"textHeaderTextColour": {
+		"message": "Color del texto del encabezado"
+	},
+
+	"textSortBgColour": {
+		"message": "Ordenar color de fondo"
+	},
+
+	"textSortTextColour": {
+		"message": "Ordenar color de texto"
+	},
+
+	"textSortBorderColour": {
+		"message": "Ordenar color de borde"
+	},
+
+	"textPostBgColour": {
+		"message": "Color de fondo de la publicación"
+	},
+
+	"textPostTextColour": {
+		"message": "Texto de la publicación y color del icono"
+	},
+
+	"textPostTitleContentColour": {
+		"message": "Título de la publicación y color del contenido del texto"
+	},
+
+	"textPostBorderColour": {
+		"message": "Color del borde de la publicación"
+	},
+
+	"textWhitelistBlacklist": {
+		"message": "Lista blanca / Lista negra"
+	},
+
+	"textWhitelist": {
+		"message": "Lista blanca"
+	},
+
+	"textBlacklist": {
+		"message": "Lista negra"
+	},
+
+	"textThemeBlacklistInfo": {
+		"message": "Use los colores del tema globalmente, excepto para estos subreddits:"
+	},
+
+	"textThemeWhitelistInfo": {
+		"message": "Usa sólo los colores del tema para estos subreddits:"
+	},
+
+	"textHideSubSidebarBlacklistInfo": {
+		"message": "Ocultar globalmente excepto en estos subreddits:"
+	},
+
+	"textHideSubSidebarWhitelistInfo": {
+		"message": "Esconderse solo en estos subreddits:"
 	}
 }

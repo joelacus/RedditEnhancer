@@ -324,7 +324,7 @@
 	},
 
 	"textShowPostNumbers": {
-		"message": "Postnummern hinzufügen"
+		"message": "Postnummern Hinzufügen"
 	},
 
 	"textBackup": {
@@ -372,6 +372,118 @@
 	},
 
 	"textCustomCSS": {
-		"message": "Custom CSS"
+		"message": "Benutzerdefinierte CSS"
+	},
+
+	"textFeedPostMaxHeight": {
+		"message": "Maximale Pfostenhöhe"
+	},
+
+	"textPost": {
+		"message": "Beitrag"
+	},
+
+	"textAccessibility": {
+		"message": "Barrierefreiheit"
+	},
+
+	"textBionicReader": {
+		"message": "Bionischer Leser"
+	},
+
+	"textBionicReaderPosts": {
+		"message": "Bionischer Leser für Beiträge"
+	},
+
+	"textBionicReaderComments": {
+		"message": "Bionischer Leser für Kommentare"
+	},
+
+	"textThemeBlur": {
+		"message": "Stilunschärfe"
+	},
+
+	"textThemeBlurInfo": {
+		"message": "Verwenden Sie durchscheinende Farben 'rgba(0,0,0,0.5)' um den Unschärfeeffekt zu sehen."
+	},
+
+	"textThemeColours": {
+		"message": "Themenfarben"
+	},
+
+	"textBorderColour": {
+		"message": "Randfarbe"
+	},
+
+	"textTextColour": {
+		"message": "Textfarbe"
+	},
+
+	"textPostVisitedTitleColour": {
+		"message": "Titelfarbe des besuchten Beitrags"
+	},
+
+	"textHeaderBgColour": {
+		"message": "Hintergrundfarbe der Kopfzeile"
+	},
+
+	"textHeaderTextColour": {
+		"message": "Farbe des Kopfzeile Textes"
+	},
+
+	"textSortBgColour": {
+		"message": "Hintergrundfarbe Sortieren"
+	},
+
+	"textSortTextColour": {
+		"message": "Textfarbe Sortieren"
+	},
+
+	"textSortBorderColour": {
+		"message": "Rand Farbe Sortieren"
+	},
+
+	"textPostBgColour": {
+		"message": "Hintergrundfarbe des Beitragsr"
+	},
+
+	"textPostTextColour": {
+		"message": "Beitragstext und Symbolfarbe"
+	},
+
+	"textPostTitleContentColour": {
+		"message": "Beitragstitel und Textinhaltsfarbe"
+	},
+
+	"textPostBorderColour": {
+		"message": "Beitrag Rahmenfarbe"
+	},
+
+	"textWhitelistBlacklist": {
+		"message": "Whitelist / Blacklist"
+	},
+
+	"textWhitelist": {
+		"message": "Whitelist"
+	},
+
+	"textBlacklist": {
+		"message": "Blacklist"
+	},
+
+	"textThemeBlacklistInfo": {
+		"message": "Verwenden Sie Designfarben global, mit Ausnahme dieser Subreddits:"
+	},
+
+	"textThemeWhitelistInfo": {
+		"message": "Verwenden Sie für diese Subreddits nur die Themenfarben:"
+	},
+
+	"textHideSubSidebarBlacklistInfo": {
+		"message": "Global ausblenden, außer in diesen Subreddits:"
+	},
+
+	"textHideSubSidebarWhitelistInfo": {
+		"message": "Verstecke dich nur auf diesen Subreddits:"
 	}
 }

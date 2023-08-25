@@ -6,7 +6,7 @@ let alwaysShowRisingButton = function (value) {
 		// do nothing
 	} else {
 		// new reddit
-		if (typeof value == 'undefined' || value == true) {
+		if (value == true) {
 			if (link.indexOf('/comments/') <= 0 && link.indexOf('/user/') <= 0 && link.indexOf('/settings/') <= 0) {
 				// not post, not user, not settings
 				// hides overflow button
@@ -70,10 +70,20 @@ let alwaysShowRisingButton = function (value) {
 				// append new rising button if not already added
 				var el = document.querySelector('[role="button"][href*="/rising/"]');
 				if (!el) {
-					document.querySelector('.re-sort').firstChild.nextElementSibling.append(btn);
+					const sort = document.querySelector('.re-sort');
+					if (!sort) {
+						setTimeout(function () {
+							const sort = document.querySelector('.re-sort');
+							if (sort) {
+								document.querySelector('.re-sort').firstChild.nextElementSibling.append(btn);
+							}
+						}, 1000);
+					} else {
+						document.querySelector('.re-sort').firstChild.nextElementSibling.append(btn);
+					}
 				}
 			}
-		} else if (value == false) {
+		} else if (typeof value == 'undefined' || value == false) {
 			// show overflow button
 			if (document.querySelector('#ListingSort--Overflow')) {
 				document.querySelector('#ListingSort--Overflow').parentNode.parentNode.style.display = '';

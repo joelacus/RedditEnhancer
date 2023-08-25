@@ -7,7 +7,7 @@ import { loadHideGap } from './load_hide_gap';
 import { loadHideRedditPremium } from './load_hide_reddit_premium';
 import { loadExpandContent } from './load_expand_content';
 import { loadHideHomeSidebar } from './load_hide_sidebar';
-import { loadHideSubSidebar } from './load_hide_sidebar';
+import { loadHideSubsidebarException } from './load_hide_sidebar';
 import { loadHidePostSidebar } from './load_hide_sidebar';
 import { loadHideUserSidebar } from './load_hide_sidebar';
 import { loadHideCoinButton } from './load_hide_header_buttons';
@@ -24,7 +24,6 @@ import { loadLayoutCentre } from './load_expand_content';
 import { loadHideSidebarPolicy } from './load_hide_sidebar_policy';
 import { loadHideHeaderSubBar } from './load_hide_header_sub_bar';
 import { loadHideSideMenuOld } from './load_hide_side_menu_old';
-import { loadHideTurnOnNotificationsPopup } from './load_hide_turn_on_notifications_popup';
 import { scrollToNextRootComment } from '../../content/functions/productivity/scroll_to_next_root_comment';
 import { loadOverrideDropShadow } from './load_override_drop_shadow';
 
@@ -63,7 +62,6 @@ export function initClassNames() {
 			observerID();
 			observerHeaderButtons();
 			observerPolicy();
-			observerNotifications();
 		}
 	} else {
 		// old reddit
@@ -145,13 +143,11 @@ function observerPostSidebar() {
 		parent: document.querySelector('body'),
 		recursive: true,
 		done: function (el) {
-			if (!el.parentNode.parentNode.classList.contains('re-sidebar')) {
-				el.parentNode.parentNode.classList.add('re-sidebar', 're-sidebar-post');
-				loadHideGap();
-				loadDropShadow();
-				loadOverrideDropShadow();
-				loadHidePostSidebar();
-			}
+			el.parentNode.parentNode.classList.add('re-sidebar', 're-sidebar-post');
+			loadHideGap();
+			loadDropShadow();
+			loadOverrideDropShadow();
+			loadHidePostSidebar();
 		},
 	});
 }
@@ -250,7 +246,7 @@ function observerSidebar() {
 		recursive: true,
 		done: function (el) {
 			el.classList.add('re-sidebar', 're-sidebar-sub');
-			loadHideSubSidebar();
+			loadHideSubsidebarException();
 		},
 	});
 }
@@ -264,18 +260,6 @@ function observerPolicy() {
 		done: function (el) {
 			el.parentNode.parentNode.parentNode.parentNode.parentNode.id = 're-policy';
 			loadHideSidebarPolicy();
-		},
-	});
-}
-
-// "Turn On Notifications" Popup
-function observerNotifications() {
-	waitForAddedNode({
-		query: "[id^='popup-']",
-		parent: document.querySelector('body'),
-		recursive: true,
-		done: function (el) {
-			loadHideTurnOnNotificationsPopup();
 		},
 	});
 }

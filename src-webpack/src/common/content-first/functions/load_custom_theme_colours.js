@@ -1,5 +1,89 @@
 // Custom Theme Colour Styles
 
+// Theme Exception
+let loadCustomTheme = function () {
+	BROWSER_API.storage.sync.get(['themeExceptionsEnable', 'themeExceptionMode', 'themeExceptionSubList'], function (result) {
+		var link = window.location.href;
+		if (link.indexOf('old.reddit.com') >= 0) {
+			// old reddit
+			// do nothing
+		} else {
+			// new reddit
+			if (result.themeExceptionsEnable == true) {
+				// check exception mode
+				if (result.themeExceptionMode === 'whitelist') {
+					// only load theme for listed sub reddits
+					const list = result.themeExceptionSubList.replaceAll(' ', '').split(',');
+					if (list.some((sub) => link.includes('r/' + sub + '/'))) {
+						loadTheme();
+					} else {
+						removeTheme();
+					}
+				} else if (result.themeExceptionMode === 'blacklist') {
+					// show theme globally except listed sub reddits
+					const list = result.themeExceptionSubList.replaceAll(' ', '').split(',');
+					if (!list.some((sub) => link.includes('r/' + sub + '/'))) {
+						loadTheme();
+					} else {
+						removeTheme();
+					}
+				}
+			} else {
+				// load theme for all sub reddits
+				loadTheme();
+			}
+		}
+	});
+};
+export { loadCustomTheme };
+
+function loadTheme() {
+	themeBlur();
+	themeHeaderBackgroundColour();
+	themeHeaderTextColour();
+	themeSortBackgroundColour();
+	themeSortTextColour();
+	themeSortTextColour2();
+	themeSortBorderColour();
+	themePostBackgroundColour();
+	themePostTextColour1();
+	themePostTextColour2();
+	themePostVisitedTitleColour();
+	themePostBorderColour();
+}
+
+function removeTheme() {
+	// remove element properties
+	document.documentElement.style.removeProperty('--re-theme-header-bg');
+	document.documentElement.style.removeProperty('--re-theme-header-text');
+	document.documentElement.style.removeProperty('--re-theme-sort-bg');
+	document.documentElement.style.removeProperty('--re-theme-sort-text');
+	document.documentElement.style.removeProperty('--re-theme-sort-text-2');
+	document.documentElement.style.removeProperty('--re-theme-sort-border');
+	document.documentElement.style.removeProperty('--re-theme-post-bg');
+	document.documentElement.style.removeProperty('--re-theme-post-text');
+	document.documentElement.style.removeProperty('--re-theme-post-visited-title');
+	document.documentElement.style.removeProperty('--re-theme-post-text-2');
+	document.documentElement.style.removeProperty('--re-theme-post-border');
+	// remove stylesheets
+	const dynamicStyleElements = document.querySelectorAll(
+		`style[id="re-theme-header-bg-colour"],
+		style[id="re-theme-header-text-colour"],
+		style[id="re-theme-sort-bg-colour"],
+		style[id="re-theme-sort-text-colour"],
+		style[id="re-theme-sort-text-colour-2"],
+		style[id="re-theme-sort-border-colour"],
+		style[id="re-theme-post-bg-colour"],
+		style[id="re-theme-post-text-colour"],
+		style[id="re-theme-post-visited-title-colour"],
+		style[id="re-theme-post-text-colour-2"],
+		style[id="re-theme-post-border-colour"`
+	);
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}
+
 // Header Background Colour
 let themeHeaderBackgroundColour = function () {
 	BROWSER_API.storage.sync.get(['themeHeaderBackgroundColour', 'themeHeaderBackgroundColourCSS'], function (result) {
@@ -27,7 +111,6 @@ let themeHeaderBackgroundColour = function () {
 		}
 	});
 };
-themeHeaderBackgroundColour();
 
 // Header Text Colour
 let themeHeaderTextColour = function () {
@@ -49,7 +132,6 @@ let themeHeaderTextColour = function () {
 		}
 	});
 };
-themeHeaderTextColour();
 
 // Sort Background Colour
 let themeSortBackgroundColour = function () {
@@ -71,7 +153,6 @@ let themeSortBackgroundColour = function () {
 		}
 	});
 };
-themeSortBackgroundColour();
 
 // Sort Text Colour
 let themeSortTextColour = function () {
@@ -89,7 +170,6 @@ let themeSortTextColour = function () {
 		}
 	});
 };
-themeSortTextColour();
 
 // Sort Text Colour 2
 let themeSortTextColour2 = function () {
@@ -107,7 +187,6 @@ let themeSortTextColour2 = function () {
 		}
 	});
 };
-themeSortTextColour2();
 
 // Sort Border Colour
 let themeSortBorderColour = function () {
@@ -125,7 +204,6 @@ let themeSortBorderColour = function () {
 		}
 	});
 };
-themeSortBorderColour();
 
 // Post Background Colour
 let themePostBackgroundColour = function () {
@@ -153,12 +231,14 @@ let themePostBackgroundColour = function () {
 									}
 									.Post, .re-post-container {
 										backdrop-filter: blur(var(--re-theme-blur)) !important;
+									}
+									.Post [data-adclicklocation="media"] > div {
+										background-color: transparent; 
 									}`;
 			styleElement.innerHTML = dynamicStyle;
 		}
 	});
 };
-themePostBackgroundColour();
 
 // Post Text Colour
 let themePostTextColour1 = function () {
@@ -177,7 +257,6 @@ let themePostTextColour1 = function () {
 		}
 	});
 };
-themePostTextColour1();
 
 // Post Text Colour 2
 let themePostTextColour2 = function () {
@@ -198,7 +277,6 @@ let themePostTextColour2 = function () {
 		}
 	});
 };
-themePostTextColour2();
 
 // Visited Post Title Colour
 let themePostVisitedTitleColour = function () {
@@ -217,7 +295,6 @@ let themePostVisitedTitleColour = function () {
 		}
 	});
 };
-themePostVisitedTitleColour();
 
 // Post Border Colour
 let themePostBorderColour = function () {
@@ -238,7 +315,6 @@ let themePostBorderColour = function () {
 		}
 	});
 };
-themePostBorderColour();
 
 // Theme Blur Variable
 let themeBlur = function () {
@@ -250,4 +326,3 @@ let themeBlur = function () {
 		}
 	});
 };
-themeBlur();

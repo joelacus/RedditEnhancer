@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "0.17.0"
+		"message": "0.18.0"
 	},
 
 	"extensionName": {
@@ -513,5 +513,33 @@
 
 	"textPostBorderColour": {
 		"message": "Post Border Colour"
+	},
+
+	"textWhitelistBlacklist": {
+		"message": "Whitelist / Blacklist"
+	},
+
+	"textWhitelist": {
+		"message": "Whitelist"
+	},
+
+	"textBlacklist": {
+		"message": "Blacklist"
+	},
+
+	"textThemeBlacklistInfo": {
+		"message": "Use theme colours globally, except for these subreddits:"
+	},
+
+	"textThemeWhitelistInfo": {
+		"message": "Only use the theme colours for these subreddits:"
+	},
+
+	"textHideSubSidebarBlacklistInfo": {
+		"message": "Hide globally except for on these subreddits:"
+	},
+
+	"textHideSubSidebarWhitelistInfo": {
+		"message": "Only hide on these subreddits:"
 	}
 }

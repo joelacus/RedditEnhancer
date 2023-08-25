@@ -721,3 +721,39 @@ document.querySelector('#checkbox-hide-turn-on-notifications').addEventListener(
 		});
 	}
 });
+
+// Toggle - Hide Sub Sidebar Exceptions
+document.querySelector('#checkbox-hide-sub-sidebar-exceptions-enable').addEventListener('change', function (e) {
+	var themeExceptionsEnable = document.querySelector('#checkbox-hide-sub-sidebar-exceptions-enable').checked;
+	if (themeExceptionsEnable == true) {
+		BROWSER_API.storage.sync.set({ hideSubSidebarExceptionsEnable: true });
+		document.querySelector('.icon-hide-sub-sidebar-exceptions').style.backgroundColor = 'var(--accent)';
+	} else if (themeExceptionsEnable == false) {
+		BROWSER_API.storage.sync.set({ hideSubSidebarExceptionsEnable: false });
+		document.querySelector('.icon-hide-sub-sidebar-exceptions').style.backgroundColor = '';
+	}
+});
+
+// Button - Hide Sub Sidebar Whitelist
+document.querySelector('#btn-hide-sub-sidebar-whitelist').addEventListener('click', function (e) {
+	e.currentTarget.classList.add('tab-active');
+	document.querySelector('#btn-hide-sub-sidebar-whitelist').nextElementSibling.classList.remove('tab-active');
+	document.querySelector('#textHideSubSidebarWhitelistInfo').classList.remove('hidden');
+	document.querySelector('#textHideSubSidebarBlacklistInfo').classList.add('hidden');
+	BROWSER_API.storage.sync.set({ hideSubSidebarExceptionMode: 'whitelist' });
+});
+
+// Button - Hide Sub Sidebar Blacklist
+document.querySelector('#btn-hide-sub-sidebar-blacklist').addEventListener('click', function (e) {
+	e.currentTarget.classList.add('tab-active');
+	document.querySelector('#btn-hide-sub-sidebar-blacklist').previousElementSibling.classList.remove('tab-active');
+	document.querySelector('#textHideSubSidebarBlacklistInfo').classList.remove('hidden');
+	document.querySelector('#textHideSubSidebarWhitelistInfo').classList.add('hidden');
+	BROWSER_API.storage.sync.set({ hideSubSidebarExceptionMode: 'blacklist' });
+});
+
+// Textarea - Hide Sub Sidebar Exceptions
+document.querySelector('#input-hide-sub-sidebar-exceptions').addEventListener('keyup', function (e) {
+	const value = e.target.value;
+	BROWSER_API.storage.sync.set({ hideSubSidebarExceptionSubList: value });
+});

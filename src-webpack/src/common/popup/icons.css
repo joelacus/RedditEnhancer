@@ -304,3 +304,7 @@
 	mask: url('../icons/ui/book-open-solid.svg');
 	-webkit-mask: url('../icons/ui/book-open-solid.svg');
 }
+.icon-list-check-solid {
+	mask: url('../icons/ui/list-check-solid.svg');
+	-webkit-mask: url('../icons/ui/list-check-solid.svg');
+}

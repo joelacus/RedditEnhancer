@@ -571,3 +571,39 @@ document.querySelector('#input-theme-blur').addEventListener('input', function (
 		});
 	});
 });
+
+// Toggle - Theme Exceptions
+document.querySelector('#checkbox-theme-exceptions-enable').addEventListener('change', function (e) {
+	var themeExceptionsEnable = document.querySelector('#checkbox-theme-exceptions-enable').checked;
+	if (themeExceptionsEnable == true) {
+		BROWSER_API.storage.sync.set({ themeExceptionsEnable: true });
+		document.querySelector('.icon-theme-exceptions').style.backgroundColor = 'var(--accent)';
+	} else if (themeExceptionsEnable == false) {
+		BROWSER_API.storage.sync.set({ themeExceptionsEnable: false });
+		document.querySelector('.icon-theme-exceptions').style.backgroundColor = '';
+	}
+});
+
+// Button - Theme Whitelist
+document.querySelector('#btn-theme-whitelist').addEventListener('click', function (e) {
+	e.currentTarget.classList.add('tab-active');
+	document.querySelector('#btn-theme-whitelist').nextElementSibling.classList.remove('tab-active');
+	document.querySelector('#textThemeWhitelistInfo').classList.remove('hidden');
+	document.querySelector('#textThemeBlacklistInfo').classList.add('hidden');
+	BROWSER_API.storage.sync.set({ themeExceptionMode: 'whitelist' });
+});
+
+// Button - Theme Blacklist
+document.querySelector('#btn-theme-blacklist').addEventListener('click', function (e) {
+	e.currentTarget.classList.add('tab-active');
+	document.querySelector('#btn-theme-blacklist').previousElementSibling.classList.remove('tab-active');
+	document.querySelector('#textThemeBlacklistInfo').classList.remove('hidden');
+	document.querySelector('#textThemeWhitelistInfo').classList.add('hidden');
+	BROWSER_API.storage.sync.set({ themeExceptionMode: 'blacklist' });
+});
+
+// Textarea - Theme Exceptions
+document.querySelector('#input-theme-exceptions').addEventListener('keyup', function (e) {
+	const value = e.target.value;
+	BROWSER_API.storage.sync.set({ themeExceptionSubList: value });
+});

@@ -214,7 +214,16 @@ function restoreBackup(json) {
 				'themeSortTextColourCSS',
 				'themeSortTextColour2',
 				'themeSortTextColour2CSS',
-				'useCustomBackground',
+				'themeExceptionsEnable',
+				'themeExceptionMode',
+				'themeExceptionSubList',
+				'hideSubSidebarExceptionsEnable',
+				'hideSubSidebarExceptionMode',
+				'hideSubSidebarExceptionSubList',
+				'redditVersion',
+				'moderniseOldReddit',
+				'hideSideMenuOld',
+				'hideGetNewReddit',
 			].includes(key)
 		) {
 			validKeys.push(key);

@@ -81,9 +81,9 @@ import { themePostTextColour2CSS } from './functions/style/override_theme_colour
 import { themePostBorderColour } from './functions/style/override_theme_colours';
 import { themePostBorderColourCSS } from './functions/style/override_theme_colours';
 import { themeBlur } from './functions/style/override_theme_colours';
-import { bionicReaderPosts } from './functions/accessibility/bionic_reader';
-import { bionicReaderComments } from './functions/accessibility/bionic_reader';
-//import { expandPostOptions } from './functions/expand_post_options'
+//import { bionicReaderPosts } from './functions/accessibility/bionic_reader';
+//import { bionicReaderComments } from './functions/accessibility/bionic_reader';
+import { expandPostOptions } from './functions/productivity/expand_post_options';
 //import { headerHeight } from './content-functions'
 
 /* = Listen For Settings Change = */
@@ -249,11 +249,11 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		bionicReaderPosts(value);
 	} else if (key == 'bionicReaderComments') {
 		bionicReaderComments(value);
-	}   else if (key == "headerHeight") {
+	} else if (key == "headerHeight") {
 		headerHeight(value);
-	} else if (key == "expandPostOptions") {
+	}*/ else if (key == 'expandPostOptions') {
 		expandPostOptions(value);
-	}*/ else if (key == 'loadSaves') {
+	} else if (key == 'loadSaves') {
 		setTimeout(function () {
 			loadStart();
 			load_saves();

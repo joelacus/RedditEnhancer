@@ -95,11 +95,12 @@ let addDropShadow = function (value) {
 			}
 		}
 		// remove shadow from "back to top"
-		if (document.querySelector('.re-sidebar')) {
-			const lastDiv = document.querySelector('.re-sidebar').lastElementChild;
-			if (lastDiv.querySelector('[style="top:calc(100vh - 8px)"]')) {
-				lastDiv.style.boxShadow = 'none';
-			}
+		if (document.querySelector('.re-sidebar-post')) {
+			document.querySelector('.re-sidebar-post .re-drop-shadow-children').lastElementChild.style.boxShadow = 'none';
+		} else if (document.querySelector('.re-sidebar-sub')) {
+			document.querySelector('.re-sidebar-sub.re-drop-shadow-children').lastElementChild.style.boxShadow = 'none';
+		} else if (document.querySelector('.re-sidebar')) {
+			document.querySelector('.re-sidebar').lastElementChild.style.boxShadow = 'none';
 		}
 	}
 };

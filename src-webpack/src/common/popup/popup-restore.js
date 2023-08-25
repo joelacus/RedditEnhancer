@@ -713,14 +713,14 @@ function restoreOptions() {
 		setAlwaysShowRisingButton(result);
 	});
 	function setAlwaysShowRisingButton(result) {
-		if (typeof result.alwaysShowRisingButton == 'undefined' || result.alwaysShowRisingButton == true) {
+		if (result.alwaysShowRisingButton == true) {
 			document.querySelector('#checkbox-always-show-rising-button').checked = true;
 			document.querySelector('.always-show-rising-button').style.backgroundColor = 'var(--accent)';
 			document.querySelector('.always-show-rising-button').classList.remove('icon-rising');
 			document.querySelector('.always-show-rising-button').classList.add('icon-rising-fill');
 			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
 			var value = true;
-		} else if (result.alwaysShowRisingButton == false) {
+		} else if (typeof result.alwaysShowRisingButton == 'undefined' || result.alwaysShowRisingButton == false) {
 			document.querySelector('#checkbox-always-show-rising-button').checked = false;
 			var value = false;
 		}
@@ -890,21 +890,21 @@ function restoreOptions() {
 	}
 
 	// Expand Post Options
-	/*BROWSER_API.storage.sync.get(['expandPostOptions'], function(result) {
-		setExpandPostOptions(result)
+	BROWSER_API.storage.sync.get(['expandPostOptions'], function (result) {
+		setExpandPostOptions(result);
 	});
 	function setExpandPostOptions(result) {
 		if (result.expandPostOptions == true) {
-			document.querySelector("#checkbox-expand-post-options").checked = true
-			document.querySelector(".icon-expand-post-options").style.backgroundColor = "var(--accent)"
-			document.querySelector(".icon-productivity-tweaks").style.backgroundColor = "var(--accent)"
-			var value = true
-		} else if ((typeof result.expandPostOptions == 'undefined')||(result.expandPostOptions == false)) {
-			document.querySelector("#checkbox-expand-post-options").checked = false
-			var value = false
+			document.querySelector('#checkbox-expand-post-options').checked = true;
+			document.querySelector('.icon-expand-post-options').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.expandPostOptions == 'undefined' || result.expandPostOptions == false) {
+			document.querySelector('#checkbox-expand-post-options').checked = false;
+			var value = false;
 		}
-		console.log("Expand Post Options: "+value)
-	}*/
+		console.log('Expand Post Options: ' + value);
+	}
 
 	// Add Scroll To Text Post
 	BROWSER_API.storage.sync.get(['textPostScroll'], function (result) {
@@ -1574,11 +1574,11 @@ function restoreOptions() {
 			document.querySelector('#checkbox-post-text-colour-2').checked = true;
 			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
 			var value = true;
-		} else if (typeof result.themeHeaderTextColour == 'undefined' || result.themeSortTextColour == false) {
+		} else if (typeof result.themePostTextColour2 == 'undefined' || result.themePostTextColour2 == false) {
 			document.querySelector('#checkbox-post-text-colour-2').checked = false;
 			var value = false;
 		}
-		console.log('Post Text Colour 2 : ' + value);
+		console.log('Post Text Colour 2: ' + value);
 	}
 
 	// Theme Post Text Colour 2 CSS
@@ -1643,6 +1643,90 @@ function restoreOptions() {
 			var value = 0;
 		}
 		console.log('Theme Blur: ' + value + 'px');
+	});
+
+	// Theme Exceptions Enable
+	BROWSER_API.storage.sync.get(['themeExceptionsEnable'], function (result) {
+		setThemeExceptionsEnable(result);
+	});
+	function setThemeExceptionsEnable(result) {
+		if (result.themeExceptionsEnable == true) {
+			document.querySelector('.icon-theme-exceptions').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-theme-exceptions-enable').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeExceptionsEnable == 'undefined' || result.themeExceptionsEnable == false) {
+			document.querySelector('#checkbox-theme-exceptions-enable').checked = false;
+			var value = false;
+		}
+		console.log('Theme Exceptions Enable: ' + value);
+	}
+
+	// Theme Exception Mode
+	BROWSER_API.storage.sync.get(['themeExceptionMode'], function (result) {
+		if (typeof result.themeExceptionMode == 'undefined' || result.themeExceptionMode === 'blacklist') {
+			var value = 'blacklist';
+		} else if (result.themeExceptionMode === 'whitelist') {
+			document.querySelector('#btn-theme-blacklist').classList.remove('tab-active');
+			document.querySelector('#btn-theme-whitelist').classList.add('tab-active');
+			document.querySelector('#textThemeWhitelistInfo').classList.remove('hidden');
+			document.querySelector('#textThemeBlacklistInfo').classList.add('hidden');
+			var value = 'whitelist';
+		}
+		console.log('Theme Exception Mode: ' + value);
+	});
+
+	// Theme Exceptions List
+	BROWSER_API.storage.sync.get(['themeExceptionSubList'], function (result) {
+		if (typeof result.themeExceptionSubList != 'undefined') {
+			var value = result.themeExceptionSubList;
+			document.querySelector('#input-theme-exceptions').value = value;
+		} else {
+			var value = '';
+		}
+		console.log('Theme Exceptions Sub List: ' + value);
+	});
+
+	// Hide Sub Sidebar Exceptions Enable
+	BROWSER_API.storage.sync.get(['hideSubSidebarExceptionsEnable'], function (result) {
+		setHideSubSidebarExceptionsEnable(result);
+	});
+	function setHideSubSidebarExceptionsEnable(result) {
+		if (result.hideSubSidebarExceptionsEnable == true) {
+			document.querySelector('.icon-hide-sub-sidebar-exceptions').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-sub-sidebar-exceptions-enable').checked = true;
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideSubSidebarExceptionsEnable == 'undefined' || result.hideSubSidebarExceptionsEnable == false) {
+			document.querySelector('#checkbox-hide-sub-sidebar-exceptions-enable').checked = false;
+			var value = false;
+		}
+		console.log('Hide Sub Sidebar Exceptions Enable: ' + value);
+	}
+
+	// Hide Sub Sidebar Exception Mode
+	BROWSER_API.storage.sync.get(['hideSubSidebarExceptionMode'], function (result) {
+		if (typeof result.hideSubSidebarExceptionMode == 'undefined' || result.hideSubSidebarExceptionMode === 'blacklist') {
+			var value = 'blacklist';
+		} else if (result.hideSubSidebarExceptionMode === 'whitelist') {
+			document.querySelector('#btn-hide-sub-sidebar-blacklist').classList.remove('tab-active');
+			document.querySelector('#btn-hide-sub-sidebar-whitelist').classList.add('tab-active');
+			document.querySelector('#textHideSubSidebarWhitelistInfo').classList.remove('hidden');
+			document.querySelector('#textHideSubSidebarBlacklistInfo').classList.add('hidden');
+			var value = 'whitelist';
+		}
+		console.log('Hide Sub Sidebar Exception Mode: ' + value);
+	});
+
+	// Hide Sub Sidebar Exceptions List
+	BROWSER_API.storage.sync.get(['hideSubSidebarExceptionSubList'], function (result) {
+		if (typeof result.hideSubSidebarExceptionSubList != 'undefined') {
+			var value = result.hideSubSidebarExceptionSubList;
+			document.querySelector('#input-hide-sub-sidebar-exceptions').value = value;
+		} else {
+			var value = '';
+		}
+		console.log('Hide Sub Sidebar Exceptions Sub List: ' + value);
 	});
 
 	// Pre-Select Search Input

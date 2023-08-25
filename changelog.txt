@@ -1,3 +1,10 @@
+version 0.18.0
+- Added an option to only enable/disable theme colour styles on specified subreddits.
+- Added an option to only show/hide the subreddit sidebar on specified subreddits.
+- Updated translations for English (US), French, German and Spanish.
+- Bug fixes and improvements.
+
+
 version 0.17.0
 - Added backup/restore feature for settings.
 - Added custom CSS option for drop shadows.

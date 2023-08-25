@@ -6,7 +6,7 @@ import './inputs/version_select';
 import './inputs/language_select';
 import './inputs/search_filter';
 import './inputs/menu';
-import './inputs/inputs_accessibility';
+//import './inputs/inputs_accessibility';
 import './inputs/inputs_background';
 import './inputs/inputs_dark_mode';
 import './inputs/inputs_expand_layout';

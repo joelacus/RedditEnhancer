@@ -30,12 +30,14 @@ export { hidePromoted };
 const observer = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {
 		mutation.addedNodes.forEach(function (addedNode) {
-			var link = addedNode.querySelector('.re-feed-container .promotedlink');
-			if (link) {
-				var links = document.querySelectorAll('.re-feed-container .promotedlink');
-				links.forEach(function (link) {
-					link.parentNode.parentNode.parentNode.classList.add('re-hide');
-				});
+			if (addedNode.nodeName != '#text') {
+				var link = addedNode.querySelector('.re-feed-container .promotedlink');
+				if (link) {
+					var links = document.querySelectorAll('.re-feed-container .promotedlink');
+					links.forEach(function (link) {
+						link.parentNode.parentNode.parentNode.classList.add('re-hide');
+					});
+				}
 			}
 		});
 	});

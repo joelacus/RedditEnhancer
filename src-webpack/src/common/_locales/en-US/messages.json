@@ -1,5 +1,65 @@
 {
-  "textCentre": {
-    "message": "Center"
-  }
+	"textCentre": {
+		"message": "Center"
+	},
+
+	"textThemeColours": {
+		"message": "Theme Colors"
+	},
+
+	"textBorderColour": {
+		"message": "Border Color"
+	},
+
+	"textTextColour": {
+		"message": "Text Color"
+	},
+
+	"textPostVisitedTitleColour": {
+		"message": "Visited Post Title Color"
+	},
+
+	"textHeaderBgColour": {
+		"message": "Header Background Color"
+	},
+
+	"textHeaderTextColour": {
+		"message": "Header Text Color"
+	},
+
+	"textSortBgColour": {
+		"message": "Sort Background Color"
+	},
+
+	"textSortTextColour": {
+		"message": "Sort Text Color"
+	},
+
+	"textSortBorderColour": {
+		"message": "Sort Border Color"
+	},
+
+	"textPostBgColour": {
+		"message": "Post Background Color"
+	},
+
+	"textPostTextColour": {
+		"message": "Post Text and Icon Color"
+	},
+
+	"textPostTitleContentColour": {
+		"message": "Post Title and Text Content Color"
+	},
+
+	"textPostBorderColour": {
+		"message": "Post Border Color"
+	},
+
+	"textThemeBlacklistInfo": {
+		"message": "Use theme colors globally, except for these subreddits:"
+	},
+
+	"textThemeWhitelistInfo": {
+		"message": "Only use the theme colors for these subreddits:"
+	}
 }

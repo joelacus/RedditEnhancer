@@ -1,11 +1,14 @@
 // Expand Post Options
-/*let expandPostOptions = function(value) {
-	var link = window.location.href
-	if (link.indexOf("old.reddit.com") >= 0) { // old reddit
+let expandPostOptions = function (value) {
+	var link = window.location.href;
+	if (link.indexOf('old.reddit.com') >= 0) {
+		// old reddit
 		// do nothing
-	} else { // new reddit
+	} else {
+		// new reddit
 		if (value == true) {
-			if (link.indexOf("/comments/") >= 0) { // post page
+			if (link.indexOf('/comments/') >= 0) {
+				// post page
 				// is overflow menu button loaded
 				const overflow_menu = document.querySelector('[id*="-overflow-menu"]');
 				const overflow_menu_btn = document.querySelector('[id*="-overflow-menu"]').parentNode.parentNode;
@@ -23,26 +26,26 @@
 						const checkIfTargetIsLoaded2 = setInterval(function () {
 							if (document.body.contains(menu)) {
 								clearInterval(checkIfTargetIsLoaded2);
-								const items = menu.querySelectorAll('button');							
-								items.forEach(function(item) {
+								const items = menu.querySelectorAll('button');
+								items.forEach(function (item) {
 									if (item.classList.length < 5) {
 										item.setAttribute('class', button_classes);
-										item.classList.add('re-expand-post-options')						
+										item.classList.add('re-expand-post-options');
 										container.insertBefore(item, overflow_menu_btn);
 									}
 								});
 							}
 						}, 500);
 						// hides overflow button and menu
-						document.querySelector('[role="menu"][tabindex="-1"]').style.display = "none"
-						document.querySelector('[id*="-overflow-menu"]').parentNode.parentNode.style.display = "none"
+						document.querySelector('[role="menu"][tabindex="-1"]').style.display = 'none';
+						document.querySelector('[id*="-overflow-menu"]').parentNode.parentNode.style.display = 'none';
 					}
 				}, 500);
 			} else {
 				//startObserver();
 				const links = document.querySelectorAll('[id*="-overflow-menu"]');
-				console.log(links)
-				links.forEach(function(link){
+				console.log(links);
+				links.forEach(function (link) {
 					// get options container
 					var container = link.parentNode.parentNode.parentNode;
 					// get container button classes
@@ -54,11 +57,11 @@
 					const checkIfTargetIsLoaded2 = setInterval(function () {
 						if (document.body.contains(menu)) {
 							clearInterval(checkIfTargetIsLoaded2);
-							const items = menu.querySelectorAll('button');							
-							items.forEach(function(item) {
+							const items = menu.querySelectorAll('button');
+							items.forEach(function (item) {
 								if (item.classList.length < 5) {
 									item.setAttribute('class', button_classes);
-									item.classList.add('re-expand-post-options')						
+									item.classList.add('re-expand-post-options');
 									container.insertBefore(item, overflow_menu_btn);
 								}
 							});
@@ -68,33 +71,31 @@
 				});
 				//observer.observe(document.body, {childList: true, subtree: true});
 			}
-		} else if ((typeof value == 'undefined')||(value == false)) {
+		} else if (typeof value == 'undefined' || value == false) {
 			const btns = document.querySelectorAll('[id*="-overflow-menu"]');
-			btns.forEach(function(btn) {
-				btn.parentNode.parentNode.style.display = ""
+			btns.forEach(function (btn) {
+				btn.parentNode.parentNode.style.display = '';
 			});
 			const new_btns = document.querySelectorAll('.re-expand-post-options');
-			new_btns.forEach(function(btn) {
+			new_btns.forEach(function (btn) {
 				btn.remove();
 			});
 			//stopObserver();
 			observer.disconnect();
 		}
 	}
-}
+};
 export { expandPostOptions };
 
-
-
-const observer = new MutationObserver(function(mutations) {
-	mutations.forEach(function(mutation) {
-		mutation.addedNodes.forEach(function(addedNode) {
-			if (addedNode.nodeName === "DIV") {
-				const id = addedNode.id.indexOf('-overflow-menu')
-				console.log(id)
+const observer = new MutationObserver(function (mutations) {
+	mutations.forEach(function (mutation) {
+		mutation.addedNodes.forEach(function (addedNode) {
+			if (addedNode.nodeName === 'DIV') {
+				const id = addedNode.id.indexOf('-overflow-menu');
+				console.log(id);
 				if (id === 10) {
 					const links = document.querySelectorAll('[id*="-overflow-menu"]');
-					links.forEach(function(link){
+					links.forEach(function (link) {
 						// get options container
 						var container = link.parentNode.parentNode.parentNode;
 						// get container button classes
@@ -106,11 +107,11 @@ const observer = new MutationObserver(function(mutations) {
 						const checkIfTargetIsLoaded2 = setInterval(function () {
 							if (document.body.contains(menu)) {
 								clearInterval(checkIfTargetIsLoaded2);
-								const items = menu.querySelectorAll('button');							
-								items.forEach(function(item) {
+								const items = menu.querySelectorAll('button');
+								items.forEach(function (item) {
 									if (item.classList.length < 5) {
 										item.setAttribute('class', button_classes);
-										item.classList.add('re-expand-post-options')						
+										item.classList.add('re-expand-post-options');
 										container.insertBefore(item, overflow_menu_btn);
 									}
 								});
@@ -123,7 +124,6 @@ const observer = new MutationObserver(function(mutations) {
 		});
 	});
 });
-*/
 
 /*
 let isObserverRunning = false;

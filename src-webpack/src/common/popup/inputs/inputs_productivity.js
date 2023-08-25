@@ -333,33 +333,31 @@ document.querySelector('#checkbox-sidemenu-feed-top').addEventListener('change',
 	}
 });
 
-/*
 // Toggle - Expand Post Options
-document.querySelector("#checkbox-expand-post-options").addEventListener("change", function(e) {
-	var expandPostOptions = document.querySelector("#checkbox-expand-post-options").checked
+/*document.querySelector('#checkbox-expand-post-options').addEventListener('change', function (e) {
+	var expandPostOptions = document.querySelector('#checkbox-expand-post-options').checked;
 	if (expandPostOptions == true) {
-		BROWSER_API.storage.sync.set({expandPostOptions: true});
-		document.querySelector(".icon-expand-post-options").style.backgroundColor = "var(--accent)"
-		BROWSER_API.tabs.query({currentWindow: true}, function (tabs){
-			tabs.forEach(function(tab){
-				if ((tab.url.match('https:\/\/.*.reddit.com\/.*'))&&(tab.discarded == false)) {
-					BROWSER_API.tabs.sendMessage(tab.id, {expandPostOptions: true});
-				};
+		BROWSER_API.storage.sync.set({ expandPostOptions: true });
+		document.querySelector('.icon-expand-post-options').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { expandPostOptions: true });
+				}
 			});
 		});
 	} else if (expandPostOptions == false) {
-		BROWSER_API.storage.sync.set({expandPostOptions: false});
-		document.querySelector(".icon-expand-post-options").style.backgroundColor = ""
-		BROWSER_API.tabs.query({currentWindow: true}, function (tabs){
-			tabs.forEach(function(tab){
-				if ((tab.url.match('https:\/\/.*.reddit.com\/.*'))&&(tab.discarded == false)) {
-					BROWSER_API.tabs.sendMessage(tab.id, {expandPostOptions: false});
-				};
+		BROWSER_API.storage.sync.set({ expandPostOptions: false });
+		document.querySelector('.icon-expand-post-options').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { expandPostOptions: false });
+				}
 			});
 		});
 	}
-});
-*/
+});*/
 
 // Toggle - Add Scroll To Text Post
 document.querySelector('#checkbox-text-scroll-post').addEventListener('change', function (e) {

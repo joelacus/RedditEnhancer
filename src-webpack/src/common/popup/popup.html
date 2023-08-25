@@ -49,7 +49,7 @@
 						<span class="indicator"></span>
 					</label>
 				</li>
-				<li class="container container-2 r-new">
+				<li class="container container-1 r-new">
 					<div class="option-title">
 						<span class="menu-item-icon icon-auto"></span>
 						<span id="textAuto" style="align-self: center" data-search="dark,night"></span>
@@ -231,13 +231,36 @@
 						<span class="indicator"></span>
 					</label>
 				</li>
-				<li class="container container-3 r-new">
-					<span class="menu-item-icon icon-show icon-hide-sub-sidebar"></span>
-					<span id="textHideSubSidebar" data-search="sidebar"></span>
-					<label class="switch">
-						<input id="checkbox-hide-sub-sidebar" type="checkbox" />
-						<span class="indicator"></span>
-					</label>
+				<li class="container r-new">
+					<div class="container container-3">
+						<span class="menu-item-icon icon-show icon-hide-sub-sidebar"></span>
+						<span id="textHideSubSidebar" data-search="sidebar"></span>
+						<label class="switch">
+							<input id="checkbox-hide-sub-sidebar" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</div>
+					<div class="divider"></div>
+					<div class="container container-3">
+						<span class="menu-item-icon icon-list-check-solid icon-hide-sub-sidebar-exceptions"></span>
+						<span id="textWhitelistBlacklist" data-search=""></span>
+						<label class="switch">
+							<input id="checkbox-hide-sub-sidebar-exceptions-enable" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+						<div></div>
+						<div class="tab-switcher">
+							<div id="btn-hide-sub-sidebar-whitelist" class=""><span id="textWhitelist" data-search=""></span></div>
+							<div id="btn-hide-sub-sidebar-blacklist" class="tab-active"><span id="textBlacklist" data-search=""></span></div>
+						</div>
+						<div></div>
+						<div></div>
+						<span id="textHideSubSidebarWhitelistInfo" class="hidden"></span>
+						<span id="textHideSubSidebarBlacklistInfo"></span>
+						<div></div>
+						<div></div>
+						<textarea id="input-hide-sub-sidebar-exceptions" rows="4" cols="auto" placeholder="news,science,gaming"></textarea>
+					</div>
 				</li>
 				<li class="container container-3 r-new">
 					<span class="menu-item-icon icon-show icon-hide-post-sidebar"></span>
@@ -554,7 +577,7 @@
 					<span class="menu-item-icon icon-ellipsis icon-expand-post-options"></span>
 					<span id="textExpandPostOptions" data-search=""></span>
 					<label class="switch">
-						<input id="checkbox-expand-post-options" type="checkbox">
+						<input id="checkbox-expand-post-options" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>-->
@@ -805,6 +828,27 @@
 							<input id="input-post-border-colour-css" type="text" placeholder="rgb(0,0,0)" />
 						</div>
 					</div>
+				</li>
+				<!-- Theme Whitelist / Blacklist -->
+				<li class="container container-3 r-new">
+					<span class="menu-item-icon icon-list-check-solid icon-theme-exceptions"></span>
+					<span id="textWhitelistBlacklist" data-search=""></span>
+					<label class="switch">
+						<input id="checkbox-theme-exceptions-enable" type="checkbox" />
+						<span class="indicator"></span>
+					</label>
+					<div></div>
+					<div class="tab-switcher">
+						<div id="btn-theme-whitelist" class=""><span id="textWhitelist" data-search=""></span></div>
+						<div id="btn-theme-blacklist" class="tab-active"><span id="textBlacklist" data-search=""></span></div>
+					</div>
+					<div></div>
+					<div></div>
+					<span id="textThemeWhitelistInfo" class="hidden"></span>
+					<span id="textThemeBlacklistInfo"></span>
+					<div></div>
+					<div></div>
+					<textarea id="input-theme-exceptions" rows="4" cols="auto" placeholder="news,science,gaming"></textarea>
 				</li>
 				<!--<li class="container container-5 r-new">
 					<span class="menu-item-icon icon-height header-height"></span>
