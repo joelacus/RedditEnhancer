@@ -22,6 +22,8 @@ import { hideNSFW } from './functions/hide_elements/hide_nsfw';
 import { scrollToNextRootComment } from './functions/productivity/scroll_to_next_root_comment';
 import { showPostNumbers } from './functions/productivity/show_post_numbers';
 import { autoExpandValue } from './functions/expand_feed_post/auto_expand_value';
+import { nonStickyHeaderBar } from './functions/productivity/non_sticky_header_bar';
+import { hideOriginalScrollToTop } from './functions/hide_elements/hide_original_scroll_to_top';
 //import { bionicReaderComments } from './functions/accessibility/bionic_reader';
 //import { bionicReaderPosts } from './functions/accessibility/bionic_reader';
 //import { headerHeight } from './content-functions'
@@ -60,6 +62,10 @@ export function load_saves() {
 	BROWSER_API.storage.sync.get(['hideNSFW'], function (result) {
 		hideNSFW(result.hideNSFW);
 	});
+	// Non Sticky Header Bar
+	BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
+		nonStickyHeaderBar(result.nonStickyHeaderBar);
+	});
 	// Open Sub Links In New Tab
 	BROWSER_API.storage.sync.get(['openSubInNewTab'], function (result) {
 		openSubInNewTab(result.openSubInNewTab);
@@ -79,10 +85,6 @@ export function load_saves() {
 	// Move Feed Section In Side Menu To The Top
 	BROWSER_API.storage.sync.get(['sidemenuFeedTop'], function (result) {
 		sidemenuFeedTop(result.sidemenuFeedTop);
-	});
-	// New Player
-	BROWSER_API.storage.sync.get(['newPlayer'], function (result) {
-		newPlayer(result.newPlayer);
 	});
 	// Text Scroll
 	BROWSER_API.storage.sync.get(['textPostScroll'], function (result) {
@@ -107,6 +109,14 @@ export function load_saves() {
 	// Feed Auto Expand
 	BROWSER_API.storage.sync.get(['autoExpandValue'], function (result) {
 		autoExpandValue(result.autoExpandValue);
+	});
+	// Hide Original Scroll To Top Button
+	BROWSER_API.storage.sync.get(['hideOriginalScrollToTop'], function (result) {
+		hideOriginalScrollToTop(result.hideOriginalScrollToTop);
+	});
+	// New Player
+	BROWSER_API.storage.sync.get(['newPlayer'], function (result) {
+		newPlayer(result.newPlayer);
 	});
 	// Enable Bionic Reader For Comments
 	/*BROWSER_API.storage.sync.get(['bionicReaderComments'], function (result) {

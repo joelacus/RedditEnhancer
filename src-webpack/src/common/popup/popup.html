@@ -153,6 +153,14 @@
 						<span class="indicator"></span>
 					</label>
 				</li>
+				<li class="container container-3 r-new">
+					<span class="menu-item-icon icon-header icon-hide-header-bar"></span>
+					<span id="textHideHeaderBar" data-search="header,bar,panel"></span>
+					<label class="switch">
+						<input id="checkbox-hide-header-bar" type="checkbox" />
+						<span class="indicator"></span>
+					</label>
+				</li>
 				<li class="container container-3 r-old hide">
 					<span class="menu-item-icon icon-hide hide-get-new-reddit"></span>
 					<span id="textHideGetNewReddit" data-search="get,new,beta"></span>
@@ -201,6 +209,14 @@
 					<span id="textHideSideMenuOld" data-search=""></span>
 					<label class="switch">
 						<input id="checkbox-hide-side-menu-old" type="checkbox" />
+						<span class="indicator"></span>
+					</label>
+				</li>
+				<li class="container container-3 r-new">
+					<span class="menu-item-icon icon-show icon-hide-original-scroll-to-top"></span>
+					<span id="textHideOriginalScrollToTop" data-search=""></span>
+					<label class="switch">
+						<input id="checkbox-hide-original-scroll-to-top" type="checkbox" />
 						<span class="indicator"></span>
 					</label>
 				</li>
@@ -494,6 +510,14 @@
 						<span class="indicator"></span>
 					</label>
 				</li>
+				<li class="container container-3 r-both">
+					<span class="menu-item-icon icon-sticky-note-slash icon-non-sticky-header-bar"></span>
+					<span id="textNonStickyHeaderBar" data-search="header,panel,bar"></span>
+					<label class="switch">
+						<input id="checkbox-non-sticky-header-bar" type="checkbox" />
+						<span class="indicator"></span>
+					</label>
+				</li>
 				<li class="sub-header r-new">
 					<span id="textPost"></span>
 				</li>
@@ -696,6 +720,36 @@
 						<div class="css-input-container">
 							<span class="text-small">color:</span>
 							<input id="input-header-text-colour-css" type="text" placeholder="#fff" />
+						</div>
+					</div>
+				</li>
+				<!-- Create Post Style -->
+				<li class="container r-new">
+					<div class="container container-3">
+						<span class="menu-item-icon icon-spray-can icon-create-post-bg-colour"></span>
+						<span id="textCreatePostBgColour" data-search="theme,colour"></span>
+						<label class="switch">
+							<input id="checkbox-create-post-bg-colour" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+						<div></div>
+						<div class="css-input-container">
+							<span class="text-small">background:</span>
+							<input id="input-create-post-bg-colour-css" type="text" placeholder="rgba(0,0,0,0.5)" />
+						</div>
+					</div>
+					<div class="divider"></div>
+					<div class="container container-3">
+						<span class="menu-item-icon icon-spray-can icon-create-post-border-colour"></span>
+						<span id="textCreatePostBorderColour" data-search="theme,colour"></span>
+						<label class="switch">
+							<input id="checkbox-create-post-border-colour" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+						<div></div>
+						<div class="css-input-container">
+							<span class="text-small">border-color:</span>
+							<input id="input-create-post-border-colour-css" type="text" placeholder="rgba(0,0,0,0.5)" />
 						</div>
 					</div>
 				</li>

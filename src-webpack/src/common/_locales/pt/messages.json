@@ -372,6 +372,138 @@
 	},
 
 	"textCustomCSS": {
-		"message": "Custom CSS"
+		"message": "CSS Personalizado"
+	},
+
+	"textFeedPostMaxHeight": {
+		"message": "Altura máxima da postagem do feed"
+	},
+
+	"textPost": {
+		"message": "Postagem"
+	},
+
+	"textAccessibility": {
+		"message": "Acessibilidade"
+	},
+
+	"textBionicReader": {
+		"message": "Leitor Bionico"
+	},
+
+	"textBionicReaderPosts": {
+		"message": "Leitor Bionico para Postagens"
+	},
+
+	"textBionicReaderComments": {
+		"message": "Leitor Bionico para Comentários"
+	},
+
+	"textThemeBlur": {
+		"message": "Desfoque de Tema"
+	},
+
+	"textThemeBlurInfo": {
+		"message": "Use cores translúcidas 'rgba(0,0,0,0.5)' para ver o efeito de desfoque."
+	},
+
+	"textThemeColours": {
+		"message": "Cores do Tema"
+	},
+
+	"textBorderColour": {
+		"message": "Cor da Borda"
+	},
+
+	"textTextColour": {
+		"message": "Cor do Texto"
+	},
+
+	"textPostVisitedTitleColour": {
+		"message": "Cor do Título da Postagem Visitada"
+	},
+
+	"textHeaderBgColour": {
+		"message": "Cor de Fundo do Cabeçalho"
+	},
+
+	"textHeaderTextColour": {
+		"message": "Cor do Texto do Cabeçalho"
+	},
+
+	"textSortBgColour": {
+		"message": "Cor de Fundo da Ordenação"
+	},
+
+	"textSortTextColour": {
+		"message": "Cor do Texto da Ordenação"
+	},
+
+	"textSortBorderColour": {
+		"message": "Cor da Borda da Ordenação"
+	},
+
+	"textPostBgColour": {
+		"message": "Cor de Fundo da Postagem"
+	},
+
+	"textPostTextColour": {
+		"message": "Cor do Texto e dos Ícones da Postagem"
+	},
+
+	"textPostTitleContentColour": {
+		"message": "Cor do Título e do Conteúdo de Texto da Postagem"
+	},
+
+	"textPostBorderColour": {
+		"message": "Cor da Borda da Postagem"
+	},
+
+	"textWhitelistBlacklist": {
+		"message": "Lista Branca / Lista Negra"
+	},
+
+	"textWhitelist": {
+		"message": "Lista Branca"
+	},
+
+	"textBlacklist": {
+		"message": "Lista Negra"
+	},
+
+	"textThemeBlacklistInfo": {
+		"message": "Use cores do tema globalmente, exceto para esses subreddits:"
+	},
+
+	"textThemeWhitelistInfo": {
+		"message": "Use apenas as cores do tema para esses subreddits:"
+	},
+
+	"textHideSubSidebarBlacklistInfo": {
+		"message": "Ocultar globalmente, exceto nestes subreddits:"
+	},
+
+	"textHideSubSidebarWhitelistInfo": {
+		"message": "Ocultar apenas nestes subreddits:"
+	},
+
+	"textHideHeaderBar": {
+		"message": "Ocultar a Barra de Cabeçalho"
+	},
+
+	"textNonStickyHeaderBar": {
+		"message": "Barra de Cabeçalho Não Fixa"
+	},
+
+	"textHideOriginalScrollToTop": {
+		"message": "Ocultar o Botão Original de Rolagem para o Topo"
+	},
+
+	"textCreatePostBgColour": {
+		"message": "Cor de Fundo para Criar Postagem"
+	},
+
+	"textCreatePostBorderColour": {
+		"message": "Cor da Borda para Criar Postagem"
 	}
 }

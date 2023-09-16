@@ -607,3 +607,81 @@ document.querySelector('#input-theme-exceptions').addEventListener('keyup', func
 	const value = e.target.value;
 	BROWSER_API.storage.sync.set({ themeExceptionSubList: value });
 });
+
+// Toggle - Create Post Background Colour
+document.querySelector('#checkbox-create-post-bg-colour').addEventListener('change', function (e) {
+	var themeCreatePostBackgroundColour = document.querySelector('#checkbox-create-post-bg-colour').checked;
+	if (themeCreatePostBackgroundColour == true) {
+		BROWSER_API.storage.sync.set({ themeCreatePostBackgroundColour: true });
+		document.querySelector('.icon-create-post-bg-colour').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themeCreatePostBackgroundColour: true });
+				}
+			});
+		});
+	} else if (themeCreatePostBackgroundColour == false) {
+		BROWSER_API.storage.sync.set({ themeCreatePostBackgroundColour: false });
+		document.querySelector('.icon-create-post-bg-colour').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themeCreatePostBackgroundColour: false });
+				}
+			});
+		});
+	}
+});
+
+// Input - Create Post Background Colour CSS
+document.querySelector('#input-create-post-bg-colour-css').addEventListener('keyup', function (e) {
+	const css = document.querySelector('#input-create-post-bg-colour-css').value;
+	BROWSER_API.storage.sync.set({ themeCreatePostBackgroundColourCSS: css });
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { themeCreatePostBackgroundColourCSS: css });
+			}
+		});
+	});
+});
+
+// Toggle - Create Post Border Colour
+document.querySelector('#checkbox-create-post-border-colour').addEventListener('change', function (e) {
+	var themeCreatePostBorderColour = document.querySelector('#checkbox-create-post-border-colour').checked;
+	if (themeCreatePostBorderColour == true) {
+		BROWSER_API.storage.sync.set({ themeCreatePostBorderColour: true });
+		document.querySelector('.icon-create-post-border-colour').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themeCreatePostBorderColour: true });
+				}
+			});
+		});
+	} else if (themeCreatePostBorderColour == false) {
+		BROWSER_API.storage.sync.set({ themeCreatePostBorderColour: false });
+		document.querySelector('.icon-create-post-border-colour').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themeCreatePostBorderColour: false });
+				}
+			});
+		});
+	}
+});
+
+// Input - Create Post Border Colour CSS
+document.querySelector('#input-create-post-border-colour-css').addEventListener('keyup', function (e) {
+	const css = document.querySelector('#input-create-post-border-colour-css').value;
+	BROWSER_API.storage.sync.set({ themeCreatePostBorderColourCSS: css });
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { themeCreatePostBorderColourCSS: css });
+			}
+		});
+	});
+});

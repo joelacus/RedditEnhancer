@@ -372,6 +372,138 @@
 	},
 
 	"textCustomCSS": {
-		"message": "Custom CSS"
+		"message": "CSS personalizzato"
+	},
+
+	"textFeedPostMaxHeight": {
+		"message": "Altezza massima del post"
+	},
+
+	"textPost": {
+		"message": "Post"
+	},
+
+	"textAccessibility": {
+		"message": "Accessibilità"
+	},
+
+	"textBionicReader": {
+		"message": "Lettore bionico"
+	},
+
+	"textBionicReaderPosts": {
+		"message": "Lettore bionico per i post"
+	},
+
+	"textBionicReaderComments": {
+		"message": "Lettore bionico per commenti"
+	},
+
+	"textThemeBlur": {
+		"message": "Sfocatura del tema"
+	},
+
+	"textThemeBlurInfo": {
+		"message": "Usa i colori traslucidi 'rgba(0,0,0,0.5)' per vedere l'effetto sfocato."
+	},
+
+	"textThemeColours": {
+		"message": "Colori del tema"
+	},
+
+	"textBorderColour": {
+		"message": "Colore del bordo"
+	},
+
+	"textTextColour": {
+		"message": "Colore del testo"
+	},
+
+	"textPostVisitedTitleColour": {
+		"message": "Colore del titolo del post visitato"
+	},
+
+	"textHeaderBgColour": {
+		"message": "Colore di sfondo dell'intestazione"
+	},
+
+	"textHeaderTextColour": {
+		"message": "Colore del testo dell'intestazione"
+	},
+
+	"textSortBgColour": {
+		"message": "Colore di sfondo “Ordina”."
+	},
+
+	"textSortTextColour": {
+		"message": "“Ordina” Colore del testo"
+	},
+
+	"textSortBorderColour": {
+		"message": "“Ordina” Colore del bordo"
+	},
+
+	"textPostBgColour": {
+		"message": "Colore di sfondo “Post”"
+	},
+
+	"textPostTextColour": {
+		"message": "Colore del testo e dell'icona “Post”"
+	},
+
+	"textPostTitleContentColour": {
+		"message": "Colore del titolo e del contenuto del testo “Post”"
+	},
+
+	"textPostBorderColour": {
+		"message": "Colore del bordo “Post”"
+	},
+
+	"textWhitelistBlacklist": {
+		"message": "Lista bianca / Lista nera"
+	},
+
+	"textWhitelist": {
+		"message": "Lista bianca"
+	},
+
+	"textBlacklist": {
+		"message": "Lista nera"
+	},
+
+	"textThemeBlacklistInfo": {
+		"message": "Utilizza i colori del tema a livello globale, ad eccezione di questi subreddit:"
+	},
+
+	"textThemeWhitelistInfo": {
+		"message": "Utilizza solo i colori del tema per questi subreddit:"
+	},
+
+	"textHideSubSidebarBlacklistInfo": {
+		"message": "Nasconditi a livello globale tranne che su questi subreddit:"
+	},
+
+	"textHideSubSidebarWhitelistInfo": {
+		"message": "Nasconditi solo su questi subreddit:"
+	},
+
+	"textHideHeaderBar": {
+		"message": "Nascondi la barra dell'intestazione"
+	},
+
+	"textNonStickyHeaderBar": {
+		"message": "Barra dell'intestazione non appiccicosa"
+	},
+
+	"textHideOriginalScrollToTop": {
+		"message": "Nascondi il pulsante Scorri in alto originale"
+	},
+
+	"textCreatePostBgColour": {
+		"message": "Colore di sfondo “Crea post”."
+	},
+
+	"textCreatePostBorderColour": {
+		"message": "Colore del bordo “Crea post”."
 	}
 }

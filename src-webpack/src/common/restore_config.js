@@ -224,6 +224,13 @@ function restoreBackup(json) {
 				'moderniseOldReddit',
 				'hideSideMenuOld',
 				'hideGetNewReddit',
+				'hideHeaderBar',
+				'nonStickyHeaderBar',
+				'hideOriginalScrollToTop',
+				'themeCreatePostBackgroundColour',
+				'themeCreatePostBackgroundColourCSS',
+				'themeCreatePostBorderColour',
+				'themeCreatePostBorderColourCSS',
 			].includes(key)
 		) {
 			validKeys.push(key);

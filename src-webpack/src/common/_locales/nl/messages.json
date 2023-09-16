@@ -372,6 +372,138 @@
 	},
 
 	"textCustomCSS": {
-		"message": "Custom CSS"
+		"message": "Aangepaste CSS"
+	},
+
+	"textFeedPostMaxHeight": {
+		"message": "Maximale hoogte van bericht"
+	},
+
+	"textPost": {
+		"message": "Bericht"
+	},
+
+	"textAccessibility": {
+		"message": "Toegankelijkheid"
+	},
+
+	"textBionicReader": {
+		"message": "Bionische Lezer"
+	},
+
+	"textBionicReaderPosts": {
+		"message": "Bionische lezer voor berichten"
+	},
+
+	"textBionicReaderComments": {
+		"message": "Bionische lezer voor commentaar"
+	},
+
+	"textThemeBlur": {
+		"message": "Thema Vervagen"
+	},
+
+	"textThemeBlurInfo": {
+		"message": "Gebruik doorschijnende kleuren 'rgba(0,0,0,0.5)' om het vervagingseffect te zien."
+	},
+
+	"textThemeColours": {
+		"message": "Thema Kleuren"
+	},
+
+	"textBorderColour": {
+		"message": "Randkleur"
+	},
+
+	"textTextColour": {
+		"message": "Tekstkleur"
+	},
+
+	"textPostVisitedTitleColour": {
+		"message": "Bezocht Bericht Titel Kleur"
+	},
+
+	"textHeaderBgColour": {
+		"message": "Achtergrondkleur koptekst"
+	},
+
+	"textHeaderTextColour": {
+		"message": "Koptekstkleur"
+	},
+
+	"textSortBgColour": {
+		"message": "Achtergrondkleur Sorteren"
+	},
+
+	"textSortTextColour": {
+		"message": "Tekstkleur Sorteren"
+	},
+
+	"textSortBorderColour": {
+		"message": "Randkleur Sorteren"
+	},
+
+	"textPostBgColour": {
+		"message": "Achtergrondkleur van bericht"
+	},
+
+	"textPostTextColour": {
+		"message": "Berichttekst en pictogramkleur"
+	},
+
+	"textPostTitleContentColour": {
+		"message": "Berichttitel en tekstinhoudskleur"
+	},
+
+	"textPostBorderColour": {
+		"message": "Kleur berichtrand"
+	},
+
+	"textWhitelistBlacklist": {
+		"message": "Witte lijst / Zwarte lijst"
+	},
+
+	"textWhitelist": {
+		"message": "Witte lijst"
+	},
+
+	"textBlacklist": {
+		"message": "Zwarte lijst"
+	},
+
+	"textThemeBlacklistInfo": {
+		"message": "Gebruik themakleuren wereldwijd, behalve voor deze subreddits:"
+	},
+
+	"textThemeWhitelistInfo": {
+		"message": "Gebruik alleen de themakleuren voor deze subreddits:"
+	},
+
+	"textHideSubSidebarBlacklistInfo": {
+		"message": "Wereldwijd verbergen, behalve op deze subreddits:"
+	},
+
+	"textHideSubSidebarWhitelistInfo": {
+		"message": "Verberg je alleen op deze subreddits:"
+	},
+
+	"textHideHeaderBar": {
+		"message": "Verberg de kopbalk"
+	},
+
+	"textNonStickyHeaderBar": {
+		"message": "Niet-plakkerige kopbalk"
+	},
+
+	"textHideOriginalScrollToTop": {
+		"message": "Verberg de knop Origineel scrollen naar boven"
+	},
+
+	"textCreatePostBgColour": {
+		"message": "Maak bericht achtergrondkleur"
+	},
+
+	"textCreatePostBorderColour": {
+		"message": "Maak een berichtrandkleur"
 	}
 }

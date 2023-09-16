@@ -308,3 +308,15 @@
 	mask: url('../icons/ui/list-check-solid.svg');
 	-webkit-mask: url('../icons/ui/list-check-solid.svg');
 }
+.icon-header {
+	mask: url('../icons/ui/icon-header.svg');
+	-webkit-mask: url('../icons/ui/icon-header.svg');
+}
+.icon-header-slash {
+	mask: url('../icons/ui/icon-header-slash.svg');
+	-webkit-mask: url('../icons/ui/icon-header-slash.svg');
+}
+.icon-sticky-note-slash {
+	mask: url('../icons/ui/icon-sticky-note-slash.svg');
+	-webkit-mask: url('../icons/ui/icon-sticky-note-slash.svg');
+}

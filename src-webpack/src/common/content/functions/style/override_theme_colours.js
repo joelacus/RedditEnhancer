@@ -557,3 +557,97 @@ let themeBlur = function (value) {
 	}
 };
 export { themeBlur };
+
+// Create Post Background Colour
+let themeCreatePostBackgroundColour = function (value) {
+	var link = window.location.href;
+	if (link.indexOf('old.reddit.com') >= 0) {
+		// old reddit
+	} else {
+		// new reddit
+		if (value === true) {
+			BROWSER_API.storage.sync.get(['themeCreatePostBackgroundColourCSS'], function (result) {
+				document.documentElement.style.setProperty('--re-theme-create-post-bg', result.themeCreatePostBackgroundColourCSS);
+				const styleElement = document.createElement('style');
+				styleElement.type = 'text/css';
+				styleElement.id = 're-theme-create-post-bg-colour';
+				document.head.appendChild(styleElement);
+				const dynamicStyle = `.re-create-post {
+										--newCommunityTheme-body: var(--re-theme-create-post-bg);
+										--newRedditTheme-body: var(--re-theme-create-post-bg);
+										--newRedditTheme-field: var(--re-theme-create-post-bg);
+									}`;
+				styleElement.innerHTML = dynamicStyle;
+			});
+		} else if (value === false) {
+			document.documentElement.style.removeProperty('--re-theme-create-post-bg');
+			const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-create-post-bg-colour"]');
+			dynamicStyleElements.forEach((element) => {
+				document.head.removeChild(element);
+			});
+		}
+	}
+};
+export { themeCreatePostBackgroundColour };
+
+// Create Post Background Colour CSS
+let themeCreatePostBackgroundColourCSS = function (value) {
+	var link = window.location.href;
+	if (link.indexOf('old.reddit.com') >= 0) {
+		// old reddit
+	} else {
+		// new reddit
+		BROWSER_API.storage.sync.get(['themeCreatePostBackgroundColour'], function (result) {
+			if (result.themeCreatePostBackgroundColour === true) {
+				document.documentElement.style.setProperty('--re-theme-create-post-bg', value);
+			}
+		});
+	}
+};
+export { themeCreatePostBackgroundColourCSS };
+
+// Create Post Border Colour
+let themeCreatePostBorderColour = function (value) {
+	var link = window.location.href;
+	if (link.indexOf('old.reddit.com') >= 0) {
+		// old reddit
+	} else {
+		// new reddit
+		if (value === true) {
+			BROWSER_API.storage.sync.get(['themeCreatePostBorderColourCSS'], function (result) {
+				document.documentElement.style.setProperty('--re-theme-create-post-border', result.themeCreatePostBorderColourCSS);
+				const styleElement = document.createElement('style');
+				styleElement.type = 'text/css';
+				styleElement.id = 're-theme-create-post-border-colour';
+				document.head.appendChild(styleElement);
+				const dynamicStyle = `.re-create-post {
+										--newRedditTheme-postLine: var(--re-theme-create-post-border);
+									}`;
+				styleElement.innerHTML = dynamicStyle;
+			});
+		} else if (value === false) {
+			document.documentElement.style.removeProperty('--re-theme-create-post-border');
+			const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-create-post-border-colour"]');
+			dynamicStyleElements.forEach((element) => {
+				document.head.removeChild(element);
+			});
+		}
+	}
+};
+export { themeCreatePostBorderColour };
+
+// Create Post Border Colour CSS
+let themeCreatePostBorderColourCSS = function (value) {
+	var link = window.location.href;
+	if (link.indexOf('old.reddit.com') >= 0) {
+		// old reddit
+	} else {
+		// new reddit
+		BROWSER_API.storage.sync.get(['themeCreatePostBorderColour'], function (result) {
+			if (result.themeCreatePostBorderColour === true) {
+				document.documentElement.style.setProperty('--re-theme-create-post-border', value);
+			}
+		});
+	}
+};
+export { themeCreatePostBorderColourCSS };

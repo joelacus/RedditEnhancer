@@ -890,7 +890,7 @@ function restoreOptions() {
 	}
 
 	// Expand Post Options
-	BROWSER_API.storage.sync.get(['expandPostOptions'], function (result) {
+	/*BROWSER_API.storage.sync.get(['expandPostOptions'], function (result) {
 		setExpandPostOptions(result);
 	});
 	function setExpandPostOptions(result) {
@@ -904,7 +904,7 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Expand Post Options: ' + value);
-	}
+	}*/
 
 	// Add Scroll To Text Post
 	BROWSER_API.storage.sync.get(['textPostScroll'], function (result) {
@@ -1728,6 +1728,121 @@ function restoreOptions() {
 		}
 		console.log('Hide Sub Sidebar Exceptions Sub List: ' + value);
 	});
+
+	// Hide Header Bar
+	BROWSER_API.storage.sync.get(['hideHeaderBar'], function (result) {
+		setHideHeaderBar(result);
+	});
+	function setHideHeaderBar(result) {
+		if (result.hideHeaderBar == true) {
+			document.querySelector('#checkbox-hide-header-bar').checked = true;
+			document.querySelector('.icon-hide-header-bar').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideHeaderBar == 'undefined' || result.hideHeaderBar == false) {
+			document.querySelector('#checkbox-hide-header-bar').checked = false;
+			var value = false;
+		}
+		console.log('Hide Header Bar: ' + value);
+	}
+
+	// Non Sticky Header Bar
+	BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
+		setNonStickyHeaderBar(result);
+	});
+	function setNonStickyHeaderBar(result) {
+		if (result.nonStickyHeaderBar == true) {
+			document.querySelector('#checkbox-non-sticky-header-bar').checked = true;
+			document.querySelector('.icon-non-sticky-header-bar').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.nonStickyHeaderBar == 'undefined' || result.nonStickyHeaderBar == false) {
+			document.querySelector('#checkbox-non-sticky-header-bar').checked = false;
+			var value = false;
+		}
+		console.log('Non Header Bar: ' + value);
+	}
+
+	// Hide Original Scroll To Top Button
+	BROWSER_API.storage.sync.get(['hideOriginalScrollToTop'], function (result) {
+		sethideOriginalScrollToTop(result);
+	});
+	function sethideOriginalScrollToTop(result) {
+		if (result.hideOriginalScrollToTop == true) {
+			document.querySelector('#checkbox-hide-original-scroll-to-top').checked = true;
+			document.querySelector('.icon-hide-original-scroll-to-top').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideOriginalScrollToTop == 'undefined' || result.hideOriginalScrollToTop == false) {
+			document.querySelector('#checkbox-hide-original-scroll-to-top').checked = false;
+			var value = false;
+		}
+		console.log('Hide Original Scroll To Top Button: ' + value);
+	}
+
+	// Theme CreatePost Background Colour
+	BROWSER_API.storage.sync.get(['themeCreatePostBackgroundColour'], function (result) {
+		setThemeCreatePostBackgroundColour(result);
+	});
+	function setThemeCreatePostBackgroundColour(result) {
+		if (result.themeCreatePostBackgroundColour == true) {
+			document.querySelector('.icon-create-post-bg-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-create-post-bg-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeCreatePostBackgroundColour == 'undefined' || result.themeCreatePostBackgroundColour == false) {
+			document.querySelector('#checkbox-create-post-bg-colour').checked = false;
+			var value = false;
+		}
+		console.log('Create Post Background Colour: ' + value);
+	}
+
+	// Theme CreatePost Background Colour CSS
+	BROWSER_API.storage.sync.get(['themeCreatePostBackgroundColourCSS'], function (result) {
+		setThemeCreatePostBackgroundColourCSS(result);
+	});
+	function setThemeCreatePostBackgroundColourCSS(result) {
+		if (typeof result.themeCreatePostBackgroundColourCSS != 'undefined') {
+			document.querySelector('#input-create-post-bg-colour-css').value = result.themeCreatePostBackgroundColourCSS;
+			var value = result.themeCreatePostBackgroundColourCSS;
+		} else {
+			document.querySelector('#input-create-post-bg-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Create Post Background Colour CSS: ' + value);
+	}
+
+	// Theme CreatePost Border Colour
+	BROWSER_API.storage.sync.get(['themeCreatePostBorderColour'], function (result) {
+		setThemeCreatePostBorderColour(result);
+	});
+	function setThemeCreatePostBorderColour(result) {
+		if (result.themeCreatePostBorderColour == true) {
+			document.querySelector('.icon-create-post-border-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-create-post-border-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeCreatePostBorderColour == 'undefined' || result.themeCreatePostBorderColour == false) {
+			document.querySelector('#checkbox-create-post-border-colour').checked = false;
+			var value = false;
+		}
+		console.log('Create Post Border Colour: ' + value);
+	}
+
+	// Theme CreatePost Border Colour CSS
+	BROWSER_API.storage.sync.get(['themeCreatePostBorderColourCSS'], function (result) {
+		setThemeCreatePostBorderColourCSS(result);
+	});
+	function setThemeCreatePostBorderColourCSS(result) {
+		if (typeof result.themeCreatePostBorderColourCSS != 'undefined') {
+			document.querySelector('#input-create-post-border-colour-css').value = result.themeCreatePostBorderColourCSS;
+			var value = result.themeCreatePostBorderColourCSS;
+		} else {
+			document.querySelector('#input-create-post-border-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Create Post Border Colour CSS: ' + value);
+	}
 
 	// Pre-Select Search Input
 	document.querySelector('#search').focus();

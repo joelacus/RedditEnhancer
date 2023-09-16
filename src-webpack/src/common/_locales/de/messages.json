@@ -485,5 +485,25 @@
 
 	"textHideSubSidebarWhitelistInfo": {
 		"message": "Verstecke dich nur auf diesen Subreddits:"
+	},
+
+	"textHideHeaderBar": {
+		"message": "Kopfleiste ausblenden"
+	},
+
+	"textNonStickyHeaderBar": {
+		"message": "Nicht klebende Kopfleiste"
+	},
+
+	"textHideOriginalScrollToTop": {
+		"message": "Blenden Sie die ursprüngliche Schaltfläche „Nach oben scrollen“ aus"
+	},
+
+	"textCreatePostBgColour": {
+		"message": "Hintergrundfarbe „Beitrag erstellen“."
+	},
+
+	"textCreatePostBorderColour": {
+		"message": "Rahmenfarbe „Beitrag erstellen“."
 	}
 }

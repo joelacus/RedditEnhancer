@@ -80,10 +80,17 @@ import { themePostTextColour2 } from './functions/style/override_theme_colours';
 import { themePostTextColour2CSS } from './functions/style/override_theme_colours';
 import { themePostBorderColour } from './functions/style/override_theme_colours';
 import { themePostBorderColourCSS } from './functions/style/override_theme_colours';
+import { themeCreatePostBackgroundColour } from './functions/style/override_theme_colours';
+import { themeCreatePostBackgroundColourCSS } from './functions/style/override_theme_colours';
+import { themeCreatePostBorderColour } from './functions/style/override_theme_colours';
+import { themeCreatePostBorderColourCSS } from './functions/style/override_theme_colours';
 import { themeBlur } from './functions/style/override_theme_colours';
 //import { bionicReaderPosts } from './functions/accessibility/bionic_reader';
 //import { bionicReaderComments } from './functions/accessibility/bionic_reader';
 import { expandPostOptions } from './functions/productivity/expand_post_options';
+import { hideHeaderBar } from './functions/hide_elements/hide_header_bar';
+import { nonStickyHeaderBar } from './functions/productivity/non_sticky_header_bar';
+import { hideOriginalScrollToTop } from './functions/hide_elements/hide_original_scroll_to_top';
 //import { headerHeight } from './content-functions'
 
 /* = Listen For Settings Change = */
@@ -243,6 +250,14 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		themePostBorderColour(value);
 	} else if (key == 'themePostBorderColourCSS') {
 		themePostBorderColourCSS(value);
+	} else if (key == 'themeCreatePostBackgroundColour') {
+		themeCreatePostBackgroundColour(value);
+	} else if (key == 'themeCreatePostBackgroundColourCSS') {
+		themeCreatePostBackgroundColourCSS(value);
+	} else if (key == 'themeCreatePostBorderColour') {
+		themeCreatePostBorderColour(value);
+	} else if (key == 'themeCreatePostBorderColourCSS') {
+		themeCreatePostBorderColourCSS(value);
 	} else if (key == 'themeBlur') {
 		themeBlur(value);
 	} /* else if (key == 'bionicReaderPosts') {
@@ -253,6 +268,12 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		headerHeight(value);
 	}*/ else if (key == 'expandPostOptions') {
 		expandPostOptions(value);
+	} else if (key == 'hideHeaderBar') {
+		hideHeaderBar(value);
+	} else if (key == 'nonStickyHeaderBar') {
+		nonStickyHeaderBar(value);
+	} else if (key == 'hideOriginalScrollToTop') {
+		hideOriginalScrollToTop(value);
 	} else if (key == 'loadSaves') {
 		setTimeout(function () {
 			loadStart();

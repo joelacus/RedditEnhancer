@@ -6,6 +6,7 @@ import { loadHideUsernameAndKarma } from './functions/load_hide_username_and_kar
 import { loadCustomBackground } from './functions/load_custom_background';
 import { loadHideGetNewReddit } from './functions/load_hide_get_new_reddit';
 import { loadHideTurnOnNotificationsPopup } from './functions/load_hide_turn_on_notifications_popup';
+import { loadHideHeaderBar } from './functions/load_hide_header_bar';
 import { initClassNames } from './functions/init_class_names';
 import './functions/load_custom_theme_colours';
 
@@ -28,6 +29,9 @@ export function loadStart() {
 
 	// "Turn On Notifications" Popup
 	loadHideTurnOnNotificationsPopup();
+
+	// Hide Header Bar
+	loadHideHeaderBar();
 
 	// Adds classnames and loads all other tweaks capable of running as the page is still loading
 	initClassNames();

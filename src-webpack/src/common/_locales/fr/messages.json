@@ -485,5 +485,25 @@
 
 	"textHideSubSidebarWhitelistInfo": {
 		"message": "Cachez-vous uniquement sur ces subreddits:"
+	},
+
+	"textHideHeaderBar": {
+		"message": "Masquer la barre d'en-tête"
+	},
+
+	"textNonStickyHeaderBar": {
+		"message": "Barre d'en-tête non collante"
+	},
+
+	"textHideOriginalScrollToTop": {
+		"message": "Masquer le bouton de défilement original vers le haut"
+	},
+
+	"textCreatePostBgColour": {
+		"message": "Couleur d'arrière-plan « Créer un message »"
+	},
+
+	"textCreatePostBorderColour": {
+		"message": "Couleur de la bordure « Créer un message »"
 	}
 }

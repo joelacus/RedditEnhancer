@@ -372,6 +372,138 @@
 	},
 
 	"textCustomCSS": {
-		"message": "Custom CSS"
+		"message": "Власний CSS"
+	},
+
+	"textFeedPostMaxHeight": {
+		"message": "Максимальна висота постів у стрічці"
+	},
+
+	"textPost": {
+		"message": "Пост"
+	},
+
+	"textAccessibility": {
+		"message": "Доступність"
+	},
+
+	"textBionicReader": {
+		"message": "Біонічний читач"
+	},
+
+	"textBionicReaderPosts": {
+		"message": "Біонічний читач для постів"
+	},
+
+	"textBionicReaderComments": {
+		"message": "Біонічний читач для коментарів"
+	},
+
+	"textThemeBlur": {
+		"message": "Розмите теми"
+	},
+
+	"textThemeBlurInfo": {
+		"message": "Використовуйте прозорі кольори 'rgba(0,0,0,0.5)' для побачення ефекту розмитості."
+	},
+
+	"textThemeColours": {
+		"message": "Кольори теми"
+	},
+
+	"textBorderColour": {
+		"message": "Колір рамки"
+	},
+
+	"textTextColour": {
+		"message": "Колір тексту"
+	},
+
+	"textPostVisitedTitleColour": {
+		"message": "Колір відвіданих заголовків постів"
+	},
+
+	"textHeaderBgColour": {
+		"message": "Колір фону заголовка"
+	},
+
+	"textHeaderTextColour": {
+		"message": "Колір тексту заголовка"
+	},
+
+	"textSortBgColour": {
+		"message": "Колір фону сортування"
+	},
+
+	"textSortTextColour": {
+		"message": "Колір тексту сортування"
+	},
+
+	"textSortBorderColour": {
+		"message": "Колір рамки сортування"
+	},
+
+	"textPostBgColour": {
+		"message": "Колір фону поста"
+	},
+
+	"textPostTextColour": {
+		"message": "Колір тексту та іконок поста"
+	},
+
+	"textPostTitleContentColour": {
+		"message": "Колір заголовка та вмісту тексту поста"
+	},
+
+	"textPostBorderColour": {
+		"message": "Колір рамки поста"
+	},
+
+	"textWhitelistBlacklist": {
+		"message": "Білий список / Чорний список"
+	},
+
+	"textWhitelist": {
+		"message": "Білий список"
+	},
+
+	"textBlacklist": {
+		"message": "Чорний список"
+	},
+
+	"textThemeBlacklistInfo": {
+		"message": "Використовуйте кольори теми глобально, окрім цих підреддитів:"
+	},
+
+	"textThemeWhitelistInfo": {
+		"message": "Використовуйте кольори теми тільки для цих підреддитів:"
+	},
+
+	"textHideSubSidebarBlacklistInfo": {
+		"message": "Приховувати глобально, окрім цих підреддитів:"
+	},
+
+	"textHideSubSidebarWhitelistInfo": {
+		"message": "Приховувати тільки на цих підреддитах:"
+	},
+
+	"textHideHeaderBar": {
+		"message": "Приховати заголовну панель"
+	},
+
+	"textNonStickyHeaderBar": {
+		"message": "Нефіксована заголовна панель"
+	},
+
+	"textHideOriginalScrollToTop": {
+		"message": "Приховати оригінальну кнопку прокрутки до верху"
+	},
+
+	"textCreatePostBgColour": {
+		"message": "Колір фону для створення поста"
+	},
+
+	"textCreatePostBorderColour": {
+		"message": "Колір рамки для створення поста"
 	}
 }

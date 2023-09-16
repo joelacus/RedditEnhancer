@@ -485,5 +485,25 @@
 
 	"textHideSubSidebarWhitelistInfo": {
 		"message": "Esconderse solo en estos subreddits:"
+	},
+
+	"textHideHeaderBar": {
+		"message": "Ocultar la barra de encabezado"
+	},
+
+	"textNonStickyHeaderBar": {
+		"message": "Barra de encabezado no pegajosa"
+	},
+
+	"textHideOriginalScrollToTop": {
+		"message": "Ocultar el botón de desplazamiento original hacia arriba"
+	},
+
+	"textCreatePostBgColour": {
+		"message": "Color de fondo “Crear publicación”"
+	},
+
+	"textCreatePostBorderColour": {
+		"message": "Color del borde “Crear publicación”"
 	}
 }

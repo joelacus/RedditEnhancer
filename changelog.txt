@@ -1,3 +1,12 @@
+version 0.19.0
+- Added an option to hide the header bar.
+- Added an option to make the header bar not sticky.
+- Added an option to hide the original scroll to top button.
+- Added an option to style the Create Post element.
+- Updated translations.
+- Bug fix.
+
+
 version 0.18.0
 - Added an option to only enable/disable theme colour styles on specified subreddits.
 - Added an option to only show/hide the subreddit sidebar on specified subreddits.

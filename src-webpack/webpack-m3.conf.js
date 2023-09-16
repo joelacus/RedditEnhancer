@@ -8,7 +8,6 @@ var webpack = require('webpack');
 
 module.exports = {
 	mode: 'production',
-	//devtool: 'source-map',
 	entry: {
 		background: './src/common/background.js',
 		content: './src/common/content-index.js',

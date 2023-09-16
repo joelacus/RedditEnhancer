@@ -372,6 +372,138 @@
 	},
 
 	"textCustomCSS": {
-		"message": "Custom CSS"
+		"message": "Niestandardowe CSS"
+	},
+
+	"textFeedPostMaxHeight": {
+		"message": "Maksymalna publikacja wysokość"
+	},
+
+	"textPost": {
+		"message": "Publikacja"
+	},
+
+	"textAccessibility": {
+		"message": "Dostępność"
+	},
+
+	"textBionicReader": {
+		"message": "Czytelnik bioniczny"
+	},
+
+	"textBionicReaderPosts": {
+		"message": "Bioniczny czytnik publikacja"
+	},
+
+	"textBionicReaderComments": {
+		"message": "Bionic Czytnik komentarzy"
+	},
+
+	"textThemeBlur": {
+		"message": "Rozmycie tematu"
+	},
+
+	"textThemeBlurInfo": {
+		"message": "Użyj półprzezroczystych kolorów „rgba(0,0,0,0,5)”, aby zobaczyć efekt rozmycia."
+	},
+
+	"textThemeColours": {
+		"message": "Kolory motywu"
+	},
+
+	"textBorderColour": {
+		"message": "Kolor obramowania"
+	},
+
+	"textTextColour": {
+		"message": "Kolor tekstu"
+	},
+
+	"textPostVisitedTitleColour": {
+		"message": "Kolor tytułu odwiedzonego posta"
+	},
+
+	"textHeaderBgColour": {
+		"message": "Kolor tła nagłówka"
+	},
+
+	"textHeaderTextColour": {
+		"message": "Kolor tekstu nagłówka"
+	},
+
+	"textSortBgColour": {
+		"message": "Sortuj kolor tła"
+	},
+
+	"textSortTextColour": {
+		"message": "Sortuj kolor tekstu"
+	},
+
+	"textSortBorderColour": {
+		"message": "Sortuj kolor obramowania"
+	},
+
+	"textPostBgColour": {
+		"message": "Kolor tła publikacja"
+	},
+
+	"textPostTextColour": {
+		"message": "Tekst publikacja i kolor ikony"
+	},
+
+	"textPostTitleContentColour": {
+		"message": "Tytuł publikacja i kolor treści tekstowej"
+	},
+
+	"textPostBorderColour": {
+		"message": "Kolor obramowania publikacja"
+	},
+
+	"textWhitelistBlacklist": {
+		"message": "Biała lista / Czarna lista"
+	},
+
+	"textWhitelist": {
+		"message": "Biała lista"
+	},
+
+	"textBlacklist": {
+		"message": "Czarna lista"
+	},
+
+	"textThemeBlacklistInfo": {
+		"message": "Używaj kolorów motywów na całym świecie, z wyjątkiem tych subredditów:"
+	},
+
+	"textThemeWhitelistInfo": {
+		"message": "Używaj kolorów motywu tylko dla tych subredditów:"
+	},
+
+	"textHideSubSidebarBlacklistInfo": {
+		"message": "Ukryj globalnie, z wyjątkiem tych subredditów:"
+	},
+
+	"textHideSubSidebarWhitelistInfo": {
+		"message": "Ukryj się tylko na tych subredditach:"
+	},
+
+	"textHideHeaderBar": {
+		"message": "Ukryj pasek nagłówka"
+	},
+
+	"textNonStickyHeaderBar": {
+		"message": "Nieprzylepny pasek nagłówka"
+	},
+
+	"textHideOriginalScrollToTop": {
+		"message": "Ukryj oryginalny przycisk przewijania do góry"
+	},
+
+	"textCreatePostBgColour": {
+		"message": "Kolor tła „Utwórz publikacja”"
+	},
+
+	"textCreatePostBorderColour": {
+		"message": "Kolor obramowania „Utwórz publikacja”"
 	}
 }

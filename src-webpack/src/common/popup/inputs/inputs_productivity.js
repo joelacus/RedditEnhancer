@@ -669,3 +669,29 @@ document.querySelector('#input-feed-post-max-height').addEventListener('mouseup'
 	// save
 	BROWSER_API.storage.sync.set({ postMaxHeight: e.target.value });
 });
+
+// Toggle - Non Sticky Header Bar
+document.querySelector('#checkbox-non-sticky-header-bar').addEventListener('change', function (e) {
+	var nonStickyHeaderBar = document.querySelector('#checkbox-non-sticky-header-bar').checked;
+	if (nonStickyHeaderBar == true) {
+		BROWSER_API.storage.sync.set({ nonStickyHeaderBar: true });
+		document.querySelector('.icon-non-sticky-header-bar').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { nonStickyHeaderBar: true });
+				}
+			});
+		});
+	} else if (nonStickyHeaderBar == false) {
+		BROWSER_API.storage.sync.set({ nonStickyHeaderBar: false });
+		document.querySelector('.icon-non-sticky-header-bar').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { nonStickyHeaderBar: false });
+				}
+			});
+		});
+	}
+});

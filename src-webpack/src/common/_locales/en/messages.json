@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "0.18.0"
+		"message": "0.19.0"
 	},
 
 	"extensionName": {
@@ -541,5 +541,25 @@
 
 	"textHideSubSidebarWhitelistInfo": {
 		"message": "Only hide on these subreddits:"
+	},
+
+	"textHideHeaderBar": {
+		"message": "Hide the Header Bar"
+	},
+
+	"textNonStickyHeaderBar": {
+		"message": "Non Sticky Header Bar"
+	},
+
+	"textHideOriginalScrollToTop": {
+		"message": "Hide the Original Scroll to Top Button"
+	},
+
+	"textCreatePostBgColour": {
+		"message": "Create Post Background Colour"
+	},
+
+	"textCreatePostBorderColour": {
+		"message": "Create Post Border Colour"
 	}
 }
