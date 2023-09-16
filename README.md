@@ -66,6 +66,9 @@ I welcome any help if you would like to improve or contribute new language trans
 |Show navigation buttons to scroll to the next/previous root comment on a post|Scroll to the next/previous root/first comments on a post.|New|
 |Theme Colours + Blur|You can change various theme colours for the website, and add blur to translucent UI elements.|New|
 |Feed Post Max Height|Increase, or decrease, the max height of posts on the feed. Default 512px. New range is 304px to 1000px. The post content will adapt to the new size.|New|
+|Hide the Header Bar|Hide the header bar/panel at the top.|New|
+|Non Sticky Header Bar|Prevents the header bar from staying at the top of the screen as you scroll.|New|
+|Hide the Original Scroll to Top Button|Hides the scroll bar near the bottom of the screen.|New|
 
 ## Build
 Clone repo and cd to build directory:
