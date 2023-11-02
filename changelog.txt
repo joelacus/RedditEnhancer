@@ -1,3 +1,20 @@
+version 0.20.1
+- Bug fixes.
+
+version 0.20.0
+- Added an option to enable break reminders every set number of posts.
+- Added an option to make the classic post view larger (new and old reddit).
+- Added an option to adjust the postion of the 'Scroll To Next/Previous Root Comment' buttons.
+- Fixed 'Scroll To Top' not working with the post overlay.
+- Fixed 'Limit Infinity Scroll' not always showing 25 posts at a time.
+- Added missing translations.
+- Bug fixes and improvements.
+
+
+version 0.19.1
+- Dependency updates.
+
+
 version 0.19.0
 - Added an option to hide the header bar.
 - Added an option to make the header bar not sticky.
