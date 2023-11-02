@@ -92,6 +92,9 @@ import { hideHeaderBar } from './functions/hide_elements/hide_header_bar';
 import { nonStickyHeaderBar } from './functions/productivity/non_sticky_header_bar';
 import { hideOriginalScrollToTop } from './functions/hide_elements/hide_original_scroll_to_top';
 //import { headerHeight } from './content-functions'
+import { largerClassicPost } from './functions/style/larger_classic_post';
+import { scrollToNextRootCommentPosition } from './functions/productivity/scroll_to_next_root_comment';
+import { breakReminder } from './functions/productivity/break_reminder';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -274,8 +277,14 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		nonStickyHeaderBar(value);
 	} else if (key == 'hideOriginalScrollToTop') {
 		hideOriginalScrollToTop(value);
+	} else if (key == 'largerClassicPost') {
+		largerClassicPost(value);
+	} else if (key == 'scrollToNextRootCommentPosition') {
+		scrollToNextRootCommentPosition(value);
+	} else if (key == 'breakReminder') {
+		breakReminder(value);
 	} else if (key == 'loadSaves') {
-		setTimeout(function () {
+		setTimeout(() => {
 			loadStart();
 			load_saves();
 		}, 100);

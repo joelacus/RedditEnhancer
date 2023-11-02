@@ -291,6 +291,58 @@
 		"message": "Límite de desplazamiento infinito"
 	},
 
+	"textVideoPlayerInfo": {
+		"message": "Reproductor de vídeo rápido, ligero y con controles de velocidad basados en videojs. Pruebe esto si tiene problemas de carga con el reproductor de reddit."
+	},
+
+	"textLimitCommentsInfo": {
+		"message": "Solo funciona para publicaciones abiertas en una nueva pestaña/ventana."
+	},
+
+	"textLimitInfinityScrollInfo": {
+		"message": "Beta. Esto no necesariamente reducirá el uso de ancho de banda, pero debería ayudar a evitar que la página se vuelva lenta al evitar que Reddit agregue nuevas publicaciones hasta que hagas clic en “Carga más” en la parte inferior del feed. Al hacer clic en “Carga más”, se borrarán las primeras 25 publicaciones y se mostrarán las siguientes 25."
+	},
+
+	"textDefaultFeedSortOption": {
+		"message": "Opción de clasificación de feed predeterminada"
+	},
+
+	"textDefaultCommentsSortOption": {
+		"message": "Opción de clasificación de comentarios predeterminada"
+	},
+
+	"textBest": {
+		"message": "Mejores"
+	},
+
+	"textHot": {
+		"message": "Destacando"
+	},
+
+	"textNew": {
+		"message": "Más nuevos"
+	},
+
+	"textTop": {
+		"message": "Más votados"
+	},
+
+	"textControversial": {
+		"message": "Más polémicos"
+	},
+
+	"textRising": {
+		"message": "En Alza"
+	},
+
+	"textOld": {
+		"message": "Old"
+	},
+
+	"textQa": {
+		"message": "Q&a"
+	},
+
 	"textOpenPostInNewTab": {
 		"message": "Abrir enlaces a publicaciones en una nueva pestaña"
 	},
@@ -505,5 +557,29 @@
 
 	"textCreatePostBorderColour": {
 		"message": "Color del borde “Crear publicación”"
+	},
+
+	"textLargerClassicPost": {
+		"message": "Vista de publicación clásica más grande"
+	},
+
+	"textLargerClassicPostInfo": {
+		"message": "Deshabilite esta opción si no está utilizando la “Vista de publicación clásica”."
+	},
+
+	"textPosition": {
+		"message": "Posición"
+	},
+
+	"textBreakReminder": {
+		"message": "Recordatorio de descanso"
+	},
+
+	"textBreakReminderInfo": {
+		"message": "Beta. Muestra un recordatorio para tomar un descanso cada número determinado de publicaciones."
+	},
+
+	"textBreakReminderFrequency": {
+		"message": "Frecuencia de recordatorio"
 	}
 }

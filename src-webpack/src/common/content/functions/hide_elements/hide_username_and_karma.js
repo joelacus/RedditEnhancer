@@ -7,6 +7,7 @@ let hideUsername = function (value) {
 			document.querySelector('.re-username').classList.add('re-hide');
 		} else if (value == false) {
 			document.querySelector('.re-username').classList.remove('re-hide');
+			document.querySelector('#re-hide-username').remove();
 		}
 	} else {
 		// new reddit
@@ -14,6 +15,7 @@ let hideUsername = function (value) {
 			document.querySelector('.re-username').classList.add('re-hide');
 		} else if (value == false) {
 			document.querySelector('.re-username').classList.remove('re-hide');
+			document.querySelector('#re-hide-username').remove();
 		}
 	}
 };
@@ -30,6 +32,7 @@ let hideKarma = function (value) {
 		} else if (value == false) {
 			document.querySelector('.re-karma').classList.remove('re-hide');
 			document.querySelector('.re-karma').parentNode.style.color = '';
+			document.querySelector('#re-hide-karma').remove();
 		}
 	} else {
 		// new reddit
@@ -37,6 +40,7 @@ let hideKarma = function (value) {
 			document.querySelector('.re-karma').classList.add('re-hide');
 		} else if (value == false) {
 			document.querySelector('.re-karma').classList.remove('re-hide');
+			document.querySelector('#re-hide-karma').remove();
 		}
 	}
 };

@@ -4,96 +4,94 @@
 
 function addCustomBgNode(newCustomBg) {
 	// create background element container
-	var node = document.createElement("div");
-	node.setAttribute("class", "background");
+	var node = document.createElement('div');
+	node.setAttribute('class', 'background');
 	// add image node
-	var background_img = document.createElement("div");
-	background_img.classList.add("background-img");
-	background_img.setAttribute("style", "background-image: url("+newCustomBg+");");
-	background_img.addEventListener("click", function(e) {
-		var url = e.target.style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, "");
-		BROWSER_API.storage.sync.set({customBackground: url});
+	var background_img = document.createElement('div');
+	background_img.classList.add('background-img');
+	background_img.setAttribute('style', 'background-image: url(' + newCustomBg + ');');
+	background_img.addEventListener('click', function (e) {
+		var url = e.target.style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
+		BROWSER_API.storage.sync.set({ customBackground: url });
 		// remove existing highlight
-		const backgrounds = document.querySelectorAll(".background-img");
+		const backgrounds = document.querySelectorAll('.background-img');
 		for (let i = 0; i < backgrounds.length; i++) {
-			backgrounds[i].parentNode.style.borderColor = "#000"
+			backgrounds[i].parentNode.style.borderColor = '#000';
 		}
 		// set
-		e.target.parentNode.style.borderColor = "var(--accent)"
-		BROWSER_API.storage.sync.set({customBackground: url});
-		BROWSER_API.storage.sync.get(['useCustomBackground'], function(result) {
+		e.target.parentNode.style.borderColor = 'var(--accent)';
+		BROWSER_API.storage.sync.set({ customBackground: url });
+		BROWSER_API.storage.sync.get(['useCustomBackground'], function (result) {
 			if (result.useCustomBackground == true) {
-				BROWSER_API.tabs.query({currentWindow: true}, function (tabs){
-					tabs.forEach(function(tab){
-						if ((tab.url.includes("reddit.com"))&&(tab.discarded == false)) {
-							BROWSER_API.tabs.sendMessage(tab.id, {setCustomBackground: url});
-						};
+				BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+					tabs.forEach(function (tab) {
+						if (tab.url.includes('reddit.com') && tab.discarded == false) {
+							BROWSER_API.tabs.sendMessage(tab.id, { setCustomBackground: url });
+						}
 					});
 				});
 			}
 		});
 	});
-	node.appendChild(background_img)
+	node.appendChild(background_img);
 	// add element to current instance
-	const grid = document.querySelector(".p-grid-bg")
+	const grid = document.querySelector('.p-grid-bg');
 	grid.insertBefore(node, grid.firstChild);
-	document.querySelector("#input-custom-background").value = ""
+	document.querySelector('#input-custom-background').value = '';
 }
 export function addCustomBg(e) {
 	e.preventDefault();
-	var newCustomBg = document.querySelector("#input-custom-background").value
-	console.log("testing: "+newCustomBg)
+	var newCustomBg = document.querySelector('#input-custom-background').value;
+	console.log('testing: ' + newCustomBg);
 	return new Promise(function (resolve, reject) {
 		var timeout = 5000;
-		var timer, img = new Image();
+		var timer,
+			img = new Image();
 		img.onerror = img.onabort = function () {
 			clearTimeout(timer);
-			reject("error");
+			reject('error');
 		};
 		img.onload = function () {
 			clearTimeout(timer);
-			resolve("success");
-			BROWSER_API.storage.sync.get("customBackgrounds", function(result) {
-				if ((result.customBackgrounds == null)||(result.customBackgrounds == "")) {
-					var saveCustomBg = []
-					saveCustomBg.push(newCustomBg)
+			resolve('success');
+			BROWSER_API.storage.sync.get('customBackgrounds', function (result) {
+				if (result.customBackgrounds == null || result.customBackgrounds == '') {
+					var saveCustomBg = [];
+					saveCustomBg.push(newCustomBg);
 					addCustomBgNode(newCustomBg);
-				} else if (result.customBackgrounds != "") {
+				} else if (result.customBackgrounds != '') {
 					if (result.customBackgrounds.indexOf(newCustomBg) == -1) {
-						console.log("adding new link")
+						console.log('adding new link');
 						result.customBackgrounds.push(newCustomBg);
 						addCustomBgNode(newCustomBg);
 					} else {
-						console.log("background already added")
-						document.querySelector("#input-custom-background").value = ""
+						console.log('background already added');
+						document.querySelector('#input-custom-background').value = '';
 					}
-					var saveCustomBg = result.customBackgrounds
+					var saveCustomBg = result.customBackgrounds;
 				}
 				BROWSER_API.storage.sync.set({ customBackgrounds: saveCustomBg });
 			});
 		};
-		timer = setTimeout(function () {
+		timer = setTimeout(() => {
 			// reset .src to invalid URL so it stops previous
 			// loading, but doesn't trigger new load
-			img.src = "//!!!!/test.jpg";
-			reject("timeout");
+			img.src = '//!!!!/test.jpg';
+			reject('timeout');
 		}, timeout);
 		img.src = newCustomBg;
 	});
 }
 
-
-
-
 /* ===== Add Listeners To Backgrounds ===== */
 
 export function addBackgroundDeleteListeners() {
-	const delete_buttons_bg = document.querySelectorAll(".btn-delete-background");
-	delete_buttons_bg.forEach(function(btn){
-		btn.addEventListener("click", function(e) {
+	const delete_buttons_bg = document.querySelectorAll('.btn-delete-background');
+	delete_buttons_bg.forEach(function (btn) {
+		btn.addEventListener('click', function (e) {
 			// delete link from save
-			const url = e.target.previousSibling.style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, "");
-			BROWSER_API.storage.sync.get("customBackgrounds", function(result) {
+			const url = e.target.previousSibling.style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
+			BROWSER_API.storage.sync.get('customBackgrounds', function (result) {
 				const index = result.customBackgrounds.indexOf(url);
 				if (index > -1) {
 					result.customBackgrounds.splice(index, 1);
@@ -102,59 +100,57 @@ export function addBackgroundDeleteListeners() {
 			});
 			// remove element
 			e.target.parentNode.remove();
-			BROWSER_API.storage.sync.get(['customBackground'], function(result) {
+			BROWSER_API.storage.sync.get(['customBackground'], function (result) {
 				if (url == result.customBackground) {
-					BROWSER_API.storage.sync.set({customBackground: ""});
+					BROWSER_API.storage.sync.set({ customBackground: '' });
 				}
 			});
-			console.log("deleted: "+url)
+			console.log('deleted: ' + url);
 		});
 	});
 }
 
 export function addBackgroundListeners() {
-	const background = document.querySelectorAll(".background-img");
+	const background = document.querySelectorAll('.background-img');
 	for (let i = 0; i < background.length; i++) {
-		background[i].addEventListener("click", function() {
-			const backgrounds = document.querySelectorAll(".background-img");
+		background[i].addEventListener('click', function () {
+			const backgrounds = document.querySelectorAll('.background-img');
 			for (let i = 0; i < backgrounds.length; i++) {
-				backgrounds[i].parentNode.style.borderColor = "#000"
+				backgrounds[i].parentNode.style.borderColor = '#000';
 			}
-			background[i].parentNode.style.borderColor = "var(--accent)"
-			var url = background[i].style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, "");
-			BROWSER_API.storage.sync.set({customBackground: url});
-			BROWSER_API.storage.sync.get(['useCustomBackground'], function(result) {
+			background[i].parentNode.style.borderColor = 'var(--accent)';
+			var url = background[i].style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
+			BROWSER_API.storage.sync.set({ customBackground: url });
+			BROWSER_API.storage.sync.get(['useCustomBackground'], function (result) {
 				if (result.useCustomBackground == true) {
-					BROWSER_API.tabs.query({currentWindow: true}, function (tabs){
-						tabs.forEach(function(tab){
-							if ((tab.url.includes("reddit.com"))&&(tab.discarded == false)) {
-								BROWSER_API.tabs.sendMessage(tab.id, {setCustomBackground: url});
-							};
+					BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+						tabs.forEach(function (tab) {
+							if (tab.url.includes('reddit.com') && tab.discarded == false) {
+								BROWSER_API.tabs.sendMessage(tab.id, { setCustomBackground: url });
+							}
 						});
 					});
 				}
 			});
 		});
-	};
+	}
 }
-
-
 
 /* ===== Input Functions ===== */
 
 /* Dark Mode Time Calculate */
 export function darkModeTimeCalc(i) {
 	// get start and end times
-	BROWSER_API.storage.sync.get(['darkModeTimeStart','darkModeTimeEnd'], function(result) {
+	BROWSER_API.storage.sync.get(['darkModeTimeStart', 'darkModeTimeEnd'], function (result) {
 		if (result.darkModeTimeStart == undefined) {
-			var startTime = "19:00"
+			var startTime = '19:00';
 		} else {
-			var startTime = result.darkModeTimeStart
+			var startTime = result.darkModeTimeStart;
 		}
 		if (result.darkModeTimeEnd == undefined) {
-			var endTime = "07:00"
+			var endTime = '07:00';
 		} else {
-			var endTime = result.darkModeTimeEnd
+			var endTime = result.darkModeTimeEnd;
 		}
 		// get current time in hours
 		var date = new Date();
@@ -162,12 +158,12 @@ export function darkModeTimeCalc(i) {
 		var minutes = date.getMinutes();
 		var currentTime = hours + minutes / 60;
 		// convert start time to hours
-		var startHours = parseInt(startTime.split(":")[0]);
-		var startMinutes = parseInt(startTime.split(":")[1]);
+		var startHours = parseInt(startTime.split(':')[0]);
+		var startMinutes = parseInt(startTime.split(':')[1]);
 		var startTimeInHours = startHours + startMinutes / 60;
 		// convert end time to hours
-		var endHours = parseInt(endTime.split(":")[0]);
-		var endMinutes = parseInt(endTime.split(":")[1]);
+		var endHours = parseInt(endTime.split(':')[0]);
+		var endMinutes = parseInt(endTime.split(':')[1]);
 		var endTimeInHours = endHours + endMinutes / 60;
 		// compare
 		if (startTimeInHours > endTimeInHours) {
@@ -175,28 +171,28 @@ export function darkModeTimeCalc(i) {
 		} else {
 			var value = currentTime >= startTimeInHours && currentTime < endTimeInHours;
 		}
-		// set ui if triggered from popup		
+		// set ui if triggered from popup
 		if (i === 1) {
 			if (value == true) {
-				document.querySelector("#checkbox-dark-mode").checked = true
-				document.querySelector("body").classList.remove("light-mode");
-				var colour = "var(--accent)"
+				document.querySelector('#checkbox-dark-mode').checked = true;
+				document.querySelector('body').classList.remove('light-mode');
+				var colour = 'var(--accent)';
 			} else {
-				document.querySelector("#checkbox-dark-mode").checked = false
-				document.querySelector("body").classList.add("light-mode");
-				var colour = ""
+				document.querySelector('#checkbox-dark-mode').checked = false;
+				document.querySelector('body').classList.add('light-mode');
+				var colour = '';
 			}
-			var icons = document.querySelectorAll(".icon-dark-mode")
+			var icons = document.querySelectorAll('.icon-dark-mode');
 			icons.forEach(function (icon) {
-				icon.style.color = colour
+				icon.style.color = colour;
 			});
 		}
 		// apply setting
-		BROWSER_API.tabs.query({currentWindow: true}, function (tabs){
-			tabs.forEach(function(tab){
-				if ((tab.url.match('https:\/\/.*.reddit.com\/.*'))&&(tab.discarded == false)) {
-					BROWSER_API.tabs.sendMessage(tab.id, {darkMode: value});
-				};
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { darkMode: value });
+				}
 			});
 		});
 	});

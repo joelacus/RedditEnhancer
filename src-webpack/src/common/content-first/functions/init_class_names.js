@@ -26,8 +26,10 @@ import { loadHideHeaderSubBar } from './load_hide_header_sub_bar';
 import { loadHideSideMenuOld } from './load_hide_side_menu_old';
 import { scrollToNextRootComment } from '../../content/functions/productivity/scroll_to_next_root_comment';
 import { loadOverrideDropShadow } from './load_override_drop_shadow';
+import { showPostNumbers } from '../../content/functions/productivity/show_post_numbers';
+import { breakReminder } from '../../content/functions/productivity/break_reminder';
 
-// Add class names to elements
+// Add class names to elements and run tweaks
 export function initClassNames() {
 	var link = window.location.href;
 	if (link.indexOf('old.reddit.com') <= 0) {
@@ -103,7 +105,7 @@ function waitForAddedNode(params) {
 		childList: true,
 	});
 
-	timer = setTimeout(function () {
+	timer = setTimeout(() => {
 		observer.disconnect(); // timeout
 	}, 5000);
 }
@@ -120,11 +122,11 @@ function observerFeedConainter() {
 			if (el.childElementCount === 4) {
 				el.lastChild.classList.add('re-feed');
 			} else {
-				setTimeout(function () {
+				setTimeout(() => {
 					if (el.childElementCount === 4) {
 						el.lastChild.classList.add('re-feed');
 					} else {
-						setTimeout(function () {
+						setTimeout(() => {
 							if (el.childElementCount === 4) {
 								el.lastChild.classList.add('re-feed');
 							}
@@ -223,8 +225,52 @@ function observerFeedContainerAndFeed() {
 			loadHideGap();
 			loadDropShadow();
 			loadOverrideDropShadow();
+			BROWSER_API.storage.sync.get(['breakReminder'], function (result) {
+				if (result.breakReminder === true) {
+					breakReminder(true);
+				}
+			});
 		},
 	});
+	var link = window.location.href;
+	if (link.indexOf('reddit.com/r/') <= 0) {
+		// Show Post Numbers - Home
+		waitForAddedNode({
+			query: '.ListingLayout-outerContainer > div [data-click-id="subreddit"]',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function (el) {
+				BROWSER_API.storage.sync.get(['showPostNumbers'], function (result) {
+					if (result.showPostNumbers === true) {
+						showPostNumbers(true);
+					}
+				});
+			},
+		});
+	} else {
+		// Show Post Numbers - Sub
+		function showPostNumbersOnSub() {
+			waitForAddedNode({
+				query: '.ListingLayout-outerContainer > div [data-adclicklocation="top_bar"] [data-click-id="user"]',
+				parent: document.querySelector('body'),
+				recursive: true,
+				done: function (el) {
+					if (el.textContent !== '') {
+						BROWSER_API.storage.sync.get(['showPostNumbers'], function (result) {
+							if (result.showPostNumbers === true) {
+								showPostNumbers(true);
+							}
+						});
+					} else {
+						setTimeout(() => {
+							showPostNumbersOnSub();
+						}, 1000);
+					}
+				},
+			});
+		}
+		showPostNumbersOnSub();
+	}
 }
 
 // Sidebar
@@ -282,6 +328,7 @@ function observerCreatePost() {
 
 // Sort
 function observerSort() {
+	// sort bar
 	waitForAddedNode({
 		query: '#view--layout--FUE',
 		parent: document.querySelector('body'),
@@ -289,6 +336,30 @@ function observerSort() {
 		done: function (el) {
 			el.parentNode.classList.add('re-sort');
 			loadStickySort();
+		},
+	});
+
+	// classic post view
+	waitForAddedNode({
+		query: '.re-sort .icon-view_classic',
+		parent: document.querySelector('body'),
+		recursive: false,
+		done: function (el) {
+			if (el) {
+				waitForAddedNode({
+					query: '.re-feed-container',
+					parent: document.querySelector('body'),
+					recursive: true,
+					done: function (el) {
+						document.querySelector('.re-feed-container').classList.add('view-classic');
+					},
+				});
+			}
+			BROWSER_API.storage.sync.get(['largerClassicPost'], function (result) {
+				if (result.largerClassicPost === true) {
+					document.body.classList.add('re-larger-classic-post');
+				}
+			});
 		},
 	});
 }
@@ -423,7 +494,7 @@ function observerHeaderButtons() {
 			done: function (el) {
 				el.parentNode.parentNode.classList.add('re-advertise-button');
 				loadHideAdvertiseButton();
-				setTimeout(function () {
+				setTimeout(() => {
 					if (!el.parentNode.parentNode.classList.contains('re-advertise-button')) {
 						el.parentNode.parentNode.classList.add('re-advertise-button');
 						loadHideAdvertiseButton();
@@ -520,11 +591,11 @@ function observerFeedConainterPopular() {
 			if (el.childElementCount === 4) {
 				el.lastChild.classList.add('re-feed');
 			} else {
-				setTimeout(function () {
+				setTimeout(() => {
 					if (el.childElementCount === 4) {
 						el.lastChild.classList.add('re-feed');
 					} else {
-						setTimeout(function () {
+						setTimeout(() => {
 							if (el.childElementCount === 4) {
 								el.lastChild.classList.add('re-feed');
 							}
@@ -587,6 +658,11 @@ function observerBody() {
 					el.classList.add('re-modernise');
 				}
 			});
+			/*BROWSER_API.storage.sync.get(['largerClassicPost'], function (result) {
+				if (result.largerClassicPost === true) {
+					document.body.classList.add('re-larger-classic-post');
+				}
+			});*/
 		},
 	});
 }

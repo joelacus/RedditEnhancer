@@ -33,7 +33,7 @@ let limitInfinityScroll = function (value) {
 				}
 
 				// scroll to the top
-				setTimeout(function () {
+				setTimeout(() => {
 					window.scrollTo({ top: 0, behavior: 'smooth' });
 				}, 500);
 			}
@@ -41,15 +41,46 @@ let limitInfinityScroll = function (value) {
 			// create load more button
 			const loadMoreButton = document.createElement('button');
 			loadMoreButton.classList.add('re-load-more');
-			loadMoreButton.textContent = 'Load More';
-			loadMoreButton.addEventListener('click', loadMore);
 
-			// append button to end of feed
-			const feed = document.querySelector('.re-feed').firstChild;
-			feed.appendChild(loadMoreButton);
+			// get language and set text
+			BROWSER_API.storage.sync.get(['language'], function (result) {
+				if (typeof result.language == 'undefined') {
+					var lang = 'en';
+				} else {
+					var lang = result.language;
+				}
+				if (lang === 'en' || lang === 'en-GB' || lang === 'en-US') {
+					var loadMoreText = 'Load More';
+				} else if (lang === 'de') {
+					var loadMoreText = 'Mehr laden';
+				} else if (lang === 'es') {
+					var loadMoreText = 'Carga más';
+				} else if (lang === 'fr') {
+					var loadMoreText = 'Charger plus';
+				} else if (lang === 'it') {
+					var loadMoreText = 'Carica altro';
+				} else if (lang === 'nl') {
+					var loadMoreText = 'Meer laden';
+				} else if (lang === 'pl') {
+					var loadMoreText = 'Załaduj więcej';
+				} else if (lang === 'pt') {
+					var loadMoreText = 'Carregue mais';
+				} else if (lang === 'uk') {
+					var loadMoreText = 'Завантажити ще';
+				} else {
+					var loadMoreText = 'Load More';
+				}
 
-			// hide pseudo loading post
-			loadMoreButton.previousSibling.classList.add('re-hide');
+				loadMoreButton.textContent = loadMoreText;
+				loadMoreButton.addEventListener('click', loadMore);
+
+				// append button to end of feed
+				const feed = document.querySelector('.re-feed').firstChild;
+				feed.appendChild(loadMoreButton);
+
+				// hide pseudo loading post
+				loadMoreButton.previousSibling.classList.add('re-hide');
+			});
 		} else if (value == false || value == undefined) {
 			// stop observer
 			postObserver(false);
@@ -73,7 +104,7 @@ const observer = new MutationObserver(function (mutations_list) {
 	mutations_list.forEach(function (mutation) {
 		mutation.addedNodes.forEach(function (node) {
 			if (node.tagName === 'DIV') {
-				if (node.querySelector('.Post')) {
+				if (node.querySelector('.Post:not(.promotedlink)')) {
 					// check if it isn't an ad
 					node.classList.add('re-post', 'hide');
 				}
@@ -82,7 +113,7 @@ const observer = new MutationObserver(function (mutations_list) {
 	});
 
 	// remove new posts if max threshold is reached
-	const feedContainer = document.querySelector('.re-feed-container');
+	/*const feedContainer = document.querySelector('.re-feed-container');
 	const maxItems = 50;
 	mutations_list.forEach((mutation) => {
 		if (mutation.addedNodes.length) {
@@ -92,28 +123,23 @@ const observer = new MutationObserver(function (mutations_list) {
 					node.remove();
 				});
 			}
-			// reddit for some reason adds empty divs to the body and could cause the page to lag.
-			// get all top level divs in body
-			const divs = document.body.querySelectorAll(':scope > div');
-			divs.forEach(function (div) {
-				// remove if div is empty
-				if (div.innerHTML === '') {
-					div.remove();
-				}
-			});
+			const hiddenPosts = document.querySelectorAll('.re-post');
+			for (let i = 0; i < 25 && i < hiddenPosts.length; i++) {
+				hiddenPosts[i].classList.remove('hide');
+			}
 		}
-	});
+	});*/
 });
 
 // Toggle Observer
-export function postObserver(i) {
+function postObserver(i) {
 	if (i === true) {
 		// get existing posts
 		document
 			.querySelector('.re-feed-container')
 			.querySelectorAll(':scope > div')
 			.forEach((div) => {
-				if (div.querySelector('.Post')) {
+				if (div.querySelector('.Post:not(.promotedlink)')) {
 					div.classList.add('re-post', 'hide');
 				}
 			});

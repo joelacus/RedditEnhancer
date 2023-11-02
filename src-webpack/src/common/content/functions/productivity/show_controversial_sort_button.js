@@ -77,7 +77,7 @@ let showControversialSortButton = function (value) {
 			}
 		}
 	}
-	setTimeout(function () {
+	setTimeout(() => {
 		showControversialSortButton(value);
 	}, 3000);
 };

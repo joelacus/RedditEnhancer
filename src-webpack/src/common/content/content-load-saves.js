@@ -20,7 +20,7 @@ import { limitInfinityScroll } from './functions/productivity/limit_infinity_scr
 import { showControversialSortButton } from './functions/productivity/show_controversial_sort_button';
 import { hideNSFW } from './functions/hide_elements/hide_nsfw';
 import { scrollToNextRootComment } from './functions/productivity/scroll_to_next_root_comment';
-import { showPostNumbers } from './functions/productivity/show_post_numbers';
+import { scrollToNextRootCommentPosition } from './functions/productivity/scroll_to_next_root_comment';
 import { autoExpandValue } from './functions/expand_feed_post/auto_expand_value';
 import { nonStickyHeaderBar } from './functions/productivity/non_sticky_header_bar';
 import { hideOriginalScrollToTop } from './functions/hide_elements/hide_original_scroll_to_top';
@@ -102,9 +102,9 @@ export function load_saves() {
 	BROWSER_API.storage.sync.get(['scrollToNextRootComment'], function (result) {
 		scrollToNextRootComment(result.scrollToNextRootComment);
 	});
-	// Show Post Numbers
-	BROWSER_API.storage.sync.get(['showPostNumbers'], function (result) {
-		showPostNumbers(result.showPostNumbers);
+	// Scroll To Next Root Comment Position
+	BROWSER_API.storage.sync.get(['scrollToNextRootCommentPosition'], function (result) {
+		scrollToNextRootCommentPosition(result.scrollToNextRootCommentPosition);
 	});
 	// Feed Auto Expand
 	BROWSER_API.storage.sync.get(['autoExpandValue'], function (result) {
@@ -134,17 +134,17 @@ export function load_saves() {
 	/*BROWSER_API.storage.sync.get(['headerHeight'], function(result) {
 		headerHeight(result.headerHeight);
 	});*/
+
+	// Run again
+	setTimeout(() => {
+		// Show To Top Button
+		BROWSER_API.storage.sync.get(['showToTopButton'], function (result) {
+			showToTopButton(result.showToTopButton);
+		});
+		// Add r/All Button To Side Menu
+		BROWSER_API.storage.sync.get(['showAllButton'], function (result) {
+			showAllButton(result.showAllButton);
+		});
+	}, 5000);
 }
 load_saves();
-
-// Run again
-setTimeout(function () {
-	// Show To Top Button
-	BROWSER_API.storage.sync.get(['showToTopButton'], function (result) {
-		showToTopButton(result.showToTopButton);
-	});
-	// Add r/All Button To Side Menu
-	BROWSER_API.storage.sync.get(['showAllButton'], function (result) {
-		showAllButton(result.showAllButton);
-	});
-}, 5000);

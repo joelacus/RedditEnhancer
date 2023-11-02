@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "0.19.0"
+		"message": "0.20.1"
 	},
 
 	"extensionName": {
@@ -304,15 +304,7 @@
 	},
 
 	"textLimitInfinityScrollInfo": {
-		"message": "Experimental. This won't necessarily reduce bandwidth usage, but should instead help prevent the page from becoming slow by stopping reddit from adding new posts until you click 'Load More' at the bottom of the feed. When you click 'Load More' it will clear the first 25 posts, and show the next 25."
-	},
-
-	"textOpenPostInNewTab": {
-		"message": "Open Posts in New Tab"
-	},
-
-	"textControversialSort": {
-		"message": "Show the 'Controversial' Sort Button"
+		"message": "Beta. This won't necessarily reduce bandwidth usage, but should instead help prevent the page from becoming slow by stopping reddit from adding new posts until you click 'Load More' at the bottom of the feed. When you click 'Load More' it will clear the first 25 posts, and show the next 25."
 	},
 
 	"textDefaultFeedSortOption": {
@@ -353,6 +345,14 @@
 
 	"textQa": {
 		"message": "Q&a"
+	},
+
+	"textOpenPostInNewTab": {
+		"message": "Open Posts in New Tab"
+	},
+
+	"textControversialSort": {
+		"message": "Show the 'Controversial' Sort Button"
 	},
 
 	"textTextScrollInfo": {
@@ -561,5 +561,29 @@
 
 	"textCreatePostBorderColour": {
 		"message": "Create Post Border Colour"
+	},
+
+	"textLargerClassicPost": {
+		"message": "Larger Classic Post View"
+	},
+
+	"textLargerClassicPostInfo": {
+		"message": "Disable this option if you are not using 'Classic Post View'."
+	},
+
+	"textPosition": {
+		"message": "Position"
+	},
+
+	"textBreakReminder": {
+		"message": "Break Reminder"
+	},
+
+	"textBreakReminderInfo": {
+		"message": "Beta. Shows a reminder to have a break every set number of posts."
+	},
+
+	"textBreakReminderFrequency": {
+		"message": "Reminder Frequency"
 	}
 }

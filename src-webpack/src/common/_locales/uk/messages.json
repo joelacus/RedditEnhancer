@@ -291,6 +291,58 @@
 		"message": "Обмеження нескінченності прокручування"
 	},
 
+	"textVideoPlayerInfo": {
+		"message": "Швидкий, легкий відеоплеєр із керуванням швидкістю на основі videojs. Спробуйте це, якщо у вас виникли проблеми із завантаженням власного програвача reddit."
+	},
+
+	"textLimitCommentsInfo": {
+		"message": "Працює лише для публікацій, відкритих у новій вкладці/вікні."
+	},
+
+	"textLimitInfinityScrollInfo": {
+		"message": "Beta. Це не обов’язково зменшить використання пропускної здатності, але натомість має допомогти запобігти повільній роботі сторінки, не дозволяючи Reddit додавати нові публікації, доки ви не натиснете «Завантажити ще» внизу каналу. Коли ви натискаєте «Завантажити ще», перші 25 дописів очищаються, а наступні 25 відображаються."
+	},
+
+	"textDefaultFeedSortOption": {
+		"message": "Параметр сортування каналу за замовчуванням"
+	},
+
+	"textDefaultCommentsSortOption": {
+		"message": "Параметр сортування коментарів за замовчуванням"
+	},
+
+	"textBest": {
+		"message": "Best"
+	},
+
+	"textHot": {
+		"message": "Hot"
+	},
+
+	"textNew": {
+		"message": "New"
+	},
+
+	"textTop": {
+		"message": "Top"
+	},
+
+	"textControversial": {
+		"message": "Controversial"
+	},
+
+	"textRising": {
+		"message": "Rising"
+	},
+
+	"textOld": {
+		"message": "Old"
+	},
+
+	"textQa": {
+		"message": "Q&a"
+	},
+
 	"textOpenPostInNewTab": {
 		"message": "Відкрийте посилання на публікації в новій вкладці"
 	},
@@ -505,5 +557,29 @@
 
 	"textCreatePostBorderColour": {
 		"message": "Колір рамки для створення поста"
+	},
+
+	"textLargerClassicPost": {
+		"message": "Збільшений класичний перегляд публікації"
+	},
+
+	"textLargerClassicPostInfo": {
+		"message": "Вимкніть це, якщо ви не використовуєте «Класичний перегляд публікацій»."
+	},
+
+	"textPosition": {
+		"message": "Позиція"
+	},
+
+	"textBreakReminder": {
+		"message": "Нагадування про перерву"
+	},
+
+	"textBreakReminderInfo": {
+		"message": "Beta. Показує нагадування про перерву через кожну встановлену кількість публікацій."
+	},
+
+	"textBreakReminderFrequency": {
+		"message": "Частота нагадувань"
 	}
 }

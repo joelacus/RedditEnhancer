@@ -18,6 +18,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist/chrome'),
 		filename: '[name].js',
+		clean: true,
 	},
 	module: {
 		rules: [
@@ -67,8 +68,13 @@ module.exports = {
 					to: 'manifest.json',
 				},
 				{
-					context: 'node_modules/video.js/dist/',
-					from: 'video.min.js',
+					context: path.resolve(__dirname, 'src/common/videojs'),
+					from: 'video.js',
+					to: 'videojs/video.min.js',
+				},
+				{
+					context: path.resolve(__dirname, 'src/common/videojs'),
+					from: 'vtt.js',
 					to: 'videojs',
 				},
 				{

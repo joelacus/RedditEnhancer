@@ -129,3 +129,21 @@ let scrollToNextRootComment = function (value) {
 	}
 };
 export { scrollToNextRootComment };
+
+// Scroll To Next Root Comment Position
+let scrollToNextRootCommentPosition = function (value) {
+	var link = window.location.href;
+	if (link.indexOf('old.reddit.com') >= 0) {
+		// old reddit
+		// do nothing
+	} else {
+		// new reddit
+		if (value === '-1') {
+			document.documentElement.style.setProperty('--re-scroll-to-root-comment-position', '48px');
+		} else {
+			document.documentElement.style.setProperty('--re-scroll-to-root-comment-position', value + '%');
+		}
+	}
+};
+
+export { scrollToNextRootCommentPosition };

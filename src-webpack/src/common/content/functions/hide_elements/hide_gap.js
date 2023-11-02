@@ -37,6 +37,9 @@ let hideGap = function (value) {
 			if (document.querySelector('.re-sidebar')) {
 				document.querySelector('.re-sidebar').classList.add('re-hide-gap');
 			}
+			if (document.querySelector('.re-feed-container')) {
+				document.querySelector('.re-feed-container').classList.add('re-hide-gap');
+			}
 		} else if (value == false) {
 			if (document.querySelector('.re-feed')) {
 				document.querySelector('.re-feed').classList.remove('re-hide-gap');
@@ -67,6 +70,9 @@ let hideGap = function (value) {
 			}
 			if (document.querySelector('.re-sidebar')) {
 				document.querySelector('.re-sidebar').classList.remove('re-hide-gap');
+			}
+			if (document.querySelector('.re-feed-container')) {
+				document.querySelector('.re-feed-container').classList.remove('re-hide-gap');
 			}
 		}
 	}

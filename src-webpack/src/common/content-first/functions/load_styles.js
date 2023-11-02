@@ -2,11 +2,69 @@
 
 export function loadStyles() {
 	// Create new style element
-	const style = document.createElement('style');
-	style.textContent = styleHide + styleResize + styleHideGap + styleDropShadow + styleStickySort + styleImageOptions + styleLayoutCentre + styleOther + styleVideoPlayer + styleScrollText + styleOldReddit + styleModerniseOldReddit + stylePagination + styleLoadMore + styleScrollToComment + stylePostNumber + styleMaxPostHeight + styleBionicReader;
+	const styleElement = document.createElement('style');
+	styleElement.type = 'text/css';
+	styleElement.id = 're-styles';
+	styleElement.textContent = styleHide + styleResize + styleHideGap + styleDropShadow + styleStickySort + styleImageOptions + styleLayoutCentre + styleOther + styleVideoPlayer + styleScrollText + styleOldReddit + styleModerniseOldReddit + stylePagination + styleLoadMore + styleScrollToComment + stylePostNumber + styleMaxPostHeight + styleBionicReader + stylePostClassicHeight + styleBreakReminder;
 	// Append style element to the head
-	document.head.insertBefore(style, document.head.firstChild);
+	document.head.insertBefore(styleElement, document.head.firstChild);
 }
+
+const styleBreakReminder = `
+							.re-break-reminder {
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								height: 300px;
+								font-size: 24px;
+							}`;
+
+const stylePostClassicHeight = `
+							.re-larger-classic-post #siteTable .thing .thumbnail {
+								display: flex;
+								justify-content: center;
+								height: 120px;
+								width: 170px;
+								border-radius: 4px;
+								margin-right: 10px;
+							}
+							.re-larger-classic-post #siteTable .thing .thumbnail.self,
+							.re-larger-classic-post #siteTable .thing .thumbnail.default,
+							.re-larger-classic-post #siteTable .thing .thumbnail.image,
+							.re-larger-classic-post #siteTable .thing .thumbnail.nsfw,
+							.re-larger-classic-post #siteTable .thing .thumbnail.spoiler {
+								height: 50px;
+								width: 70px;
+							}
+							.re-larger-classic-post #siteTable .thing .thumbnail img {
+								height: 100%;
+								width: auto;
+							}
+							
+							.re-larger-classic-post .re-feed-container.view-classic {
+								display: flex;
+								flex-direction: column;
+								grid-gap: 8px;
+							}
+							.re-larger-classic-post .re-feed-container.view-classic .Post {
+								border-radius: 4px;
+							}
+							.re-larger-classic-post .re-feed-container.view-classic > div [data-click-id="image"] {
+								width: 170px;
+								height: 120px;
+							}
+							.re-larger-classic-post .re-feed-container.view-classic [data-click-id="background"] > div:first-child > div:first-child {
+								height: 130px;
+							}
+							.re-larger-classic-post .re-feed-container.view-classic [data-click-id="background"] > div > div:first-child > div:first-child {
+								height: 120px;
+							}
+							.re-larger-classic-post .re-feed-container.view-classic [data-click-id="background"] > div > [data-click-id="body"] > div:last-child {
+								bottom: 10px;
+							}
+							.re-larger-classic-post .re-feed-container.view-classic [data-click-id="body"] h3 {
+								font-size: 18px;
+							}`;
 
 const styleBionicReader = `.re-bold {
 								font-weight: bold;
@@ -48,6 +106,7 @@ const styleScrollToComment = `.re-scroll-to-comment-container {
 								position: fixed;
 								top: calc(50% - 32px);
 								left: 48px;
+								left: var(--re-scroll-to-root-comment-position);
 								display: flex;
 								flex-direction: column;
 								grid-gap: 8px;
@@ -68,6 +127,10 @@ const styleLoadMore = `.re-load-more {
 							width: 100%;
 							height: 30px;
 							text-align: center;
+							margin-top: 30px;
+						}
+						.re-load-more:hover {
+							text-decoration: underline;
 						}`;
 
 const stylePagination = `.re-post.hide {
@@ -145,7 +208,6 @@ const styleModerniseOldReddit = `body.re-modernise {
 								.re-modernise #header {
 									background-color: #1a1a1b !important;
 									border-bottom: solid 1px #343536 !important;
-									height: 48px !important;
 								}
 								.re-modernise #header-img {
 									margin-left: 20px;
@@ -481,6 +543,9 @@ const styleDropShadow = `
 						}
 						.re-feed-container {
 							box-shadow: none !important;
+						}
+						.re-sidebar .re-drop-shadow-children > div:last-child {
+							box-shadow: none;
 						}`;
 
 const styleHide = `.re-hide {
@@ -571,6 +636,12 @@ const styleHideGap = `.re-feed.re-hide-gap {
 					}
 					.re-post-container.re-hide-gap {
 						max-width: 100% !important;
+					}
+					.re-feed-container.re-hide-gap {
+						grid-gap: 0 !important;
+					}
+					.re-feed-container.re-hide-gap > div{
+						border-radius: 0 !important;
 					}`;
 
 const styleLayoutCentre = `.re-feed.re-centre-feed-1 {

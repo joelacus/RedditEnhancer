@@ -7,23 +7,23 @@ let loadHideUsernameAndKarma = function () {
 			if (result.hideUsername == true) {
 				// Create new style element
 				const style = document.createElement('style');
-				style.textContent =
-					'#header-bottom-right .user a {\
-										display: none !important;\
-									}';
+				style.id = 're-hide-username';
+				style.textContent = `#header-bottom-right .user a {
+						display: none !important;
+					}`;
 				// Append style element to the head
 				document.head.insertBefore(style, document.head.firstChild);
 			}
 			if (result.hideKarma == true) {
 				// Create new style element
 				const style = document.createElement('style');
-				style.textContent =
-					'#header-bottom-right .user span {\
-										display: none !important;\
-									}\
-									#header-bottom-right .user {\
-										color: transparent;\
-									}';
+				style.id = 're-hide-karma';
+				style.textContent = `#header-bottom-right .user span {
+						display: none !important;
+					}
+					#header-bottom-right .user {
+						color: transparent;
+					}`;
 				// Append style element to the head
 				document.head.insertBefore(style, document.head.firstChild);
 			}
@@ -32,20 +32,20 @@ let loadHideUsernameAndKarma = function () {
 			if (result.hideUsername == true) {
 				// Create new style element
 				const style = document.createElement('style');
-				style.textContent =
-					'#email-collection-tooltip-id span span:first-child {\
-										display: none !important;\
-									}';
+				style.id = 're-hide-username';
+				style.textContent = `#email-collection-tooltip-id span span:first-child {
+						display: none !important;
+					}`;
 				// Append style element to the head
 				document.head.insertBefore(style, document.head.firstChild);
 			}
 			if (result.hideKarma == true) {
 				// Create new style element
 				const style = document.createElement('style');
-				style.textContent =
-					'#email-collection-tooltip-id span span:last-child {\
-										display: none !important;\
-									}';
+				style.id = 're-hide-karma';
+				style.textContent = `#email-collection-tooltip-id span span:last-child {
+						display: none !important;
+					}`;
 				// Append style element to the head
 				document.head.insertBefore(style, document.head.firstChild);
 			}

@@ -41,6 +41,9 @@ let loadHideGap = function () {
 				if (document.querySelector('.re-post-container')) {
 					document.querySelector('.re-post-container').classList.add('re-hide-gap');
 				}
+				if (document.querySelector('.re-feed-container')) {
+					document.querySelector('.re-feed-container').classList.add('re-hide-gap');
+				}
 			}
 		}
 	});

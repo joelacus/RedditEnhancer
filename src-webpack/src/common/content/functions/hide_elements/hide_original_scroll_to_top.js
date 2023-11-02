@@ -11,7 +11,9 @@ let hideOriginalScrollToTop = function (value) {
 			styleElement.type = 'text/css';
 			styleElement.id = 're-hide-original-scroll-to-top';
 			document.head.appendChild(styleElement);
-			const dynamicStyle = `.re-sidebar [style="top:calc(100vh - 8px)"] {
+			const dynamicStyle = `.re-sidebar [style="top:calc(100vh - 8px)"], 
+								  .re-sidebar [style="top: calc(-8px + 100vh);"],
+								  .re-sidebar-post [style="top: calc(-56px + 100vh);"] {
 									display: none;
 								}`;
 			styleElement.innerHTML = dynamicStyle;

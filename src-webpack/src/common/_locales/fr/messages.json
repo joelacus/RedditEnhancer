@@ -291,6 +291,58 @@
 		"message": "Limiter le défilement infini"
 	},
 
+	"textVideoPlayerInfo": {
+		"message": "Lecteur vidéo rapide et léger avec des commandes de vitesse basées sur videojs. Essayez ceci si vous rencontrez des problèmes de chargement avec le propre lecteur de Reddit."
+	},
+
+	"textLimitCommentsInfo": {
+		"message": "Fonctionne uniquement pour les publications ouvertes dans un nouvel onglet/fenêtre."
+	},
+
+	"textLimitInfinityScrollInfo": {
+		"message": "Beta. Cela ne réduira pas nécessairement l'utilisation de la bande passante, mais devrait plutôt empêcher la page de devenir lente en empêchant Reddit d'ajouter de nouvelles publications jusqu'à ce que vous cliquiez sur « Charger plus » au bas du flux. Lorsque vous cliquez sur « Charger plus », les 25 premiers messages seront effacés et les 25 suivants seront affichés."
+	},
+
+	"textDefaultFeedSortOption": {
+		"message": "Option de tri des flux par défaut"
+	},
+
+	"textDefaultCommentsSortOption": {
+		"message": "Option de tri des commentaires par défaut"
+	},
+
+	"textBest": {
+		"message": "Meilleurs"
+	},
+
+	"textHot": {
+		"message": "Populaires"
+	},
+
+	"textNew": {
+		"message": "Nouvelles"
+	},
+
+	"textTop": {
+		"message": "Au top"
+	},
+
+	"textControversial": {
+		"message": "Controversés"
+	},
+
+	"textRising": {
+		"message": "En hausse"
+	},
+
+	"textOld": {
+		"message": "Old"
+	},
+
+	"textQa": {
+		"message": "Q&a"
+	},
+
 	"textOpenPostInNewTab": {
 		"message": "Ouvrir les liens vers les publications dans un nouvel onglet"
 	},
@@ -505,5 +557,29 @@
 
 	"textCreatePostBorderColour": {
 		"message": "Couleur de la bordure « Créer un message »"
+	},
+
+	"textLargerClassicPost": {
+		"message": "Vue de publication classique plus grande"
+	},
+
+	"textLargerClassicPostInfo": {
+		"message": "Désactivez cette option si vous n'utilisez pas «Vue classique des publications»."
+	},
+
+	"textPosition": {
+		"message": "Position"
+	},
+
+	"textBreakReminder": {
+		"message": "Rappel de pause"
+	},
+
+	"textBreakReminderInfo": {
+		"message": "Beta. Affiche un rappel pour faire une pause à chaque nombre défini de publications."
+	},
+
+	"textBreakReminderFrequency": {
+		"message": "Fréquence de rappel"
 	}
 }

@@ -44,7 +44,12 @@ let showToTopButton = function (value) {
 				}
 				// Scroll To Top button listener
 				document.querySelector('.re-to-top-button').addEventListener('click', function (e) {
-					window.scrollTo({ top: 0, behavior: 'smooth' });
+					const postOverlay = document.querySelector('#overlayScrollContainer');
+					if (postOverlay) {
+						postOverlay.scrollTo({ top: 0, behavior: 'smooth' });
+					} else {
+						window.scrollTo({ top: 0, behavior: 'smooth' });
+					}
 				});
 			}
 		} else if (value == false) {

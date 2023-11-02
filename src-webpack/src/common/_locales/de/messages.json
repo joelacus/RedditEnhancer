@@ -291,6 +291,58 @@
 		"message": "Begrenzen Sie das unendliche Scrollen"
 	},
 
+	"textVideoPlayerInfo": {
+		"message": "Schneller, leichter Videoplayer mit Geschwindigkeitssteuerung basierend auf videojs. Versuchen Sie dies, wenn Sie Ladeprobleme mit dem eigenen Player von reddit haben."
+	},
+
+	"textLimitCommentsInfo": {
+		"message": "Funktioniert nur für Beiträge, die in einem neuen Tab/Fenster geöffnet werden."
+	},
+
+	"textLimitInfinityScrollInfo": {
+		"message": "Beta. Dadurch wird die Bandbreitennutzung nicht zwangsläufig reduziert, sondern es soll vielmehr dazu beitragen, eine Verlangsamung der Seite zu verhindern, indem reddit daran gehindert wird, neue Beiträge hinzuzufügen, bis Sie unten im Feed auf „Mehr laden“ klicken. Wenn Sie auf „Mehr laden“ klicken, werden die ersten 25 Beiträge gelöscht und die nächsten 25 angezeigt."
+	},
+
+	"textDefaultFeedSortOption": {
+		"message": "Standardoption für die Feed-Sortierung"
+	},
+
+	"textDefaultCommentsSortOption": {
+		"message": "Standardoption zum Sortieren von Kommentaren"
+	},
+
+	"textBest": {
+		"message": "Beste"
+	},
+
+	"textHot": {
+		"message": "Heiß"
+	},
+
+	"textNew": {
+		"message": "Neu"
+	},
+
+	"textTop": {
+		"message": "Top"
+	},
+
+	"textControversial": {
+		"message": "Kontrovers"
+	},
+
+	"textRising": {
+		"message": "Aufsteigend"
+	},
+
+	"textOld": {
+		"message": "Old"
+	},
+
+	"textQa": {
+		"message": "Q&a"
+	},
+
 	"textOpenPostInNewTab": {
 		"message": "Öffnen Sie Links zu Beiträgen in einem neuen Tab"
 	},
@@ -505,5 +557,29 @@
 
 	"textCreatePostBorderColour": {
 		"message": "Rahmenfarbe „Beitrag erstellen“."
+	},
+
+	"textLargerClassicPost": {
+		"message": "Größere klassische Beitragsansicht"
+	},
+
+	"textLargerClassicPostInfo": {
+		"message": "Deaktivieren Sie diese Option, wenn Sie nicht die „klassische Beitragsansicht“ verwenden."
+	},
+
+	"textPosition": {
+		"message": "Position"
+	},
+
+	"textBreakReminder": {
+		"message": "Pausenerinnerung"
+	},
+
+	"textBreakReminderInfo": {
+		"message": "Beta. Zeigt eine Erinnerung an, nach jeder festgelegten Anzahl von Beiträgen eine Pause einzulegen."
+	},
+
+	"textBreakReminderFrequency": {
+		"message": "Erinnerungsintervall"
 	}
 }

@@ -291,6 +291,58 @@
 		"message": "Limita scorrimento infinito"
 	},
 
+	"textVideoPlayerInfo": {
+		"message": "Lettore video veloce e leggero con controlli di velocità basati su videojs. Provalo se riscontri problemi di caricamento con il lettore di Reddit."
+	},
+
+	"textLimitCommentsInfo": {
+		"message": "Funziona solo per i post aperti in una nuova scheda/finestra."
+	},
+
+	"textLimitInfinityScrollInfo": {
+		"message": "Beta. Ciò non ridurrà necessariamente l'utilizzo della larghezza di banda, ma dovrebbe invece aiutare a evitare che la pagina diventi lenta impedendo a Reddit di aggiungere nuovi post finché non fai clic su “Carica altro” nella parte inferiore del feed. Quando fai clic su “Carica altro”, verranno cancellati i primi 25 post e verranno visualizzati i successivi 25."
+	},
+
+	"textDefaultFeedSortOption": {
+		"message": "Opzione di ordinamento feed predefinita"
+	},
+
+	"textDefaultCommentsSortOption": {
+		"message": "Opzione di ordinamento predefinita dei commenti"
+	},
+
+	"textBest": {
+		"message": "Migliori"
+	},
+
+	"textHot": {
+		"message": "Di tendenza"
+	},
+
+	"textNew": {
+		"message": "Novità"
+	},
+
+	"textTop": {
+		"message": "Più votati"
+	},
+
+	"textControversial": {
+		"message": "Controversi"
+	},
+
+	"textRising": {
+		"message": "In crescita"
+	},
+
+	"textOld": {
+		"message": "Old"
+	},
+
+	"textQa": {
+		"message": "Q&a"
+	},
+
 	"textOpenPostInNewTab": {
 		"message": "Apri i collegamenti ai post in una nuova scheda"
 	},
@@ -505,5 +557,29 @@
 
 	"textCreatePostBorderColour": {
 		"message": "Colore del bordo “Crea post”."
+	},
+
+	"textLargerClassicPost": {
+		"message": "Visualizzazione post classica più grande"
+	},
+
+	"textLargerClassicPostInfo": {
+		"message": "Disattiva questa opzione se non utilizzi la “Visualizzazione post classica”."
+	},
+
+	"textPosition": {
+		"message": "Posizione"
+	},
+
+	"textBreakReminder": {
+		"message": "Promemoria pausa"
+	},
+
+	"textBreakReminderInfo": {
+		"message": "Beta. Mostra un promemoria per fare una pausa ogni numero impostato di post."
+	},
+
+	"textBreakReminderFrequency": {
+		"message": "Frequenza promemoria"
 	}
 }

@@ -18,12 +18,28 @@ const observer = new MutationObserver((mutations) => {
 			if (overlay) {
 				observerPostOverlay();
 			} else {
-				setTimeout(function () {
+				setTimeout(() => {
+					// reload saves
 					loadStart();
-					setTimeout(function () {
+					setTimeout(() => {
 						load_saves();
-					}, 1000);
-				}, 100);
+						// remove duplicate style elements
+						const head = document.head;
+						const styleElements = head.querySelectorAll('style');
+						const uniqueStyles = {};
+						styleElements.forEach((styleElement) => {
+							const id = styleElement.id;
+							const styleContent = styleElement.textContent;
+							if (id && id.startsWith('re-')) {
+								if (!uniqueStyles[styleContent]) {
+									uniqueStyles[styleContent] = true;
+								} else {
+									head.removeChild(styleElement);
+								}
+							}
+						});
+					}, 100);
+				}, 10);
 			}
 		}
 	});

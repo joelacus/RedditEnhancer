@@ -69,6 +69,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide the Header Bar|Hide the header bar/panel at the top.|New|
 |Non Sticky Header Bar|Prevents the header bar from staying at the top of the screen as you scroll.|New|
 |Hide the Original Scroll to Top Button|Hides the scroll bar near the bottom of the screen.|New|
+|Break Reminders|Set how often you are reminded how many posts you have scrolled passed.|New|
+|Larger Classic Post View|Makes the classic post view style slightly larger and more readable.|New/Old|
 
 ## Build
 Clone repo and cd to build directory:

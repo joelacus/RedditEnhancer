@@ -424,6 +424,9 @@ document.querySelector('#checkbox-limit-infinity-scroll').addEventListener('chan
 		document.querySelector('.icon-limit-infinity-scroll').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.icon-limit-infinity-scroll').classList.remove('icon-infinity');
 		document.querySelector('.icon-limit-infinity-scroll').classList.add('icon-infinity-slash');
+		if (document.querySelector('#checkbox-break-reminder').checked === true) {
+			document.querySelector('#checkbox-break-reminder').click();
+		}
 		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
 			tabs.forEach(function (tab) {
 				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
@@ -640,7 +643,7 @@ document.querySelector('#checkbox-show-post-numbers').addEventListener('change',
 	}
 });
 
-// Slider - Feed Post Height
+// Slider - Feed Post Max Height
 document.querySelector('#input-feed-post-max-height').addEventListener('input', function (e) {
 	// set ui
 	var value = e.target.value;
@@ -694,4 +697,74 @@ document.querySelector('#checkbox-non-sticky-header-bar').addEventListener('chan
 			});
 		});
 	}
+});
+
+// Slider - Scroll To Root Comment Position
+document.querySelector('#input-scroll-to-root-comment-position').addEventListener('input', function (e) {
+	// set ui
+	var value = e.target.value;
+	if (value === '-1') {
+		document.querySelector('.icon-scroll-to-root-comment-position').style.backgroundColor = '';
+		document.querySelector('#scroll-to-root-comment-position-value').innerText = '48px';
+	} else {
+		document.querySelector('.icon-scroll-to-root-comment-position').style.backgroundColor = 'var(--accent)';
+		document.querySelector('#scroll-to-root-comment-position-value').innerText = e.target.value + '%';
+	}
+});
+document.querySelector('#input-scroll-to-root-comment-position').addEventListener('input', function (e) {
+	// apply
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.includes('reddit.com') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { scrollToNextRootCommentPosition: e.target.value });
+			}
+		});
+	});
+	// save
+	BROWSER_API.storage.sync.set({ scrollToNextRootCommentPosition: e.target.value });
+});
+
+// Toggle - Break Reminder
+document.querySelector('#checkbox-break-reminder').addEventListener('change', function (e) {
+	var breakReminder = document.querySelector('#checkbox-break-reminder').checked;
+	if (breakReminder == true) {
+		BROWSER_API.storage.sync.set({ breakReminder: true });
+		document.querySelector('.icon-break-reminder').style.backgroundColor = 'var(--accent)';
+		if (document.querySelector('#checkbox-limit-infinity-scroll').checked === true) {
+			document.querySelector('#checkbox-limit-infinity-scroll').click();
+		}
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { breakReminder: true });
+				}
+			});
+		});
+	} else if (breakReminder == false) {
+		BROWSER_API.storage.sync.set({ breakReminder: false });
+		document.querySelector('.icon-break-reminder').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { breakReminder: false });
+				}
+			});
+		});
+	}
+});
+
+// Slider - Break Reminder Frequency
+document.querySelector('#input-break-reminder-frequency').addEventListener('input', function (e) {
+	// set ui
+	document.querySelector('#break-reminder-frequency-value').innerText = e.target.value;
+	// apply
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.includes('reddit.com') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { breakReminderFrequency: e.target.value });
+			}
+		});
+	});
+	// save
+	BROWSER_API.storage.sync.set({ breakReminderFrequency: e.target.value });
 });

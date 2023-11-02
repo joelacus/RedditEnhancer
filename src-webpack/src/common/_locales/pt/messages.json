@@ -291,6 +291,58 @@
 		"message": "Limitar Rolagem Infinita"
 	},
 
+	"textVideoPlayerInfo": {
+		"message": "Reprodutor de vídeo rápido e leve com controles de velocidade baseados em videojs. Tente fazer isso se você tiver problemas de carregamento com o próprio player do Reddit."
+	},
+
+	"textLimitCommentsInfo": {
+		"message": "Funciona apenas para postagens abertas em uma nova aba/janela."
+	},
+
+	"textLimitInfinityScrollInfo": {
+		"message": "Beta. Isso não reduzirá necessariamente o uso da largura de banda, mas deverá ajudar a evitar que a página fique lenta, impedindo o reddit de adicionar novas postagens até você clicar em 'Carregue mais' na parte inferior do feed. Quando você clica em 'Carregue mais', as primeiras 25 postagens serão limpas e as próximas 25 serão exibidas."
+	},
+
+	"textDefaultFeedSortOption": {
+		"message": "Opção de classificação de feed padrão"
+	},
+
+	"textDefaultCommentsSortOption": {
+		"message": "Opção de classificação de comentários padrão"
+	},
+
+	"textBest": {
+		"message": "Melhor"
+	},
+
+	"textHot": {
+		"message": "Em destaque"
+	},
+
+	"textNew": {
+		"message": "Novo"
+	},
+
+	"textTop": {
+		"message": "Mais votados"
+	},
+
+	"textControversial": {
+		"message": "Controverso"
+	},
+
+	"textRising": {
+		"message": "Em ascensão"
+	},
+
+	"textOld": {
+		"message": "Old"
+	},
+
+	"textQa": {
+		"message": "Q&a"
+	},
+
 	"textOpenPostInNewTab": {
 		"message": "Abrir links para postagens em uma nova guia"
 	},
@@ -505,5 +557,29 @@
 
 	"textCreatePostBorderColour": {
 		"message": "Cor da Borda para Criar Postagem"
+	},
+
+	"textLargerClassicPost": {
+		"message": "Visualização de postagem clássica maior"
+	},
+
+	"textLargerClassicPostInfo": {
+		"message": "Desative isto se você não estiver usando o 'Classic Post View'."
+	},
+
+	"textPosition": {
+		"message": "Posição"
+	},
+
+	"textBreakReminder": {
+		"message": "Lembrete de pausa"
+	},
+
+	"textBreakReminderInfo": {
+		"message": "Beta. Mostra um lembrete para fazer uma pausa a cada número definido de postagens."
+	},
+
+	"textBreakReminderFrequency": {
+		"message": "Frequência de lembrete"
 	}
 }

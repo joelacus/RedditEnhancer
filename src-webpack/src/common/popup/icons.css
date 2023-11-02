@@ -320,3 +320,15 @@
 	mask: url('../icons/ui/icon-sticky-note-slash.svg');
 	-webkit-mask: url('../icons/ui/icon-sticky-note-slash.svg');
 }
+.icon-expand {
+	mask: url('../icons/ui/expand-solid.svg');
+	-webkit-mask: url('../icons/ui/expand-solid.svg');
+}
+.icon-right-arrow {
+	mask: url('../icons/ui/arrow-right-long-solid.svg');
+	-webkit-mask: url('../icons/ui/arrow-right-long-solid.svg');
+}
+.icon-pause {
+	mask: url('../icons/ui/pause-solid.svg');
+	-webkit-mask: url('../icons/ui/pause-solid.svg');
+}

@@ -8,7 +8,7 @@ let postMaxHeight = function (value) {
 		// new reddit
 		if (value == 296) {
 			document.documentElement.style.setProperty('--re-max-post-height', '512px');
-			setTimeout(function () {
+			setTimeout(() => {
 				document.documentElement.style.removeProperty('--re-max-post-height');
 				document.body.classList.remove('re-max-post-height');
 			}, 500);

@@ -291,6 +291,58 @@
 		"message": "Ogranicz nieskończone przewijanie"
 	},
 
+	"textVideoPlayerInfo": {
+		"message": "Szybki, lekki odtwarzacz wideo z kontrolą prędkości opartą na videojs. Spróbuj tego, jeśli masz problemy z ładowaniem własnego odtwarzacza Reddit."
+	},
+
+	"textLimitCommentsInfo": {
+		"message": "Działa tylko w przypadku postów otwartych w nowej karcie/oknie."
+	},
+
+	"textLimitInfinityScrollInfo": {
+		"message": "Beta. Niekoniecznie zmniejszy to wykorzystanie przepustowości, ale zamiast tego powinno pomóc zapobiec spowolnieniu strony, uniemożliwiając Redditowi dodawanie nowych postów, dopóki nie klikniesz „Wczytaj więcej” u dołu kanału. Kliknięcie przycisku „Załaduj więcej” spowoduje wyczyszczenie pierwszych 25 postów i wyświetlenie kolejnych 25."
+	},
+
+	"textDefaultFeedSortOption": {
+		"message": "Domyślna opcja sortowania kanałów"
+	},
+
+	"textDefaultCommentsSortOption": {
+		"message": "Domyślna opcja sortowania komentarzy"
+	},
+
+	"textBest": {
+		"message": "Best"
+	},
+
+	"textHot": {
+		"message": "Hot"
+	},
+
+	"textNew": {
+		"message": "New"
+	},
+
+	"textTop": {
+		"message": "Top"
+	},
+
+	"textControversial": {
+		"message": "Controversial"
+	},
+
+	"textRising": {
+		"message": "Rising"
+	},
+
+	"textOld": {
+		"message": "Old"
+	},
+
+	"textQa": {
+		"message": "Q&a"
+	},
+
 	"textOpenPostInNewTab": {
 		"message": "Otwórz linki do postów w nowej karcie"
 	},
@@ -505,5 +557,29 @@
 
 	"textCreatePostBorderColour": {
 		"message": "Kolor obramowania „Utwórz publikacja”"
+	},
+
+	"textLargerClassicPost": {
+		"message": "Większy klasyczny widok postu"
+	},
+
+	"textLargerClassicPostInfo": {
+		"message": "Wyłącz tę opcję, jeśli nie używasz „Klasycznego widoku wpisu”."
+	},
+
+	"textPosition": {
+		"message": "Pozycja"
+	},
+
+	"textBreakReminder": {
+		"message": "Przypomnienie o przerwie"
+	},
+
+	"textBreakReminderInfo": {
+		"message": "Beta. Pokazuje przypomnienie o przerwie po każdej określonej liczbie postów."
+	},
+
+	"textBreakReminderFrequency": {
+		"message": "Częstotliwość przypomnień"
 	}
 }

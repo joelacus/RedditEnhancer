@@ -108,6 +108,8 @@ document.querySelector('#checkbox-modern-old-reddit').addEventListener('change',
 				}
 			});
 		});
+		document.querySelector('#checkbox-hide-side-menu-old').click();
+		document.querySelector('#checkbox-hide-header-sub-bar').click();
 	} else if (moderniseOldReddit == false) {
 		BROWSER_API.storage.sync.set({ moderniseOldReddit: false });
 		document.querySelector('.icon-modern-old-reddit').style.backgroundColor = '';
@@ -684,4 +686,30 @@ document.querySelector('#input-create-post-border-colour-css').addEventListener(
 			}
 		});
 	});
+});
+
+// Toggle - Larger Classic Post
+document.querySelector('#checkbox-larger-classic-post').addEventListener('change', function (e) {
+	var largerClassicPost = document.querySelector('#checkbox-larger-classic-post').checked;
+	if (largerClassicPost == true) {
+		BROWSER_API.storage.sync.set({ largerClassicPost: true });
+		document.querySelector('.icon-larger-classic-post').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { largerClassicPost: true });
+				}
+			});
+		});
+	} else if (largerClassicPost == false) {
+		BROWSER_API.storage.sync.set({ largerClassicPost: false });
+		document.querySelector('.icon-larger-classic-post').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { largerClassicPost: false });
+				}
+			});
+		});
+	}
 });

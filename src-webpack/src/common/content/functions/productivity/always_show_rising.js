@@ -38,9 +38,9 @@ let alwaysShowRisingButton = function (value) {
 				var sort_btn = document.querySelector('[role="button"][href*="/hot/"]');
 				if (sort_btn) {
 					var btn_classes = sort_btn.classList;
-					var sub = sort_btn.href.split('/top/')[0];
+					var sub = sort_btn.href.split('/hot/')[0];
 					var i_classes = sort_btn.querySelector('i').classList.toString();
-					var i_classes = i_classes.replace('icon-top', 'icon-rising');
+					var i_classes = i_classes.replace('icon-hot', 'icon-rising');
 					if (btn_classes.length === 5) {
 						var sort_btn = document.querySelector('[role="button"][href*="/new/"]');
 						var btn_classes = sort_btn.classList;
@@ -72,7 +72,7 @@ let alwaysShowRisingButton = function (value) {
 				if (!el) {
 					const sort = document.querySelector('.re-sort');
 					if (!sort) {
-						setTimeout(function () {
+						setTimeout(() => {
 							const sort = document.querySelector('.re-sort');
 							if (sort) {
 								document.querySelector('.re-sort').firstChild.nextElementSibling.append(btn);

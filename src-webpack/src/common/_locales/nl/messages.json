@@ -291,6 +291,58 @@
 		"message": "Beperk oneindig scrollen"
 	},
 
+	"textVideoPlayerInfo": {
+		"message": "Snelle, lichtgewicht videospeler met snelheidsregeling op basis van videojs. Probeer dit als je laadproblemen hebt met de eigen speler van reddit."
+	},
+
+	"textLimitCommentsInfo": {
+		"message": "Werkt alleen voor berichten die in een nieuw tabblad/venster zijn geopend."
+	},
+
+	"textLimitInfinityScrollInfo": {
+		"message": "Beta. Dit zal niet noodzakelijkerwijs het bandbreedtegebruik verminderen, maar zou in plaats daarvan moeten helpen voorkomen dat de pagina traag wordt door te voorkomen dat Reddit nieuwe berichten toevoegt totdat je op 'Meer laden' onderaan de feed klikt. Wanneer u op 'Meer laden' klikt, worden de eerste 25 berichten gewist en worden de volgende 25 weergegeven."
+	},
+
+	"textDefaultFeedSortOption": {
+		"message": "Standaard optie voor het sorteren van feeds"
+	},
+
+	"textDefaultCommentsSortOption": {
+		"message": "Standaardopmerkingen Sorteeroptie"
+	},
+
+	"textBest": {
+		"message": "Best"
+	},
+
+	"textHot": {
+		"message": "Hot"
+	},
+
+	"textNew": {
+		"message": "New"
+	},
+
+	"textTop": {
+		"message": "Top"
+	},
+
+	"textControversial": {
+		"message": "Controversial"
+	},
+
+	"textRising": {
+		"message": "Rising"
+	},
+
+	"textOld": {
+		"message": "Old"
+	},
+
+	"textQa": {
+		"message": "Q&a"
+	},
+
 	"textOpenPostInNewTab": {
 		"message": "Links openen om op een nieuw tabblad te posten"
 	},
@@ -505,5 +557,29 @@
 
 	"textCreatePostBorderColour": {
 		"message": "Maak een berichtrandkleur"
+	},
+
+	"textLargerClassicPost": {
+		"message": "Grotere klassieke berichtweergave"
+	},
+
+	"textLargerClassicPostInfo": {
+		"message": "Schakel dit uit als je de 'Klassieke berichtweergave' niet gebruikt."
+	},
+
+	"textPosition": {
+		"message": "Positie"
+	},
+
+	"textBreakReminder": {
+		"message": "Pauzeherinnering"
+	},
+
+	"textBreakReminderInfo": {
+		"message": "Beta. Toont een herinnering om na elk ingesteld aantal berichten een pauze te nemen."
+	},
+
+	"textBreakReminderFrequency": {
+		"message": "Herinneringsfrequentie"
 	}
 }

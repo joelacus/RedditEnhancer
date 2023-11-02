@@ -71,7 +71,7 @@ let darkMode = function (value) {
 		if (menu_btn === null) {
 			var menu_btn = document.querySelector('#USER_DROPDOWN_ID');
 		}
-		setTimeout(function () {
+		setTimeout(() => {
 			var html = document.getElementsByTagName('html')[0];
 			if (html.classList.contains('theme-dark')) {
 				if (value == true) {
@@ -88,7 +88,7 @@ let darkMode = function (value) {
 			}
 			if (changeTheme == true) {
 				menu_btn.click();
-				setTimeout(function () {
+				setTimeout(() => {
 					var menus = document.querySelectorAll('[role="menu"]');
 					menus.forEach(function (menu) {
 						var spans = menu.getElementsByTagName('span');
@@ -96,7 +96,7 @@ let darkMode = function (value) {
 						for (var i = 0; i < spans.length; i++) {
 							if (lang.includes(spans[i].innerText.toLowerCase())) {
 								var state = spans[i].nextElementSibling.getAttribute('aria-checked');
-								if (value === true) {
+								if (typeof value === undefined || value === true) {
 									if (state != 'true') {
 										spans[i].parentNode.click();
 									}
@@ -104,15 +104,10 @@ let darkMode = function (value) {
 									if (state != 'false') {
 										spans[i].parentNode.click();
 									}
-								} else if (value === undefined) {
-									if (state != 'true') {
-										spans[i].parentNode.click();
-									}
-									BROWSER_API.storage.sync.set({ darkMode: true });
 								}
 								menu_btn.click();
 								// reapply custom background
-								setTimeout(function () {
+								setTimeout(() => {
 									BROWSER_API.storage.sync.get(['useCustomBackground'], function (result) {
 										if (result.useCustomBackground == true) {
 											useCustomBackground(true);
@@ -130,7 +125,7 @@ let darkMode = function (value) {
 							for (var i = 0; i < divs.length; i++) {
 								if (lang.includes(divs[i].innerText.toLowerCase())) {
 									var state = divs[i].nextElementSibling.getAttribute('aria-checked');
-									if (value === true) {
+									if (typeof value === undefined || value === true) {
 										if (state != 'true') {
 											divs[i].parentNode.click();
 										}
@@ -138,15 +133,10 @@ let darkMode = function (value) {
 										if (state != 'false') {
 											divs[i].parentNode.click();
 										}
-									} else if (value === undefined) {
-										if (state != 'true') {
-											divs[i].parentNode.click();
-										}
-										BROWSER_API.storage.sync.set({ darkMode: true });
 									}
 									menu_btn.click();
 									// reapply custom background
-									setTimeout(function () {
+									setTimeout(() => {
 										BROWSER_API.storage.sync.get(['useCustomBackground'], function (result) {
 											if (result.useCustomBackground == true) {
 												useCustomBackground(true);
