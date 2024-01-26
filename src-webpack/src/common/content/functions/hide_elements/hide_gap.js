@@ -1,80 +1,97 @@
-// Hide Gap
-let hideGap = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		// do nothing
-	} else {
-		// new reddit
-		if (value == true) {
-			if (document.querySelector('.re-feed')) {
-				document.querySelector('.re-feed').classList.add('re-hide-gap');
-			}
-			if (document.querySelector('.feed-container')) {
-				document.querySelector('.feed-container').classList.add('re-hide-gap');
-			}
-			if (document.querySelector('.re-search')) {
-				document.querySelector('.re-search').classList.add('re-hide-gap');
-			}
-			if (document.querySelector('.re-search-results-nav')) {
-				document.querySelector('.re-search-results-nav').classList.add('re-hide-gap');
-			}
-			if (document.querySelector('.re-search-results-subnav')) {
-				document.querySelector('.re-search-results-subnav').classList.add('re-hide-gap');
-			}
-			if (document.querySelector('.re-search-sidebar')) {
-				document.querySelector('.re-search-sidebar').classList.add('re-hide-gap');
-			}
-			if (document.querySelector('.re-posts-list')) {
-				document.querySelector('.re-posts-list').classList.add('re-hide-gap');
-			}
-			if (document.querySelector('.re-sort')) {
-				document.querySelector('.re-sort').classList.add('re-hide-gap');
-			}
-			if (document.querySelector('.re-create-post')) {
-				document.querySelector('.re-create-post').classList.add('re-hide-gap');
-			}
-			if (document.querySelector('.re-sidebar')) {
-				document.querySelector('.re-sidebar').classList.add('re-hide-gap');
-			}
-			if (document.querySelector('.re-feed-container')) {
-				document.querySelector('.re-feed-container').classList.add('re-hide-gap');
-			}
-		} else if (value == false) {
-			if (document.querySelector('.re-feed')) {
-				document.querySelector('.re-feed').classList.remove('re-hide-gap');
-			}
-			if (document.querySelector('.feed-container')) {
-				document.querySelector('.feed-container').classList.remove('re-hide-gap');
-			}
-			if (document.querySelector('.re-search')) {
-				document.querySelector('.re-search').classList.remove('re-hide-gap');
-			}
-			if (document.querySelector('.re-search-results-nav')) {
-				document.querySelector('.re-search-results-nav').classList.remove('re-hide-gap');
-			}
-			if (document.querySelector('.re-search-results-subnav')) {
-				document.querySelector('.re-search-results-subnav').classList.remove('re-hide-gap');
-			}
-			if (document.querySelector('.re-search-sidebar')) {
-				document.querySelector('.re-search-sidebar').classList.remove('re-hide-gap');
-			}
-			if (document.querySelector('.re-posts-list')) {
-				document.querySelector('.re-posts-list').classList.remove('re-hide-gap');
-			}
-			if (document.querySelector('.re-sort')) {
-				document.querySelector('.re-sort').classList.remove('re-hide-gap');
-			}
-			if (document.querySelector('.re-create-post')) {
-				document.querySelector('.re-create-post').classList.remove('re-hide-gap');
-			}
-			if (document.querySelector('.re-sidebar')) {
-				document.querySelector('.re-sidebar').classList.remove('re-hide-gap');
-			}
-			if (document.querySelector('.re-feed-container')) {
-				document.querySelector('.re-feed-container').classList.remove('re-hide-gap');
-			}
+// Hide Interface Gap
+
+export function hideGap(value) {
+	if (redditVersion === 'new') {
+		if (value === true) {
+			enableHideGapNew();
+		} else {
+			disableHideGapAll();
+		}
+	} else if (redditVersion === 'newnew') {
+		if (value === true) {
+			enableHideGapNewNew();
+		} else if (value === false) {
+			disableHideGapAll();
 		}
 	}
-};
-export { hideGap };
+}
+
+// Function - Enable Hide Gap - New
+function enableHideGapNew() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-ui-gap';
+	styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child {
+									padding: 0 !important;
+								}
+								.ListingLayout-backgroundContainer + div > :last-child > :first-child > :first-child,
+								.ListingLayout-backgroundContainer + div > :last-child > :last-child {
+									margin: 0 !important;;  
+								}
+								.ListingLayout-backgroundContainer + div > :last-child > :first-child > div:has(#view--layout--FUE) {
+									margin: 0 !important;
+									border-radius: 0 !important;
+								}
+								.ListingLayout-backgroundContainer + div > :last-child > :last-child > :first-child > div {
+									border-radius: 0 !important;
+									margin-top: 0 !important;
+								 }
+								.ListingLayout-backgroundContainer + div > :last-child > :last-child > :first-child > div > div {
+									border-radius: 0 !important;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Enable Hide Gap - New New
+function enableHideGapNewNew() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-ui-gap';
+	styleElement.textContent = `#main-content, shreddit-post {
+									margin-top: 0 !important;
+								}
+								shreddit-post, comment-body-header {
+									margin-bottom: 0 !important;
+									border-radius: 0 !important;
+								}
+								shreddit-comment-tree, shreddit-feed > article > shreddit-post {
+									border-radius: 0 !important;
+								}
+								.sidebar-grid {
+									grid-gap: 0.5rem !important;
+								}
+								.gap-md {
+									gap: 0 !important;
+								}
+								shreddit-app[routename="subreddit"],
+								shreddit-app[routename="subreddit"] .main-container {
+									padding-left: 0 !important;
+								}
+								shreddit-app[routename="subreddit"] .masthead {
+									margin-left: 0 !important;
+									margin-right: 0 !important;
+								}
+								shreddit-app[routename="subreddit"] .community-banner {
+									margin-top: 0;
+									border-radius: 0
+								}
+								#right-sidebar-container, .grid-container .subgrid-container, 
+								shreddit-feed > article > shreddit-post {
+									margin: -1px !important;
+								}
+								#right-sidebar-container section {
+									margin: 0 !important;
+									border-radius: 0 !important;
+								}
+								shreddit-app[routename="post_page"] {
+									margin-right: calc(0.5rem * var(--re-hide-sidebar-gap-multiplyer)) !important;
+									padding-left: calc(0.5rem * var(--re-hide-sidemenu-gap-multiplyer)) !important;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Disable Hide Gap - All
+function disableHideGapAll() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-ui-gap"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}

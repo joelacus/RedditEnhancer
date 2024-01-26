@@ -1,15 +1,12 @@
 // Open links to post in new tab
-let openPostInNewTab = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		// do nothing
-	} else {
-		// new reddit
+
+export function openPostInNewTab(value) {
+	const link = window.location.href;
+	if (redditVersion === 'new') {
 		if (link.indexOf('/comments/') <= 0 && link.indexOf('/settings/') <= 0) {
 			// not post, not settings
 			if (value == true) {
-				var links = document.querySelectorAll('.re-feed-container [href*="/comments/"]');
+				const links = document.querySelectorAll('.re-feed-container [href*="/comments/"]');
 				if (links) {
 					links.forEach(function (link) {
 						link.classList.add('re-post-link');
@@ -23,7 +20,7 @@ let openPostInNewTab = function (value) {
 				observer.observe(document.querySelector('.re-feed-container'), { childList: true, subtree: true });
 			} else if (value == false) {
 				observer.disconnect();
-				var links = document.querySelectorAll('.re-post-link');
+				const links = document.querySelectorAll('.re-post-link');
 				if (links) {
 					links.forEach(function (link) {
 						link.classList.remove('re-post-link');
@@ -34,8 +31,7 @@ let openPostInNewTab = function (value) {
 			}
 		}
 	}
-};
-export { openPostInNewTab };
+}
 
 const observer = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {

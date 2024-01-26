@@ -7,7 +7,6 @@ if (link.includes('/comments/')) {
 		if (result.enableDefaultCommentsSortOption === true) {
 			// Sets the default comments sort option on page load
 			if (result.defaultCommentsSortOption != undefined) {
-				var link = window.location.href;
 				var urlParams = new URLSearchParams(document.location.search);
 				if (urlParams.size != 0) {
 					const sortValue = urlParams.get('sort');

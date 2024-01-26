@@ -1,0 +1,56 @@
+.flag {
+	width: 22px;
+	height: 17px;
+	background-size: 22px 17px;
+	background-repeat: no-repeat !important;
+	border-radius: 2px;
+}
+
+.flag-gb {
+	background: url('../../icons/flags/gb.svg');
+}
+.flag-us {
+	background: url('../../icons/flags/us.svg');
+}
+.flag-ca {
+	background: url('../../icons/flags/ca.svg');
+}
+.flag-de {
+	background: url('../../icons/flags/de.svg');
+}
+.flag-fr {
+	background: url('../../icons/flags/fr.svg');
+}
+.flag-it {
+	background: url('../../icons/flags/it.svg');
+}
+.flag-nl {
+	background: url('../../icons/flags/nl.svg');
+}
+.flag-pl {
+	background: url('../../icons/flags/pl.svg');
+}
+.flag-pt {
+	background: url('../../icons/flags/pt.svg');
+}
+.flag-es {
+	background: url('../../icons/flags/es.svg');
+}
+.flag-ua {
+	background: url('../../icons/flags/ua.svg');
+}
+.flag-fi {
+	background: url('../../icons/flags/fi.svg');
+}
+.flag-no {
+	background: url('../../icons/flags/no.svg');
+}
+.flag-se {
+	background: url('../../icons/flags/se.svg');
+}
+.flag-hu {
+	background: url('../../icons/flags/hu.svg');
+}
+.flag-cz {
+	background: url('../../icons/flags/cz.svg');
+}

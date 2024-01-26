@@ -1,16 +1,57 @@
 // Hide See Full Image
-let hideSeeFullImage = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		// do nothing
-	} else {
-		// new reddit
-		if (value == true) {
-			document.querySelector('body').classList.add('re-hide-see-full-image');
-		} else if (value == false || value == undefined) {
-			document.querySelector('body').classList.remove('re-hide-see-full-image');
+
+export function hideSeeFullImage(value) {
+	if (redditVersion === 'new') {
+		if (useLegacy) {
+			if (value === true) {
+				enableHideSeeFullImageNewLegacy();
+			} else if (value === false) {
+				disableHideSeeFullImageNewLegacy();
+			}
+		} else {
+			if (value === true) {
+				enableHideSeeFullImageNew();
+			} else if (value === false) {
+				disableHideSeeFullImageNew();
+			}
 		}
 	}
-};
-export { hideSeeFullImage };
+}
+
+// Function - Enable Hide See Full Image - New - Legacy
+function enableHideSeeFullImageNewLegacy() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-see-full-image';
+	styleElement.textContent = `.media-element div:last-child, 
+								figure > div > img + div {
+									display: none;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Disable Hide See Full Image - New - Legacy
+function disableHideSeeFullImageNewLegacy() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-see-full-image"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}
+
+// Function - Enable Hide See Full Image - New
+function enableHideSeeFullImageNew() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-see-full-image';
+	styleElement.textContent = `.media-element > div:has(img) + div,
+								figure > div > img + div {
+									display: none;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Disable Hide See Full Image - New
+function disableHideSeeFullImageNew() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-see-full-image"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}

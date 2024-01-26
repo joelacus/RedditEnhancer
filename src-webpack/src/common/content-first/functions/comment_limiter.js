@@ -5,7 +5,7 @@
 BROWSER_API.storage.sync.get(['commentsLimit'], function (result) {
 	if (result.commentsLimit != null && result.commentsLimit != -10) {
 		// check if the navigation is to a Reddit comments page
-		var link = window.location.href;
+		const link = window.location.href;
 		if (link.match('https://.*.reddit.com/.*/comments/.*')) {
 			// check if url already has query parameters
 			const urlParams = new URLSearchParams(document.location.search);

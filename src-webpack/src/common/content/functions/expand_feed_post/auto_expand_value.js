@@ -1,37 +1,38 @@
 // Auto Expand Feed/Post To 100% At Value
-let autoExpandValue = function (widthVariable) {
-	const styleSheetId = 're-auto-expand';
-	let styleSheet = document.getElementById(styleSheetId);
 
-	// If style sheet already exists
-	if (!styleSheet) {
-		styleSheet = document.createElement('style');
-		styleSheet.id = styleSheetId;
-		document.head.appendChild(styleSheet);
+export function autoExpandValue(widthVariable) {
+	if (redditVersion === 'old' || redditVersion === 'new') {
+		disableAutoExpandValue();
+		enableAutoExpandValue(widthVariable);
 	}
+}
 
-	// If variable doesn't exist
-	if (!widthVariable) {
-		var widthVariable = 1000;
-	}
+// Function - Enable Auto Expand Value - New
+function enableAutoExpandValue(widthVariable) {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-auto-expand-layout';
+	styleElement.textContent = `@media only screen and (max-width: ${widthVariable}px) {
+									.ListingLayout-backgroundContainer + div > :last-child > :first-child,
+									#re-container {
+										--re-content-width: 100% !important;
+										--re-sub-width: 100% !important;
+										--re-post-width: 100% !important;
+										--re-post-overlay-width: 100% !important;
+										--re-user-profile-width: 100% !important;
+									}
+									.ListingLayout-backgroundContainer + div > :last-child,
+									#re-container {
+										overflow-x: unset !important;
+										transform: none !important;
+									}
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
 
-	// Rule template
-	const mediaQuery = `@media only screen and (max-width: ${widthVariable}px) {
-							.re-feed.re-resize {
-								width: 100% !important;
-								max-width: 100% !important;
-							}
-							.re-feed.re-centre-feed-1 {
-								translate: none !important;
-							}
-						}`;
-
-	// Remove any existing rules
-	while (styleSheet.sheet.cssRules.length > 0) {
-		styleSheet.sheet.deleteRule(0);
-	}
-
-	// Add the new rule
-	styleSheet.sheet.insertRule(mediaQuery, 0);
-};
-export { autoExpandValue };
+// Function - Disable Auto Expand Value - New
+function disableAutoExpandValue() {
+	const dynamicStyleElements1 = document.querySelectorAll('style[id="re-auto-expand-layout"]');
+	dynamicStyleElements1.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}

@@ -1,9 +1,11 @@
 /* ===== Background script ===== */
 
 import { darkModeTimeCalc } from '../common/popup/popup-functions';
+let fetchUrl = '';
 
 // Listen For Messages
 BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+	console.log(request);
 	if (request.darkModeAutoTime === true) {
 		checkTime(true);
 	} else if (request.darkModeAutoTime === false) {
@@ -16,8 +18,22 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 				BROWSER_API.tabs.create({ url: `restore_config.html` }, function (tab) {});
 			}
 		});
-	} else if (Object.keys(request)[0] === 'restore') {
+	} else if (request.restore) {
 		restoreBackup(request);
+	} else if (request.actions) {
+		for (const action of request.actions) {
+			if (action.action === 'changeFetchUrl') {
+				// Set the new fetch URL based on the action
+				fetchUrl = action.newFetchUrl;
+			} else if (action.action === 'fetchData') {
+				// Fetch data using the current fetch URL
+				fetchData(function (response) {
+					// Send the data back to the caller
+					sendResponse(response);
+				});
+				return true;
+			}
+		}
 	}
 });
 
@@ -60,4 +76,24 @@ function restoreBackup(request) {
 		console.log(key, value);
 		BROWSER_API.storage.sync.set({ [key]: value });
 	}
+}
+
+// Function to fetch data
+function fetchData(sendResponse) {
+	fetch(fetchUrl)
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error('Network response was not ok');
+			}
+			return response.text();
+		})
+		.then((data) => {
+			// Send the data back to the caller
+			sendResponse({ data });
+		})
+		.catch((error) => {
+			console.error('Error fetching data:', error);
+			// Send an error back to the caller
+			sendResponse({ action: 'fetchData', error: error.message });
+		});
 }

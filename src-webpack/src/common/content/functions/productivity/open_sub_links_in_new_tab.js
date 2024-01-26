@@ -1,13 +1,9 @@
 // Open links to subreddit in new tab
-let openSubInNewTab = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		// do nothing
-	} else {
-		// new reddit
+
+export function openSubInNewTab(value) {
+	if (redditVersion === 'new') {
 		if (value == true) {
-			var links = document.querySelectorAll('[data-click-id="subreddit"]');
+			const links = document.querySelectorAll('[data-click-id="subreddit"]');
 			if (links) {
 				links.forEach(function (link) {
 					link.classList.add('re-sub-link');
@@ -21,7 +17,7 @@ let openSubInNewTab = function (value) {
 			observer.observe(document.body, { childList: true, subtree: true });
 		} else if (value == false) {
 			observer.disconnect();
-			var links = document.querySelectorAll('.re-sub-link');
+			const links = document.querySelectorAll('.re-sub-link');
 			if (links) {
 				links.forEach(function (link) {
 					link.classList.remove('re-sub-link');
@@ -31,8 +27,7 @@ let openSubInNewTab = function (value) {
 			}
 		}
 	}
-};
-export { openSubInNewTab };
+}
 
 const observer = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {

@@ -1,14 +1,27 @@
 // Hide Get New Reddit
-let hideGetNewReddit = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		var el = document.querySelector('#redesign-beta-optin-btn');
-		if (value === true) {
-			el.style.display = 'none';
-		} else if (value === false) {
-			el.style.display = 'block';
-		}
+
+export function hideGetNewReddit(value) {
+	if (value === true) {
+		hideGetNewRedditOld();
+	} else if (value === false) {
+		showGetNewRedditOld();
 	}
-};
-export { hideGetNewReddit };
+}
+
+// Function - Hide Get New Reddit - Old
+function hideGetNewRedditOld() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-get-new-reddit';
+	styleElement.textContent = `#redesign-beta-optin-btn {
+									display: none;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Show Get New Reddit - Old
+function showGetNewRedditOld() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-get-new-reddit"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}

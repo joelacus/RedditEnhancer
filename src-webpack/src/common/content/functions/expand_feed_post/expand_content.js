@@ -1,181 +1,310 @@
-import { startObserver } from '../../../content-first/functions/load_expand_content';
-import { stopObserver } from '../../../content-first/functions/load_expand_content';
+// Expand Feed Layout
 
-// Expand Layout
-let expandLayout = function (value) {
-	// Check reddit version
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		if (value == true) {
-			const reMain = document.querySelector('#re-main');
-			if (!reMain) {
-				const main = document.createElement('div');
-				main.id = 're-main';
-				const container = document.createElement('div');
-				container.id = 're-container';
-				const body = document.querySelector('body');
-				const sidemenu = document.querySelector('.listing-chooser');
-				const side = document.querySelector('.side');
-				const content = document.querySelector('.content[role="main"]');
-				const sort = document.querySelector('#header .tabmenu');
-				body.insertBefore(main, side);
-				if (sidemenu) {
-					main.append(sidemenu);
-				}
-				container.append(content);
-				container.append(side);
-				main.append(container);
-				content.insertBefore(sort, content.firstChild);
-			}
-			if (document.querySelector('#re-container')) {
-				document.querySelector('#re-container').classList.add('re-resize');
-			}
-		} else if (value == false) {
-			if (document.querySelector('#re-container')) {
-				document.querySelector('#re-container').classList.remove('re-resize');
-			}
+export function expandLayout(value) {
+	if (redditVersion === 'old') {
+		if (value === true) {
+			enableExpandContentOld();
+		} else if (value === false) {
+			disableExpandContentOld();
 		}
-	} else {
-		// new reddit
-		if (value == true) {
-			if (document.querySelector('.re-feed')) {
-				document.querySelector('.re-feed').classList.add('re-resize');
-			}
-			if (document.querySelector('.re-search')) {
-				document.querySelector('.re-search').classList.add('re-resize');
-			}
-			if (document.querySelector('.re-search-parent')) {
-				document.querySelector('.re-search-parent').classList.add('re-resize');
-			}
-			if (document.querySelector('.re-post-container')) {
-				document.querySelector('.re-post-container').classList.add('re-resize');
-			}
-		} else if (value == false) {
-			if (document.querySelector('.re-feed')) {
-				document.querySelector('.re-feed').classList.remove('re-resize');
-			}
-			if (document.querySelector('.re-search')) {
-				document.querySelector('.re-search').classList.remove('re-resize');
-			}
-			if (document.querySelector('.re-search-parent')) {
-				document.querySelector('.re-search-parent').classList.remove('re-resize');
-			}
-			if (document.querySelector('.re-post-container')) {
-				document.querySelector('.re-post-container').classList.remove('re-resize');
-			}
-		}
-	}
-};
-export { expandLayout };
-
-// Expand Layout Width
-let expandLayoutWidth = function (value) {
-	document.documentElement.style.setProperty('--re-content-width', value + '%');
-};
-export { expandLayoutWidth };
-
-// Layout Centre
-let layoutCentre = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		if (value == true) {
-			if (link.indexOf('old.reddit.com/r/') <= 0) {
-				BROWSER_API.storage.sync.get(['hideHomeSidebar'], function (result) {
-					if (result.hideHomeSidebar != true) {
-						document.querySelector('#re-container').classList.add('re-centre-container-old');
-					} else {
-						document.querySelector('#re-container').classList.remove('re-centre-container-old');
-					}
-				});
+	} else if (redditVersion === 'new') {
+		if (value === true) {
+			if (useLegacy) {
+				enableExpandContentNewLegacy();
 			} else {
-				document.querySelector('#re-container').classList.add('re-centre-container-old');
+				enableExpandContentNew();
 			}
-		} else if (value == false) {
-			document.querySelector('#re-container').classList.remove('re-centre-container-old');
+		} else if (value === false) {
+			if (useLegacy) {
+				disableExpandContentNewLegacy();
+			} else {
+				disableExpandContentNew();
+			}
 		}
-	} else {
-		//new reddit
-		var main_elms = document.querySelector('#AppRouter-main-content').childElementCount;
-		if (value == true) {
-			var link = window.location.href;
-			document.querySelector('.re-feed').classList.remove('re-centre-feed-1', 're-centre-feed-2', 're-centre-feed-3');
-			if (link.indexOf('reddit.com/user/') >= 0) {
-				// user
-				BROWSER_API.storage.sync.get(['hideUserSidebar'], function (result) {
-					if (main_elms == 2) {
-						if (result.hideUserSidebar === true) {
-							document.querySelector('.re-feed').classList.add('re-centre-feed-3');
-						} else {
-							document.querySelector('.re-feed').classList.add('re-centre-feed-2');
-						}
-					} else {
-						if (result.hideUserSidebar === true) {
-							//
-						} else {
-							document.querySelector('.re-feed').classList.add('re-centre-feed-1');
-						}
-					}
-				});
-			} else if (link.indexOf('/comments/') >= 0) {
-				// post
-				document.querySelector('.re-feed').classList.remove('re-centre-feed-1', 're-centre-feed-2', 're-centre-feed-3');
-				BROWSER_API.storage.sync.get(['hidePostSidebar'], function (result) {
-					if (main_elms == 2) {
-						if (result.hidePostSidebar === true) {
-							document.querySelector('.re-feed').classList.add('re-centre-feed-3');
-						} else {
-							document.querySelector('.re-feed').classList.add('re-centre-feed-2');
-						}
-					} else {
-						if (result.hidePostSidebar === true) {
-							//
-						} else {
-							document.querySelector('.re-feed').classList.add('re-centre-feed-1');
-						}
-					}
-				});
-			} else if (link.indexOf('reddit.com/r/popular') >= 0 || link.indexOf('reddit.com/r/all') >= 0 || link.indexOf('reddit.com/r/') <= 0) {
-				// r/all, r/popular, home
-				BROWSER_API.storage.sync.get(['hideHomeSidebar'], function (result) {
-					if (main_elms == 2) {
-						if (result.hideHomeSidebar === true) {
-							document.querySelector('.re-feed').classList.add('re-centre-feed-3');
-						} else {
-							document.querySelector('.re-feed').classList.add('re-centre-feed-2');
-						}
-					} else {
-						if (result.hideHomeSidebar === true) {
-							//
-						} else {
-							document.querySelector('.re-feed').classList.add('re-centre-feed-1');
-						}
-					}
-				});
-			} else if (link.indexOf('reddit.com/r/') >= 0) {
-				// sub
-				BROWSER_API.storage.sync.get(['hideSubSidebar'], function (result) {
-					if (main_elms == 2) {
-						if (result.hideSubSidebar === true) {
-							document.querySelector('.re-feed').classList.add('re-centre-feed-3');
-						} else {
-							document.querySelector('.re-feed').classList.add('re-centre-feed-2');
-						}
-					} else {
-						if (result.hideSubSidebar === true) {
-							//
-						} else {
-							document.querySelector('.re-feed').classList.add('re-centre-feed-1');
-						}
-					}
-				});
-			}
-			startObserver();
-		} else if (value == false) {
-			stopObserver();
-			document.querySelector('.re-feed').classList.remove('re-centre-feed-1', 're-centre-feed-2', 're-centre-feed-3');
+	} else if (redditVersion === 'newnew') {
+		if (value === true) {
+			enableExpandContentNewNew();
+		} else if (value === false) {
+			disbleExpandContentNewNew();
 		}
 	}
-};
-export { layoutCentre };
+}
+
+// Function - Enable Expand Content - Old
+function enableExpandContentOld() {
+	const reMain = document.querySelector('#re-main');
+	if (!reMain) {
+		// Restructure HTML
+		const main = document.createElement('div');
+		main.id = 're-main';
+		const container = document.createElement('div');
+		container.id = 're-container';
+		const body = document.querySelector('body');
+		const sidemenu = document.querySelector('.listing-chooser');
+		const side = document.querySelector('.side');
+		const content = document.querySelector('.content[role="main"]');
+		const sort = document.querySelector('#header .tabmenu');
+		body.insertBefore(main, side);
+		if (sidemenu) {
+			main.append(sidemenu);
+		}
+		container.append(content);
+		container.append(side);
+		main.append(container);
+		content.insertBefore(sort, content.firstChild);
+	}
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-expand-feed-layout';
+	styleElement.textContent = `#re-main {
+									display: flex;
+									width: 100%;
+									justify-content: center;
+								}
+								#re-container {
+									display: flex;
+									width: var(--re-content-width) !important;
+								}
+								.subscriber.listing-page #re-container {
+									width: var(--re-sub-width) !important;
+								}
+								.comments-page #re-container {
+									width: var(--re-post-width) !important;
+								  }
+								#re-container .content {
+									width: 100% !important;
+								}
+								#re-container > .content > #siteTable {
+									margin-left: 0 !important;
+								}
+								#re-container > .content > ul {
+									margin-left: 0 !important;
+									width: calc(100% - 26px);
+								}
+								.re-centre-container-old {
+									transform: translateX(182px);
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+	// Apply resize
+	/*if (document.querySelector('#re-container')) {
+		document.querySelector('#re-container').classList.add('re-resize');
+	}*/
+}
+
+// Function - Disable Expand Content - Old
+function disableExpandContentOld() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-expand-feed-layout"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+	/*if (document.querySelector('#re-container')) {
+		document.querySelector('#re-container').classList.remove('re-resize');
+	}*/
+}
+
+// Function - Enable Expand Content - New - Legacy
+function enableExpandContentNewLegacy() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-expand-feed-layout';
+	styleElement.textContent = `.re-feed {
+									width: var(--re-content-width) !important;
+									max-width: var(--re-content-width) !important;
+								}
+								.re-feed > div {
+									width: 100% !important;
+									max-width: 100% !important;
+								}
+								.re-search {
+									min-width: calc(var(--re-content-width) - 48px) !important;
+									max-width: calc(var(--re-content-width) - 48px) !important;
+								}
+								.re-search-parent {
+									min-width: 100%;
+									margin: 0;
+								}
+								.re-post-container {
+									width: 100% !important;
+									max-width: 100% !important;
+								}
+								.re-post-container .Comment div:nth-child(3) {
+									max-width: 100% !important;
+								}
+								[data-test-id="post-content"] [data-click-id="text"] {
+									max-width: 100% !important;
+								}
+								#overlayScrollContainer div {
+									max-width: 100%;
+								}
+								#overlayScrollContainer > div {
+									max-width: var(--re-post-overlay-width);
+									background-color: var(--comments-overlay-background);
+								}
+								#overlayScrollContainer [data-test-id="post-content"] div[style="max-width: 800px;"] {
+									max-width: none !important;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+	document.querySelector('.re-feed').style = '';
+}
+
+// Function - Disable Expand Content - New - Legacy
+function disableExpandContentNewLegacy() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-expand-feed-layout"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+	document.querySelector('.re-feed').style.maxWidth = '1600px';
+}
+
+// Function - Enable Expand Content - New
+function enableExpandContentNew() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-expand-feed-layout';
+	styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="frontpage-sidebar"]) > :first-child {
+									width: var(--re-content-width) !important;
+								}
+								.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="subreddit-sidebar"]) > :first-child:has(#view--layout--FUE) {
+									width: var(--re-sub-width) !important;
+								}
+								.ListingLayout-backgroundContainer + div > :last-child:has(.Post[data-testid="post-container"] [data-test-id="post-content"]) {
+									max-width: 100% !important;
+								}
+								.ListingLayout-backgroundContainer + div > :last-child > :first-child:has(.Post[data-testid="post-container"] [data-test-id="post-content"]) {
+									max-width: var(--re-post-width) !important;
+								}
+								#overlayScrollContainer > div:has(.Post) :first-child {
+									max-width: 100% !important;
+								}
+								#overlayScrollContainer > :first-child, 
+								#overlayScrollContainer > div:has(.Post) {
+									width: var(--re-post-overlay-width) !important;
+									max-width: var(--re-post-overlay-width) !important;
+										
+								}
+								#SHORTCUT_FOCUSABLE_DIV [class^="subredditvars-r-"] :first-child::after {
+									width: var(--re-post-overlay-width) !important;
+									max-width: var(--re-post-overlay-width) !important;
+								}
+								.ListingLayout-backgroundContainer + div:has([href="/settings/profile"]) > :last-child > :first-child {
+									width: var(--re-user-feed-width) !important;
+								}
+								.Post [data-test-id="post-content"] > div:has(.RichTextJSON-root) {
+									max-width: 100% !important;
+								}
+								.Comment > :last-child {
+									max-width: 100% !important;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Disable Expand Content - New
+function disableExpandContentNew() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-expand-feed-layout"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}
+
+// Function - Enable Expand Content - New New
+function enableExpandContentNewNew() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-expand-feed-layout';
+	styleElement.textContent = `@media (min-width: 1920px) {
+									shreddit-app[routename="frontpage"] .subgrid-container.xl\\:col-start-5 {
+										grid-column-start: 4;
+									}
+									shreddit-app[routename="frontpage"] #main-content.xl\\:col-span-9 {
+										grid-column: span 14/span 14;
+									}
+									shreddit-app[routename="frontpage"] .main-container {
+										margin-right: 1.5rem !important;
+									}
+									shreddit-app[routename="subreddit"] .subgrid-container.xl\\:col-start-5 {
+										grid-column-start: 4;
+									}
+									shreddit-app[routename="subreddit"] #main-content.xl\\:col-span-9 {
+										grid-column: span 10/span 10;
+									}
+									shreddit-app[routename="post_page"] #main-content.xl\\:col-start-5 {
+										grid-column-start: 4;
+									}
+									shreddit-app[routename="post_page"] #main-content.xl\\:col-end-14 {
+										grid-column-end: 15;
+									}
+									shreddit-app[routename="profile_overview"] #main-content.xl\:col-start-5 {
+										grid-column-start: 4;
+									}
+									shreddit-app[routename="profile_overview"] #main-content.xl\:col-end-14 {
+										grid-column-end: 15;
+									}
+								}
+
+								shreddit-app[routename="frontpage"] #main-content {
+									width: var(--re-content-width) !important;
+									justify-self: center;
+								}
+								shreddit-app[routename="subreddit"] #main-content {
+									width: var(--re-sub-width) !important;
+									justify-self: center;
+								}
+								shreddit-app[routename="post_page"] #main-content {
+									width: var(--re-post-width) !important;
+									justify-self: center;
+								}
+								shreddit-app[routename="profile_overview"] #main-content {
+									width: var(--re-user-profile-width) !important;
+									justify-self: center;
+								}`;
+	document.head.appendChild(styleElement);
+}
+
+// Function - Disable Expand Content - New New
+function disbleExpandContentNewNew() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-expand-feed-layout"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}
+
+// Page Style Property - Expand Layout Width
+export function expandLayoutWidth(value) {
+	if (value) {
+		document.documentElement.style.setProperty('--re-content-width', value + '%');
+	} else {
+		document.documentElement.style.setProperty('--re-content-width', '80%');
+	}
+}
+
+// Page Style Property - Expand Post Overlay Width
+export function expandPostOverlayWidth(value) {
+	if (value) {
+		document.documentElement.style.setProperty('--re-post-overlay-width', value + '%');
+	} else {
+		document.documentElement.style.setProperty('--re-post-overlay-width', '80%');
+	}
+}
+
+// Page Style Property - Expand Post Width
+export function expandPostWidth(value) {
+	if (value) {
+		document.documentElement.style.setProperty('--re-post-width', value + '%');
+	} else {
+		document.documentElement.style.setProperty('--re-post-width', '80%');
+	}
+}
+
+// Page Style Property - Expand Sub Reddit Width
+export function expandSubWidth(value) {
+	if (value) {
+		document.documentElement.style.setProperty('--re-sub-width', value + '%');
+	} else {
+		document.documentElement.style.setProperty('--re-sub-width', '80%');
+	}
+}
+
+// Page Style Property - Expand User Profile Feed Width
+export function expandUserProfileWidth(value) {
+	if (value) {
+		document.documentElement.style.setProperty('--re-user-profile-width', value + '%');
+	} else {
+		document.documentElement.style.setProperty('--re-user-profile-width', '80%');
+	}
+}

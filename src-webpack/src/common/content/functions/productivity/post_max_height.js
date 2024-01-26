@@ -1,11 +1,7 @@
 // Feed Post Max Height
-let postMaxHeight = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		// do nothing
-	} else {
-		// new reddit
+
+export function postMaxHeight(value) {
+	if (redditVersion === 'new') {
 		if (value == 296) {
 			document.documentElement.style.setProperty('--re-max-post-height', '512px');
 			setTimeout(() => {
@@ -17,5 +13,4 @@ let postMaxHeight = function (value) {
 			document.documentElement.style.setProperty('--re-max-post-height', value + 'px');
 		}
 	}
-};
-export { postMaxHeight };
+}

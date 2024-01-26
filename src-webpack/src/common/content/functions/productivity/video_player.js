@@ -1,18 +1,13 @@
-import { videoObserver } from '../../video-observer';
-
 // New Player
-let newPlayer = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		// do nothing
-	} else {
-		// new reddit
+
+import { videoObserver } from '../../video_observer';
+
+export function newPlayer(value) {
+	if (redditVersion === 'new') {
 		if (value == true) {
 			videoObserver(true);
 		} else if (value == false) {
 			videoObserver(false);
 		}
 	}
-};
-export { newPlayer };
+}

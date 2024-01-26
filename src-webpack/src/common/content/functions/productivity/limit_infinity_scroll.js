@@ -1,6 +1,7 @@
 // Limit Infinity Scroll
-let limitInfinityScroll = function (value) {
-	var link = window.location.href;
+
+export function limitInfinityScroll(value) {
+	const link = window.location.href;
 	if (link.indexOf('old.reddit.com') <= 0 && link.indexOf('/comments/') <= 0 && link.indexOf('/settings/') <= 0 && link.indexOf('/user/') <= 0) {
 		// new reddit, not post, not settings, not user
 		if (value == true) {
@@ -95,8 +96,7 @@ let limitInfinityScroll = function (value) {
 			}
 		}
 	}
-};
-export { limitInfinityScroll };
+}
 
 // Observe for posts added to post container
 const observer = new MutationObserver(function (mutations_list) {

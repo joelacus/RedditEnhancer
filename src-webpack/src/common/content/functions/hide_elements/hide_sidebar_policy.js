@@ -1,19 +1,27 @@
 // Hide Sidebar Policy
-let hideSidebarPolicy = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		// do nothing
-	} else {
-		// new reddit
-		var policy = document.querySelector('#re-policy');
-		if (policy) {
-			if (value == true) {
-				policy.classList.add('re-hide');
-			} else if (value == false) {
-				policy.classList.remove('re-hide');
+
+export function hideSidebarPolicy(value) {
+	if (redditVersion === 'new') {
+		if (value === true) {
+			if (useLegacy) {
+				document.querySelector('#re-policy').classList.add('re-hide');
+			} else {
+				const styleElement = document.createElement('style');
+				styleElement.id = 're-hide-side-menu-policy';
+				styleElement.textContent = `[data-testid="frontpage-sidebar"] > div:has([href="https://www.redditinc.com/policies/user-agreement"]) {
+												display: none !important;
+											}`;
+				document.head.insertBefore(styleElement, document.head.firstChild);
+			}
+		} else if (value === false) {
+			if (useLegacy) {
+				document.querySelector('#re-policy').classList.remove('re-hide');
+			} else {
+				const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-side-menu-policy"]');
+				dynamicStyleElements.forEach((element) => {
+					document.head.removeChild(element);
+				});
 			}
 		}
 	}
-};
-export { hideSidebarPolicy };
+}

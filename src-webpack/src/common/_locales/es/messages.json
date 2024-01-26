@@ -4,582 +4,702 @@
 	},
 
 	"extensionDescription": {
-		"message": "Varios ajustes para personalizar su experiencia Reddit."
+		"message": "Varios ajustes para personalizar su experiencia Reddit. Admite las versiones antigua, nueva y más reciente de Reddit."
 	},
 
-	"textAbout": {
+	"About": {
 		"message": "Acerca de"
 	},
 
-	"textBuyMeACoffee": {
+	"BuyMeACoffee": {
 		"message": "Cómprame un café"
 	},
 
-	"textDarkMode": {
+	"DarkMode": {
 		"message": "Modo Oscuro"
 	},
 
-	"textExpandLayout": {
-		"message": "Expandir Feed / Publicación"
+	"ResizeLayout": {
+		"message": "Cambiar el Tamaño del Feed / Publicación"
 	},
 
-	"textCentre": {
+	"Centre": {
 		"message": "Centro"
 	},
 
-	"textWidth": {
-		"message": "Ancho"
+	"HomeFeedWidth": {
+		"message": "Ancho del feed de inicio"
 	},
 
-	"textFitImage": {
+	"SubFeedWidth": {
+		"message": "Ancho del Subfeed"
+	},
+
+	"UserProfileWidth": {
+		"message": "Ancho del perfil de usuario"
+	},
+
+	"PostOverlayWidth": {
+		"message": "Ancho de la superposición de publicaciones"
+	},
+
+	"PostWidth": {
+		"message": "Ancho de publicación"
+	},
+
+	"HomeFeedOffset": {
+		"message": "Desplazamiento del Feed de inicio"
+	},
+
+	"SubFeedOffset": {
+		"message": "Desplazamiento del Subfeed"
+	},
+
+	"PostOffset": {
+		"message": "Desplazamiento de la publicación"
+	},
+
+	"UserProfileOffset": {
+		"message": "Desplazamiento del perfil de usuario"
+	},
+
+	"FitImage": {
 		"message": "Escalar imágenes altas para adaptarse a la publicación"
 	},
 
-	"textImageScroll": {
+	"ImageScroll": {
 		"message": "Agregar barra de desplazamiento a imágenes altas"
 	},
 
-	"textBackground": {
+	"Background": {
 		"message": "Fondo"
 	},
 
-	"textBlur": {
+	"Blur": {
 		"message": "Desenfoque"
 	},
 
-	"textShadow": {
+	"Shadow": {
 		"message": "Sombras paralelas"
 	},
 
-	"textUseCustom": {
+	"UseCustom": {
 		"message": "Usar personalizado"
 	},
 
-	"textCustomBgInputPlaceholder": {
+	"CustomBgInputPlaceholder": {
 		"message": "Enlace de fondo personalizado"
 	},
 
-	"textNewReddit": {
+	"LatestReddit": {
+		"message": "Reddit más reciente"
+	},
+
+	"NewReddit": {
 		"message": "Nuevo Reddit"
 	},
 
-	"textOldReddit": {
+	"OldReddit": {
 		"message": "Viejo Reddit"
 	},
 
-	"textAuto": {
+	"Auto": {
 		"message": "Auto"
 	},
 
-	"textDisabled": {
+	"Disabled": {
 		"message": "Desactivado"
 	},
 
-	"textBrowserTheme": {
+	"BrowserTheme": {
 		"message": "Tema del navegador"
 	},
 
-	"textTimeRange": {
+	"TimeRange": {
 		"message": "Intervalo de tiempo"
 	},
 
-	"textStartTime": {
+	"StartTime": {
 		"message": "Hora de inicio (24)"
 	},
 
-	"textEndTime": {
+	"EndTime": {
 		"message": "Hora de finalización (24)"
 	},
 
-	"textStyleTweaks": {
+	"StyleTweaks": {
 		"message": "Estilo"
 	},
 
-	"textHideRedditPremium": {
+	"HideRedditPremium": {
 		"message": "Ocultar “Reddit Premium”"
 	},
 
-	"textHideCreatePost": {
+	"HideCreatePost": {
 		"message": "Ocultar “Crear publicación”"
 	},
 
-	"textHideCoinButton": {
-		"message": "Ocultar el botón “Moneda”"
-	},
-
-	"textHideAdvertiseButton": {
+	"HideAdvertiseButton": {
 		"message": "Ocultar el botón “Anunciar”"
 	},
 
-	"textHideModerationButton": {
+	"HideModerationButton": {
 		"message": "Ocultar el botón “Moderación”"
 	},
 
-	"textHidePopularButton": {
+	"HidePopularButton": {
 		"message": "Ocultar el botón “Popular”"
 	},
 
-	"textHideHappeningNowButton": {
-		"message": "Ocultar el botón “Lo que está pasando”"
-	},
-
-	"textHideChatButton": {
+	"HideChatButton": {
 		"message": "Ocultar el botón “Chat”"
 	},
 
-	"textHideHomeSidebar": {
+	"HideHomeSidebar": {
 		"message": "Ocultar la barra lateral de la página de inicio"
 	},
 
-	"textHideSubSidebar": {
+	"HideSubSidebar": {
 		"message": "Ocultar la barra lateral de Sub Reddit"
 	},
 
-	"textSidebar": {
+	"Sidebar": {
 		"message": "Barra lateral"
 	},
 
-	"textHeader": {
+	"Header": {
 		"message": "Encabezado"
 	},
 
-	"textHeaderHeight": {
+	"HeaderHeight": {
 		"message": "Altura del encabezado"
 	},
 
-	"textFeed": {
+	"Feed": {
 		"message": "Feed"
 	},
 
-	"textHeaderButtons": {
+	"HeaderButtons": {
 		"message": "Botones de encabezado"
 	},
 
-	"textHideGap": {
+	"HideGap": {
 		"message": "Ocultar espacios vacíos de la interfaz"
 	},
 
-	"textMain": {
+	"Main": {
 		"message": "Principal"
 	},
 
-	"textStickySort": {
+	"StickySort": {
 		"message": "Ordenamiento Fijo"
 	},
 
-	"textHideUsername": {
+	"HideUsername": {
 		"message": "Ocultar Nombre de Usuario"
 	},
 
-	"textHideKarma": {
+	"HideKarma": {
 		"message": "Ocultar Karma"
 	},
 
-	"textReloadPage": {
+	"ReloadPage": {
 		"message": "Recargar página"
 	},
 
-	"textShowRising": {
+	"ShowRising": {
 		"message": "Mostrar siempre el botón “En Alza” de clasificación"
 	},
 
-	"textToTop": {
+	"ToTop": {
 		"message": "Agregar el botón “Desplazarse hacia arriba”"
 	},
 
-	"textHideGetNewReddit": {
+	"HideGetNewReddit": {
 		"message": "Ocultar “Get New Reddit”"
 	},
 
-	"textHideSidebarPolicy": {
+	"HideSidebarPolicy": {
 		"message": "Ocultar sección de políticas"
 	},
 
-	"textHideElements": {
+	"HideElements": {
 		"message": "Ocultar Elementos"
 	},
 
-	"textProductivity": {
+	"Productivity": {
 		"message": "Productividad"
 	},
 
-	"textOpenSubInNewTab": {
+	"OpenSubInNewTab": {
 		"message": "Abrir enlaces a Sub Reddits en una nueva pestaña"
 	},
 
-	"textSearch": {
+	"Search": {
 		"message": "Buscar"
 	},
 
-	"textHidePromoted": {
-		"message": "Ocultar Enlaces Promocionados"
+	"HidePromoted": {
+		"message": "Ocultar anuncios/enlaces patrocinados"
 	},
 
-	"textShowAllButton": {
+	"ShowAllButton": {
 		"message": "Agregar botón “r/All”"
 	},
 
-	"textVideoPlayerReplacement": {
+	"VideoPlayerReplacement": {
 		"message": "Reproductor de video alternativo"
 	},
 
-	"textImages": {
+	"Images": {
 		"message": "Imágenes"
 	},
 
-	"textSortBar": {
+	"SortBar": {
 		"message": "Ordenar barra"
 	},
 
-	"textOther": {
+	"Other": {
 		"message": "Otro"
 	},
 
-	"textHideCreatePostButton": {
+	"HideCreatePostButton": {
 		"message": "Ocultar el botón “Crear publicación”"
 	},
 
-	"textHideNotificationButton": {
+	"HideNotificationButton": {
 		"message": "Ocultar botón de “Notificación”"
 	},
 
-	"textMoveFeedToTopInSidemenu": {
+	"MoveFeedToTopInSidemenu": {
 		"message": "Mover la sección de alimentación en el menú lateral a la parte superior"
 	},
 
-	"textTextPost": {
+	"TextPost": {
 		"message": "Texto"
 	},
 
-	"textTextScroll": {
+	"TextScroll": {
 		"message": "Agregar barra de desplazamiento a publicaciones de texto largo"
 	},
 
-	"textHideSeeFullImage": {
+	"HideSeeFullImage": {
 		"message": "Ocultar “Ver Imagen Completa”"
 	},
 
-	"textModerniseOldReddit": {
+	"ModerniseOldReddit": {
 		"message": "Modernizar old.reddit"
 	},
 
-	"textHideHeaderSubBar": {
+	"HideHeaderSubBar": {
 		"message": "Ocultar lista de subreddit de encabezado"
 	},
 
-	"textHideSideMenuOld": {
+	"HideSideMenu": {
 		"message": "Ocultar menú lateral"
 	},
 
-	"textPostCommentsLimit": {
+	"PostCommentsLimit": {
 		"message": "Limitar comentarios de publicación"
 	},
 
-	"textAutoExpand": {
+	"AutoExpand": {
 		"message": "Expanda al 100 % si el ancho de la ventana/pantalla es inferior a:"
 	},
 
-	"textHidePostSidebar": {
+	"HidePostSidebar": {
 		"message": "Ocultar la barra lateral de la publicación"
 	},
 
-	"textHideUserSidebar": {
+	"HidePostOverlaySidebar": {
+		"message": "Ocultar la barra lateral de superposición de publicaciones"
+	},
+
+	"HideUserSidebar": {
 		"message": "Ocultar la barra lateral del usuario"
 	},
 
-	"textLimitInfinityScroll": {
+	"LimitInfinityScroll": {
 		"message": "Límite de desplazamiento infinito"
 	},
 
-	"textVideoPlayerInfo": {
+	"VideoPlayerInfo": {
 		"message": "Reproductor de vídeo rápido, ligero y con controles de velocidad basados en videojs. Pruebe esto si tiene problemas de carga con el reproductor de reddit."
 	},
 
-	"textLimitCommentsInfo": {
+	"LimitCommentsInfo": {
 		"message": "Solo funciona para publicaciones abiertas en una nueva pestaña/ventana."
 	},
 
-	"textLimitInfinityScrollInfo": {
+	"LimitInfinityScrollInfo": {
 		"message": "Beta. Esto no necesariamente reducirá el uso de ancho de banda, pero debería ayudar a evitar que la página se vuelva lenta al evitar que Reddit agregue nuevas publicaciones hasta que hagas clic en “Carga más” en la parte inferior del feed. Al hacer clic en “Carga más”, se borrarán las primeras 25 publicaciones y se mostrarán las siguientes 25."
 	},
 
-	"textDefaultFeedSortOption": {
+	"DefaultFeedSortOption": {
 		"message": "Opción de clasificación de feed predeterminada"
 	},
 
-	"textDefaultCommentsSortOption": {
+	"DefaultCommentsSortOption": {
 		"message": "Opción de clasificación de comentarios predeterminada"
 	},
 
-	"textBest": {
+	"Best": {
 		"message": "Mejores"
 	},
 
-	"textHot": {
+	"Hot": {
 		"message": "Destacando"
 	},
 
-	"textNew": {
+	"New": {
 		"message": "Más nuevos"
 	},
 
-	"textTop": {
+	"Top": {
 		"message": "Más votados"
 	},
 
-	"textControversial": {
+	"Controversial": {
 		"message": "Más polémicos"
 	},
 
-	"textRising": {
+	"Rising": {
 		"message": "En Alza"
 	},
 
-	"textOld": {
+	"Old": {
 		"message": "Old"
 	},
 
-	"textQa": {
+	"Qa": {
 		"message": "Q&a"
 	},
 
-	"textOpenPostInNewTab": {
+	"OpenPostInNewTab": {
 		"message": "Abrir enlaces a publicaciones en una nueva pestaña"
 	},
 
-	"textControversialSort": {
+	"ControversialSort": {
 		"message": "Mostrar o botão de classificação “Más polémicos”"
 	},
 
-	"textTextScrollInfo": {
+	"TextScrollInfo": {
 		"message": "Hay un límite. Es posible que tenga que abrir la publicación si es muy larga."
 	},
 
-	"textHideNSFW": {
+	"HideNSFW": {
 		"message": "Ocultar publicaciones NSFW/L"
 	},
 
-	"textHideTurnOnNotificationsPopup": {
+	"HideTurnOnNotificationsPopup": {
 		"message": "Ocultar ventana emergente de “activar notificaciones”"
 	},
 
-	"textScrollToNextRootComment": {
+	"ScrollToNextRootComment": {
 		"message": "Mostrar botones para desplazarse al siguiente/comentario de raíz anterior"
 	},
 
-	"textOpenPostInNewTabInfo": {
+	"OpenPostInNewTabInfo": {
 		"message": "Ahora puede habilitar esto oficialmente dentro de Reddit."
 	},
 
-	"textOpenPostInNewTabInfoLink": {
+	"OpenPostInNewTabInfoLink": {
 		"message": "Ajustes de usuario > Ajustes de feed > Abrir publicaciones en una pestaña nueva"
 	},
 
-	"textShowPostNumbers": {
+	"ShowPostNumbers": {
 		"message": "Agregar números de publicación"
 	},
 
-	"textBackup": {
+	"Backup": {
 		"message": "Respaldo"
 	},
 
-	"textRestore": {
+	"Restore": {
 		"message": "Copia de Seguridad"
 	},
 
-	"textRestoreConfigTitle": {
+	"RestoreConfigTitle": {
 		"message": "Restaurar configuración de copia de seguridad de Reddit Enhancer"
 	},
 
-	"textChooseBackupFile": {
+	"ChooseBackupFile": {
 		"message": "Elija el archivo de copia de seguridad"
 	},
 
-	"textOr": {
+	"Or": {
 		"message": "O"
 	},
 
-	"textDrag": {
+	"Drag": {
 		"message": "Arrastre"
 	},
 
-	"textHere": {
+	"Here": {
 		"message": "aquí"
 	},
 
-	"textRestoreBackup": {
+	"RestoreBackup": {
 		"message": "Restaurar copia de seguridad"
 	},
 
-	"textBackupRestored": {
+	"BackupRestored": {
 		"message": "Copia de seguridad restaurada!"
 	},
 
-	"textCloseTab": {
+	"CloseTab": {
 		"message": "Ahora puede cerrar esta pestaña/ventana."
 	},
 
-	"textUpload": {
+	"Upload": {
 		"message": "Subir"
 	},
 
-	"textCustomCSS": {
+	"CustomCSS": {
 		"message": "CSS Personalizado"
 	},
 
-	"textFeedPostMaxHeight": {
+	"FeedPostMaxHeight": {
 		"message": "Altura máxima del Publicación"
 	},
 
-	"textPost": {
+	"Post": {
 		"message": "Publicación"
 	},
 
-	"textAccessibility": {
+	"Accessibility": {
 		"message": "Accesibilidad"
 	},
 
-	"textBionicReader": {
+	"BionicReader": {
 		"message": "Lector bionica"
 	},
 
-	"textBionicReaderPosts": {
+	"BionicReaderPosts": {
 		"message": "Lector bionica para publicaciones"
 	},
 
-	"textBionicReaderComments": {
+	"BionicReaderComments": {
 		"message": "Lector bionica para comentarios"
 	},
 
-	"textThemeBlur": {
+	"BionicFontColour": {
+		"message": "Color de fuente biónica"
+	},
+
+	"BionicBackgroundColour": {
+		"message": "Color de fondo biónico"
+	},
+
+	"ThemeBlur": {
 		"message": "Desenfoque de tema"
 	},
 
-	"textThemeBlurInfo": {
+	"ThemeBlurInfo": {
 		"message": "Use colores translúcidos 'rgba (0,0,0,0.5)' para ver el efecto de desenfoque."
 	},
 
-	"textThemeColours": {
+	"ThemeColours": {
 		"message": "Colores del tema"
 	},
 
-	"textBorderColour": {
+	"BorderColour": {
 		"message": "Color del borde"
 	},
 
-	"textTextColour": {
+	"TextColour": {
 		"message": "Color del texto"
 	},
 
-	"textPostVisitedTitleColour": {
-		"message": "Color del título de la publicación visitada"
+	"PostVisitedTitleColour": {
+		"message": "Publicación visitada: Color del título"
 	},
 
-	"textHeaderBgColour": {
-		"message": "Color de fondo del encabezado"
+	"HeaderBgColour": {
+		"message": "Encabezado: Color de fondo"
 	},
 
-	"textHeaderTextColour": {
-		"message": "Color del texto del encabezado"
+	"HeaderTextColour": {
+		"message": "Encabezado: Color del texto"
 	},
 
-	"textSortBgColour": {
-		"message": "Ordenar color de fondo"
+	"Sort": {
+		"message": "Ordenar"
 	},
 
-	"textSortTextColour": {
-		"message": "Ordenar color de texto"
+	"SortBgColour": {
+		"message": "Ordenar: Color de fondo"
 	},
 
-	"textSortBorderColour": {
-		"message": "Ordenar color de borde"
+	"SortTextColour": {
+		"message": "Ordenar: Color del texto"
 	},
 
-	"textPostBgColour": {
-		"message": "Color de fondo de la publicación"
+	"SortBorderColour": {
+		"message": "Ordenar: Color del borde"
 	},
 
-	"textPostTextColour": {
-		"message": "Texto de la publicación y color del icono"
+	"PostBgColour": {
+		"message": "Publicación: Color de fondo"
 	},
 
-	"textPostTitleContentColour": {
-		"message": "Título de la publicación y color del contenido del texto"
+	"PostSecondaryTextColour": {
+		"message": "Publicación: Color de texto secundario"
 	},
 
-	"textPostBorderColour": {
-		"message": "Color del borde de la publicación"
+	"PostTitleContentColour": {
+		"message": "Publicación: Título y color del contenido del texto"
 	},
 
-	"textWhitelistBlacklist": {
+	"PostBorderColour": {
+		"message": "Publicación: Color del borde"
+	},
+
+	"WhitelistBlacklist": {
 		"message": "Lista blanca / Lista negra"
 	},
 
-	"textWhitelist": {
+	"Whitelist": {
 		"message": "Lista blanca"
 	},
 
-	"textBlacklist": {
+	"Blacklist": {
 		"message": "Lista negra"
 	},
 
-	"textThemeBlacklistInfo": {
+	"ThemeBlacklistInfo": {
 		"message": "Use los colores del tema globalmente, excepto para estos subreddits:"
 	},
 
-	"textThemeWhitelistInfo": {
+	"ThemeWhitelistInfo": {
 		"message": "Usa sólo los colores del tema para estos subreddits:"
 	},
 
-	"textHideSubSidebarBlacklistInfo": {
+	"HideSubSidebarBlacklistInfo": {
 		"message": "Ocultar globalmente excepto en estos subreddits:"
 	},
 
-	"textHideSubSidebarWhitelistInfo": {
+	"HideSubSidebarWhitelistInfo": {
 		"message": "Esconderse solo en estos subreddits:"
 	},
 
-	"textHideHeaderBar": {
+	"HideHeaderBar": {
 		"message": "Ocultar la barra de encabezado"
 	},
 
-	"textNonStickyHeaderBar": {
+	"NonStickyHeaderBar": {
 		"message": "Barra de encabezado no pegajosa"
 	},
 
-	"textHideOriginalScrollToTop": {
+	"HideOriginalScrollToTop": {
 		"message": "Ocultar el botón de desplazamiento original hacia arriba"
 	},
 
-	"textCreatePostBgColour": {
-		"message": "Color de fondo “Crear publicación”"
+	"CreatePost": {
+		"message": "Crear Publicación"
 	},
 
-	"textCreatePostBorderColour": {
-		"message": "Color del borde “Crear publicación”"
+	"CreatePostBgColour": {
+		"message": "Crear Publicación: Color de fondo”"
 	},
 
-	"textLargerClassicPost": {
+	"CreatePostBorderColour": {
+		"message": "Crear Publicación: Color del borde"
+	},
+
+	"LargerClassicPost": {
 		"message": "Vista de publicación clásica más grande"
 	},
 
-	"textLargerClassicPostInfo": {
-		"message": "Deshabilite esta opción si no está utilizando la “Vista de publicación clásica”."
+	"PositionVertically": {
+		"message": "Posición vertical"
 	},
 
-	"textPosition": {
-		"message": "Posición"
+	"PositionHorizontally": {
+		"message": "Posición horizontal"
 	},
 
-	"textBreakReminder": {
+	"BreakReminder": {
 		"message": "Recordatorio de descanso"
 	},
 
-	"textBreakReminderInfo": {
+	"BreakReminderInfo": {
 		"message": "Beta. Muestra un recordatorio para tomar un descanso cada número determinado de publicaciones."
 	},
 
-	"textBreakReminderFrequency": {
+	"BreakReminderFrequency": {
 		"message": "Frecuencia de recordatorio"
+	},
+
+	"TranslationHelp": {
+		"message": "Traducir"
+	},
+
+	"Off": {
+		"message": "Apagado"
+	},
+
+	"ShowPostAuthor": {
+		"message": "Mostrar autor de la publicación"
+	},
+
+	"RemovePageSideMargin": {
+		"message": "Eliminar el margen lateral de la página"
+	},
+
+	"HideSideMenuTopSection": {
+		"message": "Ocultar la sección Superior"
+	},
+
+	"HideSideMenuModerationSection": {
+		"message": "Ocultar la sección de Moderación"
+	},
+
+	"HideSideMenuRecentSection": {
+		"message": "Ocultar la sección Reciente"
+	},
+
+	"HideSideMenuCommunitiesSection": {
+		"message": "Ocultar la sección de Comunidades"
+	},
+
+	"HideSideMenuResourcesSection": {
+		"message": "Ocultar la sección de Recursos"
+	},
+
+	"HideRelatedPosts": {
+		"message": "Ocultar publicaciones Relacionadas"
+	},
+
+	"Select": {
+		"message": "Seleccionar"
+	},
+
+	"SelectRedditVersion": {
+		"message": "Seleccione la versión de Reddit"
+	},
+
+	"UpdateFirefox": {
+		"message": "Actualice a Firefox 121 o superior para que algunas funciones funcionen correctamente."
+	},
+
+	"PostContent": {
+		"message": "Contenido de la Publicación"
+	},
+
+	"PostComments": {
+		"message": "Comentarios de la Publicación"
+	},
+
+	"Rate": {
+		"message": "Tasa / Revisar"
+	},
+
+	"HideUserProfilePics": {
+		"message": "Ocultar imágenes de perfil de usuario en los comentarios"
+	},
+
+	"AutoExpandComments": {
+		"message": "Comentarios de expansión automática"
 	}
 }

@@ -1,29 +1,56 @@
 // Non Sticky HeaderBar
-let nonStickyHeaderBar = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		// do nothing
-	} else {
-		// new reddit
+
+export function nonStickyHeaderBar(value) {
+	if (redditVersion === 'new') {
 		if (value == true) {
-			const styleElement = document.createElement('style');
-			styleElement.type = 'text/css';
-			styleElement.id = 're-non-sticky-header-bar';
-			document.head.appendChild(styleElement);
-			const dynamicStyle = `header {
+			enableNonStickyHeaderBarNew();
+		} else if (value == false) {
+			disableNonStickyHeaderBarNew();
+		}
+	} else if (redditVersion === 'newnew') {
+		if (value == true) {
+			enableNonStickyHeaderBarNewNew();
+		} else if (value == false) {
+			disableNonStickyHeaderBarNewNew();
+		}
+	}
+}
+
+// Function - Enable Non Sticky Header Bar - New
+function enableNonStickyHeaderBarNew() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-non-sticky-header-bar';
+	styleElement.textContent = `header {
 									position: absolute !important;
 								}
 								#SHORTCUT_FOCUSABLE_DIV > div[class*="subredditvars-r"] > div {
 									top: 0;
 								}`;
-			styleElement.innerHTML = dynamicStyle;
-		} else if (value == false) {
-			const dynamicStyleElements = document.querySelectorAll('style[id="re-non-sticky-header-bar"]');
-			dynamicStyleElements.forEach((element) => {
-				document.head.removeChild(element);
-			});
-		}
-	}
-};
-export { nonStickyHeaderBar };
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Disable Non Sticky Header Bar - New
+function disableNonStickyHeaderBarNew() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-non-sticky-header-bar"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}
+
+// Function - Enable Non Sticky Header Bar - NewNew
+function enableNonStickyHeaderBarNewNew() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-non-sticky-header-bar';
+	styleElement.textContent = `shreddit-app reddit-header-large {
+									position: absolute !important;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Disable Non Sticky Header Bar - NewNew
+function disableNonStickyHeaderBarNewNew() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-non-sticky-header-bar"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}

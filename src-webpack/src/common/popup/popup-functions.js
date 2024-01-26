@@ -1,5 +1,7 @@
 /* ===== Popup / Functions ===== */
 
+import { detectFirefoxVersion } from '../content-first/detect_firefox_version';
+
 /* ===== Save Custom Background ===== */
 
 function addCustomBgNode(newCustomBg) {
@@ -196,4 +198,13 @@ export function darkModeTimeCalc(i) {
 			});
 		});
 	});
+}
+
+// Check Firefox Version
+const useLegacy = detectFirefoxVersion();
+if (useLegacy) {
+	console.log('Firefox version is below 121. Please update.');
+	if (document.querySelector('#alert-update')) {
+		document.querySelector('#alert-update').style.display = 'block';
+	}
 }

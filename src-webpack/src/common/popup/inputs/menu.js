@@ -84,7 +84,7 @@ document.querySelector('.btn-bg-image').addEventListener('click', function (e) {
 });
 
 // Menu Button - Accessibility
-/*document.querySelector('.btn-accessibility').addEventListener('click', function (e) {
+document.querySelector('.btn-accessibility').addEventListener('click', function (e) {
 	document.querySelectorAll('.menu-accessibility').forEach(function (el) {
 		if (el.classList.contains('hide')) {
 			document.querySelector('.btn-accessibility').classList.add('active');
@@ -95,4 +95,4 @@ document.querySelector('.btn-bg-image').addEventListener('click', function (e) {
 			el.classList.add('hide');
 		}
 	});
-});*/
+});

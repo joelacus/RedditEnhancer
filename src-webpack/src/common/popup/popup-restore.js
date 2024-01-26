@@ -1,7 +1,10 @@
 /* ===== Popup / Restore ===== */
 
+import i18n from 'i18next';
 import { addBackgroundListeners } from './popup-functions';
-import { tabShowOldVersion } from './inputs/version_select';
+import { filterShowOldVersion } from './inputs/filter_version_select';
+import { filterShowNewVersion } from './inputs/filter_version_select';
+import { filterShowNewNewVersion } from './inputs/filter_version_select';
 import { tabDmSystem } from './inputs/inputs_dark_mode';
 import { tabDmTime } from './inputs/inputs_dark_mode';
 
@@ -16,13 +19,28 @@ function restoreOptions() {
 	BROWSER_API.storage.sync.get(['redditVersion'], function (result) {
 		if (typeof result.redditVersion != 'undefined') {
 			if (result.redditVersion === 'old') {
-				tabShowOldVersion();
+				filterShowOldVersion();
 				var value = 'old';
-			} else {
+			} else if (result.redditVersion === 'new') {
+				filterShowNewVersion();
 				var value = 'new';
+			} else if (result.redditVersion === 'newnew') {
+				filterShowNewNewVersion();
+				var value = 'newnew';
 			}
 		} else if (typeof result.redditVersion == 'undefined') {
-			var value = 'new';
+			var value = 'choose';
+			document.querySelector('.menu-list').classList.add('hide');
+			document.querySelector('#start-page').classList.remove('hide');
+			document.querySelector('#chosen-version').textContent = 'Select';
+			document.querySelector('#old-reddit').addEventListener('click', done);
+			document.querySelector('#new-reddit').addEventListener('click', done);
+			document.querySelector('#newnew-reddit').addEventListener('click', done);
+			function done() {
+				document.querySelector('.menu-list').classList.remove('hide');
+				document.querySelector('#start-page').classList.add('hide');
+			}
+			document.querySelector('#search').blur();
 		}
 		console.log('Selected Reddit Version: ' + value);
 	});
@@ -119,6 +137,66 @@ function restoreOptions() {
 		console.log('Expand Layout Width: ' + value + '%');
 	});
 
+	// Expand Post Overlay Width
+	BROWSER_API.storage.sync.get(['expandPostOverlayWidth'], function (result) {
+		if (typeof result.expandPostOverlayWidth != 'undefined') {
+			document.querySelector('#input-expand-post-overlay-width').value = result.expandPostOverlayWidth;
+			document.querySelector('#expand-post-overlay-width').innerText = result.expandPostOverlayWidth + '%';
+			var value = result.expandPostOverlayWidth;
+		}
+		if (typeof result.expandPostOverlayWidth == 'undefined') {
+			document.querySelector('#input-expand-post-overlay-width').value = 80;
+			document.querySelector('#expand-post-overlay-width').innerText = '80%';
+			var value = '80';
+		}
+		console.log('Expand Post Overlay Width: ' + value + '%');
+	});
+
+	// Expand Post Width
+	BROWSER_API.storage.sync.get(['expandPostWidth'], function (result) {
+		if (typeof result.expandPostWidth != 'undefined') {
+			document.querySelector('#input-expand-post-width').value = result.expandPostWidth;
+			document.querySelector('#expand-post-width').innerText = result.expandPostWidth + '%';
+			var value = result.expandPostWidth;
+		}
+		if (typeof result.expandPostWidth == 'undefined') {
+			document.querySelector('#input-expand-post-width').value = 80;
+			document.querySelector('#expand-post-width').innerText = '80%';
+			var value = '80';
+		}
+		console.log('Expand Post Width: ' + value + '%');
+	});
+
+	// Expand Sub Reddit Width
+	BROWSER_API.storage.sync.get(['expandSubWidth'], function (result) {
+		if (typeof result.expandSubWidth != 'undefined') {
+			document.querySelector('#input-expand-sub-width').value = result.expandSubWidth;
+			document.querySelector('#expand-sub-width').innerText = result.expandSubWidth + '%';
+			var value = result.expandSubWidth;
+		}
+		if (typeof result.expandSubWidth == 'undefined') {
+			document.querySelector('#input-expand-sub-width').value = 80;
+			document.querySelector('#expand-sub-width').innerText = '80%';
+			var value = '80';
+		}
+		console.log('Expand Sub Width: ' + value + '%');
+	});
+
+	// Expand User Profile Width
+	BROWSER_API.storage.sync.get(['expandUserProfileWidth'], function (result) {
+		if (typeof result.expandUserProfileWidth != 'undefined') {
+			document.querySelector('#input-expand-user-profile-width').value = result.expandUserProfileWidth;
+			document.querySelector('#expand-user-profile-width').innerText = result.expandUserProfileWidth + '%';
+			var value = result.expandUserProfileWidth;
+		}
+		if (typeof result.expandUserProfileWidth == 'undefined') {
+			document.querySelector('#input-expand-user-profile-width').value = 80;
+			document.querySelector('#expand-user-profile-width').innerText = '80%';
+			var value = '80';
+		}
+		console.log('Expand User Profile Width: ' + value + '%');
+	});
+
 	// Expand Layout
 	BROWSER_API.storage.sync.get(['expandLayout'], function (result) {
 		if (typeof result.expandLayout == 'undefined' || result.expandLayout == false) {
@@ -126,7 +204,7 @@ function restoreOptions() {
 			var value = false;
 		} else if (result.expandLayout == true) {
 			document.querySelector('#checkbox-expand-layout').checked = true;
-			var icons = document.querySelectorAll('.icon-layout');
+			var icons = document.querySelectorAll('.icon-expand-layout');
 			icons.forEach(function (icon) {
 				icon.style.backgroundColor = 'var(--accent)';
 			});
@@ -140,7 +218,7 @@ function restoreOptions() {
 		if (result.layoutCentre == true) {
 			document.querySelector('#checkbox-layout-centre').checked = true;
 			document.querySelector('.icon-centre').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.icon-layout').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-expand-layout').style.backgroundColor = 'var(--accent)';
 			var value = true;
 		} else if (typeof result.layoutCentre == 'undefined' || result.layoutCentre == false) {
 			document.querySelector('#checkbox-layout-centre').checked = false;
@@ -164,14 +242,11 @@ function restoreOptions() {
 
 	// Add Scrollbar To Tall Images
 	BROWSER_API.storage.sync.get(['imageScroll'], function (result) {
-		if (typeof result.imageScroll == 'undefined') {
-			BROWSER_API.storage.sync.set({ imageScroll: true });
-		}
-		if (typeof result.imageScroll == 'undefined' || result.imageScroll == true) {
+		if (result.imageScroll == true) {
 			document.querySelector('#checkbox-image-scroll').checked = true;
 			document.querySelector('.icon-scroll').style.backgroundColor = 'var(--accent)';
 			var value = true;
-		} else if (result.imageScroll == false) {
+		} else if (typeof result.imageScroll == 'undefined' || result.imageScroll == false) {
 			document.querySelector('#checkbox-image-scroll').checked = false;
 			var value = false;
 		}
@@ -326,6 +401,22 @@ function restoreOptions() {
 		console.log('Hide Post Sidebar: ' + value);
 	});
 
+	// Hide Post Overlay Sidebar
+	BROWSER_API.storage.sync.get(['hidePostOverlaySidebar'], function (result) {
+		if (result.hidePostOverlaySidebar == true) {
+			document.querySelector('#checkbox-hide-post-overlay-sidebar').checked = true;
+			document.querySelector('.icon-hide-post-overlay-sidebar').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-post-overlay-sidebar').classList.remove('icon-show');
+			document.querySelector('.icon-hide-post-overlay-sidebar').classList.add('icon-hide');
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hidePostOverlaySidebar == 'undefined' || result.hidePostOverlaySidebar == false) {
+			document.querySelector('#checkbox-hide-post-overlay-sidebar').checked = false;
+			var value = false;
+		}
+		console.log('Hide Post Overlay Sidebar: ' + value);
+	});
+
 	// Hide User Sidebar
 	BROWSER_API.storage.sync.get(['hideUserSidebar'], function (result) {
 		if (result.hideUserSidebar == true) {
@@ -356,22 +447,6 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Hide Sidebar Policy: ' + value);
-	});
-
-	// Hide Coin Button
-	BROWSER_API.storage.sync.get(['hideCoinButton'], function (result) {
-		if (result.hideCoinButton == true) {
-			document.querySelector('#checkbox-hide-coin-button').checked = true;
-			document.querySelector('.hide-coin-button').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.hide-coin-button').classList.remove('icon-coin');
-			document.querySelector('.hide-coin-button').classList.add('icon-coin-slash');
-			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
-			var value = true;
-		} else if (typeof result.hideCoinButton == 'undefined' || result.hideCoinButton == false) {
-			document.querySelector('#checkbox-hide-coin-button').checked = false;
-			var value = false;
-		}
-		console.log('Hide Coin Button: ' + value);
 	});
 
 	// Hide Advertise Button
@@ -422,22 +497,6 @@ function restoreOptions() {
 		console.log('Hide Popular Button: ' + value);
 	});
 
-	// Hide Happening Now Button
-	BROWSER_API.storage.sync.get(['hideHappeningNowButton'], function (result) {
-		if (result.hideHappeningNowButton == true) {
-			document.querySelector('#checkbox-hide-happening-now-button').checked = true;
-			document.querySelector('.hide-happening-now-button').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.hide-happening-now-button').classList.remove('icon-happening-now');
-			document.querySelector('.hide-happening-now-button').classList.add('icon-happening-now-slash');
-			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
-			var value = true;
-		} else if (typeof result.hideHappeningNowButton == 'undefined' || result.hideHappeningNowButton == false) {
-			document.querySelector('#checkbox-hide-happening-now-button').checked = false;
-			var value = false;
-		}
-		console.log('Hide Happening Now Button: ' + value);
-	});
-
 	// Hide Chat Button
 	BROWSER_API.storage.sync.get(['hideChatButton'], function (result) {
 		if (result.hideChatButton == true) {
@@ -485,35 +544,6 @@ function restoreOptions() {
 		}
 		console.log('Hide Create Post Button: ' + value);
 	});
-
-	// Header Height
-	/*BROWSER_API.storage.sync.get(['headerHeight'], function(result) {
-		if (typeof result.headerHeight != 'undefined') {
-			if (result.headerHeight == 4) {
-				document.querySelector('.header-height').style.backgroundColor = "var(--accent)"
-				var height = "228px"
-			} else if (result.headerHeight == 3) {
-				document.querySelector('.header-height').style.backgroundColor = "var(--accent)"
-				var height = "128px"
-			} else if (result.headerHeight == 2) {
-				document.querySelector('.header-height').style.backgroundColor = "var(--accent)"
-				var height = "64px"
-			} else if (result.headerHeight == 1) {
-				document.querySelector('.header-height').style.backgroundColor = "var(--accent)"
-				var height = "0px"
-			} else if (result.headerHeight == 0) {
-				document.querySelector('.header-height').style.backgroundColor = ""
-				var height = "default"
-			}
-			document.querySelector("#input-header-height").value = result.headerHeight
-			document.querySelector("#header-height-value").innerText = height
-		} else if (typeof result.headerHeight == 'undefined') {
-			document.querySelector("#input-header-height").value = 0
-			document.querySelector("#header-height-value").innerText = "default"
-			var height = "default"
-		}
-		console.log("Header Height: "+height)
-	})*/
 
 	// Hide Gap
 	BROWSER_API.storage.sync.get(['hideGap'], function (result) {
@@ -770,12 +800,12 @@ function restoreOptions() {
 
 	// Add Scroll To Text Post
 	BROWSER_API.storage.sync.get(['textPostScroll'], function (result) {
-		if (typeof result.textPostScroll == 'undefined' || result.textPostScroll == true) {
+		if (result.textPostScroll == true) {
 			document.querySelector('#checkbox-text-scroll-post').checked = true;
 			document.querySelector('.icon-text-scroll-post').style.backgroundColor = 'var(--accent)';
 			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
 			var value = true;
-		} else if (result.textPostScroll == false) {
+		} else if (typeof result.textPostScroll == 'undefined' || result.textPostScroll == false) {
 			document.querySelector('#checkbox-text-scroll-post').checked = false;
 			var value = false;
 		}
@@ -831,6 +861,8 @@ function restoreOptions() {
 		if (result.hideSideMenuOld == true) {
 			document.querySelector('#checkbox-hide-side-menu-old').checked = true;
 			document.querySelector('.icon-hide-side-menu-old').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-side-menu-old').classList.remove('icon-show');
+			document.querySelector('.icon-hide-side-menu-old').classList.add('icon-hide');
 			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
 			var value = true;
 		} else if (typeof result.hideSideMenuOld == 'undefined' || result.hideSideMenuOld == false) {
@@ -838,6 +870,22 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Hide Side Menu Old: ' + value);
+	});
+
+	// Hide Side Menu
+	BROWSER_API.storage.sync.get(['hideSideMenu'], function (result) {
+		if (result.hideSideMenu == true) {
+			document.querySelector('#checkbox-hide-side-menu').checked = true;
+			document.querySelector('.icon-hide-side-menu').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-side-menu').classList.remove('icon-show');
+			document.querySelector('.icon-hide-side-menu').classList.add('icon-hide');
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideSideMenu == 'undefined' || result.hideSideMenu == false) {
+			document.querySelector('#checkbox-hide-side-menu').checked = false;
+			var value = false;
+		}
+		console.log('Hide Side Menu: ' + value);
 	});
 
 	// Comments Limit
@@ -959,8 +1007,8 @@ function restoreOptions() {
 		if (result.hideTurnOnNotificationsPopup == true) {
 			document.querySelector('#checkbox-hide-turn-on-notifications').checked = true;
 			document.querySelector('.icon-hide-turn-on-notifications').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.icon-hide-turn-on-notifications').classList.add('icon-bell');
-			document.querySelector('.icon-hide-turn-on-notifications').classList.remove('icon-bell-slash');
+			document.querySelector('.icon-hide-turn-on-notifications').classList.remove('icon-bell');
+			document.querySelector('.icon-hide-turn-on-notifications').classList.add('icon-bell-slash');
 			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
 			var value = true;
 		} else if (typeof result.hideTurnOnNotificationsPopup == 'undefined' || result.hideTurnOnNotificationsPopup == false) {
@@ -972,12 +1020,12 @@ function restoreOptions() {
 
 	// Scroll To Next Root Comment
 	BROWSER_API.storage.sync.get(['scrollToNextRootComment'], function (result) {
-		if (typeof result.scrollToNextRootComment == 'undefined' || result.scrollToNextRootComment == true) {
+		if (result.scrollToNextRootComment == true) {
 			document.querySelector('#checkbox-scroll-to-next-root-comment').checked = true;
 			document.querySelector('.icon-scroll-to-next-root-comment').style.backgroundColor = 'var(--accent)';
 			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
 			var value = true;
-		} else if (result.scrollToNextRootComment == false) {
+		} else if (typeof result.scrollToNextRootComment == 'undefined' || result.scrollToNextRootComment == false) {
 			document.querySelector('#checkbox-scroll-to-next-root-comment').checked = false;
 			var value = false;
 		}
@@ -1047,7 +1095,7 @@ function restoreOptions() {
 	});
 
 	// Bionic Reader - Comments
-	/*BROWSER_API.storage.sync.get(['bionicReaderComments'], function (result) {
+	BROWSER_API.storage.sync.get(['bionicReaderComments'], function (result) {
 		if (result.bionicReaderComments == true) {
 			document.querySelector('.icon-bionic-reader-comments').style.backgroundColor = 'var(--accent)';
 			document.querySelector('.icon-bionic-reader-comments').classList.remove('icon-book');
@@ -1060,7 +1108,7 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Bionic Reader Comments: ' + value);
-	})
+	});
 
 	// Bionic Reader - Posts
 	BROWSER_API.storage.sync.get(['bionicReaderPosts'], function (result) {
@@ -1076,7 +1124,7 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Bionic Reader Posts: ' + value);
-	})*/
+	});
 
 	// Theme Header Background Colour
 	BROWSER_API.storage.sync.get(['themeHeaderBackgroundColour'], function (result) {
@@ -1374,6 +1422,7 @@ function restoreOptions() {
 			}
 			var value = result.themeBlur;
 		} else if (typeof result.themeBlur == 'undefined') {
+			document.querySelector('.icon-theme-blur').style.backgroundColor = 'var(--accent)';
 			document.querySelector('#input-theme-blur').value = 5;
 			document.querySelector('#theme-blur-value').innerText = '5px';
 			var value = 0;
@@ -1402,8 +1451,8 @@ function restoreOptions() {
 		} else if (result.themeExceptionMode === 'whitelist') {
 			document.querySelector('#btn-theme-blacklist').classList.remove('tab-active');
 			document.querySelector('#btn-theme-whitelist').classList.add('tab-active');
-			document.querySelector('#textThemeWhitelistInfo').classList.remove('hidden');
-			document.querySelector('#textThemeBlacklistInfo').classList.add('hidden');
+			document.querySelector('[data-lang=ThemeWhitelistInfo]').classList.remove('hidden');
+			document.querySelector('[data-lang=ThemeBlacklistInfo]').classList.add('hidden');
 			var value = 'whitelist';
 		}
 		console.log('Theme Exception Mode: ' + value);
@@ -1441,8 +1490,8 @@ function restoreOptions() {
 		} else if (result.hideSubSidebarExceptionMode === 'whitelist') {
 			document.querySelector('#btn-hide-sub-sidebar-blacklist').classList.remove('tab-active');
 			document.querySelector('#btn-hide-sub-sidebar-whitelist').classList.add('tab-active');
-			document.querySelector('#textHideSubSidebarWhitelistInfo').classList.remove('hidden');
-			document.querySelector('#textHideSubSidebarBlacklistInfo').classList.add('hidden');
+			document.querySelector('[data-lang="HideSubSidebarWhitelistInfo"]').classList.remove('hidden');
+			document.querySelector('[data-lang="HideSubSidebarBlacklistInfo"]').classList.add('hidden');
 			var value = 'whitelist';
 		}
 		console.log('Hide Sub Sidebar Exception Mode: ' + value);
@@ -1461,12 +1510,11 @@ function restoreOptions() {
 
 	// Hide Header Bar
 	BROWSER_API.storage.sync.get(['hideHeaderBar'], function (result) {
-		setHideHeaderBar(result);
-	});
-	function setHideHeaderBar(result) {
 		if (result.hideHeaderBar == true) {
 			document.querySelector('#checkbox-hide-header-bar').checked = true;
 			document.querySelector('.icon-hide-header-bar').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-header-bar').classList.remove('icon-header');
+			document.querySelector('.icon-hide-header-bar').classList.add('icon-header-slash');
 			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
 			var value = true;
 		} else if (typeof result.hideHeaderBar == 'undefined' || result.hideHeaderBar == false) {
@@ -1474,7 +1522,7 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Hide Header Bar: ' + value);
-	}
+	});
 
 	// Non Sticky Header Bar
 	BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
@@ -1487,7 +1535,7 @@ function restoreOptions() {
 			document.querySelector('#checkbox-non-sticky-header-bar').checked = false;
 			var value = false;
 		}
-		console.log('Non Header Bar: ' + value);
+		console.log('Non Sticky Header Bar: ' + value);
 	});
 
 	// Larger Classic Post
@@ -1509,6 +1557,8 @@ function restoreOptions() {
 		if (result.hideOriginalScrollToTop == true) {
 			document.querySelector('#checkbox-hide-original-scroll-to-top').checked = true;
 			document.querySelector('.icon-hide-original-scroll-to-top').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-original-scroll-to-top').classList.remove('icon-show');
+			document.querySelector('.icon-hide-original-scroll-to-top').classList.add('icon-hide');
 			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
 			var value = true;
 		} else if (typeof result.hideOriginalScrollToTop == 'undefined' || result.hideOriginalScrollToTop == false) {
@@ -1570,7 +1620,7 @@ function restoreOptions() {
 		console.log('Create Post Border Colour CSS: ' + value);
 	});
 
-	// Scroll To Next Root Comment Position
+	// Scroll To Next Root Comment Position Horizontal
 	BROWSER_API.storage.sync.get(['scrollToNextRootCommentPosition'], function (result) {
 		if (typeof result.scrollToNextRootCommentPosition == 'undefined' || result.scrollToNextRootCommentPosition === '-1') {
 			document.querySelector('#input-scroll-to-root-comment-position').value = -1;
@@ -1582,6 +1632,21 @@ function restoreOptions() {
 			document.querySelector('.icon-scroll-to-root-comment-position').style.backgroundColor = 'var(--accent)';
 			var value = result.scrollToNextRootCommentPosition;
 			console.log('Scroll To Next Root Comment Position: ' + value + '%');
+		}
+	});
+
+	// Scroll To Next Root Comment Position Vertical
+	BROWSER_API.storage.sync.get(['scrollToNextRootCommentPositionV'], function (result) {
+		if (typeof result.scrollToNextRootCommentPositionV == 'undefined' || result.scrollToNextRootCommentPositionV === '-1') {
+			document.querySelector('#input-scroll-to-root-comment-position-v').value = -1;
+			document.querySelector('#scroll-to-root-comment-position-v-value').innerText = '50%';
+			console.log('Scroll To Next Root Comment Position Vertically: 50%');
+		} else if (typeof result.scrollToNextRootCommentPositionV != 'undefined') {
+			document.querySelector('#input-scroll-to-root-comment-position-v').value = result.scrollToNextRootCommentPositionV;
+			document.querySelector('#scroll-to-root-comment-position-v-value').innerText = result.scrollToNextRootCommentPositionV + '%';
+			document.querySelector('.icon-scroll-to-root-comment-position-v').style.backgroundColor = 'var(--accent)';
+			var value = result.scrollToNextRootCommentPositionV;
+			console.log('Scroll To Next Root Comment Position Vertically: ' + value + '%');
 		}
 	});
 
@@ -1608,6 +1673,305 @@ function restoreOptions() {
 		document.querySelector('#input-break-reminder-frequency').value = value;
 		document.querySelector('#break-reminder-frequency-value').innerText = value;
 		console.log('Break Reminder Frequency: ' + value);
+	});
+
+	// Auto Redirect To Version
+	BROWSER_API.storage.sync.get(['autoRedirectVersion'], function (result) {
+		if (result.autoRedirectVersion === 'off' || typeof result.redditVersion == 'undefined') {
+			document.querySelector('#chosen-reddit-version').textContent = i18n.t('Off.message');
+		} else if (result.autoRedirectVersion === 'old') {
+			document.querySelector('#chosen-reddit-version').textContent = i18n.t('OldReddit.message');
+		} else if (result.autoRedirectVersion === 'new') {
+			document.querySelector('#chosen-reddit-version').textContent = i18n.t('NewReddit.message');
+		} else if (result.autoRedirectVersion === 'newnew') {
+			document.querySelector('#chosen-reddit-version').textContent = i18n.t('LatestReddit.message');
+		}
+	});
+
+	// Show Post Author
+	BROWSER_API.storage.sync.get(['showPostAuthor'], function (result) {
+		if (result.showPostAuthor == true) {
+			document.querySelector('#checkbox-show-post-author').checked = true;
+			document.querySelector('.icon-show-post-author').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.showPostAuthor == 'undefined' || result.showPostAuthor == false) {
+			document.querySelector('#checkbox-show-post-author').checked = false;
+			var value = false;
+		}
+		console.log('Show Post Author: ' + value);
+	});
+
+	// Remove Page Side Margin
+	BROWSER_API.storage.sync.get(['removePageSideMargin'], function (result) {
+		if (result.removePageSideMargin == true) {
+			document.querySelector('#checkbox-remove-page-side-margin').checked = true;
+			document.querySelector('.icon-remove-page-side-margin').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-remove-page-side-margin').classList.remove('icon-show');
+			document.querySelector('.icon-remove-page-side-margin').classList.add('icon-hide');
+			document.querySelector('.icon-expand-layout').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.removePageSideMargin == 'undefined' || result.removePageSideMargin == false) {
+			document.querySelector('#checkbox-remove-page-side-margin').checked = false;
+			var value = false;
+		}
+		console.log('Remove Page Side Margin: ' + value);
+	});
+
+	// Remove Side Menu Top Section
+	BROWSER_API.storage.sync.get(['hideSideMenuTopSection'], function (result) {
+		if (result.hideSideMenuTopSection == true) {
+			document.querySelector('#checkbox-hide-side-menu-top-section').checked = true;
+			document.querySelector('.icon-hide-side-menu-top-section').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-side-menu-top-section').classList.remove('icon-show');
+			document.querySelector('.icon-hide-side-menu-top-section').classList.add('icon-hide');
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideSideMenuTopSection == 'undefined' || result.hideSideMenuTopSection == false) {
+			document.querySelector('#checkbox-hide-side-menu-top-section').checked = false;
+			var value = false;
+		}
+		console.log('Hide Side Menu Top Section: ' + value);
+	});
+
+	// Remove Side Menu Moderation Section
+	BROWSER_API.storage.sync.get(['hideSideMenuModerationSection'], function (result) {
+		if (result.hideSideMenuModerationSection == true) {
+			document.querySelector('#checkbox-hide-side-menu-moderation-section').checked = true;
+			document.querySelector('.icon-hide-side-menu-moderation-section').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-side-menu-moderation-section').classList.remove('icon-show');
+			document.querySelector('.icon-hide-side-menu-moderation-section').classList.add('icon-hide');
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideSideMenuModerationSection == 'undefined' || result.hideSideMenuModerationSection == false) {
+			document.querySelector('#checkbox-hide-side-menu-moderation-section').checked = false;
+			var value = false;
+		}
+		console.log('Hide Side Menu Moderation Section: ' + value);
+	});
+
+	// Remove Side Menu Recent Section
+	BROWSER_API.storage.sync.get(['hideSideMenuRecentSection'], function (result) {
+		if (result.hideSideMenuRecentSection == true) {
+			document.querySelector('#checkbox-hide-side-menu-recent-section').checked = true;
+			document.querySelector('.icon-hide-side-menu-recent-section').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-side-menu-recent-section').classList.remove('icon-show');
+			document.querySelector('.icon-hide-side-menu-recent-section').classList.add('icon-hide');
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideSideMenuRecentSection == 'undefined' || result.hideSideMenuRecentSection == false) {
+			document.querySelector('#checkbox-hide-side-menu-recent-section').checked = false;
+			var value = false;
+		}
+		console.log('Hide Side Menu Recent Section: ' + value);
+	});
+
+	// Remove Side Menu Communities Section
+	BROWSER_API.storage.sync.get(['hideSideMenuCommunitiesSection'], function (result) {
+		if (result.hideSideMenuCommunitiesSection == true) {
+			document.querySelector('#checkbox-hide-side-menu-communities-section').checked = true;
+			document.querySelector('.icon-hide-side-menu-communities-section').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-side-menu-communities-section').classList.remove('icon-show');
+			document.querySelector('.icon-hide-side-menu-communities-section').classList.add('icon-hide');
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideSideMenuCommunitiesSection == 'undefined' || result.hideSideMenuCommunitiesSection == false) {
+			document.querySelector('#checkbox-hide-side-menu-communities-section').checked = false;
+			var value = false;
+		}
+		console.log('Hide Side Menu Communities Section: ' + value);
+	});
+
+	// Remove Side Menu Resources Section
+	BROWSER_API.storage.sync.get(['hideSideMenuResourcesSection'], function (result) {
+		if (result.hideSideMenuResourcesSection == true) {
+			document.querySelector('#checkbox-hide-side-menu-resources-section').checked = true;
+			document.querySelector('.icon-hide-side-menu-resources-section').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-side-menu-resources-section').classList.remove('icon-show');
+			document.querySelector('.icon-hide-side-menu-resources-section').classList.add('icon-hide');
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideSideMenuResourcesSection == 'undefined' || result.hideSideMenuResourcesSection == false) {
+			document.querySelector('#checkbox-hide-side-menu-resources-section').checked = false;
+			var value = false;
+		}
+		console.log('Hide Side Menu Resources Section: ' + value);
+	});
+
+	// Layout Offset
+	BROWSER_API.storage.sync.get(['layoutOffset'], function (result) {
+		if (typeof result.layoutOffset != 'undefined') {
+			var value = result.layoutOffset;
+		} else {
+			var value = 0;
+		}
+		document.querySelector('#input-layout-offset').value = value;
+		document.querySelector('#layout-offset-value').innerText = value + '%';
+		console.log('Layout Home Offset: ' + value + '%');
+	});
+
+	// Layout Sub Offset
+	BROWSER_API.storage.sync.get(['layoutSubOffset'], function (result) {
+		if (typeof result.layoutSubOffset != 'undefined') {
+			var value = result.layoutSubOffset;
+		} else {
+			var value = 0;
+		}
+		document.querySelector('#input-layout-sub-offset').value = value;
+		document.querySelector('#layout-sub-offset-value').innerText = value + '%';
+		console.log('Layout Sub Offset: ' + value + '%');
+	});
+
+	// Layout Post Offset
+	BROWSER_API.storage.sync.get(['layoutPostOffset'], function (result) {
+		if (typeof result.layoutPostOffset != 'undefined') {
+			var value = result.layoutPostOffset;
+		} else {
+			var value = 0;
+		}
+		document.querySelector('#input-layout-post-offset').value = value;
+		document.querySelector('#layout-post-offset-value').innerText = value + '%';
+		console.log('Layout Post Offset: ' + value + '%');
+	});
+
+	// Layout User Profile Offset
+	BROWSER_API.storage.sync.get(['layoutUserProfileOffset'], function (result) {
+		if (typeof result.layoutUserProfileOffset != 'undefined') {
+			var value = result.layoutUserProfileOffset;
+		} else {
+			var value = 0;
+		}
+		document.querySelector('#input-layout-user-profile-offset').value = value;
+		document.querySelector('#layout-user-profile-offset-value').innerText = value + '%';
+		console.log('Layout User Profile Offset: ' + value + '%');
+	});
+
+	// Hide Related Posts Section in Sidebar
+	BROWSER_API.storage.sync.get(['hideRelatedPostsSection'], function (result) {
+		if (result.hideRelatedPostsSection == true) {
+			document.querySelector('#checkbox-hide-related-posts-section').checked = true;
+			document.querySelector('.icon-hide-related-posts-section').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-related-posts-section').classList.remove('icon-show');
+			document.querySelector('.icon-hide-related-posts-section').classList.add('icon-hide');
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideRelatedPostsSection == 'undefined' || result.hideRelatedPostsSection == false) {
+			document.querySelector('#checkbox-hide-related-posts-section').checked = false;
+			var value = false;
+		}
+		console.log('Hide Related Posts Section: ' + value);
+	});
+
+	// Post Content Font Size
+	BROWSER_API.storage.sync.get(['postContentFontSize'], function (result) {
+		if (typeof result.postContentFontSize == 'undefined' || result.postContentFontSize == false) {
+			document.querySelector('#input-post-content-font-size').value = 9;
+			document.querySelector('#post-content-font-size-value').innerText = '';
+			var value = 'false';
+		} else {
+			document.querySelector('#input-post-content-font-size').value = result.postContentFontSize;
+			document.querySelector('#post-content-font-size-value').innerText = result.postContentFontSize + 'px';
+			document.querySelector('.icon-post-content-font-size').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-accessibility').style.backgroundColor = 'var(--accent)';
+			var value = result.postContentFontSize + 'px';
+		}
+		console.log('Post Content Font Size: ' + value);
+	});
+
+	// Post Comments Font Size
+	BROWSER_API.storage.sync.get(['postCommentsFontSize'], function (result) {
+		if (typeof result.postCommentsFontSize == 'undefined' || result.postCommentsFontSize == false) {
+			document.querySelector('#input-post-comments-font-size').value = 9;
+			document.querySelector('#post-comments-font-size-value').innerText = '';
+			var value = 'false';
+		} else {
+			document.querySelector('#input-post-comments-font-size').value = result.postCommentsFontSize;
+			document.querySelector('#post-comments-font-size-value').innerText = result.postCommentsFontSize + 'px';
+			document.querySelector('.icon-post-comments-font-size').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-accessibility').style.backgroundColor = 'var(--accent)';
+			var value = result.postCommentsFontSize + 'px';
+		}
+		console.log('Post Comments Font Size: ' + value);
+	});
+
+	// Bionic Font Colour
+	BROWSER_API.storage.sync.get(['bionicReaderFontColour'], function (result) {
+		if (result.bionicReaderFontColour == true) {
+			document.querySelector('.icon-bionic-font-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-bionic-font-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.bionicReaderFontColour == 'undefined' || result.bionicReaderFontColour == false) {
+			document.querySelector('#checkbox-bionic-font-colour').checked = false;
+			var value = false;
+		}
+		console.log('Bionic Font Colour: ' + value);
+	});
+
+	// Bionic Font Colour CSS
+	BROWSER_API.storage.sync.get(['bionicReaderFontColourCSS'], function (result) {
+		if (typeof result.bionicReaderFontColourCSS != 'undefined') {
+			document.querySelector('#input-bionic-font-colour-css').value = result.bionicReaderFontColourCSS;
+			var value = result.bionicReaderFontColourCSS;
+		} else {
+			document.querySelector('#input-bionic-font-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Bionic Font Colour CSS: ' + value);
+	});
+
+	// Bionic Background Colour
+	BROWSER_API.storage.sync.get(['bionicReaderBgColour'], function (result) {
+		if (result.bionicReaderBgColour == true) {
+			document.querySelector('.icon-bionic-bg-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-bionic-bg-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.bionicReaderBgColour == 'undefined' || result.bionicReaderBgColour == false) {
+			document.querySelector('#checkbox-bionic-bg-colour').checked = false;
+			var value = false;
+		}
+		console.log('Bionic Background Colour: ' + value);
+	});
+
+	// Bionic Background Colour CSS
+	BROWSER_API.storage.sync.get(['bionicReaderBgColourCSS'], function (result) {
+		if (typeof result.bionicReaderBgColourCSS != 'undefined') {
+			document.querySelector('#input-bionic-bg-colour-css').value = result.bionicReaderBgColourCSS;
+			var value = result.bionicReaderBgColourCSS;
+		} else {
+			document.querySelector('#input-bionic-bg-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Bionic Background Colour CSS: ' + value);
+	});
+
+	// Hide User Profile Pics
+	BROWSER_API.storage.sync.get(['hideUserProfilePics'], function (result) {
+		if (result.hideUserProfilePics == true) {
+			document.querySelector('.icon-hide-user-profile-pics').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-user-profile-pics').checked = true;
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideUserProfilePics == 'undefined' || result.hideUserProfilePics == false) {
+			document.querySelector('#checkbox-hide-user-profile-pics').checked = false;
+			var value = false;
+		}
+		console.log('Hide User Profile Pics: ' + value);
+	});
+
+	// Auto Expand Comments
+	BROWSER_API.storage.sync.get(['autoExpandComments'], function (result) {
+		if (result.autoExpandComments == true) {
+			document.querySelector('.icon-auto-expand-comments').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-auto-expand-comments').checked = true;
+			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.autoExpandComments == 'undefined' || result.autoExpandComments == false) {
+			document.querySelector('#checkbox-auto-expand-comments').checked = false;
+			var value = false;
+		}
+		console.log('Auto Expand Comments: ' + value);
 	});
 
 	// Pre-Select Search Input

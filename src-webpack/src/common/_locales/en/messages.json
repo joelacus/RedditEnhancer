@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "0.20.1"
+		"message": "1.0.0"
 	},
 
 	"extensionName": {
@@ -8,582 +8,706 @@
 	},
 
 	"extensionDescription": {
-		"message": "Various tweaks to customise your Reddit experience."
+		"message": "Various tweaks to customise your Reddit experience. Supports Old, New and the Latest version of Reddit."
 	},
 
-	"textAbout": {
+	"About": {
 		"message": "About"
 	},
 
-	"textBuyMeACoffee": {
+	"BuyMeACoffee": {
 		"message": "Buy Me A Coffee"
 	},
 
-	"textDarkMode": {
+	"DarkMode": {
 		"message": "Dark Mode"
 	},
 
-	"textExpandLayout": {
-		"message": "Expand Feed / Post"
+	"ResizeLayout": {
+		"message": "Resize Feed / Post"
 	},
 
-	"textCentre": {
+	"Centre": {
 		"message": "Centre"
 	},
 
-	"textWidth": {
-		"message": "Width"
+	"HomeFeedWidth": {
+		"message": "Home Feed Width"
 	},
 
-	"textFitImage": {
+	"SubFeedWidth": {
+		"message": "Sub Feed Width"
+	},
+
+	"UserProfileWidth": {
+		"message": "User Profile Width"
+	},
+
+	"PostOverlayWidth": {
+		"message": "Post Overlay Width"
+	},
+
+	"PostWidth": {
+		"message": "Post Width"
+	},
+
+	"HomeFeedOffset": {
+		"message": "Home Feed Offset"
+	},
+
+	"SubFeedOffset": {
+		"message": "Sub Feed Offset"
+	},
+
+	"PostOffset": {
+		"message": "Post Offset"
+	},
+
+	"UserProfileOffset": {
+		"message": "User Profile Offset"
+	},
+
+	"FitImage": {
 		"message": "Scale Tall Images to Fit Post"
 	},
 
-	"textImageScroll": {
+	"ImageScroll": {
 		"message": "Add Scrollbar to Tall Images"
 	},
 
-	"textBackground": {
+	"Background": {
 		"message": "Background"
 	},
 
-	"textBlur": {
+	"Blur": {
 		"message": "Blur"
 	},
 
-	"textShadow": {
+	"Shadow": {
 		"message": "Drop Shadows"
 	},
 
-	"textUseCustom": {
+	"UseCustom": {
 		"message": "Use Custom"
 	},
 
-	"textCustomBgInputPlaceholder": {
+	"CustomBgInputPlaceholder": {
 		"message": "Custom Background Link"
 	},
 
-	"textNewReddit": {
+	"LatestReddit": {
+		"message": "Latest Reddit"
+	},
+
+	"NewReddit": {
 		"message": "New Reddit"
 	},
 
-	"textOldReddit": {
+	"OldReddit": {
 		"message": "Old Reddit"
 	},
 
-	"textAuto": {
+	"Auto": {
 		"message": "Auto"
 	},
 
-	"textDisabled": {
+	"Disabled": {
 		"message": "Disabled"
 	},
 
-	"textBrowserTheme": {
+	"BrowserTheme": {
 		"message": "Browser Theme"
 	},
 
-	"textTimeRange": {
+	"TimeRange": {
 		"message": "Time Range"
 	},
 
-	"textStartTime": {
+	"StartTime": {
 		"message": "Start Time (24)"
 	},
 
-	"textEndTime": {
+	"EndTime": {
 		"message": "End Time (24)"
 	},
 
-	"textStyleTweaks": {
+	"StyleTweaks": {
 		"message": "Style"
 	},
 
-	"textHideRedditPremium": {
+	"HideRedditPremium": {
 		"message": "Hide 'Reddit Premium'"
 	},
 
-	"textHideCreatePost": {
+	"HideCreatePost": {
 		"message": "Hide 'Create Post'"
 	},
 
-	"textHideCoinButton": {
-		"message": "Hide the 'Coin' Button"
-	},
-
-	"textHideAdvertiseButton": {
+	"HideAdvertiseButton": {
 		"message": "Hide the 'Advertise' Button"
 	},
 
-	"textHideModerationButton": {
+	"HideModerationButton": {
 		"message": "Hide the 'Moderation' Button"
 	},
 
-	"textHidePopularButton": {
+	"HidePopularButton": {
 		"message": "Hide the 'Popular' Button"
 	},
 
-	"textHideHappeningNowButton": {
-		"message": "Hide the 'Happening Now' Button"
-	},
-
-	"textHideChatButton": {
+	"HideChatButton": {
 		"message": "Hide the 'Chat' Button"
 	},
 
-	"textHideHomeSidebar": {
+	"HideHomeSidebar": {
 		"message": "Hide the Home Page Sidebar"
 	},
 
-	"textHideSubSidebar": {
+	"HideSubSidebar": {
 		"message": "Hide the Sub Reddit Sidebar"
 	},
 
-	"textSidebar": {
+	"Sidebar": {
 		"message": "Sidebar"
 	},
 
-	"textHeader": {
+	"Header": {
 		"message": "Header"
 	},
 
-	"textHeaderHeight": {
+	"HeaderHeight": {
 		"message": "Header Height"
 	},
 
-	"textFeed": {
+	"Feed": {
 		"message": "Feed"
 	},
 
-	"textHeaderButtons": {
+	"HeaderButtons": {
 		"message": "Header Buttons"
 	},
 
-	"textHideGap": {
+	"HideGap": {
 		"message": "Hide Interface Gaps"
 	},
 
-	"textMain": {
+	"Main": {
 		"message": "Main"
 	},
 
-	"textStickySort": {
+	"StickySort": {
 		"message": "Sticky Sort"
 	},
 
-	"textHideUsername": {
+	"HideUsername": {
 		"message": "Hide Username"
 	},
 
-	"textHideKarma": {
+	"HideKarma": {
 		"message": "Hide Karma"
 	},
 
-	"textReloadPage": {
+	"ReloadPage": {
 		"message": "Reload Page"
 	},
 
-	"textShowRising": {
+	"ShowRising": {
 		"message": "Always Show the 'Rising' Sort Button"
 	},
 
-	"textToTop": {
+	"ToTop": {
 		"message": "Add 'Scroll To Top' Button"
 	},
 
-	"textHideGetNewReddit": {
+	"HideGetNewReddit": {
 		"message": "Hide 'Get New Reddit'"
 	},
 
-	"textHideSidebarPolicy": {
+	"HideSidebarPolicy": {
 		"message": "Hide Policies Section"
 	},
 
-	"textHideElements": {
+	"HideElements": {
 		"message": "Hide Elements"
 	},
 
-	"textProductivity": {
+	"Productivity": {
 		"message": "Productivity"
 	},
 
-	"textOpenSubInNewTab": {
+	"OpenSubInNewTab": {
 		"message": "Open Links to subreddits in a New Tab"
 	},
 
-	"textSearch": {
+	"Search": {
 		"message": "Search"
 	},
 
-	"textHidePromoted": {
-		"message": "Hide Promoted Links"
+	"HidePromoted": {
+		"message": "Hide Ads/Promoted Links"
 	},
 
-	"textShowAllButton": {
+	"ShowAllButton": {
 		"message": "Add 'r/All' Button"
 	},
 
-	"textVideoPlayerReplacement": {
+	"VideoPlayerReplacement": {
 		"message": "Alternative Video Player"
 	},
 
-	"textImages": {
+	"Images": {
 		"message": "Images"
 	},
 
-	"textSortBar": {
+	"SortBar": {
 		"message": "Sort Bar"
 	},
 
-	"textOther": {
+	"Other": {
 		"message": "Other"
 	},
 
-	"textHideCreatePostButton": {
+	"HideCreatePostButton": {
 		"message": "Hide 'Create Post' Button"
 	},
 
-	"textHideNotificationButton": {
+	"HideNotificationButton": {
 		"message": "Hide 'Notification' Button"
 	},
 
-	"textMoveFeedToTopInSidemenu": {
+	"MoveFeedToTopInSidemenu": {
 		"message": "Move The Feed Section In The Side Menu To The Top"
 	},
 
-	"textTextPost": {
+	"TextPost": {
 		"message": "Text"
 	},
 
-	"textTextScroll": {
+	"TextScroll": {
 		"message": "Add Scrollbar To Long Text Posts"
 	},
 
-	"textHideSeeFullImage": {
+	"HideSeeFullImage": {
 		"message": "Hide 'See Full Image'"
 	},
 
-	"textModerniseOldReddit": {
+	"ModerniseOldReddit": {
 		"message": "Modernise old.reddit"
 	},
 
-	"textHideHeaderSubBar": {
+	"HideHeaderSubBar": {
 		"message": "Hide Header subreddit List"
 	},
 
-	"textHideSideMenuOld": {
-		"message": "Hide Side Menu"
+	"HideSideMenu": {
+		"message": "Hide the Side Menu"
 	},
 
-	"textPostCommentsLimit": {
+	"PostCommentsLimit": {
 		"message": "Limit Post Comments"
 	},
 
-	"textAutoExpand": {
+	"AutoExpand": {
 		"message": "Expand to 100% if the window/screen width is less than:"
 	},
 
-	"textHidePostSidebar": {
+	"HidePostSidebar": {
 		"message": "Hide the Post Sidebar"
 	},
 
-	"textHideUserSidebar": {
+	"HidePostOverlaySidebar": {
+		"message": "Hide the Post Overlay Sidebar"
+	},
+
+	"HideUserSidebar": {
 		"message": "Hide the User Sidebar"
 	},
 
-	"textLimitInfinityScroll": {
+	"LimitInfinityScroll": {
 		"message": "Limit Infinity Scroll"
 	},
 
-	"textVideoPlayerInfo": {
+	"VideoPlayerInfo": {
 		"message": "Fast, lightweight video player with speed controls based on videojs. Try this if you have loading issues with reddit's own player."
 	},
 
-	"textLimitCommentsInfo": {
+	"LimitCommentsInfo": {
 		"message": "Only works for posts opened in a new tab/window."
 	},
 
-	"textLimitInfinityScrollInfo": {
+	"LimitInfinityScrollInfo": {
 		"message": "Beta. This won't necessarily reduce bandwidth usage, but should instead help prevent the page from becoming slow by stopping reddit from adding new posts until you click 'Load More' at the bottom of the feed. When you click 'Load More' it will clear the first 25 posts, and show the next 25."
 	},
 
-	"textDefaultFeedSortOption": {
+	"DefaultFeedSortOption": {
 		"message": "Default Feed Sort Option"
 	},
 
-	"textDefaultCommentsSortOption": {
+	"DefaultCommentsSortOption": {
 		"message": "Default Comments Sort Option"
 	},
 
-	"textBest": {
+	"Best": {
 		"message": "Best"
 	},
 
-	"textHot": {
+	"Hot": {
 		"message": "Hot"
 	},
 
-	"textNew": {
+	"New": {
 		"message": "New"
 	},
 
-	"textTop": {
+	"Top": {
 		"message": "Top"
 	},
 
-	"textControversial": {
+	"Controversial": {
 		"message": "Controversial"
 	},
 
-	"textRising": {
+	"Rising": {
 		"message": "Rising"
 	},
 
-	"textOld": {
+	"Old": {
 		"message": "Old"
 	},
 
-	"textQa": {
+	"Qa": {
 		"message": "Q&a"
 	},
 
-	"textOpenPostInNewTab": {
+	"OpenPostInNewTab": {
 		"message": "Open Posts in New Tab"
 	},
 
-	"textControversialSort": {
+	"ControversialSort": {
 		"message": "Show the 'Controversial' Sort Button"
 	},
 
-	"textTextScrollInfo": {
+	"TextScrollInfo": {
 		"message": "There is a limit. You may have to open the post if it is very long."
 	},
 
-	"textHideNSFW": {
+	"HideNSFW": {
 		"message": "Hide NSFW/L Posts"
 	},
 
-	"textHideTurnOnNotificationsPopup": {
+	"HideTurnOnNotificationsPopup": {
 		"message": "Hide 'Get the best of' Popup"
 	},
 
-	"textScrollToNextRootComment": {
+	"ScrollToNextRootComment": {
 		"message": "Show Navigation Buttons For The Next/Previous Root Comment"
 	},
 
-	"textOpenPostInNewTabInfo": {
+	"OpenPostInNewTabInfo": {
 		"message": "You can now enable this officially within reddit."
 	},
 
-	"textOpenPostInNewTabInfoLink": {
+	"OpenPostInNewTabInfoLink": {
 		"message": "User Settings > Feed Settings > Open posts in new tab"
 	},
 
-	"textShowPostNumbers": {
+	"ShowPostNumbers": {
 		"message": "Add Post Numbers"
 	},
 
-	"textBackup": {
+	"Backup": {
 		"message": "Backup"
 	},
 
-	"textRestore": {
+	"Restore": {
 		"message": "Restore"
 	},
 
-	"textRestoreConfigTitle": {
+	"RestoreConfigTitle": {
 		"message": "Restore Reddit Enhancer Backup Config"
 	},
 
-	"textChooseBackupFile": {
+	"ChooseBackupFile": {
 		"message": "Choose backup file"
 	},
 
-	"textOr": {
+	"Or": {
 		"message": "OR"
 	},
 
-	"textDrag": {
+	"Drag": {
 		"message": "Drag"
 	},
 
-	"textHere": {
+	"Here": {
 		"message": "here"
 	},
 
-	"textRestoreBackup": {
+	"RestoreBackup": {
 		"message": "Restore Backup"
 	},
 
-	"textBackupRestored": {
+	"BackupRestored": {
 		"message": "Backup Restored!"
 	},
 
-	"textCloseTab": {
+	"CloseTab": {
 		"message": "You can now close this tab/window."
 	},
 
-	"textUpload": {
+	"Upload": {
 		"message": "Upload"
 	},
 
-	"textCustomCSS": {
+	"CustomCSS": {
 		"message": "Custom CSS"
 	},
 
-	"textFeedPostMaxHeight": {
+	"FeedPostMaxHeight": {
 		"message": "Feed Post Max Height"
 	},
 
-	"textPost": {
+	"Post": {
 		"message": "Post"
 	},
 
-	"textAccessibility": {
+	"Accessibility": {
 		"message": "Accessibility"
 	},
 
-	"textBionicReader": {
+	"BionicReader": {
 		"message": "Bionic Reader"
 	},
 
-	"textBionicReaderPosts": {
+	"BionicReaderPosts": {
 		"message": "Bionic Reader For Posts"
 	},
 
-	"textBionicReaderComments": {
+	"BionicReaderComments": {
 		"message": "Bionic Reader For Comments"
 	},
 
-	"textThemeBlur": {
+	"BionicFontColour": {
+		"message": "Bionic Font Colour"
+	},
+
+	"BionicBackgroundColour": {
+		"message": "Bionic Background Colour"
+	},
+
+	"ThemeBlur": {
 		"message": "Theme Blur"
 	},
 
-	"textThemeBlurInfo": {
+	"ThemeBlurInfo": {
 		"message": "Use translucent colours 'rgba(0,0,0,0.5)' to see blur effect."
 	},
 
-	"textThemeColours": {
+	"ThemeColours": {
 		"message": "Theme Colours"
 	},
 
-	"textBorderColour": {
+	"BorderColour": {
 		"message": "Border Colour"
 	},
 
-	"textTextColour": {
+	"TextColour": {
 		"message": "Text Colour"
 	},
 
-	"textPostVisitedTitleColour": {
-		"message": "Visited Post Title Colour"
+	"PostVisitedTitleColour": {
+		"message": "Visited Post: Title Colour"
 	},
 
-	"textHeaderBgColour": {
-		"message": "Header Background Colour"
+	"HeaderBgColour": {
+		"message": "Header: Background Colour"
 	},
 
-	"textHeaderTextColour": {
-		"message": "Header Text Colour"
+	"HeaderTextColour": {
+		"message": "Header: Text Colour"
 	},
 
-	"textSortBgColour": {
-		"message": "Sort Background Colour"
+	"Sort": {
+		"message": "Sort"
 	},
 
-	"textSortTextColour": {
-		"message": "Sort Text Colour"
+	"SortBgColour": {
+		"message": "Sort: Background Colour"
 	},
 
-	"textSortBorderColour": {
-		"message": "Sort Border Colour"
+	"SortTextColour": {
+		"message": "Sort: Text Colour"
 	},
 
-	"textPostBgColour": {
-		"message": "Post Background Colour"
+	"SortBorderColour": {
+		"message": "Sort: Border Colour"
 	},
 
-	"textPostTextColour": {
-		"message": "Post Text and Icon Colour"
+	"PostBgColour": {
+		"message": "Post: Background Colour"
 	},
 
-	"textPostTitleContentColour": {
-		"message": "Post Title and Text Content Colour"
+	"PostSecondaryTextColour": {
+		"message": "Post: Secondary Text Colour"
 	},
 
-	"textPostBorderColour": {
-		"message": "Post Border Colour"
+	"PostTitleContentColour": {
+		"message": "Post: Title and Text Content Colour"
 	},
 
-	"textWhitelistBlacklist": {
+	"PostBorderColour": {
+		"message": "Post: Border Colour"
+	},
+
+	"WhitelistBlacklist": {
 		"message": "Whitelist / Blacklist"
 	},
 
-	"textWhitelist": {
+	"Whitelist": {
 		"message": "Whitelist"
 	},
 
-	"textBlacklist": {
+	"Blacklist": {
 		"message": "Blacklist"
 	},
 
-	"textThemeBlacklistInfo": {
+	"ThemeBlacklistInfo": {
 		"message": "Use theme colours globally, except for these subreddits:"
 	},
 
-	"textThemeWhitelistInfo": {
+	"ThemeWhitelistInfo": {
 		"message": "Only use the theme colours for these subreddits:"
 	},
 
-	"textHideSubSidebarBlacklistInfo": {
+	"HideSubSidebarBlacklistInfo": {
 		"message": "Hide globally except for on these subreddits:"
 	},
 
-	"textHideSubSidebarWhitelistInfo": {
+	"HideSubSidebarWhitelistInfo": {
 		"message": "Only hide on these subreddits:"
 	},
 
-	"textHideHeaderBar": {
+	"HideHeaderBar": {
 		"message": "Hide the Header Bar"
 	},
 
-	"textNonStickyHeaderBar": {
+	"NonStickyHeaderBar": {
 		"message": "Non Sticky Header Bar"
 	},
 
-	"textHideOriginalScrollToTop": {
+	"HideOriginalScrollToTop": {
 		"message": "Hide the Original Scroll to Top Button"
 	},
 
-	"textCreatePostBgColour": {
-		"message": "Create Post Background Colour"
+	"CreatePost": {
+		"message": "Create Post"
 	},
 
-	"textCreatePostBorderColour": {
-		"message": "Create Post Border Colour"
+	"CreatePostBgColour": {
+		"message": "Create Post: Background Colour"
 	},
 
-	"textLargerClassicPost": {
+	"CreatePostBorderColour": {
+		"message": "Create Post: Border Colour"
+	},
+
+	"LargerClassicPost": {
 		"message": "Larger Classic Post View"
 	},
 
-	"textLargerClassicPostInfo": {
-		"message": "Disable this option if you are not using 'Classic Post View'."
+	"PositionVertically": {
+		"message": "Position Vertically"
 	},
 
-	"textPosition": {
-		"message": "Position"
+	"PositionHorizontally": {
+		"message": "Position Horizontally"
 	},
 
-	"textBreakReminder": {
+	"BreakReminder": {
 		"message": "Break Reminder"
 	},
 
-	"textBreakReminderInfo": {
+	"BreakReminderInfo": {
 		"message": "Beta. Shows a reminder to have a break every set number of posts."
 	},
 
-	"textBreakReminderFrequency": {
+	"BreakReminderFrequency": {
 		"message": "Reminder Frequency"
+	},
+
+	"TranslationHelp": {
+		"message": "Translation Help"
+	},
+
+	"Off": {
+		"message": "Off"
+	},
+
+	"ShowPostAuthor": {
+		"message": "Show Post Author"
+	},
+
+	"RemovePageSideMargin": {
+		"message": "Remove the Page Side Margin"
+	},
+
+	"HideSideMenuTopSection": {
+		"message": "Hide the Top Section"
+	},
+
+	"HideSideMenuModerationSection": {
+		"message": "Hide the Moderation Section"
+	},
+
+	"HideSideMenuRecentSection": {
+		"message": "Hide the Recent Section"
+	},
+
+	"HideSideMenuCommunitiesSection": {
+		"message": "Hide the Communities Section"
+	},
+
+	"HideSideMenuResourcesSection": {
+		"message": "Hide the Resources Section"
+	},
+
+	"HideRelatedPosts": {
+		"message": "Hide Related Posts"
+	},
+
+	"Select": {
+		"message": "Select"
+	},
+
+	"SelectRedditVersion": {
+		"message": "Select Reddit Version"
+	},
+
+	"UpdateFirefox": {
+		"message": "Please update to Firefox 121 or greater for some features to work correctly."
+	},
+
+	"PostContent": {
+		"message": "Post Content"
+	},
+
+	"ResizeFont": {
+		"message": "Resize Font"
+	},
+
+	"PostComments": {
+		"message": "Post Comments"
+	},
+
+	"Rate": {
+		"message": "Rate / Review"
+	},
+
+	"HideUserProfilePics": {
+		"message": "Hide user profile pictures in the comments"
+	},
+
+	"AutoExpandComments": {
+		"message": "Auto Expand Comments"
 	}
 }

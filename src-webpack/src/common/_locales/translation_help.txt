@@ -1,0 +1,10 @@
+I welcome any help to improve translations, fix mistakes or add new languages.
+
+To add a new language, duplicate the "en" directory, and rename it with the two letter country code of the new language, then translate the "message" values.
+Regional localisations can be added also by appending the region code. For example, "en_GB" for British English.
+Any missing translations in regional files will fall back to the main language, so only differences are required.
+The "extensionVersion" item can be deleted.
+
+If you're unsure how to do this, open an issue and I'll help.
+
+Thank you :)

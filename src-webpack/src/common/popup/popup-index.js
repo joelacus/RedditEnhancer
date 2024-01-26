@@ -1,8 +1,7 @@
 /* ===== Popup / Index ===== */
 
-import './popup.css'
-import './icons.css'
+import './popup-styles-index.css';
 
-import './popup-internationalisation'
-import './popup-restore'
-import './popup-inputs'
+import './popup-internationalisation';
+import './popup-restore';
+import './popup-inputs';

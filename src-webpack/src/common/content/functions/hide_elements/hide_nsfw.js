@@ -1,55 +1,62 @@
 // Hide NSFW Posts
-let hideNSFW = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		// do nothing
-	} else {
-		// new reddit
-		if (value == true) {
-			// hide any nsfw posts
-			document.querySelectorAll('.Post').forEach(function (item) {
-				const found = Array.from(item.querySelectorAll('span')).find((el) => {
-					const spanText = el.textContent.toLowerCase();
-					return spanText.includes('nsfw') || spanText.includes('nsfl');
-				});
-				if (found) {
-					item.parentNode.parentNode.classList.add('re-hide');
-				}
-			});
-			// start observer
-			observer.observe(document.body, { childList: true, subtree: true });
-		} else if (value == false) {
-			// stop observer
-			observer.disconnect();
-			// show any nsfw posts
-			document.querySelectorAll('.Post').forEach(function (item) {
-				const found = Array.from(item.querySelectorAll('span')).find((el) => {
-					const spanText = el.textContent.toLowerCase();
-					return spanText.includes('nsfw') || spanText.includes('nsfl');
-				});
-				if (found) {
-					item.parentNode.parentNode.classList.remove('re-hide');
-				}
-			});
+
+export function hideNSFW(value) {
+	if (redditVersion === 'old') {
+		if (value === true) {
+			enableHideNsfwPostsOld();
+		} else if (value === false) {
+			disableHideNsfwPostsAll();
+		}
+	} else if (redditVersion === 'new') {
+		if (value === true) {
+			enableHideNsfwPostsNew();
+		} else if (value === false) {
+			disableHideNsfwPostsAll();
+		}
+	} else if (redditVersion === 'newnew') {
+		if (value === true) {
+			enableHideNsfwPostsNewNew();
+		} else if (value === false) {
+			disableHideNsfwPostsAll();
 		}
 	}
-};
-export { hideNSFW };
+}
 
-// observe added nodes and hide any nsfw posts
-const observer = new MutationObserver(function (mutations) {
-	mutations.forEach(function (mutation) {
-		mutation.addedNodes.forEach(function (addedNode) {
-			document.querySelectorAll('.Post').forEach(function (item) {
-				const found = Array.from(item.querySelectorAll('span')).find((el) => {
-					const spanText = el.textContent.toLowerCase();
-					return spanText.includes('nsfw') || spanText.includes('nsfl');
-				});
-				if (found) {
-					item.parentNode.parentNode.classList.add('re-hide');
-				}
-			});
-		});
+// Function - Enable Hide NSFW Posts - Old
+function enableHideNsfwPostsOld() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-nsfw-posts';
+	styleElement.textContent = `#siteTable > .thing:has(.nsfw-stamp) {
+									display: none !important;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Enable Hide NSFW Posts - New
+function enableHideNsfwPostsNew() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-nsfw-posts';
+	styleElement.textContent = `#AppRouter-main-content .Post:has(span[style="border:1px solid #FF585B;color:#FF585B"]),
+									#AppRouter-main-content .Post:has([style="border: 1px solid rgb(255, 88, 91); color: rgb(255, 88, 91);"]) {
+										display: none !important;
+									}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Enable Hide NSFW Posts - New New
+function enableHideNsfwPostsNewNew() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-nsfw-posts';
+	styleElement.textContent = `shreddit-app shreddit-post:has([reason="nsfw"]) {
+									display: none !important;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Disable Hide NSFW Posts - All
+function disableHideNsfwPostsAll() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-nsfw-posts"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
 	});
-});
+}

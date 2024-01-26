@@ -1,16 +1,11 @@
 // Add Scroll To Long Text Posts
-let textPostScroll = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		// do nothing
-	} else {
-		// new reddit
-		if (value == true || value == undefined) {
+
+export function textPostScroll(value) {
+	if (redditVersion === 'new') {
+		if (value === true) {
 			document.body.classList.add('re-text-scroll');
-		} else if (value == false) {
+		} else if (value === false || value == undefined) {
 			document.body.classList.remove('re-text-scroll');
 		}
 	}
-};
-export { textPostScroll };
+}

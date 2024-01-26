@@ -1,10 +1,6 @@
 // Override Drop Shadow
-let overrideDropShadow = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-	} else {
-		// new reddit
+export function overrideDropShadow(value) {
+	if (redditVersion === 'new') {
 		if (value === true) {
 			BROWSER_API.storage.sync.get(['overrideDropShadowCSS'], function (result) {
 				document.documentElement.style.setProperty('--re-shadow', result.overrideDropShadowCSS);
@@ -13,21 +9,15 @@ let overrideDropShadow = function (value) {
 			document.documentElement.style.removeProperty('--re-shadow');
 		}
 	}
-};
-export { overrideDropShadow };
+}
 
 // Override Drop Shadow CSS
-let overrideDropShadowCSS = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-	} else {
-		// new reddit
+export function overrideDropShadowCSS(value) {
+	if (redditVersion === 'new') {
 		BROWSER_API.storage.sync.get(['overrideDropShadow'], function (result) {
 			if (result.overrideDropShadow === true) {
 				document.documentElement.style.setProperty('--re-shadow', value);
 			}
 		});
 	}
-};
-export { overrideDropShadowCSS };
+}

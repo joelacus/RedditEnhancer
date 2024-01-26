@@ -2,8 +2,9 @@
 	"manifest_version": 3,
 
 	"name": "__MSG_extensionName__",
-	"version": "0.20.1",
+	"version": "1.0.0",
 	"description": "__MSG_extensionDescription__",
+	"author": "github.com/joelacus",
 	"default_locale": "en",
 
 	"icons": {
@@ -14,6 +15,8 @@
 	},
 
 	"permissions": ["storage", "tabs"],
+
+	"host_permissions": ["*://*.reddit.com/*"],
 
 	"content_scripts": [
 		{

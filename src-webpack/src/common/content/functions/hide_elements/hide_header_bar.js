@@ -1,26 +1,48 @@
-// Hide HeaderBar
-let hideHeaderBar = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		// do nothing
-	} else {
-		// new reddit
-		if (value == true) {
-			const styleElement = document.createElement('style');
-			styleElement.type = 'text/css';
-			styleElement.id = 're-hide-header-bar';
-			document.head.appendChild(styleElement);
-			const dynamicStyle = `header {
-									display: none !important;
-								}`;
-			styleElement.innerHTML = dynamicStyle;
-		} else if (value == false) {
-			const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-header-bar"]');
-			dynamicStyleElements.forEach((element) => {
-				document.head.removeChild(element);
-			});
+// Hide Header Bar
+
+export function hideHeaderBar(value) {
+	if (redditVersion === 'new') {
+		if (value === true) {
+			hideHeaderBarNew();
+		} else if (value === false) {
+			showHeaderBar();
+		}
+	} else if (redditVersion === 'newnew') {
+		if (value === true) {
+			hideHeaderBarNewNew();
+		} else if (value === false) {
+			showHeaderBar();
 		}
 	}
-};
-export { hideHeaderBar };
+}
+
+// Function - Hide Header Bar - New
+function hideHeaderBarNew() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-header-bar';
+	styleElement.textContent = `header {
+									display: none !important;
+								}
+								#SHORTCUT_FOCUSABLE_DIV > div[class*="subredditvars-r"] > div {
+									top: 0;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Hide Header Bar - New new
+function hideHeaderBarNewNew() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-header-bar';
+	styleElement.textContent = `shreddit-app reddit-header-large {
+									display: none !important;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Show Header Bar
+function showHeaderBar() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-header-bar"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}

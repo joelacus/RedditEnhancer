@@ -1,11 +1,8 @@
 // Expand Post Options
-let expandPostOptions = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		// do nothing
-	} else {
-		// new reddit
+
+export function expandPostOptions(value) {
+	const link = window.location.href;
+	if (redditVersion === 'new') {
 		if (value == true) {
 			if (link.indexOf('/comments/') >= 0) {
 				// post page
@@ -84,8 +81,7 @@ let expandPostOptions = function (value) {
 			observer.disconnect();
 		}
 	}
-};
-export { expandPostOptions };
+}
 
 const observer = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {

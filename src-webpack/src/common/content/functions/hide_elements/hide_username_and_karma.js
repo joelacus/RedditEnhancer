@@ -1,47 +1,107 @@
+// Hide Username and Karma
+
 // Hide Username
-let hideUsername = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		if (value == true) {
-			document.querySelector('.re-username').classList.add('re-hide');
-		} else if (value == false) {
-			document.querySelector('.re-username').classList.remove('re-hide');
-			document.querySelector('#re-hide-username').remove();
+export function hideUsername(value) {
+	if (redditVersion === 'old') {
+		if (value === true) {
+			enableHideUsernameOld();
+		} else if (value === false) {
+			disableHideUsernameOld();
 		}
-	} else {
-		// new reddit
-		if (value == true) {
-			document.querySelector('.re-username').classList.add('re-hide');
-		} else if (value == false) {
-			document.querySelector('.re-username').classList.remove('re-hide');
-			document.querySelector('#re-hide-username').remove();
+	} else if (redditVersion === 'new') {
+		if (value === true) {
+			enableHideUsernameNew();
+		} else if (value === false) {
+			disableHideUsernameNew();
 		}
 	}
-};
-export { hideUsername };
+}
+
+// Function - Enable Hide Username - Old
+function enableHideUsernameOld() {
+	const style = document.createElement('style');
+	style.id = 're-hide-username';
+	style.textContent = `#header-bottom-right .user a {
+							display: none !important;
+						}`;
+	document.head.insertBefore(style, document.head.firstChild);
+}
+
+// Function - Disable Hide Username - Old
+function disableHideUsernameOld() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-username"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}
+
+// Function - Enable Hide Username - New
+function enableHideUsernameNew() {
+	const style = document.createElement('style');
+	style.id = 're-hide-username';
+	style.textContent = `#email-collection-tooltip-id > span span:first-child {
+							display: none !important;
+						}`;
+	document.head.insertBefore(style, document.head.firstChild);
+}
+
+// Function - Disable Hide Username - New
+function disableHideUsernameNew() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-username"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}
 
 // Hide Karma
-let hideKarma = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
+export function hideKarma(value) {
+	if (redditVersion === 'old') {
 		if (value == true) {
-			document.querySelector('.re-karma').classList.add('re-hide');
-			document.querySelector('.re-karma').parentNode.style.color = 'transparent';
+			enableHideKarmaOld();
 		} else if (value == false) {
-			document.querySelector('.re-karma').classList.remove('re-hide');
-			document.querySelector('.re-karma').parentNode.style.color = '';
-			document.querySelector('#re-hide-karma').remove();
+			disableHideKarmaOld();
 		}
-	} else {
-		// new reddit
+	} else if (redditVersion === 'new') {
 		if (value == true) {
-			document.querySelector('.re-karma').classList.add('re-hide');
+			enableHideKarmaNew();
 		} else if (value == false) {
-			document.querySelector('.re-karma').classList.remove('re-hide');
-			document.querySelector('#re-hide-karma').remove();
+			disableHideKarmaNew();
 		}
 	}
-};
-export { hideKarma };
+}
+
+// Function - Enable Hide Karma - Old
+function enableHideKarmaOld() {
+	const style = document.createElement('style');
+	style.id = 're-hide-karma';
+	style.textContent = `#header-bottom-right .user span {
+							display: none !important;
+						}`;
+	document.head.insertBefore(style, document.head.firstChild);
+}
+
+// Function - Disable Hide Karma - Old
+function disableHideKarmaOld() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-karma"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}
+
+// Function - Enable Hide Karma - New
+function enableHideKarmaNew() {
+	const style = document.createElement('style');
+	style.id = 're-hide-karma';
+	style.textContent = `#email-collection-tooltip-id > span span:last-child {
+							display: none !important;
+						}`;
+	document.head.insertBefore(style, document.head.firstChild);
+}
+
+// Function - Disable Hide Karma - New
+function disableHideKarmaNew() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-karma"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}

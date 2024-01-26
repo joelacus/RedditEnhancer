@@ -1,17 +1,17 @@
 {
-	"textOpenPostInNewTabInfoLink": {
+	"OpenPostInNewTabInfoLink": {
 		"message": "Configurações de usuário > Configurações dos feeds > Abrir posts em nova aba"
 	},
 
-	"textBest": {
+	"Best": {
 		"message": "Melhores"
 	},
 
-	"textNew": {
+	"New": {
 		"message": "Novos"
 	},
 
-	"textControversial": {
+	"Controversial": {
 		"message": "Polêmicos"
 	}
 }

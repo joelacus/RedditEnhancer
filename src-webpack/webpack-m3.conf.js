@@ -8,6 +8,7 @@ var webpack = require('webpack');
 
 module.exports = {
 	mode: 'production',
+	//devtool: 'source-map',
 	entry: {
 		background: './src/common/background.js',
 		content: './src/common/content-index.js',
@@ -101,6 +102,9 @@ module.exports = {
 		}),
 		new webpack.DefinePlugin({
 			BROWSER_API: 'chrome',
+		}),
+		new webpack.DefinePlugin({
+			CHECK_LEGACY: false,
 		}),
 	],
 	optimization: {

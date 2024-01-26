@@ -1,0 +1,701 @@
+{
+	"extensionName": {
+		"message": "Reddit Enhancer"
+	},
+
+	"extensionDescription": {
+		"message": "Různé vylepšení pro přizpůsobení vašeho Redditu. Podporuje starou, novou a nejnovější verzi Redditu."
+	},
+
+	"About": {
+		"message": "O"
+	},
+
+	"BuyMeACoffee": {
+		"message": "Kup mi kávu"
+	},
+
+	"DarkMode": {
+		"message": "Tmavý režim"
+	},
+
+	"ResizeLayout": {
+		"message": "Změnit Velikost Zdroje / Příspěvku"
+	},
+
+	"Centre": {
+		"message": "Centre"
+	},
+
+	"HomeFeedWidth": {
+		"message": "Home Feed Width"
+	},
+
+	"SubFeedWidth": {
+		"message": "Sub Feed Width"
+	},
+
+	"UserProfileWidth": {
+		"message": "User Profile Width"
+	},
+
+	"PostOverlayWidth": {
+		"message": "Post Overlay Width"
+	},
+
+	"PostWidth": {
+		"message": "Post Width"
+	},
+
+	"HomeFeedOffset": {
+		"message": "Home Feed Offset"
+	},
+
+	"SubFeedOffset": {
+		"message": "Sub Feed Offset"
+	},
+
+	"PostOffset": {
+		"message": "Post Offset"
+	},
+
+	"FitImage": {
+		"message": "Scale Tall Images to Fit Post"
+	},
+
+	"ImageScroll": {
+		"message": "Add Scrollbar to Tall Images"
+	},
+
+	"Background": {
+		"message": "Background"
+	},
+
+	"Blur": {
+		"message": "Blur"
+	},
+
+	"Shadow": {
+		"message": "Drop Shadows"
+	},
+
+	"UseCustom": {
+		"message": "Use Custom"
+	},
+
+	"CustomBgInputPlaceholder": {
+		"message": "Custom Background Link"
+	},
+
+	"LatestReddit": {
+		"message": "Latest Reddit"
+	},
+
+	"NewReddit": {
+		"message": "New Reddit"
+	},
+
+	"OldReddit": {
+		"message": "Old Reddit"
+	},
+
+	"Auto": {
+		"message": "Auto"
+	},
+
+	"Disabled": {
+		"message": "Disabled"
+	},
+
+	"BrowserTheme": {
+		"message": "Browser Theme"
+	},
+
+	"TimeRange": {
+		"message": "Time Range"
+	},
+
+	"StartTime": {
+		"message": "Start Time (24)"
+	},
+
+	"EndTime": {
+		"message": "End Time (24)"
+	},
+
+	"StyleTweaks": {
+		"message": "Style"
+	},
+
+	"HideRedditPremium": {
+		"message": "Hide 'Reddit Premium'"
+	},
+
+	"HideCreatePost": {
+		"message": "Hide 'Create Post'"
+	},
+
+	"HideAdvertiseButton": {
+		"message": "Hide the 'Advertise' Button"
+	},
+
+	"HideModerationButton": {
+		"message": "Hide the 'Moderation' Button"
+	},
+
+	"HidePopularButton": {
+		"message": "Hide the 'Popular' Button"
+	},
+
+	"HideChatButton": {
+		"message": "Hide the 'Chat' Button"
+	},
+
+	"HideHomeSidebar": {
+		"message": "Hide the Home Page Sidebar"
+	},
+
+	"HideSubSidebar": {
+		"message": "Hide the Sub Reddit Sidebar"
+	},
+
+	"Sidebar": {
+		"message": "Sidebar"
+	},
+
+	"Header": {
+		"message": "Header"
+	},
+
+	"HeaderHeight": {
+		"message": "Header Height"
+	},
+
+	"Feed": {
+		"message": "Feed"
+	},
+
+	"HeaderButtons": {
+		"message": "Header Buttons"
+	},
+
+	"HideGap": {
+		"message": "Hide Interface Gaps"
+	},
+
+	"Main": {
+		"message": "Main"
+	},
+
+	"StickySort": {
+		"message": "Sticky Sort"
+	},
+
+	"HideUsername": {
+		"message": "Hide Username"
+	},
+
+	"HideKarma": {
+		"message": "Hide Karma"
+	},
+
+	"ReloadPage": {
+		"message": "Reload Page"
+	},
+
+	"ShowRising": {
+		"message": "Always Show the 'Rising' Sort Button"
+	},
+
+	"ToTop": {
+		"message": "Add 'Scroll To Top' Button"
+	},
+
+	"HideGetNewReddit": {
+		"message": "Hide 'Get New Reddit'"
+	},
+
+	"HideSidebarPolicy": {
+		"message": "Hide Policies Section"
+	},
+
+	"HideElements": {
+		"message": "Hide Elements"
+	},
+
+	"Productivity": {
+		"message": "Productivity"
+	},
+
+	"OpenSubInNewTab": {
+		"message": "Open Links to subreddits in a New Tab"
+	},
+
+	"Search": {
+		"message": "Vyhledávání"
+	},
+
+	"HidePromoted": {
+		"message": "Hide Ads/Promoted Links"
+	},
+
+	"ShowAllButton": {
+		"message": "Add 'r/All' Button"
+	},
+
+	"VideoPlayerReplacement": {
+		"message": "Alternative Video Player"
+	},
+
+	"Images": {
+		"message": "Images"
+	},
+
+	"SortBar": {
+		"message": "Sort Bar"
+	},
+
+	"Other": {
+		"message": "Other"
+	},
+
+	"HideCreatePostButton": {
+		"message": "Hide 'Create Post' Button"
+	},
+
+	"HideNotificationButton": {
+		"message": "Hide 'Notification' Button"
+	},
+
+	"MoveFeedToTopInSidemenu": {
+		"message": "Move The Feed Section In The Side Menu To The Top"
+	},
+
+	"TextPost": {
+		"message": "Text"
+	},
+
+	"TextScroll": {
+		"message": "Add Scrollbar To Long Text Posts"
+	},
+
+	"HideSeeFullImage": {
+		"message": "Hide 'See Full Image'"
+	},
+
+	"ModerniseOldReddit": {
+		"message": "Modernise old.reddit"
+	},
+
+	"HideHeaderSubBar": {
+		"message": "Hide Header subreddit List"
+	},
+
+	"HideSideMenu": {
+		"message": "Hide the Side Menu"
+	},
+
+	"PostCommentsLimit": {
+		"message": "Limit Post Comments"
+	},
+
+	"AutoExpand": {
+		"message": "Expand to 100% if the window/screen width is less than:"
+	},
+
+	"HidePostSidebar": {
+		"message": "Hide the Post Sidebar"
+	},
+
+	"HidePostOverlaySidebar": {
+		"message": "Hide the Post Overlay Sidebar"
+	},
+
+	"HideUserSidebar": {
+		"message": "Hide the User Sidebar"
+	},
+
+	"LimitInfinityScroll": {
+		"message": "Limit Infinity Scroll"
+	},
+
+	"VideoPlayerInfo": {
+		"message": "Fast, lightweight video player with speed controls based on videojs. Try this if you have loading issues with reddit's own player."
+	},
+
+	"LimitCommentsInfo": {
+		"message": "Only works for posts opened in a new tab/window."
+	},
+
+	"LimitInfinityScrollInfo": {
+		"message": "Beta. This won't necessarily reduce bandwidth usage, but should instead help prevent the page from becoming slow by stopping reddit from adding new posts until you click 'Load More' at the bottom of the feed. When you click 'Load More' it will clear the first 25 posts, and show the next 25."
+	},
+
+	"DefaultFeedSortOption": {
+		"message": "Default Feed Sort Option"
+	},
+
+	"DefaultCommentsSortOption": {
+		"message": "Default Comments Sort Option"
+	},
+
+	"Best": {
+		"message": "Best"
+	},
+
+	"Hot": {
+		"message": "Hot"
+	},
+
+	"New": {
+		"message": "New"
+	},
+
+	"Top": {
+		"message": "Top"
+	},
+
+	"Controversial": {
+		"message": "Controversial"
+	},
+
+	"Rising": {
+		"message": "Rising"
+	},
+
+	"Old": {
+		"message": "Old"
+	},
+
+	"Qa": {
+		"message": "Q&a"
+	},
+
+	"OpenPostInNewTab": {
+		"message": "Open Posts in New Tab"
+	},
+
+	"ControversialSort": {
+		"message": "Show the 'Controversial' Sort Button"
+	},
+
+	"TextScrollInfo": {
+		"message": "There is a limit. You may have to open the post if it is very long."
+	},
+
+	"HideNSFW": {
+		"message": "Hide NSFW/L Posts"
+	},
+
+	"HideTurnOnNotificationsPopup": {
+		"message": "Hide 'Get the best of' Popup"
+	},
+
+	"ScrollToNextRootComment": {
+		"message": "Show Navigation Buttons For The Next/Previous Root Comment"
+	},
+
+	"OpenPostInNewTabInfo": {
+		"message": "You can now enable this officially within reddit."
+	},
+
+	"OpenPostInNewTabInfoLink": {
+		"message": "User Settings > Feed Settings > Open posts in new tab"
+	},
+
+	"ShowPostNumbers": {
+		"message": "Add Post Numbers"
+	},
+
+	"Backup": {
+		"message": "Backup"
+	},
+
+	"Restore": {
+		"message": "Restore"
+	},
+
+	"RestoreConfigTitle": {
+		"message": "Restore Reddit Enhancer Backup Config"
+	},
+
+	"ChooseBackupFile": {
+		"message": "Choose backup file"
+	},
+
+	"Or": {
+		"message": "OR"
+	},
+
+	"Drag": {
+		"message": "Drag"
+	},
+
+	"Here": {
+		"message": "here"
+	},
+
+	"RestoreBackup": {
+		"message": "Restore Backup"
+	},
+
+	"BackupRestored": {
+		"message": "Backup Restored!"
+	},
+
+	"CloseTab": {
+		"message": "You can now close this tab/window."
+	},
+
+	"Upload": {
+		"message": "Upload"
+	},
+
+	"CustomCSS": {
+		"message": "Custom CSS"
+	},
+
+	"FeedPostMaxHeight": {
+		"message": "Feed Post Max Height"
+	},
+
+	"Post": {
+		"message": "Post"
+	},
+
+	"Accessibility": {
+		"message": "Accessibility"
+	},
+
+	"BionicReader": {
+		"message": "Bionic Reader"
+	},
+
+	"BionicReaderPosts": {
+		"message": "Bionic Reader For Posts"
+	},
+
+	"BionicReaderComments": {
+		"message": "Bionic Reader For Comments"
+	},
+
+	"BionicFontColour": {
+		"message": "Bionic Font Colour"
+	},
+
+	"BionicBackgroundColour": {
+		"message": "Bionic Background Colour"
+	},
+
+	"ThemeBlur": {
+		"message": "Theme Blur"
+	},
+
+	"ThemeBlurInfo": {
+		"message": "Use translucent colours 'rgba(0,0,0,0.5)' to see blur effect."
+	},
+
+	"ThemeColours": {
+		"message": "Theme Colours"
+	},
+
+	"BorderColour": {
+		"message": "Border Colour"
+	},
+
+	"TextColour": {
+		"message": "Text Colour"
+	},
+
+	"PostVisitedTitleColour": {
+		"message": "Visited Post Title Colour"
+	},
+
+	"HeaderBgColour": {
+		"message": "Header: Background Colour"
+	},
+
+	"HeaderTextColour": {
+		"message": "Header: Text Colour"
+	},
+
+	"Sort": {
+		"message": "Sort"
+	},
+
+	"SortBgColour": {
+		"message": "Sort: Background Colour"
+	},
+
+	"SortTextColour": {
+		"message": "Sort: Text Colour"
+	},
+
+	"SortBorderColour": {
+		"message": "Sort: Border Colour"
+	},
+
+	"PostBgColour": {
+		"message": "Post: Background Colour"
+	},
+
+	"PostSecondaryTextColour": {
+		"message": "Post: Header Bar Text Colour"
+	},
+
+	"PostTitleContentColour": {
+		"message": "Post: Title and Text Content Colour"
+	},
+
+	"PostBorderColour": {
+		"message": "Post: Border Colour"
+	},
+
+	"WhitelistBlacklist": {
+		"message": "Whitelist / Blacklist"
+	},
+
+	"Whitelist": {
+		"message": "Whitelist"
+	},
+
+	"Blacklist": {
+		"message": "Blacklist"
+	},
+
+	"ThemeBlacklistInfo": {
+		"message": "Use theme colours globally, except for these subreddits:"
+	},
+
+	"ThemeWhitelistInfo": {
+		"message": "Only use the theme colours for these subreddits:"
+	},
+
+	"HideSubSidebarBlacklistInfo": {
+		"message": "Hide globally except for on these subreddits:"
+	},
+
+	"HideSubSidebarWhitelistInfo": {
+		"message": "Only hide on these subreddits:"
+	},
+
+	"HideHeaderBar": {
+		"message": "Hide the Header Bar"
+	},
+
+	"NonStickyHeaderBar": {
+		"message": "Non Sticky Header Bar"
+	},
+
+	"HideOriginalScrollToTop": {
+		"message": "Hide the Original Scroll to Top Button"
+	},
+
+	"CreatePost": {
+		"message": "Create Post"
+	},
+
+	"CreatePostBgColour": {
+		"message": "Create Post: Background Colour"
+	},
+
+	"CreatePostBorderColour": {
+		"message": "Create Post: Border Colour"
+	},
+
+	"LargerClassicPost": {
+		"message": "Larger Classic Post View"
+	},
+
+	"PositionVertically": {
+		"message": "Position Vertically"
+	},
+
+	"PositionHorizontally": {
+		"message": "Position Horizontally"
+	},
+
+	"BreakReminder": {
+		"message": "Break Reminder"
+	},
+
+	"BreakReminderInfo": {
+		"message": "Beta. Shows a reminder to have a break every set number of posts."
+	},
+
+	"BreakReminderFrequency": {
+		"message": "Reminder Frequency"
+	},
+
+	"TranslationHelp": {
+		"message": "Nápověda k překladu"
+	},
+
+	"Off": {
+		"message": "Off"
+	},
+
+	"ShowPostAuthor": {
+		"message": "Show Post Author"
+	},
+
+	"RemovePageSideMargin": {
+		"message": "Remove the Page Side Margin"
+	},
+
+	"HideSideMenuTopSection": {
+		"message": "Hide the Top Section"
+	},
+
+	"HideSideMenuModerationSection": {
+		"message": "Hide the Moderation Section"
+	},
+
+	"HideSideMenuRecentSection": {
+		"message": "Hide the Recent Section"
+	},
+
+	"HideSideMenuCommunitiesSection": {
+		"message": "Hide the Communities Section"
+	},
+
+	"HideSideMenuResourcesSection": {
+		"message": "Hide the Resources Section"
+	},
+
+	"HideRelatedPosts": {
+		"message": "Hide Related Posts"
+	},
+
+	"Select": {
+		"message": "Vybrat"
+	},
+
+	"SelectRedditVersion": {
+		"message": "Vyberte verzi Reddit"
+	},
+
+	"UpdateFirefox": {
+		"message": "Please update to Firefox 121 or greater for some features to work correctly."
+	},
+
+	"PostContent": {
+		"message": "Post Content"
+	},
+
+	"PostComments": {
+		"message": "Post Comments"
+	},
+
+	"Rate": {
+		"message": "Ohodnoťte / Recenze"
+	},
+
+	"HideUserProfilePics": {
+		"message": "Hide user profile pictures in the comments"
+	},
+
+	"AutoExpandComments": {
+		"message": "Auto Expand Comments"
+	}
+}

@@ -1,0 +1,74 @@
+/* Popup Styles - Containers */
+
+.container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	min-height: 46px;
+	background: var(--bg-shade-1);
+	border-radius: var(--border-radius);
+	padding: 5px;
+}
+.container span {
+	font-size: 16px;
+	padding-right: 8px;
+}
+.container-1 {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+.container-1 .option-title {
+	display: grid;
+	grid-template-columns: 50px auto;
+	margin-bottom: 5px;
+}
+.container-2 {
+	display: grid;
+	grid-template-columns: 50px auto;
+	margin-bottom: 5px;
+}
+.container-3 {
+	display: grid;
+	grid-template-columns: 50px auto 60px;
+}
+.container-3 .switch {
+	margin-left: -3px;
+}
+.container-3 input[type='range'] {
+	margin: 16px 0 16px 0;
+}
+.container-4 {
+	display: grid;
+	grid-template-columns: 50px 100px auto;
+	padding-right: 8px;
+	min-height: 40px;
+}
+.container-5 {
+	display: grid;
+	grid-template-columns: 50px 150px auto 60px;
+	padding-right: 8px;
+	min-height: 40px;
+}
+.container-6 {
+	display: grid;
+	grid-template-columns: 50px auto 100px;
+}
+.container-6 input {
+	position: absolute;
+	right: 5px;
+}
+.input-value {
+	text-align: center;
+	line-height: 100%;
+	color: var(--text);
+	margin-left: 15px;
+}
+.css-input-container {
+	display: flex;
+	flex-direction: row;
+	grid-gap: 4px;
+	padding-right: 4px;
+}

@@ -1,26 +1,28 @@
 // Hide "Turn On Notifications" Popup
-let hideTurnOnNotificationsPopup = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		// do nothing
-	} else {
-		// new reddit
-		if (value === true) {
-			const styleElement = document.createElement('style');
-			styleElement.type = 'text/css';
-			styleElement.id = 're-hide-popup';
-			document.head.appendChild(styleElement);
-			const dynamicStyle = `div[id^='popup-'][style*='transform'] {
+
+export function hideTurnOnNotificationsPopup(value) {
+	if (value === true) {
+		hideTurnOnNotificationsPopupNew();
+	} else if (value === false) {
+		showTurnOnNotificationsPopupNew();
+	}
+}
+
+// Function - Hide "Turn On Notifications" Popup - New
+function hideTurnOnNotificationsPopupNew() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-popup';
+	document.head.appendChild(styleElement);
+	styleElement.textContent = `div[id^='popup-'][style*='transform'] {
 									display: none;
 								}`;
-			styleElement.innerHTML = dynamicStyle;
-		} else if (value === false) {
-			const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-popup"]');
-			dynamicStyleElements.forEach((element) => {
-				document.head.removeChild(element);
-			});
-		}
-	}
-};
-export { hideTurnOnNotificationsPopup };
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Show "Turn On Notifications" Popup - New
+function showTurnOnNotificationsPopupNew() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-popup"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}

@@ -1,3 +1,81 @@
+version 1.0.0
+- Firefox v121 is now required for ":has()" support for some features. (Chrome and Edge users, you already have support for this).
+- Speed improvements and optimisations.
+- Individually adjust the width of the home feed, sub reddit feed, user profile feed, the post page and the post overlay.
+- Hide the post overlay and post page sidebars independently.
+- Auto redirect to the Old, New or the latest version of Reddit.
+- Adjust the vertical position of the "Scroll To Root Comment" buttons.
+- Added an option to hide user profile pictures in the comments.
+- Added an option to auto expand hidden comments.
+- Added a new Accessibility section for new and latest Reddit.
+    - Resize the post content font.
+    - Resize the post comments font.
+    - Bionic Reader for posts.
+    - Bionic Reader for comments.
+    - Bionic Reader font colour.
+    - Bionic Reader text background colour.
+- Hide Ads/Promoted Posts on Old Reddit.
+- Hide NSFW Posts on Old Reddit.
+- Added initial localisation support for Czech, Finnish, Hungarian, Norwegian and Swedish. Requires further updates for 100% completion.
+- Support for the latest version of Reddit, including:
+    - Expand Feed / Post:
+        - Remove the Page Side Margin.
+        - Adjust the Home Feed Width.
+        - Adjust the Sub Feed Width.
+        - Adjust the Post Page Width.
+        - Adjust the User Profile Width.
+        - Adjust the Home Feed Offset. 
+        - Adjust the Sub Feed Offset.
+        - Adjust the Post Offset.
+        - Adjust the User Profile Offset.
+    - Hide Elements:
+        - Hide the Header Bar.
+        - Hide Ads/Promoted Posts.
+        - Hide NSFW Posts.
+        - Hide the Side Menu.
+            - Hide the Top Section.
+            - Hide the Moderation Section.
+            - Hide the Recent Section.
+            - Hide the Communities Section.
+            - Hide the Resources Section.
+        - Hide the Sub Reddit Sidebar.
+        - Hide the Post Sidebar.
+            - Hide Related Posts.
+        - Hide the User Sidebar.
+        - Hide the notification header button.
+        - Hide the create post header button.
+        - Hide the chat header button.
+        - Hide the advertise header button.
+        - Hide user profile pictures in the comments.
+    - Productivity:
+        - Show Post Author.
+        - Add Scrollbar to Tall Images.
+        - Add 'Scroll To Top' Button in the Header.
+        - Scroll To Next/Previous Root Comment.
+        - Non Sticky Header Bar.
+    - Style:
+        - Hide Interface Gaps.
+        - Theme Blur.
+        - Header: Background Colour.
+        - Header: Text Colour.
+        - Post: Background Colour.
+        - Post: Title and Text Content Colour.
+        - Visited Post: Title Colour.
+        - Post: Secondary Text Colour.
+        - Post: Border Colour.
+    - Background:
+        - Custom Background.
+        - Background Blur.
+    - Accessibility:
+        - Post Content Font Size.
+        - Post Comments Font Size.
+        - Bionic Reader For Posts.
+        - Bionic Reader For Comments.
+        - Bionic Reader Font Colour.
+- Bug fixes and improvements.
+- Removed the "Hide the 'Coin' Button" option as Reddit has deprecated the Gold award system.
+- Removed the "Hide the 'Happening Now' Button" option as Reddit seems to have deprecated this.
+
 version 0.20.1
 - Bug fixes.
 

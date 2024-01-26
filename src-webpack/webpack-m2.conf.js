@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 var webpack = require('webpack');
+const ZipPlugin = require('zip-webpack-plugin');
 
 module.exports = {
 	mode: 'production',
@@ -103,6 +104,12 @@ module.exports = {
 		new webpack.DefinePlugin({
 			BROWSER_API: 'browser',
 		}),
+		new webpack.DefinePlugin({
+			CHECK_LEGACY: true,
+		}),
+		/*new ZipPlugin({
+			filename: 'reddit-enhancer.zip',
+		}),*/
 	],
 	optimization: {
 		minimize: true,

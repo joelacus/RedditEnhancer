@@ -1,6 +1,6 @@
 {
 	"name": "reddit_enhancer_webpack",
-	"version": "0.20.1",
+	"version": "1.0.0",
 	"description": "",
 	"scripts": {
 		"build-m2": "webpack --config ./webpack-m2.conf.js",
@@ -10,7 +10,7 @@
 	"author": "Joelacus",
 	"license": "",
 	"devDependencies": {
-		"copy-webpack-plugin": "^11.0.0",
+		"copy-webpack-plugin": "^12.0.0",
 		"html-minimizer-webpack-plugin": "^4.3.0",
 		"mini-css-extract-plugin": "^2.7.0",
 		"path": "^0.12.7",
@@ -24,6 +24,7 @@
 		"i18next": "^23.6.0",
 		"i18next-http-backend": "^2.3.0",
 		"npm": "^10.2.1",
-		"video.js": "^8.0.4"
+		"video.js": "^8.0.4",
+		"zip-webpack-plugin": "^4.0.1"
 	}
 }

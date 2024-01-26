@@ -1,11 +1,8 @@
 // Always Show Rising Button
-let alwaysShowRisingButton = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		// do nothing
-	} else {
-		// new reddit
+
+export function alwaysShowRisingButton(value) {
+	const link = window.location.href;
+	if (redditVersion === 'new') {
 		if (value == true) {
 			if (link.indexOf('/comments/') <= 0 && link.indexOf('/user/') <= 0 && link.indexOf('/settings/') <= 0) {
 				// not post, not user, not settings
@@ -94,5 +91,4 @@ let alwaysShowRisingButton = function (value) {
 			}
 		}
 	}
-};
-export { alwaysShowRisingButton };
+}

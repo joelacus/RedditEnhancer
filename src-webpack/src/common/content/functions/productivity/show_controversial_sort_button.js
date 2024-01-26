@@ -1,11 +1,8 @@
-/* ===== Show Controversial Sort Button ===== */
-let showControversialSortButton = function (value) {
+// Show Controversial Sort Button
+
+export function showControversialSortButton(value) {
 	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		// do nothing
-	} else {
-		// new reddit
+	if (redditVersion === 'new') {
 		if (value === true) {
 			if (document.querySelector('.re-sort')) {
 				if (!document.querySelector('.re-sort [href*="controversial"]')) {
@@ -80,5 +77,4 @@ let showControversialSortButton = function (value) {
 	setTimeout(() => {
 		showControversialSortButton(value);
 	}, 3000);
-};
-export { showControversialSortButton };
+}

@@ -1,35 +1,27 @@
 // Move Feed Section In Side Menu To The Top
-let sidemenuFeedTop = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		// do nothing
-	} else {
-		// new reddit
-		//var container = document.querySelector('#re-header-buttons');
-		if (value == true) {
+
+export function sidemenuFeedTop(value) {
+	if (redditVersion === 'new') {
+		if (value === true) {
 			if (document.querySelector('.re-sidemenu-feed-top')) {
 				document.querySelector('.re-sidemenu-feed-top').style.display = '';
 			} else {
-				//console.log("start observer")
 				observer.observe(document.body, { childList: true, subtree: true, recursive: true });
 				addFeedButtons();
 			}
-		} else if (value == false) {
+		} else if (value === false) {
 			observer.disconnect();
 			if (document.querySelector('.re-sidemenu-feed-top')) {
 				document.querySelector('.re-sidemenu-feed-top').style.display = 'none';
 			}
 		}
 	}
-};
-export { sidemenuFeedTop };
+}
 
 const observer = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {
 		mutation.addedNodes.forEach(function (addedNode) {
 			if (addedNode.nodeName != '#text') {
-				//if (addedNode.querySelector('#header-subreddit-filter')) {
 				for (let i = 0; i < 5; i++) {
 					function func() {
 						const l = document.querySelector('#header-subreddit-filter');
@@ -42,16 +34,14 @@ const observer = new MutationObserver(function (mutations) {
 					}
 					setTimeout(func, i * 2000);
 				}
-				//}
 			}
 		});
 	});
 });
 
 function addFeedButtons() {
-	var container = document.querySelector('#header-subreddit-filter');
-	if (container) {
-		var container = container.parentNode;
+	if (document.querySelector('#header-subreddit-filter')) {
+		const container = document.querySelector('#header-subreddit-filter').parentNode;
 		const feed_top = document.querySelector('.re-sidemenu-feed-top');
 		if (!feed_top) {
 			const headings = container.querySelectorAll('[role="heading"]');

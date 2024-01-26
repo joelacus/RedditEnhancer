@@ -7,12 +7,18 @@ import HttpBackend from 'i18next-http-backend';
 BROWSER_API.storage.sync.get(['language'], function (result) {
 	if (typeof result.language == 'undefined') {
 		console.log('Language: not set');
-		auto();
+		document.querySelector('#chosen-lang').textContent = 'English';
+		init_i18n('en');
 	} else {
+		if (result.language === 'en-GB') {
+			var langName = document.querySelector('#en').textContent;
+			init_i18n('en-GB');
+		} else {
+			var langName = document.querySelector('#' + result.language).textContent;
+			init_i18n(result.language);
+		}
 		console.log('Language: ' + result.language);
-		const lang = document.querySelector('#' + result.language).textContent;
-		document.querySelector('#chosen-lang').textContent = lang;
-		init_i18n(result.language);
+		document.querySelector('#chosen-lang').textContent = langName;
 	}
 });
 
@@ -35,39 +41,34 @@ export function init_i18n(lang) {
 // Translate based on selected language
 function translate() {
 	BROWSER_API.storage.sync.get(['redditVersion'], function (result) {
-		if (result.redditVersion === 'new' || typeof result.redditVersion == 'undefined') {
-			document.querySelector('#chosen-version').textContent = i18next.t('textNewReddit.message');
-		} else {
-			document.querySelector('#chosen-version').textContent = i18next.t('textOldReddit.message');
+		if (result.redditVersion === 'new') {
+			document.querySelector('#chosen-version').textContent = i18next.t('NewReddit.message');
+		} else if (result.redditVersion === 'old') {
+			document.querySelector('#chosen-version').textContent = i18next.t('OldReddit.message');
+		} else if (result.redditVersion === 'newnew') {
+			document.querySelector('#chosen-version').textContent = i18next.t('LatestReddit.message');
+		} else if (typeof result.redditVersion == 'undefined') {
+			document.querySelector('#chosen-version').textContent = i18next.t('Select.message');
+		}
+	});
+	BROWSER_API.storage.sync.get(['autoRedirectVersion'], function (result) {
+		if (result.autoRedirectVersion === 'off' || typeof result.autoRedirectVersion == 'undefined') {
+			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Off.message');
+		} else if (result.autoRedirectVersion === 'old') {
+			document.querySelector('#chosen-reddit-version').textContent = i18next.t('OldReddit.message');
+		} else if (result.autoRedirectVersion === 'new') {
+			document.querySelector('#chosen-reddit-version').textContent = i18next.t('NewReddit.message');
+		} else if (result.autoRedirectVersion === 'newnew') {
+			document.querySelector('#chosen-reddit-version').textContent = i18next.t('LatestReddit.message');
 		}
 	});
 	document.getElementById('name').textContent = i18next.t('extensionName.message');
 	document.getElementById('extensionVersion').textContent = i18next.t('extensionVersion.message');
-	document.getElementById('input-custom-background').placeholder = i18next.t('textCustomBgInputPlaceholder.message');
-	document.getElementById('search').placeholder = i18next.t('textSearch.message') + '...';
+	document.getElementById('input-custom-background').placeholder = i18next.t('CustomBgInputPlaceholder.message');
+	document.getElementById('search').placeholder = i18next.t('Search.message') + '...';
 
-	document.querySelectorAll('[id^="text"]').forEach(function (item) {
-		const id = item.id.replace(/\d+/g, '');
-		item.textContent = i18next.t(id + '.message');
-	});
-}
-
-// Auto translate if selected language save doesn't exist
-function auto() {
-	BROWSER_API.storage.sync.get(['redditVersion'], function (result) {
-		if (result.redditVersion === 'new' || typeof result.redditVersion == 'undefined') {
-			document.getElementById('chosen-version').textContent = BROWSER_API.i18n.getMessage('textNewReddit');
-		} else {
-			document.getElementById('chosen-version').textContent = BROWSER_API.i18n.getMessage('textOldReddit');
-		}
-	});
-	document.getElementById('name').textContent = BROWSER_API.i18n.getMessage('extensionName');
-	document.getElementById('extensionVersion').textContent = BROWSER_API.i18n.getMessage('extensionVersion');
-	document.getElementById('input-custom-background').placeholder = BROWSER_API.i18n.getMessage('textCustomBgInputPlaceholder');
-	document.getElementById('search').placeholder = BROWSER_API.i18n.getMessage('textSearch') + '...';
-
-	document.querySelectorAll('[id^="text"]').forEach(function (item) {
-		const id = item.id.replace(/\d+/g, '');
-		item.textContent = BROWSER_API.i18n.getMessage(id);
+	document.querySelectorAll('[data-lang]').forEach(function (item) {
+		const data_lang = item.getAttribute('data-lang');
+		item.textContent = i18next.t(data_lang + '.message');
 	});
 }

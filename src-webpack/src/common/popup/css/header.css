@@ -1,0 +1,52 @@
+/* Popup Styles - Header */
+
+/* Title */
+.menu-title-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 470px;
+}
+.menu-title {
+	position: relative;
+	width: fit-content;
+	text-align: center;
+	font-size: 25px;
+	font-variant-caps: all-small-caps;
+	background-color: var(--bg-tint-2);
+	color: var(--text-grey);
+	text-shadow: 0px 2px 3px rgba(var(--text-grey-rgb), 0.05);
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
+	/*filter: brightness(3);*/
+}
+
+/* Top Menu Bar */
+.top-menu-bar {
+	position: absolute;
+	top: 40px;
+	left: 10px;
+	display: grid;
+	grid-template-columns: repeat(3, auto);
+	grid-gap: 8px;
+	align-items: center;
+	width: 450px;
+	height: 35px;
+	font-size: 16px;
+}
+
+.top-menu-bar input {
+	min-height: 35px;
+}
+
+/* Search */
+#no-search-results {
+	position: absolute;
+	top: 200px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	font-size: 20px;
+	color: var(--text-grey);
+}

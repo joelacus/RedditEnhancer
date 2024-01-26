@@ -13,23 +13,33 @@ document.querySelector('#select-lang .select').addEventListener('click', functio
 		lang_dropdownMenu.style.maxHeight = lang_dropdownMenu.scrollHeight + 'px';
 	}
 });
-document.addEventListener('click', function (event) {
-	if (!lang_dropdown.contains(event.target)) {
+document.addEventListener('click', function (e) {
+	if (!lang_dropdown.contains(e.target)) {
 		lang_dropdown.classList.remove('active');
 		lang_dropdownMenu.style.maxHeight = '0';
 	}
 });
-lang_dropdownMenu.addEventListener('click', function (event) {
-	const btn = event.target.tagName.toLowerCase();
+lang_dropdownMenu.addEventListener('click', function (e) {
+	const btn = e.target.tagName.toLowerCase();
+	let lang = '';
 	if (btn === 'li') {
-		var lang = event.target.id;
+		lang = e.target.id;
+		var text = e.target.textContent;
 	}
 	if (btn === 'span') {
-		var lang = event.target.parentNode.id;
+		lang = e.target.parentNode.id;
+		var text = e.target.textContent;
 	}
-	document.querySelector('#select-lang .select').querySelector('span').textContent = event.target.textContent;
+	if (btn === 'div') {
+		lang = e.target.parentNode.id;
+		var text = e.target.nextElementSibling.textContent;
+	}
+	document.querySelector('#select-lang .select').querySelector('span').textContent = text;
 	lang_dropdown.classList.remove('active');
 	lang_dropdownMenu.style.maxHeight = '0';
+	if (lang === 'en' && navigator.language === 'en-GB') {
+		lang = 'en-GB';
+	}
 	BROWSER_API.storage.sync.set({ language: lang });
 	init_i18n(lang);
 });

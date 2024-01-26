@@ -1,65 +1,73 @@
 {
-	"textCentre": {
+	"Centre": {
 		"message": "Center"
 	},
 
-	"textThemeColours": {
+	"ThemeColours": {
 		"message": "Theme Colors"
 	},
 
-	"textBorderColour": {
+	"BorderColour": {
 		"message": "Border Color"
 	},
 
-	"textTextColour": {
-		"message": "Text Color"
+	"TextColour": {
+		"message": " Color"
 	},
 
-	"textPostVisitedTitleColour": {
+	"PostVisitedTitleColour": {
 		"message": "Visited Post Title Color"
 	},
 
-	"textHeaderBgColour": {
+	"HeaderBgColour": {
 		"message": "Header Background Color"
 	},
 
-	"textHeaderTextColour": {
+	"HeaderTextColour": {
 		"message": "Header Text Color"
 	},
 
-	"textSortBgColour": {
+	"SortBgColour": {
 		"message": "Sort Background Color"
 	},
 
-	"textSortTextColour": {
+	"SortTextColour": {
 		"message": "Sort Text Color"
 	},
 
-	"textSortBorderColour": {
+	"SortBorderColour": {
 		"message": "Sort Border Color"
 	},
 
-	"textPostBgColour": {
+	"PostBgColour": {
 		"message": "Post Background Color"
 	},
 
-	"textPostTextColour": {
-		"message": "Post Text and Icon Color"
+	"PostCreditBar": {
+		"message": "Post Header Bar Text Color"
 	},
 
-	"textPostTitleContentColour": {
+	"PostTitleContentColour": {
 		"message": "Post Title and Text Content Color"
 	},
 
-	"textPostBorderColour": {
+	"PostBorderColour": {
 		"message": "Post Border Color"
 	},
 
-	"textThemeBlacklistInfo": {
+	"ThemeBlacklistInfo": {
 		"message": "Use theme colors globally, except for these subreddits:"
 	},
 
-	"textThemeWhitelistInfo": {
+	"ThemeWhitelistInfo": {
 		"message": "Only use the theme colors for these subreddits:"
+	},
+
+	"CreatePostBgColour": {
+		"message": "Create Post Background Color"
+	},
+
+	"CreatePostBorderColour": {
+		"message": "Create Post Border Color"
 	}
 }

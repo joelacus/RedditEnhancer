@@ -5,38 +5,44 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Reddit Enhancer Restore Backup Config</title>
 		<link rel="stylesheet" href="restore_config.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+			integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
 	</head>
 	<body>
 		<div class="container">
-			<h3 id="textRestoreConfigTitle"></h3>
+			<h3 data-lang="RestoreConfigTitle"></h3>
 			<div class="main">
 				<div class="form-container">
 					<form id="import-backup" method="post" enctype="multipart/form-data">
 						<input type="file" id="backup-file" name="backup-file" style="display: none" />
 						<label for="backup-file" id="file-label">
 							<i class="fa-solid fa-folder-open"></i>
-							<span id="textChooseBackupFile"></span>
+							<span data-lang="ChooseBackupFile"></span>
 						</label>
 						<button type="submit" id="submit-button">
 							<i class="fa-solid fa-file-arrow-up"></i>
-							<span id="textUpload"></span>
+							<span data-lang="Upload"></span>
 						</button>
 					</form>
 				</div>
-				<h3 id="textOr"></h3>
+				<h3 data-lang="Or"></h3>
 				<div id="drop-area">
-					<p><span id="textDrag"></span> <i>RedditEnhancer_backup.json</i> <span id="textHere"></span></p>
+					<p><span data-lang="Drag"></span> <i>RedditEnhancer_backup.json</i> <span data-lang="Here"></span></p>
 					<p id="dropped-file-name"></p>
 				</div>
 				<button id="restore-backup" disabled>
 					<i class="fa-solid fa-check"></i>
-					<span id="textRestoreBackup"></span>
+					<span data-lang="RestoreBackup"></span>
 				</button>
 			</div>
 			<div class="done">
-				<h2 id="textBackupRestored"></h2>
-				<p id="textCloseTab"></p>
+				<h2 data-lang="BackupRestored"></h2>
+				<p data-lang="CloseTab"></p>
 			</div>
 		</div>
 	</body>

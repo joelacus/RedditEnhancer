@@ -1,0 +1,122 @@
+/* Popup Styles - Footer */
+
+/* Footer */
+.footer {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	grid-gap: 4px;
+	width: calc(100% - 10px);
+	height: 80px;
+	bottom: 8px;
+}
+.top-bar {
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	width: inherit;
+	height: 35px;
+}
+.bottom-bar {
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	width: inherit;
+	height: 24px;
+}
+.bottom-bar a,
+.bottom-bar span {
+	text-decoration: underline;
+	cursor: pointer;
+}
+.bar-left {
+	display: flex;
+	flex-direction: row;
+	grid-gap: 8px;
+}
+.bar-right {
+	display: flex;
+	justify-content: flex-end;
+	grid-gap: 8px;
+}
+
+/* Language Select */
+#select-lang {
+	width: 150px;
+}
+#select-lang-menu span {
+	font-size: 16px;
+}
+#select-lang-menu {
+	min-width: 450px;
+	left: -300px;
+	display: grid;
+	grid-template-rows: repeat(5, auto);
+	grid-auto-flow: column;
+}
+#select-lang-menu li:last-child {
+	border-top: none;
+	border-radius: 0;
+}
+
+/* Donate */
+.donate {
+	display: flex;
+	flex-direction: row;
+	justify-self: flex-end;
+}
+.donate:hover {
+	cursor: pointer;
+}
+.donate:hover .kofi-logo {
+	animation: shake 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+@keyframes shake {
+	10%,
+	90% {
+		transform: rotate(-0.5deg);
+	}
+	20%,
+	80% {
+		transform: rotate(1deg);
+	}
+	30%,
+	50%,
+	70% {
+		transform: rotate(-2deg);
+	}
+	40%,
+	60% {
+		transform: rotate(2deg);
+	}
+}
+.kofi-logo {
+	height: 24px;
+	width: 24px;
+	background-image: url(../../icons/kofi-48.png);
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+	margin-left: -5px;
+	margin-right: 5px;
+}
+
+/* Backup */
+#btn-export-backup,
+#btn-import-backup {
+	cursor: pointer;
+	color: var(--text-grey);
+}
+
+/* Changelog */
+#changelog {
+	position: absolute;
+	top: 40px;
+	left: 0;
+	width: 100%;
+	height: 370px;
+	display: flex;
+	font-size: 14px;
+	color: var(--text);
+	background-color: var(--bg);
+	padding: 8px;
+	overflow-y: scroll;
+	white-space: pre-wrap;
+}

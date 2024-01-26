@@ -78,15 +78,13 @@ document.querySelector('.btn-edit-backgrounds-save').addEventListener('click', f
 // Slider - Background Blur
 document.querySelector('#input-bg-blur').addEventListener('input', function (e) {
 	// set ui
-	var value = e.target.value;
+	const value = e.target.value;
 	if (value != 0) {
 		document.querySelector('.icon-bg-blur').style.backgroundColor = 'var(--accent)';
 	} else {
 		document.querySelector('.icon-bg-blur').style.backgroundColor = '';
 	}
 	document.querySelector('#bg-blur-value').innerText = e.target.value + 'px';
-	// save
-	BROWSER_API.storage.sync.set({ bgBlur: value });
 	// apply
 	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
 		tabs.forEach(function (tab) {
@@ -95,4 +93,8 @@ document.querySelector('#input-bg-blur').addEventListener('input', function (e) 
 			}
 		});
 	});
+});
+document.querySelector('#input-bg-blur').addEventListener('mouseup', function (e) {
+	// save
+	BROWSER_API.storage.sync.set({ bgBlur: e.target.value });
 });

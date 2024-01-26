@@ -1,21 +1,27 @@
-// Hide Header Sub Bar
-let hideHeaderSubBar = function (value) {
-	var link = window.location.href;
-	if (link.indexOf('old.reddit.com') >= 0) {
-		// old reddit
-		var el = document.querySelector('#sr-header-area');
-		if (value === true) {
-			var link = window.location.href;
-			if (link.indexOf('old.reddit.com/r/') >= 0) {
-				//el.classList.add("re-invisible");
-				el.classList.add('re-hide');
-			} else {
-				el.classList.add('re-hide');
-			}
-		} else if (value === false) {
-			el.classList.remove('re-invisible');
-			el.classList.remove('re-hide');
-		}
+// Hide Header Sub Bar on old.reddit
+
+export function hideHeaderSubBar(value) {
+	if (value === true) {
+		hideHeaderSubBarOld();
+	} else if (value === false) {
+		showHeaderSubBarOld();
 	}
-};
-export { hideHeaderSubBar };
+}
+
+// Function - Hide Header Sub Bar - Old
+function hideHeaderSubBarOld() {
+	const style = document.createElement('style');
+	style.id = 're-hide-header-sub-bar';
+	style.textContent = `#sr-header-area {
+							display: none !important;
+						}`;
+	document.head.insertBefore(style, document.head.firstChild);
+}
+
+// Function - Show Header Sub Bar - Old
+function showHeaderSubBarOld() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-header-sub-bar"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}
