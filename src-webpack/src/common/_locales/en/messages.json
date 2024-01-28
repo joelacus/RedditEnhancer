@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.0.0"
+		"message": "1.0.1"
 	},
 
 	"extensionName": {
@@ -31,6 +31,10 @@
 		"message": "Centre"
 	},
 
+	"Width": {
+		"message": "Width"
+	},
+
 	"HomeFeedWidth": {
 		"message": "Home Feed Width"
 	},
@@ -49,6 +53,10 @@
 
 	"PostWidth": {
 		"message": "Post Width"
+	},
+
+	"Offset": {
+		"message": "Offset"
 	},
 
 	"HomeFeedOffset": {
@@ -173,10 +181,6 @@
 
 	"Header": {
 		"message": "Header"
-	},
-
-	"HeaderHeight": {
-		"message": "Header Height"
 	},
 
 	"Feed": {

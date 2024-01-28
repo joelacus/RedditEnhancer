@@ -24,163 +24,167 @@
 	},
 
 	"Centre": {
-		"message": "Centre"
+		"message": "Senter"
+	},
+
+	"Width": {
+		"message": "Bredde"
 	},
 
 	"HomeFeedWidth": {
-		"message": "Home Feed Width"
+		"message": "Bredde på hjemstrøm"
 	},
 
 	"SubFeedWidth": {
-		"message": "Sub Feed Width"
+		"message": "Bredde på understrøm"
 	},
 
 	"UserProfileWidth": {
-		"message": "User Profile Width"
+		"message": "Bredde på brukerprofil"
 	},
 
 	"PostOverlayWidth": {
-		"message": "Post Overlay Width"
+		"message": "Bredde på innleggsoverlegg"
 	},
 
 	"PostWidth": {
-		"message": "Post Width"
+		"message": "Bredde på innlegg"
+	},
+
+	"Offset": {
+		"message": "Forskyvning"
 	},
 
 	"HomeFeedOffset": {
-		"message": "Home Feed Offset"
+		"message": "Forskyvning for hjemstrøm"
 	},
 
 	"SubFeedOffset": {
-		"message": "Sub Feed Offset"
+		"message": "Forskyvning for understrøm"
 	},
 
 	"PostOffset": {
-		"message": "Post Offset"
+		"message": "Forskyvning for innlegg"
 	},
 
 	"UserProfileOffset": {
-		"message": "User Profile Offset"
+		"message": "Forskyvning for brukerprofil"
 	},
 
 	"FitImage": {
-		"message": "Scale Tall Images to Fit Post"
+		"message": "Skala høye bilder for å passe innlegg"
 	},
 
 	"ImageScroll": {
-		"message": "Add Scrollbar to Tall Images"
+		"message": "Legg til rullefelt til høye bilder"
 	},
 
 	"Background": {
-		"message": "Background"
+		"message": "Bakgrunn"
 	},
 
 	"Blur": {
-		"message": "Blur"
+		"message": "Uklarhet"
 	},
 
 	"Shadow": {
-		"message": "Drop Shadows"
+		"message": "Slipp skygger"
 	},
 
 	"UseCustom": {
-		"message": "Use Custom"
+		"message": "Bruk tilpasset"
 	},
 
 	"CustomBgInputPlaceholder": {
-		"message": "Custom Background Link"
+		"message": "Tilpasset bakgrunnslenke"
 	},
 
 	"LatestReddit": {
-		"message": "Latest Reddit"
+		"message": "Siste Reddit"
 	},
 
 	"NewReddit": {
-		"message": "New Reddit"
+		"message": "Ny Reddit"
 	},
 
 	"OldReddit": {
-		"message": "Old Reddit"
+		"message": "Gammel Reddit"
 	},
 
 	"Auto": {
-		"message": "Auto"
+		"message": "Automatisk"
 	},
 
 	"Disabled": {
-		"message": "Disabled"
+		"message": "Funksjonshemmet"
 	},
 
 	"BrowserTheme": {
-		"message": "Browser Theme"
+		"message": "Nettlesertema"
 	},
 
 	"TimeRange": {
-		"message": "Time Range"
+		"message": "Tidsramme"
 	},
 
 	"StartTime": {
-		"message": "Start Time (24)"
+		"message": "Starttid (24)"
 	},
 
 	"EndTime": {
-		"message": "End Time (24)"
+		"message": "Sluttid (24)"
 	},
 
 	"StyleTweaks": {
-		"message": "Style"
+		"message": "Stil"
 	},
 
 	"HideRedditPremium": {
-		"message": "Hide 'Reddit Premium'"
+		"message": "Gjemme seg 'Reddit Premium'"
 	},
 
 	"HideCreatePost": {
-		"message": "Hide 'Create Post'"
+		"message": "Skjul 'Lag innlegg'"
 	},
 
 	"HideAdvertiseButton": {
-		"message": "Hide the 'Advertise' Button"
+		"message": "Skjul 'Annonser' knappen"
 	},
 
 	"HideModerationButton": {
-		"message": "Hide the 'Moderation' Button"
+		"message": "Skjul 'Moderasjon' knappen"
 	},
 
 	"HidePopularButton": {
-		"message": "Hide the 'Popular' Button"
+		"message": "Skjul den 'Populære' knappen"
 	},
 
 	"HideChatButton": {
-		"message": "Hide the 'Chat' Button"
+		"message": "Skjul 'Chat' knappen"
 	},
 
 	"HideHomeSidebar": {
-		"message": "Hide the Home Page Sidebar"
+		"message": "Skjul hjemmesiden sidefelt"
 	},
 
 	"HideSubSidebar": {
-		"message": "Hide the Sub Reddit Sidebar"
+		"message": "Skjul Sub Reddit sidefeltet"
 	},
 
 	"Sidebar": {
-		"message": "Sidebar"
+		"message": "Sidefelt"
 	},
 
 	"Header": {
-		"message": "Header"
-	},
-
-	"HeaderHeight": {
-		"message": "Header Height"
+		"message": "Overskrift"
 	},
 
 	"Feed": {
-		"message": "Feed"
+		"message": "Strøm"
 	},
 
 	"HeaderButtons": {
-		"message": "Header Buttons"
+		"message": "Topptoner"
 	},
 
 	"HideGap": {
@@ -188,51 +192,51 @@
 	},
 
 	"Main": {
-		"message": "Main"
+		"message": "Hoved"
 	},
 
 	"StickySort": {
-		"message": "Sticky Sort"
+		"message": "Sticky Sorteringslinje"
 	},
 
 	"HideUsername": {
-		"message": "Hide Username"
+		"message": "Skjul brukernavn"
 	},
 
 	"HideKarma": {
-		"message": "Hide Karma"
+		"message": "Skjul karma"
 	},
 
 	"ReloadPage": {
-		"message": "Reload Page"
+		"message": "Last inn side"
 	},
 
 	"ShowRising": {
-		"message": "Always Show the 'Rising' Sort Button"
+		"message": "Vis alltid 'Rising-knappen'"
 	},
 
 	"ToTop": {
-		"message": "Add 'Scroll To Top' Button"
+		"message": "Legg til 'bla til toppen-knappen'"
 	},
 
 	"HideGetNewReddit": {
-		"message": "Hide 'Get New Reddit'"
+		"message": "Skjul 'Få ny Reddit'"
 	},
 
 	"HideSidebarPolicy": {
-		"message": "Hide Policies Section"
+		"message": "Skjul politikk-seksjonen"
 	},
 
 	"HideElements": {
-		"message": "Hide Elements"
+		"message": "Skjul Elementer"
 	},
 
 	"Productivity": {
-		"message": "Productivity"
+		"message": "Produktivitet"
 	},
 
 	"OpenSubInNewTab": {
-		"message": "Open Links to subreddits in a New Tab"
+		"message": "Åpne lenker til subreddits i en ny fane"
 	},
 
 	"Search": {
@@ -240,7 +244,7 @@
 	},
 
 	"HidePromoted": {
-		"message": "Hide Ads/Promoted Links"
+		"message": "Skjul annonser/promoterte lenker"
 	},
 
 	"ShowAllButton": {

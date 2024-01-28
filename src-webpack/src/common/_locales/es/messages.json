@@ -27,6 +27,10 @@
 		"message": "Centro"
 	},
 
+	"Width": {
+		"message": "Ancho"
+	},
+
 	"HomeFeedWidth": {
 		"message": "Ancho del feed de inicio"
 	},
@@ -45,6 +49,10 @@
 
 	"PostWidth": {
 		"message": "Ancho de publicación"
+	},
+
+	"Offset": {
+		"message": "Desplazamiento"
 	},
 
 	"HomeFeedOffset": {
@@ -169,10 +177,6 @@
 
 	"Header": {
 		"message": "Encabezado"
-	},
-
-	"HeaderHeight": {
-		"message": "Altura del encabezado"
 	},
 
 	"Feed": {

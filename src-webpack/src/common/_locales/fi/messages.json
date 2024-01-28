@@ -4,7 +4,7 @@
 	},
 
 	"extensionDescription": {
-		"message": "Erilaisia mukautuksia Reddit-kokemuksesi mukauttamiseen. Tukee Redditin vanhaa, uutta ja uusinta versiota."
+		"message": "Erilaisia mukautuksia Reddit-kokemuksesi mukauttamiseen. Tukee Reddit vanhaa, uutta ja uusinta versiota."
 	},
 
 	"About": {
@@ -24,187 +24,191 @@
 	},
 
 	"Centre": {
-		"message": "Centre"
+		"message": "Keskusta"
+	},
+
+	"Width": {
+		"message": "Leveys"
 	},
 
 	"HomeFeedWidth": {
-		"message": "Home Feed Width"
+		"message": "Kotisyötteen leveys"
 	},
 
 	"SubFeedWidth": {
-		"message": "Sub Feed Width"
+		"message": "Alisyötteen leveys"
 	},
 
 	"UserProfileWidth": {
-		"message": "User Profile Width"
+		"message": "Käyttäjäprofiilin leveys"
 	},
 
 	"PostOverlayWidth": {
-		"message": "Post Overlay Width"
+		"message": "Viestin päällekkäisen leveys"
 	},
 
 	"PostWidth": {
-		"message": "Post Width"
+		"message": "Viestin leveys"
+	},
+
+	"Offset": {
+		"message": "Siirtymä"
 	},
 
 	"HomeFeedOffset": {
-		"message": "Home Feed Offset"
+		"message": "Kotisyötteen siirtymä"
 	},
 
 	"SubFeedOffset": {
-		"message": "Sub Feed Offset"
+		"message": "Alisyötteen siirtymä"
 	},
 
 	"PostOffset": {
-		"message": "Post Offset"
+		"message": "Viestin siirtymä"
 	},
 
 	"UserProfileOffset": {
-		"message": "User Profile Offset"
+		"message": "Käyttäjäprofiilin siirtymä"
 	},
 
 	"FitImage": {
-		"message": "Scale Tall Images to Fit Post"
+		"message": "Skaalaa korkeat kuvat, jotka sopivat postille"
 	},
 
 	"ImageScroll": {
-		"message": "Add Scrollbar to Tall Images"
+		"message": "Lisää vierityspalkki korkeisiin kuviin"
 	},
 
 	"Background": {
-		"message": "Background"
+		"message": "Tausta"
 	},
 
 	"Blur": {
-		"message": "Blur"
+		"message": "Hämärtää"
 	},
 
 	"Shadow": {
-		"message": "Drop Shadows"
+		"message": "Pudottaa varjot"
 	},
 
 	"UseCustom": {
-		"message": "Use Custom"
+		"message": "Käytä tapaa"
 	},
 
 	"CustomBgInputPlaceholder": {
-		"message": "Custom Background Link"
+		"message": "Mukautettu taustalinkki"
 	},
 
 	"LatestReddit": {
-		"message": "Latest Reddit"
+		"message": "Viimeisin Reddit"
 	},
 
 	"NewReddit": {
-		"message": "New Reddit"
+		"message": "Uusi Reddit"
 	},
 
 	"OldReddit": {
-		"message": "Old Reddit"
+		"message": "Vanha reddit"
 	},
 
 	"Auto": {
-		"message": "Auto"
+		"message": "Automaattinen"
 	},
 
 	"Disabled": {
-		"message": "Disabled"
+		"message": "Liikuntarajoitteinen"
 	},
 
 	"BrowserTheme": {
-		"message": "Browser Theme"
+		"message": "Selainteema"
 	},
 
 	"TimeRange": {
-		"message": "Time Range"
+		"message": "Aikahaarukka"
 	},
 
 	"StartTime": {
-		"message": "Start Time (24)"
+		"message": "Aloitusaika (24)"
 	},
 
 	"EndTime": {
-		"message": "End Time (24)"
+		"message": "Loppu aika (24)"
 	},
 
 	"StyleTweaks": {
-		"message": "Style"
+		"message": "Tyyli"
 	},
 
 	"HideRedditPremium": {
-		"message": "Hide 'Reddit Premium'"
+		"message": "Piilota 'Reddit Premium'"
 	},
 
 	"HideCreatePost": {
-		"message": "Hide 'Create Post'"
+		"message": "Piilota 'Luo viesti'"
 	},
 
 	"HideAdvertiseButton": {
-		"message": "Hide the 'Advertise' Button"
+		"message": "Piilota 'Mainosta-painike'"
 	},
 
 	"HideModerationButton": {
-		"message": "Hide the 'Moderation' Button"
+		"message": "Piilota 'Maltillisuus-painike'"
 	},
 
 	"HidePopularButton": {
-		"message": "Hide the 'Popular' Button"
+		"message": "Piilota 'Suosittu-painike'"
 	},
 
 	"HideChatButton": {
-		"message": "Hide the 'Chat' Button"
+		"message": "Piilota 'Chat-painike'"
 	},
 
 	"HideHomeSidebar": {
-		"message": "Hide the Home Page Sidebar"
+		"message": "Piilota kotisivun sivupalkki"
 	},
 
 	"HideSubSidebar": {
-		"message": "Hide the Sub Reddit Sidebar"
+		"message": "Piilota Subddit-sivupalkki"
 	},
 
 	"Sidebar": {
-		"message": "Sidebar"
+		"message": "Sivupalkki"
 	},
 
 	"Header": {
-		"message": "Header"
-	},
-
-	"HeaderHeight": {
-		"message": "Header Height"
+		"message": "Otsikko"
 	},
 
 	"Feed": {
-		"message": "Feed"
+		"message": "Syöttää"
 	},
 
 	"HeaderButtons": {
-		"message": "Header Buttons"
+		"message": "Otsikkopainikkeet"
 	},
 
 	"HideGap": {
-		"message": "Hide Interface Gaps"
+		"message": "Piilota käyttöliittymän aukot"
 	},
 
 	"Main": {
-		"message": "Main"
+		"message": "Pää"
 	},
 
 	"StickySort": {
-		"message": "Sticky Sort"
+		"message": "Tahmea lajittelupalkki"
 	},
 
 	"HideUsername": {
-		"message": "Hide Username"
+		"message": "Piilota käyttäjänimi"
 	},
 
 	"HideKarma": {
-		"message": "Hide Karma"
+		"message": "Piilota karma"
 	},
 
 	"ReloadPage": {
-		"message": "Reload Page"
+		"message": "Lataa sivu uudelleen"
 	},
 
 	"ShowRising": {

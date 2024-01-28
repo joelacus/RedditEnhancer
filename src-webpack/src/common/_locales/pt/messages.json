@@ -27,6 +27,10 @@
 		"message": "Centro"
 	},
 
+	"Width": {
+		"message": "Largura"
+	},
+
 	"HomeFeedWidth": {
 		"message": "Largura do feed inicial"
 	},
@@ -45,6 +49,10 @@
 
 	"PostWidth": {
 		"message": "Largura do postagem"
+	},
+
+	"Offset": {
+		"message": "Deslocamento"
 	},
 
 	"HomeFeedOffset": {
@@ -169,10 +177,6 @@
 
 	"Header": {
 		"message": "Cabeçalho"
-	},
-
-	"HeaderHeight": {
-		"message": "Altura do cabeçalho"
 	},
 
 	"Sidebar": {

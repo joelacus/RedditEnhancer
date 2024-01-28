@@ -1,3 +1,7 @@
+version 1.0.1
+- Updated localisations.
+- Bug fix.
+
 version 1.0.0
 - Firefox v121 is now required for ":has()" support for some features. (Chrome and Edge users, you already have support for this).
 - Speed improvements and optimisations.
@@ -18,7 +22,7 @@ version 1.0.0
 - Hide NSFW Posts on Old Reddit.
 - Added initial localisation support for Czech, Finnish, Hungarian, Norwegian and Swedish. Requires further updates for 100% completion.
 - Support for the latest version of Reddit, including:
-    - Expand Feed / Post:
+    - Resize Feed / Post:
         - Remove the Page Side Margin.
         - Adjust the Home Feed Width.
         - Adjust the Sub Feed Width.

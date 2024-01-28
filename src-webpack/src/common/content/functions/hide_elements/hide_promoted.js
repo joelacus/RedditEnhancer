@@ -87,6 +87,9 @@ function enableHidePromotedPostsNew() {
 								}
 								.ListingLayout-backgroundContainer + div > :last-child > :last-child > :first-child > div:has([data-before-content="advertisement"]) {
 									display: none !important;
+								}
+								.Post.promotedlink {
+									display: none;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }

@@ -27,6 +27,10 @@
 		"message": "Środek"
 	},
 
+	"Width": {
+		"message": "Szerokość"
+	},
+
 	"HomeFeedWidth": {
 		"message": "Szerokość kanału domowego"
 	},
@@ -45,6 +49,10 @@
 
 	"PostWidth": {
 		"message": "Szerokość słupka"
+	},
+
+	"Offset": {
+		"message": "Przesunięcie"
 	},
 
 	"HomeFeedOffset": {
@@ -169,10 +177,6 @@
 
 	"Header": {
 		"message": "Nagłówek"
-	},
-
-	"HeaderHeight": {
-		"message": "Wysokość nagłówka"
 	},
 
 	"Feed": {

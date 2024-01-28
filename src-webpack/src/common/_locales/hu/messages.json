@@ -24,107 +24,119 @@
 	},
 
 	"Centre": {
-		"message": "Centre"
+		"message": "Központ"
+	},
+
+	"Width": {
+		"message": "Szélesség"
 	},
 
 	"HomeFeedWidth": {
-		"message": "Home Feed Width"
+		"message": "Kezdőlap hírfolyam szélessége"
 	},
 
 	"SubFeedWidth": {
-		"message": "Sub Feed Width"
+		"message": "Al-hírfolyam szélessége"
 	},
 
 	"UserProfileWidth": {
-		"message": "User Profile Width"
+		"message": "Felhasználói profil szélessége"
 	},
 
 	"PostOverlayWidth": {
-		"message": "Post Overlay Width"
+		"message": "Bejegyzés átfedés szélessége"
 	},
 
 	"PostWidth": {
-		"message": "Post Width"
+		"message": "Bejegyzés szélessége"
+	},
+
+	"Offset": {
+		"message": "Eltolás"
 	},
 
 	"HomeFeedOffset": {
-		"message": "Home Feed Offset"
+		"message": "Kezdőlap hírfolyam eltolása"
 	},
 
 	"SubFeedOffset": {
-		"message": "Sub Feed Offset"
+		"message": "Al-hírfolyam eltolása"
 	},
 
 	"PostOffset": {
-		"message": "Post Offset"
+		"message": "Bejegyzés eltolása"
+	},
+
+	"UserProfileOffset": {
+		"message": "Felhasználói profil eltolása"
 	},
 
 	"FitImage": {
-		"message": "Scale Tall Images to Fit Post"
+		"message": "Méretarányosan magas képek illeszkedése hozzászóláshoz"
 	},
 
 	"ImageScroll": {
-		"message": "Add Scrollbar to Tall Images"
+		"message": "Görgetősáv hozzáadása a magas képekhez"
 	},
 
 	"Background": {
-		"message": "Background"
+		"message": "Háttér"
 	},
 
 	"Blur": {
-		"message": "Blur"
+		"message": "Elhomályosít"
 	},
 
 	"Shadow": {
-		"message": "Drop Shadows"
+		"message": "Csepp árnyékok"
 	},
 
 	"UseCustom": {
-		"message": "Use Custom"
+		"message": "Egyéni használat"
 	},
 
 	"CustomBgInputPlaceholder": {
-		"message": "Custom Background Link"
+		"message": "Egyedi háttér hivatkozás"
 	},
 
 	"LatestReddit": {
-		"message": "Latest Reddit"
+		"message": "Legújabb Reddit"
 	},
 
 	"NewReddit": {
-		"message": "New Reddit"
+		"message": "Új Reddit"
 	},
 
 	"OldReddit": {
-		"message": "Old Reddit"
+		"message": "Régi reddit"
 	},
 
 	"Auto": {
-		"message": "Auto"
+		"message": "Automatikus"
 	},
 
 	"Disabled": {
-		"message": "Disabled"
+		"message": "Tiltva"
 	},
 
 	"BrowserTheme": {
-		"message": "Browser Theme"
+		"message": "Böngésző témája"
 	},
 
 	"TimeRange": {
-		"message": "Time Range"
+		"message": "Időtartományban"
 	},
 
 	"StartTime": {
-		"message": "Start Time (24)"
+		"message": "Kezdési idő (24)"
 	},
 
 	"EndTime": {
-		"message": "End Time (24)"
+		"message": "Idő vége (24)"
 	},
 
 	"StyleTweaks": {
-		"message": "Style"
+		"message": "Stílus"
 	},
 
 	"HideRedditPremium": {
@@ -165,10 +177,6 @@
 
 	"Header": {
 		"message": "Header"
-	},
-
-	"HeaderHeight": {
-		"message": "Header Height"
 	},
 
 	"Feed": {

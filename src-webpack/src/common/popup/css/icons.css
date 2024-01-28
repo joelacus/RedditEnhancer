@@ -345,3 +345,11 @@
 	mask: url('../../icons/ui/up-right-and-down-left-from-center-solid.svg');
 	-webkit-mask: url('../../icons/ui/up-right-and-down-left-from-center-solid.svg');
 }
+.icon-arrows-left-right {
+	mask: url('../../icons/ui/arrows-left-right-solid.svg');
+	-webkit-mask: url('../../icons/ui/arrows-left-right-solid.svg');
+}
+.icon-ruler-horizontal {
+	mask: url('../../icons/ui/ruler-horizontal-solid.svg');
+	-webkit-mask: url('../../icons/ui/ruler-horizontal-solid.svg');
+}

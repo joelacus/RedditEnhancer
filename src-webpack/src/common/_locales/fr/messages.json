@@ -27,6 +27,10 @@
 		"message": "Centre"
 	},
 
+	"Width": {
+		"message": "Largeur"
+	},
+
 	"HomeFeedWidth": {
 		"message": "Largeur du flux d'accueil"
 	},
@@ -45,6 +49,10 @@
 
 	"PostWidth": {
 		"message": "Largeur du publication"
+	},
+
+	"Offset": {
+		"message": "Décalage"
 	},
 
 	"HomeFeedOffset": {
@@ -169,10 +177,6 @@
 
 	"Header": {
 		"message": "En-tête"
-	},
-
-	"HeaderHeight": {
-		"message": "Hauteur de l'en-tête"
 	},
 
 	"Feed": {

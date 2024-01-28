@@ -27,6 +27,10 @@
 		"message": "Centrum"
 	},
 
+	"Width": {
+		"message": "Breedte"
+	},
+
 	"HomeFeedWidth": {
 		"message": "Breedte van de thuisfeed"
 	},
@@ -45,6 +49,10 @@
 
 	"PostWidth": {
 		"message": "Breedte van de post"
+	},
+
+	"Offset": {
+		"message": "Verschuiving"
 	},
 
 	"HomeFeedOffset": {
@@ -169,10 +177,6 @@
 
 	"Header": {
 		"message": "Kop"
-	},
-
-	"HeaderHeight": {
-		"message": "Hoogte van de kop"
 	},
 
 	"Feed": {

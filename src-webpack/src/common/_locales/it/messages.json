@@ -27,6 +27,10 @@
 		"message": "Centro"
 	},
 
+	"Width": {
+		"message": "Larghezza"
+	},
+
 	"HomeFeedWidth": {
 		"message": "Larghezza del feed domestico"
 	},
@@ -45,6 +49,10 @@
 
 	"PostWidth": {
 		"message": "Larghezza del pubblicazione"
+	},
+
+	"Offset": {
+		"message": "Offset"
 	},
 
 	"HomeFeedOffset": {
@@ -169,10 +177,6 @@
 
 	"Header": {
 		"message": "Intestazione"
-	},
-
-	"HeaderHeight": {
-		"message": "Altezza intestazione"
 	},
 
 	"Feed": {

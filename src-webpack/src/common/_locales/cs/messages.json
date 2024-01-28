@@ -4,127 +4,139 @@
 	},
 
 	"extensionDescription": {
-		"message": "Olika tweaks för att anpassa din Reddit-upplevelse. Stöder gammal, ny och senaste version av Reddit."
+		"message": "Různé vylepšení pro přizpůsobení vašeho Reddit. Podporuje starou, novou a nejnovější verzi Reddit."
 	},
 
 	"About": {
-		"message": "Handla om"
+		"message": "O"
 	},
 
 	"BuyMeACoffee": {
-		"message": "Köp mig en kaffe"
+		"message": "Kup mi kávu"
 	},
 
 	"DarkMode": {
-		"message": "Mörkt läge"
+		"message": "Tmavý režim"
 	},
 
 	"ResizeLayout": {
-		"message": "Ändra Storlek på Feed / Inlägg"
+		"message": "Změnit Velikost Zdroje / Příspěvku"
 	},
 
 	"Centre": {
-		"message": "Centre"
+		"message": "Centrum"
+	},
+
+	"Width": {
+		"message": "Šířka"
 	},
 
 	"HomeFeedWidth": {
-		"message": "Home Feed Width"
+		"message": "Šířka domovského zobrazení"
 	},
 
 	"SubFeedWidth": {
-		"message": "Sub Feed Width"
+		"message": "Šířka podřízeného zobrazení"
 	},
 
 	"UserProfileWidth": {
-		"message": "User Profile Width"
+		"message": "Šířka uživatelského profilu"
 	},
 
 	"PostOverlayWidth": {
-		"message": "Post Overlay Width"
+		"message": "Šířka překryvu příspěvku"
 	},
 
 	"PostWidth": {
-		"message": "Post Width"
+		"message": "Šířka příspěvku"
+	},
+
+	"Offset": {
+		"message": "Posunutí"
 	},
 
 	"HomeFeedOffset": {
-		"message": "Home Feed Offset"
+		"message": "Posun domovského zobrazení"
 	},
 
 	"SubFeedOffset": {
-		"message": "Sub Feed Offset"
+		"message": "Posun podřízeného zobrazení"
 	},
 
 	"PostOffset": {
-		"message": "Post Offset"
+		"message": "Posun příspěvku"
+	},
+
+	"UserProfileOffset": {
+		"message": "Posun uživatelského profilu"
 	},
 
 	"FitImage": {
-		"message": "Scale Tall Images to Fit Post"
+		"message": "Měřítko vysokých obrázků, aby se vešly"
 	},
 
 	"ImageScroll": {
-		"message": "Add Scrollbar to Tall Images"
+		"message": "Přidejte Scrollbar na vysoké obrázky"
 	},
 
 	"Background": {
-		"message": "Background"
+		"message": "Pozadí"
 	},
 
 	"Blur": {
-		"message": "Blur"
+		"message": "Rozmazat"
 	},
 
 	"Shadow": {
-		"message": "Drop Shadows"
+		"message": "dropShadows"
 	},
 
 	"UseCustom": {
-		"message": "Use Custom"
+		"message": "Použijte vlastní"
 	},
 
 	"CustomBgInputPlaceholder": {
-		"message": "Custom Background Link"
+		"message": "Vlastní odkaz na pozadí"
 	},
 
 	"LatestReddit": {
-		"message": "Latest Reddit"
+		"message": "Nejnovější Reddit"
 	},
 
 	"NewReddit": {
-		"message": "New Reddit"
+		"message": "Nový Reddit"
 	},
 
 	"OldReddit": {
-		"message": "Old Reddit"
+		"message": "Starý Reddit"
 	},
 
 	"Auto": {
-		"message": "Auto"
+		"message": "Automatický"
 	},
 
 	"Disabled": {
-		"message": "Disabled"
+		"message": "Deaktivované"
 	},
 
 	"BrowserTheme": {
-		"message": "Browser Theme"
+		"message": "Téma prohlížeče"
 	},
 
 	"TimeRange": {
-		"message": "Time Range"
+		"message": "Časový rozsah"
 	},
 
 	"StartTime": {
-		"message": "Start Time (24)"
+		"message": "Doba spuštění (24)"
 	},
 
 	"EndTime": {
-		"message": "End Time (24)"
+		"message": "Ukončený čas (24)"
 	},
 
 	"StyleTweaks": {
-		"message": "Style"
+		"message": "Styl"
 	},
 
 	"HideRedditPremium": {
@@ -165,10 +177,6 @@
 
 	"Header": {
 		"message": "Header"
-	},
-
-	"HeaderHeight": {
-		"message": "Header Height"
 	},
 
 	"Feed": {
@@ -232,7 +240,7 @@
 	},
 
 	"Search": {
-		"message": "Sök"
+		"message": "Vyhledávání"
 	},
 
 	"HidePromoted": {
@@ -539,7 +547,7 @@
 		"message": "Post: Background Colour"
 	},
 
-	"PostCreditBar": {
+	"PostSecondaryTextColour": {
 		"message": "Post: Header Bar Text Colour"
 	},
 
@@ -628,7 +636,7 @@
 	},
 
 	"TranslationHelp": {
-		"message": "Översättningshjälp"
+		"message": "Nápověda k překladu"
 	},
 
 	"Off": {
@@ -668,11 +676,11 @@
 	},
 
 	"Select": {
-		"message": "Välj"
+		"message": "Vybrat"
 	},
 
 	"SelectRedditVersion": {
-		"message": "Välj Reddit-version"
+		"message": "Vyberte verzi Reddit"
 	},
 
 	"UpdateFirefox": {
@@ -688,7 +696,7 @@
 	},
 
 	"Rate": {
-		"message": "Betygsätt / Recensera"
+		"message": "Ohodnoťte / Recenze"
 	},
 
 	"HideUserProfilePics": {

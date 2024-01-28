@@ -4,239 +4,247 @@
 	},
 
 	"extensionDescription": {
-		"message": "Různé vylepšení pro přizpůsobení vašeho Redditu. Podporuje starou, novou a nejnovější verzi Redditu."
+		"message": "Olika tweaks för att anpassa din Reddit-upplevelse. Stöder gammal, ny och senaste version av Reddit."
 	},
 
 	"About": {
-		"message": "O"
+		"message": "Handla om"
 	},
 
 	"BuyMeACoffee": {
-		"message": "Kup mi kávu"
+		"message": "Köp mig en kaffe"
 	},
 
 	"DarkMode": {
-		"message": "Tmavý režim"
+		"message": "Mörkt läge"
 	},
 
 	"ResizeLayout": {
-		"message": "Změnit Velikost Zdroje / Příspěvku"
+		"message": "Ändra Storlek på Feed / Inlägg"
 	},
 
 	"Centre": {
-		"message": "Centre"
+		"message": "Centrum"
+	},
+
+	"Width": {
+		"message": "Bredd"
 	},
 
 	"HomeFeedWidth": {
-		"message": "Home Feed Width"
+		"message": "Bredd på startsidan"
 	},
 
 	"SubFeedWidth": {
-		"message": "Sub Feed Width"
+		"message": "Underströmsbredd"
 	},
 
 	"UserProfileWidth": {
-		"message": "User Profile Width"
+		"message": "Användarprofilbredd"
 	},
 
 	"PostOverlayWidth": {
-		"message": "Post Overlay Width"
+		"message": "Inlägg Överlagring Bredd"
 	},
 
 	"PostWidth": {
-		"message": "Post Width"
+		"message": "Inläggsbredd"
+	},
+
+	"Offset": {
+		"message": "Förskjutning"
 	},
 
 	"HomeFeedOffset": {
-		"message": "Home Feed Offset"
+		"message": "Hemflödesförskjutning"
 	},
 
 	"SubFeedOffset": {
-		"message": "Sub Feed Offset"
+		"message": "Underströmsförskjutning"
 	},
 
 	"PostOffset": {
-		"message": "Post Offset"
+		"message": "Inläggsförskjutning"
+	},
+
+	"UserProfileOffset": {
+		"message": "Användarprofilförskjutning"
 	},
 
 	"FitImage": {
-		"message": "Scale Tall Images to Fit Post"
+		"message": "Skala höga bilder för att passa inlägg"
 	},
 
 	"ImageScroll": {
-		"message": "Add Scrollbar to Tall Images"
+		"message": "Lägg till ScrollBar till höga bilder"
 	},
 
 	"Background": {
-		"message": "Background"
+		"message": "Bakgrund"
 	},
 
 	"Blur": {
-		"message": "Blur"
+		"message": "Fläck"
 	},
 
 	"Shadow": {
-		"message": "Drop Shadows"
+		"message": "Droppskuggor"
 	},
 
 	"UseCustom": {
-		"message": "Use Custom"
+		"message": "Använd anpassning"
 	},
 
 	"CustomBgInputPlaceholder": {
-		"message": "Custom Background Link"
+		"message": "Anpassad bakgrundslänk"
 	},
 
 	"LatestReddit": {
-		"message": "Latest Reddit"
+		"message": "Senaste Reddit"
 	},
 
 	"NewReddit": {
-		"message": "New Reddit"
+		"message": "Ny Reddit"
 	},
 
 	"OldReddit": {
-		"message": "Old Reddit"
+		"message": "Gammal Reddit"
 	},
 
 	"Auto": {
-		"message": "Auto"
+		"message": "Automatisk"
 	},
 
 	"Disabled": {
-		"message": "Disabled"
+		"message": "Inaktiverad"
 	},
 
 	"BrowserTheme": {
-		"message": "Browser Theme"
+		"message": "Webbläsartema"
 	},
 
 	"TimeRange": {
-		"message": "Time Range"
+		"message": "Tidsintervall"
 	},
 
 	"StartTime": {
-		"message": "Start Time (24)"
+		"message": "Starttid (24)"
 	},
 
 	"EndTime": {
-		"message": "End Time (24)"
+		"message": "Sluttid (24)"
 	},
 
 	"StyleTweaks": {
-		"message": "Style"
+		"message": "Stil"
 	},
 
 	"HideRedditPremium": {
-		"message": "Hide 'Reddit Premium'"
+		"message": "Dölj 'Reddit Premium'"
 	},
 
 	"HideCreatePost": {
-		"message": "Hide 'Create Post'"
+		"message": "Dölj 'Skapa inlägg'"
 	},
 
 	"HideAdvertiseButton": {
-		"message": "Hide the 'Advertise' Button"
+		"message": "Dölj 'Annonsera' knappen"
 	},
 
 	"HideModerationButton": {
-		"message": "Hide the 'Moderation' Button"
+		"message": "Dölj 'Måtta' knappen"
 	},
 
 	"HidePopularButton": {
-		"message": "Hide the 'Popular' Button"
+		"message": "Hide den 'Populärap knappen"
 	},
 
 	"HideChatButton": {
-		"message": "Hide the 'Chat' Button"
+		"message": "Dölj 'Chatt' knappen"
 	},
 
 	"HideHomeSidebar": {
-		"message": "Hide the Home Page Sidebar"
+		"message": "Dölj hemsidan sidofältet"
 	},
 
 	"HideSubSidebar": {
-		"message": "Hide the Sub Reddit Sidebar"
+		"message": "Dölj Sub Reddit sidofältet"
 	},
 
 	"Sidebar": {
-		"message": "Sidebar"
+		"message": "Sidofält"
 	},
 
 	"Header": {
-		"message": "Header"
-	},
-
-	"HeaderHeight": {
-		"message": "Header Height"
+		"message": "Rubrik"
 	},
 
 	"Feed": {
-		"message": "Feed"
+		"message": "Ström"
 	},
 
 	"HeaderButtons": {
-		"message": "Header Buttons"
+		"message": "Rubrikknappar"
 	},
 
 	"HideGap": {
-		"message": "Hide Interface Gaps"
+		"message": "Dölj gränssnittsgap"
 	},
 
 	"Main": {
-		"message": "Main"
+		"message": "Huvudsaklig"
 	},
 
 	"StickySort": {
-		"message": "Sticky Sort"
+		"message": "Klibbstång"
 	},
 
 	"HideUsername": {
-		"message": "Hide Username"
+		"message": "Dölj användarnamn"
 	},
 
 	"HideKarma": {
-		"message": "Hide Karma"
+		"message": "Dölj karma"
 	},
 
 	"ReloadPage": {
-		"message": "Reload Page"
+		"message": "Ladda om sidan"
 	},
 
 	"ShowRising": {
-		"message": "Always Show the 'Rising' Sort Button"
+		"message": "Visa alltid den 'Rising' sorteringsknappen"
 	},
 
 	"ToTop": {
-		"message": "Add 'Scroll To Top' Button"
+		"message": "Lägg till 'bläddra till topp' knappen"
 	},
 
 	"HideGetNewReddit": {
-		"message": "Hide 'Get New Reddit'"
+		"message": "Dölj 'få ny reddit'"
 	},
 
 	"HideSidebarPolicy": {
-		"message": "Hide Policies Section"
+		"message": "Dölj policyer"
 	},
 
 	"HideElements": {
-		"message": "Hide Elements"
+		"message": "Dölj Element"
 	},
 
 	"Productivity": {
-		"message": "Productivity"
+		"message": "Produktivitet"
 	},
 
 	"OpenSubInNewTab": {
-		"message": "Open Links to subreddits in a New Tab"
+		"message": "Öppna länkar till subreddits i en ny flik"
 	},
 
 	"Search": {
-		"message": "Vyhledávání"
+		"message": "Sök"
 	},
 
 	"HidePromoted": {
-		"message": "Hide Ads/Promoted Links"
+		"message": "Dölj annonser/befordrade länkar"
 	},
 
 	"ShowAllButton": {
@@ -539,7 +547,7 @@
 		"message": "Post: Background Colour"
 	},
 
-	"PostSecondaryTextColour": {
+	"PostCreditBar": {
 		"message": "Post: Header Bar Text Colour"
 	},
 
@@ -628,7 +636,7 @@
 	},
 
 	"TranslationHelp": {
-		"message": "Nápověda k překladu"
+		"message": "Översättningshjälp"
 	},
 
 	"Off": {
@@ -668,11 +676,11 @@
 	},
 
 	"Select": {
-		"message": "Vybrat"
+		"message": "Välj"
 	},
 
 	"SelectRedditVersion": {
-		"message": "Vyberte verzi Reddit"
+		"message": "Välj Reddit-version"
 	},
 
 	"UpdateFirefox": {
@@ -688,7 +696,7 @@
 	},
 
 	"Rate": {
-		"message": "Ohodnoťte / Recenze"
+		"message": "Betygsätt / Recensera"
 	},
 
 	"HideUserProfilePics": {

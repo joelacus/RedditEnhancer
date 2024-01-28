@@ -27,6 +27,10 @@
 		"message": "Center"
 	},
 
+	"Width": {
+		"message": "Breite"
+	},
+
 	"HomeFeedWidth": {
 		"message": "Breite des Home-Feeds"
 	},
@@ -45,6 +49,10 @@
 
 	"PostWidth": {
 		"message": "Beitragsbreite"
+	},
+
+	"Offset": {
+		"message": "Versatz"
 	},
 
 	"HomeFeedOffset": {
@@ -169,10 +177,6 @@
 
 	"Header": {
 		"message": "Kopfzeile"
-	},
-
-	"HeaderHeight": {
-		"message": "Kopfzeilenhöhe"
 	},
 
 	"Feed": {
