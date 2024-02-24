@@ -18,8 +18,8 @@ function hideCreatePostNew() {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-create-post';
 		styleElement.textContent = `div:has(> input[name="createPost"]) {
-									display: none;
-								}`;
+										display: none;
+									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
 }

@@ -35,7 +35,7 @@ function setBackgroundAndBlur() {
 
 // Set Custom Background Property
 export function setCustomBackground(value) {
-	document.documentElement.style.setProperty('--re-background-image', 'url(' + value + ')');
+	document.documentElement.style.setProperty('--re-background-image', 'url("' + value + '")');
 }
 
 // Set Background Blur Property

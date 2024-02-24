@@ -16,8 +16,9 @@ textarea {
 textarea {
 	resize: none;
 }
-input[type='text'] {
-	height: 28px;
+input[type='text'],
+input[type='password'] {
+	height: 40px;
 	width: 100%;
 }
 input:focus,
@@ -31,6 +32,11 @@ textarea:hover {
 }
 input:disabled {
 	background-color: var(--bg-tint-1) !important;
+}
+
+/* Search */
+#search {
+	height: 30px !important;
 }
 
 /* Buttons */
@@ -51,6 +57,9 @@ input:disabled {
 }
 .btn:active {
 	background-color: var(--bg-tint-1);
+}
+.btn-text {
+	padding: 4px 8px 4px 8px;
 }
 
 /* Toggle Swtich */

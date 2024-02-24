@@ -8,6 +8,7 @@ import './inputs/search_filter';
 import './inputs/reddit_version_redirect';
 import './inputs/menu';
 import './inputs/inputs_accessibility';
+import './inputs/inputs_account_switcher';
 import './inputs/inputs_background';
 import './inputs/inputs_dark_mode';
 import './inputs/inputs_expand_layout';

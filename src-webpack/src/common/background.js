@@ -1,11 +1,11 @@
 /* ===== Background script ===== */
 
 import { darkModeTimeCalc } from '../common/popup/popup-functions';
+//import muxjs from 'mux.js/dist/mux.js';
 let fetchUrl = '';
 
 // Listen For Messages
 BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-	console.log(request);
 	if (request.darkModeAutoTime === true) {
 		checkTime(true);
 	} else if (request.darkModeAutoTime === false) {
@@ -34,7 +34,54 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 				return true;
 			}
 		}
+	} else if (request.justOpenTheImage === true) {
+		enableJustOpenTheImage();
+	} else if (request.justOpenTheImage === false) {
+		disableJustOpenTheImage();
+	} /* else if (request.action === 'downloadVideo') {
+		const videoUrl = request.videoUrl;
+		BROWSER_API.downloads.download({
+			url: videoUrl,
+			filename: 'downloaded-video.mp4', // Set the desired file name
+			saveAs: true, // Show the "Save As" dialog
+		});
+	} else if (request.action === 'testQualities') {
+		const videoUrl = request.url;
+		const audioUrl = videoUrl.replace(/DASH_\d+\.mp4$/, 'DASH_AUDIO_128.mp4');
+		const availableQualities = ['96', '220', '270', '360', '480', '720', '1080'];
+
+		// Iterate over qualities and find the highest available quality
+		async function findHighestQuality() {
+			let highestQuality = '96';
+			let highestQualityUrl = videoUrl;
+
+			for (const quality of availableQualities) {
+				const testUrl = videoUrl.replace(/_(\d+)\.mp4$/, `_${quality}.mp4`);
+				const isAvailable = await testVideoQuality(testUrl);
+
+				if (isAvailable) {
+					highestQuality = quality;
+					highestQualityUrl = videoUrl.replace(/_(\d+)\.mp4$/, `_${quality}.mp4`);
+				}
+			}
+			console.log(highestQuality);
+			mergeVideoAndAudio(highestQualityUrl, audioUrl);
+			sendResponse({ highestQuality, highestQualityUrl, audioUrl });
+		}
+		findHighestQuality();
+		return true;
 	}
+
+	// Function to test video quality
+	async function testVideoQuality(url) {
+		try {
+			const response = await fetch(url, { method: 'HEAD' });
+			return response.ok;
+		} catch (error) {
+			console.error('Error testing video quality:', error);
+			return false;
+		}
+	}*/
 });
 
 // Dark Mode Time Range Check On Add-On Load
@@ -68,12 +115,12 @@ BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
 	});
 });
 
-// Restore backup config
+// Restore Backup Config
 function restoreBackup(request) {
 	console.log('restoring backup config...');
 	const json = Object.values(request)[0];
 	for (const [key, value] of Object.entries(json)) {
-		console.log(key, value);
+		//console.log(key, value);
 		BROWSER_API.storage.sync.set({ [key]: value });
 	}
 }
@@ -97,3 +144,148 @@ function fetchData(sendResponse) {
 			sendResponse({ action: 'fetchData', error: error.message });
 		});
 }
+
+/* ===== Merge Video And Audio ===== (DOESN'T WORK)*/
+/*const mergeVideoAndAudio = async (videoUrl, audioUrl) => {
+	console.log(videoUrl, audioUrl);
+
+	const videoResponse = await fetch(videoUrl);
+	const audioResponse = await fetch(audioUrl);
+
+	const videoBuffer = await videoResponse.arrayBuffer();
+	const audioBuffer = await audioResponse.arrayBuffer();
+
+	const transmuxer = new muxjs.mp4.Transmuxer();
+
+	transmuxer.push(new Uint8Array(videoBuffer), false);
+	transmuxer.push(new Uint8Array(audioBuffer), false);
+
+	transmuxer.on('data', (segment) => {
+		let data = new Uint8Array(segment.initSegment.byteLength + segment.data.byteLength);
+		data.set(segment.initSegment, 0);
+		data.set(segment.data, segment.initSegment.byteLength);
+		sourceBuffer.appendBuffer(data);
+		const url = URL.createObjectURL(data);
+		console.log('Download URL:', url);
+
+		browser.downloads.download({
+			url: url,
+			filename: 'downloaded-video.mp4',
+			saveAs: true,
+		});
+	});
+
+	transmuxer.flush();
+};*/
+
+/* ===== Just Open The Image ===== */
+
+// Load Saved Value
+BROWSER_API.storage.sync.get(['justOpenTheImage'], function (result) {
+	if (result.justOpenTheImage === true) {
+		enableJustOpenTheImage();
+	}
+});
+
+// Enable
+function enableJustOpenTheImage() {
+	if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
+		BROWSER_API.permissions.contains(
+			{
+				permissions: ['webRequest', 'webRequestBlocking'],
+				origins: ['*://*.redd.it/*'],
+			},
+			(result) => {
+				if (result) {
+					BROWSER_API.webRequest.onBeforeRequest.addListener(redirectToImageUrl, { urls: ['*://www.reddit.com/media*'], types: ['main_frame'] }, ['blocking']);
+					BROWSER_API.webRequest.onBeforeSendHeaders.addListener(modifyHeader, { urls: ['*://*.redd.it/*'] }, ['blocking', 'requestHeaders']);
+				} else {
+					console.log('Optional permissions not granted');
+				}
+			}
+		);
+	} /* else if (BROWSER_API.runtime.getManifest().manifest_version === 3) {
+		removeRules();
+		addRules();
+	}*/
+}
+
+// Disable
+function disableJustOpenTheImage() {
+	if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
+		BROWSER_API.webRequest.onBeforeRequest.removeListener(redirectToImageUrl, { urls: ['*://www.reddit.com/media*'], types: ['main_frame'] }, ['blocking']);
+		BROWSER_API.webRequest.onBeforeSendHeaders.removeListener(modifyHeader, { urls: ['*://*.redd.it/*'] }, ['blocking', 'requestHeaders']);
+	} /* else if (BROWSER_API.runtime.getManifest().manifest_version === 3) {
+		removeRules();
+	}*/
+}
+
+// Manifest V2
+function redirectToImageUrl(details) {
+	const url = new URL(details.url);
+	const imageURL = url.searchParams.get('url');
+	if (imageURL) return { redirectUrl: imageURL };
+}
+function modifyHeader(details) {
+	const acceptHeaderIndex = details.requestHeaders.findIndex((header) => header.name.toLowerCase() === 'accept');
+	if (acceptHeaderIndex !== -1) {
+		details.requestHeaders[acceptHeaderIndex].value += 'image/avif,image/webp,*/*';
+	}
+	return { requestHeaders: details.requestHeaders };
+}
+
+/*
+// Manifest V3 (DOESN'T WORK)
+
+"permissions": ["storage", "tabs", "declarativeNetRequest"],
+"host_permissions": ["*://*.reddit.com/*", "*://*.redd.it/*"],
+
+function removeRules() {
+	BROWSER_API.declarativeNetRequest
+		.updateDynamicRules({
+			removeRuleIds: [1, 2, 3],
+		})
+		.then(() => {
+			console.log('Rules removed.');
+		});
+}
+function addRules() {
+	const rules = [
+		{
+			id: 1,
+			priority: 1,
+			action: {
+				type: 'redirect',
+				redirect: {
+					regexSubstitution: '$1',
+				},
+			},
+			condition: {
+				regexFilter: '^www\\.reddit\\.com/media\\?url=(.*)$',
+			},
+		},
+		{
+			id: 2,
+			priority: 2,
+			action: { type: 'block' },
+			condition: { urlFilter: '*://www.reddit.com/media*', resourceTypes: ['main_frame'] },
+		},
+		{
+			id: 3,
+			priority: 3,
+			action: {
+				type: 'modifyHeaders',
+				requestHeaders: [{ header: 'Accept', operation: 'set', value: 'image/avif,image/webp,/*' }],
+			},
+			condition: { urlFilter: '*://*.redd.it/' },
+		},
+	];
+	BROWSER_API.declarativeNetRequest
+		.updateDynamicRules({ addRules: rules })
+		.then(() => {
+			console.log('New rules added.');
+		})
+		.catch((error) => {
+			console.error('Error adding new rules:', error);
+		});
+}*/

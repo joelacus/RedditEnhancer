@@ -7,14 +7,6 @@
 		"message": "Theme Colors"
 	},
 
-	"BorderColour": {
-		"message": "Border Color"
-	},
-
-	"TextColour": {
-		"message": " Color"
-	},
-
 	"PostVisitedTitleColour": {
 		"message": "Visited Post Title Color"
 	},
@@ -27,47 +19,95 @@
 		"message": "Header Text Color"
 	},
 
-	"SortBgColour": {
-		"message": "Sort Background Color"
-	},
-
-	"SortTextColour": {
-		"message": "Sort Text Color"
-	},
-
-	"SortBorderColour": {
-		"message": "Sort Border Color"
-	},
-
-	"PostBgColour": {
-		"message": "Post Background Color"
-	},
-
 	"PostCreditBar": {
 		"message": "Post Header Bar Text Color"
 	},
 
+	"BionicFontColour": {
+		"message": "Bionic Font Color"
+	},
+
+	"BionicBackgroundColour": {
+		"message": "Bionic Background Color"
+	},
+
+	"ThemeBlurInfo": {
+		"message": "Use translucent colours 'rgba(0,0,0,0.5)' to see blur effect."
+	},
+
+	"SortBgColour": {
+		"message": "Sort: Background Color"
+	},
+
+	"SortTextColour": {
+		"message": "Sort: Text Color"
+	},
+
+	"SortBorderColour": {
+		"message": "Sort: Border Color"
+	},
+
+	"PostBgColour": {
+		"message": "Post: Background Color"
+	},
+
+	"PostSecondaryTextColour": {
+		"message": "Post: Secondary Text Color"
+	},
+
 	"PostTitleContentColour": {
-		"message": "Post Title and Text Content Color"
+		"message": "Post: Title and Text Content Color"
+	},
+
+	"PostCommentsColour": {
+		"message": "Post: Comments Text Color"
+	},
+
+	"PostCommentsSecondaryColour": {
+		"message": "Post: Comments Secondary Text Color"
 	},
 
 	"PostBorderColour": {
-		"message": "Post Border Color"
+		"message": "Post: Border Color"
+	},
+
+	"SidebarTextColour": {
+		"message": "Sidebar: Text Color"
+	},
+
+	"SidebarBackgroundColour": {
+		"message": "Sidebar: Background Color"
+	},
+
+	"SidebarBorderColour": {
+		"message": "Sidebar: Border Color"
+	},
+
+	"SidemenuTextColour": {
+		"message": "Sidemenu: Text Color"
+	},
+
+	"SidemenuBackgroundColour": {
+		"message": "Sidemenu: Background Color"
+	},
+
+	"SidemenuButtonHoverColour": {
+		"message": "Sidemenu: Button Hover Color"
 	},
 
 	"ThemeBlacklistInfo": {
-		"message": "Use theme colors globally, except for these subreddits:"
+		"message": "Use theme colours globally, except for these subreddits:"
 	},
 
 	"ThemeWhitelistInfo": {
-		"message": "Only use the theme colors for these subreddits:"
+		"message": "Only use the theme colours for these subreddits:"
 	},
 
 	"CreatePostBgColour": {
-		"message": "Create Post Background Color"
+		"message": "Create Post: Background Color"
 	},
 
 	"CreatePostBorderColour": {
-		"message": "Create Post Border Color"
+		"message": "Create Post: Border Color"
 	}
 }

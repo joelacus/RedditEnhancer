@@ -99,16 +99,16 @@
 		"message": "Aangepaste achtergrondlink"
 	},
 
-	"LatestReddit": {
-		"message": "Nieuwste reddit"
+	"NewNewUI": {
+		"message": "Nieuwe Nieuwe UI"
 	},
 
-	"NewReddit": {
-		"message": "Nieuwe Reddit"
+	"OldNewUI": {
+		"message": "Oude Nieuwe UI"
 	},
 
-	"OldReddit": {
-		"message": "Oude Reddit"
+	"OldUI": {
+		"message": "Oude UI"
 	},
 
 	"Auto": {
@@ -279,7 +279,7 @@
 		"message": "Sposta la sezione Feed nel menu laterale verso l'alto"
 	},
 
-	"TextPost": {
+	"Text": {
 		"message": "Tekst"
 	},
 
@@ -464,7 +464,7 @@
 	},
 
 	"FeedPostMaxHeight": {
-		"message": "Maximale hoogte van bericht"
+		"message": "Hoogte van Bericht"
 	},
 
 	"Post": {
@@ -507,14 +507,6 @@
 		"message": "Thema Kleuren"
 	},
 
-	"BorderColour": {
-		"message": "Randkleur"
-	},
-
-	"TextColour": {
-		"message": "Tekstkleur"
-	},
-
 	"PostVisitedTitleColour": {
 		"message": "Bezocht bericht: Titelkleur"
 	},
@@ -555,8 +547,44 @@
 		"message": "Bericht: Titel en tekstinhoudskleur"
 	},
 
+	"PostCommentsColour": {
+		"message": "Bericht: Opmerkingen Tekstkleur"
+	},
+
+	"PostCommentsSecondaryColour": {
+		"message": "Bericht: Opmerkingen Secundaire tekstkleur"
+	},
+
 	"PostBorderColour": {
 		"message": "Bericht: Randkleur"
+	},
+
+	"SidebarTextColour": {
+		"message": "Zijbalk: Tekstkleur"
+	},
+
+	"SidebarBackgroundColour": {
+		"message": "Zijbalk: Achtergrond kleur"
+	},
+
+	"SidebarBorderColour": {
+		"message": "Zijbalk: Randkleur"
+	},
+
+	"Sidemenu": {
+		"message": "Zijmenu"
+	},
+
+	"SidemenuTextColour": {
+		"message": "Zijmenu: Tekstkleur"
+	},
+
+	"SidemenuBackgroundColour": {
+		"message": "Zijmenu: Achtergrond kleur"
+	},
+
+	"SidemenuButtonHoverColour": {
+		"message": "Zijmenu: Knopzweefkleur"
 	},
 
 	"WhitelistBlacklist": {
@@ -695,6 +723,10 @@
 		"message": "Berichtreacties"
 	},
 
+	"ResizeFont": {
+		"message": "Resize Font"
+	},
+
 	"Rate": {
 		"message": "Beoordeel / Recensie"
 	},
@@ -705,5 +737,25 @@
 
 	"AutoExpandComments": {
 		"message": "Opmerkingen automatisch uitvouwen"
+	},
+
+	"HidePostHiddenMessage": {
+		"message": "Verberg het bericht 'Post verborgen'"
+	},
+
+	"JustOpenTheImage": {
+		"message": "Open gewoon de afbeelding"
+	},
+
+	"JustOpenTheImageInfo": {
+		"message": "Open afbeeldingen op zichzelf, in plaats van ingebed op een Reddit-pagina. (alleen Firefox)"
+	},
+
+	"ScalePostToFitImage": {
+		"message": "Schaal de post zodat deze bij de afbeelding past"
+	},
+
+	"LimitImageWidth": {
+		"message": "Beperk de afbeeldingsbreedte"
 	}
 }

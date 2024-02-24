@@ -16,6 +16,9 @@ export function filterShowOldVersion() {
 			item.classList.remove('hide');
 		}
 	});
+	document.querySelectorAll('.menu-item-link').forEach((el) => {
+		el.classList.remove('active');
+	});
 }
 
 // Show Tweaks For New Reddit
@@ -34,6 +37,9 @@ export function filterShowNewVersion() {
 			item.classList.remove('hide');
 		}
 	});
+	document.querySelectorAll('.menu-item-link').forEach((el) => {
+		el.classList.remove('active');
+	});
 }
 
 // Show Tweaks For New New Reddit
@@ -51,6 +57,9 @@ export function filterShowNewNewVersion() {
 		} else {
 			item.classList.remove('hide');
 		}
+	});
+	document.querySelectorAll('.menu-item-link').forEach((el) => {
+		el.classList.remove('active');
 	});
 }
 

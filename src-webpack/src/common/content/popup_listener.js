@@ -17,7 +17,8 @@ import { hideUsername, hideKarma } from './functions/hide_elements/hide_username
 import { hideHomeSidebar, hideSubSidebar, hidePostSidebar, hidePostOverlaySidebar, hideUserSidebar, hideRelatedPostsSection } from './functions/hide_elements/hide_sidebar';
 import { hidePopularButton, hideModerationButton, hideChatButton, hideAdvertiseButton, hideNotificationButton, hideCreatePostButton } from './functions/hide_elements/hide_header_buttons';
 import { alwaysShowRisingButton } from './functions/productivity/always_show_rising';
-import { imageScroll, fitImage } from './functions/productivity/image_options';
+import { fitImage } from './functions/productivity/scale_tall_images_to_fit_post';
+import { imageScroll, imageScrollMaxImageWidth } from './functions/productivity/scroll_tall_images';
 import { stickySort } from './functions/productivity/sticky_sort';
 import { hideGetNewReddit } from './functions/hide_elements/hide_get_new_reddit';
 import { hideSidebarPolicy } from './functions/hide_elements/hide_sidebar_policy';
@@ -41,7 +42,7 @@ import { hideTurnOnNotificationsPopup } from './functions/hide_elements/hide_tur
 import { scrollToNextRootComment } from './functions/productivity/scroll_to_next_root_comment';
 import { showPostNumbers } from './functions/productivity/show_post_numbers';
 import { overrideDropShadow, overrideDropShadowCSS } from './functions/style/override_drop_shadow';
-import { postMaxHeight } from './functions/productivity/post_max_height';
+import { postHeight, postHeightSize } from './functions/productivity/post_max_height';
 import {
 	themeHeaderBackgroundColour,
 	themeHeaderBackgroundColourCSS,
@@ -59,6 +60,10 @@ import {
 	themePostBackgroundColourCSS,
 	themePostTextColour1,
 	themePostTextColour1CSS,
+	themePostCommentsTextColour1,
+	themePostCommentsTextColour1CSS,
+	themePostCommentsTextColour2,
+	themePostCommentsTextColour2CSS,
 	themePostVisitedTitleColour,
 	themePostVisitedTitleColourCSS,
 	themePostTextColour2,
@@ -69,6 +74,16 @@ import {
 	themeCreatePostBackgroundColourCSS,
 	themeCreatePostBorderColour,
 	themeCreatePostBorderColourCSS,
+	themeSidebarTextColour,
+	themeSidebarTextColourCSS,
+	themeSidebarBgColour,
+	themeSidebarBgColourCSS,
+	themeSidebarBorderColour,
+	themeSidebarBorderColourCSS,
+	themeSidemenuTextColour,
+	themeSidemenuTextColourCSS,
+	themeSidemenuBgColour,
+	themeSidemenuBgColourCSS,
 	themeBlur,
 } from './functions/style/override_theme_colours';
 import { bionicReaderBgColour, bionicReaderBgColourCSS, bionicReaderFontColour, bionicReaderFontColourCSS, bionicReaderPosts } from './functions/accessibility/bionic_reader';
@@ -92,6 +107,10 @@ import {
 import { postCommentsFontSize, postContentFontSize } from './functions/style/resize_font';
 import { hideUserProfilePics } from './functions/hide_elements/hide_user_profile_pics';
 import { autoExpandComments } from './functions/productivity/auto_expand_comments';
+//import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
+import { hidePostHiddenMessage } from './functions/hide_elements/hide_post_hidden_message';
+//import { scalePostToFitImageMaxImageWidth, scalePostToFitImage } from './functions/productivity/scale_post_to_fit_image';
+//import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -136,6 +155,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		fitImage(value);
 	} else if (key == 'imageScroll') {
 		imageScroll(value);
+	} else if (key == 'imageScrollMaxImageWidth') {
+		imageScrollMaxImageWidth(value);
 	} else if (key == 'hideRedditPremium') {
 		hideRedditPremium(value);
 	} else if (key == 'hideCreatePost') {
@@ -222,8 +243,10 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		overrideDropShadow(value);
 	} else if (key == 'overrideDropShadowCSS') {
 		overrideDropShadowCSS(value);
-	} else if (key == 'postMaxHeight') {
-		postMaxHeight(value);
+	} else if (key == 'postHeight') {
+		postHeight(value);
+	} else if (key == 'postHeightSize') {
+		postHeightSize(value);
 	} else if (key == 'themeHeaderBackgroundColour') {
 		themeHeaderBackgroundColour(value);
 	} else if (key == 'themeHeaderBackgroundColourCSS') {
@@ -260,6 +283,14 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		themePostTextColour1(value);
 	} else if (key == 'themePostTextColour1CSS') {
 		themePostTextColour1CSS(value);
+	} else if (key == 'themePostCommentsTextColour1') {
+		themePostCommentsTextColour1(value);
+	} else if (key == 'themePostCommentsTextColour1CSS') {
+		themePostCommentsTextColour1CSS(value);
+	} else if (key == 'themePostCommentsTextColour2') {
+		themePostCommentsTextColour2(value);
+	} else if (key == 'themePostCommentsTextColour2CSS') {
+		themePostCommentsTextColour2CSS(value);
 	} else if (key == 'themePostTextColour2') {
 		themePostTextColour2(value);
 	} else if (key == 'themePostTextColour2CSS') {
@@ -276,6 +307,26 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		themeCreatePostBorderColour(value);
 	} else if (key == 'themeCreatePostBorderColourCSS') {
 		themeCreatePostBorderColourCSS(value);
+	} else if (key == 'themeSidebarTextColour') {
+		themeSidebarTextColour(value);
+	} else if (key == 'themeSidebarTextColourCSS') {
+		themeSidebarTextColourCSS(value);
+	} else if (key == 'themeSidebarBgColour') {
+		themeSidebarBgColour(value);
+	} else if (key == 'themeSidebarBgColourCSS') {
+		themeSidebarBgColourCSS(value);
+	} else if (key == 'themeSidebarBorderColour') {
+		themeSidebarBorderColour(value);
+	} else if (key == 'themeSidebarBorderColourCSS') {
+		themeSidebarBorderColourCSS(value);
+	} else if (key == 'themeSidemenuTextColour') {
+		themeSidemenuTextColour(value);
+	} else if (key == 'themeSidemenuTextColourCSS') {
+		themeSidemenuTextColourCSS(value);
+	} else if (key == 'themeSidemenuBgColour') {
+		themeSidemenuBgColour(value);
+	} else if (key == 'themeSidemenuBgColourCSS') {
+		themeSidemenuBgColourCSS(value);
 	} else if (key == 'themeBlur') {
 		themeBlur(value);
 	} else if (key == 'bionicReaderPosts') {
@@ -328,7 +379,19 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		hideUserProfilePics(value);
 	} else if (key == 'autoExpandComments') {
 		autoExpandComments(value);
-	} else if (key == 'loadSaves') {
+	} else if (key == 'hidePostHiddenMessage') {
+		hidePostHiddenMessage(value);
+	} /* else if (key == 'scalePostToFitImage') {
+		scalePostToFitImage(value);
+	} else if (key == 'scalePostToFitImageMaxImageWidth') {
+		scalePostToFitImageMaxImageWidth(value);
+	} else if (key == 'dragImageToResize') {
+		dragImageToResize(value);
+	} else if (key == 'dragImageToResizeInitialSize') {
+		dragImageToResizeInitialSize(value);
+	}*/ /* else if (key == 'addDownloadVideoButton') {
+		addDownloadVideoButton(value);
+	}*/ else if (key == 'loadSaves') {
 		setTimeout(() => {
 			init();
 			load_saves();

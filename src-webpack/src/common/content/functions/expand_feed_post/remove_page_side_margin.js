@@ -30,6 +30,12 @@ function enableRemovePageSideMargin() {
 								shreddit-app[routename="post_page"] .sidebar-grid {
 									transform: translateY(-7px);
 								}
+								shreddit-app #right-sidebar-container {
+									margin-right: 0 !important;
+								}
+								shreddit-app #right-sidebar-container > faceplate-partial > section {
+									border-radius: 0 !important;
+								}
 								/*shreddit-app[routename="post_page"] .sidebar-grid {
 									position: absolute;
 									top: var(--shreddit-header-height);

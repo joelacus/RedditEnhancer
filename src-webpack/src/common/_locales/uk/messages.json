@@ -99,16 +99,16 @@
 		"message": "Спеціальне фонове посилання"
 	},
 
-	"LatestReddit": {
-		"message": "Останній Reddit"
+	"NewNewUI": {
+		"message": "Новий Новий UI"
 	},
 
-	"NewReddit": {
-		"message": "новий Reddit"
+	"OldNewUI": {
+		"message": "Старий Новий UI"
 	},
 
-	"OldReddit": {
-		"message": "Старий Reddit"
+	"OldUI": {
+		"message": "Старий UI"
 	},
 
 	"Auto": {
@@ -279,7 +279,7 @@
 		"message": "Перемістіть розділ каналу в бічному меню вгору"
 	},
 
-	"TextPost": {
+	"Text": {
 		"message": "текст"
 	},
 
@@ -464,7 +464,7 @@
 	},
 
 	"FeedPostMaxHeight": {
-		"message": "Максимальна висота постів у стрічці"
+		"message": "висота постів"
 	},
 
 	"Post": {
@@ -507,14 +507,6 @@
 		"message": "Кольори теми"
 	},
 
-	"BorderColour": {
-		"message": "Колір рамки"
-	},
-
-	"TextColour": {
-		"message": "Колір тексту"
-	},
-
 	"PostVisitedTitleColour": {
 		"message": "Відвідана публікація: колір заголовка"
 	},
@@ -555,8 +547,44 @@
 		"message": "Повідомлення: заголовок і колір вмісту тексту"
 	},
 
+	"PostCommentsColour": {
+		"message": "Повідомлення: Коментарі Текстовий колір"
+	},
+
+	"PostCommentsSecondaryColour": {
+		"message": "Повідомлення: Коментарі Вторинний колір тексту"
+	},
+
 	"PostBorderColour": {
 		"message": "Повідомлення: колір рамки"
+	},
+
+	"SidebarTextColour": {
+		"message": "Бічна панель: Текстовий колір"
+	},
+
+	"SidebarBackgroundColour": {
+		"message": "Бічна панель: Фоновий колір"
+	},
+
+	"SidebarBorderColour": {
+		"message": "Бічна панель: Прикордонний колір"
+	},
+
+	"Sidemenu": {
+		"message": "Бічне меню"
+	},
+
+	"SidemenuTextColour": {
+		"message": "Бічне меню: Текстовий колір"
+	},
+
+	"SidemenuBackgroundColour": {
+		"message": "Бічне меню: Фоновий колір"
+	},
+
+	"SidemenuButtonHoverColour": {
+		"message": "Бічне меню: Колір наведення кнопки"
 	},
 
 	"WhitelistBlacklist": {
@@ -695,6 +723,10 @@
 		"message": "коментарі публікації"
 	},
 
+	"ResizeFont": {
+		"message": "Resize Font"
+	},
+
 	"Rate": {
 		"message": "Оцінити / Відгук"
 	},
@@ -705,5 +737,25 @@
 
 	"AutoExpandComments": {
 		"message": "Автоматичне розгортання коментарів"
+	},
+
+	"HidePostHiddenMessage": {
+		"message": "Сховати повідомлення «Публікація прихована»"
+	},
+
+	"JustOpenTheImage": {
+		"message": "Просто відкрийте зображення"
+	},
+
+	"JustOpenTheImageInfo": {
+		"message": "Відкривайте зображення окремо, а не вбудовані на сторінці Reddit. (Лише Firefox)"
+	},
+
+	"ScalePostToFitImage": {
+		"message": "Масштабування публікації відповідно до зображення"
+	},
+
+	"LimitImageWidth": {
+		"message": "Обмежити ширину зображення"
 	}
 }

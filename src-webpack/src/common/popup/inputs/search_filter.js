@@ -8,13 +8,16 @@ function search_filter() {
 		if (result.redditVersion != undefined) {
 			var v = 'r-' + result.redditVersion;
 
-			document.querySelectorAll('.sub-list').forEach(function (sub) {
+			document.querySelectorAll('.sub-list').forEach((sub) => {
 				if (sub.classList.contains(v)) {
 					sub.classList.remove('hide');
 				}
 			});
-			document.querySelectorAll('.sub-search-title').forEach(function (sub) {
+			document.querySelectorAll('.sub-search-title').forEach((sub) => {
 				sub.classList.remove('hide');
+			});
+			document.querySelectorAll('.menu-item-link').forEach((item) => {
+				item.style.display = 'none';
 			});
 			for (i = 0; i < li.length; i++) {
 				if (li[i].classList.contains(v)) {
@@ -33,19 +36,19 @@ function search_filter() {
 					} else {
 						li[i].style.display = 'none';
 					}
-					if (li[i].classList.contains('menu-item-link')) {
-						li[i].style.display = 'none';
-					}
 					if (document.querySelector('#search').value == '') {
-						document.querySelectorAll('.sub-list').forEach(function (sub) {
+						document.querySelectorAll('.sub-list').forEach((sub) => {
 							sub.classList.add('hide');
 						});
 						li[i].style.display = null;
-						document.querySelectorAll('.sub-search-title').forEach(function (title) {
+						document.querySelectorAll('.sub-search-title').forEach((title) => {
 							title.classList.add('hide');
 						});
-						document.querySelectorAll('.menu-item-link').forEach(function (btn) {
+						document.querySelectorAll('.menu-item-link').forEach((btn) => {
 							btn.classList.remove('active');
+						});
+						document.querySelectorAll('.menu-item-link').forEach((item) => {
+							item.style.display = '';
 						});
 					}
 				}

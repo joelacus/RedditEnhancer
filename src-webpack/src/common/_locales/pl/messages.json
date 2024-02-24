@@ -99,16 +99,16 @@
 		"message": "Niestandardowy link w tle"
 	},
 
-	"LatestReddit": {
-		"message": "Najnowszy Reddit"
+	"NewNewUI": {
+		"message": "Nowy Nowy UI"
 	},
 
-	"NewReddit": {
-		"message": "Nowy Reddit"
+	"OldNewUI": {
+		"message": "Stary Nowy UI"
 	},
 
-	"OldReddit": {
-		"message": "Stary Reddit"
+	"OldUI": {
+		"message": "Stary UI"
 	},
 
 	"Auto": {
@@ -279,7 +279,7 @@
 		"message": "Przenieś sekcję podawania w bocznym menu na górę"
 	},
 
-	"TextPost": {
+	"Text": {
 		"message": "Tekst"
 	},
 
@@ -464,7 +464,7 @@
 	},
 
 	"FeedPostMaxHeight": {
-		"message": "Maksymalna publikacja wysokość"
+		"message": "Publikacja wysokość"
 	},
 
 	"Post": {
@@ -507,14 +507,6 @@
 		"message": "Kolory motywu"
 	},
 
-	"BorderColour": {
-		"message": "Kolor obramowania"
-	},
-
-	"TextColour": {
-		"message": "Kolor tekstu"
-	},
-
 	"PostVisitedTitleColour": {
 		"message": "Odwiedzony post: Kolor tytułu"
 	},
@@ -555,8 +547,44 @@
 		"message": "Post: Kolor tytułu i treści tekstowej"
 	},
 
+	"PostCommentsColour": {
+		"message": "Post: Komentarze Kolor tekstu"
+	},
+
+	"PostCommentsSecondaryColour": {
+		"message": "Post: Komentarze wtórny kolor tekstu"
+	},
+
 	"PostBorderColour": {
 		"message": "Post: Kolor obramowania"
+	},
+
+	"SidebarTextColour": {
+		"message": "Pasek boczny: Kolor tekstu"
+	},
+
+	"SidebarBackgroundColour": {
+		"message": "Pasek boczny: Kolor tła"
+	},
+
+	"SidebarBorderColour": {
+		"message": "Pasek boczny: Kolor graniczny"
+	},
+
+	"Sidemenu": {
+		"message": "Menu boczne"
+	},
+
+	"SidemenuTextColour": {
+		"message": "Menu boczne: Kolor tekstu"
+	},
+
+	"SidemenuBackgroundColour": {
+		"message": "Menu boczne: Kolor tła"
+	},
+
+	"SidemenuButtonHoverColour": {
+		"message": "Menu boczne: Kolor najechania przyciskiem"
 	},
 
 	"WhitelistBlacklist": {
@@ -695,6 +723,10 @@
 		"message": "Komentarze do posta"
 	},
 
+	"ResizeFont": {
+		"message": "Resize Font"
+	},
+
 	"Rate": {
 		"message": "Oceń / Recenzję"
 	},
@@ -705,5 +737,25 @@
 
 	"AutoExpandComments": {
 		"message": "Automatyczne rozwijanie komentarzy"
+	},
+
+	"HidePostHiddenMessage": {
+		"message": "Ukryj wiadomość „Opublikuj ukryty”"
+	},
+
+	"JustOpenTheImage": {
+		"message": "Po prostu otwórz obraz"
+	},
+
+	"JustOpenTheImageInfo": {
+		"message": "Otwieraj obrazy samodzielnie, zamiast osadzać je na stronie Reddit. (tylko w Firefoksie)"
+	},
+
+	"ScalePostToFitImage": {
+		"message": "Skaluj post, aby dopasować obraz"
+	},
+
+	"LimitImageWidth": {
+		"message": "Ogranicz szerokość obrazu"
 	}
 }

@@ -29,11 +29,11 @@ redirect_dropdownMenu.addEventListener('click', function (e) {
 		var version = e.target.parentNode.getAttribute('data-version');
 	}
 	if (version === 'old') {
-		selectFilterShowOldVersion(i18next.t('OldReddit.message'));
+		selectFilterShowOldVersion(i18next.t('OldUI.message'));
 	} else if (version === 'new') {
-		selectFilterShowNewVersion(i18next.t('NewReddit.message'));
+		selectFilterShowNewVersion(i18next.t('OldNewUI.message'));
 	} else if (version === 'newnew') {
-		selectFilterShowNewNewVersion(i18next.t('LatestReddit.message'));
+		selectFilterShowNewNewVersion(i18next.t('NewNewUI.message'));
 	}
 	document.querySelector('#select-reddit-version .select').querySelector('span').textContent = e.target.textContent;
 	redirect_dropdown.classList.remove('active');

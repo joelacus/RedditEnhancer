@@ -11,6 +11,9 @@
 	border-radius: var(--border-radius);
 	padding: 5px;
 }
+.container > .container {
+	padding: 0;
+}
 .container span {
 	font-size: 16px;
 	padding-right: 8px;
@@ -68,6 +71,7 @@
 }
 .css-input-container {
 	display: flex;
+	align-items: center;
 	flex-direction: row;
 	grid-gap: 4px;
 	padding-right: 4px;

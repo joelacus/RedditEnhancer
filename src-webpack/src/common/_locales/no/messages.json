@@ -99,16 +99,16 @@
 		"message": "Tilpasset bakgrunnslenke"
 	},
 
-	"LatestReddit": {
-		"message": "Siste Reddit"
+	"NewNewUI": {
+		"message": "Ny Ny UI"
 	},
 
-	"NewReddit": {
-		"message": "Ny Reddit"
+	"OldNewUI": {
+		"message": "Gammel Ny UI"
 	},
 
-	"OldReddit": {
-		"message": "Gammel Reddit"
+	"OldUI": {
+		"message": "Gammel UI"
 	},
 
 	"Auto": {
@@ -248,103 +248,103 @@
 	},
 
 	"ShowAllButton": {
-		"message": "Add 'r/All' Button"
+		"message": "Legg til 'r/All' knappen"
 	},
 
 	"VideoPlayerReplacement": {
-		"message": "Alternative Video Player"
+		"message": "Alternativ videospiller"
 	},
 
 	"Images": {
-		"message": "Images"
+		"message": "Bilder"
 	},
 
 	"SortBar": {
-		"message": "Sort Bar"
+		"message": "Sortere"
 	},
 
 	"Other": {
-		"message": "Other"
+		"message": "Annen"
 	},
 
 	"HideCreatePostButton": {
-		"message": "Hide 'Create Post' Button"
+		"message": "Skjul 'Opprett innlegg' knappen"
 	},
 
 	"HideNotificationButton": {
-		"message": "Hide 'Notification' Button"
+		"message": "Skjul 'Varsling' knappen"
 	},
 
 	"MoveFeedToTopInSidemenu": {
-		"message": "Move The Feed Section In The Side Menu To The Top"
+		"message": "Flytt 'Feed' delen i sidemenyen til toppen"
 	},
 
-	"TextPost": {
-		"message": "Text"
+	"Text": {
+		"message": "Tekst"
 	},
 
 	"TextScroll": {
-		"message": "Add Scrollbar To Long Text Posts"
+		"message": "Legg til rullefelt i lange tekstinnlegg"
 	},
 
 	"HideSeeFullImage": {
-		"message": "Hide 'See Full Image'"
+		"message": "Skjul 'Se hele bildet'"
 	},
 
 	"ModerniseOldReddit": {
-		"message": "Modernise old.reddit"
+		"message": "Modernisere old.reddit"
 	},
 
 	"HideHeaderSubBar": {
-		"message": "Hide Header subreddit List"
+		"message": "Skjul overskrift subreddit-liste"
 	},
 
 	"HideSideMenu": {
-		"message": "Hide the Side Menu"
+		"message": "Skjul sidemenyen"
 	},
 
 	"PostCommentsLimit": {
-		"message": "Limit Post Comments"
+		"message": "Begrens innlegg kommentarer"
 	},
 
 	"AutoExpand": {
-		"message": "Expand to 100% if the window/screen width is less than:"
+		"message": "Utvid til 100 % hvis vinduet/skjermbredden er mindre enn:"
 	},
 
 	"HidePostSidebar": {
-		"message": "Hide the Post Sidebar"
+		"message": "Skjul innleggssidefeltet"
 	},
 
 	"HidePostOverlaySidebar": {
-		"message": "Hide the Post Overlay Sidebar"
+		"message": "Skjul sidefeltet for innleggsoverlegg"
 	},
 
 	"HideUserSidebar": {
-		"message": "Hide the User Sidebar"
+		"message": "Skjul brukersidepanelet"
 	},
 
 	"LimitInfinityScroll": {
-		"message": "Limit Infinity Scroll"
+		"message": "Begrens Infinity Scroll"
 	},
 
 	"VideoPlayerInfo": {
-		"message": "Fast, lightweight video player with speed controls based on videojs. Try this if you have loading issues with reddit's own player."
+		"message": "Rask, lett videospiller med hastighetskontroll basert på videojs. Prøv dette hvis du har lastingsproblemer med reddits egen spiller."
 	},
 
 	"LimitCommentsInfo": {
-		"message": "Only works for posts opened in a new tab/window."
+		"message": "Fungerer kun for innlegg åpnet i en ny fane/vindu."
 	},
 
 	"LimitInfinityScrollInfo": {
-		"message": "Beta. This won't necessarily reduce bandwidth usage, but should instead help prevent the page from becoming slow by stopping reddit from adding new posts until you click 'Load More' at the bottom of the feed. When you click 'Load More' it will clear the first 25 posts, and show the next 25."
+		"message": "Beta. Dette vil ikke nødvendigvis redusere båndbreddebruken, men bør i stedet bidra til å forhindre at siden blir treg ved å stoppe reddit fra å legge til nye innlegg til du klikker på «Last inn mer» nederst i feeden. Når du klikker 'Last inn mer' vil det fjerne de første 25 innleggene, og vise de neste 25."
 	},
 
 	"DefaultFeedSortOption": {
-		"message": "Default Feed Sort Option"
+		"message": "Standard sorteringsalternativ for feed"
 	},
 
 	"DefaultCommentsSortOption": {
-		"message": "Default Comments Sort Option"
+		"message": "Standard sorteringsalternativ for kommentarer"
 	},
 
 	"Best": {
@@ -380,31 +380,31 @@
 	},
 
 	"OpenPostInNewTab": {
-		"message": "Open Posts in New Tab"
+		"message": "Åpne innlegg i ny fane"
 	},
 
 	"ControversialSort": {
-		"message": "Show the 'Controversial' Sort Button"
+		"message": "Vis den 'kontroversielle' sorteringsknappen"
 	},
 
 	"TextScrollInfo": {
-		"message": "There is a limit. You may have to open the post if it is very long."
+		"message": "Det er en grense. Du må kanskje åpne innlegget hvis det er veldig langt."
 	},
 
 	"HideNSFW": {
-		"message": "Hide NSFW/L Posts"
+		"message": "Skjul NSFW/L innlegg"
 	},
 
 	"HideTurnOnNotificationsPopup": {
-		"message": "Hide 'Get the best of' Popup"
+		"message": "Skjul 'Get the best of' popup"
 	},
 
 	"ScrollToNextRootComment": {
-		"message": "Show Navigation Buttons For The Next/Previous Root Comment"
+		"message": "Vis navigasjonsknapper for neste/forrige rotkommentar"
 	},
 
 	"OpenPostInNewTabInfo": {
-		"message": "You can now enable this officially within reddit."
+		"message": "Du kan nå aktivere dette offisielt i reddit."
 	},
 
 	"OpenPostInNewTabInfoLink": {
@@ -412,67 +412,67 @@
 	},
 
 	"ShowPostNumbers": {
-		"message": "Add Post Numbers"
+		"message": "Legg til postnummer"
 	},
 
 	"Backup": {
-		"message": "Backup"
+		"message": "Sikkerhetskopiering"
 	},
 
 	"Restore": {
-		"message": "Restore"
+		"message": "Restaurere"
 	},
 
 	"RestoreConfigTitle": {
-		"message": "Restore Reddit Enhancer Backup Config"
+		"message": "Gjenopprett Reddit Enhancer Sikkerhetskopiering"
 	},
 
 	"ChooseBackupFile": {
-		"message": "Choose backup file"
+		"message": "Velg sikkerhetskopifil"
 	},
 
 	"Or": {
-		"message": "OR"
+		"message": "eller"
 	},
 
 	"Drag": {
-		"message": "Drag"
+		"message": "Dra"
 	},
 
 	"Here": {
-		"message": "here"
+		"message": "hit"
 	},
 
 	"RestoreBackup": {
-		"message": "Restore Backup"
+		"message": "Gjennopprett backup"
 	},
 
 	"BackupRestored": {
-		"message": "Backup Restored!"
+		"message": "Sikkerhetskopien gjenopprettet!"
 	},
 
 	"CloseTab": {
-		"message": "You can now close this tab/window."
+		"message": "Du kan nå lukke denne fanen/vinduet."
 	},
 
 	"Upload": {
-		"message": "Upload"
+		"message": "Laste opp"
 	},
 
 	"CustomCSS": {
-		"message": "Custom CSS"
+		"message": "Tilpasset CSS"
 	},
 
 	"FeedPostMaxHeight": {
-		"message": "Feed Post Max Height"
+		"message": "Innlegg høyde"
 	},
 
 	"Post": {
-		"message": "Post"
+		"message": "Innlegg"
 	},
 
 	"Accessibility": {
-		"message": "Accessibility"
+		"message": "Tilgjengelighet"
 	},
 
 	"BionicReader": {
@@ -480,39 +480,31 @@
 	},
 
 	"BionicReaderPosts": {
-		"message": "Bionic Reader For Posts"
+		"message": "Bionic Reader for innlegg"
 	},
 
 	"BionicReaderComments": {
-		"message": "Bionic Reader For Comments"
+		"message": "Bionic Reader for kommentarer"
 	},
 
 	"BionicFontColour": {
-		"message": "Bionic Font Colour"
+		"message": "Bionic Font Farge"
 	},
 
 	"BionicBackgroundColour": {
-		"message": "Bionic Background Colour"
+		"message": "Bionic bakgrunnsfarge"
 	},
 
 	"ThemeBlur": {
-		"message": "Theme Blur"
+		"message": "Temasløring"
 	},
 
 	"ThemeBlurInfo": {
-		"message": "Use translucent colours 'rgba(0,0,0,0.5)' to see blur effect."
+		"message": "Bruk gjennomsiktige farger 'rgba(0,0,0,0.5)' for å se uskarphet."
 	},
 
 	"ThemeColours": {
-		"message": "Theme Colours"
-	},
-
-	"BorderColour": {
-		"message": "Border Colour"
-	},
-
-	"TextColour": {
-		"message": "Text Colour"
+		"message": "Temafarger"
 	},
 
 	"PostVisitedTitleColour": {
@@ -555,8 +547,44 @@
 		"message": "Post: Title and Text Content Colour"
 	},
 
+	"PostCommentsColour": {
+		"message": "Post: Comments Text Colour"
+	},
+
+	"PostCommentsSecondaryColour": {
+		"message": "Post: Comments Secondary Text Colour"
+	},
+
 	"PostBorderColour": {
 		"message": "Post: Border Colour"
+	},
+
+	"SidebarTextColour": {
+		"message": "Sidebar: Text Colour"
+	},
+
+	"SidebarBackgroundColour": {
+		"message": "Sidebar: Background Colour"
+	},
+
+	"SidebarBorderColour": {
+		"message": "Sidebar: Border Colour"
+	},
+
+	"Sidemenu": {
+		"message": "Sidemenu"
+	},
+
+	"SidemenuTextColour": {
+		"message": "Sidemenu: Text Colour"
+	},
+
+	"SidemenuBackgroundColour": {
+		"message": "Sidemenu: Background Colour"
+	},
+
+	"SidemenuButtonHoverColour": {
+		"message": "Sidemenu: Button Hover Colour"
 	},
 
 	"WhitelistBlacklist": {
@@ -695,6 +723,10 @@
 		"message": "Post Comments"
 	},
 
+	"ResizeFont": {
+		"message": "Resize Font"
+	},
+
 	"Rate": {
 		"message": "Vurder / Anmeld"
 	},
@@ -705,5 +737,25 @@
 
 	"AutoExpandComments": {
 		"message": "Auto Expand Comments"
+	},
+
+	"HidePostHiddenMessage": {
+		"message": "Hide 'Post Hidden' Message"
+	},
+
+	"JustOpenTheImage": {
+		"message": "Just Open The Image"
+	},
+
+	"JustOpenTheImageInfo": {
+		"message": "Open images on their own, instead of embedded on a Reddit page. (Firefox only)"
+	},
+
+	"ScalePostToFitImage": {
+		"message": "Scale Post To Fit Image"
+	},
+
+	"LimitImageWidth": {
+		"message": "Limit Image Width"
 	}
 }

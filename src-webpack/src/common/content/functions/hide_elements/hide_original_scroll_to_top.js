@@ -21,7 +21,7 @@ export function hideOriginalScrollToTop(value) {
 									[data-testid="subreddit-sidebar"] > :last-child > :last-child:has(button), 
 									[data-testid="frontpage-sidebar"] > :last-child > :last-child:has(button),
 									#overlayScrollContainer > :nth-child(2) > :last-child > :first-child > :last-child:has(button),
-									.ListingLayout-backgroundContainer + div > :last-child > :last-child > :first-child > :last-child:has(button) {
+									.ListingLayout-backgroundContainer + div > :last-child > :last-child > :first-child > :last-child > div:has(button) {
 										display: none ;
 									}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);

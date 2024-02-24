@@ -4,8 +4,7 @@
 
 import { darkModeAuto } from './functions/dark_mode/dark_mode';
 import { alwaysShowRisingButton } from './functions/productivity/always_show_rising';
-import { fitImage } from './functions/productivity/image_options';
-import { imageScroll } from './functions/productivity/image_options';
+import { fitImage } from './functions/productivity/scale_tall_images_to_fit_post';
 import { openSubInNewTab } from './functions/productivity/open_sub_links_in_new_tab';
 import { openPostInNewTab } from './functions/productivity/open_post_links_in_new_tab';
 import { showAllButton } from './functions/productivity/show_r_all_button';
@@ -27,6 +26,7 @@ import { bionicReaderPosts, bionicReaderComments, bionicReaderFontColour, bionic
 import { loadShowPostNumbers } from '../content-first/functions/productivity/load_show_post_numbers';
 import { loadBreakReminder } from '../content-first/functions/productivity/load_break_reminder';
 import { loadAutoExpandComments } from '../content-first/functions/productivity/load_auto_expand_comments';
+//import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 //import { expandPostOptions } from './functions/expand_post_options'
 
 export function load_saves() {
@@ -59,10 +59,6 @@ export function load_saves() {
 		// Text Scroll
 		BROWSER_API.storage.sync.get(['textPostScroll'], function (result) {
 			textPostScroll(result.textPostScroll);
-		});
-		// Image Scroll
-		BROWSER_API.storage.sync.get(['imageScroll'], function (result) {
-			imageScroll(result.imageScroll);
 		});
 		// Non Sticky Header Bar
 		BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
@@ -116,10 +112,6 @@ export function load_saves() {
 		BROWSER_API.storage.sync.get(['showPostAuthor'], function (result) {
 			showPostAuthor(result.showPostAuthor);
 		});
-		// Image Scroll
-		BROWSER_API.storage.sync.get(['imageScroll'], function (result) {
-			imageScroll(result.imageScroll);
-		});
 		// Non Sticky Header Bar
 		BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
 			nonStickyHeaderBar(result.nonStickyHeaderBar);
@@ -136,6 +128,11 @@ export function load_saves() {
 		BROWSER_API.storage.sync.get(['scrollToNextRootComment'], function (result) {
 			scrollToNextRootComment(result.scrollToNextRootComment);
 		});
+		// Add Download Video Button
+		/*BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
+			addDownloadVideoButton(result.addDownloadVideoButton);
+		});*/
+		//
 	}
 
 	// Common

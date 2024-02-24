@@ -99,16 +99,16 @@
 		"message": "Lien d'arrière-plan personnalisé"
 	},
 
-	"LatestReddit": {
-		"message": "Dernier Reddit"
+	"NewNewUI": {
+		"message": "Nouveau Nouveau UI"
 	},
 
-	"NewReddit": {
-		"message": "Nouveau Reddit"
+	"OldNewUI": {
+		"message": "Vieux Nouveau UI"
 	},
 
-	"OldReddit": {
-		"message": "Vieux Reddit"
+	"OldUI": {
+		"message": "Vieux UI"
 	},
 
 	"Auto": {
@@ -279,7 +279,7 @@
 		"message": "Déplacez la section Flux dans le menu latéral vers le haut"
 	},
 
-	"TextPost": {
+	"Text": {
 		"message": "Texte"
 	},
 
@@ -464,7 +464,7 @@
 	},
 
 	"FeedPostMaxHeight": {
-		"message": "Hauteur maximale du publication"
+		"message": "Hauteur du Publication"
 	},
 
 	"Post": {
@@ -507,14 +507,6 @@
 		"message": "Couleurs du thème"
 	},
 
-	"BorderColour": {
-		"message": "Couleur de bordure"
-	},
-
-	"TextColour": {
-		"message": "Couleur du texte"
-	},
-
 	"PostVisitedTitleColour": {
 		"message": "Publication visité : Couleur du titre"
 	},
@@ -555,8 +547,44 @@
 		"message": "Publication : Couleur du titre et du contenu du texte"
 	},
 
+	"PostCommentsColour": {
+		"message": "Publication: Commentaires couleur du texte"
+	},
+
+	"PostCommentsSecondaryColour": {
+		"message": "Publication: Commentaires couleur du texte secondaire"
+	},
+
 	"PostBorderColour": {
 		"message": "Publication : Couleur de la bordure"
+	},
+
+	"SidebarTextColour": {
+		"message": "Barre latérale: Couleur de texte"
+	},
+
+	"SidebarBackgroundColour": {
+		"message": "Barre latérale: La couleur d'arrière-plan"
+	},
+
+	"SidebarBorderColour": {
+		"message": "Barre latérale: Couleur de bordure"
+	},
+
+	"Sidemenu": {
+		"message": "Menu latéral"
+	},
+
+	"SidemenuTextColour": {
+		"message": "Menu latéral: Couleur de texte"
+	},
+
+	"SidemenuBackgroundColour": {
+		"message": "Menu latéral: La couleur d'arrière-plan"
+	},
+
+	"SidemenuButtonHoverColour": {
+		"message": "Menu latéral: Couleur du survol du bouton"
 	},
 
 	"WhitelistBlacklist": {
@@ -695,6 +723,10 @@
 		"message": "Commentaires de la Publication"
 	},
 
+	"ResizeFont": {
+		"message": "Resize Font"
+	},
+
 	"Rate": {
 		"message": "Noter / Commentaire"
 	},
@@ -705,5 +737,25 @@
 
 	"AutoExpandComments": {
 		"message": "Développer automatiquement les commentaires"
+	},
+
+	"HidePostHiddenMessage": {
+		"message": "Masquer le message « Message caché »"
+	},
+
+	"JustOpenTheImage": {
+		"message": "Ouvrez simplement l'image"
+	},
+
+	"JustOpenTheImageInfo": {
+		"message": "Ouvrez les images seules, au lieu de les intégrer sur une page Reddit. (Firefox uniquement)"
+	},
+
+	"ScalePostToFitImage": {
+		"message": "Mettre à l'échelle la publication pour l'adapter à l'image"
+	},
+
+	"LimitImageWidth": {
+		"message": "Limiter la largeur de l'image"
 	}
 }

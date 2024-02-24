@@ -19,6 +19,9 @@ import { loadCustomBackground } from '../style/load_custom_background';
 import { loadCustomTheme } from '../style/load_custom_theme_colours';
 import { loadHideUserProfilePics } from '../hide_elements/load_hide_user_profile_pics';
 import { loadAutoExpandComments } from '../productivity/load_auto_expand_comments';
+import { loadImageScroll } from '../productivity/load_scroll_tall_images';
+//import { loadScalePostToFitImage } from '../productivity/load_scale_post_to_fit_image';
+//import { loadDragImageToResize } from '../productivity/load_scale_image_on_drag';
 
 // Load observers to wait for elements to load before tweaking, or load the tweak directly if an observer is not needed.
 
@@ -46,4 +49,7 @@ export function observersNewNew() {
 	loadBionicReaderColours();
 	loadHideUserProfilePics();
 	loadAutoExpandComments();
+	loadImageScroll();
+	//loadScalePostToFitImage();
+	//loadDragImageToResize();
 }

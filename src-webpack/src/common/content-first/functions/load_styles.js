@@ -12,7 +12,6 @@ export function loadStyles() {
 	styleElement.id = 're-styles';
 	styleElement.textContent =
 		styleHide +
-		styleImageOptions +
 		styleLayoutCentre +
 		styleOther +
 		styleVideoPlayer +
@@ -22,7 +21,6 @@ export function loadStyles() {
 		styleLoadMore +
 		styleScrollToComment +
 		stylePostNumber +
-		styleMaxPostHeight +
 		styleBionicReader +
 		styleBreakReminder +
 		styleShowPostAuthor +
@@ -84,31 +82,6 @@ const styleBionicReader = `.re-bold {
 							}
 							.re-bionic-modified-comments {
 								margin-top: 0;
-							}`;
-
-const styleMaxPostHeight = `:root {
-								--re-max-post-height: 304px
-							}
-							.re-max-post-height .Post div [data-click-id="media"], .re-max-post-height .Post div[style*="max-height:512px"], 
-							.re-max-post-height .Post div[style*="max-height: 512px"] {
-								max-height: var(--re-max-post-height) !important;
-								height: var(--re-max-post-height) !important;
-							}
-							.re-max-post-height .Post div[style^="height:"] {
-								height: var(--re-max-post-height) !important;
-							}
-							.re-max-post-height .Post div[style^="max-height:512px"] > div, .re-max-post-height .Post div[style^="max-height:512px"] img,
-							.re-max-post-height .Post div[style^="max-height: 512px"] > div, .re-max-post-height .Post div[style^="max-height: 512px"] img,
-							.re-max-post-height .Post div[style^="height: 512px"], .re-max-post-height .Post div[style^="height:512px"] {
-								min-height:  var(--re-max-post-height) !important;
-							}
-							.re-max-post-height .Post figure div {
-								width: 100%;
-								align-items: flex-start;
-							}
-							.re-max-post-height .Post figure img {
-								height: 100%;
-								object-fit: contain;
 							}`;
 
 const stylePostNumber = `.re-post-number {
@@ -218,29 +191,6 @@ const styleVideoPlayer = `.video-js .vjs-big-play-button,
 						}
 						.video-js .vjs-control-bar {
 							background-color: rgba(26, 26, 27, 0.7) !important;
-						}`;
-
-const styleImageOptions = `.re-fit-image .ImageBox-image {
-							height: 100%;
-						}
-						.re-fit-image figure > div {
-							height:inherit;
-						}
-						.re-fit-image figure a > div {
-							height:inherit;
-						}
-						.re-fit-image figure img {
-							width: 100%;
-							height: 100%;
-							object-fit: contain;
-							overflow: hidden;
-						}
-						.re-image-scroll .media-element div:first-child {
-							overflow-y: scroll;
-						}
-						.re-image-scroll figure div:first-child {
-							overflow-y: scroll;
-							height: 100%;
 						}`;
 
 const styleHide = `.re-hide {

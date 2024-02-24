@@ -1,7 +1,9 @@
 // Input - Menu
 
+import Sortable from 'sortablejs';
+
 // Menu Button - Dark Mode
-document.querySelector('.btn-dark-mode').addEventListener('click', function (e) {
+document.querySelector('.btn-dark-mode > div').addEventListener('click', function (e) {
 	var el = document.querySelector('.menu-dark-mode'); //.forEach(function(el){
 	if (el.classList.contains('hide')) {
 		document.querySelector('.btn-dark-mode').classList.add('active');
@@ -95,4 +97,59 @@ document.querySelector('.btn-accessibility').addEventListener('click', function 
 			el.classList.add('hide');
 		}
 	});
+});
+
+// Menu Button - Account Switcher
+/*document.querySelector('.btn-account-switcher').addEventListener('click', function (e) {
+	document.querySelectorAll('.menu-account-switcher').forEach(function (el) {
+		if (el.classList.contains('hide')) {
+			document.querySelector('.btn-account-switcher').classList.add('active');
+			el.classList.remove('hide');
+			document.querySelector('.btn-account-switcher').scrollIntoView();
+		} else {
+			document.querySelector('.btn-account-switcher').classList.remove('active');
+			el.classList.add('hide');
+		}
+	});
+});*/
+
+// Init Sortablejs
+const menu = document.querySelector('#main-menu');
+new Sortable(menu, {
+	handle: '.menu-item-handle',
+	animation: 150,
+	onEnd: function (evt) {
+		saveMenuList();
+	},
+});
+
+// Save Menu Item Order
+function saveMenuList() {
+	let order = [];
+	const items = document.querySelectorAll('#main-menu > li');
+	for (let i = 0; i < items.length; i++) {
+		const index = items[i].getAttribute('data-index');
+		order.push(index);
+	}
+	BROWSER_API.storage.sync.set({ menuOrder: order.join(',') });
+}
+
+// Reorder Menu
+function reorderList(order) {
+	const container = document.querySelector('#main-menu');
+	const items = Array.from(container.children);
+	order.forEach((index) => {
+		const item = items.find((item) => item.dataset.index === index);
+		if (item) {
+			container.appendChild(item);
+		}
+	});
+}
+
+// Restore Menu Item Order
+BROWSER_API.storage.sync.get(['menuOrder'], function (result) {
+	if (typeof result.menuOrder != 'undefined') {
+		const newOrder = result.menuOrder.split(',');
+		reorderList(newOrder);
+	}
 });

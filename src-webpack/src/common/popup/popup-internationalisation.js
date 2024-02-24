@@ -42,11 +42,11 @@ export function init_i18n(lang) {
 function translate() {
 	BROWSER_API.storage.sync.get(['redditVersion'], function (result) {
 		if (result.redditVersion === 'new') {
-			document.querySelector('#chosen-version').textContent = i18next.t('NewReddit.message');
+			document.querySelector('#chosen-version').textContent = i18next.t('OldNewUI.message');
 		} else if (result.redditVersion === 'old') {
-			document.querySelector('#chosen-version').textContent = i18next.t('OldReddit.message');
+			document.querySelector('#chosen-version').textContent = i18next.t('OldUI.message');
 		} else if (result.redditVersion === 'newnew') {
-			document.querySelector('#chosen-version').textContent = i18next.t('LatestReddit.message');
+			document.querySelector('#chosen-version').textContent = i18next.t('NewNewUI.message');
 		} else if (typeof result.redditVersion == 'undefined') {
 			document.querySelector('#chosen-version').textContent = i18next.t('Select.message');
 		}
@@ -55,20 +55,24 @@ function translate() {
 		if (result.autoRedirectVersion === 'off' || typeof result.autoRedirectVersion == 'undefined') {
 			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Off.message');
 		} else if (result.autoRedirectVersion === 'old') {
-			document.querySelector('#chosen-reddit-version').textContent = i18next.t('OldReddit.message');
+			document.querySelector('#chosen-reddit-version').textContent = i18next.t('OldUI.message');
 		} else if (result.autoRedirectVersion === 'new') {
-			document.querySelector('#chosen-reddit-version').textContent = i18next.t('NewReddit.message');
+			document.querySelector('#chosen-reddit-version').textContent = i18next.t('OldNewUI.message');
 		} else if (result.autoRedirectVersion === 'newnew') {
-			document.querySelector('#chosen-reddit-version').textContent = i18next.t('LatestReddit.message');
+			document.querySelector('#chosen-reddit-version').textContent = i18next.t('NewNewUI.message');
 		}
 	});
-	document.getElementById('name').textContent = i18next.t('extensionName.message');
-	document.getElementById('extensionVersion').textContent = i18next.t('extensionVersion.message');
+	//document.getElementById('name').textContent = i18next.t('extensionName.message');
 	document.getElementById('input-custom-background').placeholder = i18next.t('CustomBgInputPlaceholder.message');
 	document.getElementById('search').placeholder = i18next.t('Search.message') + '...';
 
 	document.querySelectorAll('[data-lang]').forEach(function (item) {
 		const data_lang = item.getAttribute('data-lang');
 		item.textContent = i18next.t(data_lang + '.message');
+	});
+
+	document.querySelectorAll('[data-lang-placeholder]').forEach(function (item) {
+		const data_lang = item.getAttribute('data-lang-placeholder');
+		item.placeholder = i18next.t(data_lang + '.message');
 	});
 }

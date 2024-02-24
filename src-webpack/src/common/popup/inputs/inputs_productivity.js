@@ -3,10 +3,20 @@
 // Toggle - Scale Tall Images To Fit Post
 document.querySelector('#checkbox-fit-image').addEventListener('change', function (e) {
 	var state = document.querySelector('#checkbox-fit-image').checked;
-	if (state == true) {
+	if (state === true) {
+		// disable other image options
 		document.querySelector('#checkbox-image-scroll').checked = false;
 		BROWSER_API.storage.sync.set({ imageScroll: false });
 		document.querySelector('.icon-scroll').style.backgroundColor = '';
+		/*document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
+		BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
+		document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
+		document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';*/
+		/*document.querySelector('#checkbox-drag-image-to-resize').checked = false;
+		BROWSER_API.storage.sync.set({ dragImageToResize: false });
+		document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = '';
+		document.querySelector('.icon-drag-image-to-resize-initial-size').style.backgroundColor = '';*/
+		// enable
 		BROWSER_API.storage.sync.set({ fitImage: true });
 		document.querySelector('.icon-scale').style.backgroundColor = 'var(--accent)';
 		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
@@ -16,7 +26,7 @@ document.querySelector('#checkbox-fit-image').addEventListener('change', functio
 				}
 			});
 		});
-	} else if (state == false) {
+	} else if (state === false) {
 		BROWSER_API.storage.sync.set({ fitImage: false });
 		document.querySelector('.icon-scale').style.backgroundColor = '';
 		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
@@ -32,10 +42,20 @@ document.querySelector('#checkbox-fit-image').addEventListener('change', functio
 // Toggle - Add Scrollbar To Tall Images
 document.querySelector('#checkbox-image-scroll').addEventListener('change', function (e) {
 	var state = document.querySelector('#checkbox-image-scroll').checked;
-	if (state == true) {
+	if (state === true) {
+		// disable other image options
 		document.querySelector('#checkbox-fit-image').checked = false;
 		BROWSER_API.storage.sync.set({ fitImage: false });
 		document.querySelector('.icon-scale').style.backgroundColor = '';
+		/*document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
+		BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
+		document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
+		document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';*/
+		/*document.querySelector('#checkbox-drag-image-to-resize').checked = false;
+		BROWSER_API.storage.sync.set({ dragImageToResize: false });
+		document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = '';
+		document.querySelector('.icon-drag-image-to-resize-initial-size').style.backgroundColor = '';*/
+		// enable
 		BROWSER_API.storage.sync.set({ imageScroll: true });
 		document.querySelector('.icon-scroll').style.backgroundColor = 'var(--accent)';
 		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
@@ -45,7 +65,7 @@ document.querySelector('#checkbox-image-scroll').addEventListener('change', func
 				}
 			});
 		});
-	} else if (state == false) {
+	} else if (state === false) {
 		BROWSER_API.storage.sync.set({ imageScroll: false });
 		document.querySelector('.icon-scroll').style.backgroundColor = '';
 		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
@@ -58,10 +78,241 @@ document.querySelector('#checkbox-image-scroll').addEventListener('change', func
 	}
 });
 
+// Slider - Add Scrollbar To Tall Images Max Image Width
+document.querySelector('#input-image-scroll-max-image-width').addEventListener('input', function (e) {
+	// set ui
+	const value = e.target.value;
+	const imageScroll = document.querySelector('#checkbox-image-scroll').checked;
+	if (imageScroll === true) {
+		if (value != 9) {
+			document.querySelector('.icon-image-scroll-max-image-width').style.backgroundColor = 'var(--accent)';
+		} else {
+			document.querySelector('.icon-image-scroll-max-image-width').style.backgroundColor = '';
+		}
+	}
+	if (value != 9) {
+		document.querySelector('#image-scroll-max-image-width-value').innerText = value + '%';
+	} else {
+		document.querySelector('#image-scroll-max-image-width-value').innerText = '100%';
+	}
+	// apply
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.includes('reddit.com') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { imageScrollMaxImageWidth: value });
+			}
+		});
+	});
+});
+document.querySelector('#input-image-scroll-max-image-width').addEventListener('mouseup', function (e) {
+	if (e.target.value != 9) {
+		document.querySelector('#image-scroll-max-image-width-value').innerText = e.target.value + '%';
+	} else {
+		document.querySelector('#image-scroll-max-image-width-value').innerText = '100%';
+	}
+	// save
+	BROWSER_API.storage.sync.set({ imageScrollMaxImageWidth: e.target.value });
+});
+/*
+// Toggle - Scale Post To Fit Image
+document.querySelector('#checkbox-scale-post-to-fit-image').addEventListener('change', function (e) {
+	const scalePostToFitImage = document.querySelector('#checkbox-scale-post-to-fit-image').checked;
+	if (scalePostToFitImage === true) {
+		// disable other image options
+		document.querySelector('#checkbox-image-scroll').checked = false;
+		BROWSER_API.storage.sync.set({ imageScroll: false });
+		document.querySelector('.icon-scroll').style.backgroundColor = '';
+		document.querySelector('#checkbox-fit-image').checked = false;
+		BROWSER_API.storage.sync.set({ fitImage: false });
+		document.querySelector('.icon-scale').style.backgroundColor = '';
+		//document.querySelector('#checkbox-drag-image-to-resize').checked = false;
+		//BROWSER_API.storage.sync.set({ dragImageToResize: false });
+		//document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = '';
+		//document.querySelector('.icon-drag-image-to-resize-initial-size').style.backgroundColor = '';
+		// enable
+		BROWSER_API.storage.sync.set({ scalePostToFitImage: true });
+		document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = 'var(--accent)';
+		// set slider icon
+		const value = document.querySelector('#input-scale-post-to-fit-image-max-image-width').value;
+		if (value != 9) {
+			document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = 'var(--accent)';
+		} else {
+			document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';
+		}
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { scalePostToFitImage: true });
+				}
+			});
+		});
+	} else if (scalePostToFitImage === false) {
+		BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
+		document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
+		document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { scalePostToFitImage: false });
+				}
+			});
+		});
+	}
+});
+
+// Slider - Scale Post To Fit Image Max Image Width
+document.querySelector('#input-scale-post-to-fit-image-max-image-width').addEventListener('input', function (e) {
+	// set ui
+	const value = e.target.value;
+	const scalePostToFitImage = document.querySelector('#checkbox-scale-post-to-fit-image').checked;
+	if (scalePostToFitImage === true) {
+		if (value != 9) {
+			document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = 'var(--accent)';
+		} else {
+			document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';
+		}
+	}
+	if (value != 9) {
+		document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = e.target.value + '%';
+	} else {
+		document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = '40%';
+	}
+	// apply
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.includes('reddit.com') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { scalePostToFitImageMaxImageWidth: e.target.value });
+			}
+		});
+	});
+});
+document.querySelector('#input-scale-post-to-fit-image-max-image-width').addEventListener('mouseup', function (e) {
+	if (e.target.value != 9) {
+		document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = e.target.value + '%';
+	} else {
+		document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = '40%';
+	}
+	// save
+	BROWSER_API.storage.sync.set({ scalePostToFitImageMaxImageWidth: e.target.value });
+});
+*/
+/*
+// Toggle - Drag Image To Resize
+document.querySelector('#checkbox-drag-image-to-resize').addEventListener('change', function (e) {
+	const dragImageToResize = document.querySelector('#checkbox-drag-image-to-resize').checked;
+	if (dragImageToResize === true) {
+		// disable other image options
+		document.querySelector('#checkbox-image-scroll').checked = false;
+		BROWSER_API.storage.sync.set({ imageScroll: false });
+		document.querySelector('.icon-scroll').style.backgroundColor = '';
+		document.querySelector('#checkbox-fit-image').checked = false;
+		BROWSER_API.storage.sync.set({ fitImage: false });
+		document.querySelector('.icon-scale').style.backgroundColor = '';
+		document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
+		BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
+		document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
+		document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';
+		// enable
+		BROWSER_API.storage.sync.set({ dragImageToResize: true });
+		document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-drag-image-to-resize-initial-size').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { dragImageToResize: true });
+				}
+			});
+		});
+	} else if (dragImageToResize === false) {
+		BROWSER_API.storage.sync.set({ dragImageToResize: false });
+		document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = '';
+		document.querySelector('.icon-drag-image-to-resize-initial-size').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { dragImageToResize: false });
+				}
+			});
+		});
+	}
+});
+
+// Slider - Drag Image To Resize Initial Height
+document.querySelector('#input-drag-image-to-resize-initial-size').addEventListener('input', function (e) {
+	// set ui
+	const value = e.target.value;
+	const dragImageToResize = document.querySelector('#checkbox-drag-image-to-resize').checked;
+	console.log(value);
+	console.log(dragImageToResize);
+	if (dragImageToResize === true) {
+		if (value != 99) {
+			document.querySelector('.icon-drag-image-to-resize-initial-size').style.backgroundColor = 'var(--accent)';
+		} else {
+			document.querySelector('.icon-drag-image-to-resize-initial-size').style.backgroundColor = '';
+		}
+	}
+	if (value != 99) {
+		document.querySelector('#drag-image-to-resize-initial-size-value').innerText = e.target.value + 'px';
+	} else {
+		document.querySelector('#drag-image-to-resize-initial-size-value').innerText = '350px';
+	}
+});
+document.querySelector('#input-drag-image-to-resize-initial-size').addEventListener('mouseup', function (e) {
+	if (e.target.value != 99) {
+		document.querySelector('#drag-image-to-resize-initial-size-value').innerText = e.target.value + 'px';
+	} else {
+		document.querySelector('#drag-image-to-resize-initial-size-value').innerText = '350px';
+	}
+	// apply
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.includes('reddit.com') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { dragImageToResizeInitialSize: e.target.value });
+			}
+		});
+	});
+	// save
+	BROWSER_API.storage.sync.set({ dragImageToResizeInitialSize: e.target.value });
+});
+*/
+// Toggle - Just Open The Image
+document.querySelector('#checkbox-just-open-the-image').addEventListener('change', function (e) {
+	const justOpenTheImage = document.querySelector('#checkbox-just-open-the-image').checked;
+	if (justOpenTheImage === true) {
+		// Request the optional permission on Firefox
+		if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
+			BROWSER_API.permissions
+				.request({
+					permissions: ['webRequest', 'webRequestBlocking'],
+					origins: ['*://*.redd.it/*'],
+				})
+				.then((granted) => {
+					if (granted) {
+						console.log('Optional permissions granted');
+						BROWSER_API.storage.sync.set({ justOpenTheImage: true });
+						document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
+						BROWSER_API.runtime.sendMessage({ justOpenTheImage: true });
+					} else {
+						console.log('Optional permissions not granted');
+					}
+				});
+		} else if (BROWSER_API.runtime.getManifest().manifest_version === 3) {
+			/*BROWSER_API.storage.sync.set({ justOpenTheImage: true });
+			document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
+			BROWSER_API.runtime.sendMessage({ justOpenTheImage: true });*/
+			document.querySelector('#checkbox-just-open-the-image').checked = false;
+		}
+	} else if (justOpenTheImage === false) {
+		BROWSER_API.storage.sync.set({ justOpenTheImage: false });
+		document.querySelector('.icon-just-open-the-image').style.backgroundColor = '';
+		BROWSER_API.runtime.sendMessage({ justOpenTheImage: false });
+	}
+});
+
 // Toggle - Sticky Sort
 document.querySelector('#checkbox-sticky-sort').addEventListener('change', function (e) {
 	var stickySort = document.querySelector('#checkbox-sticky-sort').checked;
-	if (stickySort == true) {
+	if (stickySort === true) {
 		BROWSER_API.storage.sync.set({ stickySort: true });
 		document.querySelector('.sticky-sort').style.backgroundColor = 'var(--accent)';
 		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
@@ -71,7 +322,7 @@ document.querySelector('#checkbox-sticky-sort').addEventListener('change', funct
 				}
 			});
 		});
-	} else if (stickySort == false) {
+	} else if (stickySort === false) {
 		BROWSER_API.storage.sync.set({ stickySort: false });
 		document.querySelector('.sticky-sort').style.backgroundColor = '';
 		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
@@ -637,15 +888,40 @@ document.querySelector('#checkbox-show-post-author').addEventListener('change', 
 	}
 });
 
-// Slider - Feed Post Max Height
+// Toggle - Post Height
+document.querySelector('#checkbox-post-height').addEventListener('change', function (e) {
+	const postHeight = document.querySelector('#checkbox-post-height').checked;
+	if (postHeight === true) {
+		// enable
+		BROWSER_API.storage.sync.set({ postHeight: true });
+		document.querySelector('.icon-post-height').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { postHeight: true });
+				}
+			});
+		});
+	} else if (postHeight === false) {
+		BROWSER_API.storage.sync.set({ postHeight: false });
+		document.querySelector('.icon-post-height').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { postHeight: false });
+				}
+			});
+		});
+	}
+});
+
+// Slider - Feed Post Height
 document.querySelector('#input-feed-post-max-height').addEventListener('input', function (e) {
 	// set ui
 	const value = e.target.value;
 	if (value != 296) {
-		document.querySelector('.icon-feed-post-max-height').style.backgroundColor = 'var(--accent)';
 		document.querySelector('#feed-post-max-height-value').innerText = e.target.value + 'px';
 	} else {
-		document.querySelector('.icon-feed-post-max-height').style.backgroundColor = '';
 		document.querySelector('#feed-post-max-height-value').innerText = '512px';
 	}
 });
@@ -659,12 +935,12 @@ document.querySelector('#input-feed-post-max-height').addEventListener('mouseup'
 	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
 		tabs.forEach(function (tab) {
 			if (tab.url.includes('reddit.com') && tab.discarded == false) {
-				BROWSER_API.tabs.sendMessage(tab.id, { postMaxHeight: e.target.value });
+				BROWSER_API.tabs.sendMessage(tab.id, { postHeightSize: e.target.value });
 			}
 		});
 	});
 	// save
-	BROWSER_API.storage.sync.set({ postMaxHeight: e.target.value });
+	BROWSER_API.storage.sync.set({ postHeightSize: e.target.value });
 });
 
 // Toggle - Non Sticky Header Bar
@@ -812,3 +1088,29 @@ document.querySelector('#checkbox-auto-expand-comments').addEventListener('chang
 		});
 	}
 });
+
+// Toggle - Add Video Download Button
+/*document.querySelector('#checkbox-add-download-video-button').addEventListener('change', function (e) {
+	const addDownloadVideoButton = document.querySelector('#checkbox-add-download-video-button').checked;
+	if (addDownloadVideoButton === true) {
+		BROWSER_API.storage.sync.set({ addDownloadVideoButton: true });
+		document.querySelector('.icon-add-download-video-button').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { addDownloadVideoButton: true });
+				}
+			});
+		});
+	} else if (addDownloadVideoButton === false) {
+		BROWSER_API.storage.sync.set({ addDownloadVideoButton: false });
+		document.querySelector('.icon-add-download-video-button').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { addDownloadVideoButton: false });
+				}
+			});
+		});
+	}
+});*/

@@ -8,7 +8,7 @@ export function hideSidebarPolicy(value) {
 			} else {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-hide-side-menu-policy';
-				styleElement.textContent = `[data-testid="frontpage-sidebar"] > div:has([href="https://www.redditinc.com/policies/user-agreement"]) {
+				styleElement.textContent = `[data-testid="frontpage-sidebar"] > :last-child > div:has([href="https://www.redditinc.com/policies/user-agreement"]) {
 												display: none !important;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);

@@ -5,7 +5,7 @@ document.querySelector('#checkbox-expand-layout').addEventListener('change', fun
 	const expandLayout = document.querySelector('#checkbox-expand-layout').checked;
 	if (expandLayout === true) {
 		BROWSER_API.storage.sync.set({ expandLayout: true });
-		var icons = document.querySelectorAll('.icon-expand-layout');
+		const icons = document.querySelectorAll('.icon-expand-layout, .icon-resize-width, .icon-resize-offset');
 		icons.forEach(function (icon) {
 			icon.style.backgroundColor = 'var(--accent)';
 		});
@@ -18,7 +18,7 @@ document.querySelector('#checkbox-expand-layout').addEventListener('change', fun
 		});
 	} else if (expandLayout === false) {
 		BROWSER_API.storage.sync.set({ expandLayout: false });
-		var icons = document.querySelectorAll('.icon-expand-layout');
+		const icons = document.querySelectorAll('.icon-expand-layout, .icon-resize-width, .icon-resize-offset');
 		icons.forEach(function (icon) {
 			icon.style.backgroundColor = '';
 		});

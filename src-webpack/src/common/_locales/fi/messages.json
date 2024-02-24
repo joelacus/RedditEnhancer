@@ -99,16 +99,16 @@
 		"message": "Mukautettu taustalinkki"
 	},
 
-	"LatestReddit": {
-		"message": "Viimeisin Reddit"
+	"NewNewUI": {
+		"message": "Uusi Uusi UI"
 	},
 
-	"NewReddit": {
-		"message": "Uusi Reddit"
+	"OldNewUI": {
+		"message": "Vanha Uusi UI"
 	},
 
-	"OldReddit": {
-		"message": "Vanha reddit"
+	"OldUI": {
+		"message": "Vanha UI"
 	},
 
 	"Auto": {
@@ -279,7 +279,7 @@
 		"message": "Move The Feed Section In The Side Menu To The Top"
 	},
 
-	"TextPost": {
+	"Text": {
 		"message": "Text"
 	},
 
@@ -464,7 +464,7 @@
 	},
 
 	"FeedPostMaxHeight": {
-		"message": "Feed Post Max Height"
+		"message": "Post Height"
 	},
 
 	"Post": {
@@ -507,14 +507,6 @@
 		"message": "Theme Colours"
 	},
 
-	"BorderColour": {
-		"message": "Border Colour"
-	},
-
-	"TextColour": {
-		"message": "Text Colour"
-	},
-
 	"PostVisitedTitleColour": {
 		"message": "Visited Post Title Colour"
 	},
@@ -555,8 +547,44 @@
 		"message": "Post: Title and Text Content Colour"
 	},
 
+	"PostCommentsColour": {
+		"message": "Post: Comments Text Colour"
+	},
+
+	"PostCommentsSecondaryColour": {
+		"message": "Post: Comments Secondary Text Colour"
+	},
+
 	"PostBorderColour": {
 		"message": "Post: Border Colour"
+	},
+
+	"SidebarTextColour": {
+		"message": "Sidebar: Text Colour"
+	},
+
+	"SidebarBackgroundColour": {
+		"message": "Sidebar: Background Colour"
+	},
+
+	"SidebarBorderColour": {
+		"message": "Sidebar: Border Colour"
+	},
+
+	"Sidemenu": {
+		"message": "Sidemenu"
+	},
+
+	"SidemenuTextColour": {
+		"message": "Sidemenu: Text Colour"
+	},
+
+	"SidemenuBackgroundColour": {
+		"message": "Sidemenu: Background Colour"
+	},
+
+	"SidemenuButtonHoverColour": {
+		"message": "Sidemenu: Button Hover Colour"
 	},
 
 	"WhitelistBlacklist": {
@@ -695,6 +723,10 @@
 		"message": "Post Comments"
 	},
 
+	"ResizeFont": {
+		"message": "Resize Font"
+	},
+
 	"Rate": {
 		"message": "Arvostele"
 	},
@@ -705,5 +737,25 @@
 
 	"AutoExpandComments": {
 		"message": "Auto Expand Comments"
+	},
+
+	"HidePostHiddenMessage": {
+		"message": "Hide 'Post Hidden' Message"
+	},
+
+	"JustOpenTheImage": {
+		"message": "Just Open The Image"
+	},
+
+	"JustOpenTheImageInfo": {
+		"message": "Open images on their own, instead of embedded on a Reddit page. (Firefox only)"
+	},
+
+	"ScalePostToFitImage": {
+		"message": "Scale Post To Fit Image"
+	},
+
+	"LimitImageWidth": {
+		"message": "Limit Image Width"
 	}
 }

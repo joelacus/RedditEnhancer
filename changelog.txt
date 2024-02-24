@@ -1,3 +1,14 @@
+version 1.1.0
+- Added an option "Just Open The Image". This will open just the image in a new tab when you click on it and not be embedded in a page. Only works on Firefox.
+- Added an option to change the post comments text colour.
+- Added options to change the sidebar text, background and border colours.
+- Added options to change the sidemenu text and background colours.
+- Added an option to hide the "Post Hidden" message when you hide a post on "Old New UI".
+- Added an option to limit the post image width when using the "Add Scrollbar To Tall Images" option.
+- Extension main menu items can be reordered.
+- Updated localisations.
+- Bug fixes and improvements.
+
 version 1.0.1
 - Updated localisations.
 - Bug fix.

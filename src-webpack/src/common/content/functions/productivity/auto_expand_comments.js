@@ -1,48 +1,44 @@
 // Auto Expand Comments
 
 export function autoExpandComments(value) {
-	if (redditVersion === 'new') {
-		if (value === true) {
-			setTimeout(() => {
-				enableAutoExpandCommentsNew();
-			}, 2000);
-			setTimeout(() => {
-				enableAutoExpandCommentsNew();
-			}, 5000);
-			setTimeout(() => {
-				enableAutoExpandCommentsNew();
-			}, 5000);
-			setTimeout(() => {
-				enableAutoExpandCommentsNew();
-			}, 15000);
-			setTimeout(() => {
-				enableAutoExpandCommentsNew();
-			}, 20000);
-			setTimeout(() => {
-				enableAutoExpandCommentsNew();
-			}, 25000);
-		}
-	} else if (redditVersion === 'newnew') {
-		if (value === true) {
-			setTimeout(() => {
-				enableAutoExpandCommentsNewNew();
-			}, 2000);
-			setTimeout(() => {
-				enableAutoExpandCommentsNewNew();
-			}, 5000);
-			setTimeout(() => {
-				enableAutoExpandCommentsNewNew();
-			}, 10000);
-			setTimeout(() => {
-				enableAutoExpandCommentsNewNew();
-			}, 15000);
-			setTimeout(() => {
-				enableAutoExpandCommentsNewNew();
-			}, 20000);
-			setTimeout(() => {
-				enableAutoExpandCommentsNewNew();
-			}, 25000);
-		}
+	if (redditVersion === 'new' && value === true) {
+		setTimeout(() => {
+			enableAutoExpandCommentsNew();
+		}, 2000);
+		setTimeout(() => {
+			enableAutoExpandCommentsNew();
+		}, 5000);
+		setTimeout(() => {
+			enableAutoExpandCommentsNew();
+		}, 5000);
+		setTimeout(() => {
+			enableAutoExpandCommentsNew();
+		}, 15000);
+		setTimeout(() => {
+			enableAutoExpandCommentsNew();
+		}, 20000);
+		setTimeout(() => {
+			enableAutoExpandCommentsNew();
+		}, 25000);
+	} else if (redditVersion === 'newnew' && value === true) {
+		setTimeout(() => {
+			enableAutoExpandCommentsNewNew();
+		}, 2000);
+		setTimeout(() => {
+			enableAutoExpandCommentsNewNew();
+		}, 5000);
+		setTimeout(() => {
+			enableAutoExpandCommentsNewNew();
+		}, 10000);
+		setTimeout(() => {
+			enableAutoExpandCommentsNewNew();
+		}, 15000);
+		setTimeout(() => {
+			enableAutoExpandCommentsNewNew();
+		}, 20000);
+		setTimeout(() => {
+			enableAutoExpandCommentsNewNew();
+		}, 25000);
 	}
 }
 

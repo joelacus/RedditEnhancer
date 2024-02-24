@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 
 	"name": "__MSG_extensionName__",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"description": "__MSG_extensionDescription__",
 	"author": "github.com/joelacus",
 	"default_locale": "en",
@@ -15,6 +15,8 @@
 	},
 
 	"permissions": ["storage", "tabs", "*://*.reddit.com/*"],
+
+	"optional_permissions": ["webRequest", "webRequestBlocking", "*://*.redd.it/*"],
 
 	"content_scripts": [
 		{

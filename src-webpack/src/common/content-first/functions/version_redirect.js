@@ -1,17 +1,13 @@
 /* ===== Reddit Auto Redirect To Version ===== */
 
-function autoRedirectVersion() {
+export function autoRedirectVersion() {
 	BROWSER_API.storage.sync.get(['autoRedirectVersion'], function (result) {
-		let newURL = false;
 		if (result.autoRedirectVersion === 'old') {
-			newURL = checkAndRedirect('old.reddit.com');
+			checkAndRedirect('old.reddit.com');
 		} else if (result.autoRedirectVersion === 'new') {
-			newURL = checkAndRedirect('new.reddit.com');
+			checkAndRedirect('new.reddit.com');
 		} else if (result.autoRedirectVersion === 'newnew') {
-			newURL = checkAndRedirect('sh.reddit.com');
-		}
-		if (newURL) {
-			window.location = newURL;
+			checkAndRedirect('sh.reddit.com');
 		}
 	});
 }
@@ -23,19 +19,55 @@ function checkAndRedirect(versionHost) {
 	const currentProtocol = location.protocol;
 	const currentHost = location.hostname;
 	const currentPath = location.pathname;
-	// Declare new URL
-	let newURL = null;
-	// Ignore certain URLs
-	const ignore_list = ['reddit.com/settings', '/followers/', 'preview.redd.it', 'i.redd.it', '/gallery/'];
-	const ignore = ignore_list.some((link) => currentURL.includes(link));
-	if (!ignore) {
+	const currentQuery = location.search;
+
+	// Stop redirect loop if Reddit forces the latest version.
+	// Works on Firefox and Edge. Need Chrome fix.
+	if (currentQuery.includes('?rdt=')) {
+		return;
+	}
+
+	// Redirect these URLs
+	const redirectList = [
+		'^.*www.reddit.com(?:/)?$',
+		'^.*old.reddit.com(?:/)?$',
+		'^.*new.reddit.com(?:/)?$',
+		'^.*sh.reddit.com(?:/)?$',
+		'^.*.reddit.com/r/.*(?:/.*)?$',
+		'^.*.reddit.com/r/.*/comments/.*$',
+		'^.*.reddit.com/user/.*(?:/)?$',
+	];
+
+	const redirect = redirectList.some((pattern) => {
+		const regex = new RegExp(pattern);
+		return regex.test(currentURL);
+	});
+
+	// Do not redirect these URLs
+	const doNotRedirectList = [
+		'reddit.com/settings',
+		'/followers/',
+		'preview.redd.it',
+		'i.redd.it',
+		'/gallery/',
+		'/about/modqueue',
+		'/about/reports',
+		'/about/spam',
+		'/about/edited',
+		'/about/unmoderated',
+		'chat.reddit.com',
+		'mod.reddit.com',
+	];
+
+	const doNotRedirect = doNotRedirectList.some((link) => currentURL.includes(link));
+
+	let newURL;
+
+	if (redirect && !doNotRedirect) {
 		// Check if the URL contains the specified version
-		if (currentHost === versionHost) {
-			newURL = false;
-		} else {
-			// Replace the existing subdomain with the specified version
+		if (currentHost !== versionHost) {
 			newURL = currentProtocol + '//' + versionHost + currentPath;
+			window.location = newURL;
 		}
 	}
-	return newURL;
 }

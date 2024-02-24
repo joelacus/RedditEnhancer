@@ -99,16 +99,16 @@
 		"message": "Benutzerdefinierter Hintergrund Link"
 	},
 
-	"LatestReddit": {
-		"message": "Neuestes Reddit"
+	"NewNewUI": {
+		"message": "Neuer Neuer UI"
 	},
 
-	"NewReddit": {
-		"message": "Neuer Reddit"
+	"OldNewUI": {
+		"message": "Alter Neuer UI"
 	},
 
-	"OldReddit": {
-		"message": "Alter Reddit"
+	"OldUI": {
+		"message": "Alter UI"
 	},
 
 	"Auto": {
@@ -279,7 +279,7 @@
 		"message": "Verschieben Sie den Feed-Bereich im Seitenmenü nach oben"
 	},
 
-	"TextPost": {
+	"Text": {
 		"message": "Text"
 	},
 
@@ -464,7 +464,7 @@
 	},
 
 	"FeedPostMaxHeight": {
-		"message": "Maximale Pfostenhöhe"
+		"message": "Beitragslänge"
 	},
 
 	"Post": {
@@ -507,14 +507,6 @@
 		"message": "Themenfarben"
 	},
 
-	"BorderColour": {
-		"message": "Randfarbe"
-	},
-
-	"TextColour": {
-		"message": "Textfarbe"
-	},
-
 	"PostVisitedTitleColour": {
 		"message": "Besuchter Beitrag: Titelfarbe"
 	},
@@ -555,8 +547,44 @@
 		"message": "Beitrag: Titel und Textinhaltsfarbe"
 	},
 
+	"PostCommentsColour": {
+		"message": "Beitrag: Kommentare Textfarbe"
+	},
+
+	"PostCommentsSecondaryColour": {
+		"message": "Beitrag: Kommentare Sekundärer Textfarbe"
+	},
+
 	"PostBorderColour": {
 		"message": "Beitrag: Rahmenfarbe"
+	},
+
+	"SidebarTextColour": {
+		"message": "Seitenleiste: Textfarbe"
+	},
+
+	"SidebarBackgroundColour": {
+		"message": "Seitenleiste: Hintergrundfarbe"
+	},
+
+	"SidebarBorderColour": {
+		"message": "Seitenleiste: Grenzfarbe"
+	},
+
+	"Sidemenu": {
+		"message": "Seitenmenü"
+	},
+
+	"SidemenuTextColour": {
+		"message": "Seitenmenü: Textfarbe"
+	},
+
+	"SidemenuBackgroundColour": {
+		"message": "Seitenmenü: Hintergrundfarbe"
+	},
+
+	"SidemenuButtonHoverColour": {
+		"message": "Seitenmenü: Schaltflächen-Hover-Farbe"
 	},
 
 	"WhitelistBlacklist": {
@@ -687,6 +715,10 @@
 		"message": "Bitte aktualisieren Sie auf Firefox 121 oder höher, damit einige Funktionen ordnungsgemäß funktionieren."
 	},
 
+	"ResizeFont": {
+		"message": "Resize Font"
+	},
+
 	"PostContent": {
 		"message": "Beitragsinhalt"
 	},
@@ -705,5 +737,25 @@
 
 	"AutoExpandComments": {
 		"message": "Kommentare automatisch erweitern"
+	},
+
+	"HidePostHiddenMessage": {
+		"message": "Verstecken 'Beitrag Ausgeblendet' Nachricht"
+	},
+
+	"JustOpenTheImage": {
+		"message": "Öffnen Sie einfach das Bild"
+	},
+
+	"JustOpenTheImageInfo": {
+		"message": "Öffnen Sie Bilder einzeln, anstatt sie auf einer Reddit-Seite einzubetten. (Nur Firefox)"
+	},
+
+	"ScalePostToFitImage": {
+		"message": "Skalieren Sie den Beitrag, um ihn an das Bild anzupassen"
+	},
+
+	"LimitImageWidth": {
+		"message": "Bildbreite begrenzen"
 	}
 }

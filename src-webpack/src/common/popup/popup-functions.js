@@ -4,14 +4,62 @@ import { detectFirefoxVersion } from '../content-first/detect_firefox_version';
 
 /* ===== Save Custom Background ===== */
 
-function addCustomBgNode(newCustomBg) {
+export function addCustomBg(e) {
+	e.preventDefault();
+	const imageURL = document.querySelector('#input-custom-background').value;
+	if (imageURL.startsWith('data:image') || imageURL.length >= 1000) {
+		console.log('URL is too long and/or is a base64 string');
+		document.querySelector('#input-custom-background').value = '';
+	} else {
+		console.log('testing: ' + imageURL);
+		return new Promise(function (resolve, reject) {
+			var timeout = 5000;
+			var timer,
+				img = new Image();
+			img.onerror = img.onabort = function () {
+				clearTimeout(timer);
+				reject('error');
+			};
+			img.onload = function () {
+				clearTimeout(timer);
+				resolve('success');
+				BROWSER_API.storage.sync.get('customBackgrounds', function (result) {
+					if (result.customBackgrounds == null || result.customBackgrounds == '') {
+						var saveCustomBg = [];
+						saveCustomBg.push(imageURL);
+						addCustomBgNode(imageURL);
+					} else if (result.customBackgrounds != '') {
+						if (result.customBackgrounds.indexOf(imageURL) == -1) {
+							console.log('adding new link');
+							result.customBackgrounds.push(imageURL);
+							addCustomBgNode(imageURL);
+						} else {
+							console.log('background already added');
+							document.querySelector('#input-custom-background').value = '';
+						}
+						var saveCustomBg = result.customBackgrounds;
+					}
+					BROWSER_API.storage.sync.set({ customBackgrounds: saveCustomBg });
+				});
+			};
+			timer = setTimeout(() => {
+				// reset .src to invalid URL so it stops previous
+				// loading, but doesn't trigger new load
+				img.src = '//!!!!/test.jpg';
+				reject('timeout');
+			}, timeout);
+			img.src = imageURL;
+		});
+	}
+}
+function addCustomBgNode(imageURL) {
 	// create background element container
 	var node = document.createElement('div');
 	node.setAttribute('class', 'background');
 	// add image node
 	var background_img = document.createElement('div');
 	background_img.classList.add('background-img');
-	background_img.setAttribute('style', 'background-image: url(' + newCustomBg + ');');
+	background_img.setAttribute('style', 'background-image: url(' + imageURL + ');');
 	background_img.addEventListener('click', function (e) {
 		var url = e.target.style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
 		BROWSER_API.storage.sync.set({ customBackground: url });
@@ -41,49 +89,6 @@ function addCustomBgNode(newCustomBg) {
 	grid.insertBefore(node, grid.firstChild);
 	document.querySelector('#input-custom-background').value = '';
 }
-export function addCustomBg(e) {
-	e.preventDefault();
-	var newCustomBg = document.querySelector('#input-custom-background').value;
-	console.log('testing: ' + newCustomBg);
-	return new Promise(function (resolve, reject) {
-		var timeout = 5000;
-		var timer,
-			img = new Image();
-		img.onerror = img.onabort = function () {
-			clearTimeout(timer);
-			reject('error');
-		};
-		img.onload = function () {
-			clearTimeout(timer);
-			resolve('success');
-			BROWSER_API.storage.sync.get('customBackgrounds', function (result) {
-				if (result.customBackgrounds == null || result.customBackgrounds == '') {
-					var saveCustomBg = [];
-					saveCustomBg.push(newCustomBg);
-					addCustomBgNode(newCustomBg);
-				} else if (result.customBackgrounds != '') {
-					if (result.customBackgrounds.indexOf(newCustomBg) == -1) {
-						console.log('adding new link');
-						result.customBackgrounds.push(newCustomBg);
-						addCustomBgNode(newCustomBg);
-					} else {
-						console.log('background already added');
-						document.querySelector('#input-custom-background').value = '';
-					}
-					var saveCustomBg = result.customBackgrounds;
-				}
-				BROWSER_API.storage.sync.set({ customBackgrounds: saveCustomBg });
-			});
-		};
-		timer = setTimeout(() => {
-			// reset .src to invalid URL so it stops previous
-			// loading, but doesn't trigger new load
-			img.src = '//!!!!/test.jpg';
-			reject('timeout');
-		}, timeout);
-		img.src = newCustomBg;
-	});
-}
 
 /* ===== Add Listeners To Backgrounds ===== */
 
@@ -92,7 +97,7 @@ export function addBackgroundDeleteListeners() {
 	delete_buttons_bg.forEach(function (btn) {
 		btn.addEventListener('click', function (e) {
 			// delete link from save
-			const url = e.target.previousSibling.style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
+			const url = e.currentTarget.previousSibling.style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
 			BROWSER_API.storage.sync.get('customBackgrounds', function (result) {
 				const index = result.customBackgrounds.indexOf(url);
 				if (index > -1) {
@@ -101,7 +106,7 @@ export function addBackgroundDeleteListeners() {
 				}
 			});
 			// remove element
-			e.target.parentNode.remove();
+			e.currentTarget.parentNode.remove();
 			BROWSER_API.storage.sync.get(['customBackground'], function (result) {
 				if (url == result.customBackground) {
 					BROWSER_API.storage.sync.set({ customBackground: '' });
@@ -121,7 +126,8 @@ export function addBackgroundListeners() {
 				backgrounds[i].parentNode.style.borderColor = '#000';
 			}
 			background[i].parentNode.style.borderColor = 'var(--accent)';
-			var url = background[i].style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
+			const url = background[i].style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
+			console.log(url);
 			BROWSER_API.storage.sync.set({ customBackground: url });
 			BROWSER_API.storage.sync.get(['useCustomBackground'], function (result) {
 				if (result.useCustomBackground == true) {

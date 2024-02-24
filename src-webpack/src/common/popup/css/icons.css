@@ -353,3 +353,27 @@
 	mask: url('../../icons/ui/ruler-horizontal-solid.svg');
 	-webkit-mask: url('../../icons/ui/ruler-horizontal-solid.svg');
 }
+.icon-download {
+	mask: url('../../icons/ui/download-solid.svg');
+	-webkit-mask: url('../../icons/ui/download-solid.svg');
+}
+.icon-account-switcher {
+	mask: url('../../icons/ui/icon-account-switcher.svg');
+	-webkit-mask: url('../../icons/ui/icon-account-switcher.svg');
+}
+.icon-handle {
+	mask: url('../../icons/ui/grip-lines-solid.svg');
+	-webkit-mask: url('../../icons/ui/grip-lines-solid.svg');
+}
+.icon-delete {
+	mask: url('../../icons/ui/xmark-solid.svg');
+	-webkit-mask: url('../../icons/ui/xmark-solid.svg');
+}
+.icon-drag {
+	mask: url('../../icons/ui/icon-drag.svg');
+	-webkit-mask: url('../../icons/ui/icon-drag.svg');
+}
+.icon-box-arrow {
+	mask: url('../../icons/ui/share-from-square-solid.svg');
+	-webkit-mask: url('../../icons/ui/share-from-square-solid.svg');
+}

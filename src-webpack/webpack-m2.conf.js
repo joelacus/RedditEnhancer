@@ -51,7 +51,7 @@ module.exports = {
 			patterns: [
 				{
 					context: path.resolve(__dirname, 'src/common/_locales'),
-					from: '**',
+					from: '**/*.json',
 					to: '_locales',
 				},
 				{

@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.0.1"
+		"message": "1.1.0"
 	},
 
 	"extensionName": {
@@ -100,19 +100,19 @@
 	},
 
 	"CustomBgInputPlaceholder": {
-		"message": "Custom Background Link"
+		"message": "Custom Background URL"
 	},
 
-	"LatestReddit": {
-		"message": "Latest Reddit"
+	"NewNewUI": {
+		"message": "New New UI"
 	},
 
-	"NewReddit": {
-		"message": "New Reddit"
+	"OldNewUI": {
+		"message": "Old New UI"
 	},
 
-	"OldReddit": {
-		"message": "Old Reddit"
+	"OldUI": {
+		"message": "Old UI"
 	},
 
 	"Auto": {
@@ -283,7 +283,7 @@
 		"message": "Move The Feed Section In The Side Menu To The Top"
 	},
 
-	"TextPost": {
+	"Text": {
 		"message": "Text"
 	},
 
@@ -468,7 +468,7 @@
 	},
 
 	"FeedPostMaxHeight": {
-		"message": "Feed Post Max Height"
+		"message": "Post Height"
 	},
 
 	"Post": {
@@ -511,14 +511,6 @@
 		"message": "Theme Colours"
 	},
 
-	"BorderColour": {
-		"message": "Border Colour"
-	},
-
-	"TextColour": {
-		"message": "Text Colour"
-	},
-
 	"PostVisitedTitleColour": {
 		"message": "Visited Post: Title Colour"
 	},
@@ -559,8 +551,44 @@
 		"message": "Post: Title and Text Content Colour"
 	},
 
+	"PostCommentsColour": {
+		"message": "Post: Comments Text Colour"
+	},
+
+	"PostCommentsSecondaryColour": {
+		"message": "Post: Comments Secondary Text Colour"
+	},
+
 	"PostBorderColour": {
 		"message": "Post: Border Colour"
+	},
+
+	"SidebarTextColour": {
+		"message": "Sidebar: Text Colour"
+	},
+
+	"SidebarBackgroundColour": {
+		"message": "Sidebar: Background Colour"
+	},
+
+	"SidebarBorderColour": {
+		"message": "Sidebar: Border Colour"
+	},
+
+	"Sidemenu": {
+		"message": "Sidemenu"
+	},
+
+	"SidemenuTextColour": {
+		"message": "Sidemenu: Text Colour"
+	},
+
+	"SidemenuBackgroundColour": {
+		"message": "Sidemenu: Background Colour"
+	},
+
+	"SidemenuButtonHoverColour": {
+		"message": "Sidemenu: Button Hover Colour"
 	},
 
 	"WhitelistBlacklist": {
@@ -695,12 +723,12 @@
 		"message": "Post Content"
 	},
 
-	"ResizeFont": {
-		"message": "Resize Font"
-	},
-
 	"PostComments": {
 		"message": "Post Comments"
+	},
+
+	"ResizeFont": {
+		"message": "Resize Font"
 	},
 
 	"Rate": {
@@ -713,5 +741,85 @@
 
 	"AutoExpandComments": {
 		"message": "Auto Expand Comments"
+	},
+
+	"AutoExpandCommentsInfo": {
+		"message": "May cause the page to initially lag, especially if there are a lot of comments."
+	},
+
+	"HidePostHiddenMessage": {
+		"message": "Hide 'Post Hidden' Message"
+	},
+
+	"JustOpenTheImage": {
+		"message": "Just Open The Image"
+	},
+
+	"JustOpenTheImageInfo": {
+		"message": "Open images on their own, instead of embedded on a Reddit page. (Firefox only)"
+	},
+
+	"ScalePostToFitImage": {
+		"message": "Scale Post To Fit Image"
+	},
+
+	"LimitImageWidth": {
+		"message": "Limit Image Width"
+	},
+
+	"DragImageToResize": {
+		"message": "Drag Image To Resize"
+	},
+
+	"InitialSize": {
+		"message": "Initial Size"
+	},
+
+	"AddDownloadVideoButton": {
+		"message": "Add Download Video Button"
+	},
+
+	"AccountSwitcher": {
+		"message": "Account Switcher"
+	},
+
+	"Enable": {
+		"message": "Enable"
+	},
+
+	"Accounts": {
+		"message": "Accounts"
+	},
+
+	"AddAccount": {
+		"message": "Add Account"
+	},
+
+	"Username": {
+		"message": "Username"
+	},
+
+	"Password": {
+		"message": "Password"
+	},
+
+	"Add": {
+		"message": "Add"
+	},
+
+	"DeleteAll": {
+		"message": "Delete All"
+	},
+
+	"AccountSwitcherWarning": {
+		"message": "By using this feature you are letting Reddit Enhancer store your username and password. These credentials will not be synced with other settings to your browser, nor uploaded anywhere else, and will remain on this device. Even though storing extension data is fairly secure, it is by no means encrypted and people with access to this device could extract the data."
+	},
+
+	"AccountSwitcherWarning2": {
+		"message": "For security reasons, you will not be able to reveal your password. Please use a secure password manager in case you forget."
+	},
+
+	"PasswordInfo": {
+		"message": "You may leave the password blank, and you will be prompted when logging in."
 	}
 }

@@ -57,7 +57,7 @@ function restoreOptions() {
 				// add image node
 				var background_img = document.createElement('div');
 				background_img.classList.add('background-img');
-				background_img.setAttribute('style', 'background-image: url(' + value + ');');
+				background_img.setAttribute('style', 'background-image: url("' + value + '");');
 				node.appendChild(background_img);
 				// append element to grid
 				const grid = document.querySelector('.p-grid-bg');
@@ -204,7 +204,7 @@ function restoreOptions() {
 			var value = false;
 		} else if (result.expandLayout == true) {
 			document.querySelector('#checkbox-expand-layout').checked = true;
-			var icons = document.querySelectorAll('.icon-expand-layout');
+			const icons = document.querySelectorAll('.icon-expand-layout, .icon-resize-width, .icon-resize-offset');
 			icons.forEach(function (icon) {
 				icon.style.backgroundColor = 'var(--accent)';
 			});
@@ -251,6 +251,31 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Scroll Tall Images: ' + value);
+	});
+
+	// Add Scrollbar To Tall Images Max Image Size
+	BROWSER_API.storage.sync.get(['imageScrollMaxImageWidth'], function (result) {
+		if (typeof result.imageScrollMaxImageWidth != 'undefined') {
+			if (result.imageScrollMaxImageWidth > 9 && result.imageScrollMaxImageWidth <= 100) {
+				document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+				const imageScroll = document.querySelector('#checkbox-image-scroll').checked;
+				if (imageScroll === true) {
+					document.querySelector('.icon-image-scroll-max-image-width').style.backgroundColor = 'var(--accent)';
+				}
+				document.querySelector('#input-image-scroll-max-image-width').value = result.imageScrollMaxImageWidth;
+				document.querySelector('#image-scroll-max-image-width-value').innerText = result.imageScrollMaxImageWidth + '%';
+				var value = result.imageScrollMaxImageWidth + 'px';
+			} else {
+				document.querySelector('#input-image-scroll-max-image-width').value = 9;
+				document.querySelector('#image-scroll-max-image-width-value').innerText = '100%';
+				var value = 'default (100%)';
+			}
+		} else if (typeof result.imageScrollMaxImageWidth == 'undefined') {
+			document.querySelector('#input-image-scroll-max-image-width').value = 9;
+			document.querySelector('#image-scroll-max-image-width-value').innerText = '100%';
+			var value = 'default (100%)';
+		}
+		console.log('Add Scrollbar To Tall Images Max Image Size: ' + value);
 	});
 
 	// Dropshadows
@@ -1072,26 +1097,39 @@ function restoreOptions() {
 		console.log('Override Drop Shadow CSS: ' + value);
 	});
 
-	// Post Max Height
-	BROWSER_API.storage.sync.get(['postMaxHeight'], function (result) {
-		if (typeof result.postMaxHeight != 'undefined') {
-			if (result.postMaxHeight > 304 && result.postMaxHeight <= 1000) {
-				document.querySelector('.icon-feed-post-max-height').style.backgroundColor = 'var(--accent)';
+	// Post Height
+	BROWSER_API.storage.sync.get(['postHeight'], function (result) {
+		if (result.postHeight === true) {
+			document.querySelector('#checkbox-post-height').checked = true;
+			document.querySelector('.icon-post-height').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.postHeight == 'undefined' || result.postHeight == false) {
+			document.querySelector('#checkbox-post-height').checked = false;
+			var value = false;
+		}
+		console.log('Post Height: ' + value);
+	});
+
+	// Post Height Size
+	BROWSER_API.storage.sync.get(['postHeightSize'], function (result) {
+		if (typeof result.postHeightSize != 'undefined') {
+			if (result.postHeightSize > 304 && result.postHeightSize <= 1000) {
 				document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
-				document.querySelector('#input-feed-post-max-height').value = result.postMaxHeight;
-				document.querySelector('#feed-post-max-height-value').innerText = result.postMaxHeight + 'px';
-				var value = result.postMaxHeight + 'px';
+				document.querySelector('#input-feed-post-max-height').value = result.postHeightSize;
+				document.querySelector('#feed-post-max-height-value').innerText = result.postHeightSize + 'px';
+				var value = result.postHeightSize + 'px';
 			} else {
 				document.querySelector('#input-feed-post-max-height').value = 296;
 				document.querySelector('#feed-post-max-height-value').innerText = '512px';
 				var value = 'default (512px)';
 			}
-		} else if (typeof result.postMaxHeight == 'undefined') {
+		} else if (typeof result.postHeightSize == 'undefined') {
 			document.querySelector('#input-feed-post-max-height').value = 296;
 			document.querySelector('#feed-post-max-height-value').innerText = '512px';
 			var value = 'default (512px)';
 		}
-		console.log('Max Post Height: ' + value);
+		console.log('Post Height Size: ' + value);
 	});
 
 	// Bionic Reader - Comments
@@ -1332,6 +1370,58 @@ function restoreOptions() {
 			var value = '';
 		}
 		console.log('Post Text Colour CSS: ' + value);
+	});
+
+	// Theme Post Comments Text Colour
+	BROWSER_API.storage.sync.get(['themePostCommentsTextColour1'], function (result) {
+		if (result.themePostCommentsTextColour1 == true) {
+			document.querySelector('.icon-post-comments-text-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-post-comments-text-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themePostCommentsTextColour1 == 'undefined' || result.themePostCommentsTextColour1 == false) {
+			document.querySelector('#checkbox-post-comments-text-colour').checked = false;
+			var value = false;
+		}
+		console.log('Post Comments Text Colour: ' + value);
+	});
+
+	// Theme Post Comments Text Colour CSS
+	BROWSER_API.storage.sync.get(['themePostCommentsTextColour1CSS'], function (result) {
+		if (typeof result.themePostCommentsTextColour1CSS != 'undefined') {
+			document.querySelector('#input-post-comments-text-colour-css').value = result.themePostCommentsTextColour1CSS;
+			var value = result.themePostCommentsTextColour1CSS;
+		} else {
+			document.querySelector('#input-post-comments-text-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Post Comments Text Colour CSS: ' + value);
+	});
+
+	// Theme Post Comments Secondary Text Colour
+	BROWSER_API.storage.sync.get(['themePostCommentsTextColour2'], function (result) {
+		if (result.themePostCommentsTextColour2 == true) {
+			document.querySelector('.icon-post-comments-secondary-text-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-post-comments-secondary-text-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themePostCommentsTextColour2 == 'undefined' || result.themePostCommentsTextColour2 == false) {
+			document.querySelector('#checkbox-post-comments-secondary-text-colour').checked = false;
+			var value = false;
+		}
+		console.log('Post Comments Secondary Text Colour: ' + value);
+	});
+
+	// Theme Post Comments Secondary Text Colour CSS
+	BROWSER_API.storage.sync.get(['themePostCommentsTextColour2CSS'], function (result) {
+		if (typeof result.themePostCommentsTextColour2CSS != 'undefined') {
+			document.querySelector('#input-post-comments-secondary-text-colour-css').value = result.themePostCommentsTextColour2CSS;
+			var value = result.themePostCommentsTextColour2CSS;
+		} else {
+			document.querySelector('#input-post-comments-secondary-text-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Post Comments Secondary Text Colour CSS: ' + value);
 	});
 
 	// Theme Post Visited Title Colour
@@ -1680,11 +1770,11 @@ function restoreOptions() {
 		if (result.autoRedirectVersion === 'off' || typeof result.redditVersion == 'undefined') {
 			document.querySelector('#chosen-reddit-version').textContent = i18n.t('Off.message');
 		} else if (result.autoRedirectVersion === 'old') {
-			document.querySelector('#chosen-reddit-version').textContent = i18n.t('OldReddit.message');
+			document.querySelector('#chosen-reddit-version').textContent = i18n.t('OldUI.message');
 		} else if (result.autoRedirectVersion === 'new') {
-			document.querySelector('#chosen-reddit-version').textContent = i18n.t('NewReddit.message');
+			document.querySelector('#chosen-reddit-version').textContent = i18n.t('OldNewUI.message');
 		} else if (result.autoRedirectVersion === 'newnew') {
-			document.querySelector('#chosen-reddit-version').textContent = i18n.t('LatestReddit.message');
+			document.querySelector('#chosen-reddit-version').textContent = i18n.t('NewNewUI.message');
 		}
 	});
 
@@ -1899,7 +1989,7 @@ function restoreOptions() {
 		if (result.bionicReaderFontColour == true) {
 			document.querySelector('.icon-bionic-font-colour').style.backgroundColor = 'var(--accent)';
 			document.querySelector('#checkbox-bionic-font-colour').checked = true;
-			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-accessibility').style.backgroundColor = 'var(--accent)';
 			var value = true;
 		} else if (typeof result.bionicReaderFontColour == 'undefined' || result.bionicReaderFontColour == false) {
 			document.querySelector('#checkbox-bionic-font-colour').checked = false;
@@ -1925,7 +2015,7 @@ function restoreOptions() {
 		if (result.bionicReaderBgColour == true) {
 			document.querySelector('.icon-bionic-bg-colour').style.backgroundColor = 'var(--accent)';
 			document.querySelector('#checkbox-bionic-bg-colour').checked = true;
-			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-accessibility').style.backgroundColor = 'var(--accent)';
 			var value = true;
 		} else if (typeof result.bionicReaderBgColour == 'undefined' || result.bionicReaderBgColour == false) {
 			document.querySelector('#checkbox-bionic-bg-colour').checked = false;
@@ -1973,6 +2063,274 @@ function restoreOptions() {
 		}
 		console.log('Auto Expand Comments: ' + value);
 	});
+
+	// Sidebar Text Colour
+	BROWSER_API.storage.sync.get(['themeSidebarTextColour'], function (result) {
+		if (result.themeSidebarTextColour == true) {
+			document.querySelector('.icon-sidebar-text-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-sidebar-text-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeSidebarTextColour == 'undefined' || result.themeSidebarTextColour == false) {
+			document.querySelector('#checkbox-sidebar-text-colour').checked = false;
+			var value = false;
+		}
+		console.log('Sidebar Text Colour: ' + value);
+	});
+
+	// Sidebar Text Colour CSS
+	BROWSER_API.storage.sync.get(['themeSidebarTextColourCSS'], function (result) {
+		if (typeof result.themeSidebarTextColourCSS != 'undefined') {
+			document.querySelector('#input-sidebar-text-colour-css').value = result.themeSidebarTextColourCSS;
+			var value = result.themeSidebarTextColourCSS;
+		} else {
+			document.querySelector('#input-sidebar-text-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Sidebar Text Colour CSS: ' + value);
+	});
+
+	// Sidebar Background Colour
+	BROWSER_API.storage.sync.get(['themeSidebarBgColour'], function (result) {
+		if (result.themeSidebarBgColour == true) {
+			document.querySelector('.icon-sidebar-bg-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-sidebar-bg-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeSidebarBgColour == 'undefined' || result.themeSidebarBgColour == false) {
+			document.querySelector('#checkbox-sidebar-bg-colour').checked = false;
+			var value = false;
+		}
+		console.log('Sidebar Background Colour: ' + value);
+	});
+
+	// Sidebar Background Colour CSS
+	BROWSER_API.storage.sync.get(['themeSidebarBgColourCSS'], function (result) {
+		if (typeof result.themeSidebarBgColourCSS != 'undefined') {
+			document.querySelector('#input-sidebar-bg-colour-css').value = result.themeSidebarBgColourCSS;
+			var value = result.themeSidebarBgColourCSS;
+		} else {
+			document.querySelector('#input-sidebar-bg-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Sidebar Background Colour CSS: ' + value);
+	});
+
+	// Sidemenu Text Colour
+	BROWSER_API.storage.sync.get(['themeSidemenuTextColour'], function (result) {
+		if (result.themeSidemenuTextColour == true) {
+			document.querySelector('.icon-sidemenu-text-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-sidemenu-text-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeSidemenuTextColour == 'undefined' || result.themeSidemenuTextColour == false) {
+			document.querySelector('#checkbox-sidemenu-text-colour').checked = false;
+			var value = false;
+		}
+		console.log('Sidemenu Text Colour: ' + value);
+	});
+
+	// Sidemenu Text Colour CSS
+	BROWSER_API.storage.sync.get(['themeSidemenuTextColourCSS'], function (result) {
+		if (typeof result.themeSidemenuTextColourCSS != 'undefined') {
+			document.querySelector('#input-sidemenu-text-colour-css').value = result.themeSidemenuTextColourCSS;
+			var value = result.themeSidemenuTextColourCSS;
+		} else {
+			document.querySelector('#input-sidemenu-text-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Sidemenu Text Colour CSS: ' + value);
+	});
+
+	// Sidemenu Background Colour
+	BROWSER_API.storage.sync.get(['themeSidemenuBgColour'], function (result) {
+		if (result.themeSidemenuBgColour == true) {
+			document.querySelector('.icon-sidemenu-bg-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-sidemenu-bg-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeSidemenuBgColour == 'undefined' || result.themeSidemenuBgColour == false) {
+			document.querySelector('#checkbox-sidemenu-bg-colour').checked = false;
+			var value = false;
+		}
+		console.log('Sidemenu Background Colour: ' + value);
+	});
+
+	// Sidemenu Background Colour CSS
+	BROWSER_API.storage.sync.get(['themeSidemenuBgColourCSS'], function (result) {
+		if (typeof result.themeSidemenuBgColourCSS != 'undefined') {
+			document.querySelector('#input-sidemenu-bg-colour-css').value = result.themeSidemenuBgColourCSS;
+			var value = result.themeSidemenuBgColourCSS;
+		} else {
+			document.querySelector('#input-sidemenu-bg-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Sidemenu Background Colour CSS: ' + value);
+	});
+
+	// Sidebar Border Colour
+	BROWSER_API.storage.sync.get(['themeSidebarBorderColour'], function (result) {
+		if (result.themeSidebarBorderColour == true) {
+			document.querySelector('.icon-sidebar-border-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-sidebar-border-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeSidebarBorderColour == 'undefined' || result.themeSidebarBorderColour == false) {
+			document.querySelector('#checkbox-sidebar-border-colour').checked = false;
+			var value = false;
+		}
+		console.log('Sidebar Border Colour: ' + value);
+	});
+
+	// Sidebar Border Colour CSS
+	BROWSER_API.storage.sync.get(['themeSidebarBorderColourCSS'], function (result) {
+		if (typeof result.themeSidebarBorderColourCSS != 'undefined') {
+			document.querySelector('#input-sidebar-border-colour-css').value = result.themeSidebarBorderColourCSS;
+			var value = result.themeSidebarBorderColourCSS;
+		} else {
+			document.querySelector('#input-sidebar-border-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Sidebar Border Colour CSS: ' + value);
+	});
+
+	// Hide Post Hidden Message
+	BROWSER_API.storage.sync.get(['hidePostHiddenMessage'], function (result) {
+		if (result.hidePostHiddenMessage == true) {
+			document.querySelector('.icon-hide-post-hidden-message').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-post-hidden-message').checked = true;
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hidePostHiddenMessage == 'undefined' || result.hidePostHiddenMessage == false) {
+			document.querySelector('#checkbox-hide-post-hidden-message').checked = false;
+			var value = false;
+		}
+		console.log('Hide Post Hidden Message: ' + value);
+	});
+	/*
+	// Scale Post To Fit Image
+	BROWSER_API.storage.sync.get(['scalePostToFitImage'], function (result) {
+		if (result.scalePostToFitImage == true) {
+			document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-scale-post-to-fit-image').checked = true;
+			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.scalePostToFitImage == 'undefined' || result.scalePostToFitImage == false) {
+			document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
+			var value = false;
+		}
+		console.log('Scale Post To Fit Image: ' + value);
+	});
+
+	// Scale Post To Fit Image Max Image Size
+	BROWSER_API.storage.sync.get(['scalePostToFitImageMaxImageWidth'], function (result) {
+		if (typeof result.scalePostToFitImageMaxImageWidth != 'undefined') {
+			if (result.scalePostToFitImageMaxImageWidth > 29 && result.scalePostToFitImageMaxImageWidth <= 100) {
+				document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+				const scalePostToFitImage = document.querySelector('#checkbox-scale-post-to-fit-image').checked;
+				if (scalePostToFitImage === true) {
+					document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = 'var(--accent)';
+				}
+				document.querySelector('#input-scale-post-to-fit-image-max-image-width').value = result.scalePostToFitImageMaxImageWidth;
+				document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = result.scalePostToFitImageMaxImageWidth + '%';
+				var value = result.scalePostToFitImageMaxImageWidth + 'px';
+			} else {
+				document.querySelector('#input-scale-post-to-fit-image-max-image-width').value = 29;
+				document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = '40%';
+				var value = 'default (40%)';
+			}
+		} else if (typeof result.scalePostToFitImageMaxImageWidth == 'undefined') {
+			document.querySelector('#input-scale-post-to-fit-image-max-image-width').value = 29;
+			document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = '40%';
+			var value = 'default (40%)';
+		}
+		console.log('Scale Post To Fit Image Max Image Size: ' + value);
+	});
+	*/
+	/*
+	// Drag Image to Resize
+	BROWSER_API.storage.sync.get(['dragImageToResize'], function (result) {
+		if (result.dragImageToResize == true) {
+			document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-drag-image-to-resize').checked = true;
+			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.dragImageToResize == 'undefined' || result.dragImageToResize == false) {
+			document.querySelector('#checkbox-drag-image-to-resize').checked = false;
+			var value = false;
+		}
+		console.log('Drag Image to Resize: ' + value);
+	});
+
+	// Drag Image to Resize Initial Size
+	BROWSER_API.storage.sync.get(['dragImageToResizeInitialSize'], function (result) {
+		if (typeof result.dragImageToResizeInitialSize != 'undefined') {
+			if (result.dragImageToResizeInitialSize > 99 && result.dragImageToResizeInitialSize <= 1000) {
+				document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+				const dragImageToResize = document.querySelector('#checkbox-drag-image-to-resize').checked;
+				if (dragImageToResize === true) {
+					document.querySelector('.icon-drag-image-to-resize-initial-size').style.backgroundColor = 'var(--accent)';
+				}
+				document.querySelector('#input-drag-image-to-resize-initial-size').value = result.dragImageToResizeInitialSize;
+				document.querySelector('#drag-image-to-resize-initial-size-value').innerText = result.dragImageToResizeInitialSize + 'px';
+				var value = result.dragImageToResizeInitialSize + 'px';
+			} else {
+				document.querySelector('#input-drag-image-to-resize-initial-size').value = 99;
+				document.querySelector('#drag-image-to-resize-initial-size-value').innerText = '350px';
+				var value = 'default (350px)';
+			}
+		} else if (typeof result.dragImageToResizeInitialSize == 'undefined') {
+			document.querySelector('#input-drag-image-to-resize-initial-size').value = 99;
+			document.querySelector('#drag-image-to-resize-initial-size-value').innerText = '350px';
+			var value = 'default (350px)';
+		}
+		console.log('Drag Image to Resize Initial Size: ' + value);
+	});
+*/
+	// Just Open The Image
+	BROWSER_API.storage.sync.get(['justOpenTheImage'], function (result) {
+		if (result.justOpenTheImage == true) {
+			BROWSER_API.permissions.contains(
+				{
+					permissions: ['webRequest', 'webRequestBlocking'],
+					origins: ['*://*.redd.it/*'],
+				},
+				(result) => {
+					if (result) {
+						document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
+						document.querySelector('#checkbox-just-open-the-image').checked = true;
+						document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+						var value = true;
+					} else {
+						var value = 'false. Optional permissions not granted';
+					}
+					console.log('Just Open The Image: ' + value);
+				}
+			);
+		} else if (typeof result.justOpenTheImage == 'undefined' || result.justOpenTheImage == false) {
+			document.querySelector('#checkbox-just-open-the-image').checked = false;
+			console.log('Just Open The Image: ' + false);
+		}
+	});
+
+	// Add Download Video Button
+	/*BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
+		if (result.addDownloadVideoButton == true) {
+			document.querySelector('.icon-add-download-video-button').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-add-download-video-button').checked = true;
+			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.addDownloadVideoButton == 'undefined' || result.addDownloadVideoButton == false) {
+			document.querySelector('#checkbox-add-download-video-button').checked = false;
+			var value = false;
+		}
+		console.log('Add Download Video Button: ' + value);
+	});*/
+
+	// Account Switcher
+	/*BROWSER_API.storage.local.get(['accounts'], function (result) {
+		console.log(result.accounts);
+	});*/
 
 	// Pre-Select Search Input
 	document.querySelector('#search').focus();

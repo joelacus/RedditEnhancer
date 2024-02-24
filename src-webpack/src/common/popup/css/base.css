@@ -3,7 +3,7 @@
 :root {
 	--accent: #ff4703;
 	--accent-rgb: 255, 71, 3;
-	--border-radius: 5px;
+	--border-radius: 8px;
 	--bg-shade-1: #101010;
 	--bg: #141414;
 	--bg-tint-1: #19191a;
@@ -41,6 +41,7 @@ body {
 	border-radius: var(--border-radius);
 	width: 470px;
 	font-size: 14px;
+	overflow: hidden;
 }
 body {
 	margin: 0;

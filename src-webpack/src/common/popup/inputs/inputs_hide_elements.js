@@ -1058,3 +1058,33 @@ document.querySelector('#checkbox-hide-user-profile-pics').addEventListener('cha
 		});
 	}
 });
+
+// Toggle - Hide Post Hidden Message
+document.querySelector('#checkbox-hide-post-hidden-message').addEventListener('change', function (e) {
+	const hidePostHiddenMessage = document.querySelector('#checkbox-hide-post-hidden-message').checked;
+	if (hidePostHiddenMessage === true) {
+		BROWSER_API.storage.sync.set({ hidePostHiddenMessage: true });
+		document.querySelector('.icon-hide-post-hidden-message').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-post-hidden-message').classList.remove('icon-show');
+		document.querySelector('.icon-hide-post-hidden-message').classList.add('icon-hide');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hidePostHiddenMessage: true });
+				}
+			});
+		});
+	} else if (hidePostHiddenMessage === false) {
+		BROWSER_API.storage.sync.set({ hidePostHiddenMessage: false });
+		document.querySelector('.icon-hide-post-hidden-message').style.backgroundColor = '';
+		document.querySelector('.icon-hide-post-hidden-message').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-post-hidden-message').classList.add('icon-show');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hidePostHiddenMessage: false });
+				}
+			});
+		});
+	}
+});

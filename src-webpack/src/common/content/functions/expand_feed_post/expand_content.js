@@ -184,7 +184,7 @@ function enableExpandContentNew() {
 									max-width: var(--re-post-overlay-width) !important;
 								}
 								.ListingLayout-backgroundContainer + div:has([href="/settings/profile"]) > :last-child > :first-child {
-									width: var(--re-user-feed-width) !important;
+									width: var(--re-user-profile-width) !important;
 								}
 								.Post [data-test-id="post-content"] > div:has(.RichTextJSON-root) {
 									max-width: 100% !important;

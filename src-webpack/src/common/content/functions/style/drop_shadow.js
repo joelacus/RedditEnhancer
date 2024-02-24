@@ -23,15 +23,22 @@ function enableAddDropShadowNew() {
 								.ListingLayout-backgroundContainer + div > :last-child > :last-child > :first-child > div,
 								.ListingLayout-backgroundContainer + div > :first-child > :first-child > :last-child > :first-child div:has([data-testid="posts-list"]),
 								[data-testid="search-results-sidebar"] > :first-child,
-								.ListingLayout-backgroundContainer + div > :last-child > :first-child > :first-child:has([name="createPost"]) {
+								.ListingLayout-backgroundContainer + div > :last-child > :first-child > :first-child:has([name="createPost"]),
+								.ListingLayout-backgroundContainer + div > :last-child > :first-child > div:has(.icon-new_fill),
+								.ListingLayout-backgroundContainer + div > :last-child > :first-child > div:has(.Post) > div,
+								.ListingLayout-backgroundContainer + div > :last-child > :first-child > div:has(>[data-testid="post-container"]) {
 									box-shadow: var(--re-shadow);
 								}
 								.ListingLayout-backgroundContainer + div > :last-child > :last-child > :first-child > div:has([style="top:calc(100vh - 8px)"]),
+								.ListingLayout-backgroundContainer + div > :last-child > :last-child > :first-child > div:has([style="top: calc(-8px + 100vh);"]),
 								.ListingLayout-backgroundContainer + div > :last-child > :first-child:has(#LayoutSwitch--picker),
 								.ListingLayout-backgroundContainer + div > :last-child > :first-child:has([data-testid="safe-search-toggle"]),
 								.ListingLayout-backgroundContainer + div > :last-child > :first-child:has([aria-labelledby="send-replies"]),
 								[data-testid="search-results-nav"], [data-testid="search-results-subnav"],
-								[data-testid="frontpage-sidebar"] > :last-child {
+								[data-testid="frontpage-sidebar"] > :last-child,
+								.ListingLayout-backgroundContainer + div > :last-child > div:has(.Post):has(.Comment):has(.icon-new_fill),
+								.ListingLayout-backgroundContainer + div > :last-child > :first-child:has([tabindex="0"]),
+								.ListingLayout-backgroundContainer + div > :last-child > :first-child > div:has(.Post):has(.Comment) > div {
 									box-shadow: none !important;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);

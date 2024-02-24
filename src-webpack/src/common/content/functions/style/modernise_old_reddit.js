@@ -261,6 +261,7 @@ function styleModerniseOldReddit(value) {
 									}
 									#header-bottom-right {
 										position: relative !important;
+										top: 0 !important;
 										align-items: center;
 										grid-gap: 16px;
 										height: 50px;
@@ -423,6 +424,12 @@ function styleModerniseOldReddit(value) {
 										max-width: 185px;
 										background-size: 100% auto;
 										background-position: center;
+									}
+									.md-container .md {
+										background-color: #1a1a1b !important;
+									}
+									.md-container .md p {
+										color: #fff !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

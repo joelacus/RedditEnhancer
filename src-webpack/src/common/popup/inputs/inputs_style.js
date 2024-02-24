@@ -147,7 +147,7 @@ document.querySelector('#checkbox-modern-old-reddit').addEventListener('change',
 
 // Toggle - Header Background Colour
 document.querySelector('#checkbox-header-bg-colour').addEventListener('change', function (e) {
-	var themeHeaderBackgroundColour = document.querySelector('#checkbox-header-bg-colour').checked;
+	const themeHeaderBackgroundColour = document.querySelector('#checkbox-header-bg-colour').checked;
 	if (themeHeaderBackgroundColour == true) {
 		BROWSER_API.storage.sync.set({ themeHeaderBackgroundColour: true });
 		document.querySelector('.icon-header-bg-colour').style.backgroundColor = 'var(--accent)';
@@ -186,7 +186,7 @@ document.querySelector('#input-header-bg-colour-css').addEventListener('keyup', 
 
 // Toggle - Header Text Colour
 document.querySelector('#checkbox-header-text-colour').addEventListener('change', function (e) {
-	var themeHeaderTextColour = document.querySelector('#checkbox-header-text-colour').checked;
+	const themeHeaderTextColour = document.querySelector('#checkbox-header-text-colour').checked;
 	if (themeHeaderTextColour == true) {
 		BROWSER_API.storage.sync.set({ themeHeaderTextColour: true });
 		document.querySelector('.icon-header-text-colour').style.backgroundColor = 'var(--accent)';
@@ -225,7 +225,7 @@ document.querySelector('#input-header-text-colour-css').addEventListener('keyup'
 
 // Toggle - Sort Background Colour
 document.querySelector('#checkbox-sort-bg-colour').addEventListener('change', function (e) {
-	var themeSortBackgroundColour = document.querySelector('#checkbox-sort-bg-colour').checked;
+	const themeSortBackgroundColour = document.querySelector('#checkbox-sort-bg-colour').checked;
 	if (themeSortBackgroundColour == true) {
 		BROWSER_API.storage.sync.set({ themeSortBackgroundColour: true });
 		document.querySelector('.icon-sort-bg-colour').style.backgroundColor = 'var(--accent)';
@@ -264,7 +264,7 @@ document.querySelector('#input-sort-bg-colour-css').addEventListener('keyup', fu
 
 // Toggle - Sort Text Colour
 document.querySelector('#checkbox-sort-text-colour').addEventListener('change', function (e) {
-	var themeSortTextColour = document.querySelector('#checkbox-sort-text-colour').checked;
+	const themeSortTextColour = document.querySelector('#checkbox-sort-text-colour').checked;
 	if (themeSortTextColour == true) {
 		BROWSER_API.storage.sync.set({ themeSortTextColour: true });
 		document.querySelector('.icon-sort-text-colour').style.backgroundColor = 'var(--accent)';
@@ -303,7 +303,7 @@ document.querySelector('#input-sort-text-colour-css').addEventListener('keyup', 
 
 // Toggle - Sort Text Colour 2
 document.querySelector('#checkbox-sort-text-colour-2').addEventListener('change', function (e) {
-	var themeSortTextColour2 = document.querySelector('#checkbox-sort-text-colour-2').checked;
+	const themeSortTextColour2 = document.querySelector('#checkbox-sort-text-colour-2').checked;
 	if (themeSortTextColour2 == true) {
 		BROWSER_API.storage.sync.set({ themeSortTextColour2: true });
 		document.querySelector('.icon-sort-text-colour-2').style.backgroundColor = 'var(--accent)';
@@ -342,7 +342,7 @@ document.querySelector('#input-sort-text-colour-2-css').addEventListener('keyup'
 
 // Toggle - Sort Border Colour
 document.querySelector('#checkbox-sort-border-colour').addEventListener('change', function (e) {
-	var themeSortBorderColour = document.querySelector('#checkbox-sort-border-colour').checked;
+	const themeSortBorderColour = document.querySelector('#checkbox-sort-border-colour').checked;
 	if (themeSortBorderColour == true) {
 		BROWSER_API.storage.sync.set({ themeSortBorderColour: true });
 		document.querySelector('.icon-sort-border-colour').style.backgroundColor = 'var(--accent)';
@@ -381,7 +381,7 @@ document.querySelector('#input-sort-border-colour-css').addEventListener('keyup'
 
 // Toggle - Post Background Colour
 document.querySelector('#checkbox-post-bg-colour').addEventListener('change', function (e) {
-	var themePostBackgroundColour = document.querySelector('#checkbox-post-bg-colour').checked;
+	const themePostBackgroundColour = document.querySelector('#checkbox-post-bg-colour').checked;
 	if (themePostBackgroundColour == true) {
 		BROWSER_API.storage.sync.set({ themePostBackgroundColour: true });
 		document.querySelector('.icon-post-bg-colour').style.backgroundColor = 'var(--accent)';
@@ -420,7 +420,7 @@ document.querySelector('#input-post-bg-colour-css').addEventListener('keyup', fu
 
 // Toggle - Post Text Colour
 document.querySelector('#checkbox-post-text-colour').addEventListener('change', function (e) {
-	var themePostTextColour1 = document.querySelector('#checkbox-post-text-colour').checked;
+	const themePostTextColour1 = document.querySelector('#checkbox-post-text-colour').checked;
 	if (themePostTextColour1 == true) {
 		BROWSER_API.storage.sync.set({ themePostTextColour1: true });
 		document.querySelector('.icon-post-text-colour').style.backgroundColor = 'var(--accent)';
@@ -452,6 +452,84 @@ document.querySelector('#input-post-text-colour-css').addEventListener('keyup', 
 		tabs.forEach(function (tab) {
 			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
 				BROWSER_API.tabs.sendMessage(tab.id, { themePostTextColour1CSS: css });
+			}
+		});
+	});
+});
+
+// Toggle - Post Comments Text Colour
+document.querySelector('#checkbox-post-comments-text-colour').addEventListener('change', function (e) {
+	const themePostCommentsTextColour1 = document.querySelector('#checkbox-post-comments-text-colour').checked;
+	if (themePostCommentsTextColour1 == true) {
+		BROWSER_API.storage.sync.set({ themePostCommentsTextColour1: true });
+		document.querySelector('.icon-post-comments-text-colour').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themePostCommentsTextColour1: true });
+				}
+			});
+		});
+	} else if (themePostCommentsTextColour1 == false) {
+		BROWSER_API.storage.sync.set({ themePostCommentsTextColour1: false });
+		document.querySelector('.icon-post-comments-text-colour').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themePostCommentsTextColour1: false });
+				}
+			});
+		});
+	}
+});
+
+// Input - Post Comments Text Colour CSS
+document.querySelector('#input-post-comments-text-colour-css').addEventListener('keyup', function (e) {
+	const css = document.querySelector('#input-post-comments-text-colour-css').value;
+	BROWSER_API.storage.sync.set({ themePostCommentsTextColour1CSS: css });
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { themePostCommentsTextColour1CSS: css });
+			}
+		});
+	});
+});
+
+// Toggle - Post Comments Secondary Text Colour
+document.querySelector('#checkbox-post-comments-secondary-text-colour').addEventListener('change', function (e) {
+	const themePostCommentsTextColour2 = document.querySelector('#checkbox-post-comments-secondary-text-colour').checked;
+	if (themePostCommentsTextColour2 == true) {
+		BROWSER_API.storage.sync.set({ themePostCommentsTextColour2: true });
+		document.querySelector('.icon-post-comments-secondary-text-colour').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themePostCommentsTextColour2: true });
+				}
+			});
+		});
+	} else if (themePostCommentsTextColour2 == false) {
+		BROWSER_API.storage.sync.set({ themePostCommentsTextColour2: false });
+		document.querySelector('.icon-post-comments-secondary-text-colour').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themePostCommentsTextColour2: false });
+				}
+			});
+		});
+	}
+});
+
+// Input - Post Comments Secondary Text Colour CSS
+document.querySelector('#input-post-comments-secondary-text-colour-css').addEventListener('keyup', function (e) {
+	const css = document.querySelector('#input-post-comments-secondary-text-colour-css').value;
+	BROWSER_API.storage.sync.set({ themePostCommentsTextColour2CSS: css });
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { themePostCommentsTextColour2CSS: css });
 			}
 		});
 	});
@@ -735,4 +813,199 @@ document.querySelector('#checkbox-larger-classic-post').addEventListener('change
 			});
 		});
 	}
+});
+
+// Toggle - Sidebar Text Colour
+document.querySelector('#checkbox-sidebar-text-colour').addEventListener('change', function (e) {
+	const themeSidebarTextColour = document.querySelector('#checkbox-sidebar-text-colour').checked;
+	if (themeSidebarTextColour == true) {
+		BROWSER_API.storage.sync.set({ themeSidebarTextColour: true });
+		document.querySelector('.icon-sidebar-text-colour').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themeSidebarTextColour: true });
+				}
+			});
+		});
+	} else if (themeSidebarTextColour == false) {
+		BROWSER_API.storage.sync.set({ themeSidebarTextColour: false });
+		document.querySelector('.icon-sidebar-text-colour').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themeSidebarTextColour: false });
+				}
+			});
+		});
+	}
+});
+
+// Input - Sidebar Text Colour CSS
+document.querySelector('#input-sidebar-text-colour-css').addEventListener('keyup', function (e) {
+	const css = document.querySelector('#input-sidebar-text-colour-css').value;
+	BROWSER_API.storage.sync.set({ themeSidebarTextColourCSS: css });
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { themeSidebarTextColourCSS: css });
+			}
+		});
+	});
+});
+
+// Toggle - Sidebar Background Colour
+document.querySelector('#checkbox-sidebar-bg-colour').addEventListener('change', function (e) {
+	const themeSidebarBgColour = document.querySelector('#checkbox-sidebar-bg-colour').checked;
+	if (themeSidebarBgColour == true) {
+		BROWSER_API.storage.sync.set({ themeSidebarBgColour: true });
+		document.querySelector('.icon-sidebar-bg-colour').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themeSidebarBgColour: true });
+				}
+			});
+		});
+	} else if (themeSidebarBgColour == false) {
+		BROWSER_API.storage.sync.set({ themeSidebarBgColour: false });
+		document.querySelector('.icon-sidebar-bg-colour').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themeSidebarBgColour: false });
+				}
+			});
+		});
+	}
+});
+
+// Input - Sidebar Background Colour CSS
+document.querySelector('#input-sidebar-bg-colour-css').addEventListener('keyup', function (e) {
+	const css = document.querySelector('#input-sidebar-bg-colour-css').value;
+	BROWSER_API.storage.sync.set({ themeSidebarBgColourCSS: css });
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { themeSidebarBgColourCSS: css });
+			}
+		});
+	});
+});
+
+// Toggle - Sidemenu Text Colour
+document.querySelector('#checkbox-sidemenu-text-colour').addEventListener('change', function (e) {
+	const themeSidemenuTextColour = document.querySelector('#checkbox-sidemenu-text-colour').checked;
+	if (themeSidemenuTextColour == true) {
+		BROWSER_API.storage.sync.set({ themeSidemenuTextColour: true });
+		document.querySelector('.icon-sidemenu-text-colour').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themeSidemenuTextColour: true });
+				}
+			});
+		});
+	} else if (themeSidemenuTextColour == false) {
+		BROWSER_API.storage.sync.set({ themeSidemenuTextColour: false });
+		document.querySelector('.icon-sidemenu-text-colour').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themeSidemenuTextColour: false });
+				}
+			});
+		});
+	}
+});
+
+// Input - Sidemenu Text Colour CSS
+document.querySelector('#input-sidemenu-text-colour-css').addEventListener('keyup', function (e) {
+	const css = document.querySelector('#input-sidemenu-text-colour-css').value;
+	BROWSER_API.storage.sync.set({ themeSidemenuTextColourCSS: css });
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { themeSidemenuTextColourCSS: css });
+			}
+		});
+	});
+});
+
+// Toggle - Sidemenu Background Colour
+document.querySelector('#checkbox-sidemenu-bg-colour').addEventListener('change', function (e) {
+	const themeSidemenuBgColour = document.querySelector('#checkbox-sidebar-bg-colour').checked;
+	if (themeSidemenuBgColour == true) {
+		BROWSER_API.storage.sync.set({ themeSidemenuBgColour: true });
+		document.querySelector('.icon-sidemenu-bg-colour').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themeSidemenuBgColour: true });
+				}
+			});
+		});
+	} else if (themeSidemenuBgColour == false) {
+		BROWSER_API.storage.sync.set({ themeSidemenuBgColour: false });
+		document.querySelector('.icon-sidemenu-bg-colour').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themeSidemenuBgColour: false });
+				}
+			});
+		});
+	}
+});
+
+// Input - Sidemenu Background Colour CSS
+document.querySelector('#input-sidemenu-bg-colour-css').addEventListener('keyup', function (e) {
+	const css = document.querySelector('#input-sidemenu-bg-colour-css').value;
+	BROWSER_API.storage.sync.set({ themeSidemenuBgColourCSS: css });
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { themeSidemenuBgColourCSS: css });
+			}
+		});
+	});
+});
+
+// Toggle - Sidebar Border Colour
+document.querySelector('#checkbox-sidebar-border-colour').addEventListener('change', function (e) {
+	const themeSidebarBorderColour = document.querySelector('#checkbox-sidebar-border-colour').checked;
+	if (themeSidebarBorderColour == true) {
+		BROWSER_API.storage.sync.set({ themeSidebarBorderColour: true });
+		document.querySelector('.icon-sidebar-border-colour').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themeSidebarBorderColour: true });
+				}
+			});
+		});
+	} else if (themeSidebarBorderColour == false) {
+		BROWSER_API.storage.sync.set({ themeSidebarBorderColour: false });
+		document.querySelector('.icon-sidebar-border-colour').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themeSidebarBorderColour: false });
+				}
+			});
+		});
+	}
+});
+
+// Input - Sidebar Border Colour CSS
+document.querySelector('#input-sidebar-border-colour-css').addEventListener('keyup', function (e) {
+	const css = document.querySelector('#input-sidebar-border-colour-css').value;
+	BROWSER_API.storage.sync.set({ themeSidebarBorderColourCSS: css });
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { themeSidebarBorderColourCSS: css });
+			}
+		});
+	});
 });
