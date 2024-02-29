@@ -75,7 +75,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Auto Redirect To Reddit Version|Automatically redirect any reddit page to the old, new or latest version of Reddit.|N/A|
 |Hide profile pictures in the comments|Simply hides the user profile pictures in the comments of a post.|"Old New"<br />"New New"|
 |Auto Expand Hidden Comments|Automatically expand hidden comments on a post. This may add a delay to the page loading, especially if there are a lot of comments.|"Old New"<br />"New New"|
-|Resize Font|Individually change the post text content and comments font size|"Old New"<br />"New New"|
+|Resize Font|Individually change the post title, text content and comments font size.|All|
 |Bionic Reader|Enable bionic reading for posts and comments. You can also override the font and text background colours.|"Old New"<br />"New New"|
 |Just Open The Image|This will open just the image in a new tab when you click on it and not be embedded in a page. Only works on Firefox.|All|
 |Hide The "Post Hidden" Message|Hides the "Post Hidden" message when you hide a post|"Old New"|
