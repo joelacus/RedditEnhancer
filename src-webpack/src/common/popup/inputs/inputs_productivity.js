@@ -918,7 +918,6 @@ document.querySelector('#checkbox-post-height').addEventListener('change', funct
 // Slider - Feed Post Height
 document.querySelector('#input-feed-post-max-height').addEventListener('input', function (e) {
 	// set ui
-	const value = e.target.value;
 	if (value != 296) {
 		document.querySelector('#feed-post-max-height-value').innerText = e.target.value + 'px';
 	} else {
@@ -928,14 +927,16 @@ document.querySelector('#input-feed-post-max-height').addEventListener('input', 
 document.querySelector('#input-feed-post-max-height').addEventListener('mouseup', function (e) {
 	if (e.target.value != 296) {
 		document.querySelector('#feed-post-max-height-value').innerText = e.target.value + 'px';
+		var value = e.target.value;
 	} else {
 		document.querySelector('#feed-post-max-height-value').innerText = '512px';
+		var value = 512;
 	}
 	// apply
 	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
 		tabs.forEach(function (tab) {
 			if (tab.url.includes('reddit.com') && tab.discarded == false) {
-				BROWSER_API.tabs.sendMessage(tab.id, { postHeightSize: e.target.value });
+				BROWSER_API.tabs.sendMessage(tab.id, { postHeightSize: value });
 			}
 		});
 	});

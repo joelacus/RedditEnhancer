@@ -104,7 +104,7 @@ import {
 	hideSideMenuResourcesSection,
 	hideSideMenuTopSection,
 } from './functions/hide_elements/hide_side_menu_sections';
-import { postCommentsFontSize, postContentFontSize } from './functions/style/resize_font';
+import { postTitleFontSize, postCommentsFontSize, postContentFontSize } from './functions/accessibility/resize_font';
 import { hideUserProfilePics } from './functions/hide_elements/hide_user_profile_pics';
 import { autoExpandComments } from './functions/productivity/auto_expand_comments';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
@@ -371,6 +371,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		hideSideMenuCommunitiesSection(value);
 	} else if (key == 'hideSideMenuResourcesSection') {
 		hideSideMenuResourcesSection(value);
+	} else if (key == 'postTitleFontSize') {
+		postTitleFontSize(value);
 	} else if (key == 'postContentFontSize') {
 		postContentFontSize(value);
 	} else if (key == 'postCommentsFontSize') {

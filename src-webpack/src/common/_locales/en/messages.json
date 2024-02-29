@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.1.0"
+		"message": "1.2.0"
 	},
 
 	"extensionName": {
@@ -717,6 +717,10 @@
 
 	"UpdateFirefox": {
 		"message": "Please update to Firefox 121 or greater for some features to work correctly."
+	},
+
+	"PostTitle": {
+		"message": "Post Title"
 	},
 
 	"PostContent": {

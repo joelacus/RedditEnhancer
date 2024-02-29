@@ -1,5 +1,35 @@
 // Inputs - Accessibility Tweaks
 
+// Slider - Post Title Font Size
+document.querySelector('#input-post-title-font-size').addEventListener('input', function (e) {
+	// set ui
+	const value = e.target.value;
+	if (value != 9) {
+		document.querySelector('.icon-post-title-font-size').style.backgroundColor = 'var(--accent)';
+		document.querySelector('#post-title-font-size-value').innerText = e.target.value + 'px';
+	} else {
+		document.querySelector('.icon-post-title-font-size').style.backgroundColor = '';
+		document.querySelector('#post-title-font-size-value').innerText = '';
+	}
+	// apply
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.includes('reddit.com') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { postTitleFontSize: value });
+			}
+		});
+	});
+});
+document.querySelector('#input-post-title-font-size').addEventListener('mouseup', function (e) {
+	// save
+	const value = e.target.value;
+	if (value != 9) {
+		BROWSER_API.storage.sync.set({ postTitleFontSize: value });
+	} else {
+		BROWSER_API.storage.sync.set({ postTitleFontSize: false });
+	}
+});
+
 // Slider - Post Content Font Size
 document.querySelector('#input-post-content-font-size').addEventListener('input', function (e) {
 	// set ui

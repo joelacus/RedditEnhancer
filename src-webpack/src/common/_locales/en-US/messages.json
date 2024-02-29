@@ -32,7 +32,7 @@
 	},
 
 	"ThemeBlurInfo": {
-		"message": "Use translucent colours 'rgba(0,0,0,0.5)' to see blur effect."
+		"message": "Use translucent colors 'rgba(0,0,0,0.5)' to see blur effect."
 	},
 
 	"SortBgColour": {
@@ -96,11 +96,11 @@
 	},
 
 	"ThemeBlacklistInfo": {
-		"message": "Use theme colours globally, except for these subreddits:"
+		"message": "Use theme colors globally, except for these subreddits:"
 	},
 
 	"ThemeWhitelistInfo": {
-		"message": "Only use the theme colours for these subreddits:"
+		"message": "Only use the theme colors for these subreddits:"
 	},
 
 	"CreatePostBgColour": {

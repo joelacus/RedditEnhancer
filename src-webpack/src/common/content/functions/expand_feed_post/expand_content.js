@@ -82,6 +82,9 @@ function enableExpandContentOld() {
 								}
 								.re-centre-container-old {
 									transform: translateX(182px);
+								}
+								.thing .usertext-body > .md {
+									max-width: 100%;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 	// Apply resize

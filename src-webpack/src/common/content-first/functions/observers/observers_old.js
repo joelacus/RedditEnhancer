@@ -16,6 +16,7 @@ import { moderniseOldReddit } from '../../../content/functions/style/modernise_o
 import { loadHidePromotedPosts } from '../hide_elements/load_hide_promoted';
 import { loadCustomBackground } from '../style/load_custom_background';
 import { loadCustomTheme } from '../style/load_custom_theme_colours';
+import { loadResizeFont } from '../style/load_resize_font';
 
 // Load observers to wait for elements to load before tweaking, or load the tweak directly if an observer is not needed.
 
@@ -28,6 +29,7 @@ export function observersOld() {
 	loadHideSideMenuOld();
 	loadHidePromotedPosts();
 	moderniseOldReddit();
+	loadResizeFont();
 	if (useLegacy) {
 		legacyObserversOld();
 	} else {

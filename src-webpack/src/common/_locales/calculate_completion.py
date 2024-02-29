@@ -21,6 +21,8 @@ def main():
     with open(os.path.join(locales_dir, english_file), 'r', encoding='utf-8') as f:
         english_data = json.load(f)
     
+    print("This does not account for any translations that are the same in both English and the target language.")
+    print("So completion may appear less than 100%.\n")
     print("Percentage completion for each language:")
     for lang_dir in os.listdir(locales_dir):
         if lang_dir != 'en' and os.path.isdir(os.path.join(locales_dir, lang_dir)):

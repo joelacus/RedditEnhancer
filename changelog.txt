@@ -1,3 +1,8 @@
+version 1.2.0
+- Added an option to change the post title font size.
+- Added support for resizing fonts on Old UI.
+- Bug fix.
+
 version 1.1.0
 - Added an option "Just Open The Image". This will open just the image in a new tab when you click on it and not be embedded in a page. Only works on Firefox.
 - Added an option to change the post comments text colour.

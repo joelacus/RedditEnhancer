@@ -1952,6 +1952,22 @@ function restoreOptions() {
 		console.log('Hide Related Posts Section: ' + value);
 	});
 
+	// Post Title Font Size
+	BROWSER_API.storage.sync.get(['postTitleFontSize'], function (result) {
+		if (typeof result.postTitleFontSize == 'undefined' || result.postTitleFontSize == false) {
+			document.querySelector('#input-post-title-font-size').value = 9;
+			document.querySelector('#post-title-font-size-value').innerText = '';
+			var value = 'false';
+		} else {
+			document.querySelector('#input-post-title-font-size').value = result.postTitleFontSize;
+			document.querySelector('#post-title-font-size-value').innerText = result.postTitleFontSize + 'px';
+			document.querySelector('.icon-post-title-font-size').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-accessibility').style.backgroundColor = 'var(--accent)';
+			var value = result.postTitleFontSize + 'px';
+		}
+		console.log('Post Title Font Size: ' + value);
+	});
+
 	// Post Content Font Size
 	BROWSER_API.storage.sync.get(['postContentFontSize'], function (result) {
 		if (typeof result.postContentFontSize == 'undefined' || result.postContentFontSize == false) {
