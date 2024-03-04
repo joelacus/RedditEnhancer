@@ -32,7 +32,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide The Interface Gaps|This will remove all the gaps between the interface elements if you don't like that style.|"Old New"<br />"New New"|
 |Hide Create Post|You can hide the 'Create Post' bar at the top of your feed if you don't use or want to see it.|"Old New"|
 |Sticky Sort|This keeps the feed sort options "Best, Hot, New, etc" at the top even when you scroll down the page.|Old<br />"Old New"|
-|Hide The Home Sidebar|Hides the sidebar on the reddit home page.|Old<br />"Old New"|
+|Hide The Home Sidebar|Hides the sidebar on the reddit home page.|All|
 |Hide The Sub Reddit Sidebar|Hides the sidebar on sub reddit pages.|"Old New"<br />"New New"|
 |Hide The Post Sidebar|Hides the sidebar on post pages.|"Old New"<br />"New New"|
 |Hide The User Sidebar|Hides the sidebar on profile/user pages.|"Old New"<br />"New New"|
@@ -78,7 +78,10 @@ I welcome any help if you would like to improve or contribute new language trans
 |Resize Font|Individually change the post title, text content and comments font size.|All|
 |Bionic Reader|Enable bionic reading for posts and comments. You can also override the font and text background colours.|"Old New"<br />"New New"|
 |Just Open The Image|This will open just the image in a new tab when you click on it and not be embedded in a page. Only works on Firefox.|All|
-|Hide The "Post Hidden" Message|Hides the "Post Hidden" message when you hide a post|"Old New"|
+|Hide The "Post Hidden" Message|Hides the "Post Hidden" message when you hide a post|"Old New"<br />"New New"|
+|Show Post Author on the Home Feed|Shows the missing post author on the home feed for New New UI.|"New New"|
+|Show Post Flair on the Home Feed|Shows the missing post flair on the home feed for New New UI.|"New New"|
+|Expand Post Options|Moves the items in the post overflow menu into the header bar for quicker access.|"New New"|
 
 ## Build
 Clone repo and cd to build directory:
@@ -117,7 +120,7 @@ Data Security:
 
 Browser Sync:
 
-- If browser sync is enabled by the user, synchronisation of settings is handled by the browser to any other browers or devices the same user is logged into. Reddit Enhancer does not have any control over the sync process.
+- If browser sync is enabled by the user, synchronisation of settings is handled by the browser to any other browsers or devices the same user is logged into. Reddit Enhancer does not have any control over the sync process.
 
 Required Permissions:
 
