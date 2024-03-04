@@ -1,35 +1,38 @@
-// Show Post Author
+// Show Missing Post Author On The Home Feed
 
 export function showPostAuthor(value) {
 	if (redditVersion === 'newnew' && value === true) {
-		remove_username();
-		document.querySelectorAll('shreddit-post').forEach((post) => {
-			attach_username(post);
-		});
-		observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
+		if (document.querySelector('shreddit-app').getAttribute('routename') === 'frontpage') {
+			document.querySelectorAll('shreddit-post').forEach((post) => {
+				attach_username(post);
+			});
+			observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
+		}
 	} else if (redditVersion === 'newnew' && value === false) {
-		observer.disconnect();
-		remove_username();
+		if (document.querySelector('shreddit-app').getAttribute('routename') === 'frontpage') {
+			observer.disconnect();
+			remove_username();
+		}
 	}
 }
 
 // Remove all post author names and hover cards.
 function remove_username() {
 	document.querySelectorAll('shreddit-post').forEach((post) => {
-		if (post.querySelector('.post-author')) {
-			post.querySelector('.post-author').remove();
+		if (post.querySelector('.re-post-author')) {
+			post.querySelector('.re-post-author').remove();
 		}
 	});
 }
 
 // Attach post author to post header.
 function attach_username(post) {
-	if (!post.querySelector('[slot="authorName"] [data-id="user-hover-card"]')) {
+	if (!post.querySelector('.re-post-author')) {
 		const author = post.getAttribute('author');
 		const a = document.createElement('a');
-		a.classList.add('post-author');
+		a.classList.add('re-post-author');
 		a.style.zIndex = 3;
-		a.textContent = author;
+		a.textContent = 'u/' + author;
 		a.href = '/user/' + author;
 		a.addEventListener('mouseover', () => {
 			showHoverCard(post, author);
@@ -54,7 +57,7 @@ async function showHoverCard(post, username) {
 	// Create the hover card
 	const hoverCard = createHoverCard(userData);
 
-	const linkRect = post.querySelector('.post-author');
+	const linkRect = post.querySelector('.re-post-author');
 	hoverCard.style.left = linkRect.offsetLeft + 'px';
 	hoverCard.style.top = linkRect.offsetTop + 20 + 'px';
 

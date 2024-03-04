@@ -809,19 +809,19 @@ function restoreOptions() {
 		console.log('Move Feed Section In Side Menu To The Top: ' + value);
 	});
 
-	// Expand Post Options
-	/*BROWSER_API.storage.sync.get(['expandPostOptions'], function (result) {
-		if (result.expandPostOptions == true) {
-			document.querySelector('#checkbox-expand-post-options').checked = true;
-			document.querySelector('.icon-expand-post-options').style.backgroundColor = 'var(--accent)';
+	// Always Show Post Options
+	BROWSER_API.storage.sync.get(['alwaysShowPostOptions'], function (result) {
+		if (result.alwaysShowPostOptions == true) {
+			document.querySelector('#checkbox-always-show-post-options').checked = true;
+			document.querySelector('.icon-always-show-post-options').style.backgroundColor = 'var(--accent)';
 			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
 			var value = true;
-		} else if (typeof result.expandPostOptions == 'undefined' || result.expandPostOptions == false) {
-			document.querySelector('#checkbox-expand-post-options').checked = false;
+		} else if (typeof result.alwaysShowPostOptions == 'undefined' || result.alwaysShowPostOptions == false) {
+			document.querySelector('#checkbox-always-show-post-options').checked = false;
 			var value = false;
 		}
-		console.log('Expand Post Options: ' + value);
-	})*/
+		console.log('Always Show Post Options: ' + value);
+	});
 
 	// Add Scroll To Text Post
 	BROWSER_API.storage.sync.get(['textPostScroll'], function (result) {
@@ -1790,6 +1790,20 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Show Post Author: ' + value);
+	});
+
+	// Show Post Flair
+	BROWSER_API.storage.sync.get(['showPostFlair'], function (result) {
+		if (result.showPostFlair == true) {
+			document.querySelector('#checkbox-show-post-flair').checked = true;
+			document.querySelector('.icon-show-post-flair').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.showPostFlair == 'undefined' || result.showPostFlair == false) {
+			document.querySelector('#checkbox-show-post-flair').checked = false;
+			var value = false;
+		}
+		console.log('Show Post Flair: ' + value);
 	});
 
 	// Remove Page Side Margin

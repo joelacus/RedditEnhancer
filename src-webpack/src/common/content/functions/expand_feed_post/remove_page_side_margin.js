@@ -23,23 +23,24 @@ function enableRemovePageSideMargin() {
 								shreddit-app[routename="subreddit"] .subgrid-container {
 									margin-right: 1.5rem;
 								}
-								shreddit-app > .grid-container {
-									transform: translateY(-2px);
-								}
-								shreddit-app[routename="subreddit"] .grid-container,
-								shreddit-app[routename="post_page"] .sidebar-grid {
-									transform: translateY(-7px);
-								}
 								shreddit-app #right-sidebar-container {
 									margin-right: 0 !important;
 								}
 								shreddit-app #right-sidebar-container > faceplate-partial > section {
 									border-radius: 0 !important;
 								}
-								/*shreddit-app[routename="post_page"] .sidebar-grid {
-									position: absolute;
-									top: var(--shreddit-header-height);
-								}*/`;
+								shreddit-app[routename="frontpage"] {
+									--page-y-padding: calc(var(--shreddit-header-height) - 4px) !important;
+								}
+								shreddit-app[routename="subreddit"] {
+									--page-y-padding: calc(var(--shreddit-header-height) - 9px) !important;
+								}
+								shreddit-app[routename="post_page"] {
+									--page-y-padding: calc(var(--shreddit-header-height) - 10px) !important;
+								}
+								shreddit-app[routename^="profile_"] {
+									--page-y-padding: calc(var(--shreddit-header-height) - 7px) !important;
+								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 

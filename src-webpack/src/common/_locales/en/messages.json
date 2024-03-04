@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.2.0"
+		"message": "1.3.0"
 	},
 
 	"extensionName": {
@@ -643,6 +643,10 @@
 		"message": "Create Post: Border Colour"
 	},
 
+	"AlwaysShowPostOptions": {
+		"message": "Always Show Post Options"
+	},
+
 	"LargerClassicPost": {
 		"message": "Larger Classic Post View"
 	},
@@ -676,7 +680,11 @@
 	},
 
 	"ShowPostAuthor": {
-		"message": "Show Post Author"
+		"message": "Show Post Author on the Home Feed"
+	},
+
+	"ShowPostFlair": {
+		"message": "Show Post Flair on the Home Feed"
 	},
 
 	"RemovePageSideMargin": {

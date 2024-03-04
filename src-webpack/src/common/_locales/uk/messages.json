@@ -639,6 +639,10 @@
 		"message": "Створити публікацію: колір рамки"
 	},
 
+	"AlwaysShowPostOptions": {
+		"message": "Завжди показувати параметри публікації"
+	},
+
 	"LargerClassicPost": {
 		"message": "Збільшений класичний перегляд публікації"
 	},
@@ -673,6 +677,10 @@
 
 	"ShowPostAuthor": {
 		"message": "Показати автора публікації"
+	},
+
+	"ShowPostFlair": {
+		"message": "Шоу 'Post Flair'"
 	},
 
 	"RemovePageSideMargin": {

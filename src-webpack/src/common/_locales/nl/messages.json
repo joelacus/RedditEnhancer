@@ -639,6 +639,10 @@
 		"message": "Bericht Maken: Randkleur"
 	},
 
+	"AlwaysShowPostOptions": {
+		"message": "Toon Altijd Berichtopties"
+	},
+
 	"LargerClassicPost": {
 		"message": "Grotere klassieke berichtweergave"
 	},
@@ -673,6 +677,10 @@
 
 	"ShowPostAuthor": {
 		"message": "Toon berichtauteur"
+	},
+
+	"ShowPostFlair": {
+		"message": "Toon 'Post Flair'"
 	},
 
 	"RemovePageSideMargin": {

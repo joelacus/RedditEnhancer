@@ -19,15 +19,15 @@ import { showControversialSortButton } from './functions/productivity/show_contr
 import { hideNSFW } from './functions/hide_elements/hide_nsfw';
 import { scrollToNextRootComment } from './functions/productivity/scroll_to_next_root_comment';
 import { autoExpandValue } from './functions/expand_feed_post/auto_expand_value';
-import { nonStickyHeaderBar } from './functions/productivity/non_sticky_header_bar';
+//import { nonStickyHeaderBar } from './functions/productivity/non_sticky_header_bar';
 import { hideOriginalScrollToTop } from './functions/hide_elements/hide_original_scroll_to_top';
 import { showPostAuthor } from './functions/productivity/show_post_author';
 import { bionicReaderPosts, bionicReaderComments, bionicReaderFontColour, bionicReaderBgColour } from './functions/accessibility/bionic_reader';
 import { loadShowPostNumbers } from '../content-first/functions/productivity/load_show_post_numbers';
 import { loadBreakReminder } from '../content-first/functions/productivity/load_break_reminder';
 import { loadAutoExpandComments } from '../content-first/functions/productivity/load_auto_expand_comments';
+import { showPostFlair } from './functions/productivity/show_post_flair';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
-//import { expandPostOptions } from './functions/expand_post_options'
 
 export function load_saves() {
 	if (redditVersion === 'old') {
@@ -61,9 +61,9 @@ export function load_saves() {
 			textPostScroll(result.textPostScroll);
 		});
 		// Non Sticky Header Bar
-		BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
+		/*BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
 			nonStickyHeaderBar(result.nonStickyHeaderBar);
-		});
+		});*/
 		// Limit Infinity Scroll
 		BROWSER_API.storage.sync.get(['limitInfinityScroll'], function (result) {
 			limitInfinityScroll(result.limitInfinityScroll);
@@ -103,19 +103,19 @@ export function load_saves() {
 		loadShowPostNumbers();
 		loadBreakReminder();
 		loadAutoExpandComments();
-		// Expand Post Options
-		/*BROWSER_API.storage.sync.get(['expandPostOptions'], function(result) {
-			expandPostOptions(result.expandPostOptions);
-		});*/
 	} else if (redditVersion === 'newnew') {
 		// Show Post User
 		BROWSER_API.storage.sync.get(['showPostAuthor'], function (result) {
 			showPostAuthor(result.showPostAuthor);
 		});
-		// Non Sticky Header Bar
-		BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
-			nonStickyHeaderBar(result.nonStickyHeaderBar);
+		// Show Post Flair
+		BROWSER_API.storage.sync.get(['showPostFlair'], function (result) {
+			showPostFlair(result.showPostFlair);
 		});
+		// Non Sticky Header Bar
+		/*BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
+			nonStickyHeaderBar(result.nonStickyHeaderBar);
+		});*/
 		// Enable Bionic Reader For Comments
 		BROWSER_API.storage.sync.get(['bionicReaderComments'], function (result) {
 			bionicReaderComments(result.bionicReaderComments);
@@ -128,11 +128,6 @@ export function load_saves() {
 		BROWSER_API.storage.sync.get(['scrollToNextRootComment'], function (result) {
 			scrollToNextRootComment(result.scrollToNextRootComment);
 		});
-		// Add Download Video Button
-		/*BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
-			addDownloadVideoButton(result.addDownloadVideoButton);
-		});*/
-		//
 	}
 
 	// Common

@@ -1,3 +1,12 @@
+version 1.3.0
+- Added an option "Show Post Flair on the Home Page" for New New UI.
+- Added an option "Always Show Post Options". This moves the post options from the overflow menu, directly into the post header bar for quicker access (New New UI).
+- Added support for "Hide the Home Page Sidebar" on New New UI.
+- Added support for "Hide 'Post Hidden' Message" on New New UI.
+- Improved support for smaller window/screen sizes when using "Resize Feed/Post" on New New UI.
+- Improved the extension light mode theme.
+- Fixed a bug causing the user profile feed not to expand to 100% on New New UI when using "Resize Feed/Post".
+
 version 1.2.0
 - Added an option to change the post title font size.
 - Added support for resizing fonts on Old UI.
@@ -102,7 +111,7 @@ version 0.20.1
 version 0.20.0
 - Added an option to enable break reminders every set number of posts.
 - Added an option to make the classic post view larger (new and old reddit).
-- Added an option to adjust the postion of the 'Scroll To Next/Previous Root Comment' buttons.
+- Added an option to adjust the position of the 'Scroll To Next/Previous Root Comment' buttons.
 - Fixed 'Scroll To Top' not working with the post overlay.
 - Fixed 'Limit Infinity Scroll' not always showing 25 posts at a time.
 - Added missing translations.

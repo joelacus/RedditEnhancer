@@ -382,7 +382,7 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li class="container container-3 r-new">
+					<li class="container container-3 r-new r-newnew">
 						<span class="menu-item-icon icon-show icon-hide-post-hidden-message"></span>
 						<span data-lang="HidePostHiddenMessage" data-search=""></span>
 						<label class="switch">
@@ -393,8 +393,8 @@
 					<li id="hide-sidebar" class="sub-header r-old r-new r-newnew">
 						<span data-lang="Sidebar"></span>
 					</li>
-					<li class="container r-old r-new">
-						<div class="container container-3 r-old r-new">
+					<li class="container r-old r-new r-newnew">
+						<div class="container container-3 r-old r-new r-newnew">
 							<span class="menu-item-icon icon-show icon-hide-home-sidebar"></span>
 							<span data-lang="HideHomeSidebar" data-search="sidebar"></span>
 							<label class="switch">
@@ -402,7 +402,7 @@
 								<span class="indicator"></span>
 							</label>
 						</div>
-						<div class="divider"></div>
+						<div class="divider r-old r-new"></div>
 						<div class="container container-3 r-old r-new">
 							<span class="menu-item-icon icon-show hide-reddit-premium"></span>
 							<span data-lang="HideRedditPremium" data-search="sidebar,premium"></span>
@@ -794,6 +794,14 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
+					<li class="container container-3 r-newnew">
+						<span class="menu-item-icon icon-star icon-show-post-flair"></span>
+						<span data-lang="ShowPostFlair" data-search="user,flair"></span>
+						<label class="switch">
+							<input id="checkbox-show-post-flair" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
 					<li class="container container-3 r-new">
 						<span class="menu-item-icon icon-numbers icon-show-post-numbers"></span>
 						<span data-lang="ShowPostNumbers" data-search="numbers"></span>
@@ -873,6 +881,14 @@
 						<p data-lang="LimitCommentsInfo"></p>
 					</li>
 					<li class="container container-3 r-new r-newnew">
+						<span class="menu-item-icon icon-ellipsis icon-always-show-post-options"></span>
+						<span data-lang="AlwaysShowPostOptions" data-search=""></span>
+						<label class="switch">
+							<input id="checkbox-always-show-post-options" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li class="container container-3 r-new r-newnew">
 						<span class="menu-item-icon icon-expand-arrows icon-auto-expand-comments"></span>
 						<span data-lang="AutoExpandComments" data-search="pagination"></span>
 						<label class="switch">
@@ -892,14 +908,6 @@
 						<div></div>
 						<p data-lang="VideoPlayerInfo"></p>
 					</li>
-					<!--<li class="container container-3 r-new">
-					<span class="menu-item-icon icon-ellipsis icon-expand-post-options"></span>
-					<span data-lang="ExpandPostOptions" data-search=""></span>
-					<label class="switch">
-						<input id="checkbox-expand-post-options" type="checkbox" />
-						<span class="indicator"></span>
-					</label>
-					</li>-->
 					<li id="productivity-other" class="sub-header r-old r-new">
 						<span data-lang="Other"></span>
 					</li>

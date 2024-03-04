@@ -43,6 +43,10 @@ const layoutOffset = `
 					}`;
 
 const styleShowPostAuthor = `
+							shreddit-post .re-post-author {
+								color: var(--color-neutral-content-weak);
+								font-weight: 600;
+							}
 							shreddit-post .hover-card {
 								display: none;
 								position: absolute;

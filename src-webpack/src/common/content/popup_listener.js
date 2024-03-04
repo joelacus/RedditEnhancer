@@ -88,7 +88,7 @@ import {
 } from './functions/style/override_theme_colours';
 import { bionicReaderBgColour, bionicReaderBgColourCSS, bionicReaderFontColour, bionicReaderFontColourCSS, bionicReaderPosts } from './functions/accessibility/bionic_reader';
 import { bionicReaderComments } from './functions/accessibility/bionic_reader';
-//import { expandPostOptions } from './functions/productivity/expand_post_options';
+import { alwaysShowPostOptions } from './functions/productivity/always_show_post_options';
 import { hideHeaderBar } from './functions/hide_elements/hide_header_bar';
 import { nonStickyHeaderBar } from './functions/productivity/non_sticky_header_bar';
 import { hideOriginalScrollToTop } from './functions/hide_elements/hide_original_scroll_to_top';
@@ -109,6 +109,7 @@ import { hideUserProfilePics } from './functions/hide_elements/hide_user_profile
 import { autoExpandComments } from './functions/productivity/auto_expand_comments';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 import { hidePostHiddenMessage } from './functions/hide_elements/hide_post_hidden_message';
+import { showPostFlair } from './functions/productivity/show_post_flair';
 //import { scalePostToFitImageMaxImageWidth, scalePostToFitImage } from './functions/productivity/scale_post_to_fit_image';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 
@@ -341,9 +342,9 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		bionicReaderBgColour(value);
 	} else if (key == 'bionicReaderBgColourCSS') {
 		bionicReaderBgColourCSS(value);
-	} /* else if (key == 'expandPostOptions') {
-		expandPostOptions(value);
-	}*/ else if (key == 'hideHeaderBar') {
+	} else if (key == 'alwaysShowPostOptions') {
+		alwaysShowPostOptions(value);
+	} else if (key == 'hideHeaderBar') {
 		hideHeaderBar(value);
 	} else if (key == 'nonStickyHeaderBar') {
 		nonStickyHeaderBar(value);
@@ -359,6 +360,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		breakReminder(value);
 	} else if (key == 'showPostAuthor') {
 		showPostAuthor(value);
+	} else if (key == 'showPostFlair') {
+		showPostFlair(value);
 	} else if (key == 'removePageSideMargin') {
 		removePageSideMargin(value);
 	} else if (key == 'hideSideMenuTopSection') {

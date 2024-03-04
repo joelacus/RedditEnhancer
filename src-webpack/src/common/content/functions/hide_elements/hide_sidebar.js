@@ -17,6 +17,12 @@ export function hideHomeSidebar(value) {
 		} else if (value === false) {
 			disableHideHomeSidebarNew();
 		}
+	} else if (redditVersion === 'newnew') {
+		if (value === true) {
+			enableHideHomeSidebarNewNew();
+		} else if (value === false) {
+			disableHideHomeSidebarNewNew();
+		}
 	}
 }
 
@@ -58,6 +64,26 @@ function disableHideHomeSidebarNew() {
 			document.head.removeChild(element);
 		});
 	}
+}
+
+// Function - Enable Hide Home Sidebar - New New
+export function enableHideHomeSidebarNewNew() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-sub-sidebar';
+	styleElement.textContent = `shreddit-app[routename="frontpage"] #right-sidebar-container {
+									display: none;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+	document.querySelector('html').classList.add('re-hide-home-sidebar');
+}
+
+// Function - Disable Hide Home Sidebar - New New
+export function disableHideHomeSidebarNewNew() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-sub-sidebar"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+	document.querySelector('html').classList.remove('re-hide-home-sidebar');
 }
 
 // Hide Sub Sidebar
@@ -109,11 +135,9 @@ export function enableHideSubSidebarNewNew() {
 	styleElement.id = 're-hide-sub-sidebar';
 	styleElement.textContent = `#right-sidebar-container:has([router-name="subreddit"]) {
 									display: none !important;
-								}
-								shreddit-app[routename="subreddit"] #main-content {
-									grid-column: span 14/span 14 !important;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
+	document.querySelector('html').classList.add('re-hide-sub-sidebar');
 }
 
 // Function - Disable Hide Sub Sidebar - New New
@@ -122,6 +146,7 @@ export function disableHideSubSidebarNewNew() {
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
+	document.querySelector('html').classList.remove('re-hide-sub-sidebar');
 }
 
 // Hide Post Sidebar
@@ -185,6 +210,7 @@ function enableHidePostSidebarNewNew() {
 									margin-right: 1.3rem;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
+	document.querySelector('html').classList.add('re-hide-post-sidebar');
 }
 
 // Function - Disable Hide  Post Sidebar - New New
@@ -193,6 +219,7 @@ function disableHidePostSidebarNewNew() {
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
+	document.querySelector('html').classList.remove('re-hide-post-sidebar');
 }
 
 // Hide Post Overlay Sidebar

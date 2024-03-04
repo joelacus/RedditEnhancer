@@ -377,3 +377,11 @@
 	mask: url('../../icons/ui/share-from-square-solid.svg');
 	-webkit-mask: url('../../icons/ui/share-from-square-solid.svg');
 }
+.icon-star {
+	mask: url('../../icons/ui/star-solid.svg');
+	-webkit-mask: url('../../icons/ui/star-solid.svg');
+}
+.icon-ellipsis {
+	mask: url('../../icons/ui/ellipsis-solid.svg');
+	-webkit-mask: url('../../icons/ui/ellipsis-solid.svg');
+}

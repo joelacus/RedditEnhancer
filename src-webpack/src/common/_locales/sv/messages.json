@@ -639,6 +639,10 @@
 		"message": "Create Post: Border Colour"
 	},
 
+	"AlwaysShowPostOptions": {
+		"message": "Always Show Post Options"
+	},
+
 	"LargerClassicPost": {
 		"message": "Larger Classic Post View"
 	},
@@ -673,6 +677,10 @@
 
 	"ShowPostAuthor": {
 		"message": "Show Post Author"
+	},
+
+	"ShowPostFlair": {
+		"message": "Show Post Flair"
 	},
 
 	"RemovePageSideMargin": {

@@ -5,7 +5,13 @@ export function hidePostHiddenMessage(value) {
 		if (value === true) {
 			enableHidePostHiddenMessageNew();
 		} else if (value === false) {
-			disbleHidePostHiddenMessageNew();
+			disbleHidePostHiddenMessageAll();
+		}
+	} else if (redditVersion === 'newnew') {
+		if (value === true) {
+			enableHidePostHiddenMessageNewNew();
+		} else if (value === false) {
+			disbleHidePostHiddenMessageAll();
 		}
 	}
 }
@@ -20,8 +26,18 @@ function enableHidePostHiddenMessageNew() {
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
-// Function - Hide Post Hidden Message - New
-function disbleHidePostHiddenMessageNew() {
+// Function - Hide Post Hidden Message - New New
+function enableHidePostHiddenMessageNewNew() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-post-hidden-message';
+	styleElement.textContent = `article:has(shreddit-post[hidden]) {
+									display: none !important;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Hide Post Hidden Message - All
+function disbleHidePostHiddenMessageAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-post-hidden-message"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);

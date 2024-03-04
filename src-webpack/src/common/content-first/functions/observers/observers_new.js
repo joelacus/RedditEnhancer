@@ -43,6 +43,7 @@ import { loadAutoExpandComments } from '../productivity/load_auto_expand_comment
 import { loadHidePostHiddenMessage } from '../hide_elements/load_hide_post_hidden_message';
 import { loadPostHeight } from '../productivity/load_post_height';
 import { loadImageScroll } from '../productivity/load_scroll_tall_images';
+import { loadNonStickyHeaderBar } from '../productivity/load_non_sticky_header_bar';
 //import { loadScalePostToFitImage } from '../productivity/load_scale_post_to_fit_image';
 //import { loadDragImageToResize } from '../productivity/load_scale_image_on_drag';
 
@@ -119,6 +120,7 @@ function loadCommon() {
 	loadHidePromotedPosts();
 	loadBionicReaderColours();
 	loadImageScroll();
+	loadNonStickyHeaderBar();
 
 	if (!useLegacy) {
 		loadExpandContent();

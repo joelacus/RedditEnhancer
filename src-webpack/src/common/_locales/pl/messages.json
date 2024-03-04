@@ -639,6 +639,10 @@
 		"message": "Utwórz Post: Kolor obramowania"
 	},
 
+	"AlwaysShowPostOptions": {
+		"message": "Zawsze pokazuj opcje postów"
+	},
+
 	"LargerClassicPost": {
 		"message": "Większy klasyczny widok postu"
 	},
@@ -673,6 +677,10 @@
 
 	"ShowPostAuthor": {
 		"message": "Pokaż autora wpisu"
+	},
+
+	"ShowPostFlair": {
+		"message": "Pokaż „Post Flair”"
 	},
 
 	"RemovePageSideMargin": {

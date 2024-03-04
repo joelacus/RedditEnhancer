@@ -639,6 +639,10 @@
 		"message": "Crea Post: Colore bordo"
 	},
 
+	"AlwaysShowPostOptions": {
+		"message": "Mostra sempre le opzioni di pubblicazione"
+	},
+
 	"LargerClassicPost": {
 		"message": "Visualizzazione post classica più grande"
 	},
@@ -673,6 +677,10 @@
 
 	"ShowPostAuthor": {
 		"message": "Mostra autore del post"
+	},
+
+	"ShowPostFlair": {
+		"message": "Mostra 'Post Flair'"
 	},
 
 	"RemovePageSideMargin": {

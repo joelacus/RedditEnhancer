@@ -128,6 +128,7 @@ function restoreBackup(json) {
 	for (var key in json) {
 		if (
 			[
+				'alwaysShowPostOptions',
 				'alwaysShowRisingButton',
 				'autoExpandComments',
 				'autoExpandValue',
@@ -234,6 +235,7 @@ function restoreBackup(json) {
 				'showAllButton',
 				'showControversialSortButton',
 				'showPostAuthor',
+				'showPostFlair',
 				'showPostNumbers',
 				'showScrollToNextRootComment',
 				'showToTopButton',

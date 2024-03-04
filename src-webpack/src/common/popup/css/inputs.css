@@ -28,7 +28,7 @@ textarea:focus {
 }
 input:hover,
 textarea:hover {
-	background-color: var(--bg-tint-2);
+	background-color: var(--bg-tint-3);
 }
 input:disabled {
 	background-color: var(--bg-tint-1) !important;
@@ -53,7 +53,7 @@ input:disabled {
 }
 .btn:hover {
 	cursor: pointer;
-	background-color: var(--bg-tint-2);
+	background-color: var(--bg-tint-3);
 }
 .btn:active {
 	background-color: var(--bg-tint-1);
@@ -204,7 +204,7 @@ input:disabled {
 .tab-switcher div:hover,
 .tab-switcher-column div:hover {
 	cursor: pointer;
-	background-color: var(--bg-tint-1);
+	background-color: var(--bg-tint-3);
 }
 
 /* Time Input */
@@ -236,9 +236,10 @@ input:disabled {
 	min-height: 35px;
 	padding-left: 4px;
 	padding-right: 8px;
+	transition: background-color 0.1s ease-in-out;
 }
 .select:hover {
-	background-color: var(--bg-tint-2);
+	background-color: var(--bg-tint-3);
 	cursor: pointer;
 }
 .select span {

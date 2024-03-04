@@ -639,6 +639,10 @@
 		"message": "Beitrag Erstellen: Rahmenfarbe"
 	},
 
+	"AlwaysShowPostOptions": {
+		"message": "Beitragsoptionen immer anzeigen"
+	},
+
 	"LargerClassicPost": {
 		"message": "Größere klassische Beitragsansicht"
 	},
@@ -673,6 +677,10 @@
 
 	"ShowPostAuthor": {
 		"message": "Post-Autor anzeigen"
+	},
+
+	"ShowPostFlair": {
+		"message": "„Post Flair“ Anzeigen"
 	},
 
 	"RemovePageSideMargin": {
