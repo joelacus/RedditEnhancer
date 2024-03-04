@@ -81,7 +81,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide The "Post Hidden" Message|Hides the "Post Hidden" message when you hide a post|"Old New"<br />"New New"|
 |Show Post Author on the Home Feed|Shows the missing post author on the home feed for New New UI.|"New New"|
 |Show Post Flair on the Home Feed|Shows the missing post flair on the home feed for New New UI.|"New New"|
-|Expand Post Options|Moves the items in the post overflow menu into the header bar for quicker access.|"New New"|
+|Always Show Post Options|Moves the items in the post overflow menu into the header bar for quicker access.|"New New"|
 
 ## Build
 Clone repo and cd to build directory:
