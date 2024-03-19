@@ -27,6 +27,7 @@ import { loadShowPostNumbers } from '../content-first/functions/productivity/loa
 import { loadBreakReminder } from '../content-first/functions/productivity/load_break_reminder';
 import { loadAutoExpandComments } from '../content-first/functions/productivity/load_auto_expand_comments';
 import { showPostFlair } from './functions/productivity/show_post_flair';
+import { autoCollapseAutoModeratorComment } from "./functions/productivity/auto_collapse_automod_comment";
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 export function load_saves() {
@@ -147,6 +148,10 @@ export function load_saves() {
 	// Feed Auto Expand
 	BROWSER_API.storage.sync.get(['autoExpandValue'], function (result) {
 		autoExpandValue(result.autoExpandValue);
+	});
+	// Auto Collapse AutoModerator Comment
+	BROWSER_API.storage.sync.get(['autoCollapseAutoModeratorComment'], function (result) {
+		autoCollapseAutoModeratorComment(result.autoCollapseAutoModeratorComment);
 	});
 
 	// Run again
