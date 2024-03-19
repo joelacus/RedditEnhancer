@@ -82,6 +82,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Show Post Author on the Home Feed|Shows the missing post author on the home feed for New New UI.|"New New"|
 |Show Post Flair on the Home Feed|Shows the missing post flair on the home feed for New New UI.|"New New"|
 |Always Show Post Options|Moves the items in the post overflow menu into the header bar for quicker access.|"New New"|
+|Auto Collapse AutoModerator Comment|Automatically collapses the top comment made by AutoModerator|"All"|
 
 ## Build
 Clone repo and cd to build directory:
