@@ -755,6 +755,10 @@
 		"message": "Auto Expand Comments"
 	},
 
+	"AutoCollapseAutoModeratorComment": {
+		"message": "Auto Collapse AutoModerator Comment"
+	},
+
 	"AutoExpandCommentsInfo": {
 		"message": "May cause the page to initially lag, especially if there are a lot of comments."
 	},
