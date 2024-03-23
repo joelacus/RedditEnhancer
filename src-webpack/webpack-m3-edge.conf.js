@@ -5,7 +5,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 var webpack = require('webpack');
-const ZipPlugin = require('zip-webpack-plugin');
 
 module.exports = {
 	mode: 'production',
@@ -18,7 +17,7 @@ module.exports = {
 		restore_config: './src/common/restore_config.js',
 	},
 	output: {
-		path: path.resolve(__dirname, 'dist/firefox'),
+		path: path.resolve(__dirname, 'dist/edge'),
 		filename: '[name].js',
 		clean: true,
 	},
@@ -65,7 +64,7 @@ module.exports = {
 					to: 'popup',
 				},
 				{
-					context: path.resolve(__dirname, 'src/manifest_v2'),
+					context: path.resolve(__dirname, 'src/manifest_v3'),
 					from: 'manifest.json',
 					to: 'manifest.json',
 				},
@@ -102,17 +101,14 @@ module.exports = {
 			],
 		}),
 		new webpack.DefinePlugin({
-			BROWSER_API: 'browser',
+			BROWSER_API: 'chrome',
 		}),
 		new webpack.DefinePlugin({
-			CHECK_LEGACY_FIREFOX: true,
+			CHECK_LEGACY_FIREFOX: false,
 		}),
 		new webpack.DefinePlugin({
-			CHECK_LEGACY_EDGE: false,
+			CHECK_LEGACY_EDGE: true,
 		}),
-		/*new ZipPlugin({
-			filename: 'reddit-enhancer.zip',
-		}),*/
 	],
 	optimization: {
 		minimize: true,

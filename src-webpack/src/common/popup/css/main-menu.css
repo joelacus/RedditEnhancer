@@ -43,13 +43,13 @@
 	height: fit-content;
 	min-height: 60px;
 	background-color: var(--bg-shade-1);
-	/*box-shadow: 0px 0px 6px var(--shadow);*/
 	font-size: 20px;
 }
 .menu-item-link {
 	grid-template-columns: auto 50px;
 	transition: background-color 0.1s ease-in-out;
 	border-radius: var(--border-radius);
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 .menu-item-link > :first-child {
 	grid-template-columns: 50px auto 50px;
@@ -271,7 +271,7 @@
 	grid-template-columns: auto 30px 30px;
 	align-items: center;
 	border-radius: 8px;
-	border: solid 1px var(--bg-tint-3);
+	border: solid 1px red;
 	background-color: var(--bg-tint-1);
 	overflow: hidden;
 }

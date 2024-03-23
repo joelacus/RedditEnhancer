@@ -128,6 +128,7 @@ function restoreBackup(json) {
 	for (var key in json) {
 		if (
 			[
+				'addonTheme',
 				'alwaysShowPostOptions',
 				'alwaysShowRisingButton',
 				'autoExpandComments',

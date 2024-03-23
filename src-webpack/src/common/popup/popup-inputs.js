@@ -28,6 +28,8 @@ document.querySelector('#btn-import-backup').addEventListener('click', function 
 
 // Button - Version Changelog
 document.querySelector('#extensionVersion').addEventListener('click', function () {
+	const settingsPage = document.querySelector('#settings');
+	settingsPage.style.display = 'none';
 	const changelogPage = document.querySelector('#changelog');
 	if (changelogPage.style.display === 'none') {
 		changelogPage.style.display = 'flex';
@@ -86,3 +88,40 @@ function getBrowserType() {
 		return 'unknown';
 	}
 }
+
+// Button - Settings
+document.querySelector('#btn-settings').addEventListener('click', function () {
+	const changelogPage = document.querySelector('#changelog');
+	changelogPage.style.display = 'none';
+	const settingsPage = document.querySelector('#settings');
+	if (settingsPage.style.display === 'none') {
+		settingsPage.style.display = 'flex';
+	} else {
+		settingsPage.style.display = 'none';
+	}
+});
+
+// Button - Addon Theme
+document.querySelector('#btn-addon-theme-dark').addEventListener('click', function (e) {
+	document.querySelector('#btn-addon-theme-light').classList.remove('active');
+	document.querySelector('#btn-addon-theme-classic-light').classList.remove('active');
+	e.currentTarget.classList.add('active');
+	document.querySelector('body').classList.remove('light-theme', 'classic-light-theme');
+	BROWSER_API.storage.sync.set({ addonTheme: 'dark' });
+});
+document.querySelector('#btn-addon-theme-light').addEventListener('click', function (e) {
+	document.querySelector('#btn-addon-theme-dark').classList.remove('active');
+	document.querySelector('#btn-addon-theme-classic-light').classList.remove('active');
+	e.currentTarget.classList.add('active');
+	document.querySelector('body').classList.remove('classic-light-theme');
+	document.querySelector('body').classList.add('light-theme');
+	BROWSER_API.storage.sync.set({ addonTheme: 'light' });
+});
+document.querySelector('#btn-addon-theme-classic-light').addEventListener('click', function (e) {
+	document.querySelector('#btn-addon-theme-dark').classList.remove('active');
+	document.querySelector('#btn-addon-theme-light').classList.remove('active');
+	e.currentTarget.classList.add('active');
+	document.querySelector('body').classList.remove('light-theme');
+	document.querySelector('body').classList.add('classic-light-theme');
+	BROWSER_API.storage.sync.set({ addonTheme: 'classic-light' });
+});

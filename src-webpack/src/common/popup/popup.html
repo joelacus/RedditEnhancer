@@ -1441,12 +1441,12 @@
 					<li class="container r-old r-new r-newnew">
 						<form class="custom-input-container" data-search="background,image">
 							<input type="text" id="input-custom-background" name="custom" maxlength="1000" />
-							<button class="btn btn-add-custom-background icon icon-plus" type="submit"></button>
+							<button class="btn btn-add-custom-background icon icon-plus" type="submit" value="Add Background URL"></button>
 						</form>
 					</li>
 					<li class="container r-old r-new r-newnew">
-						<button class="btn-edit-backgrounds btn-icon icon-bin" data-search="background,image"></button>
-						<button class="btn-edit-backgrounds-save btn-icon icon-check" style="display: none"></button>
+						<button class="btn-edit-backgrounds btn-icon icon-bin" data-search="background,image" value="Enable Background Edit Mode"></button>
+						<button class="btn-edit-backgrounds-save btn-icon icon-check" style="display: none" value="Disable Background Edit Mode"></button>
 						<div class="p-grid-bg"></div>
 					</li>
 				</ul>
@@ -1610,13 +1610,40 @@
 			<span></span>
 		</div>
 
+		<!-- = Settings Page = -->
+		<div id="settings" style="display: none">
+			<h3>Extension Settings</h3>
+			<ul class="menu-list sub-list">
+				<li class="sub-header">
+					<span data-lang="Theme"></span>
+				</li>
+				<li class="container">
+					<div style="display: grid; grid-template-columns: auto auto auto; grid-gap: 8px">
+						<div id="btn-addon-theme-dark" class="btn"><span class="btn-text" data-lang="Dark"></span></div>
+						<div id="btn-addon-theme-light" class="btn"><span class="btn-text" data-lang="Light"></span></div>
+						<div id="btn-addon-theme-classic-light" class="btn"><span class="btn-text" data-lang="ClassicLight"></span></div>
+					</div>
+				</li>
+				<li class="sub-header" style="margin-top: 24px">
+					<span data-lang="BackupRestoreConfig"></span>
+				</li>
+				<li class="container">
+					<div style="display: grid; grid-template-columns: auto auto; grid-gap: 8px">
+						<div id="btn-export-backup" class="btn"><span class="btn-text" data-lang="Backup"></span></div>
+						<div id="btn-import-backup" class="btn"><span class="btn-text" data-lang="Restore"></span></div>
+					</div>
+				</li>
+			</ul>
+		</div>
+
 		<!-- = Footer = -->
 		<div class="footer">
 			<div class="top-bar">
 				<div class="bar-left">
-					<!-- Back/Restore Buttons -->
-					<div id="btn-export-backup" class="btn"><span data-lang="Backup"></span></div>
-					<div id="btn-import-backup" class="btn"><span data-lang="Restore"></span></div>
+					<div id="btn-settings" class="btn">
+						<div class="icon icon-gear"></div>
+						<span data-lang="Settings"></span>
+					</div>
 				</div>
 				<div class="bar-right">
 					<!-- Language -->

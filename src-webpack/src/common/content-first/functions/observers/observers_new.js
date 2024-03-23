@@ -52,7 +52,10 @@ import { loadNonStickyHeaderBar } from '../productivity/load_non_sticky_header_b
 export function observersNew() {
 	if (typeof useLegacy != 'undefined') {
 		if (useLegacy) {
+			console.log('legacy observers new');
 			legacyObserversNew();
+		} else {
+			window.useLegacy = false;
 		}
 	} else {
 		window.useLegacy = false;
@@ -67,6 +70,7 @@ export function observersNew() {
 		loadHideUserProfilePics();
 		loadAutoExpandComments();
 		if (useLegacy) {
+			console.log('legacy observers feed container');
 			observerFeedConainter();
 		} else {
 			loadHidePostSidebar();
@@ -121,9 +125,10 @@ function loadCommon() {
 	loadBionicReaderColours();
 	loadImageScroll();
 	loadNonStickyHeaderBar();
+	loadExpandContent();
+	loadHideGap();
 
 	if (!useLegacy) {
-		loadExpandContent();
 		loadLayoutCentre();
 		loadHideAdvertiseButton();
 		loadHideChatButton();
@@ -131,7 +136,6 @@ function loadCommon() {
 		loadHideModerationButton();
 		loadHideNotificationButton();
 		loadResizeFont();
-		loadHideGap();
 		loadDropShadow();
 		loadOverrideDropShadow();
 	}

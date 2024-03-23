@@ -9,7 +9,7 @@
 	justify-self: center;
 	width: 30px;
 	height: 24px;
-	background-color: var(--bg-tint-3);
+	background-color: rgba(var(--text-grey-rgb), 0.5);
 	mask-size: contain;
 	-webkit-mask-size: contain;
 	mask-position: contain !important;

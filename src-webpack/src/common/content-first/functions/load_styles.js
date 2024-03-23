@@ -173,7 +173,7 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 					}`;
 
 const styleScrollText = `.re-text-scroll div[data-click-id="text"][style="max-height: 250px;"], .re-text-scroll div[data-click-id="text"][style="max-height:250px"] {
-							overflow-y: scroll;
+							overflow-y: auto;
 							mask-image: linear-gradient(180deg,#000 90%,transparent)
 						}`;
 

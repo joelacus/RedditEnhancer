@@ -11,7 +11,6 @@ document.querySelector('#checkbox-dark-mode').addEventListener('change', functio
 		icons.forEach(function (icon) {
 			icon.style.backgroundColor = 'var(--accent)';
 		});
-		document.querySelector('body').classList.remove('light-mode');
 		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
 			tabs.forEach(function (tab) {
 				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
@@ -25,7 +24,6 @@ document.querySelector('#checkbox-dark-mode').addEventListener('change', functio
 		icons.forEach(function (icon) {
 			icon.style.backgroundColor = '';
 		});
-		document.querySelector('body').classList.add('light-mode');
 		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
 			tabs.forEach(function (tab) {
 				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
@@ -80,7 +78,6 @@ export function tabDmSystem() {
 	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 		document.querySelector('#checkbox-dark-mode').checked = true;
 		BROWSER_API.storage.sync.set({ darkMode: true });
-		document.querySelector('body').classList.remove('light-mode');
 		var icons = document.querySelectorAll('.icon-dark-mode');
 		icons.forEach(function (icon) {
 			icon.style.backgroundColor = 'var(--accent)';
@@ -89,7 +86,6 @@ export function tabDmSystem() {
 	} else {
 		document.querySelector('#checkbox-dark-mode').checked = false;
 		BROWSER_API.storage.sync.set({ darkMode: false });
-		document.querySelector('body').classList.add('light-mode');
 		var icons = document.querySelectorAll('.icon-dark-mode');
 		icons.forEach(function (icon) {
 			icon.style.backgroundColor = '';

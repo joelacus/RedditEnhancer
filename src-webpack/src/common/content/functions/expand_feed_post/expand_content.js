@@ -10,6 +10,7 @@ export function expandLayout(value) {
 	} else if (redditVersion === 'new') {
 		if (value === true) {
 			if (useLegacy) {
+				console.log('legacy expand');
 				enableExpandContentNewLegacy();
 			} else {
 				enableExpandContentNew();
@@ -46,7 +47,7 @@ function enableExpandContentOld() {
 		const sort = document.querySelector('#header .tabmenu');
 		body.insertBefore(main, side);
 		if (sidemenu) {
-			main.append(sidemenu);
+			main.append(sidem - enu);
 		}
 		container.append(content);
 		container.append(side);
@@ -112,7 +113,22 @@ function enableExpandContentNewLegacy() {
 									width: var(--re-content-width) !important;
 									max-width: var(--re-content-width) !important;
 								}
-								.re-feed > div {
+								.re-sub {
+									width: var(--re-sub-width) !important;
+									max-width: var(--re-sub-width) !important;
+								}
+								.re-post {
+									width: var(--re-psot-width) !important;
+									max-width: var(--re-psot-width) !important;
+								}
+								.re-user {
+									width: var(--re-user-profile-width) !important;
+									max-width: var(--re-user-profile-width) !important;
+								}
+								.re-feed > div,
+								.re-feed-sub > div,
+								.re-feed-post > div,
+								.re-feed-user > div {
 									width: 100% !important;
 									max-width: 100% !important;
 								}

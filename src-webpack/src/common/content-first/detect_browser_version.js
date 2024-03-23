@@ -1,5 +1,4 @@
 // Detect Firefox Version For Legacy Support
-
 export function detectFirefoxVersion() {
 	const userAgent = navigator.userAgent;
 	const match = userAgent.match(/Firefox\/(\d+)/);
@@ -15,7 +14,8 @@ export function detectFirefoxVersion() {
 	return null;
 }
 
-if (CHECK_LEGACY) {
-	window.useLegacy = detectFirefoxVersion();
-	console.log('use legacy loaders: ' + useLegacy);
+// Detect Edge On Windows 10 For Legacy Support
+export function detectEdgeVersion() {
+	const userAgent = navigator.userAgent;
+	return /Edg\/\d+/.test(userAgent) && /Windows NT 10/.test(userAgent);
 }

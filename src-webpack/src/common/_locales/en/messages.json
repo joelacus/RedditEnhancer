@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.3.0"
+		"message": "1.4.0"
 	},
 
 	"extensionName": {
@@ -777,6 +777,30 @@
 
 	"LimitImageWidth": {
 		"message": "Limit Image Width"
+	},
+
+	"Settings": {
+		"message": "Settings"
+	},
+
+	"Theme": {
+		"message": "Theme"
+	},
+
+	"Dark": {
+		"message": "Dark"
+	},
+
+	"Light": {
+		"message": "Light"
+	},
+
+	"ClassicLight": {
+		"message": "Classic Light"
+	},
+
+	"BackupRestoreConfig": {
+		"message": "Backup/Restore Config"
 	},
 
 	"DragImageToResize": {

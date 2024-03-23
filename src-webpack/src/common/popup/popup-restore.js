@@ -45,6 +45,38 @@ function restoreOptions() {
 		console.log('Selected Reddit Version: ' + value);
 	});
 
+	// Addon Theme
+	BROWSER_API.storage.sync.get(['addonTheme', 'darkMode'], function (result) {
+		if (typeof result.addonTheme == 'undefined') {
+			if (result.darkMode === false) {
+				setAddonLightTheme();
+			} else {
+				setAddonDarkTheme();
+			}
+		} else if (result.addonTheme == 'dark') {
+			setAddonDarkTheme();
+		} else if (result.addonTheme == 'light') {
+			setAddonLightTheme();
+		} else if (result.addonTheme == 'classic-light') {
+			setAddonClassicLightTheme();
+		}
+	});
+	function setAddonDarkTheme() {
+		document.querySelector('body').classList.add('dark-theme');
+		document.querySelector('#btn-addon-theme-dark').classList.add('active');
+		console.log('Addon Theme: dark');
+	}
+	function setAddonLightTheme() {
+		document.querySelector('body').classList.add('light-theme');
+		document.querySelector('#btn-addon-theme-light').classList.add('active');
+		console.log('Addon Theme: light');
+	}
+	function setAddonClassicLightTheme() {
+		document.querySelector('body').classList.add('classic-light-theme');
+		document.querySelector('#btn-addon-theme-classic-light').classList.add('active');
+		console.log('Addon Theme: classic light');
+	}
+
 	// Backgrounds
 	BROWSER_API.storage.sync.get(['customBackgrounds'], function (result) {
 		if (!(typeof result.customBackgrounds == 'undefined') || result.customBackgrounds == '') {
@@ -80,7 +112,6 @@ function restoreOptions() {
 			});
 			var value = true;
 		} else if (result.darkMode == false) {
-			document.querySelector('body').classList.add('light-mode');
 			document.querySelector('#checkbox-dark-mode').checked = false;
 			var value = false;
 		}

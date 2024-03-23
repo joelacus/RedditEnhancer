@@ -229,21 +229,26 @@ export function observerFeedContainerAndFeed() {
 
 // Feed Container
 export function observerFeedConainter() {
+	const link = window.location.href;
+	let page = '';
+	if (link.indexOf('/comments/') >= 0) {
+		page = '-post';
+	}
 	waitForAddedNode({
 		query: '.ListingLayout-outerContainer div:nth-child(2)',
 		parent: document.querySelector('body'),
 		recursive: true,
 		done: function (el) {
 			if (el.childElementCount === 4) {
-				el.lastChild.classList.add('re-feed');
+				el.lastChild.classList.add('re-feed' + page);
 			} else {
 				setTimeout(() => {
 					if (el.childElementCount === 4) {
-						el.lastChild.classList.add('re-feed');
+						el.lastChild.classList.add('re-feed' + page);
 					} else {
 						setTimeout(() => {
 							if (el.childElementCount === 4) {
-								el.lastChild.classList.add('re-feed');
+								el.lastChild.classList.add('re-feed' + page);
 							}
 						}, 3000);
 					}

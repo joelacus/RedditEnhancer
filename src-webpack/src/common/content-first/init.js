@@ -1,7 +1,7 @@
 /* ===== Content First - Initialise ===== */
 
 import { loadStyles } from './functions/load_styles';
-import { detectFirefoxVersion } from './detect_firefox_version';
+import { detectEdgeVersion, detectFirefoxVersion } from './detect_browser_version';
 import { detectRedditVersion } from './detect_reddit_version';
 
 // Waits for page to load the <head> element before starting to load tweaks.
@@ -26,9 +26,16 @@ export function init() {
 	// Add-on Style Prerequisite
 	loadStyles();
 
-	// Detect Firefox version for legacy support
-	if (CHECK_LEGACY) {
-		detectFirefoxVersion();
+	window.useLegacy = false;
+	// Detect Browser For Legacy Support
+	if (CHECK_LEGACY_FIREFOX) {
+		useLegacy = detectFirefoxVersion();
+		console.log('use legacy loaders: ' + useLegacy);
+	}
+	if (CHECK_LEGACY_EDGE) {
+		useLegacy = detectEdgeVersion();
+		if (useLegacy) console.log('detected Edge on Windows 10');
+		console.log('use legacy loaders: ' + useLegacy);
 	}
 
 	// Detect Reddit version and continue loading tweaks

@@ -104,7 +104,10 @@ module.exports = {
 			BROWSER_API: 'chrome',
 		}),
 		new webpack.DefinePlugin({
-			CHECK_LEGACY: false,
+			CHECK_LEGACY_FIREFOX: false,
+		}),
+		new webpack.DefinePlugin({
+			CHECK_LEGACY_EDGE: false,
 		}),
 	],
 	optimization: {
