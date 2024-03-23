@@ -112,6 +112,7 @@ import { hidePostHiddenMessage } from './functions/hide_elements/hide_post_hidde
 import { showPostFlair } from './functions/productivity/show_post_flair';
 //import { scalePostToFitImageMaxImageWidth, scalePostToFitImage } from './functions/productivity/scale_post_to_fit_image';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
+import { autoCollapseAutoModeratorComment } from './functions/productivity/auto_collapse_automod_comment';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -396,7 +397,9 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		dragImageToResizeInitialSize(value);
 	}*/ /* else if (key == 'addDownloadVideoButton') {
 		addDownloadVideoButton(value);
-	}*/ else if (key == 'loadSaves') {
+	}*/ else if (key == 'autoCollapseAutoModeratorComment') {
+		autoCollapseAutoModeratorComment(value);
+	} else if (key == 'loadSaves') {
 		setTimeout(() => {
 			init();
 			load_saves();
