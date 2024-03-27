@@ -58,8 +58,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Blur Background|Adds a blur filter to the custom background image.|All|
 |Limit Infinity Scroll|This will limit the infinity scroll to show only 25 posts at a time. When you click 'Load More' at the bottom of the feed, it will clear the first 25 posts and show the next 25.|"Old New"|
 |Show 'Controversial' Sort Button|Shows the 'Controversial' button in the post sort menus.|"Old New"|
-|Default Feed Sort Option|Set how you want the feed to be sorted automatically when the page loads.|"Old New"|
-|Default Comments Sort Option|Set how you want the comments to be sorted automatically when the page loads.|"Old New"|
+|Default Feed Sort Option|Set how you want the feed to be sorted automatically when the page loads.|"Old New"<br />"New New"|
+|Default Comments Sort Option|Set how you want the comments to be sorted automatically when the page loads.|"Old New"<br />"New New"|
 |Open Links to Post in a New Tab|Open posts in a new tab.|"Old New"|
 |Add Post Numbers|Number each post to keep track of how many you have scrolled passed.|"Old New"|
 |Hide NSFW Posts|Hide any posts marked as NSFW.|All|
@@ -82,7 +82,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Show Post Author on the Home Feed|Shows the missing post author on the home feed for New New UI.|"New New"|
 |Show Post Flair on the Home Feed|Shows the missing post flair on the home feed for New New UI.|"New New"|
 |Always Show Post Options|Moves the items in the post overflow menu into the header bar for quicker access.|"New New"|
-|Auto Collapse AutoModerator Comment|Automatically collapses the top comment made by AutoModerator|"All"|
+|Auto Collapse AutoModerator Comment|Automatically collapses the top comment made by AutoModerator.|"All"|
 
 ## Build
 Clone repo and cd to build directory:
