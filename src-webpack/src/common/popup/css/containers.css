@@ -43,6 +43,12 @@
 .container-3 input[type='range'] {
 	margin: 16px 0 16px 0;
 }
+.container-3 .dropdown {
+	width: 160px;
+}
+.container-3 .select {
+	grid-template-columns: auto 22px;
+}
 .container-4 {
 	display: grid;
 	grid-template-columns: 50px 100px auto;

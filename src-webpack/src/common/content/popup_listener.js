@@ -12,7 +12,7 @@ import { darkMode, darkModeAutoListener } from './functions/dark_mode/dark_mode'
 import { addDropShadow } from './functions/style/drop_shadow';
 import { hideRedditPremium } from './functions/hide_elements/hide_reddit_premium';
 import { hideCreatePost } from './functions/hide_elements/hide_create_post';
-import { hideGap } from './functions/hide_elements/hide_gap';
+import { hideGap } from './functions/style/hide_gap';
 import { hideUsername, hideKarma } from './functions/hide_elements/hide_username_and_karma';
 import { hideHomeSidebar, hideSubSidebar, hidePostSidebar, hidePostOverlaySidebar, hideUserSidebar, hideRelatedPostsSection } from './functions/hide_elements/hide_sidebar';
 import { hidePopularButton, hideModerationButton, hideChatButton, hideAdvertiseButton, hideNotificationButton, hideCreatePostButton } from './functions/hide_elements/hide_header_buttons';

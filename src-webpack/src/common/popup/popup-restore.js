@@ -2374,14 +2374,14 @@ function restoreOptions() {
 		}
 	});
 
-// Auto Collapse AutoModerator Comment
+	// Auto Collapse AutoModerator Comment
 	BROWSER_API.storage.sync.get(['autoCollapseAutoModeratorComment'], function (result) {
 		if (result.autoCollapseAutoModeratorComment == true) {
 			document.querySelector('.icon-auto-collapse-automoderator-comment').style.backgroundColor = 'var(--accent)';
 			document.querySelector('#checkbox-auto-collapse-automoderator-comment').checked = true;
 			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
 			var value = true;
-		} else if (typeof result.autoCollapseAutoModeratorComment== 'undefined' || result.autoCollapseAutoModeratorComment == false) {
+		} else if (typeof result.autoCollapseAutoModeratorComment == 'undefined' || result.autoCollapseAutoModeratorComment == false) {
 			document.querySelector('#checkbox-auto-collapse-automoderator-comment').checked = false;
 			var value = false;
 		}

@@ -747,6 +747,10 @@
 		"message": "Автоматичне розгортання коментарів"
 	},
 
+	"AutoCollapseAutoModeratorComment": {
+		"message": "Автоматичне згортання коментарів AutoModerator"
+	},
+
 	"HidePostHiddenMessage": {
 		"message": "Сховати повідомлення «Публікація прихована»"
 	},
@@ -765,5 +769,33 @@
 
 	"LimitImageWidth": {
 		"message": "Обмежити ширину зображення"
+	},
+
+	"Settings": {
+		"message": "Налаштування"
+	},
+
+	"ExtensionSettings": {
+		"message": "Налаштування розширення"
+	},
+
+	"Theme": {
+		"message": "Theme"
+	},
+
+	"Dark": {
+		"message": "Dark"
+	},
+
+	"Light": {
+		"message": "Light"
+	},
+
+	"ClassicLight": {
+		"message": "Classic Light"
+	},
+
+	"BackupRestoreConfig": {
+		"message": "Backup/Restore Config"
 	}
 }

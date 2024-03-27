@@ -1,9 +1,10 @@
 /* ===== New Reddit Observers ===== */
 
+import { waitForAddedNode } from './main_observer';
 import { loadHideHomeSidebar, loadHidePostSidebar, loadHidePostOverlaySidebar, loadHideSubSidebarException, loadHideUserSidebar } from '../hide_elements/load_hide_sidebar';
 import { loadExpandContent } from '../expand-layout/load_expand_content';
 import { loadLayoutCentre } from '../expand-layout/load_layout_centre_and_offset';
-import { loadHideGap } from '../hide_elements/load_hide_gap';
+import { loadHideGap } from '../style/load_hide_gap';
 import { loadDropShadow } from '../style/load_drop_shadow';
 import { loadOverrideDropShadow } from '../style/load_override_drop_shadow';
 import { loadStickySort } from '../productivity/load_sticky_sort';
@@ -44,6 +45,7 @@ import { loadHidePostHiddenMessage } from '../hide_elements/load_hide_post_hidde
 import { loadPostHeight } from '../productivity/load_post_height';
 import { loadImageScroll } from '../productivity/load_scroll_tall_images';
 import { loadNonStickyHeaderBar } from '../productivity/load_non_sticky_header_bar';
+import { loadAutoCollapseAutoModeratorComment } from '../productivity/load_auto_collapse_automod_comment';
 //import { loadScalePostToFitImage } from '../productivity/load_scale_post_to_fit_image';
 //import { loadDragImageToResize } from '../productivity/load_scale_image_on_drag';
 
@@ -75,6 +77,14 @@ export function observersNew() {
 		} else {
 			loadHidePostSidebar();
 		}
+		/*waitForAddedNode({
+			query: '.Comment:has([href="/user/AutoModerator/"]) button',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function (el) {
+				loadAutoCollapseAutoModeratorComment();
+			},
+		});*/
 	} else if (link.indexOf('/user/') >= 0) {
 		loadCommon();
 		if (useLegacy) {

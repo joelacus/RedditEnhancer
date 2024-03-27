@@ -203,7 +203,7 @@ function enableHidePostSidebarNewNew() {
 								#right-sidebar-container:has([router-name="post_page"]) {
 									display: none !important;
 								}
-								shreddit-app[routename="post_page"] #main-content {
+								shreddit-app[routename="post_page"] #main-content.grid {
 									grid-column-end: 19 !important;
 								}
 								shreddit-app[routename="post_page"] {
@@ -302,6 +302,7 @@ export function enableHideUserSidebarNew() {
 
 // Function - Enable Hide User Sidebar - New New
 export function enableHideUserSidebarNewNew() {
+	document.querySelector('html').classList.add('re-hide-profile-sidebar');
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-hide-user-sidebar';
 	styleElement.textContent = `#right-sidebar-container:has([source="profile"]) {
@@ -316,6 +317,7 @@ export function disableHideUserSidebarAll() {
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
+	document.querySelector('html').classList.remove('re-hide-profile-sidebar');
 }
 
 // Hide Related Posts Section in Sidebar

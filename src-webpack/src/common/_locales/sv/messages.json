@@ -747,6 +747,10 @@
 		"message": "Auto Expand Comments"
 	},
 
+	"AutoCollapseAutoModeratorComment": {
+		"message": "Automatisk minimera AutoModerator-kommentar"
+	},
+
 	"HidePostHiddenMessage": {
 		"message": "Hide 'Post Hidden' Message"
 	},
@@ -765,5 +769,33 @@
 
 	"LimitImageWidth": {
 		"message": "Limit Image Width"
+	},
+
+	"Settings": {
+		"message": "Inställningar"
+	},
+
+	"ExtensionSettings": {
+		"message": "Inställningar för tillägg"
+	},
+
+	"Theme": {
+		"message": "Theme"
+	},
+
+	"Dark": {
+		"message": "Dark"
+	},
+
+	"Light": {
+		"message": "Light"
+	},
+
+	"ClassicLight": {
+		"message": "Classic Light"
+	},
+
+	"BackupRestoreConfig": {
+		"message": "Backup/Restore Config"
 	}
 }

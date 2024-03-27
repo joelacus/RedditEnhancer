@@ -1,8 +1,9 @@
-// Input - Tweaks Search Filter
+// Input - Search Filter
 
 var i, query, filter, txtValue;
 var ul = document.querySelector('.menu');
 var li = ul.querySelectorAll('li');
+
 function search_filter() {
 	BROWSER_API.storage.sync.get(['redditVersion'], function (result) {
 		if (result.redditVersion != undefined) {

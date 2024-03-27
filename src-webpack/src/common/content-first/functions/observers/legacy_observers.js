@@ -10,7 +10,7 @@ import { loadExpandContent } from '../expand-layout/load_expand_content';
 import { loadLayoutCentre } from '../expand-layout/load_layout_centre_and_offset';
 import { loadOverrideDropShadow } from '../style/load_override_drop_shadow';
 import { loadDropShadow } from '../style/load_drop_shadow';
-import { loadHideGap } from '../hide_elements/load_hide_gap';
+import { loadHideGap } from '../style/load_hide_gap';
 import { loadBreakReminder } from '../productivity/load_break_reminder';
 import { loadShowPostNumbers } from '../productivity/load_show_post_numbers';
 import { loadStickySort } from '../productivity/load_sticky_sort';

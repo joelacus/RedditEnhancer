@@ -747,6 +747,10 @@
 		"message": "Kommentare automatisch erweitern"
 	},
 
+	"AutoCollapseAutoModeratorComment": {
+		"message": "Automatische Minimierung von AutoModerator-Kommentaren"
+	},
+
 	"HidePostHiddenMessage": {
 		"message": "Verstecken 'Beitrag Ausgeblendet' Nachricht"
 	},
@@ -765,5 +769,33 @@
 
 	"LimitImageWidth": {
 		"message": "Bildbreite begrenzen"
+	},
+
+	"Settings": {
+		"message": "Einstellungen"
+	},
+
+	"ExtensionSettings": {
+		"message": "Erweiterungseinstellungen"
+	},
+
+	"Theme": {
+		"message": "Farbschema"
+	},
+
+	"Dark": {
+		"message": "Dunkel"
+	},
+
+	"Light": {
+		"message": "Hell"
+	},
+
+	"ClassicLight": {
+		"message": "Klassisch Hell"
+	},
+
+	"BackupRestoreConfig": {
+		"message": "Konfiguration Sichern/Wiederherstellen"
 	}
 }

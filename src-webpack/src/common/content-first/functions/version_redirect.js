@@ -29,13 +29,13 @@ function checkAndRedirect(versionHost) {
 
 	// Redirect these URLs
 	const redirectList = [
-		'^.*www.reddit.com(?:/)?$',
-		'^.*old.reddit.com(?:/)?$',
-		'^.*new.reddit.com(?:/)?$',
-		'^.*sh.reddit.com(?:/)?$',
+		'^.*www.reddit.com*',
+		'^.*old.reddit.com*',
+		'^.*new.reddit.com*',
+		'^.*sh.reddit.com*',
 		'^.*.reddit.com/r/.*(?:/.*)?$',
 		'^.*.reddit.com/r/.*/comments/.*$',
-		'^.*.reddit.com/user/.*(?:/)?$',
+		'^.*.reddit.com/user/.**',
 	];
 
 	const redirect = redirectList.some((pattern) => {

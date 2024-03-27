@@ -747,6 +747,10 @@
 		"message": "Automatyczne rozwijanie komentarzy"
 	},
 
+	"AutoCollapseAutoModeratorComment": {
+		"message": "Automatyczne minimalizowanie komentarza AutoModeratora"
+	},
+
 	"HidePostHiddenMessage": {
 		"message": "Ukryj wiadomość „Opublikuj ukryty”"
 	},
@@ -765,5 +769,33 @@
 
 	"LimitImageWidth": {
 		"message": "Ogranicz szerokość obrazu"
+	},
+
+	"Settings": {
+		"message": "Ustawienia"
+	},
+
+	"ExtensionSettings": {
+		"message": "Ustawienia rozszerzenia"
+	},
+
+	"Theme": {
+		"message": "Theme"
+	},
+
+	"Dark": {
+		"message": "Dark"
+	},
+
+	"Light": {
+		"message": "Light"
+	},
+
+	"ClassicLight": {
+		"message": "Classic Light"
+	},
+
+	"BackupRestoreConfig": {
+		"message": "Backup/Restore Config"
 	}
 }

@@ -571,7 +571,7 @@
 						<div style="display: flex">
 							<div class="r-old r-new r-newnew"><a href="#productivity-images" data-lang="Images"></a>&nbsp;|&nbsp;</div>
 							<div class="r-new"><a href="#productivity-text" data-lang="Text"></a>&nbsp;|&nbsp;</div>
-							<div class="r-old r-new"><a href="#productivity-sort-bar" data-lang="SortBar"></a>&nbsp;|&nbsp;</div>
+							<div class="r-old r-new r-newnew"><a href="#productivity-sort-bar" data-lang="SortBar"></a>&nbsp;|&nbsp;</div>
 							<div class="r-old r-new r-newnew"><a href="#productivity-header" data-lang="Header"></a>&nbsp;|&nbsp;</div>
 							<div class="r-new"><a href="#productivity-post" data-lang="Post"></a>&nbsp;|&nbsp;</div>
 							<div class="r-newnew"><a href="#productivity-post" data-lang="Post"></a></div>
@@ -679,7 +679,7 @@
 						<div></div>
 						<p class="info" data-lang="TextScrollInfo"></p>
 					</li>
-					<li id="productivity-sort-bar" class="sub-header r-old r-new">
+					<li id="productivity-sort-bar" class="sub-header r-old r-new r-newnew">
 						<span data-lang="SortBar"></span>
 					</li>
 					<li class="container container-3 r-old r-new">
@@ -706,7 +706,7 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li class="container container-3 r-new">
+					<li class="container container-3 r-new r-newnew">
 						<span class="menu-item-icon icon-sort icon-default-feed-sort-option"></span>
 						<span data-lang="DefaultFeedSortOption" data-search=""></span>
 						<div></div>
@@ -714,16 +714,16 @@
 						<div id="select-feed-sort-option" class="dropdown">
 							<div class="select">
 								<span id="chosen-feed-sort-option">Sort Option</span>
-								<div class="icon-cheveron-down"></div>
+								<div class="icon dropdown-icon icon-cheveron-down"></div>
 							</div>
 							<input type="hidden" name="version" />
 							<ul id="select-feed-sort-option-menu" class="dropdown-menu">
-								<li id="feed-sort-best"><span data-lang="Best"></span></li>
-								<li id="feed-sort-hot"><span data-lang="Hot"></span></li>
-								<li id="feed-sort-new"><span data-lang="New"></span></li>
-								<li id="feed-sort-top"><span data-lang="Top"></span></li>
-								<li id="feed-sort-controversial"><span data-lang="Controversial"></span></li>
-								<li id="feed-sort-rising"><span data-lang="Rising"></span></li>
+								<li id="feed-sort-best" class="r-new"><span data-lang="Best"></span></li>
+								<li id="feed-sort-hot" class="r-new r-newnew"><span data-lang="Hot"></span></li>
+								<li id="feed-sort-new" class="r-new r-newnew"><span data-lang="New"></span></li>
+								<li id="feed-sort-top" class="r-new r-newnew"><span data-lang="Top"></span></li>
+								<li id="feed-sort-controversial" class="r-new r-newnew"><span data-lang="Controversial"></span></li>
+								<li id="feed-sort-rising" class="r-new r-newnew"><span data-lang="Rising"></span></li>
 							</ul>
 						</div>
 						<label class="switch">
@@ -731,7 +731,7 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li class="container container-3 r-new">
+					<li class="container container-3 r-new r-newnew">
 						<span class="menu-item-icon icon-sort icon-default-comments-sort-option"></span>
 						<span data-lang="DefaultCommentsSortOption" data-search=""></span>
 						<div></div>
@@ -739,7 +739,7 @@
 						<div id="select-comments-sort-option" class="dropdown">
 							<div class="select">
 								<span id="chosen-comments-sort-option">Sort Option</span>
-								<div class="icon-cheveron-down"></div>
+								<div class="icon dropdown-icon icon-cheveron-down"></div>
 							</div>
 							<input type="hidden" name="version" />
 							<ul id="select-comments-sort-option-menu" class="dropdown-menu">
@@ -888,6 +888,14 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
+					<li class="container container-3 r-old r-new r-newnew">
+						<span class="menu-item-icon icon-scale icon-auto-collapse-automoderator-comment"></span>
+						<span data-lang="AutoCollapseAutoModeratorComment" data-search="pagination"></span>
+						<label class="switch">
+							<input id="checkbox-auto-collapse-automoderator-comment" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
 					<li class="container container-3 r-new r-newnew">
 						<span class="menu-item-icon icon-expand-arrows icon-auto-expand-comments"></span>
 						<span data-lang="AutoExpandComments" data-search="pagination"></span>
@@ -897,14 +905,6 @@
 						</label>
 						<div></div>
 						<p data-lang="AutoExpandCommentsInfo"></p>
-					</li>
-					<li class="container container-3 r-old r-new r-newnew">
-						<span class="menu-item-icon icon-scale icon-auto-collapse-automoderator-comment"></span>
-						<span data-lang="AutoCollapseAutoModeratorComment" data-search="pagination"></span>
-						<label class="switch">
-							<input id="checkbox-auto-collapse-automoderator-comment" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
 					</li>
 					<li class="container container-3 r-new">
 						<span class="menu-item-icon icon-play icon-new-player"></span>
@@ -1620,8 +1620,8 @@
 
 		<!-- = Settings Page = -->
 		<div id="settings" style="display: none">
-			<h3>Extension Settings</h3>
-			<ul class="menu-list sub-list">
+			<h3 data-lang="ExtensionSettings"></h3>
+			<ul class="menu-list settings-sub-list">
 				<li class="sub-header">
 					<span data-lang="Theme"></span>
 				</li>

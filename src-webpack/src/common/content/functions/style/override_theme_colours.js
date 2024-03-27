@@ -412,7 +412,10 @@ export function themePostBackgroundColour(value) {
 											--color-neutral-background: var(--re-theme-post-bg) !important;
 											backdrop-filter: blur(var(--re-theme-blur)) !important;
 											border-radius: 8px;
-										}`;
+										}
+										/*shreddit-overflow-menu {
+											--color-neutral-background-strong: var(--re-theme-post-bg) !important;
+										}*/`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
 		});
 	} else if (value === false) {
@@ -519,6 +522,12 @@ export function themePostCommentsTextColour1(value) {
 										shreddit-comment faceplate-number {
 											color: var(--re-theme-post-comments-text) !important;
 										}
+										shreddit-comment shreddit-comment-action-row {
+											--color-button-plain-text: var(--re-theme-post-comments-text) !important;
+										}
+										shreddit-post + [bundlename="comment_body_header"] {
+											--color-neutral-content-weak: var(--re-theme-post-comments-text) !important;
+										}
 										/** {
 											/*--color-secondary-plain: var(--re-theme-post-comments-text) !important;*/
 											--color-secondary-background: rgba(0,0,0,0.3) !important;
@@ -570,6 +579,9 @@ export function themePostCommentsTextColour2(value) {
 										}
 										shreddit-comment-tree * {
 											--color-neutral-content-strong: var(--re-theme-post-comments-text-2) !important;
+										}
+										shreddit-comment shreddit-comment-action-row {
+											--color-secondary: var(--re-theme-post-comments-text-2) !important;
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
 		});
@@ -636,7 +648,7 @@ export function themePostVisitedTitleColourCSS(value) {
 	}
 }
 
-// Post Text Colour 2
+// Post Secondary Text Colour
 export function themePostTextColour2(value) {
 	if (redditVersion === 'new' && value === true) {
 		BROWSER_API.storage.sync.get(['themePostTextColour2CSS'], function (result) {
@@ -674,7 +686,7 @@ export function themePostTextColour2(value) {
 	}
 }
 
-// Post Text Colour 2 CSS
+// Post Secondary Text Colour CSS
 export function themePostTextColour2CSS(value) {
 	if (redditVersion === 'new' || redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostTextColour2'], function (result) {

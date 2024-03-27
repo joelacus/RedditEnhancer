@@ -1167,4 +1167,3 @@ document.querySelector('#checkbox-auto-collapse-automoderator-comment').addEvent
 		});
 	}
 });
-

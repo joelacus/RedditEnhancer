@@ -574,7 +574,7 @@ document.querySelector('#input-post-visited-title-colour-css').addEventListener(
 	});
 });
 
-// Toggle - Post Text Colour 2
+// Toggle - Post Text Secondary Colour
 document.querySelector('#checkbox-post-text-colour-2').addEventListener('change', function (e) {
 	var themePostTextColour2 = document.querySelector('#checkbox-post-text-colour-2').checked;
 	if (themePostTextColour2 == true) {

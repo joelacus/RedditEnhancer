@@ -747,6 +747,10 @@
 		"message": "Commenti espandibili automaticamente"
 	},
 
+	"AutoCollapseAutoModeratorComment": {
+		"message": "Minimizza automaticamente il commento dell'AutoModeratore"
+	},
+
 	"HidePostHiddenMessage": {
 		"message": "Nascondi il messaggio 'Post nascosto'"
 	},
@@ -765,5 +769,33 @@
 
 	"LimitImageWidth": {
 		"message": "Limita la larghezza dell'immagine"
+	},
+
+	"Settings": {
+		"message": "Impostazioni"
+	},
+
+	"ExtensionSettings": {
+		"message": "Impostazioni dell'estensione"
+	},
+
+	"Theme": {
+		"message": "Theme"
+	},
+
+	"Dark": {
+		"message": "Dark"
+	},
+
+	"Light": {
+		"message": "Light"
+	},
+
+	"ClassicLight": {
+		"message": "Classic Light"
+	},
+
+	"BackupRestoreConfig": {
+		"message": "Backup/Restore Config"
 	}
 }

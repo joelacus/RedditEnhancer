@@ -12,7 +12,7 @@ import { loadExpandContent } from '../expand-layout/load_expand_content';
 import { loadLayoutOffset } from '../expand-layout/load_layout_centre_and_offset';
 import { loadHidePromotedPosts } from '../hide_elements/load_hide_promoted';
 import { loadScrollToNextRootCommentPosition } from '../productivity/load_scroll_to_next_root_comment';
-import { loadHideGap } from '../hide_elements/load_hide_gap';
+import { loadHideGap } from '../style/load_hide_gap';
 import { loadResizeFont } from '../style/load_resize_font';
 import { loadBionicReaderColours } from '../accessibility/load_bionic_reader';
 import { loadCustomBackground } from '../style/load_custom_background';
@@ -23,6 +23,7 @@ import { loadImageScroll } from '../productivity/load_scroll_tall_images';
 import { loadNonStickyHeaderBar } from '../productivity/load_non_sticky_header_bar';
 import { loadHidePostHiddenMessage } from '../hide_elements/load_hide_post_hidden_message';
 import { loadAlwaysShowPostOptions } from '../productivity/load_always_show_post_options';
+import { loadAutoCollapseAutoModeratorComment } from '../productivity/load_auto_collapse_automod_comment';
 //import { loadScalePostToFitImage } from '../productivity/load_scale_post_to_fit_image';
 //import { loadDragImageToResize } from '../productivity/load_scale_image_on_drag';
 
@@ -57,12 +58,23 @@ export function observersNewNew() {
 	loadNonStickyHeaderBar();
 	loadHidePostHiddenMessage();
 
+	// Always Show Post Options
 	waitForAddedNode({
 		query: 'shreddit-post',
 		parent: document.querySelector('body'),
 		recursive: true,
 		done: function (el) {
 			loadAlwaysShowPostOptions();
+		},
+	});
+
+	// Auto Collapse AutoModerator Comment
+	waitForAddedNode({
+		query: 'shreddit-comment[author="AutoModerator"]',
+		parent: document.querySelector('body'),
+		recursive: true,
+		done: function (el) {
+			loadAutoCollapseAutoModeratorComment();
 		},
 	});
 	//loadScalePostToFitImage();

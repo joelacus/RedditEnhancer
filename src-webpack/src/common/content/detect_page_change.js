@@ -6,6 +6,7 @@ import { init } from '../content-first/init';
 import { load_saves } from './content_load_saves';
 import { observerPostOverlay } from '../content-first/functions/observers/observer_post_overlay';
 import { autoRedirectVersion } from '../content-first/functions/version_redirect';
+import { defaultSortOption } from '../content-first/functions/default_sort_option';
 
 // Detect mutation in page url
 let oldHref = document.location.href;
@@ -24,6 +25,7 @@ const observer = new MutationObserver((mutations) => {
 					document.querySelector('.re-scroll-to-comment-container').remove();
 				}
 				autoRedirectVersion();
+				defaultSortOption();
 				init();
 				load_saves();
 			}

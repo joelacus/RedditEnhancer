@@ -20,7 +20,8 @@
 	padding: 0;
 	grid-gap: 8px;
 }
-.sub-list {
+.sub-list,
+.settings-sub-list {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -220,7 +221,7 @@
 /* Show/Hide  */
 .hide,
 .hidden {
-	display: none;
+	display: none !important;
 }
 .grid {
 	display: grid;

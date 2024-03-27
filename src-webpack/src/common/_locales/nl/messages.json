@@ -747,6 +747,10 @@
 		"message": "Opmerkingen automatisch uitvouwen"
 	},
 
+	"AutoCollapseAutoModeratorComment": {
+		"message": "Automatisch minimaliseren van AutoModerator-commentaar"
+	},
+
 	"HidePostHiddenMessage": {
 		"message": "Verberg het bericht 'Post verborgen'"
 	},
@@ -765,5 +769,33 @@
 
 	"LimitImageWidth": {
 		"message": "Beperk de afbeeldingsbreedte"
+	},
+
+	"Settings": {
+		"message": "Instellingen"
+	},
+
+	"ExtensionSettings": {
+		"message": "Extensie-instellingen"
+	},
+
+	"Theme": {
+		"message": "Theme"
+	},
+
+	"Dark": {
+		"message": "Dark"
+	},
+
+	"Light": {
+		"message": "Light"
+	},
+
+	"ClassicLight": {
+		"message": "Classic Light"
+	},
+
+	"BackupRestoreConfig": {
+		"message": "Backup/Restore Config"
 	}
 }

@@ -19,7 +19,6 @@ import { showControversialSortButton } from './functions/productivity/show_contr
 import { hideNSFW } from './functions/hide_elements/hide_nsfw';
 import { scrollToNextRootComment } from './functions/productivity/scroll_to_next_root_comment';
 import { autoExpandValue } from './functions/expand_feed_post/auto_expand_value';
-//import { nonStickyHeaderBar } from './functions/productivity/non_sticky_header_bar';
 import { hideOriginalScrollToTop } from './functions/hide_elements/hide_original_scroll_to_top';
 import { showPostAuthor } from './functions/productivity/show_post_author';
 import { bionicReaderPosts, bionicReaderComments, bionicReaderFontColour, bionicReaderBgColour } from './functions/accessibility/bionic_reader';
@@ -27,7 +26,7 @@ import { loadShowPostNumbers } from '../content-first/functions/productivity/loa
 import { loadBreakReminder } from '../content-first/functions/productivity/load_break_reminder';
 import { loadAutoExpandComments } from '../content-first/functions/productivity/load_auto_expand_comments';
 import { showPostFlair } from './functions/productivity/show_post_flair';
-import { autoCollapseAutoModeratorComment } from "./functions/productivity/auto_collapse_automod_comment";
+import { loadAutoCollapseAutoModeratorComment } from '../content-first/functions/productivity/load_auto_collapse_automod_comment';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 export function load_saves() {
@@ -61,10 +60,6 @@ export function load_saves() {
 		BROWSER_API.storage.sync.get(['textPostScroll'], function (result) {
 			textPostScroll(result.textPostScroll);
 		});
-		// Non Sticky Header Bar
-		/*BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
-			nonStickyHeaderBar(result.nonStickyHeaderBar);
-		});*/
 		// Limit Infinity Scroll
 		BROWSER_API.storage.sync.get(['limitInfinityScroll'], function (result) {
 			limitInfinityScroll(result.limitInfinityScroll);
@@ -104,6 +99,7 @@ export function load_saves() {
 		loadShowPostNumbers();
 		loadBreakReminder();
 		loadAutoExpandComments();
+		loadAutoCollapseAutoModeratorComment();
 	} else if (redditVersion === 'newnew') {
 		// Show Post User
 		BROWSER_API.storage.sync.get(['showPostAuthor'], function (result) {
@@ -113,10 +109,6 @@ export function load_saves() {
 		BROWSER_API.storage.sync.get(['showPostFlair'], function (result) {
 			showPostFlair(result.showPostFlair);
 		});
-		// Non Sticky Header Bar
-		/*BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
-			nonStickyHeaderBar(result.nonStickyHeaderBar);
-		});*/
 		// Enable Bionic Reader For Comments
 		BROWSER_API.storage.sync.get(['bionicReaderComments'], function (result) {
 			bionicReaderComments(result.bionicReaderComments);
@@ -148,10 +140,6 @@ export function load_saves() {
 	// Feed Auto Expand
 	BROWSER_API.storage.sync.get(['autoExpandValue'], function (result) {
 		autoExpandValue(result.autoExpandValue);
-	});
-	// Auto Collapse AutoModerator Comment
-	BROWSER_API.storage.sync.get(['autoCollapseAutoModeratorComment'], function (result) {
-		autoCollapseAutoModeratorComment(result.autoCollapseAutoModeratorComment);
 	});
 
 	// Run again

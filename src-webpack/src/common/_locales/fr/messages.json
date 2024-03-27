@@ -747,6 +747,10 @@
 		"message": "Développer automatiquement les commentaires"
 	},
 
+	"AutoCollapseAutoModeratorComment": {
+		"message": "Réduction automatique des commentaires de l'AutoModérateur"
+	},
+
 	"HidePostHiddenMessage": {
 		"message": "Masquer le message « Message caché »"
 	},
@@ -765,5 +769,33 @@
 
 	"LimitImageWidth": {
 		"message": "Limiter la largeur de l'image"
+	},
+
+	"Settings": {
+		"message": "Paramètres"
+	},
+
+	"ExtensionSettings": {
+		"message": "Paramètres de l'extension"
+	},
+
+	"Theme": {
+		"message": "Thème"
+	},
+
+	"Dark": {
+		"message": "Sombre"
+	},
+
+	"Light": {
+		"message": "Clair"
+	},
+
+	"ClassicLight": {
+		"message": "Clair classique"
+	},
+
+	"BackupRestoreConfig": {
+		"message": "Sauvegarder/Restaurer la Configuration"
 	}
 }

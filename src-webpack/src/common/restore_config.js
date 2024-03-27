@@ -131,6 +131,7 @@ function restoreBackup(json) {
 				'addonTheme',
 				'alwaysShowPostOptions',
 				'alwaysShowRisingButton',
+				'autoCollapseAutoModeratorComment',
 				'autoExpandComments',
 				'autoExpandValue',
 				'autoRedirectVersion',

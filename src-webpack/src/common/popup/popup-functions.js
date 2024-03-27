@@ -183,12 +183,8 @@ export function darkModeTimeCalc(i) {
 		if (i === 1) {
 			if (value == true) {
 				document.querySelector('#checkbox-dark-mode').checked = true;
-				//document.querySelector('body').classList.remove('light-mode');
-				//var colour = 'var(--accent)';
 			} else {
 				document.querySelector('#checkbox-dark-mode').checked = false;
-				//document.querySelector('body').classList.add('light-mode');
-				//var colour = '';
 			}
 			var icons = document.querySelectorAll('.icon-dark-mode');
 			icons.forEach(function (icon) {

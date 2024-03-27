@@ -17,6 +17,7 @@ import { loadHidePromotedPosts } from '../hide_elements/load_hide_promoted';
 import { loadCustomBackground } from '../style/load_custom_background';
 import { loadCustomTheme } from '../style/load_custom_theme_colours';
 import { loadResizeFont } from '../style/load_resize_font';
+import { loadAutoCollapseAutoModeratorComment } from '../productivity/load_auto_collapse_automod_comment';
 
 // Load observers to wait for elements to load before tweaking, or load the tweak directly if an observer is not needed.
 
@@ -78,6 +79,16 @@ export function observersOld() {
 		recursive: true,
 		done: function (el) {
 			loadStickySort();
+		},
+	});
+
+	// Auto Collapse AutoModerator Comment
+	waitForAddedNode({
+		query: '.comment[data-author="AutoModerator"]',
+		parent: document.querySelector('body'),
+		recursive: true,
+		done: function (el) {
+			loadAutoCollapseAutoModeratorComment();
 		},
 	});
 }

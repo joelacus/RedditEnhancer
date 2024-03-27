@@ -38,6 +38,7 @@ export function hideSideMenu(value) {
 
 // Function - Hide Side Menu - New New
 function enableHideSideMenuNewNew() {
+	document.querySelector('html').classList.add('re-hide-sidemenu');
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-hide-side-menu';
 	styleElement.textContent = `:root {
@@ -52,19 +53,16 @@ function enableHideSideMenuNewNew() {
 								shreddit-app #main-content {
 									margin-left: 1.5rem;
 								}
-								shreddit-app .subgrid-container .masthead {
-									margin: 0 1.5rem;
-								}
 								shreddit-app[routename="subreddit"] #main-content,
 								shreddit-app[routename="post_page"] #main-content,
 								shreddit-app[routename="profile_overview"] #main-content {
 									grid-column-start: 1 !important;
 									margin-left: 0 !important;
 								}
-								shreddit-app[routename="frontpage"] .main-container,
+								/*shreddit-app[routename="frontpage"] .main-container,
 								shreddit-app[routename="subreddit"] .main-container {
 									padding-left: 1.5rem;
-								}
+								}*/
 								shreddit-app[routename="post_page"] {
 									padding-left: 1.4rem;
 								}
@@ -72,13 +70,20 @@ function enableHideSideMenuNewNew() {
 									margin-left: 0 !important;
 								}
 								shreddit-app[routename="subreddit"] .masthead {
-									margin-right: 0 !important;
+									margin: 0 !important;
+								}
+								shreddit-app .grid-container {
+									grid-template-columns: 1fr;
+								}
+								shreddit-app .subgrid-container {
+									max-width: 100vw;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
 // Function - Show Side Menu - New New
 function disableHideSideMenuNewNew() {
+	document.querySelector('html').classList.remove('re-hide-sidemenu');
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-side-menu"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
