@@ -82,7 +82,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Show Post Author on the Home Feed|Shows the missing post author on the home feed for New New UI.|"New New"|
 |Show Post Flair on the Home Feed|Shows the missing post flair on the home feed for New New UI.|"New New"|
 |Always Show Post Options|Moves the items in the post overflow menu into the header bar for quicker access.|"New New"|
-|Auto Collapse AutoModerator Comment|Automatically collapses the top comment made by AutoModerator.|"All"|
+|Auto Collapse AutoModerator Comment|Automatically collapses the top comment made by AutoModerator.|All|
+|Hide The Join Button On Posts|Hides the 'Join' button on posts on r/all and r/popular.|"Old New"<br />"New New"|
 
 ## Build
 Clone repo and cd to build directory:
@@ -96,13 +97,17 @@ npm install --save-dev webpack terser-webpack-plugin mini-css-extract-plugin htm
 ```
 npm --save install video.js
 ```
-Build for manifest version 2:
+Build for Firefox:
 ```
 npm run build-m2
 ```
-Build for manifest version 3:
+Build for Chrome:
 ```
-npm run build-m3
+npm run build-m3c
+```
+Build for Edge:
+```
+npm run build-m3e
 ```
 
 ## Privacy Policy
