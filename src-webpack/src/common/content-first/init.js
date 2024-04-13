@@ -1,8 +1,8 @@
 /* ===== Content First - Initialise ===== */
 
 import { loadStyles } from './functions/load_styles';
-import { detectEdgeVersion, detectFirefoxVersion } from './detect_browser_version';
-import { detectRedditVersion } from './detect_reddit_version';
+import { detectEdgeVersion, detectFirefoxVersion } from './functions/detect_browser_version';
+import { detectRedditVersion } from './functions/detect_reddit_version';
 
 // Waits for page to load the <head> element before starting to load tweaks.
 const observer = new MutationObserver((mutationsList) => {
@@ -27,7 +27,7 @@ export function init() {
 	loadStyles();
 
 	window.useLegacy = false;
-	// Detect Browser For Legacy Support
+	// Detect Browser For Legacy Support (avoids using :has() selector)
 	if (CHECK_LEGACY_FIREFOX) {
 		useLegacy = detectFirefoxVersion();
 		console.log('use legacy loaders: ' + useLegacy);

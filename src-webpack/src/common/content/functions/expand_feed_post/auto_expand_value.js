@@ -1,5 +1,13 @@
-// Auto Expand Feed/Post To 100% At Value
+/* ===== Tweaks - Expand Feed/Post - Auto Expand Feed/Post To 100% At Value ===== */
 
+/* === Triggered On Page Load === */
+export function loadAutoExpandValue() {
+	BROWSER_API.storage.sync.get(['autoExpandValue'], function (result) {
+		autoExpandValue(result.autoExpandValue);
+	});
+}
+
+/* === Main Function === */
 export function autoExpandValue(widthVariable) {
 	if (redditVersion === 'old' || redditVersion === 'new') {
 		disableAutoExpandValue();

@@ -5,7 +5,9 @@ export function autoRedirectVersion() {
 		if (result.autoRedirectVersion === 'old') {
 			checkAndRedirect('old.reddit.com');
 		} else if (result.autoRedirectVersion === 'new') {
-			checkAndRedirect('new.reddit.com');
+			setTimeout(() => {
+				checkAndRedirect('new.reddit.com');
+			}, 1000);
 		} else if (result.autoRedirectVersion === 'newnew') {
 			checkAndRedirect('sh.reddit.com');
 		}
@@ -19,13 +21,6 @@ function checkAndRedirect(versionHost) {
 	const currentProtocol = location.protocol;
 	const currentHost = location.hostname;
 	const currentPath = location.pathname;
-	const currentQuery = location.search;
-
-	// Stop redirect loop if Reddit forces the latest version.
-	// Works on Firefox and Edge. Need Chrome fix.
-	if (currentQuery.includes('?rdt=')) {
-		return;
-	}
 
 	// Redirect these URLs
 	const redirectList = [
@@ -66,8 +61,13 @@ function checkAndRedirect(versionHost) {
 	if (redirect && !doNotRedirect) {
 		// Check if the URL contains the specified version
 		if (currentHost !== versionHost) {
-			newURL = currentProtocol + '//' + versionHost + currentPath;
-			window.location = newURL;
+			// Redirect if not logged in (otherwise causes redirect loop)
+			if (document.querySelector('#login-button')) {
+				return;
+			} else {
+				newURL = currentProtocol + '//' + versionHost + currentPath;
+				window.location = newURL;
+			}
 		}
 	}
 }

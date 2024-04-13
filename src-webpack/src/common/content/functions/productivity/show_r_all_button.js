@@ -1,5 +1,13 @@
-// Show r/All Button
+/* ===== Tweaks - Productivity - Show r/All Button In Header ===== */
 
+/* === Triggered On Page Load === */
+export function loadShowAllButton() {
+	BROWSER_API.storage.sync.get(['showAllButton'], function (result) {
+		showAllButton(result.showAllButton);
+	});
+}
+
+/* === Main Function === */
 export function showAllButton(value) {
 	if (redditVersion === 'new' && value === true) {
 		if (document.querySelector('.re-all-button')) {

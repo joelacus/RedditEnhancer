@@ -1,5 +1,13 @@
-// Hide Sidebar Policy
+/* ===== Tweaks - Hide - Sidebar Policy Section ===== */
 
+/* === Triggered On Page Load === */
+export function loadHideSidebarPolicy() {
+	BROWSER_API.storage.sync.get(['hideSidebarPolicy'], function (result) {
+		hideSidebarPolicy(result.hideSidebarPolicy);
+	});
+}
+
+/* === Main Function === */
 export function hideSidebarPolicy(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {

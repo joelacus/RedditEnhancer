@@ -1,5 +1,13 @@
-// Show Post Numbers
+/* ===== Tweaks - Productivity - Show Post Numbers ===== */
 
+/* === Triggered On Page Load === */
+export function loadShowPostNumbers() {
+	BROWSER_API.storage.sync.get(['showPostNumbers'], function (result) {
+		showPostNumbers(result.showPostNumbers);
+	});
+}
+
+/* === Main Function === */
 let postNumber = 1;
 
 export function showPostNumbers(value) {

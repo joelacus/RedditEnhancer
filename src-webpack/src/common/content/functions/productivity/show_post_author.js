@@ -1,5 +1,13 @@
-// Show Missing Post Author On The Home Feed
+/* ===== Tweaks - Productivity - Show Missing Post Author On The Home Feed ===== */
 
+/* === Main Function === */
+export function loadShowPostAuthor() {
+	BROWSER_API.storage.sync.get(['showPostAuthor'], function (result) {
+		showPostAuthor(result.showPostAuthor);
+	});
+}
+
+/* === Main Function === */
 export function showPostAuthor(value) {
 	if (redditVersion === 'newnew' && value === true) {
 		if (document.querySelector('shreddit-app').getAttribute('routename') === 'frontpage') {

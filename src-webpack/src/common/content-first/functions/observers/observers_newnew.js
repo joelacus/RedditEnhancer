@@ -1,31 +1,32 @@
-/* ===== New New Reddit Observers ===== */
+/* ===== New New Reddit Observers / Tweak Loader ===== */
 
 import { waitForAddedNode } from './main_observer';
 
-import { loadHideHeaderBar } from '../hide_elements/load_hide_header_bar';
-import { loadHideAdvertiseButton, loadHideChatButton, loadHideCreatePostButton, loadHideNotificationButton } from '../hide_elements/load_hide_header_buttons';
-import { loadHideSideMenu } from '../hide_elements/load_hide_side_menu';
-import { loadHideHomeSidebar, loadHidePostSidebar, loadHideRelatedPostsSection, loadHideSubSidebarException, loadHideUserSidebar } from '../hide_elements/load_hide_sidebar';
-import { loadRemovePageSideMargin } from '../expand-layout/load_remove_page_side_margin';
-import { loadHideSideMenuSections } from '../hide_elements/load_hide_side_menu_sections';
-import { loadExpandContent } from '../expand-layout/load_expand_content';
-import { loadLayoutOffset } from '../expand-layout/load_layout_centre_and_offset';
-import { loadHidePromotedPosts } from '../hide_elements/load_hide_promoted';
-import { loadScrollToNextRootCommentPosition } from '../productivity/load_scroll_to_next_root_comment';
-import { loadHideGap } from '../style/load_hide_gap';
-import { loadResizeFont } from '../style/load_resize_font';
-import { loadBionicReaderColours } from '../accessibility/load_bionic_reader';
-import { loadCustomBackground } from '../style/load_custom_background';
-import { loadCustomTheme } from '../style/load_custom_theme_colours';
-import { loadHideUserProfilePics } from '../hide_elements/load_hide_user_profile_pics';
-import { loadAutoExpandComments } from '../productivity/load_auto_expand_comments';
-import { loadImageScroll } from '../productivity/load_scroll_tall_images';
-import { loadNonStickyHeaderBar } from '../productivity/load_non_sticky_header_bar';
-import { loadHidePostHiddenMessage } from '../hide_elements/load_hide_post_hidden_message';
-import { loadAlwaysShowPostOptions } from '../productivity/load_always_show_post_options';
-import { loadAutoCollapseAutoModeratorComment } from '../productivity/load_auto_collapse_automod_comment';
-//import { loadScalePostToFitImage } from '../productivity/load_scale_post_to_fit_image';
-//import { loadDragImageToResize } from '../productivity/load_scale_image_on_drag';
+import { loadAlwaysShowPostOptions } from '../../../content/functions/productivity/always_show_post_options';
+import { loadAutoCollapseAutoModeratorComment } from '../../../content/functions/productivity/auto_collapse_automod_comment';
+import { loadAutoExpandComments } from '../../../content/functions/productivity/auto_expand_comments';
+import { loadBionicReaderColours } from '../../../content/functions/accessibility/bionic_reader';
+import { loadCustomBackground } from '../../../content/functions/background/custom_background';
+import { loadCustomTheme } from '../../../content/functions/style/override_theme_colours';
+//import { loadDragImageToResize } from '../../../content/functions/productivity/scale_image_on_drag';
+import { loadExpandContent } from '../../../content/functions/expand_feed_post/expand_content';
+import { loadHideAdvertiseButton, loadHideChatButton, loadHideCreatePostButton, loadHideNotificationButton } from '../../../content/functions/hide_elements/hide_header_buttons';
+import { loadHideGap } from '../../../content/functions/style/hide_gap';
+import { loadHideHeaderBar } from '../../../content/functions/hide_elements/hide_header_bar';
+import { loadHideHomeSidebar, loadHidePostSidebar, loadHideRelatedPostsSection, loadHideSubSidebarException, loadHideUserSidebar } from '../../../content/functions/hide_elements/hide_sidebar';
+import { loadHideJoinButtonOnPosts } from '../../../content/functions/hide_elements/hide_post_join_button';
+import { loadHidePostHiddenMessage } from '../../../content/functions/hide_elements/hide_post_hidden_message';
+import { loadHidePromotedPosts } from '../../../content/functions/hide_elements/hide_promoted';
+import { loadHideSideMenu } from '../../../content/functions/hide_elements/hide_side_menu';
+import { loadHideSideMenuSections } from '../../../content/functions/hide_elements/hide_side_menu_sections';
+import { loadHideUserProfilePics } from '../../../content/functions/hide_elements/hide_user_profile_pics';
+import { loadImageScroll } from '../../../content/functions/productivity/scroll_tall_images';
+import { loadLayoutOffset } from '../../../content/functions/expand_feed_post/layout_centre_and_offset';
+import { loadNonStickyHeaderBar } from '../../../content/functions/productivity/non_sticky_header_bar';
+import { loadRemovePageSideMargin } from '../../../content/functions/expand_feed_post/remove_page_side_margin';
+import { loadResizeFont } from '../../../content/functions/accessibility/resize_font';
+//import { loadScalePostToFitImage } from '../../../content/functions/productivity/scale_post_to_fit_image';
+import { loadScrollToNextRootCommentPosition } from '../../../content/functions/productivity/scroll_to_next_root_comment';
 
 // Load observers to wait for elements to load before tweaking, or load the tweak directly if an observer is not needed.
 
@@ -57,6 +58,9 @@ export function observersNewNew() {
 	loadImageScroll();
 	loadNonStickyHeaderBar();
 	loadHidePostHiddenMessage();
+	loadHideJoinButtonOnPosts();
+	//loadScalePostToFitImage();
+	//loadDragImageToResize();
 
 	// Always Show Post Options
 	waitForAddedNode({
@@ -77,6 +81,4 @@ export function observersNewNew() {
 			loadAutoCollapseAutoModeratorComment();
 		},
 	});
-	//loadScalePostToFitImage();
-	//loadDragImageToResize();
 }

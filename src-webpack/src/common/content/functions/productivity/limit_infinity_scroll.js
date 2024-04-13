@@ -1,5 +1,13 @@
-// Limit Infinity Scroll
+/* ===== Tweaks - Productivity - Limit Infinity Scroll ===== */
 
+/* === Triggered On Page Load === */
+export function loadLimitInfinityScroll() {
+	BROWSER_API.storage.sync.get(['limitInfinityScroll'], function (result) {
+		limitInfinityScroll(result.limitInfinityScroll);
+	});
+}
+
+/* === Main Function === */
 export function limitInfinityScroll(value) {
 	const link = window.location.href;
 	if (link.indexOf('old.reddit.com') <= 0 && link.indexOf('/comments/') <= 0 && link.indexOf('/settings/') <= 0 && link.indexOf('/user/') <= 0) {

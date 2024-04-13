@@ -123,7 +123,7 @@ document.querySelector('#restore-backup').addEventListener('click', function () 
 });
 
 // Restore Backup
-function restoreBackup(json) {
+async function restoreBackup(json) {
 	var validKeys = [];
 	for (var key in json) {
 		if (
@@ -136,12 +136,12 @@ function restoreBackup(json) {
 				'autoExpandValue',
 				'autoRedirectVersion',
 				'bgBlur',
-				'bionicReaderComments',
-				'bionicReaderPosts',
-				'bionicReaderFontColour',
-				'bionicReaderFontColourCSS',
 				'bionicReaderBgColour',
 				'bionicReaderBgColourCSS',
+				'bionicReaderComments',
+				'bionicReaderFontColour',
+				'bionicReaderFontColourCSS',
+				'bionicReaderPosts',
 				'breakReminder',
 				'breakReminderFrequency',
 				'commentsLimit',
@@ -173,10 +173,11 @@ function restoreBackup(json) {
 				'hideHeaderBar',
 				'hideHeaderSubBar',
 				'hideHomeSidebar',
+				'hideJoinButtonOnPosts',
 				'hideKarma',
 				'hideModerationButton',
-				'hideNSFW',
 				'hideNotificationButton',
+				'hideNSFW',
 				'hideOriginalScrollToTop',
 				'hidePopularButton',
 				'hidePostHiddenMessage',
@@ -186,6 +187,7 @@ function restoreBackup(json) {
 				'hideRedditPremium',
 				'hideRelatedPostsSection',
 				'hideSeeFullImage',
+				'hideSidebarPolicy',
 				'hideSideMenu',
 				'hideSideMenuCommunitiesSection',
 				'hideSideMenuModerationSection',
@@ -193,15 +195,14 @@ function restoreBackup(json) {
 				'hideSideMenuRecentSection',
 				'hideSideMenuResourcesSection',
 				'hideSideMenuTopSection',
-				'hideSidebarPolicy',
 				'hideSubSidebar',
 				'hideSubSidebarExceptionMode',
-				'hideSubSidebarExceptionSubList',
 				'hideSubSidebarExceptionsEnable',
+				'hideSubSidebarExceptionSubList',
 				'hideTurnOnNotificationsPopup',
+				'hideUsername',
 				'hideUserProfilePics',
 				'hideUserSidebar',
-				'hideUsername',
 				'imageScroll',
 				'imageScrollMaxImageWidth',
 				'justOpenTheImage',
@@ -213,6 +214,7 @@ function restoreBackup(json) {
 				'layoutSubOffset',
 				'layoutUserProfileOffset',
 				'limitInfinityScroll',
+				'menuOrder',
 				'moderniseOldReddit',
 				'newPlayer',
 				'nonStickyHeaderBar',
@@ -221,11 +223,11 @@ function restoreBackup(json) {
 				'overrideDropShadow',
 				'overrideDropShadowCSS',
 				'postClassicHeight',
-				'postTitleFontSize',
-				'postContentFontSize',
 				'postCommentsFontSize',
+				'postContentFontSize',
 				'postHeight',
 				'postHeightSize',
+				'postTitleFontSize',
 				'redditVersion',
 				'removePageSideMargin',
 				'scalePostToFitImage',
@@ -250,8 +252,8 @@ function restoreBackup(json) {
 				'themeCreatePostBorderColour',
 				'themeCreatePostBorderColourCSS',
 				'themeExceptionMode',
-				'themeExceptionSubList',
 				'themeExceptionsEnable',
+				'themeExceptionSubList',
 				'themeHeaderBackgroundColour',
 				'themeHeaderBackgroundColourCSS',
 				'themeHeaderTextColour',
@@ -260,36 +262,35 @@ function restoreBackup(json) {
 				'themePostBackgroundColourCSS',
 				'themePostBorderColour',
 				'themePostBorderColourCSS',
+				'themePostCommentsTextColour1',
+				'themePostCommentsTextColour1CSS',
+				'themePostCommentsTextColour2',
+				'themePostCommentsTextColour2CSS',
 				'themePostTextColour1',
 				'themePostTextColour1CSS',
 				'themePostTextColour2',
 				'themePostTextColour2CSS',
 				'themePostVisitedTitleColour',
 				'themePostVisitedTitleColourCSS',
-				'themePostCommentsTextColour1',
-				'themePostCommentsTextColour1CSS',
-				'themePostCommentsTextColour2',
-				'themePostCommentsTextColour2CSS',
+				'themeSidebarBgColour',
+				'themeSidebarBgColourCSS',
+				'themeSidebarBorderColour',
+				'themeSidebarBorderColourCSS',
+				'themeSidebarTextColour',
+				'themeSidebarTextColourCSS',
+				'themeSidemenuBgColour',
+				'themeSidemenuBgColourCSS',
+				'themeSidemenuTextColour',
+				'themeSidemenuTextColourCSS',
 				'themeSortBackgroundColour',
 				'themeSortBackgroundColourCSS',
 				'themeSortBorderColour',
 				'themeSortBorderColourCSS',
 				'themeSortTextColour',
-				'themeSortTextColourCSS',
 				'themeSortTextColour2',
 				'themeSortTextColour2CSS',
+				'themeSortTextColourCSS',
 				'useCustomBackground',
-				'themeSidebarTextColour',
-				'themeSidebarTextColourCSS',
-				'themeSidebarBgColour',
-				'themeSidebarBgColourCSS',
-				'themeSidebarBorderColour',
-				'themeSidebarBorderColourCSS',
-				'themeSidemenuTextColour',
-				'themeSidemenuTextColourCSS',
-				'themeSidemenuBgColour',
-				'themeSidemenuBgColourCSS',
-				'menuOrder',
 			].includes(key)
 		) {
 			validKeys.push(key);
@@ -298,12 +299,87 @@ function restoreBackup(json) {
 	// Keep only valid keys
 	Object.keys(json).forEach((key) => validKeys.includes(key) || delete json[key]);
 
+	// Chunkify json
+	function splitObjectIntoChunks(obj, chunkSize) {
+		const keys = Object.keys(obj);
+		const numChunks = Math.ceil(keys.length / chunkSize);
+		const result = [];
+		for (let i = 0; i < numChunks; i++) {
+			const start = i * chunkSize;
+			const end = start + chunkSize;
+			const chunkKeys = keys.slice(start, end);
+			const chunk = {};
+			chunkKeys.forEach((key) => {
+				chunk[key] = obj[key];
+			});
+			result.push(chunk);
+		}
+		return result;
+	}
 	// Send json data to background.js to save to storage.sync
-	BROWSER_API.runtime.sendMessage({ restore: json });
+	if (Object.keys(json).length > 120) {
+		document.querySelector('.main').style.display = 'none';
+		document.querySelector('.restoring').style.display = 'flex';
+		const count = Object.keys(json).length;
+		document.querySelector('#item-count').textContent = count;
+		console.log('config items (' + count + ') exceeds 120. config will be chunkified');
+		const result = splitObjectIntoChunks(json, 120);
+		// restore first chunk
+		function restoreChunk1() {
+			BROWSER_API.runtime.sendMessage({ restore: result[0] }).then((response) => {
+				if (response.success === true) {
+					restoreChunk2();
+				} else {
+					console.error('Error:', response);
+					setTimeout(() => {
+						restoreChunk1();
+					}, 60000);
+				}
+			});
+		}
+		restoreChunk1();
+		// restore second chunk
+		function restoreChunk2() {
+			setTimeout(() => {
+				console.log('please wait 60 seconds');
+			}, 1000);
+			// update countdown timer
+			let seconds = 60;
+			const timerElement = document.querySelector('#timer');
+			function updateTimer() {
+				seconds--;
+				timerElement.textContent = seconds;
+				if (seconds === 0) {
+					clearInterval(timerInterval);
+				}
+			}
+			const timerInterval = setInterval(updateTimer, 1000);
+
+			setTimeout(() => {
+				BROWSER_API.runtime.sendMessage({ restore: result[1] }).then((response) => {
+					if (response.success === true) {
+						backupFinished();
+					} else {
+						console.error('Error:', response);
+						setTimeout(() => {
+							restoreChunk2();
+						}, 60000);
+					}
+				});
+			}, 60000);
+		}
+	} else {
+		BROWSER_API.runtime.sendMessage({ restore: json });
+		backupFinished();
+	}
 
 	// Hide file inputs and show 'done'
-	document.querySelector('.main').style.display = 'none';
-	document.querySelector('.done').style.display = 'flex';
+	function backupFinished() {
+		document.querySelector('.main').style.display = 'none';
+		document.querySelector('.restoring').style.display = 'none';
+		document.querySelector('.done').style.display = 'flex';
+		console.log('done');
+	}
 }
 
 // Get Language

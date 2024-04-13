@@ -1,5 +1,13 @@
-// Hide Post Hidden Message
+/* ===== Tweaks - Hide - Post Hidden Message ===== */
 
+/* === Triggered On Page Load === */
+export function loadHidePostHiddenMessage() {
+	BROWSER_API.storage.sync.get(['hidePostHiddenMessage'], function (result) {
+		hidePostHiddenMessage(result.hidePostHiddenMessage);
+	});
+}
+
+/* === Main Function === */
 export function hidePostHiddenMessage(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {

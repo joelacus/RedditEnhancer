@@ -1,5 +1,13 @@
-// Show Scroll To Top Bottom
+/* ===== Tweaks - Productivity - Show Scroll To Top Bottom ===== */
 
+/* === Triggered On Page Load === */
+export function loadShowToTopButton() {
+	BROWSER_API.storage.sync.get(['showToTopButton'], function (result) {
+		showToTopButton(result.showToTopButton);
+	});
+}
+
+/* === Main Function === */
 export function showToTopButton(value) {
 	if (redditVersion === 'old' && value === true) {
 		enableShowToTopButtonOld();
@@ -85,15 +93,10 @@ function enableShowToTopButtonNewNew() {
 			enableShowToTopButtonNewNew();
 		} else {
 			if (document.querySelector('header [data-part="chat"]')) {
-				const btn = document.querySelector('header [data-part="chat"]').cloneNode(true);
-				btn.setAttribute('data-part', 'top');
+				const btn = document.querySelector('header [data-part="chat"] button').cloneNode(true);
 				btn.classList.add('re-to-top-button');
-				btn.querySelector('faceplate-tooltip a').href = '';
-				btn.querySelector('faceplate-tooltip a').target = '';
-				btn.querySelector('faceplate-tooltip a span').innerHTML =
+				btn.querySelector('button span:has(>svg)').innerHTML =
 					'<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path opacity="1" fill="currentColor" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>';
-				btn.querySelector('faceplate-tooltip > span').textContent = 'Top';
-				btn.querySelector('faceplate-screen-reader-content').textContent = 'Scroll To Top';
 				btn.addEventListener('click', function (e) {
 					window.scrollTo({ top: 0, behavior: 'smooth' });
 				});
@@ -101,5 +104,5 @@ function enableShowToTopButtonNewNew() {
 				ad_btn.parentElement.prepend(ad_btn, btn);
 			}
 		}
-	}, 2000);
+	}, 1000);
 }

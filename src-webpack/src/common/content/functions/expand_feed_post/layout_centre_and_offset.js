@@ -1,5 +1,25 @@
-// Layout Centre
+/* ===== Tweaks - Expand Feed/Post - Feed Centre And Offset ===== */
 
+/* === Triggered On Page Load === */
+
+// Feed Centre
+export function loadLayoutCentre() {
+	BROWSER_API.storage.sync.get(['layoutCentre'], function (result) {
+		layoutCentre(result.layoutCentre);
+	});
+}
+
+// Feed Offset
+export function loadLayoutOffset() {
+	BROWSER_API.storage.sync.get(['layoutOffset', 'layoutSubOffset', 'layoutPostOffset', 'layoutUserProfileOffset'], function (result) {
+		layoutOffset(result.layoutOffset);
+		layoutSubOffset(result.layoutSubOffset);
+		layoutPostOffset(result.layoutPostOffset);
+		layoutUserProfileOffset(result.layoutUserProfileOffset);
+	});
+}
+
+/* === Main Function === */
 export function layoutCentre(value) {
 	if (redditVersion === 'old') {
 		if (value === true) {

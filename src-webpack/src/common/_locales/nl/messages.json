@@ -780,22 +780,38 @@
 	},
 
 	"Theme": {
-		"message": "Theme"
+		"message": "Thema"
 	},
 
 	"Dark": {
-		"message": "Dark"
+		"message": "Donker"
 	},
 
 	"Light": {
-		"message": "Light"
+		"message": "Licht"
 	},
 
 	"ClassicLight": {
-		"message": "Classic Light"
+		"message": "Klassiek Licht"
 	},
 
 	"BackupRestoreConfig": {
-		"message": "Backup/Restore Config"
+		"message": "Backup/Herstel Configuratie"
+	},
+
+	"PleaseWait": {
+		"message": "Even geduld aub"
+	},
+
+	"RestoreInfo1": {
+		"message": ""
+	},
+
+	"RestoreInfo2": {
+		"message": "items herstellen. Browser API-limiet is 120 per minuut. Laat dit venster/tabblad nog een minuut open."
+	},
+
+	"HideJoinButtonOnPosts": {
+		"message": "Hide the 'Join' Button On Posts"
 	}
 }

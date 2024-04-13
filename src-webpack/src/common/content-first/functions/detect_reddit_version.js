@@ -1,9 +1,9 @@
-// Detect Reddit Version
+/* ===== Detect Reddit Version ===== */
 
-import { waitForAddedNode } from './functions/observers/main_observer';
-import { observersOld } from './functions/observers/observers_old';
-import { observersNew } from './functions/observers/observers_new';
-import { observersNewNew } from './functions/observers/observers_newnew';
+import { waitForAddedNode } from './observers/main_observer';
+import { observersOld } from './observers/observers_old';
+import { observersNew } from './observers/observers_new';
+import { observersNewNew } from './observers/observers_newnew';
 
 export function detectRedditVersion() {
 	const link = window.location.href;
@@ -28,7 +28,7 @@ export function detectRedditVersion() {
 			},
 		});
 
-		// new
+		// old new
 		waitForAddedNode({
 			id: true,
 			query: '2x-container',

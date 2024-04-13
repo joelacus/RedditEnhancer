@@ -1,4 +1,6 @@
-// Detect Firefox Version For Legacy Support
+/* ===== Detect Firefox / Edge For Legacy Support ===== */
+
+// Detect Firefox Version
 export function detectFirefoxVersion() {
 	const userAgent = navigator.userAgent;
 	const match = userAgent.match(/Firefox\/(\d+)/);
@@ -14,7 +16,7 @@ export function detectFirefoxVersion() {
 	return null;
 }
 
-// Detect Edge On Windows 10 For Legacy Support
+// Detect Edge On Windows 10
 export function detectEdgeVersion() {
 	const userAgent = navigator.userAgent;
 	return /Edg\/\d+/.test(userAgent) && /Windows NT 10/.test(userAgent);

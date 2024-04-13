@@ -1,4 +1,15 @@
+/* ===== Tweaks - Dark Mode ===== */
+
 import { darkModeTimeCalc } from '../../../popup/popup-functions';
+
+/* === Triggered On Page Load === */
+export function loadDarkModeAuto() {
+	BROWSER_API.storage.sync.get(['darkModeAuto'], function (result) {
+		darkModeAuto(result.darkModeAuto);
+	});
+}
+
+/* === Main Function === */
 
 // Dark Mode Auto
 export function darkModeAuto(value) {

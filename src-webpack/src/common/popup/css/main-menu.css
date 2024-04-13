@@ -32,6 +32,9 @@
 	border-radius: 0 0 var(--border-radius) var(--border-radius);
 	margin-bottom: 8px;
 }
+.settings-sub-list {
+	border-radius: var(--border-radius);
+}
 .sub-search-title {
 	color: var(--text-grey);
 }
@@ -50,7 +53,7 @@
 	grid-template-columns: auto 50px;
 	transition: background-color 0.1s ease-in-out;
 	border-radius: var(--border-radius);
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	/*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;*/
 }
 .menu-item-link > :first-child {
 	grid-template-columns: 50px auto 50px;

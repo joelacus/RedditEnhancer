@@ -1799,13 +1799,13 @@ function restoreOptions() {
 	// Auto Redirect To Version
 	BROWSER_API.storage.sync.get(['autoRedirectVersion'], function (result) {
 		if (result.autoRedirectVersion === 'off' || typeof result.redditVersion == 'undefined') {
-			document.querySelector('#chosen-reddit-version').textContent = i18n.t('Off.message');
+			document.querySelector('#chosen-reddit-version').textContent = i18n.t('Off');
 		} else if (result.autoRedirectVersion === 'old') {
-			document.querySelector('#chosen-reddit-version').textContent = i18n.t('OldUI.message');
+			document.querySelector('#chosen-reddit-version').textContent = i18n.t('OldUI');
 		} else if (result.autoRedirectVersion === 'new') {
-			document.querySelector('#chosen-reddit-version').textContent = i18n.t('OldNewUI.message');
+			document.querySelector('#chosen-reddit-version').textContent = i18n.t('OldNewUI');
 		} else if (result.autoRedirectVersion === 'newnew') {
-			document.querySelector('#chosen-reddit-version').textContent = i18n.t('NewNewUI.message');
+			document.querySelector('#chosen-reddit-version').textContent = i18n.t('NewNewUI');
 		}
 	});
 
@@ -2401,6 +2401,20 @@ function restoreOptions() {
 		}
 		console.log('Add Download Video Button: ' + value);
 	});*/
+
+	// Hide Join Button On r/all Posts
+	BROWSER_API.storage.sync.get(['hideJoinButtonOnPosts'], function (result) {
+		if (result.hideJoinButtonOnPosts == true) {
+			document.querySelector('.icon-hide-join-button-on-posts').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-join-button-on-posts').checked = true;
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideJoinButtonOnPosts == 'undefined' || result.hideJoinButtonOnPosts == false) {
+			document.querySelector('#checkbox-hide-join-button-on-posts').checked = false;
+			var value = false;
+		}
+		console.log('Hide Join Button On r/all Posts: ' + value);
+	});
 
 	// Account Switcher
 	/*BROWSER_API.storage.local.get(['accounts'], function (result) {

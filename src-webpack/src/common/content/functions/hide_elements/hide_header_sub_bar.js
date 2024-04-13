@@ -1,5 +1,13 @@
-// Hide Header Sub Bar on old.reddit
+/* ===== Tweaks - Hide - Header Sub Bar on old.reddit ===== */
 
+/* === Triggered On Page Load === */
+export function loadHideHeaderSubBar() {
+	BROWSER_API.storage.sync.get(['hideHeaderSubBar'], function (result) {
+		hideHeaderSubBar(result.hideHeaderSubBar);
+	});
+}
+
+/* === Main Function === */
 export function hideHeaderSubBar(value) {
 	if (value === true) {
 		hideHeaderSubBarOld();

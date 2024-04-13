@@ -780,22 +780,38 @@
 	},
 
 	"Theme": {
-		"message": "Theme"
+		"message": "Teema"
 	},
 
 	"Dark": {
-		"message": "Dark"
+		"message": "Tumma"
 	},
 
 	"Light": {
-		"message": "Light"
+		"message": "Vaalea"
 	},
 
 	"ClassicLight": {
-		"message": "Classic Light"
+		"message": "Perinteinen Vaalea"
 	},
 
 	"BackupRestoreConfig": {
-		"message": "Backup/Restore Config"
+		"message": "Varmuuskopio/Palauta asetukset"
+	},
+
+	"PleaseWait": {
+		"message": "Odota"
+	},
+
+	"RestoreInfo1": {
+		"message": "Palautetaan"
+	},
+
+	"RestoreInfo2": {
+		"message": "kohdetta. Selaimen API-raja on 120 minuutissa. Jätä tämä ikkuna/välilehti auki vielä minuutiksi."
+	},
+
+	"HideJoinButtonOnPosts": {
+		"message": "Hide the 'Join' Button On Posts"
 	}
 }

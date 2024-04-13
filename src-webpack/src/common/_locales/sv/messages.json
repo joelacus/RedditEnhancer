@@ -780,22 +780,38 @@
 	},
 
 	"Theme": {
-		"message": "Theme"
+		"message": "Tema"
 	},
 
 	"Dark": {
-		"message": "Dark"
+		"message": "Mörk"
 	},
 
 	"Light": {
-		"message": "Light"
+		"message": "Ljus"
 	},
 
 	"ClassicLight": {
-		"message": "Classic Light"
+		"message": "Klassisk Ljus"
 	},
 
 	"BackupRestoreConfig": {
-		"message": "Backup/Restore Config"
+		"message": "Säkerhetskopia/Återställ konfigurationg"
+	},
+
+	"PleaseWait": {
+		"message": "Vänta"
+	},
+
+	"RestoreInfo1": {
+		"message": "Återställer"
+	},
+
+	"RestoreInfo2": {
+		"message": "objekt. Webbläsarens API-gräns är 120 per minut. Lämna det här fönstret/fliken öppen i ytterligare en minut."
+	},
+
+	"HideJoinButtonOnPosts": {
+		"message": "Hide the 'Join' Button On Posts"
 	}
 }

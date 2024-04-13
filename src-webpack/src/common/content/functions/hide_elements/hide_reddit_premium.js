@@ -1,5 +1,13 @@
-// Hide Reddit Premium
+/* ===== Tweaks - Hide - Reddit Premium ===== */
 
+/* === Triggered On Page Load === */
+export function loadHideRedditPremium() {
+	BROWSER_API.storage.sync.get(['hideRedditPremium'], function (result) {
+		hideRedditPremium(result.hideRedditPremium);
+	});
+}
+
+/* === Main Function === */
 export function hideRedditPremium(value) {
 	if (redditVersion === 'old' && value === true) {
 		if (useLegacy) {

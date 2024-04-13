@@ -1,5 +1,13 @@
-// Hide Create Post
+/* ===== Tweaks - Hide - Create Post ===== */
 
+/* === Triggered On Page Load === */
+export function loadHideCreatePost() {
+	BROWSER_API.storage.sync.get(['hideCreatePost'], function (result) {
+		hideCreatePost(result.hideCreatePost);
+	});
+}
+
+/* === Main Function === */
 export function hideCreatePost(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {

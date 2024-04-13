@@ -780,22 +780,38 @@
 	},
 
 	"Theme": {
-		"message": "Theme"
+		"message": "Téma"
 	},
 
 	"Dark": {
-		"message": "Dark"
+		"message": "Temný"
 	},
 
 	"Light": {
-		"message": "Light"
+		"message": "Světlý"
 	},
 
 	"ClassicLight": {
-		"message": "Classic Light"
+		"message": "Klasický Světlý"
 	},
 
 	"BackupRestoreConfig": {
-		"message": "Backup/Restore Config"
+		"message": "Zálohování/Obnovení konfigurace"
+	},
+
+	"PleaseWait": {
+		"message": "Prosím, čekejte"
+	},
+
+	"RestoreInfo1": {
+		"message": "Obnovuje se"
+	},
+
+	"RestoreInfo2": {
+		"message": "položek. Limit rozhraní API prohlížeče je 120 za minutu. Ponechte toto okno/záložku otevřenou další minutu."
+	},
+
+	"HideJoinButtonOnPosts": {
+		"message": "Hide the 'Join' Button On Posts"
 	}
 }

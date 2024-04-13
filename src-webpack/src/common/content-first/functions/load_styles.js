@@ -14,7 +14,6 @@ export function loadStyles() {
 		styleHide +
 		styleLayoutCentre +
 		styleOther +
-		styleVideoPlayer +
 		styleScrollText +
 		styleOldReddit +
 		stylePagination +
@@ -29,13 +28,16 @@ export function loadStyles() {
 }
 
 const layoutOffset = `
-					shreddit-app[routename="frontpage"] #main-content {
+					shreddit-app[routename="frontpage"] #main-content,
+					shreddit-app[routename="all"] #main-content,
+					shreddit-app[routename="popular"] #main-content {
 						transform: translateX(var(--re-layout-offset))
 					}
 					shreddit-app[routename="subreddit"] #main-content {
 						transform: translateX(var(--re-layout-sub-offset))
 					}
-					shreddit-app[routename="post_page"] #main-content {
+					shreddit-app[routename="post_page"] #main-content,
+					shreddit-app[routename="profile_post_page"] #main-content {
 						transform: translateX(var(--re-layout-post-offset))
 					}
 					shreddit-app[routename="profile_overview"] #main-content {
@@ -175,26 +177,6 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 const styleScrollText = `.re-text-scroll div[data-click-id="text"][style="max-height: 250px;"], .re-text-scroll div[data-click-id="text"][style="max-height:250px"] {
 							overflow-y: auto;
 							mask-image: linear-gradient(180deg,#000 90%,transparent)
-						}`;
-
-const styleVideoPlayer = `.video-js .vjs-big-play-button,
-						.video-js:hover .vjs-big-play-button,
-						.video-js .vjs-big-play-button:focus {
-							border: 0 !important;
-							background-color: rgba(26, 26, 27, 0.7) !important;
-							border-radius: 50% !important;
-							line-height: 2em !important;
-							height: 2em !important;
-							width: 2em !important;
-							color: #ff4500 !important;
-							margin-top: -1.5em !important;
-							margin-left: -1em !important;
-						}
-						.video-js .vjs-play-progress {
-							background-color: #ff4500 !important;
-						}
-						.video-js .vjs-control-bar {
-							background-color: rgba(26, 26, 27, 0.7) !important;
 						}`;
 
 const styleHide = `.re-hide {

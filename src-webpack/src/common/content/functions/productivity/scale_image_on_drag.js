@@ -1,10 +1,19 @@
-// Drag To Resize Image
+/* ===== Tweaks - Productivity - Drag To Resize Image ===== */
 
-import { disableFitImageNew } from './scale_tall_images_to_fit_post';
+/*import { disableFitImageNew } from './scale_tall_images_to_fit_post';
 import { disableImageScrollAll } from './scroll_tall_images';
 import { disableScalePostToFitImageAll } from './scale_post_to_fit_image';
+*/
+/* === Triggered On Page Load === */
+/*export function loadDragImageToResize() {
+	BROWSER_API.storage.sync.get(['dragImageToResize', 'dragImageToResizeInitialSize'], function (result) {
+		dragImageToResize(result.dragImageToResize);
+		dragImageToResizeInitialSize(result.dragImageToResizeInitialSize);
+	});
+}*/
 
-export function dragImageToResize(value) {
+/* === Main Function === */
+/*export function dragImageToResize(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {
 			disableFitImageNew();
@@ -43,10 +52,6 @@ function enableDragImageToResizeNew() {
 								.Post [data-adclicklocation="media"]:has(figure) > div[style^=padding-bottom] {
 									padding-bottom: var(--re-drag-image-to-resize-initial-size) !important;
 								}
-								/*.Post:has(video) [data-click-id="media"] > div,
-								.Post:has(shreddit-player) [data-click-id="media"] > div {
-									padding-bottom: inherit !important;
-								}*/
 								.Post a > img.ImageBox-image,
 								.Post a > div > div > img.ImageBox-image,
 								.Post figure a > div > img,
@@ -142,12 +147,12 @@ function enableDragImageToResizeNew() {
 
 	document.addEventListener('click', function (e) {
 		console.log(isMouseDown, isMouseMove);
-		/*console.log(e.target);
-		if (e.target.classList.contains('ImageBox-image')) {
-			target = e.target.closest('.Post');
-		} else if (e.target.closest('figure > a > div > img') || e.target.closest('figure > div > img') && e.target.nodeName === 'IMG') {
-			target = e.target.closest('.Post');
-		}*/
+		//console.log(e.target);
+		//if (e.target.classList.contains('ImageBox-image')) {
+		//	target = e.target.closest('.Post');
+		//} else if (e.target.closest('figure > a > div > img') || e.target.closest('figure > div > img') && e.target.nodeName === 'IMG') {
+		//	target = e.target.closest('.Post');
+		//}
 		if (isMouseMove) {
 			e.preventDefault();
 			e.stopPropagation();
@@ -278,4 +283,4 @@ export function dragImageToResizeInitialSize(value) {
 	} else {
 		document.documentElement.style.removeProperty('--re-drag-image-to-resize-initial-size');
 	}
-}
+}*/

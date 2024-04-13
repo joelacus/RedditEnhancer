@@ -1,5 +1,13 @@
-// Show Missing Post Flair On The Home Feed
+/* ===== Tweaks - Productivity - Show Missing Post Flair On The Home Feed ===== */
 
+/* === Triggered On Page Load === */
+export function loadShowPostFlair() {
+	BROWSER_API.storage.sync.get(['showPostFlair'], function (result) {
+		showPostFlair(result.showPostFlair);
+	});
+}
+
+/* === Main Function === */
 export function showPostFlair(value) {
 	if (redditVersion === 'newnew' && value === true) {
 		if (document.querySelector('shreddit-app').getAttribute('routename') === 'frontpage') {

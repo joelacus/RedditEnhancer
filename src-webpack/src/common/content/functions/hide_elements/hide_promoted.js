@@ -1,5 +1,13 @@
-// Hide Promoted Links
+/* ===== Tweaks - Hide - Promoted Links ===== */
 
+/* === Triggered On Page Load === */
+export function loadHidePromotedPosts() {
+	BROWSER_API.storage.sync.get(['hidePromoted'], function (result) {
+		hidePromoted(result.hidePromoted);
+	});
+}
+
+/* === Main Function === */
 export function hidePromoted(value) {
 	if (redditVersion === 'old') {
 		if (value === true) {

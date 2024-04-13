@@ -1,5 +1,13 @@
-// Move Feed Section In Side Menu To The Top
+/* ===== Tweaks - Productivity - Move Feed Section In Side Menu To The Top ===== */
 
+/* === Triggered On Page Load === */
+export function loadSidemenuFeedTop() {
+	BROWSER_API.storage.sync.get(['sidemenuFeedTop'], function (result) {
+		sidemenuFeedTop(result.sidemenuFeedTop);
+	});
+}
+
+/* === Main Function === */
 export function sidemenuFeedTop(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {

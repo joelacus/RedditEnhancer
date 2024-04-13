@@ -1,5 +1,13 @@
-// Always Show Rising Button
+/* ===== Tweaks - Productivity - Always Show Rising Button ===== */
 
+/* === Triggered On Page Load === */
+export function loadAlwaysShowRisingButton() {
+	BROWSER_API.storage.sync.get(['alwaysShowRisingButton'], function (result) {
+		alwaysShowRisingButton(result.alwaysShowRisingButton);
+	});
+}
+
+/* === Main Function === */
 export function alwaysShowRisingButton(value) {
 	const link = window.location.href;
 	if (redditVersion === 'new') {

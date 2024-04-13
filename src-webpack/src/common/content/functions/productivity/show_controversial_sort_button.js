@@ -1,5 +1,13 @@
-// Show Controversial Sort Button
+/* ===== Tweaks - Productivity - Show Controversial Sort Button ===== */
 
+/* === Triggered On Page Load === */
+export function loadShowControversialSortButton() {
+	BROWSER_API.storage.sync.get(['showControversialSortButton'], function (result) {
+		showControversialSortButton(result.showControversialSortButton);
+	});
+}
+
+/* === Main Function === */
 export function showControversialSortButton(value) {
 	var link = window.location.href;
 	if (redditVersion === 'new') {

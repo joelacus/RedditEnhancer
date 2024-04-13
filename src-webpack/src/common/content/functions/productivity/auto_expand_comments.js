@@ -1,5 +1,16 @@
-// Auto Expand Comments
+/* ===== Tweaks - Productivity - Auto Expand Comments ===== */
 
+/* === Triggered On Page Load === */
+export function loadAutoExpandComments() {
+	BROWSER_API.storage.sync.get(['autoExpandComments'], function (result) {
+		autoExpandComments(result.autoExpandComments);
+	});
+}
+
+/* === Main Function === */
+
+// expands comments, and waits for comments to load to then expand sub comments etc.
+// is there a better way? expand on scroll?
 export function autoExpandComments(value) {
 	if (redditVersion === 'new' && value === true) {
 		setTimeout(() => {

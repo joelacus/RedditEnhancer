@@ -1,5 +1,13 @@
-// Hide "Turn On Notifications" Popup
+/* ===== Tweaks - Hide - "Turn On Notifications" Popup ===== */
 
+/* === Triggered On Page Load === */
+export function loadHideTurnOnNotificationsPopup() {
+	BROWSER_API.storage.sync.get(['hideTurnOnNotificationsPopup'], function (result) {
+		hideTurnOnNotificationsPopup(result.hideTurnOnNotificationsPopup);
+	});
+}
+
+/* === Main Function === */
 export function hideTurnOnNotificationsPopup(value) {
 	if (value === true) {
 		hideTurnOnNotificationsPopupNew();

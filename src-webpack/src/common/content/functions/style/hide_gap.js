@@ -1,5 +1,13 @@
-// Hide Interface Gap
+/* ===== Tweaks - Style - Hide Interface Gap ===== */
 
+/* === Triggered On Page Load === */
+export function loadHideGap() {
+	BROWSER_API.storage.sync.get(['hideGap'], function (result) {
+		hideGap(result.hideGap);
+	});
+}
+
+/* === Main Function === */
 export function hideGap(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {

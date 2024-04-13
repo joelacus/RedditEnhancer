@@ -780,22 +780,38 @@
 	},
 
 	"Theme": {
-		"message": "Theme"
+		"message": "Tema"
 	},
 
 	"Dark": {
-		"message": "Dark"
+		"message": "Mørk"
 	},
 
 	"Light": {
-		"message": "Light"
+		"message": "Lys"
 	},
 
 	"ClassicLight": {
-		"message": "Classic Light"
+		"message": "Klassisk Lys"
 	},
 
 	"BackupRestoreConfig": {
-		"message": "Backup/Restore Config"
+		"message": "Sikkerhetskopi/Gjenopprett konfigurasjon"
+	},
+
+	"PleaseWait": {
+		"message": "Vennligst vent"
+	},
+
+	"RestoreInfo1": {
+		"message": "Gjenoppretter"
+	},
+
+	"RestoreInfo2": {
+		"message": "elementer. Nettleser-API-grensen er 120 per minutt. Vennligst la dette vinduet/fanen være åpen i et minutt til."
+	},
+
+	"HideJoinButtonOnPosts": {
+		"message": "Hide the 'Join' Button On Posts"
 	}
 }

@@ -780,22 +780,38 @@
 	},
 
 	"Theme": {
-		"message": "Theme"
+		"message": "Тема"
 	},
 
 	"Dark": {
-		"message": "Dark"
+		"message": "Темний"
 	},
 
 	"Light": {
-		"message": "Light"
+		"message": "Світлий"
 	},
 
 	"ClassicLight": {
-		"message": "Classic Light"
+		"message": "Класичний Світлий"
 	},
 
 	"BackupRestoreConfig": {
-		"message": "Backup/Restore Config"
+		"message": "Резервне копіювання/Відновлення конфігурації"
+	},
+
+	"PleaseWait": {
+		"message": "Будь ласка, зачекайте"
+	},
+
+	"RestoreInfo1": {
+		"message": "Реставрація"
+	},
+
+	"RestoreInfo2": {
+		"message": "предметів. Обмеження API браузера становить 120 за хвилину. Будь ласка, залиште це вікно/вкладку відкритою ще на хвилину."
+	},
+
+	"HideJoinButtonOnPosts": {
+		"message": "Hide the 'Join' Button On Posts"
 	}
 }

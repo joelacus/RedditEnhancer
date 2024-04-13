@@ -1,5 +1,13 @@
-// Open links to subreddit in new tab
+/* ===== Tweaks - Productivity - Open links to subreddit in new tab ===== */
 
+/* === Triggered On Page Load === */
+export function loadOpenSubInNewTab() {
+	BROWSER_API.storage.sync.get(['openSubInNewTab'], function (result) {
+		openSubInNewTab(result.openSubInNewTab);
+	});
+}
+
+/* === Main Function === */
 export function openSubInNewTab(value) {
 	if (redditVersion === 'new') {
 		if (value == true) {

@@ -1,4 +1,22 @@
-// Hide Side Menu
+/* ===== Tweaks - Hide - Side Menu ===== */
+
+/* === Triggered On Page Load === */
+
+// Load Hide Side Menu - Old
+export function loadHideSideMenuOld() {
+	BROWSER_API.storage.sync.get(['hideSideMenuOld'], function (result) {
+		hideSideMenuOld(result.hideSideMenuOld);
+	});
+}
+
+// Load Hide Side Menu - New New
+export function loadHideSideMenu() {
+	BROWSER_API.storage.sync.get(['hideSideMenu'], function (result) {
+		hideSideMenu(result.hideSideMenu);
+	});
+}
+
+/* === Main Function === */
 
 // Hide Side Menu - Old
 export function hideSideMenuOld(value) {
@@ -55,6 +73,7 @@ function enableHideSideMenuNewNew() {
 								}
 								shreddit-app[routename="subreddit"] #main-content,
 								shreddit-app[routename="post_page"] #main-content,
+								shreddit-app[routename="profile_post_page"] #main-content,
 								shreddit-app[routename="profile_overview"] #main-content {
 									grid-column-start: 1 !important;
 									margin-left: 0 !important;
@@ -63,7 +82,8 @@ function enableHideSideMenuNewNew() {
 								shreddit-app[routename="subreddit"] .main-container {
 									padding-left: 1.5rem;
 								}*/
-								shreddit-app[routename="post_page"] {
+								shreddit-app[routename="post_page"],
+								shreddit-app[routename="profile_post_page"] {
 									padding-left: 1.4rem;
 								}
 								shreddit-app[routename="frontpage"] #main-content {

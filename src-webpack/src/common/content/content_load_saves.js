@@ -1,157 +1,76 @@
-/* ===== Content / Load Saves ===== */
+/* ===== Content / Load Tweaks ===== */
 
 // Applies certain tweaks after the page has loaded.
 
-import { darkModeAuto } from './functions/dark_mode/dark_mode';
-import { alwaysShowRisingButton } from './functions/productivity/always_show_rising';
-import { fitImage } from './functions/productivity/scale_tall_images_to_fit_post';
-import { openSubInNewTab } from './functions/productivity/open_sub_links_in_new_tab';
-import { openPostInNewTab } from './functions/productivity/open_post_links_in_new_tab';
-import { showAllButton } from './functions/productivity/show_r_all_button';
-import { showToTopButton } from './functions/productivity/scroll_to_top';
-import { newPlayer } from './functions/productivity/video_player';
-import { sidemenuFeedTop } from './functions/productivity/sidemenu_feed_top';
-import { textPostScroll } from './functions/productivity/text_post_scroll';
-import { hideSeeFullImage } from './functions/hide_elements/hide_see_full_image';
-import { moderniseOldReddit } from './functions/style/modernise_old_reddit';
-import { limitInfinityScroll } from './functions/productivity/limit_infinity_scroll';
-import { showControversialSortButton } from './functions/productivity/show_controversial_sort_button';
-import { hideNSFW } from './functions/hide_elements/hide_nsfw';
-import { scrollToNextRootComment } from './functions/productivity/scroll_to_next_root_comment';
-import { autoExpandValue } from './functions/expand_feed_post/auto_expand_value';
-import { hideOriginalScrollToTop } from './functions/hide_elements/hide_original_scroll_to_top';
-import { showPostAuthor } from './functions/productivity/show_post_author';
-import { bionicReaderPosts, bionicReaderComments, bionicReaderFontColour, bionicReaderBgColour } from './functions/accessibility/bionic_reader';
-import { loadShowPostNumbers } from '../content-first/functions/productivity/load_show_post_numbers';
-import { loadBreakReminder } from '../content-first/functions/productivity/load_break_reminder';
-import { loadAutoExpandComments } from '../content-first/functions/productivity/load_auto_expand_comments';
-import { showPostFlair } from './functions/productivity/show_post_flair';
-import { loadAutoCollapseAutoModeratorComment } from '../content-first/functions/productivity/load_auto_collapse_automod_comment';
-//import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
+//import { loadAddDownloadVideoButton } from './functions/productivity/add_download_video_button';
+import { loadAlwaysShowRisingButton } from './functions/productivity/always_show_rising';
+import { loadAutoCollapseAutoModeratorComment } from './functions/productivity/auto_collapse_automod_comment';
+import { loadAutoExpandComments } from './functions/productivity/auto_expand_comments';
+import { loadAutoExpandValue } from './functions/expand_feed_post/auto_expand_value';
+import { loadBionicReaderForComments, loadBionicReaderForPosts } from './functions/accessibility/bionic_reader';
+import { loadBreakReminder } from './functions/productivity/break_reminder';
+import { loadDarkModeAuto } from './functions/dark_mode/dark_mode';
+import { loadFitImage } from './functions/productivity/scale_tall_images_to_fit_post';
+import { loadHideNSFW } from './functions/hide_elements/hide_nsfw';
+import { loadHideOriginalScrollToTop } from './functions/hide_elements/hide_original_scroll_to_top';
+import { loadHideSeeFullImage } from './functions/hide_elements/hide_see_full_image';
+import { loadLimitInfinityScroll } from './functions/productivity/limit_infinity_scroll';
+import { loadModerniseOldReddit } from './functions/style/modernise_old_reddit';
+import { loadNewPlayer } from './functions/productivity/video_player';
+import { loadOpenPostInNewTab } from './functions/productivity/open_post_links_in_new_tab';
+import { loadOpenSubInNewTab } from './functions/productivity/open_sub_links_in_new_tab';
+import { loadScrollToNextRootComment } from './functions/productivity/scroll_to_next_root_comment';
+import { loadShowAllButton } from './functions/productivity/show_r_all_button';
+import { loadShowControversialSortButton } from './functions/productivity/show_controversial_sort_button';
+import { loadShowPostAuthor } from './functions/productivity/show_post_author';
+import { loadShowPostFlair } from './functions/productivity/show_post_flair';
+import { loadShowPostNumbers } from './functions/productivity/show_post_numbers';
+import { loadShowToTopButton } from './functions/productivity/scroll_to_top';
+import { loadSidemenuFeedTop } from './functions/productivity/sidemenu_feed_top';
+import { loadTextPostScroll } from './functions/productivity/text_post_scroll';
 
 export function load_saves() {
 	if (redditVersion === 'old') {
-		// Modernise Old Reddit
-		BROWSER_API.storage.sync.get(['moderniseOldReddit'], function (result) {
-			moderniseOldReddit(result.moderniseOldReddit);
-		});
+		loadModerniseOldReddit();
 	} else if (redditVersion === 'new') {
-		// Always Show Rising Button
-		BROWSER_API.storage.sync.get(['alwaysShowRisingButton'], function (result) {
-			alwaysShowRisingButton(result.alwaysShowRisingButton);
-		});
-		// Show Controversial Sort Button
-		BROWSER_API.storage.sync.get(['showControversialSortButton'], function (result) {
-			showControversialSortButton(result.showControversialSortButton);
-		});
-		// Scale Tall Images
-		BROWSER_API.storage.sync.get(['fitImage'], function (result) {
-			fitImage(result.fitImage);
-		});
-		// Hide See Full Image
-		BROWSER_API.storage.sync.get(['hideSeeFullImage'], function (result) {
-			hideSeeFullImage(result.hideSeeFullImage);
-		});
-		// Move Feed Section In Side Menu To The Top
-		BROWSER_API.storage.sync.get(['sidemenuFeedTop'], function (result) {
-			sidemenuFeedTop(result.sidemenuFeedTop);
-		});
-		// Text Scroll
-		BROWSER_API.storage.sync.get(['textPostScroll'], function (result) {
-			textPostScroll(result.textPostScroll);
-		});
-		// Limit Infinity Scroll
-		BROWSER_API.storage.sync.get(['limitInfinityScroll'], function (result) {
-			limitInfinityScroll(result.limitInfinityScroll);
-		});
-		// Hide Original Scroll To Top Button
-		BROWSER_API.storage.sync.get(['hideOriginalScrollToTop'], function (result) {
-			hideOriginalScrollToTop(result.hideOriginalScrollToTop);
-		});
-		// New Player
-		BROWSER_API.storage.sync.get(['newPlayer'], function (result) {
-			newPlayer(result.newPlayer);
-		});
-		// Enable Bionic Reader For Comments
-		BROWSER_API.storage.sync.get(['bionicReaderComments'], function (result) {
-			bionicReaderComments(result.bionicReaderComments);
-		});
-		// Enable Bionic Reader For Posts
-		BROWSER_API.storage.sync.get(['bionicReaderPosts'], function (result) {
-			bionicReaderPosts(result.bionicReaderPosts);
-		});
-		// Open Sub Links In New Tab
-		BROWSER_API.storage.sync.get(['openSubInNewTab'], function (result) {
-			openSubInNewTab(result.openSubInNewTab);
-		});
-		// Open Post Links In New Tab
-		BROWSER_API.storage.sync.get(['openPostInNewTab'], function (result) {
-			openPostInNewTab(result.openPostInNewTab);
-		});
-		// Add r/All Button To Side Menu
-		BROWSER_API.storage.sync.get(['showAllButton'], function (result) {
-			showAllButton(result.showAllButton);
-		});
-		// Scroll To Next Root Comment
-		BROWSER_API.storage.sync.get(['scrollToNextRootComment'], function (result) {
-			scrollToNextRootComment(result.scrollToNextRootComment);
-		});
+		loadAlwaysShowRisingButton();
+		loadShowControversialSortButton();
+		loadFitImage();
+		loadHideSeeFullImage();
+		loadSidemenuFeedTop();
+		loadTextPostScroll();
+		loadLimitInfinityScroll();
+		loadHideOriginalScrollToTop();
+		loadNewPlayer();
+		loadOpenSubInNewTab();
+		loadOpenPostInNewTab();
+		loadShowAllButton();
+		loadScrollToNextRootComment();
+		loadBionicReaderForPosts();
+		loadBionicReaderForComments();
 		loadShowPostNumbers();
 		loadBreakReminder();
 		loadAutoExpandComments();
 		loadAutoCollapseAutoModeratorComment();
 	} else if (redditVersion === 'newnew') {
-		// Show Post User
-		BROWSER_API.storage.sync.get(['showPostAuthor'], function (result) {
-			showPostAuthor(result.showPostAuthor);
-		});
-		// Show Post Flair
-		BROWSER_API.storage.sync.get(['showPostFlair'], function (result) {
-			showPostFlair(result.showPostFlair);
-		});
-		// Enable Bionic Reader For Comments
-		BROWSER_API.storage.sync.get(['bionicReaderComments'], function (result) {
-			bionicReaderComments(result.bionicReaderComments);
-		});
-		// Enable Bionic Reader For Posts
-		BROWSER_API.storage.sync.get(['bionicReaderPosts'], function (result) {
-			bionicReaderPosts(result.bionicReaderPosts);
-		});
-		// Scroll To Next Root Comment
-		BROWSER_API.storage.sync.get(['scrollToNextRootComment'], function (result) {
-			scrollToNextRootComment(result.scrollToNextRootComment);
-		});
+		//loadAddDownloadVideoButton();
+		loadBionicReaderForComments();
+		loadBionicReaderForPosts();
+		loadScrollToNextRootComment();
+		loadShowPostAuthor();
+		loadShowPostFlair();
 	}
 
 	// Common
+	loadAutoExpandValue();
+	loadDarkModeAuto();
+	loadHideNSFW();
+	loadShowToTopButton();
 
-	// Dark Mode Auto
-	BROWSER_API.storage.sync.get(['darkModeAuto'], function (result) {
-		darkModeAuto(result.darkModeAuto);
-	});
-	// Hide NSFW Links - Has Legacy Support
-	BROWSER_API.storage.sync.get(['hideNSFW'], function (result) {
-		hideNSFW(result.hideNSFW);
-	});
-	// Show To Top Button
-	BROWSER_API.storage.sync.get(['showToTopButton'], function (result) {
-		showToTopButton(result.showToTopButton);
-	});
-	// Feed Auto Expand
-	BROWSER_API.storage.sync.get(['autoExpandValue'], function (result) {
-		autoExpandValue(result.autoExpandValue);
-	});
-
-	// Run again
+	// Run again (make sure it loaded correctly)
 	setTimeout(() => {
-		// Show To Top Button
-		BROWSER_API.storage.sync.get(['showToTopButton'], function (result) {
-			showToTopButton(result.showToTopButton);
-		});
-		// Add r/All Button To Side Menu
-		BROWSER_API.storage.sync.get(['showAllButton'], function (result) {
-			showAllButton(result.showAllButton);
-		});
+		loadShowToTopButton();
+		loadShowAllButton();
 	}, 5000);
 }
 load_saves();

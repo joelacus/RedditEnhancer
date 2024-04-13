@@ -797,5 +797,21 @@
 
 	"BackupRestoreConfig": {
 		"message": "Copia de Seguridad/Restaurar Configuración"
+	},
+
+	"PleaseWait": {
+		"message": "Espere por favor"
+	},
+
+	"RestoreInfo1": {
+		"message": "Restaurando"
+	},
+
+	"RestoreInfo2": {
+		"message": "artículos. El límite de API del navegador es 120 por minuto. Deje esta ventana/pestaña abierta por un minuto más."
+	},
+
+	"HideJoinButtonOnPosts": {
+		"message": "Hide the 'Join' Button On Posts"
 	}
 }

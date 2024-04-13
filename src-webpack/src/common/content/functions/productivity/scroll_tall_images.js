@@ -1,9 +1,18 @@
-// Add Scroll Bar To Tall Images
+/* ===== Tweaks - Productivity - Add Scroll Bar To Tall Images ===== */
 
 import { disableFitImageNew } from './scale_tall_images_to_fit_post';
 //import { disableScalePostToFitImageAll } from './scale_post_to_fit_image';
 //import { disableDragImageToResizeAll } from './scale_image_on_drag';
 
+/* === Triggered On Page Load === */
+export function loadImageScroll() {
+	BROWSER_API.storage.sync.get(['imageScroll', 'imageScrollMaxImageWidth'], function (result) {
+		imageScroll(result.imageScroll);
+		imageScrollMaxImageWidth(result.imageScrollMaxImageWidth);
+	});
+}
+
+/* === Main Function === */
 export function imageScroll(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {
@@ -63,14 +72,14 @@ function enableImageScrollNewNew() {
 									width: var(--re-image-scroll-max-image-width) !important;
 									margin: 0 auto;
 								}
-								shreddit-app shreddit-post shreddit-aspect-ratio .media-lightbox-img :last-child {
-									display: none;
-								}
 								shreddit-app shreddit-post shreddit-aspect-ratio .media-lightbox-img :first-child {
 									transform: scale(1) !important;
 									filter: none !important;
 									opacity: 1 !important;
 									top: 0;
+								}
+								shreddit-app shreddit-post shreddit-aspect-ratio .media-lightbox-img :nth-child(2) {
+									display: none;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }

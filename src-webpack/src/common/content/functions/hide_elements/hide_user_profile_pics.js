@@ -1,5 +1,13 @@
-// Hide User Profile Pics
+/* ===== Tweaks - Hide - User Profile Pics ===== */
 
+/* === Triggered On Page Load === */
+export function loadHideUserProfilePics() {
+	BROWSER_API.storage.sync.get(['hideUserProfilePics'], function (result) {
+		hideUserProfilePics(result.hideUserProfilePics);
+	});
+}
+
+/* === Main Function === */
 export function hideUserProfilePics(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {

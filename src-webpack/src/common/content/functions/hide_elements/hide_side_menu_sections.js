@@ -1,4 +1,21 @@
-// Hide Side Menu Sections
+/* ===== Tweaks - Hide - Side Menu Sections ===== */
+
+/* === Triggered On Page Load === */
+export function loadHideSideMenuSections() {
+	// Hide Top Section
+	BROWSER_API.storage.sync.get(
+		['hideSideMenuTopSection', 'hideSideMenuModerationSection', 'hideSideMenuRecentSection', 'hideSideMenuCommunitiesSection', 'hideSideMenuResourcesSection'],
+		function (result) {
+			hideSideMenuTopSection(result.hideSideMenuTopSection);
+			hideSideMenuModerationSection(result.hideSideMenuModerationSection);
+			hideSideMenuRecentSection(result.hideSideMenuRecentSection);
+			hideSideMenuCommunitiesSection(result.hideSideMenuCommunitiesSection);
+			hideSideMenuResourcesSection(result.hideSideMenuResourcesSection);
+		}
+	);
+}
+
+/* === Main Function === */
 
 // Hide Top Section
 export function hideSideMenuTopSection(value) {

@@ -1,5 +1,13 @@
-// Use Custom Background
+/* ===== Tweaks - Background - Use Custom Background ===== */
 
+/* === Triggered On Page Load === */
+export function loadCustomBackground() {
+	BROWSER_API.storage.sync.get(['useCustomBackground'], function (result) {
+		useCustomBackground(result.useCustomBackground);
+	});
+}
+
+/* === Main Function === */
 export function useCustomBackground(value) {
 	if (redditVersion === 'old') {
 		if (value === true) {

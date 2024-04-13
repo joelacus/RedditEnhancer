@@ -1,10 +1,19 @@
-// Scale Post To Fit Image
+/* ===== Tweaks - Productivity - Scale Post To Fit Image ===== */
 
 /*import { disableImageScrollAll } from './scroll_tall_images';
 import { disableFitImageNew } from './scale_tall_images_to_fit_post';
 import { disableDragImageToResizeAll } from './scale_image_on_drag';
 
-export function scalePostToFitImage(value) {
+/* === Triggered On Page Load === */
+/*export function loadScalePostToFitImage() {
+	BROWSER_API.storage.sync.get(['scalePostToFitImage', 'scalePostToFitImageMaxImageWidth'], function (result) {
+		scalePostToFitImage(result.scalePostToFitImage);
+		scalePostToFitImageMaxImageWidth(result.scalePostToFitImageMaxImageWidth);
+	});
+}*/
+
+/* === Main Function === */
+/*export function scalePostToFitImage(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {
 			disableImageScrollAll();

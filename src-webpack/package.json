@@ -1,6 +1,6 @@
 {
 	"name": "reddit_enhancer_webpack",
-	"version": "1.5.0",
+	"version": "1.6.0",
 	"description": "",
 	"scripts": {
 		"build-m2": "webpack --config ./webpack-m2.conf.js",
@@ -24,6 +24,7 @@
 		"html-minimizer-webpack-plugin": "^5.0.0",
 		"i18next": "^23.6.0",
 		"i18next-http-backend": "^2.3.0",
+		"muxjs": "^2.4.18",
 		"npm": "^10.2.1",
 		"sortablejs": "^1.15.2",
 		"stream": "^0.0.2",

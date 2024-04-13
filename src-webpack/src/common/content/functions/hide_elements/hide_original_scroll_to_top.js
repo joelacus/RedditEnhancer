@@ -1,5 +1,13 @@
-// Hide Original Scroll To Top
+/* ===== Tweaks - Hide - Original Scroll To Top ===== */
 
+/* === Triggered On Page Load === */
+export function loadHideOriginalScrollToTop() {
+	BROWSER_API.storage.sync.get(['hideOriginalScrollToTop'], function (result) {
+		hideOriginalScrollToTop(result.hideOriginalScrollToTop);
+	});
+}
+
+/* === Main Function === */
 export function hideOriginalScrollToTop(value) {
 	if (redditVersion === 'new') {
 		if (useLegacy && value === true) {

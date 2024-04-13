@@ -1,4 +1,19 @@
-// Scroll To Next Root Comment
+/* ===== Tweaks - Productivity - Scroll To Next Root Comment ===== */
+
+/* === Triggered On Page Load === */
+export function loadScrollToNextRootComment() {
+	BROWSER_API.storage.sync.get(['scrollToNextRootComment'], function (result) {
+		scrollToNextRootComment(result.scrollToNextRootComment);
+	});
+}
+export function loadScrollToNextRootCommentPosition() {
+	BROWSER_API.storage.sync.get(['scrollToNextRootCommentPosition', 'scrollToNextRootCommentPositionV'], function (result) {
+		scrollToNextRootCommentPosition(result.scrollToNextRootCommentPosition);
+		scrollToNextRootCommentPositionV(result.scrollToNextRootCommentPositionV);
+	});
+}
+
+/* === Main Function === */
 export function scrollToNextRootComment(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {

@@ -1,4 +1,14 @@
-// Hide Username and Karma
+/* ===== Tweaks - Hide - Username and Karma ===== */
+
+/* === Triggered On Page Load === */
+export function loadHideUsernameAndKarma() {
+	BROWSER_API.storage.sync.get(['hideUsername', 'hideKarma'], function (result) {
+		hideUsername(result.hideUsername);
+		hideKarma(result.hideKarma);
+	});
+}
+
+/* === Main Function === */
 
 // Hide Username
 export function hideUsername(value) {

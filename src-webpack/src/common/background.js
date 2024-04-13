@@ -2,6 +2,7 @@
 
 import { darkModeTimeCalc } from '../common/popup/popup-functions';
 //import muxjs from 'mux.js/dist/mux.js';
+//const muxjs = require('mux.js');
 let fetchUrl = '';
 
 // Listen For Messages
@@ -19,7 +20,18 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 			}
 		});
 	} else if (request.restore) {
-		restoreBackup(request);
+		const json = Object.values(request)[0];
+		for (const [key, value] of Object.entries(json)) {
+			BROWSER_API.storage.sync
+				.set({ [key]: value })
+				.then(() => {
+					sendResponse({ success: true, message: 'Data stored successfully' });
+				})
+				.catch((error) => {
+					sendResponse({ success: false, message: 'Error storing data' });
+				});
+		}
+		return true;
 	} else if (request.actions) {
 		for (const action of request.actions) {
 			if (action.action === 'changeFetchUrl') {
@@ -45,20 +57,17 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 			filename: 'downloaded-video.mp4', // Set the desired file name
 			saveAs: true, // Show the "Save As" dialog
 		});
-	} else if (request.action === 'testQualities') {
+	}  else if (request.action === 'testQualities') {
 		const videoUrl = request.url;
 		const audioUrl = videoUrl.replace(/DASH_\d+\.mp4$/, 'DASH_AUDIO_128.mp4');
 		const availableQualities = ['96', '220', '270', '360', '480', '720', '1080'];
-
 		// Iterate over qualities and find the highest available quality
 		async function findHighestQuality() {
 			let highestQuality = '96';
 			let highestQualityUrl = videoUrl;
-
 			for (const quality of availableQualities) {
 				const testUrl = videoUrl.replace(/_(\d+)\.mp4$/, `_${quality}.mp4`);
 				const isAvailable = await testVideoQuality(testUrl);
-
 				if (isAvailable) {
 					highestQuality = quality;
 					highestQualityUrl = videoUrl.replace(/_(\d+)\.mp4$/, `_${quality}.mp4`);
@@ -70,10 +79,10 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 		}
 		findHighestQuality();
 		return true;
-	}
+	}*/
 
 	// Function to test video quality
-	async function testVideoQuality(url) {
+	/*async function testVideoQuality(url) {
 		try {
 			const response = await fetch(url, { method: 'HEAD' });
 			return response.ok;
@@ -115,16 +124,6 @@ BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
 	});
 });
 
-// Restore Backup Config
-function restoreBackup(request) {
-	console.log('restoring backup config...');
-	const json = Object.values(request)[0];
-	for (const [key, value] of Object.entries(json)) {
-		//console.log(key, value);
-		BROWSER_API.storage.sync.set({ [key]: value });
-	}
-}
-
 // Function to fetch data
 function fetchData(sendResponse) {
 	fetch(fetchUrl)
@@ -145,35 +144,43 @@ function fetchData(sendResponse) {
 		});
 }
 
-/* ===== Merge Video And Audio ===== (DOESN'T WORK)*/
-/*const mergeVideoAndAudio = async (videoUrl, audioUrl) => {
+/* ===== Merge Video And Audio ===== (DOESN'T WORK)
+const mergeVideoAndAudio = async (videoUrl, audioUrl) => {
 	console.log(videoUrl, audioUrl);
 
-	const videoResponse = await fetch(videoUrl);
-	const audioResponse = await fetch(audioUrl);
+	// Initialise merged buffer
+	const mergedBuffer = new ArrayBuffer();
 
+	const videoResponse = await fetch(videoUrl);
 	const videoBuffer = await videoResponse.arrayBuffer();
+
+	const audioResponse = await fetch(audioUrl);
 	const audioBuffer = await audioResponse.arrayBuffer();
 
-	const transmuxer = new muxjs.mp4.Transmuxer();
+	const transmuxer = new muxjs.mp4.Transmuxer({ remux: true });
 
-	transmuxer.push(new Uint8Array(videoBuffer), false);
-	transmuxer.push(new Uint8Array(audioBuffer), false);
+	console.log(transmuxer);
 
+	// Append init segment to merged buffer
 	transmuxer.on('data', (segment) => {
-		let data = new Uint8Array(segment.initSegment.byteLength + segment.data.byteLength);
-		data.set(segment.initSegment, 0);
-		data.set(segment.data, segment.initSegment.byteLength);
-		sourceBuffer.appendBuffer(data);
-		const url = URL.createObjectURL(data);
-		console.log('Download URL:', url);
+		console.log('got data!');
 
+		mergedBuffer = appendInitSegment(mergedBuffer, segment.initSegment);
+		mergedBuffer = appendData(mergedBuffer, segment.data);
+	});
+
+	transmuxer.on('end', () => {
+		const url = URL.createObjectURL(mergedBuffer);
+		console.log(url);
 		browser.downloads.download({
 			url: url,
-			filename: 'downloaded-video.mp4',
+			filename: 'merged-video.mp4',
 			saveAs: true,
 		});
 	});
+
+	transmuxer.push(new Uint8Array(videoBuffer), { startTime: 0, mimeType: 'video/mp4' });
+	transmuxer.push(new Uint8Array(audioBuffer), { startTime: 0, mimeType: 'audio/aac' });
 
 	transmuxer.flush();
 };*/

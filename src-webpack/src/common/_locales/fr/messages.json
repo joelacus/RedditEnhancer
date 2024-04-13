@@ -680,7 +680,7 @@
 	},
 
 	"ShowPostFlair": {
-		"message": "Spectacle 'Post Flair'"
+		"message": "Montrer les Flair des postes"
 	},
 
 	"RemovePageSideMargin": {
@@ -797,5 +797,21 @@
 
 	"BackupRestoreConfig": {
 		"message": "Sauvegarder/Restaurer la Configuration"
+	},
+
+	"PleaseWait": {
+		"message": "S'il vous plaît, attendez"
+	},
+
+	"RestoreInfo1": {
+		"message": "Restauration de"
+	},
+
+	"RestoreInfo2": {
+		"message": "pièces. La limite de l'API du navigateur est de 120 par minute. Veuillez laisser cette fenêtre/onglet ouvert pendant encore une minute."
+	},
+
+	"HideJoinButtonOnPosts": {
+		"message": "Hide the 'Join' Button On Posts"
 	}
 }

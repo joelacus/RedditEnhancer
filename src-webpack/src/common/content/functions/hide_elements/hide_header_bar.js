@@ -1,5 +1,13 @@
-// Hide Header Bar
+/* ===== Tweaks - Hide - Header Bar ===== */
 
+/* === Triggered On Page Load === */
+export function loadHideHeaderBar() {
+	BROWSER_API.storage.sync.get(['hideHeaderBar'], function (result) {
+		hideHeaderBar(result.hideHeaderBar);
+	});
+}
+
+/* === Main Function === */
 export function hideHeaderBar(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {

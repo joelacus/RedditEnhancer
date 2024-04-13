@@ -1,3 +1,13 @@
+version 1.6.0
+- Added an option to hide the "Join" button on posts on r/all and r/popular.
+- Resizing the home feed will now also resize the r/all and r/popular feeds (New New UI).
+- Offsetting the home feed will now also offset the r/all and r/popular feeds (New New UI).
+- Hiding the home page sidebar will now also hide the r/all and r/popular sidebars (New New UI).
+- Fixed the "Scroll To Top" button no longer working on New New UI due to a website update.
+- Due to the browser sync "MAX_WRITE_OPERATIONS_PER_MINUTE" limitation (120), restoring a config with more than 120 items will no longer error and will instead wait for 1 minute before continuing.
+- If the user is not logged in and is using the redirect to "Old New UI" option, it will no longer result in a redirect fight/loop with Reddit. Instead, it will just let Reddit use the New New UI. Reddit will however, allow redirects to new.reddit.com if the user is logged in.
+- Bug fixes and code clean up.
+
 version 1.5.0
 - Added an option to automatically collapse the top comment made by AutoModerator. (credit @tarikkirgin).
 - Added compatibility for updated Reddit New New UI code which broke the Resize Feed/Post feature.

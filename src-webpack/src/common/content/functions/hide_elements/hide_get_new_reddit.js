@@ -1,5 +1,15 @@
-// Hide Get New Reddit
+/* ===== Tweaks - Hide - Get New Reddit ===== */
 
+/* === Triggered On Page Load === */
+export function loadHideGetNewReddit() {
+	BROWSER_API.storage.sync.get(['hideGetNewReddit'], function (result) {
+		if (result.hideGetNewReddit === true) {
+			hideGetNewReddit(result.hideGetNewReddit);
+		}
+	});
+}
+
+/* === Main Function === */
 export function hideGetNewReddit(value) {
 	if (value === true) {
 		hideGetNewRedditOld();

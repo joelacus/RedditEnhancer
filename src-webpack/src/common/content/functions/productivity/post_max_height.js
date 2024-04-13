@@ -1,5 +1,14 @@
-// Feed Post Height
+/* ===== Tweaks - Productivity - Feed Post Height ===== */
 
+/* === Triggered On Page Load === */
+export function loadPostHeight() {
+	BROWSER_API.storage.sync.get(['postHeight', 'postHeightSize'], function (result) {
+		postHeight(result.postHeight);
+		postHeightSize(result.postHeightSize);
+	});
+}
+
+/* === Main Function === */
 export function postHeight(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {

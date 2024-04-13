@@ -1,5 +1,13 @@
-// Add Drop Shadow
+/* ===== Tweaks - Style - Add Drop Shadow ===== */
 
+/* === Triggered On Page Load === */
+export function loadDropShadow() {
+	BROWSER_API.storage.sync.get(['shadows'], function (result) {
+		addDropShadow(result.shadows);
+	});
+}
+
+/* === Main Function === */
 export function addDropShadow(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {

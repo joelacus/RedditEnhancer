@@ -1,5 +1,13 @@
-// Always Show Post Options
+/* ===== Tweaks - Productivity - Always Show Post Options ===== */
 
+/* === Triggered On Page Load === */
+export function loadAlwaysShowPostOptions() {
+	BROWSER_API.storage.sync.get(['alwaysShowPostOptions'], function (result) {
+		alwaysShowPostOptions(result.alwaysShowPostOptions);
+	});
+}
+
+/* === Main Function === */
 export function alwaysShowPostOptions(value) {
 	if (redditVersion === 'newnew') {
 		if (value === true) {

@@ -797,5 +797,21 @@
 
 	"BackupRestoreConfig": {
 		"message": "Konfiguration Sichern/Wiederherstellen"
+	},
+
+	"PleaseWait": {
+		"message": "Bitte warten"
+	},
+
+	"RestoreInfo1": {
+		"message": "Wiederherstellung von"
+	},
+
+	"RestoreInfo2": {
+		"message": "Gegenständen. Das Browser-API-Limit beträgt 120 pro Minute. Bitte lassen Sie dieses Fenster/diese Registerkarte noch eine Minute geöffnet."
+	},
+
+	"HideJoinButtonOnPosts": {
+		"message": "Hide the 'Join' Button On Posts"
 	}
 }

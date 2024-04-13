@@ -1,5 +1,13 @@
-// Open links to post in new tab
+/* ===== Tweaks - Productivity - Open links to post in new tab ===== */
 
+/* === Triggered On Page Load === */
+export function loadOpenPostInNewTab() {
+	BROWSER_API.storage.sync.get(['openPostInNewTab'], function (result) {
+		openPostInNewTab(result.openPostInNewTab);
+	});
+}
+
+/* === Main Function === */
 export function openPostInNewTab(value) {
 	const link = window.location.href;
 	if (redditVersion === 'new') {

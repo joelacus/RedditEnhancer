@@ -780,22 +780,38 @@
 	},
 
 	"Theme": {
-		"message": "Theme"
+		"message": "Téma"
 	},
 
 	"Dark": {
-		"message": "Dark"
+		"message": "Sötét"
 	},
 
 	"Light": {
-		"message": "Light"
+		"message": "Világos"
 	},
 
 	"ClassicLight": {
-		"message": "Classic Light"
+		"message": "Klasszikus Világos"
 	},
 
 	"BackupRestoreConfig": {
-		"message": "Backup/Restore Config"
+		"message": "Konfiguráció mentése/Visszaállítása"
+	},
+
+	"PleaseWait": {
+		"message": "Please Wait"
+	},
+
+	"RestoreInfo1": {
+		"message": "Restoring"
+	},
+
+	"RestoreInfo2": {
+		"message": "items. Browser API limit is 120 per minute. Please leave this window/tab open for another minute."
+	},
+
+	"HideJoinButtonOnPosts": {
+		"message": "Hide the 'Join' Button On Posts"
 	}
 }

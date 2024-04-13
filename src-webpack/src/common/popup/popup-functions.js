@@ -1,6 +1,6 @@
 /* ===== Popup / Functions ===== */
 
-import { detectFirefoxVersion } from '../content-first/detect_browser_version';
+import { detectFirefoxVersion } from '../content-first/functions/detect_browser_version';
 
 /* ===== Save Custom Background ===== */
 

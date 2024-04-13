@@ -1,5 +1,13 @@
-// Classic Post Height
+/* ===== Tweaks - Style - Classic Post Height ===== */
 
+/* === Triggered On Page Load === */
+export function loadLargerClassicPost() {
+	BROWSER_API.storage.sync.get(['largerClassicPost'], function (result) {
+		largerClassicPost(result.largerClassicPost);
+	});
+}
+
+/* === Main Function === */
 export function largerClassicPost(value) {
 	if (redditVersion === 'old' && value === true) {
 		enableLargerClassicPostOld();

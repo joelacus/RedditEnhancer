@@ -1,4 +1,30 @@
-// Bionic Reader
+/* ===== Tweaks - Accessibility - Bionic Reader ===== */
+
+/* === Triggered On Page Load === */
+
+// Load Bionic Reader Colours
+export function loadBionicReaderColours() {
+	BROWSER_API.storage.sync.get(['bionicReaderFontColour', 'bionicReaderBgColour'], function (result) {
+		bionicReaderFontColour(result.bionicReaderFontColour);
+		bionicReaderBgColour(result.bionicReaderBgColour);
+	});
+}
+
+// Load Bionic Reader For Posts
+export function loadBionicReaderForPosts() {
+	BROWSER_API.storage.sync.get(['bionicReaderPosts'], function (result) {
+		bionicReaderPosts(result.bionicReaderPosts);
+	});
+}
+
+// Load Bionic Reader For Comments
+export function loadBionicReaderForComments() {
+	BROWSER_API.storage.sync.get(['bionicReaderComments'], function (result) {
+		bionicReaderComments(result.bionicReaderComments);
+	});
+}
+
+/* === Main Function === */
 
 // Posts
 export function bionicReaderPosts(value) {

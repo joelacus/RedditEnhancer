@@ -1,5 +1,13 @@
-// Remove Page Side Margin
+/* ===== Tweaks - Expand Feed/Post - Remove Page Side Margin ===== */
 
+/* === Triggered On Page Load === */
+export function loadRemovePageSideMargin() {
+	BROWSER_API.storage.sync.get(['removePageSideMargin'], function (result) {
+		removePageSideMargin(result.removePageSideMargin);
+	});
+}
+
+/* === Main Function === */
 export function removePageSideMargin(value) {
 	if (redditVersion === 'newnew') {
 		if (value === true) {

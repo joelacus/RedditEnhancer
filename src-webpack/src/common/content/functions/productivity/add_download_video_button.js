@@ -1,5 +1,13 @@
-// Add Download Video Button
+/* ===== Tweaks - Productivity - Add Download Video Button ===== */
 
+/* === Triggered On Page Load === */
+/*export function loadAddDownloadVideoButton() {
+	BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
+		addDownloadVideoButton(result.addDownloadVideoButton);
+	});
+}*/
+
+/* === Main Function === */
 /*export function addDownloadVideoButton(value) {
 	if (redditVersion === 'newnew' && value === true) {
 		document.querySelectorAll('shreddit-post').forEach((post) => {
@@ -27,9 +35,9 @@ function enableAddVideoDownloadButtonNewNew(container) {
 			const post = e.currentTarget.getRootNode().host;
 			//const videoUrl = post.querySelector('shreddit-player').getAttribute('src');
 			//if (!videoUrl.includes('.mp4') && videoUrl.includes('.m3u8')) {
-			const getVideoUrlQualities = post.querySelector('shreddit-player').getAttribute('preview');
-			console.log(getVideoUrlQualities);
-			BROWSER_API.runtime.sendMessage({ action: 'testQualities', url: getVideoUrlQualities }, (response) => {
+			const videoURL = post.querySelector('shreddit-player').getAttribute('preview');
+			console.log(videoURL);
+			BROWSER_API.runtime.sendMessage({ action: 'testQualities', url: videoURL }, (response) => {
 				console.log('Received response from background script:', response);
 			});
 		});

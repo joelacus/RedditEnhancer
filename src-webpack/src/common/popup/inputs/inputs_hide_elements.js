@@ -1088,3 +1088,33 @@ document.querySelector('#checkbox-hide-post-hidden-message').addEventListener('c
 		});
 	}
 });
+
+// Toggle - Hide Join Button On r/all Posts
+document.querySelector('#checkbox-hide-join-button-on-posts').addEventListener('change', function (e) {
+	const hideJoinButtonOnPosts = document.querySelector('#checkbox-hide-join-button-on-posts').checked;
+	if (hideJoinButtonOnPosts === true) {
+		BROWSER_API.storage.sync.set({ hideJoinButtonOnPosts: true });
+		document.querySelector('.icon-hide-join-button-on-posts').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-join-button-on-posts').classList.remove('icon-show');
+		document.querySelector('.icon-hide-join-button-on-posts').classList.add('icon-hide');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideJoinButtonOnPosts: true });
+				}
+			});
+		});
+	} else if (hideJoinButtonOnPosts === false) {
+		BROWSER_API.storage.sync.set({ hideJoinButtonOnPosts: false });
+		document.querySelector('.icon-hide-join-button-on-posts').style.backgroundColor = '';
+		document.querySelector('.icon-hide-join-button-on-posts').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-join-button-on-posts').classList.add('icon-show');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideJoinButtonOnPosts: false });
+				}
+			});
+		});
+	}
+});

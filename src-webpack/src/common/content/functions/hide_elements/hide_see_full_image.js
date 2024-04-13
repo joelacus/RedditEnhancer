@@ -1,5 +1,13 @@
-// Hide See Full Image
+/* ===== Tweaks - Hide - See Full Image ===== */
 
+/* === Triggered On Page Load === */
+export function loadHideSeeFullImage() {
+	BROWSER_API.storage.sync.get(['hideSeeFullImage'], function (result) {
+		hideSeeFullImage(result.hideSeeFullImage);
+	});
+}
+
+/* === Main Function === */
 export function hideSeeFullImage(value) {
 	if (redditVersion === 'new') {
 		if (useLegacy) {

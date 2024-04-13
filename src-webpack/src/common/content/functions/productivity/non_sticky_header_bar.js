@@ -1,5 +1,13 @@
-// Non Sticky HeaderBar
+/* ===== Tweaks - Productivity - Non Sticky HeaderBar ===== */
 
+/* === Triggered On Page Load === */
+export function loadNonStickyHeaderBar() {
+	BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
+		nonStickyHeaderBar(result.nonStickyHeaderBar);
+	});
+}
+
+/* === Main Function === */
 export function nonStickyHeaderBar(value) {
 	if (redditVersion === 'new') {
 		if (value == true) {

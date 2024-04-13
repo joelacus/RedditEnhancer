@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 
 	"name": "__MSG_extensionName__",
-	"version": "1.5.0",
+	"version": "1.6.0",
 	"description": "__MSG_extensionDescription__",
 	"author": "github.com/joelacus",
 	"default_locale": "en",
@@ -11,7 +11,8 @@
 		"32": "icons/icon-32.png",
 		"48": "icons/icon-48.png",
 		"64": "icons/icon-64.png",
-		"128": "icons/icon-128.png"
+		"128": "icons/icon-128.png",
+		"256": "icons/icon-256.png"
 	},
 
 	"permissions": ["storage", "tabs"],

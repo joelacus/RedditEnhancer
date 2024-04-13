@@ -107,12 +107,13 @@ import {
 import { postTitleFontSize, postCommentsFontSize, postContentFontSize } from './functions/accessibility/resize_font';
 import { hideUserProfilePics } from './functions/hide_elements/hide_user_profile_pics';
 import { autoExpandComments } from './functions/productivity/auto_expand_comments';
-//import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 import { hidePostHiddenMessage } from './functions/hide_elements/hide_post_hidden_message';
 import { showPostFlair } from './functions/productivity/show_post_flair';
+import { autoCollapseAutoModeratorComment } from './functions/productivity/auto_collapse_automod_comment';
+import { hideJoinButtonOnPosts } from './functions/hide_elements/hide_post_join_button';
 //import { scalePostToFitImageMaxImageWidth, scalePostToFitImage } from './functions/productivity/scale_post_to_fit_image';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
-import { autoCollapseAutoModeratorComment } from './functions/productivity/auto_collapse_automod_comment';
+//import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -395,10 +396,12 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		dragImageToResize(value);
 	} else if (key == 'dragImageToResizeInitialSize') {
 		dragImageToResizeInitialSize(value);
-	}*/ /* else if (key == 'addDownloadVideoButton') {
+	} else if (key == 'addDownloadVideoButton') {
 		addDownloadVideoButton(value);
 	}*/ else if (key == 'autoCollapseAutoModeratorComment') {
 		autoCollapseAutoModeratorComment(value);
+	} else if (key == 'hideJoinButtonOnPosts') {
+		hideJoinButtonOnPosts(value);
 	} else if (key == 'loadSaves') {
 		setTimeout(() => {
 			init();

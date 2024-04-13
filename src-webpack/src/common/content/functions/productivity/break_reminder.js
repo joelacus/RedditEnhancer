@@ -1,5 +1,13 @@
-// Break Reminder
+/* ===== Tweaks - Productivity - Break Reminder ===== */
 
+/* === Triggered On Page Load === */
+export function loadBreakReminder() {
+	BROWSER_API.storage.sync.get(['breakReminder'], function (result) {
+		breakReminder(result.breakReminder);
+	});
+}
+
+/* === Main Function === */
 export function breakReminder(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {

@@ -780,22 +780,38 @@
 	},
 
 	"Theme": {
-		"message": "Theme"
+		"message": "Motyw"
 	},
 
 	"Dark": {
-		"message": "Dark"
+		"message": "Ciemny"
 	},
 
 	"Light": {
-		"message": "Light"
+		"message": "Jasny"
 	},
 
 	"ClassicLight": {
-		"message": "Classic Light"
+		"message": "Klasyczny Jasny"
 	},
 
 	"BackupRestoreConfig": {
-		"message": "Backup/Restore Config"
+		"message": "Kopia Zapasowa/Odtwórz Konfigurację"
+	},
+
+	"PleaseWait": {
+		"message": "Proszę czekać"
+	},
+
+	"RestoreInfo1": {
+		"message": "Przywracanie"
+	},
+
+	"RestoreInfo2": {
+		"message": "elementów. Limit API przeglądarki wynosi 120 na minutę. Proszę pozostawić to okno/kartę otwarte na kolejną minutę."
+	},
+
+	"HideJoinButtonOnPosts": {
+		"message": "Hide the 'Join' Button On Posts"
 	}
 }

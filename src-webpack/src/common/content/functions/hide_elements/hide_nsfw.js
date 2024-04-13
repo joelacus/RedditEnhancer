@@ -1,5 +1,13 @@
-// Hide NSFW Posts
+/* ===== Tweaks - Hide - NSFW Posts ===== */
 
+/* === Triggered On Page Load === */
+export function loadHideNSFW() {
+	BROWSER_API.storage.sync.get(['hideNSFW'], function (result) {
+		hideNSFW(result.hideNSFW);
+	});
+}
+
+/* === Main Function === */
 export function hideNSFW(value) {
 	if (redditVersion === 'old') {
 		if (value === true) {

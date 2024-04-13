@@ -1,5 +1,13 @@
-// Modernise Old Reddit
+/* ===== Tweaks - Style - Modernise Old Reddit ===== */
 
+/* === Triggered On Page Load === */
+export function loadModerniseOldReddit() {
+	BROWSER_API.storage.sync.get(['moderniseOldReddit'], function (result) {
+		moderniseOldReddit(result.moderniseOldReddit);
+	});
+}
+
+/* === Main Function === */
 export function moderniseOldReddit(value) {
 	const link = window.location.href;
 	if (value === true) {

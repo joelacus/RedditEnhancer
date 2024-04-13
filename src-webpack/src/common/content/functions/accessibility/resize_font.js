@@ -1,4 +1,15 @@
-// Resize Font
+/* ===== Tweaks - Accessibility - Resize Font ===== */
+
+/* === Triggered On Page Load === */
+export function loadResizeFont() {
+	BROWSER_API.storage.sync.get(['postTitleFontSize', 'postContentFontSize', 'postCommentsFontSize'], function (result) {
+		postTitleFontSize(result.postTitleFontSize);
+		postContentFontSize(result.postContentFontSize);
+		postCommentsFontSize(result.postCommentsFontSize);
+	});
+}
+
+/* === Main Function === */
 
 // Resize Post Title Font
 export function postTitleFontSize(value) {

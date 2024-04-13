@@ -1,5 +1,13 @@
-// Auto Collapse AutoModerator Comment
+/* ===== Tweaks - Productivity - Auto Collapse AutoModerator Comment ===== */
 
+/* === Triggered On Page Load === */
+export function loadAutoCollapseAutoModeratorComment() {
+	BROWSER_API.storage.sync.get(['autoCollapseAutoModeratorComment'], function (result) {
+		autoCollapseAutoModeratorComment(result.autoCollapseAutoModeratorComment);
+	});
+}
+
+/* === Main Function === */
 export function autoCollapseAutoModeratorComment(value) {
 	if (redditVersion === 'old' && value === true) {
 		autoCollapseAutoModeratorCommentOld();

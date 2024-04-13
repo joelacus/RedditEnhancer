@@ -1,4 +1,23 @@
-// Override Drop Shadow
+/* ===== Tweaks - Style - Override Drop Shadow ===== */
+
+/* === Triggered On Page Load === */
+export function loadOverrideDropShadow() {
+	BROWSER_API.storage.sync.get(['overrideDropShadow'], function (result) {
+		if (redditVersion === 'new') {
+			if (result.overrideDropShadow === true) {
+				BROWSER_API.storage.sync.get(['overrideDropShadowCSS'], function (result) {
+					document.documentElement.style.setProperty('--re-shadow', result.overrideDropShadowCSS);
+				});
+			} else if (result.overrideDropShadow === false) {
+				document.documentElement.style.removeProperty('--re-shadow');
+			}
+		}
+	});
+}
+
+/* === Main Function === */
+
+// Function - Enable/Disable
 export function overrideDropShadow(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {
@@ -11,7 +30,7 @@ export function overrideDropShadow(value) {
 	}
 }
 
-// Override Drop Shadow CSS
+// Function - CSS Value
 export function overrideDropShadowCSS(value) {
 	if (redditVersion === 'new') {
 		BROWSER_API.storage.sync.get(['overrideDropShadow'], function (result) {

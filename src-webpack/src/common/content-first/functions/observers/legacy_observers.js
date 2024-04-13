@@ -1,19 +1,25 @@
-// Legacy Observers For Pre Firefox v121
+/* ===== Legacy Observers For Pre Firefox v121 / Edge on Windows 10 ===== */
 
 import { waitForAddedNode } from './main_observer';
-import { loadHideAdvertiseButton, loadHideChatButton, loadHideCreatePostButton, loadHideModerationButton, loadHideNotificationButton } from '../hide_elements/load_hide_header_buttons';
-import { loadHideCreatePost } from '../hide_elements/load_hide_create_post';
-import { loadHideRedditPremium } from '../hide_elements/load_hide_reddit_premium';
-import { loadHideSidebarPolicy } from '../hide_elements/load_hide_sidebar_policy';
-import { loadHideHomeSidebar, loadHidePostSidebar, loadHideSubSidebarException, loadHideUserSidebar } from '../hide_elements/load_hide_sidebar';
-import { loadExpandContent } from '../expand-layout/load_expand_content';
-import { loadLayoutCentre } from '../expand-layout/load_layout_centre_and_offset';
-import { loadOverrideDropShadow } from '../style/load_override_drop_shadow';
-import { loadDropShadow } from '../style/load_drop_shadow';
-import { loadHideGap } from '../style/load_hide_gap';
-import { loadBreakReminder } from '../productivity/load_break_reminder';
-import { loadShowPostNumbers } from '../productivity/load_show_post_numbers';
-import { loadStickySort } from '../productivity/load_sticky_sort';
+import {
+	loadHideAdvertiseButton,
+	loadHideChatButton,
+	loadHideCreatePostButton,
+	loadHideModerationButton,
+	loadHideNotificationButton,
+} from '../../../content/functions/hide_elements/hide_header_buttons';
+import { loadBreakReminder } from '../../../content/functions/productivity/break_reminder';
+import { loadDropShadow } from '../../../content/functions/style/drop_shadow';
+import { loadExpandContent } from '../../../content/functions/expand_feed_post/expand_content';
+import { loadHideCreatePost } from '../../../content/functions/hide_elements/hide_create_post';
+import { loadHideGap } from '../../../content/functions/style/hide_gap';
+import { loadHideHomeSidebar, loadHidePostSidebar, loadHideSubSidebarException, loadHideUserSidebar } from '../../../content/functions/hide_elements/hide_sidebar';
+import { loadHideRedditPremium } from '../../../content/functions/hide_elements/hide_reddit_premium';
+import { loadHideSidebarPolicy } from '../../../content/functions/hide_elements/hide_sidebar_policy';
+import { loadLayoutCentre } from '../../../content/functions/expand_feed_post/layout_centre_and_offset';
+import { loadOverrideDropShadow } from '../../../content/functions/style/override_drop_shadow';
+import { loadShowPostNumbers } from '../../../content/functions/productivity/show_post_numbers';
+import { loadStickySort } from '../../../content/functions/productivity/sticky_sort';
 
 export function legacyObserversNew() {
 	// Advertise
