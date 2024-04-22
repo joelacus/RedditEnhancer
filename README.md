@@ -84,6 +84,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Always Show Post Options|Moves the items in the post overflow menu into the header bar for quicker access.|"New New"|
 |Auto Collapse AutoModerator Comment|Automatically collapses the top comment made by AutoModerator.|All|
 |Hide The Join Button On Posts|Hides the 'Join' button on posts on r/all and r/popular.|"Old New"<br />"New New"|
+|Auto Load More Comments|Automatically load more comments on a post if it requires you to click a button to load more comments.|"New New"|
 
 ## Build
 Clone repo and cd to build directory:
