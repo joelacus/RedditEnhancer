@@ -123,10 +123,7 @@ function enableUseCustomBackgroundNewNew() {
 									padding-right: .5rem !important;
 									padding-bottom: .5rem;
 									border-radius: 16px;
-								}
-								/*shreddit-app #right-sidebar-container pdp-right-rail [slot="tabs"] {
-									border-radius: 16px;
-								}*/`;
+								}`;
 
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }

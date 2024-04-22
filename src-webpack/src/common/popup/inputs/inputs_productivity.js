@@ -836,6 +836,54 @@ document.querySelector('#checkbox-scroll-to-next-root-comment').addEventListener
 	}
 });
 
+// Slider - Scroll To Root Comment Position Horizontal
+document.querySelector('#input-scroll-to-root-comment-position').addEventListener('input', function (e) {
+	// set ui
+	const value = e.target.value;
+	if (value === '-1') {
+		document.querySelector('.icon-scroll-to-root-comment-position').style.backgroundColor = '';
+		document.querySelector('#scroll-to-root-comment-position-value').innerText = '48px';
+	} else {
+		document.querySelector('.icon-scroll-to-root-comment-position').style.backgroundColor = 'var(--accent)';
+		document.querySelector('#scroll-to-root-comment-position-value').innerText = e.target.value + '%';
+	}
+	// apply
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.includes('reddit.com') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { scrollToNextRootCommentPosition: e.target.value });
+			}
+		});
+	});
+});
+document.querySelector('#input-scroll-to-root-comment-position').addEventListener('mouseup', function (e) {
+	BROWSER_API.storage.sync.set({ scrollToNextRootCommentPosition: e.target.value });
+});
+
+// Slider - Scroll To Root Comment Position Vertical
+document.querySelector('#input-scroll-to-root-comment-position-v').addEventListener('input', function (e) {
+	// set ui
+	var value = e.target.value;
+	if (value === '-1') {
+		document.querySelector('.icon-scroll-to-root-comment-position-v').style.backgroundColor = '';
+		document.querySelector('#scroll-to-root-comment-position-v-value').innerText = '50%';
+	} else {
+		document.querySelector('.icon-scroll-to-root-comment-position-v').style.backgroundColor = 'var(--accent)';
+		document.querySelector('#scroll-to-root-comment-position-v-value').innerText = e.target.value + '%';
+	}
+	// apply
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.includes('reddit.com') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { scrollToNextRootCommentPositionV: e.target.value });
+			}
+		});
+	});
+});
+document.querySelector('#input-scroll-to-root-comment-position-v').addEventListener('mouseup', function (e) {
+	BROWSER_API.storage.sync.set({ scrollToNextRootCommentPositionV: e.target.value });
+});
+
 // Toggle - Show Post Numbers
 document.querySelector('#checkbox-show-post-numbers').addEventListener('change', function (e) {
 	var showPostNumbers = document.querySelector('#checkbox-show-post-numbers').checked;
@@ -996,54 +1044,6 @@ document.querySelector('#checkbox-non-sticky-header-bar').addEventListener('chan
 	}
 });
 
-// Slider - Scroll To Root Comment Position Horizontal
-document.querySelector('#input-scroll-to-root-comment-position').addEventListener('input', function (e) {
-	// set ui
-	const value = e.target.value;
-	if (value === '-1') {
-		document.querySelector('.icon-scroll-to-root-comment-position').style.backgroundColor = '';
-		document.querySelector('#scroll-to-root-comment-position-value').innerText = '48px';
-	} else {
-		document.querySelector('.icon-scroll-to-root-comment-position').style.backgroundColor = 'var(--accent)';
-		document.querySelector('#scroll-to-root-comment-position-value').innerText = e.target.value + '%';
-	}
-	// apply
-	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
-		tabs.forEach(function (tab) {
-			if (tab.url.includes('reddit.com') && tab.discarded == false) {
-				BROWSER_API.tabs.sendMessage(tab.id, { scrollToNextRootCommentPosition: e.target.value });
-			}
-		});
-	});
-});
-document.querySelector('#input-scroll-to-root-comment-position').addEventListener('mouseup', function (e) {
-	BROWSER_API.storage.sync.set({ scrollToNextRootCommentPosition: e.target.value });
-});
-
-// Slider - Scroll To Root Comment Position Vertical
-document.querySelector('#input-scroll-to-root-comment-position-v').addEventListener('input', function (e) {
-	// set ui
-	var value = e.target.value;
-	if (value === '-1') {
-		document.querySelector('.icon-scroll-to-root-comment-position-v').style.backgroundColor = '';
-		document.querySelector('#scroll-to-root-comment-position-v-value').innerText = '48px';
-	} else {
-		document.querySelector('.icon-scroll-to-root-comment-position-v').style.backgroundColor = 'var(--accent)';
-		document.querySelector('#scroll-to-root-comment-position-v-value').innerText = e.target.value + '%';
-	}
-	// apply
-	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
-		tabs.forEach(function (tab) {
-			if (tab.url.includes('reddit.com') && tab.discarded == false) {
-				BROWSER_API.tabs.sendMessage(tab.id, { scrollToNextRootCommentPositionV: e.target.value });
-			}
-		});
-	});
-});
-document.querySelector('#input-scroll-to-root-comment-position-v').addEventListener('mouseup', function (e) {
-	BROWSER_API.storage.sync.set({ scrollToNextRootCommentPositionV: e.target.value });
-});
-
 // Toggle - Break Reminder
 document.querySelector('#checkbox-break-reminder').addEventListener('change', function (e) {
 	var breakReminder = document.querySelector('#checkbox-break-reminder').checked;
@@ -1162,6 +1162,32 @@ document.querySelector('#checkbox-auto-collapse-automoderator-comment').addEvent
 			tabs.forEach(function (tab) {
 				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
 					BROWSER_API.tabs.sendMessage(tab.id, { autoCollapseAutoModeratorComment: false });
+				}
+			});
+		});
+	}
+});
+
+// Toggle - Auto Load More Comments
+document.querySelector('#checkbox-auto-load-more-comments').addEventListener('change', function (e) {
+	const autoLoadMoreComments = document.querySelector('#checkbox-auto-load-more-comments').checked;
+	if (autoLoadMoreComments === true) {
+		BROWSER_API.storage.sync.set({ autoLoadMoreComments: true });
+		document.querySelector('.icon-auto-load-more-comments').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { autoLoadMoreComments: true });
+				}
+			});
+		});
+	} else if (autoLoadMoreComments === false) {
+		BROWSER_API.storage.sync.set({ autoLoadMoreComments: false });
+		document.querySelector('.icon-auto-load-more-comments').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { autoLoadMoreComments: false });
 				}
 			});
 		});

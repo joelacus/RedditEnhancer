@@ -934,7 +934,7 @@ document.querySelector('#input-sidemenu-text-colour-css').addEventListener('keyu
 
 // Toggle - Sidemenu Background Colour
 document.querySelector('#checkbox-sidemenu-bg-colour').addEventListener('change', function (e) {
-	const themeSidemenuBgColour = document.querySelector('#checkbox-sidebar-bg-colour').checked;
+	const themeSidemenuBgColour = document.querySelector('#checkbox-sidemenu-bg-colour').checked;
 	if (themeSidemenuBgColour == true) {
 		BROWSER_API.storage.sync.set({ themeSidemenuBgColour: true });
 		document.querySelector('.icon-sidemenu-bg-colour').style.backgroundColor = 'var(--accent)';
@@ -1005,6 +1005,45 @@ document.querySelector('#input-sidebar-border-colour-css').addEventListener('key
 		tabs.forEach(function (tab) {
 			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
 				BROWSER_API.tabs.sendMessage(tab.id, { themeSidebarBorderColourCSS: css });
+			}
+		});
+	});
+});
+
+// Toggle - Sidemenu Button Hover Colour
+document.querySelector('#checkbox-sidemenu-button-hover-colour').addEventListener('change', function (e) {
+	const themeSidemenuButtonHoverColour = document.querySelector('#checkbox-sidemenu-button-hover-colour').checked;
+	if (themeSidemenuButtonHoverColour == true) {
+		BROWSER_API.storage.sync.set({ themeSidemenuButtonHoverColour: true });
+		document.querySelector('.icon-sidemenu-button-hover-colour').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themeSidemenuButtonHoverColour: true });
+				}
+			});
+		});
+	} else if (themeSidemenuButtonHoverColour == false) {
+		BROWSER_API.storage.sync.set({ themeSidemenuButtonHoverColour: false });
+		document.querySelector('.icon-sidemenu-button-hover-colour').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themeSidemenuButtonHoverColour: false });
+				}
+			});
+		});
+	}
+});
+
+// Input - Sidemenu Button Hover Colour CSS
+document.querySelector('#input-sidemenu-button-hover-colour-css').addEventListener('keyup', function (e) {
+	const css = document.querySelector('#input-sidemenu-button-hover-colour-css').value;
+	BROWSER_API.storage.sync.set({ themeSidemenuButtonHoverColourCSS: css });
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { themeSidemenuButtonHoverColourCSS: css });
 			}
 		});
 	});

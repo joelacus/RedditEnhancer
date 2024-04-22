@@ -5,6 +5,7 @@ import { waitForAddedNode } from './main_observer';
 import { loadAlwaysShowPostOptions } from '../../../content/functions/productivity/always_show_post_options';
 import { loadAutoCollapseAutoModeratorComment } from '../../../content/functions/productivity/auto_collapse_automod_comment';
 import { loadAutoExpandComments } from '../../../content/functions/productivity/auto_expand_comments';
+import { loadAutoExpandValue } from '../../../content/functions/expand_feed_post/auto_expand_value';
 import { loadBionicReaderColours } from '../../../content/functions/accessibility/bionic_reader';
 import { loadCustomBackground } from '../../../content/functions/background/custom_background';
 import { loadCustomTheme } from '../../../content/functions/style/override_theme_colours';
@@ -46,6 +47,7 @@ export function observersNewNew() {
 	loadHideAdvertiseButton();
 	loadRemovePageSideMargin();
 	loadHideSideMenuSections();
+	loadAutoExpandValue();
 	loadExpandContent();
 	loadLayoutOffset();
 	loadHidePromotedPosts();

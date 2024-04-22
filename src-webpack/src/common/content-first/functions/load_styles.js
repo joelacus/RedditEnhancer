@@ -37,6 +37,7 @@ const layoutOffset = `
 						transform: translateX(var(--re-layout-sub-offset))
 					}
 					shreddit-app[routename="post_page"] #main-content,
+					shreddit-app[routename="comments_page"] #main-content,
 					shreddit-app[routename="profile_post_page"] #main-content {
 						transform: translateX(var(--re-layout-post-offset))
 					}

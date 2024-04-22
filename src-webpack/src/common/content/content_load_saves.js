@@ -28,6 +28,7 @@ import { loadShowPostNumbers } from './functions/productivity/show_post_numbers'
 import { loadShowToTopButton } from './functions/productivity/scroll_to_top';
 import { loadSidemenuFeedTop } from './functions/productivity/sidemenu_feed_top';
 import { loadTextPostScroll } from './functions/productivity/text_post_scroll';
+import { loadAutoLoadMoreComments } from './functions/productivity/auto_load_more_comments';
 
 export function load_saves() {
 	if (redditVersion === 'old') {
@@ -59,6 +60,7 @@ export function load_saves() {
 		loadScrollToNextRootComment();
 		loadShowPostAuthor();
 		loadShowPostFlair();
+		loadAutoLoadMoreComments();
 	}
 
 	// Common

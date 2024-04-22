@@ -13,13 +13,13 @@ export function hidePostHiddenMessage(value) {
 		if (value === true) {
 			enableHidePostHiddenMessageNew();
 		} else if (value === false) {
-			disbleHidePostHiddenMessageAll();
+			disableHidePostHiddenMessageAll();
 		}
 	} else if (redditVersion === 'newnew') {
 		if (value === true) {
 			enableHidePostHiddenMessageNewNew();
 		} else if (value === false) {
-			disbleHidePostHiddenMessageAll();
+			disableHidePostHiddenMessageAll();
 		}
 	}
 }
@@ -45,7 +45,7 @@ function enableHidePostHiddenMessageNewNew() {
 }
 
 // Function - Hide Post Hidden Message - All
-function disbleHidePostHiddenMessageAll() {
+function disableHidePostHiddenMessageAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-post-hidden-message"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);

@@ -39,7 +39,7 @@ export function expandLayout(value) {
 		if (value === true) {
 			enableExpandContentNewNew();
 		} else if (value === false) {
-			disbleExpandContentNewNew();
+			disableExpandContentNewNew();
 		}
 	}
 }
@@ -261,6 +261,7 @@ function enableExpandContentNewNew() {
 									justify-self: center;
 								}
 								shreddit-app[routename="post_page"] #main-content,
+								shreddit-app[routename="comments_page"] #main-content,
 								shreddit-app[routename="profile_post_page"] #main-content {
 									width: var(--re-post-width) !important;
 									justify-self: center;
@@ -430,6 +431,7 @@ function enableExpandContentNewNew() {
 									shreddit-app[routename="frontpage"] .subgrid-container,
 									shreddit-app[routename="subreddit"] .subgrid-container,
 									shreddit-app[routename="post_page"] .subgrid-container,
+									shreddit-app[routename="comments_page"] .subgrid-container,
 									shreddit-app[routename="profile_post_page"] .subgrid-container,
 									shreddit-app[routename="profile_overview"] .subgrid-container,
 									shreddit-app[routename="profile_posts"] .subgrid-container,
@@ -448,6 +450,7 @@ function enableExpandContentNewNew() {
 									}
 									shreddit-app[routename="subreddit"] .main-container,
 									shreddit-app[routename="post_page"] .main-container,
+									shreddit-app[routename="comments_page"] .main-container,
 									shreddit-app[routename="profile_post_page"] .main-container,
 									shreddit-app[routename="profile_overview"] .main-container,
 									shreddit-app[routename="profile_posts"] .main-container,
@@ -461,9 +464,15 @@ function enableExpandContentNewNew() {
 										display: grid;
 										grid-template-columns: auto 316px;
 									}
+									@media (max-width: 959px) {
+										.main-container {
+											grid-template-columns: auto !important;
+										}
+									}
 									shreddit-app[routename="frontpage"] #main-content,
 									shreddit-app[routename="subreddit"] #main-content,
 									shreddit-app[routename="post_page"] #main-content,
+									shreddit-app[routename="comments_page"] #main-content,
 									shreddit-app[routename="profile_post_page"] #main-content,
 									shreddit-app[routename="profile_overview"] #main-content,
 									shreddit-app[routename="profile_posts"] #main-content,
@@ -487,6 +496,7 @@ function enableExpandContentNewNew() {
 										margin-right: 3rem;
 									}
 									shreddit-app[routename="post_page"] .subgrid-container,
+									shreddit-app[routename="comments_page"] .subgrid-container,
 									shreddit-app[routename="profile_post_page"] .subgrid-container,
 									shreddit-app[routename="profile_overview"] .subgrid-container,
 									shreddit-app[routename="profile_posts"] .subgrid-container,
@@ -504,6 +514,7 @@ function enableExpandContentNewNew() {
 									shreddit-app[routename="frontpage"] #main-content,
 									shreddit-app[routename="subreddit"] #main-content,
 									shreddit-app[routename="post_page"] #main-content,
+									shreddit-app[routename="comments_page"] #main-content,
 									shreddit-app[routename="profile_post_page"] #main-content,
 									shreddit-app[routename="profile_overview"] #main-content,
 									shreddit-app[routename="profile_posts"] #main-content,
@@ -514,7 +525,7 @@ function enableExpandContentNewNew() {
 									shreddit-app[routename="profile_downvoted"] #main-content,
 									shreddit-app[routename="all"] #main-content,
 									shreddit-app[routename="popular"] #main-content {
-										max-width: calc(100vw - 316px - 3rem) !important;
+										max-width: calc(100vw - 316px - 3rem);
 									}
 								}
 
@@ -522,7 +533,7 @@ function enableExpandContentNewNew() {
 									shreddit-app[routename="frontpage"] #main-content,
 									shreddit-app[routename="all"] #main-content,
 									shreddit-app[routename="popular"] #main-content {
-										max-width: calc(100vw - 272px) !important;
+										max-width: calc(100vw - 272px);
 									}
 									shreddit-app[routename="frontpage"] .main-container, 
 									shreddit-app[routename="all"] .main-container,
@@ -532,7 +543,7 @@ function enableExpandContentNewNew() {
 								}
 								html.re-hide-sub-sidebar body:has(.main-container.flex) {
 									shreddit-app[routename="subreddit"] #main-content {
-										max-width: calc(100vw - 272px) !important;
+										max-width: calc(100vw - 272px);
 									}
 									shreddit-app[routename="subreddit"] .main-container {
 										grid-template-columns: 100% !important;
@@ -540,10 +551,12 @@ function enableExpandContentNewNew() {
 								}
 								html.re-hide-post-sidebar body:has(.main-container.flex) {
 									shreddit-app[routename="post_page"] #main-content,
+									shreddit-app[routename="comments_page"] #main-content,
 									shreddit-app[routename="profile_post_page"] #main-content {
-										max-width: calc(100vw - 272px) !important;
+										max-width: calc(100vw - 272px);
 									}
 									shreddit-app[routename="post_page"] .main-container,
+									shreddit-app[routename="comments_page"] .main-container,
 									shreddit-app[routename="profile_post_page"] .main-container {
 										grid-template-columns: 100% !important;
 									}
@@ -556,7 +569,7 @@ function enableExpandContentNewNew() {
 									shreddit-app[routename="profile_hidden"] #main-content,
 									shreddit-app[routename="profile_upvoted"] #main-content,
 									shreddit-app[routename="profile_downvoted"] #main-content {
-										max-width: calc(100vw - 272px) !important;
+										max-width: calc(100vw - 272px);
 									}
 									shreddit-app[routename="profile_overview"] .main-container,
 									shreddit-app[routename="profile_posts"] .main-container,
@@ -579,7 +592,7 @@ function enableExpandContentNewNew() {
 									shreddit-app[routename="frontpage"] #main-content,
 									shreddit-app[routename="all"] #main-content,
 									shreddit-app[routename="popular"] #main-content {
-										max-width: 100vw !important;
+										max-width: 100vw;
 									}
 								}
 								html.re-hide-sidemenu.re-hide-sub-sidebar body:has(.main-container.flex) {
@@ -588,18 +601,20 @@ function enableExpandContentNewNew() {
 										margin-right: 0rem !important;
 									}
 									shreddit-app[routename="subreddit"] #main-content {
-										max-width: 100vw !important;
+										max-width: 100vw;
 									}
 								}
 								html.re-hide-sidemenu.re-hide-post-sidebar body:has(.main-container.flex) {
 									shreddit-app[routename="post_page"] .subgrid-container,
+									shreddit-app[routename="comments_page"] .subgrid-container,
 									shreddit-app[routename="profile_post_page"] .subgrid-container {
 										width: calc(100vw - 2.5rem) !important;
 										margin-right: 0rem !important;
 									}
 									shreddit-app[routename="post_page"] #main-content,
+									shreddit-app[routename="comments_page"] #main-content,
 									shreddit-app[routename="profile_post_page"] #main-content {
-										max-width: 100vw !important;
+										max-width: 100vw;
 									}
 								}
 								html.re-hide-sidemenu.re-hide-profile-sidebar body:has(.main-container.flex) {
@@ -620,14 +635,19 @@ function enableExpandContentNewNew() {
 									shreddit-app[routename="profile_hidden"] #main-content,
 									shreddit-app[routename="profile_upvoted"] #main-content,
 									shreddit-app[routename="profile_downvoted"] #main-content {
-										max-width: 100vw !important;
+										max-width: 100vw;
+									}
+								}
+								@media (min-width: 960px) {
+									.subgrid-container {
+										width: 100% !important;
 									}
 								}`;
 	document.head.appendChild(styleElement);
 }
 
 // Function - Disable Expand Content - New New
-function disbleExpandContentNewNew() {
+function disableExpandContentNewNew() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-expand-feed-layout"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);

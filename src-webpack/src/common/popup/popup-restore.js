@@ -228,14 +228,14 @@ function restoreOptions() {
 		console.log('Expand User Profile Width: ' + value + '%');
 	});
 
-	// Expand Layout
+	// Expand/Resize Layout
 	BROWSER_API.storage.sync.get(['expandLayout'], function (result) {
 		if (typeof result.expandLayout == 'undefined' || result.expandLayout == false) {
 			document.querySelector('#checkbox-expand-layout').checked = false;
 			var value = false;
 		} else if (result.expandLayout == true) {
 			document.querySelector('#checkbox-expand-layout').checked = true;
-			const icons = document.querySelectorAll('.icon-expand-layout, .icon-resize-width, .icon-resize-offset');
+			const icons = document.querySelectorAll('.icon-expand-layout, .icon-resize-width, .icon-resize-offset, .icon-auto-resize');
 			icons.forEach(function (icon) {
 				icon.style.backgroundColor = 'var(--accent)';
 			});
@@ -1901,6 +1901,22 @@ function restoreOptions() {
 		console.log('Hide Side Menu Recent Section: ' + value);
 	});
 
+	// Remove Side Menu Custom Feeds Section
+	BROWSER_API.storage.sync.get(['hideSideMenuCustomFeedsSection'], function (result) {
+		if (result.hideSideMenuCustomFeedsSection == true) {
+			document.querySelector('#checkbox-hide-side-menu-custom-feeds-section').checked = true;
+			document.querySelector('.icon-hide-side-menu-custom-feeds-section').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-side-menu-custom-feeds-section').classList.remove('icon-show');
+			document.querySelector('.icon-hide-side-menu-custom-feeds-section').classList.add('icon-hide');
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideSideMenuCustomFeedsSection == 'undefined' || result.hideSideMenuCustomFeedsSection == false) {
+			document.querySelector('#checkbox-hide-side-menu-custom-feeds-section').checked = false;
+			var value = false;
+		}
+		console.log('Hide Side Menu Custom Feeds Section: ' + value);
+	});
+
 	// Remove Side Menu Communities Section
 	BROWSER_API.storage.sync.get(['hideSideMenuCommunitiesSection'], function (result) {
 		if (result.hideSideMenuCommunitiesSection == true) {
@@ -1931,6 +1947,22 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Hide Side Menu Resources Section: ' + value);
+	});
+
+	// Remove Side Menu Topics Section
+	BROWSER_API.storage.sync.get(['hideSideMenuTopicsSection'], function (result) {
+		if (result.hideSideMenuTopicsSection == true) {
+			document.querySelector('#checkbox-hide-side-menu-topics-section').checked = true;
+			document.querySelector('.icon-hide-side-menu-topics-section').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-side-menu-topics-section').classList.remove('icon-show');
+			document.querySelector('.icon-hide-side-menu-topics-section').classList.add('icon-hide');
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideSideMenuTopicsSection == 'undefined' || result.hideSideMenuTopicsSection == false) {
+			document.querySelector('#checkbox-hide-side-menu-topics-section').checked = false;
+			var value = false;
+		}
+		console.log('Hide Side Menu Topics Section: ' + value);
 	});
 
 	// Layout Offset
@@ -2229,6 +2261,32 @@ function restoreOptions() {
 		console.log('Sidemenu Background Colour CSS: ' + value);
 	});
 
+	// Sidemenu Button Hover Colour
+	BROWSER_API.storage.sync.get(['themeSidemenuButtonHoverColour'], function (result) {
+		if (result.themeSidemenuButtonHoverColour == true) {
+			document.querySelector('.icon-sidemenu-button-hover-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-sidemenu-button-hover-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeSidemenuButtonHoverColour == 'undefined' || result.themeSidemenuButtonHoverColour == false) {
+			document.querySelector('#checkbox-sidemenu-button-hover-colour').checked = false;
+			var value = false;
+		}
+		console.log('Sidemenu Button Hover Colour: ' + value);
+	});
+
+	// Sidemenu Button Hover Colour CSS
+	BROWSER_API.storage.sync.get(['themeSidemenuButtonHoverColourCSS'], function (result) {
+		if (typeof result.themeSidemenuButtonHoverColourCSS != 'undefined') {
+			document.querySelector('#input-sidemenu-button-hover-colour-css').value = result.themeSidemenuButtonHoverColourCSS;
+			var value = result.themeSidemenuButtonHoverColourCSS;
+		} else {
+			document.querySelector('#input-sidemenu-button-hover-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Sidemenu Button Hover Colour CSS: ' + value);
+	});
+
 	// Sidebar Border Colour
 	BROWSER_API.storage.sync.get(['themeSidebarBorderColour'], function (result) {
 		if (result.themeSidebarBorderColour == true) {
@@ -2414,6 +2472,20 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Hide Join Button On r/all Posts: ' + value);
+	});
+
+	// Auto Load More Comments
+	BROWSER_API.storage.sync.get(['autoLoadMoreComments'], function (result) {
+		if (result.autoLoadMoreComments == true) {
+			document.querySelector('.icon-auto-load-more-comments').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-auto-load-more-comments').checked = true;
+			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.autoLoadMoreComments == 'undefined' || result.autoLoadMoreComments == false) {
+			document.querySelector('#checkbox-auto-load-more-comments').checked = false;
+			var value = false;
+		}
+		console.log('Auto Load More Comments: ' + value);
 	});
 
 	// Account Switcher

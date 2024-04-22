@@ -508,163 +508,163 @@
 	},
 
 	"PostVisitedTitleColour": {
-		"message": "Visited Post Title Colour"
+		"message": "Besøkte innleggstittelfarge"
 	},
 
 	"HeaderBgColour": {
-		"message": "Header: Background Colour"
+		"message": "Overskrift: Bakgrunnsfarge"
 	},
 
 	"HeaderTextColour": {
-		"message": "Header: Text Colour"
+		"message": "Overskrift: Tekstfarge"
 	},
 
 	"Sort": {
-		"message": "Sort"
+		"message": "Sortere"
 	},
 
 	"SortBgColour": {
-		"message": "Sort: Background Colour"
+		"message": "Sortere: Bakgrunnsfarge"
 	},
 
 	"SortTextColour": {
-		"message": "Sort: Text Colour"
+		"message": "Sortere: Tekstfarge"
 	},
 
 	"SortBorderColour": {
-		"message": "Sort: Border Colour"
+		"message": "Sortere: Kantfarge"
 	},
 
 	"PostBgColour": {
-		"message": "Post: Background Colour"
+		"message": "Innlegg: Bakgrunnsfarge"
 	},
 
 	"PostCreditBar": {
-		"message": "Post: Header Bar Text Colour"
+		"message": "Innlegg: Overskriftslinje Tekstfarge"
 	},
 
 	"PostTitleContentColour": {
-		"message": "Post: Title and Text Content Colour"
+		"message": "Innlegg: Tittel og tekstinnholdsfarge"
 	},
 
 	"PostCommentsColour": {
-		"message": "Post: Comments Text Colour"
+		"message": "Innlegg: Kommentarer Tekstfarge"
 	},
 
 	"PostCommentsSecondaryColour": {
-		"message": "Post: Comments Secondary Text Colour"
+		"message": "Innlegg: Kommentarer Sekundær tekstfarge"
 	},
 
 	"PostBorderColour": {
-		"message": "Post: Border Colour"
+		"message": "Innlegg: Kantfarge"
 	},
 
 	"SidebarTextColour": {
-		"message": "Sidebar: Text Colour"
+		"message": "Sidefelt: Tekstfarge"
 	},
 
 	"SidebarBackgroundColour": {
-		"message": "Sidebar: Background Colour"
+		"message": "Sidefelt: Bakgrunnsfarge"
 	},
 
 	"SidebarBorderColour": {
-		"message": "Sidebar: Border Colour"
+		"message": "Sidefelt: Kantfarge"
 	},
 
 	"Sidemenu": {
-		"message": "Sidemenu"
+		"message": "Sidemeny"
 	},
 
 	"SidemenuTextColour": {
-		"message": "Sidemenu: Text Colour"
+		"message": "Sidemeny: Tekstfarge"
 	},
 
 	"SidemenuBackgroundColour": {
-		"message": "Sidemenu: Background Colour"
+		"message": "Sidemeny: Bakgrunnsfarge"
 	},
 
 	"SidemenuButtonHoverColour": {
-		"message": "Sidemenu: Button Hover Colour"
+		"message": "Sidemeny: Hover farge på knapp"
 	},
 
 	"WhitelistBlacklist": {
-		"message": "Whitelist / Blacklist"
+		"message": "Hviteliste / Svarteliste"
 	},
 
 	"Whitelist": {
-		"message": "Whitelist"
+		"message": "Hviteliste"
 	},
 
 	"Blacklist": {
-		"message": "Blacklist"
+		"message": "Svarteliste"
 	},
 
 	"ThemeBlacklistInfo": {
-		"message": "Use theme colours globally, except for these subreddits:"
+		"message": "Bruk temafarger globalt, bortsett fra disse subreddits:"
 	},
 
 	"ThemeWhitelistInfo": {
-		"message": "Only use the theme colours for these subreddits:"
+		"message": "Bruk kun temafargene for disse subreddits:"
 	},
 
 	"HideSubSidebarBlacklistInfo": {
-		"message": "Hide globally except for on these subreddits:"
+		"message": "Skjul globalt bortsett fra på disse subreddits:"
 	},
 
 	"HideSubSidebarWhitelistInfo": {
-		"message": "Only hide on these subreddits:"
+		"message": "Skjul deg bare på disse subreddits:"
 	},
 
 	"HideHeaderBar": {
-		"message": "Hide the Header Bar"
+		"message": "Skjul Topptekstlinjen"
 	},
 
 	"NonStickyHeaderBar": {
-		"message": "Non Sticky Header Bar"
+		"message": "Ikke-klistret Overskriftslinje"
 	},
 
 	"HideOriginalScrollToTop": {
-		"message": "Hide the Original Scroll to Top Button"
+		"message": "Skjul den opprinnelige rulle til topp-knappen"
 	},
 
 	"CreatePost": {
-		"message": "Create Post"
+		"message": "Opprett Innlegg"
 	},
 
 	"CreatePostBgColour": {
-		"message": "Create Post: Background Colour"
+		"message": "Opprett Innlegg: Bakgrunnsfarge"
 	},
 
 	"CreatePostBorderColour": {
-		"message": "Create Post: Border Colour"
+		"message": "Opprett Innlegg: Kantfarge"
 	},
 
 	"AlwaysShowPostOptions": {
-		"message": "Always Show Post Options"
+		"message": "Vis alltid alternativer for innlegg"
 	},
 
 	"LargerClassicPost": {
-		"message": "Larger Classic Post View"
+		"message": "Større klassisk innleggsvisning"
 	},
 
 	"PositionVertically": {
-		"message": "Position Vertically"
+		"message": "Plasser Vertikalt"
 	},
 
 	"PositionHorizontally": {
-		"message": "Position Horizontally"
+		"message": "Plasser Horisontalt"
 	},
 
 	"BreakReminder": {
-		"message": "Break Reminder"
+		"message": "Pausepåminnelse"
 	},
 
 	"BreakReminderInfo": {
-		"message": "Beta. Shows a reminder to have a break every set number of posts."
+		"message": "Beta. Viser en påminnelse om å ha en pause for hvert sett antall innlegg."
 	},
 
 	"BreakReminderFrequency": {
-		"message": "Reminder Frequency"
+		"message": "Påminnelsesfrekvens"
 	},
 
 	"TranslationHelp": {
@@ -672,43 +672,47 @@
 	},
 
 	"Off": {
-		"message": "Off"
+		"message": "Av"
 	},
 
 	"ShowPostAuthor": {
-		"message": "Show Post Author"
+		"message": "Vis Innleggsforfatter"
 	},
 
 	"ShowPostFlair": {
-		"message": "Show Post Flair"
+		"message": "Vis Innleggs Flair"
 	},
 
 	"RemovePageSideMargin": {
-		"message": "Remove the Page Side Margin"
+		"message": "Fjern sidemargen"
 	},
 
 	"HideSideMenuTopSection": {
-		"message": "Hide the Top Section"
+		"message": "Skjul den øverste delen"
 	},
 
 	"HideSideMenuModerationSection": {
-		"message": "Hide the Moderation Section"
+		"message": "Skjul Modereringsdelen"
 	},
 
 	"HideSideMenuRecentSection": {
-		"message": "Hide the Recent Section"
+		"message": "Skjul den siste delen"
 	},
 
 	"HideSideMenuCommunitiesSection": {
-		"message": "Hide the Communities Section"
+		"message": "Skjul Fellesskap-delen"
 	},
 
 	"HideSideMenuResourcesSection": {
-		"message": "Hide the Resources Section"
+		"message": "Skjul Ressursseksjonen"
+	},
+
+	"HideSideMenuTopicsSection": {
+		"message": "Skjul Emnedelen"
 	},
 
 	"HideRelatedPosts": {
-		"message": "Hide Related Posts"
+		"message": "Skjul relaterte innlegg"
 	},
 
 	"Select": {
@@ -720,19 +724,19 @@
 	},
 
 	"UpdateFirefox": {
-		"message": "Please update to Firefox 121 or greater for some features to work correctly."
+		"message": "Oppdater til Firefox 121 eller nyere for at enkelte funksjoner skal fungere som de skal."
 	},
 
 	"PostContent": {
-		"message": "Post Content"
+		"message": "Innlegg Innhold"
 	},
 
 	"PostComments": {
-		"message": "Post Comments"
+		"message": "Legg inn kommentarer"
 	},
 
 	"ResizeFont": {
-		"message": "Resize Font"
+		"message": "Endre størrelse på skrift"
 	},
 
 	"Rate": {
@@ -740,11 +744,15 @@
 	},
 
 	"HideUserProfilePics": {
-		"message": "Hide user profile pictures in the comments"
+		"message": "Skjul brukerprofilbilder i kommentarene"
 	},
 
 	"AutoExpandComments": {
-		"message": "Auto Expand Comments"
+		"message": "Autoutvid kommentarer"
+	},
+
+	"AutoExpandCommentsInfo": {
+		"message": "Dette kan føre til at siden blir tregere og bruker mye RAM, spesielt hvis det er mange kommentarer."
 	},
 
 	"AutoCollapseAutoModeratorComment": {
@@ -752,23 +760,23 @@
 	},
 
 	"HidePostHiddenMessage": {
-		"message": "Hide 'Post Hidden' Message"
+		"message": "Skjul 'Legg inn skjult' melding"
 	},
 
 	"JustOpenTheImage": {
-		"message": "Just Open The Image"
+		"message": "Bare åpne bildet"
 	},
 
 	"JustOpenTheImageInfo": {
-		"message": "Open images on their own, instead of embedded on a Reddit page. (Firefox only)"
+		"message": "Åpne bilder på egen hånd, i stedet for innebygd på en Reddit-side. (bare Firefox)"
 	},
 
 	"ScalePostToFitImage": {
-		"message": "Scale Post To Fit Image"
+		"message": "Skaler innlegg for å passe bilde"
 	},
 
 	"LimitImageWidth": {
-		"message": "Limit Image Width"
+		"message": "Begrens bildebredde"
 	},
 
 	"Settings": {
@@ -813,5 +821,9 @@
 
 	"HideJoinButtonOnPosts": {
 		"message": "Hide the 'Join' Button On Posts"
+	},
+
+	"AutoLoadMoreComments": {
+		"message": "Auto Load More Comments"
 	}
 }

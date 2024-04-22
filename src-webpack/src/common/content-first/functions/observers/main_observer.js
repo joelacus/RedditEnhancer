@@ -1,6 +1,6 @@
 /* ===== Main Observer ===== */
 
-export function waitForAddedNode(params) {
+export function waitForAddedNode(params, timeout) {
 	// If element already exists
 	let targetNode = [];
 	if (params.id) {
@@ -36,7 +36,11 @@ export function waitForAddedNode(params) {
 		childList: true,
 	});
 
-	timer = setTimeout(() => {
-		observer.disconnect(); // timeout
-	}, 5000);
+	// Timeout
+	if (timeout === false) {
+		console.log('NO TIMEOUT');
+		timer = setTimeout(() => {
+			observer.disconnect();
+		}, 5000);
+	}
 }

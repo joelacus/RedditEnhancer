@@ -83,16 +83,20 @@
 		"message": "Sidebar: Border Color"
 	},
 
+	"Sidemenu": {
+		"message": "Side Menu"
+	},
+
 	"SidemenuTextColour": {
-		"message": "Sidemenu: Text Color"
+		"message": "Side Menu: Text Color"
 	},
 
 	"SidemenuBackgroundColour": {
-		"message": "Sidemenu: Background Color"
+		"message": "Side Menu: Background Color"
 	},
 
 	"SidemenuButtonHoverColour": {
-		"message": "Sidemenu: Button Hover Color"
+		"message": "Side Menu: Button Hover Color"
 	},
 
 	"ThemeBlacklistInfo": {

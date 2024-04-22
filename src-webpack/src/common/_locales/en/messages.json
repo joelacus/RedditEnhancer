@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.6.0"
+		"message": "1.7.0"
 	},
 
 	"extensionName": {
@@ -576,7 +576,7 @@
 	},
 
 	"Sidemenu": {
-		"message": "Sidemenu"
+		"message": "Side Menu"
 	},
 
 	"SidemenuTextColour": {
@@ -711,6 +711,10 @@
 		"message": "Hide the Resources Section"
 	},
 
+	"HideSideMenuTopicsSection": {
+		"message": "Hide the Topics Section"
+	},
+
 	"HideRelatedPosts": {
 		"message": "Hide Related Posts"
 	},
@@ -755,12 +759,12 @@
 		"message": "Auto Expand Comments"
 	},
 
-	"AutoCollapseAutoModeratorComment": {
-		"message": "Auto Collapse AutoModerator Comment"
+	"AutoExpandCommentsInfo": {
+		"message": "This may cause the page to slow down and use a lot of RAM, especially if there are a lot of comments."
 	},
 
-	"AutoExpandCommentsInfo": {
-		"message": "May cause the page to initially lag, especially if there are a lot of comments."
+	"AutoCollapseAutoModeratorComment": {
+		"message": "Auto Collapse AutoModerator Comment"
 	},
 
 	"HidePostHiddenMessage": {
@@ -825,6 +829,14 @@
 
 	"HideJoinButtonOnPosts": {
 		"message": "Hide the 'Join' Button On Posts"
+	},
+
+	"AutoLoadMoreComments": {
+		"message": "Auto Load More Comments"
+	},
+
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Hide the Custom Feeds Section"
 	},
 
 	"DragImageToResize": {

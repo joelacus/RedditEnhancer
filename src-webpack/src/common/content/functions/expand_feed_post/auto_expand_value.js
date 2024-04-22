@@ -12,6 +12,9 @@ export function autoExpandValue(widthVariable) {
 	if (redditVersion === 'old' || redditVersion === 'new') {
 		disableAutoExpandValue();
 		enableAutoExpandValue(widthVariable);
+	} else if (redditVersion === 'newnew') {
+		disableAutoExpandValue();
+		enableAutoExpandValueNewNew(widthVariable);
 	}
 }
 
@@ -43,4 +46,28 @@ function disableAutoExpandValue() {
 	dynamicStyleElements1.forEach((element) => {
 		document.head.removeChild(element);
 	});
+}
+
+// Function - Enable Auto Expand Value - New New
+function enableAutoExpandValueNewNew(widthVariable) {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-auto-expand-layout';
+	styleElement.textContent = `@media only screen and (max-width: ${widthVariable}px) {
+									.subgrid-container {
+										width: 100% !important;
+									}
+									.main-container {
+										margin: 0 !important;
+									}
+									#main-content {
+										max-width: 100% !important;
+										--re-content-width: 100% !important;
+										--re-sub-width: 100% !important;
+										--re-post-width: 100% !important;
+										--re-post-overlay-width: 100% !important;
+										--re-user-profile-width: 100% !important;
+										transform: none !important;
+									}
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
 }

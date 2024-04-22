@@ -707,6 +707,10 @@
 		"message": "Ressourcenbereich ausblenden"
 	},
 
+	"HideSideMenuTopicsSection": {
+		"message": "Themenbereich ausblenden"
+	},
+
 	"HideRelatedPosts": {
 		"message": "Verwandte Beiträge ausblenden"
 	},
@@ -745,6 +749,10 @@
 
 	"AutoExpandComments": {
 		"message": "Kommentare automatisch erweitern"
+	},
+
+	"AutoExpandCommentsInfo": {
+		"message": "Dies kann dazu führen, dass die Seite langsamer wird und viel RAM beansprucht, insbesondere wenn viele Kommentare vorhanden sind."
 	},
 
 	"AutoCollapseAutoModeratorComment": {
@@ -813,5 +821,9 @@
 
 	"HideJoinButtonOnPosts": {
 		"message": "Hide the 'Join' Button On Posts"
+	},
+
+	"AutoLoadMoreComments": {
+		"message": "Auto Load More Comments"
 	}
 }

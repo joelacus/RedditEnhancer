@@ -707,6 +707,10 @@
 		"message": "Сховати розділ ресурсів"
 	},
 
+	"HideSideMenuTopicsSection": {
+		"message": "Приховати розділ Теми"
+	},
+
 	"HideRelatedPosts": {
 		"message": "Приховати пов'язані публікації"
 	},
@@ -745,6 +749,10 @@
 
 	"AutoExpandComments": {
 		"message": "Автоматичне розгортання коментарів"
+	},
+
+	"AutoExpandCommentsInfo": {
+		"message": "Це може спричинити сповільнення сторінки та використання великої кількості оперативної пам’яті, особливо якщо є багато коментарів."
 	},
 
 	"AutoCollapseAutoModeratorComment": {
@@ -813,5 +821,9 @@
 
 	"HideJoinButtonOnPosts": {
 		"message": "Hide the 'Join' Button On Posts"
+	},
+
+	"AutoLoadMoreComments": {
+		"message": "Auto Load More Comments"
 	}
 }

@@ -48,9 +48,9 @@
 	mask: url('../../icons/ui/moon-solid.svg');
 	-webkit-mask: url('../../icons/ui/moon-solid.svg');
 }
-.icon-layout {
-	mask: url('../../icons/ui/arrows-left-right-to-line-solid.svg');
-	-webkit-mask: url('../../icons/ui/arrows-left-right-to-line-solid.svg');
+.icon-resize-feed {
+	mask: url('../../icons/ui/icon-resize-feed.svg');
+	-webkit-mask: url('../../icons/ui/icon-resize-feed.svg');
 }
 .icon-scale {
 	mask: url('../../icons/ui/down-left-and-up-right-to-center-solid.svg');
@@ -334,8 +334,8 @@
 	-webkit-mask: url('../../icons/ui/earth-europe-solid.svg');
 }
 .icon-remove-margins {
-	mask: url('../../icons/ui/icon-remove-margins.svg');
-	-webkit-mask: url('../../icons/ui/icon-remove-margins.svg');
+	mask: url('../../icons/ui/arrows-left-right-to-line-solid.svg');
+	-webkit-mask: url('../../icons/ui/arrows-left-right-to-line-solid.svg');
 }
 .icon-font {
 	mask: url('../../icons/ui/icon-font-size.svg');

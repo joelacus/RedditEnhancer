@@ -1,3 +1,14 @@
+version 1.7.0
+- Added options to hide the 'Topics' and 'Custom Feeds' sections in the Side Menu (New New UI).
+- Added an option to auto load more comments on posts if it requires you to click a button to load more (New New UI).
+- Auto expand feed to 100% if the window/screen is less than a set width, now works with New New UI.
+- The 'Resize Feed/Post' option will now apply the post width to sub-comments pages.
+- Fixed a bug where the 'Side Menu Background Colour' option did not work.
+- Fixed a bug where the 'Side Menu Button Hover Colour' option did not work.
+- Updated the 'Remove Page Margins' and 'Resize Feed/Post' icons.
+- Updated some localisations.
+- Other small bug fixes and improvements.
+
 version 1.6.0
 - Added an option to hide the "Join" button on posts on r/all and r/popular.
 - Resizing the home feed will now also resize the r/all and r/popular feeds (New New UI).

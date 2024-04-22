@@ -45,48 +45,52 @@ function loadTheme() {
 	});
 	BROWSER_API.storage.sync.get(
 		[
-			'themeHeaderBackgroundColour',
-			'themeHeaderTextColour',
-			'themeSortBackgroundColour',
-			'themeSortTextColour',
-			'themeSortTextColour2',
-			'themeSortBorderColour',
-			'themePostBackgroundColour',
-			'themePostTextColour1',
-			'themePostCommentsTextColour1',
-			'themePostCommentsTextColour2',
-			'themePostTextColour2',
-			'themePostVisitedTitleColour',
-			'themePostBorderColour',
 			'themeCreatePostBackgroundColour',
 			'themeCreatePostBorderColour',
-			'themeSidebarTextColour',
+			'themeHeaderBackgroundColour',
+			'themeHeaderTextColour',
+			'themePostBackgroundColour',
+			'themePostBorderColour',
+			'themePostCommentsTextColour1',
+			'themePostCommentsTextColour2',
+			'themePostTextColour1',
+			'themePostTextColour2',
+			'themePostVisitedTitleColour',
 			'themeSidebarBgColour',
 			'themeSidebarBorderColour',
-			'themeSidemenuTextColour',
+			'themeSidebarTextColour',
 			'themeSidemenuBgColour',
+			'themeSidemenuButtonHoverColour',
+			'themeSidemenuButtonHoverColourCSS',
+			'themeSidemenuTextColour',
+			'themeSortBackgroundColour',
+			'themeSortBorderColour',
+			'themeSortTextColour',
+			'themeSortTextColour2',
 		],
 		function (result) {
-			themeHeaderBackgroundColour(result.themeHeaderBackgroundColour);
-			themeHeaderTextColour(result.themeHeaderTextColour);
-			themeSortBackgroundColour(result.themeSortBackgroundColour);
-			themeSortTextColour(result.themeSortTextColour);
-			themeSortTextColour2(result.themeSortTextColour2);
-			themeSortBorderColour(result.themeSortBorderColour);
-			themePostBackgroundColour(result.themePostBackgroundColour);
-			themePostTextColour1(result.themePostTextColour1);
-			themePostCommentsTextColour1(result.themePostCommentsTextColour1);
-			themePostCommentsTextColour2(result.themePostCommentsTextColour2);
-			themePostTextColour2(result.themePostTextColour2);
-			themePostVisitedTitleColour(result.themePostVisitedTitleColour);
-			themePostBorderColour(result.themePostBorderColour);
 			themeCreatePostBackgroundColour(result.themeCreatePostBackgroundColour);
 			themeCreatePostBorderColour(result.themeCreatePostBorderColour);
-			themeSidebarTextColour(result.themeSidebarTextColour);
+			themeHeaderBackgroundColour(result.themeHeaderBackgroundColour);
+			themeHeaderTextColour(result.themeHeaderTextColour);
+			themePostBackgroundColour(result.themePostBackgroundColour);
+			themePostBorderColour(result.themePostBorderColour);
+			themePostCommentsTextColour1(result.themePostCommentsTextColour1);
+			themePostCommentsTextColour2(result.themePostCommentsTextColour2);
+			themePostTextColour1(result.themePostTextColour1);
+			themePostTextColour2(result.themePostTextColour2);
+			themePostVisitedTitleColour(result.themePostVisitedTitleColour);
 			themeSidebarBgColour(result.themeSidebarBgColour);
 			themeSidebarBorderColour(result.themeSidebarBorderColour);
-			themeSidemenuTextColour(result.themeSidemenuTextColour);
+			themeSidebarTextColour(result.themeSidebarTextColour);
 			themeSidemenuBgColour(result.themeSidemenuBgColour);
+			themeSidemenuButtonHoverColour(result.themeSidemenuButtonHoverColour);
+			themeSidemenuButtonHoverColourCSS(result.themeSidemenuButtonHoverColourCSS);
+			themeSidemenuTextColour(result.themeSidemenuTextColour);
+			themeSortBackgroundColour(result.themeSortBackgroundColour);
+			themeSortBorderColour(result.themeSortBorderColour);
+			themeSortTextColour(result.themeSortTextColour);
+			themeSortTextColour2(result.themeSortTextColour2);
 		}
 	);
 }
@@ -519,7 +523,9 @@ export function themePostBackgroundColour(value) {
 			document.documentElement.style.setProperty('--re-theme-post-bg', result.themePostBackgroundColourCSS);
 			const styleElement = document.createElement('style');
 			styleElement.id = 're-theme-post-bg-colour';
-			styleElement.textContent = `shreddit-post, comment-body-header, #comment-tree {
+			styleElement.textContent = `shreddit-post,
+										comment-body-header,
+										#comment-tree {
 											--shreddit-content-background: var(--re-theme-post-bg) !important;
 											--color-neutral-background: var(--re-theme-post-bg) !important;
 											backdrop-filter: blur(var(--re-theme-blur)) !important;
@@ -538,6 +544,30 @@ export function themePostBackgroundColour(value) {
 											--color-neutral-background: var(--re-theme-post-bg) !important;
 											backdrop-filter: blur(var(--re-theme-blur)) !important;
 											border-radius: 8px;
+										}
+										shreddit-comment-tree {
+											background: var(--re-theme-post-bg) !important;
+											backdrop-filter: blur(var(--re-theme-blur));
+											border-radius: 16px;
+											padding-left: .5rem;
+											padding-right: .5rem;
+											margin-left: -.5rem;
+											margin-right: -.5rem;
+										}
+										[bundlename="comment_body_header"] comment-body-header faceplate-tracker {
+											position: relative;
+											top: 8px;
+										}
+										#main-content [bundlename="comment_body_header"] {
+											position: relative;
+											z-index: 9999;
+										}
+										[bundlename="comment_body_header"] comment-body-header {
+											margin-left: -0.5rem;
+											margin-right: -0.5rem;
+											margin-bottom: 16px;
+											border-radius: 16px;
+											padding-left: 8px;
 										}
 										/*shreddit-overflow-menu {
 											--color-neutral-background-strong: var(--re-theme-post-bg) !important;
@@ -1104,6 +1134,45 @@ export function themeSidemenuBgColourCSS(value) {
 		BROWSER_API.storage.sync.get(['themeSidemenuBgColour'], function (result) {
 			if (result.themeSidemenuBgColour === true) {
 				document.documentElement.style.setProperty('--re-theme-sidemenu-bg', value);
+			}
+		});
+	}
+}
+
+// Sidemenu Button Hover Colour
+export function themeSidemenuButtonHoverColour(value) {
+	if (redditVersion === 'newnew' && value === true) {
+		BROWSER_API.storage.sync.get(['themeSidemenuButtonHoverColourCSS'], function (result) {
+			document.documentElement.style.setProperty('--re-theme-sidemenu-btn-hover', result.themeSidemenuButtonHoverColourCSS);
+			const styleElement = document.createElement('style');
+			styleElement.id = 're-theme-sidemenu-btn-hover-colour';
+			styleElement.textContent = `#left-sidebar-container div,
+										#left-sidebar-container left-nav-communities-controller,
+										#left-sidebar-container left-nav-top-section,
+										#left-sidebar-container left-nav-create-community-button,
+										#left-sidebar-container a,
+										#left-sidebar-container reddit-recent-pages,
+										#left-sidebar-container left-nav-moderation-controller {
+											--color-neutral-background-hover: var(--re-theme-sidemenu-btn-hover) !important;
+								  			--color-secondary-background-hover: var(--re-theme-sidemenu-btn-hover) !important;
+										}`;
+			document.head.insertBefore(styleElement, document.head.firstChild);
+		});
+	} else if (value === false) {
+		document.documentElement.style.removeProperty('--re-theme-sidemenu-bg');
+		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-sidemenu-btn-hover-colour"]');
+		dynamicStyleElements.forEach((element) => {
+			document.head.removeChild(element);
+		});
+	}
+}
+
+// Sidemenu Button Hover Colour CSS
+export function themeSidemenuButtonHoverColourCSS(value) {
+	if (redditVersion === 'newnew') {
+		BROWSER_API.storage.sync.get(['themeSidemenuButtonHoverColour'], function (result) {
+			if (result.themeSidemenuButtonHoverColour === true) {
+				document.documentElement.style.setProperty('--re-theme-sidemenu-btn-hover', value);
 			}
 		});
 	}

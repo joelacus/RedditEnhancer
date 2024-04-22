@@ -572,19 +572,19 @@
 	},
 
 	"Sidemenu": {
-		"message": "Sidemenu"
+		"message": "Side Menu"
 	},
 
 	"SidemenuTextColour": {
-		"message": "Sidemenu: Text Colour"
+		"message": "Side Menu: Text Colour"
 	},
 
 	"SidemenuBackgroundColour": {
-		"message": "Sidemenu: Background Colour"
+		"message": "Side Menu: Background Colour"
 	},
 
 	"SidemenuButtonHoverColour": {
-		"message": "Sidemenu: Button Hover Colour"
+		"message": "Side Menu: Button Hover Colour"
 	},
 
 	"WhitelistBlacklist": {
@@ -707,6 +707,10 @@
 		"message": "Hide the Resources Section"
 	},
 
+	"HideSideMenuTopicsSection": {
+		"message": "Hide the Topics Section"
+	},
+
 	"HideRelatedPosts": {
 		"message": "Hide Related Posts"
 	},
@@ -745,6 +749,10 @@
 
 	"AutoExpandComments": {
 		"message": "Auto Expand Comments"
+	},
+
+	"AutoExpandCommentsInfo": {
+		"message": "Tämä saattaa hidastaa sivua ja käyttää paljon RAM-muistia, varsinkin jos kommentteja on paljon."
 	},
 
 	"AutoCollapseAutoModeratorComment": {
@@ -813,5 +821,9 @@
 
 	"HideJoinButtonOnPosts": {
 		"message": "Hide the 'Join' Button On Posts"
+	},
+
+	"AutoLoadMoreComments": {
+		"message": "Auto Load More Comments"
 	}
 }

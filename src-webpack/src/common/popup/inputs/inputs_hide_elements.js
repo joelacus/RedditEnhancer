@@ -939,6 +939,36 @@ document.querySelector('#checkbox-hide-side-menu-recent-section').addEventListen
 	}
 });
 
+// Toggle - Hide Side Menu Custom Feeds Section
+document.querySelector('#checkbox-hide-side-menu-custom-feeds-section').addEventListener('change', function (e) {
+	const hideSideMenuCustomFeedsSection = document.querySelector('#checkbox-hide-side-menu-custom-feeds-section').checked;
+	if (hideSideMenuCustomFeedsSection === true) {
+		BROWSER_API.storage.sync.set({ hideSideMenuCustomFeedsSection: true });
+		document.querySelector('.icon-hide-side-menu-custom-feeds-section').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-side-menu-custom-feeds-section').classList.remove('icon-show');
+		document.querySelector('.icon-hide-side-menu-custom-feeds-section').classList.add('icon-hide');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideSideMenuCustomFeedsSection: true });
+				}
+			});
+		});
+	} else if (hideSideMenuCustomFeedsSection === false) {
+		BROWSER_API.storage.sync.set({ hideSideMenuCustomFeedsSection: false });
+		document.querySelector('.icon-hide-side-menu-custom-feeds-section').style.backgroundColor = '';
+		document.querySelector('.icon-hide-side-menu-custom-feeds-section').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-side-menu-custom-feeds-section').classList.add('icon-show');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideSideMenuCustomFeedsSection: false });
+				}
+			});
+		});
+	}
+});
+
 // Toggle - Hide Side Menu Communities Section
 document.querySelector('#checkbox-hide-side-menu-communities-section').addEventListener('change', function (e) {
 	const hideSideMenuCommunitiesSection = document.querySelector('#checkbox-hide-side-menu-communities-section').checked;
@@ -993,6 +1023,36 @@ document.querySelector('#checkbox-hide-side-menu-resources-section').addEventLis
 			tabs.forEach(function (tab) {
 				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
 					BROWSER_API.tabs.sendMessage(tab.id, { hideSideMenuResourcesSection: false });
+				}
+			});
+		});
+	}
+});
+
+// Toggle - Hide Side Menu Topics Section
+document.querySelector('#checkbox-hide-side-menu-topics-section').addEventListener('change', function (e) {
+	const hideSideMenuTopicsSection = document.querySelector('#checkbox-hide-side-menu-topics-section').checked;
+	if (hideSideMenuTopicsSection === true) {
+		BROWSER_API.storage.sync.set({ hideSideMenuTopicsSection: true });
+		document.querySelector('.icon-hide-side-menu-topics-section').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-side-menu-topics-section').classList.remove('icon-show');
+		document.querySelector('.icon-hide-side-menu-topics-section').classList.add('icon-hide');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideSideMenuTopicsSection: true });
+				}
+			});
+		});
+	} else if (hideSideMenuTopicsSection === false) {
+		BROWSER_API.storage.sync.set({ hideSideMenuTopicsSection: false });
+		document.querySelector('.icon-hide-side-menu-topics-section').style.backgroundColor = '';
+		document.querySelector('.icon-hide-side-menu-topics-section').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-side-menu-topics-section').classList.add('icon-show');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideSideMenuTopicsSection: false });
 				}
 			});
 		});

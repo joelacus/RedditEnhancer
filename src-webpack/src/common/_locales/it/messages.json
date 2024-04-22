@@ -707,6 +707,10 @@
 		"message": "Nascondi la sezione Risorse"
 	},
 
+	"HideSideMenuTopicsSection": {
+		"message": "Nascondi la sezione Argomenti"
+	},
+
 	"HideRelatedPosts": {
 		"message": "Nascondi post correlati"
 	},
@@ -745,6 +749,10 @@
 
 	"AutoExpandComments": {
 		"message": "Commenti espandibili automaticamente"
+	},
+
+	"AutoExpandCommentsInfo": {
+		"message": "Ciò potrebbe causare un rallentamento della pagina e un consumo eccessivo di RAM, soprattutto se sono presenti molti commenti."
 	},
 
 	"AutoCollapseAutoModeratorComment": {
@@ -813,5 +821,9 @@
 
 	"HideJoinButtonOnPosts": {
 		"message": "Hide the 'Join' Button On Posts"
+	},
+
+	"AutoLoadMoreComments": {
+		"message": "Auto Load More Comments"
 	}
 }

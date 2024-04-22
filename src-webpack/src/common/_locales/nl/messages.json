@@ -692,19 +692,23 @@
 	},
 
 	"HideSideMenuModerationSection": {
-		"message": "Verberg de moderatiesectie"
+		"message": "Verberg de sectie Moderatie"
 	},
 
 	"HideSideMenuRecentSection": {
-		"message": "Verberg de recente sectie"
+		"message": "Verberg de sectie Recente"
 	},
 
 	"HideSideMenuCommunitiesSection": {
-		"message": "Verberg de sectie community's"
+		"message": "Verberg de sectie Community's"
 	},
 
 	"HideSideMenuResourcesSection": {
-		"message": "Verberg de sectie bronnen"
+		"message": "Verberg de sectie Bronnen"
+	},
+
+	"HideSideMenuTopicsSection": {
+		"message": "Verberg de sectie Onderwerpen"
 	},
 
 	"HideRelatedPosts": {
@@ -745,6 +749,10 @@
 
 	"AutoExpandComments": {
 		"message": "Opmerkingen automatisch uitvouwen"
+	},
+
+	"AutoExpandCommentsInfo": {
+		"message": "Dit kan ervoor zorgen dat de pagina trager wordt en veel RAM-geheugen gebruikt, vooral als er veel reacties zijn."
 	},
 
 	"AutoCollapseAutoModeratorComment": {
@@ -813,5 +821,9 @@
 
 	"HideJoinButtonOnPosts": {
 		"message": "Hide the 'Join' Button On Posts"
+	},
+
+	"AutoLoadMoreComments": {
+		"message": "Auto Load More Comments"
 	}
 }

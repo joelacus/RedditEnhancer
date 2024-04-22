@@ -707,6 +707,10 @@
 		"message": "Ukryj sekcję zasoby"
 	},
 
+	"HideSideMenuTopicsSection": {
+		"message": "Ukryj sekcję tematów"
+	},
+
 	"HideRelatedPosts": {
 		"message": "Ukryj powiązane posty"
 	},
@@ -745,6 +749,10 @@
 
 	"AutoExpandComments": {
 		"message": "Automatyczne rozwijanie komentarzy"
+	},
+
+	"AutoExpandCommentsInfo": {
+		"message": "Może to spowodować spowolnienie strony i zużycie dużej ilości pamięci RAM, zwłaszcza jeśli jest dużo komentarzy."
 	},
 
 	"AutoCollapseAutoModeratorComment": {
@@ -813,5 +821,9 @@
 
 	"HideJoinButtonOnPosts": {
 		"message": "Hide the 'Join' Button On Posts"
+	},
+
+	"AutoLoadMoreComments": {
+		"message": "Auto Load More Comments"
 	}
 }

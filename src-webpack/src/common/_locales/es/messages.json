@@ -707,6 +707,10 @@
 		"message": "Ocultar la sección de Recursos"
 	},
 
+	"HideSideMenuTopicsSection": {
+		"message": "Ocultar la sección de Temas"
+	},
+
 	"HideRelatedPosts": {
 		"message": "Ocultar publicaciones Relacionadas"
 	},
@@ -745,6 +749,10 @@
 
 	"AutoExpandComments": {
 		"message": "Comentarios de expansión automática"
+	},
+
+	"AutoExpandCommentsInfo": {
+		"message": "Esto puede hacer que la página se ralentice y utilice mucha RAM, especialmente si hay muchos comentarios."
 	},
 
 	"AutoCollapseAutoModeratorComment": {
@@ -813,5 +821,9 @@
 
 	"HideJoinButtonOnPosts": {
 		"message": "Hide the 'Join' Button On Posts"
+	},
+
+	"AutoLoadMoreComments": {
+		"message": "Auto Load More Comments"
 	}
 }
