@@ -6,13 +6,15 @@ Supports Old, "Old New" and "New New" versions of Reddit. Not all features suppo
 
 Feel free to suggest new features and report any bugs on the Issues page.
 
+Some features may stop working due to website updates. Please let me know if you find any issues.
+
 I welcome any help if you would like to improve or contribute new language translations.
 
 ## Download
-|Firefox|Chrome|Edge|Opera|
-|---|---|---|---|
-|<p align="center"><a href="https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/" ><img src="/icons/firefox_64x64.png"></a></p>|<p align="center"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/chrome_64x64.png"></a></p>|<p align="center"><a href="https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk"><img src="/icons/edge_64x64.png"></a></p>|<p align="center"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa" ><img src="/icons/opera_64x64.png"></a></p>|
-|[Download](https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/)|[Download](https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa)|[Download](https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk)|[Download](https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa)|
+|Firefox|Chrome|Edge|Opera|Vivaldi|
+|---|---|---|---|---|
+|<p align="center"><a href="https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/" ><img src="/icons/firefox_64x64.png"></a></p>|<p align="center"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/chrome_64x64.png"></a></p>|<p align="center"><a href="https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk"><img src="/icons/edge_64x64.png"></a></p>|<p align="center"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa" ><img src="/icons/opera_64x64.png"></a></p>|<p align="center"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa" ><img src="/icons/vivaldi_64x64.png"></a></p>|
+|[Download](https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/)|[Download](https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa)|[Download](https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk)|[Download](https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa)|[Download](https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa)|
 
 ## Features
 |Feature|Description|Reddit Version Support|
@@ -85,6 +87,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Auto Collapse AutoModerator Comment|Automatically collapses the top comment made by AutoModerator.|All|
 |Hide The Join Button On Posts|Hides the 'Join' button on posts on r/all and r/popular.|"Old New"<br />"New New"|
 |Auto Load More Comments|Automatically load more comments on a post if it requires you to click a button to load more comments.|"New New"|
+|Underline Links|Underline the links in the post content and comments.|"Old New"<br />"New New"|
+|Auto Show Formatting Options When Commenting|Automatically enables the formatting options when commenting on posts.|"New New"|
 
 ## Build
 Clone repo and cd to build directory:
