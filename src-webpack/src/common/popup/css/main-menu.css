@@ -117,6 +117,11 @@
 	color: var(--text-grey);
 	font-size: 14px;
 }
+.sub-header-menu {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
 
 /* Background Buttons */
 .btn-edit-backgrounds,

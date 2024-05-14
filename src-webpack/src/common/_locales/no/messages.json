@@ -727,16 +727,20 @@
 		"message": "Oppdater til Firefox 121 eller nyere for at enkelte funksjoner skal fungere som de skal."
 	},
 
+	"ResizeFont": {
+		"message": "Endre størrelse på skrift"
+	},
+
+	"PostTitle": {
+		"message": "Innleggstittel"
+	},
+
 	"PostContent": {
 		"message": "Innlegg Innhold"
 	},
 
 	"PostComments": {
 		"message": "Legg inn kommentarer"
-	},
-
-	"ResizeFont": {
-		"message": "Endre størrelse på skrift"
 	},
 
 	"Rate": {
@@ -820,10 +824,22 @@
 	},
 
 	"HideJoinButtonOnPosts": {
-		"message": "Hide the 'Join' Button On Posts"
+		"message": "Skjul 'Bli med'-knappen på innlegg"
 	},
 
 	"AutoLoadMoreComments": {
-		"message": "Auto Load More Comments"
+		"message": "Last inn flere kommentarer automatisk"
+	},
+
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Skjul delen 'Egendefinerte innmatinger'"
+	},
+
+	"UnderlineLinks": {
+		"message": "Understrek lenker"
+	},
+
+	"AutoShowCommentFormattingOptions": {
+		"message": "Vis formateringsalternativer automatisk når du kommenterer"
 	}
 }

@@ -230,7 +230,7 @@
 						<span data-lang="HideElements"></span>
 					</li>
 					<li class="sub-header r-old r-new r-newnew" style="flex-direction: column; margin-bottom: 8px">
-						<div style="display: flex">
+						<div class="sub-header-menu">
 							<div class="r-old r-new r-newnew"><a href="#hide-main" data-lang="Main"></a>&nbsp;|&nbsp;</div>
 							<div class="r-old r-new r-newnew"><a href="#hide-header" data-lang="Header"></a>&nbsp;|&nbsp;</div>
 							<div class="r-new r-newnew"><a href="#hide-header-buttons" data-lang="HeaderButtons"></a>&nbsp;|&nbsp;</div>
@@ -598,14 +598,14 @@
 						<span data-lang="Productivity"></span>
 					</li>
 					<li class="sub-header r-old r-new r-newnew" style="flex-direction: column; margin-bottom: 8px">
-						<div style="display: flex">
+						<div class="sub-header-menu">
 							<div class="r-old r-new r-newnew"><a href="#productivity-images" data-lang="Images"></a>&nbsp;|&nbsp;</div>
 							<div class="r-new"><a href="#productivity-text" data-lang="Text"></a>&nbsp;|&nbsp;</div>
 							<div class="r-old r-new r-newnew"><a href="#productivity-sort-bar" data-lang="SortBar"></a>&nbsp;|&nbsp;</div>
 							<div class="r-old r-new r-newnew"><a href="#productivity-header" data-lang="Header"></a>&nbsp;|&nbsp;</div>
 							<div class="r-new"><a href="#productivity-post" data-lang="Post"></a>&nbsp;|&nbsp;</div>
-							<div class="r-newnew"><a href="#productivity-post" data-lang="Post"></a></div>
-							<div class="r-old r-new"><a href="#productivity-other" data-lang="Other"></a></div>
+							<div class="r-old r-newnew"><a href="#productivity-post" data-lang="Post"></a>&nbsp;|&nbsp;</div>
+							<div class="r-new r-newnew"><a href="#productivity-other" data-lang="Other"></a></div>
 						</div>
 					</li>
 					<li id="productivity-images" class="sub-header r-old r-new r-newnew">
@@ -813,7 +813,7 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li id="productivity-post" class="sub-header r-new r-newnew">
+					<li id="productivity-post" class="sub-header r-old r-new r-newnew">
 						<span data-lang="Post"></span>
 					</li>
 					<li class="container container-3 r-newnew">
@@ -956,8 +956,16 @@
 						<div></div>
 						<p data-lang="VideoPlayerInfo"></p>
 					</li>
-					<li id="productivity-other" class="sub-header r-old r-new">
+					<li id="productivity-other" class="sub-header r-new r-newnew">
 						<span data-lang="Other"></span>
+					</li>
+					<li class="container container-3 r-newnew">
+						<span class="menu-item-icon icon-hide icon-auto-show-comment-formatting-options"></span>
+						<span data-lang="AutoShowCommentFormattingOptions" data-search="comment,formatting"></span>
+						<label class="switch">
+							<input id="checkbox-auto-show-comment-formatting-options" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
 					</li>
 					<li class="container container-3 r-new">
 						<span class="menu-item-icon icon-turn-up icon-sidemenu-feed-top"></span>
@@ -1100,7 +1108,7 @@
 					</li>
 					<li class="sub-header sub-search-title r-new r-newnew" style="flex-direction: column; margin-bottom: 16px">
 						<span data-lang="ThemeColours" style="align-self: start; margin-bottom: 4px"></span>
-						<div style="display: flex">
+						<div class="sub-header-menu">
 							<div class="r-new r-newnew"><a href="#theme-header" data-lang="Header"></a>&nbsp;|&nbsp;</div>
 							<div class="r-new"><a href="#theme-create-post" data-lang="CreatePost"></a>&nbsp;|&nbsp;</div>
 							<div class="r-new"><a href="#theme-sort" data-lang="Sort"></a>&nbsp;|&nbsp;</div>
@@ -1338,6 +1346,20 @@
 								<input id="input-post-border-colour-css" type="text" placeholder="rgb(0,0,0)" />
 							</div>
 						</div>
+						<div class="divider"></div>
+						<div class="container container-3">
+							<span class="menu-item-icon icon-spray-can icon-post-content-and-comments-link-colour"></span>
+							<span data-lang="PostContentAndCommentsLinkColour" data-search="theme,colour"></span>
+							<label class="switch">
+								<input id="checkbox-post-content-and-comments-link-colour" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+							<div></div>
+							<div class="css-input-container">
+								<span class="text-small">color:</span>
+								<input id="input-post-content-and-comments-link-colour-css" type="text" placeholder="#629fff" />
+							</div>
+						</div>
 					</li>
 					<!-- Sidebar Style -->
 					<li id="theme-sidebar" class="sub-header r-new r-newnew">
@@ -1514,6 +1536,14 @@
 				<ul class="menu-list sub-list menu-accessibility hide r-old r-new r-newnew">
 					<li class="sub-header sub-search-title hide">
 						<span data-lang="Accessibility"></span>
+					</li>
+					<li class="container container-3 r-new r-newnew">
+						<span class="menu-item-icon icon-underline icon-underline-links"></span>
+						<span data-lang="UnderlineLinks" data-search="links"></span>
+						<label class="switch">
+							<input id="checkbox-underline-links" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
 					</li>
 					<li class="sub-header r-old r-new r-newnew">
 						<span data-lang="ResizeFont"></span>

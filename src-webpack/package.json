@@ -1,6 +1,6 @@
 {
 	"name": "reddit_enhancer_webpack",
-	"version": "1.7.0",
+	"version": "1.8.0",
 	"description": "",
 	"scripts": {
 		"build-m2": "webpack --config ./webpack-m2.conf.js",
@@ -19,8 +19,8 @@
 		"webpack-cli": "^5.0.0"
 	},
 	"dependencies": {
-		"css-loader": "^6.8.1",
-		"css-minimizer-webpack-plugin": "^6.0.0",
+		"css-loader": "^7.1.1",
+		"css-minimizer-webpack-plugin": "^7.0.0",
 		"html-minimizer-webpack-plugin": "^5.0.0",
 		"i18next": "^23.6.0",
 		"i18next-http-backend": "^2.3.0",

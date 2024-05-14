@@ -724,7 +724,15 @@
 	},
 
 	"UpdateFirefox": {
-		"message": "Please update to Firefox 121 or greater for some features to work correctly."
+		"message": "Kérjük, frissítsen a Firefox 121-re vagy újabbra, hogy egyes funkciók megfelelően működjenek."
+	},
+
+	"ResizeFont": {
+		"message": "Betűtípus átméretezése"
+	},
+
+	"PostTitle": {
+		"message": "Postai cím"
 	},
 
 	"PostContent": {
@@ -733,10 +741,6 @@
 
 	"PostComments": {
 		"message": "Post Comments"
-	},
-
-	"ResizeFont": {
-		"message": "Resize Font"
 	},
 
 	"Rate": {
@@ -808,22 +812,34 @@
 	},
 
 	"PleaseWait": {
-		"message": "Please Wait"
+		"message": "Kérlek várj"
 	},
 
 	"RestoreInfo1": {
-		"message": "Restoring"
+		"message": ""
 	},
 
 	"RestoreInfo2": {
-		"message": "items. Browser API limit is 120 per minute. Please leave this window/tab open for another minute."
+		"message": "elem visszaállítása. A böngésző API-korlátja 120 percenként. Kérjük, hagyja nyitva ezt az ablakot/lapot még egy percig."
 	},
 
 	"HideJoinButtonOnPosts": {
-		"message": "Hide the 'Join' Button On Posts"
+		"message": "Rejtsd el a „Csatlakozás” gombot a bejegyzéseken"
 	},
 
 	"AutoLoadMoreComments": {
-		"message": "Auto Load More Comments"
+		"message": "További megjegyzések automatikus betöltése"
+	},
+
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Az „Egyéni hírcsatornák” szakasz elrejtése"
+	},
+
+	"UnderlineLinks": {
+		"message": "A hivatkozások aláhúzása"
+	},
+
+	"AutoShowCommentFormattingOptions": {
+		"message": "A formázási beállítások automatikus megjelenítése kommenteléskor"
 	}
 }

@@ -114,8 +114,12 @@ import {
 	themeBlur,
 	themeSidemenuButtonHoverColour,
 	themeSidemenuButtonHoverColourCSS,
+	themePostContentAndCommentsLinkColour,
+	themePostContentAndCommentsLinkColourCSS,
 } from './functions/style/override_theme_colours';
 import { useCustomBackground, setCustomBackground } from './functions/background/custom_background';
+import { underlineLinks } from './functions/accessibility/underline_links';
+import { autoShowCommentFormattingOptions } from './functions/productivity/auto_show_comment_formatting_options';
 //import { scalePostToFitImageMaxImageWidth, scalePostToFitImage } from './functions/productivity/scale_post_to_fit_image';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
@@ -339,6 +343,10 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		themeSidemenuButtonHoverColour(value);
 	} else if (key == 'themeSidemenuButtonHoverColourCSS') {
 		themeSidemenuButtonHoverColourCSS(value);
+	} else if (key == 'themePostContentAndCommentsLinkColour') {
+		themePostContentAndCommentsLinkColour(value);
+	} else if (key == 'themePostContentAndCommentsLinkColourCSS') {
+		themePostContentAndCommentsLinkColourCSS(value);
 	} else if (key == 'themeBlur') {
 		themeBlur(value);
 	} else if (key == 'bionicReaderPosts') {
@@ -417,6 +425,10 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		hideJoinButtonOnPosts(value);
 	} else if (key == 'autoLoadMoreComments') {
 		autoLoadMoreComments(value);
+	} else if (key == 'underlineLinks') {
+		underlineLinks(value);
+	} else if (key == 'autoShowCommentFormattingOptions') {
+		autoShowCommentFormattingOptions(value);
 	} else if (key == 'loadSaves') {
 		setTimeout(() => {
 			init();

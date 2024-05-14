@@ -55,7 +55,8 @@ function enableHideNsfwPostsNew() {
 function enableHideNsfwPostsNewNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-hide-nsfw-posts';
-	styleElement.textContent = `shreddit-app shreddit-post:has([reason="nsfw"]) {
+	styleElement.textContent = `shreddit-app shreddit-post:has([reason="nsfw"]),
+								shreddit-app shreddit-post[nsfw] {
 									display: none !important;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);

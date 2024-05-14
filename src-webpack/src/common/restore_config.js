@@ -136,6 +136,7 @@ async function restoreBackup(json) {
 				'autoExpandValue',
 				'autoRedirectVersion',
 				'autoLoadMoreComments',
+				'autoShowCommentFormattingOptions',
 				'bgBlur',
 				'bionicReaderBgColour',
 				'bionicReaderBgColourCSS',
@@ -295,6 +296,7 @@ async function restoreBackup(json) {
 				'themeSortTextColour2',
 				'themeSortTextColour2CSS',
 				'themeSortTextColourCSS',
+				'underlineLinks',
 				'useCustomBackground',
 			].includes(key)
 		) {

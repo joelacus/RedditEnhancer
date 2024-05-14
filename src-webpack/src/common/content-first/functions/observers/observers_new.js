@@ -49,6 +49,7 @@ import { loadResizeFont } from '../../../content/functions/accessibility/resize_
 //import { loadScalePostToFitImage } from '../../../content/functions/productivity/scale_post_to_fit_image';
 import { loadScrollToNextRootCommentPosition } from '../../../content/functions/productivity/scroll_to_next_root_comment';
 import { loadStickySort } from '../../../content/functions/productivity/sticky_sort';
+import { loadUnderlineLinks } from '../../../content/functions/accessibility/underline_links';
 
 // Load observers to wait for elements to load before tweaking, or load the tweak directly if an observer is not needed.
 
@@ -131,6 +132,7 @@ function loadCommon() {
 	loadNonStickyHeaderBar();
 	loadExpandContent();
 	loadHideGap();
+	loadUnderlineLinks();
 
 	if (!useLegacy) {
 		loadLayoutCentre();

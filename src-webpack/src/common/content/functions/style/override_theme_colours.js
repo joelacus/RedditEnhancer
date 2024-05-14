@@ -53,6 +53,7 @@ function loadTheme() {
 			'themePostBorderColour',
 			'themePostCommentsTextColour1',
 			'themePostCommentsTextColour2',
+			'themePostContentAndCommentsLinkColour',
 			'themePostTextColour1',
 			'themePostTextColour2',
 			'themePostVisitedTitleColour',
@@ -61,7 +62,6 @@ function loadTheme() {
 			'themeSidebarTextColour',
 			'themeSidemenuBgColour',
 			'themeSidemenuButtonHoverColour',
-			'themeSidemenuButtonHoverColourCSS',
 			'themeSidemenuTextColour',
 			'themeSortBackgroundColour',
 			'themeSortBorderColour',
@@ -77,6 +77,7 @@ function loadTheme() {
 			themePostBorderColour(result.themePostBorderColour);
 			themePostCommentsTextColour1(result.themePostCommentsTextColour1);
 			themePostCommentsTextColour2(result.themePostCommentsTextColour2);
+			themePostContentAndCommentsLinkColour(result.themePostContentAndCommentsLinkColour);
 			themePostTextColour1(result.themePostTextColour1);
 			themePostTextColour2(result.themePostTextColour2);
 			themePostVisitedTitleColour(result.themePostVisitedTitleColour);
@@ -85,7 +86,6 @@ function loadTheme() {
 			themeSidebarTextColour(result.themeSidebarTextColour);
 			themeSidemenuBgColour(result.themeSidemenuBgColour);
 			themeSidemenuButtonHoverColour(result.themeSidemenuButtonHoverColour);
-			themeSidemenuButtonHoverColourCSS(result.themeSidemenuButtonHoverColourCSS);
 			themeSidemenuTextColour(result.themeSidemenuTextColour);
 			themeSortBackgroundColour(result.themeSortBackgroundColour);
 			themeSortBorderColour(result.themeSortBorderColour);
@@ -554,9 +554,12 @@ export function themePostBackgroundColour(value) {
 											margin-left: -.5rem;
 											margin-right: -.5rem;
 										}
-										[bundlename="comment_body_header"] comment-body-header faceplate-tracker {
+										/*[bundlename="comment_body_header"] comment-body-header faceplate-tracker {
 											position: relative;
 											top: 8px;
+										}*/
+										comment-body-header {
+											padding-top: 8px;
 										}
 										#main-content [bundlename="comment_body_header"] {
 											position: relative;
@@ -1143,21 +1146,22 @@ export function themeSidemenuBgColourCSS(value) {
 export function themeSidemenuButtonHoverColour(value) {
 	if (redditVersion === 'newnew' && value === true) {
 		BROWSER_API.storage.sync.get(['themeSidemenuButtonHoverColourCSS'], function (result) {
-			document.documentElement.style.setProperty('--re-theme-sidemenu-btn-hover', result.themeSidemenuButtonHoverColourCSS);
-			const styleElement = document.createElement('style');
-			styleElement.id = 're-theme-sidemenu-btn-hover-colour';
-			styleElement.textContent = `#left-sidebar-container div,
-										#left-sidebar-container left-nav-communities-controller,
-										#left-sidebar-container left-nav-top-section,
-										#left-sidebar-container left-nav-create-community-button,
-										#left-sidebar-container a,
-										#left-sidebar-container reddit-recent-pages,
-										#left-sidebar-container left-nav-moderation-controller {
-											--color-neutral-background-hover: var(--re-theme-sidemenu-btn-hover) !important;
-								  			--color-secondary-background-hover: var(--re-theme-sidemenu-btn-hover) !important;
-										}`;
-			document.head.insertBefore(styleElement, document.head.firstChild);
+			themeSidemenuButtonHoverColourCSS(result.themeSidemenuButtonHoverColourCSS);
 		});
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-theme-sidemenu-btn-hover-colour';
+		styleElement.textContent = `#left-sidebar-container div,
+									#left-sidebar-container left-nav-communities-controller,
+									#left-sidebar-container left-nav-top-section,
+									#left-sidebar-container left-nav-create-community-button,
+									#left-sidebar-container a,
+									#left-sidebar-container reddit-recent-pages,
+									#left-sidebar-container left-nav-moderation-controller {
+										--color-neutral-background-hover: var(--re-theme-sidemenu-btn-hover) !important;
+										--color-secondary-background-hover: var(--re-theme-sidemenu-btn-hover) !important;
+										--color-neutral-background-hovered: var(--re-theme-sidemenu-btn-hover) !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else if (value === false) {
 		document.documentElement.style.removeProperty('--re-theme-sidemenu-bg');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-sidemenu-btn-hover-colour"]');
@@ -1205,6 +1209,53 @@ export function themeSidebarBorderColourCSS(value) {
 		BROWSER_API.storage.sync.get(['themeSidebarBorderColour'], function (result) {
 			if (result.themeSidebarBorderColour === true) {
 				document.documentElement.style.setProperty('--re-theme-sidebar-border', value);
+			}
+		});
+	}
+}
+
+// Post Content And Comments Link Colour
+export function themePostContentAndCommentsLinkColour(value) {
+	if (redditVersion === 'new' && value === true) {
+		BROWSER_API.storage.sync.get(['themePostContentAndCommentsLinkColourCSS'], function (result) {
+			themePostContentAndCommentsLinkColourCSS(result.themePostContentAndCommentsLinkColourCSS);
+		});
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-theme-post-content-and-comments-link-colour';
+		styleElement.textContent = `.Post .RichTextJSON-root a {
+										color: var(--re-theme-post-content-and-comments-link) !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	} else if (redditVersion === 'newnew' && value === true) {
+		BROWSER_API.storage.sync.get(['themePostContentAndCommentsLinkColourCSS'], function (result) {
+			themePostContentAndCommentsLinkColourCSS(result.themePostContentAndCommentsLinkColourCSS);
+		});
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-theme-post-content-and-comments-link-colour';
+		styleElement.textContent = `shreddit-post [data-post-click-location="text-body"] a,
+									shreddit-comment p a {
+										color: var(--re-theme-post-content-and-comments-link) !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	} else if (value === false) {
+		document.documentElement.style.removeProperty('--re-theme-post-content-and-comments-link');
+		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-post-content-and-comments-link-colour"]');
+		dynamicStyleElements.forEach((element) => {
+			document.head.removeChild(element);
+		});
+	}
+}
+
+// Post Content And Comments Link Colour CSS
+export function themePostContentAndCommentsLinkColourCSS(value) {
+	if (redditVersion === 'new' || redditVersion === 'newnew') {
+		BROWSER_API.storage.sync.get(['themePostContentAndCommentsLinkColour'], function (result) {
+			if (result.themePostContentAndCommentsLinkColour === true) {
+				if (value) {
+					document.documentElement.style.setProperty('--re-theme-post-content-and-comments-link', value);
+				} else {
+					document.documentElement.style.setProperty('--re-theme-post-content-and-comments-link', '#629fff');
+				}
 			}
 		});
 	}

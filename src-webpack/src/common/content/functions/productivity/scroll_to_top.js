@@ -92,17 +92,27 @@ function enableShowToTopButtonNewNew() {
 			document.querySelector('.re-to-top-button').remove();
 			enableShowToTopButtonNewNew();
 		} else {
-			if (document.querySelector('header [data-part="chat"]')) {
-				const btn = document.querySelector('header [data-part="chat"] button').cloneNode(true);
-				btn.classList.add('re-to-top-button');
-				btn.querySelector('button span:has(>svg)').innerHTML =
-					'<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path opacity="1" fill="currentColor" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>';
-				btn.addEventListener('click', function (e) {
-					window.scrollTo({ top: 0, behavior: 'smooth' });
-				});
-				const ad_btn = document.querySelector('[data-part="advertise"]');
-				ad_btn.parentElement.prepend(ad_btn, btn);
+			let btn;
+			if (document.querySelector('#header-action-item-chat-button')) {
+				btn = document.querySelector('#header-action-item-chat-button').cloneNode(true);
+			} else if (document.querySelector('header [data-part="inbox"] button')) {
+				btn = document.querySelector('header [data-part="inbox"] button').cloneNode(true);
+			} else {
+				btn = document.createElement('div');
 			}
+			btn.classList.add('re-to-top-button');
+			btn.id = 're-to-top-button';
+			if (btn.querySelector('span:has(>svg)')) {
+				btn.querySelector('span:has(>svg)').innerHTML =
+					'<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path opacity="1" fill="currentColor" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>';
+			} else {
+				btn.textContent = 'Top';
+			}
+			btn.addEventListener('click', function (e) {
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			});
+			const ad_btn = document.querySelector('[data-part="advertise"]');
+			ad_btn.parentElement.prepend(ad_btn, btn);
 		}
 	}, 1000);
 }

@@ -20,7 +20,7 @@
 	},
 
 	"ResizeLayout": {
-		"message": "Redimensionner le Flux / la Publication"
+		"message": "Redimensionner le Flux / la Post"
 	},
 
 	"Centre": {
@@ -44,11 +44,11 @@
 	},
 
 	"PostOverlayWidth": {
-		"message": "Largeur de la superposition de publication"
+		"message": "Largeur de la superposition de Post"
 	},
 
 	"PostWidth": {
-		"message": "Largeur du publication"
+		"message": "Largeur du Post"
 	},
 
 	"Offset": {
@@ -64,7 +64,7 @@
 	},
 
 	"PostOffset": {
-		"message": "Décalage de la publication"
+		"message": "Décalage de la Post"
 	},
 
 	"UserProfileOffset": {
@@ -72,7 +72,7 @@
 	},
 
 	"FitImage": {
-		"message": "Mettre à l'échelle les images hautes pour s'adapter à la publication"
+		"message": "Mettre à l'échelle les images hautes pour s'adapter à la Post"
 	},
 
 	"ImageScroll": {
@@ -144,7 +144,7 @@
 	},
 
 	"HideCreatePost": {
-		"message": "Masquer « Créer une publication »"
+		"message": "Masquer « Créer une Post »"
 	},
 
 	"HideAdvertiseButton": {
@@ -304,7 +304,7 @@
 	},
 
 	"PostCommentsLimit": {
-		"message": "Limiter les commentaires de publication"
+		"message": "Limiter les Commentaires de Post"
 	},
 
 	"AutoExpand": {
@@ -312,11 +312,11 @@
 	},
 
 	"HidePostSidebar": {
-		"message": "Masquer la barre latérale de la page publication"
+		"message": "Masquer la barre latérale de la page Post"
 	},
 
 	"HidePostOverlaySidebar": {
-		"message": "Masquer la barre latérale de superposition de publication"
+		"message": "Masquer la barre latérale de superposition de Post"
 	},
 
 	"HideUserSidebar": {
@@ -332,11 +332,11 @@
 	},
 
 	"LimitCommentsInfo": {
-		"message": "Fonctionne uniquement pour les publications ouvertes dans un nouvel onglet/fenêtre."
+		"message": "Fonctionne uniquement pour les Posts ouvertes dans un nouvel onglet/fenêtre."
 	},
 
 	"LimitInfinityScrollInfo": {
-		"message": "Beta. Cela ne réduira pas nécessairement l'utilisation de la bande passante, mais devrait plutôt empêcher la page de devenir lente en empêchant Reddit d'ajouter de nouvelles publications jusqu'à ce que vous cliquiez sur « Charger plus » au bas du flux. Lorsque vous cliquez sur « Charger plus », les 25 premiers messages seront effacés et les 25 suivants seront affichés."
+		"message": "Beta. Cela ne réduira pas nécessairement l'utilisation de la bande passante, mais devrait plutôt empêcher la page de devenir lente en empêchant Reddit d'ajouter de nouvelles Posts jusqu'à ce que vous cliquiez sur « Charger plus » au bas du flux. Lorsque vous cliquez sur « Charger plus », les 25 premiers messages seront effacés et les 25 suivants seront affichés."
 	},
 
 	"DefaultFeedSortOption": {
@@ -380,7 +380,7 @@
 	},
 
 	"OpenPostInNewTab": {
-		"message": "Ouvrir les liens vers les publications dans un nouvel onglet"
+		"message": "Ouvrir les liens vers les Posts dans un nouvel onglet"
 	},
 
 	"ControversialSort": {
@@ -408,11 +408,11 @@
 	},
 
 	"OpenPostInNewTabInfoLink": {
-		"message": "Paramètres de votre compte > Paramètres du flux > Ouvrir les publications dans un nouvel onglet"
+		"message": "Paramètres de votre compte > Paramètres du flux > Ouvrir les Posts dans un nouvel onglet"
 	},
 
 	"ShowPostNumbers": {
-		"message": "Ajouter des numéros de publications"
+		"message": "Ajouter des numéros de Posts"
 	},
 
 	"Backup": {
@@ -464,11 +464,11 @@
 	},
 
 	"FeedPostMaxHeight": {
-		"message": "Hauteur du Publication"
+		"message": "Hauteur du Post"
 	},
 
 	"Post": {
-		"message": "Publication"
+		"message": "Post"
 	},
 
 	"Accessibility": {
@@ -480,7 +480,7 @@
 	},
 
 	"BionicReaderPosts": {
-		"message": "Lecteur bionique pour publication"
+		"message": "Lecteur bionique pour Post"
 	},
 
 	"BionicReaderComments": {
@@ -508,7 +508,7 @@
 	},
 
 	"PostVisitedTitleColour": {
-		"message": "Publication visité : Couleur du titre"
+		"message": "Post visité : Couleur du titre"
 	},
 
 	"HeaderBgColour": {
@@ -536,39 +536,39 @@
 	},
 
 	"PostBgColour": {
-		"message": "Publication : Couleur de fond"
+		"message": "Post : Couleur de fond"
 	},
 
 	"PostSecondaryTextColour": {
-		"message": "Publication : Couleur du texte secondaire"
+		"message": "Post : Couleur du texte secondaire"
 	},
 
 	"PostTitleContentColour": {
-		"message": "Publication : Couleur du titre et du contenu du texte"
+		"message": "Post : Couleur du titre et du contenu du texte"
 	},
 
 	"PostCommentsColour": {
-		"message": "Publication: Commentaires couleur du texte"
+		"message": "Post : Commentaires couleur du texte"
 	},
 
 	"PostCommentsSecondaryColour": {
-		"message": "Publication: Commentaires couleur du texte secondaire"
+		"message": "Post : Commentaires couleur du texte secondaire"
 	},
 
 	"PostBorderColour": {
-		"message": "Publication : Couleur de la bordure"
+		"message": "Post : Couleur de la bordure"
 	},
 
 	"SidebarTextColour": {
-		"message": "Barre latérale: Couleur de texte"
+		"message": "Barre latérale : Couleur de texte"
 	},
 
 	"SidebarBackgroundColour": {
-		"message": "Barre latérale: La couleur d'arrière-plan"
+		"message": "Barre latérale : La couleur d'arrière-plan"
 	},
 
 	"SidebarBorderColour": {
-		"message": "Barre latérale: Couleur de bordure"
+		"message": "Barre latérale : Couleur de bordure"
 	},
 
 	"Sidemenu": {
@@ -576,15 +576,15 @@
 	},
 
 	"SidemenuTextColour": {
-		"message": "Menu latéral: Couleur de texte"
+		"message": "Menu latéral : Couleur de texte"
 	},
 
 	"SidemenuBackgroundColour": {
-		"message": "Menu latéral: La couleur d'arrière-plan"
+		"message": "Menu latéral : La couleur d'arrière-plan"
 	},
 
 	"SidemenuButtonHoverColour": {
-		"message": "Menu latéral: Couleur du survol du bouton"
+		"message": "Menu latéral : Couleur du survol du bouton"
 	},
 
 	"WhitelistBlacklist": {
@@ -628,23 +628,23 @@
 	},
 
 	"CreatePost": {
-		"message": "Créer une Publication"
+		"message": "Créer une Post"
 	},
 
 	"CreatePostBgColour": {
-		"message": "Créer une Publication : Couleur d'arrière-plan"
+		"message": "Créer une Post : Couleur d'arrière-plan"
 	},
 
 	"CreatePostBorderColour": {
-		"message": "Créer une Publication : Couleur de la bordure"
+		"message": "Créer une Post : Couleur de la bordure"
 	},
 
 	"AlwaysShowPostOptions": {
-		"message": "Toujours afficher les options de publication"
+		"message": "Toujours afficher les options de Post"
 	},
 
 	"LargerClassicPost": {
-		"message": "Vue de publication classique plus grande"
+		"message": "Vue de Post classique plus grande"
 	},
 
 	"PositionVertically": {
@@ -660,7 +660,7 @@
 	},
 
 	"BreakReminderInfo": {
-		"message": "Beta. Affiche un rappel pour faire une pause à chaque nombre défini de publications."
+		"message": "Beta. Affiche un rappel pour faire une pause à chaque nombre défini de Posts."
 	},
 
 	"BreakReminderFrequency": {
@@ -688,27 +688,27 @@
 	},
 
 	"HideSideMenuTopSection": {
-		"message": "Masquer la section Supérieure"
+		"message": "Masquer la section 'Supérieure'"
 	},
 
 	"HideSideMenuModerationSection": {
-		"message": "Masquer la section de Modération"
+		"message": "Masquer la section 'Modération'"
 	},
 
 	"HideSideMenuRecentSection": {
-		"message": "Masquer la section Récente"
+		"message": "Masquer la section 'Récente'"
 	},
 
 	"HideSideMenuCommunitiesSection": {
-		"message": "Masquer la section Communautés"
+		"message": "Masquer la section 'Communautés'"
 	},
 
 	"HideSideMenuResourcesSection": {
-		"message": "Masquer la section Ressources"
+		"message": "Masquer la section 'Ressources'"
 	},
 
 	"HideSideMenuTopicsSection": {
-		"message": "Masquer la section Sujets"
+		"message": "Masquer la section 'Sujets'"
 	},
 
 	"HideRelatedPosts": {
@@ -727,16 +727,20 @@
 		"message": "Veuillez mettre à jour Firefox 121 ou version ultérieure pour que certaines fonctionnalités fonctionnent correctement."
 	},
 
+	"ResizeFont": {
+		"message": "Redimensionner la police"
+	},
+
+	"PostTitle": {
+		"message": "Titre du poste"
+	},
+
 	"PostContent": {
-		"message": "Contenu de la Publication"
+		"message": "Contenu de la Post"
 	},
 
 	"PostComments": {
-		"message": "Commentaires de la Publication"
-	},
-
-	"ResizeFont": {
-		"message": "Resize Font"
+		"message": "Commentaires de la Post"
 	},
 
 	"Rate": {
@@ -772,7 +776,7 @@
 	},
 
 	"ScalePostToFitImage": {
-		"message": "Mettre à l'échelle la publication pour l'adapter à l'image"
+		"message": "Mettre à l'échelle la Post pour l'adapter à l'image"
 	},
 
 	"LimitImageWidth": {
@@ -820,10 +824,22 @@
 	},
 
 	"HideJoinButtonOnPosts": {
-		"message": "Hide the 'Join' Button On Posts"
+		"message": "Masquer le bouton 'Rejoindre' sur les postes"
 	},
 
 	"AutoLoadMoreComments": {
-		"message": "Auto Load More Comments"
+		"message": "Charger automatiquement plus de commentaire"
+	},
+
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Masquer la section 'Flux personnalisés'"
+	},
+
+	"UnderlineLinks": {
+		"message": "Souligner les liens"
+	},
+
+	"AutoShowCommentFormattingOptions": {
+		"message": "Afficher automatiquement les options de formatage lors des commentaires"
 	}
 }

@@ -728,7 +728,11 @@
 	},
 
 	"ResizeFont": {
-		"message": "Resize Font"
+		"message": "Schriftgröße ändern"
+	},
+
+	"PostTitle": {
+		"message": "Beitragstitel"
 	},
 
 	"PostContent": {
@@ -820,10 +824,22 @@
 	},
 
 	"HideJoinButtonOnPosts": {
-		"message": "Hide the 'Join' Button On Posts"
+		"message": "Die Schaltfläche „Beitreten“ in Beiträgen ausblenden"
 	},
 
 	"AutoLoadMoreComments": {
-		"message": "Auto Load More Comments"
+		"message": "Weitere Kommentare automatisch laden"
+	},
+
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Blenden Sie den Abschnitt „Benutzerdefinierte Feeds“ aus"
+	},
+
+	"UnderlineLinks": {
+		"message": "Unterstreichen Sie Links"
+	},
+
+	"AutoShowCommentFormattingOptions": {
+		"message": "Formatierungsoptionen beim kommentieren automatisch anzeigen"
 	}
 }

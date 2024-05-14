@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.7.0"
+		"message": "1.8.0"
 	},
 
 	"extensionName": {
@@ -563,6 +563,10 @@
 		"message": "Post: Border Colour"
 	},
 
+	"PostContentAndCommentsLinkColour": {
+		"message": "Post: Content And Comments Link Colour"
+	},
+
 	"SidebarTextColour": {
 		"message": "Sidebar: Text Colour"
 	},
@@ -731,6 +735,10 @@
 		"message": "Please update to Firefox 121 or greater for some features to work correctly."
 	},
 
+	"ResizeFont": {
+		"message": "Resize Font"
+	},
+
 	"PostTitle": {
 		"message": "Post Title"
 	},
@@ -741,10 +749,6 @@
 
 	"PostComments": {
 		"message": "Post Comments"
-	},
-
-	"ResizeFont": {
-		"message": "Resize Font"
 	},
 
 	"Rate": {
@@ -837,6 +841,14 @@
 
 	"HideSideMenuCustomFeedsSection": {
 		"message": "Hide the Custom Feeds Section"
+	},
+
+	"UnderlineLinks": {
+		"message": "Underline Links"
+	},
+
+	"AutoShowCommentFormattingOptions": {
+		"message": "Auto Show Formatting Options When Commenting"
 	},
 
 	"DragImageToResize": {

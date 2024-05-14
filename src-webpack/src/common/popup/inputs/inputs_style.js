@@ -1048,3 +1048,42 @@ document.querySelector('#input-sidemenu-button-hover-colour-css').addEventListen
 		});
 	});
 });
+
+// Toggle - Post Content And Comments Link Colour
+document.querySelector('#checkbox-post-content-and-comments-link-colour').addEventListener('change', function (e) {
+	var themePostContentAndCommentsLinkColour = document.querySelector('#checkbox-post-content-and-comments-link-colour').checked;
+	if (themePostContentAndCommentsLinkColour == true) {
+		BROWSER_API.storage.sync.set({ themePostContentAndCommentsLinkColour: true });
+		document.querySelector('.icon-post-content-and-comments-link-colour').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themePostContentAndCommentsLinkColour: true });
+				}
+			});
+		});
+	} else if (themePostContentAndCommentsLinkColour == false) {
+		BROWSER_API.storage.sync.set({ themePostContentAndCommentsLinkColour: false });
+		document.querySelector('.icon-post-content-and-comments-link-colour').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { themePostContentAndCommentsLinkColour: false });
+				}
+			});
+		});
+	}
+});
+
+// Input - Post Content And Comments Link Colour CSS
+document.querySelector('#input-post-content-and-comments-link-colour-css').addEventListener('keyup', function (e) {
+	const css = document.querySelector('#input-post-content-and-comments-link-colour-css').value;
+	BROWSER_API.storage.sync.set({ themePostContentAndCommentsLinkColourCSS: css });
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { themePostContentAndCommentsLinkColourCSS: css });
+			}
+		});
+	});
+});

@@ -227,3 +227,29 @@ document.querySelector('#input-bionic-bg-colour-css').addEventListener('keyup', 
 		});
 	});
 });
+
+// Toggle - Underline Links
+document.querySelector('#checkbox-underline-links').addEventListener('change', function (e) {
+	var underlineLinks = document.querySelector('#checkbox-underline-links').checked;
+	if (underlineLinks == true) {
+		BROWSER_API.storage.sync.set({ underlineLinks: true });
+		document.querySelector('.icon-underline-links').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { underlineLinks: true });
+				}
+			});
+		});
+	} else if (underlineLinks == false) {
+		BROWSER_API.storage.sync.set({ underlineLinks: false });
+		document.querySelector('.icon-underline-links').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { underlineLinks: false });
+				}
+			});
+		});
+	}
+});

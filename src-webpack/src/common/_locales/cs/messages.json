@@ -724,7 +724,15 @@
 	},
 
 	"UpdateFirefox": {
-		"message": "Please update to Firefox 121 or greater for some features to work correctly."
+		"message": "Aktualizujte prosím na Firefox 121 nebo vyšší, aby některé funkce fungovaly správně."
+	},
+
+	"ResizeFont": {
+		"message": "Změnit velikost písma"
+	},
+
+	"PostTitle": {
+		"message": "Název příspěvku"
 	},
 
 	"PostContent": {
@@ -733,10 +741,6 @@
 
 	"PostComments": {
 		"message": "Post Comments"
-	},
-
-	"ResizeFont": {
-		"message": "Resize Font"
 	},
 
 	"Rate": {
@@ -820,10 +824,22 @@
 	},
 
 	"HideJoinButtonOnPosts": {
-		"message": "Hide the 'Join' Button On Posts"
+		"message": "Skryjte u příspěvků tlačítko „Připojit se“"
 	},
 
 	"AutoLoadMoreComments": {
-		"message": "Auto Load More Comments"
+		"message": "Automaticky načíst další komentáře"
+	},
+
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Skryjte sekci 'Vlastní zdroje'"
+	},
+
+	"UnderlineLinks": {
+		"message": "Podtrhnout odkazy"
+	},
+
+	"AutoShowCommentFormattingOptions": {
+		"message": "Automaticky zobrazit možnosti formátování při komentování"
 	}
 }

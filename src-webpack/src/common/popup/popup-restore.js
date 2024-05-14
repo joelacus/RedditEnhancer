@@ -2313,11 +2313,39 @@ function restoreOptions() {
 		console.log('Sidebar Border Colour CSS: ' + value);
 	});
 
+	// Post Content And Comments Link Colour
+	BROWSER_API.storage.sync.get(['themePostContentAndCommentsLinkColour'], function (result) {
+		if (result.themePostContentAndCommentsLinkColour == true) {
+			document.querySelector('.icon-post-content-and-comments-link-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-post-content-and-comments-link-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themePostContentAndCommentsLinkColour == 'undefined' || result.themePostContentAndCommentsLinkColour == false) {
+			document.querySelector('#checkbox-post-content-and-comments-link-colour').checked = false;
+			var value = false;
+		}
+		console.log('Post Content And Comments Link Colour: ' + value);
+	});
+
+	// Post Content And Comments Link Colour CSS
+	BROWSER_API.storage.sync.get(['themePostContentAndCommentsLinkColourCSS'], function (result) {
+		if (typeof result.themePostContentAndCommentsLinkColourCSS != 'undefined') {
+			document.querySelector('#input-post-content-and-comments-link-colour-css').value = result.themePostContentAndCommentsLinkColourCSS;
+			var value = result.themePostContentAndCommentsLinkColourCSS;
+		} else {
+			document.querySelector('#input-post-content-and-comments-link-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Post Content And Comments Link Colour CSS: ' + value);
+	});
+
 	// Hide Post Hidden Message
 	BROWSER_API.storage.sync.get(['hidePostHiddenMessage'], function (result) {
 		if (result.hidePostHiddenMessage == true) {
 			document.querySelector('.icon-hide-post-hidden-message').style.backgroundColor = 'var(--accent)';
 			document.querySelector('#checkbox-hide-post-hidden-message').checked = true;
+			document.querySelector('.icon-hide-post-hidden-message').classList.remove('icon-show');
+			document.querySelector('.icon-hide-post-hidden-message').classList.add('icon-hide');
 			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
 			var value = true;
 		} else if (typeof result.hidePostHiddenMessage == 'undefined' || result.hidePostHiddenMessage == false) {
@@ -2486,6 +2514,36 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Auto Load More Comments: ' + value);
+	});
+
+	// Underline Links
+	BROWSER_API.storage.sync.get(['underlineLinks'], function (result) {
+		if (result.underlineLinks == true) {
+			document.querySelector('.icon-underline-links').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-underline-links').checked = true;
+			document.querySelector('.icon-accessibility').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.underlineLinks == 'undefined' || result.underlineLinks == false) {
+			document.querySelector('#checkbox-underline-links').checked = false;
+			var value = false;
+		}
+		console.log('Underline Links: ' + value);
+	});
+
+	// Auto Show Comment Formatting Options
+	BROWSER_API.storage.sync.get(['autoShowCommentFormattingOptions'], function (result) {
+		if (result.autoShowCommentFormattingOptions == true) {
+			document.querySelector('.icon-auto-show-comment-formatting-options').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-auto-show-comment-formatting-options').checked = true;
+			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-auto-show-comment-formatting-options').classList.remove('icon-hide');
+			document.querySelector('.icon-auto-show-comment-formatting-options').classList.add('icon-show');
+			var value = true;
+		} else if (typeof result.autoShowCommentFormattingOptions == 'undefined' || result.autoShowCommentFormattingOptions == false) {
+			document.querySelector('#checkbox-auto-show-comment-formatting-options').checked = false;
+			var value = false;
+		}
+		console.log('Auto Show Comment Formatting Options: ' + value);
 	});
 
 	// Account Switcher

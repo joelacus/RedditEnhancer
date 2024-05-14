@@ -1,3 +1,12 @@
+version 1.8.0
+- Added an option to automatically show the formatting options when commenting (New New UI).
+- Added an option to change the text link colour in the post content and comments.
+- Added an option to underline links in the post content and comments.
+- The 'Hide Ads/Promoted Links' option now also hides ads on comment pages (New New UI).
+- Fixed 'Scroll To Top' not working on New New UI due to a website update.
+- Updated localisations.
+- Bug fixes.
+
 version 1.7.0
 - Added options to hide the 'Topics' and 'Custom Feeds' sections in the Side Menu (New New UI).
 - Added an option to auto load more comments on posts if it requires you to click a button to load more (New New UI).

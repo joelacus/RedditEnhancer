@@ -31,7 +31,6 @@ export function autoLoadMoreComments(value) {
 				parent: document.querySelector('body'),
 				recursive: true,
 				done: function (el) {
-					console.log('FOUND');
 					findLoadMoreButtonAndClick();
 				},
 			},

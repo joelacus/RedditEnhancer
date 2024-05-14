@@ -724,7 +724,15 @@
 	},
 
 	"UpdateFirefox": {
-		"message": "Please update to Firefox 121 or greater for some features to work correctly."
+		"message": "Päivitä Firefox 121:een tai uudempaan, jotta jotkin ominaisuudet toimivat oikein."
+	},
+
+	"ResizeFont": {
+		"message": "Muuta fontin kokoa"
+	},
+
+	"PostTitle": {
+		"message": "Viestin otsikko"
 	},
 
 	"PostContent": {
@@ -733,10 +741,6 @@
 
 	"PostComments": {
 		"message": "Post Comments"
-	},
-
-	"ResizeFont": {
-		"message": "Resize Font"
 	},
 
 	"Rate": {
@@ -820,10 +824,22 @@
 	},
 
 	"HideJoinButtonOnPosts": {
-		"message": "Hide the 'Join' Button On Posts"
+		"message": "Piilota 'Liity'-painike viesteistä"
 	},
 
 	"AutoLoadMoreComments": {
-		"message": "Auto Load More Comments"
+		"message": "Lataa automaattisesti lisää kommentteja"
+	},
+
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Piilota Mukautetut syötteet -osio"
+	},
+
+	"UnderlineLinks": {
+		"message": "Alleviivaa linkit"
+	},
+
+	"AutoShowCommentFormattingOptions": {
+		"message": "Näytä muotoiluasetukset automaattisesti kommentoiessasi"
 	}
 }

@@ -25,8 +25,10 @@ export function waitForAddedNode(params, timeout) {
 			el = document.querySelector(params.query);
 		}
 		if (el) {
-			clearTimeout(timer); // cancel the timeout if the element is found
-			this.disconnect();
+			if (timeout != false) {
+				clearTimeout(timer); // cancel the timeout if the element is found
+				this.disconnect();
+			}
 			params.done(el);
 		}
 	});
@@ -37,8 +39,7 @@ export function waitForAddedNode(params, timeout) {
 	});
 
 	// Timeout
-	if (timeout === false) {
-		console.log('NO TIMEOUT');
+	if (timeout != false) {
 		timer = setTimeout(() => {
 			observer.disconnect();
 		}, 5000);

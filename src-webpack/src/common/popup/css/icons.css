@@ -385,3 +385,7 @@
 	mask: url('../../icons/ui/ellipsis-solid.svg');
 	-webkit-mask: url('../../icons/ui/ellipsis-solid.svg');
 }
+.icon-underline {
+	mask: url('../../icons/ui/underline-solid.svg');
+	-webkit-mask: url('../../icons/ui/underline-solid.svg');
+}

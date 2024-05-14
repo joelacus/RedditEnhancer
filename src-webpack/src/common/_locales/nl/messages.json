@@ -727,16 +727,20 @@
 		"message": "Update naar Firefox 121 of hoger zodat sommige functies correct werken."
 	},
 
+	"ResizeFont": {
+		"message": "Formaat van lettertype wijzigen"
+	},
+
+	"PostTitle": {
+		"message": "Berichttitel"
+	},
+
 	"PostContent": {
 		"message": "Berichtinhoud"
 	},
 
 	"PostComments": {
 		"message": "Berichtreacties"
-	},
-
-	"ResizeFont": {
-		"message": "Resize Font"
 	},
 
 	"Rate": {
@@ -820,10 +824,22 @@
 	},
 
 	"HideJoinButtonOnPosts": {
-		"message": "Hide the 'Join' Button On Posts"
+		"message": "Verberg de knop 'Deelnemen' op berichten"
 	},
 
 	"AutoLoadMoreComments": {
-		"message": "Auto Load More Comments"
+		"message": "Laad automatisch meer reacties"
+	},
+
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Verberg het gedeelte 'Aangepaste feeds'"
+	},
+
+	"UnderlineLinks": {
+		"message": "Onderstreep koppelingen"
+	},
+
+	"AutoShowCommentFormattingOptions": {
+		"message": "Toon automatisch opmaakopties bij opmerkingen"
 	}
 }

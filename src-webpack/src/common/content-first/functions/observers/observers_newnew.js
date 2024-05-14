@@ -28,6 +28,7 @@ import { loadRemovePageSideMargin } from '../../../content/functions/expand_feed
 import { loadResizeFont } from '../../../content/functions/accessibility/resize_font';
 //import { loadScalePostToFitImage } from '../../../content/functions/productivity/scale_post_to_fit_image';
 import { loadScrollToNextRootCommentPosition } from '../../../content/functions/productivity/scroll_to_next_root_comment';
+import { loadUnderlineLinks } from '../../../content/functions/accessibility/underline_links';
 
 // Load observers to wait for elements to load before tweaking, or load the tweak directly if an observer is not needed.
 
@@ -61,6 +62,7 @@ export function observersNewNew() {
 	loadNonStickyHeaderBar();
 	loadHidePostHiddenMessage();
 	loadHideJoinButtonOnPosts();
+	loadUnderlineLinks();
 	//loadScalePostToFitImage();
 	//loadDragImageToResize();
 

@@ -727,16 +727,20 @@
 		"message": "Оновіть Firefox до версії 121 або новішої, щоб деякі функції працювали належним чином."
 	},
 
+	"ResizeFont": {
+		"message": "Змінити розмір шрифту"
+	},
+
+	"PostTitle": {
+		"message": "Назва публікації"
+	},
+
 	"PostContent": {
 		"message": "вміст публікації"
 	},
 
 	"PostComments": {
 		"message": "коментарі публікації"
-	},
-
-	"ResizeFont": {
-		"message": "Resize Font"
 	},
 
 	"Rate": {
@@ -820,10 +824,22 @@
 	},
 
 	"HideJoinButtonOnPosts": {
-		"message": "Hide the 'Join' Button On Posts"
+		"message": "Сховайте кнопку «Приєднатися» в публікаціях"
 	},
 
 	"AutoLoadMoreComments": {
-		"message": "Auto Load More Comments"
+		"message": "Автоматично завантажувати додаткові коментарі"
+	},
+
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Сховайте розділ «Користувацькі канали»"
+	},
+
+	"UnderlineLinks": {
+		"message": "Підкресліть посилання"
+	},
+
+	"AutoShowCommentFormattingOptions": {
+		"message": "Автоматично показувати параметри форматування під час коментування"
 	}
 }

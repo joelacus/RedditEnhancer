@@ -727,16 +727,20 @@
 		"message": "Aby niektóre funkcje działały poprawnie, zaktualizuj przeglądarkę Firefox do wersji 121 lub nowszej."
 	},
 
+	"ResizeFont": {
+		"message": "Zmień rozmiar czcionki"
+	},
+
+	"PostTitle": {
+		"message": "Tytuł posta"
+	},
+
 	"PostContent": {
-		"message": "Treść wpisu"
+		"message": "Treść posta"
 	},
 
 	"PostComments": {
 		"message": "Komentarze do posta"
-	},
-
-	"ResizeFont": {
-		"message": "Resize Font"
 	},
 
 	"Rate": {
@@ -820,10 +824,22 @@
 	},
 
 	"HideJoinButtonOnPosts": {
-		"message": "Hide the 'Join' Button On Posts"
+		"message": "Ukryj przycisk „Dołącz” w post"
 	},
 
 	"AutoLoadMoreComments": {
-		"message": "Auto Load More Comments"
+		"message": "Automatycznie ładuj więcej komentarzy"
+	},
+
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Ukryj sekcję „Niestandardowe kanały”"
+	},
+
+	"UnderlineLinks": {
+		"message": "Podkreśl linki"
+	},
+
+	"AutoShowCommentFormattingOptions": {
+		"message": "Automatycznie pokazuj opcje formatowania podczas komentowania"
 	}
 }

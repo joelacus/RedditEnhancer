@@ -724,7 +724,15 @@
 	},
 
 	"UpdateFirefox": {
-		"message": "Please update to Firefox 121 or greater for some features to work correctly."
+		"message": "Uppdatera till Firefox 121 eller senare för att vissa funktioner ska fungera korrekt."
+	},
+
+	"ResizeFont": {
+		"message": "Ändra storlek på teckensnitt"
+	},
+
+	"PostTitle": {
+		"message": "Post titel"
 	},
 
 	"PostContent": {
@@ -733,10 +741,6 @@
 
 	"PostComments": {
 		"message": "Post Comments"
-	},
-
-	"ResizeFont": {
-		"message": "Resize Font"
 	},
 
 	"Rate": {
@@ -820,10 +824,22 @@
 	},
 
 	"HideJoinButtonOnPosts": {
-		"message": "Hide the 'Join' Button On Posts"
+		"message": "Göm 'Gå med'-knappen på inlägg"
 	},
 
 	"AutoLoadMoreComments": {
-		"message": "Auto Load More Comments"
+		"message": "Ladda fler kommentarer automatiskt"
+	},
+
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Dölj avsnittet 'Anpassade flöden'"
+	},
+
+	"UnderlineLinks": {
+		"message": "Stryk under länkar"
+	},
+
+	"AutoShowCommentFormattingOptions": {
+		"message": "Visa formateringsalternativ automatiskt när du kommenterar"
 	}
 }

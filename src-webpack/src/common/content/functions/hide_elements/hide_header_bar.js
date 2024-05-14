@@ -37,7 +37,7 @@ function hideHeaderBarNew() {
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
-// Function - Hide Header Bar - New new
+// Function - Hide Header Bar - New New
 function hideHeaderBarNewNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-hide-header-bar';

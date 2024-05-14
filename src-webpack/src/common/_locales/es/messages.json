@@ -727,16 +727,20 @@
 		"message": "Actualice a Firefox 121 o superior para que algunas funciones funcionen correctamente."
 	},
 
+	"ResizeFont": {
+		"message": "Cambiar el tamaño de la fuente"
+	},
+
+	"PostTitle": {
+		"message": "Título de la Publicación"
+	},
+
 	"PostContent": {
 		"message": "Contenido de la Publicación"
 	},
 
 	"PostComments": {
 		"message": "Comentarios de la Publicación"
-	},
-
-	"ResizeFont": {
-		"message": "Resize Font"
 	},
 
 	"Rate": {
@@ -820,10 +824,22 @@
 	},
 
 	"HideJoinButtonOnPosts": {
-		"message": "Hide the 'Join' Button On Posts"
+		"message": "Ocultar el botón 'Unirse' en las publicaciones"
 	},
 
 	"AutoLoadMoreComments": {
-		"message": "Auto Load More Comments"
+		"message": "Cargar automáticamente más comentarios"
+	},
+
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Ocultar la sección de 'Feeds personalizados'"
+	},
+
+	"UnderlineLinks": {
+		"message": "Enlaces subrayados"
+	},
+
+	"AutoShowCommentFormattingOptions": {
+		"message": "Mostrar automáticamente opciones de formato al comentar"
 	}
 }

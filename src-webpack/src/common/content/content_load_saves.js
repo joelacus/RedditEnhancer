@@ -29,6 +29,8 @@ import { loadShowToTopButton } from './functions/productivity/scroll_to_top';
 import { loadSidemenuFeedTop } from './functions/productivity/sidemenu_feed_top';
 import { loadTextPostScroll } from './functions/productivity/text_post_scroll';
 import { loadAutoLoadMoreComments } from './functions/productivity/auto_load_more_comments';
+import { waitForAddedNode } from '../content-first/functions/observers/main_observer';
+import { loadAutoShowCommentFormattingOptions } from './functions/productivity/auto_show_comment_formatting_options';
 
 export function load_saves() {
 	if (redditVersion === 'old') {
@@ -61,6 +63,19 @@ export function load_saves() {
 		loadShowPostAuthor();
 		loadShowPostFlair();
 		loadAutoLoadMoreComments();
+		// Auto Show Comment Formatting Options
+		waitForAddedNode({
+			query: 'comment-body-header',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function (el) {
+				console.log('FOUND');
+				//console.log(el);
+				setTimeout(() => {
+					loadAutoShowCommentFormattingOptions();
+				}, 3000);
+			},
+		});
 	}
 
 	// Common
