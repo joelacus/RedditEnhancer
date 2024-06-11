@@ -505,6 +505,22 @@ function restoreOptions() {
 		console.log('Hide Sidebar Policy: ' + value);
 	});
 
+	// Hide Search Sidebar
+	BROWSER_API.storage.sync.get(['hideSearchSidebar'], function (result) {
+		if (result.hideSearchSidebar == true) {
+			document.querySelector('#checkbox-hide-search-sidebar').checked = true;
+			document.querySelector('.icon-hide-search-sidebar').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-search-sidebar').classList.remove('icon-show');
+			document.querySelector('.icon-hide-search-sidebar').classList.add('icon-hide');
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideSearchSidebar == 'undefined' || result.hideSearchSidebar == false) {
+			document.querySelector('#checkbox-hide-search-sidebar').checked = false;
+			var value = false;
+		}
+		console.log('Hide Search Sidebar: ' + value);
+	});
+
 	// Hide Advertise Button
 	BROWSER_API.storage.sync.get(['hideAdvertiseButton'], function (result) {
 		if (result.hideAdvertiseButton == true) {
@@ -1689,7 +1705,7 @@ function restoreOptions() {
 		console.log('Hide Original Scroll To Top Button: ' + value);
 	});
 
-	// Theme CreatePost Background Colour
+	// Theme Create Post Background Colour
 	BROWSER_API.storage.sync.get(['themeCreatePostBackgroundColour'], function (result) {
 		if (result.themeCreatePostBackgroundColour == true) {
 			document.querySelector('.icon-create-post-bg-colour').style.backgroundColor = 'var(--accent)';
@@ -1703,7 +1719,7 @@ function restoreOptions() {
 		console.log('Create Post Background Colour: ' + value);
 	});
 
-	// Theme CreatePost Background Colour CSS
+	// Theme Create Post Background Colour CSS
 	BROWSER_API.storage.sync.get(['themeCreatePostBackgroundColourCSS'], function (result) {
 		if (typeof result.themeCreatePostBackgroundColourCSS != 'undefined') {
 			document.querySelector('#input-create-post-bg-colour-css').value = result.themeCreatePostBackgroundColourCSS;
@@ -1715,7 +1731,7 @@ function restoreOptions() {
 		console.log('Create Post Background Colour CSS: ' + value);
 	});
 
-	// Theme CreatePost Border Colour
+	// Theme Create Post Border Colour
 	BROWSER_API.storage.sync.get(['themeCreatePostBorderColour'], function (result) {
 		if (result.themeCreatePostBorderColour == true) {
 			document.querySelector('.icon-create-post-border-colour').style.backgroundColor = 'var(--accent)';
@@ -1729,7 +1745,7 @@ function restoreOptions() {
 		console.log('Create Post Border Colour: ' + value);
 	});
 
-	// Theme CreatePost Border Colour CSS
+	// Theme Create Post Border Colour CSS
 	BROWSER_API.storage.sync.get(['themeCreatePostBorderColourCSS'], function (result) {
 		if (typeof result.themeCreatePostBorderColourCSS != 'undefined') {
 			document.querySelector('#input-create-post-border-colour-css').value = result.themeCreatePostBorderColourCSS;
@@ -2337,6 +2353,58 @@ function restoreOptions() {
 			var value = '';
 		}
 		console.log('Post Content And Comments Link Colour CSS: ' + value);
+	});
+
+	// Searchbar Background Colour
+	BROWSER_API.storage.sync.get(['themeSearchbarBgColour'], function (result) {
+		if (result.themeSearchbarBgColour == true) {
+			document.querySelector('.icon-searchbar-bg-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-searchbar-bg-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeSearchbarBgColour == 'undefined' || result.themeSearchbarBgColour == false) {
+			document.querySelector('#checkbox-searchbar-bg-colour').checked = false;
+			var value = false;
+		}
+		console.log('Searchbar Background Colour: ' + value);
+	});
+
+	// Searchbar Background Colour CSS
+	BROWSER_API.storage.sync.get(['themeSearchbarBgColourCSS'], function (result) {
+		if (typeof result.themeSearchbarBgColourCSS != 'undefined') {
+			document.querySelector('#input-searchbar-bg-colour-css').value = result.themeSearchbarBgColourCSS;
+			var value = result.themeSearchbarBgColourCSS;
+		} else {
+			document.querySelector('#input-searchbar-bg-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Searchbar Background Colour CSS: ' + value);
+	});
+
+	// Searchbar Focused/Dropdown Background Colour
+	BROWSER_API.storage.sync.get(['themeSearchbarDropdownBgColour'], function (result) {
+		if (result.themeSearchbarDropdownBgColour == true) {
+			document.querySelector('.icon-searchbar-dropdown-bg-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-searchbar-dropdown-bg-colour').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.themeSearchbarDropdownBgColour == 'undefined' || result.themeSearchbarDropdownBgColour == false) {
+			document.querySelector('#checkbox-searchbar-dropdown-bg-colour').checked = false;
+			var value = false;
+		}
+		console.log('Searchbar Focused/Dropdown Background Colour: ' + value);
+	});
+
+	// Searchbar Focused/Dropdown Background Colour CSS
+	BROWSER_API.storage.sync.get(['themeSearchbarDropdownBgColourCSS'], function (result) {
+		if (typeof result.themeSearchbarDropdownBgColourCSS != 'undefined') {
+			document.querySelector('#input-searchbar-dropdown-bg-colour-css').value = result.themeSearchbarDropdownBgColourCSS;
+			var value = result.themeSearchbarDropdownBgColourCSS;
+		} else {
+			document.querySelector('#input-searchbar-dropdown-bg-colour-css').value = '';
+			var value = '';
+		}
+		console.log('Searchbar Focused/Dropdown Background Colour CSS: ' + value);
 	});
 
 	// Hide Post Hidden Message

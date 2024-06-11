@@ -196,6 +196,12 @@ function enableExpandContentNew() {
 								.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="subreddit-sidebar"]) > :first-child:has(#view--layout--FUE) {
 									width: var(--re-sub-width) !important;
 								}
+								.ListingLayout-backgroundContainer + div > div[style^="max-width"] {
+									max-width: 100% !important;
+								}
+								.ListingLayout-backgroundContainer + div > div[style^="max-width"] > :first-child {
+									max-width: var(--re-sub-width) !important; 
+								}
 								.ListingLayout-backgroundContainer + div > :last-child:has(.Post[data-testid="post-container"] [data-test-id="post-content"]) {
 									max-width: 100% !important;
 								}
@@ -252,13 +258,25 @@ function enableExpandContentNewNew() {
 
 								shreddit-app[routename="frontpage"] #main-content,
 								shreddit-app[routename="all"] #main-content,
-								shreddit-app[routename="popular"] #main-content {
+								shreddit-app[routename="popular"] #main-content,
+								shreddit-app[pagetype="search_results"] #main-content > div {
 									width: var(--re-content-width) !important;
 									justify-self: center;
+								}
+								shreddit-app[pagetype="search_results"] #main-content {
+									max-width: 100% !important;
 								}
 								shreddit-app[routename="subreddit"] #main-content {
 									width: var(--re-sub-width) !important;
 									justify-self: center;
+								}
+								shreddit-app[routename="subreddit_wiki"] #main-content {
+									max-width: var(--re-sub-width) !important;
+									justify-self: center;
+								}
+								shreddit-app[routename="subreddit_wiki"] .main-container {
+									display: grid;
+									grid-template-columns: auto 316px;
 								}
 								shreddit-app[routename="post_page"] #main-content,
 								shreddit-app[routename="comments_page"] #main-content,
@@ -528,6 +546,9 @@ function enableExpandContentNewNew() {
 										max-width: calc(100vw - 316px - 3rem);
 									}
 								}
+								html.re-hide-sidemenu [pagetype="search_results"] #main-content {
+									margin-left: 0 !important;
+								}
 
 								html.re-hide-home-sidebar body:has(.main-container.flex) {
 									shreddit-app[routename="frontpage"] #main-content,
@@ -571,7 +592,6 @@ function enableExpandContentNewNew() {
 									shreddit-app[routename="profile_downvoted"] #main-content {
 										max-width: calc(100vw - 272px);
 									}
-									shreddit-app[routename="profile_overview"] .main-container,
 									shreddit-app[routename="profile_posts"] .main-container,
 									shreddit-app[routename="profile_comments"] .main-container,
 									shreddit-app[routename="profile_saved"] .main-container,

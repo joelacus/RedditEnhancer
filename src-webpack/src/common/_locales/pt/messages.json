@@ -11,6 +11,10 @@
 		"message": "Sobre"
 	},
 
+	"ReportIssues": {
+		"message": "Relatar problemas"
+	},
+
 	"BuyMeACoffee": {
 		"message": "Compre-me um café"
 	},
@@ -841,5 +845,17 @@
 
 	"AutoShowCommentFormattingOptions": {
 		"message": "Mostrar opções de formatação automaticamente ao comentar"
+	},
+
+	"Language": {
+		"message": "Linguagem"
+	},
+
+	"SearchbarBgColour": {
+		"message": "Barra de pesquisa: Cor de fundo"
+	},
+
+	"SearchbarDropdownBgColour": {
+		"message": "Barra de pesquisa: Cor de fundo focada/suspensa"
 	}
 }

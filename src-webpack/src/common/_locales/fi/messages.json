@@ -11,6 +11,10 @@
 		"message": "Noin"
 	},
 
+	"ReportIssues": {
+		"message": "Ilmoita ongelmista"
+	},
+
 	"BuyMeACoffee": {
 		"message": "Osta minulle kahvia"
 	},
@@ -841,5 +845,17 @@
 
 	"AutoShowCommentFormattingOptions": {
 		"message": "Näytä muotoiluasetukset automaattisesti kommentoiessasi"
+	},
+
+	"Language": {
+		"message": "Kieli"
+	},
+
+	"SearchbarBgColour": {
+		"message": "Hakupalkki: Taustaväri"
+	},
+
+	"SearchbarDropdownBgColour": {
+		"message": "Hakupalkki: Tarkennettu / pudotettava taustaväri"
 	}
 }

@@ -11,6 +11,10 @@
 		"message": "Over"
 	},
 
+	"ReportIssues": {
+		"message": "Rapporteer problemen"
+	},
+
 	"BuyMeACoffee": {
 		"message": "Koop me een koffie"
 	},
@@ -841,5 +845,17 @@
 
 	"AutoShowCommentFormattingOptions": {
 		"message": "Toon automatisch opmaakopties bij opmerkingen"
+	},
+
+	"Language": {
+		"message": "Taal"
+	},
+
+	"SearchbarBgColour": {
+		"message": "Zoekbalk: Achtergrond kleur"
+	},
+
+	"SearchbarDropdownBgColour": {
+		"message": "Zoekbalk: Gefocust/Dropdown Achtergrondkleur"
 	}
 }

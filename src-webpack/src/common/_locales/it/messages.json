@@ -15,6 +15,10 @@
 		"message": "Comprami un caffè"
 	},
 
+	"ReportIssues": {
+		"message": "Segnala problemi"
+	},
+
 	"DarkMode": {
 		"message": "Modalità Scura"
 	},
@@ -841,5 +845,17 @@
 
 	"AutoShowCommentFormattingOptions": {
 		"message": "Mostra automaticamente le opzioni di formattazione durante i commenti"
+	},
+
+	"Language": {
+		"message": "Lingua"
+	},
+
+	"SearchbarBgColour": {
+		"message": "Barra di ricerca: Colore di sfondo"
+	},
+
+	"SearchbarDropdownBgColour": {
+		"message": "Barra di ricerca: Colore di sfondo focalizzato/elenco a discesa"
 	}
 }

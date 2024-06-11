@@ -11,6 +11,10 @@
 		"message": "Ról ről"
 	},
 
+	"ReportIssues": {
+		"message": "Problémák jelentése"
+	},
+
 	"BuyMeACoffee": {
 		"message": "Vegyél nekem egy kávét"
 	},
@@ -841,5 +845,17 @@
 
 	"AutoShowCommentFormattingOptions": {
 		"message": "A formázási beállítások automatikus megjelenítése kommenteléskor"
+	},
+
+	"Language": {
+		"message": "Nyelv"
+	},
+
+	"SearchbarBgColour": {
+		"message": "Kereső sáv: Háttérszín"
+	},
+
+	"SearchbarDropdownBgColour": {
+		"message": "Kereső sáv: Fókuszált/legördülő háttérszín"
 	}
 }

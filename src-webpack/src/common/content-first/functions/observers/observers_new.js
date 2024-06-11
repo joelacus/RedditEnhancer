@@ -30,7 +30,14 @@ import { loadExpandContent } from '../../../content/functions/expand_feed_post/e
 import { loadHideCreatePost } from '../../../content/functions/hide_elements/hide_create_post';
 import { loadHideGap } from '../../../content/functions/style/hide_gap';
 import { loadHideHeaderBar } from '../../../content/functions/hide_elements/hide_header_bar';
-import { loadHideHomeSidebar, loadHidePostSidebar, loadHidePostOverlaySidebar, loadHideSubSidebarException, loadHideUserSidebar } from '../../../content/functions/hide_elements/hide_sidebar';
+import {
+	loadHideHomeSidebar,
+	loadHidePostSidebar,
+	loadHidePostOverlaySidebar,
+	loadHideSubSidebarException,
+	loadHideUserSidebar,
+	loadHideSearchSidebar,
+} from '../../../content/functions/hide_elements/hide_sidebar';
 import { loadHideJoinButtonOnPosts } from '../../../content/functions/hide_elements/hide_post_join_button';
 import { loadHidePostHiddenMessage } from '../../../content/functions/hide_elements/hide_post_hidden_message';
 import { loadHidePromotedPosts } from '../../../content/functions/hide_elements/hide_promoted';
@@ -91,6 +98,7 @@ export function observersNew() {
 	} else if (link.indexOf('/search/') >= 0) {
 		// search
 		loadCommon();
+		loadHideSearchSidebar();
 		if (useLegacy) {
 			observerSearchContainer();
 		}

@@ -1178,3 +1178,41 @@ document.querySelector('#checkbox-hide-join-button-on-posts').addEventListener('
 		});
 	}
 });
+
+// Toggle - Hide Search Sidebar
+document.querySelector('#checkbox-hide-search-sidebar').addEventListener('change', function (e) {
+	const hideSearchSidebar = document.querySelector('#checkbox-hide-search-sidebar').checked;
+	if (hideSearchSidebar === true) {
+		BROWSER_API.storage.sync.set({ hideSearchSidebar: true });
+		document.querySelector('.icon-hide-search-sidebar').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-search-sidebar').classList.remove('icon-show');
+		document.querySelector('.icon-hide-search-sidebar').classList.add('icon-hide');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideSearchSidebar: true });
+					// Reapply Layout Centre
+					BROWSER_API.storage.sync.get(['layoutCentre'], function (result) {
+						BROWSER_API.tabs.sendMessage(tab.id, { layoutCentre: result.layoutCentre });
+					});
+				}
+			});
+		});
+	} else if (hideSearchSidebar === false) {
+		BROWSER_API.storage.sync.set({ hideSearchSidebar: false });
+		document.querySelector('.icon-hide-search-sidebar').style.backgroundColor = '';
+		document.querySelector('.icon-hide-search-sidebar').classList.add('icon-show');
+		document.querySelector('.icon-hide-search-sidebar').classList.remove('icon-hide');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideSearchSidebar: false });
+					// Reapply Layout Centre
+					BROWSER_API.storage.sync.get(['layoutCentre'], function (result) {
+						BROWSER_API.tabs.sendMessage(tab.id, { layoutCentre: result.layoutCentre });
+					});
+				}
+			});
+		});
+	}
+});

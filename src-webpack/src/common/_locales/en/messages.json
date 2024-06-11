@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.8.0"
+		"message": "1.9.0"
 	},
 
 	"extensionName": {
@@ -13,6 +13,10 @@
 
 	"About": {
 		"message": "About"
+	},
+
+	"ReportIssues": {
+		"message": "Report Issues"
 	},
 
 	"BuyMeACoffee": {
@@ -828,7 +832,7 @@
 	},
 
 	"RestoreInfo2": {
-		"message": "items. Browser API limit is 120 per minute. Please leave this window/tab open for another minute."
+		"message": "items. Browser API limit is 120 per minute. Please leave this tab/window open for another minute."
 	},
 
 	"HideJoinButtonOnPosts": {
@@ -849,6 +853,22 @@
 
 	"AutoShowCommentFormattingOptions": {
 		"message": "Auto Show Formatting Options When Commenting"
+	},
+
+	"Language": {
+		"message": "Language"
+	},
+
+	"SearchbarBgColour": {
+		"message": "Searchbar: Background Colour"
+	},
+
+	"SearchbarDropdownBgColour": {
+		"message": "Searchbar: Focused/Dropdown Background Colour"
+	},
+
+	"HideSearchSidebar": {
+		"message": "Hide the Search Sidebar"
 	},
 
 	"DragImageToResize": {

@@ -30,6 +30,13 @@ export function loadHideUserSidebar() {
 	});
 }
 
+// Hide Search Sidebar
+export function loadHideSearchSidebar() {
+	BROWSER_API.storage.sync.get(['hideSearchSidebar'], function (result) {
+		hideSearchSidebar(result.hideSearchSidebar);
+	});
+}
+
 // Sub Sidebar Exception
 export function loadHideSubSidebarException() {
 	BROWSER_API.storage.sync.get(['hideSubSidebarExceptionsEnable', 'hideSubSidebarExceptionMode', 'hideSubSidebarExceptionSubList', 'hideSubSidebar'], function (result) {
@@ -444,4 +451,54 @@ export function disableHideRelatedPostsSectionNewNew() {
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
+}
+
+// Hide Search Sidebar
+export function hideSearchSidebar(value) {
+	if (redditVersion === 'new') {
+		if (value === true) {
+			enableHideSearchSidebarNew();
+		} else if (value === false) {
+			disableHideSearchSidebarAll();
+		}
+	} else if (redditVersion === 'newnew') {
+		if (value === true) {
+			enableHideSearchSidebarNewNew();
+		} else if (value === false) {
+			disableHideSearchSidebarAll();
+		}
+	}
+}
+
+// Function - Enable Hide Search Sidebar - New
+export function enableHideSearchSidebarNew() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-search-sidebar';
+	styleElement.textContent = `.ListingLayout-backgroundContainer + div > div:has([data-testid="search-results-subnav"]) > div > :last-child > :last-child {
+									display: none !important;
+								}
+								.ListingLayout-backgroundContainer + div > div:has([data-testid="search-results-subnav"]) > div > :last-child > :first-child {
+									max-width: 100% !important;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Enable Hide Search Sidebar - New New
+export function enableHideSearchSidebarNewNew() {
+	document.querySelector('html').classList.add('re-hide-profile-sidebar');
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-search-sidebar';
+	styleElement.textContent = `[pagetype="search_results"] #right-sidebar-container {
+									display: none !important;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Disable Hide Search Sidebar - All
+export function disableHideSearchSidebarAll() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-search-sidebar"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+	document.querySelector('html').classList.remove('re-hide-profile-sidebar');
 }

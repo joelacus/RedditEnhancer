@@ -23,7 +23,7 @@ import { hideGap } from './functions/style/hide_gap';
 import { hideGetNewReddit } from './functions/hide_elements/hide_get_new_reddit';
 import { hideHeaderBar } from './functions/hide_elements/hide_header_bar';
 import { hideHeaderSubBar } from './functions/hide_elements/hide_header_sub_bar';
-import { hideHomeSidebar, hideSubSidebar, hidePostSidebar, hidePostOverlaySidebar, hideUserSidebar, hideRelatedPostsSection } from './functions/hide_elements/hide_sidebar';
+import { hideHomeSidebar, hideSubSidebar, hidePostSidebar, hidePostOverlaySidebar, hideUserSidebar, hideRelatedPostsSection, hideSearchSidebar } from './functions/hide_elements/hide_sidebar';
 import { hideJoinButtonOnPosts } from './functions/hide_elements/hide_post_join_button';
 import { hideNSFW } from './functions/hide_elements/hide_nsfw';
 import { hideOriginalScrollToTop } from './functions/hide_elements/hide_original_scroll_to_top';
@@ -71,51 +71,55 @@ import { sidemenuFeedTop } from './functions/productivity/sidemenu_feed_top';
 import { stickySort } from './functions/productivity/sticky_sort';
 import { textPostScroll } from './functions/productivity/text_post_scroll';
 import {
-	themeHeaderBackgroundColour,
-	themeHeaderBackgroundColourCSS,
-	themeHeaderTextColour,
-	themeHeaderTextColourCSS,
-	themeSortBackgroundColour,
-	themeSortBackgroundColourCSS,
-	themeSortTextColour,
-	themeSortTextColourCSS,
-	themeSortTextColour2,
-	themeSortTextColour2CSS,
-	themeSortBorderColour,
-	themeSortBorderColourCSS,
-	themePostBackgroundColour,
-	themePostBackgroundColourCSS,
-	themePostTextColour1,
-	themePostTextColour1CSS,
-	themePostCommentsTextColour1,
-	themePostCommentsTextColour1CSS,
-	themePostCommentsTextColour2,
-	themePostCommentsTextColour2CSS,
-	themePostVisitedTitleColour,
-	themePostVisitedTitleColourCSS,
-	themePostTextColour2,
-	themePostTextColour2CSS,
-	themePostBorderColour,
-	themePostBorderColourCSS,
+	themeBlur,
 	themeCreatePostBackgroundColour,
 	themeCreatePostBackgroundColourCSS,
 	themeCreatePostBorderColour,
 	themeCreatePostBorderColourCSS,
-	themeSidebarTextColour,
-	themeSidebarTextColourCSS,
+	themeHeaderBackgroundColour,
+	themeHeaderBackgroundColourCSS,
+	themeHeaderTextColour,
+	themeHeaderTextColourCSS,
+	themePostBackgroundColour,
+	themePostBackgroundColourCSS,
+	themePostBorderColour,
+	themePostBorderColourCSS,
+	themePostCommentsTextColour1,
+	themePostCommentsTextColour1CSS,
+	themePostCommentsTextColour2,
+	themePostCommentsTextColour2CSS,
+	themePostContentAndCommentsLinkColour,
+	themePostContentAndCommentsLinkColourCSS,
+	themePostTextColour1,
+	themePostTextColour1CSS,
+	themePostTextColour2,
+	themePostTextColour2CSS,
+	themePostVisitedTitleColour,
+	themePostVisitedTitleColourCSS,
+	themeSearchbarBgColour,
+	themeSearchbarBgColourCSS,
+	themeSearchbarDropdownBgColour,
+	themeSearchbarDropdownBgColourCSS,
 	themeSidebarBgColour,
 	themeSidebarBgColourCSS,
 	themeSidebarBorderColour,
 	themeSidebarBorderColourCSS,
-	themeSidemenuTextColour,
-	themeSidemenuTextColourCSS,
+	themeSidebarTextColour,
+	themeSidebarTextColourCSS,
 	themeSidemenuBgColour,
 	themeSidemenuBgColourCSS,
-	themeBlur,
 	themeSidemenuButtonHoverColour,
 	themeSidemenuButtonHoverColourCSS,
-	themePostContentAndCommentsLinkColour,
-	themePostContentAndCommentsLinkColourCSS,
+	themeSidemenuTextColour,
+	themeSidemenuTextColourCSS,
+	themeSortBackgroundColour,
+	themeSortBackgroundColourCSS,
+	themeSortBorderColour,
+	themeSortBorderColourCSS,
+	themeSortTextColour,
+	themeSortTextColourCSS,
+	themeSortTextColour2,
+	themeSortTextColour2CSS,
 } from './functions/style/override_theme_colours';
 import { useCustomBackground, setCustomBackground } from './functions/background/custom_background';
 import { underlineLinks } from './functions/accessibility/underline_links';
@@ -347,6 +351,14 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		themePostContentAndCommentsLinkColour(value);
 	} else if (key == 'themePostContentAndCommentsLinkColourCSS') {
 		themePostContentAndCommentsLinkColourCSS(value);
+	} else if (key == 'themeSearchbarBgColour') {
+		themeSearchbarBgColour(value);
+	} else if (key == 'themeSearchbarBgColourCSS') {
+		themeSearchbarBgColourCSS(value);
+	} else if (key == 'themeSearchbarDropdownBgColour') {
+		themeSearchbarDropdownBgColour(value);
+	} else if (key == 'themeSearchbarDropdownBgColourCSS') {
+		themeSearchbarDropdownBgColourCSS(value);
 	} else if (key == 'themeBlur') {
 		themeBlur(value);
 	} else if (key == 'bionicReaderPosts') {
@@ -429,6 +441,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		underlineLinks(value);
 	} else if (key == 'autoShowCommentFormattingOptions') {
 		autoShowCommentFormattingOptions(value);
+	} else if (key == 'hideSearchSidebar') {
+		hideSearchSidebar(value);
 	} else if (key == 'loadSaves') {
 		setTimeout(() => {
 			init();

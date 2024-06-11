@@ -11,6 +11,10 @@
 		"message": "приблизно"
 	},
 
+	"ReportIssues": {
+		"message": "Повідомити про проблеми"
+	},
+
 	"BuyMeACoffee": {
 		"message": "Купи мені каву"
 	},
@@ -841,5 +845,17 @@
 
 	"AutoShowCommentFormattingOptions": {
 		"message": "Автоматично показувати параметри форматування під час коментування"
+	},
+
+	"Language": {
+		"message": "Мова"
+	},
+
+	"SearchbarBgColour": {
+		"message": "Панель пошуку: Колір фону"
+	},
+
+	"SearchbarDropdownBgColour": {
+		"message": "Панель пошуку: Фокусований/випадаючий колір фону"
 	}
 }

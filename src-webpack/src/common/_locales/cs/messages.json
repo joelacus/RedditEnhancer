@@ -11,6 +11,10 @@
 		"message": "O"
 	},
 
+	"ReportIssues": {
+		"message": "Nahlásit problémy"
+	},
+
 	"BuyMeACoffee": {
 		"message": "Kup mi kávu"
 	},
@@ -841,5 +845,17 @@
 
 	"AutoShowCommentFormattingOptions": {
 		"message": "Automaticky zobrazit možnosti formátování při komentování"
+	},
+
+	"Language": {
+		"message": "Jazyk"
+	},
+
+	"SearchbarBgColour": {
+		"message": "Vyhledávací panel: Barva pozadí"
+	},
+
+	"SearchbarDropdownBgColour": {
+		"message": "Vyhledávací panel: Zaostřeno/rozbalovací barva pozadí"
 	}
 }

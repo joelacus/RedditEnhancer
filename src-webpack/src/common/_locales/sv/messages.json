@@ -11,6 +11,10 @@
 		"message": "Handla om"
 	},
 
+	"ReportIssues": {
+		"message": "Rapportera problem"
+	},
+
 	"BuyMeACoffee": {
 		"message": "Köp mig en kaffe"
 	},
@@ -841,5 +845,17 @@
 
 	"AutoShowCommentFormattingOptions": {
 		"message": "Visa formateringsalternativ automatiskt när du kommenterar"
+	},
+
+	"Language": {
+		"message": "Språk"
+	},
+
+	"SearchbarBgColour": {
+		"message": "Sökruta: Bakgrundsfärg"
+	},
+
+	"SearchbarDropdownBgColour": {
+		"message": "Sökruta: Fokuserad/Dropdown bakgrundsfärg"
 	}
 }

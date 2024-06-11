@@ -11,6 +11,10 @@
 		"message": "O"
 	},
 
+	"ReportIssues": {
+		"message": "Zgłoś problemy"
+	},
+
 	"BuyMeACoffee": {
 		"message": "Kup mi kawę"
 	},
@@ -841,5 +845,17 @@
 
 	"AutoShowCommentFormattingOptions": {
 		"message": "Automatycznie pokazuj opcje formatowania podczas komentowania"
+	},
+
+	"Language": {
+		"message": "Język"
+	},
+
+	"SearchbarBgColour": {
+		"message": "Pasek wyszukiwania: Kolor tła"
+	},
+
+	"SearchbarDropdownBgColour": {
+		"message": "Pasek wyszukiwania: Kolor tła skupiony/rozwijany"
 	}
 }

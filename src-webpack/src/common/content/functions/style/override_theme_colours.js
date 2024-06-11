@@ -57,6 +57,8 @@ function loadTheme() {
 			'themePostTextColour1',
 			'themePostTextColour2',
 			'themePostVisitedTitleColour',
+			'themeSearchbarBgColour',
+			'themeSearchbarDropdownBgColour',
 			'themeSidebarBgColour',
 			'themeSidebarBorderColour',
 			'themeSidebarTextColour',
@@ -81,6 +83,8 @@ function loadTheme() {
 			themePostTextColour1(result.themePostTextColour1);
 			themePostTextColour2(result.themePostTextColour2);
 			themePostVisitedTitleColour(result.themePostVisitedTitleColour);
+			themeSearchbarBgColour(result.themeSearchbarBgColour);
+			themeSearchbarDropdownBgColour(result.themeSearchbarDropdownBgColour);
 			themeSidebarBgColour(result.themeSidebarBgColour);
 			themeSidebarBorderColour(result.themeSidebarBorderColour);
 			themeSidebarTextColour(result.themeSidebarTextColour);
@@ -508,13 +512,16 @@ export function themePostBackgroundColour(value) {
 											--newRedditTheme-bodyAlpha80: transparent !important;
 										}
 										#overlayScrollContainer >  div:has([data-testid="post-container"]) {
-											backdrop-filter:blur(var(--re-theme-blur));
+											backdrop-filter: blur(var(--re-theme-blur));
 										}
 										.Post > :last-child > div:has(img) > div,
 										.Post > :last-child > div:has(img) > div > :last-child,
 										.Post > :last-child > div:has(video) > div,
 										.Post > :last-child > div:has(video) > div > :last-child {
 											background: none !important;
+										}
+										[data-testid="post-container"] [data-click-id="body"] {
+											background: var(--re-theme-post-bg) !important;
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
 		});
@@ -571,10 +578,7 @@ export function themePostBackgroundColour(value) {
 											margin-bottom: 16px;
 											border-radius: 16px;
 											padding-left: 8px;
-										}
-										/*shreddit-overflow-menu {
-											--color-neutral-background-strong: var(--re-theme-post-bg) !important;
-										}*/`;
+										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
 		});
 	} else if (value === false) {
@@ -877,6 +881,9 @@ export function themePostBorderColour(value) {
 										}
 										.re-post-container {
 											border: solid 1px var(--re-theme-post-border);
+										}
+										[data-testid="post-container"] {
+											--newRedditTheme-postLine: var(--re-theme-post-border) !important
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
 		});
@@ -1255,6 +1262,98 @@ export function themePostContentAndCommentsLinkColourCSS(value) {
 					document.documentElement.style.setProperty('--re-theme-post-content-and-comments-link', value);
 				} else {
 					document.documentElement.style.setProperty('--re-theme-post-content-and-comments-link', '#629fff');
+				}
+			}
+		});
+	}
+}
+
+// Searchbar Background Colour
+export function themeSearchbarBgColour(value) {
+	if (redditVersion === 'new' && value === true) {
+		BROWSER_API.storage.sync.get(['themeSearchbarBgColourCSS'], function (result) {
+			themeSearchbarBgColourCSS(result.themeSearchbarBgColourCSS);
+		});
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-theme-searchbar-bg-colour';
+		styleElement.textContent = `#SearchDropdown > :first-child {
+										background: var(--re-theme-searchbar-bg) !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	} else if (redditVersion === 'newnew' && value === true) {
+		BROWSER_API.storage.sync.get(['themeSearchbarBgColourCSS'], function (result) {
+			themeSearchbarBgColourCSS(result.themeSearchbarBgColourCSS);
+		});
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-theme-searchbar-bg-colour';
+		styleElement.textContent = `reddit-search-large {
+										--color-secondary-background: var(--re-theme-searchbar-bg) !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	} else if (value === false) {
+		document.documentElement.style.removeProperty('--re-theme-searchbar-bg');
+		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-searchbar-bg-colour"]');
+		dynamicStyleElements.forEach((element) => {
+			document.head.removeChild(element);
+		});
+	}
+}
+
+// Searchbar Background Colour CSS
+export function themeSearchbarBgColourCSS(value) {
+	if (redditVersion === 'new' || redditVersion === 'newnew') {
+		BROWSER_API.storage.sync.get(['themeSearchbarBgColour'], function (result) {
+			if (result.themeSearchbarBgColour === true) {
+				if (value) {
+					document.documentElement.style.setProperty('--re-theme-searchbar-bg', value);
+				} else {
+					document.documentElement.style.setProperty('--re-theme-searchbar-bg', 'inherit');
+				}
+			}
+		});
+	}
+}
+
+// Searchbar Focused/Dropdown Background Colour
+export function themeSearchbarDropdownBgColour(value) {
+	if (redditVersion === 'new' && value === true) {
+		BROWSER_API.storage.sync.get(['themeSearchbarDropdownBgColourCSS'], function (result) {
+			themeSearchbarDropdownBgColourCSS(result.themeSearchbarDropdownBgColourCSS);
+		});
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-theme-searchbar-dropdown-bg-colour';
+		styleElement.textContent = `#SearchDropdownContent {
+										background-color: var(--re-theme-searchbar-dropdown-bg) !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	} else if (redditVersion === 'newnew' && value === true) {
+		BROWSER_API.storage.sync.get(['themeSearchbarDropdownBgColourCSS'], function (result) {
+			themeSearchbarDropdownBgColourCSS(result.themeSearchbarDropdownBgColourCSS);
+		});
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-theme-searchbar-dropdown-bg-colour';
+		styleElement.textContent = `reddit-search-large {
+										--color-neutral-background-strong: var(--re-theme-searchbar-dropdown-bg) !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	} else if (value === false) {
+		document.documentElement.style.removeProperty('--re-theme-searchbar-dropdown-bg');
+		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-searchbar-dropdown-bg-colour"]');
+		dynamicStyleElements.forEach((element) => {
+			document.head.removeChild(element);
+		});
+	}
+}
+
+// Searchbar Focused/Dropdown Background Colour CSS
+export function themeSearchbarDropdownBgColourCSS(value) {
+	if (redditVersion === 'new' || redditVersion === 'newnew') {
+		BROWSER_API.storage.sync.get(['themeSearchbarDropdownBgColour'], function (result) {
+			if (result.themeSearchbarDropdownBgColour === true) {
+				if (value) {
+					document.documentElement.style.setProperty('--re-theme-searchbar-dropdown-bg', value);
+				} else {
+					document.documentElement.style.setProperty('--re-theme-searchbar-dropdown-bg', 'inherit');
 				}
 			}
 		});
