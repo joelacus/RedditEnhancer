@@ -23,11 +23,11 @@ observer.observe(document.documentElement, { childList: true });
 
 // Init Tweaks
 export function init() {
-	// Add-on Style Prerequisite
+	// Preloads CSS For Some Tweaks
 	loadStyles();
 
-	window.useLegacy = false;
 	// Detect Browser For Legacy Support (avoids using :has() selector)
+	window.useLegacy = false;
 	if (CHECK_LEGACY_FIREFOX) {
 		useLegacy = detectFirefoxVersion();
 		console.log('use legacy loaders: ' + useLegacy);
@@ -38,6 +38,6 @@ export function init() {
 		console.log('use legacy loaders: ' + useLegacy);
 	}
 
-	// Detect Reddit version and continue loading tweaks
+	// Detect Reddit Version And Continue Loading Tweaks
 	detectRedditVersion();
 }

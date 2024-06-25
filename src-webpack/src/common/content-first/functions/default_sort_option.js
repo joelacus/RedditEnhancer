@@ -92,7 +92,6 @@ export function defaultSortOption() {
 									location.reload();
 								}
 							} else {
-								console.log('here');
 								// append sort parameter
 								urlParams.append('sort', result.defaultFeedSortOption);
 								// replace the current URL with the updated one

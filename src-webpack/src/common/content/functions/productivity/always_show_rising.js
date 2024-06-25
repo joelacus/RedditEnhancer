@@ -75,17 +75,12 @@ export function alwaysShowRisingButton(value) {
 				// append new rising button if not already added
 				var el = document.querySelector('[role="button"][href*="/rising/"]');
 				if (!el) {
-					const sort = document.querySelector('.re-sort');
+					let sort = document.querySelector('.re-sort');
 					if (!sort) {
-						setTimeout(() => {
-							const sort = document.querySelector('.re-sort');
-							if (sort) {
-								document.querySelector('.re-sort').firstChild.nextElementSibling.append(btn);
-							}
-						}, 1000);
-					} else {
-						document.querySelector('.re-sort').firstChild.nextElementSibling.append(btn);
+						sort = document.querySelector('.ListingLayout-backgroundContainer + div > :last-child > :first-child > div:has(#ListingSort--Overflow)');
+						sort.classList.add('re-sort');
 					}
+					sort.firstChild.nextElementSibling.append(btn);
 				}
 			}
 		} else if (typeof value == 'undefined' || value == false) {

@@ -1,5 +1,7 @@
 /* ===== Old Reddit Observers / Tweak Loader ===== */
 
+// Load observers to wait for elements to load before tweaking, or load the tweak directly if an observer is not needed.
+
 import { waitForAddedNode } from './main_observer';
 import { legacyObserversOld } from './legacy_observers';
 
@@ -18,8 +20,6 @@ import { loadLayoutCentre } from '../../../content/functions/expand_feed_post/la
 import { loadResizeFont } from '../../../content/functions/accessibility/resize_font';
 import { loadStickySort } from '../../../content/functions/productivity/sticky_sort';
 import { moderniseOldReddit } from '../../../content/functions/style/modernise_old_reddit';
-
-// Load observers to wait for elements to load before tweaking, or load the tweak directly if an observer is not needed.
 
 export function observersOld() {
 	loadCustomBackground();

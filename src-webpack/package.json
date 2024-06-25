@@ -1,6 +1,6 @@
 {
 	"name": "reddit_enhancer_webpack",
-	"version": "1.9.0",
+	"version": "1.10.0",
 	"description": "",
 	"scripts": {
 		"build-m2": "webpack --config ./webpack-m2.conf.js",
@@ -12,23 +12,23 @@
 	"license": "",
 	"devDependencies": {
 		"copy-webpack-plugin": "^12.0.0",
+		"css-loader": "^7.1.2",
+		"css-minimizer-webpack-plugin": "^7.0.0",
+		"html-minimizer-webpack-plugin": "^5.0.0",
 		"mini-css-extract-plugin": "^2.7.0",
 		"path": "^0.12.7",
 		"terser-webpack-plugin": "^5.3.6",
-		"webpack": "^5.89.0",
-		"webpack-cli": "^5.0.0"
+		"webpack": "^5.92.1",
+		"webpack-cli": "^5.0.0",
+		"zip-webpack-plugin": "^4.0.1"
 	},
 	"dependencies": {
-		"css-loader": "^7.1.1",
-		"css-minimizer-webpack-plugin": "^7.0.0",
-		"html-minimizer-webpack-plugin": "^5.0.0",
 		"i18next": "^23.6.0",
 		"i18next-http-backend": "^2.3.0",
-		"muxjs": "^2.4.18",
+		"mux.js": "^7.0.3",
 		"npm": "^10.2.1",
 		"sortablejs": "^1.15.2",
 		"stream": "^0.0.2",
-		"video.js": "^8.0.4",
-		"zip-webpack-plugin": "^4.0.1"
+		"video.js": "^8.0.4"
 	}
 }

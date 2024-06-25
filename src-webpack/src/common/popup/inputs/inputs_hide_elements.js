@@ -572,6 +572,36 @@ document.querySelector('#checkbox-hide-promoted').addEventListener('change', fun
 	}
 });
 
+// Toggle - Hide Recommended Links
+document.querySelector('#checkbox-hide-recommended').addEventListener('change', function (e) {
+	const hideRecommended = document.querySelector('#checkbox-hide-recommended').checked;
+	if (hideRecommended === true) {
+		BROWSER_API.storage.sync.set({ hideRecommended: true });
+		document.querySelector('.icon-hide-recommended').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-recommended').classList.remove('icon-hand');
+		document.querySelector('.icon-hide-recommended').classList.add('icon-hand-slash');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideRecommended: true });
+				}
+			});
+		});
+	} else if (hideRecommended === false) {
+		BROWSER_API.storage.sync.set({ hideRecommended: false });
+		document.querySelector('.icon-hide-recommended').style.backgroundColor = '';
+		document.querySelector('.icon-hide-recommended').classList.add('icon-hand');
+		document.querySelector('.icon-hide-recommended').classList.remove('icon-hand-slash');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideRecommended: false });
+				}
+			});
+		});
+	}
+});
+
 // Toggle - Hide See Full Image
 document.querySelector('#checkbox-hide-see-full-image').addEventListener('change', function (e) {
 	const hideSeeFullImage = document.querySelector('#checkbox-hide-see-full-image').checked;

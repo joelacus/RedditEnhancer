@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 
 	"name": "__MSG_extensionName__",
-	"version": "1.9.0",
+	"version": "1.10.0",
 	"description": "__MSG_extensionDescription__",
 	"author": "github.com/joelacus",
 	"default_locale": "en",
@@ -15,9 +15,9 @@
 		"256": "icons/icon-256.png"
 	},
 
-	"permissions": ["storage", "tabs"],
+	"permissions": ["storage", "tabs", "declarativeNetRequest"],
 
-	"host_permissions": ["*://*.reddit.com/*"],
+	"host_permissions": ["*://*.reddit.com/*", "*://*.redd.it/*"],
 
 	"content_scripts": [
 		{
@@ -51,5 +51,30 @@
 			"64": "icons/icon-64.png",
 			"128": "icons/icon-128.png"
 		}
+	},
+
+	"declarative_net_request": {
+		"rule_resources": [
+			{
+				"id": "image_ruleset",
+				"enabled": false,
+				"path": "rules/image_ruleset.json"
+			},
+			{
+				"id": "old_ruleset",
+				"enabled": false,
+				"path": "rules/old_ruleset.json"
+			},
+			{
+				"id": "new_ruleset",
+				"enabled": false,
+				"path": "rules/new_ruleset.json"
+			},
+			{
+				"id": "sh_ruleset",
+				"enabled": false,
+				"path": "rules/sh_ruleset.json"
+			}
+		]
 	}
 }

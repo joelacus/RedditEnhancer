@@ -228,6 +228,21 @@ function restoreOptions() {
 		console.log('Expand User Profile Width: ' + value + '%');
 	});
 
+	// Expand Topic Feed Width
+	BROWSER_API.storage.sync.get(['expandTopicFeedWidth'], function (result) {
+		if (typeof result.expandTopicFeedWidth != 'undefined') {
+			document.querySelector('#input-expand-topic-feed-width').value = result.expandTopicFeedWidth;
+			document.querySelector('#expand-topic-feed-width').innerText = result.expandTopicFeedWidth + '%';
+			var value = result.expandTopicFeedWidth;
+		}
+		if (typeof result.expandTopicFeedWidth == 'undefined') {
+			document.querySelector('#input-expand-topic-feed-width').value = 80;
+			document.querySelector('#expand-topic-feed-width').innerText = '80%';
+			var value = '80';
+		}
+		console.log('Expand Topic Feed Width: ' + value + '%');
+	});
+
 	// Expand/Resize Layout
 	BROWSER_API.storage.sync.get(['expandLayout'], function (result) {
 		if (typeof result.expandLayout == 'undefined' || result.expandLayout == false) {
@@ -794,7 +809,23 @@ function restoreOptions() {
 			document.querySelector('#checkbox-hide-promoted').checked = false;
 			var value = false;
 		}
-		console.log('Hide Promoted Links: ' + value);
+		console.log('Hide Promoted Posts: ' + value);
+	});
+
+	// Hide Recommended Links
+	BROWSER_API.storage.sync.get(['hideRecommended'], function (result) {
+		if (result.hideRecommended == true) {
+			document.querySelector('#checkbox-hide-recommended').checked = true;
+			document.querySelector('.icon-hide-recommended').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-recommended').classList.remove('icon-hand');
+			document.querySelector('.icon-hide-recommended').classList.add('icon-hand-slash');
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideRecommended == 'undefined' || result.hideRecommended == false) {
+			document.querySelector('#checkbox-hide-recommended').checked = false;
+			var value = false;
+		}
+		console.log('Hide Recommended Posts: ' + value);
 	});
 
 	// Hide NSFW Links
@@ -2505,26 +2536,33 @@ function restoreOptions() {
 	// Just Open The Image
 	BROWSER_API.storage.sync.get(['justOpenTheImage'], function (result) {
 		if (result.justOpenTheImage == true) {
-			BROWSER_API.permissions.contains(
-				{
-					permissions: ['webRequest', 'webRequestBlocking'],
-					origins: ['*://*.redd.it/*'],
-				},
-				(result) => {
-					if (result) {
-						document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
-						document.querySelector('#checkbox-just-open-the-image').checked = true;
-						document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
-						var value = true;
-					} else {
-						var value = 'false. Optional permissions not granted';
+			if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
+				BROWSER_API.permissions.contains(
+					{
+						permissions: ['webRequest', 'webRequestBlocking'],
+						origins: ['*://*.redd.it/*'],
+					},
+					(result) => {
+						if (result) {
+							document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
+							document.querySelector('#checkbox-just-open-the-image').checked = true;
+							document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+							var value = true;
+						} else {
+							var value = 'false. Optional permissions not granted';
+						}
+						console.log('Just Open The Image: ' + value);
 					}
-					console.log('Just Open The Image: ' + value);
-				}
-			);
+				);
+			} else if (BROWSER_API.runtime.getManifest().manifest_version === 3) {
+				document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
+				document.querySelector('#checkbox-just-open-the-image').checked = true;
+				document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+				console.log('Just Open The Image: (true)');
+			}
 		} else if (typeof result.justOpenTheImage == 'undefined' || result.justOpenTheImage == false) {
 			document.querySelector('#checkbox-just-open-the-image').checked = false;
-			console.log('Just Open The Image: ' + false);
+			console.log('Just Open The Image: (false)');
 		}
 	});
 

@@ -857,5 +857,21 @@
 
 	"SearchbarDropdownBgColour": {
 		"message": "Панель пошуку: Фокусований/випадаючий колір фону"
+	},
+
+	"HideSearchSidebar": {
+		"message": "Приховати бічну панель пошуку"
+	},
+
+	"HideRecommended": {
+		"message": "Сховати рекомендовано"
+	},
+
+	"HideRecommendedInfo": {
+		"message": "Приховування рекомендованих публікацій можна офіційно встановити в налаштуваннях користувача reddit."
+	},
+
+	"TopicFeedWidth": {
+		"message": "Ширина каналу теми"
 	}
 }

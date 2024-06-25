@@ -857,5 +857,21 @@
 
 	"SearchbarDropdownBgColour": {
 		"message": "Suchleiste: Fokussierte/Dropdown Hintergrundfarbe"
+	},
+
+	"HideSearchSidebar": {
+		"message": "Die Suchseitenleiste Ausblenden"
+	},
+
+	"HideRecommended": {
+		"message": "Empfohlene Ausblenden"
+	},
+
+	"HideRecommendedInfo": {
+		"message": "Das Ausblenden empfohlener Beiträge kann offiziell in den Reddit-Benutzereinstellungen festgelegt werden."
+	},
+
+	"TopicFeedWidth": {
+		"message": "Themen-Feedbreite"
 	}
 }

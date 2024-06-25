@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.9.0"
+		"message": "1.10.0"
 	},
 
 	"extensionName": {
@@ -869,6 +869,18 @@
 
 	"HideSearchSidebar": {
 		"message": "Hide the Search Sidebar"
+	},
+
+	"HideRecommended": {
+		"message": "Hide Recommended/Suggested"
+	},
+
+	"HideRecommendedInfo": {
+		"message": "Hiding recommended posts can also be set officially in the reddit user settings."
+	},
+
+	"TopicFeedWidth": {
+		"message": "Topic Feed Width"
 	},
 
 	"DragImageToResize": {

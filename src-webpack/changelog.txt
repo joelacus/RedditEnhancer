@@ -1,3 +1,13 @@
+version 1.10.0
+- Improved the "Redirect to Preferred UI" feature. (Requires the "declarativeNetRequest" permission).
+- The "Just Open The Image" feature now works with Chrome and Edge. (Requires the "declarativeNetRequest" permission).
+- Added an option to hide recommended posts.
+- Added an option to change the Topic feed width (New New UI).
+- The notifications page will now use the "Home Feed Width" for the "Resize Feed" feature (New New UI).
+- The "Hide The Post Overlay Sidebar" feature now works on search page posts (Old New UI).
+- Fixed the "Sticky Sort" feature not auto loading (Old New UI).
+- Fixed the "Always Show Rising Button" feature not working (Old New UI).
+
 version 1.9.0
 - Added options to change the colour of the search bar and the search results dropdown in the header.
 - Added an option to hide the sidebar on the search results page.

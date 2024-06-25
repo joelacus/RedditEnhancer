@@ -857,5 +857,21 @@
 
 	"SearchbarDropdownBgColour": {
 		"message": "Pasek wyszukiwania: Kolor tła skupiony/rozwijany"
+	},
+
+	"HideSearchSidebar": {
+		"message": "Ukryj pasek boczny wyszukiwania"
+	},
+
+	"HideRecommended": {
+		"message": "Ukryj Polecane"
+	},
+
+	"HideRecommendedInfo": {
+		"message": "Ukrywanie polecanych postów można oficjalnie ustawić w ustawieniach użytkownika Reddit."
+	},
+
+	"TopicFeedWidth": {
+		"message": "Szerokość kanału tematycznego"
 	}
 }

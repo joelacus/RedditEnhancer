@@ -39,4 +39,5 @@ redirect_dropdownMenu.addEventListener('click', function (e) {
 	redirect_dropdown.classList.remove('active');
 	redirect_dropdownMenu.style.maxHeight = '0';
 	BROWSER_API.storage.sync.set({ autoRedirectVersion: version });
+	BROWSER_API.runtime.sendMessage({ autoRedirectVersion: version });
 });

@@ -54,6 +54,11 @@ module.exports = {
 					to: '_locales',
 				},
 				{
+					context: path.resolve(__dirname, 'src/common/rules'),
+					from: '*.json',
+					to: 'rules',
+				},
+				{
 					context: path.resolve(__dirname, 'src/common/icons'),
 					from: 'icon-*.png',
 					to: 'icons',

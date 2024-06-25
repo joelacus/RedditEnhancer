@@ -69,7 +69,6 @@ export function load_saves() {
 			parent: document.querySelector('body'),
 			recursive: true,
 			done: function (el) {
-				console.log('FOUND');
 				//console.log(el);
 				setTimeout(() => {
 					loadAutoShowCommentFormattingOptions();

@@ -857,5 +857,21 @@
 
 	"SearchbarDropdownBgColour": {
 		"message": "Barra de pesquisa: Cor de fundo focada/suspensa"
+	},
+
+	"HideSearchSidebar": {
+		"message": "Ocultar a barra lateral de pesquisa"
+	},
+
+	"HideRecommended": {
+		"message": "Ocultar recomendado"
+	},
+
+	"HideRecommendedInfo": {
+		"message": "Ocultar postagens recomendadas pode ser definido oficialmente nas configurações do usuário do Reddit."
+	},
+
+	"TopicFeedWidth": {
+		"message": "Largura do feed do tópico"
 	}
 }

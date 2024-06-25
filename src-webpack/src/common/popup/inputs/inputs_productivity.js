@@ -279,8 +279,9 @@ document.querySelector('#input-drag-image-to-resize-initial-size').addEventListe
 document.querySelector('#checkbox-just-open-the-image').addEventListener('change', function (e) {
 	const justOpenTheImage = document.querySelector('#checkbox-just-open-the-image').checked;
 	if (justOpenTheImage === true) {
-		// Request the optional permission on Firefox
+		// Detect addon manifest version
 		if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
+			// Request the optional permissions for Firefox
 			BROWSER_API.permissions
 				.request({
 					permissions: ['webRequest', 'webRequestBlocking'],
@@ -294,13 +295,13 @@ document.querySelector('#checkbox-just-open-the-image').addEventListener('change
 						BROWSER_API.runtime.sendMessage({ justOpenTheImage: true });
 					} else {
 						console.log('Optional permissions not granted');
+						document.querySelector('#checkbox-just-open-the-image').checked = false;
 					}
 				});
 		} else if (BROWSER_API.runtime.getManifest().manifest_version === 3) {
-			/*BROWSER_API.storage.sync.set({ justOpenTheImage: true });
+			BROWSER_API.storage.sync.set({ justOpenTheImage: true });
 			document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
-			BROWSER_API.runtime.sendMessage({ justOpenTheImage: true });*/
-			document.querySelector('#checkbox-just-open-the-image').checked = false;
+			BROWSER_API.runtime.sendMessage({ justOpenTheImage: true });
 		}
 	} else if (justOpenTheImage === false) {
 		BROWSER_API.storage.sync.set({ justOpenTheImage: false });

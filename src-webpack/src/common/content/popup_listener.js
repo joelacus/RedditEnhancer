@@ -2,8 +2,6 @@
 
 // Listens for commands from the settings popup to enable/disable/change tweaks.
 
-import { init } from '../content-first/init';
-import { load_saves } from './content_load_saves';
 import { addDropShadow } from './functions/style/drop_shadow';
 import { alwaysShowPostOptions } from './functions/productivity/always_show_post_options';
 import { alwaysShowRisingButton } from './functions/productivity/always_show_rising';
@@ -16,7 +14,7 @@ import { bionicReaderBgColour, bionicReaderBgColourCSS, bionicReaderFontColour, 
 import { bionicReaderComments } from './functions/accessibility/bionic_reader';
 import { breakReminder } from './functions/productivity/break_reminder';
 import { darkMode, darkModeAutoListener } from './functions/dark_mode/dark_mode';
-import { expandLayout, expandPostOverlayWidth, expandPostWidth, expandSubWidth, expandLayoutWidth, expandUserProfileWidth } from './functions/expand_feed_post/expand_content';
+import { expandLayout, expandPostOverlayWidth, expandPostWidth, expandSubWidth, expandLayoutWidth, expandUserProfileWidth, expandTopicFeedWidth } from './functions/expand_feed_post/expand_content';
 import { fitImage } from './functions/productivity/scale_tall_images_to_fit_post';
 import { hideCreatePost } from './functions/hide_elements/hide_create_post';
 import { hideGap } from './functions/style/hide_gap';
@@ -124,6 +122,7 @@ import {
 import { useCustomBackground, setCustomBackground } from './functions/background/custom_background';
 import { underlineLinks } from './functions/accessibility/underline_links';
 import { autoShowCommentFormattingOptions } from './functions/productivity/auto_show_comment_formatting_options';
+import { hideRecommended } from './functions/hide_elements/hide_recommended';
 //import { scalePostToFitImageMaxImageWidth, scalePostToFitImage } from './functions/productivity/scale_post_to_fit_image';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
@@ -155,6 +154,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		expandSubWidth(value);
 	} else if (key == 'expandUserProfileWidth') {
 		expandUserProfileWidth(value);
+	} else if (key == 'expandTopicFeedWidth') {
+		expandTopicFeedWidth(value);
 	} else if (key == 'layoutOffset') {
 		layoutOffset(value);
 	} else if (key == 'layoutSubOffset') {
@@ -213,6 +214,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		openPostInNewTab(value);
 	} else if (key == 'hidePromoted') {
 		hidePromoted(value);
+	} else if (key == 'hideRecommended') {
+		hideRecommended(value);
 	} else if (key == 'showToTopButton') {
 		showToTopButton(value);
 	} else if (key == 'showAllButton') {
@@ -443,11 +446,6 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		autoShowCommentFormattingOptions(value);
 	} else if (key == 'hideSearchSidebar') {
 		hideSearchSidebar(value);
-	} else if (key == 'loadSaves') {
-		setTimeout(() => {
-			init();
-			load_saves();
-		}, 100);
 	}
 	return true;
 });

@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 var webpack = require('webpack');
-const ZipPlugin = require('zip-webpack-plugin');
+//const ZipPlugin = require('zip-webpack-plugin');
 
 module.exports = {
 	mode: 'production',
@@ -53,6 +53,11 @@ module.exports = {
 					context: path.resolve(__dirname, 'src/common/_locales'),
 					from: '**/*.json',
 					to: '_locales',
+				},
+				{
+					context: path.resolve(__dirname, 'src/common/rules'),
+					from: '*.json',
+					to: 'rules',
 				},
 				{
 					context: path.resolve(__dirname, 'src/common/icons'),

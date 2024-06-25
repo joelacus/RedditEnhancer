@@ -1002,9 +1002,11 @@ export function themeSidebarBgColour(value) {
 											--newCommunityTheme-widgetColors-sidebarWidgetHeaderColor: var(--re-theme-sidebar-bg) !important;
 										}
 										.ListingLayout-backgroundContainer + div > :last-child > :last-child > div > div {
-											backdrop-filter: blur(var(--re-theme-blur)) !important;
+											backdrop-filter: blur(var(--re-theme-blur));
 										}
-										.ListingLayout-backgroundContainer + div > :last-child > :last-child > div > :last-child {
+										.ListingLayout-backgroundContainer + div > :last-child > :last-child > div > :last-child,
+										[data-testid="search-results-nav"],
+										[data-testid="search-results-subnav"] {
 											backdrop-filter: none !important;
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
@@ -1014,7 +1016,7 @@ export function themeSidebarBgColour(value) {
 			document.documentElement.style.setProperty('--re-theme-sidebar-bg', result.themeSidebarBgColourCSS);
 			const styleElement = document.createElement('style');
 			styleElement.id = 're-theme-sidebar-bg-colour';
-			styleElement.textContent = `#right-sidebar-container,
+			styleElement.textContent = `#right-sidebar-container > *,
 										[pagetype="search_results"] #right-sidebar-container > div > div {
 											--color-neutral-background-weak: var(--re-theme-sidebar-bg) !important;
 											--color-neutral-background-hover: rgba(0,0,0,0.6) !important;
@@ -1324,6 +1326,7 @@ export function themeSearchbarDropdownBgColour(value) {
 		styleElement.id = 're-theme-searchbar-dropdown-bg-colour';
 		styleElement.textContent = `#SearchDropdownContent {
 										background-color: var(--re-theme-searchbar-dropdown-bg) !important;
+										backdrop-filter: blur(var(--re-theme-blur)) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else if (redditVersion === 'newnew' && value === true) {

@@ -1,14 +1,14 @@
 /* ===== Tweaks - Productivity - Add Download Video Button ===== */
 
-/* === Triggered On Page Load === */
-/*export function loadAddDownloadVideoButton() {
+/* === Triggered On Page Load === 
+export function loadAddDownloadVideoButton() {
 	BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
 		addDownloadVideoButton(result.addDownloadVideoButton);
 	});
 }*/
 
-/* === Main Function === */
-/*export function addDownloadVideoButton(value) {
+/* === Main Function === 
+export function addDownloadVideoButton(value) {
 	if (redditVersion === 'newnew' && value === true) {
 		document.querySelectorAll('shreddit-post').forEach((post) => {
 			if (post.querySelector(':has(shreddit-player)')) {
@@ -21,10 +21,10 @@
 		observer.disconnect();
 		disableAddVideoDownloadButtonAll();
 	}
-}
+}*/
 
 // Function - Enable Add Download Video Button - New New
-function enableAddVideoDownloadButtonNewNew(container) {
+/*function enableAddVideoDownloadButtonNewNew(container) {
 	if (!container.querySelector('.re-video-download-btn')) {
 		const btn = document.createElement('div');
 		btn.classList.add('re-video-download-btn');

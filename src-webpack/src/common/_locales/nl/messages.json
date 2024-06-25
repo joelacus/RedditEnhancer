@@ -857,5 +857,21 @@
 
 	"SearchbarDropdownBgColour": {
 		"message": "Zoekbalk: Gefocust/Dropdown Achtergrondkleur"
+	},
+
+	"HideSearchSidebar": {
+		"message": "Verberg de zoekzijbalk"
+	},
+
+	"HideRecommended": {
+		"message": "Aanbevolen verbergen"
+	},
+
+	"HideRecommendedInfo": {
+		"message": "Het verbergen van aanbevolen berichten kan officieel worden ingesteld in de gebruikersinstellingen van Reddit."
+	},
+
+	"TopicFeedWidth": {
+		"message": "Onderwerpfeedbreedte"
 	}
 }

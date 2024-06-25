@@ -857,5 +857,21 @@
 
 	"SearchbarDropdownBgColour": {
 		"message": "Sökruta: Fokuserad/Dropdown bakgrundsfärg"
+	},
+
+	"HideSearchSidebar": {
+		"message": "Dölj sidofältet Sök"
+	},
+
+	"HideRecommended": {
+		"message": "Dölj rekommenderas"
+	},
+
+	"HideRecommendedInfo": {
+		"message": "Att dölja rekommenderade inlägg kan ställas in officiellt i reddit användarinställningar."
+	},
+
+	"TopicFeedWidth": {
+		"message": "Ämnesmatningsbredd"
 	}
 }

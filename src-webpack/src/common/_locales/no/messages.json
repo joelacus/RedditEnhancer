@@ -857,5 +857,21 @@
 
 	"SearchbarDropdownBgColour": {
 		"message": "Søkelinje: Fokusert/Dropdown Bakgrunnsfarge"
+	},
+
+	"HideSearchSidebar": {
+		"message": "Skjul søkesidefeltet"
+	},
+
+	"HideRecommended": {
+		"message": "Skjul anbefalt"
+	},
+
+	"HideRecommendedInfo": {
+		"message": "Å skjule anbefalte innlegg kan angis offisielt i reddit-brukerinnstillingene."
+	},
+
+	"TopicFeedWidth": {
+		"message": "Emnematingsbredde"
 	}
 }

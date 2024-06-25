@@ -857,5 +857,21 @@
 
 	"SearchbarDropdownBgColour": {
 		"message": "Vyhledávací panel: Zaostřeno/rozbalovací barva pozadí"
+	},
+
+	"HideSearchSidebar": {
+		"message": "Skryjte postranní panel vyhledávání"
+	},
+
+	"HideRecommended": {
+		"message": "Skrýt doporučené"
+	},
+
+	"HideRecommendedInfo": {
+		"message": "Skrytí doporučených příspěvků lze oficiálně nastavit v uživatelském nastavení redditu."
+	},
+
+	"TopicFeedWidth": {
+		"message": "Šířka zdroje tématu"
 	}
 }

@@ -857,5 +857,21 @@
 
 	"SearchbarDropdownBgColour": {
 		"message": "Kereső sáv: Fókuszált/legördülő háttérszín"
+	},
+
+	"HideSearchSidebar": {
+		"message": "A Keresés oldalsáv elrejtése"
+	},
+
+	"HideRecommended": {
+		"message": "Ajánlott elrejtése"
+	},
+
+	"HideRecommendedInfo": {
+		"message": "Az ajánlott bejegyzések elrejtése hivatalosan beállítható a reddit felhasználói beállításaiban."
+	},
+
+	"TopicFeedWidth": {
+		"message": "Téma feed szélessége"
 	}
 }

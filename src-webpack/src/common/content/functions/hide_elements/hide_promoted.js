@@ -1,4 +1,4 @@
-/* ===== Tweaks - Hide - Promoted Links ===== */
+/* ===== Tweaks - Hide - Promoted Posts ===== */
 
 /* === Triggered On Page Load === */
 export function loadHidePromotedPosts() {

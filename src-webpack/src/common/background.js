@@ -1,7 +1,6 @@
 /* ===== Background script ===== */
 
 import { darkModeTimeCalc } from '../common/popup/popup-functions';
-//import muxjs from 'mux.js/dist/mux.js';
 //const muxjs = require('mux.js');
 let fetchUrl = '';
 
@@ -50,6 +49,8 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 		enableJustOpenTheImage();
 	} else if (request.justOpenTheImage === false) {
 		disableJustOpenTheImage();
+	} else if (request.autoRedirectVersion) {
+		updateRedirectRuleset(request.autoRedirectVersion);
 	} /* else if (request.action === 'downloadVideo') {
 		const videoUrl = request.videoUrl;
 		BROWSER_API.downloads.download({
@@ -57,7 +58,7 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 			filename: 'downloaded-video.mp4', // Set the desired file name
 			saveAs: true, // Show the "Save As" dialog
 		});
-	}  else if (request.action === 'testQualities') {
+	} else if (request.action === 'testQualities') {
 		const videoUrl = request.url;
 		const audioUrl = videoUrl.replace(/DASH_\d+\.mp4$/, 'DASH_AUDIO_128.mp4');
 		const availableQualities = ['96', '220', '270', '360', '480', '720', '1080'];
@@ -116,13 +117,16 @@ function checkTime(i) {
 }
 
 // Refresh Tweaks When Add-On is Reloaded
-BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
-	tabs.forEach(function (tab) {
-		if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded === false) {
-			BROWSER_API.tabs.sendMessage(tab.id, { loadSaves: true });
-		}
+function reload_tabs() {
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.includes('reddit.com') && tab.discarded == false) {
+				BROWSER_API.tabs.reload(tab.id);
+			}
+		});
 	});
-});
+}
+reload_tabs();
 
 // Function to fetch data
 function fetchData(sendResponse) {
@@ -144,46 +148,8 @@ function fetchData(sendResponse) {
 		});
 }
 
-/* ===== Merge Video And Audio ===== (DOESN'T WORK)
-const mergeVideoAndAudio = async (videoUrl, audioUrl) => {
-	console.log(videoUrl, audioUrl);
-
-	// Initialise merged buffer
-	const mergedBuffer = new ArrayBuffer();
-
-	const videoResponse = await fetch(videoUrl);
-	const videoBuffer = await videoResponse.arrayBuffer();
-
-	const audioResponse = await fetch(audioUrl);
-	const audioBuffer = await audioResponse.arrayBuffer();
-
-	const transmuxer = new muxjs.mp4.Transmuxer({ remux: true });
-
-	console.log(transmuxer);
-
-	// Append init segment to merged buffer
-	transmuxer.on('data', (segment) => {
-		console.log('got data!');
-
-		mergedBuffer = appendInitSegment(mergedBuffer, segment.initSegment);
-		mergedBuffer = appendData(mergedBuffer, segment.data);
-	});
-
-	transmuxer.on('end', () => {
-		const url = URL.createObjectURL(mergedBuffer);
-		console.log(url);
-		browser.downloads.download({
-			url: url,
-			filename: 'merged-video.mp4',
-			saveAs: true,
-		});
-	});
-
-	transmuxer.push(new Uint8Array(videoBuffer), { startTime: 0, mimeType: 'video/mp4' });
-	transmuxer.push(new Uint8Array(audioBuffer), { startTime: 0, mimeType: 'audio/aac' });
-
-	transmuxer.flush();
-};*/
+/* ===== Rules ===== */
+let options = { enableRulesetIds: [], disableRulesetIds: [] };
 
 /* ===== Just Open The Image ===== */
 
@@ -191,6 +157,8 @@ const mergeVideoAndAudio = async (videoUrl, audioUrl) => {
 BROWSER_API.storage.sync.get(['justOpenTheImage'], function (result) {
 	if (result.justOpenTheImage === true) {
 		enableJustOpenTheImage();
+	} else {
+		disableJustOpenTheImage();
 	}
 });
 
@@ -211,10 +179,9 @@ function enableJustOpenTheImage() {
 				}
 			}
 		);
-	} /* else if (BROWSER_API.runtime.getManifest().manifest_version === 3) {
-		removeRules();
-		addRules();
-	}*/
+	} else if (BROWSER_API.runtime.getManifest().manifest_version === 3) {
+		addImageRules();
+	}
 }
 
 // Disable
@@ -222,9 +189,9 @@ function disableJustOpenTheImage() {
 	if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
 		BROWSER_API.webRequest.onBeforeRequest.removeListener(redirectToImageUrl, { urls: ['*://www.reddit.com/media*'], types: ['main_frame'] }, ['blocking']);
 		BROWSER_API.webRequest.onBeforeSendHeaders.removeListener(modifyHeader, { urls: ['*://*.redd.it/*'] }, ['blocking', 'requestHeaders']);
-	} /* else if (BROWSER_API.runtime.getManifest().manifest_version === 3) {
-		removeRules();
-	}*/
+	} else if (BROWSER_API.runtime.getManifest().manifest_version === 3) {
+		removeImageRules();
+	}
 }
 
 // Manifest V2
@@ -241,58 +208,113 @@ function modifyHeader(details) {
 	return { requestHeaders: details.requestHeaders };
 }
 
-/*
-// Manifest V3 (DOESN'T WORK)
-
-"permissions": ["storage", "tabs", "declarativeNetRequest"],
-"host_permissions": ["*://*.reddit.com/*", "*://*.redd.it/*"],
-
-function removeRules() {
-	BROWSER_API.declarativeNetRequest
-		.updateDynamicRules({
-			removeRuleIds: [1, 2, 3],
-		})
-		.then(() => {
-			console.log('Rules removed.');
-		});
+// Manifest V3
+function removeImageRules() {
+	const rule = options.enableRulesetIds.indexOf('image_ruleset');
+	if (rule > -1) {
+		options.enableRulesetIds.splice(rule, 1);
+	}
+	options.disableRulesetIds.push('image_ruleset');
+	BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
+		console.log('Rules updated');
+		BROWSER_API.tabs
+			.reload()
+			.then(() => {
+				return;
+			})
+			.catch((error) => {
+				console.error('Error updating rules:', error);
+			});
+	});
 }
-function addRules() {
-	const rules = [
-		{
-			id: 1,
-			priority: 1,
-			action: {
-				type: 'redirect',
-				redirect: {
-					regexSubstitution: '$1',
-				},
-			},
-			condition: {
-				regexFilter: '^www\\.reddit\\.com/media\\?url=(.*)$',
-			},
-		},
-		{
-			id: 2,
-			priority: 2,
-			action: { type: 'block' },
-			condition: { urlFilter: '*://www.reddit.com/media*', resourceTypes: ['main_frame'] },
-		},
-		{
-			id: 3,
-			priority: 3,
-			action: {
-				type: 'modifyHeaders',
-				requestHeaders: [{ header: 'Accept', operation: 'set', value: 'image/avif,image/webp,/*' }],
-			},
-			condition: { urlFilter: '*://*.redd.it/' },
-		},
-	];
+
+function addImageRules() {
+	const rule = options.disableRulesetIds.indexOf('image_ruleset');
+	if (rule > -1) {
+		options.disableRulesetIds.splice(rule, 1);
+	}
+	options.enableRulesetIds.push('image_ruleset');
 	BROWSER_API.declarativeNetRequest
-		.updateDynamicRules({ addRules: rules })
+		.updateEnabledRulesets(options)
 		.then(() => {
-			console.log('New rules added.');
+			console.log('Rules updated');
+			reload_tabs();
 		})
 		.catch((error) => {
-			console.error('Error adding new rules:', error);
+			console.error('Error updating rules:', error);
 		});
-}*/
+}
+
+/* ===== Redirect To Preferred UI ===== */
+
+// Load Saved Value
+BROWSER_API.storage.sync.get(['autoRedirectVersion'], function (result) {
+	updateRedirectRuleset(result.autoRedirectVersion);
+});
+
+// Update Redirect Ruleset
+function updateRedirectRuleset(version) {
+	if (version === 'old') {
+		options = { enableRulesetIds: ['old_ruleset'], disableRulesetIds: ['new_ruleset', 'sh_ruleset'] };
+	} else if (version === 'new') {
+		options = { enableRulesetIds: ['new_ruleset'], disableRulesetIds: ['old_ruleset', 'sh_ruleset'] };
+	} else if (version === 'newnew') {
+		options = { enableRulesetIds: ['sh_ruleset'], disableRulesetIds: ['old_ruleset', 'new_ruleset'] };
+	} else {
+		options = { enableRulesetIds: [], disableRulesetIds: ['old_ruleset', 'new_ruleset', 'sh_ruleset'] };
+	}
+	BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
+		reload_tabs();
+	});
+}
+
+/* ===== Merge Video And Audio ===== (DOESN'T WORK) 
+const appendBuffer = (buffer1, buffer2) => {
+	const tmp = new Uint8Array(buffer1.byteLength + buffer2.byteLength);
+	tmp.set(new Uint8Array(buffer1), 0);
+	tmp.set(new Uint8Array(buffer2), buffer1.byteLength);
+	return tmp.buffer;
+};
+
+const mergeVideoAndAudio = async (videoUrl, audioUrl) => {
+	const videoResponse = await fetch(videoUrl);
+	console.log(videoResponse);
+	const videoBuffer = await videoResponse.arrayBuffer();
+	console.log(videoBuffer);
+
+	const audioResponse = await fetch(audioUrl);
+	const audioBuffer = await audioResponse.arrayBuffer();
+
+	//const transmuxer = new muxjs.mp4.Transmuxer({ remux: true });
+	var transmuxer = new muxjs.mp4.Transmuxer(initOptions);
+	console.log(transmuxer);
+
+	let mergedBuffer = new Uint8Array(0);
+	console.log(mergedBuffer);
+
+	transmuxer.on('data', (segment) => {
+		console.log('got data!');
+		mergedBuffer = appendBuffer(mergedBuffer.buffer, segment.initSegment);
+		mergedBuffer = appendBuffer(mergedBuffer.buffer, segment.data);
+		console.log(mergedBuffer);
+	});
+
+	transmuxer.on('done', () => {
+		const blob = new Blob([mergedBuffer], { type: 'video/mp4' });
+		const url = URL.createObjectURL(blob);
+		browser.downloads.download({
+			url: url,
+			filename: 'merged-video.mp4',
+			saveAs: true,
+		});
+	});
+
+	console.log('push');
+
+	// Push video and audio data to the transmuxer
+	transmuxer.push(new Uint8Array(videoBuffer));
+	transmuxer.push(new Uint8Array(audioBuffer));
+
+	// Signal that we are done with pushing data
+	transmuxer.flush();
+};*/

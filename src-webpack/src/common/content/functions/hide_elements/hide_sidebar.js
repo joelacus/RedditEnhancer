@@ -485,7 +485,7 @@ export function enableHideSearchSidebarNew() {
 
 // Function - Enable Hide Search Sidebar - New New
 export function enableHideSearchSidebarNewNew() {
-	document.querySelector('html').classList.add('re-hide-profile-sidebar');
+	document.querySelector('html').classList.add('re-hide-search-sidebar');
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-hide-search-sidebar';
 	styleElement.textContent = `[pagetype="search_results"] #right-sidebar-container {
@@ -500,5 +500,5 @@ export function disableHideSearchSidebarAll() {
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
-	document.querySelector('html').classList.remove('re-hide-profile-sidebar');
+	document.querySelector('html').classList.remove('re-hide-search-sidebar');
 }

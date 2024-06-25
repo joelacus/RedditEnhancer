@@ -1,0 +1,20 @@
+[
+	{
+		"id": 10,
+		"priority": 4,
+		"action": {
+			"type": "modifyHeaders",
+			"requestHeaders": [
+				{
+					"header": "Accept",
+					"operation": "set",
+					"value": "image/avif,image/apng,image/webp,image/svg+xml,image/*,*/*;q=0.8"
+				}
+			]
+		},
+		"condition": {
+			"regexFilter": "^https://(www\\.reddit\\.com/media\\?|((external-)?preview|i)\\.redd\\.it)",
+			"resourceTypes": ["main_frame"]
+		}
+	}
+]

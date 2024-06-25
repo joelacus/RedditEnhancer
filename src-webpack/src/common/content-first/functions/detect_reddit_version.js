@@ -17,7 +17,7 @@ export function detectRedditVersion() {
 		window.redditVersion = 'old';
 		observersOld();
 	} else if (link.indexOf('www.reddit.com') >= 0) {
-		// new new
+		// New New UI (SH)
 		waitForAddedNode({
 			query: 'shreddit-app',
 			parent: document.querySelector('body'),
@@ -28,7 +28,7 @@ export function detectRedditVersion() {
 			},
 		});
 
-		// old new
+		// Old New UI
 		waitForAddedNode({
 			id: true,
 			query: '2x-container',
@@ -40,7 +40,7 @@ export function detectRedditVersion() {
 			},
 		});
 
-		// old
+		// Old UI
 		waitForAddedNode({
 			id: true,
 			query: 'siteTable',

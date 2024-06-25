@@ -857,5 +857,21 @@
 
 	"SearchbarDropdownBgColour": {
 		"message": "Hakupalkki: Tarkennettu / pudotettava taustaväri"
+	},
+
+	"HideSearchSidebar": {
+		"message": "Piilota hakusivupalkki"
+	},
+
+	"HideRecommended": {
+		"message": "Piilota Suositeltu"
+	},
+
+	"HideRecommendedInfo": {
+		"message": "Suositeltujen viestien piilottaminen voidaan määrittää virallisesti redditin käyttäjäasetuksissa."
+	},
+
+	"TopicFeedWidth": {
+		"message": "Aiheen syötteen leveys"
 	}
 }

@@ -1,0 +1,44 @@
+[
+	{
+		"id": 4,
+		"priority": 1,
+		"action": {
+			"type": "redirect",
+			"redirect": {
+				"transform": { "host": "new.reddit.com" }
+			}
+		},
+		"condition": {
+			"regexFilter": "^https://(www|old|sh)\\.reddit\\.com($|\\?|/($|\\?|avatar|best|controversial|hot|new|notifications|rising|search|settings|top))",
+			"resourceTypes": ["main_frame"]
+		}
+	},
+	{
+		"id": 5,
+		"priority": 2,
+		"action": {
+			"type": "redirect",
+			"redirect": {
+				"transform": { "host": "new.reddit.com" }
+			}
+		},
+		"condition": {
+			"regexFilter": "^https://(www|old|sh)\\.reddit\\.com/r/(\\w)*($|\\?|/($|\\?|comments|controversial|hot|new|rising|top/(\\w)+|search|wiki))",
+			"resourceTypes": ["main_frame"]
+		}
+	},
+	{
+		"id": 6,
+		"priority": 3,
+		"action": {
+			"type": "redirect",
+			"redirect": {
+				"transform": { "host": "new.reddit.com" }
+			}
+		},
+		"condition": {
+			"regexFilter": "^https://(www|old|sh)\\.reddit\\.com/u(ser)?/[0-9A-Za-z_-]*($|\\?|/($|\\?|submitted|comments|saved|hidden|upvoted|downvoted))",
+			"resourceTypes": ["main_frame"]
+		}
+	}
+]

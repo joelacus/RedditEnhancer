@@ -1,5 +1,7 @@
 /* ===== New New Reddit Observers / Tweak Loader ===== */
 
+// Load observers to wait for elements to load before tweaking, or load the tweak directly if an observer is not needed.
+
 import { waitForAddedNode } from './main_observer';
 
 import { loadAlwaysShowPostOptions } from '../../../content/functions/productivity/always_show_post_options';
@@ -36,8 +38,7 @@ import { loadResizeFont } from '../../../content/functions/accessibility/resize_
 //import { loadScalePostToFitImage } from '../../../content/functions/productivity/scale_post_to_fit_image';
 import { loadScrollToNextRootCommentPosition } from '../../../content/functions/productivity/scroll_to_next_root_comment';
 import { loadUnderlineLinks } from '../../../content/functions/accessibility/underline_links';
-
-// Load observers to wait for elements to load before tweaking, or load the tweak directly if an observer is not needed.
+import { loadHideRecommendedPosts } from '../../../content/functions/hide_elements/hide_recommended';
 
 export function observersNewNew() {
 	loadCustomBackground();
@@ -71,6 +72,7 @@ export function observersNewNew() {
 	loadHidePostHiddenMessage();
 	loadHideJoinButtonOnPosts();
 	loadUnderlineLinks();
+	loadHideRecommendedPosts();
 	//loadScalePostToFitImage();
 	//loadDragImageToResize();
 

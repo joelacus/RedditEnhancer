@@ -389,3 +389,11 @@
 	mask: url('../../icons/ui/underline-solid.svg');
 	-webkit-mask: url('../../icons/ui/underline-solid.svg');
 }
+.icon-hand {
+	mask: url('../../icons/ui/icon-hand.svg');
+	-webkit-mask: url('../../icons/ui/icon-hand.svg');
+}
+.icon-hand-slash {
+	mask: url('../../icons/ui/icon-hand-slash.svg');
+	-webkit-mask: url('../../icons/ui/icon-hand-slash.svg');
+}
