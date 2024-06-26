@@ -123,10 +123,10 @@ git clone https://github.com/joelacus/RedditEnhancer.git;cd RedditEnhancer/src-w
 ```
 Install dependencies:
 ```
-npm install --save-dev webpack terser-webpack-plugin mini-css-extract-plugin html-minimizer-webpack-plugin css-minimizer-webpack-plugin css-loader copy-webpack-plugin path
+npm install --save-dev webpack webpack-cli terser-webpack-plugin mini-css-extract-plugin html-minimizer-webpack-plugin css-minimizer-webpack-plugin css-loader copy-webpack-plugin path
 ```
 ```
-npm --save install video.js
+npm --save install video.js sortablejs stream mux.js
 ```
 Build for Firefox:
 ```
