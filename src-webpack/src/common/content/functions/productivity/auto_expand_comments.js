@@ -8,69 +8,86 @@ export function loadAutoExpandComments() {
 }
 
 /* === Main Function === */
-
-// expands comments, and waits for comments to load to then expand sub comments etc.
-// is there a better way? expand on scroll?
 export function autoExpandComments(value) {
-	if (redditVersion === 'new' && value === true) {
-		setTimeout(() => {
-			enableAutoExpandCommentsNew();
-		}, 2000);
-		setTimeout(() => {
-			enableAutoExpandCommentsNew();
-		}, 5000);
-		setTimeout(() => {
-			enableAutoExpandCommentsNew();
-		}, 5000);
-		setTimeout(() => {
-			enableAutoExpandCommentsNew();
-		}, 15000);
-		setTimeout(() => {
-			enableAutoExpandCommentsNew();
-		}, 20000);
-		setTimeout(() => {
-			enableAutoExpandCommentsNew();
-		}, 25000);
-	} else if (redditVersion === 'newnew' && value === true) {
-		setTimeout(() => {
-			enableAutoExpandCommentsNewNew();
-		}, 2000);
-		setTimeout(() => {
-			enableAutoExpandCommentsNewNew();
-		}, 5000);
-		setTimeout(() => {
-			enableAutoExpandCommentsNewNew();
-		}, 10000);
-		setTimeout(() => {
-			enableAutoExpandCommentsNewNew();
-		}, 15000);
-		setTimeout(() => {
-			enableAutoExpandCommentsNewNew();
-		}, 20000);
-		setTimeout(() => {
-			enableAutoExpandCommentsNewNew();
-		}, 25000);
+	if (redditVersion === 'newnew' && value === true) {
+		enableAutoExpandCommentsNewNew();
+	} else if (redditVersion === 'new' && value === true) {
+		enableAutoExpandCommentsNew();
+	} else if (redditVersion === 'old' && value === true) {
+		enableAutoExpandCommentsOld();
+	} else if (value === false) {
+		disableAutoExpandCommentsAll();
 	}
 }
 
-// Function - Auto Expand Comments - New
-function enableAutoExpandCommentsNew() {
-	document.querySelectorAll('.Comment:has(> button > .icon-expand) > :last-child.undefined').forEach((el) => {
-		if (window.getComputedStyle(el.parentElement.parentElement).display === 'block') {
-			el.parentElement.querySelector('button').click();
-		}
-	});
-	document.querySelectorAll('[id^="moreComments"]').forEach((el) => {
-		el.querySelector('p').click();
-	});
+let expand_comments_button;
+
+// Function - Enable Auto Expand Comments - New New
+function enableAutoExpandCommentsNewNew() {
+	expand_comments_button = 'shreddit-comment[collapsed]';
+	window.addEventListener('scroll', expandComments);
 }
 
-// Function - Auto Expand Comments - New New
-function enableAutoExpandCommentsNewNew() {
-	document.querySelectorAll('shreddit-comment button:has(span > svg):has(span > [number])').forEach((el) => {
-		el.click();
+// Function - Enable Auto Expand Comments - New
+function enableAutoExpandCommentsNew() {
+	expand_comments_button = '.Comment:has(> button > .icon-expand) > :last-child.undefined';
+	window.addEventListener('scroll', expandComments);
+}
+
+// Function - Enable Auto Expand Comments - Old
+function enableAutoExpandCommentsOld() {
+	expand_comments_button = '.comment.collapsed';
+	window.addEventListener('scroll', expandComments);
+}
+
+// Function - Disable Auto Expand Comments - All
+function disableAutoExpandCommentsAll() {
+	window.removeEventListener('scroll', expandComments);
+}
+
+// Function to check for "expand comments" buttons on scroll
+function expandComments() {
+	// Get the current scroll position
+	var scrollX = window.scrollX || window.pageXOffset;
+	var scrollY = window.scrollY || window.pageYOffset;
+
+	// Get the elements within the current scroll view
+	var elementsInViewport = document.querySelectorAll(expand_comments_button);
+
+	var visibleElements = [];
+
+	elementsInViewport.forEach(function (element) {
+		var rect = element.getBoundingClientRect();
+		var elementX = rect.left + scrollX;
+		var elementY = rect.top + scrollY;
+
+		if (elementX >= scrollX && elementX <= scrollX + window.innerWidth && elementY >= scrollY && elementY <= scrollY + window.innerHeight) {
+			visibleElements.push(element);
+		}
 	});
-	document.querySelectorAll('shreddit-comment[collapsed]').forEach((el) => {
-		el.removeAttribute('collapsed');
-	});
+
+	// Expand Comments
+	if (redditVersion === 'newnew') {
+		for (let i = 0; i < visibleElements.length; i++) {
+			if (visibleElements[i].getAttribute('author') != 'AutoModerator') {
+				visibleElements[i].removeAttribute('collapsed');
+			}
+		}
+	} else if (redditVersion === 'new') {
+		for (let i = 0; i < visibleElements.length; i++) {
+			if (!visibleElements[i].querySelector('[id^="CommentTopMeta--Mod"]')) {
+				if (window.getComputedStyle(visibleElements[i].parentElement.parentElement).display === 'block') {
+					visibleElements[i].parentElement.querySelector('button').click();
+				}
+			}
+		}
+	} else if (redditVersion === 'old') {
+		for (let i = 0; i < visibleElements.length; i++) {
+			if (visibleElements[i].getAttribute('data-author') != 'AutoModerator') {
+				visibleElements[i].classList.remove('collapsed');
+				visibleElements[i].classList.add('noncollapsed');
+				visibleElements[i].querySelector('.expand').textContent = '[–]';
+			}
+		}
+	}
 }

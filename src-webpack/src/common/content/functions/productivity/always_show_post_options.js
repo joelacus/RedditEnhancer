@@ -34,7 +34,7 @@ function enableAlwaysShowPostOptionsNewNew() {
 									shreddit-post .re-btn-menu > div > span > span:has(span.text-14) {
 										display: none;
 									}
-									shreddit-post [slot="credit-bar"] > span:has(> [bundlename="shreddit_post_overflow_menu"]) {
+									shreddit-post [bundlename="shreddit_post_overflow_menu"] {
 										display: none;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
@@ -48,18 +48,23 @@ function enableAlwaysShowPostOptionsNewNew() {
 			});
 			observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
 		}
-	}, 3000);
+	}, 5000);
 }
 
 // Function - Attach Menu And Move Items - New New
 function attachMenu(post) {
+	//console.log(post);
 	if (!post.querySelector('.re-btn-menu > div')) {
 		const postCreditBar = post.querySelector('[slot="credit-bar"]');
+		//console.log(postCreditBar);
 		const menu = document.createElement('div');
 		menu.classList.add('re-btn-menu');
-		postCreditBar.insertBefore(menu, postCreditBar.lastElementChild);
+		postCreditBar.lastElementChild.appendChild(menu);
+		//console.log(post.querySelector('shreddit-post-overflow-menu'));
 		const postMenu = post.querySelector('shreddit-post-overflow-menu').shadowRoot;
+		//console.log(postMenu);
 		postMenu.querySelectorAll('faceplate-menu > li > div:not(.hidden)').forEach((item) => {
+			//console.log(item);
 			menu.appendChild(item);
 		});
 	}

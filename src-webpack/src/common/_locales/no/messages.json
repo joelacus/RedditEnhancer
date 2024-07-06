@@ -756,7 +756,7 @@
 	},
 
 	"AutoExpandComments": {
-		"message": "Autoutvid kommentarer"
+		"message": "Utvid automatisk skjulte kommentarer"
 	},
 
 	"AutoExpandCommentsInfo": {
@@ -776,7 +776,7 @@
 	},
 
 	"JustOpenTheImageInfo": {
-		"message": "Åpne bilder på egen hånd, i stedet for innebygd på en Reddit-side. (bare Firefox)"
+		"message": "Åpne bilder på egen hånd, i stedet for innebygd på en Reddit-side."
 	},
 
 	"ScalePostToFitImage": {

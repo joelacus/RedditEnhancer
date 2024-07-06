@@ -82,7 +82,12 @@
 	background-color: var(--bg);
 	padding: 8px;
 	overflow-y: scroll;
+	overflow-x: hidden;
 	white-space: pre-wrap;
+}
+#changelog span {
+	max-width: 450px;
+	overflow-wrap: break-word;
 }
 
 /* Settings */

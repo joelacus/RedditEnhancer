@@ -1,3 +1,16 @@
+version 1.10.1
+- Clarity regarding the new permission requirement in version 1.10.0:
+    The "declarativeNetRequest" / "Block content on any page" permission, can be used to block and redirect content.
+    This is used for cross browser compatibility for the "Redirect to Preferred UI" feature, as well as the "Just Open The Image" feature on Chrome/Edge where it blocks everything but the image if you open it in a new tab.
+    This extension however, only affects Reddit, and cannot touch any other website.
+- Optimsed the "Auto Expand Hidden Comments" feature by expanding the comments on scroll, instead of the whole page at once.
+- The "Auto Expand Hidden Comments" feature now supports Old Reddit.
+- Optimsed the "Auto Load More Comments" feature by loading comments/replies on scroll, instead of the whole page at once.
+- The "Auto Load More Comments" feature now supports Old Reddit.
+- Added a button at the top to minimise the extension popover without fully closing it, to show the full site underneath.
+- Excluded "/r/<subreddit>/about/<banned|muted|contributors|moderators|scheduledposts|removal|settings|/wiki/config/automoderator|edit/?page=safety>" links from being redirected to sh.reddit.com as these pages don't exist, and will instead be directed www.reddit.com.
+- Bug fixes.
+
 version 1.10.0
 - Improved the "Redirect to Preferred UI" feature. (Requires the "declarativeNetRequest" permission).
 - The "Just Open The Image" feature now works with Chrome and Edge. (Requires the "declarativeNetRequest" permission).

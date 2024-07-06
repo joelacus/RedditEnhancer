@@ -756,7 +756,7 @@
 	},
 
 	"AutoExpandComments": {
-		"message": "Opmerkingen automatisch uitvouwen"
+		"message": "Vouw verborgen opmerkingen automatisch uit"
 	},
 
 	"AutoExpandCommentsInfo": {
@@ -776,7 +776,7 @@
 	},
 
 	"JustOpenTheImageInfo": {
-		"message": "Open afbeeldingen op zichzelf, in plaats van ingebed op een Reddit-pagina. (alleen Firefox)"
+		"message": "Open afbeeldingen op zichzelf, in plaats van ingebed op een Reddit-pagina."
 	},
 
 	"ScalePostToFitImage": {

@@ -329,3 +329,15 @@ input:disabled {
 #select-comments-sort-option .select span {
 	color: var(--text);
 }
+
+/* Shade */
+#shade {
+	position: fixed;
+	top: 6px;
+	right: 6px;
+}
+#shade div {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}

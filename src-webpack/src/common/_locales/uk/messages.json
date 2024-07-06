@@ -756,7 +756,7 @@
 	},
 
 	"AutoExpandComments": {
-		"message": "Автоматичне розгортання коментарів"
+		"message": "Автоматично розгортати приховані коментарі"
 	},
 
 	"AutoExpandCommentsInfo": {
@@ -776,7 +776,7 @@
 	},
 
 	"JustOpenTheImageInfo": {
-		"message": "Відкривайте зображення окремо, а не вбудовані на сторінці Reddit. (Лише Firefox)"
+		"message": "Відкривайте зображення окремо, а не вбудовані на сторінці Reddit."
 	},
 
 	"ScalePostToFitImage": {

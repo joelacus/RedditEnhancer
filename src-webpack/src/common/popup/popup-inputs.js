@@ -125,3 +125,25 @@ document.querySelector('#btn-addon-theme-classic-light').addEventListener('click
 	document.querySelector('body').classList.add('classic-light-theme');
 	BROWSER_API.storage.sync.set({ addonTheme: 'classic-light' });
 });
+
+// Button - Shade
+document.querySelector('#btn-shade').addEventListener('click', function (e) {
+	document.querySelector('#btn-shade').style.display = 'none';
+	document.querySelector('#btn-unshade').style.display = 'block';
+	document.querySelector('body').style.height = '40px';
+	document.querySelector('.top-menu-bar').style.display = 'none';
+	document.querySelector('#start-page').style.display = 'none';
+	document.querySelector('#main-menu').style.display = 'none';
+	document.querySelector('.footer').style.display = 'none';
+	document.querySelector('#settings').style.display = 'none';
+});
+document.querySelector('#btn-unshade').addEventListener('click', function (e) {
+	document.querySelector('#btn-shade').style.display = 'block';
+	document.querySelector('#btn-unshade').style.display = 'none';
+	document.querySelector('body').style.height = '';
+	document.querySelector('.top-menu-bar').style.display = '';
+	document.querySelector('#start-page').style.display = '';
+	document.querySelector('#main-menu').style.display = '';
+	document.querySelector('.footer').style.display = '';
+	document.querySelector('#settings').style.display = 'none';
+});

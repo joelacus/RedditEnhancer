@@ -150,7 +150,10 @@ function styleModerniseOldReddit(value) {
 										top: 0 !important;
 									}
 									#siteTable {
-										margin: 0 0 0 24px;
+										margin: 0 24px 0 24px;
+									}
+									.content > .menuarea {
+										margin-right: 24px
 									}
 									#siteTable .thing {
 										maring-bottom: 16px;
@@ -355,7 +358,7 @@ function styleModerniseOldReddit(value) {
 										align-items: center;
 										grid-gap: 8px;
 										height: 50px;
-										margin: 24px 0 16px 24px !important;
+										margin: 24px 24px 16px 24px !important;
 										width: calc(100% - 50px);
 										background-color: #1a1a1b;
 										border: solid 1px #343536;

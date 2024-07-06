@@ -22,7 +22,6 @@ import {
 	loadHideNotificationButton,
 	loadHidePopularButton,
 } from '../../../content/functions/hide_elements/hide_header_buttons';
-import { loadAutoExpandComments } from '../../../content/functions/productivity/auto_expand_comments';
 import { loadBionicReaderColours } from '../../../content/functions/accessibility/bionic_reader';
 import { loadCustomBackground } from '../../../content/functions/background/custom_background';
 import { loadCustomTheme } from '../../../content/functions/style/override_theme_colours';
@@ -80,7 +79,6 @@ export function observersNew() {
 		//loadDragImageToResize();
 		loadPostHeight();
 		loadHideUserProfilePics();
-		loadAutoExpandComments();
 		if (useLegacy) {
 			console.log('legacy observers feed container');
 			observerFeedConainter();

@@ -9,7 +9,7 @@
 			}
 		},
 		"condition": {
-			"regexFilter": "^https://(www|old|new)\\.reddit\\.com($|\\?|/($|\\?|avatar|best|controversial|hot|new|notifications|rising|search|settings|top))",
+			"regexFilter": "^https://(www|old|new)\\.reddit\\.com($|\\?|/($|\\?|avatar|best|controversial|hot|new|notifications|rising|search|settings|top|mod))",
 			"resourceTypes": ["main_frame"]
 		}
 	},
@@ -23,13 +23,27 @@
 			}
 		},
 		"condition": {
-			"regexFilter": "^https://(www|old|new)\\.reddit\\.com/r/(\\w)*($|\\?|/($|\\?|comments|controversial|hot|new|rising|top/(\\w)+|search|wiki))",
+			"regexFilter": "^https://(www|old|new)\\.reddit\\.com/r/(\\w)*($|\\?|/($|\\?|comments|controversial|hot|new|rising|top/\\w+|search|wiki))",
+			"resourceTypes": ["main_frame"]
+		}
+	},
+	{
+		"id": 11,
+		"priority": 3,
+		"action": {
+			"type": "redirect",
+			"redirect": {
+				"transform": { "host": "www.reddit.com" }
+			}
+		},
+		"condition": {
+			"regexFilter": "^https://sh\\.reddit\\.com/r/\\w+(/about/(banned|muted|contributors|moderators|scheduledposts|removal|settings|wiki|edit/?page=safety))?$",
 			"resourceTypes": ["main_frame"]
 		}
 	},
 	{
 		"id": 9,
-		"priority": 3,
+		"priority": 4,
 		"action": {
 			"type": "redirect",
 			"redirect": {

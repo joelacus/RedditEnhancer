@@ -14,15 +14,16 @@ export function hideJoinButtonOnPosts(value) {
 		styleElement.id = 're-hide-join-button-on-posts';
 		document.head.appendChild(styleElement);
 		styleElement.textContent = `[data-testid="post-container"] [id^="subscribe-button"] {
-										display: none;
+										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else if (redditVersion === 'newnew' && value === true) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-join-button-on-posts';
 		document.head.appendChild(styleElement);
-		styleElement.textContent = `shreddit-post shreddit-join-button {
-										display: none;
+		styleElement.textContent = `shreddit-post shreddit-join-button,
+									[data-testid="credit-bar-join-button"] {
+										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else if (value === false) {

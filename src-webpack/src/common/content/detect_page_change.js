@@ -15,17 +15,41 @@ const observer = new MutationObserver((mutations) => {
 		if (oldHref !== document.location.href) {
 			oldHref = document.location.href;
 			//console.log('detected page change');
-			// if post overlay
-			const overlay = document.querySelector('#overlayScrollContainer');
-			if (overlay) {
-				observerPostOverlay();
-			} else {
-				if (document.querySelector('.re-scroll-to-comment-container')) {
-					document.querySelector('.re-scroll-to-comment-container').remove();
+
+			// If sh.reddit.com, redirect these links about to www.reddit.com
+			const excludedPaths = [
+				'about/banned',
+				'about/muted',
+				'about/contributors',
+				'about/moderators',
+				'about/scheduledposts',
+				'about/removal',
+				'about/settings',
+				'about/wiki/config/automoderator',
+				'about/edit/?page=safety',
+			];
+			const currentUrl = window.location.href;
+			if (currentUrl.startsWith('https://sh.reddit.com/r/')) {
+				for (const path of excludedPaths) {
+					if (currentUrl.includes(path)) {
+						const newUrl = currentUrl.replace('sh.reddit.com', 'www.reddit.com');
+						window.location.replace(newUrl);
+						return;
+					}
 				}
-				defaultSortOption();
-				init();
-				load_saves();
+			} else {
+				// If post overlay
+				const overlay = document.querySelector('#overlayScrollContainer');
+				if (overlay) {
+					observerPostOverlay();
+				} else {
+					if (document.querySelector('.re-scroll-to-comment-container')) {
+						document.querySelector('.re-scroll-to-comment-container').remove();
+					}
+					defaultSortOption();
+					init();
+					load_saves();
+				}
 			}
 		}
 	});

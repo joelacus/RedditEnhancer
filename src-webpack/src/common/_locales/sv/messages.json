@@ -644,31 +644,31 @@
 	},
 
 	"AlwaysShowPostOptions": {
-		"message": "Always Show Post Options"
+		"message": "Visa alltid inläggsalternativ"
 	},
 
 	"LargerClassicPost": {
-		"message": "Larger Classic Post View"
+		"message": "Större klassisk inläggsvy"
 	},
 
 	"PositionVertically": {
-		"message": "Position Vertically"
+		"message": "Placera Vertikalt"
 	},
 
 	"PositionHorizontally": {
-		"message": "Position Horizontally"
+		"message": "Placera Horisontellt"
 	},
 
 	"BreakReminder": {
-		"message": "Break Reminder"
+		"message": "Pauspåminnelse"
 	},
 
 	"BreakReminderInfo": {
-		"message": "Beta. Shows a reminder to have a break every set number of posts."
+		"message": "Beta. Visar en påminnelse om att ta en paus för varje antal inlägg."
 	},
 
 	"BreakReminderFrequency": {
-		"message": "Reminder Frequency"
+		"message": "Påminnelsefrekvens"
 	},
 
 	"TranslationHelp": {
@@ -676,47 +676,47 @@
 	},
 
 	"Off": {
-		"message": "Off"
+		"message": "Av"
 	},
 
 	"ShowPostAuthor": {
-		"message": "Show Post Author"
+		"message": "Visa inläggsförfattare"
 	},
 
 	"ShowPostFlair": {
-		"message": "Show Post Flair"
+		"message": "Visa inläggskänsla"
 	},
 
 	"RemovePageSideMargin": {
-		"message": "Remove the Page Side Margin"
+		"message": "Ta bort sidmarginalen"
 	},
 
 	"HideSideMenuTopSection": {
-		"message": "Hide the Top Section"
+		"message": "Dölj den övre delen"
 	},
 
 	"HideSideMenuModerationSection": {
-		"message": "Hide the Moderation Section"
+		"message": "Dölj 'Moderation' sektionen"
 	},
 
 	"HideSideMenuRecentSection": {
-		"message": "Hide the Recent Section"
+		"message": "Dölj 'Recent' sektionen"
 	},
 
 	"HideSideMenuCommunitiesSection": {
-		"message": "Hide the Communities Section"
+		"message": "Dölj 'Communities' sektionen"
 	},
 
 	"HideSideMenuResourcesSection": {
-		"message": "Hide the Resources Section"
+		"message": "Dölj 'Resources' sektionen"
 	},
 
 	"HideSideMenuTopicsSection": {
-		"message": "Hide the Topics Section"
+		"message": "Dölj 'Topics' sektionen"
 	},
 
 	"HideRelatedPosts": {
-		"message": "Hide Related Posts"
+		"message": "Dölj 'Related Posts'"
 	},
 
 	"Select": {
@@ -756,7 +756,7 @@
 	},
 
 	"AutoExpandComments": {
-		"message": "Auto Expand Comments"
+		"message": "Expandera dolda kommentarer automatiskt"
 	},
 
 	"AutoExpandCommentsInfo": {
@@ -768,23 +768,23 @@
 	},
 
 	"HidePostHiddenMessage": {
-		"message": "Hide 'Post Hidden' Message"
+		"message": "Dölj 'Post Hidden' meddelande"
 	},
 
 	"JustOpenTheImage": {
-		"message": "Just Open The Image"
+		"message": "Öppna bara bilden"
 	},
 
 	"JustOpenTheImageInfo": {
-		"message": "Open images on their own, instead of embedded on a Reddit page. (Firefox only)"
+		"message": "Öppna bilder på egen hand, istället för inbäddade på en Reddit-sida."
 	},
 
 	"ScalePostToFitImage": {
-		"message": "Scale Post To Fit Image"
+		"message": "Skala inlägg för att passa bild"
 	},
 
 	"LimitImageWidth": {
-		"message": "Limit Image Width"
+		"message": "Begränsa bildbredden"
 	},
 
 	"Settings": {

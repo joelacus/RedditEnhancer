@@ -756,7 +756,7 @@
 	},
 
 	"AutoExpandComments": {
-		"message": "Auto Expand Comments"
+		"message": "A Rejtett megjegyzések automatikus kibontása"
 	},
 
 	"AutoExpandCommentsInfo": {
@@ -776,7 +776,7 @@
 	},
 
 	"JustOpenTheImageInfo": {
-		"message": "Open images on their own, instead of embedded on a Reddit page. (Firefox only)"
+		"message": "Open images on their own, instead of embedded on a Reddit page."
 	},
 
 	"ScalePostToFitImage": {

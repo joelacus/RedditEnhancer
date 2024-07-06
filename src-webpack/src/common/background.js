@@ -117,7 +117,7 @@ function checkTime(i) {
 }
 
 // Refresh Tweaks When Add-On is Reloaded
-function reload_tabs() {
+/*function reload_tabs() {
 	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
 		tabs.forEach(function (tab) {
 			if (tab.url.includes('reddit.com') && tab.discarded == false) {
@@ -125,8 +125,8 @@ function reload_tabs() {
 			}
 		});
 	});
-}
-reload_tabs();
+}*/
+//reload_tabs();
 
 // Function to fetch data
 function fetchData(sendResponse) {
@@ -216,7 +216,7 @@ function removeImageRules() {
 	}
 	options.disableRulesetIds.push('image_ruleset');
 	BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
-		console.log('Rules updated');
+		console.log('Remove image ruleset');
 		BROWSER_API.tabs
 			.reload()
 			.then(() => {
@@ -237,8 +237,8 @@ function addImageRules() {
 	BROWSER_API.declarativeNetRequest
 		.updateEnabledRulesets(options)
 		.then(() => {
-			console.log('Rules updated');
-			reload_tabs();
+			console.log('Add image ruleset');
+			//reload_tabs();
 		})
 		.catch((error) => {
 			console.error('Error updating rules:', error);
@@ -254,17 +254,22 @@ BROWSER_API.storage.sync.get(['autoRedirectVersion'], function (result) {
 
 // Update Redirect Ruleset
 function updateRedirectRuleset(version) {
+	console.log('Redirect to: ' + version);
 	if (version === 'old') {
 		options = { enableRulesetIds: ['old_ruleset'], disableRulesetIds: ['new_ruleset', 'sh_ruleset'] };
+		console.log('Removed new and sh rulesets. Added old ruleset');
 	} else if (version === 'new') {
 		options = { enableRulesetIds: ['new_ruleset'], disableRulesetIds: ['old_ruleset', 'sh_ruleset'] };
+		console.log('Removed old and sh rulesets. Added new ruleset');
 	} else if (version === 'newnew') {
 		options = { enableRulesetIds: ['sh_ruleset'], disableRulesetIds: ['old_ruleset', 'new_ruleset'] };
+		console.log('Removed old and new rulesets. Added sh ruleset');
 	} else {
 		options = { enableRulesetIds: [], disableRulesetIds: ['old_ruleset', 'new_ruleset', 'sh_ruleset'] };
+		console.log('Removed old, new and sh rulesets');
 	}
 	BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
-		reload_tabs();
+		console.log('Updated enabled rulesets');
 	});
 }
 

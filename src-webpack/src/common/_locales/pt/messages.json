@@ -756,7 +756,7 @@
 	},
 
 	"AutoExpandComments": {
-		"message": "Comentários de expansão automática"
+		"message": "Expandir comentários ocultos automaticamente"
 	},
 
 	"AutoExpandCommentsInfo": {
@@ -776,7 +776,7 @@
 	},
 
 	"JustOpenTheImageInfo": {
-		"message": "Abra imagens por conta própria, em vez de incorporá-las em uma página do Reddit. (somente Firefox)"
+		"message": "Abra imagens por conta própria, em vez de incorporá-las em uma página do Reddit."
 	},
 
 	"ScalePostToFitImage": {

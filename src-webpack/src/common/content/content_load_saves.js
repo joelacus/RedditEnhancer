@@ -35,7 +35,15 @@ import { loadAutoShowCommentFormattingOptions } from './functions/productivity/a
 export function load_saves() {
 	if (redditVersion === 'old') {
 		loadModerniseOldReddit();
+		loadAutoExpandComments();
+		loadAutoLoadMoreComments();
 	} else if (redditVersion === 'new') {
+		const link = window.location.href;
+		if (link.indexOf('/comments/') >= 0) {
+			loadAutoExpandComments();
+			loadAutoLoadMoreComments();
+			loadAutoCollapseAutoModeratorComment();
+		}
 		loadAlwaysShowRisingButton();
 		loadShowControversialSortButton();
 		loadFitImage();
@@ -53,8 +61,6 @@ export function load_saves() {
 		loadBionicReaderForComments();
 		loadShowPostNumbers();
 		loadBreakReminder();
-		loadAutoExpandComments();
-		loadAutoCollapseAutoModeratorComment();
 	} else if (redditVersion === 'newnew') {
 		//loadAddDownloadVideoButton();
 		loadBionicReaderForComments();

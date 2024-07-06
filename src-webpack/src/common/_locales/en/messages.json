@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.10.0"
+		"message": "1.10.1"
 	},
 
 	"extensionName": {
@@ -764,7 +764,7 @@
 	},
 
 	"AutoExpandComments": {
-		"message": "Auto Expand Comments"
+		"message": "Auto Expand Hidden Comments"
 	},
 
 	"AutoExpandCommentsInfo": {
@@ -784,7 +784,7 @@
 	},
 
 	"JustOpenTheImageInfo": {
-		"message": "Open images on their own, instead of embedded on a Reddit page. (Firefox only)"
+		"message": "Open images on their own, instead of embedded on a Reddit page."
 	},
 
 	"ScalePostToFitImage": {
