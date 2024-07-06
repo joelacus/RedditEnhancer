@@ -1,0 +1,32 @@
+Migliora la tua esperienza Reddit con Reddit Enhancer! Un'estensione del browser che ti consente di personalizzare la tua pagina Reddit con pochi clic.
+Supporta tutte le versioni di Reddit.
+
+Con Reddit Enhancer puoi:
+• Ridimensiona il feed e la larghezza del post per una migliore esperienza visiva.
+• Scegli la tua versione Reddit preferita. (devi aver effettuato l'accesso a Reddit per new.reddit.com).
+• Personalizza i colori del tema e aggiungi uno sfondo.
+• Nascondi i post promossi e consigliati, nonché gli annunci premium di Reddit.
+• Nascondi numerosi altri elementi che non usi o che non desideri vedere per un'interfaccia più pulita e meno ingombrante.
+• Aprire direttamente le immagini in una nuova scheda, anziché incorporarle in una pagina.
+• Ridimensiona le immagini alte per adattarle al post oppure aggiungi una barra di scorrimento per vedere l'intera larghezza dell'immagine e scorri semplicemente per vedere di più.
+• Scorrere fino al commento principale successivo con un clic di un pulsante.
+• Abilita la lettura bionica per post e commenti e/o modifica la dimensione del carattere, per una lettura più rapida e semplice.
+• Mostra l'autore del post mancante sull'ultima versione di Reddit.
+• E altro ancora! Consulta il sito di supporto per un elenco completo delle funzionalità.
+
+*non tutte le funzionalità supportano tutte le versioni di Reddit.
+
+
+Come usarlo:
+1. Installa l'estensione.
+2. Visita reddit.com.
+3. Clicca su Reddit Enhancer nel menu delle estensioni nella barra degli strumenti di Chrome.
+4. Attiva le funzionalità che desideri :)
+
+
+
+Questa estensione non è affiliata o approvata da Reddit.
+Questa estensione non raccoglie dati e rispetta la privacy degli utenti.
+
+Aggiornamenti al sito Reddit potrebbero rendere questa estensione non funzionante in futuro. Si prega di segnalare eventuali bug o suggerimenti per nuove funzionalità. Sono benvenuti contributi per traduzioni se desideri contribuire a migliorare e/o aggiungere nuove traduzioni.
+Consulta il link del sito web nella sezione Informazioni aggiuntive.

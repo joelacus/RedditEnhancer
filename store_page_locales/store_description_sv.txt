@@ -1,0 +1,32 @@
+Förbättra din Reddit-upplevelse med Reddit Enhancer! En webbläsartillägg som låter dig anpassa din Reddit-sida med bara några få klick.
+Stöder alla versioner av Reddit.
+
+Med Reddit Enhancer kan du:
+• Ändra storlek på flödet och inläggets bredd för en bättre tittarupplevelse.
+• Välj din föredragna Reddit-version. (du måste vara inloggad på Reddit för new.reddit.com).
+• Anpassa temafärger och lägg till en bakgrundsbakgrund.
+• Dölj marknadsförda och rekommenderade inlägg, samt reddit premiumannonser.
+• Dölj många andra element som du inte använder eller vill se för ett renare och mindre rörigt gränssnitt.
+• Öppna bilder i en ny flik på egen hand direkt, istället för att bäddas in på en sida.
+• Skala höga bilder så att de passar i inlägget, eller lägg till en rullningslist för att se hela bildens bredd och rulla bara för att se mer.
+• Bläddra till nästa rotkommentar med ett klick på en knapp.
+• Aktivera Bionic Reading för inlägg och kommentarer, och/eller ändra teckenstorleken, för snabbare och enklare läsning.
+• Visa den saknade inläggsförfattaren på den senaste versionen av Reddit.
+• Och mycket mer! Se supportwebbplatsen för en fullständig lista över funktioner.
+
+*inte alla funktioner stöder alla versioner av Reddit.
+
+
+Hur man använder:
+1. Installera tillägget.
+2. Besök reddit.com
+3. Klicka på Reddit Enhancer i Extensions-menyn i Chromes verktygsfält.
+4. Aktivera de funktioner du vill ha :)
+
+
+
+Detta tillägg är inte anslutet till eller godkänt av Reddit.
+Detta tillägg samlar inte in data och respekterar användarnas integritet.
+
+Uppdateringar av Reddit-webbplatsen kan bryta detta tillägg i framtiden, vänligen öppna ett problem om du stöter på några buggar eller har förslag på nya funktioner. Jag välkomnar all översättningshjälp om du vill bidra till att förbättra och/eller lägga till nya översättningar.
+Se webbplatslänk i avsnittet Ytterligare information.

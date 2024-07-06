@@ -1,0 +1,32 @@
+Növelje Reddit élményét a Reddit Enhancer segítségével! Böngészőbővítmény, amellyel néhány kattintással testreszabhatja Reddit oldalát.
+Támogatja a Reddit összes verzióját.
+
+A Reddit Enhancer segítségével:
+• A jobb megtekintési élmény érdekében méretezze át a hírcsatornát és a bejegyzés szélességét.
+• Válassza ki a kívánt Reddit verziót. (A new.reddit.com webhelyhez be kell jelentkeznie a Reddit).
+• A téma színeinek testreszabása és háttérkép hozzáadása.
+• A kiemelt és ajánlott bejegyzések, valamint a reddit prémium hirdetések elrejtése.
+• A tisztább és kevésbé zsúfolt felület érdekében számos más olyan elem elrejtése, amelyet nem használ vagy látni szeretne.
+• Nyissa meg a képeket egy új lapon önmagukban, ahelyett, hogy egy oldalba ágyazná őket.
+• Méretezze át a magas képeket, hogy elférjen a bejegyzésben, vagy adjon hozzá egy görgetősávot a kép teljes szélességének megtekintéséhez, és görgessen tovább, ha többet szeretne látni.
+• Egy gombnyomással görgessen a következő gyökér megjegyzéshez.
+• Engedélyezze a Bionic Reading funkciót a bejegyzésekhez és megjegyzésekhez, és/vagy módosítsa a betűméretet a gyorsabb és egyszerűbb olvasás érdekében.
+• A hiányzó bejegyzés szerzőjének megjelenítése a Reddit legújabb verziójában.
+• És még sok más! Tekintse meg a támogatási webhelyet a szolgáltatások teljes listájáért.
+
+*nem minden funkció támogatja a Reddit összes verzióját.
+
+
+Hogyan kell használni:
+1. Telepítse a kiegészítőt.
+2. Látogassa meg a reddit.com webhelyet.
+3. Kattintson a Reddit Enhancer elemre a Chrome eszköztár Bővítmények menüjében.
+4. Engedélyezze a kívánt funkciókat :)
+
+
+
+Ez a kiegészítő nem kapcsolódik a Reddithez, és nem támogatja azt.
+Ez a kiegészítő nem gyűjt adatokat, és tiszteletben tartja a felhasználók adatait.
+
+A Reddit webhely frissítései a jövőben megszakíthatják ezt a bővítményt. Kérjük, nyissa meg a problémát, ha hibákat észlel, vagy bármilyen új funkciójavaslata van. Szívesen veszek minden fordítási segítséget, ha hozzá szeretne járulni a fordítások javításához és/vagy új fordításokhoz.
+Lásd a weboldal hivatkozását a További információk részben.

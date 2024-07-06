@@ -1,0 +1,32 @@
+Melhore a sua experiência no Reddit com o Reddit Enhancer! Uma extensão de navegador que permite personalizar sua página do Reddit com apenas alguns cliques.
+Suporta todas as versões do Reddit.
+
+Com o Reddit Enhancer, você pode:
+• Redimensione o feed e a largura da postagem para uma melhor experiência de visualização.
+• Escolha sua versão preferida do Reddit. (é necessário estar logado no Reddit para new.reddit.com).
+• Personalize as cores do tema e adicione um papel de parede de fundo.
+• Oculte postagens promovidas e recomendadas, bem como anúncios premium do Reddit.
+• Oculte vários outros elementos que você não usa ou não deseja ver para obter uma interface mais limpa e menos confusa.
+• Abra imagens diretamente em uma nova guia, em vez de incorporá-las em uma página.
+• Dimensione imagens altas para caber na postagem ou adicione uma barra de rolagem para ver toda a largura da imagem e simplesmente role para ver mais.
+• Role até o próximo comentário raiz com o clique de um botão.
+• Ative a leitura biônica para postagens e comentários e/ou altere o tamanho da fonte para uma leitura mais rápida e fácil.
+• Mostrar o autor da postagem ausente na versão mais recente do Reddit.
+• E muito mais! Consulte o site de suporte para obter uma lista completa de recursos.
+
+*nem todos os recursos suportam todas as versões do Reddit.
+
+
+Como usar:
+1. Instale a extensão.
+2. Visite reddit.com.
+3. Clique em Reddit Enhancer no menu de extensões na barra de ferramentas do Chrome.
+4. Ative as funcionalidades que desejar :)
+
+
+
+Esta extensão não está afiliada nem é endossada pelo Reddit.
+Esta extensão não coleta dados e respeita a privacidade dos usuários.
+
+Atualizações no site Reddit podem afetar esta extensão no futuro. Por favor, abra uma solicitação se encontrar algum bug ou tiver sugestões de novos recursos. Agradeço qualquer ajuda com traduções se você quiser contribuir para melhorar e/ou adicionar novas traduções.
+Consulte o link do site na seção de Informações Adicionais.

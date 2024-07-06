@@ -1,0 +1,32 @@
+Paranna Reddit-kokemustasi Reddit Enhancer! Selainlaajennus, jonka avulla voit mukauttaa Reddit-sivuasi vain muutamalla napsautuksella.
+Tukee kaikkia Reddit versioita.
+
+Reddit Enhancer avulla voit:
+• Muuta syötteen kokoa ja tekstin leveyttä parantaaksesi katselukokemusta.
+• Valitse haluamasi Reddit-versio. (sinun on oltava kirjautuneena Reddit new.reddit.com-sivustolle).
+• Mukauta teeman värejä ja lisää taustakuva.
+• Piilota korotetut ja suositellut viestit sekä reddit premium -mainokset.
+• Piilota lukuisia muita elementtejä, joita et käytä tai et halua nähdä, jotta käyttöliittymä on selkeämpi ja vähemmän sotkuinen.
+• Avaa kuvat uudella välilehdellä sellaisenaan suoraan sivulle upotuksen sijaan.
+• Skaalaa korkeat kuvat niin, että ne mahtuvat viestiin, tai lisää vierityspalkki nähdäksesi kuvan koko leveyden ja vieritä nähdäksesi lisää.
+• Selaa seuraavaan juurikommenttiin napin painalluksella.
+• Ota Bionic Reading käyttöön viesteissä ja kommenteissa ja/tai muuta kirjasinkokoa nopeuttaaksesi ja helpottaaksesi lukemista.
+• Näytä puuttuva viestin kirjoittaja Redditin uusimmassa versiossa.
+• Ja paljon enemmän! Katso tukisivustolta täydellinen luettelo ominaisuuksista.
+
+*kaikki ominaisuudet eivät tue kaikkia Reddit versioita.
+
+
+Kuinka käyttää:
+1. Asenna lisäosa.
+2. Siirry osoitteeseen reddit.com
+3. Napsauta Reddit Enhancer Chrome-työkalupalkin Laajennukset-valikossa.
+4. Ota haluamasi ominaisuudet käyttöön :)
+
+
+
+Tämä lisäosa ei ole Redditin sidos tai tukema.
+Tämä lisäosa ei kerää tietoja ja kunnioittaa käyttäjien yksityisyyttä.
+
+Reddit-sivuston päivitykset voivat rikkoa tämän lisäosan tulevaisuudessa. Avaa ongelma, jos havaitset virheitä tai sinulla on ehdotuksia uusista ominaisuuksista. Otan mielelläni vastaan käännösapua, jos haluat parantaa ja/tai lisätä uusia käännöksiä.
+Katso verkkosivuston linkki Lisätiedot-osiosta.

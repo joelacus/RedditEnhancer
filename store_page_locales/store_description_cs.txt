@@ -1,0 +1,32 @@
+Vylepšete své zážitky z Reddit pomocí Reddit Enhancer! Rozšíření prohlížeče, které vám umožní přizpůsobit si stránku Reddit pomocí několika kliknutí.
+Podpora všech verzí Reddit.
+
+S Reddit Enhancer můžete:
+• Změňte velikost kanálu a šířky příspěvku pro lepší zážitek ze sledování.
+• Vyberte si preferovanou verzi Reddit. (musíte být přihlášeni na Reddit pro new.reddit.com).
+• Přizpůsobte barvy motivu a přidejte tapetu na pozadí.
+• Skryjte propagované a doporučené příspěvky a také prémiové reklamy na redditu.
+• Skryjte mnoho dalších prvků, které nepoužíváte nebo nechcete vidět, abyste získali čistší a méně přeplněné rozhraní.
+• Otevírejte obrázky na nové kartě samostatně přímo, místo aby byly vkládány na stránku.
+• Změňte měřítko vysokých obrázků tak, aby se vešly do příspěvku, nebo přidejte posuvník pro zobrazení celé šířky obrázku a pouhým posunutím zobrazíte další.
+• Přejděte na další kořenový komentář kliknutím na tlačítko.
+• Povolte Bionické čtení pro příspěvky a komentáře a/nebo změňte velikost písma pro rychlejší a snadnější čtení.
+• Zobrazit chybějícího autora příspěvku na nejnovější verzi Redditu.
+• A mnohem víc! Úplný seznam funkcí naleznete na stránce podpory.
+
+*ne všechny funkce podporují všechny verze Reddit.
+
+
+Jak používat:
+1. Nainstalujte doplněk.
+2. Navštivte stránku reddit.com
+3. Klikněte na Reddit Enhancer v nabídce Rozšíření na panelu nástrojů Chrome.
+4. Povolte funkce, které chcete :)
+
+
+
+Tento doplněk není přidružen ani schválen Redditem.
+Tento doplněk neshromažďuje data a respektuje soukromí uživatelů.
+
+Aktualizace webu Reddit mohou tento doplněk v budoucnu přerušit. Pokud narazíte na nějaké chyby nebo máte nějaké návrhy na nové funkce, otevřete problém. Uvítám jakoukoli pomoc s překladem, pokud byste chtěli přispět ke zlepšení a/nebo přidání nových překladů.
+Viz odkaz na web v sekci Další informace.

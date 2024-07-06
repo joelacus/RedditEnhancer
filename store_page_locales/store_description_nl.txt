@@ -1,0 +1,32 @@
+Verbeter uw Reddit-ervaring met Reddit Enhancer! Een browserextensie waarmee u uw Reddit-pagina met slechts een paar klikken kunt aanpassen.
+Ondersteunt alle versies van Reddit.
+
+Met Reddit Enhancer kunt u:
+• Pas het formaat van de feed en berichtbreedte aan voor een betere kijkervaring.
+• Kies de Reddit-versie van uw voorkeur. (je moet ingelogd zijn bij Reddit voor new.reddit.com).
+• Pas de themakleuren aan en voeg een achtergrondachtergrond toe.
+• Verberg gepromote en aanbevolen berichten en Reddit premium-advertenties.
+• Verberg talloze andere elementen die u niet gebruikt of wilt zien voor een schonere en minder rommelige interface.
+• Open afbeeldingen rechtstreeks op een nieuw tabblad, in plaats van dat ze op een pagina worden ingesloten.
+• Schaal grote afbeeldingen zodat ze in het bericht passen, of voeg een schuifbalk toe om de volledige breedte van de afbeelding te zien en scroll gewoon om meer te zien.
+• Scroll met één klik op de knop naar de volgende hoofdopmerking.
+• Schakel Bionic Reading in voor berichten en opmerkingen, en/of wijzig de lettergrootte, voor sneller en gemakkelijker lezen.
+• Toon de ontbrekende berichtauteur in de nieuwste versie van Reddit.
+• En nog veel meer! Zie de ondersteuningssite voor een volledige lijst met functies.
+
+*niet alle functies ondersteunen alle versies van Reddit.
+
+
+Hoe te gebruiken:
+1. Installeer de add-on.
+2. Bezoek reddit.com.
+3. Klik op Reddit Enhancer in het Extensiemenu in de Chrome-werkbalk.
+4. Activeer de functies die u wilt :)
+
+
+
+Deze add-on heeft geen affiliatie met Reddit en wordt niet ondersteund door Reddit.
+Deze add-on verzamelt geen gegevens en respecteert de privacy van gebruikers.
+
+Updates op de Reddit-site kunnen deze add-on in de toekomst verstoren. Meld alstublieft een probleem als u bugs tegenkomt of nieuwe functievoorstellen heeft. Ik verwelkom alle hulp bij vertalingen als u wilt bijdragen aan verbetering en/of toevoeging van nieuwe vertalingen.
+Zie de websitekoppeling in de sectie Aanvullende informatie.

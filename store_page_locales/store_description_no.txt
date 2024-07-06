@@ -1,0 +1,32 @@
+Forbedre Reddit-opplevelsen din med Reddit Enhancer! En nettleserutvidelse som lar deg tilpasse Reddit-siden din med bare noen få klikk.
+Støtter alle versjoner av Reddit.
+
+Med Reddit Enhancer kan du:
+• Endre størrelsen på feeden og innleggsbredden for en bedre seeropplevelse.
+• Velg din foretrukne Reddit-versjon. (du må være logget på Reddit for new.reddit.com).
+• Tilpass temafarger og legg til et bakgrunnsbilde.
+• Skjul promoterte og anbefalte innlegg, samt reddit premium-annonser.
+• Skjul mange andre elementer du ikke bruker eller ønsker å se for et renere og mindre rotete grensesnitt.
+• Åpne bilder i en ny fane på egenhånd direkte, i stedet for å bli innebygd på en side.
+• Skaler høye bilder for å passe inn i innlegget, eller legg til en rullefelt for å se hele bredden på bildet og bare rull for å se mer.
+• Rull til neste rotkommentar med et klikk på en knapp.
+• Aktiver Bionic Reading for innlegg og kommentarer, og/eller endre skriftstørrelsen, for raskere og enklere lesing.
+• Vis den manglende innleggsforfatteren på den nyeste versjonen av Reddit.
+• Og mye mer! Se støtteside for en fullstendig liste over funksjoner.
+
+*ikke alle funksjoner støtter alle versjoner av Reddit.
+
+
+Hvordan å bruke:
+1. Installer tillegget.
+2. Besøk reddit.com
+3. Klikk på Reddit Enhancer i Extensions-menyen på Chrome-verktøylinjen.
+4. Aktiver funksjonene du ønsker :)
+
+
+
+Dette tillegget er ikke tilknyttet eller godkjent av Reddit.
+Dette tillegget samler ikke inn data og respekterer brukernes personvern.
+
+Oppdateringer til Reddit-siden kan ødelegge dette tillegget i fremtiden, vennligst åpne et problem hvis du støter på feil eller har forslag til nye funksjoner. Jeg tar gjerne imot all oversettelseshjelp hvis du ønsker å bidra til å forbedre og/eller legge til nye oversettelser.
+Se nettsidelenke i tilleggsinformasjonsdelen.

@@ -1,0 +1,32 @@
+¡Mejora tu experiencia en Reddit con Reddit Enhancer! Una extensión del navegador que te permite personalizar tu página de Reddit con solo unos pocos clics.
+Admite todas las versiones de Reddit.
+
+Con Reddit Enhancer, puedes:
+• Cambie el tamaño del feed y el ancho de la publicación para una mejor experiencia de visualización.
+• Elija su versión de Reddit preferida. (debe iniciar sesión en Reddit para acceder a new.reddit.com).
+• Personaliza los colores del tema y agrega un fondo de pantalla.
+• Ocultar publicaciones promocionadas y recomendadas, así como anuncios premium de Reddit.
+• Oculta muchos otros elementos que no utilizas o que no deseas ver para obtener una interfaz más limpia y menos abarrotada.
+• Abrir imágenes directamente en una nueva pestaña, en lugar de incrustarlas en una página.
+• Escale las imágenes altas para que quepan dentro de la publicación, o agregue una barra de desplazamiento para ver el ancho completo de la imagen y simplemente desplácese para ver más.
+• Desplácese al siguiente comentario raíz con solo hacer clic en un botón.
+• Habilite la lectura biónica para publicaciones y comentarios, y/o cambie el tamaño de fuente, para una lectura más rápida y sencilla.
+• Mostrar el autor de la publicación que falta en la última versión de Reddit.
+• ¡Y mucho más! Consulte el sitio de soporte para obtener una lista completa de funciones.
+
+*no todas las funciones son compatibles con todas las versiones de Reddit.
+
+
+Cómo usarlo:
+1. Instala la extensión.
+2. Visita reddit.com.
+3. Haz clic en Reddit Enhancer en el menú de extensiones en la barra de herramientas de Chrome.
+4. Activa las funciones que desees :)
+
+
+
+Esta extensión no está afiliada ni respaldada por Reddit.
+Esta extensión no recopila datos y respeta la privacidad de los usuarios.
+
+Las actualizaciones en el sitio de Reddit pueden afectar esta extensión en el futuro. Por favor, informa cualquier error que encuentres o nuevas sugerencias de características. Agradezco cualquier ayuda en traducciones si deseas contribuir a mejorar y/o agregar nuevas traducciones.
+Consulta el enlace del sitio web en la sección de Información adicional.
