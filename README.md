@@ -30,10 +30,10 @@ I welcome any help if you would like to improve or contribute new language trans
 |Always Show Rising Sort Button|The sort by rising button is no longer hidden in a pointless submenu. Can be disabled.|"Old New"|
 |Auto Collapse AutoModerator Comment|Automatically collapses the top comment made by AutoModerator.|All|
 |Auto Dark Mode|You can either set it to enable light/dark mode automatically based on your browser theme, or during a certain period of time in the day between user specified times.|"Old New"|
-|Auto Expand Hidden Comments|Automatically expand hidden comments on a post. This may add a delay to the page loading, especially if there are a lot of comments.|"Old New"<br />"New New"|
+|Auto Expand Hidden Comments/Comment Replies|Automatically expand hidden comments on a post as you scroll down.|"All"|
 |Auto Expand|This will automatically expand the feed/post to 100%, overriding the 'Adjust Feed/Post Width' option if the screen/window is less than the set value (default 1000px).|All|
 |Auto hide cookie prompt|Automatically hides the cookie popup if you haven't already accepted/dismissed it.|"Old New"|
-|Auto Load More Comments|Automatically load more comments on a post if it requires you to click a button to load more comments. (Can cause lag)|"New New"|
+|Auto Load More Comments|Automatically load more comments on a post if it requires you to click a button to load more comments. (Can cause lag)|"All"|
 |Auto Redirect To Preferred Reddit Version/UI|Automatically redirect any reddit page to the old, new or latest version of Reddit.|N/A|
 |Auto Show Formatting Options When Commenting|Automatically enables the formatting options when commenting on posts.|"New New"|
 |Bionic Reader|Enable bionic reading for posts and comments. You can also override the font and text background colours.|"Old New"<br />"New New"|
@@ -110,10 +110,10 @@ Feel free to add any new languages and/or region differences.
 |[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|100%|
 |[Spanish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/es/messages.json)|100%|
 |[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|100%|
-|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|39%|
+|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|59%|
 |[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|45%|
 |[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|40%|
-|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|50%|
+|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|39%|
 
 
 ## Build
