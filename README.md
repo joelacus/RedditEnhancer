@@ -96,6 +96,8 @@ Translations are initially done with Google Translate and AI, so there may be er
 
 If you speak any of these languages and would like to help correct any issues, that would be greatly appreciated.
 
+Locales for the addon store pages are [here](https://github.com/joelacus/RedditEnhancer/tree/main/store_page_locales)
+
 Feel free to add any new languages and/or region differences.
 
 |Language|Completion|
