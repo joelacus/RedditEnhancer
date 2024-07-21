@@ -873,5 +873,9 @@
 
 	"TopicFeedWidth": {
 		"message": "Šířka zdroje tématu"
+	},
+
+	"YouNeedToBeLoggedIn": {
+		"message": "Aby přesměrování na „Starý Nový UI“ fungovalo, musíte být přihlášeni na Reddit."
 	}
 }

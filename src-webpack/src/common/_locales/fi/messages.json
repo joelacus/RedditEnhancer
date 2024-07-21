@@ -873,5 +873,9 @@
 
 	"TopicFeedWidth": {
 		"message": "Aiheen syötteen leveys"
+	},
+
+	"YouNeedToBeLoggedIn": {
+		"message": "Sinun on oltava kirjautuneena Redditiin, jotta uudelleenohjaus 'Vanha Uusi UI' toimii."
 	}
 }

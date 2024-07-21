@@ -2600,6 +2600,8 @@ function restoreOptions() {
 			document.querySelector('.icon-hide-join-button-on-posts').style.backgroundColor = 'var(--accent)';
 			document.querySelector('#checkbox-hide-join-button-on-posts').checked = true;
 			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-elements').classList.remove('icon-show');
+			document.querySelector('.icon-hide-elements').classList.add('icon-hide');
 			var value = true;
 		} else if (typeof result.hideJoinButtonOnPosts == 'undefined' || result.hideJoinButtonOnPosts == false) {
 			document.querySelector('#checkbox-hide-join-button-on-posts').checked = false;

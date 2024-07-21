@@ -6,6 +6,7 @@
 	flex-direction: column;
 	align-items: center;
 	width: 470px;
+	height: 40px;
 }
 .menu-title {
 	position: relative;
@@ -24,9 +25,7 @@
 
 /* Top Menu Bar */
 .top-menu-bar {
-	position: absolute;
-	top: 40px;
-	left: 10px;
+	margin-top: 8px;
 	display: grid;
 	grid-template-columns: repeat(3, auto);
 	grid-gap: 8px;
@@ -42,11 +41,31 @@
 
 /* Search */
 #no-search-results {
-	position: absolute;
-	top: 200px;
+	margin-top: 100px;
+	height: 100%;
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	font-size: 20px;
 	color: var(--text-grey);
+}
+
+/* Old New UI Redirect Notification */
+#old-new-ui-alert {
+	display: grid;
+	grid-template-columns: 425px 25px;
+	display: none;
+	width: 450px;
+	height: fit-content;
+	padding-top: 4px;
+	padding-left: 4px;
+}
+#old-new-ui-alert div {
+	width: 20px;
+	height: 20px;
+	line-height: 22px;
+	font-size: 22px;
+	text-align: center;
+	cursor: pointer;
+	transform: rotate(45deg);
 }

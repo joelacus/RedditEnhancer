@@ -130,7 +130,8 @@ document.querySelector('#btn-addon-theme-classic-light').addEventListener('click
 document.querySelector('#btn-shade').addEventListener('click', function (e) {
 	document.querySelector('#btn-shade').style.display = 'none';
 	document.querySelector('#btn-unshade').style.display = 'block';
-	document.querySelector('body').style.height = '40px';
+	document.querySelector('body').style.height = '25px';
+	document.querySelector('.menu-title-container').style.marginTop = '-7px';
 	document.querySelector('.top-menu-bar').style.display = 'none';
 	document.querySelector('#start-page').style.display = 'none';
 	document.querySelector('#main-menu').style.display = 'none';
@@ -141,9 +142,14 @@ document.querySelector('#btn-unshade').addEventListener('click', function (e) {
 	document.querySelector('#btn-shade').style.display = 'block';
 	document.querySelector('#btn-unshade').style.display = 'none';
 	document.querySelector('body').style.height = '';
+	document.querySelector('.menu-title-container').style.marginTop = '';
 	document.querySelector('.top-menu-bar').style.display = '';
 	document.querySelector('#start-page').style.display = '';
 	document.querySelector('#main-menu').style.display = '';
 	document.querySelector('.footer').style.display = '';
 	document.querySelector('#settings').style.display = 'none';
+});
+
+document.querySelector('#old-new-ui-alert div').addEventListener('click', function (e) {
+	document.querySelector('#old-new-ui-alert').style.display = 'none';
 });

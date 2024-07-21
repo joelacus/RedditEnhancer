@@ -873,5 +873,9 @@
 
 	"TopicFeedWidth": {
 		"message": "Ämnesmatningsbredd"
+	},
+
+	"YouNeedToBeLoggedIn": {
+		"message": "Du måste vara inloggad på Reddit för att omdirigeringen till 'Gammal Ny UI' ska fungera."
 	}
 }

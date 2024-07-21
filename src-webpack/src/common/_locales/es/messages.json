@@ -873,5 +873,9 @@
 
 	"TopicFeedWidth": {
 		"message": "Ancho del feed de temas"
+	},
+
+	"YouNeedToBeLoggedIn": {
+		"message": "Debes iniciar sesión en Reddit para que funcione la redirección a la 'Viejo Nuevo UI'."
 	}
 }

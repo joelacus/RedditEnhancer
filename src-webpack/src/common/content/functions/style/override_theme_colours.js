@@ -153,7 +153,9 @@ export function themeHeaderBackgroundColour(value) {
 										#header-search-bar {
 											background: none;
 										}
-										header, header [role="menu"],
+										header,
+										header [role="menu"],
+										#INBOX--TOOLTIP,
 										.ListingLayout-backgroundContainer + div > :first-child:has(>div>div>div>a) {
 											backdrop-filter: blur(var(--re-theme-blur)) !important;
 										}`;

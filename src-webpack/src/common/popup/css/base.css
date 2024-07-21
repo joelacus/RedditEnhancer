@@ -70,7 +70,8 @@ body {
 	padding: 0;
 	padding-left: 10px;
 	height: 500px;
-	width: 470px;
+	display: flex;
+	flex-direction: column;
 	background-color: var(--bg-tint-3);
 	font-family: Verdana, sans-serif;
 	color: var(--text);

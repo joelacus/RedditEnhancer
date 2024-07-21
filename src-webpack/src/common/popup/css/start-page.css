@@ -1,8 +1,6 @@
 #start-page {
-	position: absolute;
-	top: 100px;
-	left: 0;
 	width: 100%;
+	height: 100%;
 }
 
 #start-page .select-version {

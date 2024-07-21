@@ -873,5 +873,9 @@
 
 	"TopicFeedWidth": {
 		"message": "Szerokość kanału tematycznego"
+	},
+
+	"YouNeedToBeLoggedIn": {
+		"message": "Aby przekierowanie do „Stary Nowy UI” zadziałało, musisz być zalogowany na Reddicie."
 	}
 }

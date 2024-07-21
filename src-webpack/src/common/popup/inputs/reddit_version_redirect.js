@@ -32,6 +32,7 @@ redirect_dropdownMenu.addEventListener('click', function (e) {
 		selectFilterShowOldVersion(i18next.t('OldUI.message'));
 	} else if (version === 'new') {
 		selectFilterShowNewVersion(i18next.t('OldNewUI.message'));
+		document.querySelector('#old-new-ui-alert').style.display = 'grid';
 	} else if (version === 'newnew') {
 		selectFilterShowNewNewVersion(i18next.t('NewNewUI.message'));
 	}

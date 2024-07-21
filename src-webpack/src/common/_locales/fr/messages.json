@@ -873,5 +873,9 @@
 
 	"TopicFeedWidth": {
 		"message": "Largeur du fil de sujet"
+	},
+
+	"YouNeedToBeLoggedIn": {
+		"message": "Vous devez être connecté à Reddit pour que la redirection vers «Vieux Nouveau UI» fonctionne."
 	}
 }

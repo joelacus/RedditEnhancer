@@ -873,5 +873,9 @@
 
 	"TopicFeedWidth": {
 		"message": "Onderwerpfeedbreedte"
+	},
+
+	"YouNeedToBeLoggedIn": {
+		"message": "U moet ingelogd zijn bij Reddit om de omleiding naar 'Oude Nieuwe UI' te laten werken."
 	}
 }

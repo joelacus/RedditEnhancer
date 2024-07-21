@@ -873,5 +873,9 @@
 
 	"TopicFeedWidth": {
 		"message": "Téma feed szélessége"
+	},
+
+	"YouNeedToBeLoggedIn": {
+		"message": "Be kell jelentkeznie a Redditbe, hogy működjön az átirányítás a 'Régi Új UI'."
 	}
 }

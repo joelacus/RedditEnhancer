@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.10.1"
+		"message": "1.10.2"
 	},
 
 	"extensionName": {
@@ -881,6 +881,10 @@
 
 	"TopicFeedWidth": {
 		"message": "Topic Feed Width"
+	},
+
+	"YouNeedToBeLoggedIn": {
+		"message": "You must be logged in to Reddit in order for the redirection to 'Old New UI' to work."
 	},
 
 	"DragImageToResize": {

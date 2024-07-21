@@ -873,5 +873,9 @@
 
 	"TopicFeedWidth": {
 		"message": "Largura do feed do tópico"
+	},
+
+	"YouNeedToBeLoggedIn": {
+		"message": "Tem de estar logado no Reddit para que o redireccionamento para ‘Velho Novo UI’ funcione."
 	}
 }

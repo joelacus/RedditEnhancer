@@ -873,5 +873,9 @@
 
 	"TopicFeedWidth": {
 		"message": "Emnematingsbredde"
+	},
+
+	"YouNeedToBeLoggedIn": {
+		"message": "Du må være logget på Reddit for at omdirigeringen til 'Gammel Ny UI' skal fungere."
 	}
 }

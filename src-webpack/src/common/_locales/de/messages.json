@@ -873,5 +873,9 @@
 
 	"TopicFeedWidth": {
 		"message": "Themen-Feedbreite"
+	},
+
+	"YouNeedToBeLoggedIn": {
+		"message": "Sie müssen bei Reddit angemeldet sein, damit die Weiterleitung zur „Alter Neuer UI“ funktioniert."
 	}
 }

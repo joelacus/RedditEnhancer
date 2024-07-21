@@ -9,17 +9,20 @@ function search_filter() {
 		if (result.redditVersion != undefined) {
 			var v = 'r-' + result.redditVersion;
 
+			// hide all category buttons, show all contents and show category content headers
+			document.querySelectorAll('.menu-item-link').forEach((item) => {
+				item.style.display = 'none';
+			});
 			document.querySelectorAll('.sub-list').forEach((sub) => {
 				if (sub.classList.contains(v)) {
 					sub.classList.remove('hide');
 				}
 			});
-			document.querySelectorAll('.sub-search-title').forEach((sub) => {
-				sub.classList.remove('hide');
+			document.querySelectorAll('.sub-search-title').forEach((title) => {
+				title.classList.remove('hide');
 			});
-			document.querySelectorAll('.menu-item-link').forEach((item) => {
-				item.style.display = 'none';
-			});
+
+			// for all options
 			for (i = 0; i < li.length; i++) {
 				if (li[i].classList.contains(v)) {
 					txtValue = '';
@@ -37,6 +40,28 @@ function search_filter() {
 					} else {
 						li[i].style.display = 'none';
 					}
+
+					// if the item is a sub menu
+					const items = li[i].querySelectorAll('div.container');
+					for (let i = 0; i < items.length; i++) {
+						txtValue = '';
+						query = items[i].querySelectorAll('[data-search]');
+						if (query != undefined) {
+							query.forEach(function (span) {
+								txtValue = txtValue + ',' + span.dataset.search + ',' + span.textContent || span.innerText;
+							});
+							filter = document.querySelector('#search').value.toLowerCase();
+							if (txtValue.toLowerCase().indexOf(filter) > -1) {
+								items[i].style.display = 'grid';
+							} else {
+								items[i].style.display = 'none';
+							}
+						} else {
+							items[i].style.display = 'none';
+						}
+					}
+
+					// show all if search input is blank
 					if (document.querySelector('#search').value == '') {
 						document.querySelectorAll('.sub-list').forEach((sub) => {
 							sub.classList.add('hide');
@@ -45,17 +70,15 @@ function search_filter() {
 						document.querySelectorAll('.sub-search-title').forEach((title) => {
 							title.classList.add('hide');
 						});
-						document.querySelectorAll('.menu-item-link').forEach((btn) => {
-							btn.classList.remove('active');
-						});
 						document.querySelectorAll('.menu-item-link').forEach((item) => {
+							item.classList.remove('active');
 							item.style.display = '';
 						});
 					}
 				}
 			}
 
-			// Check if each menu list contain search results
+			// Check if each menu list/category contain search results
 			document.querySelectorAll('.menu-list').forEach(function (menuList) {
 				// unhide all menu lists
 				menuList.classList.remove('hide');
@@ -100,6 +123,7 @@ function search_filter() {
 				document.querySelectorAll('.sub-list').forEach(function (sub) {
 					sub.classList.add('hide');
 				});
+				document.querySelector('#no-search-results').style.display = 'none';
 			}
 		}
 	});

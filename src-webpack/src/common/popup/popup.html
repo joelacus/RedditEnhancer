@@ -53,7 +53,14 @@
 			</div>
 		</div>
 
-		<!-- Start Page -->
+		<!-- = Alerts = -->
+		<div id="old-new-ui-alert">
+			<span data-lang="YouNeedToBeLoggedIn"></span>
+			<div>+</div>
+		</div>
+		<span id="alert-update" style="display: none" data-lang="UpdateFirefox"></span>
+
+		<!-- = Start Page = -->
 		<div id="start-page" class="hide">
 			<div class="select-version">
 				<div class="icon icon-arrow-up"></div>
@@ -63,7 +70,6 @@
 
 		<!-- = Menu = -->
 		<ul id="main-menu" class="menu menu-list">
-			<span id="alert-update" style="display: none" data-lang="UpdateFirefox"></span>
 			<li data-index="0">
 				<!-- Dark Mode -->
 				<div id="dark-mode" class="menu-item-link btn-dark-mode r-new">
@@ -605,7 +611,7 @@
 						</label>
 					</li>
 					<li class="container container-3 r-new r-newnew">
-						<span class="menu-item-icon icon-hide icon-hide-join-button-on-posts"></span>
+						<span class="menu-item-icon icon-show icon-hide-join-button-on-posts"></span>
 						<span data-lang="HideJoinButtonOnPosts" data-search="join"></span>
 						<label class="switch">
 							<input id="checkbox-hide-join-button-on-posts" type="checkbox" />
@@ -721,7 +727,7 @@
 					</li>
 					<li class="container container-3 r-old r-new r-newnew">
 						<span class="menu-item-icon icon-box-arrow icon-just-open-the-image"></span>
-						<span data-lang="JustOpenTheImage" data-search="load,image"></span>
+						<span data-lang="JustOpenTheImage" data-search="load,image,direct"></span>
 						<label class="switch">
 							<input id="checkbox-just-open-the-image" type="checkbox" />
 							<span class="indicator"></span>
