@@ -381,6 +381,10 @@
 	mask: url('../../icons/ui/star-solid.svg');
 	-webkit-mask: url('../../icons/ui/star-solid.svg');
 }
+.icon-star-slash {
+	mask: url('../../icons/ui/icon-star-slash.svg');
+	-webkit-mask: url('../../icons/ui/icon-star-slash.svg');
+}
 .icon-ellipsis {
 	mask: url('../../icons/ui/ellipsis-solid.svg');
 	-webkit-mask: url('../../icons/ui/ellipsis-solid.svg');
@@ -396,4 +400,16 @@
 .icon-hand-slash {
 	mask: url('../../icons/ui/icon-hand-slash.svg');
 	-webkit-mask: url('../../icons/ui/icon-hand-slash.svg');
+}
+.icon-square {
+	mask: url('../../icons/ui/square-regular.svg');
+	-webkit-mask: url('../../icons/ui/square-regular.svg');
+}
+.icon-side-menu-list {
+	mask: url('../../icons/ui/icon-side-menu-list.svg');
+	-webkit-mask: url('../../icons/ui/icon-side-menu-list.svg');
+}
+.icon-side-menu-icons {
+	mask: url('../../icons/ui/icon-side-menu-icons.svg');
+	-webkit-mask: url('../../icons/ui/icon-side-menu-icons.svg');
 }

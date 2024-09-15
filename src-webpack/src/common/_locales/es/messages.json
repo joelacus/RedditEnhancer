@@ -4,7 +4,7 @@
 	},
 
 	"extensionDescription": {
-		"message": "Varios ajustes para personalizar su experiencia Reddit. Admite las versiones antigua, nueva y más reciente de Reddit."
+		"message": "Diversos ajustes para personalizar tu experiencia en Reddit. Compatible con todas las versiones de Reddit."
 	},
 
 	"About": {
@@ -104,11 +104,11 @@
 	},
 
 	"NewNewUI": {
-		"message": "Nuevo Nuevo UI"
+		"message": "Nueva Nueva UI"
 	},
 
 	"OldNewUI": {
-		"message": "Viejo Nuevo UI"
+		"message": "Viejo Nueva UI"
 	},
 
 	"OldUI": {
@@ -575,7 +575,7 @@
 		"message": "Barra lateral: Color de borde"
 	},
 
-	"Sidemenu": {
+	"SideMenu": {
 		"message": "Menú lateral"
 	},
 
@@ -700,7 +700,7 @@
 	},
 
 	"HideSideMenuRecentSection": {
-		"message": "Ocultar la sección Reciente"
+		"message": "Ocultar la sección de subreddit Reciente"
 	},
 
 	"HideSideMenuCommunitiesSection": {
@@ -877,5 +877,93 @@
 
 	"YouNeedToBeLoggedIn": {
 		"message": "Debes iniciar sesión en Reddit para que funcione la redirección a la 'Viejo Nuevo UI'."
+	},
+
+	"RemovalNotification": {
+		"message": "Reddit ha comenzado a redirigir a los usuarios de new.reddit.com a la última versión, por lo que, con el tiempo, no podrás usar la 'Viejo Nueva UI'. Lamentablemente, no puedo hacer nada al respecto :( Cuando esto sucede, tu página puede mostrar un error. Configura la función de redirección en 'Apagado' o 'Viejo UI'."
+	},
+
+	"learnMore": {
+		"message": "Más información"
+	},
+
+	"HidePostBackButton": {
+		"message": "Ocultar el botón Atrás de la publicación"
+	},
+
+	"BorderRadiusAmount": {
+		"message": "Radio de la esquina temática"
+	},
+
+	"HidePostKarma": {
+		"message": "Ocultar el karma de la publicación"
+	},
+
+	"HideRecentPosts": {
+		"message": "Ocultar publicaciones recientes"
+	},
+
+	"SideMenuWidth": {
+		"message": "Ancho del menú lateral"
+	},
+
+	"SideMenuIconsOnly": {
+		"message": "Solo iconos del menú lateral"
+	},
+
+	"HideFavouriteButtons": {
+		"message": "Ocultar los botones favoritos"
+	},
+
+	"ResetAllSettings": {
+		"message": "Restablecer todos los ajustes"
+	},
+
+	"Confirm": {
+		"message": "Confirmar"
+	},
+
+	"Cleared": {
+		"message": "Aclarada"
+	},
+
+	"Error": {
+		"message": "Error"
+	},
+
+	"SetLanguageAndTheme": {
+		"message": "Establecer idioma y tema"
+	},
+
+	"SelectRedirect": {
+		"message": "Redirigir"
+	},
+
+	"Welcome": {
+		"message": "Bienvenida!"
+	},
+
+	"ModerniseOldRedditInfo": {
+		"message": "Hace que el antiguo Reddit se parezca más al nuevo Reddit."
+	},
+
+	"YouMayNotNeedTheRedirectAnymore": {
+		"message": "Reddit está comenzando a utilizar la 'Nueva Nueva UI' como opción predeterminada, por lo que es posible que ya no necesites la redirección a sh.reddit.com. Intente configurar la opción de redireccionamiento en 'Apagado' y vaya a www.reddit.com para ver si su cuenta está configurada para usar la 'Nueva Nueva UI' como predeterminada; si no, puede continuar usando la opción de redireccionamiento por ahora."
+	},
+
+	"DontShowAgain": {
+		"message": "No mostrar de nuevo"
+	},
+
+	"Close": {
+		"message": "Cerca"
+	},
+
+	"SideMenuToggleButton": {
+		"message": "Mostrar botón de alternancia del menú lateral"
+	},
+
+	"HideCompactViewBlankThumbnails": {
+		"message": "Ocultar miniaturas en blanco en la vista compacta"
 	}
 }

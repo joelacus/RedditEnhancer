@@ -248,8 +248,11 @@ function addImageRules() {
 /* ===== Redirect To Preferred UI ===== */
 
 // Load Saved Value
-BROWSER_API.storage.sync.get(['autoRedirectVersion'], function (result) {
-	updateRedirectRuleset(result.autoRedirectVersion);
+BROWSER_API.runtime.onStartup.addListener(() => {
+	console.log('Extension started!');
+	BROWSER_API.storage.sync.get(['autoRedirectVersion'], function (result) {
+		updateRedirectRuleset(result.autoRedirectVersion);
+	});
 });
 
 // Update Redirect Ruleset

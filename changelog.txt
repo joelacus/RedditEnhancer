@@ -1,3 +1,24 @@
+version 1.11.0
+- Added a warning that "Old New UI" may no longer be accessible as Reddit is phasing it out.
+- Added a message that the redirection to sh.reddit.com for the "New New UI" may no longer be needed.
+- Added an option to change the width of the side menu (New New UI).
+- Added an option to hide the favourite button (star icon) on items in the side menu (New New UI).
+- Added an option to just show the icons in the side menu (New New UI).
+- Added an option to show a toggle button on the side menu to show/hide it.
+- Added an option to hide the post back button (New New UI).
+- Added an option to change the theme border radius for some elements (New New UI).
+- Added an option to hide recent posts in the sidebar (New New UI).
+- Added an option to hide post karma (New New UI).
+- Added an option to hide the blank thumbnail on text posts in compact view feeds (New New UI).
+- Added an option to reset all extension settings.
+- "Show Post Author on the Home Feed" now works with the "Compact" view (New New UI).
+- "Hide Ads/Promoted Links" now also hides comment section ads.
+- Optimised and improved the "Default Feed Sort Option" and "Default Comments Sort Option" functions.
+- Enabled the "Default Feed Sort Option" and "Default Comments Sort Option" options for Old UI.
+- Fixed "Sticky Sort" not loading for Old UI.
+- Potential fix for the page refresh bug.
+- Other small bug fixes.
+
 version 1.10.2
 - Added a notification when you select "Old New UI" for the redirect feature, that you must be logged in to Reddit for it to work.
 - Fixed a bug where the post sort options on the search page may be hidden. (Old New UI).

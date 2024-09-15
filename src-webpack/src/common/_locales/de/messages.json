@@ -4,7 +4,7 @@
 	},
 
 	"extensionDescription": {
-		"message": "Verschiedene Optimierungen, um Ihre Reddit-Erfahrung anzupassen. Unterstützt alte, neue und neueste versionen von Reddit."
+		"message": "Verschiedene Optimierungen zur individuellen Gestaltung Ihres Reddit-Erlebnisses. Unterstützt alle Versionen von Reddit."
 	},
 
 	"About": {
@@ -575,7 +575,7 @@
 		"message": "Seitenleiste: Grenzfarbe"
 	},
 
-	"Sidemenu": {
+	"SideMenu": {
 		"message": "Seitenmenü"
 	},
 
@@ -700,7 +700,7 @@
 	},
 
 	"HideSideMenuRecentSection": {
-		"message": "Neueste Sektion ausblenden"
+		"message": "Den Abschnitt Letzter Subreddit ausblenden"
 	},
 
 	"HideSideMenuCommunitiesSection": {
@@ -877,5 +877,93 @@
 
 	"YouNeedToBeLoggedIn": {
 		"message": "Sie müssen bei Reddit angemeldet sein, damit die Weiterleitung zur „Alter Neuer UI“ funktioniert."
+	},
+
+	"RemovalNotification": {
+		"message": "Reddit hat nun damit begonnen, Benutzer von new.reddit.com auf die neueste Version umzuleiten, sodass Sie die „Alter Neuer UI“ irgendwann nicht mehr verwenden können. Leider kann ich nichts dagegen tun :( Wenn dies geschieht, kann es zu einem Seitenfehler kommen. Stellen Sie die Umleitungsfunktion auf „Aus“ oder „Alte UI“."
+	},
+
+	"learnMore": {
+		"message": "Mehr erfahren"
+	},
+
+	"HidePostBackButton": {
+		"message": "Schaltfläche „Zurück zum Posten“ ausblenden"
+	},
+
+	"BorderRadiusAmount": {
+		"message": "Themen-Eckenradius"
+	},
+
+	"HidePostKarma": {
+		"message": "Beitragskarma verbergen"
+	},
+
+	"HideRecentPosts": {
+		"message": "Letzte Beiträge ausblenden"
+	},
+
+	"SideMenuWidth": {
+		"message": "Breite des Seitenmenüs"
+	},
+
+	"SideMenuIconsOnly": {
+		"message": "Nur Seitenmenü Symbole"
+	},
+
+	"HideFavouriteButtons": {
+		"message": "Ausblenden der Favoritenschaltflächen"
+	},
+
+	"ResetAllSettings": {
+		"message": "Alle Einstellungen zurücksetzen"
+	},
+
+	"Confirm": {
+		"message": "Bestätigen"
+	},
+
+	"Cleared": {
+		"message": "Gelöscht"
+	},
+
+	"Error": {
+		"message": "Fehler"
+	},
+
+	"SetLanguageAndTheme": {
+		"message": "Sprache und Design festlegen"
+	},
+
+	"SelectRedirect": {
+		"message": "Umleiten"
+	},
+
+	"Welcome": {
+		"message": "Willkommen!"
+	},
+
+	"ModerniseOldRedditInfo": {
+		"message": "Lässt das alte Reddit mehr wie das neue Reddit aussehen."
+	},
+
+	"YouMayNotNeedTheRedirectAnymore": {
+		"message": "Reddit beginnt, die „New New UI“ als Standard festzulegen, sodass Sie die Weiterleitung zu sh.reddit.com möglicherweise nicht mehr benötigen. Versuchen Sie, die Umleitungsoption auf „Aus“ zu setzen, und rufen Sie www.reddit.com auf, um zu prüfen, ob Ihr Konto so eingestellt ist, dass die „Neuer Neuer UI als Standard verwendet wird. Wenn nicht, können Sie die Umleitungsoption vorerst weiter verwenden."
+	},
+
+	"DontShowAgain": {
+		"message": "Nicht mehr anzeigen"
+	},
+
+	"Close": {
+		"message": "Schließen"
+	},
+
+	"SideMenuToggleButton": {
+		"message": "Umschaltfläche für Seitenmenü anzeigen"
+	},
+
+	"HideCompactViewBlankThumbnails": {
+		"message": "Leere Miniaturansichten in der Kompaktansicht ausblenden"
 	}
 }

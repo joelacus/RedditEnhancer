@@ -5,9 +5,7 @@ export function loadStickySort() {
 	BROWSER_API.storage.sync.get(['stickySort'], function (result) {
 		if (redditVersion === 'old') {
 			if (result.stickySort === true) {
-				if (document.querySelector('.tabmenu')) {
-					document.querySelector('.tabmenu').classList.add('re-sticky-sort');
-				}
+				enableStickySortOld();
 			}
 		} else if (redditVersion === 'new') {
 			if (result.stickySort === true) {

@@ -32,8 +32,18 @@ redirect_dropdownMenu.addEventListener('click', function (e) {
 		selectFilterShowOldVersion(i18next.t('OldUI.message'));
 	} else if (version === 'new') {
 		selectFilterShowNewVersion(i18next.t('OldNewUI.message'));
-		document.querySelector('#old-new-ui-alert').style.display = 'grid';
+		if (localStorage.getItem('DontShowAgainYouNeedToBeLoggedIn') === null) {
+			document.querySelector('#old-new-ui-login-message').style.display = 'grid';
+		}
+		if (localStorage.getItem('DontShowAgainOldNewUiWarning') === null) {
+			document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
+		}
 	} else if (version === 'newnew') {
+		selectFilterShowNewNewVersion(i18next.t('NewNewUI.message'));
+		if (localStorage.getItem('DontShowAgainNewNewUiMessage') === null) {
+			document.querySelector('#new-new-ui-message').style.display = 'grid';
+		}
+	} else if (version === 'off') {
 		selectFilterShowNewNewVersion(i18next.t('NewNewUI.message'));
 	}
 	document.querySelector('#select-reddit-version .select').querySelector('span').textContent = e.target.textContent;

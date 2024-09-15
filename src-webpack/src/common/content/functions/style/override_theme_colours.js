@@ -43,60 +43,32 @@ function loadTheme() {
 			themeBlur('10px');
 		}
 	});
-	BROWSER_API.storage.sync.get(
-		[
-			'themeCreatePostBackgroundColour',
-			'themeCreatePostBorderColour',
-			'themeHeaderBackgroundColour',
-			'themeHeaderTextColour',
-			'themePostBackgroundColour',
-			'themePostBorderColour',
-			'themePostCommentsTextColour1',
-			'themePostCommentsTextColour2',
-			'themePostContentAndCommentsLinkColour',
-			'themePostTextColour1',
-			'themePostTextColour2',
-			'themePostVisitedTitleColour',
-			'themeSearchbarBgColour',
-			'themeSearchbarDropdownBgColour',
-			'themeSidebarBgColour',
-			'themeSidebarBorderColour',
-			'themeSidebarTextColour',
-			'themeSidemenuBgColour',
-			'themeSidemenuButtonHoverColour',
-			'themeSidemenuTextColour',
-			'themeSortBackgroundColour',
-			'themeSortBorderColour',
-			'themeSortTextColour',
-			'themeSortTextColour2',
-		],
-		function (result) {
-			themeCreatePostBackgroundColour(result.themeCreatePostBackgroundColour);
-			themeCreatePostBorderColour(result.themeCreatePostBorderColour);
-			themeHeaderBackgroundColour(result.themeHeaderBackgroundColour);
-			themeHeaderTextColour(result.themeHeaderTextColour);
-			themePostBackgroundColour(result.themePostBackgroundColour);
-			themePostBorderColour(result.themePostBorderColour);
-			themePostCommentsTextColour1(result.themePostCommentsTextColour1);
-			themePostCommentsTextColour2(result.themePostCommentsTextColour2);
-			themePostContentAndCommentsLinkColour(result.themePostContentAndCommentsLinkColour);
-			themePostTextColour1(result.themePostTextColour1);
-			themePostTextColour2(result.themePostTextColour2);
-			themePostVisitedTitleColour(result.themePostVisitedTitleColour);
-			themeSearchbarBgColour(result.themeSearchbarBgColour);
-			themeSearchbarDropdownBgColour(result.themeSearchbarDropdownBgColour);
-			themeSidebarBgColour(result.themeSidebarBgColour);
-			themeSidebarBorderColour(result.themeSidebarBorderColour);
-			themeSidebarTextColour(result.themeSidebarTextColour);
-			themeSidemenuBgColour(result.themeSidemenuBgColour);
-			themeSidemenuButtonHoverColour(result.themeSidemenuButtonHoverColour);
-			themeSidemenuTextColour(result.themeSidemenuTextColour);
-			themeSortBackgroundColour(result.themeSortBackgroundColour);
-			themeSortBorderColour(result.themeSortBorderColour);
-			themeSortTextColour(result.themeSortTextColour);
-			themeSortTextColour2(result.themeSortTextColour2);
-		}
-	);
+	BROWSER_API.storage.sync.get(['themeCreatePostBackgroundColour', 'themeCreatePostBorderColour', 'themeHeaderBackgroundColour', 'themeHeaderTextColour', 'themePostBackgroundColour', 'themePostBorderColour', 'themePostCommentsTextColour1', 'themePostCommentsTextColour2', 'themePostContentAndCommentsLinkColour', 'themePostTextColour1', 'themePostTextColour2', 'themePostVisitedTitleColour', 'themeSearchbarBgColour', 'themeSearchbarDropdownBgColour', 'themeSidebarBgColour', 'themeSidebarBorderColour', 'themeSidebarTextColour', 'themeSidemenuBgColour', 'themeSidemenuButtonHoverColour', 'themeSidemenuTextColour', 'themeSortBackgroundColour', 'themeSortBorderColour', 'themeSortTextColour', 'themeSortTextColour2'], function (result) {
+		themeCreatePostBackgroundColour(result.themeCreatePostBackgroundColour);
+		themeCreatePostBorderColour(result.themeCreatePostBorderColour);
+		themeHeaderBackgroundColour(result.themeHeaderBackgroundColour);
+		themeHeaderTextColour(result.themeHeaderTextColour);
+		themePostBackgroundColour(result.themePostBackgroundColour);
+		themePostBorderColour(result.themePostBorderColour);
+		themePostCommentsTextColour1(result.themePostCommentsTextColour1);
+		themePostCommentsTextColour2(result.themePostCommentsTextColour2);
+		themePostContentAndCommentsLinkColour(result.themePostContentAndCommentsLinkColour);
+		themePostTextColour1(result.themePostTextColour1);
+		themePostTextColour2(result.themePostTextColour2);
+		themePostVisitedTitleColour(result.themePostVisitedTitleColour);
+		themeSearchbarBgColour(result.themeSearchbarBgColour);
+		themeSearchbarDropdownBgColour(result.themeSearchbarDropdownBgColour);
+		themeSidebarBgColour(result.themeSidebarBgColour);
+		themeSidebarBorderColour(result.themeSidebarBorderColour);
+		themeSidebarTextColour(result.themeSidebarTextColour);
+		themeSidemenuBgColour(result.themeSidemenuBgColour);
+		themeSidemenuButtonHoverColour(result.themeSidemenuButtonHoverColour);
+		themeSidemenuTextColour(result.themeSidemenuTextColour);
+		themeSortBackgroundColour(result.themeSortBackgroundColour);
+		themeSortBorderColour(result.themeSortBorderColour);
+		themeSortTextColour(result.themeSortTextColour);
+		themeSortTextColour2(result.themeSortTextColour2);
+	});
 }
 
 // Remove Theme
@@ -567,19 +539,16 @@ export function themePostBackgroundColour(value) {
 											position: relative;
 											top: 8px;
 										}*/
-										comment-body-header {
-											padding-top: 8px;
-										}
 										#main-content [bundlename="comment_body_header"] {
 											position: relative;
-											z-index: 9999;
 										}
 										[bundlename="comment_body_header"] comment-body-header {
 											margin-left: -0.5rem;
 											margin-right: -0.5rem;
-											margin-bottom: 16px;
+											margin-bottom: 8px;
 											border-radius: 16px;
 											padding-left: 8px;
+											padding-top: 8px;
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
 		});
@@ -693,6 +662,9 @@ export function themePostCommentsTextColour1(value) {
 										shreddit-post + [bundlename="comment_body_header"] {
 											--color-neutral-content-weak: var(--re-theme-post-comments-text) !important;
 										}
+										/*shreddit-comment-tree {
+											--color-tone-4: var(--re-theme-post-comments-text) !important;
+										}*/
 										/** {
 											/*--color-secondary-plain: var(--re-theme-post-comments-text) !important;*/
 											--color-secondary-background: rgba(0,0,0,0.3) !important;
@@ -846,8 +818,10 @@ export function themePostTextColour2(value) {
 												color:  var(--re-theme-post-text-2) !important;
 											}
 										}
-										[data-testid="search-post"] > post-consume-tracker > div {
+										[data-testid="search-post"] > post-consume-tracker > div,
+										[bundlename="comment_body_header"] {
 											--color-neutral-content-weak: var(--re-theme-post-text-2) !important;
+											--color-secondary-weak: var(--re-theme-post-text-2) !important;
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
 		});
@@ -1167,7 +1141,8 @@ export function themeSidemenuButtonHoverColour(value) {
 									#left-sidebar-container left-nav-create-community-button,
 									#left-sidebar-container a,
 									#left-sidebar-container reddit-recent-pages,
-									#left-sidebar-container left-nav-moderation-controller {
+									#left-sidebar-container left-nav-moderation-controller,
+									#left-sidebar-container left-nav-multireddits-controller {
 										--color-neutral-background-hover: var(--re-theme-sidemenu-btn-hover) !important;
 										--color-secondary-background-hover: var(--re-theme-sidemenu-btn-hover) !important;
 										--color-neutral-background-hovered: var(--re-theme-sidemenu-btn-hover) !important;

@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.10.2"
+		"message": "1.11.0"
 	},
 
 	"extensionName": {
@@ -8,7 +8,7 @@
 	},
 
 	"extensionDescription": {
-		"message": "Various tweaks to customise your Reddit experience. Supports Old, New and the Latest version of Reddit."
+		"message": "Various tweaks to customise your Reddit experience. Supports all versions of Reddit."
 	},
 
 	"About": {
@@ -583,20 +583,20 @@
 		"message": "Sidebar: Border Colour"
 	},
 
-	"Sidemenu": {
+	"SideMenu": {
 		"message": "Side Menu"
 	},
 
 	"SidemenuTextColour": {
-		"message": "Sidemenu: Text Colour"
+		"message": "Side Menu: Text Colour"
 	},
 
 	"SidemenuBackgroundColour": {
-		"message": "Sidemenu: Background Colour"
+		"message": "Side Menu: Background Colour"
 	},
 
 	"SidemenuButtonHoverColour": {
-		"message": "Sidemenu: Button Hover Colour"
+		"message": "Side Menu: Button Hover Colour"
 	},
 
 	"WhitelistBlacklist": {
@@ -708,7 +708,7 @@
 	},
 
 	"HideSideMenuRecentSection": {
-		"message": "Hide the Recent Section"
+		"message": "Hide the Recent Subreddit Section"
 	},
 
 	"HideSideMenuCommunitiesSection": {
@@ -885,6 +885,94 @@
 
 	"YouNeedToBeLoggedIn": {
 		"message": "You must be logged in to Reddit in order for the redirection to 'Old New UI' to work."
+	},
+
+	"RemovalNotification": {
+		"message": "Reddit has now started redirecting users from new.reddit.com to the latest version, so eventually you won't be able to use the Old New UI. Unfortunately, I can't do anything about this :( When this happens, your page may error. Set the redirect option to 'Off' or 'Old UI'."
+	},
+
+	"learnMore": {
+		"message": "Learn More"
+	},
+
+	"HidePostBackButton": {
+		"message": "Hide The Post Back Button"
+	},
+
+	"BorderRadiusAmount": {
+		"message": "Theme Corner Radius"
+	},
+
+	"HidePostKarma": {
+		"message": "Hide Post Karma"
+	},
+
+	"HideRecentPosts": {
+		"message": "Hide Recent Posts"
+	},
+
+	"SideMenuWidth": {
+		"message": "Side Menu Width"
+	},
+
+	"SideMenuIconsOnly": {
+		"message": "Side Menu Icons Only"
+	},
+
+	"HideFavouriteButtons": {
+		"message": "Hide the Favourite Buttons"
+	},
+
+	"ResetAllSettings": {
+		"message": "Reset All Settings"
+	},
+
+	"Confirm": {
+		"message": "Confirm"
+	},
+
+	"Cleared": {
+		"message": "Cleared"
+	},
+
+	"Error": {
+		"message": "Error"
+	},
+
+	"SetLanguageAndTheme": {
+		"message": "Set Language and Theme"
+	},
+
+	"SelectRedirect": {
+		"message": "Redirect"
+	},
+
+	"Welcome": {
+		"message": "Welcome!"
+	},
+
+	"ModerniseOldRedditInfo": {
+		"message": "Makes old reddit look more like new reddit."
+	},
+
+	"YouMayNotNeedTheRedirectAnymore": {
+		"message": "Reddit has started to make the 'New New UI' the default, so you may no longer need the redirect to sh.reddit.com anymore. Try setting the redirect option to 'Off' and go to www.reddit.com to see if your account is set to use the 'New New UI' as the default, if not, you can carry on using the redirect option for now."
+	},
+
+	"DontShowAgain": {
+		"message": "Don't show again"
+	},
+
+	"Close": {
+		"message": "Close"
+	},
+
+	"SideMenuToggleButton": {
+		"message": "Show Side Menu Toggle Button"
+	},
+
+	"HideCompactViewBlankThumbnails": {
+		"message": "Hide Blank Thumbnails In Compact View"
 	},
 
 	"DragImageToResize": {

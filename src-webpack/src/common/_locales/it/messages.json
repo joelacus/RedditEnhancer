@@ -4,7 +4,7 @@
 	},
 
 	"extensionDescription": {
-		"message": "Varie modifiche per personalizzare la tua esperienza su Reddit. Supporta la versione vecchia, nuova e più recente di Reddit."
+		"message": "Vari ritocchi per personalizzare la tua esperienza Reddit. Supporta tutte le versioni di Reddit."
 	},
 
 	"About": {
@@ -575,7 +575,7 @@
 		"message": "Barra laterale: Colore del bordo"
 	},
 
-	"Sidemenu": {
+	"SideMenu": {
 		"message": "Menù laterale"
 	},
 
@@ -700,7 +700,7 @@
 	},
 
 	"HideSideMenuRecentSection": {
-		"message": "Nascondi la sezione Recente"
+		"message": "Nascondi la sezione Subreddit Recente"
 	},
 
 	"HideSideMenuCommunitiesSection": {
@@ -877,5 +877,93 @@
 
 	"YouNeedToBeLoggedIn": {
 		"message": "Devi aver effettuato l'accesso a Reddit affinché il reindirizzamento alla 'Vecchio Nuovo UI' funzioni."
+	},
+
+	"RemovalNotification": {
+		"message": "Reddit ha iniziato a reindirizzare gli utenti da new.reddit.com all'ultima versione, quindi alla fine non sarai in grado di usare la 'Vecchia Nuova UI'. Sfortunatamente, non posso farci niente :( Quando ciò accade, la tua pagina potrebbe generare un errore. Imposta la funzione di reindirizzamento su 'Spento' or 'Vecchio UI'."
+	},
+
+	"learnMore": {
+		"message": "Saperne di più"
+	},
+
+	"HidePostBackButton": {
+		"message": "Nascondi il pulsante Post Indietro"
+	},
+
+	"BorderRadiusAmount": {
+		"message": "Raggio d'angolo tematico"
+	},
+
+	"HidePostKarma": {
+		"message": "Nascondi il Karma del Post"
+	},
+
+	"HideRecentPosts": {
+		"message": "Nascondi i post recenti"
+	},
+
+	"SideMenuWidth": {
+		"message": "Larghezza del menu laterale"
+	},
+
+	"SideMenuIconsOnly": {
+		"message": "Solo icone del menu laterale"
+	},
+
+	"HideFavouriteButtons": {
+		"message": "Nascondi i pulsanti preferiti"
+	},
+
+	"ResetAllSettings": {
+		"message": "Ripristina tutte le impostazioni"
+	},
+
+	"Confirm": {
+		"message": "Confermare"
+	},
+
+	"Cleared": {
+		"message": "Cancellato"
+	},
+
+	"Error": {
+		"message": "Errore"
+	},
+
+	"SetLanguageAndTheme": {
+		"message": "Imposta lingua e tema"
+	},
+
+	"SelectRedirect": {
+		"message": "Reindirizzare"
+	},
+
+	"Welcome": {
+		"message": "Benvenuta!"
+	},
+
+	"ModerniseOldRedditInfo": {
+		"message": "Rende il vecchio Reddit più simile al nuovo Reddit."
+	},
+
+	"YouMayNotNeedTheRedirectAnymore": {
+		"message": "Reddit sta iniziando a rendere predefinita la 'Nuovo Nuovo UI', quindi potresti non aver più bisogno del reindirizzamento a sh.reddit.com. Prova a impostare l'opzione di reindirizzamento su 'Spento' e vai su www.reddit.com per vedere se il tuo account è impostato per utilizzare la 'Nuovo Nuovo UI' come predefinita; in caso contrario, puoi continuare a utilizzare l'opzione di reindirizzamento per ora."
+	},
+
+	"DontShowAgain": {
+		"message": "Non mostrare più"
+	},
+
+	"Close": {
+		"message": "Vicina"
+	},
+
+	"SideMenuToggleButton": {
+		"message": "Mostra pulsante di attivazione/disattivazione del menu laterale"
+	},
+
+	"HideCompactViewBlankThumbnails": {
+		"message": "Nascondi miniature vuote nella vista compatta"
 	}
 }

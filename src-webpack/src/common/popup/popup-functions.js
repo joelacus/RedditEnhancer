@@ -144,9 +144,7 @@ export function addBackgroundListeners() {
 	}
 }
 
-/* ===== Input Functions ===== */
-
-/* Dark Mode Time Calculate */
+/* ===== Dark Mode Time Calculate ===== */
 export function darkModeTimeCalc(i) {
 	// get start and end times
 	BROWSER_API.storage.sync.get(['darkModeTimeStart', 'darkModeTimeEnd'], function (result) {
@@ -202,11 +200,19 @@ export function darkModeTimeCalc(i) {
 	});
 }
 
+/* ===== Other ===== */
+
 // Check Firefox Version
 const useLegacy = detectFirefoxVersion();
 if (useLegacy) {
 	console.log('Firefox version is below 121. Please update.');
-	if (document.querySelector('#alert-update')) {
-		document.querySelector('#alert-update').style.display = 'block';
-	}
+	document.querySelector('#firefox-update-message').style.display = 'grid';
+}
+
+// Hide Start Page Elements
+export function hideStartPage() {
+	document.querySelector('.menu-list').classList.remove('hidden');
+	document.querySelectorAll('[id^="start-page"]').forEach((el) => {
+		el.classList.add('hidden');
+	});
 }

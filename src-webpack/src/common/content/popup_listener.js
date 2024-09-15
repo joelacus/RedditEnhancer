@@ -32,15 +32,7 @@ import { hideRedditPremium } from './functions/hide_elements/hide_reddit_premium
 import { hideSeeFullImage } from './functions/hide_elements/hide_see_full_image';
 import { hideSidebarPolicy } from './functions/hide_elements/hide_sidebar_policy';
 import { hideSideMenuOld, hideSideMenu } from './functions/hide_elements/hide_side_menu';
-import {
-	hideSideMenuCommunitiesSection,
-	hideSideMenuCustomFeedsSection,
-	hideSideMenuModerationSection,
-	hideSideMenuRecentSection,
-	hideSideMenuResourcesSection,
-	hideSideMenuTopSection,
-	hideSideMenuTopicsSection,
-} from './functions/hide_elements/hide_side_menu_sections';
+import { hideSideMenuCommunitiesSection, hideSideMenuCustomFeedsSection, hideSideMenuModerationSection, hideSideMenuRecentSection, hideSideMenuResourcesSection, hideSideMenuTopSection, hideSideMenuTopicsSection } from './functions/hide_elements/hide_side_menu_sections';
 import { hideTurnOnNotificationsPopup } from './functions/hide_elements/hide_turn_on_notifications_popup';
 import { hideUsername, hideKarma } from './functions/hide_elements/hide_username_and_karma';
 import { hideUserProfilePics } from './functions/hide_elements/hide_user_profile_pics';
@@ -125,13 +117,22 @@ import { autoShowCommentFormattingOptions } from './functions/productivity/auto_
 import { hideRecommended } from './functions/hide_elements/hide_recommended';
 //import { scalePostToFitImageMaxImageWidth, scalePostToFitImage } from './functions/productivity/scale_post_to_fit_image';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
+import { hidePostBackButton } from './functions/hide_elements/hide_post_back_button';
+import { borderRadiusAmount } from './functions/style/border_radius';
+import { hidePostKarma } from './functions/hide_elements/hide_post_karma';
+import { hideRecentPosts } from './functions/hide_elements/hide_recent_posts';
+import { sideMenuWidth } from './functions/productivity/side_menu_width';
+import { sideMenuIconsOnly } from './functions/hide_elements/side_menu_icons_only';
+import { hideSideMenuFavouriteButton } from './functions/hide_elements/hide_side_menu_favourite_button';
+import { sideMenuToggleButton } from './functions/hide_elements/side_menu_toggle_button';
+import { hideCompactViewBlankThumbnails } from './functions/hide_elements/hide_compact_view_blank_thumbnails';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 	var key = Object.keys(msg)[0];
 	var value = Object.values(msg)[0];
-	//console.log(key, value)
+	//console.log(key, value);
 	if (key == 'darkMode') {
 		darkMode(value);
 	} else if (key == 'darkModeAutoListener') {
@@ -428,11 +429,11 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		scalePostToFitImage(value);
 	} else if (key == 'scalePostToFitImageMaxImageWidth') {
 		scalePostToFitImageMaxImageWidth(value);
-	} else if (key == 'dragImageToResize') {
+	}*/ /*else if (key == 'dragImageToResize') {
 		dragImageToResize(value);
 	} else if (key == 'dragImageToResizeInitialSize') {
 		dragImageToResizeInitialSize(value);
-	} else if (key == 'addDownloadVideoButton') {
+	}*/ /* else if (key == 'addDownloadVideoButton') {
 		addDownloadVideoButton(value);
 	}*/ else if (key == 'autoCollapseAutoModeratorComment') {
 		autoCollapseAutoModeratorComment(value);
@@ -446,6 +447,24 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		autoShowCommentFormattingOptions(value);
 	} else if (key == 'hideSearchSidebar') {
 		hideSearchSidebar(value);
+	} else if (key == 'hidePostBackButton') {
+		hidePostBackButton(value);
+	} else if (key == 'borderRadiusAmount') {
+		borderRadiusAmount(value);
+	} else if (key == 'hidePostKarma') {
+		hidePostKarma(value);
+	} else if (key == 'hideRecentPosts') {
+		hideRecentPosts(value);
+	} else if (key == 'sideMenuWidth') {
+		sideMenuWidth(value);
+	} else if (key == 'sideMenuIconsOnly') {
+		sideMenuIconsOnly(value);
+	} else if (key == 'hideSideMenuFavouriteButton') {
+		hideSideMenuFavouriteButton(value);
+	} else if (key == 'sideMenuToggleButton') {
+		sideMenuToggleButton(value);
+	} else if (key == 'hideCompactViewBlankThumbnails') {
+		hideCompactViewBlankThumbnails(value);
 	}
 	return true;
 });

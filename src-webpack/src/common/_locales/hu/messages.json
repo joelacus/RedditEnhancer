@@ -4,7 +4,7 @@
 	},
 
 	"extensionDescription": {
-		"message": "Különféle változtatások a Reddit élmény testreszabásához. Támogatja a Reddit régi, új és legújabb verzióját."
+		"message": "Különféle változtatások a Reddit élmény testreszabásához. Támogatja a Reddit összes verzióját."
 	},
 
 	"About": {
@@ -575,7 +575,7 @@
 		"message": "Sidebar: Border Colour"
 	},
 
-	"Sidemenu": {
+	"SideMenu": {
 		"message": "Side Menu"
 	},
 
@@ -700,7 +700,7 @@
 	},
 
 	"HideSideMenuRecentSection": {
-		"message": "Hide the Recent Section"
+		"message": "Hide the Recent Subreddit Section"
 	},
 
 	"HideSideMenuCommunitiesSection": {
@@ -877,5 +877,93 @@
 
 	"YouNeedToBeLoggedIn": {
 		"message": "Be kell jelentkeznie a Redditbe, hogy működjön az átirányítás a 'Régi Új UI'."
+	},
+
+	"RemovalNotification": {
+		"message": "Reddit has now started redirecting users from new.reddit.com to the latest version, so eventually you won't be able to use the Old New UI. Unfortunately, I can't do anything about this :( When this happens, your page may error, set the redirect feature to 'Off' or 'Old UI'."
+	},
+
+	"learnMore": {
+		"message": "Learn More"
+	},
+
+	"HidePostBackButton": {
+		"message": "Hide The Post Back Button"
+	},
+
+	"BorderRadiusAmount": {
+		"message": "Theme Corner Radius"
+	},
+
+	"HidePostKarma": {
+		"message": "Hide Post Karma"
+	},
+
+	"HideRecentPosts": {
+		"message": "Hide Recent Posts"
+	},
+
+	"SideMenuWidth": {
+		"message": "Side Menu Width"
+	},
+
+	"SideMenuIconsOnly": {
+		"message": "Side Menu Icons Only"
+	},
+
+	"HideFavouriteButtons": {
+		"message": "Hide the Favourite Buttons"
+	},
+
+	"ResetAllSettings": {
+		"message": "Reset All Settings"
+	},
+
+	"Confirm": {
+		"message": "Confirm"
+	},
+
+	"Cleared": {
+		"message": "Cleared"
+	},
+
+	"Error": {
+		"message": "Error"
+	},
+
+	"SetLanguageAndTheme": {
+		"message": "Set Language and Theme"
+	},
+
+	"SelectRedirect": {
+		"message": "Redirect"
+	},
+
+	"Welcome": {
+		"message": "Welcome!"
+	},
+
+	"ModerniseOldRedditInfo": {
+		"message": "Makes old reddit look more like new reddit."
+	},
+
+	"YouMayNotNeedTheRedirectAnymore": {
+		"message": "Reddit is starting to make the 'New New UI' default, so you may no longer need the redirect to sh.reddit.com anymore. Try setting the redirect option to 'Off' and refresh Reddit to see if your account is set to use the 'New New UI' as the default, if not, you can carry on using the redirect option for now."
+	},
+
+	"DontShowAgain": {
+		"message": "Don't show again"
+	},
+
+	"Close": {
+		"message": "Close"
+	},
+
+	"SideMenuToggleButton": {
+		"message": "Show Side Menu Toggle Button"
+	},
+
+	"HideCompactViewBlankThumbnails": {
+		"message": "Hide Blank Thumbnails In Compact View"
 	}
 }

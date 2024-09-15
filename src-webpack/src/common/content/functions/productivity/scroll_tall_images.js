@@ -63,22 +63,22 @@ function enableImageScrollNewNew() {
 	styleElement.textContent = `:root {
 									--re-image-scroll-max-image-width: 100%;
 								}
-								shreddit-app shreddit-post [slot="post-media-container"] {
+								/*shreddit-app[microapp-name="feeds"] shreddit-post*/ [slot="post-media-container"] {
 									background: none !important;
 								}
-								shreddit-app shreddit-post shreddit-aspect-ratio div {
+								/*shreddit-app[microapp-name="feeds"] shreddit-post*/ shreddit-aspect-ratio div {
 									overflow-y: auto !important;
 									background: none !important;
 									width: var(--re-image-scroll-max-image-width) !important;
 									margin: 0 auto;
 								}
-								shreddit-app shreddit-post shreddit-aspect-ratio .media-lightbox-img :first-child {
+								/*shreddit-app[microapp-name="feeds"] shreddit-post*/ shreddit-aspect-ratio .media-lightbox-img :first-child {
 									transform: scale(1) !important;
 									filter: none !important;
 									opacity: 1 !important;
 									top: 0;
 								}
-								shreddit-app shreddit-post shreddit-aspect-ratio .media-lightbox-img :nth-child(2) {
+								/*shreddit-app[microapp-name="feeds"] shreddit-post*/ shreddit-aspect-ratio .media-lightbox-img :nth-child(2) {
 									display: none;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);

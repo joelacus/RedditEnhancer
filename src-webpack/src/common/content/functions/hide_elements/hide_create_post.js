@@ -11,15 +11,15 @@ export function loadHideCreatePost() {
 export function hideCreatePost(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {
-			hideCreatePostNew();
+			enableHideCreatePostNew();
 		} else if (value === false) {
-			showCreatePostNew();
+			disableHideCreatePostNew();
 		}
 	}
 }
 
-// Function - Hide Create Post - New
-function hideCreatePostNew() {
+// Function - Enable Hide Create Post - New
+function enableHideCreatePostNew() {
 	if (useLegacy) {
 		document.querySelector('.re-create-post').classList.add('re-hide');
 	} else {
@@ -32,8 +32,8 @@ function hideCreatePostNew() {
 	}
 }
 
-// Function - Show Create Post - New
-function showCreatePostNew() {
+// Function - Disable Hide Create Post - New
+function disableHideCreatePostNew() {
 	if (useLegacy) {
 		document.querySelector('.re-create-post').classList.remove('re-hide');
 	} else {

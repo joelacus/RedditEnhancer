@@ -19,7 +19,7 @@ export function limitInfinityScroll(value) {
 			// show the first batch of hidden posts
 			const hiddenPosts = document.querySelectorAll('.re-post.hide');
 			for (let i = 0; i < 25 && i < hiddenPosts.length; i++) {
-				hiddenPosts[i].classList.remove('hide');
+				hiddenPosts[i].classList.remove('hidden');
 			}
 
 			// load more posts
@@ -38,7 +38,7 @@ export function limitInfinityScroll(value) {
 
 				// show the next batch of hidden posts
 				for (let i = 0; i < 25 && i < hiddenPosts.length; i++) {
-					hiddenPosts[i].classList.remove('hide');
+					hiddenPosts[i].classList.remove('hidden');
 				}
 
 				// scroll to the top
@@ -96,7 +96,7 @@ export function limitInfinityScroll(value) {
 			// show all posts
 			const posts = document.querySelectorAll('.re-post');
 			posts.forEach(function (post) {
-				post.classList.remove('hide');
+				post.classList.remove('hidden');
 			});
 			// remove load more button
 			if (document.querySelector('.re-load-more')) {
@@ -114,7 +114,7 @@ const observer = new MutationObserver(function (mutations_list) {
 			if (node.tagName === 'DIV') {
 				if (node.querySelector('.Post:not(.promotedlink)')) {
 					// check if it isn't an ad
-					node.classList.add('re-post', 'hide');
+					node.classList.add('re-post', 'hidden');
 				}
 			}
 		});
@@ -133,7 +133,7 @@ const observer = new MutationObserver(function (mutations_list) {
 			}
 			const hiddenPosts = document.querySelectorAll('.re-post');
 			for (let i = 0; i < 25 && i < hiddenPosts.length; i++) {
-				hiddenPosts[i].classList.remove('hide');
+				hiddenPosts[i].classList.remove('hidden');
 			}
 		}
 	});*/
@@ -148,7 +148,7 @@ function postObserver(i) {
 			.querySelectorAll(':scope > div')
 			.forEach((div) => {
 				if (div.querySelector('.Post:not(.promotedlink)')) {
-					div.classList.add('re-post', 'hide');
+					div.classList.add('re-post', 'hidden');
 				}
 			});
 		// start observer

@@ -1165,3 +1165,26 @@ document.querySelector('#input-searchbar-dropdown-bg-colour-css').addEventListen
 		});
 	});
 });
+
+// Slider - Theme Border Radius Amount
+document.querySelector('#input-border-radius-amount').addEventListener('input', function (e) {
+	// set ui
+	if (e.target.value != -1) {
+		document.querySelector('.icon-border-radius-amount').style.backgroundColor = 'var(--accent)';
+		document.querySelector('#border-radius-amount-value').innerText = e.target.value + 'px';
+	} else {
+		document.querySelector('.icon-border-radius-amount').style.backgroundColor = '';
+		document.querySelector('#border-radius-amount-value').innerText = 'off';
+	}
+	// apply
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.includes('reddit.com') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { borderRadiusAmount: e.target.value });
+			}
+		});
+	});
+});
+document.querySelector('#input-border-radius-amount').addEventListener('mouseup', function (e) {
+	BROWSER_API.storage.sync.set({ borderRadiusAmount: e.target.value });
+});

@@ -31,6 +31,10 @@ import { loadTextPostScroll } from './functions/productivity/text_post_scroll';
 import { loadAutoLoadMoreComments } from './functions/productivity/auto_load_more_comments';
 import { waitForAddedNode } from '../content-first/functions/observers/main_observer';
 import { loadAutoShowCommentFormattingOptions } from './functions/productivity/auto_show_comment_formatting_options';
+import { loadHidePostKarma } from './functions/hide_elements/hide_post_karma';
+import { loadSideMenuIconsOnly } from './functions/hide_elements/side_menu_icons_only';
+import { loadHideSideMenuFavouriteButton } from './functions/hide_elements/hide_side_menu_favourite_button';
+import { loadSideMenuToggleButton } from './functions/hide_elements/side_menu_toggle_button';
 
 export function load_saves() {
 	if (redditVersion === 'old') {
@@ -69,6 +73,8 @@ export function load_saves() {
 		loadShowPostAuthor();
 		loadShowPostFlair();
 		loadAutoLoadMoreComments();
+		loadHidePostKarma();
+		loadSideMenuToggleButton();
 		// Auto Show Comment Formatting Options
 		waitForAddedNode({
 			query: 'comment-body-header',
@@ -79,6 +85,22 @@ export function load_saves() {
 				setTimeout(() => {
 					loadAutoShowCommentFormattingOptions();
 				}, 3000);
+			},
+		});
+		waitForAddedNode({
+			query: '#communities_section left-nav-communities-controller',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function (el) {
+				//console.log(el);
+				setTimeout(() => {
+					loadSideMenuIconsOnly();
+					loadHideSideMenuFavouriteButton();
+				}, 1000);
+				setTimeout(() => {
+					loadSideMenuIconsOnly();
+					loadHideSideMenuFavouriteButton();
+				}, 4000);
 			},
 		});
 	}

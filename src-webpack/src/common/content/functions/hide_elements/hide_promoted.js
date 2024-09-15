@@ -108,7 +108,8 @@ function enableHidePromotedPostsNewNew() {
 	styleElement.id = 're-hide-promoted-posts';
 	styleElement.textContent = `shreddit-ad-post,
 								shreddit-comments-page-ad,
-								shreddit-sidebar-ad {
+								shreddit-sidebar-ad,
+								shreddit-comment-tree-ad {
 									display: none !important;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);

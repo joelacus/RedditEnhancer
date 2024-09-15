@@ -4,16 +4,16 @@
 export function filterShowOldVersion() {
 	document.querySelector('#search').value = '';
 	document.querySelectorAll('.r-new').forEach(function (item) {
-		item.classList.add('hide');
+		item.classList.add('hidden');
 	});
 	document.querySelectorAll('.r-newnew').forEach(function (item) {
-		item.classList.add('hide');
+		item.classList.add('hidden');
 	});
 	document.querySelectorAll('.r-old').forEach(function (item) {
 		if (item.classList.contains('sub-list')) {
-			item.classList.add('hide');
+			item.classList.add('hidden');
 		} else {
-			item.classList.remove('hide');
+			item.classList.remove('hidden');
 		}
 	});
 	document.querySelectorAll('.menu-item-link').forEach((el) => {
@@ -25,16 +25,16 @@ export function filterShowOldVersion() {
 export function filterShowNewVersion() {
 	document.querySelector('#search').value = '';
 	document.querySelectorAll('.r-old').forEach(function (item) {
-		item.classList.add('hide');
+		item.classList.add('hidden');
 	});
 	document.querySelectorAll('.r-newnew').forEach(function (item) {
-		item.classList.add('hide');
+		item.classList.add('hidden');
 	});
 	document.querySelectorAll('.r-new').forEach(function (item) {
 		if (item.classList.contains('sub-list')) {
-			item.classList.add('hide');
+			item.classList.add('hidden');
 		} else {
-			item.classList.remove('hide');
+			item.classList.remove('hidden');
 		}
 	});
 	document.querySelectorAll('.menu-item-link').forEach((el) => {
@@ -46,16 +46,16 @@ export function filterShowNewVersion() {
 export function filterShowNewNewVersion() {
 	document.querySelector('#search').value = '';
 	document.querySelectorAll('.r-old').forEach(function (item) {
-		item.classList.add('hide');
+		item.classList.add('hidden');
 	});
 	document.querySelectorAll('.r-new').forEach(function (item) {
-		item.classList.add('hide');
+		item.classList.add('hidden');
 	});
 	document.querySelectorAll('.r-newnew').forEach(function (item) {
 		if (item.classList.contains('sub-list')) {
-			item.classList.add('hide');
+			item.classList.add('hidden');
 		} else {
-			item.classList.remove('hide');
+			item.classList.remove('hidden');
 		}
 	});
 	document.querySelectorAll('.menu-item-link').forEach((el) => {
@@ -100,6 +100,9 @@ export function selectFilterShowNewVersion(version) {
 	BROWSER_API.storage.sync.set({ redditVersion: 'new' });
 	version_dropdown.classList.remove('active');
 	version_dropdownMenu.style.maxHeight = '0';
+	if (localStorage.getItem('DontShowAgainOldNewUiWarning') === null) {
+		document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
+	}
 }
 document.querySelector('#new-reddit').addEventListener('click', function (e) {
 	selectFilterShowNewVersion(e.target.textContent);

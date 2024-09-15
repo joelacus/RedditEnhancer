@@ -50,6 +50,7 @@ input:disabled {
 	color: var(--text);
 	transition: background-color 0.1s ease-in-out;
 	padding: 0 8px;
+	max-height: 35px;
 }
 .btn:hover {
 	cursor: pointer;
@@ -63,6 +64,13 @@ input:disabled {
 }
 .btn-text {
 	padding: 4px 8px 4px 8px;
+}
+.btn.red {
+	border: solid 1px rgba(229, 57, 53, 0.5);
+	background-color: rgba(229, 57, 53, 0.1);
+}
+.btn.red:hover {
+	background-color: rgba(229, 57, 53, 0.3);
 }
 
 /* Toggle Switch */
@@ -221,6 +229,9 @@ input:disabled {
 .dropdown {
 	position: relative;
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .dropdown .select div {
 	transition: transform 0.1s ease-in-out;
@@ -237,6 +248,7 @@ input:disabled {
 	border: solid 1px var(--bg-shade-1);
 	border-radius: var(--border-radius);
 	min-height: 35px;
+	width: 100%;
 	padding-left: 4px;
 	padding-right: 8px;
 	transition: background-color 0.1s ease-in-out;
@@ -250,7 +262,7 @@ input:disabled {
 }
 .select span {
 	font-size: 14px;
-	color: var(--text-grey);
+	color: var(--text);
 	white-space: nowrap;
 }
 .top-menu-bar .select span {
@@ -258,38 +270,42 @@ input:disabled {
 }
 .select div {
 	text-align: center;
-	color: var(--text-grey);
+	color: var(--text);
 }
 .select div:before {
 	font-size: 14px !important;
 }
 .select .icon {
-	width: 22px;
+	width: 24px;
 	height: 16px;
 	background-color: var(--text-grey);
 }
 .dropdown-menu,
 .dropdown-menu-up {
 	position: absolute;
-	top: 16px;
+	top: 24px;
 	left: 0;
 	width: 100%;
-	background-color: var(--bg-tint-2);
-	border-radius: 0 0 var(--border-radius) var(--border-radius);
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	max-height: 0;
+	background-color: var(--bg-tint-2);
+	border-radius: var(--border-radius);
 	transition: max-height 0.1s ease-in-out;
 	list-style: none;
+	z-index: 99;
 	padding: 0;
-	z-index: 100;
 }
 .dropdown-menu-up {
 	top: unset;
-	bottom: 27px;
-	border-radius: var(--border-radius) var(--border-radius) 0 0;
+	bottom: 28px;
 	flex-direction: column-reverse;
+}
+.dropdown.active .dropdown-menu,
+.dropdown.active .dropdown-menu-up {
+	border: solid 1px var(--bg-tint-1);
+	padding: 4px;
 }
 .dropdown-menu li,
 .dropdown-menu-up li {
@@ -301,17 +317,7 @@ input:disabled {
 	padding: 6px;
 	cursor: pointer;
 	background-color: var(--bg-tint-2);
-	border: solid 1px var(--bg-shade-1);
-	border-top: 0;
-	border-bottom: 0;
-}
-.dropdown-menu li:last-child {
-	border-bottom: solid 1px var(--bg-shade-1);
-	border-radius: 0 0 var(--border-radius) var(--border-radius);
-}
-.dropdown-menu-up li:last-child {
-	border-top: solid 1px var(--bg-shade-1);
-	border-radius: var(--border-radius) var(--border-radius) 0 0;
+	border-radius: calc(var(--border-radius) - 2px);
 }
 .dropdown-menu li:hover,
 .dropdown-menu-up li:hover {

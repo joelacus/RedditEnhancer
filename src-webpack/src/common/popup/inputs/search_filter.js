@@ -15,11 +15,11 @@ function search_filter() {
 			});
 			document.querySelectorAll('.sub-list').forEach((sub) => {
 				if (sub.classList.contains(v)) {
-					sub.classList.remove('hide');
+					sub.classList.remove('hidden');
 				}
 			});
 			document.querySelectorAll('.sub-search-title').forEach((title) => {
-				title.classList.remove('hide');
+				title.classList.remove('hidden');
 			});
 
 			// for all options
@@ -64,11 +64,11 @@ function search_filter() {
 					// show all if search input is blank
 					if (document.querySelector('#search').value == '') {
 						document.querySelectorAll('.sub-list').forEach((sub) => {
-							sub.classList.add('hide');
+							sub.classList.add('hidden');
 						});
 						li[i].style.display = null;
 						document.querySelectorAll('.sub-search-title').forEach((title) => {
-							title.classList.add('hide');
+							title.classList.add('hidden');
 						});
 						document.querySelectorAll('.menu-item-link').forEach((item) => {
 							item.classList.remove('active');
@@ -81,7 +81,7 @@ function search_filter() {
 			// Check if each menu list/category contain search results
 			document.querySelectorAll('.menu-list').forEach(function (menuList) {
 				// unhide all menu lists
-				menuList.classList.remove('hide');
+				menuList.classList.remove('hidden');
 			});
 			if (document.querySelector('#search').value != '') {
 				// check each menu list for result
@@ -98,7 +98,7 @@ function search_filter() {
 					const hasVisibleResults = hasVisibleResultsFunc();
 					// hide menu list if it contains no search result
 					if (!hasVisibleResults) {
-						menuList.classList.add('hide');
+						menuList.classList.add('hidden');
 					}
 				});
 				// if no results, show no results page to user
@@ -121,7 +121,7 @@ function search_filter() {
 				});
 			} else {
 				document.querySelectorAll('.sub-list').forEach(function (sub) {
-					sub.classList.add('hide');
+					sub.classList.add('hidden');
 				});
 				document.querySelector('#no-search-results').style.display = 'none';
 			}

@@ -17,9 +17,8 @@ const observer = new MutationObserver((mutations) => {
 			//console.log('detected page change');
 
 			// If sh.reddit.com, redirect these links about to www.reddit.com
-			const excludedPaths = [
-				'about/banned',
-				'about/muted',
+			// Disabling as it might be causing random page refreshes. Will be irrelevent soon anyway.
+			/*const excludedPaths = [
 				'about/contributors',
 				'about/moderators',
 				'about/scheduledposts',
@@ -32,25 +31,27 @@ const observer = new MutationObserver((mutations) => {
 			if (currentUrl.startsWith('https://sh.reddit.com/r/')) {
 				for (const path of excludedPaths) {
 					if (currentUrl.includes(path)) {
+						console.log(path + ' does not yet support New New UI, redirecting to www.reddit.com');
 						const newUrl = currentUrl.replace('sh.reddit.com', 'www.reddit.com');
 						window.location.replace(newUrl);
 						return;
 					}
 				}
+			} else {*/
+			// If post overlay on old new ui
+			const overlay = document.querySelector('#overlayScrollContainer');
+			if (overlay) {
+				observerPostOverlay();
 			} else {
-				// If post overlay
-				const overlay = document.querySelector('#overlayScrollContainer');
-				if (overlay) {
-					observerPostOverlay();
-				} else {
-					if (document.querySelector('.re-scroll-to-comment-container')) {
-						document.querySelector('.re-scroll-to-comment-container').remove();
-					}
-					defaultSortOption();
-					init();
-					load_saves();
+				if (document.querySelector('.re-scroll-to-comment-container')) {
+					console.log('found scroll to root comment container');
+					document.querySelector('.re-scroll-to-comment-container').remove();
 				}
+				defaultSortOption();
+				init();
+				load_saves();
 			}
+			//}
 		}
 	});
 });

@@ -1,6 +1,6 @@
 /* ===== Tweaks - Productivity - Show Missing Post Author On The Home Feed ===== */
 
-/* === Main Function === */
+/* === Triggered On Page Load === */
 export function loadShowPostAuthor() {
 	BROWSER_API.storage.sync.get(['showPostAuthor'], function (result) {
 		showPostAuthor(result.showPostAuthor);
@@ -9,15 +9,16 @@ export function loadShowPostAuthor() {
 
 /* === Main Function === */
 export function showPostAuthor(value) {
+	const routename = document.querySelector('shreddit-app').getAttribute('routename') === 'frontpage';
 	if (redditVersion === 'newnew' && value === true) {
-		if (document.querySelector('shreddit-app').getAttribute('routename') === 'frontpage') {
+		if (routename) {
 			document.querySelectorAll('shreddit-post').forEach((post) => {
 				attach_username(post);
 			});
 			observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
 		}
 	} else if (redditVersion === 'newnew' && value === false) {
-		if (document.querySelector('shreddit-app').getAttribute('routename') === 'frontpage') {
+		if (routename) {
 			observer.disconnect();
 			remove_username();
 		}
@@ -42,16 +43,36 @@ function attach_username(post) {
 		a.style.zIndex = 3;
 		a.textContent = 'u/' + author;
 		a.href = '/user/' + author;
-		a.addEventListener('mouseover', () => {
-			showHoverCard(post, author);
+		let hoverTimer;
+		a.addEventListener('mouseenter', () => {
+			hoverTimer = setTimeout(function () {
+				showHoverCard(post, author);
+			}, 500);
 		});
-		const container = post.querySelector('[slot="credit-bar"] > span:has(faceplate-timeago)');
+		a.addEventListener('mouseleave', () => {
+			clearTimeout(hoverTimer);
+		});
+		let container = post.querySelector('[slot="credit-bar"] > span:has(faceplate-timeago)');
+		if (!container) {
+			container = post.querySelector('[slot="credit-bar"] > div');
+		}
 		container.appendChild(a);
 	}
 }
 
 // Function to show the hover card
 async function showHoverCard(post, username) {
+	// Hide all other hover cards
+	document.querySelectorAll('.hover-card').forEach((card) => {
+		card.style.display = 'none';
+	});
+
+	// Set post Z-Index so the card isn't covered by another post
+	document.querySelectorAll('shreddit-post').forEach((post) => {
+		post.style.zIndex = '';
+	});
+	post.style.zIndex = 9;
+
 	// Check if hover card already exists
 	const existingHoverCard = post.querySelector('.hover-card');
 	if (existingHoverCard) {
@@ -70,7 +91,11 @@ async function showHoverCard(post, username) {
 	hoverCard.style.top = linkRect.offsetTop + 20 + 'px';
 
 	// Append the hover card to the body
-	post.querySelector('[slot="credit-bar"] > span:has(faceplate-timeago)').appendChild(hoverCard);
+	let container = post.querySelector('[slot="credit-bar"] > span:has(faceplate-timeago)');
+	if (!container) {
+		container = post.querySelector('[slot="credit-bar"] > div');
+	}
+	container.appendChild(hoverCard);
 	post.querySelector('.hover-card').style.display = 'block';
 }
 
@@ -143,9 +168,7 @@ function createHoverCard(userData) {
 			</div>
 		</div>
 
-		<a rpl="" aria-label="Open chat" class="button-small px-[var(--rem10)] button-secondary button inline-flex items-center justify-center mt-md" href="https://chat.reddit.com/user/${
-			userData.name
-		}" target="_blank">
+		<a rpl="" aria-label="Open chat" class="button-small px-[var(--rem10)] button-secondary button inline-flex items-center justify-center mt-md" href="https://chat.reddit.com/user/${userData.name}" target="_blank">
 			<span class="flex items-center justify-center">
 				<span class="flex mr-xs">
 					<svg rpl="" aria-hidden="true" fill="currentColor" height="16" icon-name="chat-outline" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">

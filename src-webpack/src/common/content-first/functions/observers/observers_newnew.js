@@ -16,14 +16,7 @@ import { loadExpandContent } from '../../../content/functions/expand_feed_post/e
 import { loadHideAdvertiseButton, loadHideChatButton, loadHideCreatePostButton, loadHideNotificationButton } from '../../../content/functions/hide_elements/hide_header_buttons';
 import { loadHideGap } from '../../../content/functions/style/hide_gap';
 import { loadHideHeaderBar } from '../../../content/functions/hide_elements/hide_header_bar';
-import {
-	loadHideHomeSidebar,
-	loadHidePostSidebar,
-	loadHideRelatedPostsSection,
-	loadHideSearchSidebar,
-	loadHideSubSidebarException,
-	loadHideUserSidebar,
-} from '../../../content/functions/hide_elements/hide_sidebar';
+import { loadHideHomeSidebar, loadHidePostSidebar, loadHideRelatedPostsSection, loadHideSearchSidebar, loadHideSubSidebarException, loadHideUserSidebar } from '../../../content/functions/hide_elements/hide_sidebar';
 import { loadHideJoinButtonOnPosts } from '../../../content/functions/hide_elements/hide_post_join_button';
 import { loadHidePostHiddenMessage } from '../../../content/functions/hide_elements/hide_post_hidden_message';
 import { loadHidePromotedPosts } from '../../../content/functions/hide_elements/hide_promoted';
@@ -39,6 +32,11 @@ import { loadResizeFont } from '../../../content/functions/accessibility/resize_
 import { loadScrollToNextRootCommentPosition } from '../../../content/functions/productivity/scroll_to_next_root_comment';
 import { loadUnderlineLinks } from '../../../content/functions/accessibility/underline_links';
 import { loadHideRecommendedPosts } from '../../../content/functions/hide_elements/hide_recommended';
+import { loadHidePostBackButton } from '../../../content/functions/hide_elements/hide_post_back_button';
+import { loadBorderRadiusAmount } from '../../../content/functions/style/border_radius';
+import { loadHideRecentPosts } from '../../../content/functions/hide_elements/hide_recent_posts';
+import { loadSideMenuWidth } from '../../../content/functions/productivity/side_menu_width';
+import { loadHideCompactViewBlankThumbnails } from '../../../content/functions/hide_elements/hide_compact_view_blank_thumbnails';
 
 export function observersNewNew() {
 	loadCustomBackground();
@@ -75,6 +73,11 @@ export function observersNewNew() {
 	loadHideRecommendedPosts();
 	//loadScalePostToFitImage();
 	//loadDragImageToResize();
+	loadHidePostBackButton();
+	loadBorderRadiusAmount();
+	loadHideRecentPosts();
+	loadSideMenuWidth();
+	loadHideCompactViewBlankThumbnails();
 
 	// Always Show Post Options
 	waitForAddedNode({

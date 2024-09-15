@@ -10,20 +10,7 @@ export function loadStyles() {
 	// Create new style element
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-styles';
-	styleElement.textContent =
-		styleHide +
-		styleLayoutCentre +
-		styleOther +
-		styleScrollText +
-		styleOldReddit +
-		stylePagination +
-		styleLoadMore +
-		styleScrollToComment +
-		stylePostNumber +
-		styleBionicReader +
-		styleBreakReminder +
-		styleShowPostAuthor +
-		layoutOffset;
+	styleElement.textContent = styleHide + styleLayoutCentre + styleOther + styleScrollText + styleOldReddit + stylePagination + styleLoadMore + styleScrollToComment + stylePostNumber + styleBionicReader + styleBreakReminder + styleShowPostAuthor + layoutOffset;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
@@ -134,7 +121,7 @@ const styleLoadMore = `.re-load-more {
 							text-decoration: underline;
 						}`;
 
-const stylePagination = `.re-post.hide {
+const stylePagination = `.re-post.hidden {
 							display: none;
 						}`;
 
@@ -173,6 +160,10 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 					}
 					#overlayScrollContainer .undefined {
 						min-width: 16px
+					}
+					[bundlename="comment_body_header"],
+					shreddit-feed article:hover {
+						z-index: 9;
 					}`;
 
 const styleScrollText = `.re-text-scroll div[data-click-id="text"][style="max-height: 250px;"], .re-text-scroll div[data-click-id="text"][style="max-height:250px"] {

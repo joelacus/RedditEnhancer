@@ -301,7 +301,8 @@ function enableHidePostSidebarNewNew() {
 									--re-hide-sidebar-gap-multiplyer: 1;
 								}
 								#right-sidebar-container:has([router-name="post_page"]),
-								[routename="profile_post_page"] #right-sidebar-container {
+								[routename="profile_post_page"] #right-sidebar-container,
+								[routename="comments_page"] #right-sidebar-container {
 									display: none !important;
 								}
 								shreddit-app[routename="post_page"] #main-content.grid,
@@ -317,7 +318,7 @@ function enableHidePostSidebarNewNew() {
 	document.querySelector('html').classList.add('re-hide-post-sidebar');
 }
 
-// Function - Disable Hide  Post Sidebar - New New
+// Function - Disable Hide Post Sidebar - New New
 function disableHidePostSidebarNewNew() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-post-sidebar"]');
 	dynamicStyleElements.forEach((element) => {

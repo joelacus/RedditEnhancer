@@ -56,11 +56,11 @@ export function hideSideMenu(value) {
 
 // Function - Hide Side Menu - New New
 function enableHideSideMenuNewNew() {
-	document.querySelector('html').classList.add('re-hide-sidemenu');
+	document.querySelector('html').classList.add('re-hide-side-menu');
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-hide-side-menu';
 	styleElement.textContent = `:root {
-									--re-hide-sidemenu-gap-multiplyer: 1;
+									--re-hide-side-menu-gap-multiplyer: 1;
 								}
 								shreddit-app #left-sidebar-container {
 									display: none !important;
@@ -78,13 +78,9 @@ function enableHideSideMenuNewNew() {
 									grid-column-start: 1 !important;
 									margin-left: 0 !important;
 								}
-								/*shreddit-app[routename="frontpage"] .main-container,
-								shreddit-app[routename="subreddit"] .main-container {
-									padding-left: 1.5rem;
-								}*/
-								shreddit-app[routename="post_page"],
-								shreddit-app[routename="profile_post_page"] {
-									padding-left: 1.4rem;
+								shreddit-app[routename="post_page"] .subgrid-container,
+								shreddit-app[routename="profile_post_page"] .subgrid-container {
+									padding-left: 1.3rem !important;
 								}
 								shreddit-app[routename="frontpage"] #main-content {
 									margin-left: 0 !important;
@@ -103,7 +99,7 @@ function enableHideSideMenuNewNew() {
 
 // Function - Show Side Menu - New New
 function disableHideSideMenuNewNew() {
-	document.querySelector('html').classList.remove('re-hide-sidemenu');
+	document.querySelector('html').classList.remove('re-hide-side-menu');
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-side-menu"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);

@@ -11,8 +11,8 @@ document.querySelector('#checkbox-fit-image').addEventListener('change', functio
 		/*document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
 		BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
 		document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
-		document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';*/
-		/*document.querySelector('#checkbox-drag-image-to-resize').checked = false;
+		document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';
+		document.querySelector('#checkbox-drag-image-to-resize').checked = false;
 		BROWSER_API.storage.sync.set({ dragImageToResize: false });
 		document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = '';
 		document.querySelector('.icon-drag-image-to-resize-initial-size').style.backgroundColor = '';*/
@@ -50,8 +50,8 @@ document.querySelector('#checkbox-image-scroll').addEventListener('change', func
 		/*document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
 		BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
 		document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
-		document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';*/
-		/*document.querySelector('#checkbox-drag-image-to-resize').checked = false;
+		document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';
+		document.querySelector('#checkbox-drag-image-to-resize').checked = false;
 		BROWSER_API.storage.sync.set({ dragImageToResize: false });
 		document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = '';
 		document.querySelector('.icon-drag-image-to-resize-initial-size').style.backgroundColor = '';*/
@@ -196,9 +196,9 @@ document.querySelector('#input-scale-post-to-fit-image-max-image-width').addEven
 	BROWSER_API.storage.sync.set({ scalePostToFitImageMaxImageWidth: e.target.value });
 });
 */
-/*
+
 // Toggle - Drag Image To Resize
-document.querySelector('#checkbox-drag-image-to-resize').addEventListener('change', function (e) {
+/*document.querySelector('#checkbox-drag-image-to-resize').addEventListener('change', function (e) {
 	const dragImageToResize = document.querySelector('#checkbox-drag-image-to-resize').checked;
 	if (dragImageToResize === true) {
 		// disable other image options
@@ -208,10 +208,10 @@ document.querySelector('#checkbox-drag-image-to-resize').addEventListener('chang
 		document.querySelector('#checkbox-fit-image').checked = false;
 		BROWSER_API.storage.sync.set({ fitImage: false });
 		document.querySelector('.icon-scale').style.backgroundColor = '';
-		document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
-		BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
-		document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
-		document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';
+		//document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
+		//BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
+		//document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
+		//document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';
 		// enable
 		BROWSER_API.storage.sync.set({ dragImageToResize: true });
 		document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = 'var(--accent)';
@@ -235,10 +235,10 @@ document.querySelector('#checkbox-drag-image-to-resize').addEventListener('chang
 			});
 		});
 	}
-});
+});*/
 
 // Slider - Drag Image To Resize Initial Height
-document.querySelector('#input-drag-image-to-resize-initial-size').addEventListener('input', function (e) {
+/*document.querySelector('#input-drag-image-to-resize-initial-size').addEventListener('input', function (e) {
 	// set ui
 	const value = e.target.value;
 	const dragImageToResize = document.querySelector('#checkbox-drag-image-to-resize').checked;
@@ -273,8 +273,8 @@ document.querySelector('#input-drag-image-to-resize-initial-size').addEventListe
 	});
 	// save
 	BROWSER_API.storage.sync.set({ dragImageToResizeInitialSize: e.target.value });
-});
-*/
+});*/
+
 // Toggle - Just Open The Image
 document.querySelector('#checkbox-just-open-the-image').addEventListener('change', function (e) {
 	const justOpenTheImage = document.querySelector('#checkbox-just-open-the-image').checked;
@@ -1025,6 +1025,8 @@ document.querySelector('#checkbox-non-sticky-header-bar').addEventListener('chan
 	if (nonStickyHeaderBar == true) {
 		BROWSER_API.storage.sync.set({ nonStickyHeaderBar: true });
 		document.querySelector('.icon-non-sticky-header-bar').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-non-sticky-header-bar').classList.remove('icon-sticky-note');
+		document.querySelector('.icon-non-sticky-header-bar').classList.add('icon-sticky-note-slash');
 		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
 			tabs.forEach(function (tab) {
 				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
@@ -1035,6 +1037,8 @@ document.querySelector('#checkbox-non-sticky-header-bar').addEventListener('chan
 	} else if (nonStickyHeaderBar == false) {
 		BROWSER_API.storage.sync.set({ nonStickyHeaderBar: false });
 		document.querySelector('.icon-non-sticky-header-bar').style.backgroundColor = '';
+		document.querySelector('.icon-non-sticky-header-bar').classList.remove('icon-sticky-note-slash');
+		document.querySelector('.icon-non-sticky-header-bar').classList.add('icon-sticky-note');
 		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
 			tabs.forEach(function (tab) {
 				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
@@ -1223,4 +1227,27 @@ document.querySelector('#checkbox-auto-show-comment-formatting-options').addEven
 			});
 		});
 	}
+});
+
+// Slider - Side Menu Width
+document.querySelector('#input-side-menu-width').addEventListener('input', function (e) {
+	// set ui
+	if (e.target.value === '199') {
+		document.querySelector('.icon-side-menu-width').style.backgroundColor = '';
+		document.querySelector('#side-menu-width-value').textContent = 'off';
+	} else {
+		document.querySelector('.icon-side-menu-width').style.backgroundColor = 'var(--accent)';
+		document.querySelector('#side-menu-width-value').textContent = e.target.value + 'px';
+	}
+	// apply
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.includes('reddit.com') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { sideMenuWidth: e.target.value });
+			}
+		});
+	});
+});
+document.querySelector('#input-side-menu-width').addEventListener('mouseup', function (e) {
+	BROWSER_API.storage.sync.set({ sideMenuWidth: e.target.value });
 });

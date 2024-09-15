@@ -84,6 +84,7 @@
 	overflow-y: scroll;
 	overflow-x: hidden;
 	white-space: pre-wrap;
+	z-index: 9;
 }
 #changelog span {
 	max-width: 450px;
@@ -96,17 +97,22 @@
 	top: 35px;
 	left: 0;
 	width: 100%;
-	height: 366px;
+	height: 370px;
 	display: flex;
 	flex-direction: column;
 	color: var(--text);
 	background-color: var(--bg);
 	padding: 8px;
-	overflow-y: scroll;
+	overflow-y: none;
+	z-index: 9;
 }
 #settings .container {
 	width: 100%;
 	background: none !important;
+	padding-top: 0;
+}
+.settings-sub-list {
+	margin-top: 0;
 }
 #settings .btn {
 	height: 40px;
@@ -114,6 +120,12 @@
 #settings .sub-list {
 	border-radius: var(--border-radius);
 	grid-gap: 0px !important;
+}
+#btn-settings-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: fit-content;
 }
 #btn-settings {
 	display: grid;
@@ -150,7 +162,8 @@
 	grid-gap: 8px;
 	margin-top: 2px;
 }
-.settings-backup {
+.settings-backup,
+.settings-reset {
 	display: flex;
 	flex-direction: row;
 	grid-gap: 8px;
@@ -165,7 +178,7 @@
 	font-size: 16px;
 }
 #select-lang-menu {
-	top: 34px;
+	top: 36px;
 	min-width: 450px;
 	left: -11px;
 	display: grid;
@@ -175,4 +188,7 @@
 #select-lang-menu li:last-child {
 	border-top: none;
 	border-radius: 0;
+}
+#select-lang-menu .dropdown-menu li {
+	border: none !important;
 }

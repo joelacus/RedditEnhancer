@@ -850,9 +850,28 @@ document.querySelector('#checkbox-hide-original-scroll-to-top').addEventListener
 });
 
 // Toggle - Hide Side Menu
+function disableHideSideMenu() {
+	BROWSER_API.storage.sync.set({ hideSideMenu: false });
+	document.querySelector('.icon-hide-side-menu').style.backgroundColor = '';
+	document.querySelector('.icon-hide-side-menu').classList.remove('icon-hide');
+	document.querySelector('.icon-hide-side-menu').classList.add('icon-show');
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { hideSideMenu: false });
+			}
+		});
+	});
+}
 document.querySelector('#checkbox-hide-side-menu').addEventListener('change', function (e) {
 	const hideSideMenu = document.querySelector('#checkbox-hide-side-menu').checked;
 	if (hideSideMenu === true) {
+		// disable side menu toggle and side menu icons only
+		disableSideMenuToggle();
+		document.querySelector('#checkbox-side-menu-toggle-button').checked = false;
+		disableSideMenuIconsOnly();
+		document.querySelector('#checkbox-side-menu-icons-only').checked = false;
+		// enable hide side menu
 		BROWSER_API.storage.sync.set({ hideSideMenu: true });
 		document.querySelector('.icon-hide-side-menu').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.icon-hide-side-menu').classList.remove('icon-show');
@@ -865,17 +884,46 @@ document.querySelector('#checkbox-hide-side-menu').addEventListener('change', fu
 			});
 		});
 	} else if (hideSideMenu === false) {
-		BROWSER_API.storage.sync.set({ hideSideMenu: false });
-		document.querySelector('.icon-hide-side-menu').style.backgroundColor = '';
-		document.querySelector('.icon-hide-side-menu').classList.remove('icon-hide');
-		document.querySelector('.icon-hide-side-menu').classList.add('icon-show');
+		disableHideSideMenu();
+	}
+});
+
+// Toggle - Side Menu Show/Hide Toggle Button
+function disableSideMenuToggle() {
+	BROWSER_API.storage.sync.set({ sideMenuToggleButton: false });
+	document.querySelector('.icon-side-menu-toggle-button').style.backgroundColor = '';
+	document.querySelector('.icon-side-menu-toggle-button').classList.remove('icon-show');
+	document.querySelector('.icon-side-menu-toggle-button').classList.add('icon-hide');
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { sideMenuToggleButton: false });
+			}
+		});
+	});
+}
+document.querySelector('#checkbox-side-menu-toggle-button').addEventListener('change', function (e) {
+	const sideMenuToggleButton = document.querySelector('#checkbox-side-menu-toggle-button').checked;
+	if (sideMenuToggleButton === true) {
+		// disable hide side menu and side menu icons only
+		disableHideSideMenu();
+		document.querySelector('#checkbox-hide-side-menu').checked = false;
+		disableSideMenuIconsOnly();
+		document.querySelector('#checkbox-side-menu-icons-only').checked = false;
+		// enable side menu toggle
+		BROWSER_API.storage.sync.set({ sideMenuToggleButton: true });
+		document.querySelector('.icon-side-menu-toggle-button').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-side-menu-toggle-button').classList.remove('icon-hide');
+		document.querySelector('.icon-side-menu-toggle-button').classList.add('icon-show');
 		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
 			tabs.forEach(function (tab) {
 				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
-					BROWSER_API.tabs.sendMessage(tab.id, { hideSideMenu: false });
+					BROWSER_API.tabs.sendMessage(tab.id, { sideMenuToggleButton: true });
 				}
 			});
 		});
+	} else if (sideMenuToggleButton === false) {
+		disableSideMenuToggle();
 	}
 });
 
@@ -1231,8 +1279,8 @@ document.querySelector('#checkbox-hide-search-sidebar').addEventListener('change
 	} else if (hideSearchSidebar === false) {
 		BROWSER_API.storage.sync.set({ hideSearchSidebar: false });
 		document.querySelector('.icon-hide-search-sidebar').style.backgroundColor = '';
-		document.querySelector('.icon-hide-search-sidebar').classList.add('icon-show');
 		document.querySelector('.icon-hide-search-sidebar').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-search-sidebar').classList.add('icon-show');
 		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
 			tabs.forEach(function (tab) {
 				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
@@ -1241,6 +1289,194 @@ document.querySelector('#checkbox-hide-search-sidebar').addEventListener('change
 					BROWSER_API.storage.sync.get(['layoutCentre'], function (result) {
 						BROWSER_API.tabs.sendMessage(tab.id, { layoutCentre: result.layoutCentre });
 					});
+				}
+			});
+		});
+	}
+});
+
+// Toggle - Hide Post Back Button
+document.querySelector('#checkbox-hide-post-back-button').addEventListener('change', function (e) {
+	const hidePostBackButton = document.querySelector('#checkbox-hide-post-back-button').checked;
+	if (hidePostBackButton === true) {
+		BROWSER_API.storage.sync.set({ hidePostBackButton: true });
+		document.querySelector('.icon-hide-post-back-button').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-post-back-button').classList.remove('icon-show');
+		document.querySelector('.icon-hide-post-back-button').classList.add('icon-hide');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hidePostBackButton: true });
+				}
+			});
+		});
+	} else if (hidePostBackButton === false) {
+		BROWSER_API.storage.sync.set({ hidePostBackButton: false });
+		document.querySelector('.icon-hide-post-back-button').style.backgroundColor = '';
+		document.querySelector('.icon-hide-post-back-button').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-post-back-button').classList.add('icon-show');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hidePostBackButton: false });
+				}
+			});
+		});
+	}
+});
+
+// Toggle - Hide Post Karma
+document.querySelector('#checkbox-hide-post-karma').addEventListener('change', function (e) {
+	const hidePostKarma = document.querySelector('#checkbox-hide-post-karma').checked;
+	if (hidePostKarma === true) {
+		BROWSER_API.storage.sync.set({ hidePostKarma: true });
+		document.querySelector('.icon-hide-post-karma').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-post-karma').classList.remove('icon-show');
+		document.querySelector('.icon-hide-post-karma').classList.add('icon-hide');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hidePostKarma: true });
+				}
+			});
+		});
+	} else if (hidePostKarma === false) {
+		BROWSER_API.storage.sync.set({ hidePostKarma: false });
+		document.querySelector('.icon-hide-post-karma').style.backgroundColor = '';
+		document.querySelector('.icon-hide-post-karma').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-post-karma').classList.add('icon-show');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hidePostKarma: false });
+				}
+			});
+		});
+	}
+});
+
+// Toggle - Hide Recent Posts
+document.querySelector('#checkbox-hide-recent-posts').addEventListener('change', function (e) {
+	const hideRecentPosts = document.querySelector('#checkbox-hide-recent-posts').checked;
+	if (hideRecentPosts === true) {
+		BROWSER_API.storage.sync.set({ hideRecentPosts: true });
+		document.querySelector('.icon-hide-recent-posts').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-recent-posts').classList.remove('icon-show');
+		document.querySelector('.icon-hide-recent-posts').classList.add('icon-hide');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideRecentPosts: true });
+				}
+			});
+		});
+	} else if (hideRecentPosts === false) {
+		BROWSER_API.storage.sync.set({ hideRecentPosts: false });
+		document.querySelector('.icon-hide-recent-posts').style.backgroundColor = '';
+		document.querySelector('.icon-hide-recent-posts').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-recent-posts').classList.add('icon-show');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideRecentPosts: false });
+				}
+			});
+		});
+	}
+});
+
+// Toggle - Hide Side Menu Star
+document.querySelector('#checkbox-hide-side-menu-star').addEventListener('change', function (e) {
+	const hideSideMenuFavouriteButton = document.querySelector('#checkbox-hide-side-menu-star').checked;
+	if (hideSideMenuFavouriteButton === true) {
+		BROWSER_API.storage.sync.set({ hideSideMenuFavouriteButton: true });
+		document.querySelector('.icon-hide-side-menu-star').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-side-menu-star').classList.remove('icon-star');
+		document.querySelector('.icon-hide-side-menu-star').classList.add('icon-star-slash');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideSideMenuFavouriteButton: true });
+				}
+			});
+		});
+	} else if (hideSideMenuFavouriteButton === false) {
+		BROWSER_API.storage.sync.set({ hideSideMenuFavouriteButton: false });
+		document.querySelector('.icon-hide-side-menu-star').style.backgroundColor = '';
+		document.querySelector('.icon-hide-side-menu-star').classList.remove('icon-star-slash');
+		document.querySelector('.icon-hide-side-menu-star').classList.add('icon-star');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideSideMenuFavouriteButton: false });
+				}
+			});
+		});
+	}
+});
+
+// Toggle - Side Menu Icons Only
+function disableSideMenuIconsOnly() {
+	BROWSER_API.storage.sync.set({ sideMenuIconsOnly: false });
+	document.querySelector('.icon-side-menu-icons-only').style.backgroundColor = '';
+	document.querySelector('.icon-side-menu-icons-only').classList.remove('icon-side-menu-icons');
+	document.querySelector('.icon-side-menu-icons-only').classList.add('icon-side-menu-list');
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { sideMenuIconsOnly: false });
+			}
+		});
+	});
+}
+document.querySelector('#checkbox-side-menu-icons-only').addEventListener('change', function (e) {
+	const sideMenuIconsOnly = document.querySelector('#checkbox-side-menu-icons-only').checked;
+	if (sideMenuIconsOnly === true) {
+		// disable hide side menu and side menu toggle
+		disableHideSideMenu();
+		document.querySelector('#checkbox-hide-side-menu').checked = false;
+		disableSideMenuToggle();
+		document.querySelector('#checkbox-side-menu-toggle-button').checked = false;
+		BROWSER_API.storage.sync.set({ sideMenuIconsOnly: true });
+		document.querySelector('.icon-side-menu-icons-only').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-side-menu-icons-only').classList.remove('icon-side-menu-list');
+		document.querySelector('.icon-side-menu-icons-only').classList.add('icon-side-menu-icons');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { sideMenuIconsOnly: true });
+				}
+			});
+		});
+	} else if (sideMenuIconsOnly === false) {
+		disableSideMenuIconsOnly();
+	}
+});
+
+// Toggle - Hide Blank Thumbnails In Compact View
+document.querySelector('#checkbox-hide-compact-view-blank-thumbnails').addEventListener('change', function (e) {
+	const hideCompactViewBlankThumbnails = document.querySelector('#checkbox-hide-compact-view-blank-thumbnails').checked;
+	if (hideCompactViewBlankThumbnails === true) {
+		BROWSER_API.storage.sync.set({ hideCompactViewBlankThumbnails: true });
+		document.querySelector('.icon-hide-compact-view-blank-thumbnails').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-compact-view-blank-thumbnails').classList.remove('icon-show');
+		document.querySelector('.icon-hide-compact-view-blank-thumbnails').classList.add('icon-hide');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideCompactViewBlankThumbnails: true });
+				}
+			});
+		});
+	} else if (hideCompactViewBlankThumbnails === false) {
+		BROWSER_API.storage.sync.set({ hideCompactViewBlankThumbnails: false });
+		document.querySelector('.icon-hide-compact-view-blank-thumbnails').style.backgroundColor = '';
+		document.querySelector('.icon-hide-compact-view-blank-thumbnails').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-compact-view-blank-thumbnails').classList.add('icon-show');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideCompactViewBlankThumbnails: false });
 				}
 			});
 		});

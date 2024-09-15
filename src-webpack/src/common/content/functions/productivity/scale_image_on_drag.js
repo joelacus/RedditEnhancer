@@ -4,18 +4,18 @@
 
 /*import { disableFitImageNew } from './scale_tall_images_to_fit_post';
 import { disableImageScrollAll } from './scroll_tall_images';
-import { disableScalePostToFitImageAll } from './scale_post_to_fit_image';
-*/
-/* === Triggered On Page Load === */
-/*export function loadDragImageToResize() {
+import { disableScalePostToFitImageAll } from './scale_post_to_fit_image';*/
+
+/* === Triggered On Page Load === 
+export function loadDragImageToResize() {
 	BROWSER_API.storage.sync.get(['dragImageToResize', 'dragImageToResizeInitialSize'], function (result) {
 		dragImageToResize(result.dragImageToResize);
 		dragImageToResizeInitialSize(result.dragImageToResizeInitialSize);
 	});
 }*/
 
-/* === Main Function === */
-/*export function dragImageToResize(value) {
+/* === Main Function === 
+export function dragImageToResize(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {
 			disableFitImageNew();
@@ -35,10 +35,10 @@ import { disableScalePostToFitImageAll } from './scale_post_to_fit_image';
 			disableDragImageToResizeAll();
 		}
 	}
-}
+}*/
 
 // Function - Enable Drag To Resize Image - New
-function enableDragImageToResizeNew() {
+/*function enableDragImageToResizeNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-drag-to-resize-image';
 	styleElement.textContent = `:root {

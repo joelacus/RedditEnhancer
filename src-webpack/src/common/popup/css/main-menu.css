@@ -239,7 +239,6 @@ div.container[style*='none'] + .divider {
 }
 
 /* Show/Hide  */
-.hide,
 .hidden {
 	display: none !important;
 }
