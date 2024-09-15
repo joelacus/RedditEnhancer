@@ -43,8 +43,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Center Feed/Post|Centers the feed/post to the middle of the screen.|Old<br />"Old New"|
 |Custom Background|Add a custom background to the webpage. You can paste and store multiple image links.|All|
 |Dark Mode|Auto enable dark mode if not already set on Reddit.|"Old New"|
-|Default Comments Sort Option|Set how you want the comments to be sorted automatically when the page loads.|"Old New"<br />"New New"|
-|Default Feed Sort Option|Set how you want the feed to be sorted automatically when the page loads.|"Old New"<br />"New New"|
+|Default Comments Sort Option|Set how you want the comments to be sorted automatically when the page loads.|"All"|
+|Default Feed Sort Option|Set how you want the feed to be sorted automatically when the page loads.|"All"|
 |Drop Shadows|This adds a drop shadow around the feed, post and other elements so that they stand out more if you use a background image, or light mode. You can also use custom CSS.|"Old New"<br />"New New"|
 |Expand Feed/Post|This makes the feed/post wider so you can see more content and make more use of your screen.|All|
 |Hide "See Full Image"|Hides the "See Full Image" button on tall image posts.|"Old New"|
@@ -90,6 +90,15 @@ I welcome any help if you would like to improve or contribute new language trans
 |Sticky Sort|This keeps the feed sort options "Best, Hot, New, etc" at the top even when you scroll down the page.|Old<br />"Old New"|
 |Theme Colours + Blur|You can change various theme colours for the website, and add blur to translucent UI elements.|"Old New"<br />"New New"|
 |Underline Links|Underline the links in the post content and comments.|"Old New"<br />"New New"|
+|Hide The Post Back Button|Hides the back button on posts.|"New New"|
+|Border Radius Amount|Sets the border (corner) radius amount for certain elements on the page.|"New New"|
+|Hide Post Karma|Hides the karma on posts.|"New New"|
+|Side Menu Width|Change the width of the side menu.|"New New"|
+|Hide the Favourite Buttons|Hide the favourite buttons (star icons) on subreddits in the side menu.|"New New"|
+|Side Menu Icons Only|A mini version of the side menu where it only shows the icons.|"New New"|
+|Hide Recent Posts|Hide the recent posts section in the sidebar.|"New New"|
+|Show Side Menu Toggle Button|Adds a toggle button on the side menu to show/hide the side menu.|"New New"|
+|Hide Blank Thumbnails In Compact View|Hides the blank thumbnails on text posts in "compact view" feeds.|"New New"|
 
 ## Localisation
 Translations are initially done with Google Translate and AI, so there may be errors.
@@ -107,15 +116,15 @@ Feel free to add any new languages and/or region differences.
 |[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|100%|
 |[German](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/de/messages.json)|100%|
 |[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|100%|
-|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|100%|
-|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|100%|
-|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|100%|
+|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|89%|
+|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|89%|
+|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|92%|
 |[Spanish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/es/messages.json)|100%|
-|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|100%|
-|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|59%|
-|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|45%|
-|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|40%|
-|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|39%|
+|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|89%|
+|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|54%|
+|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|42%|
+|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|36%|
+|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|35%|
 
 
 ## Build
