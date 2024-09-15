@@ -30,10 +30,10 @@ I welcome any help if you would like to improve or contribute new language trans
 |Always Show Rising Sort Button|The sort by rising button is no longer hidden in a pointless submenu. Can be disabled.|"Old New"|
 |Auto Collapse AutoModerator Comment|Automatically collapses the top comment made by AutoModerator.|All|
 |Auto Dark Mode|You can either set it to enable light/dark mode automatically based on your browser theme, or during a certain period of time in the day between user specified times.|"Old New"|
-|Auto Expand Hidden Comments/Comment Replies|Automatically expand hidden comments on a post as you scroll down.|"All"|
+|Auto Expand Hidden Comments/Comment Replies|Automatically expand hidden comments on a post as you scroll down.|All|
 |Auto Expand|This will automatically expand the feed/post to 100%, overriding the 'Adjust Feed/Post Width' option if the screen/window is less than the set value (default 1000px).|All|
 |Auto hide cookie prompt|Automatically hides the cookie popup if you haven't already accepted/dismissed it.|"Old New"|
-|Auto Load More Comments|Automatically load more comments on a post if it requires you to click a button to load more comments. (Can cause lag)|"All"|
+|Auto Load More Comments|Automatically load more comments on a post if it requires you to click a button to load more comments. (Can cause lag)|All|
 |Auto Redirect To Preferred Reddit Version/UI|Automatically redirect any reddit page to the old, new or latest version of Reddit.|N/A|
 |Auto Show Formatting Options When Commenting|Automatically enables the formatting options when commenting on posts.|"New New"|
 |Bionic Reader|Enable bionic reading for posts and comments. You can also override the font and text background colours.|"Old New"<br />"New New"|
@@ -43,8 +43,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Center Feed/Post|Centers the feed/post to the middle of the screen.|Old<br />"Old New"|
 |Custom Background|Add a custom background to the webpage. You can paste and store multiple image links.|All|
 |Dark Mode|Auto enable dark mode if not already set on Reddit.|"Old New"|
-|Default Comments Sort Option|Set how you want the comments to be sorted automatically when the page loads.|"All"|
-|Default Feed Sort Option|Set how you want the feed to be sorted automatically when the page loads.|"All"|
+|Default Comments Sort Option|Set how you want the comments to be sorted automatically when the page loads.|All|
+|Default Feed Sort Option|Set how you want the feed to be sorted automatically when the page loads.|All|
 |Drop Shadows|This adds a drop shadow around the feed, post and other elements so that they stand out more if you use a background image, or light mode. You can also use custom CSS.|"Old New"<br />"New New"|
 |Expand Feed/Post|This makes the feed/post wider so you can see more content and make more use of your screen.|All|
 |Hide "See Full Image"|Hides the "See Full Image" button on tall image posts.|"Old New"|
