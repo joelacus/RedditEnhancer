@@ -99,6 +99,11 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide Recent Posts|Hide the recent posts section in the sidebar.|"New New"|
 |Show Side Menu Toggle Button|Adds a toggle button on the side menu to show/hide the side menu.|"New New"|
 |Hide Blank Thumbnails In Compact View|Hides the blank thumbnails on text posts in "compact view" feeds.|"New New"|
+|Hide NSFW in the Search Results|Hide the type-a-head NSFW search results in the search bar.|"New New"|
+|Hide "Trending Today" in the Search Results|Hide the "Trending Today" section in the search bar.|"New New"|
+|Hide NSFW Users in the Search Page Sidebar|Hide the found NSFW users in the search results page sidebar.|"New New"|
+|Hide Community Highlights|Hide the "Community Highlights" section at the top of some subreddits.|"New New"|
+|Remember Side Menu Section Hidden States|Remember if the sections in the left side menu are open or closed.|"New New"|
 
 ## Localisation
 Translations are initially done with Google Translate and AI, so there may be errors.
