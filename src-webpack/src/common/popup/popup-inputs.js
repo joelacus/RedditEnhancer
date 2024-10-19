@@ -17,6 +17,7 @@ import './inputs/inputs_productivity';
 import './inputs/inputs_style';
 
 /* === Banner Message === */
+
 // Close
 document.querySelector('#firefox-update-message .close').addEventListener('click', function (e) {
 	e.currentTarget.closest('.banner-message').style.display = 'none';
@@ -30,6 +31,7 @@ document.querySelector('#old-new-ui-removal-message .close').addEventListener('c
 document.querySelector('#new-new-ui-message .close').addEventListener('click', function (e) {
 	e.currentTarget.closest('.banner-message').style.display = 'none';
 });
+
 // Don't Show Again
 document.querySelector('#old-new-ui-login-message .dont-show-again').addEventListener('click', function (e) {
 	e.currentTarget.closest('.banner-message').style.display = 'none';

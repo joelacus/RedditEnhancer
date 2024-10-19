@@ -5,7 +5,7 @@ import { waitForAddedNode } from '../../../content-first/functions/observers/mai
 /* === Triggered On Page Load === */
 export function loadAutoLoadMoreComments() {
 	BROWSER_API.storage.sync.get(['autoLoadMoreComments'], function (result) {
-		autoLoadMoreComments(result.autoLoadMoreComments);
+		if (result.autoLoadMoreComments) autoLoadMoreComments(true);
 	});
 }
 

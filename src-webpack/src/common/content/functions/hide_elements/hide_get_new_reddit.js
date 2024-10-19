@@ -3,9 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadHideGetNewReddit() {
 	BROWSER_API.storage.sync.get(['hideGetNewReddit'], function (result) {
-		if (result.hideGetNewReddit === true) {
-			hideGetNewReddit(result.hideGetNewReddit);
-		}
+		if (result.hideGetNewReddit) hideGetNewReddit(true);
 	});
 }
 
@@ -18,19 +16,23 @@ export function hideGetNewReddit(value) {
 	}
 }
 
+/* === Enable/Disable Functions === */
+
 // Function - Hide Get New Reddit - Old
 function hideGetNewRedditOld() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-hide-get-new-reddit';
-	styleElement.textContent = `#redesign-beta-optin-btn {
-									display: none;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
+	if (!document.head.querySelector('style[id="re-hide-get-new-reddit"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-get-new-reddit';
+		styleElement.textContent = `#redesign-beta-optin-btn {
+										display: none;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
 // Function - Show Get New Reddit - Old
 function showGetNewRedditOld() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-get-new-reddit"]');
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-get-new-reddit"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});

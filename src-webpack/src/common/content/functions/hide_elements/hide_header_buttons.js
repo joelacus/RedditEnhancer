@@ -5,42 +5,42 @@
 // Hide Advertise Button
 export function loadHideAdvertiseButton() {
 	BROWSER_API.storage.sync.get(['hideAdvertiseButton'], function (result) {
-		hideAdvertiseButton(result.hideAdvertiseButton);
+		if (result.hideAdvertiseButton) hideAdvertiseButton(true);
 	});
 }
 
 // Hide Chat Button
 export function loadHideChatButton() {
 	BROWSER_API.storage.sync.get(['hideChatButton'], function (result) {
-		hideChatButton(result.hideChatButton);
+		if (result.hideChatButton) hideChatButton(true);
 	});
 }
 
 // Hide CreatePost Button
 export function loadHideCreatePostButton() {
 	BROWSER_API.storage.sync.get(['hideCreatePostButton'], function (result) {
-		hideCreatePostButton(result.hideCreatePostButton);
+		if (result.hideCreatePostButton) hideCreatePostButton(true);
 	});
 }
 
 // Hide Moderation Button
 export function loadHideModerationButton() {
 	BROWSER_API.storage.sync.get(['hideModerationButton'], function (result) {
-		hideModerationButton(result.hideModerationButton);
+		if (result.hideModerationButton) hideModerationButton(true);
 	});
 }
 
 // Hide Notification Button
 export function loadHideNotificationButton() {
 	BROWSER_API.storage.sync.get(['hideNotificationButton'], function (result) {
-		hideNotificationButton(result.hideNotificationButton);
+		if (result.hideNotificationButton) hideNotificationButton(true);
 	});
 }
 
 // Hide Popular Button
 export function loadHidePopularButton() {
 	BROWSER_API.storage.sync.get(['hidePopularButton'], function (result) {
-		hidePopularButton(result.hidePopularButton);
+		if (result.hidePopularButton) hidePopularButton(true);
 	});
 }
 
@@ -70,13 +70,15 @@ export function hideAdvertiseButton(value) {
 		if (useLegacy) {
 			document.querySelector('.re-advertise-button').classList.remove('re-hide');
 		} else {
-			const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-header-advertise-button"]');
+			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-advertise-button"]');
 			dynamicStyleElements.forEach((element) => {
 				document.head.removeChild(element);
 			});
 		}
 	}
 }
+
+/* === Enable/Disable Functions === */
 
 // Hide Chat Button
 export function hideChatButton(value) {
@@ -102,7 +104,7 @@ export function hideChatButton(value) {
 		if (useLegacy) {
 			document.querySelector('.re-chat-button').classList.remove('re-hide');
 		} else {
-			const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-header-chat-button"]');
+			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-chat-button"]');
 			dynamicStyleElements.forEach((element) => {
 				document.head.removeChild(element);
 			});
@@ -134,7 +136,7 @@ export function hideCreatePostButton(value) {
 		if (useLegacy) {
 			document.querySelector('.re-create-post-button').classList.remove('re-hide');
 		} else {
-			const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-header-create-post-button"]');
+			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-create-post-button"]');
 			dynamicStyleElements.forEach((element) => {
 				document.head.removeChild(element);
 			});
@@ -159,7 +161,7 @@ export function hideModerationButton(value) {
 		if (useLegacy) {
 			document.querySelector('.re-moderation-button').classList.remove('re-hide');
 		} else {
-			const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-header-mod-button"]');
+			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-mod-button"]');
 			dynamicStyleElements.forEach((element) => {
 				document.head.removeChild(element);
 			});
@@ -191,7 +193,7 @@ export function hideNotificationButton(value) {
 		if (useLegacy) {
 			document.querySelector('.re-notification-button').classList.remove('re-hide');
 		} else {
-			const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-header-notification-button"]');
+			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-notification-button"]');
 			dynamicStyleElements.forEach((element) => {
 				document.head.removeChild(element);
 			});
@@ -210,7 +212,7 @@ export function hidePopularButton(value) {
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
 		} else if (value === false) {
-			const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-header-popular-button"]');
+			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-popular-button"]');
 			dynamicStyleElements.forEach((element) => {
 				document.head.removeChild(element);
 			});

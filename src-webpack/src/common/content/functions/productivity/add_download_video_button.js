@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === 
 export function loadAddDownloadVideoButton() {
 	BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
-		addDownloadVideoButton(result.addDownloadVideoButton);
+		if (result.addDownloadVideoButton) addDownloadVideoButton(true);
 	});
 }*/
 

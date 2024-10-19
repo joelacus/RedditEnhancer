@@ -7,8 +7,10 @@ import { disableDragImageToResizeAll } from './scale_image_on_drag';
 /* === Triggered On Page Load === */
 /*export function loadScalePostToFitImage() {
 	BROWSER_API.storage.sync.get(['scalePostToFitImage', 'scalePostToFitImageMaxImageWidth'], function (result) {
-		scalePostToFitImage(result.scalePostToFitImage);
-		scalePostToFitImageMaxImageWidth(result.scalePostToFitImageMaxImageWidth);
+		if (result.scalePostToFitImage) {
+			scalePostToFitImage(true);
+			scalePostToFitImageMaxImageWidth(result.scalePostToFitImageMaxImageWidth);
+		}
 	});
 }*/
 

@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadScrollToNextRootComment() {
 	BROWSER_API.storage.sync.get(['scrollToNextRootComment'], function (result) {
-		scrollToNextRootComment(result.scrollToNextRootComment);
+		if (result.scrollToNextRootComment) scrollToNextRootComment(true);
 	});
 }
 export function loadScrollToNextRootCommentPosition() {

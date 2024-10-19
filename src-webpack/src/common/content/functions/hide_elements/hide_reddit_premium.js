@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadHideRedditPremium() {
 	BROWSER_API.storage.sync.get(['hideRedditPremium'], function (result) {
-		hideRedditPremium(result.hideRedditPremium);
+		if (result.hideRedditPremium) hideRedditPremium(true);
 	});
 }
 
@@ -13,13 +13,15 @@ export function hideRedditPremium(value) {
 		if (useLegacy) {
 			document.querySelector('.re-reddit-premium').classList.add('re-hide');
 		} else {
-			const styleElement = document.createElement('style');
-			styleElement.id = 're-hide-reddit-premium';
-			document.head.appendChild(styleElement);
-			styleElement.textContent = `.side > div:has(.premium-banner-outer) {
-											display: none !important;
-										}`;
-			document.head.insertBefore(styleElement, document.head.firstChild);
+			if (!document.head.querySelector('style[id="re-hide-reddit-premium"]')) {
+				const styleElement = document.createElement('style');
+				styleElement.id = 're-hide-reddit-premium';
+				document.head.appendChild(styleElement);
+				styleElement.textContent = `.side > div:has(.premium-banner-outer) {
+												display: none !important;
+											}`;
+				document.head.insertBefore(styleElement, document.head.firstChild);
+			}
 		}
 	} else if (redditVersion === 'new' && value === true) {
 		if (useLegacy) {
@@ -28,19 +30,21 @@ export function hideRedditPremium(value) {
 				document.querySelector('.re-reddit-premium').nextSibling.style.marginTop = '0';
 			}
 		} else {
-			const styleElement = document.createElement('style');
-			styleElement.id = 're-hide-reddit-premium';
-			document.head.appendChild(styleElement);
-			styleElement.textContent = `[data-testid="frontpage-sidebar"] > div:has(.icon-premium_fill) {
-											display: none !important;
-										}`;
-			document.head.insertBefore(styleElement, document.head.firstChild);
+			if (!document.head.querySelector('style[id="re-hide-reddit-premium"]')) {
+				const styleElement = document.createElement('style');
+				styleElement.id = 're-hide-reddit-premium';
+				document.head.appendChild(styleElement);
+				styleElement.textContent = `[data-testid="frontpage-sidebar"] > div:has(.icon-premium_fill) {
+												display: none !important;
+											}`;
+				document.head.insertBefore(styleElement, document.head.firstChild);
+			}
 		}
 	} else if (value === false) {
 		if (useLegacy) {
 			document.querySelector('.re-reddit-premium').classList.remove('re-hide');
 		} else {
-			const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-reddit-premium"]');
+			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-reddit-premium"]');
 			dynamicStyleElements.forEach((element) => {
 				document.head.removeChild(element);
 			});

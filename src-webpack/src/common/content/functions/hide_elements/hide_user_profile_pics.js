@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadHideUserProfilePics() {
 	BROWSER_API.storage.sync.get(['hideUserProfilePics'], function (result) {
-		hideUserProfilePics(result.hideUserProfilePics);
+		if (result.hideUserProfilePics) hideUserProfilePics(true);
 	});
 }
 
@@ -24,32 +24,38 @@ export function hideUserProfilePics(value) {
 	}
 }
 
+/* === Enable/Disable Functions === */
+
 // Function - Enable Hide User Profile Pics - New
 function enableUserProfilePicsNew() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-hide-user-profile-pics';
-	styleElement.textContent = `.Comment > div:has([data-testid="comment_author_icon"]) {
-									display: none !important;
-								}
-								.Comment > :last-child {
-									margin-left: 34px !important;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
+	if (!document.head.querySelector('style[id="re-hide-user-profile-pics"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-user-profile-pics';
+		styleElement.textContent = `.Comment > div:has([data-testid="comment_author_icon"]) {
+										display: none !important;
+									}
+									.Comment > :last-child {
+										margin-left: 34px !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
 // Function - Enable Hide User Profile Pics - New New
 function enableUserProfilePicsNewNew() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-hide-user-profile-pics';
-	styleElement.textContent = `shreddit-comment [noun="comment_author_avatar"] {
-									display: none;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
+	if (!document.head.querySelector('style[id="re-hide-user-profile-pics"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-user-profile-pics';
+		styleElement.textContent = `shreddit-comment [noun="comment_author_avatar"] {
+										display: none;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
 // Function - Disable Hide User Profile Pics - All
 function disableUserProfilePicsAll() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-user-profile-pics"]');
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-user-profile-pics"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});

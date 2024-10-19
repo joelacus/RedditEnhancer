@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadBreakReminder() {
 	BROWSER_API.storage.sync.get(['breakReminder'], function (result) {
-		breakReminder(result.breakReminder);
+		if (result.breakReminder) breakReminder(true);
 	});
 }
 

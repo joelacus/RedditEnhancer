@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadOpenPostInNewTab() {
 	BROWSER_API.storage.sync.get(['openPostInNewTab'], function (result) {
-		openPostInNewTab(result.openPostInNewTab);
+		if (result.openPostInNewTab) openPostInNewTab(true);
 	});
 }
 

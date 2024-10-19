@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadHideRecentPosts() {
 	BROWSER_API.storage.sync.get(['hideRecentPosts'], function (result) {
-		hideRecentPosts(result.hideRecentPosts);
+		if (result.hideRecentPosts) hideRecentPosts(true);
 	});
 }
 
@@ -18,19 +18,23 @@ export function hideRecentPosts(value) {
 	}
 }
 
+/* === Enable/Disable Functions === */
+
 // Function - Enable Hide Recent Posts - New New
 function enableHideRecentPosts() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-hide-recent-posts';
-	styleElement.textContent = `recent-posts {
-                                    display: none !important;
-                                }`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
+	if (!document.head.querySelector('style[id="re-hide-recent-posts"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-recent-posts';
+		styleElement.textContent = `recent-posts {
+										display: none !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
 // Function - Disable Hide Recent Posts - New New
 function disableHideRecentPosts() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-recent-posts"]');
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-recent-posts"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});

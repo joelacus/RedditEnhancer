@@ -3,21 +3,22 @@
 /* === Triggered On Page Load === */
 export function loadShowPostFlair() {
 	BROWSER_API.storage.sync.get(['showPostFlair'], function (result) {
-		showPostFlair(result.showPostFlair);
+		if (result.showPostFlair) showPostFlair(true);
 	});
 }
 
 /* === Main Function === */
 export function showPostFlair(value) {
+	const routename = document.querySelector('shreddit-app').getAttribute('routename');
 	if (redditVersion === 'newnew' && value === true) {
-		if (document.querySelector('shreddit-app').getAttribute('routename') === 'frontpage') {
+		if (routename === 'frontpage' || routename === 'popular') {
 			document.querySelectorAll('shreddit-post').forEach((post) => {
 				attachFlair(post);
 			});
 			observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
 		}
 	} else if (redditVersion === 'newnew' && value === false) {
-		if (document.querySelector('shreddit-app').getAttribute('routename') === 'frontpage') {
+		if (routename === 'frontpage' || routename === 'popular') {
 			observer.disconnect();
 			removeFlair();
 		}
@@ -50,10 +51,7 @@ async function attachFlair(post) {
 			a.classList.add('re-post-flair');
 			// Build <span>
 			let span = document.createElement('span');
-			span.setAttribute(
-				'class',
-				'bg-tone-4 inline-block truncate max-w-full text-12 font-normal box-border px-[6px] rounded-[20px] leading-4  relative top-[-0.25rem] xs:top-[-2px] my-2xs xs:mb-sm py-0 '
-			);
+			span.setAttribute('class', 'bg-tone-4 inline-block truncate max-w-full text-12 font-normal box-border px-[6px] rounded-[20px] leading-4  relative top-[-0.25rem] xs:top-[-2px] my-2xs xs:mb-sm py-0 ');
 			if (flairTextColour === 'light') {
 				span.classList.add('text-global-white');
 			} else {

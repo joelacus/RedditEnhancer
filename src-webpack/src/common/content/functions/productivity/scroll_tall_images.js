@@ -7,7 +7,7 @@ import { disableFitImageNew } from './scale_tall_images_to_fit_post';
 /* === Triggered On Page Load === */
 export function loadImageScroll() {
 	BROWSER_API.storage.sync.get(['imageScroll', 'imageScrollMaxImageWidth'], function (result) {
-		imageScroll(result.imageScroll);
+		if (result.imageScroll) imageScroll(true);
 		imageScrollMaxImageWidth(result.imageScrollMaxImageWidth);
 	});
 }

@@ -5,7 +5,7 @@ import { videoObserver } from '../../video_observer';
 /* === Triggered On Page Load === */
 export function loadNewPlayer() {
 	BROWSER_API.storage.sync.get(['newPlayer'], function (result) {
-		newPlayer(result.newPlayer);
+		if (result.newPlayer) newPlayer(true);
 	});
 }
 

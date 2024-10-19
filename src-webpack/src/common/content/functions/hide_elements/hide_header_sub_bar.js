@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadHideHeaderSubBar() {
 	BROWSER_API.storage.sync.get(['hideHeaderSubBar'], function (result) {
-		hideHeaderSubBar(result.hideHeaderSubBar);
+		if (result.hideHeaderSubBar) hideHeaderSubBar(true);
 	});
 }
 
@@ -16,19 +16,23 @@ export function hideHeaderSubBar(value) {
 	}
 }
 
+/* === Enable/Disable Functions === */
+
 // Function - Hide Header Sub Bar - Old
 function hideHeaderSubBarOld() {
-	const style = document.createElement('style');
-	style.id = 're-hide-header-sub-bar';
-	style.textContent = `#sr-header-area {
+	if (!document.head.querySelector('style[id="re-hide-header-sub-bar"]')) {
+		const style = document.createElement('style');
+		style.id = 're-hide-header-sub-bar';
+		style.textContent = `#sr-header-area {
 							display: none !important;
 						}`;
-	document.head.insertBefore(style, document.head.firstChild);
+		document.head.insertBefore(style, document.head.firstChild);
+	}
 }
 
 // Function - Show Header Sub Bar - Old
 function showHeaderSubBarOld() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-header-sub-bar"]');
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-sub-bar"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});

@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadHidePostBackButton() {
 	BROWSER_API.storage.sync.get(['hidePostBackButton'], function (result) {
-		hidePostBackButton(result.hidePostBackButton);
+		if (result.hidePostBackButton) hidePostBackButton(true);
 	});
 }
 
@@ -13,24 +13,28 @@ export function hidePostBackButton(value) {
 		if (value === true) {
 			enableHideBackButton();
 		} else if (value === false) {
-			disbaleHideBackButton();
+			disableHideBackButton();
 		}
 	}
 }
 
+/* === Enable/Disable Functions === */
+
 // Function - Enable Hide Post Back Button - New
 function enableHideBackButton() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-hide-post-back-button';
-	styleElement.textContent = `pdp-back-button {
+	if (!document.head.querySelector('style[id="re-hide-post-back-button"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-post-back-button';
+		styleElement.textContent = `pdp-back-button {
                                     display: none !important;
                                 }`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
 // Function - Disable Hide Post Back Button - New
-function disbaleHideBackButton() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-post-back-button"]');
+function disableHideBackButton() {
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-post-back-button"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});

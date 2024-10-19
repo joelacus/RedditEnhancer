@@ -413,3 +413,15 @@
 	mask: url('../../icons/ui/icon-side-menu-icons.svg');
 	-webkit-mask: url('../../icons/ui/icon-side-menu-icons.svg');
 }
+.icon-thumbtack {
+	mask: url('../../icons/ui/thumbtack-solid.svg');
+	-webkit-mask: url('../../icons/ui/thumbtack-solid.svg');
+}
+.icon-thumbtack-slash {
+	mask: url('../../icons/ui/thumbtack-slash-solid.svg');
+	-webkit-mask: url('../../icons/ui/thumbtack-slash-solid.svg');
+}
+.icon-clipboard-check {
+	mask: url('../../icons/ui/clipboard-check-solid.svg');
+	-webkit-mask: url('../../icons/ui/clipboard-check-solid.svg');
+}

@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadAutoExpandComments() {
 	BROWSER_API.storage.sync.get(['autoExpandComments'], function (result) {
-		autoExpandComments(result.autoExpandComments);
+		if (result.autoExpandComments) autoExpandComments(true);
 	});
 }
 

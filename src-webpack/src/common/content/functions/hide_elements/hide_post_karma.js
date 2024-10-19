@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadHidePostKarma() {
 	BROWSER_API.storage.sync.get(['hidePostKarma'], function (result) {
-		hidePostKarma(result.hidePostKarma);
+		if (result.hidePostKarma) hidePostKarma(true);
 	});
 }
 
@@ -11,7 +11,7 @@ export function loadHidePostKarma() {
 export function hidePostKarma(value) {
 	if (redditVersion === 'newnew' && value === true) {
 		// append stylesheet
-		if (!document.querySelector('style[id="re-hide-post-karma"]')) {
+		if (!document.head.querySelector('style[id="re-hide-post-karma"]')) {
 			const styleElement = document.createElement('style');
 			styleElement.id = 're-hide-post-karma';
 			styleElement.textContent = `shreddit-post::part(karma) {
@@ -31,6 +31,8 @@ export function hidePostKarma(value) {
 	}
 }
 
+/* === Enable/Disable Functions === */
+
 // Function - Enable Hide Post Karma - New New
 function enableHidePostKarma(post) {
 	post.shadowRoot.querySelector('span:has(>faceplate-number)').setAttribute('part', 'karma');
@@ -38,6 +40,10 @@ function enableHidePostKarma(post) {
 
 // Function - Disable Hide Post Karma - New New
 function disableHidePostKarma() {
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-post-karma"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
 	document.querySelectorAll('shreddit-post').forEach((post) => {
 		post.shadowRoot.querySelector('span:has(>faceplate-number)').removeAttribute('part');
 	});

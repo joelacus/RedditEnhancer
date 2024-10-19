@@ -5,9 +5,7 @@ import { hideSideMenuFavouriteButton, loadHideSideMenuFavouriteButton } from './
 /* === Triggered On Page Load === */
 export function loadSideMenuIconsOnly() {
 	BROWSER_API.storage.sync.get(['sideMenuIconsOnly'], function (result) {
-		if (result.sideMenuIconsOnly) {
-			sideMenuIconsOnly(result.sideMenuIconsOnly);
-		}
+		if (result.sideMenuIconsOnly) sideMenuIconsOnly(true);
 	});
 }
 
@@ -15,52 +13,54 @@ export function loadSideMenuIconsOnly() {
 export function sideMenuIconsOnly(value) {
 	if (redditVersion === 'newnew' && value === true) {
 		// stylesheet 1
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-side-menu-icons-only-1';
-		styleElement.textContent = `left-nav-top-section::part(item),
-									left-nav-create-community-button::part(item),
-									left-nav-community-item::part(star),
-									faceplate-expandable-section-helper span>span>[icon-name="caret-down-outline"],
-									faceplate-expandable-section-helper summary,
-									#moderation_section a span > .text-14,
-									custom-feed-edit-button span>.text-14,
-									reddit-recent-pages::part(item),
-									#RESOURCES span:has(>.text-14),
-									reddit-sidebar-nav div:has([href="https://redditinc.com"]) {
-                                        display: none !important;
-                                    }
-									left-nav-top-section::part(pad-item),
-									left-nav-create-community-button::part(pad-item),
-									#moderation_section a,
-									custom-feed-edit-button li > div,
-									reddit-recent-pages::part(pad-item),
-									#RESOURCES a {
-										padding-left: 0.25rem !important;
-										width: fit-content;
-										gap: 0;
-										padding-right: 6px !important;
-									}
-									custom-feed-edit-button div[role="button"],
-									custom-feed-edit-button div[role="button"] > span {
-										gap: 0 !important;
-									}
-									#moderation_section a > span {
-										gap: 0 !important;
-									}
-									#left-sidebar-container {
-										max-width: 72px !important;
-									}
-									@media (min-width: 1200px) {
-										.m\\:max-w-\\[calc\\(100vw-272px\\)\\] {
-											max-width: calc(100vw - 72px) !important;
+		if (!document.head.querySelector('style[id="re-side-menu-icons-only-1"]')) {
+			const styleElement = document.createElement('style');
+			styleElement.id = 're-side-menu-icons-only-1';
+			styleElement.textContent = `left-nav-top-section::part(item),
+										left-nav-create-community-button::part(item),
+										left-nav-community-item::part(star),
+										faceplate-expandable-section-helper span>span>[icon-name="caret-down-outline"],
+										faceplate-expandable-section-helper summary,
+										#moderation_section a span > .text-14,
+										custom-feed-edit-button span>.text-14,
+										reddit-recent-pages::part(item),
+										#RESOURCES span:has(>.text-14),
+										reddit-sidebar-nav div:has([href="https://redditinc.com"]) {
+											display: none !important;
 										}
-									}
-									@media (min-width: 1200px) {
-										.m\\:grid-cols-\\[272px_1fr\\] {
-											grid-template-columns: 72px 1fr !important;
+										left-nav-top-section::part(pad-item),
+										left-nav-create-community-button::part(pad-item),
+										#moderation_section a,
+										custom-feed-edit-button li > div,
+										reddit-recent-pages::part(pad-item),
+										#RESOURCES a {
+											padding-left: 0.25rem !important;
+											width: fit-content;
+											gap: 0;
+											padding-right: 6px !important;
 										}
-									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
+										custom-feed-edit-button div[role="button"],
+										custom-feed-edit-button div[role="button"] > span {
+											gap: 0 !important;
+										}
+										#moderation_section a > span {
+											gap: 0 !important;
+										}
+										#left-sidebar-container {
+											max-width: 72px !important;
+										}
+										@media (min-width: 1200px) {
+											.m\\:max-w-\\[calc\\(100vw-272px\\)\\] {
+												max-width: calc(100vw - 72px) !important;
+											}
+										}
+										@media (min-width: 1200px) {
+											.m\\:grid-cols-\\[272px_1fr\\] {
+												grid-template-columns: 72px 1fr !important;
+											}
+										}`;
+			document.head.insertBefore(styleElement, document.head.firstChild);
+		}
 		// stylesheet 2
 		const styleElement2 = document.createElement('style');
 		styleElement2.id = 're-side-menu-icons-only-2';
@@ -175,7 +175,7 @@ function enableSideMenuIconsOnly() {
 
 // Function - Disable Side Menu Icons Only - New New
 function disableSideMenuIconsOnly() {
-	const styleElement1 = document.querySelectorAll('style[id="re-side-menu-icons-only-1"]');
+	const styleElement1 = document.head.querySelectorAll('style[id="re-side-menu-icons-only-1"]');
 	styleElement1.forEach((element) => {
 		document.head.removeChild(element);
 	});

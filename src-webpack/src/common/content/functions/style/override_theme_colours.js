@@ -940,6 +940,8 @@ export function themeSidebarTextColour(value) {
 											--color-secondary-weak: var(--re-theme-sidebar-text) !important;
 											--color-neutral-border-strong: var(--re-theme-sidebar-text) !important;
 											--color-secondary-hover: var(--re-theme-sidebar-text) !important;
+											--color-neutral-content-strong: var(--re-theme-sidebar-text) !important;
+											--color-action-primary: var(--re-theme-sidebar-text) !important;
 										}
 										#right-sidebar-container .button {
 											color: var(--re-theme-sidebar-text) !important;

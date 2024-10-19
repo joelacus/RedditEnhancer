@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadLimitInfinityScroll() {
 	BROWSER_API.storage.sync.get(['limitInfinityScroll'], function (result) {
-		limitInfinityScroll(result.limitInfinityScroll);
+		if (result.limitInfinityScroll) limitInfinityScroll(true);
 	});
 }
 

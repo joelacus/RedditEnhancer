@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadSidemenuFeedTop() {
 	BROWSER_API.storage.sync.get(['sidemenuFeedTop'], function (result) {
-		sidemenuFeedTop(result.sidemenuFeedTop);
+		if (result.sidemenuFeedTop) sidemenuFeedTop(true);
 	});
 }
 

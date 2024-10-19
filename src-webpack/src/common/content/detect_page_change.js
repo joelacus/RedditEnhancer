@@ -44,7 +44,7 @@ const observer = new MutationObserver((mutations) => {
 				observerPostOverlay();
 			} else {
 				if (document.querySelector('.re-scroll-to-comment-container')) {
-					console.log('found scroll to root comment container');
+					//console.log('found scroll to root comment container');
 					document.querySelector('.re-scroll-to-comment-container').remove();
 				}
 				defaultSortOption();

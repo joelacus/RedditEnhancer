@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadHideSeeFullImage() {
 	BROWSER_API.storage.sync.get(['hideSeeFullImage'], function (result) {
-		hideSeeFullImage(result.hideSeeFullImage);
+		if (result.hideSeeFullImage) hideSeeFullImage(true);
 	});
 }
 
@@ -14,13 +14,13 @@ export function hideSeeFullImage(value) {
 			if (value === true) {
 				enableHideSeeFullImageNewLegacy();
 			} else if (value === false) {
-				disableHideSeeFullImageNewLegacy();
+				disableHideSeeFullImageAll();
 			}
 		} else {
 			if (value === true) {
 				enableHideSeeFullImageNew();
 			} else if (value === false) {
-				disableHideSeeFullImageNew();
+				disableHideSeeFullImageAll();
 			}
 		}
 	}
@@ -28,37 +28,33 @@ export function hideSeeFullImage(value) {
 
 // Function - Enable Hide See Full Image - New - Legacy
 function enableHideSeeFullImageNewLegacy() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-hide-see-full-image';
-	styleElement.textContent = `.media-element div:last-child, 
-								figure > div > img + div {
-									display: none;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
-}
-
-// Function - Disable Hide See Full Image - New - Legacy
-function disableHideSeeFullImageNewLegacy() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-see-full-image"]');
-	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
-	});
+	if (!document.head.querySelector('style[id="re-hide-see-full-image"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-see-full-image';
+		styleElement.textContent = `.media-element div:last-child, 
+									figure > div > img + div {
+										display: none;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
 // Function - Enable Hide See Full Image - New
 function enableHideSeeFullImageNew() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-hide-see-full-image';
-	styleElement.textContent = `.media-element > div:has(img) + div,
-								figure > div > img + div {
-									display: none;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
+	if (!document.head.querySelector('style[id="re-hide-see-full-image"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-see-full-image';
+		styleElement.textContent = `.media-element > div:has(img) + div,
+									figure > div > img + div {
+										display: none;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
-// Function - Disable Hide See Full Image - New
-function disableHideSeeFullImageNew() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-see-full-image"]');
+// Function - Disable Hide See Full Image - All
+function disableHideSeeFullImageAll() {
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-see-full-image"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});

@@ -1912,7 +1912,7 @@ function restoreOptions() {
 	});
 
 	// Remove Page Side Margin
-	BROWSER_API.storage.sync.get(['removePageSideMargin'], function (result) {
+	/*BROWSER_API.storage.sync.get(['removePageSideMargin'], function (result) {
 		if (result.removePageSideMargin == true) {
 			document.querySelector('#checkbox-remove-page-side-margin').checked = true;
 			document.querySelector('.icon-remove-page-side-margin').style.backgroundColor = 'var(--accent)';
@@ -1925,7 +1925,7 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Remove Page Side Margin: ' + value);
-	});
+	});*/
 
 	// Remove Side Menu Top Section
 	BROWSER_API.storage.sync.get(['hideSideMenuTopSection'], function (result) {
@@ -2807,6 +2807,84 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Hide Compact View Blank Thumbnails: ' + value);
+	});
+
+	// Hide "NSFW" In The Search Results
+	BROWSER_API.storage.sync.get(['hideNsfwInSearchResults'], function (result) {
+		if (result.hideNsfwInSearchResults === true) {
+			document.querySelector('.icon-hide-nsfw-search-results').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-nsfw-search-results').checked = true;
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-nsfw-search-results').classList.remove('icon-show');
+			document.querySelector('.icon-hide-nsfw-search-results').classList.add('icon-hide');
+			var value = true;
+		} else if (typeof result.hideNsfwInSearchResults == 'undefined' || result.hideNsfwInSearchResults === false) {
+			document.querySelector('#checkbox-hide-nsfw-search-results').checked = false;
+			var value = false;
+		}
+		console.log('Hide "NSFW" In The Search Results: ' + value);
+	});
+
+	// Hide "Trending Today" In The Search Results
+	BROWSER_API.storage.sync.get(['hideTrendingTodayInSearchResults'], function (result) {
+		if (result.hideTrendingTodayInSearchResults === true) {
+			document.querySelector('.icon-hide-trending-today-in-search-results').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-trending-today-in-search-results').checked = true;
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-trending-today-in-search-results').classList.remove('icon-show');
+			document.querySelector('.icon-hide-trending-today-in-search-results').classList.add('icon-hide');
+			var value = true;
+		} else if (typeof result.hideTrendingTodayInSearchResults == 'undefined' || result.hideTrendingTodayInSearchResults === false) {
+			document.querySelector('#checkbox-hide-trending-today-in-search-results').checked = false;
+			var value = false;
+		}
+		console.log('Hide "Trending Today" In The Search Results: ' + value);
+	});
+
+	// Hide Community Highlights
+	BROWSER_API.storage.sync.get(['hideCommunityHighlights'], function (result) {
+		if (result.hideCommunityHighlights === true) {
+			document.querySelector('.icon-hide-community-highlights').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-community-highlights').checked = true;
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-community-highlights').classList.remove('icon-thumbtack');
+			document.querySelector('.icon-hide-community-highlights').classList.add('icon-thumbtack-slash');
+			var value = true;
+		} else if (typeof result.hideCommunityHighlights == 'undefined' || result.hideCommunityHighlights === false) {
+			document.querySelector('#checkbox-hide-community-highlights').checked = false;
+			var value = false;
+		}
+		console.log('Hide Community Highlights: ' + value);
+	});
+
+	// Hide NSFW Users In The Search Page Sidebar
+	BROWSER_API.storage.sync.get(['hideSearchSidebarNsfwUsers'], function (result) {
+		if (result.hideSearchSidebarNsfwUsers === true) {
+			document.querySelector('.icon-hide-search-sidebar-nsfw-users').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-search-sidebar-nsfw-users').checked = true;
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-search-sidebar-nsfw-users').classList.remove('icon-show');
+			document.querySelector('.icon-hide-search-sidebar-nsfw-users').classList.add('icon-hide');
+			var value = true;
+		} else if (typeof result.hideSearchSidebarNsfwUsers == 'undefined' || result.hideSearchSidebarNsfwUsers === false) {
+			document.querySelector('#checkbox-hide-search-sidebar-nsfw-users').checked = false;
+			var value = false;
+		}
+		console.log('Hide NSFW Users In The Search Page Sidebar: ' + value);
+	});
+
+	// Remember Side Menu Section Hidden State
+	BROWSER_API.storage.sync.get(['rememberSideMenuSectionHiddenState'], function (result) {
+		if (result.rememberSideMenuSectionHiddenState === true) {
+			document.querySelector('.icon-remember-side-menu-section-hidden-state').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-remember-side-menu-section-hidden-state').checked = true;
+			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.rememberSideMenuSectionHiddenState == 'undefined' || result.rememberSideMenuSectionHiddenState === false) {
+			document.querySelector('#checkbox-remember-side-menu-section-hidden-state').checked = false;
+			var value = false;
+		}
+		console.log('Remember Side Menu Section Hidden State: ' + value);
 	});
 
 	// Account Switcher

@@ -1251,3 +1251,29 @@ document.querySelector('#input-side-menu-width').addEventListener('input', funct
 document.querySelector('#input-side-menu-width').addEventListener('mouseup', function (e) {
 	BROWSER_API.storage.sync.set({ sideMenuWidth: e.target.value });
 });
+
+// Toggle - Remember Side Menu Section Hidden State
+document.querySelector('#checkbox-remember-side-menu-section-hidden-state').addEventListener('change', function (e) {
+	const rememberSideMenuSectionHiddenState = document.querySelector('#checkbox-remember-side-menu-section-hidden-state').checked;
+	if (rememberSideMenuSectionHiddenState === true) {
+		BROWSER_API.storage.sync.set({ rememberSideMenuSectionHiddenState: true });
+		document.querySelector('.icon-remember-side-menu-section-hidden-state').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { rememberSideMenuSectionHiddenState: true });
+				}
+			});
+		});
+	} else if (rememberSideMenuSectionHiddenState === false) {
+		BROWSER_API.storage.sync.set({ rememberSideMenuSectionHiddenState: false });
+		document.querySelector('.icon-remember-side-menu-section-hidden-state').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { rememberSideMenuSectionHiddenState: false });
+				}
+			});
+		});
+	}
+});

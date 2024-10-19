@@ -3,13 +3,26 @@
 /* === Triggered On Page Load === */
 export function loadHideJoinButtonOnPosts() {
 	BROWSER_API.storage.sync.get(['hideJoinButtonOnPosts'], function (result) {
-		hideJoinButtonOnPosts(result.hideJoinButtonOnPosts);
+		if (result.hideJoinButtonOnPosts) hideJoinButtonOnPosts(true);
 	});
 }
 
 /* === Main Function === */
 export function hideJoinButtonOnPosts(value) {
 	if (redditVersion === 'new' && value === true) {
+		enableHideJoinButtonOnPostsNew();
+	} else if (redditVersion === 'newnew' && value === true) {
+		enableHideJoinButtonOnPostsNewNew();
+	} else if (value === false) {
+		disableHideJoinButtonOnPostsAll();
+	}
+}
+
+/* === Enable/Disable Functions === */
+
+// Function - Enable Hide Join Button On Posts - New
+function enableHideJoinButtonOnPostsNew() {
+	if (!document.head.querySelector('style[id="re-hide-join-button-on-posts"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-join-button-on-posts';
 		document.head.appendChild(styleElement);
@@ -17,7 +30,12 @@ export function hideJoinButtonOnPosts(value) {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
-	} else if (redditVersion === 'newnew' && value === true) {
+	}
+}
+
+// Function - Enable Hide Join Button On Posts - New New
+function enableHideJoinButtonOnPostsNewNew() {
+	if (!document.head.querySelector('style[id="re-hide-join-button-on-posts"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-join-button-on-posts';
 		document.head.appendChild(styleElement);
@@ -26,10 +44,13 @@ export function hideJoinButtonOnPosts(value) {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
-	} else if (value === false) {
-		const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-join-button-on-posts"]');
-		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
-		});
 	}
+}
+
+// Function - Disable Hide Join Button On Posts - All
+function disableHideJoinButtonOnPostsAll() {
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-join-button-on-posts"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
 }

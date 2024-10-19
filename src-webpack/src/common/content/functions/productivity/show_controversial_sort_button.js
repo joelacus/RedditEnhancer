@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadShowControversialSortButton() {
 	BROWSER_API.storage.sync.get(['showControversialSortButton'], function (result) {
-		showControversialSortButton(result.showControversialSortButton);
+		if (result.showControversialSortButton) showControversialSortButton(true);
 	});
 }
 

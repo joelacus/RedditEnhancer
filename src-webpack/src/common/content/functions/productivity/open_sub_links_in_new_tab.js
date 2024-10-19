@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadOpenSubInNewTab() {
 	BROWSER_API.storage.sync.get(['openSubInNewTab'], function (result) {
-		openSubInNewTab(result.openSubInNewTab);
+		if (result.openSubInNewTab) openSubInNewTab(true);
 	});
 }
 

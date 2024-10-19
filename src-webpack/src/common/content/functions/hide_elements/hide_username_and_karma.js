@@ -3,8 +3,8 @@
 /* === Triggered On Page Load === */
 export function loadHideUsernameAndKarma() {
 	BROWSER_API.storage.sync.get(['hideUsername', 'hideKarma'], function (result) {
-		hideUsername(result.hideUsername);
-		hideKarma(result.hideKarma);
+		if (result.hideUsername) hideUsername(true);
+		if (result.hideKarma) hideKarma(true);
 	});
 }
 
@@ -27,42 +27,6 @@ export function hideUsername(value) {
 	}
 }
 
-// Function - Enable Hide Username - Old
-function enableHideUsernameOld() {
-	const style = document.createElement('style');
-	style.id = 're-hide-username';
-	style.textContent = `#header-bottom-right .user a {
-							display: none !important;
-						}`;
-	document.head.insertBefore(style, document.head.firstChild);
-}
-
-// Function - Disable Hide Username - Old
-function disableHideUsernameOld() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-username"]');
-	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
-	});
-}
-
-// Function - Enable Hide Username - New
-function enableHideUsernameNew() {
-	const style = document.createElement('style');
-	style.id = 're-hide-username';
-	style.textContent = `#email-collection-tooltip-id > span span:first-child {
-							display: none !important;
-						}`;
-	document.head.insertBefore(style, document.head.firstChild);
-}
-
-// Function - Disable Hide Username - New
-function disableHideUsernameNew() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-username"]');
-	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
-	});
-}
-
 // Hide Karma
 export function hideKarma(value) {
 	if (redditVersion === 'old') {
@@ -80,19 +44,63 @@ export function hideKarma(value) {
 	}
 }
 
+/* === Enable/Disable Functions === */
+
+// Function - Enable Hide Username - Old
+function enableHideUsernameOld() {
+	if (!document.head.querySelector('style[id="re-hide-username"]')) {
+		const style = document.createElement('style');
+		style.id = 're-hide-username';
+		style.textContent = `#header-bottom-right .user a {
+								display: none !important;
+							}`;
+		document.head.insertBefore(style, document.head.firstChild);
+	}
+}
+
+// Function - Disable Hide Username - Old
+function disableHideUsernameOld() {
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-username"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}
+
+// Function - Enable Hide Username - New
+function enableHideUsernameNew() {
+	if (!document.head.querySelector('style[id="re-hide-username"]')) {
+		const style = document.createElement('style');
+		style.id = 're-hide-username';
+		style.textContent = `#email-collection-tooltip-id > span span:first-child {
+								display: none !important;
+							}`;
+		document.head.insertBefore(style, document.head.firstChild);
+	}
+}
+
+// Function - Disable Hide Username - New
+function disableHideUsernameNew() {
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-username"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}
+
 // Function - Enable Hide Karma - Old
 function enableHideKarmaOld() {
-	const style = document.createElement('style');
-	style.id = 're-hide-karma';
-	style.textContent = `#header-bottom-right .user span {
-							display: none !important;
-						}`;
-	document.head.insertBefore(style, document.head.firstChild);
+	if (!document.head.querySelector('style[id="re-hide-karma"]')) {
+		const style = document.createElement('style');
+		style.id = 're-hide-karma';
+		style.textContent = `#header-bottom-right .user span {
+								display: none !important;
+							}`;
+		document.head.insertBefore(style, document.head.firstChild);
+	}
 }
 
 // Function - Disable Hide Karma - Old
 function disableHideKarmaOld() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-karma"]');
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-karma"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
@@ -100,17 +108,19 @@ function disableHideKarmaOld() {
 
 // Function - Enable Hide Karma - New
 function enableHideKarmaNew() {
-	const style = document.createElement('style');
-	style.id = 're-hide-karma';
-	style.textContent = `#email-collection-tooltip-id > span span:last-child {
-							display: none !important;
-						}`;
-	document.head.insertBefore(style, document.head.firstChild);
+	if (!document.head.querySelector('style[id="re-hide-karma"]')) {
+		const style = document.createElement('style');
+		style.id = 're-hide-karma';
+		style.textContent = `#email-collection-tooltip-id > span span:last-child {
+								display: none !important;
+							}`;
+		document.head.insertBefore(style, document.head.firstChild);
+	}
 }
 
 // Function - Disable Hide Karma - New
 function disableHideKarmaNew() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-karma"]');
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-karma"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});

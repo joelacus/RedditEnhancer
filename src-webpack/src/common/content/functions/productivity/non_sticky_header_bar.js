@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadNonStickyHeaderBar() {
 	BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
-		nonStickyHeaderBar(result.nonStickyHeaderBar);
+		if (result.nonStickyHeaderBar) nonStickyHeaderBar(true);
 	});
 }
 

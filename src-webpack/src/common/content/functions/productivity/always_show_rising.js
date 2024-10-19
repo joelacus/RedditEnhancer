@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadAlwaysShowRisingButton() {
 	BROWSER_API.storage.sync.get(['alwaysShowRisingButton'], function (result) {
-		alwaysShowRisingButton(result.alwaysShowRisingButton);
+		if (result.alwaysShowRisingButton) alwaysShowRisingButton(true);
 	});
 }
 

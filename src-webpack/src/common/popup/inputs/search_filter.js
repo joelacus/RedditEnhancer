@@ -79,13 +79,13 @@ function search_filter() {
 			}
 
 			// Check if each menu list/category contain search results
-			document.querySelectorAll('.menu-list').forEach(function (menuList) {
+			document.querySelectorAll('#main-menu .menu-list').forEach(function (menuList) {
 				// unhide all menu lists
 				menuList.classList.remove('hidden');
 			});
 			if (document.querySelector('#search').value != '') {
 				// check each menu list for result
-				document.querySelectorAll('.menu-list').forEach(function (menuList) {
+				document.querySelectorAll('#main-menu .menu-list').forEach(function (menuList) {
 					const containers = menuList.querySelectorAll('.container');
 					function hasVisibleResultsFunc() {
 						for (const element of containers) {

@@ -26,7 +26,7 @@ import { loadHideUserProfilePics } from '../../../content/functions/hide_element
 import { loadImageScroll } from '../../../content/functions/productivity/scroll_tall_images';
 import { loadLayoutOffset } from '../../../content/functions/expand_feed_post/layout_centre_and_offset';
 import { loadNonStickyHeaderBar } from '../../../content/functions/productivity/non_sticky_header_bar';
-import { loadRemovePageSideMargin } from '../../../content/functions/expand_feed_post/remove_page_side_margin';
+//import { loadRemovePageSideMargin } from '../../../content/functions/expand_feed_post/remove_page_side_margin';
 import { loadResizeFont } from '../../../content/functions/accessibility/resize_font';
 //import { loadScalePostToFitImage } from '../../../content/functions/productivity/scale_post_to_fit_image';
 import { loadScrollToNextRootCommentPosition } from '../../../content/functions/productivity/scroll_to_next_root_comment';
@@ -37,10 +37,13 @@ import { loadBorderRadiusAmount } from '../../../content/functions/style/border_
 import { loadHideRecentPosts } from '../../../content/functions/hide_elements/hide_recent_posts';
 import { loadSideMenuWidth } from '../../../content/functions/productivity/side_menu_width';
 import { loadHideCompactViewBlankThumbnails } from '../../../content/functions/hide_elements/hide_compact_view_blank_thumbnails';
+import { loadHideCommunityHighlights } from '../../../content/functions/hide_elements/hide_community_highlights';
+import { loadHideSearchSidebarNsfwUsers } from '../../../content/functions/hide_elements/hide_search_page_sidebar_nsfw_users';
 
 export function observersNewNew() {
 	loadCustomBackground();
 	loadCustomTheme();
+	loadSideMenuWidth();
 	loadHideSideMenu();
 	loadHideHomeSidebar();
 	loadHideSubSidebarException();
@@ -53,7 +56,7 @@ export function observersNewNew() {
 	loadHideCreatePostButton();
 	loadHideChatButton();
 	loadHideAdvertiseButton();
-	loadRemovePageSideMargin();
+	//loadRemovePageSideMargin();
 	loadHideSideMenuSections();
 	loadAutoExpandValue();
 	loadExpandContent();
@@ -76,8 +79,9 @@ export function observersNewNew() {
 	loadHidePostBackButton();
 	loadBorderRadiusAmount();
 	loadHideRecentPosts();
-	loadSideMenuWidth();
 	loadHideCompactViewBlankThumbnails();
+	loadHideCommunityHighlights();
+	loadHideSearchSidebarNsfwUsers();
 
 	// Always Show Post Options
 	waitForAddedNode({

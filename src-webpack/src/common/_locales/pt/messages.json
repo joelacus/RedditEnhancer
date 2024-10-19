@@ -828,7 +828,7 @@
 	},
 
 	"HideJoinButtonOnPosts": {
-		"message": "Ocultar o botão ‘Participar’ nas postagens"
+		"message": "Ocultar o botão 'Participar' nas postagens"
 	},
 
 	"AutoLoadMoreComments": {
@@ -836,7 +836,7 @@
 	},
 
 	"HideSideMenuCustomFeedsSection": {
-		"message": "Ocultar a seção ‘Feeds personalizados’"
+		"message": "Ocultar a seção 'Feeds personalizados'"
 	},
 
 	"UnderlineLinks": {
@@ -876,47 +876,47 @@
 	},
 
 	"YouNeedToBeLoggedIn": {
-		"message": "Tem de estar logado no Reddit para que o redireccionamento para ‘Velho Novo UI’ funcione."
+		"message": "Tem de estar logado no Reddit para que o redireccionamento para 'Velho Novo UI' funcione."
 	},
 
 	"RemovalNotification": {
-		"message": "Reddit has now started redirecting users from new.reddit.com to the latest version, so eventually you won't be able to use the Old New UI. Unfortunately, I can't do anything about this :( When this happens, your page may error, set the redirect feature to 'Off' or 'Old UI'."
+		"message": "O Reddit começou agora a redirecionar os utilizadores de new.reddit.com para a versão mais recente, pelo que, eventualmente, não poderá utilizar a 'Velho Novo UI'. Infelizmente, não posso fazer nada sobre isso :( Quando isto acontece, a sua página pode apresentar um erro, defina a funcionalidade de redireccionamento para 'Desligado' ou 'Velho UI'."
 	},
 
 	"learnMore": {
-		"message": "Learn More"
+		"message": "Saber mais"
 	},
 
 	"HidePostBackButton": {
-		"message": "Hide The Post Back Button"
+		"message": "Ocultar o botão Publicar Voltar"
 	},
 
 	"BorderRadiusAmount": {
-		"message": "Theme Corner Radius"
+		"message": "Raio do canto do tema"
 	},
 
 	"HidePostKarma": {
-		"message": "Hide Post Karma"
+		"message": "Ocultar pós-carma"
 	},
 
 	"HideRecentPosts": {
-		"message": "Hide Recent Posts"
+		"message": "Ocultar publicações recentes"
 	},
 
 	"SideMenuWidth": {
-		"message": "Side Menu Width"
+		"message": "Largura do menu lateral"
 	},
 
 	"SideMenuIconsOnly": {
-		"message": "Side Menu Icons Only"
+		"message": "Apenas ícones do menu lateral"
 	},
 
 	"HideFavouriteButtons": {
-		"message": "Hide the Favourite Buttons"
+		"message": "Ocultar os botões favoritos"
 	},
 
 	"ResetAllSettings": {
-		"message": "Reset All Settings"
+		"message": "Repor todas as configurações"
 	},
 
 	"Confirm": {
@@ -924,7 +924,7 @@
 	},
 
 	"Cleared": {
-		"message": "Cleared"
+		"message": "Desmarcado"
 	},
 
 	"Error": {
@@ -932,38 +932,58 @@
 	},
 
 	"SetLanguageAndTheme": {
-		"message": "Set Language and Theme"
+		"message": "Definir idioma e tema"
 	},
 
 	"SelectRedirect": {
-		"message": "Redirect"
+		"message": "Redirecionar"
 	},
 
 	"Welcome": {
-		"message": "Welcome!"
+		"message": "Boas-vindas!"
 	},
 
 	"ModerniseOldRedditInfo": {
-		"message": "Makes old reddit look more like new reddit."
+		"message": "Faz com que o reddit antigo se assemelhe mais ao novo reddit."
 	},
 
 	"YouMayNotNeedTheRedirectAnymore": {
-		"message": "Reddit is starting to make the 'New New UI' default, so you may no longer need the redirect to sh.reddit.com anymore. Try setting the redirect option to 'Off' and refresh Reddit to see if your account is set to use the 'New New UI' as the default, if not, you can carry on using the redirect option for now."
+		"message": "O Reddit está a começar a tornar o padrão 'Nova Nova UI', por isso talvez já não precise do redireccionamento para sh.reddit.com. Experimente definir a opção de redireccionamento para 'Desligado' e atualize o Reddit para ver se a sua conta está configurada para utilizar a 'Nova Nova UI' como predefinição."
 	},
 
 	"DontShowAgain": {
-		"message": "Don't show again"
+		"message": "Não mostre novamente"
 	},
 
 	"Close": {
-		"message": "Close"
+		"message": "Perto"
 	},
 
 	"SideMenuToggleButton": {
-		"message": "Show Side Menu Toggle Button"
+		"message": "Mostrar botão de alternância do menu lateral"
 	},
 
 	"HideCompactViewBlankThumbnails": {
-		"message": "Hide Blank Thumbnails In Compact View"
+		"message": "Ocultar miniaturas em branco na visualização compacta"
+	},
+
+	"HideNsfwInSearchResults": {
+		"message": "Ocultar 'NSFW' nos resultados da pesquisa"
+	},
+
+	"HideTrendingTodayInSearchResults": {
+		"message": "Ocultar 'Tendências atuais' na barra de pesquisa"
+	},
+
+	"HideCommunityHighlights": {
+		"message": "Ocultar 'Destaques da comunidade'"
+	},
+
+	"HideSearchSidebarNsfwUsers": {
+		"message": "Ocultar utilizadores NSFW na barra lateral da página de pesquisa"
+	},
+
+	"resizeHomeAlsoAffects": {
+		"message": "& r/all, r/popular, criar publicações, resultados de pesquisa e páginas wiki"
 	}
 }

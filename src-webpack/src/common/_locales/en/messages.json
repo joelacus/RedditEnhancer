@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.11.0"
+		"message": "1.12.0"
 	},
 
 	"extensionName": {
@@ -973,6 +973,30 @@
 
 	"HideCompactViewBlankThumbnails": {
 		"message": "Hide Blank Thumbnails In Compact View"
+	},
+
+	"HideNsfwInSearchResults": {
+		"message": "Hide NSFW results in the Searchbar"
+	},
+
+	"HideTrendingTodayInSearchResults": {
+		"message": "Hide 'Trending Today' in the Searchbar"
+	},
+
+	"HideCommunityHighlights": {
+		"message": "Hide 'Community Highlights'"
+	},
+
+	"HideSearchSidebarNsfwUsers": {
+		"message": "Hide NSFW Users in the Search Sidebar"
+	},
+
+	"resizeHomeAlsoAffects": {
+		"message": "& r/all, r/popular, Create Post, Search Results, and Wiki pages"
+	},
+
+	"RememberSectionHiddenState": {
+		"message": "Remember Side Menu Section Hidden States"
 	},
 
 	"DragImageToResize": {

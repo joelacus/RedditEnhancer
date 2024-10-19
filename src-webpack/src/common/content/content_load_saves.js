@@ -35,6 +35,8 @@ import { loadHidePostKarma } from './functions/hide_elements/hide_post_karma';
 import { loadSideMenuIconsOnly } from './functions/hide_elements/side_menu_icons_only';
 import { loadHideSideMenuFavouriteButton } from './functions/hide_elements/hide_side_menu_favourite_button';
 import { loadSideMenuToggleButton } from './functions/hide_elements/side_menu_toggle_button';
+import { loadHideNsfwInSearchResults, loadHideTrendingTodayInSearchResults } from './functions/hide_elements/hide_search_results_sections';
+import { loadRememberSideMenuSectionHiddenState } from './functions/productivity/remember_side_menu_section_hidden_state';
 
 export function load_saves() {
 	if (redditVersion === 'old') {
@@ -75,32 +77,92 @@ export function load_saves() {
 		loadAutoLoadMoreComments();
 		loadHidePostKarma();
 		loadSideMenuToggleButton();
-		// Auto Show Comment Formatting Options
+
+		// Wait for elements to load on the page before loading tweaks.
 		waitForAddedNode({
 			query: 'comment-body-header',
 			parent: document.querySelector('body'),
 			recursive: true,
 			done: function (el) {
-				//console.log(el);
 				setTimeout(() => {
 					loadAutoShowCommentFormattingOptions();
 				}, 3000);
+				setTimeout(() => {
+					loadAutoShowCommentFormattingOptions();
+				}, 10000);
 			},
 		});
 		waitForAddedNode({
 			query: '#communities_section left-nav-communities-controller',
+			shadowRoot: true,
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function (shadowRoot) {
+				setTimeout(() => {
+					loadSideMenuIconsOnly();
+					loadHideSideMenuFavouriteButton();
+				}, 2000);
+				setTimeout(() => {
+					loadSideMenuIconsOnly();
+					loadHideSideMenuFavouriteButton();
+				}, 10000);
+			},
+		});
+
+		waitForAddedNode({
+			query: 'faceplate-expandable-section-helper:has([aria-controls="moderation_section"])',
 			parent: document.querySelector('body'),
 			recursive: true,
 			done: function (el) {
-				//console.log(el);
+				loadRememberSideMenuSectionHiddenState();
+			},
+		});
+		waitForAddedNode({
+			query: 'faceplate-expandable-section-helper:has([aria-controls="multireddits_section"])',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function (el) {
+				loadRememberSideMenuSectionHiddenState();
+			},
+		});
+		waitForAddedNode({
+			query: 'reddit-recent-pages',
+			shadowRoot: true,
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function (el) {
 				setTimeout(() => {
-					loadSideMenuIconsOnly();
-					loadHideSideMenuFavouriteButton();
+					loadRememberSideMenuSectionHiddenState();
+				}, 500);
+			},
+		});
+		waitForAddedNode({
+			query: 'faceplate-expandable-section-helper:has([aria-controls="communities_section"])',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function (el) {
+				loadRememberSideMenuSectionHiddenState();
+			},
+		});
+		waitForAddedNode({
+			query: 'faceplate-expandable-section-helper:has([aria-controls="RESOURCES"])',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function (el) {
+				loadRememberSideMenuSectionHiddenState();
+			},
+		});
+
+		waitForAddedNode({
+			query: 'reddit-search-large',
+			shadowRoot: true,
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function (shadowRoot) {
+				setTimeout(() => {
+					loadHideNsfwInSearchResults();
+					loadHideTrendingTodayInSearchResults();
 				}, 1000);
-				setTimeout(() => {
-					loadSideMenuIconsOnly();
-					loadHideSideMenuFavouriteButton();
-				}, 4000);
 			},
 		});
 	}

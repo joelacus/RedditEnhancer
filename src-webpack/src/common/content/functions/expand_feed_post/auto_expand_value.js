@@ -10,16 +10,18 @@ export function loadAutoExpandValue() {
 /* === Main Function === */
 export function autoExpandValue(widthVariable) {
 	if (redditVersion === 'old' || redditVersion === 'new') {
-		disableAutoExpandValue();
-		enableAutoExpandValue(widthVariable);
+		disableAutoExpandValueAll();
+		enableAutoExpandValueNew(widthVariable);
 	} else if (redditVersion === 'newnew') {
-		disableAutoExpandValue();
+		disableAutoExpandValueAll();
 		enableAutoExpandValueNewNew(widthVariable);
 	}
 }
 
+/* === Enable/Disable Functions === */
+
 // Function - Enable Auto Expand Value - New
-function enableAutoExpandValue(widthVariable) {
+function enableAutoExpandValueNew(widthVariable) {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-auto-expand-layout';
 	styleElement.textContent = `@media only screen and (max-width: ${widthVariable}px) {
@@ -38,14 +40,6 @@ function enableAutoExpandValue(widthVariable) {
 									}
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
-}
-
-// Function - Disable Auto Expand Value - New
-function disableAutoExpandValue() {
-	const dynamicStyleElements1 = document.querySelectorAll('style[id="re-auto-expand-layout"]');
-	dynamicStyleElements1.forEach((element) => {
-		document.head.removeChild(element);
-	});
 }
 
 // Function - Enable Auto Expand Value - New New
@@ -70,4 +64,12 @@ function enableAutoExpandValueNewNew(widthVariable) {
 									}
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
+}
+
+// Function - Disable Auto Expand Value - All
+function disableAutoExpandValueAll() {
+	const dynamicStyleElements1 = document.head.querySelectorAll('style[id="re-auto-expand-layout"]');
+	dynamicStyleElements1.forEach((element) => {
+		document.head.removeChild(element);
+	});
 }

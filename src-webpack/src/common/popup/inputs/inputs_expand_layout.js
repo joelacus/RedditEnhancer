@@ -202,7 +202,7 @@ document.querySelector('#auto-expand-value').addEventListener('keyup', function 
 });
 
 // Toggle - Remove Page Side Margin
-document.querySelector('#checkbox-remove-page-side-margin').addEventListener('change', function (e) {
+/*document.querySelector('#checkbox-remove-page-side-margin').addEventListener('change', function (e) {
 	const removePageSideMargin = document.querySelector('#checkbox-remove-page-side-margin').checked;
 	if (removePageSideMargin === true) {
 		BROWSER_API.storage.sync.set({ removePageSideMargin: true });
@@ -225,7 +225,7 @@ document.querySelector('#checkbox-remove-page-side-margin').addEventListener('ch
 			});
 		});
 	}
-});
+});*/
 
 // Slider - Layout Offset
 document.querySelector('#input-layout-offset').addEventListener('input', function (e) {

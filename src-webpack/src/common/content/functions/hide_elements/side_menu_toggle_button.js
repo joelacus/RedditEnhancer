@@ -1,9 +1,11 @@
 /* ===== Tweaks - Hide - Side Menu Toggle Button ===== */
 
+import { loadSideMenuWidth } from '../productivity/side_menu_width';
+
 /* === Triggered On Page Load === */
 export function loadSideMenuToggleButton() {
 	BROWSER_API.storage.sync.get(['sideMenuToggleButton'], function (result) {
-		sideMenuToggleButton(result.sideMenuToggleButton);
+		if (result.sideMenuToggleButton) sideMenuToggleButton(true);
 	});
 }
 
@@ -17,6 +19,8 @@ export function sideMenuToggleButton(value) {
 		}
 	}
 }
+
+/* === Enable/Disable Functions === */
 
 // Function - Enable Side Menu Toggle Button - New New
 function enableSideMenuToggleButton() {
@@ -32,6 +36,7 @@ function enableSideMenuToggleButton() {
 			btnClose.classList.add('hidden');
 			btnOpen.classList.remove('hidden');
 			BROWSER_API.storage.sync.set({ sideMenuToggleButtonHiddenState: true });
+			document.documentElement.style.setProperty('--re-side-menu-width', 0);
 		});
 		const nav = document.querySelector('#left-sidebar-container nav');
 		nav.insertBefore(btnClose, nav.firstChild);
@@ -46,6 +51,7 @@ function enableSideMenuToggleButton() {
 			btnClose.classList.remove('hidden');
 			btnOpen.classList.add('hidden');
 			BROWSER_API.storage.sync.set({ sideMenuToggleButtonHiddenState: false });
+			loadSideMenuWidth();
 		});
 		document.querySelector('body').append(btnOpen);
 	}
@@ -56,79 +62,81 @@ function enableSideMenuToggleButton() {
 			document.querySelector('shreddit-app').setAttribute('data-re-hide-side-menu', true);
 			btnClose.classList.add('hidden');
 			btnOpen.classList.remove('hidden');
+			document.documentElement.style.setProperty('--re-side-menu-width', 0);
 		} else {
 			document.querySelector('shreddit-app').setAttribute('data-re-hide-side-menu', false);
+			loadSideMenuWidth();
 		}
 	});
 	// add main stylesheet
 	document.querySelector('html').classList.add('re-hide-side-menu');
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-side-menu-toggle-button';
-	styleElement.textContent = `:root {
-									--re-hide-side-menu-gap-multiplyer: 1;
-								}
-								shreddit-app[data-re-hide-side-menu="true"] #left-sidebar-container {
-									display: none !important;
-								}
-								shreddit-app[data-re-hide-side-menu="true"] .grid-container .subgrid-container {
-									grid-column-start: 1 !important;
-								}
-								shreddit-app[data-re-hide-side-menu="true"] #main-content {
-									margin-left: 1.5rem;
-								}
-								shreddit-app[data-re-hide-side-menu="true"][routename="subreddit"] #main-content,
-								shreddit-app[data-re-hide-side-menu="true"][routename="post_page"] #main-content,
-								shreddit-app[data-re-hide-side-menu="true"][routename="profile_post_page"] #main-content,
-								shreddit-app[data-re-hide-side-menu="true"][routename="profile_overview"] #main-content {
-									grid-column-start: 1 !important;
-									margin-left: 0 !important;
-								}
-								shreddit-app[routename="post_page"] .subgrid-container,
-								shreddit-app[routename="profile_post_page"] .subgrid-container {
-									padding-left: 1.3rem !important;
-								}
-								shreddit-app[data-re-hide-side-menu="true"][routename="frontpage"] #main-content {
-									margin-left: 0 !important;
-								}
-								shreddit-app[data-re-hide-side-menu="true"][routename="subreddit"] .masthead {
-									margin: 0 !important;
-								}
-								shreddit-app[data-re-hide-side-menu="true"] .grid-container {
-									grid-template-columns: 1fr;
-								}
-								shreddit-app[data-re-hide-side-menu="true"] .subgrid-container {
-									max-width: 100vw;
-								}
-								.re-side-menu-close,
-								.re-side-menu-open {
-									display: flex;
-									align-items: center;
-									justify-content: center;
-									width: 40px;
-									height: 40px;
-									cursor: pointer;
-									z-index: 9;
-								}
-								.re-side-menu-close {
-									position: sticky;
-									top: 0;
-									left: 100%;
-								}
-								.re-side-menu-open {
-									position: fixed;
-									top: 57px;
-									left: 0;
-								}
-								.re-side-menu-close svg,
-								.re-side-menu-open svg {
-									transform: rotate(-90deg);
-									width: 20px;
-									height: 20px;
-								}
-								.re-side-menu-open svg {
-									transform: rotate(90deg);
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
+	if (!document.head.querySelector('style[id="re-side-menu-toggle-button"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-side-menu-toggle-button';
+		styleElement.textContent = `:root {
+										--re-hide-side-menu-gap-multiplyer: 1;
+										--re-hide-side-menu-gap-multiplyer2: 1;
+									}
+									shreddit-app[data-re-hide-side-menu="true"] #left-sidebar-container {
+										display: none !important;
+									}
+									/*shreddit-app[data-re-hide-side-menu="true"] .grid-container .subgrid-container {
+										grid-column-start: 1 !important;
+									}
+									shreddit-app[data-re-hide-side-menu="true"][routename="subreddit"] #main-content,
+									shreddit-app[data-re-hide-side-menu="true"][routename="post_page"] #main-content,
+									shreddit-app[data-re-hide-side-menu="true"][routename="profile_post_page"] #main-content,
+									shreddit-app[data-re-hide-side-menu="true"][routename="profile_overview"] #main-content {
+										grid-column-start: 1 !important;
+										margin-left: 0 !important;
+									}
+									shreddit-app[routename="post_page"] .subgrid-container,
+									shreddit-app[routename="profile_post_page"] .subgrid-container {
+										padding-left: 1.3rem;
+									}
+									shreddit-app[data-re-hide-side-menu="true"][routename="frontpage"] #main-content {
+										margin-left: 0 !important;
+									}
+									shreddit-app[data-re-hide-side-menu="true"][routename="subreddit"] .masthead {
+										margin: 0 !important;
+									}
+									shreddit-app[data-re-hide-side-menu="true"] .grid-container {
+										grid-template-columns: 1fr;
+									}
+									shreddit-app[data-re-hide-side-menu="true"] .subgrid-container {
+										max-width: 100vw;
+									}*/
+									.re-side-menu-close,
+									.re-side-menu-open {
+										display: flex;
+										align-items: center;
+										justify-content: center;
+										width: 40px;
+										height: 40px;
+										cursor: pointer;
+										z-index: 9;
+									}
+									.re-side-menu-close {
+										position: sticky;
+										top: 0;
+										left: 100%;
+									}
+									.re-side-menu-open {
+										position: fixed;
+										top: 57px;
+										left: 0;
+									}
+									.re-side-menu-close svg,
+									.re-side-menu-open svg {
+										transform: rotate(-90deg);
+										width: 20px;
+										height: 20px;
+									}
+									.re-side-menu-open svg {
+										transform: rotate(90deg);
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
 // Function - Disable Side Menu Toggle Button - New New
@@ -141,4 +149,5 @@ function disableSideMenuToggleButton() {
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
+	loadSideMenuWidth();
 }

@@ -1,3 +1,18 @@
+version 1.12.0
+- Added an option to hide "Community Highlights" (New New UI).
+- Added an option to hide the "Trending Today" section in the search bar (New New UI).
+- Added an option to hide NSFW results in the search bar (New New UI).
+- Added an option to hide NSFW users in the search results page sidebar (New New UI).
+- Added an option to remember the side menu sections open/closed states (New New UI).
+- The "Show Post Author on the Home Feed" feature now works on the "r/popular" page (New New UI).
+- The "Show Post Flair on the Home Feed" feature now works on the "r/popular" page (New New UI).
+- The "Create Post" page will now use the "Home Feed Width" for the "Resize Feed" feature (New New UI).
+- Refactored and cleaned up the "Resize Feed" code, and removed some old code for an older build of the New New UI.
+- Fixed a bug with the "Default Feed Sort Option" feature causing it to run on pages it shouldn't and resulting in a page error.
+- Removed the "Remove the Page Side Margin" option, as it seems to be no longer needed (New New UI).
+- Slightly improved page loading efficiency.
+- Bug fixes.
+
 version 1.11.0
 - Added a warning that "Old New UI" may no longer be accessible as Reddit is phasing it out.
 - Added a message that the redirection to sh.reddit.com for the "New New UI" may no longer be needed.

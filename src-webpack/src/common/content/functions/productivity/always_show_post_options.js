@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadAlwaysShowPostOptions() {
 	BROWSER_API.storage.sync.get(['alwaysShowPostOptions'], function (result) {
-		alwaysShowPostOptions(result.alwaysShowPostOptions);
+		if (result.alwaysShowPostOptions) alwaysShowPostOptions(true);
 	});
 }
 

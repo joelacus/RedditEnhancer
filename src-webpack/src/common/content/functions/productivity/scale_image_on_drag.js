@@ -9,8 +9,10 @@ import { disableScalePostToFitImageAll } from './scale_post_to_fit_image';*/
 /* === Triggered On Page Load === 
 export function loadDragImageToResize() {
 	BROWSER_API.storage.sync.get(['dragImageToResize', 'dragImageToResizeInitialSize'], function (result) {
-		dragImageToResize(result.dragImageToResize);
-		dragImageToResizeInitialSize(result.dragImageToResizeInitialSize);
+		if (result.dragImageToResize) {
+			dragImageToResize(true);
+			dragImageToResizeInitialSize(result.dragImageToResizeInitialSize);
+		}
 	});
 }*/
 

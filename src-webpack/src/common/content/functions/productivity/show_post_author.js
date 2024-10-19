@@ -3,30 +3,30 @@
 /* === Triggered On Page Load === */
 export function loadShowPostAuthor() {
 	BROWSER_API.storage.sync.get(['showPostAuthor'], function (result) {
-		showPostAuthor(result.showPostAuthor);
+		if (result.showPostAuthor) showPostAuthor(true);
 	});
 }
 
 /* === Main Function === */
 export function showPostAuthor(value) {
-	const routename = document.querySelector('shreddit-app').getAttribute('routename') === 'frontpage';
+	const routename = document.querySelector('shreddit-app').getAttribute('routename');
 	if (redditVersion === 'newnew' && value === true) {
-		if (routename) {
+		if (routename === 'frontpage' || routename === 'popular') {
 			document.querySelectorAll('shreddit-post').forEach((post) => {
-				attach_username(post);
+				attachUsername(post);
 			});
 			observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
 		}
 	} else if (redditVersion === 'newnew' && value === false) {
-		if (routename) {
+		if (routename === 'frontpage' || routename === 'popular') {
 			observer.disconnect();
-			remove_username();
+			removeUsername();
 		}
 	}
 }
 
 // Remove all post author names and hover cards.
-function remove_username() {
+function removeUsername() {
 	document.querySelectorAll('shreddit-post').forEach((post) => {
 		if (post.querySelector('.re-post-author')) {
 			post.querySelector('.re-post-author').remove();
@@ -35,7 +35,7 @@ function remove_username() {
 }
 
 // Attach post author to post header.
-function attach_username(post) {
+function attachUsername(post) {
 	if (!post.querySelector('.re-post-author')) {
 		const author = post.getAttribute('author');
 		const a = document.createElement('a');
@@ -191,7 +191,7 @@ const observer = new MutationObserver(function (mutations) {
 				setTimeout(() => {
 					const post = addedNode.querySelector('shreddit-post');
 					if (addedNode) {
-						attach_username(post);
+						attachUsername(post);
 					}
 				}, 1000);
 			}

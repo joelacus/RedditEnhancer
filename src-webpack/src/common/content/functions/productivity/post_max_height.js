@@ -3,8 +3,8 @@
 /* === Triggered On Page Load === */
 export function loadPostHeight() {
 	BROWSER_API.storage.sync.get(['postHeight', 'postHeightSize'], function (result) {
-		postHeight(result.postHeight);
-		postHeightSize(result.postHeightSize);
+		if (result.postHeight) postHeight(true);
+		if (result.postHeightSize) postHeightSize(true);
 	});
 }
 

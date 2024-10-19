@@ -965,5 +965,25 @@
 
 	"HideCompactViewBlankThumbnails": {
 		"message": "Masquer les vignettes vides dans la vue compacte"
+	},
+
+	"HideNsfwInSearchResults": {
+		"message": "Masquer « NSFW » dans les résultats de recherche"
+	},
+
+	"HideTrendingTodayInSearchResults": {
+		"message": "Masquer « Tendance du jour » dans la barre de recherche"
+	},
+
+	"HideCommunityHighlights": {
+		"message": "Masquer « Temps forts de la communauté »"
+	},
+
+	"HideSearchSidebarNsfwUsers": {
+		"message": "Masquer les utilisateurs NSFW dans la barre latérale de la page de recherche"
+	},
+
+	"resizeHomeAlsoAffects": {
+		"message": "& r/all, r/popular, créer des post, des résultats de recherche et des pages wiki"
 	}
 }

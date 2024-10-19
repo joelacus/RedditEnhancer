@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadAutoCollapseAutoModeratorComment() {
 	BROWSER_API.storage.sync.get(['autoCollapseAutoModeratorComment'], function (result) {
-		autoCollapseAutoModeratorComment(result.autoCollapseAutoModeratorComment);
+		if (result.autoCollapseAutoModeratorComment) autoCollapseAutoModeratorComment(true);
 	});
 }
 

@@ -965,5 +965,25 @@
 
 	"HideCompactViewBlankThumbnails": {
 		"message": "Nascondi miniature vuote nella vista compatta"
+	},
+
+	"HideNsfwInSearchResults": {
+		"message": "Nascondi 'NSFW' nei risultati della ricerca"
+	},
+
+	"HideTrendingTodayInSearchResults": {
+		"message": "Nascondi 'Di tendenza oggi' nella barra di ricerca"
+	},
+
+	"HideCommunityHighlights": {
+		"message": "Nascondi 'Post in evidenza della comunità'"
+	},
+
+	"HideSearchSidebarNsfwUsers": {
+		"message": "Nascondi gli utenti NSFW nella barra laterale della pagina di ricerca"
+	},
+
+	"resizeHomeAlsoAffects": {
+		"message": "& r/all, r/popular, creare post, risultati di ricerca e pagine wiki"
 	}
 }

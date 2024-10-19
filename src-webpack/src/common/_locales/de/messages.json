@@ -965,5 +965,25 @@
 
 	"HideCompactViewBlankThumbnails": {
 		"message": "Leere Miniaturansichten in der Kompaktansicht ausblenden"
+	},
+
+	"HideNsfwInSearchResults": {
+		"message": "„NSFW“ in den Suchergebnissen ausblenden"
+	},
+
+	"HideTrendingTodayInSearchResults": {
+		"message": "„Trending Today“ in der Suchleiste ausblenden"
+	},
+
+	"HideCommunityHighlights": {
+		"message": "„Community-Highlights“ ausblenden"
+	},
+
+	"HideSearchSidebarNsfwUsers": {
+		"message": "NSFW Benutzer in der Seitenleiste der Suchseite ausblenden"
+	},
+
+	"resizeHomeAlsoAffects": {
+		"message": "& r/all, r/popular, Beiträge, Suchergebnisse und Wiki-Seiten erstellen"
 	}
 }

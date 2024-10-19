@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadTextPostScroll() {
 	BROWSER_API.storage.sync.get(['textPostScroll'], function (result) {
-		textPostScroll(result.textPostScroll);
+		if (result.textPostScroll) textPostScroll(true);
 	});
 }
 

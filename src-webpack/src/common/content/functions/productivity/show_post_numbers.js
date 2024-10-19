@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadShowPostNumbers() {
 	BROWSER_API.storage.sync.get(['showPostNumbers'], function (result) {
-		showPostNumbers(result.showPostNumbers);
+		if (result.showPostNumbers) showPostNumbers(true);
 	});
 }
 

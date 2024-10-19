@@ -187,6 +187,8 @@
 							<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-view-width" />
 							<span id="expand-view-width" class="input-value"></span>
 						</div>
+						<p class="info" data-lang="resizeHomeAlsoAffects"></p>
+						<div class="divider"></div>
 						<div class="container container-5 r-old r-new r-newnew">
 							<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
 							<span data-lang="SubFeedWidth" data-search="resize,content,sub"></span>
@@ -252,7 +254,7 @@
 							<span id="layout-user-profile-offset-value" class="input-value"></span>
 						</div>
 					</li>
-					<li class="sub-header r-newnew">
+					<!--<li class="sub-header r-newnew">
 						<span data-lang="Other"></span>
 					</li>
 					<li class="container container-3 r-newnew">
@@ -264,7 +266,7 @@
 						</label>
 						<div></div>
 						<p class="info">This option now seems redundant in newer builds of New New UI.</p>
-					</li>
+					</li>-->
 				</ul>
 			</li>
 
@@ -288,7 +290,7 @@
 							<div class="r-old r-new r-newnew"><a href="#hide-main" data-lang="Main"></a>&nbsp;|&nbsp;</div>
 							<div class="r-old r-new r-newnew"><a href="#hide-header" data-lang="Header"></a>&nbsp;|&nbsp;</div>
 							<div class="r-new r-newnew"><a href="#hide-header-buttons" data-lang="HeaderButtons"></a>&nbsp;|&nbsp;</div>
-							<div class="r-newnew"><a href="#hide-sidemenu" data-lang="SideMenu"></a>&nbsp;|&nbsp;</div>
+							<div class="r-old r-newnew"><a href="#hide-sidemenu" data-lang="SideMenu"></a>&nbsp;|&nbsp;</div>
 							<div class="r-new r-newnew"><a href="#hide-sidebar" data-lang="Sidebar"></a>&nbsp;|&nbsp;</div>
 							<div class="r-old"><a href="#hide-sidebar" data-lang="Sidebar"></a></div>
 							<div class="r-new r-newnew"><a href="#hide-posts" data-lang="Post"></a></div>
@@ -328,6 +330,14 @@
 						<span data-lang="HideNSFW" data-search="nsfw"></span>
 						<label class="switch">
 							<input id="checkbox-hide-nsfw" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li class="container container-3 r-newnew">
+						<span class="menu-item-icon icon-thumbtack icon-hide-community-highlights"></span>
+						<span data-lang="HideCommunityHighlights" data-search=""></span>
+						<label class="switch">
+							<input id="checkbox-hide-community-highlights" type="checkbox" />
 							<span class="indicator"></span>
 						</label>
 					</li>
@@ -398,7 +408,23 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li id="hide-sidemenu" class="sub-header r-newnew">
+					<li class="container container-3 r-newnew">
+						<span class="menu-item-icon icon-show icon-hide-nsfw-search-results"></span>
+						<span data-lang="HideNsfwInSearchResults" data-search="nsfw"></span>
+						<label class="switch">
+							<input id="checkbox-hide-nsfw-search-results" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li class="container container-3 r-newnew">
+						<span class="menu-item-icon icon-show icon-hide-trending-today-in-search-results"></span>
+						<span data-lang="HideTrendingTodayInSearchResults" data-search="trending"></span>
+						<label class="switch">
+							<input id="checkbox-hide-trending-today-in-search-results" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li id="hide-sidemenu" class="sub-header r-old r-newnew">
 						<span data-lang="SideMenu"></span>
 					</li>
 					<li class="container container-3 r-old">
@@ -513,7 +539,7 @@
 								<span class="indicator"></span>
 							</label>
 						</div>
-						<div class="divider r-old r-new"></div>
+						<div class="divider"></div>
 						<div class="container container-3 r-old r-new">
 							<span class="menu-item-icon icon-show hide-reddit-premium"></span>
 							<span data-lang="HideRedditPremium" data-search="sidebar,premium"></span>
@@ -606,13 +632,24 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li class="container container-3 r-new r-newnew">
-						<span class="menu-item-icon icon-show icon-hide-search-sidebar"></span>
-						<span data-lang="HideSearchSidebar" data-search="sidebar"></span>
-						<label class="switch">
-							<input id="checkbox-hide-search-sidebar" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
+					<li class="container r-new r-newnew">
+						<div class="container container-3 r-new r-newnew">
+							<span class="menu-item-icon icon-show icon-hide-search-sidebar"></span>
+							<span data-lang="HideSearchSidebar" data-search="sidebar"></span>
+							<label class="switch">
+								<input id="checkbox-hide-search-sidebar" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<div class="divider r-newnew"></div>
+						<div class="container container-3 r-newnew">
+							<span class="menu-item-icon icon-show icon-hide-search-sidebar-nsfw-users"></span>
+							<span data-lang="HideSearchSidebarNsfwUsers" data-search="nsfw,users"></span>
+							<label class="switch">
+								<input id="checkbox-hide-search-sidebar-nsfw-users" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
 					</li>
 					<li id="hide-header-buttons" class="sub-header r-new r-newnew">
 						<span data-lang="HeaderButtons"></span>
@@ -1156,6 +1193,14 @@
 						<div></div>
 						<input type="range" min="199" max="300" value="0" step="1" class="slider" id="input-side-menu-width" />
 						<span id="side-menu-width-value" class="input-value"></span>
+					</li>
+					<li class="container container-3 r-newnew">
+						<span class="menu-item-icon icon-clipboard-check icon-remember-side-menu-section-hidden-state"></span>
+						<span data-lang="RememberSectionHiddenState" data-search=""></span>
+						<label class="switch">
+							<input id="checkbox-remember-side-menu-section-hidden-state" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
 					</li>
 				</ul>
 			</li>
@@ -1861,6 +1906,17 @@
 		<div id="settings" style="display: none">
 			<h3 data-lang="ExtensionSettings"></h3>
 			<ul class="menu-list settings-sub-list">
+				<li class="sub-header" style="margin-top: 24px">
+					<span data-lang="ResetAllSettings"></span>
+				</li>
+				<li class="container" style="align-items: start">
+					<div class="settings-reset">
+						<div id="btn-reset-settings" class="btn red"><span class="btn-text" data-lang="ResetAllSettings"></span></div>
+						<div id="btn-reset-settings-confirm" class="btn red hidden"><span class="btn-text" data-lang="Confirm"></span></div>
+						<span id="reset-settings-cleared-message" class="hidden" style="margin-left: 8px" data-lang="Cleared"></span>
+						<span id="reset-settings-error-message" class="hidden" style="margin-left: 8px" data-lang="Error"></span>
+					</div>
+				</li>
 				<li class="sub-header">
 					<span data-lang="Language"></span>
 				</li>
@@ -1956,17 +2012,6 @@
 					<div class="settings-backup">
 						<div id="btn-export-backup" class="btn"><span class="btn-text" data-lang="Backup"></span></div>
 						<div id="btn-import-backup" class="btn"><span class="btn-text" data-lang="Restore"></span></div>
-					</div>
-				</li>
-				<li class="sub-header" style="margin-top: 24px">
-					<span data-lang="ResetAllSettings"></span>
-				</li>
-				<li class="container" style="align-items: start">
-					<div class="settings-reset">
-						<div id="btn-reset-settings" class="btn red"><span class="btn-text" data-lang="ResetAllSettings"></span></div>
-						<div id="btn-reset-settings-confirm" class="btn red hidden"><span class="btn-text" data-lang="Confirm"></span></div>
-						<span id="reset-settings-cleared-message" class="hidden" style="margin-left: 8px" data-lang="Cleared"></span>
-						<span id="reset-settings-error-message" class="hidden" style="margin-left: 8px" data-lang="Error"></span>
 					</div>
 				</li>
 			</ul>

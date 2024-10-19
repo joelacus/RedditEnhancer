@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadHideTurnOnNotificationsPopup() {
 	BROWSER_API.storage.sync.get(['hideTurnOnNotificationsPopup'], function (result) {
-		hideTurnOnNotificationsPopup(result.hideTurnOnNotificationsPopup);
+		if (result.hideTurnOnNotificationsPopup) hideTurnOnNotificationsPopup(true);
 	});
 }
 
@@ -16,20 +16,24 @@ export function hideTurnOnNotificationsPopup(value) {
 	}
 }
 
-// Function - Hide "Turn On Notifications" Popup - New
+/* === Enable/Disable Functions === */
+
+// Function - Enable Hide "Turn On Notifications" Popup - New
 function hideTurnOnNotificationsPopupNew() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-hide-popup';
-	document.head.appendChild(styleElement);
-	styleElement.textContent = `div[id^='popup-'][style*='transform'] {
-									display: none;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
+	if (!document.head.querySelector('style[id="re-hide-popup"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-popup';
+		document.head.appendChild(styleElement);
+		styleElement.textContent = `div[id^='popup-'][style*='transform'] {
+										display: none;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
-// Function - Show "Turn On Notifications" Popup - New
+// Function - Disable Hide "Turn On Notifications" Popup - New
 function showTurnOnNotificationsPopupNew() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-popup"]');
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-popup"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});

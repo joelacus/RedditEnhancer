@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadHideRecommendedPosts() {
 	BROWSER_API.storage.sync.get(['hideRecommended'], function (result) {
-		hideRecommended(result.hideRecommended);
+		if (result.hideRecommended) hideRecommended(true);
 	});
 }
 
@@ -23,6 +23,8 @@ export function hideRecommended(value) {
 		}
 	}
 }
+
+/* === Enable/Disable Functions === */
 
 // Function - Enable Hide Recommended Posts - New
 function enableHideRecommendedPostsNew() {

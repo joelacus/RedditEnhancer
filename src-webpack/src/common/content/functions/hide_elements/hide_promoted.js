@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadHidePromotedPosts() {
 	BROWSER_API.storage.sync.get(['hidePromoted'], function (result) {
-		hidePromoted(result.hidePromoted);
+		if (result.hidePromoted) hidePromoted(true);
 	});
 }
 
@@ -38,14 +38,18 @@ export function hidePromoted(value) {
 	}
 }
 
+/* === Enable/Disable Functions === */
+
 // Function - Enable Hide Promoted Posts - Old
 function enableHidePromotedPostsOld() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-hide-promoted-posts';
-	styleElement.textContent = `#siteTable > .thing.promoted {
-									display: none !important;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
+	if (!document.head.querySelector('style[id="re-hide-promoted-posts"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-promoted-posts';
+		styleElement.textContent = `#siteTable > .thing.promoted {
+										display: none !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
 // Function - Enable Hide Promoted Posts - New - Legacy
@@ -88,36 +92,40 @@ function disableHidePromotedPostsNewLegacy() {
 
 // Function - Enable Hide Promoted Posts - New
 function enableHidePromotedPostsNew() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-hide-promoted-posts';
-	styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child > :first-child > div > div:has(.promotedlink) {
-									display: none !important;
-								}
-								.ListingLayout-backgroundContainer + div > :last-child > :last-child > :first-child > div:has([data-before-content="advertisement"]) {
-									display: none !important;
-								}
-								.Post.promotedlink {
-									display: none;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
+	if (!document.head.querySelector('style[id="re-hide-promoted-posts"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-promoted-posts';
+		styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child > :first-child > div > div:has(.promotedlink) {
+										display: none !important;
+									}
+									.ListingLayout-backgroundContainer + div > :last-child > :last-child > :first-child > div:has([data-before-content="advertisement"]) {
+										display: none !important;
+									}
+									.Post.promotedlink {
+										display: none;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
 // Function - Enable Hide Promoted Posts - New New
 function enableHidePromotedPostsNewNew() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-hide-promoted-posts';
-	styleElement.textContent = `shreddit-ad-post,
-								shreddit-comments-page-ad,
-								shreddit-sidebar-ad,
-								shreddit-comment-tree-ad {
-									display: none !important;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
+	if (!document.head.querySelector('style[id="re-hide-promoted-posts"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-promoted-posts';
+		styleElement.textContent = `shreddit-ad-post,
+									shreddit-comments-page-ad,
+									shreddit-sidebar-ad,
+									shreddit-comment-tree-ad {
+										display: none !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
 // Function - Disable Hide Promoted Posts - All
 function disableHidePromotedPostsAll() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-promoted-posts"]');
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-promoted-posts"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});

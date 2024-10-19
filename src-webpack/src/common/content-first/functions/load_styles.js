@@ -17,7 +17,9 @@ export function loadStyles() {
 const layoutOffset = `
 					shreddit-app[routename="frontpage"] #main-content,
 					shreddit-app[routename="all"] #main-content,
-					shreddit-app[routename="popular"] #main-content {
+					shreddit-app[routename="popular"] #main-content,
+					shreddit-app[pagetype="search_results"] #main-content,
+					shreddit-app[routename="inbox"] #main-content {
 						transform: translateX(var(--re-layout-offset))
 					}
 					shreddit-app[routename="subreddit"] #main-content {
@@ -164,6 +166,12 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 					[bundlename="comment_body_header"],
 					shreddit-feed article:hover {
 						z-index: 9;
+					}
+					reddit-header-large {
+						z-index: 99 !important;
+					}
+					navigation-indicator {
+						z-index: 999 !important;
 					}`;
 
 const styleScrollText = `.re-text-scroll div[data-click-id="text"][style="max-height: 250px;"], .re-text-scroll div[data-click-id="text"][style="max-height:250px"] {

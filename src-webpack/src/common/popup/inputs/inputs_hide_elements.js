@@ -1482,3 +1482,123 @@ document.querySelector('#checkbox-hide-compact-view-blank-thumbnails').addEventL
 		});
 	}
 });
+
+// Toggle - Hide "NSFW" In The Search Results
+document.querySelector('#checkbox-hide-nsfw-search-results').addEventListener('change', function (e) {
+	const hideNsfwInSearchResults = document.querySelector('#checkbox-hide-nsfw-search-results').checked;
+	if (hideNsfwInSearchResults === true) {
+		BROWSER_API.storage.sync.set({ hideNsfwInSearchResults: true });
+		document.querySelector('.icon-hide-nsfw-search-results').classList.remove('icon-show');
+		document.querySelector('.icon-hide-nsfw-search-results').classList.add('icon-hide');
+		document.querySelector('.icon-hide-nsfw-search-results').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideNsfwInSearchResults: true });
+				}
+			});
+		});
+	} else if (hideNsfwInSearchResults === false) {
+		BROWSER_API.storage.sync.set({ hideNsfwInSearchResults: false });
+		document.querySelector('.icon-hide-nsfw-search-results').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-nsfw-search-results').classList.add('icon-show');
+		document.querySelector('.icon-hide-nsfw-search-results').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideNsfwInSearchResults: false });
+				}
+			});
+		});
+	}
+});
+
+// Toggle - Hide "Trending Today" In The Search Results
+document.querySelector('#checkbox-hide-trending-today-in-search-results').addEventListener('change', function (e) {
+	const hideTrendingTodayInSearchResults = document.querySelector('#checkbox-hide-trending-today-in-search-results').checked;
+	if (hideTrendingTodayInSearchResults === true) {
+		BROWSER_API.storage.sync.set({ hideTrendingTodayInSearchResults: true });
+		document.querySelector('.icon-hide-trending-today-in-search-results').classList.remove('icon-show');
+		document.querySelector('.icon-hide-trending-today-in-search-results').classList.add('icon-hide');
+		document.querySelector('.icon-hide-trending-today-in-search-results').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideTrendingTodayInSearchResults: true });
+				}
+			});
+		});
+	} else if (hideTrendingTodayInSearchResults === false) {
+		BROWSER_API.storage.sync.set({ hideTrendingTodayInSearchResults: false });
+		document.querySelector('.icon-hide-trending-today-in-search-results').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-trending-today-in-search-results').classList.add('icon-show');
+		document.querySelector('.icon-hide-trending-today-in-search-results').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideTrendingTodayInSearchResults: false });
+				}
+			});
+		});
+	}
+});
+
+// Toggle - Hide Community Highlights
+document.querySelector('#checkbox-hide-community-highlights').addEventListener('change', function (e) {
+	const hideCommunityHighlights = document.querySelector('#checkbox-hide-community-highlights').checked;
+	if (hideCommunityHighlights === true) {
+		BROWSER_API.storage.sync.set({ hideCommunityHighlights: true });
+		document.querySelector('.icon-hide-community-highlights').classList.remove('icon-thumbtack');
+		document.querySelector('.icon-hide-community-highlights').classList.add('icon-thumbtack-slash');
+		document.querySelector('.icon-hide-community-highlights').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideCommunityHighlights: true });
+				}
+			});
+		});
+	} else if (hideCommunityHighlights === false) {
+		BROWSER_API.storage.sync.set({ hideCommunityHighlights: false });
+		document.querySelector('.icon-hide-community-highlights').classList.remove('icon-thumbtack-slash');
+		document.querySelector('.icon-hide-community-highlights').classList.add('icon-thumbtack');
+		document.querySelector('.icon-hide-community-highlights').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideCommunityHighlights: false });
+				}
+			});
+		});
+	}
+});
+
+// Toggle - Hide NSFW Users In The Search Page Sidebar
+document.querySelector('#checkbox-hide-search-sidebar-nsfw-users').addEventListener('change', function (e) {
+	const hideSearchSidebarNsfwUsers = document.querySelector('#checkbox-hide-search-sidebar-nsfw-users').checked;
+	if (hideSearchSidebarNsfwUsers === true) {
+		BROWSER_API.storage.sync.set({ hideSearchSidebarNsfwUsers: true });
+		document.querySelector('.icon-hide-search-sidebar-nsfw-users').classList.remove('icon-show');
+		document.querySelector('.icon-hide-search-sidebar-nsfw-users').classList.add('icon-hide');
+		document.querySelector('.icon-hide-search-sidebar-nsfw-users').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideSearchSidebarNsfwUsers: true });
+				}
+			});
+		});
+	} else if (hideSearchSidebarNsfwUsers === false) {
+		BROWSER_API.storage.sync.set({ hideSearchSidebarNsfwUsers: false });
+		document.querySelector('.icon-hide-search-sidebar-nsfw-users').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-search-sidebar-nsfw-users').classList.add('icon-show');
+		document.querySelector('.icon-hide-search-sidebar-nsfw-users').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideSearchSidebarNsfwUsers: false });
+				}
+			});
+		});
+	}
+});

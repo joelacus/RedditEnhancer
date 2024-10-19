@@ -116,18 +116,6 @@ function checkTime(i) {
 	}
 }
 
-// Refresh Tweaks When Add-On is Reloaded
-/*function reload_tabs() {
-	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
-		tabs.forEach(function (tab) {
-			if (tab.url.includes('reddit.com') && tab.discarded == false) {
-				BROWSER_API.tabs.reload(tab.id);
-			}
-		});
-	});
-}*/
-//reload_tabs();
-
 // Function to fetch data
 function fetchData(sendResponse) {
 	fetch(fetchUrl)

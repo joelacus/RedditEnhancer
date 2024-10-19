@@ -5,7 +5,7 @@
 // Feed Centre
 export function loadLayoutCentre() {
 	BROWSER_API.storage.sync.get(['layoutCentre'], function (result) {
-		layoutCentre(result.layoutCentre);
+		if (result.layoutCentre) layoutCentre(true);
 	});
 }
 
@@ -43,6 +43,8 @@ export function layoutCentre(value) {
 		}
 	}
 }
+
+/* === Enable/Disable Functions === */
 
 // Function - Enable Layout Centre - Old
 function enableLayoutCentreOld() {

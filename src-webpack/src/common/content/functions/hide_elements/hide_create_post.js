@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadHideCreatePost() {
 	BROWSER_API.storage.sync.get(['hideCreatePost'], function (result) {
-		hideCreatePost(result.hideCreatePost);
+		if (result.hideCreatePost) hideCreatePost(true);
 	});
 }
 
@@ -18,17 +18,21 @@ export function hideCreatePost(value) {
 	}
 }
 
+/* === Enable/Disable Functions === */
+
 // Function - Enable Hide Create Post - New
 function enableHideCreatePostNew() {
 	if (useLegacy) {
 		document.querySelector('.re-create-post').classList.add('re-hide');
 	} else {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-create-post';
-		styleElement.textContent = `div:has(> input[name="createPost"]) {
-										display: none;
-									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
+		if (!document.head.querySelector('style[id="re-hide-create-post"]')) {
+			const styleElement = document.createElement('style');
+			styleElement.id = 're-hide-create-post';
+			styleElement.textContent = `div:has(> input[name="createPost"]) {
+											display: none;
+										}`;
+			document.head.insertBefore(styleElement, document.head.firstChild);
+		}
 	}
 }
 
@@ -37,7 +41,7 @@ function disableHideCreatePostNew() {
 	if (useLegacy) {
 		document.querySelector('.re-create-post').classList.remove('re-hide');
 	} else {
-		const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-create-post"]');
+		const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-create-post"]');
 		dynamicStyleElements.forEach((element) => {
 			document.head.removeChild(element);
 		});

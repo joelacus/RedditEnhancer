@@ -3,23 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadStickySort() {
 	BROWSER_API.storage.sync.get(['stickySort'], function (result) {
-		if (redditVersion === 'old') {
-			if (result.stickySort === true) {
-				enableStickySortOld();
-			}
-		} else if (redditVersion === 'new') {
-			if (result.stickySort === true) {
-				if (useLegacy) {
-					if (document.querySelector('.re-sort')) {
-						document.querySelector('.re-sort').classList.add('re-sticky-sort');
-					}
-				} else {
-					if (result.stickySort === true) {
-						enableStickySortNew();
-					}
-				}
-			}
-		}
+		if (result.stickySort) stickySort(true);
 	});
 }
 

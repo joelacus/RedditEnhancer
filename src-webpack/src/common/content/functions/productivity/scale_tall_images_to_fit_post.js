@@ -7,7 +7,7 @@ import { disableImageScrollAll } from './scroll_tall_images';
 /* === Triggered On Page Load === */
 export function loadFitImage() {
 	BROWSER_API.storage.sync.get(['fitImage'], function (result) {
-		fitImage(result.fitImage);
+		if (result.fitImage) fitImage(true);
 	});
 }
 

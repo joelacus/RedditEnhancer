@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadHideSideMenuFavouriteButton() {
 	BROWSER_API.storage.sync.get(['hideSideMenuFavouriteButton'], function (result) {
-		hideSideMenuFavouriteButton(result.hideSideMenuFavouriteButton);
+		if (result.hideSideMenuFavouriteButton) hideSideMenuFavouriteButton(true);
 	});
 }
 
@@ -18,9 +18,15 @@ export function hideSideMenuFavouriteButton(value) {
                                         display: none !important;
                                     }`;
 		// append stylesheet to first items
-		document.querySelector('left-nav-communities-controller').shadowRoot.querySelector('left-nav-community-item').append(styleElement);
-		document.querySelector('left-nav-moderation-controller').shadowRoot.querySelector('left-nav-community-item').append(styleElement.cloneNode(true));
-		document.querySelector('left-nav-multireddits-controller').shadowRoot.querySelector('left-nav-multireddit-item').append(styleElement.cloneNode(true));
+		if (!document.querySelector('left-nav-communities-controller').shadowRoot.querySelector('left-nav-community-item style[id="re-hide-side-menu-favourite-button"]')) {
+			document.querySelector('left-nav-communities-controller').shadowRoot.querySelector('left-nav-community-item').append(styleElement);
+		}
+		if (!document.querySelector('left-nav-moderation-controller').shadowRoot.querySelector('left-nav-community-item style[id="re-hide-side-menu-favourite-button"]')) {
+			document.querySelector('left-nav-moderation-controller').shadowRoot.querySelector('left-nav-community-item').append(styleElement.cloneNode(true));
+		}
+		if (!document.querySelector('left-nav-multireddits-controller').shadowRoot.querySelector('left-nav-multireddit-item style[id="re-hide-side-menu-favourite-button"]')) {
+			document.querySelector('left-nav-multireddits-controller').shadowRoot.querySelector('left-nav-multireddit-item').append(styleElement.cloneNode(true));
+		}
 		// append part attribute to items
 		enableHideSideMenuFavouriteButton();
 	} else if (redditVersion === 'newnew' && value === false) {

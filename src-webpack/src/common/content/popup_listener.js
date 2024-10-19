@@ -48,7 +48,7 @@ import { openSubInNewTab } from './functions/productivity/open_sub_links_in_new_
 import { overrideDropShadow, overrideDropShadowCSS } from './functions/style/override_drop_shadow';
 import { postHeight, postHeightSize } from './functions/productivity/post_max_height';
 import { postTitleFontSize, postCommentsFontSize, postContentFontSize } from './functions/accessibility/resize_font';
-import { removePageSideMargin } from './functions/expand_feed_post/remove_page_side_margin';
+//import { removePageSideMargin } from './functions/expand_feed_post/remove_page_side_margin';
 import { scrollToNextRootComment } from './functions/productivity/scroll_to_next_root_comment';
 import { scrollToNextRootCommentPosition, scrollToNextRootCommentPositionV } from './functions/productivity/scroll_to_next_root_comment';
 import { showAllButton } from './functions/productivity/show_r_all_button';
@@ -126,6 +126,10 @@ import { sideMenuIconsOnly } from './functions/hide_elements/side_menu_icons_onl
 import { hideSideMenuFavouriteButton } from './functions/hide_elements/hide_side_menu_favourite_button';
 import { sideMenuToggleButton } from './functions/hide_elements/side_menu_toggle_button';
 import { hideCompactViewBlankThumbnails } from './functions/hide_elements/hide_compact_view_blank_thumbnails';
+import { hideNsfwInSearchResults, hideTrendingTodayInSearchResults } from './functions/hide_elements/hide_search_results_sections';
+import { hideCommunityHighlights } from './functions/hide_elements/hide_community_highlights';
+import { hideSearchSidebarNsfwUsers } from './functions/hide_elements/hide_search_page_sidebar_nsfw_users';
+import { rememberSideMenuSectionHiddenState } from './functions/productivity/remember_side_menu_section_hidden_state';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 /* = Listen For Settings Change = */
@@ -397,9 +401,9 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		showPostAuthor(value);
 	} else if (key == 'showPostFlair') {
 		showPostFlair(value);
-	} else if (key == 'removePageSideMargin') {
+	} /* else if (key == 'removePageSideMargin') {
 		removePageSideMargin(value);
-	} else if (key == 'hideSideMenuTopSection') {
+	}*/ else if (key == 'hideSideMenuTopSection') {
 		hideSideMenuTopSection(value);
 	} else if (key == 'hideSideMenuModerationSection') {
 		hideSideMenuModerationSection(value);
@@ -465,6 +469,16 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		sideMenuToggleButton(value);
 	} else if (key == 'hideCompactViewBlankThumbnails') {
 		hideCompactViewBlankThumbnails(value);
+	} else if (key == 'hideNsfwInSearchResults') {
+		hideNsfwInSearchResults(value);
+	} else if (key == 'hideTrendingTodayInSearchResults') {
+		hideTrendingTodayInSearchResults(value);
+	} else if (key == 'hideCommunityHighlights') {
+		hideCommunityHighlights(value);
+	} else if (key == 'hideSearchSidebarNsfwUsers') {
+		hideSearchSidebarNsfwUsers(value);
+	} else if (key == 'rememberSideMenuSectionHiddenState') {
+		rememberSideMenuSectionHiddenState(value);
 	}
 	return true;
 });

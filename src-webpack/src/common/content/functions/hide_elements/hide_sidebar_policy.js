@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadHideSidebarPolicy() {
 	BROWSER_API.storage.sync.get(['hideSidebarPolicy'], function (result) {
-		hideSidebarPolicy(result.hideSidebarPolicy);
+		if (result.hideSidebarPolicy) hideSidebarPolicy(true);
 	});
 }
 
@@ -14,12 +14,14 @@ export function hideSidebarPolicy(value) {
 			if (useLegacy) {
 				document.querySelector('#re-policy').classList.add('re-hide');
 			} else {
-				const styleElement = document.createElement('style');
-				styleElement.id = 're-hide-side-menu-policy';
-				styleElement.textContent = `[data-testid="frontpage-sidebar"] > :last-child > div:has([href="https://www.redditinc.com/policies/user-agreement"]) {
-												display: none !important;
-											}`;
-				document.head.insertBefore(styleElement, document.head.firstChild);
+				if (!document.head.querySelector('style[id="re-hide-side-menu-policy"]')) {
+					const styleElement = document.createElement('style');
+					styleElement.id = 're-hide-side-menu-policy';
+					styleElement.textContent = `[data-testid="frontpage-sidebar"] > :last-child > div:has([href="https://www.redditinc.com/policies/user-agreement"]) {
+													display: none !important;
+												}`;
+					document.head.insertBefore(styleElement, document.head.firstChild);
+				}
 			}
 		} else if (value === false) {
 			if (useLegacy) {

@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadShowAllButton() {
 	BROWSER_API.storage.sync.get(['showAllButton'], function (result) {
-		showAllButton(result.showAllButton);
+		if (result.showAllButton) showAllButton(true);
 	});
 }
 
