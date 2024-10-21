@@ -273,19 +273,47 @@ function enableExpandContentNewNew() {
 										margin-right: 2rem !important;
 									}
 								}
+
 								@media (max-width: 768px) {
 									shreddit-app[routename="subreddit"] .subgrid-container {
 										margin-right: 0;
 									}
 								}
+
 								@media (min-width: 960px) {
 									.subgrid-container {
 										width: 100% !important;
 									}
 								}
+
 								@media (max-width: 959px) {
 									.main-container {
 										grid-template-columns: auto !important;
+										--re-sub-sidebar-width: 0 !important;
+									}
+								}
+
+								@media (max-width: 770px) {
+									.main-container {
+										--re-home-sidebar-width: 0 !important;
+										--re-post-sidebar-width: 0 !important;
+										--re-search-sidebar-width: 0 !important;
+										--re-user-profile-sidebar-width: 0 !important;
+									}
+									#right-sidebar-container {
+										display: none !important;
+									}
+								}
+
+								@media (max-width: 1200px) {
+									.subgrid-container {
+										--re-side-menu-width: 0 !important;
+									}
+								}
+
+								@media (min-width: 1200px) {
+									.m\\:grid-cols-\\[272px_1fr\\] {
+										grid-template-columns: var(--re-side-menu-width) 1fr !important;
 									}
 								}
 								
@@ -339,9 +367,9 @@ function enableExpandContentNewNew() {
 									justify-self: center;
 								}
 
-								shreddit-app .grid-container {
+								/*shreddit-app .grid-container {
 									grid-template-columns: var(--re-side-menu-width) auto;
-								}
+								}*/
 								shreddit-app[routename="frontpage"] .subgrid-container,
 								shreddit-app[routename="subreddit"] .subgrid-container,
 								shreddit-app[routename="post_page"] .subgrid-container,
@@ -359,9 +387,9 @@ function enableExpandContentNewNew() {
 								shreddit-app[pagetype="search_results"] .subgrid-container,
 								shreddit-app[routename="explore-page"] .subgrid-container,
 								shreddit-app[pagetype="post_submit"] .subgrid-container {
-									width: calc(100vw - var(--re-side-menu-width));
-									min-width: calc(100vw - var(--re-side-menu-width));
-									max-width: calc(100vw - var(--re-side-menu-width));
+									width: 100% !important;
+									min-width: calc(100vw - var(--re-side-menu-width)) !important;
+									max-width: calc(100vw - var(--re-side-menu-width)) !important;
 								}
 
 								/*#right-sidebar-container:not(:has(*)) {

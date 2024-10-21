@@ -37,7 +37,7 @@ export function defaultSortOption() {
 						.pop();
 					if (lastPath) {
 						if (!lastPath.includes(sortTarget)) {
-							if (url.pathname.includes('/submit') || url.pathname.includes('/wiki') || url.pathname.includes('/rules')) {
+							if (url.pathname.includes('/submit') || url.pathname.includes('/wiki') || url.pathname.includes('/rules') || url.pathname.includes('/search')) {
 								return;
 							} else if (url.pathname.includes('/user/')) {
 								const sortParam = url.searchParams.get('sort');
