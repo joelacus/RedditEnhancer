@@ -51,6 +51,11 @@ function enableNonStickyHeaderBarNewNew() {
 	styleElement.id = 're-non-sticky-header-bar';
 	styleElement.textContent = `shreddit-app reddit-header-large {
 									position: absolute !important;
+								}
+								shreddit-app[data-re-hide-side-menu="false"] reddit-sidebar-nav {
+									position: sticky;
+									height: 100vh;
+									top: 0;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
