@@ -52,10 +52,16 @@ function enableNonStickyHeaderBarNewNew() {
 	styleElement.textContent = `shreddit-app reddit-header-large {
 									position: absolute !important;
 								}
-								shreddit-app[data-re-hide-side-menu="false"] reddit-sidebar-nav {
+								shreddit-app reddit-sidebar-nav {
 									position: sticky;
 									height: 100vh;
 									top: 0;
+								}
+								shreddit-app .right-sidebar-container {
+									position: sticky;
+									height: 100vh;
+									top: 0;
+									max-height: unset !important;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
