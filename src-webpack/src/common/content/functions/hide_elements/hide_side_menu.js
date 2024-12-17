@@ -92,11 +92,11 @@ function enableHideSideMenuNewNew() {
 									}
 									shreddit-app[routename="subreddit"] .masthead {
 										margin: 0 !important;
-									}
+									} */
 									shreddit-app .grid-container {
-										grid-template-columns: 1fr;
+										grid-template-columns: 0 1fr;
 									}
-									shreddit-app .subgrid-container {
+									/* shreddit-app .subgrid-container {
 										max-width: 100vw;
 									}*/`;
 		document.head.insertBefore(styleElement, document.head.firstChild);

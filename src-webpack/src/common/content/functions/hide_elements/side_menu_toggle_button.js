@@ -102,11 +102,11 @@ function enableSideMenuToggleButton() {
 									}
 									shreddit-app[data-re-hide-side-menu="true"][routename="subreddit"] .masthead {
 										margin: 0 !important;
-									}
+									} */
 									shreddit-app[data-re-hide-side-menu="true"] .grid-container {
-										grid-template-columns: 1fr;
+										grid-template-columns: 0 1fr;
 									}
-									shreddit-app[data-re-hide-side-menu="true"] .subgrid-container {
+									/* shreddit-app[data-re-hide-side-menu="true"] .subgrid-container {
 										max-width: 100vw;
 									}*/
 									.re-side-menu-close,
