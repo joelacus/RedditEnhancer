@@ -80,6 +80,9 @@ function enableSideMenuToggleButton() {
 									shreddit-app[data-re-hide-side-menu="true"] {
 										--re-side-menu-width: 0;
 									}
+									pdp-back-button {
+										position: static !important;
+									}
 									shreddit-app[data-re-hide-side-menu="true"] #left-sidebar-container {
 										display: none !important;
 									}

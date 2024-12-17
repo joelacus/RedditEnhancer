@@ -70,6 +70,9 @@ function enableHideSideMenuNewNew() {
 									shreddit-app #left-sidebar-container {
 										display: none !important;
 									}
+									pdp-back-button {
+										position: static !important;
+									}
 									/*shreddit-app .grid-container .subgrid-container {
 										grid-column-start: 1 !important;
 									}
