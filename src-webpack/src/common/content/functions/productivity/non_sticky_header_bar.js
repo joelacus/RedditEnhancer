@@ -28,7 +28,7 @@ export function nonStickyHeaderBar(value) {
 function enableNonStickyHeaderBarNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-non-sticky-header-bar';
-	styleElement.textContent = `header {
+	styleElement.textContent = `header[data-redditstyle="true"] {
 									position: absolute !important;
 								}
 								#SHORTCUT_FOCUSABLE_DIV > div[class*="subredditvars-r"] > div {
