@@ -94,7 +94,7 @@ function enableHideSideMenuNewNew() {
 										margin: 0 !important;
 									} */
 									shreddit-app .grid-container {
-										grid-template-columns: 0 1fr;
+										grid-template-columns: 0 1fr !important;
 									}
 									/* shreddit-app .subgrid-container {
 										max-width: 100vw;
