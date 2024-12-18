@@ -52,12 +52,12 @@ function enableNonStickyHeaderBarNewNew() {
 	styleElement.textContent = `shreddit-app reddit-header-large {
 									position: absolute !important;
 								}
-								shreddit-app reddit-sidebar-nav#left-sidebar {
+								shreddit-app reddit-sidebar-nav {
 									position: sticky;
 									height: 100vh;
 									top: 0;
 								}
-								shreddit-app #right-sidebar-container {
+								shreddit-app .right-sidebar-container {
 									position: sticky;
 									height: 100vh;
 									top: 0;
