@@ -20,7 +20,7 @@ export function postTitleFontSize(value) {
 				styleElement.id = 're-post-title-font-size';
 				styleElement.textContent = `.thing p.title a {
 												font-size: var(--re-post-title-font-size);
-												line-height: var(--re-post-title-font-size);
+												line-height: 1.5;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
@@ -31,7 +31,7 @@ export function postTitleFontSize(value) {
 				styleElement.textContent = `.Post [data-adclicklocation="title"] h1,
 											.Post [data-adclicklocation="title"] h3 {
 												font-size: var(--re-post-title-font-size);
-												line-height: var(--re-post-title-font-size);
+												line-height: 1.5;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
@@ -42,7 +42,10 @@ export function postTitleFontSize(value) {
 				styleElement.textContent = `shreddit-post a[slot="title"],
 											shreddit-post h1[slot="title"] {
 												font-size: var(--re-post-title-font-size);
-												line-height: var(--re-post-title-font-size);
+												line-height: 1.6;
+											}
+											shreddit-post h1[slot="title"] {
+												margin: .5rem 0;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
@@ -66,7 +69,7 @@ export function postContentFontSize(value) {
 				styleElement.id = 're-post-content-font-size';
 				styleElement.textContent = `.thing[data-type="link"] .usertext p {
 												font-size: var(--re-post-content-font-size);
-												line-height: var(--re-post-content-font-size);
+												line-height: 1.5;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
@@ -76,7 +79,7 @@ export function postContentFontSize(value) {
 				styleElement.id = 're-post-content-font-size';
 				styleElement.textContent = `.Post [data-click-id="text"] p {
 												font-size: var(--re-post-content-font-size);
-												line-height: calc(var(--re-post-content-font-size) + 2px);
+												line-height: 1.5;
 												overflow: hidden;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
@@ -85,9 +88,10 @@ export function postContentFontSize(value) {
 			if (!document.querySelector('style[id="re-post-content-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-post-content-font-size';
-				styleElement.textContent = `shreddit-post [data-post-click-location="text-body"] p {
+				styleElement.textContent = `shreddit-post [data-post-click-location="text-body"] p,
+											shreddit-post a[slot="text-body"] {
 												font-size: var(--re-post-content-font-size) !important;
-												line-height: calc(var(--re-post-content-font-size) + 2px) !important;
+												line-height: 1.6 !important;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
@@ -111,7 +115,7 @@ export function postCommentsFontSize(value) {
 				styleElement.id = 're-styles';
 				styleElement.textContent = `.commentarea .thing[data-type="comment"] .usertext p {
 												font-size: var(--re-post-comments-font-size);
-												line-height: var(--re-post-comments-font-size);
+												line-height: 1.5;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
@@ -121,7 +125,7 @@ export function postCommentsFontSize(value) {
 				styleElement.id = 're-styles';
 				styleElement.textContent = `.Comment [data-testid="comment"] p {
 												font-size: var(--re-post-comments-font-size);
-												line-height: calc(var(--re-post-comments-font-size) + 2px);
+												line-height: 1.5;
 												overflow: hidden;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
@@ -132,7 +136,7 @@ export function postCommentsFontSize(value) {
 				styleElement.id = 're-styles';
 				styleElement.textContent = `shreddit-comment p {
 												font-size: var(--re-post-comments-font-size);
-												line-height: calc(var(--re-post-comments-font-size) + 2px);
+												line-height: 1.6;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}

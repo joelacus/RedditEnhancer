@@ -13,7 +13,7 @@ export function sideMenuWidth(value) {
 		if (value === '199') {
 			document.documentElement.style.removeProperty('--re-side-menu-width');
 			disableSideMenuWidth();
-		} else if (value <= '200') {
+		} else if (value >= '200') {
 			if (!document.querySelector('html').classList.contains('re-hide-side-menu')) {
 				document.documentElement.style.setProperty('--re-side-menu-width', value + 'px');
 				enableSideMenuWidth();
@@ -29,6 +29,11 @@ function enableSideMenuWidth() {
 		styleElement.id = 're-side-menu-width';
 		styleElement.textContent = `#left-sidebar-container {
 										max-width: var(--re-side-menu-width) !important;
+									}
+									@media (min-width: 1200px) {
+										.grid-container {
+											grid-template-columns: var(--re-side-menu-width) 1fr !important;
+										}
 									}
 									@media (min-width: 1200px) {
 										.m\\:max-w-\\[calc\\(100vw-272px\\)\\] {

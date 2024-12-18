@@ -168,7 +168,6 @@ function styleModerniseOldReddit(value) {
 										}
 										#siteTable .thing .title {
 											color: #fff;
-											text-transform: capitalize;
 										}
 										.listing-chooser {
 											position: relative !important;
@@ -235,7 +234,6 @@ function styleModerniseOldReddit(value) {
 											width: 100% !important;
 										}
 										#header a, #header span {
-											text-transform: capitalize;
 											color: #fff !important
 										}
 										#search input[type="text"] {

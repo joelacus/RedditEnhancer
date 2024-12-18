@@ -70,6 +70,9 @@ function enableHideSideMenuNewNew() {
 									shreddit-app #left-sidebar-container {
 										display: none !important;
 									}
+									pdp-back-button {
+										position: static !important;
+									}
 									/*shreddit-app .grid-container .subgrid-container {
 										grid-column-start: 1 !important;
 									}
@@ -92,11 +95,11 @@ function enableHideSideMenuNewNew() {
 									}
 									shreddit-app[routename="subreddit"] .masthead {
 										margin: 0 !important;
-									}
+									} */
 									shreddit-app .grid-container {
-										grid-template-columns: 1fr;
+										grid-template-columns: 0 1fr !important;
 									}
-									shreddit-app .subgrid-container {
+									/* shreddit-app .subgrid-container {
 										max-width: 100vw;
 									}*/`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
