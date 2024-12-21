@@ -868,7 +868,8 @@ export function themePostBorderColour(value) {
 			document.documentElement.style.setProperty('--re-theme-post-border', result.themePostBorderColourCSS);
 			const styleElement = document.createElement('style');
 			styleElement.id = 're-theme-post-border-colour';
-			styleElement.textContent = `shreddit-post {
+			styleElement.textContent = `article > shreddit-post,
+										aside.bg-neutral-background-weak {
 											border: solid 1px var(--re-theme-post-border);
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);

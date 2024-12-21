@@ -2887,6 +2887,38 @@ function restoreOptions() {
 		console.log('Remember Side Menu Section Hidden State: ' + value);
 	});
 
+	// Hide Post Divider
+	BROWSER_API.storage.sync.get(['hidePostDivider'], function (result) {
+		if (result.hidePostDivider === true) {
+			document.querySelector('.icon-hide-post-divider').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-post-divider').checked = true;
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-post-divider').classList.remove('icon-show');
+			document.querySelector('.icon-hide-post-divider').classList.add('icon-hide');
+			var value = true;
+		} else if (typeof result.hidePostDivider == 'undefined' || result.hidePostDivider === false) {
+			document.querySelector('#checkbox-hide-post-divider').checked = false;
+			var value = false;
+		}
+		console.log('Hide Post Divider: ' + value);
+	});
+
+	// Hide Blurred Media Background
+	BROWSER_API.storage.sync.get(['hideBlurredMediaBackground'], function (result) {
+		if (result.hideBlurredMediaBackground === true) {
+			document.querySelector('.icon-hide-blurred-media-background').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-blurred-media-background').checked = true;
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-blurred-media-background').classList.remove('icon-show');
+			document.querySelector('.icon-hide-blurred-media-background').classList.add('icon-hide');
+			var value = true;
+		} else if (typeof result.hideBlurredMediaBackground == 'undefined' || result.hideBlurredMediaBackground === false) {
+			document.querySelector('#checkbox-hide-blurred-media-background').checked = false;
+			var value = false;
+		}
+		console.log('Hide Blurred Media Background: ' + value);
+	});
+
 	// Account Switcher
 	/*BROWSER_API.storage.local.get(['accounts'], function (result) {
 		console.log(result.accounts);

@@ -16,6 +16,7 @@ import { breakReminder } from './functions/productivity/break_reminder';
 import { darkMode, darkModeAutoListener } from './functions/dark_mode/dark_mode';
 import { expandLayout, expandPostOverlayWidth, expandPostWidth, expandSubWidth, expandLayoutWidth, expandUserProfileWidth, expandTopicFeedWidth } from './functions/expand_feed_post/expand_content';
 import { fitImage } from './functions/productivity/scale_tall_images_to_fit_post';
+import { hideBlurredMediaBackground } from './functions/hide_elements/hide_blurred_media_background';
 import { hideCreatePost } from './functions/hide_elements/hide_create_post';
 import { hideGap } from './functions/style/hide_gap';
 import { hideGetNewReddit } from './functions/hide_elements/hide_get_new_reddit';
@@ -26,6 +27,7 @@ import { hideJoinButtonOnPosts } from './functions/hide_elements/hide_post_join_
 import { hideNSFW } from './functions/hide_elements/hide_nsfw';
 import { hideOriginalScrollToTop } from './functions/hide_elements/hide_original_scroll_to_top';
 import { hidePopularButton, hideModerationButton, hideChatButton, hideAdvertiseButton, hideNotificationButton, hideCreatePostButton } from './functions/hide_elements/hide_header_buttons';
+import { hidePostDivider } from './functions/hide_elements/hide_post_divider';
 import { hidePostHiddenMessage } from './functions/hide_elements/hide_post_hidden_message';
 import { hidePromoted } from './functions/hide_elements/hide_promoted';
 import { hideRedditPremium } from './functions/hide_elements/hide_reddit_premium';
@@ -479,6 +481,10 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		hideSearchSidebarNsfwUsers(value);
 	} else if (key == 'rememberSideMenuSectionHiddenState') {
 		rememberSideMenuSectionHiddenState(value);
+	} else if (key == 'hidePostDivider') {
+		hidePostDivider(value);
+	} else if (key == 'hideBlurredMediaBackground') {
+		hideBlurredMediaBackground(value);
 	}
 	return true;
 });

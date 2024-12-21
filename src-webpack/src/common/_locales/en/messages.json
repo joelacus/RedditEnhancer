@@ -1053,5 +1053,13 @@
 
 	"PasswordInfo": {
 		"message": "You may leave the password blank, and you will be prompted when logging in."
+	},
+
+	"HidePostDivider": {
+		"message": "Hide post separators"
+	},
+
+	"HideBlurredMediaBackground": {
+		"message": "Disable background blur behind image previews"
 	}
 }
