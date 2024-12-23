@@ -136,10 +136,12 @@ export function postCommentsFontSize(value) {
 			if (!document.querySelector('style[id="re-post-comment-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-styles';
-				styleElement.textContent = `shreddit-comment p {
-												font-size: var(--re-post-comments-font-size);
-												line-height: 1.5;
-											}`;
+				styleElement.textContent = 
+					`shreddit-comment div.md[slot="comment"],
+					shreddit-profile-comment div.md {
+						font-size: var(--re-post-comments-font-size);
+						line-height: 1.6;
+					}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
 		}
