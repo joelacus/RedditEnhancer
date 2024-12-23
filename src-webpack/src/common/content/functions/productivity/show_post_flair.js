@@ -10,15 +10,17 @@ export function loadShowPostFlair() {
 /* === Main Function === */
 export function showPostFlair(value) {
 	const routename = document.querySelector('shreddit-app').getAttribute('routename');
+	const validRoutes = ['frontpage', 'popular', 'custom_feed'];
+
 	if (redditVersion === 'newnew' && value === true) {
-		if (routename === 'frontpage' || routename === 'popular') {
+		if (validRoutes.includes(routename)) {
 			document.querySelectorAll('shreddit-post').forEach((post) => {
 				attachFlair(post);
 			});
 			observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
 		}
-	} else if (redditVersion === 'newnew' && value === false) {
-		if (routename === 'frontpage' || routename === 'popular') {
+	} else {
+		if (validRoutes.includes(routename)) {
 			observer.disconnect();
 			removeFlair();
 		}
@@ -42,7 +44,7 @@ async function attachFlair(post) {
 		const postData = await fetchPostData(postID);
 		const flair = postData.children[0].data.link_flair_richtext;
 
-		if (flair) {
+		if (flair && flair.length > 0) {
 			const flairTextColour = postData.children[0].data.link_flair_text_color;
 			const flairBgColour = postData.children[0].data.link_flair_background_color;
 			const flairName = postData.children[0].data.link_flair_text;
