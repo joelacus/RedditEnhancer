@@ -27,24 +27,25 @@ function enableSideMenuWidth() {
 	if (!document.querySelector('style[id="re-side-menu-width"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-side-menu-width';
-		styleElement.textContent = `#left-sidebar-container {
-										max-width: var(--re-side-menu-width) !important;
-									}
-									@media (min-width: 1200px) {
-										.grid-container {
-											grid-template-columns: var(--re-side-menu-width) 1fr !important;
-										}
-									}
-									@media (min-width: 1200px) {
-										.m\\:max-w-\\[calc\\(100vw-272px\\)\\] {
-											max-width: calc(100vw - var(--re-side-menu-width)) !important;
-										}
-									}
-									@media (min-width: 1200px) {
-										.m\\:grid-cols-\\[272px_1fr\\] {
-											grid-template-columns: var(--re-side-menu-width) 1fr !important;
-										}
-									}`;
+		styleElement.textContent = 
+			`#left-sidebar-container {
+				max-width: var(--re-side-menu-width) !important;
+			}
+			@media (min-width: 1200px) {
+				.grid-container {
+					grid-template-columns: var(--re-side-menu-width) 1fr !important;
+				}
+			}
+			@media (min-width: 1200px) {
+				.m\\:max-w-\\[calc\\(100vw-272px\\)\\] {
+					max-width: calc(100vw - var(--re-side-menu-width)) !important;
+				}
+			}
+			@media (min-width: 1200px) {
+				.m\\:grid-cols-\\[272px_1fr\\] {
+					grid-template-columns: var(--re-side-menu-width) 1fr !important;
+				}
+			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
 }

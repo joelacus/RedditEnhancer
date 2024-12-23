@@ -69,7 +69,7 @@ function enableSideMenuToggleButton() {
 		}
 	});
 	// add main stylesheet
-	document.querySelector('html').classList.add('re-hide-side-menu');
+	document.querySelector('html').classList.add('re-collapsible-side-menu');
 	if (!document.head.querySelector('style[id="re-side-menu-toggle-button"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-side-menu-toggle-button';
