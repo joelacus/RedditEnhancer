@@ -30,7 +30,7 @@ function enableHidePostDivider() {
             }
             article,
             faceplate-batch > article {
-                margin-bottom: .5rem !important;
+                margin-bottom: .6rem !important;
             }
             article > shreddit-post {
                 padding: .75rem !important;
