@@ -869,7 +869,8 @@ export function themePostBorderColour(value) {
 			const styleElement = document.createElement('style');
 			styleElement.id = 're-theme-post-border-colour';
 			styleElement.textContent = `article > shreddit-post,
-										aside.bg-neutral-background-weak {
+										main#main-content search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
+										div[data-testid="search-crosspost-unit"] div:has(> search-telemetry-tracker) {
 											border: solid 1px var(--re-theme-post-border);
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);

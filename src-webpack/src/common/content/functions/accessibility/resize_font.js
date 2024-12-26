@@ -41,7 +41,8 @@ export function postTitleFontSize(value) {
 				styleElement.id = 're-post-title-font-size';
 				styleElement.textContent = `shreddit-post a[slot="title"],
 											shreddit-post h1[slot="title"],
-											div.crosspost-title a {
+											div.crosspost-title a,
+											search-telemetry-tracker a[data-testid="post-title-text"] {
 												font-size: var(--re-post-title-font-size);
 												line-height: 1.4;
 											}

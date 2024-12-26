@@ -24,13 +24,17 @@ function enableHidePostDivider() {
             `shreddit-title ~ hr,
             article ~ hr,
             faceplate-tracker ~ hr,
-            custom-feed > hr {
+            custom-feed > hr,
+            search-telemetry-tracker ~ hr {
                 display: none;
                 visibility: hidden;
             }
             article,
             faceplate-batch > article {
                 margin-bottom: .6rem !important;
+            }
+            main#main-content search-telemetry-tracker > div {
+                margin: .6rem 0;
             }
             article > shreddit-post {
                 padding: .75rem !important;

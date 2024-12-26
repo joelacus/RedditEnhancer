@@ -29,20 +29,34 @@ function addBorderRadiusAmountStylesheet() {
 	if (!document.head.querySelector('style[id="re-theme-border-radius"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-border-radius';
-		styleElement.textContent = `.xs\\:rounded-\\[16px\\],
-									.rounded-\\[8px\\],
-									.rounded-\\[1rem\\],
-									comment-body-header,
-									shreddit-comment-tree,
-									shreddit-post .hover-card,
-									.rounded-t-\\[1rem\\] {
-										border-radius: var(--re-theme-border-radius) !important;
-									}
-									.rounded-\\[16px\\],
-									:where(button), :where(input):where([type="submit"], [type="reset"], [type="button"]),
-									.button {
-										border-radius: calc(var(--re-theme-border-radius) / 2) !important;
-									}`;
+		styleElement.textContent = 
+			`/* Posts, search results and subreddit sidebar */
+			shreddit-app article > shreddit-post,
+			main#main-content search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
+			div[data-testid="search-crosspost-unit"] div:has(> search-telemetry-tracker),
+			div#right-sidebar-container > *,
+			div#right-sidebar-container aside a,
+			div#right-sidebar-container aside button,
+			/* Post media previews */
+			div[slot="post-media-container"],
+			div[slot="post-media-container"] > div,
+			gallery-carousel li:has(img.media-lightbox-img),
+			div:has(> shreddit-aspect-ratio) {
+				border-radius: var(--re-theme-border-radius) !important;
+			}
+			/* Post flairs */
+			shreddit-post-flair[slot="post-flair"] span,
+			author-flair-event-handler span,
+			community-achievements-flair span,
+			div.flair span,
+			span:has(div.flair-content) {
+				line-height: 1.4 !important;
+				border-radius: calc(var(--re-theme-border-radius) / 2) !important;
+			}
+			/* Keep some space between post flair and content */
+			div[slot="text-body"] {
+				margin-top: .5rem;
+			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
 }
