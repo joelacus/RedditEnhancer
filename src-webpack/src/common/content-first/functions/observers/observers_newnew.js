@@ -16,7 +16,7 @@ import { loadExpandContent } from '../../../content/functions/expand_feed_post/e
 import { loadHideAdvertiseButton, loadHideChatButton, loadHideCreatePostButton, loadHideNotificationButton } from '../../../content/functions/hide_elements/hide_header_buttons';
 import { loadHideGap } from '../../../content/functions/style/hide_gap';
 import { loadHideHeaderBar } from '../../../content/functions/hide_elements/hide_header_bar';
-import { loadHideHomeSidebar, loadHidePostSidebar, loadHideRelatedPostsSection, loadHideSearchSidebar, loadHideSubSidebarException, loadHideUserSidebar } from '../../../content/functions/hide_elements/hide_sidebar';
+import { loadHideHomeSidebar, loadHidePostSidebar, loadHideRelatedPostsSection, loadHideSearchSidebar, loadHideSubSidebarException, loadHideUserSidebar, loadHideCustomFeedSidebar } from '../../../content/functions/hide_elements/hide_sidebar';
 import { loadHideJoinButtonOnPosts } from '../../../content/functions/hide_elements/hide_post_join_button';
 import { loadHidePostHiddenMessage } from '../../../content/functions/hide_elements/hide_post_hidden_message';
 import { loadHidePromotedPosts } from '../../../content/functions/hide_elements/hide_promoted';
@@ -39,6 +39,8 @@ import { loadSideMenuWidth } from '../../../content/functions/productivity/side_
 import { loadHideCompactViewBlankThumbnails } from '../../../content/functions/hide_elements/hide_compact_view_blank_thumbnails';
 import { loadHideCommunityHighlights } from '../../../content/functions/hide_elements/hide_community_highlights';
 import { loadHideSearchSidebarNsfwUsers } from '../../../content/functions/hide_elements/hide_search_page_sidebar_nsfw_users';
+import { loadHidePostDivider } from '../../../content/functions/hide_elements/hide_post_divider';
+import { loadHideBlurredMediaBackground } from '../../../content/functions/hide_elements/hide_blurred_media_background';
 
 export function observersNewNew() {
 	loadCustomBackground();
@@ -51,6 +53,7 @@ export function observersNewNew() {
 	loadHideRelatedPostsSection();
 	loadHideUserSidebar();
 	loadHideSearchSidebar();
+	loadHideCustomFeedSidebar();
 	loadHideHeaderBar();
 	loadHideNotificationButton();
 	loadHideCreatePostButton();
@@ -82,6 +85,8 @@ export function observersNewNew() {
 	loadHideCompactViewBlankThumbnails();
 	loadHideCommunityHighlights();
 	loadHideSearchSidebarNsfwUsers();
+	loadHidePostDivider();
+	loadHideBlurredMediaBackground();
 
 	// Always Show Post Options
 	waitForAddedNode({

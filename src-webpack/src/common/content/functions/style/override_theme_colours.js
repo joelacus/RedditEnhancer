@@ -1222,7 +1222,8 @@ export function themePostContentAndCommentsLinkColour(value) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-post-content-and-comments-link-colour';
 		styleElement.textContent = `shreddit-post [data-post-click-location="text-body"] a,
-									shreddit-comment p a {
+									shreddit-comment p a,
+									shreddit-post[post-type="link"] a.post-link {
 										color: var(--re-theme-post-content-and-comments-link) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);

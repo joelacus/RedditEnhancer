@@ -59,6 +59,10 @@
 		"message": "Post Width"
 	},
 
+	"CustomFeedWidth": {
+		"message": "Custom Feed Width"
+	},
+
 	"Offset": {
 		"message": "Offset"
 	},
@@ -329,6 +333,10 @@
 
 	"HideUserSidebar": {
 		"message": "Hide the User Sidebar"
+	},
+
+	"HideCustomFeedSidebar": {
+		"message": "Hide the Custom Feed Sidebar"
 	},
 
 	"LimitInfinityScroll": {

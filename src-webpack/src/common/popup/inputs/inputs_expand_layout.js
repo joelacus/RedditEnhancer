@@ -157,6 +157,26 @@ document.querySelector('#input-expand-topic-feed-width').addEventListener('mouse
 	BROWSER_API.storage.sync.set({ expandTopicFeedWidth: e.target.value });
 });
 
+// Slider - Expand Custom Feed Width
+document.querySelector('#input-expand-custom-feed-width').addEventListener('input', function (e) {
+	document.querySelector('#expand-custom-feed-width').textContent = e.target.value + '%';
+	// if expand layout is true
+	BROWSER_API.storage.sync.get(['expandLayout'], function (result) {
+		if (result.expandLayout === true) {
+			BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+				tabs.forEach(function (tab) {
+					if (tab.url.includes('reddit.com') && tab.discarded == false) {
+						BROWSER_API.tabs.sendMessage(tab.id, { expandCustomFeedWidth: e.target.value });
+					}
+				});
+			});
+		}
+	});
+});
+document.querySelector('#input-expand-custom-feed-width').addEventListener('mouseup', function (e) {
+	BROWSER_API.storage.sync.set({ expandCustomFeedWidth: e.target.value });
+});
+
 // Toggle - Centre Layout
 document.querySelector('#checkbox-layout-centre').addEventListener('change', function (e) {
 	const expandLayout = document.querySelector('#checkbox-expand-layout').checked;

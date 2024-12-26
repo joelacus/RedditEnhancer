@@ -242,6 +242,44 @@ document.querySelector('#checkbox-hide-user-sidebar').addEventListener('change',
 	}
 });
 
+// Toggle - Hide Custom Feed Sidebar
+document.querySelector('#checkbox-hide-custom-feed-sidebar').addEventListener('change', function (e) {
+	const hideCustomFeedSidebar = document.querySelector('#checkbox-hide-custom-feed-sidebar').checked;
+	if (hideCustomFeedSidebar === true) {
+		BROWSER_API.storage.sync.set({ hideCustomFeedSidebar: true });
+		document.querySelector('.icon-hide-custom-feed-sidebar').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-custom-feed-sidebar').classList.remove('icon-show');
+		document.querySelector('.icon-hide-custom-feed-sidebar').classList.add('icon-hide');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideCustomFeedSidebar: true });
+					// Reapply Layout Centre
+					BROWSER_API.storage.sync.get(['layoutCentre'], function (result) {
+						BROWSER_API.tabs.sendMessage(tab.id, { layoutCentre: result.layoutCentre });
+					});
+				}
+			});
+		});
+	} else if (hideCustomFeedSidebar === false) {
+		BROWSER_API.storage.sync.set({ hideCustomFeedSidebar: false });
+		document.querySelector('.icon-hide-custom-feed-sidebar').style.backgroundColor = '';
+		document.querySelector('.icon-hide-custom-feed-sidebar').classList.add('icon-show');
+		document.querySelector('.icon-hide-custom-feed-sidebar').classList.remove('icon-hide');
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { hideCustomFeedSidebar: false });
+					// Reapply Layout Centre
+					BROWSER_API.storage.sync.get(['layoutCentre'], function (result) {
+						BROWSER_API.tabs.sendMessage(tab.id, { layoutCentre: result.layoutCentre });
+					});
+				}
+			});
+		});
+	}
+});
+
 // Toggle - Hide Sidebar Policy
 document.querySelector('#checkbox-hide-sidebar-policy').addEventListener('change', function (e) {
 	const hideSidebarPolicy = document.querySelector('#checkbox-hide-sidebar-policy').checked;

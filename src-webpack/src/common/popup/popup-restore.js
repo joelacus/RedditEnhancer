@@ -265,6 +265,21 @@ function restoreOptions() {
 		console.log('Expand Topic Feed Width: ' + value + '%');
 	});
 
+	// Expand Custom Feed Width
+	BROWSER_API.storage.sync.get(['expandCustomFeedWidth'], function (result) {
+		if (typeof result.expandCustomFeedWidth != 'undefined') {
+			document.querySelector('#input-expand-custom-feed-width').value = result.expandCustomFeedWidth;
+			document.querySelector('#expand-custom-feed-width').innerText = result.expandCustomFeedWidth + '%';
+			var value = result.expandCustomFeedWidth;
+		}
+		if (typeof result.expandCustomFeedWidth == 'undefined') {
+			document.querySelector('#input-expand-custom-feed-width').value = 80;
+			document.querySelector('#expand-custom-feed-width').innerText = '80%';
+			var value = '80';
+		}
+		console.log('Expand Custom Feed Width: ' + value + '%');
+	});
+
 	// Expand/Resize Layout
 	BROWSER_API.storage.sync.get(['expandLayout'], function (result) {
 		if (typeof result.expandLayout == 'undefined' || result.expandLayout == false) {
@@ -524,6 +539,22 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Hide User Sidebar: ' + value);
+	});
+
+	// Hide Custom Feed Sidebar
+	BROWSER_API.storage.sync.get(['hideCustomFeedSidebar'], function (result) {
+		if (result.hideCustomFeedSidebar == true) {
+			document.querySelector('#checkbox-hide-custom-feed-sidebar').checked = true;
+			document.querySelector('.icon-hide-custom-feed-sidebar').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-custom-feed-sidebar').classList.remove('icon-show');
+			document.querySelector('.icon-hide-custom-feed-sidebar').classList.add('icon-hide');
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideCustomFeedSidebar == 'undefined' || result.hideCustomFeedSidebar == false) {
+			document.querySelector('#checkbox-hide-custom-feed-sidebar').checked = false;
+			var value = false;
+		}
+		console.log('Hide Custom Feed Sidebar: ' + value);
 	});
 
 	// Hide Sidebar Policy
