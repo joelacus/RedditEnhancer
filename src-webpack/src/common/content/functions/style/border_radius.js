@@ -41,8 +41,14 @@ function addBorderRadiusAmountStylesheet() {
 			div[slot="post-media-container"],
 			div[slot="post-media-container"] > div,
 			gallery-carousel li:has(img.media-lightbox-img),
-			div:has(> shreddit-aspect-ratio) {
+			div:has(> shreddit-aspect-ratio),
+			/* Comment search results */
+			reddit-feed > faceplate-tracker > div,
+			faceplate-tracker[noun="load_more_comments"] button {
 				border-radius: var(--re-theme-border-radius) !important;
+			}
+			faceplate-tracker[noun="load_more_comments"] button {
+				position: relative;
 			}
 			/* Post flairs */
 			shreddit-post-flair[slot="post-flair"] span,
@@ -54,8 +60,21 @@ function addBorderRadiusAmountStylesheet() {
 				border-radius: calc(var(--re-theme-border-radius) / 2) !important;
 			}
 			/* Keep some space between post flair and content */
-			div[slot="text-body"] {
+			shreddit-app[routename="post_page"] div[slot="text-body"],
+			shreddit-app[routename="post_page"] div[slot="post-media-container"] {
 				margin-top: .5rem;
+			}
+			/* Notification panel */
+			div[data-id="notification-container-element"] > div:first-of-type {
+				border-radius: var(--re-theme-border-radius) var(--re-theme-border-radius) 0 0;
+				background-color: var(--color-neutral-background-container);
+			}
+			div[data-id="notification-container-element"] > div:last-of-type {
+				padding: 0;
+
+				& > faceplate-tracker a {
+					border-radius: 0 0 var(--re-theme-border-radius) var(--re-theme-border-radius);
+				}
 			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

@@ -25,12 +25,14 @@ function enableHidePostDivider() {
             article ~ hr,
             faceplate-tracker ~ hr,
             custom-feed > hr,
-            search-telemetry-tracker ~ hr {
+            search-telemetry-tracker ~ hr,
+            comment-body-header > hr {
                 display: none;
                 visibility: hidden;
             }
             article,
-            faceplate-batch > article {
+            faceplate-batch > article,
+            reddit-feed > faceplate-tracker > div {
                 margin-bottom: .6rem !important;
             }
             main#main-content search-telemetry-tracker > div {
