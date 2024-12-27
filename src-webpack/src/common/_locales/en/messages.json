@@ -1069,5 +1069,13 @@
 
 	"HideBlurredMediaBackground": {
 		"message": "Disable background blur behind image previews"
+	},
+
+	"Subreddit": {
+		"message": "Subreddit"
+	},
+
+	"FullWidthBanner": {
+		"message": "Full Width Sub Banner"
 	}
 }

@@ -2950,6 +2950,20 @@ function restoreOptions() {
 		console.log('Hide Blurred Media Background: ' + value);
 	});
 
+	// Full Width Banner
+	BROWSER_API.storage.sync.get(['fullWidthBanner'], function (result) {
+		if (result.fullWidthBanner === true) {
+			document.querySelector('.icon-full-width-banner').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-full-width-banner').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.fullWidthBanner == 'undefined' || result.fullWidthBanner === false) {
+			document.querySelector('#checkbox-full-width-banner').checked = false;
+			var value = false;
+		}
+		console.log('Full Width Banner: ' + value);
+	});
+
 	// Account Switcher
 	/*BROWSER_API.storage.local.get(['accounts'], function (result) {
 		console.log(result.accounts);

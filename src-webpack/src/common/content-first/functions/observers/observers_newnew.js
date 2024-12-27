@@ -41,6 +41,7 @@ import { loadHideCommunityHighlights } from '../../../content/functions/hide_ele
 import { loadHideSearchSidebarNsfwUsers } from '../../../content/functions/hide_elements/hide_search_page_sidebar_nsfw_users';
 import { loadHidePostDivider } from '../../../content/functions/hide_elements/hide_post_divider';
 import { loadHideBlurredMediaBackground } from '../../../content/functions/hide_elements/hide_blurred_media_background';
+import { fullWidthBanner, loadFullWidthBanner } from '../../../content/functions/style/full_width_banner';
 
 export function observersNewNew() {
 	loadCustomBackground();
@@ -87,6 +88,7 @@ export function observersNewNew() {
 	loadHideSearchSidebarNsfwUsers();
 	loadHidePostDivider();
 	loadHideBlurredMediaBackground();
+	loadFullWidthBanner();
 
 	// Always Show Post Options
 	waitForAddedNode({

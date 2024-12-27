@@ -133,6 +133,7 @@ import { hideCommunityHighlights } from './functions/hide_elements/hide_communit
 import { hideSearchSidebarNsfwUsers } from './functions/hide_elements/hide_search_page_sidebar_nsfw_users';
 import { rememberSideMenuSectionHiddenState } from './functions/productivity/remember_side_menu_section_hidden_state';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
+import { fullWidthBanner } from './functions/style/full_width_banner';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -489,6 +490,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		hidePostDivider(value);
 	} else if (key == 'hideBlurredMediaBackground') {
 		hideBlurredMediaBackground(value);
+	} else if (key == 'fullWidthBanner') {
+		fullWidthBanner(value);
 	}
 	return true;
 });

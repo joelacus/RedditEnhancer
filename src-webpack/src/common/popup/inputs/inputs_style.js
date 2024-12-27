@@ -1188,3 +1188,22 @@ document.querySelector('#input-border-radius-amount').addEventListener('input', 
 document.querySelector('#input-border-radius-amount').addEventListener('mouseup', function (e) {
 	BROWSER_API.storage.sync.set({ borderRadiusAmount: e.target.value });
 });
+
+// Toggle - Full Width Bannner
+document.querySelector('#checkbox-full-width-banner').addEventListener('change', function (e) {
+	var fullWidthBanner = document.querySelector('#checkbox-full-width-banner').checked;
+	if (fullWidthBanner) {
+		BROWSER_API.storage.sync.set({ fullWidthBanner: true });
+		document.querySelector('.icon-full-width-banner').style.backgroundColor = 'var(--accent)';
+	} else {
+		BROWSER_API.storage.sync.set({ fullWidthBanner: false });
+		document.querySelector('.icon-full-width-banner').style.backgroundColor = '';
+	}
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.includes('reddit.com') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { fullWidthBanner: fullWidthBanner });
+			}
+		});
+	});
+});
