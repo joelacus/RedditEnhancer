@@ -30,16 +30,19 @@ function enableFullWidthBanner() {
         div.masthead > section h1 {
         	line-height: 1.4;
         }
-        shreddit-app[routename="subreddit"] div.subgrid-container {
+        shreddit-app[routename="subreddit"] div.subgrid-container,
+        shreddit-app[routename="subreddit_wiki"] div.subgrid-container {
         	padding: 0 !important;
         	max-width: 100% !important;
         	width: 100%;
         }
-        shreddit-app[routename="subreddit"] div.main-container {
+        shreddit-app[routename="subreddit"] div.main-container,
+        shreddit-app[routename="subreddit_wiki"] div.main-container {
         	width: initial;
         	padding: 0 1rem;
         }
-        html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit"] div.main-container {
+        html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit"] div.main-container,
+        html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit_wiki"] div.main-container {
         	justify-content: center;
         }`;
     document.head.insertBefore(styleElement, document.head.firstChild);

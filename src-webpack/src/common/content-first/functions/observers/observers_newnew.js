@@ -41,7 +41,9 @@ import { loadHideCommunityHighlights } from '../../../content/functions/hide_ele
 import { loadHideSearchSidebarNsfwUsers } from '../../../content/functions/hide_elements/hide_search_page_sidebar_nsfw_users';
 import { loadHidePostDivider } from '../../../content/functions/hide_elements/hide_post_divider';
 import { loadHideBlurredMediaBackground } from '../../../content/functions/hide_elements/hide_blurred_media_background';
-import { fullWidthBanner, loadFullWidthBanner } from '../../../content/functions/style/full_width_banner';
+import { loadFullWidthBanner } from '../../../content/functions/style/full_width_banner';
+import { loadCompactHeaderSideMenu } from '../../../content/functions/style/compact_header_side_menu';
+import { loadResizeMainContainer } from '../../../content/functions/expand_feed_post/resize_main_container';
 
 export function observersNewNew() {
 	loadCustomBackground();
@@ -89,6 +91,8 @@ export function observersNewNew() {
 	loadHidePostDivider();
 	loadHideBlurredMediaBackground();
 	loadFullWidthBanner();
+	loadCompactHeaderSideMenu();
+	loadResizeMainContainer();
 
 	// Always Show Post Options
 	waitForAddedNode({

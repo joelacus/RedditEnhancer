@@ -51,6 +51,7 @@ import { overrideDropShadow, overrideDropShadowCSS } from './functions/style/ove
 import { postHeight, postHeightSize } from './functions/productivity/post_max_height';
 import { postTitleFontSize, postCommentsFontSize, postContentFontSize } from './functions/accessibility/resize_font';
 //import { removePageSideMargin } from './functions/expand_feed_post/remove_page_side_margin';
+import { resizeMainContainer, resizeMainContainerWidth } from './functions/expand_feed_post/resize_main_container';
 import { scrollToNextRootComment } from './functions/productivity/scroll_to_next_root_comment';
 import { scrollToNextRootCommentPosition, scrollToNextRootCommentPositionV } from './functions/productivity/scroll_to_next_root_comment';
 import { showAllButton } from './functions/productivity/show_r_all_button';
@@ -134,6 +135,8 @@ import { hideSearchSidebarNsfwUsers } from './functions/hide_elements/hide_searc
 import { rememberSideMenuSectionHiddenState } from './functions/productivity/remember_side_menu_section_hidden_state';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 import { fullWidthBanner } from './functions/style/full_width_banner';
+import { compactSubRuleList } from './functions/style/compact_sub_rule_list';
+import { compactHeaderSideMenu } from './functions/style/compact_header_side_menu';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -492,6 +495,14 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		hideBlurredMediaBackground(value);
 	} else if (key == 'fullWidthBanner') {
 		fullWidthBanner(value);
+	} else if (key == 'compactSubRuleList') {
+		compactSubRuleList(value);
+	} else if (key == 'compactHeaderSideMenu') {
+		compactHeaderSideMenu(value);
+	} else if (key == 'resizeMainContainer') {
+		resizeMainContainer(value);
+	} else if (key == 'resizeMainContainerWidth') {
+		resizeMainContainerWidth(value);
 	}
 	return true;
 });

@@ -306,3 +306,49 @@ document.querySelector('#input-layout-user-profile-offset').addEventListener('in
 document.querySelector('#input-layout-user-profile-offset').addEventListener('mouseup', function (e) {
 	BROWSER_API.storage.sync.set({ layoutUserProfileOffset: e.target.value });
 });
+
+// Toggle - Resize Main Container
+document.querySelector('#checkbox-resize-main-container').addEventListener('change', function (e) {
+	const resizeMainContainer = document.querySelector('#checkbox-resize-main-container').checked;
+	if (resizeMainContainer === true) {
+		BROWSER_API.storage.sync.set({ resizeMainContainer: true });
+		document.querySelector('.icon-resize-main-container').style.backgroundColor = 'var(--accent)';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.includes('reddit.com') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { resizeMainContainer: true });
+				}
+			});
+		});
+	} else if (resizeMainContainer === false) {
+		BROWSER_API.storage.sync.set({ resizeMainContainer: false });
+		document.querySelector('.icon-resize-main-container').style.backgroundColor = '';
+		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+			tabs.forEach(function (tab) {
+				if (tab.url.includes('reddit.com') && tab.discarded == false) {
+					BROWSER_API.tabs.sendMessage(tab.id, { resizeMainContainer: false });
+				}
+			});
+		});
+	}
+});
+
+// Slider - Resize Main Container Width
+document.querySelector('#input-resize-main-container-width').addEventListener('input', function (e) {
+	document.querySelector('#resize-main-container-width').textContent = e.target.value + '%';
+	// if expand layout is true
+	BROWSER_API.storage.sync.get(['resizeMainContainer'], function (result) {
+		if (result.resizeMainContainer) {
+			BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+				tabs.forEach(function (tab) {
+					if (tab.url.includes('reddit.com') && tab.discarded == false) {
+						BROWSER_API.tabs.sendMessage(tab.id, { resizeMainContainerWidth: e.target.value });
+					}
+				});
+			});
+		}
+	});
+});
+document.querySelector('#input-resize-main-container-width').addEventListener('mouseup', function (e) {
+	BROWSER_API.storage.sync.set({ resizeMainContainerWidth: e.target.value });
+});

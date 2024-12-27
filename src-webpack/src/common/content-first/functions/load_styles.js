@@ -48,8 +48,8 @@ const styleShowPostAuthor = `
 								background-color: var(--color-tooltip-bg-neutral);
 								color: var(--color-tooltip-text-neutral);
 								border-radius: var(--radius-md);
-								box-shadow: 0var(--boxshadow-tooltip);
-								padding: 0.5rem;
+								box-shadow: var(--boxshadow-tooltip);
+								padding: 1rem;
 								z-index: 999;
 							}
 							shreddit-post .hover-card img {

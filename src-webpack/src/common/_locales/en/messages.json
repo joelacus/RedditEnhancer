@@ -1077,5 +1077,29 @@
 
 	"FullWidthBanner": {
 		"message": "Full Width Sub Banner"
+	},
+
+	"CompactSubRuleList": {
+		"message": "Compact Subreddit Rule List"
+	},
+
+	"CompactHeaderSideMenu": {
+		"message": "Compact Header Bar & Side Menu"
+	},
+
+	"Experimental": {
+		"message": "Experimental"
+	},
+
+	"ResizeMainContainer": {
+		"message": "Resize Main Container"
+	},
+
+	"ResizeMainContainerWidth": {
+		"message": "Main Container Width"
+	},
+
+	"ResizeMainContainerInfo": {
+		"message": "It is recommended to set all widths under Resize Feed / Post to 100%."
 	}
 }

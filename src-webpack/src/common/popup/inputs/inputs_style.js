@@ -1207,3 +1207,41 @@ document.querySelector('#checkbox-full-width-banner').addEventListener('change',
 		});
 	});
 });
+
+// Toggle - Compact Sub Rule List
+document.querySelector('#checkbox-compact-sub-rule-list').addEventListener('change', function (e) {
+	var compactSubRuleList = document.querySelector('#checkbox-compact-sub-rule-list').checked;
+	if (compactSubRuleList) {
+		BROWSER_API.storage.sync.set({ compactSubRuleList: true });
+		document.querySelector('.icon-compact-sub-rule-list').style.backgroundColor = 'var(--accent)';
+	} else {
+		BROWSER_API.storage.sync.set({ compactSubRuleList: false });
+		document.querySelector('.icon-compact-sub-rule-list').style.backgroundColor = '';
+	}
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.includes('reddit.com') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { compactSubRuleList: compactSubRuleList });
+			}
+		});
+	});
+});
+
+// Toggle - Compact Header Bar & Side Menu
+document.querySelector('#checkbox-compact-header-side-menu').addEventListener('change', function (e) {
+	var compactHeaderSideMenu = document.querySelector('#checkbox-compact-header-side-menu').checked;
+	if (compactHeaderSideMenu) {
+		BROWSER_API.storage.sync.set({ compactHeaderSideMenu: true });
+		document.querySelector('.icon-compact-header-side-menu').style.backgroundColor = 'var(--accent)';
+	} else {
+		BROWSER_API.storage.sync.set({ compactHeaderSideMenu: false });
+		document.querySelector('.icon-compact-header-side-menu').style.backgroundColor = '';
+	}
+	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
+		tabs.forEach(function (tab) {
+			if (tab.url.includes('reddit.com') && tab.discarded == false) {
+				BROWSER_API.tabs.sendMessage(tab.id, { compactHeaderSideMenu: compactHeaderSideMenu });
+			}
+		});
+	});
+});

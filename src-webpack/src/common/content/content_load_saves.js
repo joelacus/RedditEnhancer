@@ -37,6 +37,7 @@ import { loadHideSideMenuFavouriteButton } from './functions/hide_elements/hide_
 import { loadSideMenuToggleButton } from './functions/hide_elements/side_menu_toggle_button';
 import { loadHideNsfwInSearchResults, loadHideTrendingTodayInSearchResults } from './functions/hide_elements/hide_search_results_sections';
 import { loadRememberSideMenuSectionHiddenState } from './functions/productivity/remember_side_menu_section_hidden_state';
+import { loadCompactSubRuleList } from './functions/style/compact_sub_rule_list';
 
 export function load_saves() {
 	if (redditVersion === 'old') {
@@ -77,6 +78,7 @@ export function load_saves() {
 		loadAutoLoadMoreComments();
 		loadHidePostKarma();
 		loadSideMenuToggleButton();
+		loadCompactSubRuleList();
 
 		// Wait for elements to load on the page before loading tweaks.
 		waitForAddedNode({

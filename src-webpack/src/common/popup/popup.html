@@ -260,6 +260,26 @@
 							<span id="layout-user-profile-offset-value" class="input-value"></span>
 						</div>
 					</li>
+					<li class="sub-header r-newnew">
+						<span data-lang="Experimental"></span>
+					</li>
+					<li class="container r-newnew">
+						<div class="container container-3">
+							<span class="menu-item-icon icon-resize-feed icon-resize-main-container"></span>
+							<span data-lang="ResizeMainContainer" data-search="main,container"></span>
+							<label class="switch">
+								<input id="checkbox-resize-main-container" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<div class="container container-5">
+							<span class="menu-item-icon icon-ruler-horizontal icon-resize-main-container"></span>
+							<span data-lang="ResizeMainContainerWidth" data-search="main,container"></span>
+							<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-resize-main-container-width" />
+							<span id="resize-main-container-width" class="input-value"></span>
+						</div>
+						<p class="info" data-lang="ResizeMainContainerInfo" style="text-align: left;"></p>
+					</li>
 					<!--<li class="sub-header r-newnew">
 						<span data-lang="Other"></span>
 					</li>
@@ -1491,18 +1511,24 @@
 						</div>
 					</li>
 					<!-- Subreddit Style -->
-					<li id="theme-subreddit" class="sub-header r-new r-newnew">
+					<li id="theme-subreddit" class="sub-header r-newnew">
 						<span data-lang="Subreddit"></span>
 					</li>
-					<li class="container r-new r-newnew">
-						<div class="container container-3">
-							<span class="menu-item-icon icon-resize-feed icon-full-width-banner"></span>
-							<span data-lang="FullWidthBanner" data-search="full,width,subreddit,banner"></span>
-							<label class="switch">
-								<input id="checkbox-full-width-banner" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-						</div>
+					<li class="container container-3 r-newnew">
+						<span class="menu-item-icon icon-resize-feed icon-full-width-banner"></span>
+						<span data-lang="FullWidthBanner" data-search="full,width,subreddit,banner"></span>
+						<label class="switch">
+							<input id="checkbox-full-width-banner" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li class="container container-3 r-newnew">
+						<span class="menu-item-icon icon-tfl icon-compact-sub-rule-list"></span>
+						<span data-lang="CompactSubRuleList" data-search="compact,subreddit,rule,list"></span>
+						<label class="switch">
+							<input id="checkbox-compact-sub-rule-list" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
 					</li>
 					<!-- Post Style -->
 					<li id="theme-post" class="sub-header r-new r-newnew">
@@ -1671,6 +1697,14 @@
 					<!-- Side Menu Style -->
 					<li id="theme-sidemenu" class="sub-header r-new r-newnew">
 						<span data-lang="SideMenu"></span>
+					</li>
+					<li class="container container-3 r-newnew">
+						<span class="menu-item-icon icon-tfl icon-compact-header-side-menu"></span>
+						<span data-lang="CompactHeaderSideMenu" data-search="compact,header,side,menu"></span>
+						<label class="switch">
+							<input id="checkbox-compact-header-side-menu" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
 					</li>
 					<li class="container r-new r-newnew">
 						<div class="container container-3">

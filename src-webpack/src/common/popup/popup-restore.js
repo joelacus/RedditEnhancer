@@ -310,6 +310,37 @@ function restoreOptions() {
 		console.log('Layout Centre: ' + value);
 	});
 
+	// Resize Main Container
+	BROWSER_API.storage.sync.get(['resizeMainContainer'], function (result) {
+		if (typeof result.resizeMainContainer == 'undefined' || result.resizeMainContainer == false) {
+			document.querySelector('#checkbox-resize-main-container').checked = false;
+			var value = false;
+		} else if (result.resizeMainContainer == true) {
+			document.querySelector('#checkbox-resize-main-container').checked = true;
+			const icons = document.querySelectorAll('.icon-resize-main-container, .icon-resize-main-container-width');
+			icons.forEach(function (icon) {
+				icon.style.backgroundColor = 'var(--accent)';
+			});
+			var value = true;
+		}
+		console.log('Resize Main Container: ' + value);
+	});
+
+	// Resize Main Container Width
+	BROWSER_API.storage.sync.get(['resizeMainContainerWidth'], function (result) {
+		if (typeof result.resizeMainContainerWidth != 'undefined') {
+			document.querySelector('#input-resize-main-container-width').value = result.resizeMainContainerWidth;
+			document.querySelector('#resize-main-container-width').innerText = result.resizeMainContainerWidth + '%';
+			var value = result.resizeMainContainerWidth;
+		}
+		if (typeof result.resizeMainContainerWidth == 'undefined') {
+			document.querySelector('#input-resize-main-container-width').value = 80;
+			document.querySelector('#resize-main-container-width').innerText = '80%';
+			var value = '80';
+		}
+		console.log('Resize Main Container Width: ' + value + '%');
+	});
+
 	// Scale Tall Images To Fit Post
 	BROWSER_API.storage.sync.get(['fitImage'], function (result) {
 		if (result.fitImage == true) {
@@ -2962,6 +2993,34 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Full Width Banner: ' + value);
+	});
+
+	// Compact Sub Rule List
+	BROWSER_API.storage.sync.get(['compactSubRuleList'], function (result) {
+		if (result.compactSubRuleList === true) {
+			document.querySelector('.icon-compact-sub-rule-list').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-compact-sub-rule-list').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.compactSubRuleList == 'undefined' || result.compactSubRuleList === false) {
+			document.querySelector('#checkbox-compact-sub-rule-list').checked = false;
+			var value = false;
+		}
+		console.log('Compact Sub Rule List: ' + value);
+	});
+
+	// Compact Header Bar & Side Menu
+	BROWSER_API.storage.sync.get(['compactHeaderSideMenu'], function (result) {
+		if (result.compactHeaderSideMenu === true) {
+			document.querySelector('.icon-compact-header-side-menu').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-compact-header-side-menu').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.compactHeaderSideMenu == 'undefined' || result.compactHeaderSideMenu === false) {
+			document.querySelector('#checkbox-compact-header-side-menu').checked = false;
+			var value = false;
+		}
+		console.log('Compact Header Side Menu: ' + value);
 	});
 
 	// Account Switcher
