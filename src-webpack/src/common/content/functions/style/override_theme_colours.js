@@ -517,9 +517,6 @@ export function themePostBackgroundColour(value) {
 										div[slot="post-insights-panel"] > faceplate-tracker > div {
                 							background-color: inherit !important;
             							}
-										shreddit-comment {
-											--color-neutral-background: transparent !important;
-										}
 										shreddit-comment button:hover {
 											--color-secondary-background-hover: rgba(0,0,0,0.3) !important;
 											--button-border-color: rgba(0,0,0,0.6) !important;
