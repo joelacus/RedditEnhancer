@@ -96,6 +96,9 @@ export function postContentFontSize(value) {
 											div[slot="post-media-container"] p {
 												font-size: var(--re-post-content-font-size) !important;
 												line-height: 1.5 !important;
+											}
+											shreddit-composer > div {
+												line-height: 1.6 !important;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
