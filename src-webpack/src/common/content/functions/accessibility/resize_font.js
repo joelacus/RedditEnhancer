@@ -92,7 +92,8 @@ export function postContentFontSize(value) {
 				styleElement.id = 're-post-content-font-size';
 				styleElement.textContent = `shreddit-post [data-post-click-location="text-body"] p,
 											shreddit-post a[slot="text-body"],
-											div.md.feed-card-text-preview {
+											div.md.feed-card-text-preview,
+											div[slot="post-media-container"] p {
 												font-size: var(--re-post-content-font-size) !important;
 												line-height: 1.5 !important;
 											}`;

@@ -514,6 +514,9 @@ export function themePostBackgroundColour(value) {
 										shreddit-post {
 											background-color: var(--re-theme-post-bg) !important;
 										}
+										div[slot="post-insights-panel"] > faceplate-tracker > div {
+                							background-color: inherit !important;
+            							}
 										shreddit-comment {
 											--color-neutral-background: transparent !important;
 										}
@@ -1220,13 +1223,20 @@ export function themePostContentAndCommentsLinkColour(value) {
 		BROWSER_API.storage.sync.get(['themePostContentAndCommentsLinkColourCSS'], function (result) {
 			themePostContentAndCommentsLinkColourCSS(result.themePostContentAndCommentsLinkColourCSS);
 		});
+
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-post-content-and-comments-link-colour';
-		styleElement.textContent = `shreddit-post [data-post-click-location="text-body"] a,
-									shreddit-comment p a,
-									shreddit-post[post-type="link"] a.post-link {
-										color: var(--re-theme-post-content-and-comments-link) !important;
-									}`;
+		styleElement.textContent = 
+			`:root, .theme-rpl, .theme-light.theme-rpl {
+				--color-a-default: var(--re-theme-post-content-and-comments-link) !important;
+				--color-primary: var(--re-theme-post-content-and-comments-link) !important;
+			}
+			/* shreddit-post [data-post-click-location="text-body"] a,
+			shreddit-comment p a,
+			shreddit-post[post-type="link"] a.post-link, */
+			.md p a {
+				color: var(--re-theme-post-content-and-comments-link) !important;
+			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else if (value === false) {
 		document.documentElement.style.removeProperty('--re-theme-post-content-and-comments-link');

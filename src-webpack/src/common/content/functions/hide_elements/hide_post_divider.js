@@ -30,17 +30,22 @@ function enableHidePostDivider() {
                 display: none;
                 visibility: hidden;
             }
-            article,
-            faceplate-batch > article,
+            article:has(> shreddit-post[view-type="cardView"]),
+            faceplate-batch > article:has(> shreddit-post[view-type="cardView"]),
+            /* Comment search results */
             reddit-feed > faceplate-tracker > div {
                 margin-bottom: .6rem !important;
             }
             main#main-content search-telemetry-tracker > div {
                 margin: .6rem 0;
             }
-            article > shreddit-post {
+            article > shreddit-post[view-type="cardView"] {
+                margin: 0 !important;
                 padding: .75rem !important;
-	            margin: 0 !important;
+            }
+            article > shreddit-post[view-type="compactView"] {
+                padding: .25rem !important;
+                margin: 0;
             }
             shreddit-app[routename="mod_queue"] article > shreddit-post,
             shreddit-app[routename="mod_queue_all"] article > shreddit-post {

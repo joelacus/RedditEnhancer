@@ -39,6 +39,7 @@ function addBorderRadiusAmountStylesheet() {
 			div#right-sidebar-container aside a,
 			div#right-sidebar-container aside button,
 			/* Post media previews */
+			div[slot="thumbnail"],
 			div[slot="post-media-container"],
 			div[slot="post-media-container"] > div,
 			gallery-carousel li:has(img.media-lightbox-img),
