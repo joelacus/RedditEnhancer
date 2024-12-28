@@ -42,8 +42,8 @@ function enableCompactSubRuleList() {
         div#right-sidebar-container details:has(faceplate-tracker[source="rules_widget"]) div.ml-xl {
         	margin-left: .5rem;
         }
-        div#right-sidebar-container ul,
-        div#right-sidebar-container ol {
+        div#right-sidebar-container details:has(faceplate-tracker[source="rules_widget"]) ul,
+        div#right-sidebar-container details:has(faceplate-tracker[source="rules_widget"]) ol {
             padding-left: 1rem;
         }
         div#right-sidebar-container li.group:not(:has(span[avatar=""])) > div {
