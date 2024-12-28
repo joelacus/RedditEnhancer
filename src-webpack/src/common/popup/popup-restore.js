@@ -265,6 +265,21 @@ function restoreOptions() {
 		console.log('Expand Topic Feed Width: ' + value + '%');
 	});
 
+	// Expand Custom Feed Width
+	BROWSER_API.storage.sync.get(['expandCustomFeedWidth'], function (result) {
+		if (typeof result.expandCustomFeedWidth != 'undefined') {
+			document.querySelector('#input-expand-custom-feed-width').value = result.expandCustomFeedWidth;
+			document.querySelector('#expand-custom-feed-width').innerText = result.expandCustomFeedWidth + '%';
+			var value = result.expandCustomFeedWidth;
+		}
+		if (typeof result.expandCustomFeedWidth == 'undefined') {
+			document.querySelector('#input-expand-custom-feed-width').value = 80;
+			document.querySelector('#expand-custom-feed-width').innerText = '80%';
+			var value = '80';
+		}
+		console.log('Expand Custom Feed Width: ' + value + '%');
+	});
+
 	// Expand/Resize Layout
 	BROWSER_API.storage.sync.get(['expandLayout'], function (result) {
 		if (typeof result.expandLayout == 'undefined' || result.expandLayout == false) {
@@ -293,6 +308,37 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Layout Centre: ' + value);
+	});
+
+	// Resize Main Container
+	BROWSER_API.storage.sync.get(['resizeMainContainer'], function (result) {
+		if (typeof result.resizeMainContainer == 'undefined' || result.resizeMainContainer == false) {
+			document.querySelector('#checkbox-resize-main-container').checked = false;
+			var value = false;
+		} else if (result.resizeMainContainer == true) {
+			document.querySelector('#checkbox-resize-main-container').checked = true;
+			const icons = document.querySelectorAll('.icon-resize-main-container, .icon-resize-main-container-width');
+			icons.forEach(function (icon) {
+				icon.style.backgroundColor = 'var(--accent)';
+			});
+			var value = true;
+		}
+		console.log('Resize Main Container: ' + value);
+	});
+
+	// Resize Main Container Width
+	BROWSER_API.storage.sync.get(['resizeMainContainerWidth'], function (result) {
+		if (typeof result.resizeMainContainerWidth != 'undefined') {
+			document.querySelector('#input-resize-main-container-width').value = result.resizeMainContainerWidth;
+			document.querySelector('#resize-main-container-width').innerText = result.resizeMainContainerWidth + '%';
+			var value = result.resizeMainContainerWidth;
+		}
+		if (typeof result.resizeMainContainerWidth == 'undefined') {
+			document.querySelector('#input-resize-main-container-width').value = 80;
+			document.querySelector('#resize-main-container-width').innerText = '80%';
+			var value = '80';
+		}
+		console.log('Resize Main Container Width: ' + value + '%');
 	});
 
 	// Scale Tall Images To Fit Post
@@ -524,6 +570,22 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Hide User Sidebar: ' + value);
+	});
+
+	// Hide Custom Feed Sidebar
+	BROWSER_API.storage.sync.get(['hideCustomFeedSidebar'], function (result) {
+		if (result.hideCustomFeedSidebar == true) {
+			document.querySelector('#checkbox-hide-custom-feed-sidebar').checked = true;
+			document.querySelector('.icon-hide-custom-feed-sidebar').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-custom-feed-sidebar').classList.remove('icon-show');
+			document.querySelector('.icon-hide-custom-feed-sidebar').classList.add('icon-hide');
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.hideCustomFeedSidebar == 'undefined' || result.hideCustomFeedSidebar == false) {
+			document.querySelector('#checkbox-hide-custom-feed-sidebar').checked = false;
+			var value = false;
+		}
+		console.log('Hide Custom Feed Sidebar: ' + value);
 	});
 
 	// Hide Sidebar Policy
@@ -2885,6 +2947,80 @@ function restoreOptions() {
 			var value = false;
 		}
 		console.log('Remember Side Menu Section Hidden State: ' + value);
+	});
+
+	// Hide Post Divider
+	BROWSER_API.storage.sync.get(['hidePostDivider'], function (result) {
+		if (result.hidePostDivider === true) {
+			document.querySelector('.icon-hide-post-divider').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-post-divider').checked = true;
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-post-divider').classList.remove('icon-show');
+			document.querySelector('.icon-hide-post-divider').classList.add('icon-hide');
+			var value = true;
+		} else if (typeof result.hidePostDivider == 'undefined' || result.hidePostDivider === false) {
+			document.querySelector('#checkbox-hide-post-divider').checked = false;
+			var value = false;
+		}
+		console.log('Hide Post Divider: ' + value);
+	});
+
+	// Hide Blurred Media Background
+	BROWSER_API.storage.sync.get(['hideBlurredMediaBackground'], function (result) {
+		if (result.hideBlurredMediaBackground === true) {
+			document.querySelector('.icon-hide-blurred-media-background').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-blurred-media-background').checked = true;
+			document.querySelector('.icon-hide-elements').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-blurred-media-background').classList.remove('icon-show');
+			document.querySelector('.icon-hide-blurred-media-background').classList.add('icon-hide');
+			var value = true;
+		} else if (typeof result.hideBlurredMediaBackground == 'undefined' || result.hideBlurredMediaBackground === false) {
+			document.querySelector('#checkbox-hide-blurred-media-background').checked = false;
+			var value = false;
+		}
+		console.log('Hide Blurred Media Background: ' + value);
+	});
+
+	// Full Width Banner
+	BROWSER_API.storage.sync.get(['fullWidthBanner'], function (result) {
+		if (result.fullWidthBanner === true) {
+			document.querySelector('.icon-full-width-banner').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-full-width-banner').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.fullWidthBanner == 'undefined' || result.fullWidthBanner === false) {
+			document.querySelector('#checkbox-full-width-banner').checked = false;
+			var value = false;
+		}
+		console.log('Full Width Banner: ' + value);
+	});
+
+	// Compact Sub Rule List
+	BROWSER_API.storage.sync.get(['compactSubRuleList'], function (result) {
+		if (result.compactSubRuleList === true) {
+			document.querySelector('.icon-compact-sub-rule-list').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-compact-sub-rule-list').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.compactSubRuleList == 'undefined' || result.compactSubRuleList === false) {
+			document.querySelector('#checkbox-compact-sub-rule-list').checked = false;
+			var value = false;
+		}
+		console.log('Compact Sub Rule List: ' + value);
+	});
+
+	// Compact Header Bar & Side Menu
+	BROWSER_API.storage.sync.get(['compactHeaderSideMenu'], function (result) {
+		if (result.compactHeaderSideMenu === true) {
+			document.querySelector('.icon-compact-header-side-menu').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-compact-header-side-menu').checked = true;
+			document.querySelector('.icon-style-tweaks').style.backgroundColor = 'var(--accent)';
+			var value = true;
+		} else if (typeof result.compactHeaderSideMenu == 'undefined' || result.compactHeaderSideMenu === false) {
+			document.querySelector('#checkbox-compact-header-side-menu').checked = false;
+			var value = false;
+		}
+		console.log('Compact Header Side Menu: ' + value);
 	});
 
 	// Account Switcher

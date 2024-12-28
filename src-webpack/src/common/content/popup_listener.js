@@ -14,18 +14,20 @@ import { bionicReaderBgColour, bionicReaderBgColourCSS, bionicReaderFontColour, 
 import { bionicReaderComments } from './functions/accessibility/bionic_reader';
 import { breakReminder } from './functions/productivity/break_reminder';
 import { darkMode, darkModeAutoListener } from './functions/dark_mode/dark_mode';
-import { expandLayout, expandPostOverlayWidth, expandPostWidth, expandSubWidth, expandLayoutWidth, expandUserProfileWidth, expandTopicFeedWidth } from './functions/expand_feed_post/expand_content';
+import { expandLayout, expandPostOverlayWidth, expandPostWidth, expandSubWidth, expandLayoutWidth, expandUserProfileWidth, expandTopicFeedWidth, expandCustomFeedWidth } from './functions/expand_feed_post/expand_content';
 import { fitImage } from './functions/productivity/scale_tall_images_to_fit_post';
+import { hideBlurredMediaBackground } from './functions/hide_elements/hide_blurred_media_background';
 import { hideCreatePost } from './functions/hide_elements/hide_create_post';
 import { hideGap } from './functions/style/hide_gap';
 import { hideGetNewReddit } from './functions/hide_elements/hide_get_new_reddit';
 import { hideHeaderBar } from './functions/hide_elements/hide_header_bar';
 import { hideHeaderSubBar } from './functions/hide_elements/hide_header_sub_bar';
-import { hideHomeSidebar, hideSubSidebar, hidePostSidebar, hidePostOverlaySidebar, hideUserSidebar, hideRelatedPostsSection, hideSearchSidebar } from './functions/hide_elements/hide_sidebar';
+import { hideHomeSidebar, hideSubSidebar, hidePostSidebar, hidePostOverlaySidebar, hideUserSidebar, hideRelatedPostsSection, hideSearchSidebar, hideCustomFeedSidebar } from './functions/hide_elements/hide_sidebar';
 import { hideJoinButtonOnPosts } from './functions/hide_elements/hide_post_join_button';
 import { hideNSFW } from './functions/hide_elements/hide_nsfw';
 import { hideOriginalScrollToTop } from './functions/hide_elements/hide_original_scroll_to_top';
 import { hidePopularButton, hideModerationButton, hideChatButton, hideAdvertiseButton, hideNotificationButton, hideCreatePostButton } from './functions/hide_elements/hide_header_buttons';
+import { hidePostDivider } from './functions/hide_elements/hide_post_divider';
 import { hidePostHiddenMessage } from './functions/hide_elements/hide_post_hidden_message';
 import { hidePromoted } from './functions/hide_elements/hide_promoted';
 import { hideRedditPremium } from './functions/hide_elements/hide_reddit_premium';
@@ -49,6 +51,7 @@ import { overrideDropShadow, overrideDropShadowCSS } from './functions/style/ove
 import { postHeight, postHeightSize } from './functions/productivity/post_max_height';
 import { postTitleFontSize, postCommentsFontSize, postContentFontSize } from './functions/accessibility/resize_font';
 //import { removePageSideMargin } from './functions/expand_feed_post/remove_page_side_margin';
+import { resizeMainContainer, resizeMainContainerWidth } from './functions/expand_feed_post/resize_main_container';
 import { scrollToNextRootComment } from './functions/productivity/scroll_to_next_root_comment';
 import { scrollToNextRootCommentPosition, scrollToNextRootCommentPositionV } from './functions/productivity/scroll_to_next_root_comment';
 import { showAllButton } from './functions/productivity/show_r_all_button';
@@ -131,6 +134,9 @@ import { hideCommunityHighlights } from './functions/hide_elements/hide_communit
 import { hideSearchSidebarNsfwUsers } from './functions/hide_elements/hide_search_page_sidebar_nsfw_users';
 import { rememberSideMenuSectionHiddenState } from './functions/productivity/remember_side_menu_section_hidden_state';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
+import { fullWidthBanner } from './functions/style/full_width_banner';
+import { compactSubRuleList } from './functions/style/compact_sub_rule_list';
+import { compactHeaderSideMenu } from './functions/style/compact_header_side_menu';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -161,6 +167,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		expandUserProfileWidth(value);
 	} else if (key == 'expandTopicFeedWidth') {
 		expandTopicFeedWidth(value);
+	} else if (key == 'expandCustomFeedWidth') {
+		expandCustomFeedWidth(value);
 	} else if (key == 'layoutOffset') {
 		layoutOffset(value);
 	} else if (key == 'layoutSubOffset') {
@@ -249,6 +257,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		hidePostOverlaySidebar(value);
 	} else if (key == 'hideUserSidebar') {
 		hideUserSidebar(value);
+	} else if (key == 'hideCustomFeedSidebar') {
+		hideCustomFeedSidebar(value);
 	} else if (key == 'hideRelatedPostsSection') {
 		hideRelatedPostsSection(value);
 	} else if (key == 'limitInfinityScroll') {
@@ -479,6 +489,20 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		hideSearchSidebarNsfwUsers(value);
 	} else if (key == 'rememberSideMenuSectionHiddenState') {
 		rememberSideMenuSectionHiddenState(value);
+	} else if (key == 'hidePostDivider') {
+		hidePostDivider(value);
+	} else if (key == 'hideBlurredMediaBackground') {
+		hideBlurredMediaBackground(value);
+	} else if (key == 'fullWidthBanner') {
+		fullWidthBanner(value);
+	} else if (key == 'compactSubRuleList') {
+		compactSubRuleList(value);
+	} else if (key == 'compactHeaderSideMenu') {
+		compactHeaderSideMenu(value);
+	} else if (key == 'resizeMainContainer') {
+		resizeMainContainer(value);
+	} else if (key == 'resizeMainContainerWidth') {
+		resizeMainContainerWidth(value);
 	}
 	return true;
 });

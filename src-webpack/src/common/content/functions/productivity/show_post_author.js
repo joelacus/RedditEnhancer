@@ -11,14 +11,14 @@ export function loadShowPostAuthor() {
 export function showPostAuthor(value) {
 	const routename = document.querySelector('shreddit-app').getAttribute('routename');
 	if (redditVersion === 'newnew' && value === true) {
-		if (routename === 'frontpage' || routename === 'popular') {
+		if (routename === 'frontpage' || routename === 'popular' || routename === 'custom_feed') {
 			document.querySelectorAll('shreddit-post').forEach((post) => {
 				attachUsername(post);
 			});
 			observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
 		}
 	} else if (redditVersion === 'newnew' && value === false) {
-		if (routename === 'frontpage' || routename === 'popular') {
+		if (routename === 'frontpage' || routename === 'popular' || routename === 'custom_feed') {
 			observer.disconnect();
 			removeUsername();
 		}
@@ -55,8 +55,11 @@ function attachUsername(post) {
 		let container = post.querySelector('[slot="credit-bar"] > span:has(faceplate-timeago)');
 		if (!container) {
 			container = post.querySelector('[slot="credit-bar"] > div');
+			container.appendChild(a);
+		} else {
+			let timeAgo = container.querySelector('faceplate-timeago');
+			container.insertBefore(a, timeAgo);
 		}
-		container.appendChild(a);
 	}
 }
 
@@ -94,8 +97,11 @@ async function showHoverCard(post, username) {
 	let container = post.querySelector('[slot="credit-bar"] > span:has(faceplate-timeago)');
 	if (!container) {
 		container = post.querySelector('[slot="credit-bar"] > div');
+		container.appendChild(hoverCard);
+	} else {
+		let timeAgo = container.querySelector('faceplate-timeago');
+		container.insertBefore(hoverCard, timeAgo);
 	}
-	container.appendChild(hoverCard);
 	post.querySelector('.hover-card').style.display = 'block';
 }
 

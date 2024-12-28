@@ -59,6 +59,10 @@
 		"message": "Post Width"
 	},
 
+	"CustomFeedWidth": {
+		"message": "Custom Feed Width"
+	},
+
 	"Offset": {
 		"message": "Offset"
 	},
@@ -329,6 +333,10 @@
 
 	"HideUserSidebar": {
 		"message": "Hide the User Sidebar"
+	},
+
+	"HideCustomFeedSidebar": {
+		"message": "Hide the Custom Feed Sidebar"
 	},
 
 	"LimitInfinityScroll": {
@@ -1053,5 +1061,45 @@
 
 	"PasswordInfo": {
 		"message": "You may leave the password blank, and you will be prompted when logging in."
+	},
+
+	"HidePostDivider": {
+		"message": "Hide post separators"
+	},
+
+	"HideBlurredMediaBackground": {
+		"message": "Disable background blur behind image previews"
+	},
+
+	"Subreddit": {
+		"message": "Subreddit"
+	},
+
+	"FullWidthBanner": {
+		"message": "Full Width Sub Banner"
+	},
+
+	"CompactSubRuleList": {
+		"message": "Compact Subreddit Rule List"
+	},
+
+	"CompactHeaderSideMenu": {
+		"message": "Compact Header Bar & Side Menu"
+	},
+
+	"Experimental": {
+		"message": "Experimental"
+	},
+
+	"ResizeMainContainer": {
+		"message": "Resize Main Container"
+	},
+
+	"ResizeMainContainerWidth": {
+		"message": "Main Container Width"
+	},
+
+	"ResizeMainContainerInfo": {
+		"message": "It is recommended to set all widths under Resize Feed / Post to 100%."
 	}
 }

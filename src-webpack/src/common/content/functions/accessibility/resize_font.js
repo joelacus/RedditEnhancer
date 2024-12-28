@@ -40,9 +40,11 @@ export function postTitleFontSize(value) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-post-title-font-size';
 				styleElement.textContent = `shreddit-post a[slot="title"],
-											shreddit-post h1[slot="title"] {
+											shreddit-post h1[slot="title"],
+											div.crosspost-title a,
+											search-telemetry-tracker a[data-testid="post-title-text"] {
 												font-size: var(--re-post-title-font-size);
-												line-height: 1.6;
+												line-height: 1.4;
 											}
 											shreddit-post h1[slot="title"] {
 												margin: .5rem 0;
@@ -89,8 +91,13 @@ export function postContentFontSize(value) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-post-content-font-size';
 				styleElement.textContent = `shreddit-post [data-post-click-location="text-body"] p,
-											shreddit-post a[slot="text-body"] {
+											shreddit-post a[slot="text-body"],
+											div.md.feed-card-text-preview,
+											div[slot="post-media-container"] p {
 												font-size: var(--re-post-content-font-size) !important;
+												line-height: 1.5 !important;
+											}
+											shreddit-composer > div {
 												line-height: 1.6 !important;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
@@ -134,10 +141,12 @@ export function postCommentsFontSize(value) {
 			if (!document.querySelector('style[id="re-post-comment-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-styles';
-				styleElement.textContent = `shreddit-comment p {
-												font-size: var(--re-post-comments-font-size);
-												line-height: 1.6;
-											}`;
+				styleElement.textContent = 
+					`shreddit-comment div.md[slot="comment"],
+					shreddit-profile-comment div.md {
+						font-size: var(--re-post-comments-font-size);
+						line-height: 1.6;
+					}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
 		}

@@ -219,6 +219,12 @@
 							<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-topic-feed-width" />
 							<span id="expand-topic-feed-width" class="input-value"></span>
 						</div>
+						<div class="container container-5 r-newnew">
+							<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
+							<span data-lang="CustomFeedWidth" data-search="resize,content,custom,feed"></span>
+							<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-custom-feed-width" />
+							<span id="expand-custom-feed-width" class="input-value"></span>
+						</div>
 					</li>
 					<li class="container container-3 r-old r-new r-newnew">
 						<span class="menu-item-icon icon-auto icon-auto-resize"></span>
@@ -253,6 +259,26 @@
 							<input type="range" min="-100" max="100" value="0" step="2" class="slider" id="input-layout-user-profile-offset" />
 							<span id="layout-user-profile-offset-value" class="input-value"></span>
 						</div>
+					</li>
+					<li class="sub-header r-newnew">
+						<span data-lang="Experimental"></span>
+					</li>
+					<li class="container r-newnew">
+						<div class="container container-3">
+							<span class="menu-item-icon icon-resize-feed icon-resize-main-container"></span>
+							<span data-lang="ResizeMainContainer" data-search="main,container"></span>
+							<label class="switch">
+								<input id="checkbox-resize-main-container" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<div class="container container-5">
+							<span class="menu-item-icon icon-ruler-horizontal icon-resize-main-container"></span>
+							<span data-lang="ResizeMainContainerWidth" data-search="main,container"></span>
+							<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-resize-main-container-width" />
+							<span id="resize-main-container-width" class="input-value"></span>
+						</div>
+						<p class="info" data-lang="ResizeMainContainerInfo" style="text-align: left;"></p>
 					</li>
 					<!--<li class="sub-header r-newnew">
 						<span data-lang="Other"></span>
@@ -651,6 +677,14 @@
 							</label>
 						</div>
 					</li>
+					<li class="container container-3 r-newnew">
+						<span class="menu-item-icon icon-show icon-hide-custom-feed-sidebar"></span>
+						<span data-lang="HideCustomFeedSidebar" data-search="custom,feed,sidebar"></span>
+						<label class="switch">
+							<input id="checkbox-hide-custom-feed-sidebar" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
 					<li id="hide-header-buttons" class="sub-header r-new r-newnew">
 						<span data-lang="HeaderButtons"></span>
 					</li>
@@ -728,6 +762,22 @@
 						<span data-lang="HidePostKarma" data-search="votes,karma"></span>
 						<label class="switch">
 							<input id="checkbox-hide-post-karma" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li class="container container-3 r-newnew">
+						<span class="menu-item-icon icon-show icon-hide-post-divider"></span>
+						<span data-lang="HidePostDivider" data-search="divider,separator,hr"></span>
+						<label class="switch">
+							<input id="checkbox-hide-post-divider" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li class="container container-3 r-newnew">
+						<span class="menu-item-icon icon-show icon-hide-blurred-media-background"></span>
+						<span data-lang="HideBlurredMediaBackground" data-search="blur,background,media,image"></span>
+						<label class="switch">
+							<input id="checkbox-hide-blurred-media-background" type="checkbox" />
 							<span class="indicator"></span>
 						</label>
 					</li>
@@ -1191,7 +1241,7 @@
 						<span data-lang="SideMenuWidth" data-search=""></span>
 						<div></div>
 						<div></div>
-						<input type="range" min="199" max="300" value="0" step="1" class="slider" id="input-side-menu-width" />
+						<input type="range" min="199" max="500" value="0" step="1" class="slider" id="input-side-menu-width" />
 						<span id="side-menu-width-value" class="input-value"></span>
 					</li>
 					<li class="container container-3 r-newnew">
@@ -1299,6 +1349,7 @@
 							<div class="r-new r-newnew"><a href="#theme-header" data-lang="Header"></a>&nbsp;|&nbsp;</div>
 							<div class="r-new"><a href="#theme-create-post" data-lang="CreatePost"></a>&nbsp;|&nbsp;</div>
 							<div class="r-new"><a href="#theme-sort" data-lang="Sort"></a>&nbsp;|&nbsp;</div>
+							<div class="r-newnew"><a href="#theme-subreddit" data-lang="Subreddit"></a>&nbsp;|&nbsp;</div>
 							<div class="r-new r-newnew"><a href="#theme-post" data-lang="Post"></a>&nbsp;|&nbsp;</div>
 							<div class="r-new r-newnew"><a href="#theme-sidemenu" data-lang="SideMenu"></a>&nbsp;|&nbsp;</div>
 							<div class="r-new r-newnew"><a href="#theme-sidebar" data-lang="Sidebar"></a></div>
@@ -1458,6 +1509,26 @@
 								<input id="input-sort-border-colour-css" type="text" placeholder="rgb(0,0,0)" />
 							</div>
 						</div>
+					</li>
+					<!-- Subreddit Style -->
+					<li id="theme-subreddit" class="sub-header r-newnew">
+						<span data-lang="Subreddit"></span>
+					</li>
+					<li class="container container-3 r-newnew">
+						<span class="menu-item-icon icon-resize-feed icon-full-width-banner"></span>
+						<span data-lang="FullWidthBanner" data-search="full,width,subreddit,banner"></span>
+						<label class="switch">
+							<input id="checkbox-full-width-banner" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li class="container container-3 r-newnew">
+						<span class="menu-item-icon icon-tfl icon-compact-sub-rule-list"></span>
+						<span data-lang="CompactSubRuleList" data-search="compact,subreddit,rule,list"></span>
+						<label class="switch">
+							<input id="checkbox-compact-sub-rule-list" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
 					</li>
 					<!-- Post Style -->
 					<li id="theme-post" class="sub-header r-new r-newnew">
@@ -1626,6 +1697,14 @@
 					<!-- Side Menu Style -->
 					<li id="theme-sidemenu" class="sub-header r-new r-newnew">
 						<span data-lang="SideMenu"></span>
+					</li>
+					<li class="container container-3 r-newnew">
+						<span class="menu-item-icon icon-tfl icon-compact-header-side-menu"></span>
+						<span data-lang="CompactHeaderSideMenu" data-search="compact,header,side,menu"></span>
+						<label class="switch">
+							<input id="checkbox-compact-header-side-menu" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
 					</li>
 					<li class="container r-new r-newnew">
 						<div class="container container-3">

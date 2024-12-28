@@ -110,10 +110,6 @@ function enableUseCustomBackgroundNewNew() {
 								shreddit-app #main-content {
 									margin-top: 8px
 								}
-								shreddit-app shreddit-post {
-									padding-top: 8px !important;
-									padding-bottom: 8px !important;
-								}
 								shreddit-app main shreddit-async-loader comment-body-header,
 								shreddit-app main #comment-tree {
 									width: 100%;
