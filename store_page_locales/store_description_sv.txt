@@ -1,10 +1,9 @@
 Förbättra din Reddit-upplevelse med Reddit Enhancer! En webbläsartillägg som låter dig anpassa din Reddit-sida med bara några få klick.
-Stöder alla versioner av Reddit.
+Stöder den gamla och den senaste versionen av Reddit.
 
 Med Reddit Enhancer kan du:
 • Ändra storlek på flödet och inläggets bredd för en bättre tittarupplevelse.
-• Välj din föredragna Reddit-version. (du måste vara inloggad på Reddit för new.reddit.com).
-• Anpassa temafärger och lägg till en bakgrundsbakgrund.
+• Anpassa tema färger och lägg till en bakgrund bakgrund.
 • Dölj marknadsförda och rekommenderade inlägg, samt reddit premiumannonser.
 • Dölj många andra element som du inte använder eller vill se för ett renare och mindre rörigt gränssnitt.
 • Öppna bilder i en ny flik på egen hand direkt, istället för att bäddas in på en sida.

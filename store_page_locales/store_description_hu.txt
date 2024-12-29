@@ -1,9 +1,8 @@
 Növelje Reddit élményét a Reddit Enhancer segítségével! Böngészőbővítmény, amellyel néhány kattintással testreszabhatja Reddit oldalát.
-Támogatja a Reddit összes verzióját.
+Támogatja a Reddit régi és legújabb verzióját.
 
 A Reddit Enhancer segítségével:
 • A jobb megtekintési élmény érdekében méretezze át a hírcsatornát és a bejegyzés szélességét.
-• Válassza ki a kívánt Reddit verziót. (A new.reddit.com webhelyhez be kell jelentkeznie a Reddit).
 • A téma színeinek testreszabása és háttérkép hozzáadása.
 • A kiemelt és ajánlott bejegyzések, valamint a reddit prémium hirdetések elrejtése.
 • A tisztább és kevésbé zsúfolt felület érdekében számos más olyan elem elrejtése, amelyet nem használ vagy látni szeretne.

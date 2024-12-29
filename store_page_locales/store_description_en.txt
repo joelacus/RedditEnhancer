@@ -1,9 +1,8 @@
 Enhance your Reddit experience with Reddit Enhancer! A browser extension that allows you to customise your Reddit page with just a few clicks.
-Supports All Versions of Reddit.
+Supports the Old and the Latest versions of Reddit.
 
 With Reddit Enhancer, you can:
 • Resize the feed and post width for a better viewing experience.
-• Choose your preferred Reddit version. (you need to be logged in to Reddit for new.reddit.com).
 • Customise theme colours and add a background wallpaper.
 • Hide promoted and recommended posts, as well as reddit premium ads.
 • Hide numerous other elements you don't use or want to see for a cleaner and less cluttered interface.
