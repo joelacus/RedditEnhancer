@@ -109,5 +109,25 @@
 
 	"CreatePostBorderColour": {
 		"message": "Create Post: Border Color"
+	},
+
+	"SearchbarBgColour": {
+		"message": "Searchbar: Background Color"
+	},
+
+	"SearchbarDropdownBgColour": {
+		"message": "Searchbar: Focused/Dropdown Background Color"
+	},
+
+	"PostContentAndCommentsLinkColour": {
+		"message": "Post: Content And Comments Link Color"
+	},
+
+	"UpvoteColour": {
+		"message": "Post: Upvote Color"
+	},
+
+	"PostCommentActionRowColour": {
+		"message": "Post: Comment Action Row Color"
 	}
 }

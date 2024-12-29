@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.12.1"
+		"message": "1.13.0"
 	},
 
 	"extensionName": {
@@ -688,15 +688,11 @@
 	},
 
 	"ShowPostAuthor": {
-		"message": "Show Post Author on the Home Feed"
+		"message": "Show Post Author"
 	},
 
 	"ShowPostFlair": {
 		"message": "Show Post Flair on the Home Feed"
-	},
-
-	"RemovePageSideMargin": {
-		"message": "Remove the Page Side Margin"
 	},
 
 	"HideSideMenuTopSection": {
@@ -744,15 +740,15 @@
 	},
 
 	"PostTitle": {
-		"message": "Post Title"
+		"message": "Post: Title"
 	},
 
 	"PostContent": {
-		"message": "Post Content"
+		"message": "Post: Content"
 	},
 
 	"PostComments": {
-		"message": "Post Comments"
+		"message": "Post: Comments"
 	},
 
 	"Rate": {
@@ -883,12 +879,8 @@
 		"message": "Topic Feed Width"
 	},
 
-	"YouNeedToBeLoggedIn": {
-		"message": "You must be logged in to Reddit in order for the redirection to 'Old New UI' to work."
-	},
-
 	"RemovalNotification": {
-		"message": "Reddit has now started redirecting users from new.reddit.com to the latest version, so eventually you won't be able to use the Old New UI. Unfortunately, I can't do anything about this :( When this happens, your page may error. Set the redirect option to 'Off' or 'Old UI'."
+		"message": "Reddit has discontinued (Old New UI / Version 2) of the website, and will be redirecting users from new.reddit.com to the latest version. If you have the redirect feature enabled for this version, you will get a page error. Set the redirect option to 'Off' or 'Old UI'. The options for Old New UI will be removed from upcoming versions of Reddit Enhancer."
 	},
 
 	"learnMore": {
@@ -940,7 +932,7 @@
 	},
 
 	"SetLanguageAndTheme": {
-		"message": "Set Language and Theme"
+		"message": "Full Page Settings / Set Language and Theme"
 	},
 
 	"SelectRedirect": {
@@ -995,8 +987,88 @@
 		"message": "& r/all, r/popular, Create Post, Search Results, and Wiki pages"
 	},
 
+	"SearchPageOffset": {
+		"message": "Search Page Offset"
+	},
+
+	"NoSavedBackgrounds": {
+		"message": "No Saved Backgrounds"
+	},
+
+	"HideHomeFeed": {
+		"message": "Hide Home Feed"
+	},
+
 	"RememberSectionHiddenState": {
-		"message": "Remember Side Menu Section Hidden States"
+		"message": "Remember the hidden states of sections in the side menu"
+	},
+
+	"NewUpdateAvailable": {
+		"message": "Version <version> is now available. Your browser should update this extension automatically soon if you have automatic updates enabled, if not, you will have to manually check for updates in the browser extension manager."
+	},
+
+	"UpvoteColour": {
+		"message": "Post: Upvote Colour"
+	},
+
+	"FontWeight": {
+		"message": "Font Weight"
+	},
+
+	"FontWeightInfo": {
+		"message": "Not all fonts support all weights."
+	},
+
+	"Font": {
+		"message": "Font"
+	},
+
+	"FeedPostTitle": {
+		"message": "Feed Post: Title"
+	},
+
+	"FeedPostContent": {
+		"message": "Feed Post: Content"
+	},
+
+	"PostCommentActionRowColour": {
+		"message": "Post: Comment Action Row Colour"
+	},
+
+	"FilterOptionsFor": {
+		"message": "Filter Options For"
+	},
+
+	"Redirect": {
+		"message": "Redirect"
+	},
+
+	"CreatePostTitle": {
+		"message": "Create Post: Title"
+	},
+
+	"CreatePostBody": {
+		"message": "Create Post: Body"
+	},
+
+	"OptionsPage": {
+		"message": "Options Page"
+	},
+
+	"extensionVersionText": {
+		"message": "Extension Version"
+	},
+
+	"Changelog": {
+		"message": "Changelog"
+	},
+
+	"ShowProfilePicturesOnComments": {
+		"message": "Show Profile Pictures On Comments"
+	},
+
+	"CustomFeedWidth": {
+		"message": "Custom Feed Width"
 	},
 
 	"DragImageToResize": {

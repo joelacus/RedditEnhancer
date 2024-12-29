@@ -1,6 +1,7 @@
-// Inputs - Dark Mode Tweaks
+/* ===== Inputs / Dark Mode ===== */
 
-import { darkModeTimeCalc } from '../popup-functions';
+import { darkModeTimeCalc } from '../../content/tweaks/dark_mode/dark_mode_time_calc';
+import { sendMessage } from '../send_message';
 
 // Toggle - Dark Mode
 document.querySelector('#checkbox-dark-mode').addEventListener('change', function (e) {
@@ -11,26 +12,14 @@ document.querySelector('#checkbox-dark-mode').addEventListener('change', functio
 		icons.forEach(function (icon) {
 			icon.style.backgroundColor = 'var(--accent)';
 		});
-		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
-			tabs.forEach(function (tab) {
-				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
-					BROWSER_API.tabs.sendMessage(tab.id, { darkMode: true });
-				}
-			});
-		});
+		sendMessage({ darkMode: true });
 	} else if (state == false) {
 		BROWSER_API.storage.sync.set({ darkMode: false });
 		var icons = document.querySelectorAll('.icon-dark-mode');
 		icons.forEach(function (icon) {
 			icon.style.backgroundColor = '';
 		});
-		BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
-			tabs.forEach(function (tab) {
-				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
-					BROWSER_API.tabs.sendMessage(tab.id, { darkMode: false });
-				}
-			});
-		});
+		sendMessage({ darkMode: false });
 	}
 });
 
@@ -51,13 +40,7 @@ function tabDmDisabled() {
 	});
 	document.querySelector('#btn-dm-disabled').classList.add('tab-active');
 	BROWSER_API.storage.sync.set({ darkModeAuto: 'false' });
-	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
-		tabs.forEach(function (tab) {
-			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
-				BROWSER_API.tabs.sendMessage(tab.id, { darkModeAutoListener: false });
-			}
-		});
-	});
+	sendMessage({ darkModeAutoListener: false });
 }
 document.querySelector('#btn-dm-system').addEventListener('click', function (e) {
 	tabDmSystem();
@@ -92,14 +75,8 @@ export function tabDmSystem() {
 		});
 		var value = false;
 	}
-	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
-		tabs.forEach(function (tab) {
-			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
-				BROWSER_API.tabs.sendMessage(tab.id, { darkMode: value });
-				BROWSER_API.tabs.sendMessage(tab.id, { darkModeAutoListener: true });
-			}
-		});
-	});
+	sendMessage({ darkMode: value });
+	sendMessage({ darkModeAutoListener: true });
 }
 
 // Time Range
@@ -118,21 +95,15 @@ export function tabDmTime() {
 	document.querySelector('#btn-dm-time').classList.add('tab-active');
 	darkModeTimeCalc(1);
 	BROWSER_API.storage.sync.set({ darkModeAuto: 'time' });
-	BROWSER_API.tabs.query({ currentWindow: true }, function (tabs) {
-		tabs.forEach(function (tab) {
-			if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
-				BROWSER_API.tabs.sendMessage(tab.id, { darkModeAutoListener: false });
-			}
-		});
-	});
+	sendMessage({ darkModeAutoListener: false });
 }
 
 // Dark Mode Time Inputs
 document.querySelector('#dm-time-start').addEventListener('input', function (e) {
-	var time = document.querySelector('#dm-time-start').value;
+	const time = document.querySelector('#dm-time-start').value;
 	BROWSER_API.storage.sync.set({ darkModeTimeStart: time });
 });
 document.querySelector('#dm-time-end').addEventListener('input', function (e) {
-	var time = document.querySelector('#dm-time-end').value;
+	const time = document.querySelector('#dm-time-end').value;
 	BROWSER_API.storage.sync.set({ darkModeTimeEnd: time });
 });

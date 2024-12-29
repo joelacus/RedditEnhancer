@@ -1,9 +1,10 @@
-// Input - Language Select
+/* ===== Inputs / Language Select ===== */
 
-import { init_i18n } from '../popup-internationalisation';
+import { init_i18n } from '../popup_internationalisation';
 
 const lang_dropdown = document.querySelector('#select-lang');
 const lang_dropdownMenu = document.querySelector('#select-lang-menu');
+
 document.querySelector('#select-lang .select').addEventListener('click', function () {
 	if (lang_dropdown.classList.contains('active')) {
 		lang_dropdown.classList.remove('active');
@@ -13,12 +14,14 @@ document.querySelector('#select-lang .select').addEventListener('click', functio
 		lang_dropdownMenu.style.maxHeight = lang_dropdownMenu.scrollHeight + 'px';
 	}
 });
+
 document.addEventListener('click', function (e) {
 	if (!lang_dropdown.contains(e.target)) {
 		lang_dropdown.classList.remove('active');
 		lang_dropdownMenu.style.maxHeight = '0';
 	}
 });
+
 lang_dropdownMenu.addEventListener('click', function (e) {
 	const btn = e.target.tagName.toLowerCase();
 	let lang = '';

@@ -11,9 +11,9 @@ module.exports = {
 	//devtool: 'source-map',
 	entry: {
 		background: './src/common/background.js',
-		content: './src/common/content-index.js',
-		content_first: './src/common/content-first-index.js',
-		'popup/popup': './src/common/popup/popup-index.js',
+		content: './src/common/content_index.js',
+		content_first: './src/common/content_first_index.js',
+		'popup/popup': './src/common/popup/popup_index.js',
 		restore_config: './src/common/restore_config.js',
 	},
 	output: {
@@ -99,6 +99,16 @@ module.exports = {
 					to: 'restore_config.css',
 				},
 				{
+					context: path.resolve(__dirname, 'src/common'),
+					from: 'options_page/options.html',
+					to: 'options.html',
+				},
+				{
+					context: path.resolve(__dirname, 'src/common'),
+					from: 'options_page/options.css',
+					to: 'options.css',
+				},
+				{
 					context: path.resolve(__dirname, '.'),
 					from: 'changelog.txt',
 					to: 'changelog.txt',
@@ -117,7 +127,14 @@ module.exports = {
 	],
 	optimization: {
 		minimize: true,
-		minimizer: [new HtmlMinimizerPlugin(), new CssMinimizerPlugin(), new TerserPlugin()],
+		minimizer: [
+			new HtmlMinimizerPlugin(),
+			new CssMinimizerPlugin(),
+			new TerserPlugin({
+				parallel: true,
+			}),
+		],
+		usedExports: true,
 	},
 	performance: {
 		hints: false,

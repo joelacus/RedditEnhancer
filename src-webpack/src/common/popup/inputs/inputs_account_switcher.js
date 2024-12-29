@@ -1,4 +1,4 @@
-// Inputs - Account Switcher
+/* ===== Inputs / Account Switcher ===== */
 
 /*import Sortable from 'sortablejs';
 

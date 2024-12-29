@@ -687,10 +687,6 @@
 		"message": "Montrer les Flair des postes"
 	},
 
-	"RemovePageSideMargin": {
-		"message": "Supprimer la marge latérale de la page"
-	},
-
 	"HideSideMenuTopSection": {
 		"message": "Masquer la section 'Supérieure'"
 	},
@@ -875,12 +871,8 @@
 		"message": "Largeur du fil de sujet"
 	},
 
-	"YouNeedToBeLoggedIn": {
-		"message": "Vous devez être connecté à Reddit pour que la redirection vers «Vieux Nouveau UI» fonctionne."
-	},
-
 	"RemovalNotification": {
-		"message": "Reddit a maintenant commencé à rediriger les utilisateurs de new.reddit.com vers la dernière version, donc à terme, vous ne pourrez plus utiliser le « Nouveau Vieux UI ». Malheureusement, je ne peux rien y faire :( Lorsque cela se produit, votre page peut afficher une erreur. Définissez la fonction de redirection sur « Désactivé » ou « Vieux UI »."
+		"message": "Reddit has discontinued (Old New UI / Version 2) of the website, and will be redirecting users from new.reddit.com to the latest version. If you have the redirect feature enabled for this version, you will get a page error. Set the redirect option to 'Off' or 'Old UI'. The options for Old New UI will be removed from upcoming versions of Reddit Enhancer."
 	},
 
 	"learnMore": {
@@ -932,7 +924,7 @@
 	},
 
 	"SetLanguageAndTheme": {
-		"message": "Définir la langue et le thème"
+		"message": "Paramètres pleine page / Définir la langue et le thème"
 	},
 
 	"SelectRedirect": {
@@ -985,5 +977,89 @@
 
 	"resizeHomeAlsoAffects": {
 		"message": "& r/all, r/popular, créer des post, des résultats de recherche et des pages wiki"
+	},
+
+	"SearchPageOffset": {
+		"message": "Décalage de la page de recherche"
+	},
+
+	"NoSavedBackgrounds": {
+		"message": "Aucun arrière-plan enregistré"
+	},
+
+	"HideHomeFeed": {
+		"message": "Masquer le flux d'accueil"
+	},
+
+	"RememberSectionHiddenState": {
+		"message": "Mémoriser les états cachés des sections dans le menu latéral"
+	},
+
+	"NewUpdateAvailable": {
+		"message": "La version <version> est désormais disponible. Votre navigateur devrait bientôt mettre à jour cette extension automatiquement si vous avez activé les mises à jour automatiques. Dans le cas contraire, vous devrez rechercher manuellement les mises à jour dans le gestionnaire d'extensions du navigateur."
+	},
+
+	"UpvoteColour": {
+		"message": "Post: Couleur de vote positif"
+	},
+
+	"FontWeight": {
+		"message": "Poids de la police"
+	},
+
+	"FontWeightInfo": {
+		"message": "Toutes les polices ne prennent pas en charge tous les poids."
+	},
+
+	"Font": {
+		"message": "Fonte"
+	},
+
+	"FeedPostTitle": {
+		"message": "Flux Post: Titre"
+	},
+
+	"FeedPostContent": {
+		"message": "Flux Post: Contenu"
+	},
+
+	"PostCommentActionRowColour": {
+		"message": "Post: Couleur de la ligne d'action du commentaire"
+	},
+
+	"FilterOptionsFor": {
+		"message": "Options de filtrage pour"
+	},
+
+	"Redirect": {
+		"message": "Réorienter"
+	},
+
+	"CreatePostTitle": {
+		"message": "Créer une post: Titre"
+	},
+
+	"CreatePostBody": {
+		"message": "Créer une post: Contenu"
+	},
+
+	"OptionsPage": {
+		"message": "Page d'options"
+	},
+
+	"extensionVersionText": {
+		"message": "Version d'extension"
+	},
+
+	"Changelog": {
+		"message": "Journal des modifications"
+	},
+
+	"ShowProfilePicturesOnComments": {
+		"message": "Afficher les photos de profil dans les commentaires"
+	},
+
+	"CustomFeedWidth": {
+		"message": "Largeur de flux personnalisée"
 	}
 }

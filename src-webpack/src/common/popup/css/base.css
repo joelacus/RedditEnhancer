@@ -16,8 +16,9 @@
 	--red: #f44336;
 	--light-blue: #03a9f4;
 	--shadow: rgba(0, 0, 0, 0.5);
-	--btn-hover: rgba(255, 255, 255, 0.05);
+	--btn-hover: rgb(20, 20, 21);
 	--btn-active: rgba(255, 255, 255, 0.1);
+	--btn-hover-border: #484848;
 }
 
 .light-theme {

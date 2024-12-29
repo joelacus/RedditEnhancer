@@ -2,64 +2,64 @@
 
 // Listens for commands from the settings popup to enable/disable/change tweaks.
 
-import { addDropShadow } from './functions/style/drop_shadow';
-import { alwaysShowPostOptions } from './functions/productivity/always_show_post_options';
-import { alwaysShowRisingButton } from './functions/productivity/always_show_rising';
-import { autoCollapseAutoModeratorComment } from './functions/productivity/auto_collapse_automod_comment';
-import { autoExpandComments } from './functions/productivity/auto_expand_comments';
-import { autoExpandValue } from './functions/expand_feed_post/auto_expand_value';
-import { autoLoadMoreComments } from './functions/productivity/auto_load_more_comments';
-import { bgBlur } from './functions/background/custom_background';
-import { bionicReaderBgColour, bionicReaderBgColourCSS, bionicReaderFontColour, bionicReaderFontColourCSS, bionicReaderPosts } from './functions/accessibility/bionic_reader';
-import { bionicReaderComments } from './functions/accessibility/bionic_reader';
-import { breakReminder } from './functions/productivity/break_reminder';
-import { darkMode, darkModeAutoListener } from './functions/dark_mode/dark_mode';
-import { expandLayout, expandPostOverlayWidth, expandPostWidth, expandSubWidth, expandLayoutWidth, expandUserProfileWidth, expandTopicFeedWidth } from './functions/expand_feed_post/expand_content';
-import { fitImage } from './functions/productivity/scale_tall_images_to_fit_post';
-import { hideCreatePost } from './functions/hide_elements/hide_create_post';
-import { hideGap } from './functions/style/hide_gap';
-import { hideGetNewReddit } from './functions/hide_elements/hide_get_new_reddit';
-import { hideHeaderBar } from './functions/hide_elements/hide_header_bar';
-import { hideHeaderSubBar } from './functions/hide_elements/hide_header_sub_bar';
-import { hideHomeSidebar, hideSubSidebar, hidePostSidebar, hidePostOverlaySidebar, hideUserSidebar, hideRelatedPostsSection, hideSearchSidebar } from './functions/hide_elements/hide_sidebar';
-import { hideJoinButtonOnPosts } from './functions/hide_elements/hide_post_join_button';
-import { hideNSFW } from './functions/hide_elements/hide_nsfw';
-import { hideOriginalScrollToTop } from './functions/hide_elements/hide_original_scroll_to_top';
-import { hidePopularButton, hideModerationButton, hideChatButton, hideAdvertiseButton, hideNotificationButton, hideCreatePostButton } from './functions/hide_elements/hide_header_buttons';
-import { hidePostHiddenMessage } from './functions/hide_elements/hide_post_hidden_message';
-import { hidePromoted } from './functions/hide_elements/hide_promoted';
-import { hideRedditPremium } from './functions/hide_elements/hide_reddit_premium';
-import { hideSeeFullImage } from './functions/hide_elements/hide_see_full_image';
-import { hideSidebarPolicy } from './functions/hide_elements/hide_sidebar_policy';
-import { hideSideMenuOld, hideSideMenu } from './functions/hide_elements/hide_side_menu';
-import { hideSideMenuCommunitiesSection, hideSideMenuCustomFeedsSection, hideSideMenuModerationSection, hideSideMenuRecentSection, hideSideMenuResourcesSection, hideSideMenuTopSection, hideSideMenuTopicsSection } from './functions/hide_elements/hide_side_menu_sections';
-import { hideTurnOnNotificationsPopup } from './functions/hide_elements/hide_turn_on_notifications_popup';
-import { hideUsername, hideKarma } from './functions/hide_elements/hide_username_and_karma';
-import { hideUserProfilePics } from './functions/hide_elements/hide_user_profile_pics';
-import { imageScroll, imageScrollMaxImageWidth } from './functions/productivity/scroll_tall_images';
-import { largerClassicPost } from './functions/style/larger_classic_post';
-import { layoutCentre, layoutOffset, layoutSubOffset, layoutPostOffset, layoutUserProfileOffset } from './functions/expand_feed_post/layout_centre_and_offset';
-import { limitInfinityScroll } from './functions/productivity/limit_infinity_scroll';
-import { moderniseOldReddit } from './functions/style/modernise_old_reddit';
-import { newPlayer } from './functions/productivity/video_player';
-import { nonStickyHeaderBar } from './functions/productivity/non_sticky_header_bar';
-import { openPostInNewTab } from './functions/productivity/open_post_links_in_new_tab';
-import { openSubInNewTab } from './functions/productivity/open_sub_links_in_new_tab';
-import { overrideDropShadow, overrideDropShadowCSS } from './functions/style/override_drop_shadow';
-import { postHeight, postHeightSize } from './functions/productivity/post_max_height';
-import { postTitleFontSize, postCommentsFontSize, postContentFontSize } from './functions/accessibility/resize_font';
-//import { removePageSideMargin } from './functions/expand_feed_post/remove_page_side_margin';
-import { scrollToNextRootComment } from './functions/productivity/scroll_to_next_root_comment';
-import { scrollToNextRootCommentPosition, scrollToNextRootCommentPositionV } from './functions/productivity/scroll_to_next_root_comment';
-import { showAllButton } from './functions/productivity/show_r_all_button';
-import { showControversialSortButton } from './functions/productivity/show_controversial_sort_button';
-import { showPostAuthor } from './functions/productivity/show_post_author';
-import { showPostFlair } from './functions/productivity/show_post_flair';
-import { showPostNumbers } from './functions/productivity/show_post_numbers';
-import { showToTopButton } from './functions/productivity/scroll_to_top';
-import { sidemenuFeedTop } from './functions/productivity/sidemenu_feed_top';
-import { stickySort } from './functions/productivity/sticky_sort';
-import { textPostScroll } from './functions/productivity/text_post_scroll';
+import { addDropShadow } from './tweaks/style/drop_shadow';
+import { alwaysShowPostOptions } from './tweaks/productivity/always_show_post_options';
+import { alwaysShowRisingButton } from './tweaks/productivity/always_show_rising';
+import { autoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
+import { autoExpandComments } from './tweaks/productivity/auto_expand_comments';
+import { autoExpandValue } from './tweaks/resize_elements/auto_expand_value';
+import { autoLoadMoreComments } from './tweaks/productivity/auto_load_more_comments';
+import { bgBlur } from './tweaks/background/custom_background';
+import { bionicReaderBgColour, bionicReaderBgColourCSS, bionicReaderFontColour, bionicReaderFontColourCSS, bionicReaderPosts } from './tweaks/accessibility/bionic_reader';
+import { bionicReaderComments } from './tweaks/accessibility/bionic_reader';
+import { breakReminder } from './tweaks/productivity/break_reminder';
+import { darkMode, darkModeAutoListener } from './tweaks/dark_mode/dark_mode';
+import { expandLayout, expandPostOverlayWidth, expandPostWidth, expandSubWidth, expandLayoutWidth, expandUserProfileWidth, expandTopicFeedWidth, expandCustomFeedWidth } from './tweaks/resize_elements/expand_content';
+import { fitImage } from './tweaks/productivity/scale_tall_images_to_fit_post';
+import { hideCreatePost } from './tweaks/hide_elements/hide_create_post';
+import { hideGap } from './tweaks/style/hide_gap';
+import { hideGetNewReddit } from './tweaks/hide_elements/hide_get_new_reddit';
+import { hideHeaderBar } from './tweaks/hide_elements/hide_header_bar';
+import { hideHeaderSubBar } from './tweaks/hide_elements/hide_header_sub_bar';
+import { hideHomeSidebar, hideSubSidebar, hidePostSidebar, hidePostOverlaySidebar, hideUserSidebar, hideRelatedPostsSection, hideSearchSidebar } from './tweaks/hide_elements/hide_sidebar';
+import { hideJoinButtonOnPosts } from './tweaks/hide_elements/hide_post_join_button';
+import { hideNSFW } from './tweaks/hide_elements/hide_nsfw';
+import { hideOriginalScrollToTop } from './tweaks/hide_elements/hide_original_scroll_to_top';
+import { hidePopularButton, hideModerationButton, hideChatButton, hideAdvertiseButton, hideNotificationButton, hideCreatePostButton } from './tweaks/hide_elements/hide_header_buttons';
+import { hidePostHiddenMessage } from './tweaks/hide_elements/hide_post_hidden_message';
+import { hidePromoted } from './tweaks/hide_elements/hide_promoted';
+import { hideRedditPremium } from './tweaks/hide_elements/hide_reddit_premium';
+import { hideSeeFullImage } from './tweaks/hide_elements/hide_see_full_image';
+import { hideSidebarPolicy } from './tweaks/hide_elements/hide_sidebar_policy';
+import { hideSideMenuOld, hideSideMenu } from './tweaks/hide_elements/hide_side_menu';
+import { hideSideMenuCommunitiesSection, hideSideMenuCustomFeedsSection, hideSideMenuModerationSection, hideSideMenuRecentSection, hideSideMenuResourcesSection, hideSideMenuTopSection, hideSideMenuTopicsSection } from './tweaks/hide_elements/hide_side_menu_sections';
+import { hideTurnOnNotificationsPopup } from './tweaks/hide_elements/hide_turn_on_notifications_popup';
+import { hideUsername, hideKarma } from './tweaks/hide_elements/hide_username_and_karma';
+import { hideUserProfilePics } from './tweaks/hide_elements/hide_user_profile_pics';
+import { imageScroll, imageScrollMaxImageWidth } from './tweaks/productivity/scroll_tall_images';
+import { largerClassicPost } from './tweaks/style/larger_classic_post';
+import { layoutCentre, layoutOffset, layoutSubOffset, layoutPostOffset, layoutUserProfileOffset, layoutSearchPageOffset } from './tweaks/resize_elements/layout_centre_and_offset';
+import { limitInfinityScroll } from './tweaks/productivity/limit_infinity_scroll';
+import { moderniseOldReddit } from './tweaks/style/modernise_old_reddit';
+import { newPlayer } from './tweaks/productivity/video_player';
+import { nonStickyHeaderBar } from './tweaks/productivity/non_sticky_header_bar';
+import { openPostInNewTab } from './tweaks/productivity/open_post_links_in_new_tab';
+import { openSubInNewTab } from './tweaks/productivity/open_sub_links_in_new_tab';
+import { overrideDropShadow, overrideDropShadowCSS } from './tweaks/style/override_drop_shadow';
+import { postHeight, postHeightSize } from './tweaks/productivity/post_max_height';
+import { postTitleFontSize, postCommentsFontSize, postContentFontSize, feedPostTitleFontSize, feedPostContentFontSize, createPostTitleFontSize, createPostBodyFontSize } from './tweaks/font/resize_font';
+import { feedPostContentFontWeight, feedPostTitleFontWeight, postCommentsFontWeight, postContentFontWeight, postTitleFontWeight } from './tweaks/font/font_weight';
+import { scrollToNextRootComment } from './tweaks/productivity/scroll_to_next_root_comment';
+import { scrollToNextRootCommentPosition, scrollToNextRootCommentPositionV } from './tweaks/productivity/scroll_to_next_root_comment';
+import { showAllButton } from './tweaks/productivity/show_r_all_button';
+import { showControversialSortButton } from './tweaks/productivity/show_controversial_sort_button';
+import { showPostAuthor } from './tweaks/productivity/show_post_author';
+import { showPostFlair } from './tweaks/productivity/show_post_flair';
+import { showPostNumbers } from './tweaks/productivity/show_post_numbers';
+import { showToTopButton } from './tweaks/productivity/scroll_to_top';
+import { sidemenuFeedTop } from './tweaks/productivity/sidemenu_feed_top';
+import { stickySort } from './tweaks/productivity/sticky_sort';
+import { textPostScroll } from './tweaks/productivity/text_post_scroll';
 import {
 	themeBlur,
 	themeCreatePostBackgroundColour,
@@ -110,26 +110,32 @@ import {
 	themeSortTextColourCSS,
 	themeSortTextColour2,
 	themeSortTextColour2CSS,
-} from './functions/style/override_theme_colours';
-import { useCustomBackground, setCustomBackground } from './functions/background/custom_background';
-import { underlineLinks } from './functions/accessibility/underline_links';
-import { autoShowCommentFormattingOptions } from './functions/productivity/auto_show_comment_formatting_options';
-import { hideRecommended } from './functions/hide_elements/hide_recommended';
+	themePostUpvoteColourCSS,
+	themePostUpvoteColour,
+	themePostCommentActionRowColour,
+	themePostCommentActionRowColourCSS,
+} from './tweaks/style/override_theme_colours';
+import { useCustomBackground, setCustomBackground } from './tweaks/background/custom_background';
+import { underlineLinks } from './tweaks/accessibility/underline_links';
+import { autoShowCommentFormattingOptions } from './tweaks/productivity/auto_show_comment_formatting_options';
+import { hideRecommended } from './tweaks/hide_elements/hide_recommended';
 //import { scalePostToFitImageMaxImageWidth, scalePostToFitImage } from './functions/productivity/scale_post_to_fit_image';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
-import { hidePostBackButton } from './functions/hide_elements/hide_post_back_button';
-import { borderRadiusAmount } from './functions/style/border_radius';
-import { hidePostKarma } from './functions/hide_elements/hide_post_karma';
-import { hideRecentPosts } from './functions/hide_elements/hide_recent_posts';
-import { sideMenuWidth } from './functions/productivity/side_menu_width';
-import { sideMenuIconsOnly } from './functions/hide_elements/side_menu_icons_only';
-import { hideSideMenuFavouriteButton } from './functions/hide_elements/hide_side_menu_favourite_button';
-import { sideMenuToggleButton } from './functions/hide_elements/side_menu_toggle_button';
-import { hideCompactViewBlankThumbnails } from './functions/hide_elements/hide_compact_view_blank_thumbnails';
-import { hideNsfwInSearchResults, hideTrendingTodayInSearchResults } from './functions/hide_elements/hide_search_results_sections';
-import { hideCommunityHighlights } from './functions/hide_elements/hide_community_highlights';
-import { hideSearchSidebarNsfwUsers } from './functions/hide_elements/hide_search_page_sidebar_nsfw_users';
-import { rememberSideMenuSectionHiddenState } from './functions/productivity/remember_side_menu_section_hidden_state';
+import { hidePostBackButton } from './tweaks/hide_elements/hide_post_back_button';
+import { borderRadiusAmount } from './tweaks/style/border_radius';
+import { hidePostKarma } from './tweaks/hide_elements/hide_post_karma';
+import { hideRecentPosts } from './tweaks/hide_elements/hide_recent_posts';
+import { sideMenuWidth } from './tweaks/resize_elements/side_menu_width';
+import { sideMenuIconsOnly } from './tweaks/hide_elements/side_menu_icons_only';
+import { hideSideMenuFavouriteButton } from './tweaks/hide_elements/hide_side_menu_favourite_button';
+import { sideMenuToggleButton } from './tweaks/hide_elements/side_menu_toggle_button';
+import { hideCompactViewBlankThumbnails } from './tweaks/hide_elements/hide_compact_view_blank_thumbnails';
+import { hideNsfwInSearchResults, hideTrendingTodayInSearchResults } from './tweaks/hide_elements/hide_search_results_sections';
+import { hideCommunityHighlights } from './tweaks/hide_elements/hide_community_highlights';
+import { hideSearchSidebarNsfwUsers } from './tweaks/hide_elements/hide_search_page_sidebar_nsfw_users';
+import { rememberSideMenuSectionHiddenState } from './tweaks/hide_elements/remember_side_menu_section_hidden_state';
+import { hideHomeFeed } from './tweaks/hide_elements/hide_home_feed';
+import { addProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 /* = Listen For Settings Change = */
@@ -161,6 +167,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		expandUserProfileWidth(value);
 	} else if (key == 'expandTopicFeedWidth') {
 		expandTopicFeedWidth(value);
+	} else if (key == 'expandCustomFeedWidth') {
+		expandCustomFeedWidth(value);
 	} else if (key == 'layoutOffset') {
 		layoutOffset(value);
 	} else if (key == 'layoutSubOffset') {
@@ -169,6 +177,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		layoutPostOffset(value);
 	} else if (key == 'layoutUserProfileOffset') {
 		layoutUserProfileOffset(value);
+	} else if (key == 'layoutSearchPageOffset') {
+		layoutSearchPageOffset(value);
 	} else if (key == 'layoutCentre') {
 		layoutCentre(value);
 	} else if (key == 'shadows') {
@@ -367,6 +377,10 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		themeSearchbarDropdownBgColour(value);
 	} else if (key == 'themeSearchbarDropdownBgColourCSS') {
 		themeSearchbarDropdownBgColourCSS(value);
+	} else if (key == 'themePostUpvoteColour') {
+		themePostUpvoteColour(value);
+	} else if (key == 'themePostUpvoteColourCSS') {
+		themePostUpvoteColourCSS(value);
 	} else if (key == 'themeBlur') {
 		themeBlur(value);
 	} else if (key == 'bionicReaderPosts') {
@@ -401,9 +415,7 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		showPostAuthor(value);
 	} else if (key == 'showPostFlair') {
 		showPostFlair(value);
-	} /* else if (key == 'removePageSideMargin') {
-		removePageSideMargin(value);
-	}*/ else if (key == 'hideSideMenuTopSection') {
+	} else if (key == 'hideSideMenuTopSection') {
 		hideSideMenuTopSection(value);
 	} else if (key == 'hideSideMenuModerationSection') {
 		hideSideMenuModerationSection(value);
@@ -479,6 +491,32 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		hideSearchSidebarNsfwUsers(value);
 	} else if (key == 'rememberSideMenuSectionHiddenState') {
 		rememberSideMenuSectionHiddenState(value);
+	} else if (key == 'hideHomeFeed') {
+		hideHomeFeed(value);
+	} else if (key == 'postTitleFontWeight') {
+		postTitleFontWeight(value);
+	} else if (key == 'postContentFontWeight') {
+		postContentFontWeight(value);
+	} else if (key == 'postCommentsFontWeight') {
+		postCommentsFontWeight(value);
+	} else if (key == 'feedPostTitleFontSize') {
+		feedPostTitleFontSize(value);
+	} else if (key == 'feedPostContentFontSize') {
+		feedPostContentFontSize(value);
+	} else if (key == 'feedPostTitleFontWeight') {
+		feedPostTitleFontWeight(value);
+	} else if (key == 'feedPostContentFontWeight') {
+		feedPostContentFontWeight(value);
+	} else if (key == 'themePostCommentActionRowColour') {
+		themePostCommentActionRowColour(value);
+	} else if (key == 'themePostCommentActionRowColourCSS') {
+		themePostCommentActionRowColourCSS(value);
+	} else if (key == 'createPostTitleFontSize') {
+		createPostTitleFontSize(value);
+	} else if (key == 'createPostBodyFontSize') {
+		createPostBodyFontSize(value);
+	} else if (key == 'addProfilePicturesToComments') {
+		addProfilePicturesToComments(value);
 	}
 	return true;
 });

@@ -1,4 +1,5 @@
 @import './css/base.css';
+@import './css/changelog.css';
 @import './css/containers.css';
 @import './css/flags.css';
 @import './css/footer.css';
@@ -6,4 +7,5 @@
 @import './css/icons.css';
 @import './css/inputs.css';
 @import './css/main-menu.css';
+@import './css/settings.css';
 @import './css/start-page.css';

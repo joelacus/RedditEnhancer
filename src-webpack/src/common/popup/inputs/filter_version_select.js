@@ -1,4 +1,6 @@
-// Input - Reddit Version Select
+/* ===== Inputs / Reddit Version Select ===== */
+
+// Filter the list of options based on the selected Reddit version.
 
 // Show Tweaks For Old Reddit
 export function filterShowOldVersion() {
@@ -64,57 +66,73 @@ export function filterShowNewNewVersion() {
 }
 
 // Filter Version - Select
-const version_dropdown = document.querySelector('#select-version');
-const version_dropdownMenu = document.querySelector('#select-version-menu');
-document.querySelector('#select-version .select').addEventListener('click', function () {
-	if (version_dropdown.classList.contains('active')) {
-		version_dropdown.classList.remove('active');
-		version_dropdownMenu.style.maxHeight = '0';
-	} else {
-		version_dropdown.classList.add('active');
-		version_dropdownMenu.style.maxHeight = version_dropdownMenu.scrollHeight + 'px';
-	}
-});
-document.addEventListener('click', function (event) {
-	if (!version_dropdown.contains(event.target)) {
-		version_dropdown.classList.remove('active');
-		version_dropdownMenu.style.maxHeight = '0';
-	}
-});
+export function initFilter() {
+	const version_dropdown = document.querySelector('#select-version');
+	const version_dropdownMenu = document.querySelector('#select-version-menu');
+	document.querySelector('#select-version .select').addEventListener('click', function () {
+		if (version_dropdown.classList.contains('active')) {
+			version_dropdown.classList.remove('active');
+			version_dropdownMenu.style.maxHeight = '0';
+		} else {
+			version_dropdown.classList.add('active');
+			version_dropdownMenu.style.maxHeight = version_dropdownMenu.scrollHeight + 'px';
+		}
+	});
+
+	// Dismiss dropdown
+	document.addEventListener('click', function (event) {
+		if (!version_dropdown.contains(event.target)) {
+			version_dropdown.classList.remove('active');
+			version_dropdownMenu.style.maxHeight = '0';
+		}
+	});
+
+	// Filter Old UI options
+	document.querySelector('#old-reddit').addEventListener('click', function (e) {
+		selectFilterShowOldVersion(e.target.textContent);
+	});
+
+	// Filter Old New UI options
+	document.querySelector('#new-reddit').addEventListener('click', function (e) {
+		selectFilterShowNewVersion(e.target.textContent);
+	});
+
+	// Filter New New UI options
+	document.querySelector('#newnew-reddit').addEventListener('click', function (e) {
+		selectFilterShowNewNewVersion(e.target.textContent);
+	});
+}
 
 // Filter Version - Buttons
 export function selectFilterShowOldVersion(version) {
+	const version_dropdown = document.querySelector('#select-version');
+	const version_dropdownMenu = document.querySelector('#select-version-menu');
 	document.querySelector('#select-version .select span').textContent = version;
 	filterShowOldVersion();
 	BROWSER_API.storage.sync.set({ redditVersion: 'old' });
 	version_dropdown.classList.remove('active');
 	version_dropdownMenu.style.maxHeight = '0';
 }
-document.querySelector('#old-reddit').addEventListener('click', function (e) {
-	selectFilterShowOldVersion(e.target.textContent);
-});
 
 export function selectFilterShowNewVersion(version) {
+	const version_dropdown = document.querySelector('#select-version');
+	const version_dropdownMenu = document.querySelector('#select-version-menu');
 	document.querySelector('#select-version .select span').textContent = version;
 	filterShowNewVersion();
 	BROWSER_API.storage.sync.set({ redditVersion: 'new' });
 	version_dropdown.classList.remove('active');
 	version_dropdownMenu.style.maxHeight = '0';
-	if (localStorage.getItem('DontShowAgainOldNewUiWarning') === null) {
-		document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
-	}
+	//if (localStorage.getItem('DontShowAgainOldNewUiWarning') === null) {
+	document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
+	//}
 }
-document.querySelector('#new-reddit').addEventListener('click', function (e) {
-	selectFilterShowNewVersion(e.target.textContent);
-});
 
 export function selectFilterShowNewNewVersion(version) {
+	const version_dropdown = document.querySelector('#select-version');
+	const version_dropdownMenu = document.querySelector('#select-version-menu');
 	document.querySelector('#select-version .select span').textContent = version;
 	filterShowNewNewVersion();
 	BROWSER_API.storage.sync.set({ redditVersion: 'newnew' });
 	version_dropdown.classList.remove('active');
 	version_dropdownMenu.style.maxHeight = '0';
 }
-document.querySelector('#newnew-reddit').addEventListener('click', function (e) {
-	selectFilterShowNewNewVersion(e.target.textContent);
-});

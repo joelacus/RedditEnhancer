@@ -1,133 +1,174 @@
-// Input - Search Filter
+/* ===== Inputs / Search Filter ===== */
 
-var i, query, filter, txtValue;
-var ul = document.querySelector('.menu');
-var li = ul.querySelectorAll('li');
+const Fuse = require('fuse.js');
+const fuzzyOptions = {
+	includeScore: false,
+	threshold: 0.3,
+	keys: ['combined_item_text_str'],
+};
 
 function search_filter() {
 	BROWSER_API.storage.sync.get(['redditVersion'], function (result) {
+		var i, data_search_attributes, search_input, combined_item_text_str;
+		const ul = document.querySelector('#main-menu');
+		const li = ul.querySelectorAll('li');
+
 		if (result.redditVersion != undefined) {
-			var v = 'r-' + result.redditVersion;
+			const version = 'r-' + result.redditVersion;
 
-			// hide all category buttons, show all contents and show category content headers
-			document.querySelectorAll('.menu-item-link').forEach((item) => {
-				item.style.display = 'none';
-			});
-			document.querySelectorAll('.sub-list').forEach((sub) => {
-				if (sub.classList.contains(v)) {
-					sub.classList.remove('hidden');
-				}
-			});
-			document.querySelectorAll('.sub-search-title').forEach((title) => {
-				title.classList.remove('hidden');
-			});
-
-			// for all options
+			// iterate through all options
 			for (i = 0; i < li.length; i++) {
-				if (li[i].classList.contains(v)) {
-					txtValue = '';
-					query = li[i].querySelectorAll('[data-search]');
-					if (query != undefined) {
-						query.forEach(function (span) {
-							txtValue = txtValue + ',' + span.dataset.search + ',' + span.textContent || span.innerText;
+				if (li[i].classList.contains(version) && Array.from(li[i].classList).some((className) => className.startsWith('container'))) {
+					combined_item_text_str = '';
+					data_search_attributes = li[i].querySelectorAll('[data-search]');
+					if (data_search_attributes != undefined) {
+						// create dataset for option to search against
+						data_search_attributes.forEach(function (span) {
+							combined_item_text_str = [combined_item_text_str, span.dataset.search.split(',').join(' '), span.textContent || span.innerText].join(' ').trim().replace(':', '');
 						});
-						filter = document.querySelector('#search').value.toLowerCase();
-						if (txtValue.toLowerCase().indexOf(filter) > -1) {
-							li[i].style.display = 'grid';
+						const combined_item_text_ary = combined_item_text_str.split(' ').map((word) => ({ combined_item_text_str: word }));
+						// get user search input
+						search_input = document.querySelector('#search').value.toLowerCase().trim();
+						const search_input_words = search_input.split(' ');
+						// fuzzy search
+						const fuse = new Fuse(combined_item_text_ary, fuzzyOptions);
+						const found = search_input_words.every((word) => {
+							const result = fuse.search(word);
+							return result.length > 0;
+						});
+						// set search result if found as an attribute in the option (false will be hidden)
+						if (found) {
+							li[i].setAttribute('data-search-result', true);
 						} else {
-							li[i].style.display = 'none';
+							li[i].setAttribute('data-search-result', false);
 						}
 					} else {
-						li[i].style.display = 'none';
+						li[i].setAttribute('data-search-result', false);
 					}
 
-					// if the item is a sub menu
-					const items = li[i].querySelectorAll('div.container');
+					// if the item is a sub sub menu
+					const items = li[i].querySelectorAll(':scope > div');
 					for (let i = 0; i < items.length; i++) {
-						txtValue = '';
-						query = items[i].querySelectorAll('[data-search]');
-						if (query != undefined) {
-							query.forEach(function (span) {
-								txtValue = txtValue + ',' + span.dataset.search + ',' + span.textContent || span.innerText;
+						combined_item_text_str = '';
+						const span = items[i].querySelector('[data-search]');
+						if (span != undefined) {
+							// create dataset for option to search against
+							combined_item_text_str = [span.dataset.search.split(',').join(' '), span.textContent || span.innerText].join(' ').trim().replace(':', '');
+							const combined_item_text_ary = combined_item_text_str.split(' ').map((word) => ({ combined_item_text_str: word }));
+							// get user search input
+							search_input = document.querySelector('#search').value.toLowerCase().trim();
+							const search_input_words = search_input.split(' ');
+							// fuzzy search
+							const fuse = new Fuse(combined_item_text_ary, fuzzyOptions);
+							const found = search_input_words.every((word) => {
+								const result = fuse.search(word);
+								return result.length > 0;
 							});
-							filter = document.querySelector('#search').value.toLowerCase();
-							if (txtValue.toLowerCase().indexOf(filter) > -1) {
-								items[i].style.display = 'grid';
+							// set search result if found as an attribute in the option (false will be hidden)
+							if (found) {
+								items[i].setAttribute('data-search-result', true);
 							} else {
-								items[i].style.display = 'none';
+								items[i].setAttribute('data-search-result', false);
+								if (items[i].nextElementSibling) {
+									if (items[i].nextElementSibling.classList.contains('divider')) {
+										items[i].nextElementSibling.setAttribute('data-search-result', false);
+									}
+								}
 							}
-						} else {
+						} else if (!items[i].parentElement.querySelector('.dropdown')) {
 							items[i].style.display = 'none';
 						}
-					}
-
-					// show all if search input is blank
-					if (document.querySelector('#search').value == '') {
-						document.querySelectorAll('.sub-list').forEach((sub) => {
-							sub.classList.add('hidden');
-						});
-						li[i].style.display = null;
-						document.querySelectorAll('.sub-search-title').forEach((title) => {
-							title.classList.add('hidden');
-						});
-						document.querySelectorAll('.menu-item-link').forEach((item) => {
-							item.classList.remove('active');
-							item.style.display = '';
-						});
 					}
 				}
 			}
 
-			// Check if each menu list/category contain search results
-			document.querySelectorAll('#main-menu .menu-list').forEach(function (menuList) {
-				// unhide all menu lists
-				menuList.classList.remove('hidden');
-			});
+			// show/hide elements depending if the search is being used
 			if (document.querySelector('#search').value != '') {
-				// check each menu list for result
-				document.querySelectorAll('#main-menu .menu-list').forEach(function (menuList) {
-					const containers = menuList.querySelectorAll('.container');
-					function hasVisibleResultsFunc() {
-						for (const element of containers) {
-							if (element.style.display === 'grid') {
-								return true;
-							}
-						}
-						return false;
-					}
-					const hasVisibleResults = hasVisibleResultsFunc();
-					// hide menu list if it contains no search result
-					if (!hasVisibleResults) {
+				// hide extension settings and changelog
+				if (document.querySelector('body#options-page')) {
+					document.querySelector('#settings').classList.add('hidden');
+					document.querySelector('#changelog').classList.add('hidden');
+					document.querySelectorAll('#main-menu .menu-item-link').forEach((el) => {
+						el.classList.add('hidden');
+					});
+				}
+
+				// show search input clear button
+				document.querySelector('#btn-clear-search').classList.remove('hidden');
+
+				// add class to main menu to hide certain elements during search
+				document.querySelector('#main-menu').classList.add('search-mode');
+
+				// unhide all sub menus
+				document.querySelectorAll('#main-menu .sub-list').forEach(function (menuList) {
+					menuList.classList.remove('hidden');
+				});
+
+				// hide menu list if it contains no search results
+				document.querySelectorAll('#main-menu .sub-list').forEach(function (menuList) {
+					if (menuList.querySelector('[data-search-result="true"]')) {
+						menuList.classList.remove('hidden');
+					} else {
 						menuList.classList.add('hidden');
 					}
 				});
-				// if no results, show no results page to user
-				document.querySelectorAll('.container').forEach(function (container) {
-					const containers = document.querySelectorAll('.container');
-					function anyVisibleResultsFunc() {
-						for (const element of containers) {
-							if (element.style.display === 'grid') {
-								return true;
-							}
-						}
-						return false;
-					}
-					const anyVisibleResults = anyVisibleResultsFunc();
-					if (anyVisibleResults === true) {
-						document.querySelector('#no-search-results').style.display = 'none';
-					} else {
-						document.querySelector('#no-search-results').style.display = 'flex';
-					}
-				});
+
+				// if no results, show no results page
+				if (!document.querySelector('[data-search-result="true"]')) {
+					document.querySelector('#no-search-results').classList.remove('hidden');
+				} else {
+					document.querySelector('#no-search-results').classList.add('hidden');
+				}
 			} else {
-				document.querySelectorAll('.sub-list').forEach(function (sub) {
+				// options page - default back to active category
+				setTimeout(() => {
+					if (document.querySelector('body#options-page') && document.querySelector('.side-menu .active')) {
+						const active = document.querySelector('.side-menu .active').id;
+						if (active && active !== 'btn-settings' && active !== 'btn-changelog') {
+							if (document.querySelector(`#main-menu #${active}`)) {
+								document.querySelector(`#main-menu #${active}`).nextElementSibling.classList.remove('hidden');
+							}
+						} else if (active === 'btn-settings') {
+							document.querySelector(`#settings`).classList.remove('hidden');
+						} else if (active === 'btn-changelog') {
+							document.querySelector(`#changelog`).classList.remove('hidden');
+						}
+						document.querySelectorAll('#main-menu .menu-item-link').forEach((el) => {
+							el.classList.remove('hidden');
+						});
+					}
+				}, 100);
+
+				// hide search input clear button
+				document.querySelector('#btn-clear-search').classList.add('hidden');
+
+				// add class to main menu to hide certain elements during search
+				document.querySelector('#main-menu').classList.remove('search-mode');
+
+				// remove search result attribute from options
+				document.querySelectorAll('[class^="container"]').forEach((item) => {
+					item.removeAttribute('data-search-result');
+				});
+
+				// hide all sub menu lists
+				document.querySelectorAll('.sub-list').forEach((sub) => {
 					sub.classList.add('hidden');
 				});
-				document.querySelector('#no-search-results').style.display = 'none';
+
+				// hide no results page
+				document.querySelector('#no-search-results').classList.add('hidden');
 			}
 		}
 	});
 }
-document.querySelector('#search').addEventListener('keyup', function (e) {
-	search_filter(e);
+
+// Input - Search Input
+document.querySelector('#search').addEventListener('keyup', function () {
+	search_filter();
+});
+
+// Button - Clear Search Input
+document.querySelector('#btn-clear-search').addEventListener('click', function () {
+	document.querySelector('#search').value = '';
+	search_filter();
 });

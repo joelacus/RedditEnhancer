@@ -687,10 +687,6 @@
 		"message": "Toon 'Post Flair'"
 	},
 
-	"RemovePageSideMargin": {
-		"message": "Verwijder de paginazijmarge"
-	},
-
 	"HideSideMenuTopSection": {
 		"message": "Verberg het bovenste gedeelte"
 	},
@@ -875,76 +871,72 @@
 		"message": "Onderwerpfeedbreedte"
 	},
 
-	"YouNeedToBeLoggedIn": {
-		"message": "U moet ingelogd zijn bij Reddit om de omleiding naar 'Oude Nieuwe UI' te laten werken."
-	},
-
 	"RemovalNotification": {
-		"message": "Reddit has now started redirecting users from new.reddit.com to the latest version, so eventually you won't be able to use the Old New UI. Unfortunately, I can't do anything about this :( When this happens, your page may error, set the redirect feature to 'Off' or 'Old UI'."
+		"message": "Reddit has discontinued (Old New UI / Version 2) of the website, and will be redirecting users from new.reddit.com to the latest version. If you have the redirect feature enabled for this version, you will get a page error. Set the redirect option to 'Off' or 'Old UI'. The options for Old New UI will be removed from upcoming versions of Reddit Enhancer."
 	},
 
 	"learnMore": {
-		"message": "Learn More"
+		"message": "Meer informatie"
 	},
 
 	"HidePostBackButton": {
-		"message": "Hide The Post Back Button"
+		"message": "Verberg de knop 'Post terug'"
 	},
 
 	"BorderRadiusAmount": {
-		"message": "Theme Corner Radius"
+		"message": "Thema hoek radius"
 	},
 
 	"HidePostKarma": {
-		"message": "Hide Post Karma"
+		"message": "Bericht verbergen Karma"
 	},
 
 	"HideRecentPosts": {
-		"message": "Hide Recent Posts"
+		"message": "Verberg recente berichten"
 	},
 
 	"SideMenuWidth": {
-		"message": "Side Menu Width"
+		"message": "Breedte zijmenu"
 	},
 
 	"SideMenuIconsOnly": {
-		"message": "Side Menu Icons Only"
+		"message": "Alleen pictogrammen in het zijmenu"
 	},
 
 	"HideFavouriteButtons": {
-		"message": "Hide the Favourite Buttons"
+		"message": "Verberg de Favorietenknoppen"
 	},
 
 	"ResetAllSettings": {
-		"message": "Reset All Settings"
+		"message": "Alle instellingen resetten"
 	},
 
 	"Confirm": {
-		"message": "Confirm"
+		"message": "Bevestigen"
 	},
 
 	"Cleared": {
-		"message": "Cleared"
+		"message": "Gewist"
 	},
 
 	"Error": {
-		"message": "Error"
+		"message": "Fout"
 	},
 
 	"SetLanguageAndTheme": {
-		"message": "Set Language and Theme"
+		"message": "Volledige pagina-instellingen / Taal en thema instellen"
 	},
 
 	"SelectRedirect": {
-		"message": "Redirect"
+		"message": "Doorverwijzen"
 	},
 
 	"Welcome": {
-		"message": "Welcome!"
+		"message": "Welkom!"
 	},
 
 	"ModerniseOldRedditInfo": {
-		"message": "Makes old reddit look more like new reddit."
+		"message": "Zorgt ervoor dat het oude Reddit meer op het nieuwe Reddit lijkt."
 	},
 
 	"YouMayNotNeedTheRedirectAnymore": {
@@ -952,11 +944,11 @@
 	},
 
 	"DontShowAgain": {
-		"message": "Don't show again"
+		"message": "Niet meer tonen"
 	},
 
 	"Close": {
-		"message": "Close"
+		"message": "Dichtbij"
 	},
 
 	"SideMenuToggleButton": {
@@ -985,5 +977,89 @@
 
 	"resizeHomeAlsoAffects": {
 		"message": "& r/all, r/popular, create post, search results, and wiki pages"
+	},
+
+	"SearchPageOffset": {
+		"message": "Zoekpagina-offset"
+	},
+
+	"NoSavedBackgrounds": {
+		"message": "Geen opgeslagen achtergronden"
+	},
+
+	"HideHomeFeed": {
+		"message": "Verberg de startfeed"
+	},
+
+	"RememberSectionHiddenState": {
+		"message": "Onthoud de verborgen toestanden van secties in het zijmenu"
+	},
+
+	"NewUpdateAvailable": {
+		"message": "Versie <version> is nu beschikbaar. Uw browser zou deze extensie binnenkort automatisch moeten updaten als u automatische updates hebt ingeschakeld. Als dat niet het geval is, moet u handmatig controleren op updates in de browserextensiemanager."
+	},
+
+	"UpvoteColour": {
+		"message": "Bericht: Upvote Kleur"
+	},
+
+	"FontWeight": {
+		"message": "Font Weight"
+	},
+
+	"FontWeightInfo": {
+		"message": "Not all fonts support all weights."
+	},
+
+	"Font": {
+		"message": "Font"
+	},
+
+	"FeedPostTitle": {
+		"message": "Feed Post: Title"
+	},
+
+	"FeedPostContent": {
+		"message": "Feed Post: Content"
+	},
+
+	"PostCommentActionRowColour": {
+		"message": "Post: Comment Action Row Colour"
+	},
+
+	"FilterOptionsFor": {
+		"message": "Filter Options For"
+	},
+
+	"Redirect": {
+		"message": "Redirect"
+	},
+
+	"CreatePostTitle": {
+		"message": "Create Post: Title"
+	},
+
+	"CreatePostBody": {
+		"message": "Create Post: Body"
+	},
+
+	"OptionsPage": {
+		"message": "Options Page"
+	},
+
+	"extensionVersionText": {
+		"message": "Extension Version"
+	},
+
+	"Changelog": {
+		"message": "Changelog"
+	},
+
+	"ShowProfilePicturesOnComments": {
+		"message": "Show Profile Pictures On Comments"
+	},
+
+	"CustomFeedWidth": {
+		"message": "Custom Feed Width"
 	}
 }

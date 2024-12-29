@@ -687,10 +687,6 @@
 		"message": "„Post Flair“ Anzeigen"
 	},
 
-	"RemovePageSideMargin": {
-		"message": "Seitenrand entfernen"
-	},
-
 	"HideSideMenuTopSection": {
 		"message": "Obere Sektion ausblenden"
 	},
@@ -875,12 +871,8 @@
 		"message": "Themen-Feedbreite"
 	},
 
-	"YouNeedToBeLoggedIn": {
-		"message": "Sie müssen bei Reddit angemeldet sein, damit die Weiterleitung zur „Alter Neuer UI“ funktioniert."
-	},
-
 	"RemovalNotification": {
-		"message": "Reddit hat nun damit begonnen, Benutzer von new.reddit.com auf die neueste Version umzuleiten, sodass Sie die „Alter Neuer UI“ irgendwann nicht mehr verwenden können. Leider kann ich nichts dagegen tun :( Wenn dies geschieht, kann es zu einem Seitenfehler kommen. Stellen Sie die Umleitungsfunktion auf „Aus“ oder „Alte UI“."
+		"message": "Reddit has discontinued (Old New UI / Version 2) of the website, and will be redirecting users from new.reddit.com to the latest version. If you have the redirect feature enabled for this version, you will get a page error. Set the redirect option to 'Off' or 'Old UI'. The options for Old New UI will be removed from upcoming versions of Reddit Enhancer."
 	},
 
 	"learnMore": {
@@ -932,7 +924,7 @@
 	},
 
 	"SetLanguageAndTheme": {
-		"message": "Sprache und Design festlegen"
+		"message": "Vollständige Seiteneinstellungen / Sprache und Thema festlegen"
 	},
 
 	"SelectRedirect": {
@@ -985,5 +977,89 @@
 
 	"resizeHomeAlsoAffects": {
 		"message": "& r/all, r/popular, Beiträge, Suchergebnisse und Wiki-Seiten erstellen"
+	},
+
+	"SearchPageOffset": {
+		"message": "Suchseiten-Offset"
+	},
+
+	"NoSavedBackgrounds": {
+		"message": "Keine gespeicherten Hintergründe"
+	},
+
+	"HideHomeFeed": {
+		"message": "Home-Feed ausblenden"
+	},
+
+	"RememberSectionHiddenState": {
+		"message": "Merken der ausgeblendeten Zustände von Abschnitten im Seitenmenü"
+	},
+
+	"NewUpdateAvailable": {
+		"message": "Version <version> ist jetzt verfügbar. Ihr Browser sollte diese Erweiterung bald automatisch aktualisieren, wenn Sie automatische Updates aktiviert haben. Andernfalls müssen Sie im Browser-Erweiterungsmanager manuell nach Updates suchen."
+	},
+
+	"UpvoteColour": {
+		"message": "Beitrag: Upvote Farbe"
+	},
+
+	"FontWeight": {
+		"message": "Schriftstärke"
+	},
+
+	"FontWeightInfo": {
+		"message": "Nicht alle Schriftarten unterstützen alle Stärken."
+	},
+
+	"Font": {
+		"message": "Schriftart"
+	},
+
+	"FeedPostTitle": {
+		"message": "Feed-Beitrag: Titel"
+	},
+
+	"FeedPostContent": {
+		"message": "Feed-Beitrag: Inhalt"
+	},
+
+	"PostCommentActionRowColour": {
+		"message": "Beitrag: Kommentar Aktion Zeilenfarbe"
+	},
+
+	"FilterOptionsFor": {
+		"message": "Filteroptionen für"
+	},
+
+	"Redirect": {
+		"message": "Umleiten"
+	},
+
+	"CreatePostTitle": {
+		"message": "Beitrag erstellen: Titel"
+	},
+
+	"CreatePostBody": {
+		"message": "Beitrag erstellen: Inhalt"
+	},
+
+	"OptionsPage": {
+		"message": "Seite „Optionen“"
+	},
+
+	"extensionVersionText": {
+		"message": "Erweiterungsversion"
+	},
+
+	"Changelog": {
+		"message": "Änderungsprotokoll"
+	},
+
+	"ShowProfilePicturesOnComments": {
+		"message": "Profilbilder in Kommentaren anzeigen"
+	},
+
+	"CustomFeedWidth": {
+		"message": "Benutzerdefinierte Feedbreite"
 	}
 }

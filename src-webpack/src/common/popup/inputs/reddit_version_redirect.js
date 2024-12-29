@@ -1,10 +1,11 @@
-// Input - Auto Redirect To Reddit Version
+/* ===== Inputs / Auto Redirect To Reddit Version ===== */
 
 import i18next from 'i18next';
 import { selectFilterShowNewNewVersion, selectFilterShowNewVersion, selectFilterShowOldVersion } from './filter_version_select';
 
 const redirect_dropdown = document.querySelector('#select-reddit-version');
 const redirect_dropdownMenu = document.querySelector('#select-reddit-version-menu');
+
 document.querySelector('#select-reddit-version .select').addEventListener('click', function () {
 	if (redirect_dropdown.classList.contains('active')) {
 		redirect_dropdown.classList.remove('active');
@@ -14,12 +15,14 @@ document.querySelector('#select-reddit-version .select').addEventListener('click
 		redirect_dropdownMenu.style.maxHeight = redirect_dropdownMenu.scrollHeight + 'px';
 	}
 });
+
 document.addEventListener('click', function (e) {
 	if (!redirect_dropdown.contains(e.target)) {
 		redirect_dropdown.classList.remove('active');
 		redirect_dropdownMenu.style.maxHeight = '0';
 	}
 });
+
 redirect_dropdownMenu.addEventListener('click', function (e) {
 	const btn = e.target.tagName.toLowerCase();
 	if (btn === 'li') {
@@ -32,12 +35,7 @@ redirect_dropdownMenu.addEventListener('click', function (e) {
 		selectFilterShowOldVersion(i18next.t('OldUI.message'));
 	} else if (version === 'new') {
 		selectFilterShowNewVersion(i18next.t('OldNewUI.message'));
-		if (localStorage.getItem('DontShowAgainYouNeedToBeLoggedIn') === null) {
-			document.querySelector('#old-new-ui-login-message').style.display = 'grid';
-		}
-		if (localStorage.getItem('DontShowAgainOldNewUiWarning') === null) {
-			document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
-		}
+		document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
 	} else if (version === 'newnew') {
 		selectFilterShowNewNewVersion(i18next.t('NewNewUI.message'));
 		if (localStorage.getItem('DontShowAgainNewNewUiMessage') === null) {
