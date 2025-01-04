@@ -4,7 +4,8 @@
 .btn-icon,
 .dropdown-icon,
 .menu-item-icon,
-.menu-item-link .icon-cheveron-down {
+.link-icon,
+.menu-item-link .icon-chevron-down {
 	display: flex;
 	justify-self: center;
 	width: 30px;
@@ -28,6 +29,11 @@
 .btn-icon {
 	width: 26px;
 	height: 22px;
+}
+.link-icon {
+	width: 16px;
+	height: 12px;
+	align-self: center;
 }
 .no-icon {
 	background-color: transparent !important;
@@ -96,11 +102,11 @@
 	mask: url('../../icons/ui/play-solid.svg');
 	-webkit-mask: url('../../icons/ui/play-solid.svg');
 }
-.icon-cheveron-up {
+.icon-chevron-up {
 	mask: url('../../icons/ui/chevron-up-solid.svg');
 	-webkit-mask: url('../../icons/ui/chevron-up-solid.svg');
 }
-.icon-cheveron-down {
+.icon-chevron-down {
 	mask: url('../../icons/ui/chevron-down-solid.svg');
 	-webkit-mask: url('../../icons/ui/chevron-down-solid.svg');
 }
@@ -424,4 +430,24 @@
 .icon-clipboard-check {
 	mask: url('../../icons/ui/clipboard-check-solid.svg');
 	-webkit-mask: url('../../icons/ui/clipboard-check-solid.svg');
+}
+.icon-bold {
+	mask: url('../../icons/ui/bold-solid.svg');
+	-webkit-mask: url('../../icons/ui/bold-solid.svg');
+}
+.icon-delete-left {
+	mask: url('../../icons/ui/delete-left-solid.svg');
+	-webkit-mask: url('../../icons/ui/delete-left-solid.svg');
+}
+.icon-file {
+	mask: url('../../icons/ui/file-lines-solid.svg');
+	-webkit-mask: url('../../icons/ui/file-lines-solid.svg');
+}
+.icon-github {
+	mask: url('../../icons/ui/github-brands-solid.svg');
+	-webkit-mask: url('../../icons/ui/github-brands-solid.svg');
+}
+.icon-reddit {
+	mask: url('../../icons/ui/reddit-brands-solid.svg');
+	-webkit-mask: url('../../icons/ui/reddit-brands-solid.svg');
 }

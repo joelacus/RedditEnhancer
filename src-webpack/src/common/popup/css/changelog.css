@@ -1,0 +1,35 @@
+/* Popup Styles - Changelog */
+
+#changelog {
+	position: absolute;
+	top: 35px;
+	left: 0;
+	width: 100%;
+	height: 378px;
+	display: flex;
+	flex-direction: column;
+	font-size: 14px;
+	color: var(--text);
+	background-color: var(--bg);
+	padding: 8px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	z-index: 9;
+}
+
+#changelog .log {
+	max-width: 450px;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+#new-update {
+	font-weight: bold;
+	color: red;
+	margin-left: 4px;
+	cursor: pointer;
+}
+
+#new-update-message {
+	margin-bottom: 24px;
+}

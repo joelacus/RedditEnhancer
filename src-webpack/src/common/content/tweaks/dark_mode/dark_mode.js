@@ -1,6 +1,6 @@
 /* ===== Tweaks - Dark Mode ===== */
 
-import { darkModeTimeCalc } from '../../../popup/popup-functions';
+import { darkModeTimeCalc } from './dark_mode_time_calc';
 
 /* === Triggered On Page Load === */
 export function loadDarkModeAuto() {
@@ -9,7 +9,7 @@ export function loadDarkModeAuto() {
 	});
 }
 
-/* === Main Function === */
+/* === Main Functions === */
 
 // Dark Mode Auto
 export function darkModeAuto(value) {
@@ -57,7 +57,7 @@ function stopColorModeListener() {
 	colorModeQuery.removeEventListener('change', colorModeChangeHandler);
 }
 
-// Start/Stop browser theme change listener from popup-inputs
+// Start/Stop browser theme change listener from popup_inputs
 export function darkModeAutoListener(value) {
 	if (value === true) {
 		startColorModeListener();

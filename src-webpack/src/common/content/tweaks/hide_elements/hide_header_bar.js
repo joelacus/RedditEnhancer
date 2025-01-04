@@ -31,12 +31,20 @@ function hideHeaderBarNew() {
 	if (!document.head.querySelector('style[id="re-hide-header-bar"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-header-bar';
-		styleElement.textContent = `header {
-										display: none !important;
-									}
-									#SHORTCUT_FOCUSABLE_DIV > div[class*="subredditvars-r"] > div {
-										top: 0;
-									}`;
+		styleElement.textContent = 
+			`/* Hide the header bar. */
+			header {
+				display: none !important;
+				visibility: hidden;
+			}
+			/* Do not add padding reserved for the header bar to the top of the main view. */
+			div#AppRouter-main-content {
+				padding-top: 0 !important;
+			}
+			div#AppRouter-main-content > div:first-child,
+			#SHORTCUT_FOCUSABLE_DIV > div[class*="subredditvars-r"] > div {
+				top: 0 !important;
+			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
 }
@@ -46,9 +54,17 @@ function hideHeaderBarNewNew() {
 	if (!document.head.querySelector('style[id="re-hide-header-bar"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-header-bar';
-		styleElement.textContent = `shreddit-app reddit-header-large {
-										display: none !important;
-									}`;
+		styleElement.textContent = 
+			`/* Use Reddit's native CSS variables to set margin above main-container to 0. */
+			shreddit-app {
+				--shreddit-header-height: 0 !important;
+				--shreddit-header-large-height: 0 !important;
+			}
+			/* Actually hide the header bar. */
+			shreddit-app reddit-header-large {
+				display: none !important;
+				visibility: hidden;
+			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
 }

@@ -1,4 +1,9 @@
-/* ===== Tweaks - Hide - Get New Reddit ===== */
+/**
+ * Tweaks - Hide - Get New Reddit
+ * Hide the Get New Reddit button at the top left of the page when you're browsing Old UI.
+ * 
+ * Applies to: Old UI (2005-)
+ */
 
 /* === Triggered On Page Load === */
 export function loadHideGetNewReddit() {

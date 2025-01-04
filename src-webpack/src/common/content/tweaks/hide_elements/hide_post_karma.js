@@ -15,8 +15,8 @@ export function hidePostKarma(value) {
 			const styleElement = document.createElement('style');
 			styleElement.id = 're-hide-post-karma';
 			styleElement.textContent = `shreddit-post::part(karma) {
-                                            display: none !important;
-                                        }`;
+											display: none !important;
+  										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
 		}
 		// hide post karma

@@ -1,4 +1,10 @@
-/* ===== Tweaks - Hide - Community Highlights ===== */
+/**
+ * Tweaks - Hide - Community Highlights
+ * Hide the Community Highlights section, which shows posts pinned by moderators as a collapsible section,
+ * at the top of subreddit pages.
+ *
+ * Applies to: New New UI (2023-)
+ */
 
 /* === Triggered On Page Load === */
 export function loadHideCommunityHighlights() {

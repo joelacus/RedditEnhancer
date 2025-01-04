@@ -1,6 +1,6 @@
 /* ===== Tweaks - Productivity - Auto Load More Comments ===== */
 
-import { waitForAddedNode } from '../../../content-first/functions/observers/main_observer';
+//import { waitForAddedNode } from '../../../content_first/functions/tweak_loaders/main_observer';
 
 /* === Triggered On Page Load === */
 export function loadAutoLoadMoreComments() {

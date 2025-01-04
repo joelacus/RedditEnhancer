@@ -1,4 +1,9 @@
-/* ===== Tweaks - Hide - Compact View Blank Thumbnails ===== */
+/**
+ * Tweaks - Hide - Compact View Blank Thumbnails
+ * Hide the blank thumbnails of text posts in Compact view feeds (frontpage, subreddit, custom feed, etc.).
+ * 
+ * Applies to: New New UI (2023-)
+ */
 
 /* === Triggered On Page Load === */
 export function loadHideCompactViewBlankThumbnails() {

@@ -23,12 +23,14 @@ input[type='password'] {
 }
 input:focus,
 textarea:focus {
-	border-color: var(--accent);
+	border-color: var(--accent) !important;
 	outline: none;
+	background-color: var(--btn-hover);
 }
 input:hover,
 textarea:hover {
-	background-color: var(--btn-hover);
+	border: solid 1px var(--btn-hover-border);
+	/*background-color: var(--btn-hover);*/
 }
 input:disabled {
 	background-color: var(--bg-tint-1) !important;
@@ -51,6 +53,19 @@ input:disabled {
 	transition: background-color 0.1s ease-in-out;
 	padding: 0 8px;
 	max-height: 35px;
+}
+.btn-icon {
+	display: grid;
+	grid-template-columns: 22px auto;
+	grid-gap: 4px;
+	width: fit-content;
+	height: fit-content;
+	padding: 6px 10px !important;
+}
+.btn-icon .icon {
+	width: 22px;
+	height: 16px;
+	background-color: var(--text-grey);
 }
 .btn:hover {
 	cursor: pointer;

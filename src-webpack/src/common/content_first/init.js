@@ -19,7 +19,12 @@ const observer = new MutationObserver((mutationsList) => {
 		}
 	}
 });
-observer.observe(document.documentElement, { childList: true });
+
+if (!document.querySelector('head')) {
+	observer.observe(document.documentElement, { childList: true });
+} else {
+	init();
+}
 
 // Init Tweaks
 export function init() {

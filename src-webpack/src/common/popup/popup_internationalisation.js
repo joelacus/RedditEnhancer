@@ -22,7 +22,7 @@ BROWSER_API.storage.sync.get(['language'], function (result) {
 	}
 });
 
-// Init Translation
+// Init Internationalisation
 export function init_i18n(lang) {
 	i18next
 		.use(HttpBackend)
@@ -62,7 +62,6 @@ function translate() {
 			document.querySelector('#chosen-reddit-version').textContent = i18next.t('NewNewUI.message');
 		}
 	});
-	//document.getElementById('name').textContent = i18next.t('extensionName.message');
 	document.getElementById('input-custom-background').placeholder = i18next.t('CustomBgInputPlaceholder.message');
 	document.getElementById('search').placeholder = i18next.t('Search.message') + '...';
 

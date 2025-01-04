@@ -1,4 +1,10 @@
-/* ===== Tweaks - Hide - Create Post ===== */
+/**
+ * Tweaks - Hide - Create Post
+ * Hide the Create Post bar at the top of the frontpage if you don't post often. Unless you opted to hide it,
+ * there's also a Create Post button on the header bar.
+ * 
+ * Applies to: Old New UI (2018-2024)
+ */
 
 /* === Triggered On Page Load === */
 export function loadHideCreatePost() {

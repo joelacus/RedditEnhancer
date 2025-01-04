@@ -3,7 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadCustomBackground() {
 	BROWSER_API.storage.sync.get(['useCustomBackground'], function (result) {
-		useCustomBackground(result.useCustomBackground);
+		if (result.useCustomBackground) useCustomBackground(true);
 	});
 }
 

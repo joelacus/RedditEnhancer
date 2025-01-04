@@ -1,6 +1,10 @@
 /* Popup Styles - Containers */
 
-.container {
+.container,
+.container-1,
+.container-3,
+.container-slider,
+.container-time {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -23,11 +27,6 @@
 	flex-direction: column;
 	align-items: flex-start;
 }
-.container-1 .option-title {
-	display: grid;
-	grid-template-columns: 50px auto;
-	margin-bottom: 5px;
-}
 .container-2 {
 	display: grid;
 	grid-template-columns: 50px auto;
@@ -49,23 +48,21 @@
 .container-3 .select {
 	grid-template-columns: auto 22px;
 }
-.container-4 {
-	display: grid;
-	grid-template-columns: 50px 100px auto;
-	padding-right: 8px;
-	min-height: 40px;
-}
-.container-5 {
+.container-slider {
 	display: grid;
 	grid-template-columns: 50px 150px auto 60px;
 	padding-right: 8px;
 	min-height: 40px;
 }
-.container-6 {
+.container > .container,
+.container > .container-slider {
+	padding: 0;
+}
+.container-time {
 	display: grid;
 	grid-template-columns: 50px auto 100px;
 }
-.container-6 input {
+.container-time input {
 	position: absolute;
 	right: 5px;
 }

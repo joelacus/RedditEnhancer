@@ -1,6 +1,7 @@
 /* ===== Background script ===== */
 
-import { darkModeTimeCalc } from '../common/popup/popup-functions';
+import { darkModeTimeCalc } from './content/tweaks/dark_mode/dark_mode_time_calc';
+
 //const muxjs = require('mux.js');
 let fetchUrl = '';
 
@@ -18,6 +19,9 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 				BROWSER_API.tabs.create({ url: `restore_config.html` }, function (tab) {});
 			}
 		});
+	// Open the Options menu in a new tab on browser request
+	} else if (request.openOptionsPage === true) {
+		BROWSER_API.tabs.create({ url: `options.html` }, function (tab) {});
 	} else if (request.restore) {
 		const json = Object.values(request)[0];
 		for (const [key, value] of Object.entries(json)) {
