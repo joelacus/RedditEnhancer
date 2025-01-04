@@ -11,11 +11,12 @@ export function loadLayoutCentre() {
 
 // Feed Offset
 export function loadLayoutOffset() {
-	BROWSER_API.storage.sync.get(['layoutOffset', 'layoutSubOffset', 'layoutPostOffset', 'layoutUserProfileOffset'], function (result) {
+	BROWSER_API.storage.sync.get(['layoutOffset', 'layoutSubOffset', 'layoutPostOffset', 'layoutUserProfileOffset', 'layoutSearchPageOffset'], function (result) {
 		layoutOffset(result.layoutOffset);
 		layoutSubOffset(result.layoutSubOffset);
 		layoutPostOffset(result.layoutPostOffset);
 		layoutUserProfileOffset(result.layoutUserProfileOffset);
+		layoutSearchPageOffset(result.layoutSearchPageOffset);
 	});
 }
 
@@ -324,5 +325,12 @@ export function layoutPostOffset(value) {
 export function layoutUserProfileOffset(value) {
 	if (redditVersion === 'newnew') {
 		document.documentElement.style.setProperty('--re-layout-user-profile-offset', value + '%');
+	}
+}
+
+// Function - Layout Search Page Offset
+export function layoutSearchPageOffset(value) {
+	if (redditVersion === 'newnew') {
+		document.documentElement.style.setProperty('--re-layout-search-page-offset', value + '%');
 	}
 }

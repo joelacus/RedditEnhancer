@@ -27,7 +27,7 @@ export function showPostFlair(value) {
 	}
 }
 
-// Remove all post flair tags.
+// Remove all post flair tags
 function removeFlair() {
 	document.querySelectorAll('shreddit-post').forEach((post) => {
 		if (post.querySelector('.re-post-flair')) {
@@ -36,7 +36,7 @@ function removeFlair() {
 	});
 }
 
-// Attach post flair to post header.
+// Attach post flair to post header
 async function attachFlair(post) {
 	if (!post.querySelector('shreddit-post-flair > .re-post-flair')) {
 		const postID = post.getAttribute('id');

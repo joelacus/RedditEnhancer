@@ -672,7 +672,7 @@
 	},
 
 	"TranslationHelp": {
-		"message": "Traducir"
+		"message": "Ayuda con la traducción"
 	},
 
 	"Off": {
@@ -685,10 +685,6 @@
 
 	"ShowPostFlair": {
 		"message": "Mostrar 'Post Flair'"
-	},
-
-	"RemovePageSideMargin": {
-		"message": "Eliminar el margen lateral de la página"
 	},
 
 	"HideSideMenuTopSection": {
@@ -875,12 +871,8 @@
 		"message": "Ancho del feed de temas"
 	},
 
-	"YouNeedToBeLoggedIn": {
-		"message": "Debes iniciar sesión en Reddit para que funcione la redirección a la 'Viejo Nuevo UI'."
-	},
-
 	"RemovalNotification": {
-		"message": "Reddit ha comenzado a redirigir a los usuarios de new.reddit.com a la última versión, por lo que, con el tiempo, no podrás usar la 'Viejo Nueva UI'. Lamentablemente, no puedo hacer nada al respecto :( Cuando esto sucede, tu página puede mostrar un error. Configura la función de redirección en 'Apagado' o 'Viejo UI'."
+		"message": "Reddit has discontinued (Old New UI / Version 2) of the website, and will be redirecting users from new.reddit.com to the latest version. If you have the redirect feature enabled for this version, you will get a page error. Set the redirect option to 'Off' or 'Old UI'. The options for Old New UI will be removed from upcoming versions of Reddit Enhancer."
 	},
 
 	"learnMore": {
@@ -932,7 +924,7 @@
 	},
 
 	"SetLanguageAndTheme": {
-		"message": "Establecer idioma y tema"
+		"message": "Configuración de página completa / Establecer idioma y tema"
 	},
 
 	"SelectRedirect": {
@@ -985,5 +977,89 @@
 
 	"resizeHomeAlsoAffects": {
 		"message": "& r/all, r/popular, crear publicaciones, resultados de búsqueda y páginas wiki"
+	},
+
+	"SearchPageOffset": {
+		"message": "Desplazamiento de la página de búsqueda"
+	},
+
+	"NoSavedBackgrounds": {
+		"message": "No hay fondos guardados"
+	},
+
+	"HideHomeFeed": {
+		"message": "Ocultar el feed de inicio"
+	},
+
+	"RememberSectionHiddenState": {
+		"message": "Recuerde los estados ocultos de las secciones en el menú lateral"
+	},
+
+	"NewUpdateAvailable": {
+		"message": "La versión <version> ya está disponible. Tu navegador debería actualizar esta extensión automáticamente pronto si tienes habilitadas las actualizaciones automáticas. De lo contrario, tendrás que buscar actualizaciones manualmente en el administrador de extensiones del navegador."
+	},
+
+	"UpvoteColour": {
+		"message": "Publicación: Votar a favor del color"
+	},
+
+	"FontWeight": {
+		"message": "Peso de la fuente"
+	},
+
+	"FontWeightInfo": {
+		"message": "No todas las fuentes admiten todos los pesos."
+	},
+
+	"Font": {
+		"message": "Fuente"
+	},
+
+	"FeedPostTitle": {
+		"message": "Feed Post: Title"
+	},
+
+	"FeedPostContent": {
+		"message": "Feed Post: Content"
+	},
+
+	"PostCommentActionRowColour": {
+		"message": "Post: Comment Action Row Colour"
+	},
+
+	"FilterOptionsFor": {
+		"message": "Opciones de filtro para"
+	},
+
+	"Redirect": {
+		"message": "Redirigir"
+	},
+
+	"CreatePostTitle": {
+		"message": "Create Post: Title"
+	},
+
+	"CreatePostBody": {
+		"message": "Create Post: Body"
+	},
+
+	"OptionsPage": {
+		"message": "Página de opciones"
+	},
+
+	"extensionVersionText": {
+		"message": "Versión de extensión"
+	},
+
+	"Changelog": {
+		"message": "Registro de cambios"
+	},
+
+	"ShowProfilePicturesOnComments": {
+		"message": "Mostrar fotos de perfil en los comentarios"
+	},
+
+	"CustomFeedWidth": {
+		"message": "Ancho de feed personalizado"
 	}
 }

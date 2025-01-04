@@ -1,9 +1,9 @@
 /* ===== Old New Post Overlay ===== */
 
 import { waitForAddedNode } from './main_observer';
-import { load_saves } from '../../../content/content_load_saves';
-import { observersNew } from './observers_new';
-import { scrollToNextRootComment } from '../../../content/functions/productivity/scroll_to_next_root_comment';
+import { loadTweaks } from '../../../content/tweak_loader';
+import { tweakLoaderOldNew } from './tweak_loader_oldnew';
+import { scrollToNextRootComment } from '../../../content/tweaks/productivity/scroll_to_next_root_comment';
 
 // Post Sidebar
 export function observerPostOverlay() {
@@ -16,8 +16,8 @@ export function observerPostOverlay() {
 				el.classList.add('re-sidebar-post');
 			}
 			scrollToNextRootComment();
-			observersNew();
-			load_saves();
+			tweakLoaderOldNew();
+			loadTweaks();
 		},
 	});
 }

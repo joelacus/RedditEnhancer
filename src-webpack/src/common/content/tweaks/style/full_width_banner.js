@@ -27,9 +27,6 @@ function enableFullWidthBanner() {
         	margin-top: 0;
         	border-radius: 0;
         }
-        div.masthead > section h1 {
-        	line-height: 1.4;
-        }
         shreddit-app[routename="subreddit"] div.subgrid-container,
         shreddit-app[routename="subreddit_wiki"] div.subgrid-container {
         	padding: 0 !important;

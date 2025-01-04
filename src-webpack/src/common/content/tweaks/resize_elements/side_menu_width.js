@@ -10,14 +10,18 @@ export function loadSideMenuWidth() {
 /* === Main Function === */
 export function sideMenuWidth(value) {
 	if (redditVersion === 'newnew') {
-		if (value === '199') {
+		if (parseInt(value) === 199) {
 			document.documentElement.style.removeProperty('--re-side-menu-width');
 			disableSideMenuWidth();
-		} else if (value >= '200') {
-			if (!document.querySelector('html').classList.contains('re-hide-side-menu')) {
-				document.documentElement.style.setProperty('--re-side-menu-width', value + 'px');
-				enableSideMenuWidth();
-			}
+		} else if (parseInt(value) >= 200) {
+			BROWSER_API.storage.sync.get(['sideMenuIconsOnly'], function (result) {
+				if (!result.sideMenuIconsOnly) {
+					if (!document.querySelector('html').classList.contains('re-hide-side-menu')) {
+						document.documentElement.style.setProperty('--re-side-menu-width', value + 'px');
+						enableSideMenuWidth();
+					}
+				}
+			});
 		}
 	}
 }

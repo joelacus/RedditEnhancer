@@ -58,10 +58,12 @@ function attachMenu(post) {
 		const menu = document.createElement('div');
 		menu.classList.add('re-btn-menu');
 		postCreditBar.lastElementChild.insertBefore(menu, postCreditBar.lastElementChild.lastElementChild);
-		const postMenu = post.querySelector('shreddit-post-overflow-menu').shadowRoot;
-		postMenu.querySelectorAll('faceplate-menu > li > div:not(.hidden)').forEach((item) => {
-			menu.appendChild(item);
-		});
+		const postMenu = post.querySelector('shreddit-post-overflow-menu');
+		if (postMenu.shadowRoot) {
+			postMenu.shadowRoot.querySelectorAll('faceplate-menu > li > div:not(.hidden)').forEach((item) => {
+				menu.appendChild(item);
+			});
+		}
 	}
 }
 

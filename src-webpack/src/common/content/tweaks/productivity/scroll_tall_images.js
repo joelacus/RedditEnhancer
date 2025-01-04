@@ -63,22 +63,37 @@ function enableImageScrollNewNew() {
 	styleElement.textContent = `:root {
 									--re-image-scroll-max-image-width: 100%;
 								}
-								/*shreddit-app[microapp-name="feeds"] shreddit-post*/ [slot="post-media-container"] {
+								[slot="post-media-container"] {
 									background: none !important;
 								}
-								/*shreddit-app[microapp-name="feeds"] shreddit-post*/ shreddit-aspect-ratio div {
+								shreddit-media-lightbox-listener {
+									display: block !important;
+								}
+								shreddit-aspect-ratio {
+									padding: 0 !important;
+									overflow-y: auto;
+								}
+								/*shreddit-aspect-ratio,
+								shreddit-aspect-ratio div {
+									height: 200px;
+								}*/
+								shreddit-aspect-ratio div {
 									overflow-y: auto !important;
 									background: none !important;
 									width: var(--re-image-scroll-max-image-width) !important;
 									margin: 0 auto;
 								}
-								/*shreddit-app[microapp-name="feeds"] shreddit-post*/ shreddit-aspect-ratio .media-lightbox-img :first-child {
+								shreddit-aspect-ratio div img {
+									position: relative;
+									margin: 0;
+								}
+								shreddit-aspect-ratio .media-lightbox-img :first-child {
 									transform: scale(1) !important;
 									filter: none !important;
 									opacity: 1 !important;
 									top: 0;
 								}
-								/*shreddit-app[microapp-name="feeds"] shreddit-post*/ shreddit-aspect-ratio .media-lightbox-img :nth-child(2) {
+								shreddit-aspect-ratio .media-lightbox-img :nth-child(2) {
 									display: none;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);

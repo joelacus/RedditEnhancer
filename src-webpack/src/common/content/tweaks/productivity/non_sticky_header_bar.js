@@ -1,4 +1,4 @@
-/* ===== Tweaks - Productivity - Non Sticky HeaderBar ===== */
+/* ===== Tweaks - Productivity - Non Sticky Header Bar ===== */
 
 /* === Triggered On Page Load === */
 export function loadNonStickyHeaderBar() {
@@ -45,7 +45,7 @@ function disableNonStickyHeaderBarNew() {
 	});
 }
 
-// Function - Enable Non Sticky Header Bar - NewNew
+// Function - Enable Non Sticky Header Bar - New New
 function enableNonStickyHeaderBarNewNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-non-sticky-header-bar';
@@ -54,8 +54,8 @@ function enableNonStickyHeaderBarNewNew() {
 								}
 								shreddit-app reddit-sidebar-nav#left-sidebar {
 									position: sticky;
-									height: 100vh;
-									top: 0;
+									height: 100vh !important;
+									top: 0 !important;
 								}
 								shreddit-app #right-sidebar-container {
 									position: sticky;
@@ -66,7 +66,7 @@ function enableNonStickyHeaderBarNewNew() {
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
-// Function - Disable Non Sticky Header Bar - NewNew
+// Function - Disable Non Sticky Header Bar - New New
 function disableNonStickyHeaderBarNewNew() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-non-sticky-header-bar"]');
 	dynamicStyleElements.forEach((element) => {

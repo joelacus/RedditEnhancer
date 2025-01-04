@@ -37,6 +37,17 @@ export function scrollToNextRootComment(value) {
 		} else if (value === false || value === undefined) {
 			disableScrollToNextRootCommentAll();
 		}
+	} else if (redditVersion === 'old') {
+		if (value === true) {
+			const link = window.location.href;
+			if (link.match('https://.*.reddit.com/r/.*/comments/.*')) {
+				enableScrollToNextRootCommentOld();
+			} else {
+				disableScrollToNextRootCommentAll();
+			}
+		} else if (value === false || value === undefined) {
+			disableScrollToNextRootCommentAll();
+		}
 	}
 }
 
@@ -224,6 +235,75 @@ function enableScrollToNextRootCommentNewNew() {
 	document.querySelector('body').appendChild(container);
 }
 
+// Function - Enable Scroll To Next Root Comment - Old
+function enableScrollToNextRootCommentOld() {
+	// Remove existing buttons
+	if (document.querySelector('.re-scroll-to-comment-container') != null) {
+		document.querySelectorAll('.re-scroll-to-comment-container').forEach(function (el) {
+			el.remove();
+		});
+	}
+
+	// Create button container
+	const container = document.createElement('div');
+	container.classList.add('re-scroll-to-comment-container');
+
+	// Create previous button
+	const prevBtn = document.createElement('div');
+	prevBtn.setAttribute('id', 're-prev-comment');
+	// on click
+	prevBtn.addEventListener('click', function () {
+		// get all the elements of type ".thing"
+		const reRootComments = Array.from(document.querySelectorAll('.commentarea > div[id^="siteTable"] > .thing'));
+		// get current postion
+		const currentScrollPosition = Math.floor(window.scrollY);
+		let previousComment = null;
+		// find the previous ".thing" element above the current scroll position
+		for (let i = reRootComments.length - 1; i >= 0; i--) {
+			const commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 60);
+			if (currentScrollPosition > commentOffsetTop - 2 && currentScrollPosition > commentOffsetTop + 2) {
+				previousComment = reRootComments[i];
+				break;
+			}
+		}
+		// scroll to comment
+		if (previousComment) {
+			const scrollToPosition = Math.floor(previousComment.getBoundingClientRect().top + currentScrollPosition - 60);
+			window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+		}
+	});
+	container.append(prevBtn);
+
+	// Create next button
+	const nextBtn = document.createElement('div');
+	nextBtn.setAttribute('id', 're-next-comment');
+	// on click
+	nextBtn.addEventListener('click', function () {
+		// get all the elements of type ".thing"
+		const reRootComments = Array.from(document.querySelectorAll('.commentarea > div[id^="siteTable"] > .thing'));
+		// get current postion
+		const currentScrollPosition = Math.floor(window.scrollY);
+		let nextComment = null;
+		// find the next ".thing" element below the current scroll position
+		for (let i = 0; i < reRootComments.length; i++) {
+			const commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 60);
+			if (currentScrollPosition < commentOffsetTop - 2 && currentScrollPosition < commentOffsetTop + 2) {
+				nextComment = reRootComments[i];
+				break;
+			}
+		}
+		// scroll to comment
+		if (nextComment) {
+			const scrollToPosition = Math.floor(nextComment.getBoundingClientRect().top + currentScrollPosition - 60);
+			window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
+		}
+	});
+	container.append(nextBtn);
+
+	// Append container to body
+	document.querySelector('html').append(container);
+}
+
 // Function - Disable Scroll To Next Root Comment - All
 function disableScrollToNextRootCommentAll() {
 	document.querySelectorAll('.re-scroll-to-comment-container').forEach(function (el) {
@@ -233,12 +313,10 @@ function disableScrollToNextRootCommentAll() {
 
 // Scroll To Next Root Comment Position Horizontal
 export function scrollToNextRootCommentPosition(value) {
-	if (redditVersion === 'new' || redditVersion === 'newnew') {
-		if (value === '-1' || typeof value === 'undefined') {
-			document.documentElement.style.setProperty('--re-scroll-to-root-comment-position', '48px');
-		} else {
-			document.documentElement.style.setProperty('--re-scroll-to-root-comment-position', value + '%');
-		}
+	if (value === '-1' || typeof value === 'undefined') {
+		document.documentElement.style.setProperty('--re-scroll-to-root-comment-position', '48px');
+	} else {
+		document.documentElement.style.setProperty('--re-scroll-to-root-comment-position', value + '%');
 	}
 }
 
@@ -249,6 +327,12 @@ export function scrollToNextRootCommentPositionV(value) {
 			document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', '50%');
 		} else {
 			document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', value + '%');
+		}
+	} else if (redditVersion === 'old') {
+		if (value === '-1' || typeof value === 'undefined') {
+			document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', '50vh');
+		} else {
+			document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', value + 'vh');
 		}
 	}
 }

@@ -1,7 +1,5 @@
 /* ===== Tweaks - Hide - Side Menu Icons Only ===== */
 
-import { hideSideMenuFavouriteButton, loadHideSideMenuFavouriteButton } from './hide_side_menu_favourite_button';
-
 /* === Triggered On Page Load === */
 export function loadSideMenuIconsOnly() {
 	BROWSER_API.storage.sync.get(['sideMenuIconsOnly'], function (result) {
@@ -18,14 +16,14 @@ export function sideMenuIconsOnly(value) {
 			styleElement.id = 're-side-menu-icons-only-1';
 			styleElement.textContent = `left-nav-top-section::part(item),
 										left-nav-create-community-button::part(item),
-										left-nav-community-item::part(star),
 										faceplate-expandable-section-helper span>span>[icon-name="caret-down-outline"],
 										faceplate-expandable-section-helper summary,
 										#moderation_section a span > .text-14,
 										custom-feed-edit-button span>.text-14,
 										reddit-recent-pages::part(item),
 										#RESOURCES span:has(>.text-14),
-										reddit-sidebar-nav div:has([href="https://redditinc.com"]) {
+										reddit-sidebar-nav div:has([href="https://redditinc.com"]),
+										#communities_section span:has(>.text-14) {
 											display: none !important;
 										}
 										left-nav-top-section::part(pad-item),
@@ -39,6 +37,9 @@ export function sideMenuIconsOnly(value) {
 											gap: 0;
 											padding-right: 6px !important;
 										}
+										#communities_section div[role="button"] {
+											padding: 5px !important;
+										}
 										custom-feed-edit-button div[role="button"],
 										custom-feed-edit-button div[role="button"] > span {
 											gap: 0 !important;
@@ -47,7 +48,7 @@ export function sideMenuIconsOnly(value) {
 											gap: 0 !important;
 										}
 										#left-sidebar-container {
-											max-width: 72px !important;
+											max-width: var(--re-side-menu-width) !important;
 										}
 										@media (min-width: 1200px) {
 											.m\\:max-w-\\[calc\\(100vw-272px\\)\\] {
@@ -85,13 +86,18 @@ export function sideMenuIconsOnly(value) {
 		document.querySelector('left-nav-multireddits-controller').shadowRoot.querySelector('left-nav-multireddit-item').append(styleElement2.cloneNode(true));
 
 		// set side menu width
-		document.documentElement.style.setProperty('--re-side-menu-width', '72px');
+		BROWSER_API.storage.sync.get(['hideSideMenuFavouriteButton'], function (result) {
+			if (result.hideSideMenuFavouriteButton === true) {
+				document.documentElement.style.setProperty('--re-side-menu-width', '72px');
+			} else {
+				document.documentElement.style.setProperty('--re-side-menu-width', '86px');
+			}
+		});
+
 		// hide items
 		enableSideMenuIconsOnly();
-		hideSideMenuFavouriteButton(true);
 	} else {
 		disableSideMenuIconsOnly();
-		loadHideSideMenuFavouriteButton();
 	}
 }
 
@@ -157,8 +163,6 @@ function enableSideMenuIconsOnly() {
 			item.setAttribute('part', 'pad-item');
 		});
 	// append part attribute to community items
-	document.querySelector('left-nav-create-community-button').shadowRoot.querySelector('span:has(>.text-14)').setAttribute('part', 'item');
-	document.querySelector('left-nav-create-community-button').shadowRoot.querySelector('[role="button"]').setAttribute('part', 'pad-item');
 	document
 		.querySelector('left-nav-communities-controller')
 		.shadowRoot.querySelectorAll('left-nav-community-item')
