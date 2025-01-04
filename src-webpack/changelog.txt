@@ -1,3 +1,24 @@
+version 1.13.0
+- Added a new options page as an alternative for the extension popup window.
+- Added an option to change the width of custom feeds (Latest UI).
+- Added an option to change the post upvote colour (Latest UI).
+- Added an option to hide the home feed entirely (Old UI, Latest UI).
+- Added an option to offset the search page feed (Latest UI).
+- Moved the "Resize Font" options into a new menu category "Font".
+- Added an option to change the post title/content/comments font weight (Old UI, Latest UI).
+- Added options to change the "Create Post" title and body font sizes (Old UI, Latest UI).
+- Separated the resize post title/content font options, so you can now resize post fonts on the feed and post pages independently (Old UI, Latest UI).
+- Resize post title and content font now works on the profile page (Latest UI).
+- Added an option to change the comment action row text colour independently from the comment text colour option (Latest UI).
+- Added an option to add user profile pictures to comments (Old UI).
+- Added an update available notification for the extension ("!" next to the version number).
+- "Show Post Author" now works on the search results page (Latest UI).
+- "Show Navigation Buttons For The Next/Previous Root Comment" now works with Old Reddit.
+- Added a "clear search input" button in the extension search bar.
+- Fixed a bug causing large text, even if the "Resize Font" feature is not used.
+- Fixed the incorrect line height in the post title when using the resize post title font option (Latest UI).
+- Tidied up the source code and fixed some other small bugs.
+
 version 1.12.1
 - Bug fixes.
 

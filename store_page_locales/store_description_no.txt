@@ -1,9 +1,8 @@
 Forbedre Reddit-opplevelsen din med Reddit Enhancer! En nettleserutvidelse som lar deg tilpasse Reddit-siden din med bare noen få klikk.
-Støtter alle versjoner av Reddit.
+Støtter den gamle og den nyeste versjonen av Reddit.
 
 Med Reddit Enhancer kan du:
 • Endre størrelsen på feeden og innleggsbredden for en bedre seeropplevelse.
-• Velg din foretrukne Reddit-versjon. (du må være logget på Reddit for new.reddit.com).
 • Tilpass temafarger og legg til et bakgrunnsbilde.
 • Skjul promoterte og anbefalte innlegg, samt reddit premium-annonser.
 • Skjul mange andre elementer du ikke bruker eller ønsker å se for et renere og mindre rotete grensesnitt.

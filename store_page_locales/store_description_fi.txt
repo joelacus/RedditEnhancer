@@ -1,9 +1,8 @@
 Paranna Reddit-kokemustasi Reddit Enhancer! Selainlaajennus, jonka avulla voit mukauttaa Reddit-sivuasi vain muutamalla napsautuksella.
-Tukee kaikkia Reddit versioita.
+Tukee Reddit vanhaa ja uusinta versiota.
 
 Reddit Enhancer avulla voit:
 • Muuta syötteen kokoa ja tekstin leveyttä parantaaksesi katselukokemusta.
-• Valitse haluamasi Reddit-versio. (sinun on oltava kirjautuneena Reddit new.reddit.com-sivustolle).
 • Mukauta teeman värejä ja lisää taustakuva.
 • Piilota korotetut ja suositellut viestit sekä reddit premium -mainokset.
 • Piilota lukuisia muita elementtejä, joita et käytä tai et halua nähdä, jotta käyttöliittymä on selkeämpi ja vähemmän sotkuinen.
