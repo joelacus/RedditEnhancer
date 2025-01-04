@@ -45,7 +45,7 @@ import { loadHidePostDivider } from '../../../content/tweaks/hide_elements/hide_
 import { loadHideBlurredMediaBackground } from '../../../content/tweaks/hide_elements/hide_blurred_media_background';
 import { loadFullWidthBanner } from '../../../content/tweaks/style/full_width_banner';
 import { loadCompactHeaderSideMenu } from '../../../content/tweaks/style/compact_header_side_menu';
-import { loadResizeMainContainer } from '../../../content/Tweaks/expand_feed_post/resize_main_container';
+import { loadResizeMainContainer } from '../../../content/tweaks/resize_elements/resize_main_container';
 
 export function tweakLoaderNewNew() {
 	loadCustomBackground();

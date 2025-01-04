@@ -316,6 +316,9 @@ function enableExpandContentNewNew() {
 									.m\\:grid-cols-\\[272px_1fr\\] {
 										grid-template-columns: var(--re-side-menu-width) 1fr !important;
 									}
+									.grid-container:not(.grid-full) {
+										grid-template-columns: var(--re-side-menu-width) 1fr !important;;
+									}
 								}
 								
 								shreddit-app[routename="frontpage"] #main-content,
@@ -461,7 +464,6 @@ function enableExpandContentNewNew() {
 									width: calc(100vw - 2rem) !important;
 								}*/`;
 	document.head.appendChild(styleElement);
-	document.querySelector('html').classList.add('re-expand-feed-layout');
 }
 
 // Function - Disable Expand Content - New New
@@ -470,7 +472,6 @@ function disableExpandContentNewNew() {
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
-	document.querySelector('html').classList.remove('re-expand-feed-layout');
 }
 
 // Page Style Property - Expand Layout Width
