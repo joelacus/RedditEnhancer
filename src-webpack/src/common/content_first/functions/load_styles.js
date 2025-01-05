@@ -55,8 +55,8 @@ const styleShowPostAuthor = `.re-post-author {
 								background-color: var(--color-tooltip-bg-neutral);
 								color: var(--color-tooltip-text-neutral);
 								border-radius: var(--re-theme-border-radius);
-								box-shadow: 0var(--boxshadow-tooltip);
-								padding: 0.5rem;
+								box-shadow: var(--boxshadow-tooltip);
+								padding: 1rem;
 								z-index: 999;
 							}
 							.hover-card img {
