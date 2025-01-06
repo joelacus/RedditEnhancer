@@ -82,8 +82,13 @@ function enableSideMenuToggleButton() {
 									shreddit-app[data-re-hide-side-menu="false"] #left-sidebar-container {
 										z-index: 1;
 									}
-									shreddit-app[data-re-hide-side-menu="true"] .grid-container {
-										grid-template-columns: 0 1fr !important;
+									pdp-back-button {
+										position: static !important;
+									}
+									@media (min-width: 1200px) {
+										shreddit-app[data-re-hide-side-menu="true"] .grid-container {
+											grid-template-columns: 0 1fr !important;
+										}
 									}
 									.re-side-menu-close,
 									.re-side-menu-open {
