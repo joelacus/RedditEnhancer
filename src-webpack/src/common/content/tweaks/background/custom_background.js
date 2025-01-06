@@ -86,10 +86,7 @@ function enableUseCustomBackgroundNew() {
 function enableUseCustomBackgroundNewNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-custom-background';
-	styleElement.textContent = `:root {
-									--color-neutral-background: #000 !important;
-								}
-								body {
+	styleElement.textContent = `body {
 									background-color: transparent !important;
 								}
 								body:before {
@@ -107,10 +104,13 @@ function enableUseCustomBackgroundNewNew() {
 								shreddit-app .sidebar-grid {
 									background: none !important;
 								}
-								shreddit-app #main-content {
-									margin-top: 8px;
+								shreddit-app[routename="post_page"] main#main-content {
+									margin: 1rem 0;
+									padding: 0 1rem;
+									background-color: var(--color-neutral-background);
+									border-radius: var(--re-theme-border-radius, 0);
 								}
-								shreddit-app main shreddit-async-loader comment-body-header,
+								/* shreddit-app main shreddit-async-loader comment-body-header,
 								shreddit-app main #comment-tree {
 									width: 100%;
 									margin-left: -0.5rem;
@@ -119,7 +119,7 @@ function enableUseCustomBackgroundNewNew() {
 									padding-right: .5rem !important;
 									padding-bottom: .5rem;
 									border-radius: 16px;
-								}`;
+								} */`;
 
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
