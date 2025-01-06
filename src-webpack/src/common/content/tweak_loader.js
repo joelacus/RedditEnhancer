@@ -38,6 +38,7 @@ import { loadSideMenuToggleButton } from './tweaks/hide_elements/side_menu_toggl
 import { loadHideNsfwInSearchResults, loadHideTrendingTodayInSearchResults } from './tweaks/hide_elements/hide_search_results_sections';
 import { loadRememberSideMenuSectionHiddenState } from './tweaks/hide_elements/remember_side_menu_section_hidden_state';
 import { loadAddProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
+import { loadCompactSubRuleList } from "./tweaks/style/old_new_ui";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -79,6 +80,7 @@ export function loadTweaks() {
 		loadAutoLoadMoreComments();
 		loadHidePostKarma();
 		loadSideMenuToggleButton();
+		loadCompactSubRuleList();
 
 		// Wait for elements to load on the page before loading tweaks.
 		waitForAddedNode({

@@ -339,8 +339,8 @@ function enableExpandContentNewNew() {
 									max-width: 100% !important;
 								}
 								shreddit-app[routename="subreddit"] #main-content {
-									width: var(--re-sub-width) !important;
-									min-width: var(--re-sub-width) !important;
+									width: var(--re-sub-width);
+									max-width: 100%;
 									justify-self: center;
 								}
 								shreddit-app[routename="subreddit_wiki"] #main-content {

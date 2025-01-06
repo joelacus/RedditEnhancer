@@ -37,6 +37,13 @@ export function loadHideSearchSidebar() {
 	});
 }
 
+// Hide the Custom Feed sidebar
+export function loadHideCustomFeedSidebar() {
+	BROWSER_API.storage.sync.get(['hideCustomFeedSidebar'], function (result) {
+		if (result.hideCustomFeedSidebar) hideCustomFeedSidebar(true);
+	});
+}
+
 // Sub Sidebar Exception
 export function loadHideSubSidebarException() {
 	BROWSER_API.storage.sync.get(['hideSubSidebarExceptionsEnable', 'hideSubSidebarExceptionMode', 'hideSubSidebarExceptionSubList', 'hideSubSidebar'], function (result) {
@@ -557,4 +564,43 @@ export function disableHideSearchSidebarAll() {
 	});
 	document.querySelector('html').classList.remove('re-hide-search-sidebar');
 	document.documentElement.style.removeProperty('--re-search-sidebar-width');
+}
+
+/* === Main Function - Hide Custom Feed Sidebar === */
+
+export function hideCustomFeedSidebar(value) {
+	if (redditVersion === 'newnew') {
+		if (value) {
+			enableHideCustomFeedSidebarNewNew();
+		} else {
+			disableHideCustomFeedSidebarNewNew();
+		}
+	}
+}
+
+// Function - Enable Hide Custom Feed Sidebar - New New
+function enableHideCustomFeedSidebarNewNew() {
+	if (!document.head.querySelector('style[id="re-hide-custom-feed-sidebar"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-custom-feed-sidebar';
+		styleElement.textContent =
+			`shreddit-app[routename="custom_feed"] #right-sidebar-container {
+				display: none;
+				visibility: hidden;
+			}
+			shreddit-app[routename="custom_feed"] main#main-content {
+				max-width: 100% !important;
+			}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
+	// document.documentElement.style.setProperty('--re-custom-feed-sidebar-width', 0);
+}
+
+// Function - Disable Hide Custom Feed Sidebar - New New
+function disableHideCustomFeedSidebarNewNew() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-custom-feed-sidebar"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+	// document.documentElement.style.removeProperty('--re-custom-feed-sidebar-width');
 }
