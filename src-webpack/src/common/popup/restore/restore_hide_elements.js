@@ -117,6 +117,17 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide User Sidebar: ' + value);
 	});
 
+	// Hide Custom Feed Sidebar
+	BROWSER_API.storage.sync.get(['hideCustomFeedSidebar'], function (result) {
+		const hideCustomFeedSidebar = (result.hideCustomFeedSidebar === true);
+		document.querySelector('#checkbox-hide-custom-feed-sidebar').checked = hideCustomFeedSidebar;
+		document.querySelector('.icon-hide-custom-feed-sidebar').style.backgroundColor = hideCustomFeedSidebar ? 'var(--accent)' : '';
+		document.querySelector('.icon-hide-custom-feed-sidebar').classList.toggle('icon-show', !hideCustomFeedSidebar);
+		document.querySelector('.icon-hide-custom-feed-sidebar').classList.toggle('icon-hide', hideCustomFeedSidebar);
+		document.querySelector('.icon-hide-elements').style.backgroundColor = hideCustomFeedSidebar ? 'var(--accent)' : '';
+		console.log('Hide Custom Feed Sidebar: ' + hideCustomFeedSidebar);
+	});
+
 	// Hide Sidebar Policy
 	BROWSER_API.storage.sync.get(['hideSidebarPolicy'], function (result) {
 		if (result.hideSidebarPolicy == true) {
@@ -870,5 +881,37 @@ export function restorePopupHideElementsOptions() {
 			var value = false;
 		}
 		console.log('Remember Side Menu Section Hidden State: ' + value);
+	});
+
+	// Hide Post Divider
+	BROWSER_API.storage.sync.get(['hidePostDivider'], function (result) {
+		const hidePostDivider = (result.hidePostDivider === true);
+		if (hidePostDivider) highlightMenuIcon('hide-elements');
+		document.querySelector('#checkbox-hide-post-divider').checked = hidePostDivider;
+		document.querySelector('.icon-hide-post-divider').style.backgroundColor = hidePostDivider ? 'var(--accent)' : '';
+		document.querySelector('.icon-hide-post-divider').classList.toggle('icon-show', !hidePostDivider);
+		document.querySelector('.icon-hide-post-divider').classList.toggle('icon-hide', hidePostDivider);
+		document.querySelector('.icon-hide-elements').style.backgroundColor = hidePostDivider ? 'var(--accent)' : '';
+		console.log('Hide Post Divider: ' + hidePostDivider);
+	});
+
+	// Post Separator Length
+	BROWSER_API.storage.sync.get(['postSeparatorLength'], function (result) {
+		const value = result.postSeparatorLength || '';
+		document.querySelector('#input-post-separator-length').value = value;
+		document.querySelector('#post-separator-length-value').innerText = value + 'px';
+		console.log('Post Separator Length: ' + value);
+	});
+
+	// Hide Blurred Media Background
+	BROWSER_API.storage.sync.get(['hideBlurredMediaBackground'], function (result) {
+		const hideBlurredMediaBackground = result.hideBlurredMediaBackground === true;
+		if (hideBlurredMediaBackground) highlightMenuIcon('hide-elements');
+		document.querySelector('#checkbox-hide-blurred-media-background').checked = hideBlurredMediaBackground;
+		document.querySelector('.icon-hide-blurred-media-background').style.backgroundColor = hideBlurredMediaBackground ? 'var(--accent)' : '';
+		document.querySelector('.icon-hide-blurred-media-background').classList.toggle('icon-show', !hideBlurredMediaBackground);
+		document.querySelector('.icon-hide-blurred-media-background').classList.toggle('icon-hide', hideBlurredMediaBackground);
+		document.querySelector('.icon-hide-elements').style.backgroundColor = hideBlurredMediaBackground ? 'var(--accent)' : '';
+		console.log('Hide Blurred Media Background: ' + hideBlurredMediaBackground);
 	});
 }

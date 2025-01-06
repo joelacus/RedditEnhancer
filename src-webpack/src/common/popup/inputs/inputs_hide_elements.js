@@ -155,19 +155,17 @@ document.querySelector('#checkbox-hide-post-sidebar').addEventListener('change',
 // Toggle - Hide Post Overlay Sidebar
 document.querySelector('#checkbox-hide-post-overlay-sidebar').addEventListener('change', function () {
 	const hidePostOverlaySidebar = document.querySelector('#checkbox-hide-post-overlay-sidebar').checked;
-	if (hidePostOverlaySidebar === true) {
-		BROWSER_API.storage.sync.set({ hidePostOverlaySidebar: true });
+	if (hidePostOverlaySidebar) {
 		document.querySelector('.icon-hide-post-overlay-sidebar').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.icon-hide-post-overlay-sidebar').classList.remove('icon-show');
 		document.querySelector('.icon-hide-post-overlay-sidebar').classList.add('icon-hide');
-		sendMessage({ hidePostOverlaySidebar: true });
-	} else if (hidePostOverlaySidebar === false) {
-		BROWSER_API.storage.sync.set({ hidePostOverlaySidebar: false });
+	} else {
 		document.querySelector('.icon-hide-post-overlay-sidebar').style.backgroundColor = '';
 		document.querySelector('.icon-hide-post-overlay-sidebar').classList.add('icon-show');
 		document.querySelector('.icon-hide-post-overlay-sidebar').classList.remove('icon-hide');
-		sendMessage({ hidePostOverlaySidebar: false });
 	}
+	BROWSER_API.storage.sync.set({ hidePostOverlaySidebar: hidePostOverlaySidebar });
+	sendMessage({ hidePostOverlaySidebar: hidePostOverlaySidebar });
 });
 
 // Toggle - Hide User Sidebar
@@ -227,307 +225,273 @@ document.querySelector('#checkbox-hide-custom-feed-sidebar').addEventListener('c
 // Toggle - Hide Sidebar Policy
 document.querySelector('#checkbox-hide-sidebar-policy').addEventListener('change', function () {
 	const hideSidebarPolicy = document.querySelector('#checkbox-hide-sidebar-policy').checked;
-	if (hideSidebarPolicy === true) {
-		BROWSER_API.storage.sync.set({ hideSidebarPolicy: true });
+	if (hideSidebarPolicy) {
 		document.querySelector('.hide-sidebar-policy').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.hide-sidebar-policy').classList.remove('icon-show');
 		document.querySelector('.hide-sidebar-policy').classList.add('icon-hide');
-		sendMessage({ hideSidebarPolicy: true });
-	} else if (hideSidebarPolicy === false) {
-		BROWSER_API.storage.sync.set({ hideSidebarPolicy: false });
+	} else {
 		document.querySelector('.hide-sidebar-policy').style.backgroundColor = '';
 		document.querySelector('.hide-sidebar-policy').classList.add('icon-show');
 		document.querySelector('.hide-sidebar-policy').classList.remove('icon-hide');
-		sendMessage({ hideSidebarPolicy: false });
 	}
+	BROWSER_API.storage.sync.set({ hideSidebarPolicy: hideSidebarPolicy });
+	sendMessage({ hideSidebarPolicy: hideSidebarPolicy });
 });
 
 // Toggle - Hide Advertise Button
 document.querySelector('#checkbox-hide-advertise-button').addEventListener('change', function () {
 	const hideAdvertiseButton = document.querySelector('#checkbox-hide-advertise-button').checked;
-	if (hideAdvertiseButton === true) {
-		BROWSER_API.storage.sync.set({ hideAdvertiseButton: true });
+	if (hideAdvertiseButton) {
 		document.querySelector('.hide-advertise-button').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.hide-advertise-button').classList.remove('icon-advertise');
 		document.querySelector('.hide-advertise-button').classList.add('icon-advertise-slash');
-		sendMessage({ hideAdvertiseButton: true });
-	} else if (hideAdvertiseButton === false) {
-		BROWSER_API.storage.sync.set({ hideAdvertiseButton: false });
+	} else {
 		document.querySelector('.hide-advertise-button').style.backgroundColor = '';
 		document.querySelector('.hide-advertise-button').classList.add('icon-advertise');
 		document.querySelector('.hide-advertise-button').classList.remove('icon-advertise-slash');
-		sendMessage({ hideAdvertiseButton: false });
 	}
+	BROWSER_API.storage.sync.set({ hideAdvertiseButton: hideAdvertiseButton });
+	sendMessage({ hideAdvertiseButton: hideAdvertiseButton });
 });
 
 // Toggle - Hide Moderation Button
 document.querySelector('#checkbox-hide-moderation-button').addEventListener('change', function () {
 	const hideModerationButton = document.querySelector('#checkbox-hide-moderation-button').checked;
-	if (hideModerationButton === true) {
-		BROWSER_API.storage.sync.set({ hideModerationButton: true });
+	if (hideModerationButton) {
 		document.querySelector('.hide-moderation-button').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.hide-moderation-button').classList.remove('icon-mod');
 		document.querySelector('.hide-moderation-button').classList.add('icon-mod-slash');
-		sendMessage({ hideModerationButton: true });
-	} else if (hideModerationButton === false) {
-		BROWSER_API.storage.sync.set({ hideModerationButton: false });
+	} else {
 		document.querySelector('.hide-moderation-button').style.backgroundColor = '';
 		document.querySelector('.hide-moderation-button').classList.add('icon-mod');
 		document.querySelector('.hide-moderation-button').classList.remove('icon-mod-slash');
-		sendMessage({ hideModerationButton: false });
 	}
+	BROWSER_API.storage.sync.set({ hideModerationButton: hideModerationButton });
+	sendMessage({ hideModerationButton: hideModerationButton });
 });
 
 // Toggle - Hide Popular Button
 document.querySelector('#checkbox-hide-popular-button').addEventListener('change', function () {
 	const hidePopularButton = document.querySelector('#checkbox-hide-popular-button').checked;
-	if (hidePopularButton === true) {
-		BROWSER_API.storage.sync.set({ hidePopularButton: true });
+	if (hidePopularButton) {
 		document.querySelector('.hide-popular-button').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.hide-popular-button').classList.remove('icon-popular');
 		document.querySelector('.hide-popular-button').classList.add('icon-popular-slash');
-		sendMessage({ hidePopularButton: true });
-	} else if (hidePopularButton === false) {
-		BROWSER_API.storage.sync.set({ hidePopularButton: false });
+	} else {
 		document.querySelector('.hide-popular-button').style.backgroundColor = '';
 		document.querySelector('.hide-popular-button').classList.add('icon-popular');
 		document.querySelector('.hide-popular-button').classList.remove('icon-popular-slash');
-		sendMessage({ hidePopularButton: false });
 	}
+	BROWSER_API.storage.sync.set({ hidePopularButton: hidePopularButton });
+	sendMessage({ hidePopularButton: hidePopularButton });
 });
 
 // Toggle - Hide Chat Button
 document.querySelector('#checkbox-hide-chat-button').addEventListener('change', function () {
 	const hideChatButton = document.querySelector('#checkbox-hide-chat-button').checked;
-	if (hideChatButton === true) {
-		BROWSER_API.storage.sync.set({ hideChatButton: true });
+	if (hideChatButton) {
 		document.querySelector('.hide-chat-button').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.hide-chat-button').classList.remove('icon-chat');
 		document.querySelector('.hide-chat-button').classList.add('icon-chat-slash');
-		sendMessage({ hideChatButton: true });
-	} else if (hideChatButton === false) {
-		BROWSER_API.storage.sync.set({ hideChatButton: false });
+	} else {
 		document.querySelector('.hide-chat-button').style.backgroundColor = '';
 		document.querySelector('.hide-chat-button').classList.add('icon-chat');
 		document.querySelector('.hide-chat-button').classList.remove('icon-chat-slash');
-		sendMessage({ hideChatButton: false });
 	}
+	BROWSER_API.storage.sync.set({ hideChatButton: hideChatButton });
+	sendMessage({ hideChatButton: hideChatButton });
 });
 
 // Toggle - Hide Notification Button
 document.querySelector('#checkbox-hide-notification-button').addEventListener('change', function () {
 	const hideNotificationButton = document.querySelector('#checkbox-hide-notification-button').checked;
-	if (hideNotificationButton === true) {
-		BROWSER_API.storage.sync.set({ hideNotificationButton: true });
+	if (hideNotificationButton) {
 		document.querySelector('.hide-notification-button').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.hide-notification-button').classList.remove('icon-notification');
 		document.querySelector('.hide-notification-button').classList.add('icon-notification-slash');
-		sendMessage({ hideNotificationButton: true });
-	} else if (hideNotificationButton === false) {
-		BROWSER_API.storage.sync.set({ hideNotificationButton: false });
+	} else {
 		document.querySelector('.hide-notification-button').style.backgroundColor = '';
 		document.querySelector('.hide-notification-button').classList.add('icon-notification');
 		document.querySelector('.hide-notification-button').classList.remove('icon-notification-slash');
-		sendMessage({ hideNotificationButton: false });
 	}
+	BROWSER_API.storage.sync.set({ hideNotificationButton: hideNotificationButton });
+	sendMessage({ hideNotificationButton: hideNotificationButton });
 });
 
 // Toggle - Hide Create Post Button
 document.querySelector('#checkbox-hide-create-post-button').addEventListener('change', function () {
 	const hideCreatePostButton = document.querySelector('#checkbox-hide-create-post-button').checked;
-	if (hideCreatePostButton === true) {
-		BROWSER_API.storage.sync.set({ hideCreatePostButton: true });
+	if (hideCreatePostButton) {
 		document.querySelector('.hide-create-post-button').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.hide-create-post-button').classList.remove('icon-plus');
 		document.querySelector('.hide-create-post-button').classList.add('icon-plus-slash');
-		sendMessage({ hideCreatePostButton: true });
-	} else if (hideCreatePostButton === false) {
-		BROWSER_API.storage.sync.set({ hideCreatePostButton: false });
+	} else {
 		document.querySelector('.hide-create-post-button').style.backgroundColor = '';
 		document.querySelector('.hide-create-post-button').classList.add('icon-plus');
 		document.querySelector('.hide-create-post-button').classList.remove('icon-plus-slash');
-		sendMessage({ hideCreatePostButton: false });
 	}
+	BROWSER_API.storage.sync.set({ hideCreatePostButton: hideCreatePostButton });
+	sendMessage({ hideCreatePostButton: hideCreatePostButton });
 });
 
 // Toggle - Hide Username
 document.querySelector('#checkbox-hide-username').addEventListener('change', function () {
 	const hideUsername = document.querySelector('#checkbox-hide-username').checked;
-	if (hideUsername === true) {
-		BROWSER_API.storage.sync.set({ hideUsername: true });
+	if (hideUsername) {
 		document.querySelector('.hide-username').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.hide-username').classList.remove('icon-user');
 		document.querySelector('.hide-username').classList.add('icon-user-slash');
-		sendMessage({ hideUsername: true });
-	} else if (hideUsername === false) {
-		BROWSER_API.storage.sync.set({ hideUsername: false });
+	} else {
 		document.querySelector('.hide-username').style.backgroundColor = '';
 		document.querySelector('.hide-username').classList.add('icon-user');
 		document.querySelector('.hide-username').classList.remove('icon-user-slash');
-		sendMessage({ hideUsername: false });
 	}
+	BROWSER_API.storage.sync.set({ hideUsername: hideUsername });
+	sendMessage({ hideUsername: hideUsername });
 });
 
 // Toggle - Hide Karma
 document.querySelector('#checkbox-hide-karma').addEventListener('change', function () {
 	const hideKarma = document.querySelector('#checkbox-hide-karma').checked;
-	if (hideKarma === true) {
-		BROWSER_API.storage.sync.set({ hideKarma: true });
+	if (hideKarma) {
 		document.querySelector('.icon-hide-karma').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.icon-hide-karma').classList.remove('icon-karma');
 		document.querySelector('.icon-hide-karma').classList.add('icon-karma-slash');
-		sendMessage({ hideKarma: true });
-	} else if (hideKarma === false) {
-		BROWSER_API.storage.sync.set({ hideKarma: false });
+	} else {
 		document.querySelector('.icon-hide-karma').style.backgroundColor = '';
 		document.querySelector('.icon-hide-karma').classList.add('icon-karma');
 		document.querySelector('.icon-hide-karma').classList.remove('icon-karma-slash');
-		sendMessage({ hideKarma: false });
 	}
+	BROWSER_API.storage.sync.set({ hideKarma: hideKarma });
+	sendMessage({ hideKarma: hideKarma });
 });
 
 // Toggle - Hide Get New Reddit
 document.querySelector('#checkbox-hide-get-new-reddit').addEventListener('change', function () {
 	const hideGetNewReddit = document.querySelector('#checkbox-hide-get-new-reddit').checked;
-	if (hideGetNewReddit === true) {
-		BROWSER_API.storage.sync.set({ hideGetNewReddit: true });
+	if (hideGetNewReddit) {
 		document.querySelector('.hide-get-new-reddit').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.hide-get-new-reddit').classList.remove('icon-show');
 		document.querySelector('.hide-get-new-reddit').classList.add('icon-hide');
-		sendMessage({ hideGetNewReddit: true });
-	} else if (hideGetNewReddit === false) {
-		BROWSER_API.storage.sync.set({ hideGetNewReddit: false });
+	} else {
 		document.querySelector('.hide-get-new-reddit').style.backgroundColor = '';
 		document.querySelector('.hide-get-new-reddit').classList.remove('icon-hide');
 		document.querySelector('.hide-get-new-reddit').classList.add('icon-show');
-		sendMessage({ hideGetNewReddit: false });
 	}
+	BROWSER_API.storage.sync.set({ hideGetNewReddit: hideGetNewReddit });
+	sendMessage({ hideGetNewReddit: hideGetNewReddit });
 });
 
 // Toggle - Hide Promoted Links
 document.querySelector('#checkbox-hide-promoted').addEventListener('change', function () {
 	const hidePromoted = document.querySelector('#checkbox-hide-promoted').checked;
-	if (hidePromoted === true) {
-		BROWSER_API.storage.sync.set({ hidePromoted: true });
+	if (hidePromoted) {
 		document.querySelector('.icon-hide-promoted').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.icon-hide-promoted').classList.remove('icon-ad');
 		document.querySelector('.icon-hide-promoted').classList.add('icon-ad-slash');
-		sendMessage({ hidePromoted: true });
-	} else if (hidePromoted === false) {
-		BROWSER_API.storage.sync.set({ hidePromoted: false });
+	} else {
 		document.querySelector('.icon-hide-promoted').style.backgroundColor = '';
 		document.querySelector('.icon-hide-promoted').classList.add('icon-ad');
 		document.querySelector('.icon-hide-promoted').classList.remove('icon-ad-slash');
-		sendMessage({ hidePromoted: false });
 	}
+	BROWSER_API.storage.sync.set({ hidePromoted: hidePromoted });
+	sendMessage({ hidePromoted: hidePromoted });
 });
 
 // Toggle - Hide Recommended Links
 document.querySelector('#checkbox-hide-recommended').addEventListener('change', function () {
 	const hideRecommended = document.querySelector('#checkbox-hide-recommended').checked;
-	if (hideRecommended === true) {
-		BROWSER_API.storage.sync.set({ hideRecommended: true });
+	if (hideRecommended) {
 		document.querySelector('.icon-hide-recommended').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.icon-hide-recommended').classList.remove('icon-hand');
 		document.querySelector('.icon-hide-recommended').classList.add('icon-hand-slash');
-		sendMessage({ hideRecommended: true });
-	} else if (hideRecommended === false) {
-		BROWSER_API.storage.sync.set({ hideRecommended: false });
+	} else {
 		document.querySelector('.icon-hide-recommended').style.backgroundColor = '';
 		document.querySelector('.icon-hide-recommended').classList.add('icon-hand');
 		document.querySelector('.icon-hide-recommended').classList.remove('icon-hand-slash');
-		sendMessage({ hideRecommended: false });
 	}
+	BROWSER_API.storage.sync.set({ hideRecommended: hideRecommended });
+	sendMessage({ hideRecommended: hideRecommended });
 });
 
 // Toggle - Hide See Full Image
 document.querySelector('#checkbox-hide-see-full-image').addEventListener('change', function () {
 	const hideSeeFullImage = document.querySelector('#checkbox-hide-see-full-image').checked;
-	if (hideSeeFullImage === true) {
-		BROWSER_API.storage.sync.set({ hideSeeFullImage: true });
+	if (hideSeeFullImage) {
 		document.querySelector('.icon-hide-see-full-image').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.icon-hide-see-full-image').classList.remove('icon-show');
 		document.querySelector('.icon-hide-see-full-image').classList.add('icon-hide');
-		sendMessage({ hideSeeFullImage: true });
-	} else if (hideSeeFullImage === false) {
-		BROWSER_API.storage.sync.set({ hideSeeFullImage: false });
+	} else {
 		document.querySelector('.icon-hide-see-full-image').style.backgroundColor = '';
 		document.querySelector('.icon-hide-see-full-image').classList.add('icon-show');
 		document.querySelector('.icon-hide-see-full-image').classList.remove('icon-hide');
-		sendMessage({ hideSeeFullImage: false });
 	}
+	BROWSER_API.storage.sync.set({ hideSeeFullImage: hideSeeFullImage });
+	sendMessage({ hideSeeFullImage: hideSeeFullImage });
 });
 
 // Toggle - Hide Header Sub Bar
 document.querySelector('#checkbox-hide-header-sub-bar').addEventListener('change', function () {
 	const hideHeaderSubBar = document.querySelector('#checkbox-hide-header-sub-bar').checked;
-	if (hideHeaderSubBar === true) {
-		BROWSER_API.storage.sync.set({ hideHeaderSubBar: true });
+	if (hideHeaderSubBar) {
 		document.querySelector('.icon-hide-header-sub-bar').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.icon-hide-header-sub-bar').classList.remove('icon-show');
 		document.querySelector('.icon-hide-header-sub-bar').classList.add('icon-hide');
-		sendMessage({ hideHeaderSubBar: true });
-	} else if (hideHeaderSubBar === false) {
-		BROWSER_API.storage.sync.set({ hideHeaderSubBar: false });
+	} else {
 		document.querySelector('.icon-hide-header-sub-bar').style.backgroundColor = '';
 		document.querySelector('.icon-hide-header-sub-bar').classList.remove('icon-hide');
 		document.querySelector('.icon-hide-header-sub-bar').classList.add('icon-show');
-		sendMessage({ hideHeaderSubBar: false });
 	}
+	BROWSER_API.storage.sync.set({ hideHeaderSubBar: hideHeaderSubBar });
+	sendMessage({ hideHeaderSubBar: hideHeaderSubBar });
 });
 
 // Toggle - Hide Side Menu Old
 document.querySelector('#checkbox-hide-side-menu-old').addEventListener('change', function () {
 	const hideSideMenuOld = document.querySelector('#checkbox-hide-side-menu-old').checked;
-	if (hideSideMenuOld === true) {
-		BROWSER_API.storage.sync.set({ hideSideMenuOld: true });
+	if (hideSideMenuOld) {
 		document.querySelector('.icon-hide-side-menu-old').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.icon-hide-side-menu-old').classList.remove('icon-show');
 		document.querySelector('.icon-hide-side-menu-old').classList.add('icon-hide');
-		sendMessage({ hideSideMenuOld: true });
-	} else if (hideSideMenuOld === false) {
-		BROWSER_API.storage.sync.set({ hideSideMenuOld: false });
+	} else {
 		document.querySelector('.icon-hide-side-menu-old').style.backgroundColor = '';
 		document.querySelector('.icon-hide-side-menu-old').classList.remove('icon-hide');
 		document.querySelector('.icon-hide-side-menu-old').classList.add('icon-show');
-		sendMessage({ hideSideMenuOld: false });
 	}
+	BROWSER_API.storage.sync.set({ hideSideMenuOld: hideSideMenuOld });
+	sendMessage({ hideSideMenuOld: hideSideMenuOld });
 });
 
 // Toggle - Hide NSFW Links
 document.querySelector('#checkbox-hide-nsfw').addEventListener('change', function () {
 	const hideNSFW = document.querySelector('#checkbox-hide-nsfw').checked;
-	if (hideNSFW === true) {
-		BROWSER_API.storage.sync.set({ hideNSFW: true });
+	if (hideNSFW) {
 		document.querySelector('.icon-hide-nsfw').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.icon-hide-nsfw').classList.remove('icon-nsfw');
 		document.querySelector('.icon-hide-nsfw').classList.add('icon-nsfw-slash');
-		sendMessage({ hideNSFW: true });
-	} else if (hideNSFW === false) {
-		BROWSER_API.storage.sync.set({ hideNSFW: false });
+	} else {
 		document.querySelector('.icon-hide-nsfw').style.backgroundColor = '';
 		document.querySelector('.icon-hide-nsfw').classList.add('icon-nsfw');
 		document.querySelector('.icon-hide-nsfw').classList.remove('icon-nsfw-slash');
-		sendMessage({ hideNSFW: false });
 	}
+	BROWSER_API.storage.sync.set({ hideNSFW: hideNSFW });
+	sendMessage({ hideNSFW: hideNSFW });
 });
 
 // Toggle - Hide "Turn On Notifications" Popup
 document.querySelector('#checkbox-hide-turn-on-notifications').addEventListener('change', function () {
 	const hideTurnOnNotificationsPopup = document.querySelector('#checkbox-hide-turn-on-notifications').checked;
-	if (hideTurnOnNotificationsPopup === true) {
-		BROWSER_API.storage.sync.set({ hideTurnOnNotificationsPopup: true });
+	if (hideTurnOnNotificationsPopup) {
 		document.querySelector('.icon-hide-turn-on-notifications').style.backgroundColor = 'var(--accent)';
 		document.querySelector('.icon-hide-turn-on-notifications').classList.remove('icon-bell');
 		document.querySelector('.icon-hide-turn-on-notifications').classList.add('icon-bell-slash');
-		sendMessage({ hideTurnOnNotificationsPopup: true });
-	} else if (hideTurnOnNotificationsPopup === false) {
-		BROWSER_API.storage.sync.set({ hideTurnOnNotificationsPopup: false });
+	} else {
 		document.querySelector('.icon-hide-turn-on-notifications').style.backgroundColor = '';
 		document.querySelector('.icon-hide-turn-on-notifications').classList.add('icon-bell');
 		document.querySelector('.icon-hide-turn-on-notifications').classList.remove('icon-bell-slash');
-		sendMessage({ hideTurnOnNotificationsPopup: false });
 	}
+	BROWSER_API.storage.sync.set({ hideTurnOnNotificationsPopup: hideTurnOnNotificationsPopup });
+	sendMessage({ hideTurnOnNotificationsPopup: hideTurnOnNotificationsPopup });
 });
 
 // Toggle - Hide Sub Sidebar Exceptions
@@ -567,7 +531,6 @@ document.querySelector('#input-hide-sub-sidebar-exceptions').addEventListener('k
 });
 
 // Toggle - Hide Header Bar
-// TODO: optimise code from this point up
 document.querySelector('#checkbox-hide-header-bar').addEventListener('change', function () {
 	const hideHeaderBar = document.querySelector('#checkbox-hide-header-bar').checked;
 	if (hideHeaderBar) {
@@ -1060,13 +1023,24 @@ document.querySelector('#checkbox-hide-post-divider').addEventListener('change',
 		document.querySelector('.icon-hide-post-divider').classList.remove('icon-show');
 		document.querySelector('.icon-hide-post-divider').classList.add('icon-hide');
 		document.querySelector('.icon-hide-post-divider').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-post-separator-length').style.backgroundColor = 'var(--accent)';
 	} else {
 		document.querySelector('.icon-hide-post-divider').classList.remove('icon-hide');
 		document.querySelector('.icon-hide-post-divider').classList.add('icon-show');
 		document.querySelector('.icon-hide-post-divider').style.backgroundColor = '';
+		document.querySelector('.icon-post-separator-length').style.backgroundColor = '';
 	}
 	BROWSER_API.storage.sync.set({ hidePostDivider: hidePostDivider });
 	sendMessage({ hidePostDivider: hidePostDivider });
+});
+
+// Slider - Post Separator Length
+document.querySelector('#input-post-separator-length').addEventListener('input', function (e) {
+	document.querySelector('#post-separator-length-value').textContent = e.target.value + 'px';
+	sendMessage({ postSeparatorLength: e.target.value });
+});
+document.querySelector('#input-post-separator-length').addEventListener('mouseup', function (e) {
+	BROWSER_API.storage.sync.set({ postSeparatorLength: e.target.value });
 });
 
 // Toggle - Hide Blurred Media Background

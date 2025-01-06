@@ -193,8 +193,10 @@ document.querySelector('#checkbox-resize-main-container').addEventListener('chan
 	const resizeMainContainer = document.querySelector('#checkbox-resize-main-container').checked;
 	if (resizeMainContainer) {
 		document.querySelector('.icon-resize-main-container').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-resize-main-container-width').style.backgroundColor = 'var(--accent)';
 	} else {
 		document.querySelector('.icon-resize-main-container').style.backgroundColor = '';
+		document.querySelector('.icon-resize-main-container-width').style.backgroundColor = '';
 	}
 	BROWSER_API.storage.sync.set({ resizeMainContainer: resizeMainContainer });
 	sendMessage({ resizeMainContainer: resizeMainContainer });
@@ -202,7 +204,7 @@ document.querySelector('#checkbox-resize-main-container').addEventListener('chan
 
 // Slider - Resize Main Container Width
 document.querySelector('#input-resize-main-container-width').addEventListener('input', function (e) {
-	document.querySelector('#resize-main-container-width').textContent = e.target.value + '%';
+	document.querySelector('#resize-main-container-width-value').textContent = e.target.value + '%';
 	sendMessage({ resizeMainContainerWidth: e.target.value });
 });
 document.querySelector('#input-resize-main-container-width').addEventListener('mouseup', function (e) {

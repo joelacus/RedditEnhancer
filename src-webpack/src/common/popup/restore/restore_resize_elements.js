@@ -229,4 +229,23 @@ export function restorePopupResizeFeedOptions() {
 		}
 		console.log('Side Menu Width: ' + value);
 	});
+
+	// Resize Main Container & Resize Main Container Width
+	BROWSER_API.storage.sync.get(['resizeMainContainer', 'resizeMainContainerWidth'], function (result) {
+		const resizeMainContainer = result.resizeMainContainer;
+		const resizeMainContainerWidth = result.resizeMainContainerWidth;
+
+		document.querySelector('#checkbox-resize-main-container').checked = !!resizeMainContainer;
+		if (resizeMainContainer) {
+			const icons = document.querySelectorAll('.icon-resize-main-container, .icon-resize-main-container-width');
+			icons.forEach(icon => icon.style.backgroundColor = 'var(--accent)');
+			highlightMenuIcon('resize-elements');
+		}
+		console.log('Resize Main Container: ' + !!resizeMainContainer);
+
+		const widthValue = resizeMainContainerWidth !== undefined ? resizeMainContainerWidth : 80;
+		document.querySelector('#input-resize-main-container-width').value = widthValue;
+		document.querySelector('#resize-main-container-width-value').innerText = widthValue + '%';
+		console.log('Resize Main Container Width: ' + widthValue + '%');
+	});
 }

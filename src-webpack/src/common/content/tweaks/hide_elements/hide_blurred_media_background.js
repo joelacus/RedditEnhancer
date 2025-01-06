@@ -8,7 +8,7 @@
 
 // Get the feature state from browser sync storage
 export function loadHideBlurredMediaBackground() {
-    BROWSER_API.storage.sync.get('hideBlurredMediaBackground').then((result) => {
+    BROWSER_API.storage.sync.get(['hideBlurredMediaBackground']).then((result) => {
         if (result.hideBlurredMediaBackground) {
             hideBlurredMediaBackground(true);
         }

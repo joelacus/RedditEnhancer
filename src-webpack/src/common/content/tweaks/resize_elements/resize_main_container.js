@@ -10,7 +10,7 @@
 
 // Get the feature state from browser sync storage
 export function loadResizeMainContainer() {
-    BROWSER_API.storage.sync.get(['resizeMainContainer'], function (result) {
+    BROWSER_API.storage.sync.get(['resizeMainContainer', 'resizeMainContainerWidth'], function (result) {
         if (result.resizeMainContainer) resizeMainContainer(true);
         resizeMainContainerWidth(result.resizeMainContainerWidth);
     });

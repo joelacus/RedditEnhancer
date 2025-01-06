@@ -588,8 +588,14 @@ function enableHideCustomFeedSidebarNewNew() {
 				display: none;
 				visibility: hidden;
 			}
+			shreddit-app[routename="custom_feed"] div.main-container {
+				gap: 0;
+			}
 			shreddit-app[routename="custom_feed"] main#main-content {
 				max-width: 100% !important;
+			}
+			:root {
+				--re-custom-feed-sidebar-width: 0 !important;
 			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

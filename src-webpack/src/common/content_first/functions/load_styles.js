@@ -192,6 +192,12 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 					}
 					pdp-back-button {
 						position: static !important;
+					}
+					div[slot="credit-bar"] > span:has(pdp-back-button) {
+						gap: .6rem;
+					}
+					div[slot="credit-bar"] > span:has(pdp-back-button) > div {
+						gap: 3px;
 					}`;
 
 const styleScrollText = `.re-text-scroll div[data-click-id="text"][style="max-height: 250px;"], .re-text-scroll div[data-click-id="text"][style="max-height:250px"] {

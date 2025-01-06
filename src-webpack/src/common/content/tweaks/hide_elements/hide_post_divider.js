@@ -8,9 +8,10 @@
 
 // Get the feature state from browser sync storage
 export function loadHidePostDivider() {
-    BROWSER_API.storage.sync.get('hidePostDivider').then((result) => {
+    BROWSER_API.storage.sync.get(['hidePostDivider', 'postSeparatorLength']).then((result) => {
+        hidePostDivider(result.hidePostDivider);
         if (result.hidePostDivider) {
-            hidePostDivider(true);
+            postSeparatorLength(result.postSeparatorLength);
         }
     });
 }
@@ -46,15 +47,15 @@ function enableHidePostDivider() {
             faceplate-batch > article:has(> shreddit-post[view-type="cardView"]),
             /* Comment search results */
             reddit-feed > faceplate-tracker > div {
-                margin-bottom: var(--re-post-separator-width, .6rem) !important;
+                margin-bottom: var(--re-post-separator-length, .6rem) !important;
             }
             main#main-content search-telemetry-tracker > div {
-                margin: var(--re-post-separator-width, .6rem) 0;
+                margin: var(--re-post-separator-length, .6rem) 0;
             }
             /* Add padding to posts, Card and Compact view */
             article > shreddit-post[view-type="cardView"] {
                 margin: 0 !important;
-                padding: .75rem !important;
+                padding: .8rem !important;
             }
             article > shreddit-post[view-type="compactView"] {
                 padding: .25rem !important;
@@ -78,10 +79,10 @@ function disableHidePostDivider() {
 }
 
 // Set custom width for post separators
-export function setPostSeperatorWidth(value) {
-    if (value) {
-        document.documentElement.style.setProperty('--re-post-separator-width', value + '%');
+export function postSeparatorLength(value) {
+    if (value && value >= 0) {
+        document.documentElement.style.setProperty('--re-post-separator-length', value + 'px');
     } else {
-        document.documentElement.style.removeProperty('--re-post-separator-width');
+        document.documentElement.style.removeProperty('--re-post-separator-length');
     }
 }

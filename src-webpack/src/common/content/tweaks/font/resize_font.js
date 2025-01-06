@@ -146,6 +146,10 @@ export function postCommentsFontSize(value) {
 											shreddit-composer div[contenteditable] {
 												font-size: var(--re-post-comments-font-size);
 												line-height: 1.6;
+											}
+											shreddit-composer div[contenteditable] h1 {
+												font-size: 1.5em;
+												line-height: inherit;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}

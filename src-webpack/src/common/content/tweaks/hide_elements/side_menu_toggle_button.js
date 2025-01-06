@@ -36,7 +36,7 @@ function enableSideMenuToggleButton() {
 			btnClose.classList.add('hidden');
 			btnOpen.classList.remove('hidden');
 			BROWSER_API.storage.sync.set({ sideMenuToggleButtonHiddenState: true });
-			document.documentElement.style.setProperty('--re-side-menu-width', 0);
+			// document.documentElement.style.setProperty('--re-side-menu-width', 0);
 		});
 		const nav = document.querySelector('#left-sidebar-container nav');
 		nav.insertBefore(btnClose, nav.firstChild);
@@ -75,6 +75,9 @@ function enableSideMenuToggleButton() {
 		styleElement.textContent = `:root {
 										--re-hide-side-menu-gap-multiplyer: 1;
 										--re-hide-side-menu-gap-multiplyer2: 1;
+									}
+									[data-re-hide-side-menu="true"] {
+										--re-side-menu-width: 0;
 									}
 									shreddit-app[data-re-hide-side-menu="true"] #left-sidebar-container {
 										display: none !important;

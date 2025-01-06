@@ -41,10 +41,11 @@ import { loadHideCompactViewBlankThumbnails } from '../../../content/tweaks/hide
 import { loadHideCommunityHighlights } from '../../../content/tweaks/hide_elements/hide_community_highlights';
 import { loadHideSearchSidebarNsfwUsers } from '../../../content/tweaks/hide_elements/hide_search_page_sidebar_nsfw_users';
 import { loadHideHomeFeed } from '../../../content/tweaks/hide_elements/hide_home_feed';
-import { loadHidePostDivider } from '../../../content/tweaks/hide_elements/hide_post_divider';
+import { loadFullWidthBanner } from "../../../content/tweaks/style/old_new_ui";
+import { loadHidePostDivider } from "../../../content/tweaks/hide_elements/hide_post_divider";
 import { loadHideBlurredMediaBackground } from "../../../content/tweaks/hide_elements/hide_blurred_media_background";
-import { loadFullWidthBanner, loadCompactHeaderSideMenu } from "../../../content/tweaks/style/old_new_ui";
-import { loadResizeMainContainer } from "../../../content/tweaks/resize_elements/resizeMainContainer";
+import { loadCompactHeaderSideMenu } from "../../../content/tweaks/style/old_new_ui";
+import { loadResizeMainContainer } from "../../../content/tweaks/resize_elements/resize_main_container";
 
 export function tweakLoaderNewNew() {
 	loadCustomBackground();
