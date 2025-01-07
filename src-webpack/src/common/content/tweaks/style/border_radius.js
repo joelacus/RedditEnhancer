@@ -30,7 +30,16 @@ function addBorderRadiusAmountStylesheet() {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-border-radius';
 		styleElement.textContent =
-			`/* Posts, search results and subreddit sidebar */
+			`/* Community highlight cards */
+			community-highlight-card {
+				--card-border-radius: var(--re-theme-border-radius, 16px);
+				--thumbnail-radius: calc(var(--re-theme-border-radius) / 2);
+			}
+			/* Comment pages, profile banner */
+			.xs\\:rounded-\\[16px\\],
+			.rounded-t-\\[1rem\\],
+			faceplate-tabgroup#profile-feed-tabgroup > a,
+			/* Posts, search results and subreddit sidebar */
 			shreddit-app article > shreddit-post,
 			shreddit-post div.hover-card,
 			main#main-content search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),

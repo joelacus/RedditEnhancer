@@ -104,9 +104,10 @@ function enableUseCustomBackgroundNewNew() {
 								shreddit-app .sidebar-grid {
 									background: none !important;
 								}
-								shreddit-app[routename="post_page"] main#main-content {
+								shreddit-app[routename="post_page"] main#main-content,
+								shreddit-app[routename="comments_page"] main#main-content {
 									margin: 1rem 0;
-									padding: 0 1rem;
+									padding: 0 1rem .75rem 1rem;
 									background-color: var(--color-neutral-background);
 									border-radius: var(--re-theme-border-radius, 0);
 								}
@@ -119,7 +120,10 @@ function enableUseCustomBackgroundNewNew() {
 									padding-right: .5rem !important;
 									padding-bottom: .5rem;
 									border-radius: 16px;
-								} */`;
+								} */
+								aside#mod-queue-pdp-panel {
+									background-color: var(--color-neutral-background);
+								}`;
 
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }

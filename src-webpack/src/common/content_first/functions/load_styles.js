@@ -197,7 +197,14 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 						gap: .6rem;
 					}
 					div[slot="credit-bar"] > span:has(pdp-back-button) > div {
-						gap: 3px;
+						gap: 2px;
+					}
+					div[slot="post-insights-panel"] .bg-neutral-background-container {
+						background-color: transparent;
+					}
+					aside#mod-queue-pdp-panel shreddit-post {
+						margin: 1rem 0;
+						padding: 0;
 					}`;
 
 const styleScrollText = `.re-text-scroll div[data-click-id="text"][style="max-height: 250px;"], .re-text-scroll div[data-click-id="text"][style="max-height:250px"] {

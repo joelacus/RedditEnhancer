@@ -42,12 +42,16 @@ function enableFullWidthBanner() {
         shreddit-app[routename="subreddit"] div.main-container,
         shreddit-app[routename="subreddit_wiki"] div.main-container {
         	width: initial;
-        	padding: 0 1.2rem;
-        	gap: 1.2rem;
+        	padding: 0 1.1rem;
+        	gap: 1.1rem;
         }
         html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit"] div.main-container,
         html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit_wiki"] div.main-container {
         	justify-content: center;
+        }
+        /* Community highlight */
+        shreddit-gallery-carousel > li {
+            padding: 0 !important;
         }`;
     document.head.insertBefore(styleElement, document.head.firstChild);
 }

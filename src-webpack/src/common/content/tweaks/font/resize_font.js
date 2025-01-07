@@ -45,7 +45,10 @@ export function postTitleFontSize(value) {
 				styleElement.id = 're-post-title-font-size';
 				styleElement.textContent = `[routename="post_page"] shreddit-post a[slot="title"],
 											[routename="post_page"] shreddit-post h1[slot="title"],
-											[routename="post_page"] div.crosspost-title a {
+											[routename="post_page"] div.crosspost-title a,
+											[routename="comments_page"] shreddit-post h1[slot="title"],
+											[routename="comments_page"] div.crosspost-title a,
+											mod-queue-app shreddit-post h1[slot="title"] > a {
 												font-size: var(--re-post-title-font-size) !important;
 												line-height: 1.4;
 											}
@@ -99,6 +102,10 @@ export function postContentFontSize(value) {
 											div[slot="post-media-container"] div.md {
 												font-size: var(--re-post-content-font-size) !important;
 												line-height: 1.5 !important;
+											}
+											shreddit-post div[slot="text-body"] div.md h1 {
+												font-size: 1.5em;
+												line-height: inherit;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
@@ -184,7 +191,8 @@ export function feedPostTitleFontSize(value) {
 				styleElement.textContent = `shreddit-feed shreddit-post a[slot="title"],
 											shreddit-feed shreddit-post h1[slot="title"],
 											shreddit-feed div.crosspost-title a,
-											search-telemetry-tracker a[data-testid="post-title-text"] {
+											search-telemetry-tracker a[data-testid="post-title-text"],
+											mod-queue-app shreddit-post a[slot="title"] {
 												font-size: var(--re-feed-post-title-font-size) !important;
 												line-height: 1.4;
 											}`;
@@ -221,9 +229,14 @@ export function feedPostContentFontSize(value) {
 				styleElement.textContent = `shreddit-feed shreddit-post [data-post-click-location="text-body"] p,
 											shreddit-feed shreddit-profile-comment [id*="-content"],
 											shreddit-feed div[slot="post-media-container"] div.md,
-											div.md.feed-card-text-preview {
+											div.md.feed-card-text-preview,
+											mod-queue-app shreddit-post [data-post-click-location="text-body"] div.md {
 												font-size: var(--re-feed-post-content-font-size) !important;
 												line-height: 1.5 !important;
+											}
+											shreddit-feed shreddit-post [data-post-click-location="text-body"] h1 {
+												font-size: 1.5em;
+												line-height: inherit;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
