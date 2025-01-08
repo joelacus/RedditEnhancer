@@ -154,6 +154,8 @@ export function postCommentsFontSize(value) {
 												font-size: var(--re-post-comments-font-size);
 												line-height: 1.6;
 											}
+											shreddit-comment div.md[slot="comment"] h1,
+											shreddit-profile-comment div.md h1,
 											shreddit-composer div[contenteditable] h1 {
 												font-size: 1.5em;
 												line-height: inherit;

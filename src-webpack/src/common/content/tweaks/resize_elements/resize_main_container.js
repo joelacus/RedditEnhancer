@@ -37,6 +37,18 @@ function enableResizeMainContainer() {
                 width: var(--re-main-container-width) !important;
                 margin: 0 auto;
             }
+            /* Align subreddit title with main-content */
+            shreddit-app div.subgrid-container {
+                gap: 0;
+            }
+            div.masthead > section,
+            div.masthead:has(> custom-feed-header) {
+                width: var(--re-main-container-width);
+                margin: 0 auto;
+            }
+            community-appearance-entrypoint[target="banner"] {
+                margin-bottom: 3rem !important;
+            }
         }`;
     document.head.insertBefore(styleElement, document.head.firstChild);
 }

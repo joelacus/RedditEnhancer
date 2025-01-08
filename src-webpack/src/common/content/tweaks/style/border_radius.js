@@ -3,7 +3,20 @@
 /* === Triggered On Page Load === */
 export function loadBorderRadiusAmount() {
 	BROWSER_API.storage.sync.get(['borderRadiusAmount'], function (result) {
-		if (result.borderRadiusAmount) borderRadiusAmount(result.borderRadiusAmount);
+		if (result.borderRadiusAmount) {
+			borderRadiusAmount(result.borderRadiusAmount);
+			const shadowRootElements = [
+				document.querySelector('shreddit-composer').shadowRoot.children[0],
+				document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('button'),
+				document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('faceplate-search-input'),
+				document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('faceplate-search-input').shadowRoot.querySelector('div.label-container')
+			];
+			shadowRootElements.forEach((element) => {
+				if (element) {
+					element.style.borderRadius = 'var(--re-theme-border-radius)';
+				}
+			});
+		}
 	});
 }
 
@@ -39,8 +52,9 @@ function addBorderRadiusAmountStylesheet() {
 			.xs\\:rounded-\\[16px\\],
 			.rounded-t-\\[1rem\\],
 			faceplate-tabgroup#profile-feed-tabgroup > a,
-			/* Posts, search results and subreddit sidebar */
-			shreddit-app article > shreddit-post,
+			:where(button), :where(input):where([type="submit"], [type="reset"], [type="button"]),
+			/* Posts in Card view, search results and subreddit sidebar */
+			shreddit-app article > shreddit-post[view-type="cardView"],
 			shreddit-post div.hover-card,
 			main#main-content search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
 			div[data-testid="search-crosspost-unit"] div:has(> search-telemetry-tracker),
@@ -60,6 +74,9 @@ function addBorderRadiusAmountStylesheet() {
 			shreddit-app[routename="subreddit_wiki"] main#main-content > div:last-of-type,
 			div.toc {
 				border-radius: var(--re-theme-border-radius) !important;
+			}
+			article > shreddit-post[view-type="compactView"] {
+				border-radius: 0;
 			}
 			faceplate-tracker[noun="load_more_comments"] button {
 				position: relative;

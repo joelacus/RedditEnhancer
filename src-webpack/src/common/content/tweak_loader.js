@@ -39,6 +39,7 @@ import { loadHideNsfwInSearchResults, loadHideTrendingTodayInSearchResults } fro
 import { loadRememberSideMenuSectionHiddenState } from './tweaks/hide_elements/remember_side_menu_section_hidden_state';
 import { loadAddProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
 import { loadCompactSubRuleList } from "./tweaks/style/old_new_ui";
+import { loadBorderRadiusAmount } from "./tweaks/style/border_radius";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -90,9 +91,11 @@ export function loadTweaks() {
 			done: function (el) {
 				setTimeout(() => {
 					loadAutoShowCommentFormattingOptions();
-				}, 3000);
+					loadBorderRadiusAmount();
+				}, 2000);
 				setTimeout(() => {
-					loadAutoShowCommentFormattingOptions();
+					// loadAutoShowCommentFormattingOptions();
+					loadBorderRadiusAmount();
 				}, 10000);
 			},
 		});

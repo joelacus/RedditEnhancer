@@ -270,11 +270,11 @@ function enableExpandContentNewNew() {
 									--re-custom-feed-sidebar-width: 316px;
 								}
 
-								@media (min-width: 768px) {
+								/* @media (min-width: 768px) {
 									shreddit-app[routename="frontpage"] .main-container {
 										margin-right: 2rem !important;
 									}
-								}
+								} */
 
 								@media (max-width: 768px) {
 									shreddit-app[routename="subreddit"] .subgrid-container {
@@ -444,7 +444,7 @@ function enableExpandContentNewNew() {
 								shreddit-app[pagetype="custom_feed"] .main-container {
 									display: grid;
 									grid-template-columns: auto var(--re-custom-feed-sidebar-width) !important;
-									min-width: 100%;
+									/* min-width: 100%; */
 									max-width: calc(100% - var(--re-side-menu-width));
 								}
 

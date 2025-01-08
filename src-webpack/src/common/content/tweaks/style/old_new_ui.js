@@ -105,8 +105,9 @@ function enableCompactSubRuleList() {
         }
         div#right-sidebar-container div.-mx-xs.-mt-xs faceplate-tracker[source="rules_widget"] > li div,
         div#right-sidebar-container div.-mx-xs.-mt-xs > div {
-        	padding: .35rem .5rem 0 .5rem;
-        }
+        	padding: .35rem 0 0 0 !important;
+        	margin: 0 .5rem;
+        }     
         div#right-sidebar-container div.-mx-xs.-mt-xs faceplate-tracker[source="rules_widget"] span:first-of-type > span:first-of-type span::after,
         div#right-sidebar-container div.-mx-xs.-mt-xs div span:first-of-type > span:first-of-type span::after {
         	content: "."
@@ -172,6 +173,12 @@ function enableCompactHeaderSideMenu() {
         }
         nav.h-header-large > div:nth-child(2) div {
         	top: 0.25rem !important;
+        }
+        div#left-sidebar-container {
+            border: none;
+        }
+        reddit-sidebar-nav {
+            top: 48px !important;
         }
         shreddit-app reddit-sidebar-nav#left-sidebar {
         	padding: 0;

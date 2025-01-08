@@ -49,6 +49,9 @@ function enableHidePostDivider() {
             reddit-feed > faceplate-tracker > div {
                 margin-bottom: var(--re-post-separator-length, .6rem) !important;
             }
+            article:has(> shreddit-post[view-type="compactView"]) {
+                margin-bottom: var(--re-post-separator-length, 0) !important;
+            }
             main#main-content search-telemetry-tracker > div {
                 margin: var(--re-post-separator-length, .6rem) 0;
             }
@@ -58,8 +61,8 @@ function enableHidePostDivider() {
                 padding: .8rem !important;
             }
             article > shreddit-post[view-type="compactView"] {
-                padding: .25rem !important;
-                margin: 0;
+                padding: .25rem .5rem !important;
+                margin: 0 !important;
             }
             /* Allow spaces for post selection checkboxes in mod queue */
             shreddit-app[routename="mod_queue"] article > shreddit-post,
