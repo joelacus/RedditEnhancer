@@ -188,10 +188,10 @@ function enableCompactHeaderSideMenu() {
         	visibility: hidden;
         }
         div.subgrid-container {
-            padding: 0 1.2rem;
+            padding: 0 1rem;
         }
         div.main-container {
-            gap: 1.2rem;
+            gap: 1rem;
         }`;
     document.head.insertBefore(styleElement, document.head.firstChild);
 }

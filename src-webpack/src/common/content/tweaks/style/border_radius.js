@@ -3,20 +3,7 @@
 /* === Triggered On Page Load === */
 export function loadBorderRadiusAmount() {
 	BROWSER_API.storage.sync.get(['borderRadiusAmount'], function (result) {
-		if (result.borderRadiusAmount) {
-			borderRadiusAmount(result.borderRadiusAmount);
-			const shadowRootElements = [
-				document.querySelector('shreddit-composer').shadowRoot.children[0],
-				document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('button'),
-				document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('faceplate-search-input'),
-				document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('faceplate-search-input').shadowRoot.querySelector('div.label-container')
-			];
-			shadowRootElements.forEach((element) => {
-				if (element) {
-					element.style.borderRadius = 'var(--re-theme-border-radius)';
-				}
-			});
-		}
+		if (result.borderRadiusAmount) borderRadiusAmount(result.borderRadiusAmount);
 	});
 }
 
@@ -59,6 +46,7 @@ function addBorderRadiusAmountStylesheet() {
 			main#main-content search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
 			div[data-testid="search-crosspost-unit"] div:has(> search-telemetry-tracker),
 			div#right-sidebar-container > *,
+			div#right-sidebar-container aside,
 			div#right-sidebar-container aside a,
 			div#right-sidebar-container aside button,
 			/* Post media previews */
@@ -108,6 +96,31 @@ function addBorderRadiusAmountStylesheet() {
 				}
 			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
+
+		const recentPosts = document.querySelector('recent-posts');
+		if (recentPosts) {
+			recentPosts.shadowRoot.querySelector('aside').style.borderRadius = 'var(--re-theme-border-radius)';
+		}
+	}
+}
+
+// Add border radius to elements in shadow DOMs
+export function addBorderRadiusToShadowRootElements() {
+	const shadowRootElements = [
+		document.querySelector('shreddit-composer').shadowRoot.children[0],
+		document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('button'),
+		document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('faceplate-search-input'),
+		document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('button#cancel-pdp-comment-search-button'),
+		document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('faceplate-search-input').shadowRoot.querySelector('div.label-container')
+	];
+	shadowRootElements.forEach((element) => {
+		if (element) {
+			element.style.borderRadius = 'var(--re-theme-border-radius)';
+		}
+	});
+	if (document.querySelector('pdp-comment-search-input')) {
+		document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('button').style.border = 'none';
+		document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('button').style.padding = '0';
 	}
 }
 

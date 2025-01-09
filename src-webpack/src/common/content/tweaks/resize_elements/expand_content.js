@@ -344,15 +344,11 @@ function enableExpandContentNewNew() {
 									max-width: 100%;
 									justify-self: center;
 								}
-								shreddit-app[routename="subreddit_wiki"] #main-content {
-									max-width: var(--re-sub-width) !important;
-									justify-self: center;
-								}
 								shreddit-app[routename="post_page"] #main-content,
 								shreddit-app[routename="comments_page"] #main-content,
-								shreddit-app[routename="profile_post_page"] #main-content {
-									width: var(--re-post-width) !important;
-									min-width: var(--re-post-width) !important;
+								shreddit-app[routename="profile_post_page"] #main-content,
+								shreddit-app[routename="subreddit_wiki"] #main-content {
+									max-width: var(--re-post-width) !important;
 									justify-self: center;
 								}
 								shreddit-app[routename="profile_overview"] #main-content,

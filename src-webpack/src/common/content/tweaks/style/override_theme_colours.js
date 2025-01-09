@@ -510,7 +510,7 @@ export function themePostBackgroundColour(value) {
 			styleElement.textContent = `shreddit-post,
 										comment-body-header,
 										#comment-tree {
-											--shreddit-content-background: var(--re-theme-post-bg) !important;
+											--shreddit-content-background: transparent !important;
 											--color-neutral-background: var(--re-theme-post-bg) !important;
 											backdrop-filter: blur(var(--re-theme-blur)) !important;
 										}
