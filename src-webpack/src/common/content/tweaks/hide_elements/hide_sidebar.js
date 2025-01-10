@@ -596,7 +596,7 @@ function enableHideCustomFeedSidebarNewNew() {
 			shreddit-app[routename="custom_feed"] div.main-container {
 				gap: 0;
 			}
-			shreddit-app[routename="custom_feed"] main#main-content {
+			shreddit-app[routename="custom_feed"] main.main {
 				max-width: 100% !important;
 			}
 			:root {

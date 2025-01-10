@@ -56,6 +56,7 @@ function addBorderRadiusAmountStylesheet() {
 			gallery-carousel li:has(img.media-lightbox-img),
 			div:has(> shreddit-aspect-ratio),
 			/* Comment search results */
+			.rounded-\\[1rem\\],
 			reddit-feed > faceplate-tracker > div,
 			faceplate-tracker[noun="load_more_comments"] button,
 			/* Wiki pages */

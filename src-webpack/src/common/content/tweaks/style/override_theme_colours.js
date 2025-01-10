@@ -866,6 +866,7 @@ export function themePostBorderColour(value) {
 			styleElement.id = 're-theme-post-border-colour';
 			styleElement.textContent = `article > shreddit-post,
 										main#main-content search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
+										main.main post-consume-tracker > div:not([data-testid="search-scope-switcher"]),
 										div[data-testid="search-crosspost-unit"] div:has(> search-telemetry-tracker) {
 											border: solid 1px var(--re-theme-post-border);
 										}`;

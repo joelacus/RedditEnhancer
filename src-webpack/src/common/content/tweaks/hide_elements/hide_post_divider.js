@@ -48,15 +48,15 @@ function enableHidePostDivider() {
             faceplate-batch > article:has(> shreddit-post[view-type="cardView"]),
             /* Comment search results */
             reddit-feed > faceplate-tracker > div {
-                margin-bottom: var(--re-post-separator-length, .6rem) !important;
+                margin-bottom: var(--re-post-separator-length, 10px) !important;
             }
             article:has(> shreddit-post[view-type="compactView"]) {
                 margin-bottom: var(--re-post-separator-length, 0) !important;
             }
             main#main-content search-telemetry-tracker > div,
-            main.main search-telemetry-tracker > div
+            main.main search-telemetry-tracker > div,
             main.main post-consume-tracker > div {
-                margin: var(--re-post-separator-length, .6rem) 0;
+                margin: var(--re-post-separator-length, 0) 0;
             }
             /* Add padding to posts, Card and Compact view */
             article > shreddit-post[view-type="cardView"] {
