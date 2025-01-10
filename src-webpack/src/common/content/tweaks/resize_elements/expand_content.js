@@ -359,11 +359,11 @@ function enableExpandContentNewNew() {
 								shreddit-app[routename="post_page"] #main-content,
 								shreddit-app[routename="comments_page"] #main-content,
 								shreddit-app[routename="profile_post_page"] #main-content,
-                shreddit-app[routename="subreddit_wiki"] #main-content,
+								shreddit-app[routename="subreddit_wiki"] #main-content,
 								shreddit-app[routename="post_page"] main.main,
 								shreddit-app[routename="comments_page"] main.main,
 								shreddit-app[routename="profile_post_page"] main.main,
-                shreddit-app[routename="subreddit_wiki"] main.main {
+								shreddit-app[routename="subreddit_wiki"] main.main {
 									max-width: var(--re-post-width) !important;
 									justify-self: center;
 								}

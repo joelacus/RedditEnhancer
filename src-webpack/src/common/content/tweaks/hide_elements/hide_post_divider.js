@@ -52,7 +52,8 @@ function enableHidePostDivider() {
             article:has(> shreddit-post[view-type="compactView"]) {
                 margin-bottom: var(--re-post-separator-length, 0) !important;
             }
-            main#main-content search-telemetry-tracker > div {
+            main#main-content search-telemetry-tracker > div,
+            main.main search-telemetry-tracker > div {
                 margin: var(--re-post-separator-length, .6rem) 0;
             }
             /* Add padding to posts, Card and Compact view */

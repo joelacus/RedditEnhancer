@@ -507,7 +507,8 @@ export function themePostBackgroundColour(value) {
 			document.documentElement.style.setProperty('--re-theme-post-bg', result.themePostBackgroundColourCSS);
 			const styleElement = document.createElement('style');
 			styleElement.id = 're-theme-post-bg-colour';
-			styleElement.textContent = `:root .grid-container.grid {
+			styleElement.textContent = `:root shreddit-app[routename="post_page"] .grid-container.grid,
+			 							:root shreddit-app[routename="comments_page"] .grid-container.grid {
 											--color-neutral-background: var(--re-theme-post-bg) !important;
 										}
 										shreddit-post,
@@ -517,12 +518,6 @@ export function themePostBackgroundColour(value) {
 											--color-neutral-background: var(--re-theme-post-bg) !important;
 											backdrop-filter: blur(var(--re-theme-blur)) !important;
 										}
-										shreddit-app[routename="post_page"] main#main-content {
-											padding: .5rem 1rem;
-										}
-										shreddit-app[routename="post_page"] shreddit-post {
-											margin: 0 -0.5rem;
-										}
 										div[slot="post-insights-panel"] > faceplate-tracker > div {
 											background-color: inherit !important;
 										}
@@ -530,7 +525,7 @@ export function themePostBackgroundColour(value) {
 											--color-secondary-background-hover: rgba(0,0,0,0.3) !important;
 											--button-border-color: rgba(0,0,0,0.6) !important;
 										}
-										[pagetype="search_results"] #main-content > div {
+										[pagetype="search_results"] main.main > div {
 											--color-neutral-background: var(--re-theme-post-bg) !important;
 											backdrop-filter: blur(var(--re-theme-blur)) !important;
 											border-radius: 8px;

@@ -43,7 +43,7 @@ function addBorderRadiusAmountStylesheet() {
 			/* Posts in Card view, search results and subreddit sidebar */
 			shreddit-app article > shreddit-post[view-type="cardView"],
 			shreddit-post div.hover-card,
-			main#main-content search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
+			main.main search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
 			div[data-testid="search-crosspost-unit"] div:has(> search-telemetry-tracker),
 			div#right-sidebar-container > *,
 			div#right-sidebar-container aside,
@@ -59,7 +59,7 @@ function addBorderRadiusAmountStylesheet() {
 			reddit-feed > faceplate-tracker > div,
 			faceplate-tracker[noun="load_more_comments"] button,
 			/* Wiki pages */
-			shreddit-app[routename="subreddit_wiki"] main#main-content > div:last-of-type,
+			shreddit-app[routename="subreddit_wiki"] main.main > div:last-of-type,
 			div.toc {
 				border-radius: var(--re-theme-border-radius) !important;
 			}
