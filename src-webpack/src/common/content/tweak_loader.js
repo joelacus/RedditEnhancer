@@ -92,9 +92,9 @@ export function loadTweaks() {
 				setTimeout(() => {
 					loadAutoShowCommentFormattingOptions();
 					addBorderRadiusToShadowRootElements();
-				}, 2000);
+				}, 3000);
 				setTimeout(() => {
-					// loadAutoShowCommentFormattingOptions();
+					loadAutoShowCommentFormattingOptions();
 					addBorderRadiusToShadowRootElements();
 				}, 10000);
 			},

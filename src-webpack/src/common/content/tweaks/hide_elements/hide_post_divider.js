@@ -36,6 +36,7 @@ function enableHidePostDivider() {
             `shreddit-title ~ hr,
             article ~ hr,
             faceplate-tracker ~ hr,
+            faceplate-tracker > hr,
             custom-feed > hr,
             search-telemetry-tracker ~ hr,
             comment-body-header > hr {
@@ -53,7 +54,8 @@ function enableHidePostDivider() {
                 margin-bottom: var(--re-post-separator-length, 0) !important;
             }
             main#main-content search-telemetry-tracker > div,
-            main.main search-telemetry-tracker > div {
+            main.main search-telemetry-tracker > div
+            main.main post-consume-tracker > div {
                 margin: var(--re-post-separator-length, .6rem) 0;
             }
             /* Add padding to posts, Card and Compact view */

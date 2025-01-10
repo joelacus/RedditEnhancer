@@ -194,6 +194,7 @@ export function feedPostTitleFontSize(value) {
 											shreddit-feed shreddit-post h1[slot="title"],
 											shreddit-feed div.crosspost-title a,
 											search-telemetry-tracker a[data-testid="post-title-text"],
+											faceplate-tracker[data-testid="search-post"] a[data-testid="post-title-text"],
 											mod-queue-app shreddit-post a[slot="title"] {
 												font-size: var(--re-feed-post-title-font-size) !important;
 												line-height: 1.4;
