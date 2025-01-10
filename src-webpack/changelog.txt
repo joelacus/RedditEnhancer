@@ -1,3 +1,7 @@
+version 1.13.1
+- Fixed "Resize Feed/Post" not working after a website update (Latest UI).
+- Resizing the post comment font will now also change the font size in the comment composer (Latest UI).
+
 version 1.13.0
 - Added a new options page as an alternative for the extension popup window.
 - Added an option to change the width of custom feeds (Latest UI).

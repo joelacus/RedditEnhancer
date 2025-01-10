@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.13.0"
+		"message": "1.13.1"
 	},
 
 	"extensionName": {
@@ -8,7 +8,7 @@
 	},
 
 	"extensionDescription": {
-		"message": "Various tweaks to customise your Reddit experience. Supports all versions of Reddit."
+		"message": "Various tweaks to customise your Reddit experience. Supports Reddit V1 (Old) and V3 (Latest)."
 	},
 
 	"About": {

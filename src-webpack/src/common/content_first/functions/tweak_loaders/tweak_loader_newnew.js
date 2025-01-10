@@ -48,6 +48,7 @@ export function tweakLoaderNewNew() {
 	loadSideMenuWidth();
 	loadHideSideMenu();
 	loadHideHomeSidebar();
+	loadHideRecentPosts();
 	loadHideSubSidebarException();
 	loadHidePostSidebar();
 	loadHideRelatedPostsSection();
@@ -79,7 +80,6 @@ export function tweakLoaderNewNew() {
 	//loadDragImageToResize();
 	loadHidePostBackButton();
 	loadBorderRadiusAmount();
-	loadHideRecentPosts();
 	loadHideCompactViewBlankThumbnails();
 	loadHideCommunityHighlights();
 	loadHideSearchSidebarNsfwUsers();

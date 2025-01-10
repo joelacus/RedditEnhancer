@@ -542,7 +542,8 @@ export function themePostBackgroundColour(value) {
 											position: relative;
 											top: 8px;
 										}*/
-										#main-content [bundlename="comment_body_header"] {
+										#main-content [bundlename="comment_body_header"],
+										main.main [bundlename="comment_body_header"] {
 											position: relative;
 										}
 										[bundlename="comment_body_header"] comment-body-header {

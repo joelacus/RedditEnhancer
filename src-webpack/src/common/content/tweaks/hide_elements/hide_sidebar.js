@@ -332,6 +332,11 @@ function enableHidePostSidebarNewNew() {
 									shreddit-app[routename="profile_post_page"] #main-content.col-start-1 {
 										grid-column-end: 19 !important;
 									}
+									shreddit-app[routename="post_page"] main.grid,
+									shreddit-app[routename="profile_post_page"] main.grid,
+									shreddit-app[routename="profile_post_page"] main.col-start-1 {
+										grid-column-end: 19 !important;
+									}
 									/*shreddit-app[routename="post_page"],
 									shreddit-app[routename="profile_post_page"] {
 										margin-right: 1.3rem;

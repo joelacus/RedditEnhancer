@@ -51,7 +51,8 @@ async function enableHideHomeFeedNewNew() {
 	if (!document.head.querySelector('style[id="re-hide-home-feed"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-home-feed';
-		styleElement.textContent = `#main-content {
+		styleElement.textContent = `#main-content,
+									main.main {
 										display: none !important;
 									}
 									.main-container::before {

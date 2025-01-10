@@ -107,7 +107,8 @@ function enableUseCustomBackgroundNewNew() {
 								shreddit-app .sidebar-grid {
 									background: none !important;
 								}
-								shreddit-app #main-content {
+								shreddit-app #main-content,
+								shreddit-app main.main {
 									margin-top: 8px
 								}
 								shreddit-app shreddit-post {

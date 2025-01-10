@@ -57,7 +57,6 @@ async function fetchLatestVersion() {
 				if (response) {
 					setTimeout(() => {
 						const latestVersion = response.data.split('\n')[0].split(' ')[1];
-						i18next.t('extensionVersion.message');
 						const installedVersion = i18next.t('extensionVersion.message');
 						console.log('Installed Version: ' + installedVersion + ' Latest Version: ' + latestVersion);
 						if (semver.gt(latestVersion, installedVersion)) {

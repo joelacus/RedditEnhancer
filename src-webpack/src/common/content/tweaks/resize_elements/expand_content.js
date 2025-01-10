@@ -325,31 +325,43 @@ function enableExpandContentNewNew() {
 								shreddit-app[routename="all"] #main-content,
 								shreddit-app[routename="popular"] #main-content,
 								shreddit-app[pagetype="search_results"] #main-content,
-								shreddit-app[pagetype="post_submit"] #main-content {
+								shreddit-app[pagetype="post_submit"] #main-content,
+								shreddit-app[routename="frontpage"] main.main,
+								shreddit-app[routename="all"] main.main,
+								shreddit-app[routename="popular"] main.main,
+								shreddit-app[pagetype="search_results"] main.main,
+								shreddit-app[pagetype="post_submit"] main.main{
 									width: var(--re-content-width) !important;
 									min-width: var(--re-content-width) !important;
 									justify-self: center;
 									margin-left: 0;
 								}
-								shreddit-app[routename="inbox"] #main-content {
+								shreddit-app[routename="inbox"] #main-content,
+								shreddit-app[routename="inbox"] main.main {
 									max-width: var(--re-content-width) !important;
 									justify-self: center;
 								}
-								shreddit-app[pagetype="search_results"] #main-content {
+								shreddit-app[pagetype="search_results"] #main-content,
+								shreddit-app[pagetype="search_results"] main.main {
 									max-width: 100% !important;
 								}
-								shreddit-app[routename="subreddit"] #main-content {
+								shreddit-app[routename="subreddit"] #main-content,
+								shreddit-app[routename="subreddit"] main.main {
 									width: var(--re-sub-width) !important;
 									min-width: var(--re-sub-width) !important;
 									justify-self: center;
 								}
-								shreddit-app[routename="subreddit_wiki"] #main-content {
+								shreddit-app[routename="subreddit_wiki"] #main-content,
+								shreddit-app[routename="subreddit_wiki"] main.main {
 									max-width: var(--re-sub-width) !important;
 									justify-self: center;
 								}
 								shreddit-app[routename="post_page"] #main-content,
 								shreddit-app[routename="comments_page"] #main-content,
-								shreddit-app[routename="profile_post_page"] #main-content {
+								shreddit-app[routename="profile_post_page"] #main-content,
+								shreddit-app[routename="post_page"] main.main,
+								shreddit-app[routename="comments_page"] main.main,
+								shreddit-app[routename="profile_post_page"] main.main {
 									width: var(--re-post-width) !important;
 									min-width: var(--re-post-width) !important;
 									justify-self: center;
@@ -360,12 +372,20 @@ function enableExpandContentNewNew() {
 								shreddit-app[routename="profile_saved"] #main-content,
 								shreddit-app[routename="profile_hidden"] #main-content,
 								shreddit-app[routename="profile_upvoted"] #main-content,
-								shreddit-app[routename="profile_downvoted"] #main-content {
+								shreddit-app[routename="profile_downvoted"] #main-content,
+								shreddit-app[routename="profile_overview"] main.main,
+								shreddit-app[routename="profile_posts"] main.main,
+								shreddit-app[routename="profile_comments"] main.main,
+								shreddit-app[routename="profile_saved"] main.main,
+								shreddit-app[routename="profile_hidden"] main.main,
+								shreddit-app[routename="profile_upvoted"] main.main,
+								shreddit-app[routename="profile_downvoted"] main.main{
 									width: var(--re-user-profile-width) !important;
 									min-width: var(--re-user-profile-width) !important;
 									justify-self: center;
 								}
-								shreddit-app[routename="topic"] #main-content {
+								shreddit-app[routename="topic"] #main-content,
+								shreddit-app[routename="topic"] main.main {
 									min-width: var(--re-topic-feed-width) !important;
 									max-width: var(--re-topic-feed-width) !important;
 									justify-self: center;
@@ -447,7 +467,8 @@ function enableExpandContentNewNew() {
 									max-width: calc(100% - var(--re-side-menu-width));
 								}
 
-								shreddit-app[pagetype="custom_feed"] #main-content {
+								shreddit-app[pagetype="custom_feed"] #main-content,
+								shreddit-app[pagetype="custom_feed"] main.main {
 									min-width: var(--re-custom-feed-width) !important;
 									max-width: var(--re-custom-feed-width) !important;
 									justify-self: center;

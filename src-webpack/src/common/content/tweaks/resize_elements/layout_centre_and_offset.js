@@ -12,11 +12,11 @@ export function loadLayoutCentre() {
 // Feed Offset
 export function loadLayoutOffset() {
 	BROWSER_API.storage.sync.get(['layoutOffset', 'layoutSubOffset', 'layoutPostOffset', 'layoutUserProfileOffset', 'layoutSearchPageOffset'], function (result) {
-		layoutOffset(result.layoutOffset);
-		layoutSubOffset(result.layoutSubOffset);
-		layoutPostOffset(result.layoutPostOffset);
-		layoutUserProfileOffset(result.layoutUserProfileOffset);
-		layoutSearchPageOffset(result.layoutSearchPageOffset);
+		if (result.layoutOffset) layoutOffset(result.layoutOffset);
+		if (result.layoutSubOffset) layoutSubOffset(result.layoutSubOffset);
+		if (result.layoutPostOffset) layoutPostOffset(result.layoutPostOffset);
+		if (result.layoutUserProfileOffset) layoutUserProfileOffset(result.layoutUserProfileOffset);
+		if (result.layoutSearchPageOffset) layoutSearchPageOffset(result.layoutSearchPageOffset);
 	});
 }
 

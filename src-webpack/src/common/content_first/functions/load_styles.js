@@ -18,21 +18,31 @@ const layoutOffset = `
 					shreddit-app[routename="frontpage"] #main-content,
 					shreddit-app[routename="all"] #main-content,
 					shreddit-app[routename="popular"] #main-content,
-					shreddit-app[routename="inbox"] #main-content {
+					shreddit-app[routename="inbox"] #main-content,
+					shreddit-app[routename="frontpage"] main.main,
+					shreddit-app[routename="all"] main.main,
+					shreddit-app[routename="popular"] main.main,
+					shreddit-app[routename="inbox"] main.main {
 						transform: translateX(var(--re-layout-offset))
 					}
-					shreddit-app[routename="subreddit"] #main-content {
+					shreddit-app[routename="subreddit"] #main-content,
+					shreddit-app[routename="subreddit"] main.main {
 						transform: translateX(var(--re-layout-sub-offset))
 					}
 					shreddit-app[routename="post_page"] #main-content,
 					shreddit-app[routename="comments_page"] #main-content,
-					shreddit-app[routename="profile_post_page"] #main-content {
+					shreddit-app[routename="profile_post_page"] #main-content,
+					shreddit-app[routename="post_page"] main.main,
+					shreddit-app[routename="comments_page"] main.main,
+					shreddit-app[routename="profile_post_page"] main.main {
 						transform: translateX(var(--re-layout-post-offset))
 					}
-					shreddit-app[routename="profile_overview"] #main-content {
+					shreddit-app[routename="profile_overview"] #main-content,
+					shreddit-app[routename="profile_overview"] main.main {
 						transform: translateX(var(--re-layout-user-profile-offset))
 					}
-					shreddit-app[pagetype="search_results"] #main-content {
+					shreddit-app[pagetype="search_results"] #main-content,
+					shreddit-app[pagetype="search_results"] main.main {
 						transform: translateX(var(--re-layout-search-page-offset))
 					}`;
 

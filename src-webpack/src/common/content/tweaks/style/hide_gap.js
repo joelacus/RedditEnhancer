@@ -58,10 +58,13 @@ function enableHideGapNewNew() {
 	if (!document.head.querySelector('style[id="re-hide-ui-gap"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-ui-gap';
-		styleElement.textContent = `#main-content, shreddit-post {
+		styleElement.textContent = `#main-content,
+									main.main,
+									shreddit-post {
 										margin-top: 0 !important;
 									}
-									#main-content {
+									#main-content,
+									main.main {
 										max-width: 100% !important;
 										margin-left: 0 !important;
 									}
@@ -113,17 +116,24 @@ function enableHideGapNewNew() {
 									}
 									shreddit-app[routename="frontpage"] #main-content,
 									shreddit-app[routename="subreddit"] #main-content,
-									shreddit-app[routename="post_page"] #main-content {
+									shreddit-app[routename="post_page"] #main-content,
+									shreddit-app[routename="frontpage"] main.main,
+									shreddit-app[routename="subreddit"] main.main,
+									shreddit-app[routename="post_page"] main.main {
 										max-width: calc(100vw - 272px - 330px) !important;
 									}
-									shreddit-app[routename="profile_overview"] #main-content {
+									shreddit-app[routename="profile_overview"] #main-content,
+									shreddit-app[routename="profile_overview"] main.main {
 										max-width: calc(100vw - 272px - 316px) !important;
 									}
 									html.re-hide-home-sidebar shreddit-app[routename="frontpage"] #main-content,
-									html.re-hide-post-sidebar shreddit-app[routename="post_page"] #main-content {
+									html.re-hide-post-sidebar shreddit-app[routename="post_page"] #main-content,
+									html.re-hide-home-sidebar shreddit-app[routename="frontpage"] main.main,
+									html.re-hide-post-sidebar shreddit-app[routename="post_page"] main.main {
 										max-width: calc(100vw - var(re-side-menu-width)) !important;
 									}
-									html.re-hide-profile-sidebar shreddit-app[routename="profile_overview"] #main-content {
+									html.re-hide-profile-sidebar shreddit-app[routename="profile_overview"] #main-content,
+									html.re-hide-profile-sidebar shreddit-app[routename="profile_overview"] main.main {
 										max-width: 100% !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
