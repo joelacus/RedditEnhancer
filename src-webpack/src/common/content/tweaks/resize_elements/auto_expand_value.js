@@ -53,7 +53,8 @@ function enableAutoExpandValueNewNew(widthVariable) {
 									.main-container {
 										margin: 0 !important;
 									}
-									#main-content {
+									#main-content,
+									main.main {
 										max-width: 100% !important;
 										--re-content-width: 100% !important;
 										--re-sub-width: 100% !important;

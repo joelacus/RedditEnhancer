@@ -3,13 +3,13 @@
 /* === Triggered On Page Load === */
 export function loadResizeFont() {
 	BROWSER_API.storage.sync.get(['postTitleFontSize', 'postContentFontSize', 'postCommentsFontSize', 'feedPostTitleFontSize', 'feedPostContentFontSize', 'createPostTitleFontSize', 'createPostBodyFontSize'], function (result) {
-		postTitleFontSize(result.postTitleFontSize);
-		postContentFontSize(result.postContentFontSize);
-		postCommentsFontSize(result.postCommentsFontSize);
-		feedPostTitleFontSize(result.feedPostTitleFontSize);
-		feedPostContentFontSize(result.feedPostContentFontSize);
-		createPostTitleFontSize(result.createPostTitleFontSize);
-		createPostBodyFontSize(result.createPostBodyFontSize);
+		if (result.postTitleFontSize) postTitleFontSize(result.postTitleFontSize);
+		if (result.postContentFontSize) postContentFontSize(result.postContentFontSize);
+		if (result.postCommentsFontSize) postCommentsFontSize(result.postCommentsFontSize);
+		if (result.feedPostTitleFontSize) feedPostTitleFontSize(result.feedPostTitleFontSize);
+		if (result.feedPostContentFontSize) feedPostContentFontSize(result.feedPostContentFontSize);
+		if (result.createPostTitleFontSize) createPostTitleFontSize(result.createPostTitleFontSize);
+		if (result.createPostBodyFontSize) createPostBodyFontSize(result.createPostBodyFontSize);
 	});
 }
 

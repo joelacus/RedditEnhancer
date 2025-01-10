@@ -104,8 +104,8 @@ function enableUseCustomBackgroundNewNew() {
 								shreddit-app .sidebar-grid {
 									background: none !important;
 								}
-								shreddit-app[routename="post_page"] main#main-content,
-								shreddit-app[routename="comments_page"] main#main-content {
+								shreddit-app[routename="post_page"] main.main,
+								shreddit-app[routename="comments_page"] main.main {
 									margin: 1rem 0;
 									padding: 0 1rem .75rem 1rem;
 									background-color: var(--re-theme-post-bg, --color-neutral-background, #000);
