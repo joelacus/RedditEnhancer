@@ -108,7 +108,7 @@ function enableUseCustomBackgroundNewNew() {
 								shreddit-app[routename="comments_page"] main.main {
 									margin: 1rem 0;
 									padding: 0 1rem .75rem 1rem;
-									background-color: var(--re-theme-post-bg, --color-neutral-background, #000);
+									background-color: var(--re-theme-post-bg, var(--color-neutral-background, #000));
 									border-radius: var(--re-theme-border-radius, 0);
 									box-sizing: border-box;
 								}
