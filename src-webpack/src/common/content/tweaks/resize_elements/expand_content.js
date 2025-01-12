@@ -464,7 +464,7 @@ function enableExpandContentNewNew() {
 								shreddit-app[pagetype="custom_feed"] .main-container {
 									display: grid;
 									grid-template-columns: auto var(--re-custom-feed-sidebar-width) !important;
-									/* min-width: 100%; */
+									min-width: var(--re-main-container-width, 100%);
 									max-width: calc(100% - var(--re-side-menu-width));
 								}
 
