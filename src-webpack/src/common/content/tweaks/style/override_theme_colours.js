@@ -100,7 +100,7 @@ function removeTheme() {
 		style[id="re-theme-post-text-colour"],
 		style[id="re-theme-post-visited-title-colour"],
 		style[id="re-theme-post-text-colour-2"],
-		style[id="re-theme-post-border-colour"`
+		style[id="re-theme-post-border-colour"]`
 	);
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
@@ -507,30 +507,30 @@ export function themePostBackgroundColour(value) {
 			document.documentElement.style.setProperty('--re-theme-post-bg', result.themePostBackgroundColourCSS);
 			const styleElement = document.createElement('style');
 			styleElement.id = 're-theme-post-bg-colour';
-			styleElement.textContent = `shreddit-post,
+			styleElement.textContent = `:root shreddit-app[routename="post_page"] .grid-container.grid,
+			 							:root shreddit-app[routename="comments_page"] .grid-container.grid {
+											--color-neutral-background: var(--re-theme-post-bg) !important;
+										}
+										shreddit-post,
 										comment-body-header,
 										#comment-tree {
-											--shreddit-content-background: var(--re-theme-post-bg) !important;
+											--shreddit-content-background: transparent !important;
 											--color-neutral-background: var(--re-theme-post-bg) !important;
 											backdrop-filter: blur(var(--re-theme-blur)) !important;
 										}
-										shreddit-post {
-											background-color: var(--re-theme-post-bg) !important;
-										}
-										shreddit-comment {
-											--color-neutral-background: transparent !important;
+										div[slot="post-insights-panel"] > faceplate-tracker > div {
+											background-color: inherit !important;
 										}
 										shreddit-comment button:hover {
 											--color-secondary-background-hover: rgba(0,0,0,0.3) !important;
 											--button-border-color: rgba(0,0,0,0.6) !important;
 										}
-										[pagetype="search_results"] #main-content > div {
+										[pagetype="search_results"] main.main > div {
 											--color-neutral-background: var(--re-theme-post-bg) !important;
 											backdrop-filter: blur(var(--re-theme-blur)) !important;
 											border-radius: 8px;
 										}
 										shreddit-comment-tree {
-											background: var(--re-theme-post-bg) !important;
 											backdrop-filter: blur(var(--re-theme-blur));
 											border-radius: 16px;
 											padding-left: .5rem;
@@ -548,9 +548,7 @@ export function themePostBackgroundColour(value) {
 										}
 										[bundlename="comment_body_header"] comment-body-header {
 											margin-left: -0.5rem;
-											margin-right: -0.5rem;
-											margin-bottom: 8px;
-											border-radius: 16px;
+											margin-bottom: 0;
 											padding-left: 8px;
 											padding-top: 8px;
 										}`;
@@ -866,7 +864,10 @@ export function themePostBorderColour(value) {
 			document.documentElement.style.setProperty('--re-theme-post-border', result.themePostBorderColourCSS);
 			const styleElement = document.createElement('style');
 			styleElement.id = 're-theme-post-border-colour';
-			styleElement.textContent = `shreddit-post {
+			styleElement.textContent = `article > shreddit-post,
+										main#main-content search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
+										main.main post-consume-tracker > div:not([data-testid="search-scope-switcher"]),
+										div[data-testid="search-crosspost-unit"] div:has(> search-telemetry-tracker) {
 											border: solid 1px var(--re-theme-post-border);
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
@@ -1218,10 +1219,14 @@ export function themePostContentAndCommentsLinkColour(value) {
 		});
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-post-content-and-comments-link-colour';
-		styleElement.textContent = `shreddit-post [data-post-click-location="text-body"] a,
-									shreddit-comment p a {
-										color: var(--re-theme-post-content-and-comments-link) !important;
-									}`;
+		styleElement.textContent =
+			`:root, .theme-rpl, .theme-light.theme-rpl {
+				--color-a-default: var(--re-theme-post-content-and-comments-link) !important;
+				--color-primary: var(--re-theme-post-content-and-comments-link) !important;
+			}
+			.md p a {
+				color: var(--re-theme-post-content-and-comments-link) !important;
+			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else if (value === false) {
 		document.documentElement.style.removeProperty('--re-theme-post-content-and-comments-link');

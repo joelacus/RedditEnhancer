@@ -69,9 +69,15 @@ function enableHideSideMenuNewNew() {
 									}
 									shreddit-app #left-sidebar-container {
 										display: none !important;
+										visibility: hidden;
 									}
-									shreddit-app .grid-container {
-										grid-template-columns: 0 1fr !important;
+									pdp-back-button {
+										position: static !important;
+									}
+									@media (min-width: 1200px) {
+										shreddit-app .grid-container {
+											grid-template-columns: 0 1fr !important;
+										}
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

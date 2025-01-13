@@ -1125,5 +1125,49 @@
 
 	"PasswordInfo": {
 		"message": "You may leave the password blank, and you will be prompted when logging in."
+	},
+
+	"ResizeMainContainer": {
+		"message": "Resize Main Container (experimental)"
+	},
+
+	"ResizeMainContainerWidth": {
+		"message": "Main Container Width"
+	},
+
+	"ResizeMainContainerInfo": {
+		"message": "For the best results, please set all Resize Feed / Post width values to 100%."
+	},
+
+	"HideCustomFeedSidebar": {
+		"message": "Hide the Custom Feed Sidebar"
+	},
+
+	"HidePostDivider": {
+		"message": "Hide Post Separators"
+	},
+
+	"PostSeparatorLength": {
+		"message": "Post Gap"
+	},
+
+	"HideBlurredMediaBackground": {
+		"message": "Hide background blur behind image previews"
+	},
+
+	"CompactHeaderSideMenu": {
+		"message": "Compact Header Bar & Side Menu"
+	},
+
+	"Subreddit": {
+		"message": "Subreddit"
+	},
+
+	"FullWidthBanner": {
+		"message": "Full Width Subreddit Banner"
+	},
+
+	"CompactSubRuleList": {
+		"message": "Compact Subreddit Rule List"
 	}
 }

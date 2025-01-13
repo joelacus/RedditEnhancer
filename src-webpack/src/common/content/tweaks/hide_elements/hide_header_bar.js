@@ -48,6 +48,11 @@ function hideHeaderBarNewNew() {
 		styleElement.id = 're-hide-header-bar';
 		styleElement.textContent = `shreddit-app reddit-header-large {
 										display: none !important;
+										visibility: hidden;
+									}
+									shreddit-app {
+										--shreddit-header-height: 0 !important;
+										--shreddit-header-large-height: 0 !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

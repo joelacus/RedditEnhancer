@@ -38,6 +38,8 @@ import { loadSideMenuToggleButton } from './tweaks/hide_elements/side_menu_toggl
 import { loadHideNsfwInSearchResults, loadHideTrendingTodayInSearchResults } from './tweaks/hide_elements/hide_search_results_sections';
 import { loadRememberSideMenuSectionHiddenState } from './tweaks/hide_elements/remember_side_menu_section_hidden_state';
 import { loadAddProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
+import { loadCompactSubRuleList } from "./tweaks/style/old_new_ui";
+import { addBorderRadiusToShadowRootElements } from "./tweaks/style/border_radius";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -79,6 +81,7 @@ export function loadTweaks() {
 		loadAutoLoadMoreComments();
 		loadHidePostKarma();
 		loadSideMenuToggleButton();
+		loadCompactSubRuleList();
 
 		// Wait for elements to load on the page before loading tweaks.
 		waitForAddedNode({
@@ -88,9 +91,11 @@ export function loadTweaks() {
 			done: function (el) {
 				setTimeout(() => {
 					loadAutoShowCommentFormattingOptions();
+					addBorderRadiusToShadowRootElements();
 				}, 3000);
 				setTimeout(() => {
 					loadAutoShowCommentFormattingOptions();
+					addBorderRadiusToShadowRootElements();
 				}, 10000);
 			},
 		});

@@ -17,7 +17,7 @@ import { loadExpandContent } from '../../../content/tweaks/resize_elements/expan
 import { loadHideAdvertiseButton, loadHideChatButton, loadHideCreatePostButton, loadHideNotificationButton } from '../../../content/tweaks/hide_elements/hide_header_buttons';
 import { loadHideGap } from '../../../content/tweaks/style/hide_gap';
 import { loadHideHeaderBar } from '../../../content/tweaks/hide_elements/hide_header_bar';
-import { loadHideHomeSidebar, loadHidePostSidebar, loadHideRelatedPostsSection, loadHideSearchSidebar, loadHideSubSidebarException, loadHideUserSidebar } from '../../../content/tweaks/hide_elements/hide_sidebar';
+import { loadHideHomeSidebar, loadHidePostSidebar, loadHideRelatedPostsSection, loadHideSearchSidebar, loadHideSubSidebarException, loadHideUserSidebar, loadHideCustomFeedSidebar } from '../../../content/tweaks/hide_elements/hide_sidebar';
 import { loadHideJoinButtonOnPosts } from '../../../content/tweaks/hide_elements/hide_post_join_button';
 import { loadHidePostHiddenMessage } from '../../../content/tweaks/hide_elements/hide_post_hidden_message';
 import { loadHidePromotedPosts } from '../../../content/tweaks/hide_elements/hide_promoted';
@@ -41,6 +41,11 @@ import { loadHideCompactViewBlankThumbnails } from '../../../content/tweaks/hide
 import { loadHideCommunityHighlights } from '../../../content/tweaks/hide_elements/hide_community_highlights';
 import { loadHideSearchSidebarNsfwUsers } from '../../../content/tweaks/hide_elements/hide_search_page_sidebar_nsfw_users';
 import { loadHideHomeFeed } from '../../../content/tweaks/hide_elements/hide_home_feed';
+import { loadFullWidthBanner } from "../../../content/tweaks/style/old_new_ui";
+import { loadHidePostDivider } from "../../../content/tweaks/hide_elements/hide_post_divider";
+import { loadHideBlurredMediaBackground } from "../../../content/tweaks/hide_elements/hide_blurred_media_background";
+import { loadCompactHeaderSideMenu } from "../../../content/tweaks/style/old_new_ui";
+import { loadResizeMainContainer } from "../../../content/tweaks/resize_elements/resize_main_container";
 
 export function tweakLoaderNewNew() {
 	loadCustomBackground();
@@ -54,6 +59,7 @@ export function tweakLoaderNewNew() {
 	loadHideRelatedPostsSection();
 	loadHideUserSidebar();
 	loadHideSearchSidebar();
+	loadHideCustomFeedSidebar();
 	loadHideHeaderBar();
 	loadHideNotificationButton();
 	loadHideCreatePostButton();
@@ -85,6 +91,11 @@ export function tweakLoaderNewNew() {
 	loadHideSearchSidebarNsfwUsers();
 	loadHideHomeFeed();
 	loadPostFontWeight();
+	loadHidePostDivider();
+	loadHideBlurredMediaBackground();
+	loadFullWidthBanner();
+	loadCompactHeaderSideMenu();
+	loadResizeMainContainer();
 
 	// Always Show Post Options
 	waitForAddedNode({

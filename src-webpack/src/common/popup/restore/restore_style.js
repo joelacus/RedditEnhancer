@@ -823,4 +823,31 @@ export function restorePopupStyleOptions() {
 		}
 		console.log('Hide Gap: ' + value);
 	});
+
+	// Full Width Banner
+	BROWSER_API.storage.sync.get(['fullWidthBanner'], function (result) {
+		const fullWidthBanner = result.fullWidthBanner === true;
+		document.querySelector('.icon-full-width-banner').style.backgroundColor = fullWidthBanner ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-full-width-banner').checked = fullWidthBanner;
+		document.querySelector('.icon-style-tweaks').style.backgroundColor = fullWidthBanner ? 'var(--accent)' : '';
+		console.log('Full Width Banner: ' + fullWidthBanner);
+	});
+
+	// Compact Sub Rule List
+	BROWSER_API.storage.sync.get(['compactSubRuleList'], function (result) {
+		const compactSubRuleList = result.compactSubRuleList === true;
+		document.querySelector('.icon-compact-sub-rule-list').style.backgroundColor = compactSubRuleList ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-compact-sub-rule-list').checked = compactSubRuleList;
+		document.querySelector('.icon-style-tweaks').style.backgroundColor = compactSubRuleList ? 'var(--accent)' : '';
+		console.log('Compact Sub Rule List: ' + compactSubRuleList);
+	});
+
+	// Compact Header Bar & Side Menu
+	BROWSER_API.storage.sync.get(['compactHeaderSideMenu'], function (result) {
+		const compactHeaderSideMenu = result.compactHeaderSideMenu === true;
+		document.querySelector('.icon-compact-header-side-menu').style.backgroundColor = compactHeaderSideMenu ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-compact-header-side-menu').checked = compactHeaderSideMenu;
+		document.querySelector('.icon-style-tweaks').style.backgroundColor = compactHeaderSideMenu ? 'var(--accent)' : '';
+		console.log('Compact Header Side Menu: ' + compactHeaderSideMenu);
+	});
 }

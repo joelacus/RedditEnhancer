@@ -226,7 +226,8 @@ function enableExpandContentNew() {
 								#overlayScrollContainer > div:has(.Post) :first-child {
 									max-width: 100% !important;
 								}
-								#overlayScrollContainer > :first-child, 
+								#overlayScrollContainer > :first-child,
+								#overlayScrollContainer > :first-child > div,
 								#overlayScrollContainer > div:has(.Post) {
 									width: var(--re-post-overlay-width) !important;
 									max-width: var(--re-post-overlay-width) !important;
@@ -244,6 +245,13 @@ function enableExpandContentNew() {
 								}
 								.Comment > :last-child {
 									max-width: 100% !important;
+								}
+								.ListingLayout-backgroundContainer + div:has(button#MULTIREDDIT_TOP_BAR_OVERFLOW) > :last-child > :first-child {
+									width: var(--re-custom-feed-width);
+								}
+								.ListingLayout-backgroundContainer + div:has(button#MULTIREDDIT_TOP_BAR_OVERFLOW) > :first-child > div {
+									max-width: var(--re-custom-feed-width);
+									padding: 0 1.5rem;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
@@ -267,13 +275,14 @@ function enableExpandContentNewNew() {
 									--re-search-sidebar-width: 316px;
 									--re-sub-sidebar-width: 316px;
 									--re-user-profile-sidebar-width: 316px;
+									--re-custom-feed-sidebar-width: 316px;
 								}
 
-								@media (min-width: 768px) {
+								/* @media (min-width: 768px) {
 									shreddit-app[routename="frontpage"] .main-container {
 										margin-right: 2rem !important;
 									}
-								}
+								} */
 
 								@media (max-width: 768px) {
 									shreddit-app[routename="subreddit"] .subgrid-container {
@@ -347,9 +356,8 @@ function enableExpandContentNewNew() {
 								}
 								shreddit-app[routename="subreddit"] #main-content,
 								shreddit-app[routename="subreddit"] main.main {
-									width: var(--re-sub-width) !important;
-									min-width: var(--re-sub-width) !important;
-									justify-self: center;
+									width: var(--re-sub-width);
+									max-width: 100%;
 								}
 								shreddit-app[routename="subreddit_wiki"] #main-content,
 								shreddit-app[routename="subreddit_wiki"] main.main {
@@ -359,11 +367,12 @@ function enableExpandContentNewNew() {
 								shreddit-app[routename="post_page"] #main-content,
 								shreddit-app[routename="comments_page"] #main-content,
 								shreddit-app[routename="profile_post_page"] #main-content,
+								shreddit-app[routename="subreddit_wiki"] #main-content,
 								shreddit-app[routename="post_page"] main.main,
 								shreddit-app[routename="comments_page"] main.main,
-								shreddit-app[routename="profile_post_page"] main.main {
-									width: var(--re-post-width) !important;
-									min-width: var(--re-post-width) !important;
+								shreddit-app[routename="profile_post_page"] main.main,
+								shreddit-app[routename="subreddit_wiki"] main.main {
+									max-width: var(--re-post-width) !important;
 									justify-self: center;
 								}
 								shreddit-app[routename="profile_overview"] #main-content,
@@ -462,8 +471,8 @@ function enableExpandContentNewNew() {
 
 								shreddit-app[pagetype="custom_feed"] .main-container {
 									display: grid;
-									grid-template-columns: auto var(--re-sub-sidebar-width) !important;
-									min-width: 100%;
+									grid-template-columns: auto var(--re-custom-feed-sidebar-width) !important;
+									min-width: var(--re-main-container-width, 100%);
 									max-width: calc(100% - var(--re-side-menu-width));
 								}
 
@@ -478,6 +487,7 @@ function enableExpandContentNewNew() {
 									width: calc(100vw - 2rem) !important;
 								}*/`;
 	document.head.appendChild(styleElement);
+	document.documentElement.classList.add('re-expand-feed-layout');
 }
 
 // Function - Disable Expand Content - New New
@@ -486,6 +496,7 @@ function disableExpandContentNewNew() {
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
+	document.documentElement.classList.remove('re-expand-feed-layout');
 }
 
 // Page Style Property - Expand Layout Width

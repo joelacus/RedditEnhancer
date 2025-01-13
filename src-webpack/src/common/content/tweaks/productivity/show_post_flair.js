@@ -8,10 +8,13 @@ export function loadShowPostFlair() {
 }
 
 /* === Main Function === */
+// NOTE: adding flairs to search results leads to 429s, so restrain from doing that for now
 export function showPostFlair(value) {
 	const routename = document.querySelector('shreddit-app').getAttribute('routename');
+	const feedRoutes = ['frontpage', 'popular', 'custom_feed'];
+
 	if (redditVersion === 'newnew' && value === true) {
-		if (routename === 'frontpage' || routename === 'popular') {
+		if (feedRoutes.includes(routename)) {
 			document.querySelectorAll('shreddit-post').forEach((post) => {
 				attachFlair(post);
 			});
@@ -42,7 +45,9 @@ async function attachFlair(post) {
 		const postData = await fetchPostData(postID);
 		const flair = postData.children[0].data.link_flair_richtext;
 
-		if (flair) {
+		// Reddit API returns post flairs in an array. shreddit-post-flair should not be added
+		// to posts with no flairs, causing really weird paddings
+		if (flair && flair.length > 0) {
 			const flairTextColour = postData.children[0].data.link_flair_text_color;
 			const flairBgColour = postData.children[0].data.link_flair_background_color;
 			const flairName = postData.children[0].data.link_flair_text;

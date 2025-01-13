@@ -36,7 +36,7 @@ function enableSideMenuToggleButton() {
 			btnClose.classList.add('hidden');
 			btnOpen.classList.remove('hidden');
 			BROWSER_API.storage.sync.set({ sideMenuToggleButtonHiddenState: true });
-			document.documentElement.style.setProperty('--re-side-menu-width', 0);
+			// document.documentElement.style.setProperty('--re-side-menu-width', 0);
 		});
 		const nav = document.querySelector('#left-sidebar-container nav');
 		nav.insertBefore(btnClose, nav.firstChild);
@@ -62,7 +62,7 @@ function enableSideMenuToggleButton() {
 			document.querySelector('shreddit-app').setAttribute('data-re-hide-side-menu', true);
 			btnClose.classList.add('hidden');
 			btnOpen.classList.remove('hidden');
-			document.documentElement.style.setProperty('--re-side-menu-width', 0);
+			// document.documentElement.style.setProperty('--re-side-menu-width', 0);
 		} else {
 			document.querySelector('shreddit-app').setAttribute('data-re-hide-side-menu', false);
 			loadSideMenuWidth();
@@ -76,14 +76,22 @@ function enableSideMenuToggleButton() {
 										--re-hide-side-menu-gap-multiplyer: 1;
 										--re-hide-side-menu-gap-multiplyer2: 1;
 									}
+									[data-re-hide-side-menu="true"] {
+										--re-side-menu-width: 0;
+									}
 									shreddit-app[data-re-hide-side-menu="true"] #left-sidebar-container {
 										display: none !important;
 									}
 									shreddit-app[data-re-hide-side-menu="false"] #left-sidebar-container {
 										z-index: 1;
 									}
-									shreddit-app[data-re-hide-side-menu="true"] .grid-container {
-										grid-template-columns: 0 1fr !important;
+									pdp-back-button {
+										position: static !important;
+									}
+									@media (min-width: 1200px) {
+										shreddit-app[data-re-hide-side-menu="true"] .grid-container {
+											grid-template-columns: 0 1fr !important;
+										}
 									}
 									.re-side-menu-close,
 									.re-side-menu-open {

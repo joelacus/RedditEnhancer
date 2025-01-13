@@ -10,22 +10,23 @@ export function loadShowPostAuthor() {
 /* === Main Function === */
 export function showPostAuthor(value) {
 	const routename = document.querySelector('shreddit-app').getAttribute('routename');
-	const pagetype = document.querySelector('shreddit-app').getAttribute('pagetype');
+	const feedRoutes = ['frontpage', 'popular', 'custom_feed'];
+	const searchRoutes = ['global_serp', 'community_serp', 'custom_feed_serp'];
+
 	if (redditVersion === 'newnew' && value === true) {
-		if (routename === 'frontpage' || routename === 'popular') {
+		if (feedRoutes.includes(routename)) {
 			document.querySelectorAll('shreddit-post').forEach((post) => {
 				attachUsername(post);
 			});
-			observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
-		}
-		if (pagetype === 'search_results') {
-			document.querySelectorAll('[data-testid="search-post"]').forEach((post) => {
+			observer.observe(document.querySelector('shreddit-feed'), {childList: true, subtree: true});
+		} else if (searchRoutes.includes(routename)) {
+			document.querySelectorAll('faceplate-tracker[data-testid="search-post"]').forEach((post) => {
 				attachUsername(post);
 			});
 			observer.observe(document.querySelector('reddit-feed'), { childList: true, subtree: true });
 		}
 	} else if (redditVersion === 'newnew' && value === false) {
-		if (routename === 'frontpage' || routename === 'popular' || pagetype === 'search_results') {
+		if (routes.includes(routename)) {
 			observer.disconnect();
 			removeUsername();
 		}
@@ -42,6 +43,7 @@ function removeUsername() {
 }
 
 // Attach post author to post header.
+// TODO: replace "Posted by" with "Crossposted by" on x-posted posts (no screenshot available?)
 async function attachUsername(post) {
 	let author = post.getAttribute('author');
 	if (!author) {
@@ -52,10 +54,10 @@ async function attachUsername(post) {
 	}
 
 	if (!post.querySelector('.re-post-author')) {
-		const a = document.createElement('a');
+		const a = document.createElement('span');
 		a.classList.add('re-post-author');
-		a.textContent = 'u/' + author;
-		a.href = '/user/' + author;
+		a.innerHTML = `Posted by <a href="/user/${author}">u/${author}</a>`;
+
 		let hoverTimer;
 		if (author !== '[deleted]') {
 			a.addEventListener('mouseenter', () => {
@@ -67,14 +69,13 @@ async function attachUsername(post) {
 				clearTimeout(hoverTimer);
 			});
 		}
-		let container = post.querySelector('[slot="credit-bar"] > span:has(faceplate-timeago)');
-		if (!container) {
-			container = post.querySelector('[slot="credit-bar"] > div');
-		}
-		if (!container) {
-			container = post.querySelector('span:has([bundlename="faceplate_hovercard"])');
-		}
-		container.appendChild(a);
+		const selectors = [
+			'[slot="credit-bar"] > span:has(faceplate-timeago)',
+			'[slot="credit-bar"] > div',
+			'span:has([bundlename="faceplate_hovercard"])'
+		];
+		let container = selectors.map(selector => post.querySelector(selector)).find(el => el);
+		container.querySelector('faceplate-timeago').before(a);
 	}
 }
 
@@ -112,14 +113,13 @@ async function showHoverCard(post, username) {
 	hoverCard.style.top = linkRect.offsetTop + 20 + 'px';
 
 	// Append the hover card to the body
-	let container = post.querySelector('[slot="credit-bar"] > span:has(faceplate-timeago)');
-	if (!container) {
-		container = post.querySelector('[slot="credit-bar"] > div');
-	}
-	if (!container) {
-		container = post.querySelector('span:has([bundlename="faceplate_hovercard"])');
-	}
-	container.appendChild(hoverCard);
+	const selectors = [
+		'[slot="credit-bar"] > span:has(faceplate-timeago)',
+		'[slot="credit-bar"] > div',
+		'span:has([bundlename="faceplate_hovercard"])'
+	];
+	let container = selectors.map(selector => post.querySelector(selector)).find(el => el);
+	container.querySelector('faceplate-timeago').before(hoverCard);
 	post.querySelector('.hover-card').style.display = 'block';
 }
 

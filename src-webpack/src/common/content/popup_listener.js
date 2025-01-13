@@ -21,7 +21,7 @@ import { hideGap } from './tweaks/style/hide_gap';
 import { hideGetNewReddit } from './tweaks/hide_elements/hide_get_new_reddit';
 import { hideHeaderBar } from './tweaks/hide_elements/hide_header_bar';
 import { hideHeaderSubBar } from './tweaks/hide_elements/hide_header_sub_bar';
-import { hideHomeSidebar, hideSubSidebar, hidePostSidebar, hidePostOverlaySidebar, hideUserSidebar, hideRelatedPostsSection, hideSearchSidebar } from './tweaks/hide_elements/hide_sidebar';
+import { hideHomeSidebar, hideSubSidebar, hidePostSidebar, hidePostOverlaySidebar, hideUserSidebar, hideRelatedPostsSection, hideSearchSidebar, hideCustomFeedSidebar } from './tweaks/hide_elements/hide_sidebar';
 import { hideJoinButtonOnPosts } from './tweaks/hide_elements/hide_post_join_button';
 import { hideNSFW } from './tweaks/hide_elements/hide_nsfw';
 import { hideOriginalScrollToTop } from './tweaks/hide_elements/hide_original_scroll_to_top';
@@ -136,6 +136,10 @@ import { hideSearchSidebarNsfwUsers } from './tweaks/hide_elements/hide_search_p
 import { rememberSideMenuSectionHiddenState } from './tweaks/hide_elements/remember_side_menu_section_hidden_state';
 import { hideHomeFeed } from './tweaks/hide_elements/hide_home_feed';
 import { addProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
+import { hidePostDivider, postSeparatorLength } from "./tweaks/hide_elements/hide_post_divider";
+import { hideBlurredMediaBackground } from "./tweaks/hide_elements/hide_blurred_media_background";
+import { fullWidthBanner, compactHeaderSideMenu, compactSubRuleList } from "./tweaks/style/old_new_ui";
+import { resizeMainContainer, resizeMainContainerWidth } from "./tweaks/resize_elements/resize_main_container";
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 /* = Listen For Settings Change = */
@@ -143,303 +147,305 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 	var key = Object.keys(msg)[0];
 	var value = Object.values(msg)[0];
 	//console.log(key, value);
-	if (key == 'darkMode') {
+	if (key === 'darkMode') {
 		darkMode(value);
-	} else if (key == 'darkModeAutoListener') {
+	} else if (key === 'darkModeAutoListener') {
 		darkModeAutoListener(value);
-	} else if (key == 'useCustomBackground') {
+	} else if (key === 'useCustomBackground') {
 		useCustomBackground(value);
-	} else if (key == 'setCustomBackground') {
+	} else if (key === 'setCustomBackground') {
 		setCustomBackground(value);
-	} else if (key == 'bgBlur') {
+	} else if (key === 'bgBlur') {
 		bgBlur(value);
-	} else if (key == 'expandLayout') {
+	} else if (key === 'expandLayout') {
 		expandLayout(value);
-	} else if (key == 'expandLayoutWidth') {
+	} else if (key === 'expandLayoutWidth') {
 		expandLayoutWidth(value);
-	} else if (key == 'expandPostOverlayWidth') {
+	} else if (key === 'expandPostOverlayWidth') {
 		expandPostOverlayWidth(value);
-	} else if (key == 'expandPostWidth') {
+	} else if (key === 'expandPostWidth') {
 		expandPostWidth(value);
-	} else if (key == 'expandSubWidth') {
+	} else if (key === 'expandSubWidth') {
 		expandSubWidth(value);
-	} else if (key == 'expandUserProfileWidth') {
+	} else if (key === 'expandUserProfileWidth') {
 		expandUserProfileWidth(value);
-	} else if (key == 'expandTopicFeedWidth') {
+	} else if (key === 'expandTopicFeedWidth') {
 		expandTopicFeedWidth(value);
-	} else if (key == 'expandCustomFeedWidth') {
+	} else if (key === 'expandCustomFeedWidth') {
 		expandCustomFeedWidth(value);
-	} else if (key == 'layoutOffset') {
+	} else if (key === 'layoutOffset') {
 		layoutOffset(value);
-	} else if (key == 'layoutSubOffset') {
+	} else if (key === 'layoutSubOffset') {
 		layoutSubOffset(value);
-	} else if (key == 'layoutPostOffset') {
+	} else if (key === 'layoutPostOffset') {
 		layoutPostOffset(value);
-	} else if (key == 'layoutUserProfileOffset') {
+	} else if (key === 'layoutUserProfileOffset') {
 		layoutUserProfileOffset(value);
-	} else if (key == 'layoutSearchPageOffset') {
+	} else if (key === 'layoutSearchPageOffset') {
 		layoutSearchPageOffset(value);
-	} else if (key == 'layoutCentre') {
+	} else if (key === 'layoutCentre') {
 		layoutCentre(value);
-	} else if (key == 'shadows') {
+	} else if (key === 'shadows') {
 		addDropShadow(value);
-	} else if (key == 'fitImage') {
+	} else if (key === 'fitImage') {
 		fitImage(value);
-	} else if (key == 'imageScroll') {
+	} else if (key === 'imageScroll') {
 		imageScroll(value);
-	} else if (key == 'imageScrollMaxImageWidth') {
+	} else if (key === 'imageScrollMaxImageWidth') {
 		imageScrollMaxImageWidth(value);
-	} else if (key == 'hideRedditPremium') {
+	} else if (key === 'hideRedditPremium') {
 		hideRedditPremium(value);
-	} else if (key == 'hideCreatePost') {
+	} else if (key === 'hideCreatePost') {
 		hideCreatePost(value);
-	} else if (key == 'hideAdvertiseButton') {
+	} else if (key === 'hideAdvertiseButton') {
 		hideAdvertiseButton(value);
-	} else if (key == 'hideChatButton') {
+	} else if (key === 'hideChatButton') {
 		hideChatButton(value);
-	} else if (key == 'hideModerationButton') {
+	} else if (key === 'hideModerationButton') {
 		hideModerationButton(value);
-	} else if (key == 'hidePopularButton') {
+	} else if (key === 'hidePopularButton') {
 		hidePopularButton(value);
-	} else if (key == 'hideNotificationButton') {
+	} else if (key === 'hideNotificationButton') {
 		hideNotificationButton(value);
-	} else if (key == 'hideCreatePostButton') {
+	} else if (key === 'hideCreatePostButton') {
 		hideCreatePostButton(value);
-	} else if (key == 'hideHomeSidebar') {
+	} else if (key === 'hideHomeSidebar') {
 		hideHomeSidebar(value);
-	} else if (key == 'hideSubSidebar') {
+	} else if (key === 'hideSubSidebar') {
 		hideSubSidebar(value);
-	} else if (key == 'hideGap') {
+	} else if (key === 'hideGap') {
 		hideGap(value);
-	} else if (key == 'stickySort') {
+	} else if (key === 'stickySort') {
 		stickySort(value);
-	} else if (key == 'hideUsername') {
+	} else if (key === 'hideUsername') {
 		hideUsername(value);
-	} else if (key == 'hideKarma') {
+	} else if (key === 'hideKarma') {
 		hideKarma(value);
-	} else if (key == 'alwaysShowRisingButton') {
+	} else if (key === 'alwaysShowRisingButton') {
 		alwaysShowRisingButton(value);
-	} else if (key == 'hideGetNewReddit') {
+	} else if (key === 'hideGetNewReddit') {
 		hideGetNewReddit(value);
-	} else if (key == 'hideSidebarPolicy') {
+	} else if (key === 'hideSidebarPolicy') {
 		hideSidebarPolicy(value);
-	} else if (key == 'openSubInNewTab') {
+	} else if (key === 'openSubInNewTab') {
 		openSubInNewTab(value);
-	} else if (key == 'openPostInNewTab') {
+	} else if (key === 'openPostInNewTab') {
 		openPostInNewTab(value);
-	} else if (key == 'hidePromoted') {
+	} else if (key === 'hidePromoted') {
 		hidePromoted(value);
-	} else if (key == 'hideRecommended') {
+	} else if (key === 'hideRecommended') {
 		hideRecommended(value);
-	} else if (key == 'showToTopButton') {
+	} else if (key === 'showToTopButton') {
 		showToTopButton(value);
-	} else if (key == 'showAllButton') {
+	} else if (key === 'showAllButton') {
 		showAllButton(value);
-	} else if (key == 'newPlayer') {
+	} else if (key === 'newPlayer') {
 		newPlayer(value);
-	} else if (key == 'sidemenuFeedTop') {
+	} else if (key === 'sidemenuFeedTop') {
 		sidemenuFeedTop(value);
-	} else if (key == 'textPostScroll') {
+	} else if (key === 'textPostScroll') {
 		textPostScroll(value);
-	} else if (key == 'hideSeeFullImage') {
+	} else if (key === 'hideSeeFullImage') {
 		hideSeeFullImage(value);
-	} else if (key == 'moderniseOldReddit') {
+	} else if (key === 'moderniseOldReddit') {
 		moderniseOldReddit(value);
-	} else if (key == 'hideHeaderSubBar') {
+	} else if (key === 'hideHeaderSubBar') {
 		hideHeaderSubBar(value);
-	} else if (key == 'hideSideMenuOld') {
+	} else if (key === 'hideSideMenuOld') {
 		hideSideMenuOld(value);
-	} else if (key == 'hideSideMenu') {
+	} else if (key === 'hideSideMenu') {
 		hideSideMenu(value);
-	} else if (key == 'autoExpandValue') {
+	} else if (key === 'autoExpandValue') {
 		autoExpandValue(value);
-	} else if (key == 'hidePostSidebar') {
+	} else if (key === 'hidePostSidebar') {
 		hidePostSidebar(value);
-	} else if (key == 'hidePostOverlaySidebar') {
+	} else if (key === 'hidePostOverlaySidebar') {
 		hidePostOverlaySidebar(value);
-	} else if (key == 'hideUserSidebar') {
+	} else if (key === 'hideUserSidebar') {
 		hideUserSidebar(value);
-	} else if (key == 'hideRelatedPostsSection') {
+	} else if (key === 'hideCustomFeedSidebar') {
+		hideCustomFeedSidebar(value);
+	} else if (key === 'hideRelatedPostsSection') {
 		hideRelatedPostsSection(value);
-	} else if (key == 'limitInfinityScroll') {
+	} else if (key === 'limitInfinityScroll') {
 		limitInfinityScroll(value);
-	} else if (key == 'showControversialSortButton') {
+	} else if (key === 'showControversialSortButton') {
 		showControversialSortButton(value);
-	} else if (key == 'hideNSFW') {
+	} else if (key === 'hideNSFW') {
 		hideNSFW(value);
-	} else if (key == 'hideTurnOnNotificationsPopup') {
+	} else if (key === 'hideTurnOnNotificationsPopup') {
 		hideTurnOnNotificationsPopup(value);
-	} else if (key == 'scrollToNextRootComment') {
+	} else if (key === 'scrollToNextRootComment') {
 		scrollToNextRootComment(value);
-	} else if (key == 'showPostNumbers') {
+	} else if (key === 'showPostNumbers') {
 		showPostNumbers(value);
-	} else if (key == 'overrideDropShadow') {
+	} else if (key === 'overrideDropShadow') {
 		overrideDropShadow(value);
-	} else if (key == 'overrideDropShadowCSS') {
+	} else if (key === 'overrideDropShadowCSS') {
 		overrideDropShadowCSS(value);
-	} else if (key == 'postHeight') {
+	} else if (key === 'postHeight') {
 		postHeight(value);
-	} else if (key == 'postHeightSize') {
+	} else if (key === 'postHeightSize') {
 		postHeightSize(value);
-	} else if (key == 'themeHeaderBackgroundColour') {
+	} else if (key === 'themeHeaderBackgroundColour') {
 		themeHeaderBackgroundColour(value);
-	} else if (key == 'themeHeaderBackgroundColourCSS') {
+	} else if (key === 'themeHeaderBackgroundColourCSS') {
 		themeHeaderBackgroundColourCSS(value);
-	} else if (key == 'themeHeaderTextColour') {
+	} else if (key === 'themeHeaderTextColour') {
 		themeHeaderTextColour(value);
-	} else if (key == 'themeHeaderTextColourCSS') {
+	} else if (key === 'themeHeaderTextColourCSS') {
 		themeHeaderTextColourCSS(value);
-	} else if (key == 'themeSortBackgroundColour') {
+	} else if (key === 'themeSortBackgroundColour') {
 		themeSortBackgroundColour(value);
-	} else if (key == 'themeSortBackgroundColourCSS') {
+	} else if (key === 'themeSortBackgroundColourCSS') {
 		themeSortBackgroundColourCSS(value);
-	} else if (key == 'themeSortTextColour') {
+	} else if (key === 'themeSortTextColour') {
 		themeSortTextColour(value);
-	} else if (key == 'themeSortTextColourCSS') {
+	} else if (key === 'themeSortTextColourCSS') {
 		themeSortTextColourCSS(value);
-	} else if (key == 'themeSortTextColour2') {
+	} else if (key === 'themeSortTextColour2') {
 		themeSortTextColour2(value);
-	} else if (key == 'themeSortTextColour2CSS') {
+	} else if (key === 'themeSortTextColour2CSS') {
 		themeSortTextColour2CSS(value);
-	} else if (key == 'themeSortBorderColour') {
+	} else if (key === 'themeSortBorderColour') {
 		themeSortBorderColour(value);
-	} else if (key == 'themeSortBorderColourCSS') {
+	} else if (key === 'themeSortBorderColourCSS') {
 		themeSortBorderColourCSS(value);
-	} else if (key == 'themePostBackgroundColour') {
+	} else if (key === 'themePostBackgroundColour') {
 		themePostBackgroundColour(value);
-	} else if (key == 'themePostBackgroundColourCSS') {
+	} else if (key === 'themePostBackgroundColourCSS') {
 		themePostBackgroundColourCSS(value);
-	} else if (key == 'themePostVisitedTitleColour') {
+	} else if (key === 'themePostVisitedTitleColour') {
 		themePostVisitedTitleColour(value);
-	} else if (key == 'themePostVisitedTitleColourCSS') {
+	} else if (key === 'themePostVisitedTitleColourCSS') {
 		themePostVisitedTitleColourCSS(value);
-	} else if (key == 'themePostTextColour1') {
+	} else if (key === 'themePostTextColour1') {
 		themePostTextColour1(value);
-	} else if (key == 'themePostTextColour1CSS') {
+	} else if (key === 'themePostTextColour1CSS') {
 		themePostTextColour1CSS(value);
-	} else if (key == 'themePostCommentsTextColour1') {
+	} else if (key === 'themePostCommentsTextColour1') {
 		themePostCommentsTextColour1(value);
-	} else if (key == 'themePostCommentsTextColour1CSS') {
+	} else if (key === 'themePostCommentsTextColour1CSS') {
 		themePostCommentsTextColour1CSS(value);
-	} else if (key == 'themePostCommentsTextColour2') {
+	} else if (key === 'themePostCommentsTextColour2') {
 		themePostCommentsTextColour2(value);
-	} else if (key == 'themePostCommentsTextColour2CSS') {
+	} else if (key === 'themePostCommentsTextColour2CSS') {
 		themePostCommentsTextColour2CSS(value);
-	} else if (key == 'themePostTextColour2') {
+	} else if (key === 'themePostTextColour2') {
 		themePostTextColour2(value);
-	} else if (key == 'themePostTextColour2CSS') {
+	} else if (key === 'themePostTextColour2CSS') {
 		themePostTextColour2CSS(value);
-	} else if (key == 'themePostBorderColour') {
+	} else if (key === 'themePostBorderColour') {
 		themePostBorderColour(value);
-	} else if (key == 'themePostBorderColourCSS') {
+	} else if (key === 'themePostBorderColourCSS') {
 		themePostBorderColourCSS(value);
-	} else if (key == 'themeCreatePostBackgroundColour') {
+	} else if (key === 'themeCreatePostBackgroundColour') {
 		themeCreatePostBackgroundColour(value);
-	} else if (key == 'themeCreatePostBackgroundColourCSS') {
+	} else if (key === 'themeCreatePostBackgroundColourCSS') {
 		themeCreatePostBackgroundColourCSS(value);
-	} else if (key == 'themeCreatePostBorderColour') {
+	} else if (key === 'themeCreatePostBorderColour') {
 		themeCreatePostBorderColour(value);
-	} else if (key == 'themeCreatePostBorderColourCSS') {
+	} else if (key === 'themeCreatePostBorderColourCSS') {
 		themeCreatePostBorderColourCSS(value);
-	} else if (key == 'themeSidebarTextColour') {
+	} else if (key === 'themeSidebarTextColour') {
 		themeSidebarTextColour(value);
-	} else if (key == 'themeSidebarTextColourCSS') {
+	} else if (key === 'themeSidebarTextColourCSS') {
 		themeSidebarTextColourCSS(value);
-	} else if (key == 'themeSidebarBgColour') {
+	} else if (key === 'themeSidebarBgColour') {
 		themeSidebarBgColour(value);
-	} else if (key == 'themeSidebarBgColourCSS') {
+	} else if (key === 'themeSidebarBgColourCSS') {
 		themeSidebarBgColourCSS(value);
-	} else if (key == 'themeSidebarBorderColour') {
+	} else if (key === 'themeSidebarBorderColour') {
 		themeSidebarBorderColour(value);
-	} else if (key == 'themeSidebarBorderColourCSS') {
+	} else if (key === 'themeSidebarBorderColourCSS') {
 		themeSidebarBorderColourCSS(value);
-	} else if (key == 'themeSidemenuTextColour') {
+	} else if (key === 'themeSidemenuTextColour') {
 		themeSidemenuTextColour(value);
-	} else if (key == 'themeSidemenuTextColourCSS') {
+	} else if (key === 'themeSidemenuTextColourCSS') {
 		themeSidemenuTextColourCSS(value);
-	} else if (key == 'themeSidemenuBgColour') {
+	} else if (key === 'themeSidemenuBgColour') {
 		themeSidemenuBgColour(value);
-	} else if (key == 'themeSidemenuBgColourCSS') {
+	} else if (key === 'themeSidemenuBgColourCSS') {
 		themeSidemenuBgColourCSS(value);
-	} else if (key == 'themeSidemenuButtonHoverColour') {
+	} else if (key === 'themeSidemenuButtonHoverColour') {
 		themeSidemenuButtonHoverColour(value);
-	} else if (key == 'themeSidemenuButtonHoverColourCSS') {
+	} else if (key === 'themeSidemenuButtonHoverColourCSS') {
 		themeSidemenuButtonHoverColourCSS(value);
-	} else if (key == 'themePostContentAndCommentsLinkColour') {
+	} else if (key === 'themePostContentAndCommentsLinkColour') {
 		themePostContentAndCommentsLinkColour(value);
-	} else if (key == 'themePostContentAndCommentsLinkColourCSS') {
+	} else if (key === 'themePostContentAndCommentsLinkColourCSS') {
 		themePostContentAndCommentsLinkColourCSS(value);
-	} else if (key == 'themeSearchbarBgColour') {
+	} else if (key === 'themeSearchbarBgColour') {
 		themeSearchbarBgColour(value);
-	} else if (key == 'themeSearchbarBgColourCSS') {
+	} else if (key === 'themeSearchbarBgColourCSS') {
 		themeSearchbarBgColourCSS(value);
-	} else if (key == 'themeSearchbarDropdownBgColour') {
+	} else if (key === 'themeSearchbarDropdownBgColour') {
 		themeSearchbarDropdownBgColour(value);
-	} else if (key == 'themeSearchbarDropdownBgColourCSS') {
+	} else if (key === 'themeSearchbarDropdownBgColourCSS') {
 		themeSearchbarDropdownBgColourCSS(value);
-	} else if (key == 'themePostUpvoteColour') {
+	} else if (key === 'themePostUpvoteColour') {
 		themePostUpvoteColour(value);
-	} else if (key == 'themePostUpvoteColourCSS') {
+	} else if (key === 'themePostUpvoteColourCSS') {
 		themePostUpvoteColourCSS(value);
-	} else if (key == 'themeBlur') {
+	} else if (key === 'themeBlur') {
 		themeBlur(value);
-	} else if (key == 'bionicReaderPosts') {
+	} else if (key === 'bionicReaderPosts') {
 		bionicReaderPosts(value);
-	} else if (key == 'bionicReaderComments') {
+	} else if (key === 'bionicReaderComments') {
 		bionicReaderComments(value);
-	} else if (key == 'bionicReaderFontColour') {
+	} else if (key === 'bionicReaderFontColour') {
 		bionicReaderFontColour(value);
-	} else if (key == 'bionicReaderFontColourCSS') {
+	} else if (key === 'bionicReaderFontColourCSS') {
 		bionicReaderFontColourCSS(value);
-	} else if (key == 'bionicReaderBgColour') {
+	} else if (key === 'bionicReaderBgColour') {
 		bionicReaderBgColour(value);
-	} else if (key == 'bionicReaderBgColourCSS') {
+	} else if (key === 'bionicReaderBgColourCSS') {
 		bionicReaderBgColourCSS(value);
-	} else if (key == 'alwaysShowPostOptions') {
+	} else if (key === 'alwaysShowPostOptions') {
 		alwaysShowPostOptions(value);
-	} else if (key == 'hideHeaderBar') {
+	} else if (key === 'hideHeaderBar') {
 		hideHeaderBar(value);
-	} else if (key == 'nonStickyHeaderBar') {
+	} else if (key === 'nonStickyHeaderBar') {
 		nonStickyHeaderBar(value);
-	} else if (key == 'hideOriginalScrollToTop') {
+	} else if (key === 'hideOriginalScrollToTop') {
 		hideOriginalScrollToTop(value);
-	} else if (key == 'largerClassicPost') {
+	} else if (key === 'largerClassicPost') {
 		largerClassicPost(value);
-	} else if (key == 'scrollToNextRootCommentPosition') {
+	} else if (key === 'scrollToNextRootCommentPosition') {
 		scrollToNextRootCommentPosition(value);
-	} else if (key == 'scrollToNextRootCommentPositionV') {
+	} else if (key === 'scrollToNextRootCommentPositionV') {
 		scrollToNextRootCommentPositionV(value);
-	} else if (key == 'breakReminder') {
+	} else if (key === 'breakReminder') {
 		breakReminder(value);
-	} else if (key == 'showPostAuthor') {
+	} else if (key === 'showPostAuthor') {
 		showPostAuthor(value);
-	} else if (key == 'showPostFlair') {
+	} else if (key === 'showPostFlair') {
 		showPostFlair(value);
-	} else if (key == 'hideSideMenuTopSection') {
+	} else if (key === 'hideSideMenuTopSection') {
 		hideSideMenuTopSection(value);
-	} else if (key == 'hideSideMenuModerationSection') {
+	} else if (key === 'hideSideMenuModerationSection') {
 		hideSideMenuModerationSection(value);
-	} else if (key == 'hideSideMenuRecentSection') {
+	} else if (key === 'hideSideMenuRecentSection') {
 		hideSideMenuRecentSection(value);
-	} else if (key == 'hideSideMenuCustomFeedsSection') {
+	} else if (key === 'hideSideMenuCustomFeedsSection') {
 		hideSideMenuCustomFeedsSection(value);
-	} else if (key == 'hideSideMenuCommunitiesSection') {
+	} else if (key === 'hideSideMenuCommunitiesSection') {
 		hideSideMenuCommunitiesSection(value);
-	} else if (key == 'hideSideMenuResourcesSection') {
+	} else if (key === 'hideSideMenuResourcesSection') {
 		hideSideMenuResourcesSection(value);
-	} else if (key == 'hideSideMenuTopicsSection') {
+	} else if (key === 'hideSideMenuTopicsSection') {
 		hideSideMenuTopicsSection(value);
-	} else if (key == 'postTitleFontSize') {
+	} else if (key === 'postTitleFontSize') {
 		postTitleFontSize(value);
-	} else if (key == 'postContentFontSize') {
+	} else if (key === 'postContentFontSize') {
 		postContentFontSize(value);
-	} else if (key == 'postCommentsFontSize') {
+	} else if (key === 'postCommentsFontSize') {
 		postCommentsFontSize(value);
-	} else if (key == 'hideUserProfilePics') {
+	} else if (key === 'hideUserProfilePics') {
 		hideUserProfilePics(value);
-	} else if (key == 'autoExpandComments') {
+	} else if (key === 'autoExpandComments') {
 		autoExpandComments(value);
-	} else if (key == 'hidePostHiddenMessage') {
+	} else if (key === 'hidePostHiddenMessage') {
 		hidePostHiddenMessage(value);
 	} /* else if (key == 'scalePostToFitImage') {
 		scalePostToFitImage(value);
@@ -451,72 +457,88 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		dragImageToResizeInitialSize(value);
 	}*/ /* else if (key == 'addDownloadVideoButton') {
 		addDownloadVideoButton(value);
-	}*/ else if (key == 'autoCollapseAutoModeratorComment') {
+	}*/ else if (key === 'autoCollapseAutoModeratorComment') {
 		autoCollapseAutoModeratorComment(value);
-	} else if (key == 'hideJoinButtonOnPosts') {
+	} else if (key === 'hideJoinButtonOnPosts') {
 		hideJoinButtonOnPosts(value);
-	} else if (key == 'autoLoadMoreComments') {
+	} else if (key === 'autoLoadMoreComments') {
 		autoLoadMoreComments(value);
-	} else if (key == 'underlineLinks') {
+	} else if (key === 'underlineLinks') {
 		underlineLinks(value);
-	} else if (key == 'autoShowCommentFormattingOptions') {
+	} else if (key === 'autoShowCommentFormattingOptions') {
 		autoShowCommentFormattingOptions(value);
-	} else if (key == 'hideSearchSidebar') {
+	} else if (key === 'hideSearchSidebar') {
 		hideSearchSidebar(value);
-	} else if (key == 'hidePostBackButton') {
+	} else if (key === 'hidePostBackButton') {
 		hidePostBackButton(value);
-	} else if (key == 'borderRadiusAmount') {
+	} else if (key === 'borderRadiusAmount') {
 		borderRadiusAmount(value);
-	} else if (key == 'hidePostKarma') {
+	} else if (key === 'hidePostKarma') {
 		hidePostKarma(value);
-	} else if (key == 'hideRecentPosts') {
+	} else if (key === 'hideRecentPosts') {
 		hideRecentPosts(value);
-	} else if (key == 'sideMenuWidth') {
+	} else if (key === 'sideMenuWidth') {
 		sideMenuWidth(value);
-	} else if (key == 'sideMenuIconsOnly') {
+	} else if (key === 'sideMenuIconsOnly') {
 		sideMenuIconsOnly(value);
-	} else if (key == 'hideSideMenuFavouriteButton') {
+	} else if (key === 'hideSideMenuFavouriteButton') {
 		hideSideMenuFavouriteButton(value);
-	} else if (key == 'sideMenuToggleButton') {
+	} else if (key === 'sideMenuToggleButton') {
 		sideMenuToggleButton(value);
-	} else if (key == 'hideCompactViewBlankThumbnails') {
+	} else if (key === 'hideCompactViewBlankThumbnails') {
 		hideCompactViewBlankThumbnails(value);
-	} else if (key == 'hideNsfwInSearchResults') {
+	} else if (key === 'hideNsfwInSearchResults') {
 		hideNsfwInSearchResults(value);
-	} else if (key == 'hideTrendingTodayInSearchResults') {
+	} else if (key === 'hideTrendingTodayInSearchResults') {
 		hideTrendingTodayInSearchResults(value);
-	} else if (key == 'hideCommunityHighlights') {
+	} else if (key === 'hideCommunityHighlights') {
 		hideCommunityHighlights(value);
-	} else if (key == 'hideSearchSidebarNsfwUsers') {
+	} else if (key === 'hideSearchSidebarNsfwUsers') {
 		hideSearchSidebarNsfwUsers(value);
-	} else if (key == 'rememberSideMenuSectionHiddenState') {
+	} else if (key === 'rememberSideMenuSectionHiddenState') {
 		rememberSideMenuSectionHiddenState(value);
-	} else if (key == 'hideHomeFeed') {
+	} else if (key === 'hideHomeFeed') {
 		hideHomeFeed(value);
-	} else if (key == 'postTitleFontWeight') {
+	} else if (key === 'postTitleFontWeight') {
 		postTitleFontWeight(value);
-	} else if (key == 'postContentFontWeight') {
+	} else if (key === 'postContentFontWeight') {
 		postContentFontWeight(value);
-	} else if (key == 'postCommentsFontWeight') {
+	} else if (key === 'postCommentsFontWeight') {
 		postCommentsFontWeight(value);
-	} else if (key == 'feedPostTitleFontSize') {
+	} else if (key === 'feedPostTitleFontSize') {
 		feedPostTitleFontSize(value);
-	} else if (key == 'feedPostContentFontSize') {
+	} else if (key === 'feedPostContentFontSize') {
 		feedPostContentFontSize(value);
-	} else if (key == 'feedPostTitleFontWeight') {
+	} else if (key === 'feedPostTitleFontWeight') {
 		feedPostTitleFontWeight(value);
-	} else if (key == 'feedPostContentFontWeight') {
+	} else if (key === 'feedPostContentFontWeight') {
 		feedPostContentFontWeight(value);
-	} else if (key == 'themePostCommentActionRowColour') {
+	} else if (key === 'themePostCommentActionRowColour') {
 		themePostCommentActionRowColour(value);
-	} else if (key == 'themePostCommentActionRowColourCSS') {
+	} else if (key === 'themePostCommentActionRowColourCSS') {
 		themePostCommentActionRowColourCSS(value);
-	} else if (key == 'createPostTitleFontSize') {
+	} else if (key === 'createPostTitleFontSize') {
 		createPostTitleFontSize(value);
-	} else if (key == 'createPostBodyFontSize') {
+	} else if (key === 'createPostBodyFontSize') {
 		createPostBodyFontSize(value);
-	} else if (key == 'addProfilePicturesToComments') {
+	} else if (key === 'addProfilePicturesToComments') {
 		addProfilePicturesToComments(value);
+	} else if (key === 'hidePostDivider') {
+		hidePostDivider(value);
+	} else if (key === 'postSeparatorLength') {
+		postSeparatorLength(value);
+	} else if (key === 'hideBlurredMediaBackground') {
+		hideBlurredMediaBackground(value);
+	} else if (key === 'fullWidthBanner') {
+		fullWidthBanner(value);
+	} else if (key === 'compactHeaderSideMenu') {
+		compactHeaderSideMenu(value);
+	} else if (key === 'compactSubRuleList') {
+		compactSubRuleList(value);
+	} else if (key === 'resizeMainContainer') {
+		resizeMainContainer(value);
+	} else if (key === 'resizeMainContainerWidth') {
+		resizeMainContainerWidth(value);
 	}
 	return true;
 });

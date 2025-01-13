@@ -45,9 +45,12 @@ export function postTitleFontSize(value) {
 				styleElement.id = 're-post-title-font-size';
 				styleElement.textContent = `[routename="post_page"] shreddit-post a[slot="title"],
 											[routename="post_page"] shreddit-post h1[slot="title"],
-											[routename="post_page"] shreddit-profile-comment h2 a {
+											[routename="post_page"] div.crosspost-title a,
+											[routename="comments_page"] shreddit-post h1[slot="title"],
+											[routename="comments_page"] div.crosspost-title a,
+											mod-queue-app shreddit-post h1[slot="title"] > a {
 												font-size: var(--re-post-title-font-size) !important;
-												line-height: 1.6;c
+												line-height: 1.4;
 											}
 											shreddit-post h1[slot="title"] {
 												margin: .5rem 0;
@@ -93,11 +96,16 @@ export function postContentFontSize(value) {
 			if (!document.querySelector('style[id="re-post-content-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-post-content-font-size';
-				styleElement.textContent = `shreddit-post [data-post-click-location="text-body"] p,
+				styleElement.textContent = `shreddit-post div[slot="text-body"] div.md,
 											shreddit-post a[slot="text-body"] div:has(>p),
-											shreddit-profile-comment [id*="-content"] {
+											shreddit-profile-comment [id*="-content"],
+											div[slot="post-media-container"] div.md {
 												font-size: var(--re-post-content-font-size) !important;
-												line-height: 1.6 !important;
+												line-height: 1.5 !important;
+											}
+											shreddit-post div[slot="text-body"] div.md h1 {
+												font-size: 1.5em;
+												line-height: inherit;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
@@ -140,10 +148,17 @@ export function postCommentsFontSize(value) {
 			if (!document.querySelector('style[id="re-post-comment-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-styles';
-				styleElement.textContent = `shreddit-comment p,
-											shreddit-composer {
+				styleElement.textContent = `shreddit-comment div.md[slot="comment"],
+											shreddit-profile-comment div.md,
+											shreddit-composer div[contenteditable] {
 												font-size: var(--re-post-comments-font-size);
-												line-height: 1.4;
+												line-height: 1.6;
+											}
+											shreddit-comment div.md[slot="comment"] h1,
+											shreddit-profile-comment div.md h1,
+											shreddit-composer div[contenteditable] h1 {
+												font-size: 1.5em;
+												line-height: inherit;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
@@ -177,9 +192,13 @@ export function feedPostTitleFontSize(value) {
 				styleElement.id = 're-feed-post-title-font-size';
 				styleElement.textContent = `shreddit-feed shreddit-post a[slot="title"],
 											shreddit-feed shreddit-post h1[slot="title"],
-											shreddit-feed shreddit-profile-comment h2 a {
+											shreddit-feed div.crosspost-title a,
+											search-telemetry-tracker a[data-testid="post-title-text"],
+											faceplate-tracker[data-testid="search-post"] a[data-testid="post-title-text"],
+											faceplate-tracker h2.i18n-search-comment-post-title,
+											mod-queue-app shreddit-post a[slot="title"] {
 												font-size: var(--re-feed-post-title-font-size) !important;
-												line-height: 1.2;
+												line-height: 1.4;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
@@ -203,7 +222,7 @@ export function feedPostContentFontSize(value) {
 				styleElement.id = 're-feed-post-content-font-size';
 				styleElement.textContent = `.listing-page .thing[data-type="link"] .usertext p {
 												font-size: var(--re-feed-post-content-font-size);
-												line-height: 1.2;
+												line-height: 1.5;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
@@ -212,9 +231,16 @@ export function feedPostContentFontSize(value) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-feed-post-content-font-size';
 				styleElement.textContent = `shreddit-feed shreddit-post [data-post-click-location="text-body"] p,
-											shreddit-feed shreddit-profile-comment [id*="-content"] {
+											shreddit-feed shreddit-profile-comment [id*="-content"],
+											shreddit-feed div[slot="post-media-container"] div.md,
+											div.md.feed-card-text-preview,
+											mod-queue-app shreddit-post [data-post-click-location="text-body"] div.md {
 												font-size: var(--re-feed-post-content-font-size) !important;
-												line-height: 1.2 !important;
+												line-height: 1.5 !important;
+											}
+											shreddit-feed shreddit-post [data-post-click-location="text-body"] h1 {
+												font-size: 1.5em;
+												line-height: inherit;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
@@ -241,11 +267,22 @@ export function createPostTitleFontSize(value) {
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
+		} else if (redditVersion === 'new') {
+			if (!document.querySelector('style[id="re-create-post-title-font-size"]')) {
+				const styleElement = document.createElement('style');
+				styleElement.id = 're-create-post-title-font-size';
+				styleElement.textContent = `div#AppRouter-main-content textarea[placeholder="Title"] {
+												font-size: var(--re-create-post-title-font-size);
+												line-height: 1.4;
+												height: unset !important;
+											}`;
+				document.head.insertBefore(styleElement, document.head.firstChild);
+			}
 		} else if (redditVersion === 'newnew') {
 			if (!document.querySelector('style[id="re-create-post-title-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-create-post-title-font-size';
-				styleElement.textContent = `shreddit-app[pagetype="post_submit"] faceplate-textarea-input::part(title){
+				styleElement.textContent = `shreddit-app[pagetype="post_submit"] faceplate-textarea-input::part(title) {
 												font-size: var(--re-create-post-title-font-size) !important;
 												line-height: 1.2 !important;
 											}`;
@@ -277,13 +314,34 @@ export function createPostBodyFontSize(value) {
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
+		} else if (redditVersion === 'new') {
+			if (!document.querySelector('style[id="re-create-post-body-font-size"]')) {
+				const styleElement = document.createElement('style');
+				styleElement.id = 're-create-post-body-font-size';
+				styleElement.textContent = `div#AppRouter-main-content div.public-DraftEditor-content[contenteditable],
+				 							div#AppRouter-main-content textarea[placeholder="Url"],
+				 							div#AppRouter-main-content div[data-testid="poll-creator"] input {
+												font-size: var(--re-create-post-body-font-size);
+												line-height: 1.4;
+											}
+											div#AppRouter-main-content div.public-DraftEditor-content[contenteditable] h1 {
+												font-size: 1.5em;
+												line-height: inherit;
+											}
+											div#AppRouter-main-content div.public-DraftEditor-content[contenteditable] h1 > div,
+											div#AppRouter-main-content div.public-DraftEditor-content[contenteditable] div:has(> code) {
+												font-size: inherit;
+												line-height: inherit;
+											}`;
+				document.head.insertBefore(styleElement, document.head.firstChild);
+			}
 		} else if (redditVersion === 'newnew') {
 			if (!document.querySelector('style[id="re-create-post-body-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-create-post-body-font-size';
 				styleElement.textContent = `shreddit-app[pagetype="post_submit"] shreddit-composer p > span {
 												font-size: var(--re-create-post-body-font-size) !important;
-												line-height: 1.2 !important;
+												line-height: 1.6 !important;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}

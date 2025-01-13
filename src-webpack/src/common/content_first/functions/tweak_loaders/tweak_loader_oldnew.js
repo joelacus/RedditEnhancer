@@ -16,7 +16,15 @@ import { loadExpandContent } from '../../../content/tweaks/resize_elements/expan
 import { loadHideCreatePost } from '../../../content/tweaks/hide_elements/hide_create_post';
 import { loadHideGap } from '../../../content/tweaks/style/hide_gap';
 import { loadHideHeaderBar } from '../../../content/tweaks/hide_elements/hide_header_bar';
-import { loadHideHomeSidebar, loadHidePostSidebar, loadHidePostOverlaySidebar, loadHideSubSidebarException, loadHideUserSidebar, loadHideSearchSidebar } from '../../../content/tweaks/hide_elements/hide_sidebar';
+import {
+	loadHideHomeSidebar,
+	loadHidePostSidebar,
+	loadHidePostOverlaySidebar,
+	loadHideSubSidebarException,
+	loadHideUserSidebar,
+	loadHideSearchSidebar,
+	loadHideCustomFeedSidebar
+} from '../../../content/tweaks/hide_elements/hide_sidebar';
 import { loadHideJoinButtonOnPosts } from '../../../content/tweaks/hide_elements/hide_post_join_button';
 import { loadHidePostHiddenMessage } from '../../../content/tweaks/hide_elements/hide_post_hidden_message';
 import { loadHidePromotedPosts } from '../../../content/tweaks/hide_elements/hide_promoted';
@@ -82,6 +90,10 @@ export function tweakLoaderOldNew() {
 		if (useLegacy) {
 			observerSearchContainer();
 		}
+	} else if (/\/user\/[^\/]+\/m\//.test(link)) {
+		// custom feed
+		loadCommon();
+		loadHideCustomFeedSidebar();
 	} else {
 		// feed/sub
 		loadCommon();

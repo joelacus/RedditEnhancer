@@ -721,3 +721,39 @@ document.querySelector('#input-post-comment-action-row-colour-css').addEventList
 	BROWSER_API.storage.sync.set({ themePostCommentActionRowColourCSS: css });
 	sendMessage({ themePostCommentActionRowColourCSS: css });
 });
+
+// Toggle - Full Width Banner
+document.querySelector('#checkbox-full-width-banner').addEventListener('change', function (e) {
+	const fullWidthBanner = document.querySelector('#checkbox-full-width-banner').checked;
+	if (fullWidthBanner) {
+		document.querySelector('.icon-full-width-banner').style.backgroundColor = 'var(--accent)';
+	} else {
+		document.querySelector('.icon-full-width-banner').style.backgroundColor = '';
+	}
+	BROWSER_API.storage.sync.set({ fullWidthBanner: fullWidthBanner });
+	sendMessage({ fullWidthBanner: fullWidthBanner });
+});
+
+// Toggle - Compact Sub Rule List
+document.querySelector('#checkbox-compact-sub-rule-list').addEventListener('change', function (e) {
+	const compactSubRuleList = document.querySelector('#checkbox-compact-sub-rule-list').checked;
+	if (compactSubRuleList) {
+		document.querySelector('.icon-compact-sub-rule-list').style.backgroundColor = 'var(--accent)';
+	} else {
+		document.querySelector('.icon-compact-sub-rule-list').style.backgroundColor = '';
+	}
+	BROWSER_API.storage.sync.set({ compactSubRuleList: compactSubRuleList });
+	sendMessage({ compactSubRuleList: compactSubRuleList });
+});
+
+// Toggle - Compact Header Bar & Side Menu
+document.querySelector('#checkbox-compact-header-side-menu').addEventListener('change', function (e) {
+	const compactHeaderSideMenu = document.querySelector('#checkbox-compact-header-side-menu').checked;
+	if (compactHeaderSideMenu) {
+		document.querySelector('.icon-compact-header-side-menu').style.backgroundColor = 'var(--accent)';
+	} else {
+		document.querySelector('.icon-compact-header-side-menu').style.backgroundColor = '';
+	}
+	BROWSER_API.storage.sync.set({ compactHeaderSideMenu: compactHeaderSideMenu });
+	sendMessage({ compactHeaderSideMenu: compactHeaderSideMenu });
+});
