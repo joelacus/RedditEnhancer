@@ -215,6 +215,9 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 					aside#mod-queue-pdp-panel shreddit-post {
 						margin: 1rem 0;
 						padding: 0;
+					}
+					#overlayScrollContainer button.voteButton ~ div {
+						padding: 0 0.5rem;
 					}`;
 
 const styleScrollText = `.re-text-scroll div[data-click-id="text"][style="max-height: 250px;"], .re-text-scroll div[data-click-id="text"][style="max-height:250px"] {

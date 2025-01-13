@@ -574,13 +574,24 @@ export function disableHideSearchSidebarAll() {
 /* === Main Function - Hide Custom Feed Sidebar === */
 
 export function hideCustomFeedSidebar(value) {
-	if (redditVersion === 'newnew') {
-		if (value) {
-			enableHideCustomFeedSidebarNewNew();
-		} else {
-			disableHideCustomFeedSidebarNewNew();
-		}
+	if (redditVersion === 'new' && value) {
+		enableHideCustomFeedSidebarNew();
+	} else if (redditVersion === 'newnew' && value) {
+		enableHideCustomFeedSidebarNewNew();
+	} else {
+		disableHideCustomFeedSidebarAll();
 	}
+}
+
+// Function - Enable Hide Custom Feed Sidebar - New
+function enableHideCustomFeedSidebarNew() {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-custom-feed-sidebar';
+	styleElement.textContent =
+		`.ListingLayout-backgroundContainer + div:has(button#MULTIREDDIT_TOP_BAR_OVERFLOW) > :last-child > :last-child {
+			display: none !important;
+		}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
 // Function - Enable Hide Custom Feed Sidebar - New New
@@ -608,7 +619,7 @@ function enableHideCustomFeedSidebarNewNew() {
 }
 
 // Function - Disable Hide Custom Feed Sidebar - New New
-function disableHideCustomFeedSidebarNewNew() {
+function disableHideCustomFeedSidebarAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-custom-feed-sidebar"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);

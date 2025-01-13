@@ -226,7 +226,8 @@ function enableExpandContentNew() {
 								#overlayScrollContainer > div:has(.Post) :first-child {
 									max-width: 100% !important;
 								}
-								#overlayScrollContainer > :first-child, 
+								#overlayScrollContainer > :first-child,
+								#overlayScrollContainer > :first-child > div,
 								#overlayScrollContainer > div:has(.Post) {
 									width: var(--re-post-overlay-width) !important;
 									max-width: var(--re-post-overlay-width) !important;
@@ -244,6 +245,13 @@ function enableExpandContentNew() {
 								}
 								.Comment > :last-child {
 									max-width: 100% !important;
+								}
+								.ListingLayout-backgroundContainer + div:has(button#MULTIREDDIT_TOP_BAR_OVERFLOW) > :last-child > :first-child {
+									width: var(--re-custom-feed-width);
+								}
+								.ListingLayout-backgroundContainer + div:has(button#MULTIREDDIT_TOP_BAR_OVERFLOW) > :first-child > div {
+									max-width: var(--re-custom-feed-width);
+									padding: 0 1.5rem;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
