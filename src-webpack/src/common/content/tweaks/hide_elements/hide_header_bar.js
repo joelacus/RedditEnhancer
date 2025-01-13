@@ -34,6 +34,12 @@ function hideHeaderBarNew() {
 		styleElement.textContent = `header {
 										display: none !important;
 									}
+									div#AppRouter-main-content {
+										padding-top: 0 !important;
+									}
+									div:has(> div#overlayScrollContainer) {
+										top: 0 !important;
+									}
 									#SHORTCUT_FOCUSABLE_DIV > div[class*="subredditvars-r"] > div {
 										top: 0;
 									}`;

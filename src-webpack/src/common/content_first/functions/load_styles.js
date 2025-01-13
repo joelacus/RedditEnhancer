@@ -216,7 +216,7 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 						margin: 1rem 0;
 						padding: 0;
 					}
-					#overlayScrollContainer button.voteButton ~ div {
+					#overlayScrollContainer > :first-child button.voteButton ~ div {
 						padding: 0 0.5rem;
 					}`;
 

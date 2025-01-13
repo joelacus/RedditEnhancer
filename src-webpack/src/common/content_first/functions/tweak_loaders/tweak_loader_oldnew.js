@@ -5,7 +5,7 @@
 
 //import { waitForAddedNode } from './main_observer';
 
-import { legacyObserversNew, observerFeedConainter, observerFeedContainerAndFeed, observerSearchContainer, observerSort, observerUserFeedContainerAndFeed, observerUserSidebar, observerUserSort } from './legacy_observers';
+import { legacyObserversNew, observerFeedContainer, observerFeedContainerAndFeed, observerSearchContainer, observerSort, observerUserFeedContainerAndFeed, observerUserSidebar, observerUserSort } from './legacy_observers';
 import { loadHideAdvertiseButton, loadHideChatButton, loadHideCreatePostButton, loadHideModerationButton, loadHideNotificationButton, loadHidePopularButton } from '../../../content/tweaks/hide_elements/hide_header_buttons';
 import { loadBionicReaderColours } from '../../../content/tweaks/accessibility/bionic_reader';
 import { loadCustomBackground } from '../../../content/tweaks/background/custom_background';
@@ -69,7 +69,7 @@ export function tweakLoaderOldNew() {
 		loadHideUserProfilePics();
 		if (useLegacy) {
 			console.log('legacy observers feed container');
-			observerFeedConainter();
+			observerFeedContainer();
 		} else {
 			loadHidePostSidebar();
 		}
@@ -90,10 +90,6 @@ export function tweakLoaderOldNew() {
 		if (useLegacy) {
 			observerSearchContainer();
 		}
-	} else if (/\/user\/[^\/]+\/m\//.test(link)) {
-		// custom feed
-		loadCommon();
-		loadHideCustomFeedSidebar();
 	} else {
 		// feed/sub
 		loadCommon();
@@ -115,6 +111,7 @@ export function tweakLoaderOldNew() {
 			loadHideSubSidebarException();
 			loadHidePostOverlaySidebar();
 			loadStickySort();
+			loadHideCustomFeedSidebar();
 		}
 	}
 }

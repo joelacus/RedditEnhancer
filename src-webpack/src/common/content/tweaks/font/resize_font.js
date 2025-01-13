@@ -137,10 +137,15 @@ export function postCommentsFontSize(value) {
 			if (!document.querySelector('style[id="re-post-comment-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-styles';
-				styleElement.textContent = `.Comment [data-testid="comment"] p {
+				styleElement.textContent = `.Comment [data-testid="comment"] > div,
+				 							.Comment [data-testid="comment"] > div code {
 												font-size: var(--re-post-comments-font-size);
-												line-height: 1.4;
+												line-height: 1.6;
 												overflow: hidden;
+											}
+											.Comment [data-testid="comment"] > div > div {
+												font-size: 1.5em;
+												line-height: inherit;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}

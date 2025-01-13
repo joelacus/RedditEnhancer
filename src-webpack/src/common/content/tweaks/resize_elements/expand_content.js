@@ -227,11 +227,12 @@ function enableExpandContentNew() {
 									max-width: 100% !important;
 								}
 								#overlayScrollContainer > :first-child,
-								#overlayScrollContainer > :first-child > div,
 								#overlayScrollContainer > div:has(.Post) {
 									width: var(--re-post-overlay-width) !important;
 									max-width: var(--re-post-overlay-width) !important;
-										
+								}
+								#overlayScrollContainer > :first-child > div {
+									max-width: 100% !important;
 								}
 								#SHORTCUT_FOCUSABLE_DIV [class^="subredditvars-r-"] :first-child::after {
 									width: var(--re-post-overlay-width) !important;

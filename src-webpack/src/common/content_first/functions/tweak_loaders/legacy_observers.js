@@ -228,7 +228,7 @@ export function observerFeedContainerAndFeed() {
 }
 
 // Feed Container
-export function observerFeedConainter() {
+export function observerFeedContainer() {
 	const link = window.location.href;
 	let page = '';
 	if (link.indexOf('/comments/') >= 0) {

@@ -385,6 +385,10 @@ function enableHidePostOverlaySidebarNew() {
 	styleElement.id = 're-hide-post-overlay-sidebar';
 	styleElement.textContent = `#overlayScrollContainer > :nth-child(2) > :last-child {
 									display: none !important;
+									
+									~ div {
+										margin: 1.25rem !important;
+									}
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
