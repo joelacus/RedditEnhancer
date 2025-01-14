@@ -147,11 +147,23 @@ export function themeHeaderBackgroundColour(value) {
 											/*--color-secondary-background:  var(--re-theme-header-bg);*/
 											backdrop-filter: blur(var(--re-theme-blur)) !important;
 										}
-										* {
+										html.theme-dark reddit-search-large {
+											--color-neutral-background-strong: #181C1F !important;
+										}
+										html.theme-dark header {
 											--color-secondary-background: rgba(0,0,0,0.3) !important;
 											--color-secondary-background-hover: rgba(0,0,0,0.6) !important;
 											--color-secondary-background-selected: rgba(0,0,0,0.6) !important;
 											--color-neutral-background-hover: rgba(0,0,0,0.6) !important;
+										}
+										html.theme-light reddit-search-large {
+											--color-neutral-background-strong: white !important;
+										}
+										html.theme-light header {
+											--color-secondary-background: rgba(255,255,255,0.3) !important;
+											--color-secondary-background-hover: rgba(255,255,255,0.6) !important;
+											--color-secondary-background-selected: rgba(255,255,255,0.6) !important;
+											--color-neutral-background-hover: rgba(255,255,255,0.6) !important;
 										}
 										reddit-search-large {
 											display: flex;
