@@ -85,6 +85,17 @@ export function loadTweaks() {
 
 		// Wait for elements to load on the page before loading tweaks.
 		waitForAddedNode({
+			query: 'aside#right-rail-experience-root',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function (el) {
+				addBorderRadiusToShadowRootElements();
+				setTimeout(() => {
+					addBorderRadiusToShadowRootElements();
+				}, 500);
+			},
+		});
+		waitForAddedNode({
 			query: 'comment-body-header',
 			parent: document.querySelector('body'),
 			recursive: true,

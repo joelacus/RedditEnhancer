@@ -9,25 +9,49 @@ export function loadHidePostKarma() {
 
 /* === Main Function === */
 export function hidePostKarma(value) {
-	if (redditVersion === 'newnew' && value === true) {
-		// append stylesheet
-		if (!document.head.querySelector('style[id="re-hide-post-karma"]')) {
-			const styleElement = document.createElement('style');
-			styleElement.id = 're-hide-post-karma';
-			styleElement.textContent = `shreddit-post::part(karma) {
-											display: none !important;
-  										}`;
-			document.head.insertBefore(styleElement, document.head.firstChild);
+	if (redditVersion === 'new') {
+		if (value) {
+			// append stylesheet
+			if (!document.head.querySelector('style[id="re-hide-post-karma"]')) {
+				const styleElement = document.createElement('style');
+				styleElement.id = 're-hide-post-karma';
+				styleElement.textContent = `div[data-testid="post-container"] button[data-click-id="upvote"] ~ div,
+											#overlayScrollContainer > :first-child button.voteButton ~ div {
+											  display: none;
+											}
+											div[data-testid="post-container"] div[id*="vote-arrows-"],
+											#overlayScrollContainer > :first-child div[id*="vote-arrows-"] {
+											  gap: .5rem;
+											}`;
+				document.head.insertBefore(styleElement, document.head.firstChild);
+			}
+		} else {
+			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-post-karma"]');
+			dynamicStyleElements.forEach((element) => {
+				document.head.removeChild(element);
+			});
 		}
-		// hide post karma
-		document.querySelectorAll('shreddit-post').forEach((post) => {
-			enableHidePostKarma(post);
-		});
-		// observer
-		observer.observe(document.querySelector('.main-container'), { childList: true, subtree: true });
-	} else {
-		observer.disconnect();
-		disableHidePostKarma();
+	} else if (redditVersion === 'newnew') {
+		if (value) {
+			// append stylesheet
+			if (!document.head.querySelector('style[id="re-hide-post-karma"]')) {
+				const styleElement = document.createElement('style');
+				styleElement.id = 're-hide-post-karma';
+				styleElement.textContent = `shreddit-post::part(karma) {
+												display: none !important;
+  											}`;
+				document.head.insertBefore(styleElement, document.head.firstChild);
+			}
+			// hide post karma
+			document.querySelectorAll('shreddit-post').forEach((post) => {
+				enableHidePostKarma(post);
+			});
+			// observer
+			observer.observe(document.querySelector('.main-container'), {childList: true, subtree: true});
+		} else {
+			observer.disconnect();
+			disableHidePostKarma();
+		}
 	}
 }
 

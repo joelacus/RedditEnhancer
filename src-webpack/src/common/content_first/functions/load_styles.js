@@ -218,6 +218,13 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 					}
 					#overlayScrollContainer > :first-child button.voteButton ~ div {
 						padding: 0 0.5rem;
+					}
+					/* Align the sidebar with main container */
+					shreddit-app #right-sidebar-container {
+						margin-top: 2rem;
+					}
+					shreddit-app[pagetype="custom_feed"] #right-sidebar-container {
+						margin-top: 3.5rem;
 					}`;
 
 const styleScrollText = `.re-text-scroll div[data-click-id="text"][style="max-height: 250px;"], .re-text-scroll div[data-click-id="text"][style="max-height:250px"] {

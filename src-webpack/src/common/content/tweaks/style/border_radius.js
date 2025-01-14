@@ -35,6 +35,9 @@ function addBorderRadiusAmountStylesheet() {
 				--card-border-radius: var(--re-theme-border-radius, 16px);
 				--thumbnail-radius: calc(var(--re-theme-border-radius) / 2);
 			}
+			/* r/popular cards */
+			.rounded-\\[16px\\],
+			shreddit-gallery-carousel > faceplate-tracker,
 			/* Comment pages, profile banner */
 			.xs\\:rounded-\\[16px\\],
 			.rounded-t-\\[1rem\\],
@@ -107,21 +110,26 @@ function addBorderRadiusAmountStylesheet() {
 
 // Add border radius to elements in shadow DOMs
 export function addBorderRadiusToShadowRootElements() {
+	const recentPosts = document.querySelector('recent-posts')?.shadowRoot?.children[0] || null;
+	const pdpCommentSearchInput = document.querySelector('pdp-comment-search-input')?.shadowRoot || null;
 	const shadowRootElements = [
-		document.querySelector('shreddit-composer').shadowRoot.children[0],
-		document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('button'),
-		document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('faceplate-search-input'),
-		document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('button#cancel-pdp-comment-search-button'),
-		document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('faceplate-search-input').shadowRoot.querySelector('div.label-container')
+		recentPosts,
+		pdpCommentSearchInput?.querySelector('button'),
+		pdpCommentSearchInput?.querySelector('faceplate-search-input'),
+		pdpCommentSearchInput?.querySelector('button#cancel-pdp-comment-search-button'),
+		pdpCommentSearchInput?.querySelector('faceplate-search-input')?.shadowRoot?.querySelector('div.label-container')
 	];
 	shadowRootElements.forEach((element) => {
 		if (element) {
 			element.style.borderRadius = 'var(--re-theme-border-radius)';
 		}
 	});
-	if (document.querySelector('pdp-comment-search-input')) {
-		document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('button').style.border = 'none';
-		document.querySelector('pdp-comment-search-input').shadowRoot.querySelector('button').style.padding = '0';
+	if (recentPosts) {
+		recentPosts.style.margin = '0';
+	}
+	if (pdpCommentSearchInput) {
+		pdpCommentSearchInput.querySelector('button').style.border = 'none';
+		pdpCommentSearchInput.querySelector('button').style.padding = '0';
 	}
 }
 
