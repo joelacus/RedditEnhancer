@@ -220,7 +220,7 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 						padding: 0 0.5rem;
 					}
 					/* Align the sidebar with main container */
-					shreddit-app #right-sidebar-container {
+					shreddit-app:not([routename="post_page"]):not([routename="comments_page"]) #right-sidebar-container {
 						margin-top: 2rem;
 					}
 					shreddit-app[pagetype="custom_feed"] #right-sidebar-container {
