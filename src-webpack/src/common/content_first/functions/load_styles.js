@@ -220,16 +220,14 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 						padding: 0 0.5rem;
 					}
 					/* Align the sidebar with main container */
-					shreddit-app #right-sidebar-container {
+					shreddit-app[routename="frontpage"] #right-sidebar-container,
+					shreddit-app[routename="all"] #right-sidebar-container, 
+					shreddit-app[routename="popular"] #right-sidebar-container,
+					shreddit-app[routename="subreddit"] #right-sidebar-container {
 						margin-top: 2rem;
 					}
 					shreddit-app[pagetype="custom_feed"] #right-sidebar-container {
 						margin-top: 3.5rem;
-					}
-					shreddit-app[routename="post_page"] #right-sidebar-container,
-					shreddit-app[routename="comments_page"] #right-sidebar-container,
-					shreddit-app[pagetype="search_results"] #right-sidebar-container {
-						margin-top: initial;
 					}
 					shreddit-app[pagetype="search_results"] main.main {
 						margin-top: 1rem;
