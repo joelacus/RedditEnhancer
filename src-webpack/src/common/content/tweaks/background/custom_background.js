@@ -112,6 +112,10 @@ function enableUseCustomBackgroundNewNew() {
 									border-radius: var(--re-theme-border-radius, 0);
 									box-sizing: border-box;
 								}
+								shreddit-app[routename="post_page"] div[slot="post-insights-panel"] .p-md,
+								shreddit-app[routename="comments_page"] div[slot="post-insights-panel"] .p-md {
+									padding: 0;
+								}
 								/* shreddit-app main shreddit-async-loader comment-body-header,
 								shreddit-app main #comment-tree {
 									width: 100%;
