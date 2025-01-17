@@ -709,6 +709,22 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Post Karma: ' + value);
 	});
 
+	// Hide Comment Karma
+	BROWSER_API.storage.sync.get(['hideCommentKarma'], function (result) {
+		if (result.hideCommentKarma === true) {
+			document.querySelector('.icon-hide-comment-karma').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-comment-karma').checked = true;
+			highlightMenuIcon('hide-elements');
+			document.querySelector('.icon-hide-comment-karma').classList.remove('icon-show');
+			document.querySelector('.icon-hide-comment-karma').classList.add('icon-hide');
+			var value = true;
+		} else if (typeof result.hideCommentKarma == 'undefined' || result.hideCommentKarma === false) {
+			document.querySelector('#checkbox-hide-comment-karma').checked = false;
+			var value = false;
+		}
+		console.log('Hide Comment Karma: ' + value);
+	});
+
 	// Hide Recent Posts
 	BROWSER_API.storage.sync.get(['hideRecentPosts'], function (result) {
 		if (result.hideRecentPosts === true) {
@@ -913,5 +929,17 @@ export function restorePopupHideElementsOptions() {
 		document.querySelector('.icon-hide-blurred-media-background').classList.toggle('icon-hide', hideBlurredMediaBackground);
 		document.querySelector('.icon-hide-elements').style.backgroundColor = hideBlurredMediaBackground ? 'var(--accent)' : '';
 		console.log('Hide Blurred Media Background: ' + hideBlurredMediaBackground);
+	});
+
+	// Hide Vote Buttons
+	BROWSER_API.storage.sync.get(['hideVoteButtons'], function (result) {
+		const hideVoteButtons = result.hideVoteButtons === true;
+		if (hideVoteButtons) highlightMenuIcon('hide-elements');
+		document.querySelector('#checkbox-hide-vote-buttons').checked = hideVoteButtons;
+		document.querySelector('.icon-hide-vote-buttons').style.backgroundColor = hideVoteButtons ? 'var(--accent)' : '';
+		document.querySelector('.icon-hide-vote-buttons').classList.toggle('icon-show', !hideVoteButtons);
+		document.querySelector('.icon-hide-vote-buttons').classList.toggle('icon-hide', hideVoteButtons);
+		document.querySelector('.icon-hide-elements').style.backgroundColor = hideVoteButtons ? 'var(--accent)' : '';
+		console.log('Hide Vote Buttons: ' + hideVoteButtons);
 	});
 }

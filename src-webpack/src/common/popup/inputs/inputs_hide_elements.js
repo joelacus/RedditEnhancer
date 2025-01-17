@@ -862,6 +862,22 @@ document.querySelector('#checkbox-hide-post-karma').addEventListener('change', f
 	sendMessage({ hidePostKarma: hidePostKarma });
 });
 
+// Toggle - Hide Comment Karma
+document.querySelector('#checkbox-hide-comment-karma').addEventListener('change', function () {
+	const hideCommentKarma = document.querySelector('#checkbox-hide-comment-karma').checked;
+	if (hideCommentKarma) {
+		document.querySelector('.icon-hide-comment-karma').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-comment-karma').classList.remove('icon-show');
+		document.querySelector('.icon-hide-comment-karma').classList.add('icon-hide');
+	} else {
+		document.querySelector('.icon-hide-comment-karma').style.backgroundColor = '';
+		document.querySelector('.icon-hide-comment-karma').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-comment-karma').classList.add('icon-show');
+	}
+	BROWSER_API.storage.sync.set({ hideCommentKarma: hideCommentKarma });
+	sendMessage({ hideCommentKarma: hideCommentKarma });
+});
+
 // Toggle - Hide Recent Posts
 document.querySelector('#checkbox-hide-recent-posts').addEventListener('change', function () {
 	const hideRecentPosts = document.querySelector('#checkbox-hide-recent-posts').checked;
@@ -1057,4 +1073,20 @@ document.querySelector('#checkbox-hide-blurred-media-background').addEventListen
 	}
 	BROWSER_API.storage.sync.set({ hideBlurredMediaBackground: hideBlurredMediaBackground });
 	sendMessage({ hideBlurredMediaBackground: hideBlurredMediaBackground });
+});
+
+// Toggle - Hide Vote Buttons
+document.querySelector('#checkbox-hide-vote-buttons').addEventListener('change', function () {
+	const hideVoteButtons = document.querySelector('#checkbox-hide-vote-buttons').checked;
+	if (hideVoteButtons) {
+		document.querySelector('.icon-hide-vote-buttons').classList.remove('icon-show');
+		document.querySelector('.icon-hide-vote-buttons').classList.add('icon-hide');
+		document.querySelector('.icon-hide-vote-buttons').style.backgroundColor = 'var(--accent)';
+	} else {
+		document.querySelector('.icon-hide-vote-buttons').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-vote-buttons').classList.add('icon-show');
+		document.querySelector('.icon-hide-vote-buttons').style.backgroundColor = '';
+	}
+	BROWSER_API.storage.sync.set({ hideVoteButtons: hideVoteButtons });
+	sendMessage({ hideVoteButtons: hideVoteButtons });
 });

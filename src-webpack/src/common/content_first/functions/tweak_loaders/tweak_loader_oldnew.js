@@ -47,7 +47,8 @@ import { loadStickySort } from '../../../content/tweaks/productivity/sticky_sort
 import { loadUnderlineLinks } from '../../../content/tweaks/accessibility/underline_links';
 import { loadHideRecommendedPosts } from '../../../content/tweaks/hide_elements/hide_recommended';
 import { loadHideHomeFeed } from '../../../content/tweaks/hide_elements/hide_home_feed';
-import { loadHidePostKarma } from "../../../content/tweaks/hide_elements/hide_post_karma";
+import { loadHidePostKarma, loadHideCommentKarma } from "../../../content/tweaks/hide_elements/hide_post_comment_karma";
+import { loadHideVoteButtons } from "../../../content/tweaks/hide_elements/hide_vote_buttons";
 
 export function tweakLoaderOldNew() {
 	if (typeof useLegacy != 'undefined') {
@@ -134,6 +135,8 @@ function loadCommon() {
 	loadUnderlineLinks();
 	loadPostFontWeight();
 	loadHidePostKarma();
+	loadHideCommentKarma();
+	loadHideVoteButtons();
 
 	if (!useLegacy) {
 		loadLayoutCentre();
