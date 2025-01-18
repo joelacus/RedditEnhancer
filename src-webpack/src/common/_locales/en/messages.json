@@ -1169,5 +1169,13 @@
 
 	"CompactSubRuleList": {
 		"message": "Compact Subreddit Rule List"
+	},
+
+	"HideCommentKarma": {
+		"message": "Hide Comment Karma"
+	},
+
+	"HideVoteButtons": {
+		"message": "Hide Vote Buttons"
 	}
 }

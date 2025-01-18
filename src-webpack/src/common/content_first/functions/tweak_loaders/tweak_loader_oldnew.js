@@ -5,7 +5,7 @@
 
 //import { waitForAddedNode } from './main_observer';
 
-import { legacyObserversNew, observerFeedConainter, observerFeedContainerAndFeed, observerSearchContainer, observerSort, observerUserFeedContainerAndFeed, observerUserSidebar, observerUserSort } from './legacy_observers';
+import { legacyObserversNew, observerFeedContainer, observerFeedContainerAndFeed, observerSearchContainer, observerSort, observerUserFeedContainerAndFeed, observerUserSidebar, observerUserSort } from './legacy_observers';
 import { loadHideAdvertiseButton, loadHideChatButton, loadHideCreatePostButton, loadHideModerationButton, loadHideNotificationButton, loadHidePopularButton } from '../../../content/tweaks/hide_elements/hide_header_buttons';
 import { loadBionicReaderColours } from '../../../content/tweaks/accessibility/bionic_reader';
 import { loadCustomBackground } from '../../../content/tweaks/background/custom_background';
@@ -47,6 +47,8 @@ import { loadStickySort } from '../../../content/tweaks/productivity/sticky_sort
 import { loadUnderlineLinks } from '../../../content/tweaks/accessibility/underline_links';
 import { loadHideRecommendedPosts } from '../../../content/tweaks/hide_elements/hide_recommended';
 import { loadHideHomeFeed } from '../../../content/tweaks/hide_elements/hide_home_feed';
+import { loadHidePostKarma, loadHideCommentKarma } from "../../../content/tweaks/hide_elements/hide_post_comment_karma";
+import { loadHideVoteButtons } from "../../../content/tweaks/hide_elements/hide_vote_buttons";
 
 export function tweakLoaderOldNew() {
 	if (typeof useLegacy != 'undefined') {
@@ -69,7 +71,7 @@ export function tweakLoaderOldNew() {
 		loadHideUserProfilePics();
 		if (useLegacy) {
 			console.log('legacy observers feed container');
-			observerFeedConainter();
+			observerFeedContainer();
 		} else {
 			loadHidePostSidebar();
 		}
@@ -90,10 +92,6 @@ export function tweakLoaderOldNew() {
 		if (useLegacy) {
 			observerSearchContainer();
 		}
-	} else if (/\/user\/[^\/]+\/m\//.test(link)) {
-		// custom feed
-		loadCommon();
-		loadHideCustomFeedSidebar();
 	} else {
 		// feed/sub
 		loadCommon();
@@ -115,6 +113,7 @@ export function tweakLoaderOldNew() {
 			loadHideSubSidebarException();
 			loadHidePostOverlaySidebar();
 			loadStickySort();
+			loadHideCustomFeedSidebar();
 		}
 	}
 }
@@ -135,6 +134,9 @@ function loadCommon() {
 	loadHideGap();
 	loadUnderlineLinks();
 	loadPostFontWeight();
+	loadHidePostKarma();
+	loadHideCommentKarma();
+	loadHideVoteButtons();
 
 	if (!useLegacy) {
 		loadLayoutCentre();

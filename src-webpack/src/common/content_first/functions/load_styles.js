@@ -216,8 +216,21 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 						margin: 1rem 0;
 						padding: 0;
 					}
-					#overlayScrollContainer button.voteButton ~ div {
+					#overlayScrollContainer > :first-child button.voteButton ~ div {
 						padding: 0 0.5rem;
+					}
+					/* Align the sidebar with main container */
+					shreddit-app[routename="frontpage"] #right-sidebar-container,
+					shreddit-app[routename="all"] #right-sidebar-container, 
+					shreddit-app[routename="popular"] #right-sidebar-container,
+					shreddit-app[routename="subreddit"] #right-sidebar-container {
+						margin-top: 2rem;
+					}
+					shreddit-app[pagetype="custom_feed"] #right-sidebar-container {
+						margin-top: 3.5rem;
+					}
+					shreddit-app[pagetype="search_results"] main.main {
+						margin-top: 1rem;
 					}`;
 
 const styleScrollText = `.re-text-scroll div[data-click-id="text"][style="max-height: 250px;"], .re-text-scroll div[data-click-id="text"][style="max-height:250px"] {

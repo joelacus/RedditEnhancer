@@ -31,7 +31,7 @@ import { loadTextPostScroll } from './tweaks/productivity/text_post_scroll';
 import { loadAutoLoadMoreComments } from './tweaks/productivity/auto_load_more_comments';
 import { waitForAddedNode } from '../content_first/functions/tweak_loaders/main_observer';
 import { loadAutoShowCommentFormattingOptions } from './tweaks/productivity/auto_show_comment_formatting_options';
-import { loadHidePostKarma } from './tweaks/hide_elements/hide_post_karma';
+import { loadHidePostKarma, loadHideCommentKarma } from './tweaks/hide_elements/hide_post_comment_karma';
 import { loadSideMenuIconsOnly } from './tweaks/hide_elements/side_menu_icons_only';
 import { loadHideSideMenuFavouriteButton } from './tweaks/hide_elements/hide_side_menu_favourite_button';
 import { loadSideMenuToggleButton } from './tweaks/hide_elements/side_menu_toggle_button';
@@ -40,6 +40,7 @@ import { loadRememberSideMenuSectionHiddenState } from './tweaks/hide_elements/r
 import { loadAddProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
 import { loadCompactSubRuleList } from "./tweaks/style/old_new_ui";
 import { addBorderRadiusToShadowRootElements } from "./tweaks/style/border_radius";
+import { loadHideVoteButtons } from "./tweaks/hide_elements/hide_vote_buttons";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -71,6 +72,9 @@ export function loadTweaks() {
 		loadBionicReaderForComments();
 		loadShowPostNumbers();
 		loadBreakReminder();
+		loadHidePostKarma();
+		loadHideCommentKarma();
+		loadHideVoteButtons();
 	} else if (redditVersion === 'newnew') {
 		//loadAddDownloadVideoButton();
 		loadBionicReaderForComments();
@@ -80,10 +84,23 @@ export function loadTweaks() {
 		loadShowPostFlair();
 		loadAutoLoadMoreComments();
 		loadHidePostKarma();
+		loadHideCommentKarma();
+		loadHideVoteButtons();
 		loadSideMenuToggleButton();
 		loadCompactSubRuleList();
 
 		// Wait for elements to load on the page before loading tweaks.
+		waitForAddedNode({
+			query: 'aside#right-rail-experience-root',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function (el) {
+				addBorderRadiusToShadowRootElements();
+				setTimeout(() => {
+					addBorderRadiusToShadowRootElements();
+				}, 500);
+			},
+		});
 		waitForAddedNode({
 			query: 'comment-body-header',
 			parent: document.querySelector('body'),

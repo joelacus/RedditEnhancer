@@ -33,7 +33,8 @@ function enableResizeMainContainer() {
     styleElement.id = 're-resize-main-container';
     styleElement.textContent =
         `@media (min-width: 960px) {
-            div.main-container {
+            div.main-container,
+            div.masthead shreddit-gallery-carousel {
                 width: var(--re-main-container-width) !important;
                 margin: 0 auto;
             }
@@ -66,6 +67,6 @@ export function resizeMainContainerWidth(value) {
     if (value) {
         document.documentElement.style.setProperty('--re-main-container-width', value + '%');
     } else {
-        document.documentElement.style.setProperty('--re-main-container-width', '80%');
+        document.documentElement.style.removeProperty('--re-main-container-width');
     }
 }

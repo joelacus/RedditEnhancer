@@ -33,6 +33,12 @@ function enableNonStickyHeaderBarNew() {
 								}
 								#SHORTCUT_FOCUSABLE_DIV > div[class*="subredditvars-r"] > div {
 									top: 0;
+								}
+								#SHORTCUT_FOCUSABLE_DIV:has(div#overlayScrollContainer) header {
+									display: none;
+								}
+								div:has(> div#overlayScrollContainer) {
+									top: 0;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }

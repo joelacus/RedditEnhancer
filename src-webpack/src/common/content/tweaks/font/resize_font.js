@@ -137,10 +137,22 @@ export function postCommentsFontSize(value) {
 			if (!document.querySelector('style[id="re-post-comment-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-styles';
-				styleElement.textContent = `.Comment [data-testid="comment"] p {
+				styleElement.textContent = `.Comment [data-testid="comment"] > div,
+				 							.Comment [data-testid="comment"] > div code,
+				 							div[data-test-id="comment-submission-form-richtext"] div.public-DraftEditor-content[contenteditable],
+				 							div[data-test-id="comment-submission-form-markdown"] textarea {
 												font-size: var(--re-post-comments-font-size);
-												line-height: 1.4;
+												line-height: 1.6;
 												overflow: hidden;
+											}
+											.Comment [data-testid="comment"] > div > div,
+											div[data-test-id="comment-submission-form-richtext"] div.public-DraftEditor-content[contenteditable] h1 {
+												font-size: 1.5em;
+												line-height: inherit;
+											}
+											div[data-test-id="comment-submission-form-richtext"] div.public-DraftEditor-content[contenteditable] h1 > div {
+												font-size: inherit;
+												line-height: inherit;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
@@ -318,18 +330,18 @@ export function createPostBodyFontSize(value) {
 			if (!document.querySelector('style[id="re-create-post-body-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-create-post-body-font-size';
-				styleElement.textContent = `div#AppRouter-main-content div.public-DraftEditor-content[contenteditable],
-				 							div#AppRouter-main-content textarea[placeholder="Url"],
+				styleElement.textContent = `div:has(> div > textarea[placeholder="Title"]) + div div.public-DraftEditor-content[contenteditable],
+				 							div:has(> div > textarea[placeholder="Title"]) + div textarea[placeholder="Url"],
 				 							div#AppRouter-main-content div[data-testid="poll-creator"] input {
 												font-size: var(--re-create-post-body-font-size);
 												line-height: 1.4;
 											}
-											div#AppRouter-main-content div.public-DraftEditor-content[contenteditable] h1 {
+											div:has(> div > textarea[placeholder="Title"]) + div div.public-DraftEditor-content[contenteditable] h1 {
 												font-size: 1.5em;
 												line-height: inherit;
 											}
-											div#AppRouter-main-content div.public-DraftEditor-content[contenteditable] h1 > div,
-											div#AppRouter-main-content div.public-DraftEditor-content[contenteditable] div:has(> code) {
+											div:has(> div > textarea[placeholder="Title"]) + div div.public-DraftEditor-content[contenteditable] h1 > div,
+											div:has(> div > textarea[placeholder="Title"]) + div div.public-DraftEditor-content[contenteditable] div:has(> code) {
 												font-size: inherit;
 												line-height: inherit;
 											}`;

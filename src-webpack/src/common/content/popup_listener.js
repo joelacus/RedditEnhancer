@@ -123,7 +123,7 @@ import { hideRecommended } from './tweaks/hide_elements/hide_recommended';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 import { hidePostBackButton } from './tweaks/hide_elements/hide_post_back_button';
 import { borderRadiusAmount } from './tweaks/style/border_radius';
-import { hidePostKarma } from './tweaks/hide_elements/hide_post_karma';
+import { hidePostKarma, hideCommentKarma } from './tweaks/hide_elements/hide_post_comment_karma';
 import { hideRecentPosts } from './tweaks/hide_elements/hide_recent_posts';
 import { sideMenuWidth } from './tweaks/resize_elements/side_menu_width';
 import { sideMenuIconsOnly } from './tweaks/hide_elements/side_menu_icons_only';
@@ -140,6 +140,7 @@ import { hidePostDivider, postSeparatorLength } from "./tweaks/hide_elements/hid
 import { hideBlurredMediaBackground } from "./tweaks/hide_elements/hide_blurred_media_background";
 import { fullWidthBanner, compactHeaderSideMenu, compactSubRuleList } from "./tweaks/style/old_new_ui";
 import { resizeMainContainer, resizeMainContainerWidth } from "./tweaks/resize_elements/resize_main_container";
+import { hideVoteButtons } from "./tweaks/hide_elements/hide_vote_buttons";
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 /* = Listen For Settings Change = */
@@ -475,6 +476,10 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		borderRadiusAmount(value);
 	} else if (key === 'hidePostKarma') {
 		hidePostKarma(value);
+	} else if (key === 'hideCommentKarma') {
+		hideCommentKarma(value);
+	} else if (key === 'hideVoteButtons') {
+		hideVoteButtons(value);
 	} else if (key === 'hideRecentPosts') {
 		hideRecentPosts(value);
 	} else if (key === 'sideMenuWidth') {
