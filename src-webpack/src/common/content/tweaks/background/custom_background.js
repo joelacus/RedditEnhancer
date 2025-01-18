@@ -107,10 +107,15 @@ function enableUseCustomBackgroundNewNew() {
 								shreddit-app[routename="post_page"] main.main,
 								shreddit-app[routename="comments_page"] main.main {
 									margin: 1rem 0;
-									padding: 0 1rem .75rem 1rem;
+									padding: .75rem 1rem;
 									background-color: var(--re-theme-post-bg, var(--color-neutral-background, #000));
 									border-radius: var(--re-theme-border-radius, 0);
 									box-sizing: border-box;
+									
+									& > shreddit-post {
+										margin: 0;
+										padding: 0;
+									}
 								}
 								shreddit-app[routename="post_page"] div[slot="post-insights-panel"] .p-md,
 								shreddit-app[routename="comments_page"] div[slot="post-insights-panel"] .p-md {

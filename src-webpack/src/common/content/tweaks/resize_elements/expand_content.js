@@ -403,7 +403,7 @@ function enableExpandContentNewNew() {
 
 								/*shreddit-app .grid-container {
 									grid-template-columns: var(--re-side-menu-width) auto;
-								}*/
+								} */
 								shreddit-app[routename="frontpage"] .subgrid-container,
 								shreddit-app[routename="subreddit"] .subgrid-container,
 								shreddit-app[routename="post_page"] .subgrid-container,
@@ -422,9 +422,13 @@ function enableExpandContentNewNew() {
 								shreddit-app[routename="explore-page"] .subgrid-container,
 								shreddit-app[pagetype="post_submit"] .subgrid-container,
 								shreddit-app[pagetype="custom_feed"] .subgrid-container {
-									width: 100% !important;
+									/*width: 100% !important;
 									min-width: calc(100vw - var(--re-side-menu-width)) !important;
-									max-width: calc(100vw - var(--re-side-menu-width)) !important;
+									max-width: calc(100vw - var(--re-side-menu-width)) !important; */
+									--flex-nav-width: var(--re-side-menu-width);
+								}
+								div.masthead shreddit-gallery-carousel {
+									max-width: calc(100vw - 2rem);
 								}
 
 								shreddit-app[routename="frontpage"] .main-container, 

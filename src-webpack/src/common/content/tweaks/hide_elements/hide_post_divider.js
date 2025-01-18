@@ -61,7 +61,7 @@ function enableHidePostDivider() {
             /* Add padding to posts, Card and Compact view */
             article > shreddit-post[view-type="cardView"] {
                 margin: 0 !important;
-                padding: .8rem !important;
+                padding: .7rem !important;
             }
             article > shreddit-post[view-type="compactView"] {
                 padding: .25rem .5rem !important;
