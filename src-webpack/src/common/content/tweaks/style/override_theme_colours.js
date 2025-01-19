@@ -569,9 +569,6 @@ export function themePostBackgroundColour(value) {
 											margin-bottom: 0;
 											padding-left: 8px;
 											padding-top: 8px;
-										}
-										shreddit-comment {
-											--color-neutral-background: transparent !important;
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
 		});
