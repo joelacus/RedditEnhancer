@@ -4,7 +4,7 @@
 	},
 
 	"extensionDescription": {
-		"message": "Diversos ajustes para personalizar tu experiencia en Reddit. Compatible con Reddit V1 (antiguo) y V3 (último)."
+		"message": "Diversos ajustes para personalizar tu experiencia en Reddit. Admite todas las versiones de Reddit."
 	},
 
 	"About": {
@@ -1067,10 +1067,6 @@
 		"message": "Resize Main Container (experimental)"
 	},
 
-	"ResizeMainContainerWidth": {
-		"message": "Main Container Width"
-	},
-
 	"ResizeMainContainerInfo": {
 		"message": "For the best results, please set all Resize Feed / Post width values to 100%."
 	},
@@ -1083,7 +1079,7 @@
 		"message": "Hide Post Separators"
 	},
 
-	"PostSeparatorLength": {
+	"PostSeparatorHeight": {
 		"message": "Post Gap"
 	},
 

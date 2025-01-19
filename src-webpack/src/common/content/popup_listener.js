@@ -136,17 +136,17 @@ import { hideSearchSidebarNsfwUsers } from './tweaks/hide_elements/hide_search_p
 import { rememberSideMenuSectionHiddenState } from './tweaks/hide_elements/remember_side_menu_section_hidden_state';
 import { hideHomeFeed } from './tweaks/hide_elements/hide_home_feed';
 import { addProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
-import { hidePostDivider, postSeparatorLength } from "./tweaks/hide_elements/hide_post_divider";
-import { hideBlurredMediaBackground } from "./tweaks/hide_elements/hide_blurred_media_background";
-import { fullWidthBanner, compactHeaderSideMenu, compactSubRuleList } from "./tweaks/style/old_new_ui";
-import { resizeMainContainer, resizeMainContainerWidth } from "./tweaks/resize_elements/resize_main_container";
-import { hideVoteButtons } from "./tweaks/hide_elements/hide_vote_buttons";
+import { hidePostDivider, postSeparatorHeight } from './tweaks/hide_elements/hide_post_divider';
+import { hideBlurredMediaBackground } from './tweaks/hide_elements/hide_blurred_media_background';
+import { fullWidthBanner, compactHeaderSideMenu, compactSubRuleList } from './tweaks/style/old_new_ui';
+import { resizeMainContainer, resizeMainContainerWidth } from './tweaks/resize_elements/resize_main_container';
+import { hideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
-	var key = Object.keys(msg)[0];
-	var value = Object.values(msg)[0];
+	const key = Object.keys(msg)[0];
+	const value = Object.values(msg)[0];
 	//console.log(key, value);
 	if (key === 'darkMode') {
 		darkMode(value);
@@ -530,8 +530,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		addProfilePicturesToComments(value);
 	} else if (key === 'hidePostDivider') {
 		hidePostDivider(value);
-	} else if (key === 'postSeparatorLength') {
-		postSeparatorLength(value);
+	} else if (key === 'postSeparatorHeight') {
+		postSeparatorHeight(value);
 	} else if (key === 'hideBlurredMediaBackground') {
 		hideBlurredMediaBackground(value);
 	} else if (key === 'fullWidthBanner') {

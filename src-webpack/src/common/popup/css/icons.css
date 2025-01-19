@@ -10,7 +10,7 @@
 	justify-self: center;
 	width: 30px;
 	height: 24px;
-	background-color: rgba(var(--text-grey-rgb), 0.5);
+	background-color: color-mix(in srgb, var(--text-grey) 50%, transparent);
 	mask-size: contain;
 	-webkit-mask-size: contain;
 	mask-position: contain !important;
@@ -450,4 +450,8 @@
 .icon-reddit {
 	mask: url('../../icons/ui/reddit-brands-solid.svg');
 	-webkit-mask: url('../../icons/ui/reddit-brands-solid.svg');
+}
+.icon-compress {
+	mask: url('../../icons/ui/compress-solid.svg');
+	-webkit-mask: url('../../icons/ui/compress-solid.svg');
 }

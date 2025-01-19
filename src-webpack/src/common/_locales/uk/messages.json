@@ -4,7 +4,7 @@
 	},
 
 	"extensionDescription": {
-		"message": "Різноманітні налаштування для персоналізації роботи Reddit. Підтримує Reddit V1 (старий) і V3 (останній)."
+		"message": "Різноманітні налаштування для персоналізації роботи Reddit. Підтримує всі версії Reddit."
 	},
 
 	"About": {
@@ -1067,10 +1067,6 @@
 		"message": "Resize Main Container (experimental)"
 	},
 
-	"ResizeMainContainerWidth": {
-		"message": "Main Container Width"
-	},
-
 	"ResizeMainContainerInfo": {
 		"message": "For the best results, please set all Resize Feed / Post width values to 100%."
 	},
@@ -1083,7 +1079,7 @@
 		"message": "Hide Post Separators"
 	},
 
-	"PostSeparatorLength": {
+	"PostSeparatorHeight": {
 		"message": "Post Gap"
 	},
 

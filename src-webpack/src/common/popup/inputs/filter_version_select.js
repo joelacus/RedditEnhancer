@@ -122,9 +122,9 @@ export function selectFilterShowNewVersion(version) {
 	BROWSER_API.storage.sync.set({ redditVersion: 'new' });
 	version_dropdown.classList.remove('active');
 	version_dropdownMenu.style.maxHeight = '0';
-	//if (localStorage.getItem('DontShowAgainOldNewUiWarning') === null) {
-	document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
-	//}
+	if (localStorage.getItem('DontShowAgainOldNewUiWarning') === null) {
+		document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
+	}
 }
 
 export function selectFilterShowNewNewVersion(version) {

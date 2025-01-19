@@ -459,7 +459,8 @@ export function themePostBackgroundColour(value) {
 			document.documentElement.style.setProperty('--re-theme-post-bg', result.themePostBackgroundColourCSS);
 			const styleElement = document.createElement('style');
 			styleElement.id = 're-theme-post-bg-colour';
-			styleElement.textContent = `.Post *, .ListingLayout-backgroundContainer + div > :last-child > :first-child:has(.Post):has(.Comment) * {
+			styleElement.textContent = `.Post *,
+										.ListingLayout-backgroundContainer + div > :last-child > :first-child:has(.Post):has(.Comment) * {
 											--newCommunityTheme-body: var(--re-theme-post-bg);
 											--newRedditTheme-body: var(--re-theme-post-bg);
 											--newRedditTheme-field: var(--re-theme-post-bg);
@@ -477,7 +478,9 @@ export function themePostBackgroundColour(value) {
 										.ListingLayout-backgroundContainer + div > :last-child > :first-child > :last-child > :last-child {
 											background: none;
 										}
-										.Post, .re-post-container, .ListingLayout-backgroundContainer + div > :last-child > div:has(.Post):has(.Comment) {
+										.Post,
+										.re-post-container,
+										.ListingLayout-backgroundContainer + div > :last-child > div:has(.Post):has(.Comment) {
 											backdrop-filter: blur(var(--re-theme-blur));
 										}
 										.ListingLayout-backgroundContainer + div > :last-child > div:has(.Post):has(.Comment):has(.icon-new_fill) {
@@ -524,17 +527,24 @@ export function themePostBackgroundColour(value) {
 											--color-neutral-background: var(--re-theme-post-bg) !important;
 											--shreddit-content-background: transparent;
 										}
+										article shreddit-post,
+										[routename="post_page"] main.main {
+											backdrop-filter: blur(var(--re-theme-blur)) !important;
+										}
 										shreddit-post,
 										comment-body-header,
 										#comment-tree {
 											--shreddit-content-background: transparent !important;
 											--color-neutral-background: var(--re-theme-post-bg) !important;
-											backdrop-filter: blur(var(--re-theme-blur)) !important;
+										}
+										shreddit-feed shreddit-post:hover {
+											--color-neutral-background-hover: color-mix(in srgb, var(--re-theme-post-bg), #000 10%) !important;
+											background-color: color-mix(in srgb, var(--re-theme-post-bg), #000 10%) !important;
 										}
 										div[slot="post-insights-panel"] > faceplate-tracker > div {
 											background-color: inherit !important;
 										}
-										shreddit-comment button:hover {
+										shreddit-post button:hover {
 											--color-secondary-background-hover: rgba(0,0,0,0.3) !important;
 											--button-border-color: rgba(0,0,0,0.6) !important;
 										}
@@ -544,17 +554,12 @@ export function themePostBackgroundColour(value) {
 											border-radius: 8px;
 										}
 										shreddit-comment-tree {
-											backdrop-filter: blur(var(--re-theme-blur));
 											border-radius: 16px;
 											padding-left: .5rem;
 											padding-right: .5rem;
 											margin-left: -.5rem;
 											margin-right: -.5rem;
 										}
-										/*[bundlename="comment_body_header"] comment-body-header faceplate-tracker {
-											position: relative;
-											top: 8px;
-										}*/
 										#main-content [bundlename="comment_body_header"],
 										main.main [bundlename="comment_body_header"] {
 											position: relative;
@@ -564,6 +569,9 @@ export function themePostBackgroundColour(value) {
 											margin-bottom: 0;
 											padding-left: 8px;
 											padding-top: 8px;
+										}
+										shreddit-comment {
+											--color-neutral-background: transparent !important;
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
 		});
@@ -878,8 +886,7 @@ export function themePostBorderColour(value) {
 			const styleElement = document.createElement('style');
 			styleElement.id = 're-theme-post-border-colour';
 			styleElement.textContent = `article > shreddit-post,
-										main#main-content search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
-										main.main post-consume-tracker > div:not([data-testid="search-scope-switcher"]),
+										main.main search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
 										div[data-testid="search-crosspost-unit"] div:has(> search-telemetry-tracker) {
 											border: solid 1px var(--re-theme-post-border);
 										}`;
@@ -1232,8 +1239,7 @@ export function themePostContentAndCommentsLinkColour(value) {
 		});
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-post-content-and-comments-link-colour';
-		styleElement.textContent =
-			`:root, .theme-rpl, .theme-light.theme-rpl {
+		styleElement.textContent = `:root, .theme-rpl, .theme-light.theme-rpl {
 				--color-a-default: var(--re-theme-post-content-and-comments-link) !important;
 				--color-primary: var(--re-theme-post-content-and-comments-link) !important;
 			}

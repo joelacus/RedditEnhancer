@@ -591,10 +591,9 @@ export function hideCustomFeedSidebar(value) {
 function enableHideCustomFeedSidebarNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-hide-custom-feed-sidebar';
-	styleElement.textContent =
-		`.ListingLayout-backgroundContainer + div:has(button#MULTIREDDIT_TOP_BAR_OVERFLOW) > :last-child > :last-child {
-			display: none !important;
-		}`;
+	styleElement.textContent = `.ListingLayout-backgroundContainer + div:has(button#MULTIREDDIT_TOP_BAR_OVERFLOW) > :last-child > :last-child {
+									display: none !important;
+								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
@@ -603,23 +602,21 @@ function enableHideCustomFeedSidebarNewNew() {
 	if (!document.head.querySelector('style[id="re-hide-custom-feed-sidebar"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-custom-feed-sidebar';
-		styleElement.textContent =
-			`shreddit-app[routename="custom_feed"] #right-sidebar-container {
-				display: none;
-				visibility: hidden;
-			}
-			shreddit-app[routename="custom_feed"] div.main-container {
-				gap: 0;
-			}
-			shreddit-app[routename="custom_feed"] main.main {
-				max-width: 100% !important;
-			}
-			:root {
-				--re-custom-feed-sidebar-width: 0 !important;
-			}`;
+		styleElement.textContent = `shreddit-app[routename="custom_feed"] #right-sidebar-container {
+										display: none;
+										visibility: hidden;
+									}
+									shreddit-app[routename="custom_feed"] div.main-container {
+										gap: 0;
+									}
+									shreddit-app[routename="custom_feed"] main.main {
+										max-width: 100% !important;
+									}
+									:root {
+										--re-custom-feed-sidebar-width: 0 !important;
+									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
-	// document.documentElement.style.setProperty('--re-custom-feed-sidebar-width', 0);
 }
 
 // Function - Disable Hide Custom Feed Sidebar - New New
@@ -628,5 +625,4 @@ function disableHideCustomFeedSidebarAll() {
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
-	// document.documentElement.style.removeProperty('--re-custom-feed-sidebar-width');
 }

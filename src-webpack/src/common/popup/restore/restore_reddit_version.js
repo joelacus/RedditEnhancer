@@ -4,6 +4,7 @@ import i18next from 'i18next';
 import { filterShowOldVersion, initFilter } from '../inputs/filter_version_select';
 import { filterShowNewVersion } from '../inputs/filter_version_select';
 import { filterShowNewNewVersion } from '../inputs/filter_version_select';
+import { initTopCategoryMenuAccordion } from '../functions/accordion';
 
 // Restore UI settings for Auto Redirect and Version Filter options.
 
@@ -17,7 +18,9 @@ export function restorePopupRedditVersionOptions() {
 			} else if (result.redditVersion === 'new') {
 				filterShowNewVersion();
 				var value = 'new';
-				document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
+				if (localStorage.getItem('DontShowAgainOldNewUiWarning') === null) {
+					document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
+				}
 			} else if (result.redditVersion === 'newnew') {
 				filterShowNewNewVersion();
 				var value = 'newnew';
@@ -26,6 +29,7 @@ export function restorePopupRedditVersionOptions() {
 			var value = 'choose';
 			if (document.querySelector('body#popup')) {
 				document.querySelector('#main-menu').classList.add('hidden');
+				document.querySelector('#top-menu-accordion').classList.add('hidden');
 				document.querySelectorAll('[id^="start-page"]').forEach((el) => {
 					el.classList.remove('hidden');
 				});
@@ -50,8 +54,10 @@ export function restorePopupRedditVersionOptions() {
 		} else if (result.autoRedirectVersion === 'old') {
 			document.querySelector('#chosen-reddit-version').textContent = i18next.t('OldUI');
 		} else if (result.autoRedirectVersion === 'new') {
+			if (localStorage.getItem('DontShowAgainOldNewUiWarning') === null) {
+				document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
+			}
 			document.querySelector('#chosen-reddit-version').textContent = i18next.t('OldNewUI');
-			document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
 		} else if (result.autoRedirectVersion === 'off') {
 			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Off');
 		} else if (typeof result.redditVersion == 'undefined') {
@@ -65,8 +71,10 @@ export function restorePopupRedditVersionOptions() {
 
 // Hide Start Page Elements
 function hideStartPage() {
+	document.querySelector('#top-menu-accordion').classList.remove('hidden');
 	document.querySelector('#main-menu').classList.remove('hidden');
 	document.querySelectorAll('[id^="start-page"]').forEach((el) => {
 		el.classList.add('hidden');
 	});
+	initTopCategoryMenuAccordion();
 }

@@ -1,6 +1,6 @@
 {
 	"name": "reddit_enhancer_webpack",
-	"version": "1.13.1",
+	"version": "1.14.0",
 	"description": "",
 	"scripts": {
 		"build-m2": "webpack --config ./webpack-m2.conf.js",
@@ -26,11 +26,11 @@
 		"fuse.js": "^7.0.0",
 		"i18next": "^24.0.0",
 		"i18next-http-backend": "^3.0.1",
-		"mux.js": "^7.0.3",
+		"mux.js": "^7.1.0",
 		"npm": "^11.0.0",
 		"semver": "^7.6.3",
-		"sortablejs": "^1.15.2",
+		"sortablejs": "^1.15.6",
 		"stream": "^0.0.3",
-		"video.js": "^8.0.4"
+		"video.js": "^8.21.0"
 	}
 }

@@ -359,10 +359,6 @@ function enableExpandContentNewNew() {
 								shreddit-app[routename="subreddit"] main.main {
 									width: var(--re-sub-width);
 									max-width: 100%;
-								}
-								shreddit-app[routename="subreddit_wiki"] #main-content,
-								shreddit-app[routename="subreddit_wiki"] main.main {
-									max-width: var(--re-sub-width) !important;
 									justify-self: center;
 								}
 								shreddit-app[routename="post_page"] #main-content,

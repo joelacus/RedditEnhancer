@@ -46,46 +46,44 @@ const layoutOffset = `
 						transform: translateX(var(--re-layout-search-page-offset))
 					}`;
 
-const styleShowPostAuthor =
-	`.re-post-author {
-		color: var(--color-neutral-content-weak);
-		z-index: 3;
-	}
-	.re-post-author a {
-		color: var(--color-neutral-content-weak);
-		text-decoration: none;
-	}
-	shreddit-app[pagetype="search_results"] .re-post-author ~ faceplate-timeago {
-	 	margin-left: 0.25rem;
-	}
-	div:has(span > .hover-card),
-	span:has(.hover-card) {
-		overflow: unset !important;
-	}
-	.hover-card {
-		display: none;
-		position: absolute;
-		width: 290px;
-		height: fit-content;
-		font: var(--font-12-16-semibold);
-		background-color: var(--color-tooltip-bg-neutral);
-		color: var(--color-tooltip-text-neutral);
-		border-radius: var(--re-theme-border-radius, 1rem);
-		box-shadow: var(--boxshadow-tooltip);
-		padding: 1rem;
-		z-index: 999;
-	}
-	.hover-card img {
-		border-radius: 50%;
-		width: auto;
-		height: 60px;
-	}
-	.hover-card .button {
-		text-decoration: none;
-	}`;
+const styleShowPostAuthor = `.re-post-author {
+								color: var(--color-neutral-content-weak);
+								z-index: 3;
+							}
+							.re-post-author a {
+								color: var(--color-neutral-content-weak);
+								text-decoration: none;
+							}
+							shreddit-app[pagetype="search_results"] .re-post-author ~ faceplate-timeago {
+								margin-left: 0.25rem;
+							}
+							div:has(span > .hover-card),
+							span:has(.hover-card) {
+								overflow: unset !important;
+							}
+							.hover-card {
+								display: none;
+								position: absolute;
+								width: 290px;
+								height: fit-content;
+								font: var(--font-12-16-semibold);
+								background-color: var(--color-tooltip-bg-neutral);
+								color: var(--color-tooltip-text-neutral);
+								border-radius: var(--re-theme-border-radius, 1rem);
+								box-shadow: var(--boxshadow-tooltip);
+								padding: 1rem;
+								z-index: 999;
+							}
+							.hover-card img {
+								border-radius: 50%;
+								width: auto;
+								height: 60px;
+							}
+							.hover-card .button {
+								text-decoration: none;
+							}`;
 
-const styleBreakReminder = `
-							.re-break-reminder {
+const styleBreakReminder = `.re-break-reminder {
 								display: flex;
 								align-items: center;
 								justify-content: center;

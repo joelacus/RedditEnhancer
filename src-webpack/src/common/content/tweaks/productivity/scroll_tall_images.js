@@ -61,40 +61,31 @@ function enableImageScrollNewNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-image-scroll';
 	styleElement.textContent = `:root {
-									--re-image-scroll-max-image-width: 100%;
+									--re-image-scroll-max-image-width: 100%
 								}
-								[slot="post-media-container"] {
-									background: none !important;
+								/*shreddit-media-lightbox-listener {
+									display: block;
+									height: fit-content;
 								}
-								shreddit-media-lightbox-listener {
-									display: block !important;
-								}
-								shreddit-aspect-ratio {
-									padding: 0 !important;
-									overflow-y: auto;
-								}
-								/*shreddit-aspect-ratio,
-								shreddit-aspect-ratio div {
-									height: 200px;
+								media-lightbox-img {
+									height: fit-content !important;
 								}*/
-								shreddit-aspect-ratio div {
+								shreddit-media-lightbox-listener div {
+									display: flex;
+									justify-content: center;
+									max-height: fit-content !important;
 									overflow-y: auto !important;
-									background: none !important;
-									width: var(--re-image-scroll-max-image-width) !important;
+									max-width: var(--re-image-scroll-max-image-width, fit-content);
 									margin: 0 auto;
 								}
-								shreddit-aspect-ratio div img {
-									position: relative;
-									margin: 0;
-								}
-								shreddit-aspect-ratio .media-lightbox-img :first-child {
-									transform: scale(1) !important;
-									filter: none !important;
-									opacity: 1 !important;
-									top: 0;
-								}
-								shreddit-aspect-ratio .media-lightbox-img :nth-child(2) {
+								shreddit-media-lightbox-listener .post-background-image-filter {
 									display: none;
+								}
+								shreddit-media-lightbox-listener .preview-img {
+									top: 0;
+									height: fit-content;
+									max-height: fit-content;
+									object-fit: cover !important;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }

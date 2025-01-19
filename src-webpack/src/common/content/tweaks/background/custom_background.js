@@ -121,16 +121,6 @@ function enableUseCustomBackgroundNewNew() {
 								shreddit-app[routename="comments_page"] div[slot="post-insights-panel"] .p-md {
 									padding: 0;
 								}
-								/* shreddit-app main shreddit-async-loader comment-body-header,
-								shreddit-app main #comment-tree {
-									width: 100%;
-									margin-left: -0.5rem;
-									margin-bottom: .5rem;
-									padding-left: .5rem !important;
-									padding-right: .5rem !important;
-									padding-bottom: .5rem;
-									border-radius: 16px;
-								} */
 								aside#mod-queue-pdp-panel {
 									background-color: var(--color-neutral-background);
 								}`;

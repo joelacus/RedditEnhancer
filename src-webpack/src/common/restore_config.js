@@ -262,7 +262,7 @@ async function restoreBackup(json) {
 				'postContentFontWeight',
 				'postHeight',
 				'postHeightSize',
-				'postSeparatorLength',
+				'postSeparatorHeight',
 				'postTitleFontSize',
 				'postTitleFontWeight',
 				'redditVersion',

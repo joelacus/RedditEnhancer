@@ -11,14 +11,14 @@
 	align-items: center;
 	width: 100%;
 	min-height: 46px;
-	background: var(--bg-shade-1);
+	background: var(--item-bg);
 	border-radius: var(--border-radius);
 	padding: 5px;
 }
 .container > .container {
 	padding: 0;
 }
-.container span {
+.sub-list li span {
 	font-size: 16px;
 	padding-right: 8px;
 }
@@ -43,7 +43,7 @@
 	margin: 16px 0 16px 0;
 }
 .container-3 .dropdown {
-	width: 160px;
+	width: 200px;
 }
 .container-3 .select {
 	grid-template-columns: auto 22px;

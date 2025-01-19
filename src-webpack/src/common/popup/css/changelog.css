@@ -5,16 +5,56 @@
 	top: 35px;
 	left: 0;
 	width: 100%;
-	height: 378px;
+	height: 478px;
 	display: flex;
 	flex-direction: column;
 	font-size: 14px;
 	color: var(--text);
-	background-color: var(--bg);
+	background-color: var(--bg-tint-3);
 	padding: 8px;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	z-index: 9;
+	z-index: 999;
+}
+
+#changelog h2 {
+	margin-top: 30px;
+}
+
+#changelog h2:first-of-type {
+	margin-top: 4px;
+}
+
+#changelog h2 + ul {
+	padding-left: 20px;
+}
+
+#changelog h3 {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#changelog h3 + ul {
+	padding-left: 30px;
+}
+
+#changelog ul {
+	margin: 4px;
+	padding-left: 12px;
+}
+
+#changelog span {
+	display: block;
+	margin-top: 16px;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+#changelog .log-container {
+	margin-top: 0;
+	padding: 8px;
+	background-color: var(--bg-tint-2);
+	border-radius: var(--border-radius);
 }
 
 #changelog .log {

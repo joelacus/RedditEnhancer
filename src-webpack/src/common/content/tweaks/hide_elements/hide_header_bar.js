@@ -59,6 +59,10 @@ function hideHeaderBarNewNew() {
 									shreddit-app {
 										--shreddit-header-height: 0 !important;
 										--shreddit-header-large-height: 0 !important;
+									}
+									reddit-sidebar-nav {
+										top: 0 !important;
+										height: 100vh !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

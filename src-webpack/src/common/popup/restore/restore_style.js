@@ -829,7 +829,9 @@ export function restorePopupStyleOptions() {
 		const fullWidthBanner = result.fullWidthBanner === true;
 		document.querySelector('.icon-full-width-banner').style.backgroundColor = fullWidthBanner ? 'var(--accent)' : '';
 		document.querySelector('#checkbox-full-width-banner').checked = fullWidthBanner;
-		document.querySelector('.icon-style-tweaks').style.backgroundColor = fullWidthBanner ? 'var(--accent)' : '';
+		if (fullWidthBanner) {
+			highlightMenuIcon('style-tweaks');
+		}
 		console.log('Full Width Banner: ' + fullWidthBanner);
 	});
 
@@ -838,7 +840,9 @@ export function restorePopupStyleOptions() {
 		const compactSubRuleList = result.compactSubRuleList === true;
 		document.querySelector('.icon-compact-sub-rule-list').style.backgroundColor = compactSubRuleList ? 'var(--accent)' : '';
 		document.querySelector('#checkbox-compact-sub-rule-list').checked = compactSubRuleList;
-		document.querySelector('.icon-style-tweaks').style.backgroundColor = compactSubRuleList ? 'var(--accent)' : '';
+		if (compactSubRuleList) {
+			highlightMenuIcon('style-tweaks');
+		}
 		console.log('Compact Sub Rule List: ' + compactSubRuleList);
 	});
 
@@ -847,7 +851,9 @@ export function restorePopupStyleOptions() {
 		const compactHeaderSideMenu = result.compactHeaderSideMenu === true;
 		document.querySelector('.icon-compact-header-side-menu').style.backgroundColor = compactHeaderSideMenu ? 'var(--accent)' : '';
 		document.querySelector('#checkbox-compact-header-side-menu').checked = compactHeaderSideMenu;
-		document.querySelector('.icon-style-tweaks').style.backgroundColor = compactHeaderSideMenu ? 'var(--accent)' : '';
+		if (compactHeaderSideMenu) {
+			highlightMenuIcon('style-tweaks');
+		}
 		console.log('Compact Header Side Menu: ' + compactHeaderSideMenu);
 	});
 }

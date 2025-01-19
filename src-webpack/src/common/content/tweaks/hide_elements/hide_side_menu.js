@@ -58,7 +58,7 @@ function disableHideSideMenuOld() {
 	});
 }
 
-// Function - Hide Side Menu - New New
+// Function - Enable Hide Side Menu - New New
 function enableHideSideMenuNewNew() {
 	document.querySelector('html').classList.add('re-hide-side-menu');
 	if (!document.head.querySelector('style[id="re-hide-side-menu"]')) {
@@ -87,12 +87,13 @@ function enableHideSideMenuNewNew() {
 	}, 1000);
 }
 
-// Function - Show Side Menu - New New
+// Function - Disable Hide Side Menu - New New
 function disableHideSideMenuNewNew() {
 	document.querySelector('html').classList.remove('re-hide-side-menu');
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
+	document.documentElement.style.removeProperty('--re-side-menu-width');
 	loadSideMenuWidth();
 }

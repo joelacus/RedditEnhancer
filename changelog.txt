@@ -3,7 +3,7 @@ version 1.13.1
 - Resizing the post comment font will now also change the font size in the comment composer (Latest UI).
 
 version 1.13.0
-- Added a new options page as an alternative for the extension popup window.
+- Added a new options page as an alternative for the extension popover window.
 - Added an option to change the width of custom feeds (Latest UI).
 - Added an option to change the post upvote colour (Latest UI).
 - Added an option to hide the home feed entirely (Old UI, Latest UI).

@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.13.1"
+		"message": "1.14.0"
 	},
 
 	"extensionName": {
@@ -8,7 +8,7 @@
 	},
 
 	"extensionDescription": {
-		"message": "Various tweaks to customise your Reddit experience. Supports Reddit V1 (Old) and V3 (Latest)."
+		"message": "Various tweaks to customise your Reddit experience. Supports all version of Reddit."
 	},
 
 	"About": {
@@ -692,7 +692,7 @@
 	},
 
 	"ShowPostFlair": {
-		"message": "Show Post Flair on the Home Feed"
+		"message": "Show Post Flair"
 	},
 
 	"HideSideMenuTopSection": {
@@ -1071,6 +1071,90 @@
 		"message": "Custom Feed Width"
 	},
 
+	"PostSeparatorHeight": {
+		"message": "Post Gap"
+	},
+
+	"HideBlurredMediaBackground": {
+		"message": "Hide background blur behind image previews"
+	},
+
+	"CompactHeaderSideMenu": {
+		"message": "Compact Header Bar & Side Menu"
+	},
+
+	"Subreddit": {
+		"message": "Subreddit"
+	},
+
+	"FullWidthBanner": {
+		"message": "Full Width Subreddit Banner"
+	},
+
+	"CompactSubRuleList": {
+		"message": "Compact Subreddit Rule List"
+	},
+
+	"ResizeMainContainer": {
+		"message": "Resize Main Container (experimental)"
+	},
+
+	"ResizeMainContainerWidth": {
+		"message": "Main Container Width"
+	},
+
+	"ResizeMainContainerInfo": {
+		"message": "For the best results, please set all Resize Feed / Post width values to 100%."
+	},
+
+	"HideCustomFeedSidebar": {
+		"message": "Hide the Custom Feed Sidebar"
+	},
+
+	"HidePostDivider": {
+		"message": "Hide Post Separators"
+	},
+
+	"PostSeparatorLength": {
+		"message": "Post Gap"
+	},
+
+	"HideCommentKarma": {
+		"message": "Hide Comment Karma"
+	},
+
+	"HideVoteButtons": {
+		"message": "Hide Vote Buttons"
+	},
+
+	"StyleOptions": {
+		"message": "Style Options"
+	},
+
+	"Relevance": {
+		"message": "Relevance"
+	},
+
+	"CommentsCount": {
+		"message": "Comments count"
+	},
+
+	"Grey": {
+		"message": "Grey"
+	},
+
+	"MainContainer": {
+		"message": "Main Container"
+	},
+
+	"FeedWidth": {
+		"message": "Feed Width"
+	},
+
+	"FeedOffset": {
+		"message": "Feed Offset"
+	},
+
 	"DragImageToResize": {
 		"message": "Drag Image To Resize"
 	},
@@ -1125,57 +1209,5 @@
 
 	"PasswordInfo": {
 		"message": "You may leave the password blank, and you will be prompted when logging in."
-	},
-
-	"ResizeMainContainer": {
-		"message": "Resize Main Container (experimental)"
-	},
-
-	"ResizeMainContainerWidth": {
-		"message": "Main Container Width"
-	},
-
-	"ResizeMainContainerInfo": {
-		"message": "For the best results, please set all Resize Feed / Post width values to 100%."
-	},
-
-	"HideCustomFeedSidebar": {
-		"message": "Hide the Custom Feed Sidebar"
-	},
-
-	"HidePostDivider": {
-		"message": "Hide Post Separators"
-	},
-
-	"PostSeparatorLength": {
-		"message": "Post Gap"
-	},
-
-	"HideBlurredMediaBackground": {
-		"message": "Hide background blur behind image previews"
-	},
-
-	"CompactHeaderSideMenu": {
-		"message": "Compact Header Bar & Side Menu"
-	},
-
-	"Subreddit": {
-		"message": "Subreddit"
-	},
-
-	"FullWidthBanner": {
-		"message": "Full Width Subreddit Banner"
-	},
-
-	"CompactSubRuleList": {
-		"message": "Compact Subreddit Rule List"
-	},
-
-	"HideCommentKarma": {
-		"message": "Hide Comment Karma"
-	},
-
-	"HideVoteButtons": {
-		"message": "Hide Vote Buttons"
 	}
 }

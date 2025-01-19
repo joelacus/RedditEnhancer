@@ -1,12 +1,10 @@
 /* ===== Popup / Inputs ===== */
 
-// Event listeners for the popover and options page.
+// Event listeners for the popup and options page.
 
+import './functions/accordion';
+import './inputs/extension_theme';
 import './inputs/filter_version_select';
-import './inputs/language_select';
-import './inputs/search_filter';
-import './inputs/reddit_version_redirect';
-import './inputs/menu';
 import './inputs/inputs_accessibility';
 import './inputs/inputs_account_switcher';
 import './inputs/inputs_background';
@@ -16,8 +14,14 @@ import './inputs/inputs_font';
 import './inputs/inputs_hide_elements';
 import './inputs/inputs_productivity';
 import './inputs/inputs_style';
+import './inputs/language_select';
+import './inputs/menu';
+import './inputs/reddit_version_redirect';
+import './inputs/search_filter';
 import { export_backup } from './backup_config';
 import { restorePopupTheme } from './restore/restore_extension_theme';
+import { showChangelog } from './functions/show_changelog';
+import { initTopCategoryMenu } from './functions/init_top_category_menu';
 
 /* = Banner Message = */
 
@@ -33,6 +37,10 @@ document.querySelector('#new-new-ui-message .close').addEventListener('click', f
 });
 
 // Don't Show Again
+document.querySelector('#old-new-ui-removal-message .dont-show-again').addEventListener('click', function (e) {
+	e.currentTarget.closest('.banner-message').style.display = 'none';
+	localStorage.setItem('DontShowAgainOldNewUiWarning', true);
+});
 document.querySelector('#new-new-ui-message .dont-show-again').addEventListener('click', function (e) {
 	e.currentTarget.closest('.banner-message').style.display = 'none';
 	localStorage.setItem('DontShowAgainNewNewUiMessage', true);
@@ -40,6 +48,7 @@ document.querySelector('#new-new-ui-message .dont-show-again').addEventListener(
 
 /* = Header = */
 
+// Shade
 if (document.querySelector('body#popup')) {
 	// Button - Shade
 	document.querySelector('#btn-shade').addEventListener('click', function (e) {
@@ -66,6 +75,11 @@ if (document.querySelector('body#popup')) {
 		document.querySelector('.footer').style.display = '';
 		document.querySelector('#settings').style.display = 'none';
 	});
+}
+
+// Top Category Menu
+if (document.querySelector('body#popup')) {
+	initTopCategoryMenu();
 }
 
 /* = Footer = */
@@ -106,51 +120,7 @@ if (document.querySelector('body#options-page')) {
 // Button - Version Changelog
 document.querySelectorAll('.btn-changelog').forEach((btn) => {
 	btn.addEventListener('click', function () {
-		if (document.querySelector('body#popup')) {
-			document.querySelector('#settings').style.display = 'none';
-			const changelogPage = document.querySelector('#changelog');
-			if (changelogPage.style.display === 'none') {
-				changelogPage.style.display = 'flex';
-			} else {
-				changelogPage.style.display = 'none';
-			}
-		} else {
-			document.querySelector('#settings').classList.add('hidden');
-			document.querySelector('#changelog').classList.remove('hidden');
-			document.querySelectorAll('.options-page-menu-container .active').forEach((item) => {
-				item.classList.remove('active');
-			});
-			document.querySelectorAll('.btn-changelog').forEach((btn) => {
-				btn.classList.add('active');
-			});
-			document.querySelectorAll('#main-menu .sub-list').forEach((sub) => {
-				sub.classList.add('hidden');
-			});
-		}
-
-		// Get changelog file contents if no new changelog is available
-		if (document.querySelector('#new-update-message').classList.contains('hidden')) {
-			// Get changelog.txt
-			const changelogFile = BROWSER_API.runtime.getURL('changelog.txt');
-			// Fetch the file contents
-			fetch(changelogFile, {
-				headers: {
-					'Content-Type': 'text/plain',
-				},
-			})
-				.then((response) => {
-					if (!response.ok) {
-						throw new Error('Network response was not ok');
-					}
-					return response.text();
-				})
-				.then((textContent) => {
-					document.querySelector('#changelog .log').innerText = textContent;
-				})
-				.catch((error) => {
-					console.error('Error fetching the file:', error);
-				});
-		}
+		showChangelog();
 	});
 });
 
@@ -215,35 +185,6 @@ document.querySelector('#btn-reset-settings-confirm').addEventListener('click', 
 		document.querySelector('#reset-settings-error-message').classList.add('hidden');
 		document.querySelector('#btn-reset-settings').classList.remove('hidden');
 	}, 5000);
-});
-
-// Button - Extension Theme Dark
-document.querySelector('#btn-extension-theme-dark').addEventListener('click', function (e) {
-	document.querySelector('#btn-extension-theme-light').classList.remove('active');
-	document.querySelector('#btn-extension-theme-classic-light').classList.remove('active');
-	e.currentTarget.classList.add('active');
-	document.querySelector('body').classList.remove('light-theme', 'classic-light-theme');
-	BROWSER_API.storage.sync.set({ addonTheme: 'dark' });
-});
-
-// Button - Extension Theme Light
-document.querySelector('#btn-extension-theme-light').addEventListener('click', function (e) {
-	document.querySelector('#btn-extension-theme-dark').classList.remove('active');
-	document.querySelector('#btn-extension-theme-classic-light').classList.remove('active');
-	e.currentTarget.classList.add('active');
-	document.querySelector('body').classList.remove('classic-light-theme');
-	document.querySelector('body').classList.add('light-theme');
-	BROWSER_API.storage.sync.set({ addonTheme: 'light' });
-});
-
-// Button - Extension Theme Classic Light
-document.querySelector('#btn-extension-theme-classic-light').addEventListener('click', function (e) {
-	document.querySelector('#btn-extension-theme-dark').classList.remove('active');
-	document.querySelector('#btn-extension-theme-light').classList.remove('active');
-	e.currentTarget.classList.add('active');
-	document.querySelector('body').classList.remove('light-theme');
-	document.querySelector('body').classList.add('classic-light-theme');
-	BROWSER_API.storage.sync.set({ addonTheme: 'classic-light' });
 });
 
 // Button - Export Backup

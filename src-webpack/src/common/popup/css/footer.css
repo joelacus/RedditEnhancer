@@ -6,16 +6,18 @@
 	grid-template-columns: auto auto;
 	grid-gap: 6px;
 	justify-content: left;
-	width: calc(100% - 10px);
-	height: 72px;
-	margin-bottom: 8px;
+	width: 100%;
+	height: fit-content;
+	margin: 8px 0;
 	justify-self: end;
+	color: var(--footer-fg);
 }
 
 .footer-links {
 	display: flex;
 	flex-direction: column;
 	margin-top: -4px;
+	margin-left: 4px;
 }
 
 .footer a,
@@ -26,11 +28,17 @@
 	grid-gap: 4px;
 	text-decoration: underline;
 	cursor: pointer;
+	color: inherit;
 }
 
 .footer-links a > span,
 .footer-links .link > span {
-	margin-left: 6px;
+	margin-left: 4px;
+}
+
+.footer-links .link-icon {
+	background: var(--footer-fg);
+	opacity: 0.6;
 }
 
 .footer-links .version {

@@ -7,8 +7,8 @@ textarea {
 	width: auto;
 	color: var(--text);
 	padding-left: 10px;
-	background-color: var(--bg-tint-1);
-	border: solid 1px var(--bg-shade-1);
+	background-color: var(--btn-bg);
+	border: solid 1px var(--btn-border);
 	border-radius: var(--border-radius);
 	font-size: 16px;
 	transition: background-color 0.1s ease-in-out;
@@ -21,16 +21,16 @@ input[type='password'] {
 	height: 40px;
 	width: 100%;
 }
+input:hover,
+textarea:hover {
+	background-color: varc(--btn-hover);
+	border: solid 1px var(--btn-hover-border);
+}
 input:focus,
 textarea:focus {
 	border-color: var(--accent) !important;
 	outline: none;
-	background-color: var(--btn-hover);
-}
-input:hover,
-textarea:hover {
-	border: solid 1px var(--btn-hover-border);
-	/*background-color: var(--btn-hover);*/
+	background-color: var(--btn-active);
 }
 input:disabled {
 	background-color: var(--bg-tint-1) !important;
@@ -46,10 +46,10 @@ input:disabled {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: var(--bg-tint-1);
-	border: solid 1px var(--bg-shade-1);
+	background-color: var(--btn-bg);
+	border: solid 1px var(--btn-border);
 	border-radius: var(--border-radius);
-	color: var(--text);
+	color: var(--btn-fg);
 	transition: background-color 0.1s ease-in-out;
 	padding: 0 8px;
 	max-height: 35px;
@@ -70,12 +70,13 @@ input:disabled {
 .btn:hover {
 	cursor: pointer;
 	background-color: var(--btn-hover);
+	border-color: var(--btn-hover-border);
 }
 .btn:active {
 	background-color: var(--btn-active);
 }
 .btn.active {
-	background-color: rgba(var(--accent-rgb), 0.6);
+	background-color: color-mix(in srgb, var(--accent) 60%, transparent);
 }
 .btn-text {
 	padding: 4px 8px 4px 8px;
@@ -98,7 +99,7 @@ input:disabled {
 	height: 30px;
 	position: relative;
 	background-color: var(--bg-tint-2);
-	border: solid 2px var(--bg);
+	border: solid 2px var(--bg-tint-3);
 	border-radius: calc(var(--border-radius) + 2px);
 	justify-self: flex-start;
 	transition: background-color 0.1s ease-in-out;
@@ -129,7 +130,8 @@ input:disabled {
 }
 .switch input:checked + .indicator:before {
 	transform: translateX(30px);
-	background-color: rgba(var(--accent-rgb), 0.6);
+	background-color: var(--accent);
+	background-color: color-mix(in srgb, var(--accent) 60%, transparent);
 }
 .switch input:disabled + .indicator {
 	background-color: var(--bg-tint-1);
@@ -172,7 +174,8 @@ input:disabled {
 	appearance: none;
 	width: 18px;
 	height: 18px;
-	background: rgba(var(--accent-rgb), 0.6);
+	background-color: var(--accent);
+	background-color: color-mix(in srgb, var(--accent) 60%, transparent);
 	border: none;
 	cursor: pointer;
 	border-radius: var(--border-radius);
@@ -180,18 +183,21 @@ input:disabled {
 .slider::-moz-range-thumb {
 	width: 18px;
 	height: 18px;
-	background: rgba(var(--accent-rgb), 0.6);
+	background-color: var(--accent);
+	background-color: color-mix(in srgb, var(--accent) 60%, transparent);
 	border: none;
 	cursor: pointer;
 	border-radius: var(--border-radius);
 }
 .slider::-moz-range-thumb:hover,
 .slider::-moz-range-thumb:active {
-	background: rgba(var(--accent-rgb), 0.8);
+	background-color: var(--accent);
+	background-color: color-mix(in srgb, var(--accent) 80%, transparent);
 }
 .slider::-webkit-slider-thumb:hover,
 .slider::-webkit-slider-thumb:active {
-	background: rgba(var(--accent-rgb), 0.8);
+	background-color: var(--accent);
+	background-color: color-mix(in srgb, var(--accent) 80%, transparent);
 }
 
 /* Tab Switcher */
@@ -247,6 +253,7 @@ input:disabled {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	color: var(--text);
 }
 .dropdown .select div {
 	transition: transform 0.1s ease-in-out;
@@ -259,8 +266,8 @@ input:disabled {
 	grid-template-columns: 22px auto 22px;
 	grid-gap: 4px;
 	align-items: center;
-	background-color: var(--bg-tint-1);
-	border: solid 1px var(--bg-shade-1);
+	background-color: var(--btn-bg);
+	border: solid 1px var(--btn-border);
 	border-radius: var(--border-radius);
 	min-height: 35px;
 	width: 100%;
@@ -307,9 +314,9 @@ input:disabled {
 	max-height: 0;
 	background-color: var(--bg-tint-2);
 	border-radius: var(--border-radius);
-	transition: max-height 0.1s ease-in-out;
+	transition: max-height 0.2s ease-in-out;
 	list-style: none;
-	z-index: 99;
+	z-index: 999;
 	padding: 0;
 }
 .dropdown-menu-up {
@@ -361,4 +368,7 @@ input:disabled {
 	width: 20px;
 	height: 20px;
 	cursor: pointer;
+}
+#shade .btn-icon {
+	background-color: var(--text-grey) !important;
 }

@@ -1,0 +1,41 @@
+/* Popup Styles - Accordion */
+
+.accordion {
+	max-width: 470px;
+	overflow: hidden;
+}
+
+.accordion-header {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	height: fit-content;
+	cursor: pointer;
+	left: 0;
+	margin-top: -4px;
+}
+
+.accordion-btn:before {
+	content: '›';
+	transform: translateY(-4px);
+}
+.accordion-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 20px;
+	width: 20px;
+	font-size: 26px;
+	color: var(--top-menu-chevron);
+}
+
+.accordion-content {
+	max-height: 0;
+	overflow: hidden;
+	padding: 0 !important;
+	color: var(--header-fg);
+}
+
+.accordion-transition {
+	transition: all 0.2s ease-out;
+}

@@ -1,3 +1,4 @@
+@import './css/accordion.css';
 @import './css/base.css';
 @import './css/changelog.css';
 @import './css/containers.css';
@@ -9,3 +10,4 @@
 @import './css/main-menu.css';
 @import './css/settings.css';
 @import './css/start-page.css';
+@import './css/themes.css';

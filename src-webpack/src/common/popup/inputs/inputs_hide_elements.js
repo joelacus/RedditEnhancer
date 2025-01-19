@@ -1039,24 +1039,30 @@ document.querySelector('#checkbox-hide-post-divider').addEventListener('change',
 		document.querySelector('.icon-hide-post-divider').classList.remove('icon-show');
 		document.querySelector('.icon-hide-post-divider').classList.add('icon-hide');
 		document.querySelector('.icon-hide-post-divider').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-post-separator-length').style.backgroundColor = 'var(--accent)';
+		if (document.querySelector('#input-post-separator-height').value != -1) {
+			document.querySelector('.icon-post-separator-height').style.backgroundColor = 'var(--accent)';
+		}
 	} else {
 		document.querySelector('.icon-hide-post-divider').classList.remove('icon-hide');
 		document.querySelector('.icon-hide-post-divider').classList.add('icon-show');
 		document.querySelector('.icon-hide-post-divider').style.backgroundColor = '';
-		document.querySelector('.icon-post-separator-length').style.backgroundColor = '';
+		document.querySelector('.icon-post-separator-height').style.backgroundColor = '';
 	}
 	BROWSER_API.storage.sync.set({ hidePostDivider: hidePostDivider });
 	sendMessage({ hidePostDivider: hidePostDivider });
 });
 
-// Slider - Post Separator Length
-document.querySelector('#input-post-separator-length').addEventListener('input', function (e) {
-	document.querySelector('#post-separator-length-value').textContent = e.target.value + 'px';
-	sendMessage({ postSeparatorLength: e.target.value });
+// Slider - Post Separator Height
+document.querySelector('#input-post-separator-height').addEventListener('input', function (e) {
+	const hidePostDivider = document.querySelector('#checkbox-hide-post-divider').checked;
+	if (hidePostDivider === true) {
+		document.querySelector('.icon-post-separator-height').style.backgroundColor = e.target.value != -1 ? 'var(--accent)' : '';
+	}
+	document.querySelector('#post-separator-height-value').textContent = e.target.value != -1 ? e.target.value + 'px' : '';
+	sendMessage({ postSeparatorHeight: e.target.value });
 });
-document.querySelector('#input-post-separator-length').addEventListener('mouseup', function (e) {
-	BROWSER_API.storage.sync.set({ postSeparatorLength: e.target.value });
+document.querySelector('#input-post-separator-height').addEventListener('mouseup', function (e) {
+	BROWSER_API.storage.sync.set({ postSeparatorHeight: e.target.value });
 });
 
 // Toggle - Hide Blurred Media Background

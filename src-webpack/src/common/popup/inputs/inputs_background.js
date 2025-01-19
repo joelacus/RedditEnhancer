@@ -25,19 +25,15 @@ document.querySelector('#checkbox-background').addEventListener('change', functi
 
 // Slider - Background Blur
 document.querySelector('#input-bg-blur').addEventListener('input', function (e) {
-	// set ui
-	const value = e.target.value;
-	if (value != 0) {
+	if (e.target.value != 0) {
 		document.querySelector('.icon-bg-blur').style.backgroundColor = 'var(--accent)';
 	} else {
 		document.querySelector('.icon-bg-blur').style.backgroundColor = '';
 	}
 	document.querySelector('#bg-blur-value').innerText = e.target.value + 'px';
-	// apply
-	sendMessage({ bgBlur: css });
+	sendMessage({ bgBlur: e.target.value });
 });
 document.querySelector('#input-bg-blur').addEventListener('mouseup', function (e) {
-	// save
 	BROWSER_API.storage.sync.set({ bgBlur: e.target.value });
 });
 
@@ -95,7 +91,7 @@ function addCustomBg(e) {
 	}
 }
 
-// Function - Add Background Thumbnail to Popover Background Library
+// Function - Add Background Thumbnail to Popup Background Library
 function addCustomBgNode(imageURL) {
 	// create background element container
 	var node = document.createElement('div');

@@ -126,7 +126,7 @@ module.exports = {
 		}),
 	],
 	optimization: {
-		minimize: true,
+		minimize: false,
 		minimizer: [
 			new HtmlMinimizerPlugin(),
 			new CssMinimizerPlugin(),

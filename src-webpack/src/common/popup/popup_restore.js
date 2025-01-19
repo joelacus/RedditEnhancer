@@ -1,6 +1,5 @@
 /* ===== Popup / Restore ===== */
 
-import i18next from 'i18next';
 import { restorePopupAccessibilityOptions } from './restore/restore_accessibility';
 import { restorePopupBackgroundOptions } from './restore/restore_background';
 import { restorePopupDarkModeOptions } from './restore/restore_dark_mode';
@@ -12,10 +11,14 @@ import { restorePopupStyleOptions } from './restore/restore_style';
 import { restorePopupTheme } from './restore/restore_extension_theme';
 import { detectFirefoxVersion } from '../content_first/functions/detect_browser_version';
 import { restorePopupFontOptions } from './restore/restore_font';
-const semver = require('semver');
+import { fetchLatestVersion } from './functions/check_for_updates';
 
 /* = Restore Tweak Options On Popup Load = */
 window.onload = function () {
+	// Add slight delay to prevent theme change flicker
+	setTimeout(() => {
+		document.querySelector('body').removeAttribute('style', '');
+	}, 250);
 	restoreOptions();
 	fetchLatestVersion();
 };
@@ -43,35 +46,6 @@ function restoreOptions() {
 
 	// Pre-Select Search Input
 	document.querySelector('#search').focus();
-}
-
-/* = Check For Latest Extension Version = */
-async function fetchLatestVersion() {
-	const fetchURL = 'https://raw.githubusercontent.com/joelacus/RedditEnhancer/refs/heads/main/changelog.txt';
-	return new Promise((resolve, reject) => {
-		BROWSER_API.runtime.sendMessage(
-			{
-				actions: [{ action: 'changeFetchUrl', newFetchUrl: fetchURL }, { action: 'fetchData' }],
-			},
-			function (response) {
-				if (response) {
-					setTimeout(() => {
-						const latestVersion = response.data.split('\n')[0].split(' ')[1];
-						const installedVersion = i18next.t('extensionVersion.message');
-						console.log('Installed Version: ' + installedVersion + ' Latest Version: ' + latestVersion);
-						if (semver.gt(latestVersion, installedVersion)) {
-							document.querySelector('#new-update').classList.remove('hidden');
-							const message = document.querySelector('#new-update-message').innerText;
-							const messageWithVersion = message.replace('<version>', latestVersion);
-							document.querySelector('#new-update-message').innerText = messageWithVersion;
-							document.querySelector('#new-update-message').classList.remove('hidden');
-							document.querySelector('#changelog .log').innerText = response.data;
-						}
-					}, 3000);
-				}
-			}
-		);
-	});
 }
 
 /* = Check Firefox Version = */

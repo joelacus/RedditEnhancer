@@ -34,8 +34,10 @@ redirect_dropdownMenu.addEventListener('click', function (e) {
 	if (version === 'old') {
 		selectFilterShowOldVersion(i18next.t('OldUI.message'));
 	} else if (version === 'new') {
+		if (localStorage.getItem('DontShowAgainOldNewUiWarning') === null) {
+			document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
+		}
 		selectFilterShowNewVersion(i18next.t('OldNewUI.message'));
-		document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
 	} else if (version === 'newnew') {
 		selectFilterShowNewNewVersion(i18next.t('NewNewUI.message'));
 		if (localStorage.getItem('DontShowAgainNewNewUiMessage') === null) {

@@ -4,7 +4,7 @@
 	},
 
 	"extensionDescription": {
-		"message": "Ulike justeringer for å tilpasse Reddit-opplevelsen din. Støtter Reddit V1 (gammel) og V3 (nyest)."
+		"message": "Ulike justeringer for å tilpasse Reddit-opplevelsen din. Støtter alle versjoner av Reddit."
 	},
 
 	"About": {
@@ -1067,10 +1067,6 @@
 		"message": "Resize Main Container (experimental)"
 	},
 
-	"ResizeMainContainerWidth": {
-		"message": "Main Container Width"
-	},
-
 	"ResizeMainContainerInfo": {
 		"message": "For the best results, please set all Resize Feed / Post width values to 100%."
 	},
@@ -1083,7 +1079,7 @@
 		"message": "Hide Post Separators"
 	},
 
-	"PostSeparatorLength": {
+	"PostSeparatorHeight": {
 		"message": "Post Gap"
 	},
 

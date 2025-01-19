@@ -1,60 +1,5 @@
 /* Popup Styles - Base */
 
-:root {
-	--accent: #ff4703;
-	--accent-rgb: 255, 71, 3;
-	--border-radius: 8px;
-	--bg-shade-1: #101010;
-	--bg: #141414;
-	--bg-tint-1: #19191a;
-	--bg-tint-2: #242424;
-	--bg-tint-3: #2e2e2e;
-	--bg-tint-4: #4c4c4c;
-	--text: #fcfcfc;
-	--text-grey: #808080;
-	--text-grey-rgb: 128, 128, 128;
-	--red: #f44336;
-	--light-blue: #03a9f4;
-	--shadow: rgba(0, 0, 0, 0.5);
-	--btn-hover: rgb(20, 20, 21);
-	--btn-active: rgba(255, 255, 255, 0.1);
-	--btn-hover-border: #484848;
-}
-
-.light-theme {
-	--accent: #ff7650;
-	--accent-rgb: 255, 118, 80;
-	--bg-shade-1: #d4d4d4;
-	--bg: #f0f0f0;
-	--bg-tint-1: #e7e7e7;
-	--bg-tint-2: #e7e7e7;
-	--bg-tint-3: #ebebeb;
-	--bg-tint-4: #b3b3b3;
-	--text: #030303;
-	--text-grey: #626261;
-	--text-grey-rgb: 98, 98, 97;
-	--shadow: rgba(255, 255, 255, 0.5);
-	--btn-hover: rgba(0, 0, 0, 0.05);
-	--btn-active: rgba(0, 0, 0, 0.1);
-	transition: background-color 200ms ease-in-out;
-}
-
-.classic-light-theme {
-	--bg-shade-1: #efefef;
-	--bg: #ebebeb;
-	--bg-tint-1: #e6e6e5;
-	--bg-tint-2: #dbdbdb;
-	--bg-tint-3: #d1d1d1;
-	--bg-tint-4: #b3b3b3;
-	--text: #030303;
-	--text-grey: #8e8e8e;
-	--text-grey-rgb: 142, 142, 142;
-	--shadow: rgba(255, 255, 255, 0.5);
-	--btn-hover: var(--bg-tint-3);
-	--btn-active: var(--bg-tint-1);
-	transition: background-color 200ms ease-in-out;
-}
-
 * {
 	box-sizing: border-box;
 }
@@ -66,14 +11,15 @@ body {
 	font-size: 14px;
 	overflow: hidden;
 }
+
 body {
 	margin: 0;
 	padding: 0;
 	padding-left: 10px;
-	height: 500px;
+	height: 600px;
 	display: flex;
 	flex-direction: column;
-	background-color: var(--bg-tint-3);
+	background-color: var(--bg);
 	font-family: Verdana, sans-serif;
 	color: var(--text);
 	overflow: hidden;
@@ -81,11 +27,19 @@ body {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	transition: background-color 200ms ease-in-out;
 }
+
 a {
-	color: var(--text);
+	color: inherit;
 	text-decoration: none;
 }
+
+h2,
+h3 {
+	margin: 4px;
+}
+
 .text-small {
 	font-size: 12px !important;
 	color: var(--text-grey);

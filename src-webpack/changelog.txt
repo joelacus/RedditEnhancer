@@ -1,65 +1,118 @@
+version 1.14.0
+- Added sticky sub menus in the extension settings for easier navigation.
+- The extension popup window is now 100px taller.
+- Improved the changelog page.
+- Removed "New New UI" and "Old New UI" from the redirect menu as they are no longer relevant.
+- Options for "Old New UI" will continue to be supported for now while other workarounds to get it back are still working.
+- Minor extension theme tweaks and added a new theme "Grey".
+- Bug fixes and improvements throughout the extension.
+v [New New UI]
+  - Fixed a bug with "Add Scroll Bar to Tall Images".
+  - Added "Relevance" and "Comments count" default feed sort options, and removed "Best", "Rising" and "Controversial".
+* Special thanks to @biminhc1 (Reddit) @bmndc (Github) for all following changes <3
+v [New New UI]
+  - Added options to hide post separators in feed view and adjust gaps between posts.
+  - Added an option to hide the background blur behind image previews of posts in feed view.
+  - Added an option to stretch the subreddit banners to take the entire width of browser window.
+  - Added an option to tweak the subreddit rule list to be more compact and resemble Old New UI.
+  - Added an option to tweak the header and side menu to be more compact (experimental).
+  - Added an option to resize the entire content container instead of just the feeds (experimental).
+  - Show Post Flairs now also shows post flairs on custom feeds.
+  - Show Post Author now also shows authors on custom feeds and custom feed search results.
+  - Fixed an issue where post flair container may show on posts with no flairs when Show Post Flairs is on.
+  - Fixed an issue where the grid container may not restore itself when Reddit switches to mobile view (viewport < 1200px).
+  - Back button now remains inside the post container as it might be obstructed at certain zoom levels.
+  - Show Post Author now resembles the Old New UI post author style.
+  - Custom Background no longer applies to post pane in moderation queue :(.
+  - Hide the Header Bar now edits Reddit's CSS variables to remove the top padding reserved for the header bar.
+  - Resizing fonts now works with h1 elements, comment composer, crossposted posts, posts in moderation queue and Create Posts view in Old New UI. Small changes to line heights.
+  - Use Reddit's CSS variables to set post and comment link colour.
+  - Post borders now only show in feed view and no longer appear in post view.
+  - Setting the background colour of posts now uses Reddit's native CSS variables and apply to the entire post view container. It is possible to replicate the older behaviour by setting a custom theme background.
+  - Small style tweaks to Theme Corner Radius, hover cards, Resize Feed / Post and other features throughout.
+  - Default Sort Option now works with custom feeds, post and comment search results.
+  - Fixed an issue where r/popular topic carousel may not shrink, causing the feed to overflow.
+  - Small tweaks to align the right sidebar with the main content.
+v [New New UI, Old New UI]
+  - Added an option to hide the custom feed sidebar.
+  - Added options to hide the vote karma of posts or comments.
+  - Added an option to hide the vote buttons of both posts and comments.
+v [Old New UI]
+  - Resizing fonts now works with h1 and code in comments.
+  - Removed the header bar and top padding in post overlays when Non-Sticky Header Bar is on.
+  - Removed the header bar in post overlay when Non-Sticky Header Bar is on.
+  - h1 and code element font size can now be changed along with post content/comment font size.
+
 version 1.13.1
-- Fixed "Resize Feed/Post" not working after a website update (Latest UI).
-- Resizing the post comment font will now also change the font size in the comment composer (Latest UI).
+v [New New UI] 
+  - Fixed "Resize Feed/Post" not working after a website update.
+  - Resizing the post comment font will now also change the font size in the comment composer.
 
 version 1.13.0
 - Added a new options page as an alternative for the extension popup window.
-- Added an option to change the width of custom feeds (Latest UI).
-- Added an option to change the post upvote colour (Latest UI).
-- Added an option to hide the home feed entirely (Old UI, Latest UI).
-- Added an option to offset the search page feed (Latest UI).
 - Moved the "Resize Font" options into a new menu category "Font".
-- Added an option to change the post title/content/comments font weight (Old UI, Latest UI).
-- Added options to change the "Create Post" title and body font sizes (Old UI, Latest UI).
-- Separated the resize post title/content font options, so you can now resize post fonts on the feed and post pages independently (Old UI, Latest UI).
-- Resize post title and content font now works on the profile page (Latest UI).
-- Added an option to change the comment action row text colour independently from the comment text colour option (Latest UI).
-- Added an option to add user profile pictures to comments (Old UI).
 - Added an update available notification for the extension ("!" next to the version number).
-- "Show Post Author" now works on the search results page (Latest UI).
-- "Show Navigation Buttons For The Next/Previous Root Comment" now works with Old Reddit.
 - Added a "clear search input" button in the extension search bar.
 - Fixed a bug causing large text, even if the "Resize Font" feature is not used.
-- Fixed the incorrect line height in the post title when using the resize post title font option (Latest UI).
 - Tidied up the source code and fixed some other small bugs.
+v [New New UI]
+- Added an option to change the width of custom feeds.
+- Added an option to change the post upvote colour.
+- Added an option to offset the search page feed.
+- Resize post title and content font now works on the profile page.
+- Added an option to change the comment action row text colour independently from the comment text colour option.
+- "Show Post Author" now works on the search results page.
+- Fixed the incorrect line height in the post title when using the resize post title font option.
+v [New New UI, Old UI]
+- Added an option to hide the home feed entirely.
+- Added an option to change the post title/content/comments font weight.
+- Added options to change the "Create Post" title and body font sizes.
+- Separated the resize post title/content font options, so you can now resize post fonts on the feed and post pages independently.
+v [Old UI]
+- Added an option to add user profile pictures to comments.
+- Added support for "Show Navigation Buttons For The Next/Previous Root Comment".
 
 version 1.12.1
 - Bug fixes.
 
 version 1.12.0
-- Added an option to hide "Community Highlights" (New New UI).
-- Added an option to hide the "Trending Today" section in the search bar (New New UI).
-- Added an option to hide NSFW results in the search bar (New New UI).
-- Added an option to hide NSFW users in the search results page sidebar (New New UI).
-- Added an option to remember the side menu sections open/closed states (New New UI).
-- The "Show Post Author on the Home Feed" feature now works on the "r/popular" page (New New UI).
-- The "Show Post Flair on the Home Feed" feature now works on the "r/popular" page (New New UI).
-- The "Create Post" page will now use the "Home Feed Width" for the "Resize Feed" feature (New New UI).
-- Refactored and cleaned up the "Resize Feed" code, and removed some old code for an older build of the New New UI.
-- Fixed a bug with the "Default Feed Sort Option" feature causing it to run on pages it shouldn't and resulting in a page error.
-- Removed the "Remove the Page Side Margin" option, as it seems to be no longer needed (New New UI).
 - Slightly improved page loading efficiency.
 - Bug fixes.
+v [New New UI]
+- Added an option to hide "Community Highlights".
+- Added an option to hide the "Trending Today" section in the search bar.
+- Added an option to hide NSFW results in the search bar.
+- Added an option to hide NSFW users in the search results page sidebar.
+- Added an option to remember the side menu sections open/closed states.
+- The "Show Post Author" feature now works on the "r/popular" page.
+- The "Show Post Flair" feature now works on the "r/popular" page.
+- The "Create Post" page will now use the "Home Feed Width" for the "Resize Feed" feature.
+- Refactored and cleaned up the "Resize Feed" code, and removed some old code for an older build of the New New UI.
+- Fixed a bug with the "Default Feed Sort Option" feature causing it to run on pages it shouldn't and resulting in a page error.
+- Removed the "Remove the Page Side Margin" option, as it seems to be no longer needed.
 
 version 1.11.0
 - Added a warning that "Old New UI" may no longer be accessible as Reddit is phasing it out.
 - Added a message that the redirection to sh.reddit.com for the "New New UI" may no longer be needed.
-- Added an option to change the width of the side menu (New New UI).
-- Added an option to hide the favourite button (star icon) on items in the side menu (New New UI).
-- Added an option to just show the icons in the side menu (New New UI).
-- Added an option to show a toggle button on the side menu to show/hide it.
-- Added an option to hide the post back button (New New UI).
-- Added an option to change the theme border radius for some elements (New New UI).
-- Added an option to hide recent posts in the sidebar (New New UI).
-- Added an option to hide post karma (New New UI).
-- Added an option to hide the blank thumbnail on text posts in compact view feeds (New New UI).
 - Added an option to reset all extension settings.
-- "Show Post Author on the Home Feed" now works with the "Compact" view (New New UI).
+v [New New UI]
+- Added an option to change the width of the side menu.
+- Added an option to hide the favourite button (star icon) on items in the side menu.
+- Added an option to just show the icons in the side menu.
+- Added an option to show a toggle button on the side menu to show/hide it.
+- Added an option to hide the post back button.
+- Added an option to change the theme border radius for some elements.
+- Added an option to hide recent posts in the sidebar.
+- Added an option to hide post karma.
+- Added an option to hide the blank thumbnail on text posts in compact view feeds.
+- "Show Post Author on the Home Feed" now works with the "Compact" view.
 - "Hide Ads/Promoted Links" now also hides comment section ads.
-- Optimised and improved the "Default Feed Sort Option" and "Default Comments Sort Option" functions.
-- Enabled the "Default Feed Sort Option" and "Default Comments Sort Option" options for Old UI.
-- Fixed "Sticky Sort" not loading for Old UI.
 - Potential fix for the page refresh bug.
+- Optimised and improved the "Default Feed Sort Option" and "Default Comments Sort Option" functions.
+v [Old UI]
+- Added support for "Default Feed Sort Option" and "Default Comments Sort Option".
+- Fixed "Sticky Sort" not loading.
+
 - Other small bug fixes.
 
 version 1.10.2
@@ -71,14 +124,14 @@ version 1.10.2
 
 version 1.10.1
 - Clarity regarding the new permission requirement in version 1.10.0:
-    The "declarativeNetRequest" / "Block content on any page" permission, can be used to block and redirect content.
-    This is used for cross browser compatibility for the "Redirect to Preferred UI" feature, as well as the "Just Open The Image" feature on Chrome/Edge where it blocks everything but the image if you open it in a new tab.
-    This extension however, only affects Reddit, and cannot touch any other website.
+  - The "declarativeNetRequest" / "Block content on any page" permission, can be used to block and redirect content.
+  - This is used for cross browser compatibility for the "Redirect to Preferred UI" feature, as well as the "Just Open The Image" feature on Chrome/Edge where it blocks everything but the image if you open it in a new tab.
+  - This extension however, only affects Reddit, and cannot touch any other website.
 - Optimised the "Auto Expand Hidden Comments" feature by expanding the comments on scroll, instead of the whole page at once.
 - The "Auto Expand Hidden Comments" feature now supports Old Reddit.
 - Optimised the "Auto Load More Comments" feature by loading comments/replies on scroll, instead of the whole page at once.
 - The "Auto Load More Comments" feature now supports Old Reddit.
-- Added a button at the top to minimise the extension popover without fully closing it, to show the full site underneath.
+- Added a button at the top to minimise the extension popup without fully closing it, to show the full site underneath.
 - Excluded "/r/<subreddit>/about/<banned|muted|contributors|moderators|scheduledposts|removal|settings|/wiki/config/automoderator|edit/?page=safety>" links from being redirected to sh.reddit.com as these pages don't exist, and will instead be directed www.reddit.com.
 - Bug fixes.
 
@@ -183,70 +236,70 @@ version 1.0.0
 - Added an option to hide user profile pictures in the comments.
 - Added an option to auto expand hidden comments.
 - Added a new Accessibility section for new and latest Reddit.
-    - Resize the post content font.
-    - Resize the post comments font.
-    - Bionic Reader for posts.
-    - Bionic Reader for comments.
-    - Bionic Reader font colour.
-    - Bionic Reader text background colour.
+  - Resize the post content font.
+  - Resize the post comments font.
+  - Bionic Reader for posts.
+  - Bionic Reader for comments.
+  - Bionic Reader font colour.
+  - Bionic Reader text background colour.
 - Hide Ads/Promoted Posts on Old Reddit.
 - Hide NSFW Posts on Old Reddit.
 - Added initial localisation support for Czech, Finnish, Hungarian, Norwegian and Swedish. Requires further updates for 100% completion.
 - Support for the latest version of Reddit, including:
-    - Resize Feed / Post:
-        - Remove the Page Side Margin.
-        - Adjust the Home Feed Width.
-        - Adjust the Sub Feed Width.
-        - Adjust the Post Page Width.
-        - Adjust the User Profile Width.
-        - Adjust the Home Feed Offset. 
-        - Adjust the Sub Feed Offset.
-        - Adjust the Post Offset.
-        - Adjust the User Profile Offset.
-    - Hide Elements:
-        - Hide the Header Bar.
-        - Hide Ads/Promoted Posts.
-        - Hide NSFW Posts.
-        - Hide the Side Menu.
-            - Hide the Top Section.
-            - Hide the Moderation Section.
-            - Hide the Recent Section.
-            - Hide the Communities Section.
-            - Hide the Resources Section.
-        - Hide the Sub Reddit Sidebar.
-        - Hide the Post Sidebar.
-            - Hide Related Posts.
-        - Hide the User Sidebar.
-        - Hide the notification header button.
-        - Hide the create post header button.
-        - Hide the chat header button.
-        - Hide the advertise header button.
-        - Hide user profile pictures in the comments.
+  - Resize Feed / Post:
+    - Remove the Page Side Margin.
+    - Adjust the Home Feed Width.
+    - Adjust the Sub Feed Width.
+    - Adjust the Post Page Width.
+    - Adjust the User Profile Width.
+    - Adjust the Home Feed Offset. 
+    - Adjust the Sub Feed Offset.
+    - Adjust the Post Offset.
+    - Adjust the User Profile Offset.
+  - Hide Elements:
+    - Hide the Header Bar.
+    - Hide Ads/Promoted Posts.
+    - Hide NSFW Posts.
+    - Hide the Side Menu.
+      - Hide the Top Section.
+      - Hide the Moderation Section.
+      - Hide the Recent Section.
+      - Hide the Communities Section.
+      - Hide the Resources Section.
+    - Hide the Sub Reddit Sidebar.
+    - Hide the Post Sidebar.
+      - Hide Related Posts.
+    - Hide the User Sidebar.
+    - Hide the notification header button.
+    - Hide the create post header button.
+    - Hide the chat header button.
+    - Hide the advertise header button.
+    - Hide user profile pictures in the comments.
     - Productivity:
-        - Show Post Author.
-        - Add Scrollbar to Tall Images.
-        - Add 'Scroll To Top' Button in the Header.
-        - Scroll To Next/Previous Root Comment.
-        - Non Sticky Header Bar.
+      - Show Post Author.
+      - Add Scrollbar to Tall Images.
+      - Add 'Scroll To Top' Button in the Header.
+      - Scroll To Next/Previous Root Comment.
+      - Non Sticky Header Bar.
     - Style:
-        - Hide Interface Gaps.
-        - Theme Blur.
-        - Header: Background Colour.
-        - Header: Text Colour.
-        - Post: Background Colour.
-        - Post: Title and Text Content Colour.
-        - Visited Post: Title Colour.
-        - Post: Secondary Text Colour.
-        - Post: Border Colour.
+      - Hide Interface Gaps.
+      - Theme Blur.
+    - Header: Background Colour.
+      - Header: Text Colour.
+      - Post: Background Colour.
+      - Post: Title and Text Content Colour.
+      - Visited Post: Title Colour.
+      - Post: Secondary Text Colour.
+      - Post: Border Colour.
     - Background:
-        - Custom Background.
-        - Background Blur.
+      - Custom Background.
+      - Background Blur.
     - Accessibility:
-        - Post Content Font Size.
-        - Post Comments Font Size.
-        - Bionic Reader For Posts.
-        - Bionic Reader For Comments.
-        - Bionic Reader Font Colour.
+      - Post Content Font Size.
+      - Post Comments Font Size.
+      - Bionic Reader For Posts.
+      - Bionic Reader For Comments.
+      - Bionic Reader Font Colour.
 - Bug fixes and improvements.
 - Removed the "Hide the 'Coin' Button" option as Reddit has deprecated the Gold award system.
 - Removed the "Hide the 'Happening Now' Button" option as Reddit seems to have deprecated this.
@@ -423,3 +476,6 @@ version 0.3.0
 - Filter options for new and old reddit.
 - Cleaned up some code.
 - Fixed a couple bugs.
+
+version ?.?.?
+* ¯\_(ツ)_/¯
