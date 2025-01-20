@@ -613,7 +613,9 @@ export function themePostTextColour1(value) {
 			styleElement.textContent = `shreddit-post [id^="post-title"] {
 											--color-neutral-content-strong: var(--re-theme-post-text) !important;
 										}
-										shreddit-post [data-post-click-location="text-body"] p {
+										shreddit-post [data-post-click-location="text-body"] p,
+										shreddit-post [data-post-click-location="text-body"] h1,
+										shreddit-post [data-post-click-location="text-body"] pre {
 											color: var(--re-theme-post-text) !important;
 										}
 										[data-testid="search-post"] > post-consume-tracker > div {

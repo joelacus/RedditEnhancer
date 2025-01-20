@@ -138,7 +138,7 @@ import { hideHomeFeed } from './tweaks/hide_elements/hide_home_feed';
 import { addProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
 import { hidePostDivider, postSeparatorHeight } from './tweaks/hide_elements/hide_post_divider';
 import { hideBlurredMediaBackground } from './tweaks/hide_elements/hide_blurred_media_background';
-import { fullWidthBanner, compactHeaderSideMenu, compactSubRuleList } from './tweaks/style/old_new_ui';
+import { fullWidthBanner, compactHeaderSideMenu, compactSubRuleList, textPostPreviewFade, setTextPostPreviewFadeHeight, setTextPostPreviewMaxHeight } from './tweaks/style/old_new_ui';
 import { resizeMainContainer, resizeMainContainerWidth } from './tweaks/resize_elements/resize_main_container';
 import { hideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
@@ -544,6 +544,12 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		resizeMainContainer(value);
 	} else if (key === 'resizeMainContainerWidth') {
 		resizeMainContainerWidth(value);
+	} else if (key === 'textPostPreviewFade') {
+		textPostPreviewFade(value);
+	} else if (key === 'textPostPreviewFadeHeight') {
+		setTextPostPreviewFadeHeight(value);
+	} else if (key === 'textPostPreviewMaxHeight') {
+		setTextPostPreviewMaxHeight(value);
 	}
 	return true;
 });
