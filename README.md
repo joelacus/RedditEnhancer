@@ -26,7 +26,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Auto Redirect To Preferred Reddit Version/UI|Automatically redirect any reddit page to the old or latest version of Reddit (V2 - "Old New"/Version 2 of Reddit is no longer supported).|V3 - "New New"<br>V1 - Old
 |Just Open The Image|This will open just the image in a new tab when you click on it and not be embedded in a page. Only works on Firefox.|All|
 
-## Resize Feed
+## Resize Feed / Posts
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
 |Resize Feed/Post|This makes the feed/post wider so you can see more content and make more use of your screen.|All|
@@ -34,6 +34,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Offset Feeds|Individually adjust the horizontal offset for each feed to position it where you want.|V3 - "New New"|
 |Center Feed/Post|Centers the feed/post to the middle of the screen.|V1 - Old<br />V2 - "Old New"|
 |Auto Expand|This will automatically expand the feed/post to 100%, overriding the 'Adjust Feed/Post Width' option if the screen/window is less than the set value (default 1000px).|All|
+|Resize Main Container|Resize the entire content container instead of just the feeds.|V3 - "New New"|
 
 ## Background
 
@@ -59,7 +60,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide NSFW Posts|Hide any posts marked as NSFW.|All|
 |Hide NSFW Users in the Search Page Sidebar|Hide the found NSFW users in the search results page sidebar.|V3 - "New New"|
 |Hide Policies Section|Hides the content/privacy policy section in the sidebar.|V2 - "Old New"|
-|Hide Post Karma|Hides the karma on posts.|V3 - "New New"|
+|Hide Post Karma|Hides the karma on posts.|V3 - "New New"<br />V2 - "Old New"|
 |Hide profile pictures in the comments|Simply hides the user profile pictures in the comments of a post.|V2 - "Old New"<br />V3 - "New New"|
 |Hide Promoted Links|Hides the promoted links/posts in the main feed.|All|
 |Hide Recent Posts|Hide the recent posts section in the sidebar.|V3 - "New New"|
@@ -78,6 +79,10 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide The Sub Reddit Sidebar|Hides the sidebar on sub reddit pages.|V2 - "Old New"<br />V3 - "New New"|
 |Hide The User Sidebar|Hides the sidebar on profile/user pages.|V2 - "Old New"<br />V3 - "New New"|
 |Hide Username and/or Karma|You can hide your username and/or karma in the top bar.|V1 - Old<br />V2 - "Old New"|
+|Hide Post Separators|Hides the line between posts in feeds.|V3 - "New New"|
+|Hide background blur on image previews|Hides the blurred background on image posts.|V3 - "New New"|
+|Hide Comment Karma|Hide the karma on comments.|V3 - "New New"<br />V2 - "Old New"|
+|Hide Vote Buttons|Hide the vote buttons on posts and comments.|V3 - "New New"<br />V2 - "Old New"|
 
 ## Productivity
 
@@ -109,8 +114,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Scale Tall Images To Fit Post|This makes tall images that would otherwise be cropped for being too tall, fit the height of the post.|V2 - "Old New"|
 |Show 'Controversial' Sort Button|Shows the 'Controversial' button in the post sort menus.|V2 - "Old New"|
 |Show navigation buttons to scroll to the next/previous root comment on a post|Scroll to the next/previous root/first comments on a post.|All|
-|Show Post Author on the Home Feed|Shows the missing post author on the home feed for New New UI.|V3 - "New New"|
-|Show Post Flair on the Home Feed|Shows the missing post flair on the home feed for New New UI.|V3 - "New New"|
+|Show Post Author|Shows the missing post author on the home and other feeds.|V3 - "New New"|
+|Show Post Flair|Shows the missing post flair on the home and other feeds.|V3 - "New New"|
 |Show Side Menu Toggle Button|Adds a toggle button on the side menu to show/hide the side menu.|V3 - "New New"|
 |Side Menu Icons Only|A mini version of the side menu where it only shows the icons.|V3 - "New New"|
 |Side Menu Width|Change the width of the side menu.|V3 - "New New"|
@@ -136,6 +141,9 @@ I welcome any help if you would like to improve or contribute new language trans
 |Larger Classic Post View|Makes the classic post view style slightly larger and more readable.|V1 - Old<br />V2 - "Old New"|
 |Modernise old reddit|Makes old reddit look more like new reddit.|V1 - Old
 |Theme Colours + Blur|You can change various theme colours for the website, and add blur to translucent UI elements.|V2 - "Old New"<br />V3 - "New New"|
+|Compact Header Bar & Side Menu|Compact the spacing in the header bar and side menu.|V3 - "New New"|
+|Full Width Subreddit Banner|Stretch the subreddit banners to take the entire width of browser window.|V3 - "New New"|
+|Compact Subreddit Rule List|Compact the spacing in the subreddit rule list.|V3 - "New New"|
 
 ## Accessibility
 
