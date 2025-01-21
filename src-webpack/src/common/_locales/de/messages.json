@@ -871,8 +871,8 @@
 		"message": "Themen-Feedbreite"
 	},
 
-	"RemovalNotification": {
-		"message": "Reddit has discontinued (Old New UI / Version 2) of the website, and will be redirecting users from new.reddit.com to the latest version. If you have the redirect feature enabled for this version, you will get a page error. Set the redirect option to 'Off' or 'Old UI'. The options for Old New UI will be removed from upcoming versions of Reddit Enhancer."
+	"RUI2RemovalInfo": {
+		"message": "Reddit has discontinued (Old New UI / Version 2) of the website. Options for 'Old New UI' will continue to be supported for now while other workarounds to get it back are still working."
 	},
 
 	"learnMore": {
@@ -939,8 +939,8 @@
 		"message": "Lässt das alte Reddit mehr wie das neue Reddit aussehen."
 	},
 
-	"YouMayNotNeedTheRedirectAnymore": {
-		"message": "Reddit beginnt, die „New New UI“ als Standard festzulegen, sodass Sie die Weiterleitung zu sh.reddit.com möglicherweise nicht mehr benötigen. Versuchen Sie, die Umleitungsoption auf „Aus“ zu setzen, und rufen Sie www.reddit.com auf, um zu prüfen, ob Ihr Konto so eingestellt ist, dass die „Neuer Neuer UI als Standard verwendet wird. Wenn nicht, können Sie die Umleitungsoption vorerst weiter verwenden."
+	"RUI3RedirectInfo": {
+		"message": "Die Umleitungsoption zu „Neuer Neuer UI“ ist nicht mehr erforderlich. Sie können diese Option jedoch verwenden, um Links von (sh|old).reddit.com zu www.reddit.com zu erzwingen."
 	},
 
 	"DontShowAgain": {

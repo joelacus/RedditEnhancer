@@ -871,8 +871,8 @@
 		"message": "Ancho del feed de temas"
 	},
 
-	"RemovalNotification": {
-		"message": "Reddit has discontinued (Old New UI / Version 2) of the website, and will be redirecting users from new.reddit.com to the latest version. If you have the redirect feature enabled for this version, you will get a page error. Set the redirect option to 'Off' or 'Old UI'. The options for Old New UI will be removed from upcoming versions of Reddit Enhancer."
+	"RUI2RemovalInfo": {
+		"message": "Reddit has discontinued (Old New UI / Version 2) of the website. Options for 'Old New UI' will continue to be supported for now while other workarounds to get it back are still working."
 	},
 
 	"learnMore": {
@@ -939,8 +939,8 @@
 		"message": "Hace que el antiguo Reddit se parezca más al nuevo Reddit."
 	},
 
-	"YouMayNotNeedTheRedirectAnymore": {
-		"message": "Reddit está comenzando a utilizar la 'Nueva Nueva UI' como opción predeterminada, por lo que es posible que ya no necesites la redirección a sh.reddit.com. Intente configurar la opción de redireccionamiento en 'Apagado' y vaya a www.reddit.com para ver si su cuenta está configurada para usar la 'Nueva Nueva UI' como predeterminada; si no, puede continuar usando la opción de redireccionamiento por ahora."
+	"RUI3RedirectInfo": {
+		"message": "La opción de redirección a 'Nueva Nueva UI' ya no es necesaria, sin embargo, puedes usar esta opción para forzar enlaces de (sh|old).reddit.com a www.reddit.com"
 	},
 
 	"DontShowAgain": {

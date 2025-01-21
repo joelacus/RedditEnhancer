@@ -871,8 +871,8 @@
 		"message": "Aiheen syötteen leveys"
 	},
 
-	"RemovalNotification": {
-		"message": "Reddit has discontinued (Old New UI / Version 2) of the website, and will be redirecting users from new.reddit.com to the latest version. If you have the redirect feature enabled for this version, you will get a page error. Set the redirect option to 'Off' or 'Old UI'. The options for Old New UI will be removed from upcoming versions of Reddit Enhancer."
+	"RUI2RemovalInfo": {
+		"message": "Reddit has discontinued (Old New UI / Version 2) of the website. Options for 'Old New UI' will continue to be supported for now while other workarounds to get it back are still working."
 	},
 
 	"learnMore": {
@@ -939,8 +939,8 @@
 		"message": "Makes old reddit look more like new reddit."
 	},
 
-	"YouMayNotNeedTheRedirectAnymore": {
-		"message": "Reddit is starting to make the 'New New UI' default, so you may no longer need the redirect to sh.reddit.com anymore. Try setting the redirect option to 'Off' and refresh Reddit to see if your account is set to use the 'New New UI' as the default, if not, you can carry on using the redirect option for now."
+	"RUI3RedirectInfo": {
+		"message": "The redirect option to 'New New UI' is no longer necessary, however, you can use this option to force links from (sh|old).reddit.com to www.reddit.com"
 	},
 
 	"DontShowAgain": {

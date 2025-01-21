@@ -12,9 +12,10 @@ body {
 	--text-grey: #808080;
 	--header-fg: #fcfcfc;
 	--footer-fg: #fcfcfc;
-	--extension-title: var(--header-fg);
+	--extension-title: #000;
 	--shadow: rgba(0, 0, 0, 0.5);
-	--top-menu-chevron: #000;
+	--top-menu-chevron: var(--extension-title);
+	--shade: var(--extension-title);
 
 	--bg: #2e2e2e;
 	--bg-shade-1: #101010;
@@ -43,9 +44,10 @@ body {
 	--text-grey: #626261;
 	--header-fg: #030303;
 	--footer-fg: #030303;
-	--extension-title: var(--header-fg);
+	--extension-title: #626261;
 	--shadow: rgba(255, 255, 255, 0.5);
-	--top-menu-chevron: #626261;
+	--top-menu-chevron: var(--extension-title);
+	--shade: var(--extension-title);
 
 	--bg: #f0f0f0;
 	--bg-shade-1: #d4d4d4;
@@ -75,9 +77,10 @@ body {
 	--text-grey: #8e8e8e;
 	--header-fg: #030303;
 	--footer-fg: #030303;
-	--extension-title: var(--header-fg);
+	--extension-title: #8e8e8e;
 	--shadow: rgba(255, 255, 255, 0.5);
-	--top-menu-chevron: #8e8e8e;
+	--top-menu-chevron: var(--extension-title);
+	--shade: var(--extension-title);
 
 	--bg: #ebebeb;
 	--bg-tint-1: #e6e6e5;
@@ -105,9 +108,10 @@ body {
 	--text-grey: #dbdbdb;
 	--header-fg: #030303;
 	--footer-fg: #030303;
-	--extension-title: var(--header-fg);
+	--extension-title: #030303;
 	--shadow: rgba(0, 0, 0, 0.5);
-	--top-menu-chevron: #030303;
+	--top-menu-chevron: var(--extension-title);
+	--shade: var(--extension-title);
 
 	--bg: #f0f0f0;
 	--bg-shade-1: color-mix(in srgb, var(--bg) 34.78%, #000000);

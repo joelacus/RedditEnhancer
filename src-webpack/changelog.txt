@@ -2,7 +2,7 @@ version 1.14.0
 - Added sticky sub menus in the extension settings for easier navigation.
 - The extension popup window is now 100px taller.
 - Improved the changelog page.
-- Removed "New New UI" and "Old New UI" from the redirect menu as they are no longer relevant.
+- Removed "Old New UI" from the redirect menu as it is no longer relevant. The "New New UI" option will now just redirect (sh|old).reddit.com links to www.reddit.com.
 - Options for "Old New UI" will continue to be supported for now while other workarounds to get it back are still working.
 - Minor extension theme tweaks and added a new theme "Grey".
 - Bug fixes and improvements throughout the extension.

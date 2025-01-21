@@ -15,10 +15,6 @@ import { fetchLatestVersion } from './functions/check_for_updates';
 
 /* = Restore Tweak Options On Popup Load = */
 window.onload = function () {
-	// Add slight delay to prevent theme change flicker
-	setTimeout(() => {
-		document.querySelector('body').removeAttribute('style', '');
-	}, 250);
 	restoreOptions();
 	fetchLatestVersion();
 };

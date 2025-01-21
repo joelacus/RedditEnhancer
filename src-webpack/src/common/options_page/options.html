@@ -48,8 +48,8 @@
 					<input type="hidden" name="reddit-version" />
 					<ul id="select-reddit-version-menu" class="dropdown-menu">
 						<li id="redirect-off" data-version="off"><span data-lang="Off"></span></li>
-						<!--<li id="redirect-newnew-reddit" data-version="newnew"><span data-lang="NewNewUI"></span></li>
-						<li id="redirect-new-reddit" data-version="new"><span data-lang="OldNewUI"></span></li>-->
+						<li id="redirect-newnew-reddit" data-version="newnew"><span data-lang="NewNewUI"></span></li>
+						<li id="redirect-new-reddit" data-version="new" style="display: none"><span data-lang="OldNewUI"></span></li>
 						<li id="redirect-old-reddit" data-version="old"><span data-lang="OldUI"></span></li>
 					</ul>
 				</div>
@@ -64,7 +64,7 @@
 			</div>
 		</div>
 		<div id="old-new-ui-removal-message" class="banner-message" style="display: none">
-			<span data-lang="RemovalNotification"></span>
+			<span data-lang="RUI2RemovalInfo"></span>
 			<div class="message-buttons">
 				<a class="btn" href="https://www.reddit.com/r/help/comments/1ehmgmr/next_steps_for_newredditcom/" target="_blank" data-lang="learnMore"></a>
 				<div class="btn close" data-lang="Close"></div>
@@ -72,9 +72,8 @@
 			</div>
 		</div>
 		<div id="new-new-ui-message" class="banner-message amber" style="display: none">
-			<span data-lang="YouMayNotNeedTheRedirectAnymore"></span>
+			<span data-lang="RUI3RedirectInfo"></span>
 			<div class="message-buttons">
-				<a class="btn" href="https://www.reddit.com" target="_blank">www.reddit.com</a>
 				<div class="btn close" data-lang="Close"></div>
 				<div class="btn dont-show-again" data-lang="DontShowAgain"></div>
 			</div>
@@ -250,14 +249,21 @@
 							<li class="sub-header r-old r-new r-newnew">
 								<div class="sub-header-menu">
 									<div class="r-old r-new r-newnew">
-										<a href="#resize-width" data-lang="Width"></a>
+										<a href="#resize-width" data-lang="FeedWidth"></a>
 										<div class="vdivider"></div>
 									</div>
 									<div class="r-old r-new r-newnew">
-										<a href="#feed-offset" data-lang="Offset"></a>
+										<a href="#feed-offset" data-lang="FeedOffset"></a>
+										<div class="vdivider r-newnew"></div>
+									</div>
+									<div class="r-newnew">
+										<a href="#resize-side-menu" data-lang="SideMenu"></a>
 										<div class="vdivider"></div>
 									</div>
-									<div class="r-new r-newnew"><a href="#resize-other" data-lang="Other"></a></div>
+									<div class="r-newnew">
+										<a href="#resize-main-container" data-lang="MainContainer"></a>
+										<!--<div class="vdivider"></div>-->
+									</div>
 								</div>
 							</li>
 							<li id="resize-layout" class="sub-header sub-search-title">
@@ -370,8 +376,8 @@
 									<span id="layout-search-page-offset-value" class="input-value"></span>
 								</div>
 							</li>
-							<li id="resize-other" class="sub-header r-newnew">
-								<span data-lang="Other"></span>
+							<li id="resize-side-menu" class="sub-header r-newnew">
+								<span data-lang="SideMenu"></span>
 							</li>
 							<li class="container-slider r-newnew">
 								<span class="menu-item-icon icon-ruler-horizontal icon-side-menu-width"></span>
@@ -379,8 +385,11 @@
 								<input type="range" min="199" max="300" value="0" step="1" class="slider" id="input-side-menu-width" />
 								<span id="side-menu-width-value" class="input-value"></span>
 							</li>
-							<li class="container">
-								<div class="container-3 r-newnew">
+							<li id="resize-main-container" class="sub-header r-newnew">
+								<span data-lang="MainContainer"></span>
+							</li>
+							<li class="container r-newnew">
+								<div class="container-3">
 									<span class="menu-item-icon icon-resize-feed icon-resize-main-container"></span>
 									<span data-lang="ResizeMainContainer" data-search="resize,container,content"></span>
 									<label class="switch">
@@ -897,7 +906,7 @@
 							</li>
 							<li class="container-3 r-new r-newnew">
 								<span class="menu-item-icon icon-show icon-hide-post-karma"></span>
-								<span data-lang="HidePostKarma" data-search="votes,karma"></span>
+								<span data-lang="HidePostKarma" data-search="votes,karma,upvote,downvote"></span>
 								<label class="switch">
 									<input id="checkbox-hide-post-karma" type="checkbox" />
 									<span class="indicator"></span>
@@ -1155,7 +1164,7 @@
 										<li id="feed-sort-new" class="r-newnew r-new r-old"><span data-lang="New"></span></li>
 										<li id="feed-sort-comments" class="r-newnew r-old"><span data-lang="CommentsCount"></span></li>
 										<!--<li id="feed-sort-controversial"><span data-lang="Controversial"></span></li>
-								<li id="feed-sort-rising"><span data-lang="Rising"></span></li>-->
+										<li id="feed-sort-rising"><span data-lang="Rising"></span></li>-->
 									</ul>
 								</div>
 								<label class="switch">
@@ -1426,6 +1435,116 @@
 									<span class="indicator"></span>
 								</label>
 							</li>-->
+						</ul>
+					</li>
+
+					<li id="index-7" data-index="7">
+						<!-- Font Tweaks -->
+						<div id="font-tweaks" class="menu-item-link btn-font r-old r-new r-newnew">
+							<div class="menu-item-btn">
+								<span class="menu-item-icon icon-font"></span>
+								<span data-lang="Font" class="menu-item-title"></span>
+								<div class="icon-chevron-down"></div>
+							</div>
+							<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
+						</div>
+						<!-- Font Sub Menu -->
+						<ul class="sub-list menu-font hidden r-old r-new r-newnew">
+							<li class="sub-header sub-search-title">
+								<span data-lang="Font"></span>
+							</li>
+							<li class="sub-header r-old r-new r-newnew">
+								<div class="sub-header-menu">
+									<div class="r-old r-new r-newnew">
+										<a href="#font-resize" data-lang="ResizeFont"></a>
+										<div class="vdivider"></div>
+									</div>
+									<div class="r-old r-new r-newnew"><a href="#font-weight" data-lang="FontWeight"></a></div>
+								</div>
+							</li>
+							<li id="font-resize" class="sub-header r-old r-new r-newnew">
+								<span data-lang="ResizeFont"></span>
+							</li>
+							<li class="container r-old r-new r-newnew">
+								<div class="container-slider">
+									<span class="menu-item-icon icon-font icon-post-title-font-size"></span>
+									<span data-lang="PostTitle" data-search=""></span>
+									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-post-title-font-size" />
+									<span id="post-title-font-size-value" class="input-value"></span>
+								</div>
+								<div class="container-slider">
+									<span class="menu-item-icon icon-font icon-post-content-font-size"></span>
+									<span data-lang="PostContent" data-search=""></span>
+									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-post-content-font-size" />
+									<span id="post-content-font-size-value" class="input-value"></span>
+								</div>
+								<div class="container-slider">
+									<span class="menu-item-icon icon-font icon-post-comments-font-size"></span>
+									<span data-lang="PostComments" data-search=""></span>
+									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-post-comments-font-size" />
+									<span id="post-comments-font-size-value" class="input-value"></span>
+								</div>
+								<div class="container-slider r-old r-newnew">
+									<span class="menu-item-icon icon-font icon-feed-post-title-font-size"></span>
+									<span data-lang="FeedPostTitle" data-search=""></span>
+									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-feed-post-title-font-size" />
+									<span id="feed-post-title-font-size-value" class="input-value"></span>
+								</div>
+								<div class="container-slider r-old r-newnew">
+									<span class="menu-item-icon icon-font icon-feed-post-content-font-size"></span>
+									<span data-lang="FeedPostContent" data-search=""></span>
+									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-feed-post-content-font-size" />
+									<span id="feed-post-content-font-size-value" class="input-value"></span>
+								</div>
+								<div class="container-slider r-old r-new r-newnew">
+									<span class="menu-item-icon icon-font icon-create-post-title-font-size"></span>
+									<span data-lang="CreatePostTitle" data-search=""></span>
+									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-create-post-title-font-size" />
+									<span id="create-post-title-font-size-value" class="input-value"></span>
+								</div>
+								<div class="container-slider r-old r-new r-newnew">
+									<span class="menu-item-icon icon-font icon-create-post-body-font-size"></span>
+									<span data-lang="CreatePostBody" data-search=""></span>
+									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-create-post-body-font-size" />
+									<span id="create-post-body-font-size-value" class="input-value"></span>
+								</div>
+							</li>
+							<li id="font-weight" class="sub-header r-old r-newnew">
+								<span data-lang="FontWeight"></span>
+							</li>
+							<li class="container r-old r-newnew">
+								<div class="container-slider">
+									<span class="menu-item-icon icon-bold icon-post-title-font-weight"></span>
+									<span data-lang="PostTitle" data-search=""></span>
+									<input type="range" min="0" max="900" value="0" step="100" class="slider" id="input-post-title-font-weight" />
+									<span id="post-title-font-weight-value" class="input-value"></span>
+								</div>
+								<div class="container-slider">
+									<span class="menu-item-icon icon-bold icon-post-content-font-weight"></span>
+									<span data-lang="PostContent" data-search=""></span>
+									<input type="range" min="0" max="900" value="0" step="100" class="slider" id="input-post-content-font-weight" />
+									<span id="post-content-font-weight-value" class="input-value"></span>
+								</div>
+								<div class="container-slider">
+									<span class="menu-item-icon icon-bold icon-post-comments-font-weight"></span>
+									<span data-lang="PostComments" data-search=""></span>
+									<input type="range" min="0" max="900" value="0" step="100" class="slider" id="input-post-comments-font-weight" />
+									<span id="post-comments-font-weight-value" class="input-value"></span>
+								</div>
+								<div class="container-slider">
+									<span class="menu-item-icon icon-bold icon-feed-post-title-font-weight"></span>
+									<span data-lang="FeedPostTitle" data-search=""></span>
+									<input type="range" min="0" max="900" value="0" step="100" class="slider" id="input-feed-post-title-font-weight" />
+									<span id="feed-post-title-font-weight-value" class="input-value"></span>
+								</div>
+								<div class="container-slider">
+									<span class="menu-item-icon icon-bold icon-feed-post-content-font-weight"></span>
+									<span data-lang="FeedPostContent" data-search=""></span>
+									<input type="range" min="0" max="900" value="0" step="100" class="slider" id="input-feed-post-content-font-weight" />
+									<span id="feed-post-content-font-weight-value" class="input-value"></span>
+								</div>
+								<p class="info" data-lang="FontWeightInfo"></p>
+							</li>
 						</ul>
 					</li>
 
@@ -2027,53 +2146,6 @@
 						</ul>
 					</li>
 
-					<li id="index-0" data-index="0">
-						<!-- Dark Mode -->
-						<div id="dark-mode" class="menu-item-link btn-dark-mode r-new">
-							<div class="menu-item-btn">
-								<span class="menu-item-icon icon-dark-mode"></span>
-								<span data-lang="DarkMode" class="menu-item-title"></span>
-								<div class="icon-chevron-down"></div>
-							</div>
-							<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
-						</div>
-						<!-- Dark Mode Sub Menu -->
-						<ul class="sub-list menu-dark-mode hidden r-new">
-							<li class="sub-header sub-search-title">
-								<span data-lang="DarkMode"></span>
-							</li>
-							<li class="container-3 r-new">
-								<span class="menu-item-icon icon-dark-mode"></span>
-								<span data-lang="DarkMode" data-search="night"></span>
-								<label class="switch">
-									<input id="checkbox-dark-mode" type="checkbox" />
-									<span class="indicator"></span>
-								</label>
-							</li>
-							<li class="container-1 r-new">
-								<div class="container-2 option-title">
-									<span class="menu-item-icon icon-auto"></span>
-									<span data-lang="Auto" style="align-self: center" data-search="dark,night"></span>
-								</div>
-								<div class="tab-switcher-column">
-									<div id="btn-dm-disabled" class="tab-active"><span data-lang="Disabled" data-search="dark,night"></span></div>
-									<div id="btn-dm-system"><span data-lang="BrowserTheme" data-search="dark,night"></span></div>
-									<div id="btn-dm-time"><span data-lang="TimeRange" data-search="dark,night"></span></div>
-								</div>
-							</li>
-							<li class="container-time r-new">
-								<span class="menu-item-icon icon-clock"></span>
-								<label data-lang="StartTime" for="time-start" data-search="dark,night"></label>
-								<input type="time" id="dm-time-start" name="time-start" class="time-input" />
-							</li>
-							<li class="container-time r-new">
-								<span class="menu-item-icon icon-clock"></span>
-								<label data-lang="EndTime" for="time-end" data-search="dark,night"></label>
-								<input type="time" id="dm-time-end" name="time-end" class="time-input" />
-							</li>
-						</ul>
-					</li>
-
 					<li id="index-5" data-index="5">
 						<!-- Background -->
 						<div id="background" class="menu-item-link btn-background r-old r-new r-newnew">
@@ -2121,116 +2193,6 @@
 										<span id="no-saved-backgrounds-message" data-lang="NoSavedBackgrounds"></span>
 									</div>
 								</div>
-							</li>
-						</ul>
-					</li>
-
-					<li id="index-7" data-index="7">
-						<!-- Font Tweaks -->
-						<div id="font-tweaks" class="menu-item-link btn-font r-old r-new r-newnew">
-							<div class="menu-item-btn">
-								<span class="menu-item-icon icon-font"></span>
-								<span data-lang="Font" class="menu-item-title"></span>
-								<div class="icon-chevron-down"></div>
-							</div>
-							<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
-						</div>
-						<!-- Font Sub Menu -->
-						<ul class="sub-list menu-font hidden r-old r-new r-newnew">
-							<li class="sub-header sub-search-title">
-								<span data-lang="Font"></span>
-							</li>
-							<li class="sub-header r-old r-new r-newnew">
-								<div class="sub-header-menu">
-									<div class="r-old r-new r-newnew">
-										<a href="#font-resize" data-lang="ResizeFont"></a>
-										<div class="vdivider"></div>
-									</div>
-									<div class="r-old r-new r-newnew"><a href="#font-weight" data-lang="FontWeight"></a></div>
-								</div>
-							</li>
-							<li id="font-resize" class="sub-header r-old r-new r-newnew">
-								<span data-lang="ResizeFont"></span>
-							</li>
-							<li class="container r-old r-new r-newnew">
-								<div class="container-slider">
-									<span class="menu-item-icon icon-font icon-post-title-font-size"></span>
-									<span data-lang="PostTitle" data-search=""></span>
-									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-post-title-font-size" />
-									<span id="post-title-font-size-value" class="input-value"></span>
-								</div>
-								<div class="container-slider">
-									<span class="menu-item-icon icon-font icon-post-content-font-size"></span>
-									<span data-lang="PostContent" data-search=""></span>
-									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-post-content-font-size" />
-									<span id="post-content-font-size-value" class="input-value"></span>
-								</div>
-								<div class="container-slider">
-									<span class="menu-item-icon icon-font icon-post-comments-font-size"></span>
-									<span data-lang="PostComments" data-search=""></span>
-									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-post-comments-font-size" />
-									<span id="post-comments-font-size-value" class="input-value"></span>
-								</div>
-								<div class="container-slider r-old r-newnew">
-									<span class="menu-item-icon icon-font icon-feed-post-title-font-size"></span>
-									<span data-lang="FeedPostTitle" data-search=""></span>
-									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-feed-post-title-font-size" />
-									<span id="feed-post-title-font-size-value" class="input-value"></span>
-								</div>
-								<div class="container-slider r-old r-newnew">
-									<span class="menu-item-icon icon-font icon-feed-post-content-font-size"></span>
-									<span data-lang="FeedPostContent" data-search=""></span>
-									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-feed-post-content-font-size" />
-									<span id="feed-post-content-font-size-value" class="input-value"></span>
-								</div>
-								<div class="container-slider r-old r-new r-newnew">
-									<span class="menu-item-icon icon-font icon-create-post-title-font-size"></span>
-									<span data-lang="CreatePostTitle" data-search=""></span>
-									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-create-post-title-font-size" />
-									<span id="create-post-title-font-size-value" class="input-value"></span>
-								</div>
-								<div class="container-slider r-old r-new r-newnew">
-									<span class="menu-item-icon icon-font icon-create-post-body-font-size"></span>
-									<span data-lang="CreatePostBody" data-search=""></span>
-									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-create-post-body-font-size" />
-									<span id="create-post-body-font-size-value" class="input-value"></span>
-								</div>
-							</li>
-							<li id="font-weight" class="sub-header r-old r-newnew">
-								<span data-lang="FontWeight"></span>
-							</li>
-							<li class="container r-old r-newnew">
-								<div class="container-slider">
-									<span class="menu-item-icon icon-bold icon-post-title-font-weight"></span>
-									<span data-lang="PostTitle" data-search=""></span>
-									<input type="range" min="0" max="900" value="0" step="100" class="slider" id="input-post-title-font-weight" />
-									<span id="post-title-font-weight-value" class="input-value"></span>
-								</div>
-								<div class="container-slider">
-									<span class="menu-item-icon icon-bold icon-post-content-font-weight"></span>
-									<span data-lang="PostContent" data-search=""></span>
-									<input type="range" min="0" max="900" value="0" step="100" class="slider" id="input-post-content-font-weight" />
-									<span id="post-content-font-weight-value" class="input-value"></span>
-								</div>
-								<div class="container-slider">
-									<span class="menu-item-icon icon-bold icon-post-comments-font-weight"></span>
-									<span data-lang="PostComments" data-search=""></span>
-									<input type="range" min="0" max="900" value="0" step="100" class="slider" id="input-post-comments-font-weight" />
-									<span id="post-comments-font-weight-value" class="input-value"></span>
-								</div>
-								<div class="container-slider">
-									<span class="menu-item-icon icon-bold icon-feed-post-title-font-weight"></span>
-									<span data-lang="FeedPostTitle" data-search=""></span>
-									<input type="range" min="0" max="900" value="0" step="100" class="slider" id="input-feed-post-title-font-weight" />
-									<span id="feed-post-title-font-weight-value" class="input-value"></span>
-								</div>
-								<div class="container-slider">
-									<span class="menu-item-icon icon-bold icon-feed-post-content-font-weight"></span>
-									<span data-lang="FeedPostContent" data-search=""></span>
-									<input type="range" min="0" max="900" value="0" step="100" class="slider" id="input-feed-post-content-font-weight" />
-									<span id="feed-post-content-font-weight-value" class="input-value"></span>
-								</div>
-								<p class="info" data-lang="FontWeightInfo"></p>
 							</li>
 						</ul>
 					</li>
@@ -2305,6 +2267,53 @@
 										<input id="input-bionic-bg-colour-css" type="text" placeholder="#fff" />
 									</div>
 								</div>
+							</li>
+						</ul>
+					</li>
+
+					<li id="index-0" data-index="0">
+						<!-- Dark Mode -->
+						<div id="dark-mode" class="menu-item-link btn-dark-mode r-new">
+							<div class="menu-item-btn">
+								<span class="menu-item-icon icon-dark-mode"></span>
+								<span data-lang="DarkMode" class="menu-item-title"></span>
+								<div class="icon-chevron-down"></div>
+							</div>
+							<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
+						</div>
+						<!-- Dark Mode Sub Menu -->
+						<ul class="sub-list menu-dark-mode hidden r-new">
+							<li class="sub-header sub-search-title">
+								<span data-lang="DarkMode"></span>
+							</li>
+							<li class="container-3 r-new">
+								<span class="menu-item-icon icon-dark-mode"></span>
+								<span data-lang="DarkMode" data-search="night"></span>
+								<label class="switch">
+									<input id="checkbox-dark-mode" type="checkbox" />
+									<span class="indicator"></span>
+								</label>
+							</li>
+							<li class="container-1 r-new">
+								<div class="container-2 option-title">
+									<span class="menu-item-icon icon-auto"></span>
+									<span data-lang="Auto" style="align-self: center" data-search="dark,night"></span>
+								</div>
+								<div class="tab-switcher-column">
+									<div id="btn-dm-disabled" class="tab-active"><span data-lang="Disabled" data-search="dark,night"></span></div>
+									<div id="btn-dm-system"><span data-lang="BrowserTheme" data-search="dark,night"></span></div>
+									<div id="btn-dm-time"><span data-lang="TimeRange" data-search="dark,night"></span></div>
+								</div>
+							</li>
+							<li class="container-time r-new">
+								<span class="menu-item-icon icon-clock"></span>
+								<label data-lang="StartTime" for="time-start" data-search="dark,night"></label>
+								<input type="time" id="dm-time-start" name="time-start" class="time-input" />
+							</li>
+							<li class="container-time r-new">
+								<span class="menu-item-icon icon-clock"></span>
+								<label data-lang="EndTime" for="time-end" data-search="dark,night"></label>
+								<input type="time" id="dm-time-end" name="time-end" class="time-input" />
 							</li>
 						</ul>
 					</li>

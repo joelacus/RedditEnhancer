@@ -7,7 +7,7 @@
 }
 
 #start-page [data-lang='Welcome'] {
-	color: var(--text-grey);
+	color: var(--header-fg);
 	font-size: 30px;
 }
 
@@ -20,7 +20,7 @@
 	text-align: center;
 	grid-gap: 4px;
 	align-items: center;
-	columns: var(--text);
+	columns: var(--header-fg);
 	width: fit-content;
 }
 
@@ -40,7 +40,7 @@
 	justify-self: center;
 	width: 50px;
 	height: 50px;
-	background-color: var(--text-grey);
+	background-color: color-mix(in srgb, var(--header-fg), transparent 50%);
 	mask-size: contain;
 	-webkit-mask-size: contain;
 	mask-position: contain;
@@ -51,4 +51,8 @@
 
 #start-page-select-version .icon {
 	background-color: var(--accent);
+}
+
+.start-page-info {
+	color: var(--header-fg);
 }
