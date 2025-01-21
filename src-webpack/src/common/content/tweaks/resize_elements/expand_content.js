@@ -452,7 +452,6 @@ function enableExpandContentNewNew() {
 									grid-template-columns: auto 316px;
 								}
 
-								shreddit-app[routename="profile_post_page"] .main-container,
 								shreddit-app[routename="profile_overview"] .main-container,
 								shreddit-app[routename="profile_posts"] .main-container,
 								shreddit-app[routename="profile_comments"] .main-container,
@@ -465,7 +464,8 @@ function enableExpandContentNewNew() {
 								}
 								
 								shreddit-app[routename="post_page"] .main-container,
-								shreddit-app[routename="comments_page"] .main-container {
+								shreddit-app[routename="comments_page"] .main-container,
+								shreddit-app[routename="profile_post_page"] .main-container {
 									display: grid;
 									grid-template-columns: auto var(--re-post-sidebar-width) !important;
 								}

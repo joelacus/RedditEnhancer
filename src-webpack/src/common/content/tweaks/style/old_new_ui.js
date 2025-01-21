@@ -250,16 +250,54 @@ function enableTextPostPreviewFade() {
 									    margin: 0 0 .75rem 0 !important;
 									    overflow: inherit;
 									}
-									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview p strong {
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview strong,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table th {
 									    font-weight: 700;
 									}
-									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview p em {
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview em {
 									    font-style: italic;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview sup {
+									    font-size: 83.33%;
 									}
 									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > pre {
 									    padding: 0.5rem 0.75rem;
 									    background-color: var(--color-tone-4);
 									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > blockquote {
+										display: block !important;
+									    margin: 0 0 1rem 0;
+									    padding: 0 0 0 1rem;
+									    border-left: 5px solid var(--color-tone-5);
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table {
+									    display: table !important;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table thead {
+										display: table-header-group !important;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table tbody {
+										display: table-row-group !important;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table tr {
+									    display: table-row !important;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table th,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table td {
+									    display: table-cell !important;
+									    padding: .5rem;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table .align-left {
+									    text-align: left;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table thead tr,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table tr:nth-child(2n) {
+									    background-color: var(--color-tone-6);
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > blockquote::before,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > blockquote::after,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table::before,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table::after,
 									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > pre::before,
 									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > pre::after {
 									    content: none;

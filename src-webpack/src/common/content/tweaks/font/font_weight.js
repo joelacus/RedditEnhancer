@@ -31,7 +31,13 @@ export function postTitleFontWeight(value) {
 				styleElement.id = 're-post-title-font-weight';
 				styleElement.textContent = `[routename="post_page"] shreddit-post a[slot="title"],
 											[routename="post_page"] shreddit-post h1[slot="title"],
-											[routename="post_page"] shreddit-profile-comment h2 a {
+											[routename="post_page"] shreddit-profile-comment h2 a,
+											[routename="comment_page"] shreddit-post a[slot="title"],
+											[routename="comment_page"] shreddit-post h1[slot="title"],
+											[routename="comment_page"] shreddit-profile-comment h2 a,
+											[routename="profile_post_page"] shreddit-post a[slot="title"],
+											[routename="profile_post_page"] shreddit-post h1[slot="title"],
+											[routename="profile_post_page"] shreddit-profile-comment h2 a {
 												font-weight: var(--re-post-title-font-weight) !important;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
@@ -64,7 +70,11 @@ export function postContentFontWeight(value) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-post-content-font-weight';
 				styleElement.textContent = `[routename="post_page"] shreddit-post [data-post-click-location="text-body"] p,
-											[routename="post_page"] shreddit-profile-comment [id*="-content"] {
+											[routename="post_page"] shreddit-profile-comment [id*="-content"],
+											[routename="comment_page"] shreddit-post [data-post-click-location="text-body"] p,
+											[routename="comment_page"] shreddit-profile-comment [id*="-content"],
+											[routename="profile_post_page"] shreddit-post [data-post-click-location="text-body"] p,
+											[routename="profile_post_page"] shreddit-profile-comment [id*="-content"] {
 												font-weight: var(--re-post-content-font-weight) !important;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
