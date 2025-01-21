@@ -247,7 +247,7 @@ function enableTextPostPreviewFade() {
 									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > pre,
 									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > hr {
 									    display: block !important;
-									    margin: 0 0 .75rem 0 !important;
+									    margin: 0 0 .75rem 0 !important; /* Adjust paragraph spacing here */
 									    overflow: inherit;
 									}
 									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview strong,
@@ -269,6 +269,12 @@ function enableTextPostPreviewFade() {
 									    margin: 0 0 1rem 0;
 									    padding: 0 0 0 1rem;
 									    border-left: 5px solid var(--color-tone-5);
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > blockquote > * {
+										display: block !important;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > blockquote > :not(:last-child) {
+										margin-bottom: .75rem; /* Adjust paragraph spacing here */
 									}
 									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table {
 									    display: table !important;

@@ -63,8 +63,8 @@ async function attachFlair(post) {
 			a.classList.add('re-post-flair');
 			// Build <span>
 			let span = document.createElement('span');
-			span.setAttribute('class', 'bg-tone-4 inline-block truncate max-w-full text-12 font-normal box-border px-[6px] rounded-[20px] leading-4 relative top-[-0.25rem] xs:top-[-2px] my-2xs xs:mb-sm py-0 text-secondary');
-			if (flairBgColour) {
+			span.setAttribute('class', 'bg-tone-4 inline-block truncate max-w-full text-12 font-normal align-text-bottom box-border px-[6px] rounded-[20px] leading-4 text-secondary relative top-[-0.25rem] xs:top-[-2px] my-2xs xs:mb-sm py-0');
+			if (flairBgColour && flairBgColour !== 'transparent') {
 				if (flairTextColour === 'light') {
 					span.classList.remove('text-secondary');
 					span.classList.add('text-global-white');
@@ -72,6 +72,8 @@ async function attachFlair(post) {
 					span.classList.remove('text-secondary');
 					span.classList.add('text-global-black');
 				}
+			} else {
+				span.classList.add('border-solid', 'border', 'border-neutral-border-weak');
 			}
 			span.setAttribute('style', 'background-color: ' + flairBgColour + ';display: inline-flex;grid-gap: 4px;');
 			// Append each flair to <span>
