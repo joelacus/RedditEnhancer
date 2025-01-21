@@ -757,3 +757,37 @@ document.querySelector('#checkbox-compact-header-side-menu').addEventListener('c
 	BROWSER_API.storage.sync.set({ compactHeaderSideMenu: compactHeaderSideMenu });
 	sendMessage({ compactHeaderSideMenu: compactHeaderSideMenu });
 });
+
+// Toggle - Text Post Preview Fade
+document.querySelector('#checkbox-text-post-preview-fade').addEventListener('change', function (e) {
+	const textPostPreviewFade = document.querySelector('#checkbox-text-post-preview-fade').checked;
+	if (textPostPreviewFade) {
+		document.querySelectorAll('.icon-text-post-preview-fade').forEach((icon) => {
+			icon.style.backgroundColor = 'var(--accent)';
+		});
+	} else {
+		document.querySelectorAll('.icon-text-post-preview-fade').forEach((icon) => {
+			icon.removeAttribute('background-color');
+		});
+	}
+	BROWSER_API.storage.sync.set({ textPostPreviewFade: textPostPreviewFade });
+	sendMessage({ textPostPreviewFade: textPostPreviewFade });
+});
+
+// Slider - Text Post Preview Fade Height
+document.querySelector('#input-text-post-preview-fade-height').addEventListener('input', function (e) {
+	document.querySelector('#text-post-preview-fade-height').textContent = e.target.value != -1 ? e.target.value + 'px' : '';
+	sendMessage({ textPostPreviewFadeHeight: e.target.value });
+});
+document.querySelector('#input-text-post-preview-fade-height').addEventListener('mouseup', function (e) {
+	BROWSER_API.storage.sync.set({ textPostPreviewFadeHeight: e.target.value });
+});
+
+// Slider - Text Post Preview Max Height
+document.querySelector('#input-text-post-preview-max-height').addEventListener('input', function (e) {
+	document.querySelector('#text-post-preview-max-height').textContent = e.target.value != -1 ? e.target.value + 'px' : '';
+	sendMessage({ textPostPreviewMaxHeight: e.target.value });
+});
+document.querySelector('#input-text-post-preview-max-height').addEventListener('mouseup', function (e) {
+	BROWSER_API.storage.sync.set({ textPostPreviewMaxHeight: e.target.value });
+});

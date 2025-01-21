@@ -1083,6 +1083,18 @@
 		"message": "Compact Header Bar & Side Menu"
 	},
 
+	"TextPostPreviewFade": {
+		"message": "Add fade effect to text post previews (experimental)"
+	},
+
+	"TextPostPreviewFadeHeight": {
+		"message": "Fade Height"
+	},
+
+	"TextPostPreviewMaxHeight": {
+		"message": "Text Preview Height"
+	},
+
 	"Subreddit": {
 		"message": "Subreddit"
 	},

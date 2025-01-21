@@ -26,33 +26,35 @@ export function fullWidthBanner(value) {
 
 // Enable the feature
 function enableFullWidthBanner() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-full-width-banner';
-	styleElement.textContent = `div.community-banner {
-									margin-top: 0;
-									border-radius: 0;
-								}
-								shreddit-app[routename="subreddit"] div.subgrid-container,
-								shreddit-app[routename="subreddit_wiki"] div.subgrid-container {
-									padding: 0 !important;
-									max-width: 100% !important;
-									width: 100%;
-								}
-								shreddit-app[routename="subreddit"] div.main-container,
-								shreddit-app[routename="subreddit_wiki"] div.main-container {
-									width: initial;
-									padding: 0 1.1rem;
-									gap: 1.1rem;
-								}
-								html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit"] div.main-container,
-								html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit_wiki"] div.main-container {
-									justify-content: center;
-								}
-								/* Community highlight */
-								shreddit-gallery-carousel > li {
-									padding: 0 !important;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
+	if (!document.head.querySelector('style[id="re-full-width-banner"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-full-width-banner';
+		styleElement.textContent = `div.community-banner {
+										margin-top: 0;
+										border-radius: 0;
+									}
+									shreddit-app[routename="subreddit"] div.subgrid-container,
+									shreddit-app[routename="subreddit_wiki"] div.subgrid-container {
+										padding: 0 !important;
+										max-width: 100% !important;
+										width: 100%;
+									}
+									shreddit-app[routename="subreddit"] div.main-container,
+									shreddit-app[routename="subreddit_wiki"] div.main-container {
+										width: initial;
+										padding: 0 1.1rem;
+										gap: 1.1rem;
+									}
+									html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit"] div.main-container,
+									html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit_wiki"] div.main-container {
+										justify-content: center;
+									}
+									/* Community highlight */
+									shreddit-gallery-carousel > li {
+										padding: 0 !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
 // Disable the feature
@@ -91,36 +93,38 @@ export function compactSubRuleList(value) {
 
 // Enable the feature
 function enableCompactSubRuleList() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-compact-sub-rule-list';
-	styleElement.textContent = `div#right-sidebar-container div.-mx-xs.-mt-xs faceplate-tracker[source="rules_widget"] span,
-								div#right-sidebar-container div.-mx-xs.-mt-xs > div span {
-									align-items: start;
-									justify-content: start;
-									width: fit-content;
-									padding: 0;
-									gap: .3rem;
-								}
-								div#right-sidebar-container div.-mx-xs.-mt-xs faceplate-tracker[source="rules_widget"] > li div,
-								div#right-sidebar-container div.-mx-xs.-mt-xs > div {
-									padding: .35rem 0 0 0 !important;
-									margin: 0 .5rem;
-								}     
-								div#right-sidebar-container div.-mx-xs.-mt-xs faceplate-tracker[source="rules_widget"] span:first-of-type > span:first-of-type span::after,
-								div#right-sidebar-container div.-mx-xs.-mt-xs div span:first-of-type > span:first-of-type span::after {
-									content: "."
-								}
-								div#right-sidebar-container details:has(faceplate-tracker[source="rules_widget"]) div.ml-xl {
-									margin-left: .5rem;
-								}
-								div#right-sidebar-container details:has(faceplate-tracker[source="rules_widget"]) ul,
-								div#right-sidebar-container details:has(faceplate-tracker[source="rules_widget"]) ol {
-									padding-left: 1rem;
-								}
-								div#right-sidebar-container li.group:not(:has(span[avatar=""])) > div {
-									padding-left: 0.5rem;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
+	if (!document.head.querySelector('style[id="re-compact-sub-rule-list"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-compact-sub-rule-list';
+		styleElement.textContent = `div#right-sidebar-container div.-mx-xs.-mt-xs faceplate-tracker[source="rules_widget"] span,
+									div#right-sidebar-container div.-mx-xs.-mt-xs > div span {
+										align-items: start;
+										justify-content: start;
+										width: fit-content;
+										padding: 0;
+										gap: .3rem;
+									}
+									div#right-sidebar-container div.-mx-xs.-mt-xs faceplate-tracker[source="rules_widget"] > li div,
+									div#right-sidebar-container div.-mx-xs.-mt-xs > div {
+										padding: .35rem 0 0 0 !important;
+										margin: 0 .5rem;
+									}     
+									div#right-sidebar-container div.-mx-xs.-mt-xs faceplate-tracker[source="rules_widget"] span:first-of-type > span:first-of-type span::after,
+									div#right-sidebar-container div.-mx-xs.-mt-xs div span:first-of-type > span:first-of-type span::after {
+										content: "."
+									}
+									div#right-sidebar-container details:has(faceplate-tracker[source="rules_widget"]) div.ml-xl {
+										margin-left: .5rem;
+									}
+									div#right-sidebar-container details:has(faceplate-tracker[source="rules_widget"]) ul,
+									div#right-sidebar-container details:has(faceplate-tracker[source="rules_widget"]) ol {
+										padding-left: 1rem;
+									}
+									div#right-sidebar-container li.group:not(:has(span[avatar=""])) > div {
+										padding-left: 0.5rem;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
 // Disable the feature
@@ -159,38 +163,40 @@ export function compactHeaderSideMenu(value) {
 
 // Enable the feature
 function enableCompactHeaderSideMenu() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-compact-header-side-menu';
-	styleElement.textContent = `shreddit-app {
-									--shreddit-header-height: 48px !important;
-									--shreddit-header-large-height: 48px !important;
-								}
-								.pt-md {
-									padding-top: initial !important;
-								}
-								nav.h-header-large > div:nth-child(2) div {
-									top: 0.25rem !important;
-								}
-								div#left-sidebar-container {
-									border: none;
-								}
-								reddit-sidebar-nav {
-									top: 48px !important;
-								}
-								shreddit-app reddit-sidebar-nav#left-sidebar {
-									padding: 0;
-								}
-								shreddit-app reddit-sidebar-nav#left-sidebar hr {
-									display: none;
-									visibility: hidden;
-								}
-								div.subgrid-container {
-									padding: 0 1rem;
-								}
-								div.main-container {
-									gap: 1rem;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
+	if (!document.head.querySelector('style[id="re-compact-header-side-menu"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-compact-header-side-menu';
+		styleElement.textContent = `shreddit-app {
+										--shreddit-header-height: 48px !important;
+										--shreddit-header-large-height: 48px !important;
+									}
+									.pt-md {
+										padding-top: initial !important;
+									}
+									nav.h-header-large > div:nth-child(2) div {
+										top: 0.25rem !important;
+									}
+									div#left-sidebar-container {
+										border: none;
+									}
+									reddit-sidebar-nav {
+										top: 48px !important;
+									}
+									shreddit-app reddit-sidebar-nav#left-sidebar {
+										padding: 0;
+									}
+									shreddit-app reddit-sidebar-nav#left-sidebar hr {
+										display: none;
+										visibility: hidden;
+									}
+									div.subgrid-container {
+										padding: 0 1rem;
+									}
+									div.main-container {
+										gap: 1rem;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
 // Disable the feature
@@ -199,4 +205,139 @@ function disableCompactHeaderSideMenu() {
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
+}
+
+/**
+ * Tweaks: Style - Add Fading Effects to Text Post Preview
+ * @name textPostPreviewFade
+ * @description Add fading effects to preview of text posts in feed in Card view.
+ *
+ * Applies to: New New UI (2023-)
+ */
+
+// Get the feature state from browser sync storage
+export function loadTextPostPreviewFade() {
+	BROWSER_API.storage.sync.get(['textPostPreviewFade', 'textPostPreviewFadeHeight', 'textPostPreviewMaxHeight'], function (result) {
+		if (result.textPostPreviewFade) {
+			textPostPreviewFade(true);
+			setTextPostPreviewFadeHeight(result.textPostPreviewFadeHeight);
+			setTextPostPreviewMaxHeight(result.textPostPreviewMaxHeight);
+		}
+	});
+}
+
+// Activate the feature based on Reddit version
+export function textPostPreviewFade(value) {
+	if (redditVersion === 'newnew') {
+		if (value) {
+			enableTextPostPreviewFade();
+		} else {
+			disableTextPostPreviewFade();
+		}
+	}
+}
+
+// Enable the feature
+function enableTextPostPreviewFade() {
+	if (!document.head.querySelector('style[id="re-text-post-preview-fade"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-text-post-preview-fade';
+		styleElement.textContent = `shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > p, 
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > p ~ object,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > pre,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > hr {
+									    display: block !important;
+									    margin: 0 0 .75rem 0 !important; /* Adjust paragraph spacing here */
+									    overflow: inherit;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview strong,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table th {
+									    font-weight: 700;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview em {
+									    font-style: italic;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview sup {
+									    font-size: 83.33%;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > pre {
+									    padding: 0.5rem 0.75rem;
+									    background-color: var(--color-tone-4);
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > blockquote {
+										display: block !important;
+									    margin: 0 0 1rem 0;
+									    padding: 0 0 0 1rem;
+									    border-left: 5px solid var(--color-tone-5);
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > blockquote > * {
+										display: block !important;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > blockquote > :not(:last-child) {
+										margin-bottom: .75rem; /* Adjust paragraph spacing here */
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table {
+									    display: table !important;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table thead {
+										display: table-header-group !important;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table tbody {
+										display: table-row-group !important;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table tr {
+									    display: table-row !important;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table th,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table td {
+									    display: table-cell !important;
+									    padding: .5rem;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table .align-left {
+									    text-align: left;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table thead tr,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table tr:nth-child(2n) {
+									    background-color: var(--color-tone-6);
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > blockquote::before,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > blockquote::after,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table::before,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > table::after,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > pre::before,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > pre::after {
+									    content: none;
+									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview {
+									    max-height: var(--re-text-post-preview-max-height, 250px);
+									    mask-image: linear-gradient(180deg, #000 var(--re-text-post-preview-fade, 150px), transparent);
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
+}
+
+// Disable the feature
+function disableTextPostPreviewFade() {
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-text-post-preview-fade"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}
+
+// Set the custom fade height
+export function setTextPostPreviewFadeHeight(value) {
+	if (value && value > 0) {
+		document.documentElement.style.setProperty('--re-text-post-preview-fade', value + 'px');
+	} else {
+		document.documentElement.style.removeProperty('--re-text-post-preview-fade');
+	}
+}
+
+// Set the custom max height
+export function setTextPostPreviewMaxHeight(value) {
+	if (value && value > 0) {
+		document.documentElement.style.setProperty('--re-text-post-preview-max-height', value + 'px');
+	} else {
+		document.documentElement.style.removeProperty('--re-text-post-preview-max-height');
+	}
 }

@@ -1109,5 +1109,17 @@
 
 	"HideVoteButtons": {
 		"message": "Hide Vote Buttons"
+	},
+
+	"TextPostPreviewFade": {
+		"message": "Add fade effect to text post previews (experimental)"
+	},
+
+	"TextPostPreviewFadeHeight": {
+		"message": "Fade Height"
+	},
+
+	"TextPostPreviewMaxHeight": {
+		"message": "Text Preview Height"
 	}
 }

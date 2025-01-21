@@ -48,6 +48,8 @@ export function postTitleFontSize(value) {
 											[routename="post_page"] div.crosspost-title a,
 											[routename="comments_page"] shreddit-post h1[slot="title"],
 											[routename="comments_page"] div.crosspost-title a,
+											[routename="profile_post_page"] shreddit-post h1[slot="title"],
+											[routename="profile_post_page"] div.crosspost-title a,
 											mod-queue-app shreddit-post h1[slot="title"] > a {
 												font-size: var(--re-post-title-font-size) !important;
 												line-height: 1.4;

@@ -6,6 +6,11 @@ import { tweakLoaderOldNew } from './tweak_loaders/tweak_loader_oldnew';
 import { tweakLoaderNewNew } from './tweak_loaders/tweak_loader_newnew';
 
 export function detectRedditVersion() {
+	// Do not reload tweaks if already loaded. Most of these are CSS injection tweaks and should only be loaded once.
+	// If it is very necessary to reload the tweak, consider putting it in tweak_loader.js.
+	if (window.tweaksLoaded) return;
+	window.tweaksLoaded = true;
+
 	const link = window.location.href;
 	if (link.indexOf('sh.reddit.com') >= 0) {
 		window.redditVersion = 'newnew';

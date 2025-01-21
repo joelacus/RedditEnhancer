@@ -32,7 +32,9 @@ export function showPostFlair(value) {
 function removeFlair() {
 	document.querySelectorAll('shreddit-post').forEach((post) => {
 		if (post.querySelector('.re-post-flair')) {
-			post.querySelector('.re-post-flair').remove();
+			post.querySelectorAll('.re-post-flair').forEach((flair) => {
+				flair.remove();
+			});
 		}
 	});
 }
@@ -45,9 +47,14 @@ async function attachFlair(post) {
 		const postData = await fetchPostData(postID);
 		const flair = postData.children[0].data.link_flair_richtext;
 
+		// Reddit seems to sometimes not put flairs in the array if they're not formatted?
+		if (flair.length === 0 && postData.children[0].data.link_flair_text) {
+			flair.push({ e: 'text', t: postData.children[0].data.link_flair_text });
+		}
+
 		// Reddit API returns post flairs in an array. shreddit-post-flair should not be added
 		// to posts with no flairs, causing really weird paddings
-		if (flair && flair.length > 0) {
+		if ((flair && flair.length > 0) || postData.children[0].data.link_flair_text) {
 			const flairTextColour = postData.children[0].data.link_flair_text_color;
 			const flairBgColour = postData.children[0].data.link_flair_background_color;
 			const flairName = postData.children[0].data.link_flair_text;
@@ -56,11 +63,17 @@ async function attachFlair(post) {
 			a.classList.add('re-post-flair');
 			// Build <span>
 			let span = document.createElement('span');
-			span.setAttribute('class', 'bg-tone-4 inline-block truncate max-w-full text-12 font-normal box-border px-[6px] rounded-[20px] leading-4  relative top-[-0.25rem] xs:top-[-2px] my-2xs xs:mb-sm py-0 ');
-			if (flairTextColour === 'light') {
-				span.classList.add('text-global-white');
+			span.setAttribute('class', 'bg-tone-4 inline-block truncate max-w-full text-12 font-normal align-text-bottom box-border px-[6px] rounded-[20px] leading-4 text-secondary relative top-[-0.25rem] xs:top-[-2px] my-2xs xs:mb-sm py-0');
+			if (flairBgColour && flairBgColour !== 'transparent') {
+				if (flairTextColour === 'light') {
+					span.classList.remove('text-secondary');
+					span.classList.add('text-global-white');
+				} else if (flairTextColour === 'dark') {
+					span.classList.remove('text-secondary');
+					span.classList.add('text-global-black');
+				}
 			} else {
-				span.classList.add('text-global-black');
+				span.classList.add('border-solid', 'border', 'border-neutral-border-weak');
 			}
 			span.setAttribute('style', 'background-color: ' + flairBgColour + ';display: inline-flex;grid-gap: 4px;');
 			// Append each flair to <span>
@@ -107,31 +120,28 @@ async function attachFlair(post) {
 // Function to fetch post data from Reddit API
 async function fetchPostData(postID) {
 	const fetch_url = `https://www.reddit.com/api/info.json?id=${postID}`;
-	return new Promise((resolve, reject) => {
-		BROWSER_API.runtime.sendMessage(
-			{
-				actions: [{ action: 'changeFetchUrl', newFetchUrl: fetch_url }, { action: 'fetchData' }],
-			},
-			function (response) {
-				const data = JSON.parse(response.data);
-				resolve(data.data);
-			}
-		);
-	});
+	try {
+		const response = await fetch(fetch_url, { method: 'GET' });
+		const data = await response.json();
+		return data.data;
+	} catch (error) {
+		console.error('Error fetching post data:', error);
+		throw error;
+	}
 }
 
 // Observe feed for new posts
-const observer = new MutationObserver(function (mutations) {
-	mutations.forEach(function (mutation) {
-		mutation.addedNodes.forEach(function (addedNode) {
-			if (addedNode.nodeName === 'ARTICLE') {
-				setTimeout(() => {
-					const post = addedNode.querySelector('shreddit-post');
-					if (addedNode) {
-						attachFlair(post);
-					}
-				}, 1000);
-			}
-		});
-	});
+const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+        mutation.addedNodes.forEach(addedNode => {
+            if (addedNode.nodeName === 'ARTICLE') {
+                setTimeout(() => {
+                    const post = addedNode.querySelector('shreddit-post');
+                    if (post) {
+                        attachFlair(post);
+                    }
+                }, 1000);
+            }
+        });
+    });
 });
