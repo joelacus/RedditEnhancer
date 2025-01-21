@@ -281,9 +281,9 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 				document.querySelector('#select-feed-sort-option .select').querySelector('span').textContent = text;
 				var value = result.defaultFeedSortOption;
 			} else if (typeof result.defaultFeedSortOption == 'undefined') {
-				const text = document.querySelector('#feed-sort-best').textContent;
+				const text = document.querySelector('#feed-sort-relevance').textContent;
 				document.querySelector('#select-feed-sort-option .select').querySelector('span').textContent = text;
-				var value = 'best';
+				var value = 'relevance';
 			}
 			console.log('Default Feed Sort Option: ' + value);
 		}, 500);

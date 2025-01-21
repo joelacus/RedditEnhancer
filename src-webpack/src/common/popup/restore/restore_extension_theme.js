@@ -11,6 +11,7 @@ export function restorePopupTheme() {
 		}
 		disableExistingTheme();
 		document.querySelector('body').classList.add(`theme-${theme}`);
+		document.querySelector('body').removeAttribute('style', '');
 		document.querySelector(`#btn-extension-theme-${theme}`).classList.add('active');
 		console.log(`Extension Theme: ${theme}`);
 	});

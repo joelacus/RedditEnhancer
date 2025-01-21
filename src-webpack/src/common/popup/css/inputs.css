@@ -5,7 +5,7 @@ input,
 textarea {
 	height: auto;
 	width: auto;
-	color: var(--text);
+	color: var(--btn-fg);
 	padding-left: 10px;
 	background-color: var(--btn-bg);
 	border: solid 1px var(--btn-border);
@@ -21,9 +21,16 @@ input[type='password'] {
 	height: 40px;
 	width: 100%;
 }
+/* Doesn't work? */
+input[type='text']::placeholder,
+input[type='text']::-ms-input-placeholder,
+input[type='text']::-webkit-input-placeholder {
+	color: var(--btn-fg);
+	opacity: 0.8;
+}
 input:hover,
 textarea:hover {
-	background-color: varc(--btn-hover);
+	background-color: var(--btn-hover);
 	border: solid 1px var(--btn-hover-border);
 }
 input:focus,
@@ -286,6 +293,7 @@ input:disabled {
 	font-size: 14px;
 	color: var(--text);
 	white-space: nowrap;
+	padding-top: 2px;
 }
 .top-menu-bar .select span {
 	font-size: 12px;
@@ -297,10 +305,15 @@ input:disabled {
 .select div:before {
 	font-size: 14px !important;
 }
+.select .dropdown-icon {
+	background-color: var(--btn-fg);
+	opacity: 0.6;
+}
 .select .icon {
 	width: 24px;
 	height: 16px;
-	background-color: var(--text-grey);
+	background-color: var(--btn-fg);
+	opacity: 0.6;
 }
 .dropdown-menu,
 .dropdown-menu-up {
@@ -356,19 +369,4 @@ input:disabled {
 #select-feed-sort-option .select span,
 #select-comments-sort-option .select span {
 	color: var(--text);
-}
-
-/* Shade */
-#shade {
-	position: fixed;
-	top: 6px;
-	right: 6px;
-}
-#shade div {
-	width: 20px;
-	height: 20px;
-	cursor: pointer;
-}
-#shade .btn-icon {
-	background-color: var(--text-grey) !important;
 }
