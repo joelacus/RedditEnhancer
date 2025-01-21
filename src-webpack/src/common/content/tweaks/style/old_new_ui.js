@@ -250,10 +250,10 @@ function enableTextPostPreviewFade() {
 									    margin: 0 0 .75rem 0 !important;
 									    overflow: inherit;
 									}
-									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview p > strong {
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview p strong {
 									    font-weight: 700;
 									}
-									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview p > em {
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview p em {
 									    font-style: italic;
 									}
 									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > pre {

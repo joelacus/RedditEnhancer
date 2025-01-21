@@ -229,6 +229,14 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 					}
 					shreddit-app[pagetype="search_results"] main.main {
 						margin-top: 1rem;
+					}
+					/* Compact blockquote */
+					div.md blockquote {
+						margin: 0 0 1rem 0;
+						padding: 0 0 0 1rem;
+					}
+					div.md blockquote:last-of-type {
+						margin-bottom: 0;
 					}`;
 
 const styleScrollText = `.re-text-scroll div[data-click-id="text"][style="max-height: 250px;"], .re-text-scroll div[data-click-id="text"][style="max-height:250px"] {

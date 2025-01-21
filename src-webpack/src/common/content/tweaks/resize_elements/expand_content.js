@@ -473,8 +473,8 @@ function enableExpandContentNewNew() {
 								shreddit-app[pagetype="custom_feed"] .main-container {
 									display: grid;
 									grid-template-columns: auto var(--re-custom-feed-sidebar-width) !important;
-									min-width: var(--re-main-container-width, 100%);
-									max-width: calc(100% - var(--re-side-menu-width));
+									/*min-width: var(--re-main-container-width, 100%);
+									max-width: calc(100% - var(--re-side-menu-width));*/
 								}
 
 								shreddit-app[pagetype="custom_feed"] #main-content,

@@ -32,7 +32,9 @@ export function showPostFlair(value) {
 function removeFlair() {
 	document.querySelectorAll('shreddit-post').forEach((post) => {
 		if (post.querySelector('.re-post-flair')) {
-			post.querySelector('.re-post-flair').remove();
+			post.querySelectorAll('.re-post-flair').forEach((flair) => {
+				flair.remove();
+			});
 		}
 	});
 }
