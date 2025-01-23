@@ -548,6 +548,9 @@ export function themePostBackgroundColour(value) {
 											--color-neutral-background-hover: color-mix(in srgb, var(--re-theme-post-bg), #000 10%) !important;
 											background-color: color-mix(in srgb, var(--re-theme-post-bg), #000 10%) !important;
 										}
+										shreddit-feed shreddit-post:focus-within {
+											--color-neutral-background-hover: var(--re-theme-post-bg);
+										}
 										div[slot="post-insights-panel"] > faceplate-tracker > div {
 											background-color: inherit !important;
 										}
