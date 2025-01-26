@@ -537,9 +537,19 @@ export function themePostBackgroundColour(value) {
 											--shreddit-content-background: transparent !important;
 											--color-neutral-background: var(--re-theme-post-bg) !important;
 										}
+										div[slot="mod-queue-feed"] {
+											--color-neutral-background: var(--re-theme-post-bg);
+											--color-neutral-background-weak: var(--re-theme-post-bg);
+										}
+										aside#mod-queue-pdp-panel {
+											background-color: var(--re-theme-post-bg);
+										}
 										shreddit-feed shreddit-post:hover {
 											--color-neutral-background-hover: color-mix(in srgb, var(--re-theme-post-bg), #000 10%) !important;
 											background-color: color-mix(in srgb, var(--re-theme-post-bg), #000 10%) !important;
+										}
+										shreddit-feed shreddit-post:focus-within {
+											--color-neutral-background-hover: var(--re-theme-post-bg);
 										}
 										div[slot="post-insights-panel"] > faceplate-tracker > div {
 											background-color: inherit !important;

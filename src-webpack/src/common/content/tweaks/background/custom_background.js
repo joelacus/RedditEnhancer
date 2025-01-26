@@ -123,10 +123,10 @@ function enableUseCustomBackgroundNewNew() {
 								shreddit-app[routename="profile_post_page"] div[slot="post-insights-panel"] .p-md {
 									padding: 0;
 								}
-								aside#mod-queue-pdp-panel {
-									background-color: var(--color-neutral-background);
+								shreddit-app div.sidebar-grid {
+									background-color: var(--color-neutral-background) !important;
+									max-width: unset;
 								}`;
-
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
