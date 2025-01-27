@@ -260,6 +260,10 @@ function enableTextPostPreviewFade() {
 									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview sup {
 									    font-size: 83.33%;
 									}
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview ol,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview ul {
+									    overflow: inherit;
+									}
 									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > pre {
 									    padding: 0.5rem 0.75rem;
 									    background-color: var(--color-tone-4);
