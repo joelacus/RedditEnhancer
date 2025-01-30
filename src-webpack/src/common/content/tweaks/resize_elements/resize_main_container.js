@@ -36,8 +36,7 @@ function enableResizeMainContainer() {
 		@media (min-width: 960px) {
             div.main-container,
             div.masthead shreddit-gallery-carousel,
-            [pagetype="search_results"] div.masthead,
-            mod-queue-app {
+            [pagetype="search_results"] div.masthead {
                 width: var(--re-main-container-width, 80%) !important;
                 margin: 0 auto;
             }
