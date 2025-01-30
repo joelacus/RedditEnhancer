@@ -75,8 +75,9 @@ function enableHideSideMenuNewNew() {
 										position: static !important;
 									}
 									@media (min-width: 1200px) {
-										shreddit-app .grid-container {
-											grid-template-columns: 0 1fr !important;
+										div.grid-container:not(.grid-full), 
+										div.grid-container:not(.grid-full).flex-nav-expanded {
+											--flex-nav-width: 0;
 										}
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
