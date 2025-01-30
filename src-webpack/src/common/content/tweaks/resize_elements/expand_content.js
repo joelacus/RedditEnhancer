@@ -318,6 +318,7 @@ function enableExpandContentNewNew() {
 		shreddit-app[routename="frontpage"] main.main,
 		shreddit-app[routename="all"] main.main,
 		shreddit-app[routename="popular"] main.main,
+		shreddit-app[routename="mod_queue_all"] div[slot="mod-queue-feed"] > div,
 		shreddit-app[pagetype="search_results"] main.main,
 		shreddit-app[pagetype="post_submit"] main.main,
 		shreddit-app[routename="inbox"] main.main {
