@@ -77,6 +77,11 @@ function enableSideMenuToggleButton() {
 									[data-re-hide-side-menu="true"] {
 										--re-side-menu-width: 0;
 									}
+									@media (min-width: 1200px) {
+										[data-re-hide-side-menu="true"] .grid-container:not(.grid-full) {
+											--flex-nav-width: 0;
+										}
+									}
 									shreddit-app[data-re-hide-side-menu="true"] #left-sidebar-container {
 										display: none !important;
 									}

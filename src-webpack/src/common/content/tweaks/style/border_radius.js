@@ -52,6 +52,7 @@ function addBorderRadiusAmountStylesheet() {
 			div#right-sidebar-container aside,
 			div#right-sidebar-container aside a,
 			div#right-sidebar-container aside button,
+			div#right-sidebar-container [data-testid="search-results-sidebar"],
 			/* Post media previews */
 			div[slot="thumbnail"],
 			div[slot="post-media-container"],
