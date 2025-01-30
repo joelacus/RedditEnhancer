@@ -124,11 +124,11 @@ export function postContentFontSize(value) {
 
 // Resize "Post Comments" Font
 export function postCommentsFontSize(value) {
-	if (value != '9' && value != false) {
+	if (value !== '9' && value !== false) {
 		if (redditVersion === 'old') {
 			if (!document.querySelector('style[id="re-post-comment-font-size"]')) {
 				const styleElement = document.createElement('style');
-				styleElement.id = 're-styles';
+				styleElement.id = 're-post-comment-font-size';
 				styleElement.textContent = `.commentarea .thing[data-type="comment"] .usertext p {
 												font-size: var(--re-post-comments-font-size);
 												line-height: 1.4;
@@ -138,7 +138,7 @@ export function postCommentsFontSize(value) {
 		} else if (redditVersion === 'new') {
 			if (!document.querySelector('style[id="re-post-comment-font-size"]')) {
 				const styleElement = document.createElement('style');
-				styleElement.id = 're-styles';
+				styleElement.id = 're-post-comment-font-size';
 				styleElement.textContent = `.Comment [data-testid="comment"] > div,
 				 							.Comment [data-testid="comment"] > div code,
 				 							div[data-test-id="comment-submission-form-richtext"] div.public-DraftEditor-content[contenteditable],
@@ -161,7 +161,7 @@ export function postCommentsFontSize(value) {
 		} else if (redditVersion === 'newnew') {
 			if (!document.querySelector('style[id="re-post-comment-font-size"]')) {
 				const styleElement = document.createElement('style');
-				styleElement.id = 're-styles';
+				styleElement.id = 're-post-comment-font-size';
 				styleElement.textContent = `shreddit-comment div.md[slot="comment"],
 											shreddit-profile-comment div.md,
 											shreddit-composer div[contenteditable] {
