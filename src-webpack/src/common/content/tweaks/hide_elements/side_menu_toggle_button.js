@@ -74,6 +74,7 @@ function enableSideMenuToggleButton() {
 										--re-hide-side-menu-gap-multiplyer: 1;
 										--re-hide-side-menu-gap-multiplyer2: 1;
 									}
+									/* For functions relying on RE's own CSS variable */
 									[data-re-hide-side-menu="true"] {
 										--re-side-menu-width: 0;
 									}
@@ -83,13 +84,13 @@ function enableSideMenuToggleButton() {
 									shreddit-app[data-re-hide-side-menu="false"] #left-sidebar-container {
 										z-index: 1;
 									}
+									@media (min-width: 1200px) {
+										[data-re-hide-side-menu="true"] .grid-container:not(.grid-full) {
+											--flex-nav-width: 0;
+										}
+									}
 									pdp-back-button {
 										position: static !important;
-									}
-									@media (min-width: 1200px) {
-										shreddit-app[data-re-hide-side-menu="true"] .grid-container {
-											grid-template-columns: 0 1fr !important;
-										}
 									}
 									.re-side-menu-close,
 									.re-side-menu-open {

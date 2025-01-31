@@ -143,7 +143,9 @@ function enableHideSideMenuRecentSection() {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-side-menu-recent-section';
 		styleElement.textContent = `shreddit-app reddit-sidebar-nav reddit-recent-pages,
-									shreddit-app reddit-sidebar-nav reddit-recent-pages + hr {
+									shreddit-app reddit-sidebar-nav reddit-recent-pages + hr,
+									shreddit-app reddit-sidebar-nav faceplate-loader[name*="LeftNavRecentCommunities_"],
+									shreddit-app reddit-sidebar-nav left-nav-recent-communities {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
