@@ -25,6 +25,8 @@ import { moderniseOldReddit } from '../../../content/tweaks/style/modernise_old_
 import { loadHideHomeFeed } from '../../../content/tweaks/hide_elements/hide_home_feed';
 import { loadScrollToNextRootComment, loadScrollToNextRootCommentPosition } from '../../../content/tweaks/productivity/scroll_to_next_root_comment';
 import { loadCustomFonts } from "../../../content/tweaks/font/custom_fonts";
+import { loadHideCommentKarma, loadHidePostKarma } from "../../../content/tweaks/hide_elements/hide_post_comment_karma";
+import { loadHideVoteButtons } from "../../../content/tweaks/hide_elements/hide_vote_buttons";
 
 export function tweakLoaderOld() {
 	loadExpandContent();
@@ -44,6 +46,9 @@ export function tweakLoaderOld() {
 	loadScrollToNextRootCommentPosition();
 	loadPostFontWeight();
 	loadCustomFonts();
+	loadHidePostKarma();
+	loadHideCommentKarma();
+	loadHideVoteButtons();
 
 	if (useLegacy) {
 		legacyObserversOld();
