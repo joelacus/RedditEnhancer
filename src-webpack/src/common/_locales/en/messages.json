@@ -1051,6 +1051,10 @@
 		"message": "Create Post: Body"
 	},
 
+	"SetSansSerifAsFont": {
+		"message": "Set sans-serif as UI font"
+	},
+
 	"OptionsPage": {
 		"message": "Options Page"
 	},

@@ -1121,5 +1121,9 @@
 
 	"TextPostPreviewMaxHeight": {
 		"message": "Text Preview Height"
+	},
+
+	"SetSansSerifAsFont": {
+		"message": "Set sans-serif as UI font"
 	}
 }

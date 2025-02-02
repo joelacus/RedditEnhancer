@@ -80,7 +80,8 @@ function enableExpandContentOld() {
 		.submit-page div.content[role="main"] {
 		    width: var(--re-content-width);
 		}
-		.comments-page div.content[role="main"] {
+		.comments-page div.content[role="main"],
+		.other-discussions-page div.content[role="main"] {
 		    width: var(--re-post-width);
 		}
 		.profile-page div.content[role="main"] {
@@ -102,7 +103,12 @@ function enableExpandContentOld() {
 		div.panestack-title,
 		p#noresults {
     		margin: 10px;
-    		margin-bottom: 0;
+		}
+		div.usertext-edit {
+			width: 60%;
+		}
+		div.usertext-edit textarea {
+			width: 100%;
 		}
 		/* Submit post page */
 		div.formtabs-content,

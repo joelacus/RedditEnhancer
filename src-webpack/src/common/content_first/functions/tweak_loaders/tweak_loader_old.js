@@ -24,6 +24,7 @@ import { loadStickySort } from '../../../content/tweaks/productivity/sticky_sort
 import { moderniseOldReddit } from '../../../content/tweaks/style/modernise_old_reddit';
 import { loadHideHomeFeed } from '../../../content/tweaks/hide_elements/hide_home_feed';
 import { loadScrollToNextRootComment, loadScrollToNextRootCommentPosition } from '../../../content/tweaks/productivity/scroll_to_next_root_comment';
+import { loadCustomFonts } from "../../../content/tweaks/font/custom_fonts";
 
 export function tweakLoaderOld() {
 	loadExpandContent();
@@ -42,6 +43,7 @@ export function tweakLoaderOld() {
 	loadScrollToNextRootComment();
 	loadScrollToNextRootCommentPosition();
 	loadPostFontWeight();
+	loadCustomFonts();
 
 	if (useLegacy) {
 		legacyObserversOld();

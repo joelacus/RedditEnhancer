@@ -22,7 +22,8 @@ export function postTitleFontSize(value) {
 			if (!document.querySelector('style[id="re-post-title-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-post-title-font-size';
-				styleElement.textContent = `.comments-page .thing p.title > a {
+				styleElement.textContent = `.comments-page .thing p.title > a,
+				 							.other-discussions-page .thing p.title > a {
 												font-size: var(--re-post-title-font-size);
 												line-height: 1.5;
 											}`;

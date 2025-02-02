@@ -161,6 +161,11 @@ const styleOldReddit =
 	body.with-listing-chooser #header span.pagename {
 		position: static;
 	}
+	a.thumbnail > img {
+	    width: 70px;
+	    height: 70px;
+	    object-fit: contain;
+	}
 	/* Style normal flairs as formatted flairs */
 	span.linkflairlabel {
 		font-size: 12px;
