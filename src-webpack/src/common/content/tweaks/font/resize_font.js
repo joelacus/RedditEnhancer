@@ -22,7 +22,7 @@ export function postTitleFontSize(value) {
 			if (!document.querySelector('style[id="re-post-title-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-post-title-font-size';
-				styleElement.textContent = `.comments-page .thing p.title a {
+				styleElement.textContent = `.comments-page .thing p.title > a {
 												font-size: var(--re-post-title-font-size);
 												line-height: 1.5;
 											}`;
@@ -194,9 +194,9 @@ export function feedPostTitleFontSize(value) {
 			if (!document.querySelector('style[id="re-feed-post-title-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-feed-post-title-font-size';
-				styleElement.textContent = `.listing-page .thing p.title a {
+				styleElement.textContent = `.listing-page .thing p.title > a {
 												font-size: var(--re-feed-post-title-font-size);
-												line-height: 1.2;
+												line-height: 1.4;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}

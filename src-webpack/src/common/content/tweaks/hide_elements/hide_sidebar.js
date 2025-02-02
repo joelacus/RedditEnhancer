@@ -132,16 +132,20 @@ export function hideHomeSidebar(value) {
 
 // Function - Enable Hide Home Sidebar - Old
 function enableHideHomeSidebarOld() {
-	if (document.querySelector('.side')) {
-		document.querySelector('.side').classList.add('re-hide');
-	}
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-home-sidebar';
+	styleElement.textContent = `.side {
+									display: none;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
 // Function - Disable Home Sidebar - Old
 function disableHideHomeSidebarOld() {
-	if (document.querySelector('.side')) {
-		document.querySelector('.side').classList.remove('re-hide');
-	}
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-home-sidebar"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
 }
 
 // Function - Enable Hide Home Sidebar - New

@@ -26,6 +26,9 @@ import { loadHideHomeFeed } from '../../../content/tweaks/hide_elements/hide_hom
 import { loadScrollToNextRootComment, loadScrollToNextRootCommentPosition } from '../../../content/tweaks/productivity/scroll_to_next_root_comment';
 
 export function tweakLoaderOld() {
+	loadExpandContent();
+	loadLayoutCentre();
+	loadHideHomeSidebar();
 	loadCustomBackground();
 	loadCustomTheme();
 	loadHideGetNewReddit();
@@ -57,27 +60,6 @@ export function tweakLoaderOld() {
 					document.body.classList.add('re-larger-classic-post');
 				}
 			});
-		},
-	});
-
-	// Sidebar
-	waitForAddedNode({
-		query: '.side',
-		parent: document.querySelector('body'),
-		recursive: true,
-		done: function (el) {
-			loadHideHomeSidebar();
-		},
-	});
-
-	// Main Content
-	waitForAddedNode({
-		query: '#siteTable',
-		parent: document.querySelector('body'),
-		recursive: true,
-		done: function (el) {
-			loadExpandContent();
-			loadLayoutCentre();
 		},
 	});
 

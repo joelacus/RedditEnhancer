@@ -149,17 +149,35 @@ const stylePagination = `.re-post.hidden {
 							display: none;
 						}`;
 
-const styleOldReddit = `#re-main .listing-chooser {
-							position: absolute !important;
-							top: 70px !important;
-							z-index: 10;
-						}
-						#header-bottom-right {
-							display: flex;
-						}
-						#header a, #header span {
-							color: #369;
-						}`;
+const styleOldReddit =
+	`#re-main .listing-chooser {
+		position: absolute !important;
+		top: 70px !important;
+		z-index: 10;
+	}
+	#header-bottom-right {
+		display: flex;
+	}
+	body.with-listing-chooser #header span.pagename {
+		position: static;
+	}
+	/* Style normal flairs as formatted flairs */
+	span.linkflairlabel {
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 16px;
+		border-radius: 2px;
+		display: inline-block;
+		height: 16px;
+		margin-left: 0;
+		margin-right: 5px;
+		overflow: hidden;
+		padding: 0 4px;
+		text-overflow: ellipsis;
+		vertical-align: middle;
+		white-space: nowrap;
+		max-width: none;
+	}`;
 
 const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 						cursor: pointer;
