@@ -1,1229 +1,887 @@
 {
 	"extensionVersion": {
-		"message": "1.14.0"
+		"message": "1.15.0"
 	},
-
 	"extensionName": {
 		"message": "Reddit Enhancer"
 	},
-
 	"extensionDescription": {
 		"message": "Various tweaks to customise your Reddit experience. Supports all version of Reddit."
 	},
-
 	"About": {
 		"message": "About"
 	},
-
-	"ReportIssues": {
-		"message": "Report Issues"
-	},
-
-	"BuyMeACoffee": {
-		"message": "Buy Me A Coffee"
-	},
-
-	"DarkMode": {
-		"message": "Dark Mode"
-	},
-
-	"ResizeLayout": {
-		"message": "Resize Feed / Post"
-	},
-
-	"Centre": {
-		"message": "Centre"
-	},
-
-	"Width": {
-		"message": "Width"
-	},
-
-	"HomeFeedWidth": {
-		"message": "Home Feed Width"
-	},
-
-	"SubFeedWidth": {
-		"message": "Sub Feed Width"
-	},
-
-	"UserProfileWidth": {
-		"message": "User Profile Width"
-	},
-
-	"PostOverlayWidth": {
-		"message": "Post Overlay Width"
-	},
-
-	"PostWidth": {
-		"message": "Post Width"
-	},
-
-	"Offset": {
-		"message": "Offset"
-	},
-
-	"HomeFeedOffset": {
-		"message": "Home Feed Offset"
-	},
-
-	"SubFeedOffset": {
-		"message": "Sub Feed Offset"
-	},
-
-	"PostOffset": {
-		"message": "Post Offset"
-	},
-
-	"UserProfileOffset": {
-		"message": "User Profile Offset"
-	},
-
-	"FitImage": {
-		"message": "Scale Tall Images to Fit Post"
-	},
-
-	"ImageScroll": {
-		"message": "Add Scrollbar to Tall Images"
-	},
-
-	"Background": {
-		"message": "Background"
-	},
-
-	"Blur": {
-		"message": "Blur"
-	},
-
-	"Shadow": {
-		"message": "Drop Shadows"
-	},
-
-	"UseCustom": {
-		"message": "Use Custom"
-	},
-
-	"CustomBgInputPlaceholder": {
-		"message": "Custom Background URL"
-	},
-
-	"NewNewUI": {
-		"message": "New New UI"
-	},
-
-	"OldNewUI": {
-		"message": "Old New UI"
-	},
-
-	"OldUI": {
-		"message": "Old UI"
-	},
-
-	"Auto": {
-		"message": "Auto"
-	},
-
-	"Disabled": {
-		"message": "Disabled"
-	},
-
-	"BrowserTheme": {
-		"message": "Browser Theme"
-	},
-
-	"TimeRange": {
-		"message": "Time Range"
-	},
-
-	"StartTime": {
-		"message": "Start Time (24)"
-	},
-
-	"EndTime": {
-		"message": "End Time (24)"
-	},
-
-	"StyleTweaks": {
-		"message": "Style"
-	},
-
-	"HideRedditPremium": {
-		"message": "Hide 'Reddit Premium'"
-	},
-
-	"HideCreatePost": {
-		"message": "Hide 'Create Post'"
-	},
-
-	"HideAdvertiseButton": {
-		"message": "Hide the 'Advertise' Button"
-	},
-
-	"HideModerationButton": {
-		"message": "Hide the 'Moderation' Button"
-	},
-
-	"HidePopularButton": {
-		"message": "Hide the 'Popular' Button"
-	},
-
-	"HideChatButton": {
-		"message": "Hide the 'Chat' Button"
-	},
-
-	"HideHomeSidebar": {
-		"message": "Hide the Home Page Sidebar"
-	},
-
-	"HideSubSidebar": {
-		"message": "Hide the Sub Reddit Sidebar"
-	},
-
-	"Sidebar": {
-		"message": "Sidebar"
-	},
-
-	"Header": {
-		"message": "Header"
-	},
-
-	"Feed": {
-		"message": "Feed"
-	},
-
-	"HeaderButtons": {
-		"message": "Header Buttons"
-	},
-
-	"HideGap": {
-		"message": "Hide Interface Gaps"
-	},
-
-	"Main": {
-		"message": "Main"
-	},
-
-	"StickySort": {
-		"message": "Sticky Sort"
-	},
-
-	"HideUsername": {
-		"message": "Hide Username"
-	},
-
-	"HideKarma": {
-		"message": "Hide Karma"
-	},
-
-	"ReloadPage": {
-		"message": "Reload Page"
-	},
-
-	"ShowRising": {
-		"message": "Always Show the 'Rising' Sort Button"
-	},
-
-	"ToTop": {
-		"message": "Add 'Scroll To Top' Button"
-	},
-
-	"HideGetNewReddit": {
-		"message": "Hide 'Get New Reddit'"
-	},
-
-	"HideSidebarPolicy": {
-		"message": "Hide Policies Section"
-	},
-
-	"HideElements": {
-		"message": "Hide Elements"
-	},
-
-	"Productivity": {
-		"message": "Productivity"
-	},
-
-	"OpenSubInNewTab": {
-		"message": "Open Links to subreddits in a New Tab"
-	},
-
-	"Search": {
-		"message": "Search"
-	},
-
-	"HidePromoted": {
-		"message": "Hide Ads/Promoted Links"
-	},
-
-	"ShowAllButton": {
-		"message": "Add 'r/All' Button"
-	},
-
-	"VideoPlayerReplacement": {
-		"message": "Alternative Video Player"
-	},
-
-	"Images": {
-		"message": "Images"
-	},
-
-	"SortBar": {
-		"message": "Sort Bar"
-	},
-
-	"Other": {
-		"message": "Other"
-	},
-
-	"HideCreatePostButton": {
-		"message": "Hide 'Create Post' Button"
-	},
-
-	"HideNotificationButton": {
-		"message": "Hide 'Notification' Button"
-	},
-
-	"MoveFeedToTopInSidemenu": {
-		"message": "Move The Feed Section In The Side Menu To The Top"
-	},
-
-	"Text": {
-		"message": "Text"
-	},
-
-	"TextScroll": {
-		"message": "Add Scrollbar To Long Text Posts"
-	},
-
-	"HideSeeFullImage": {
-		"message": "Hide 'See Full Image'"
-	},
-
-	"ModerniseOldReddit": {
-		"message": "Modernise old.reddit"
-	},
-
-	"HideHeaderSubBar": {
-		"message": "Hide Header subreddit List"
-	},
-
-	"HideSideMenu": {
-		"message": "Hide the Side Menu"
-	},
-
-	"PostCommentsLimit": {
-		"message": "Limit Post Comments"
-	},
-
-	"AutoExpand": {
-		"message": "Expand to 100% if the window/screen width is less than:"
-	},
-
-	"HidePostSidebar": {
-		"message": "Hide the Post Sidebar"
-	},
-
-	"HidePostOverlaySidebar": {
-		"message": "Hide the Post Overlay Sidebar"
-	},
-
-	"HideUserSidebar": {
-		"message": "Hide the User Sidebar"
-	},
-
-	"LimitInfinityScroll": {
-		"message": "Limit Infinity Scroll"
-	},
-
-	"VideoPlayerInfo": {
-		"message": "Fast, lightweight video player with speed controls based on videojs. Try this if you have loading issues with reddit's own player."
-	},
-
-	"LimitCommentsInfo": {
-		"message": "Only works for posts opened in a new tab/window."
-	},
-
-	"LimitInfinityScrollInfo": {
-		"message": "Beta. This won't necessarily reduce bandwidth usage, but should instead help prevent the page from becoming slow by stopping reddit from adding new posts until you click 'Load More' at the bottom of the feed. When you click 'Load More' it will clear the first 25 posts, and show the next 25."
-	},
-
-	"DefaultFeedSortOption": {
-		"message": "Default Feed Sort Option"
-	},
-
-	"DefaultCommentsSortOption": {
-		"message": "Default Comments Sort Option"
-	},
-
-	"Best": {
-		"message": "Best"
-	},
-
-	"Hot": {
-		"message": "Hot"
-	},
-
-	"New": {
-		"message": "New"
-	},
-
-	"Top": {
-		"message": "Top"
-	},
-
-	"Controversial": {
-		"message": "Controversial"
-	},
-
-	"Rising": {
-		"message": "Rising"
-	},
-
-	"Old": {
-		"message": "Old"
-	},
-
-	"Qa": {
-		"message": "Q&a"
-	},
-
-	"OpenPostInNewTab": {
-		"message": "Open Posts in New Tab"
-	},
-
-	"ControversialSort": {
-		"message": "Show the 'Controversial' Sort Button"
-	},
-
-	"TextScrollInfo": {
-		"message": "There is a limit. You may have to open the post if it is very long."
-	},
-
-	"HideNSFW": {
-		"message": "Hide NSFW/L Posts"
-	},
-
-	"HideTurnOnNotificationsPopup": {
-		"message": "Hide 'Get the best of' Popup"
-	},
-
-	"ScrollToNextRootComment": {
-		"message": "Show Navigation Buttons For The Next/Previous Root Comment"
-	},
-
-	"OpenPostInNewTabInfo": {
-		"message": "You can now enable this officially within reddit."
-	},
-
-	"OpenPostInNewTabInfoLink": {
-		"message": "User Settings > Feed Settings > Open posts in new tab"
-	},
-
-	"ShowPostNumbers": {
-		"message": "Add Post Numbers"
-	},
-
-	"Backup": {
-		"message": "Backup"
-	},
-
-	"Restore": {
-		"message": "Restore"
-	},
-
-	"RestoreConfigTitle": {
-		"message": "Restore Reddit Enhancer Backup Config"
-	},
-
-	"ChooseBackupFile": {
-		"message": "Choose backup file"
-	},
-
-	"Or": {
-		"message": "OR"
-	},
-
-	"Drag": {
-		"message": "Drag"
-	},
-
-	"Here": {
-		"message": "here"
-	},
-
-	"RestoreBackup": {
-		"message": "Restore Backup"
-	},
-
-	"BackupRestored": {
-		"message": "Backup Restored!"
-	},
-
-	"CloseTab": {
-		"message": "You can now close this tab/window."
-	},
-
-	"Upload": {
-		"message": "Upload"
-	},
-
-	"CustomCSS": {
-		"message": "Custom CSS"
-	},
-
-	"FeedPostMaxHeight": {
-		"message": "Post Height"
-	},
-
-	"Post": {
-		"message": "Post"
-	},
-
 	"Accessibility": {
 		"message": "Accessibility"
 	},
-
-	"BionicReader": {
-		"message": "Bionic Reader"
-	},
-
-	"BionicReaderPosts": {
-		"message": "Bionic Reader For Posts"
-	},
-
-	"BionicReaderComments": {
-		"message": "Bionic Reader For Comments"
-	},
-
-	"BionicFontColour": {
-		"message": "Bionic Font Colour"
-	},
-
-	"BionicBackgroundColour": {
-		"message": "Bionic Background Colour"
-	},
-
-	"ThemeBlur": {
-		"message": "Theme Blur"
-	},
-
-	"ThemeBlurInfo": {
-		"message": "Use translucent colours 'rgba(0,0,0,0.5)' to see blur effect."
-	},
-
-	"ThemeColours": {
-		"message": "Theme Colours"
-	},
-
-	"PostVisitedTitleColour": {
-		"message": "Visited Post: Title Colour"
-	},
-
-	"HeaderBgColour": {
-		"message": "Header: Background Colour"
-	},
-
-	"HeaderTextColour": {
-		"message": "Header: Text Colour"
-	},
-
-	"Sort": {
-		"message": "Sort"
-	},
-
-	"SortBgColour": {
-		"message": "Sort: Background Colour"
-	},
-
-	"SortTextColour": {
-		"message": "Sort: Text Colour"
-	},
-
-	"SortBorderColour": {
-		"message": "Sort: Border Colour"
-	},
-
-	"PostBgColour": {
-		"message": "Post: Background Colour"
-	},
-
-	"PostSecondaryTextColour": {
-		"message": "Post: Secondary Text Colour"
-	},
-
-	"PostTitleContentColour": {
-		"message": "Post: Title and Text Content Colour"
-	},
-
-	"PostCommentsColour": {
-		"message": "Post: Comments Text Colour"
-	},
-
-	"PostCommentsSecondaryColour": {
-		"message": "Post: Comments Secondary Text Colour"
-	},
-
-	"PostBorderColour": {
-		"message": "Post: Border Colour"
-	},
-
-	"PostContentAndCommentsLinkColour": {
-		"message": "Post: Content And Comments Link Colour"
-	},
-
-	"SidebarTextColour": {
-		"message": "Sidebar: Text Colour"
-	},
-
-	"SidebarBackgroundColour": {
-		"message": "Sidebar: Background Colour"
-	},
-
-	"SidebarBorderColour": {
-		"message": "Sidebar: Border Colour"
-	},
-
-	"SideMenu": {
-		"message": "Side Menu"
-	},
-
-	"SidemenuTextColour": {
-		"message": "Side Menu: Text Colour"
-	},
-
-	"SidemenuBackgroundColour": {
-		"message": "Side Menu: Background Colour"
-	},
-
-	"SidemenuButtonHoverColour": {
-		"message": "Side Menu: Button Hover Colour"
-	},
-
-	"WhitelistBlacklist": {
-		"message": "Whitelist / Blacklist"
-	},
-
-	"Whitelist": {
-		"message": "Whitelist"
-	},
-
-	"Blacklist": {
-		"message": "Blacklist"
-	},
-
-	"ThemeBlacklistInfo": {
-		"message": "Use theme colours globally, except for these subreddits:"
-	},
-
-	"ThemeWhitelistInfo": {
-		"message": "Only use the theme colours for these subreddits:"
-	},
-
-	"HideSubSidebarBlacklistInfo": {
-		"message": "Hide globally except for on these subreddits:"
-	},
-
-	"HideSubSidebarWhitelistInfo": {
-		"message": "Only hide on these subreddits:"
-	},
-
-	"HideHeaderBar": {
-		"message": "Hide the Header Bar"
-	},
-
-	"NonStickyHeaderBar": {
-		"message": "Non Sticky Header Bar"
-	},
-
-	"HideOriginalScrollToTop": {
-		"message": "Hide the Original Scroll to Top Button"
-	},
-
-	"CreatePost": {
-		"message": "Create Post"
-	},
-
-	"CreatePostBgColour": {
-		"message": "Create Post: Background Colour"
-	},
-
-	"CreatePostBorderColour": {
-		"message": "Create Post: Border Colour"
-	},
-
 	"AlwaysShowPostOptions": {
 		"message": "Always Show Post Options"
 	},
-
-	"LargerClassicPost": {
-		"message": "Larger Classic Post View"
+	"Auto": {
+		"message": "Auto"
 	},
-
-	"PositionVertically": {
-		"message": "Position Vertically"
-	},
-
-	"PositionHorizontally": {
-		"message": "Position Horizontally"
-	},
-
-	"BreakReminder": {
-		"message": "Break Reminder"
-	},
-
-	"BreakReminderInfo": {
-		"message": "Beta. Shows a reminder to have a break every set number of posts."
-	},
-
-	"BreakReminderFrequency": {
-		"message": "Reminder Frequency"
-	},
-
-	"TranslationHelp": {
-		"message": "Translation Help"
-	},
-
-	"Off": {
-		"message": "Off"
-	},
-
-	"ShowPostAuthor": {
-		"message": "Show Post Author"
-	},
-
-	"ShowPostFlair": {
-		"message": "Show Post Flair"
-	},
-
-	"HideSideMenuTopSection": {
-		"message": "Hide the Top Section"
-	},
-
-	"HideSideMenuModerationSection": {
-		"message": "Hide the Moderation Section"
-	},
-
-	"HideSideMenuRecentSection": {
-		"message": "Hide the Recent Subreddit Section"
-	},
-
-	"HideSideMenuCommunitiesSection": {
-		"message": "Hide the Communities Section"
-	},
-
-	"HideSideMenuResourcesSection": {
-		"message": "Hide the Resources Section"
-	},
-
-	"HideSideMenuTopicsSection": {
-		"message": "Hide the Topics Section"
-	},
-
-	"HideRelatedPosts": {
-		"message": "Hide Related Posts"
-	},
-
-	"Select": {
-		"message": "Select"
-	},
-
-	"SelectRedditVersion": {
-		"message": "Select Reddit Version"
-	},
-
-	"UpdateFirefox": {
-		"message": "Please update to Firefox 121 or greater for some features to work correctly."
-	},
-
-	"ResizeFont": {
-		"message": "Resize Font"
-	},
-
-	"PostTitle": {
-		"message": "Post: Title"
-	},
-
-	"PostContent": {
-		"message": "Post: Content"
-	},
-
-	"PostComments": {
-		"message": "Post: Comments"
-	},
-
-	"Rate": {
-		"message": "Rate / Review"
-	},
-
-	"HideUserProfilePics": {
-		"message": "Hide user profile pictures in the comments"
-	},
-
-	"AutoExpandComments": {
-		"message": "Auto Expand Hidden Comments"
-	},
-
-	"AutoExpandCommentsInfo": {
-		"message": "This may cause the page to slow down and use a lot of RAM, especially if there are a lot of comments."
-	},
-
 	"AutoCollapseAutoModeratorComment": {
 		"message": "Auto Collapse AutoModerator Comment"
 	},
-
-	"HidePostHiddenMessage": {
-		"message": "Hide 'Post Hidden' Message"
+	"AutoExpand": {
+		"message": "Expand to 100% if the window/screen width is less than:"
 	},
-
-	"JustOpenTheImage": {
-		"message": "Just Open The Image"
+	"AutoExpandComments": {
+		"message": "Auto Expand Hidden Comments"
 	},
-
-	"JustOpenTheImageInfo": {
-		"message": "Open images on their own, instead of embedded on a Reddit page."
+	"AutoExpandCommentsInfo": {
+		"message": "This may cause the page to slow down and use a lot of RAM, especially if there are a lot of comments."
 	},
-
-	"ScalePostToFitImage": {
-		"message": "Scale Post To Fit Image"
-	},
-
-	"LimitImageWidth": {
-		"message": "Limit Image Width"
-	},
-
-	"Settings": {
-		"message": "Settings"
-	},
-
-	"ExtensionSettings": {
-		"message": "Extension Settings"
-	},
-
-	"Theme": {
-		"message": "Theme"
-	},
-
-	"Dark": {
-		"message": "Dark"
-	},
-
-	"Light": {
-		"message": "Light"
-	},
-
-	"ClassicLight": {
-		"message": "Classic Light"
-	},
-
-	"BackupRestoreConfig": {
-		"message": "Backup/Restore Config"
-	},
-
-	"PleaseWait": {
-		"message": "Please Wait"
-	},
-
-	"RestoreInfo1": {
-		"message": "Restoring"
-	},
-
-	"RestoreInfo2": {
-		"message": "items. Browser API limit is 120 per minute. Please leave this tab/window open for another minute."
-	},
-
-	"HideJoinButtonOnPosts": {
-		"message": "Hide the 'Join' Button On Posts"
-	},
-
 	"AutoLoadMoreComments": {
 		"message": "Auto Load More Comments"
 	},
-
-	"HideSideMenuCustomFeedsSection": {
-		"message": "Hide the Custom Feeds Section"
-	},
-
-	"UnderlineLinks": {
-		"message": "Underline Links"
-	},
-
 	"AutoShowCommentFormattingOptions": {
 		"message": "Auto Show Formatting Options When Commenting"
 	},
-
-	"Language": {
-		"message": "Language"
+	"Background": {
+		"message": "Background"
 	},
-
-	"SearchbarBgColour": {
-		"message": "Searchbar: Background Colour"
+	"Backup": {
+		"message": "Backup"
 	},
-
-	"SearchbarDropdownBgColour": {
-		"message": "Searchbar: Focused/Dropdown Background Colour"
+	"BackupRestoreConfig": {
+		"message": "Backup/Restore Config"
 	},
-
-	"HideSearchSidebar": {
-		"message": "Hide the Search Sidebar"
+	"BackupRestored": {
+		"message": "Backup Restored!"
 	},
-
-	"HideRecommended": {
-		"message": "Hide Recommended/Suggested"
+	"Best": {
+		"message": "Best"
 	},
-
-	"HideRecommendedInfo": {
-		"message": "Hiding recommended posts can also be set officially in the reddit user settings."
+	"BionicBackgroundColour": {
+		"message": "Bionic Background Colour"
 	},
-
-	"TopicFeedWidth": {
-		"message": "Topic Feed Width"
+	"BionicFontColour": {
+		"message": "Bionic Font Colour"
 	},
-
-	"RUI2RemovalInfo": {
-		"message": "Reddit has discontinued (Old New UI / Version 2) of the website. Options for 'Old New UI' will continue to be supported for now while other workarounds to get it back are still working."
+	"BionicReader": {
+		"message": "Bionic Reader"
 	},
-
-	"learnMore": {
-		"message": "Learn More"
+	"BionicReaderComments": {
+		"message": "Bionic Reader For Comments"
 	},
-
-	"HidePostBackButton": {
-		"message": "Hide The Post Back Button"
+	"BionicReaderPosts": {
+		"message": "Bionic Reader For Posts"
 	},
-
+	"Blacklist": {
+		"message": "Blacklist"
+	},
+	"Blur": {
+		"message": "Blur"
+	},
 	"BorderRadiusAmount": {
 		"message": "Theme Corner Radius"
 	},
-
-	"HidePostKarma": {
-		"message": "Hide Post Karma"
+	"BreakReminder": {
+		"message": "Break Reminder"
 	},
-
-	"HideRecentPosts": {
-		"message": "Hide Recent Posts"
+	"BreakReminderFrequency": {
+		"message": "Reminder Frequency"
 	},
-
-	"SideMenuWidth": {
-		"message": "Side Menu Width"
+	"BreakReminderInfo": {
+		"message": "Beta. Shows a reminder to have a break every set number of posts."
 	},
-
-	"SideMenuIconsOnly": {
-		"message": "Side Menu Icons Only"
+	"BrowserTheme": {
+		"message": "Browser Theme"
 	},
-
-	"HideFavouriteButtons": {
-		"message": "Hide the Favourite Buttons"
+	"BuyMeACoffee": {
+		"message": "Buy Me A Coffee"
 	},
-
-	"ResetAllSettings": {
-		"message": "Reset All Settings"
+	"Centre": {
+		"message": "Centre"
 	},
-
-	"Confirm": {
-		"message": "Confirm"
-	},
-
-	"Cleared": {
-		"message": "Cleared"
-	},
-
-	"Error": {
-		"message": "Error"
-	},
-
-	"SetLanguageAndTheme": {
-		"message": "Full Page Settings / Set Language and Theme"
-	},
-
-	"SelectRedirect": {
-		"message": "Redirect"
-	},
-
-	"Welcome": {
-		"message": "Welcome!"
-	},
-
-	"ModerniseOldRedditInfo": {
-		"message": "Makes old reddit look more like new reddit."
-	},
-
-	"RUI3RedirectInfo": {
-		"message": "The redirect option to 'New New UI' is no longer necessary, however, you can use this option to force links from (sh|old).reddit.com to www.reddit.com"
-	},
-
-	"DontShowAgain": {
-		"message": "Don't show again"
-	},
-
-	"Close": {
-		"message": "Close"
-	},
-
-	"SideMenuToggleButton": {
-		"message": "Show Side Menu Toggle Button"
-	},
-
-	"HideCompactViewBlankThumbnails": {
-		"message": "Hide Blank Thumbnails In Compact View"
-	},
-
-	"HideNsfwInSearchResults": {
-		"message": "Hide NSFW results in the Searchbar"
-	},
-
-	"HideTrendingTodayInSearchResults": {
-		"message": "Hide 'Trending Today' in the Searchbar"
-	},
-
-	"HideCommunityHighlights": {
-		"message": "Hide 'Community Highlights'"
-	},
-
-	"HideSearchSidebarNsfwUsers": {
-		"message": "Hide NSFW Users in the Search Sidebar"
-	},
-
-	"resizeHomeAlsoAffects": {
-		"message": "& r/all, r/popular, Create Post, Search Results, and Wiki pages"
-	},
-
-	"SearchPageOffset": {
-		"message": "Search Page Offset"
-	},
-
-	"NoSavedBackgrounds": {
-		"message": "No Saved Backgrounds"
-	},
-
-	"HideHomeFeed": {
-		"message": "Hide Home Feed"
-	},
-
-	"RememberSectionHiddenState": {
-		"message": "Remember the hidden states of sections in the side menu"
-	},
-
-	"NewUpdateAvailable": {
-		"message": "Version <version> is now available. Your browser should update this extension automatically soon if you have automatic updates enabled, if not, you will have to manually check for updates in the browser extension manager."
-	},
-
-	"UpvoteColour": {
-		"message": "Post: Upvote Colour"
-	},
-
-	"FontWeight": {
-		"message": "Font Weight"
-	},
-
-	"FontWeightInfo": {
-		"message": "Not all fonts support all weights."
-	},
-
-	"Font": {
-		"message": "Font"
-	},
-
-	"FeedPostTitle": {
-		"message": "Feed Post: Title"
-	},
-
-	"FeedPostContent": {
-		"message": "Feed Post: Content"
-	},
-
-	"PostCommentActionRowColour": {
-		"message": "Post: Comment Action Row Colour"
-	},
-
-	"FilterOptionsFor": {
-		"message": "Filter Options For"
-	},
-
-	"Redirect": {
-		"message": "Redirect"
-	},
-
-	"CreatePostTitle": {
-		"message": "Create Post: Title"
-	},
-
-	"CreatePostBody": {
-		"message": "Create Post: Body"
-	},
-
-	"SetSansSerifAsFont": {
-		"message": "Set sans-serif as UI font"
-	},
-
-	"OptionsPage": {
-		"message": "Options Page"
-	},
-
-	"extensionVersionText": {
-		"message": "Extension Version"
-	},
-
 	"Changelog": {
 		"message": "Changelog"
 	},
-
-	"ShowProfilePicturesOnComments": {
-		"message": "Show Profile Pictures On Comments"
+	"ChooseBackupFile": {
+		"message": "Choose backup file"
 	},
-
-	"CustomFeedWidth": {
-		"message": "Custom Feed Width"
+	"ClassicLight": {
+		"message": "Classic Light"
 	},
-
-	"PostSeparatorHeight": {
-		"message": "Post Gap"
+	"Cleared": {
+		"message": "Cleared"
 	},
-
-	"HideBlurredMediaBackground": {
-		"message": "Hide background blur behind image previews"
+	"Close": {
+		"message": "Close"
 	},
-
-	"CompactHeaderSideMenu": {
-		"message": "Compact Header Bar & Side Menu"
+	"CloseTab": {
+		"message": "You can now close this tab/window."
 	},
-
-	"TextPostPreviewFade": {
-		"message": "Add fade effect to text post previews (experimental)"
-	},
-
-	"TextPostPreviewFadeHeight": {
-		"message": "Fade Height"
-	},
-
-	"TextPostPreviewMaxHeight": {
-		"message": "Text Preview Height"
-	},
-
-	"Subreddit": {
-		"message": "Subreddit"
-	},
-
-	"FullWidthBanner": {
-		"message": "Full Width Subreddit Banner"
-	},
-
-	"CompactSubRuleList": {
-		"message": "Compact Subreddit Rule List"
-	},
-
-	"ResizeMainContainer": {
-		"message": "Resize Main Container (experimental)"
-	},
-
-	"ResizeMainContainerWidth": {
-		"message": "Main Container Width"
-	},
-
-	"ResizeMainContainerInfo": {
-		"message": "For the best results, please set all Resize Feed / Post width values to 100%."
-	},
-
-	"HideCustomFeedSidebar": {
-		"message": "Hide the Custom Feed Sidebar"
-	},
-
-	"HidePostDivider": {
-		"message": "Hide Post Separators"
-	},
-
-	"PostSeparatorLength": {
-		"message": "Post Gap"
-	},
-
-	"HideCommentKarma": {
-		"message": "Hide Comment Karma"
-	},
-
-	"HideVoteButtons": {
-		"message": "Hide Vote Buttons"
-	},
-
-	"StyleOptions": {
-		"message": "Style Options"
-	},
-
-	"Relevance": {
-		"message": "Relevance"
-	},
-
 	"CommentsCount": {
 		"message": "Comments count"
 	},
-
-	"Grey": {
-		"message": "Grey"
+	"CompactHeaderSideMenu": {
+		"message": "Compact the Header Bar & Side Menu"
 	},
-
-	"MainContainer": {
-		"message": "Main Container"
+	"CompactSubRuleList": {
+		"message": "Compact the Subreddit Rule List"
 	},
-
-	"FeedWidth": {
-		"message": "Feed Width"
+	"Confirm": {
+		"message": "Confirm"
 	},
-
+	"Controversial": {
+		"message": "Controversial"
+	},
+	"ControversialSort": {
+		"message": "Show the 'Controversial' Sort Button"
+	},
+	"CreatePost": {
+		"message": "Create Post"
+	},
+	"CreatePostBgColour": {
+		"message": "Create Post: Background Colour"
+	},
+	"CreatePostBody": {
+		"message": "Create Post: Body"
+	},
+	"CreatePostBorderColour": {
+		"message": "Create Post: Border Colour"
+	},
+	"CreatePostTitle": {
+		"message": "Create Post: Title"
+	},
+	"CustomBgInputPlaceholder": {
+		"message": "Custom Background URL"
+	},
+	"CustomCSS": {
+		"message": "Custom CSS"
+	},
+	"CustomFeedWidth": {
+		"message": "Custom Feed Width"
+	},
+	"Dark": {
+		"message": "Dark"
+	},
+	"DarkMode": {
+		"message": "Dark Mode"
+	},
+	"DefaultCommentsSortOption": {
+		"message": "Default Comments Sort Option"
+	},
+	"DefaultFeedSortOption": {
+		"message": "Default Feed Sort Option"
+	},
+	"Disabled": {
+		"message": "Disabled"
+	},
+	"DontShowAgain": {
+		"message": "Don't show again"
+	},
+	"Drag": {
+		"message": "Drag"
+	},
+	"EndTime": {
+		"message": "End Time (24)"
+	},
+	"Error": {
+		"message": "Error"
+	},
+	"ExtensionSettings": {
+		"message": "Extension Settings"
+	},
+	"Feed": {
+		"message": "Feed"
+	},
 	"FeedOffset": {
 		"message": "Feed Offset"
 	},
-
-	"DragImageToResize": {
-		"message": "Drag Image To Resize"
+	"FeedPostContent": {
+		"message": "Feed Post: Content"
 	},
-
-	"InitialSize": {
-		"message": "Initial Size"
+	"FeedPostMaxHeight": {
+		"message": "Post Height"
 	},
-
-	"AddDownloadVideoButton": {
-		"message": "Add Download Video Button"
+	"FeedPostTitle": {
+		"message": "Feed Post: Title"
 	},
-
-	"AccountSwitcher": {
-		"message": "Account Switcher"
+	"FeedWidth": {
+		"message": "Feed Width"
 	},
-
-	"Enable": {
-		"message": "Enable"
+	"FilterOptionsFor": {
+		"message": "Filter Options For"
 	},
-
-	"Accounts": {
-		"message": "Accounts"
+	"FitImage": {
+		"message": "Scale Tall Images to Fit Post"
 	},
-
-	"AddAccount": {
-		"message": "Add Account"
+	"Font": {
+		"message": "Font"
 	},
-
-	"Username": {
-		"message": "Username"
+	"FontWeight": {
+		"message": "Font Weight"
 	},
-
-	"Password": {
-		"message": "Password"
+	"FontWeightInfo": {
+		"message": "Not all fonts support all weights."
 	},
-
-	"Add": {
-		"message": "Add"
+	"FullWidthBanner": {
+		"message": "Full Width Subreddit Banner"
 	},
-
-	"DeleteAll": {
-		"message": "Delete All"
+	"Grey": {
+		"message": "Grey"
 	},
-
-	"AccountSwitcherWarning": {
-		"message": "By using this feature you are letting Reddit Enhancer store your username and password. These credentials will not be synced with other settings to your browser, nor uploaded anywhere else, and will remain on this device. Even though storing extension data is fairly secure, it is by no means encrypted and people with access to this device could extract the data."
+	"Header": {
+		"message": "Header"
 	},
-
-	"AccountSwitcherWarning2": {
-		"message": "For security reasons, you will not be able to reveal your password. Please use a secure password manager in case you forget."
+	"HeaderBgColour": {
+		"message": "Header: Background Colour"
 	},
-
-	"PasswordInfo": {
-		"message": "You may leave the password blank, and you will be prompted when logging in."
+	"HeaderButtons": {
+		"message": "Header Buttons"
+	},
+	"HeaderTextColour": {
+		"message": "Header: Text Colour"
+	},
+	"Here": {
+		"message": "here"
+	},
+	"HideAdvertiseButton": {
+		"message": "Hide the 'Advertise' Button"
+	},
+	"HideBlurredMediaBackground": {
+		"message": "Hide background blur behind image previews"
+	},
+	"HideChatButton": {
+		"message": "Hide the 'Chat' Button"
+	},
+	"HideCommentKarma": {
+		"message": "Hide Comment Karma"
+	},
+	"HideCommunityHighlights": {
+		"message": "Hide 'Community Highlights'"
+	},
+	"HideCompactViewBlankThumbnails": {
+		"message": "Hide Blank Thumbnails In Compact View"
+	},
+	"HideCompactViewThumbnails": {
+		"message": "Hide Thumbnails in Compact View"
+	},
+	"HideCreatePost": {
+		"message": "Hide 'Create Post'"
+	},
+	"HideCreatePostButton": {
+		"message": "Hide 'Create Post' Button"
+	},
+	"HideCustomFeedSidebar": {
+		"message": "Hide the Custom Feed Sidebar"
+	},
+	"HideElements": {
+		"message": "Hide Elements"
+	},
+	"HideFavouriteButtons": {
+		"message": "Hide the Favourite Buttons"
+	},
+	"HideGap": {
+		"message": "Hide Interface Gaps"
+	},
+	"HideGetNewReddit": {
+		"message": "Hide 'Get New Reddit'"
+	},
+	"HideHeaderBar": {
+		"message": "Hide the Header Bar"
+	},
+	"HideHeaderSubBar": {
+		"message": "Hide Header subreddit List"
+	},
+	"HideHomeFeed": {
+		"message": "Hide Home Feed"
+	},
+	"HideHomeSidebar": {
+		"message": "Hide the Home Page Sidebar"
+	},
+	"HideJoinButtonOnPosts": {
+		"message": "Hide the 'Join' Button On Posts"
+	},
+	"HideKarma": {
+		"message": "Hide Karma"
+	},
+	"HideModerationButton": {
+		"message": "Hide the 'Moderation' Button"
+	},
+	"HideNSFW": {
+		"message": "Hide NSFW/L Posts"
+	},
+	"HideNotificationButton": {
+		"message": "Hide 'Notification' Button"
+	},
+	"HideNsfwInSearchResults": {
+		"message": "Hide NSFW results in the Searchbar"
+	},
+	"HideOriginalScrollToTop": {
+		"message": "Hide the Original Scroll to Top Button"
+	},
+	"HidePopularButton": {
+		"message": "Hide the 'Popular' Button"
+	},
+	"HidePostBackButton": {
+		"message": "Hide The Post Back Button"
+	},
+	"HidePostDivider": {
+		"message": "Hide Post Separators"
+	},
+	"HidePostHiddenMessage": {
+		"message": "Hide 'Post Hidden' Message"
+	},
+	"HidePostKarma": {
+		"message": "Hide Post Karma"
+	},
+	"HidePostOverlaySidebar": {
+		"message": "Hide the Post Overlay Sidebar"
+	},
+	"HidePostSidebar": {
+		"message": "Hide the Post Sidebar"
+	},
+	"HidePromoted": {
+		"message": "Hide Ads/Promoted Links"
+	},
+	"HideRecentPosts": {
+		"message": "Hide Recent Posts"
+	},
+	"HideRecommended": {
+		"message": "Hide Recommended/Suggested"
+	},
+	"HideRecommendedInfo": {
+		"message": "Hiding recommended posts can also be set officially in the reddit user settings."
+	},
+	"HideRedditPremium": {
+		"message": "Hide 'Reddit Premium'"
+	},
+	"HideRelatedPosts": {
+		"message": "Hide Related Posts"
+	},
+	"HideSearchSidebar": {
+		"message": "Hide the Search Sidebar"
+	},
+	"HideSearchSidebarNsfwUsers": {
+		"message": "Hide NSFW Users in the Search Sidebar"
+	},
+	"HideSeeFullImage": {
+		"message": "Hide 'See Full Image'"
+	},
+	"HideSideMenu": {
+		"message": "Hide the Side Menu"
+	},
+	"HideSideMenuCommunitiesSection": {
+		"message": "Hide the Communities Section"
+	},
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Hide the Custom Feeds Section"
+	},
+	"HideSideMenuModerationSection": {
+		"message": "Hide the Moderation Section"
+	},
+	"HideSideMenuRecentSection": {
+		"message": "Hide the Recent Subreddit Section"
+	},
+	"HideSideMenuResourcesSection": {
+		"message": "Hide the Resources Section"
+	},
+	"HideSideMenuTopSection": {
+		"message": "Hide the Top Section"
+	},
+	"HideSideMenuTopicsSection": {
+		"message": "Hide the Topics Section"
+	},
+	"HideSidebarPolicy": {
+		"message": "Hide Policies Section"
+	},
+	"HideSubSidebar": {
+		"message": "Hide the Sub Reddit Sidebar"
+	},
+	"HideSubSidebarBlacklistInfo": {
+		"message": "Hide globally except for on these subreddits:"
+	},
+	"HideSubSidebarWhitelistInfo": {
+		"message": "Only hide on these subreddits:"
+	},
+	"HideTrendingTodayInSearchResults": {
+		"message": "Hide 'Trending Today' in the Searchbar"
+	},
+	"HideTurnOnNotificationsPopup": {
+		"message": "Hide 'Get the best of' Popup"
+	},
+	"HideUserProfilePics": {
+		"message": "Hide user profile pictures in the comments"
+	},
+	"HideUserSidebar": {
+		"message": "Hide the User Sidebar"
+	},
+	"HideUsername": {
+		"message": "Hide Username"
+	},
+	"HideVoteButtons": {
+		"message": "Hide Vote Buttons"
+	},
+	"HomeFeedOffset": {
+		"message": "Home Feed Offset"
+	},
+	"HomeFeedWidth": {
+		"message": "Home Feed Width"
+	},
+	"Hot": {
+		"message": "Hot"
+	},
+	"ImagePostMaxHeight": {
+		"message": "Image Post Max Height"
+	},
+	"ImageScroll": {
+		"message": "Add Scrollbar to Tall Images"
+	},
+	"Images": {
+		"message": "Images"
+	},
+	"JustOpenTheImage": {
+		"message": "Just Open The Image"
+	},
+	"JustOpenTheImageInfo": {
+		"message": "Open images on their own, instead of embedded on a Reddit page."
+	},
+	"Language": {
+		"message": "Language"
+	},
+	"LargerClassicPost": {
+		"message": "Larger Classic Post View"
+	},
+	"Light": {
+		"message": "Light"
+	},
+	"LimitCommentsInfo": {
+		"message": "Only works for posts opened in a new tab/window."
+	},
+	"LimitImageWidth": {
+		"message": "Limit Image Width"
+	},
+	"LimitInfinityScroll": {
+		"message": "Limit Infinity Scroll"
+	},
+	"LimitInfinityScrollInfo": {
+		"message": "Beta. This won't necessarily reduce bandwidth usage, but should instead help prevent the page from becoming slow by stopping reddit from adding new posts until you click 'Load More' at the bottom of the feed. When you click 'Load More' it will clear the first 25 posts, and show the next 25."
+	},
+	"Main": {
+		"message": "Main"
+	},
+	"MainContainer": {
+		"message": "Main Container"
+	},
+	"ModerniseOldReddit": {
+		"message": "Modernise old.reddit"
+	},
+	"ModerniseOldRedditInfo": {
+		"message": "Makes old reddit look more like new reddit."
+	},
+	"MoveFeedToTopInSidemenu": {
+		"message": "Move The Feed Section In The Side Menu To The Top"
+	},
+	"New": {
+		"message": "New"
+	},
+	"NewNewUI": {
+		"message": "New New UI"
+	},
+	"NewUpdateAvailable": {
+		"message": "Version <version> is now available. Your browser should update this extension automatically soon if you have automatic updates enabled, if not, you will have to manually check for updates in the browser extension manager."
+	},
+	"NoSavedBackgrounds": {
+		"message": "No Saved Backgrounds"
+	},
+	"NonStickyHeaderBar": {
+		"message": "Non Sticky Header Bar"
+	},
+	"Off": {
+		"message": "Off"
+	},
+	"Offset": {
+		"message": "Offset"
+	},
+	"Old": {
+		"message": "Old"
+	},
+	"OldNewUI": {
+		"message": "Old New UI"
+	},
+	"OldUI": {
+		"message": "Old UI"
+	},
+	"OpenPostInNewTab": {
+		"message": "Open Posts in New Tab"
+	},
+	"OpenPostInNewTabInfo": {
+		"message": "You can now enable this officially within reddit."
+	},
+	"OpenPostInNewTabInfoLink": {
+		"message": "User Settings > Feed Settings > Open posts in new tab"
+	},
+	"OpenSubInNewTab": {
+		"message": "Open Links to subreddits in a New Tab"
+	},
+	"OptionsPage": {
+		"message": "Options Page"
+	},
+	"Or": {
+		"message": "OR"
+	},
+	"Other": {
+		"message": "Other"
+	},
+	"PleaseWait": {
+		"message": "Please Wait"
+	},
+	"PositionHorizontally": {
+		"message": "Position Horizontally"
+	},
+	"PositionVertically": {
+		"message": "Position Vertically"
+	},
+	"Post": {
+		"message": "Post"
+	},
+	"PostBgColour": {
+		"message": "Post: Background Colour"
+	},
+	"PostBorderColour": {
+		"message": "Post: Border Colour"
+	},
+	"PostCommentActionRowColour": {
+		"message": "Post: Comment Action Row Colour"
+	},
+	"PostComments": {
+		"message": "Post: Comments"
+	},
+	"PostCommentsColour": {
+		"message": "Post: Comments Text Colour"
+	},
+	"PostCommentsLimit": {
+		"message": "Limit Post Comments"
+	},
+	"PostCommentsSecondaryColour": {
+		"message": "Post: Comments Secondary Text Colour"
+	},
+	"PostContent": {
+		"message": "Post: Content"
+	},
+	"PostContentAndCommentsLinkColour": {
+		"message": "Post: Content And Comments Link Colour"
+	},
+	"PostOffset": {
+		"message": "Post Offset"
+	},
+	"PostOverlayWidth": {
+		"message": "Post Overlay Width"
+	},
+	"PostSecondaryTextColour": {
+		"message": "Post: Secondary Text Colour"
+	},
+	"PostSeparatorHeight": {
+		"message": "Post Gap"
+	},
+	"PostTitle": {
+		"message": "Post: Title"
+	},
+	"PostTitleContentColour": {
+		"message": "Post: Title and Text Content Colour"
+	},
+	"PostVisitedTitleColour": {
+		"message": "Visited Post: Title Colour"
+	},
+	"PostWidth": {
+		"message": "Post Width"
+	},
+	"Productivity": {
+		"message": "Productivity"
+	},
+	"Qa": {
+		"message": "Q&a"
+	},
+	"RUI2RemovalInfo": {
+		"message": "Reddit has discontinued (Old New UI / Version 2) of the website. Options for 'Old New UI' will continue to be supported for now while other workarounds to get it back are still working."
+	},
+	"RUI3RedirectInfo": {
+		"message": "The redirect option to 'New New UI' is no longer necessary, however, you can use this option to force links from (sh|old).reddit.com to www.reddit.com"
+	},
+	"Rate": {
+		"message": "Rate / Review"
+	},
+	"Redirect": {
+		"message": "Redirect"
+	},
+	"Relevance": {
+		"message": "Relevance"
+	},
+	"ReloadPage": {
+		"message": "Reload Page"
+	},
+	"RememberSectionHiddenState": {
+		"message": "Remember the hidden states of sections in the side menu"
+	},
+	"ReportIssues": {
+		"message": "Report Issues"
+	},
+	"ResetAllSettings": {
+		"message": "Reset All Settings"
+	},
+	"ResizeFont": {
+		"message": "Resize Font"
+	},
+	"ResizeLayout": {
+		"message": "Resize Feed / Post"
+	},
+	"ResizeMainContainer": {
+		"message": "Resize Main Container (experimental)"
+	},
+	"ResizeMainContainerInfo": {
+		"message": "For the best results, please set all Resize Feed / Post width values to 100%."
+	},
+	"ResizeMainContainerWidth": {
+		"message": "Main Container Width"
+	},
+	"Restore": {
+		"message": "Restore"
+	},
+	"RestoreBackup": {
+		"message": "Restore Backup"
+	},
+	"RestoreConfigTitle": {
+		"message": "Restore Reddit Enhancer Backup Config"
+	},
+	"RestoreInfo1": {
+		"message": "Restoring"
+	},
+	"RestoreInfo2": {
+		"message": "items. Browser API limit is 120 per minute. Please leave this tab/window open for another minute."
+	},
+	"Rising": {
+		"message": "Rising"
+	},
+	"ScalePostToFitImage": {
+		"message": "Scale Post To Fit Image"
+	},
+	"ScrollToNextRootComment": {
+		"message": "Show Navigation Buttons For The Next/Previous Root Comment"
+	},
+	"Search": {
+		"message": "Search"
+	},
+	"SearchPageOffset": {
+		"message": "Search Page Offset"
+	},
+	"SearchbarBgColour": {
+		"message": "Searchbar: Background Colour"
+	},
+	"SearchbarDropdownBgColour": {
+		"message": "Searchbar: Focused/Dropdown Background Colour"
+	},
+	"Select": {
+		"message": "Select"
+	},
+	"SelectRedditVersion": {
+		"message": "Select Reddit Version"
+	},
+	"SelectRedirect": {
+		"message": "Redirect"
+	},
+	"SetLanguageAndTheme": {
+		"message": "Full Page Settings / Set Language and Theme"
+	},
+	"SetSansSerifAsFont": {
+		"message": "Set \"sans-serif\" as UI font"
+	},
+	"Settings": {
+		"message": "Settings"
+	},
+	"Shadow": {
+		"message": "Drop Shadows"
+	},
+	"ShowAllButton": {
+		"message": "Add 'r/All' Button"
+	},
+	"ShowPostAuthor": {
+		"message": "Show Post Author"
+	},
+	"ShowPostFlair": {
+		"message": "Show Post Flair"
+	},
+	"ShowPostNumbers": {
+		"message": "Add Post Numbers"
+	},
+	"ShowProfilePicturesOnComments": {
+		"message": "Show Profile Pictures On Comments"
+	},
+	"ShowRising": {
+		"message": "Always Show the 'Rising' Sort Button"
+	},
+	"SideMenu": {
+		"message": "Side Menu"
+	},
+	"SideMenuIconsOnly": {
+		"message": "Side Menu Icons Only"
+	},
+	"SideMenuToggleButton": {
+		"message": "Show Side Menu Toggle Button"
+	},
+	"SideMenuWidth": {
+		"message": "Side Menu Width"
+	},
+	"Sidebar": {
+		"message": "Sidebar"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Sidebar: Background Colour"
+	},
+	"SidebarBorderColour": {
+		"message": "Sidebar: Border Colour"
+	},
+	"SidebarTextColour": {
+		"message": "Sidebar: Text Colour"
+	},
+	"SidemenuBackgroundColour": {
+		"message": "Side Menu: Background Colour"
+	},
+	"SidemenuButtonHoverColour": {
+		"message": "Side Menu: Button Hover Colour"
+	},
+	"SidemenuTextColour": {
+		"message": "Side Menu: Text Colour"
+	},
+	"Sort": {
+		"message": "Sort"
+	},
+	"SortBar": {
+		"message": "Sort Bar"
+	},
+	"SortBgColour": {
+		"message": "Sort: Background Colour"
+	},
+	"SortBorderColour": {
+		"message": "Sort: Border Colour"
+	},
+	"SortTextColour": {
+		"message": "Sort: Text Colour"
+	},
+	"StartTime": {
+		"message": "Start Time (24)"
+	},
+	"StickySort": {
+		"message": "Sticky Sort"
+	},
+	"StyleOptions": {
+		"message": "Style Options"
+	},
+	"StyleTweaks": {
+		"message": "Style"
+	},
+	"SubFeedOffset": {
+		"message": "Sub Feed Offset"
+	},
+	"SubFeedWidth": {
+		"message": "Sub Feed Width"
+	},
+	"Subreddit": {
+		"message": "Subreddit"
+	},
+	"Text": {
+		"message": "Text"
+	},
+	"TextPostMaxHeightInfo": {
+		"message": "Set the text fade height"
+	},
+	"TextPostPreviewFade": {
+		"message": "Add fade effect to text post previews (experimental)"
+	},
+	"TextPostPreviewFadeHeight": {
+		"message": "Fade Height"
+	},
+	"TextPostPreviewMaxHeight": {
+		"message": "Text Preview Height"
+	},
+	"TextScroll": {
+		"message": "Add Scrollbar To Long Text Posts"
+	},
+	"TextScrollInfo": {
+		"message": "There is a limit. You may have to open the post if it is very long."
+	},
+	"Theme": {
+		"message": "Theme"
+	},
+	"ThemeBlacklistInfo": {
+		"message": "Use theme colours globally, except for these subreddits:"
+	},
+	"ThemeBlur": {
+		"message": "Theme Blur"
+	},
+	"ThemeBlurInfo": {
+		"message": "Use translucent colours 'rgba(0,0,0,0.5)' to see blur effect."
+	},
+	"ThemeColours": {
+		"message": "Theme Colours"
+	},
+	"ThemeWhitelistInfo": {
+		"message": "Only use the theme colours for these subreddits:"
+	},
+	"TimeRange": {
+		"message": "Time Range"
+	},
+	"ToTop": {
+		"message": "Add 'Scroll To Top' Button"
+	},
+	"Top": {
+		"message": "Top"
+	},
+	"TopicFeedWidth": {
+		"message": "Topic Feed Width"
+	},
+	"TranslationHelp": {
+		"message": "Translation Help"
+	},
+	"UnderlineLinks": {
+		"message": "Underline Links"
+	},
+	"UpdateFirefox": {
+		"message": "Please update to Firefox 121 or greater for some features to work correctly."
+	},
+	"Upload": {
+		"message": "Upload"
+	},
+	"UpvoteColour": {
+		"message": "Post: Upvote Colour"
+	},
+	"UseCustom": {
+		"message": "Use Custom"
+	},
+	"UserProfileOffset": {
+		"message": "User Profile Offset"
+	},
+	"UserProfileWidth": {
+		"message": "User Profile Width"
+	},
+	"VideoPlayerInfo": {
+		"message": "Fast, lightweight video player with speed controls based on videojs. Try this if you have loading issues with reddit's own player."
+	},
+	"VideoPlayerReplacement": {
+		"message": "Alternative Video Player"
+	},
+	"Welcome": {
+		"message": "Welcome!"
+	},
+	"Whitelist": {
+		"message": "Whitelist"
+	},
+	"WhitelistBlacklist": {
+		"message": "Whitelist / Blacklist"
+	},
+	"Width": {
+		"message": "Width"
+	},
+	"extensionVersionText": {
+		"message": "Extension Version"
+	},
+	"learnMore": {
+		"message": "Learn More"
+	},
+	"resizeHomeAlsoAffects": {
+		"message": "& r/all, r/popular, Create Post, Search Results, and Wiki pages"
 	}
 }

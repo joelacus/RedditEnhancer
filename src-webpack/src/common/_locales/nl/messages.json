@@ -2,1124 +2,763 @@
 	"extensionName": {
 		"message": "Reddit Enhancer"
 	},
-
 	"extensionDescription": {
 		"message": "Verschillende tweaks om uw Reddit-ervaring te personaliseren. Ondersteunt alle versies van Reddit."
 	},
-
 	"About": {
 		"message": "Over"
 	},
-
-	"ReportIssues": {
-		"message": "Rapporteer problemen"
-	},
-
-	"BuyMeACoffee": {
-		"message": "Koop me een koffie"
-	},
-
-	"DarkMode": {
-		"message": "Donkere Modus"
-	},
-
-	"ResizeLayout": {
-		"message": "Formaat van Feed / Post wijzigen"
-	},
-
-	"Centre": {
-		"message": "Centrum"
-	},
-
-	"Width": {
-		"message": "Breedte"
-	},
-
-	"HomeFeedWidth": {
-		"message": "Breedte van de thuisfeed"
-	},
-
-	"SubFeedWidth": {
-		"message": "Breedte van de sub-feed"
-	},
-
-	"UserProfileWidth": {
-		"message": "Breedte gebruikersprofiel"
-	},
-
-	"PostOverlayWidth": {
-		"message": "Breedte van de post-overlay"
-	},
-
-	"PostWidth": {
-		"message": "Breedte van de post"
-	},
-
-	"Offset": {
-		"message": "Verschuiving"
-	},
-
-	"HomeFeedOffset": {
-		"message": "Verschuiving van de start-feed"
-	},
-
-	"SubFeedOffset": {
-		"message": "Verschuiving van de sub-feed"
-	},
-
-	"PostOffset": {
-		"message": "Verschuiving van de post"
-	},
-
-	"UserProfileOffset": {
-		"message": "Verschuiving van de gebruikersprofiel"
-	},
-
-	"FitImage": {
-		"message": "Schaal grote afbeeldingen om op de post te passen"
-	},
-
-	"ImageScroll": {
-		"message": "Voeg schuifbalk toe aan hoge afbeeldingen"
-	},
-
-	"Background": {
-		"message": "Achtergrond"
-	},
-
-	"Blur": {
-		"message": "Vervagen"
-	},
-
-	"Shadow": {
-		"message": "Slagschaduwen"
-	},
-
-	"UseCustom": {
-		"message": "Aangepast gebruiken"
-	},
-
-	"CustomBgInputPlaceholder": {
-		"message": "Aangepaste achtergrondlink"
-	},
-
-	"NewNewUI": {
-		"message": "Nieuwe Nieuwe UI"
-	},
-
-	"OldNewUI": {
-		"message": "Oude Nieuwe UI"
-	},
-
-	"OldUI": {
-		"message": "Oude UI"
-	},
-
-	"Auto": {
-		"message": "Auto"
-	},
-
-	"Disabled": {
-		"message": "Uitgeschakeld"
-	},
-
-	"BrowserTheme": {
-		"message": "Browser Thema"
-	},
-
-	"TimeRange": {
-		"message": "Tijdsbestek"
-	},
-
-	"StartTime": {
-		"message": "Starttijd (24)"
-	},
-
-	"EndTime": {
-		"message": "Eindtijd (24)"
-	},
-
-	"StyleTweaks": {
-		"message": "Stijl"
-	},
-
-	"HideRedditPremium": {
-		"message": "Verberg “Reddit Premium”"
-	},
-
-	"HideCreatePost": {
-		"message": "Verberg “Bericht maken”"
-	},
-
-	"HideAdvertiseButton": {
-		"message": "Verberg de knop “Adverteren”"
-	},
-
-	"HideModerationButton": {
-		"message": "Verberg de knop “Moderatie”"
-	},
-
-	"HidePopularButton": {
-		"message": "Verberg de knop “Populair”"
-	},
-
-	"HideChatButton": {
-		"message": "Verberg de “Chat” knop"
-	},
-
-	"HideHomeSidebar": {
-		"message": "Verberg de zijbalk van de startpagina"
-	},
-
-	"HideSubSidebar": {
-		"message": "Verberg de zijbalk van Sub Reddit"
-	},
-
-	"Sidebar": {
-		"message": "Zijbalk"
-	},
-
-	"Header": {
-		"message": "Kop"
-	},
-
-	"Feed": {
-		"message": "Feed"
-	},
-
-	"HeaderButtons": {
-		"message": "Koptekst Knoppen"
-	},
-
-	"HideGap": {
-		"message": "Verberg interface-gaten"
-	},
-
-	"Main": {
-		"message": "Hoofd"
-	},
-
-	"StickySort": {
-		"message": "Vastgezette sortering"
-	},
-
-	"HideUsername": {
-		"message": "Verberg gebruikersnaam"
-	},
-
-	"HideKarma": {
-		"message": "Verberg karma"
-	},
-
-	"ReloadPage": {
-		"message": "Pagina herladen"
-	},
-
-	"ShowRising": {
-		"message": "Toon altijd de knop “Rising” sorteren"
-	},
-
-	"ToTop": {
-		"message": "Knop “Scroll naar boven” toevoegen"
-	},
-
-	"HideGetNewReddit": {
-		"message": "Verberg “Get New Reddit”"
-	},
-
-	"HideSidebarPolicy": {
-		"message": "Sectie Beleid verbergen"
-	},
-
-	"HideElements": {
-		"message": "Elementen Verbergen"
-	},
-
-	"Productivity": {
-		"message": "productiviteit"
-	},
-
-	"OpenSubInNewTab": {
-		"message": "Links naar Sub Reddit in een nieuw tabblad openen"
-	},
-
-	"Search": {
-		"message": "Zoeken"
-	},
-
-	"HidePromoted": {
-		"message": "Advertenties/gesponsorde links verbergen"
-	},
-
-	"ShowAllButton": {
-		"message": "Knop “r/All” toevoegen"
-	},
-
-	"VideoPlayerReplacement": {
-		"message": "Alternatieve videospeler"
-	},
-
-	"Images": {
-		"message": "Afbeeldingen"
-	},
-
-	"SortBar": {
-		"message": "Sorteerbalk"
-	},
-
-	"Other": {
-		"message": "Ander"
-	},
-
-	"HideCreatePostButton": {
-		"message": "Knop “Bericht maken” Verbergen"
-	},
-
-	"HideNotificationButton": {
-		"message": "Knop “Melding” Verbergen"
-	},
-
-	"MoveFeedToTopInSidemenu": {
-		"message": "Sposta la sezione Feed nel menu laterale verso l'alto"
-	},
-
-	"Text": {
-		"message": "Tekst"
-	},
-
-	"TextScroll": {
-		"message": "Schuifbalk toevoegen aan lange tekstberichten"
-	},
-
-	"HideSeeFullImage": {
-		"message": "Verberg “See Full Image”"
-	},
-
-	"ModerniseOldReddit": {
-		"message": "Moderniseer old.reddit"
-	},
-
-	"HideHeaderSubBar": {
-		"message": "Hide Header Subreddit-lijst"
-	},
-
-	"HideSideMenu": {
-		"message": "Zijmenu Verbergen"
-	},
-
-	"PostCommentsLimit": {
-		"message": "Beperk reacties op berichten"
-	},
-
-	"AutoExpand": {
-		"message": "Uitbreiden tot 100% als de venster-/schermbreedte kleiner is dan:"
-	},
-
-	"HidePostSidebar": {
-		"message": "Verberg de berichtzijbalk"
-	},
-
-	"HidePostOverlaySidebar": {
-		"message": "Verberg de zijbalk van de berichtoverlay"
-	},
-
-	"HideUserSidebar": {
-		"message": "Verberg de gebruikerszijbalk"
-	},
-
-	"LimitInfinityScroll": {
-		"message": "Beperk oneindig scrollen"
-	},
-
-	"VideoPlayerInfo": {
-		"message": "Snelle, lichtgewicht videospeler met snelheidsregeling op basis van videojs. Probeer dit als je laadproblemen hebt met de eigen speler van reddit."
-	},
-
-	"LimitCommentsInfo": {
-		"message": "Werkt alleen voor berichten die in een nieuw tabblad/venster zijn geopend."
-	},
-
-	"LimitInfinityScrollInfo": {
-		"message": "Beta. Dit zal niet noodzakelijkerwijs het bandbreedtegebruik verminderen, maar zou in plaats daarvan moeten helpen voorkomen dat de pagina traag wordt door te voorkomen dat Reddit nieuwe berichten toevoegt totdat je op 'Meer laden' onderaan de feed klikt. Wanneer u op 'Meer laden' klikt, worden de eerste 25 berichten gewist en worden de volgende 25 weergegeven."
-	},
-
-	"DefaultFeedSortOption": {
-		"message": "Standaard optie voor het sorteren van feeds"
-	},
-
-	"DefaultCommentsSortOption": {
-		"message": "Standaardopmerkingen Sorteeroptie"
-	},
-
-	"Best": {
-		"message": "Best"
-	},
-
-	"Hot": {
-		"message": "Hot"
-	},
-
-	"New": {
-		"message": "New"
-	},
-
-	"Top": {
-		"message": "Top"
-	},
-
-	"Controversial": {
-		"message": "Controversial"
-	},
-
-	"Rising": {
-		"message": "Rising"
-	},
-
-	"Old": {
-		"message": "Old"
-	},
-
-	"Qa": {
-		"message": "Q&a"
-	},
-
-	"OpenPostInNewTab": {
-		"message": "Links openen om op een nieuw tabblad te posten"
-	},
-
-	"ControversialSort": {
-		"message": "Toon de “Controversiële” sorteerknop"
-	},
-
-	"TextScrollInfo": {
-		"message": "Er is een limiet. Misschien moet u de post openen als het erg lang is."
-	},
-
-	"HideNSFW": {
-		"message": "Verberg NSFW/L berichten"
-	},
-
-	"HideTurnOnNotificationsPopup": {
-		"message": "Pop-up “Meldingen inschakelen” verbergen"
-	},
-
-	"ScrollToNextRootComment": {
-		"message": "Toon knoppen om naar de volgende/vorige root opmerking te scrollen"
-	},
-
-	"OpenPostInNewTabInfo": {
-		"message": "U kunt dit nu officieel in Reddit inschakelen."
-	},
-
-	"OpenPostInNewTabInfoLink": {
-		"message": "User Settings > Feed Settings > Open posts in new tab"
-	},
-
-	"ShowPostNumbers": {
-		"message": "Nummer toevoegen aan post"
-	},
-
-	"Backup": {
-		"message": "Backup"
-	},
-
-	"Restore": {
-		"message": "Herstellen"
-	},
-
-	"RestoreConfigTitle": {
-		"message": "Herstel Reddit Enhancer Backup Config"
-	},
-
-	"ChooseBackupFile": {
-		"message": "Kies een back-upbestand"
-	},
-
-	"Or": {
-		"message": "OF"
-	},
-
-	"Drag": {
-		"message": "Sleep"
-	},
-
-	"Here": {
-		"message": "hierheen"
-	},
-
-	"RestoreBackup": {
-		"message": "Back-up terugzetten"
-	},
-
-	"BackupRestored": {
-		"message": "Back-up hersteld!"
-	},
-
-	"CloseTab": {
-		"message": "U kunt dit tabblad/venster nu sluiten."
-	},
-
-	"Upload": {
-		"message": "Uploaden"
-	},
-
-	"CustomCSS": {
-		"message": "Aangepaste CSS"
-	},
-
-	"FeedPostMaxHeight": {
-		"message": "Hoogte van Bericht"
-	},
-
-	"Post": {
-		"message": "Bericht"
-	},
-
 	"Accessibility": {
 		"message": "Toegankelijkheid"
 	},
-
-	"BionicReader": {
-		"message": "Bionische Lezer"
-	},
-
-	"BionicReaderPosts": {
-		"message": "Bionische lezer voor berichten"
-	},
-
-	"BionicReaderComments": {
-		"message": "Bionische lezer voor commentaar"
-	},
-
-	"BionicFontColour": {
-		"message": "Bionische letterkleur"
-	},
-
-	"BionicBackgroundColour": {
-		"message": "Bionische achtergrondkleur"
-	},
-
-	"ThemeBlur": {
-		"message": "Thema Vervagen"
-	},
-
-	"ThemeBlurInfo": {
-		"message": "Gebruik doorschijnende kleuren 'rgba(0,0,0,0.5)' om het vervagingseffect te zien."
-	},
-
-	"ThemeColours": {
-		"message": "Thema Kleuren"
-	},
-
-	"PostVisitedTitleColour": {
-		"message": "Bezocht bericht: Titelkleur"
-	},
-
-	"HeaderBgColour": {
-		"message": "Koptekst: Achtergrondkleur"
-	},
-
-	"HeaderTextColour": {
-		"message": "Koptekst: Tekstkleur"
-	},
-
-	"Sort": {
-		"message": "Sorteren"
-	},
-
-	"SortBgColour": {
-		"message": "Sorteren: Achtergrondkleur"
-	},
-
-	"SortTextColour": {
-		"message": "Sorteren: Tekstkleur"
-	},
-
-	"SortBorderColour": {
-		"message": "Sorteren: Randkleur"
-	},
-
-	"PostBgColour": {
-		"message": "Bericht: Achtergrondkleur"
-	},
-
-	"PostSecondaryTextColour": {
-		"message": "Bericht: Secundaire tekstkleur"
-	},
-
-	"PostTitleContentColour": {
-		"message": "Bericht: Titel en tekstinhoudskleur"
-	},
-
-	"PostCommentsColour": {
-		"message": "Bericht: Opmerkingen Tekstkleur"
-	},
-
-	"PostCommentsSecondaryColour": {
-		"message": "Bericht: Opmerkingen Secundaire tekstkleur"
-	},
-
-	"PostBorderColour": {
-		"message": "Bericht: Randkleur"
-	},
-
-	"SidebarTextColour": {
-		"message": "Zijbalk: Tekstkleur"
-	},
-
-	"SidebarBackgroundColour": {
-		"message": "Zijbalk: Achtergrond kleur"
-	},
-
-	"SidebarBorderColour": {
-		"message": "Zijbalk: Randkleur"
-	},
-
-	"SideMenu": {
-		"message": "Zijmenu"
-	},
-
-	"SidemenuTextColour": {
-		"message": "Zijmenu: Tekstkleur"
-	},
-
-	"SidemenuBackgroundColour": {
-		"message": "Zijmenu: Achtergrond kleur"
-	},
-
-	"SidemenuButtonHoverColour": {
-		"message": "Zijmenu: Knopzweefkleur"
-	},
-
-	"WhitelistBlacklist": {
-		"message": "Witte lijst / Zwarte lijst"
-	},
-
-	"Whitelist": {
-		"message": "Witte lijst"
-	},
-
-	"Blacklist": {
-		"message": "Zwarte lijst"
-	},
-
-	"ThemeBlacklistInfo": {
-		"message": "Gebruik themakleuren wereldwijd, behalve voor deze subreddits:"
-	},
-
-	"ThemeWhitelistInfo": {
-		"message": "Gebruik alleen de themakleuren voor deze subreddits:"
-	},
-
-	"HideSubSidebarBlacklistInfo": {
-		"message": "Wereldwijd verbergen, behalve op deze subreddits:"
-	},
-
-	"HideSubSidebarWhitelistInfo": {
-		"message": "Verberg je alleen op deze subreddits:"
-	},
-
-	"HideHeaderBar": {
-		"message": "Verberg de kopbalk"
-	},
-
-	"NonStickyHeaderBar": {
-		"message": "Niet-plakkerige kopbalk"
-	},
-
-	"HideOriginalScrollToTop": {
-		"message": "Verberg de knop Origineel scrollen naar boven"
-	},
-
-	"CreatePost": {
-		"message": "Bericht Maken"
-	},
-
-	"CreatePostBgColour": {
-		"message": "Bericht Maken: Achtergrondkleur"
-	},
-
-	"CreatePostBorderColour": {
-		"message": "Bericht Maken: Randkleur"
-	},
-
 	"AlwaysShowPostOptions": {
 		"message": "Toon Altijd Berichtopties"
 	},
-
-	"LargerClassicPost": {
-		"message": "Grotere klassieke berichtweergave"
+	"Auto": {
+		"message": "Auto"
 	},
-
-	"PositionVertically": {
-		"message": "Positie verticaal"
-	},
-
-	"PositionHorizontally": {
-		"message": "Horizontaal positioneren"
-	},
-
-	"BreakReminder": {
-		"message": "Pauzeherinnering"
-	},
-
-	"BreakReminderInfo": {
-		"message": "Beta. Toont een herinnering om na elk ingesteld aantal berichten een pauze te nemen."
-	},
-
-	"BreakReminderFrequency": {
-		"message": "Herinneringsfrequentie"
-	},
-
-	"TranslationHelp": {
-		"message": "Hulp bij vertaling"
-	},
-
-	"Off": {
-		"message": "Uit"
-	},
-
-	"ShowPostAuthor": {
-		"message": "Toon berichtauteur"
-	},
-
-	"ShowPostFlair": {
-		"message": "Toon 'Post Flair'"
-	},
-
-	"HideSideMenuTopSection": {
-		"message": "Verberg het bovenste gedeelte"
-	},
-
-	"HideSideMenuModerationSection": {
-		"message": "Verberg de sectie Moderatie"
-	},
-
-	"HideSideMenuRecentSection": {
-		"message": "Verberg de sectie Recente Subreddit"
-	},
-
-	"HideSideMenuCommunitiesSection": {
-		"message": "Verberg de sectie Community's"
-	},
-
-	"HideSideMenuResourcesSection": {
-		"message": "Verberg de sectie Bronnen"
-	},
-
-	"HideSideMenuTopicsSection": {
-		"message": "Verberg de sectie Onderwerpen"
-	},
-
-	"HideRelatedPosts": {
-		"message": "Verberg gerelateerde berichten"
-	},
-
-	"Select": {
-		"message": "Selecteer"
-	},
-
-	"SelectRedditVersion": {
-		"message": "Selecteer Reddit-versie"
-	},
-
-	"UpdateFirefox": {
-		"message": "Update naar Firefox 121 of hoger zodat sommige functies correct werken."
-	},
-
-	"ResizeFont": {
-		"message": "Formaat van lettertype wijzigen"
-	},
-
-	"PostTitle": {
-		"message": "Berichttitel"
-	},
-
-	"PostContent": {
-		"message": "Berichtinhoud"
-	},
-
-	"PostComments": {
-		"message": "Berichtreacties"
-	},
-
-	"Rate": {
-		"message": "Beoordeel / Recensie"
-	},
-
-	"HideUserProfilePics": {
-		"message": "Verberg gebruikersprofielfoto's in de reacties"
-	},
-
-	"AutoExpandComments": {
-		"message": "Vouw verborgen opmerkingen automatisch uit"
-	},
-
-	"AutoExpandCommentsInfo": {
-		"message": "Dit kan ervoor zorgen dat de pagina trager wordt en veel RAM-geheugen gebruikt, vooral als er veel reacties zijn."
-	},
-
 	"AutoCollapseAutoModeratorComment": {
 		"message": "Automatisch minimaliseren van AutoModerator-commentaar"
 	},
-
-	"HidePostHiddenMessage": {
-		"message": "Verberg het bericht 'Post verborgen'"
+	"AutoExpand": {
+		"message": "Uitbreiden tot 100% als de venster-/schermbreedte kleiner is dan:"
 	},
-
-	"JustOpenTheImage": {
-		"message": "Open gewoon de afbeelding"
+	"AutoExpandComments": {
+		"message": "Vouw verborgen opmerkingen automatisch uit"
 	},
-
-	"JustOpenTheImageInfo": {
-		"message": "Open afbeeldingen op zichzelf, in plaats van ingebed op een Reddit-pagina."
+	"AutoExpandCommentsInfo": {
+		"message": "Dit kan ervoor zorgen dat de pagina trager wordt en veel RAM-geheugen gebruikt, vooral als er veel reacties zijn."
 	},
-
-	"ScalePostToFitImage": {
-		"message": "Schaal de post zodat deze bij de afbeelding past"
-	},
-
-	"LimitImageWidth": {
-		"message": "Beperk de afbeeldingsbreedte"
-	},
-
-	"Settings": {
-		"message": "Instellingen"
-	},
-
-	"ExtensionSettings": {
-		"message": "Extensie-instellingen"
-	},
-
-	"Theme": {
-		"message": "Thema"
-	},
-
-	"Dark": {
-		"message": "Donker"
-	},
-
-	"Light": {
-		"message": "Licht"
-	},
-
-	"ClassicLight": {
-		"message": "Klassiek Licht"
-	},
-
-	"BackupRestoreConfig": {
-		"message": "Backup/Herstel Configuratie"
-	},
-
-	"PleaseWait": {
-		"message": "Even geduld aub"
-	},
-
-	"RestoreInfo1": {
-		"message": ""
-	},
-
-	"RestoreInfo2": {
-		"message": "items herstellen. Browser API-limiet is 120 per minuut. Laat dit venster/tabblad nog een minuut open."
-	},
-
-	"HideJoinButtonOnPosts": {
-		"message": "Verberg de knop 'Deelnemen' op berichten"
-	},
-
 	"AutoLoadMoreComments": {
 		"message": "Laad automatisch meer reacties"
 	},
-
-	"HideSideMenuCustomFeedsSection": {
-		"message": "Verberg het gedeelte 'Aangepaste feeds'"
-	},
-
-	"UnderlineLinks": {
-		"message": "Onderstreep koppelingen"
-	},
-
 	"AutoShowCommentFormattingOptions": {
 		"message": "Toon automatisch opmaakopties bij opmerkingen"
 	},
-
-	"Language": {
-		"message": "Taal"
+	"Background": {
+		"message": "Achtergrond"
 	},
-
-	"SearchbarBgColour": {
-		"message": "Zoekbalk: Achtergrond kleur"
+	"Backup": {
+		"message": "Backup"
 	},
-
-	"SearchbarDropdownBgColour": {
-		"message": "Zoekbalk: Gefocust/Dropdown Achtergrondkleur"
+	"BackupRestoreConfig": {
+		"message": "Backup/Herstel Configuratie"
 	},
-
-	"HideSearchSidebar": {
-		"message": "Verberg de zoekzijbalk"
+	"BackupRestored": {
+		"message": "Back-up hersteld!"
 	},
-
-	"HideRecommended": {
-		"message": "Aanbevolen verbergen"
+	"Best": {
+		"message": "Best"
 	},
-
-	"HideRecommendedInfo": {
-		"message": "Het verbergen van aanbevolen berichten kan officieel worden ingesteld in de gebruikersinstellingen van Reddit."
+	"BionicBackgroundColour": {
+		"message": "Bionische achtergrondkleur"
 	},
-
-	"TopicFeedWidth": {
-		"message": "Onderwerpfeedbreedte"
+	"BionicFontColour": {
+		"message": "Bionische letterkleur"
 	},
-
-	"RUI2RemovalInfo": {
-		"message": "Reddit has discontinued (Old New UI / Version 2) of the website. Options for 'Old New UI' will continue to be supported for now while other workarounds to get it back are still working."
+	"BionicReader": {
+		"message": "Bionische Lezer"
 	},
-
-	"learnMore": {
-		"message": "Meer informatie"
+	"BionicReaderComments": {
+		"message": "Bionische lezer voor commentaar"
 	},
-
-	"HidePostBackButton": {
-		"message": "Verberg de knop 'Post terug'"
+	"BionicReaderPosts": {
+		"message": "Bionische lezer voor berichten"
 	},
-
+	"Blacklist": {
+		"message": "Zwarte lijst"
+	},
+	"Blur": {
+		"message": "Vervagen"
+	},
 	"BorderRadiusAmount": {
 		"message": "Thema hoek radius"
 	},
-
-	"HidePostKarma": {
-		"message": "Bericht verbergen Karma"
+	"BreakReminder": {
+		"message": "Pauzeherinnering"
 	},
-
-	"HideRecentPosts": {
-		"message": "Verberg recente berichten"
+	"BreakReminderFrequency": {
+		"message": "Herinneringsfrequentie"
 	},
-
-	"SideMenuWidth": {
-		"message": "Breedte zijmenu"
+	"BreakReminderInfo": {
+		"message": "Beta. Toont een herinnering om na elk ingesteld aantal berichten een pauze te nemen."
 	},
-
-	"SideMenuIconsOnly": {
-		"message": "Alleen pictogrammen in het zijmenu"
+	"BrowserTheme": {
+		"message": "Browser Thema"
 	},
-
-	"HideFavouriteButtons": {
-		"message": "Verberg de Favorietenknoppen"
+	"BuyMeACoffee": {
+		"message": "Koop me een koffie"
 	},
-
-	"ResetAllSettings": {
-		"message": "Alle instellingen resetten"
+	"Centre": {
+		"message": "Centrum"
 	},
-
-	"Confirm": {
-		"message": "Bevestigen"
-	},
-
-	"Cleared": {
-		"message": "Gewist"
-	},
-
-	"Error": {
-		"message": "Fout"
-	},
-
-	"SetLanguageAndTheme": {
-		"message": "Volledige pagina-instellingen / Taal en thema instellen"
-	},
-
-	"SelectRedirect": {
-		"message": "Doorverwijzen"
-	},
-
-	"Welcome": {
-		"message": "Welkom!"
-	},
-
-	"ModerniseOldRedditInfo": {
-		"message": "Zorgt ervoor dat het oude Reddit meer op het nieuwe Reddit lijkt."
-	},
-
-	"RUI3RedirectInfo": {
-		"message": "The redirect option to 'New New UI' is no longer necessary, however, you can use this option to force links from (sh|old).reddit.com to www.reddit.com"
-	},
-
-	"DontShowAgain": {
-		"message": "Niet meer tonen"
-	},
-
-	"Close": {
-		"message": "Dichtbij"
-	},
-
-	"SideMenuToggleButton": {
-		"message": "Show Side Menu Toggle Button"
-	},
-
-	"HideCompactViewBlankThumbnails": {
-		"message": "Hide Blank Thumbnails In Compact View"
-	},
-
-	"HideNsfwInSearchResults": {
-		"message": "Hide 'NSFW' in the Search Results"
-	},
-
-	"HideTrendingTodayInSearchResults": {
-		"message": "Hide 'Trending Today' in the Searchbar"
-	},
-
-	"HideCommunityHighlights": {
-		"message": "Hide 'Community Highlights'"
-	},
-
-	"HideSearchSidebarNsfwUsers": {
-		"message": "Hide NSFW Users in the Search Page Sidebar"
-	},
-
-	"resizeHomeAlsoAffects": {
-		"message": "& r/all, r/popular, create post, search results, and wiki pages"
-	},
-
-	"SearchPageOffset": {
-		"message": "Zoekpagina-offset"
-	},
-
-	"NoSavedBackgrounds": {
-		"message": "Geen opgeslagen achtergronden"
-	},
-
-	"HideHomeFeed": {
-		"message": "Verberg de startfeed"
-	},
-
-	"RememberSectionHiddenState": {
-		"message": "Onthoud de verborgen toestanden van secties in het zijmenu"
-	},
-
-	"NewUpdateAvailable": {
-		"message": "Versie <version> is nu beschikbaar. Uw browser zou deze extensie binnenkort automatisch moeten updaten als u automatische updates hebt ingeschakeld. Als dat niet het geval is, moet u handmatig controleren op updates in de browserextensiemanager."
-	},
-
-	"UpvoteColour": {
-		"message": "Bericht: Upvote Kleur"
-	},
-
-	"FontWeight": {
-		"message": "Font Weight"
-	},
-
-	"FontWeightInfo": {
-		"message": "Not all fonts support all weights."
-	},
-
-	"Font": {
-		"message": "Font"
-	},
-
-	"FeedPostTitle": {
-		"message": "Feed Post: Title"
-	},
-
-	"FeedPostContent": {
-		"message": "Feed Post: Content"
-	},
-
-	"PostCommentActionRowColour": {
-		"message": "Post: Comment Action Row Colour"
-	},
-
-	"FilterOptionsFor": {
-		"message": "Filter Options For"
-	},
-
-	"Redirect": {
-		"message": "Redirect"
-	},
-
-	"CreatePostTitle": {
-		"message": "Create Post: Title"
-	},
-
-	"CreatePostBody": {
-		"message": "Create Post: Body"
-	},
-
-	"OptionsPage": {
-		"message": "Options Page"
-	},
-
-	"extensionVersionText": {
-		"message": "Extension Version"
-	},
-
 	"Changelog": {
 		"message": "Changelog"
 	},
-
-	"ShowProfilePicturesOnComments": {
-		"message": "Show Profile Pictures On Comments"
+	"ChooseBackupFile": {
+		"message": "Kies een back-upbestand"
 	},
-
-	"CustomFeedWidth": {
-		"message": "Custom Feed Width"
+	"ClassicLight": {
+		"message": "Klassiek Licht"
 	},
-
-	"ResizeMainContainer": {
-		"message": "Resize Main Container (experimental)"
+	"Cleared": {
+		"message": "Gewist"
 	},
-
-	"ResizeMainContainerInfo": {
-		"message": "For the best results, please set all Resize Feed / Post width values to 100%."
+	"Close": {
+		"message": "Dichtbij"
 	},
-
-	"HideCustomFeedSidebar": {
-		"message": "Hide the Custom Feed Sidebar"
+	"CloseTab": {
+		"message": "U kunt dit tabblad/venster nu sluiten."
 	},
-
-	"HidePostDivider": {
-		"message": "Hide Post Separators"
+	"CommentsCount": {
+		"message": "Reacties tellen"
 	},
-
-	"PostSeparatorHeight": {
-		"message": "Post Gap"
-	},
-
-	"HideBlurredMediaBackground": {
-		"message": "Hide background blur behind image previews"
-	},
-
 	"CompactHeaderSideMenu": {
-		"message": "Compact Header Bar & Side Menu"
+		"message": "Compact de headerbalk en het zijmenu"
 	},
-
+	"CompactSubRuleList": {
+		"message": "Compact de lijst met subreddit regel"
+	},
+	"Confirm": {
+		"message": "Bevestigen"
+	},
+	"Controversial": {
+		"message": "Controverseel"
+	},
+	"ControversialSort": {
+		"message": "Toon de “Controversiële” sorteerknop"
+	},
+	"CreatePost": {
+		"message": "Bericht Maken"
+	},
+	"CreatePostBgColour": {
+		"message": "Bericht Maken: Achtergrondkleur"
+	},
+	"CreatePostBody": {
+		"message": "Maak bericht: Lichaam"
+	},
+	"CreatePostBorderColour": {
+		"message": "Bericht Maken: Randkleur"
+	},
+	"CreatePostTitle": {
+		"message": "Maak bericht: Titel"
+	},
+	"CustomBgInputPlaceholder": {
+		"message": "Aangepaste achtergrondlink"
+	},
+	"CustomCSS": {
+		"message": "Aangepaste CSS"
+	},
+	"CustomFeedWidth": {
+		"message": "Aangepaste voedingsbreedte"
+	},
+	"Dark": {
+		"message": "Donker"
+	},
+	"DarkMode": {
+		"message": "Donkere Modus"
+	},
+	"DefaultCommentsSortOption": {
+		"message": "Standaardopmerkingen Sorteeroptie"
+	},
+	"DefaultFeedSortOption": {
+		"message": "Standaard optie voor het sorteren van feeds"
+	},
+	"Disabled": {
+		"message": "Uitgeschakeld"
+	},
+	"DontShowAgain": {
+		"message": "Niet meer tonen"
+	},
+	"Drag": {
+		"message": "Sleep"
+	},
+	"EndTime": {
+		"message": "Eindtijd (24)"
+	},
+	"Error": {
+		"message": "Fout"
+	},
+	"ExtensionSettings": {
+		"message": "Extensie-instellingen"
+	},
+	"Feed": {
+		"message": "Feed"
+	},
+	"FeedPostMaxHeight": {
+		"message": "Hoogte van Bericht"
+	},
+	"FitImage": {
+		"message": "Schaal grote afbeeldingen om op de post te passen"
+	},
+	"Header": {
+		"message": "Kop"
+	},
+	"HeaderBgColour": {
+		"message": "Koptekst: Achtergrondkleur"
+	},
+	"HeaderButtons": {
+		"message": "Koptekst Knoppen"
+	},
+	"HeaderTextColour": {
+		"message": "Koptekst: Tekstkleur"
+	},
+	"Here": {
+		"message": "hierheen"
+	},
+	"HideAdvertiseButton": {
+		"message": "Verberg de knop “Adverteren”"
+	},
+	"HideChatButton": {
+		"message": "Verberg de “Chat” knop"
+	},
+	"HideCompactViewThumbnails": {
+		"message": "Verberg de miniaturen in compacte weergave"
+	},
+	"HideCreatePost": {
+		"message": "Verberg “Bericht maken”"
+	},
+	"HideCreatePostButton": {
+		"message": "Knop “Bericht maken” Verbergen"
+	},
+	"HideElements": {
+		"message": "Elementen Verbergen"
+	},
+	"HideFavouriteButtons": {
+		"message": "Verberg de Favorietenknoppen"
+	},
+	"HideGap": {
+		"message": "Verberg interface-gaten"
+	},
+	"HideGetNewReddit": {
+		"message": "Verberg “Get New Reddit”"
+	},
+	"HideHeaderBar": {
+		"message": "Verberg de kopbalk"
+	},
+	"HideHeaderSubBar": {
+		"message": "Hide Header Subreddit-lijst"
+	},
+	"HideHomeFeed": {
+		"message": "Verberg de startfeed"
+	},
+	"HideHomeSidebar": {
+		"message": "Verberg de zijbalk van de startpagina"
+	},
+	"HideJoinButtonOnPosts": {
+		"message": "Verberg de knop 'Deelnemen' op berichten"
+	},
+	"HideKarma": {
+		"message": "Verberg karma"
+	},
+	"HideModerationButton": {
+		"message": "Verberg de knop “Moderatie”"
+	},
+	"HideNSFW": {
+		"message": "Verberg NSFW/L berichten"
+	},
+	"HideNotificationButton": {
+		"message": "Knop “Melding” Verbergen"
+	},
+	"HideOriginalScrollToTop": {
+		"message": "Verberg de knop Origineel scrollen naar boven"
+	},
+	"HidePopularButton": {
+		"message": "Verberg de knop “Populair”"
+	},
+	"HidePostBackButton": {
+		"message": "Verberg de knop 'Post terug'"
+	},
+	"HidePostHiddenMessage": {
+		"message": "Verberg het bericht 'Post verborgen'"
+	},
+	"HidePostKarma": {
+		"message": "Bericht verbergen Karma"
+	},
+	"HidePostOverlaySidebar": {
+		"message": "Verberg de zijbalk van de berichtoverlay"
+	},
+	"HidePostSidebar": {
+		"message": "Verberg de berichtzijbalk"
+	},
+	"HidePromoted": {
+		"message": "Advertenties/gesponsorde links verbergen"
+	},
+	"HideRecentPosts": {
+		"message": "Verberg recente berichten"
+	},
+	"HideRecommended": {
+		"message": "Aanbevolen verbergen"
+	},
+	"HideRecommendedInfo": {
+		"message": "Het verbergen van aanbevolen berichten kan officieel worden ingesteld in de gebruikersinstellingen van Reddit."
+	},
+	"HideRedditPremium": {
+		"message": "Verberg “Reddit Premium”"
+	},
+	"HideRelatedPosts": {
+		"message": "Verberg gerelateerde berichten"
+	},
+	"HideSearchSidebar": {
+		"message": "Verberg de zoekzijbalk"
+	},
+	"HideSeeFullImage": {
+		"message": "Verberg “See Full Image”"
+	},
+	"HideSideMenu": {
+		"message": "Zijmenu Verbergen"
+	},
+	"HideSideMenuCommunitiesSection": {
+		"message": "Verberg de sectie Community's"
+	},
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Verberg het gedeelte 'Aangepaste feeds'"
+	},
+	"HideSideMenuModerationSection": {
+		"message": "Verberg de sectie Moderatie"
+	},
+	"HideSideMenuRecentSection": {
+		"message": "Verberg de sectie Recente Subreddit"
+	},
+	"HideSideMenuResourcesSection": {
+		"message": "Verberg de sectie Bronnen"
+	},
+	"HideSideMenuTopSection": {
+		"message": "Verberg het bovenste gedeelte"
+	},
+	"HideSideMenuTopicsSection": {
+		"message": "Verberg de sectie Onderwerpen"
+	},
+	"HideSidebarPolicy": {
+		"message": "Sectie Beleid verbergen"
+	},
+	"HideSubSidebar": {
+		"message": "Verberg de zijbalk van Sub Reddit"
+	},
+	"HideSubSidebarBlacklistInfo": {
+		"message": "Wereldwijd verbergen, behalve op deze subreddits:"
+	},
+	"HideSubSidebarWhitelistInfo": {
+		"message": "Verberg je alleen op deze subreddits:"
+	},
+	"HideTurnOnNotificationsPopup": {
+		"message": "Pop-up “Meldingen inschakelen” verbergen"
+	},
+	"HideUserProfilePics": {
+		"message": "Verberg gebruikersprofielfoto's in de reacties"
+	},
+	"HideUserSidebar": {
+		"message": "Verberg de gebruikerszijbalk"
+	},
+	"HideUsername": {
+		"message": "Verberg gebruikersnaam"
+	},
+	"HomeFeedOffset": {
+		"message": "Verschuiving van de start-feed"
+	},
+	"HomeFeedWidth": {
+		"message": "Breedte van de thuisfeed"
+	},
+	"Hot": {
+		"message": "Heet / Hot"
+	},
+	"ImagePostMaxHeight": {
+		"message": "Maximale hoogte van beeldposts"
+	},
+	"ImageScroll": {
+		"message": "Voeg schuifbalk toe aan hoge afbeeldingen"
+	},
+	"Images": {
+		"message": "Afbeeldingen"
+	},
+	"JustOpenTheImage": {
+		"message": "Open gewoon de afbeelding"
+	},
+	"JustOpenTheImageInfo": {
+		"message": "Open afbeeldingen op zichzelf, in plaats van ingebed op een Reddit-pagina."
+	},
+	"Language": {
+		"message": "Taal"
+	},
+	"LargerClassicPost": {
+		"message": "Grotere klassieke berichtweergave"
+	},
+	"Light": {
+		"message": "Licht"
+	},
+	"LimitCommentsInfo": {
+		"message": "Werkt alleen voor berichten die in een nieuw tabblad/venster zijn geopend."
+	},
+	"LimitImageWidth": {
+		"message": "Beperk de afbeeldingsbreedte"
+	},
+	"LimitInfinityScroll": {
+		"message": "Beperk oneindig scrollen"
+	},
+	"LimitInfinityScrollInfo": {
+		"message": "Beta. Dit zal niet noodzakelijkerwijs het bandbreedtegebruik verminderen, maar zou in plaats daarvan moeten helpen voorkomen dat de pagina traag wordt door te voorkomen dat Reddit nieuwe berichten toevoegt totdat je op 'Meer laden' onderaan de feed klikt. Wanneer u op 'Meer laden' klikt, worden de eerste 25 berichten gewist en worden de volgende 25 weergegeven."
+	},
+	"Main": {
+		"message": "Hoofd"
+	},
+	"ModerniseOldReddit": {
+		"message": "Moderniseer old.reddit"
+	},
+	"ModerniseOldRedditInfo": {
+		"message": "Zorgt ervoor dat het oude Reddit meer op het nieuwe Reddit lijkt."
+	},
+	"MoveFeedToTopInSidemenu": {
+		"message": "Sposta la sezione Feed nel menu laterale verso l'alto"
+	},
+	"New": {
+		"message": "Nieuw / New"
+	},
+	"NewNewUI": {
+		"message": "Nieuwe Nieuwe UI"
+	},
+	"NewUpdateAvailable": {
+		"message": "Versie <version> is nu beschikbaar. Uw browser zou deze extensie binnenkort automatisch moeten updaten als u automatische updates hebt ingeschakeld. Als dat niet het geval is, moet u handmatig controleren op updates in de browserextensiemanager."
+	},
+	"NoSavedBackgrounds": {
+		"message": "Geen opgeslagen achtergronden"
+	},
+	"NonStickyHeaderBar": {
+		"message": "Niet-plakkerige kopbalk"
+	},
+	"Off": {
+		"message": "Uit"
+	},
+	"Offset": {
+		"message": "Verschuiving"
+	},
+	"Old": {
+		"message": "Oud / Old"
+	},
+	"OldNewUI": {
+		"message": "Oude Nieuwe UI"
+	},
+	"OldUI": {
+		"message": "Oude UI"
+	},
+	"OpenPostInNewTab": {
+		"message": "Links openen om op een nieuw tabblad te posten"
+	},
+	"OpenPostInNewTabInfo": {
+		"message": "U kunt dit nu officieel in Reddit inschakelen."
+	},
+	"OpenPostInNewTabInfoLink": {
+		"message": "User Settings > Feed Settings > Open posts in new tab"
+	},
+	"OpenSubInNewTab": {
+		"message": "Links naar Sub Reddit in een nieuw tabblad openen"
+	},
+	"Or": {
+		"message": "OF"
+	},
+	"Other": {
+		"message": "Ander"
+	},
+	"PleaseWait": {
+		"message": "Even geduld aub"
+	},
+	"PositionHorizontally": {
+		"message": "Horizontaal positioneren"
+	},
+	"PositionVertically": {
+		"message": "Positie verticaal"
+	},
+	"Post": {
+		"message": "Bericht"
+	},
+	"PostBgColour": {
+		"message": "Bericht: Achtergrondkleur"
+	},
+	"PostBorderColour": {
+		"message": "Bericht: Randkleur"
+	},
+	"PostComments": {
+		"message": "Berichtreacties"
+	},
+	"PostCommentsColour": {
+		"message": "Bericht: Opmerkingen Tekstkleur"
+	},
+	"PostCommentsLimit": {
+		"message": "Beperk reacties op berichten"
+	},
+	"PostCommentsSecondaryColour": {
+		"message": "Bericht: Opmerkingen Secundaire tekstkleur"
+	},
+	"PostContent": {
+		"message": "Berichtinhoud"
+	},
+	"PostOffset": {
+		"message": "Verschuiving van de post"
+	},
+	"PostOverlayWidth": {
+		"message": "Breedte van de post-overlay"
+	},
+	"PostSecondaryTextColour": {
+		"message": "Bericht: Secundaire tekstkleur"
+	},
+	"PostTitle": {
+		"message": "Berichttitel"
+	},
+	"PostTitleContentColour": {
+		"message": "Bericht: Titel en tekstinhoudskleur"
+	},
+	"PostVisitedTitleColour": {
+		"message": "Bezocht bericht: Titelkleur"
+	},
+	"PostWidth": {
+		"message": "Breedte van de post"
+	},
+	"Productivity": {
+		"message": "productiviteit"
+	},
+	"Qa": {
+		"message": "Q&a"
+	},
+	"Rate": {
+		"message": "Beoordeel / Recensie"
+	},
+	"Relevance": {
+		"message": "Relevantie"
+	},
+	"ReloadPage": {
+		"message": "Pagina herladen"
+	},
+	"RememberSectionHiddenState": {
+		"message": "Onthoud de verborgen toestanden van secties in het zijmenu"
+	},
+	"ReportIssues": {
+		"message": "Rapporteer problemen"
+	},
+	"ResetAllSettings": {
+		"message": "Alle instellingen resetten"
+	},
+	"ResizeFont": {
+		"message": "Formaat van lettertype wijzigen"
+	},
+	"ResizeLayout": {
+		"message": "Formaat van Feed / Post wijzigen"
+	},
+	"Restore": {
+		"message": "Herstellen"
+	},
+	"RestoreBackup": {
+		"message": "Back-up terugzetten"
+	},
+	"RestoreConfigTitle": {
+		"message": "Herstel Reddit Enhancer Backup Config"
+	},
+	"RestoreInfo1": {
+		"message": ""
+	},
+	"RestoreInfo2": {
+		"message": "items herstellen. Browser API-limiet is 120 per minuut. Laat dit venster/tabblad nog een minuut open."
+	},
+	"Rising": {
+		"message": "Stijgende / Rising"
+	},
+	"ScalePostToFitImage": {
+		"message": "Schaal de post zodat deze bij de afbeelding past"
+	},
+	"ScrollToNextRootComment": {
+		"message": "Toon knoppen om naar de volgende/vorige root opmerking te scrollen"
+	},
+	"Search": {
+		"message": "Zoeken"
+	},
+	"SearchPageOffset": {
+		"message": "Zoekpagina-offset"
+	},
+	"SearchbarBgColour": {
+		"message": "Zoekbalk: Achtergrond kleur"
+	},
+	"SearchbarDropdownBgColour": {
+		"message": "Zoekbalk: Gefocust/Dropdown Achtergrondkleur"
+	},
+	"Select": {
+		"message": "Selecteer"
+	},
+	"SelectRedditVersion": {
+		"message": "Selecteer Reddit-versie"
+	},
+	"SelectRedirect": {
+		"message": "Doorverwijzen"
+	},
+	"SetLanguageAndTheme": {
+		"message": "Volledige pagina-instellingen / Taal en thema instellen"
+	},
+	"SetSansSerifAsFont": {
+		"message": "Stel \"sans-serif\" in als ui-lettertype"
+	},
+	"Settings": {
+		"message": "Instellingen"
+	},
+	"Shadow": {
+		"message": "Slagschaduwen"
+	},
+	"ShowAllButton": {
+		"message": "Knop “r/All” toevoegen"
+	},
+	"ShowPostAuthor": {
+		"message": "Toon berichtauteur"
+	},
+	"ShowPostFlair": {
+		"message": "Toon 'Post Flair'"
+	},
+	"ShowPostNumbers": {
+		"message": "Nummer toevoegen aan post"
+	},
+	"ShowRising": {
+		"message": "Toon altijd de knop “Rising” sorteren"
+	},
+	"SideMenu": {
+		"message": "Zijmenu"
+	},
+	"SideMenuIconsOnly": {
+		"message": "Alleen pictogrammen in het zijmenu"
+	},
+	"SideMenuWidth": {
+		"message": "Breedte zijmenu"
+	},
+	"Sidebar": {
+		"message": "Zijbalk"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Zijbalk: Achtergrond kleur"
+	},
+	"SidebarBorderColour": {
+		"message": "Zijbalk: Randkleur"
+	},
+	"SidebarTextColour": {
+		"message": "Zijbalk: Tekstkleur"
+	},
+	"SidemenuBackgroundColour": {
+		"message": "Zijmenu: Achtergrond kleur"
+	},
+	"SidemenuButtonHoverColour": {
+		"message": "Zijmenu: Knopzweefkleur"
+	},
+	"SidemenuTextColour": {
+		"message": "Zijmenu: Tekstkleur"
+	},
+	"Sort": {
+		"message": "Sorteren"
+	},
+	"SortBar": {
+		"message": "Sorteerbalk"
+	},
+	"SortBgColour": {
+		"message": "Sorteren: Achtergrondkleur"
+	},
+	"SortBorderColour": {
+		"message": "Sorteren: Randkleur"
+	},
+	"SortTextColour": {
+		"message": "Sorteren: Tekstkleur"
+	},
+	"StartTime": {
+		"message": "Starttijd (24)"
+	},
+	"StickySort": {
+		"message": "Vastgezette sortering"
+	},
+	"StyleTweaks": {
+		"message": "Stijl"
+	},
+	"SubFeedOffset": {
+		"message": "Verschuiving van de sub-feed"
+	},
+	"SubFeedWidth": {
+		"message": "Breedte van de sub-feed"
+	},
 	"Subreddit": {
 		"message": "Subreddit"
 	},
-
-	"FullWidthBanner": {
-		"message": "Full Width Subreddit Banner"
+	"Text": {
+		"message": "Tekst"
 	},
-
-	"CompactSubRuleList": {
-		"message": "Compact Subreddit Rule List"
+	"TextScroll": {
+		"message": "Schuifbalk toevoegen aan lange tekstberichten"
 	},
-
-	"HideCommentKarma": {
-		"message": "Hide Comment Karma"
+	"TextScrollInfo": {
+		"message": "Er is een limiet. Misschien moet u de post openen als het erg lang is."
 	},
-
-	"HideVoteButtons": {
-		"message": "Hide Vote Buttons"
+	"Theme": {
+		"message": "Thema"
 	},
-
-	"TextPostPreviewFade": {
-		"message": "Add fade effect to text post previews (experimental)"
+	"ThemeBlacklistInfo": {
+		"message": "Gebruik themakleuren wereldwijd, behalve voor deze subreddits:"
 	},
-
-	"TextPostPreviewFadeHeight": {
-		"message": "Fade Height"
+	"ThemeBlur": {
+		"message": "Thema Vervagen"
 	},
-
-	"TextPostPreviewMaxHeight": {
-		"message": "Text Preview Height"
+	"ThemeBlurInfo": {
+		"message": "Gebruik doorschijnende kleuren 'rgba(0,0,0,0.5)' om het vervagingseffect te zien."
+	},
+	"ThemeColours": {
+		"message": "Thema Kleuren"
+	},
+	"ThemeWhitelistInfo": {
+		"message": "Gebruik alleen de themakleuren voor deze subreddits:"
+	},
+	"TimeRange": {
+		"message": "Tijdsbestek"
+	},
+	"ToTop": {
+		"message": "Knop “Scroll naar boven” toevoegen"
+	},
+	"Top": {
+		"message": "Bovenkant / Top"
+	},
+	"TopicFeedWidth": {
+		"message": "Onderwerpfeedbreedte"
+	},
+	"TranslationHelp": {
+		"message": "Hulp bij vertaling"
+	},
+	"UnderlineLinks": {
+		"message": "Onderstreep koppelingen"
+	},
+	"UpdateFirefox": {
+		"message": "Update naar Firefox 121 of hoger zodat sommige functies correct werken."
+	},
+	"Upload": {
+		"message": "Uploaden"
+	},
+	"UpvoteColour": {
+		"message": "Bericht: Upvote Kleur"
+	},
+	"UseCustom": {
+		"message": "Aangepast gebruiken"
+	},
+	"UserProfileOffset": {
+		"message": "Verschuiving van de gebruikersprofiel"
+	},
+	"UserProfileWidth": {
+		"message": "Breedte gebruikersprofiel"
+	},
+	"VideoPlayerInfo": {
+		"message": "Snelle, lichtgewicht videospeler met snelheidsregeling op basis van videojs. Probeer dit als je laadproblemen hebt met de eigen speler van reddit."
+	},
+	"VideoPlayerReplacement": {
+		"message": "Alternatieve videospeler"
+	},
+	"Welcome": {
+		"message": "Welkom!"
+	},
+	"Whitelist": {
+		"message": "Witte lijst"
+	},
+	"WhitelistBlacklist": {
+		"message": "Witte lijst / Zwarte lijst"
+	},
+	"Width": {
+		"message": "Breedte"
+	},
+	"learnMore": {
+		"message": "Meer informatie"
 	}
 }
