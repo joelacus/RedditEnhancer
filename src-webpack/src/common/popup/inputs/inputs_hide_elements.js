@@ -952,6 +952,22 @@ document.querySelector('#checkbox-hide-compact-view-blank-thumbnails').addEventL
 	sendMessage({ hideCompactViewBlankThumbnails: hideCompactViewBlankThumbnails });
 });
 
+// Toggle - Hide Thumbnails In Compact View
+document.querySelector('#checkbox-hide-compact-view-thumbnails').addEventListener('change', function () {
+	const hideCompactViewThumbnails = document.querySelector('#checkbox-hide-compact-view-thumbnails').checked;
+	if (hideCompactViewThumbnails) {
+		document.querySelector('.icon-hide-compact-view-thumbnails').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-compact-view-thumbnails').classList.remove('icon-show');
+		document.querySelector('.icon-hide-compact-view-thumbnails').classList.add('icon-hide');
+	} else {
+		document.querySelector('.icon-hide-compact-view-thumbnails').style.backgroundColor = '';
+		document.querySelector('.icon-hide-compact-view-thumbnails').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-compact-view-thumbnails').classList.add('icon-show');
+	}
+	BROWSER_API.storage.sync.set({ hideCompactViewThumbnails: hideCompactViewThumbnails });
+	sendMessage({ hideCompactViewThumbnails: hideCompactViewThumbnails });
+});
+
 // Toggle - Hide "NSFW" In The Search Results
 document.querySelector('#checkbox-hide-nsfw-search-results').addEventListener('change', function () {
 	const hideNsfwInSearchResults = document.querySelector('#checkbox-hide-nsfw-search-results').checked;

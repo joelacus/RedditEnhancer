@@ -141,7 +141,8 @@ import { hideBlurredMediaBackground } from './tweaks/hide_elements/hide_blurred_
 import { fullWidthBanner, compactHeaderSideMenu, compactSubRuleList, textPostPreviewFade, setTextPostPreviewFadeHeight, setTextPostPreviewMaxHeight } from './tweaks/style/old_new_ui';
 import { resizeMainContainer, resizeMainContainerWidth } from './tweaks/resize_elements/resize_main_container';
 import { hideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
-import { customFonts } from "./tweaks/font/custom_fonts";
+import { hideCompactViewThumbnails } from './tweaks/hide_elements/hide_compact_view_thumbnails';
+import { customFonts } from './tweaks/font/custom_fonts';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 /* = Listen For Settings Change = */
@@ -493,6 +494,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		sideMenuToggleButton(value);
 	} else if (key === 'hideCompactViewBlankThumbnails') {
 		hideCompactViewBlankThumbnails(value);
+	} else if (key === 'hideCompactViewThumbnails') {
+		hideCompactViewThumbnails(value);
 	} else if (key === 'hideNsfwInSearchResults') {
 		hideNsfwInSearchResults(value);
 	} else if (key === 'hideTrendingTodayInSearchResults') {

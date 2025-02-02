@@ -773,6 +773,22 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Compact View Blank Thumbnails: ' + value);
 	});
 
+	// Hide Compact View Thumbnails
+	BROWSER_API.storage.sync.get(['hideCompactViewThumbnails'], function (result) {
+		if (result.hideCompactViewThumbnails === true) {
+			document.querySelector('.icon-hide-compact-view-thumbnails').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-compact-view-thumbnails').checked = true;
+			highlightMenuIcon('hide-elements');
+			document.querySelector('.icon-hide-compact-view-thumbnails').classList.remove('icon-show');
+			document.querySelector('.icon-hide-compact-view-thumbnails').classList.add('icon-hide');
+			var value = true;
+		} else if (typeof result.hideCompactViewThumbnails == 'undefined' || result.hideCompactViewThumbnails === false) {
+			document.querySelector('#checkbox-hide-compact-view-thumbnails').checked = false;
+			var value = false;
+		}
+		console.log('Hide Compact View Thumbnails: ' + value);
+	});
+
 	// Hide "NSFW" In The Search Results
 	BROWSER_API.storage.sync.get(['hideNsfwInSearchResults'], function (result) {
 		if (result.hideNsfwInSearchResults === true) {
