@@ -56,6 +56,7 @@ function enableLayoutCentreOld() {
 								.profile-page div.content[role="main"],
 								.moderator div.content[role="main"],
 								.search-page div.content[role="main"],
+								.submit-page div.content[role="main"],
 								.comments-page div.content[role="main"],
 								.other-discussions-page div.content[role="main"],
 								.multi-page div.content[role="main"] {
