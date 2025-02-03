@@ -2,7 +2,7 @@
 
 A browser extension to tweak the user interface on Reddit.
 
-Supports Version 1 (Old) and Version 3 (New New) of Reddit. Version 2 (Old New) has been discontinued. <br>Not all features support all versions.
+Supports Version 1 (Old) and Version 3 (New New) of Reddit. Version 2 (Old New) has been discontinued, but features will still be supported for the time being while workarounds to get Old New UI back are still working.<br>Not all features support all versions.
 
 Feel free to suggest new features and report any bugs on the Issues page.
 
@@ -83,6 +83,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide background blur on image previews|Hides the blurred background on image posts.|V3 - "New New"|
 |Hide Comment Karma|Hide the karma on comments.|V3 - "New New"<br />V2 - "Old New"|
 |Hide Vote Buttons|Hide the vote buttons on posts and comments.|V3 - "New New"<br />V2 - "Old New"|
+|Hide Thumbnails in Compact View|Hides the thumbnails on posts when viewing a feed in compact view.|V3 - "New New"|
 
 ## Productivity
 
@@ -144,6 +145,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Compact Header Bar & Side Menu|Compact the spacing in the header bar and side menu.|V3 - "New New"|
 |Full Width Subreddit Banner|Stretch the subreddit banners to take the entire width of browser window.|V3 - "New New"|
 |Compact Subreddit Rule List|Compact the spacing in the subreddit rule list.|V3 - "New New"|
+|Add fade effect to text post previews|Adds a fade effect to the bottom of long text posts.|V3 - "New New"|
 
 ## Accessibility
 
@@ -170,19 +172,20 @@ Feel free to add any new languages and/or region differences.
 |Language|Completion|
 |---|---|
 |[English](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/en/messages.json)|100%|
-|[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|81%|
-|[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|91%|
-|[German](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/de/messages.json)|96%|
-|[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|91%|
-|[Spanish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/es/messages.json)|92%|
-|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|91%|
-|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|79%|
-|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|87%|
-|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|80%|
-|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|47%|
-|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|36%|
-|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|30%|
-|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|29%|
+|[German](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/de/messages.json)|100%|
+|[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|100%|
+|[Spanish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/es/messages.json)|100%|
+|[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|100%|
+|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|100%|
+|[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|86.4%|
+|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|83.0%|
+|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|76.2%|
+|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|76.2%|
+|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|42.9%|
+|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|34.0%|
+|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|31.0%|
+|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|26.5%|
+
 
 
 # Build
@@ -192,10 +195,7 @@ git clone https://github.com/joelacus/RedditEnhancer.git;cd RedditEnhancer/src-w
 ```
 Install dependencies:
 ```
-npm install --save-dev webpack webpack-cli terser-webpack-plugin mini-css-extract-plugin html-minimizer-webpack-plugin css-minimizer-webpack-plugin css-loader copy-webpack-plugin path
-```
-```
-npm --save install video.js sortablejs stream mux.js
+npm update
 ```
 Build for Firefox:
 ```
