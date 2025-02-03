@@ -50,76 +50,82 @@ export function expandLayout(value) {
 
 // Function - Enable Expand Content - Old
 function enableExpandContentOld() {
-	const reMain = document.querySelector('#re-main');
-	if (!reMain) {
-		// Restructure HTML
-		const main = document.createElement('div');
-		main.id = 're-main';
-		const container = document.createElement('div');
-		container.id = 're-container';
-		const body = document.querySelector('body');
-		const sidemenu = document.querySelector('.listing-chooser');
-		const side = document.querySelector('.side');
-		const content = document.querySelector('.content[role="main"]');
-		const sort = document.querySelector('#header .tabmenu');
-		body.insertBefore(main, side);
-		if (sidemenu) {
-			main.append(sidemenu);
-		}
-		container.append(content);
-		container.append(side);
-		main.append(container);
-		content.insertBefore(sort, content.firstChild);
-	}
+	// const reMain = document.querySelector('#re-main');
+	// if (!reMain) {
+	// 	// Restructure HTML
+	// 	const main = document.createElement('div');
+	// 	main.id = 're-main';
+	// 	const container = document.createElement('div');
+	// 	container.id = 're-container';
+	// 	const body = document.querySelector('body');
+	// 	const sidemenu = document.querySelector('.listing-chooser');
+	// 	const side = document.querySelector('.side');
+	// 	const content = document.querySelector('.content[role="main"]');
+	// 	const sort = document.querySelector('#header .tabmenu');
+	// 	body.insertBefore(main, side);
+	// 	if (sidemenu) {
+	// 		main.append(sidemenu);
+	// 	}
+	// 	container.append(content);
+	// 	container.append(side);
+	// 	main.append(container);
+	// 	content.insertBefore(sort, content.firstChild);
+	// }
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-expand-feed-layout';
-	styleElement.textContent = `#re-main {
-									display: flex;
-									width: 100%;
-									justify-content: center;
-								}
-								#re-container {
-									display: flex;
-									width: var(--re-content-width) !important;
-								}
-								.subscriber.listing-page #re-container {
-									width: var(--re-sub-width) !important;
-								}
-								.comments-page #re-container {
-									width: var(--re-post-width) !important;
-								  }
-								#re-container .content {
-									width: 100% !important;
-									margin-left: 24px !important;
-								}
-								#re-container .sidecontentbox .content {
-									width: calc(100% - 10px) !important;
-									margin-left: 0 !important;
-								}
-								#re-container > .content > #siteTable {
-									margin-left: 0 !important;
-								}
-								#re-container > .content > ul {
-									margin-left: 0 !important;
-									margin-right: 0 !important;
-								}
-								.re-centre-container-old {
-									transform: translateX(182px);
-								}
-								.thing .usertext-body > .md {
-									max-width: 100%;
-								}
-								#re-container .side {
-									margin-left: 0 !important;
-								}
-								#re-container .commentarea {
-									width: calc(100% - 26px);
-								}`;
+	styleElement.textContent =
+		`
+		.listing-page div.content[role="main"],
+		.wiki-page div.content[role="main"],
+		.submit-page div.content[role="main"] {
+		    width: var(--re-content-width);
+		}
+		.comments-page div.content[role="main"],
+		.other-discussions-page div.content[role="main"] {
+		    width: var(--re-post-width);
+		}
+		.profile-page div.content[role="main"] {
+		    width: var(--re-user-profile-width);
+		}
+		.listing-page.multi-page div.content[role="main"] {
+			width: var(--re-custom-feed-width);
+		}
+		body.listing-page.with-listing-chooser:not(.listing-chooser-collapsed) div.content[role="main"] {
+			max-width: calc(100% - 144px);
+		}
+		/* Expand the post content, comments and wiki page content */
+		.md {
+			max-width: initial !important;
+		}
+		.wiki-page div.wiki-page-content {
+			margin: .25rem;
+		}
+		div.panestack-title,
+		p#noresults {
+    		margin: 10px 0 10px 10px;
+		}
+		div.usertext-edit {
+			width: 50%;
+		}
+		div.usertext-edit textarea,
+		div.roundfield .usertext-edit {
+			width: 100%;
+		}
+		/* Submit post page */
+		div.formtabs-content,
+		div.roundfield {
+		    width: initial;
+		}
+		div.roundfield textarea,
+		div.roundfield input[type="text"],
+		div.roundfield input[type="url"],
+		div.roundfield input[type="password"],
+		div.roundfield input[type="number"],
+		#compose-message div.roundfield select {
+		    width: 99%;
+		}
+		`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
-	// Apply resize
-	/*if (document.querySelector('#re-container')) {
-		document.querySelector('#re-container').classList.add('re-resize');
-	}*/
 }
 
 // Function - Disable Expand Content - Old

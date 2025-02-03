@@ -24,8 +24,14 @@ import { loadStickySort } from '../../../content/tweaks/productivity/sticky_sort
 import { moderniseOldReddit } from '../../../content/tweaks/style/modernise_old_reddit';
 import { loadHideHomeFeed } from '../../../content/tweaks/hide_elements/hide_home_feed';
 import { loadScrollToNextRootComment, loadScrollToNextRootCommentPosition } from '../../../content/tweaks/productivity/scroll_to_next_root_comment';
+import { loadCustomFonts } from "../../../content/tweaks/font/custom_fonts";
+import { loadHideCommentKarma, loadHidePostKarma } from "../../../content/tweaks/hide_elements/hide_post_comment_karma";
+import { loadHideVoteButtons } from "../../../content/tweaks/hide_elements/hide_vote_buttons";
 
 export function tweakLoaderOld() {
+	loadExpandContent();
+	loadLayoutCentre();
+	loadHideHomeSidebar();
 	loadCustomBackground();
 	loadCustomTheme();
 	loadHideGetNewReddit();
@@ -39,6 +45,10 @@ export function tweakLoaderOld() {
 	loadScrollToNextRootComment();
 	loadScrollToNextRootCommentPosition();
 	loadPostFontWeight();
+	loadCustomFonts();
+	loadHidePostKarma();
+	loadHideCommentKarma();
+	loadHideVoteButtons();
 
 	if (useLegacy) {
 		legacyObserversOld();
@@ -57,27 +67,6 @@ export function tweakLoaderOld() {
 					document.body.classList.add('re-larger-classic-post');
 				}
 			});
-		},
-	});
-
-	// Sidebar
-	waitForAddedNode({
-		query: '.side',
-		parent: document.querySelector('body'),
-		recursive: true,
-		done: function (el) {
-			loadHideHomeSidebar();
-		},
-	});
-
-	// Main Content
-	waitForAddedNode({
-		query: '#siteTable',
-		parent: document.querySelector('body'),
-		recursive: true,
-		done: function (el) {
-			loadExpandContent();
-			loadLayoutCentre();
 		},
 	});
 

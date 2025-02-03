@@ -15,7 +15,24 @@ export function loadHideCommentKarma() {
 
 /* === Main Function === */
 export function hidePostKarma(value) {
-	if (redditVersion === 'new') {
+	if (redditVersion === 'old') {
+		if (value) {
+			// append stylesheet
+			if (!document.head.querySelector('style[id="re-hide-post-karma"]')) {
+				const styleElement = document.createElement('style');
+				styleElement.id = 're-hide-post-karma';
+				styleElement.textContent = `.link div.midcol div.score {
+												display: none;
+											}`;
+				document.head.insertBefore(styleElement, document.head.firstChild);
+			}
+		} else {
+			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-post-karma"]');
+			dynamicStyleElements.forEach((element) => {
+				document.head.removeChild(element);
+			});
+		}
+	} if (redditVersion === 'new') {
 		if (value) {
 			// append stylesheet
 			if (!document.head.querySelector('style[id="re-hide-post-karma"]')) {
@@ -62,7 +79,24 @@ export function hidePostKarma(value) {
 }
 
 export function hideCommentKarma(value) {
-	if (redditVersion === 'new') {
+	if (redditVersion === 'old') {
+		if (value) {
+			// append stylesheet
+			if (!document.head.querySelector('style[id="re-hide-comment-karma"]')) {
+				const styleElement = document.createElement('style');
+				styleElement.id = 're-hide-comment-karma';
+				styleElement.textContent = `.comment p.tagline span.score {
+												display: none;
+											}`;
+				document.head.insertBefore(styleElement, document.head.firstChild);
+			}
+		} else {
+			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-comment-karma"]');
+			dynamicStyleElements.forEach((element) => {
+				document.head.removeChild(element);
+			});
+		}
+	} if (redditVersion === 'new') {
 		if (value) {
 			// append stylesheet
 			if (!document.head.querySelector('style[id="re-hide-comment-karma"]')) {

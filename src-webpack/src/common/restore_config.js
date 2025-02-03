@@ -155,6 +155,7 @@ async function restoreBackup(json) {
 				'createPostTitleFontSize',
 				'customBackground',
 				'customBackgrounds',
+				'customFonts',
 				'darkMode',
 				'darkModeAuto',
 				'darkModeTimeEnd',

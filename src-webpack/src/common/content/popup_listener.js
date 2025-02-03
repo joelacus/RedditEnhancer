@@ -141,6 +141,7 @@ import { hideBlurredMediaBackground } from './tweaks/hide_elements/hide_blurred_
 import { fullWidthBanner, compactHeaderSideMenu, compactSubRuleList, textPostPreviewFade, setTextPostPreviewFadeHeight, setTextPostPreviewMaxHeight } from './tweaks/style/old_new_ui';
 import { resizeMainContainer, resizeMainContainerWidth } from './tweaks/resize_elements/resize_main_container';
 import { hideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
+import { customFonts } from "./tweaks/font/custom_fonts";
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 /* = Listen For Settings Change = */
@@ -550,6 +551,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		setTextPostPreviewFadeHeight(value);
 	} else if (key === 'textPostPreviewMaxHeight') {
 		setTextPostPreviewMaxHeight(value);
+	} else if (key === 'customFonts') {
+		customFonts(value);
 	}
 	return true;
 });

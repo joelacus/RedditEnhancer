@@ -47,8 +47,7 @@ export function detectRedditVersion() {
 
 		// Old UI
 		waitForAddedNode({
-			id: true,
-			query: 'siteTable',
+			query: 'div.footer-parent',
 			parent: document.querySelector('body'),
 			recursive: true,
 			done: function () {
