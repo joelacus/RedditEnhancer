@@ -311,7 +311,8 @@ function enableExpandContentNewNew() {
 		}
 		shreddit-app[routename="post_page"] .main-container,
 		shreddit-app[routename="comments_page"] .main-container,
-		shreddit-app[routename="profile_post_page"] .main-container {
+		shreddit-app[routename="profile_post_page"] .main-container,
+		shreddit-app[routename="post_stats"] .main-container {
 			display: grid;
 			grid-template-columns: auto var(--re-post-sidebar-width, 316px);
 		}
