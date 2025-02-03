@@ -222,6 +222,22 @@ document.querySelector('#checkbox-hide-custom-feed-sidebar').addEventListener('c
 	sendMessage({ hideCustomFeedSidebar: hideCustomFeedSidebar });
 });
 
+// Toggle - Sidebar Toggle Button
+document.querySelector('#checkbox-sidebar-toggle-button').addEventListener('change', function () {
+	const sidebarToggleButton = document.querySelector('#checkbox-sidebar-toggle-button').checked;
+	if (sidebarToggleButton) {
+		document.querySelector('.icon-sidebar-toggle-button').classList.remove('icon-show');
+		document.querySelector('.icon-sidebar-toggle-button').classList.add('icon-hide');
+		document.querySelector('.icon-sidebar-toggle-button').style.backgroundColor = 'var(--accent)';
+	} else {
+		document.querySelector('.icon-sidebar-toggle-button').classList.remove('icon-hide');
+		document.querySelector('.icon-sidebar-toggle-button').classList.add('icon-show');
+		document.querySelector('.icon-sidebar-toggle-button').style.backgroundColor = '';
+	}
+	BROWSER_API.storage.sync.set({ sidebarToggleButton: sidebarToggleButton });
+	sendMessage({ sidebarToggleButton: sidebarToggleButton });
+});
+
 // Toggle - Hide Sidebar Policy
 document.querySelector('#checkbox-hide-sidebar-policy').addEventListener('change', function () {
 	const hideSidebarPolicy = document.querySelector('#checkbox-hide-sidebar-policy').checked;

@@ -141,6 +141,7 @@ import { hideBlurredMediaBackground } from './tweaks/hide_elements/hide_blurred_
 import { fullWidthBanner, compactHeaderSideMenu, compactSubRuleList, textPostPreviewFade, setTextPostPreviewFadeHeight } from './tweaks/style/old_new_ui';
 import { resizeMainContainer, resizeMainContainerWidth } from './tweaks/resize_elements/resize_main_container';
 import { hideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
+import { sidebarToggleButton } from "./tweaks/hide_elements/sidebar_toggle_button";
 import { hideCompactViewThumbnails } from './tweaks/hide_elements/hide_compact_view_thumbnails';
 import { setTextPostPreviewMaxHeight } from './tweaks/resize_elements/resize_post';
 import { customFonts } from './tweaks/font/custom_fonts';
@@ -557,6 +558,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		setTextPostPreviewMaxHeight(value);
 	} else if (key === 'customFonts') {
 		customFonts(value);
+	} else if (key === 'sidebarToggleButton') {
+		sidebarToggleButton(value);
 	}
 	return true;
 });

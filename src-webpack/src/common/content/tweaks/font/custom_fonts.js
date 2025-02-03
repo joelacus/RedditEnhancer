@@ -8,7 +8,7 @@
  *
  * Currently, this function only sets sans-serif as UI font on Old UI. Other UIs may be considered later.
  *
- * Applies to: Old UI (2006–)
+ * Applies to: Old UI (2005–)
  */
 
 // Get the feature state from browser sync storage
