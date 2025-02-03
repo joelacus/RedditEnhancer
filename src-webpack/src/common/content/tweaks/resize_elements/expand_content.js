@@ -91,8 +91,8 @@ function enableExpandContentOld() {
 		.listing-page.multi-page div.content[role="main"] {
 			width: var(--re-custom-feed-width);
 		}
-		body.listing-page.with-listing-chooser:not(.listing-chooser-collapsed) div.content[role="main"] {
-			max-width: calc(100% - 144px);
+		body.with-listing-chooser div.listing-chooser {
+			z-index: 0 !important;
 		}
 		/* Expand the post content, comments and wiki page content */
 		.md {
