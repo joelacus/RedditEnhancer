@@ -102,12 +102,13 @@ function enableExpandContentOld() {
 		}
 		div.panestack-title,
 		p#noresults {
-    		margin: 10px;
+    		margin: 10px 0 10px 10px;
 		}
 		div.usertext-edit {
-			width: 60%;
+			width: 50%;
 		}
-		div.usertext-edit textarea {
+		div.usertext-edit textarea,
+		div.roundfield .usertext-edit {
 			width: 100%;
 		}
 		/* Submit post page */
@@ -122,9 +123,6 @@ function enableExpandContentOld() {
 		div.roundfield input[type="number"],
 		#compose-message div.roundfield select {
 		    width: 99%;
-		}
-		div.roundfield .usertext-edit {
-		    width: 100%;
 		}
 		`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
