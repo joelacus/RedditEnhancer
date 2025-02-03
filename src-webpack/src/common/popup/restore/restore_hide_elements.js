@@ -128,6 +128,17 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Custom Feed Sidebar: ' + hideCustomFeedSidebar);
 	});
 
+	// Sidebar Toggle Button
+	BROWSER_API.storage.sync.get(['sidebarToggleButton'], function (result) {
+		const sidebarToggleButton = result.sidebarToggleButton === true;
+		if (sidebarToggleButton) highlightMenuIcon('hide-elements');
+		document.querySelector('#checkbox-sidebar-toggle-button').checked = sidebarToggleButton;
+		document.querySelector('.icon-sidebar-toggle-button').style.backgroundColor = sidebarToggleButton ? 'var(--accent)' : '';
+		document.querySelector('.icon-sidebar-toggle-button').classList.toggle('icon-show', !sidebarToggleButton);
+		document.querySelector('.icon-sidebar-toggle-button').classList.toggle('icon-hide', sidebarToggleButton);
+		console.log('Hide Vote Buttons: ' + sidebarToggleButton);
+	});
+
 	// Hide Sidebar Policy
 	BROWSER_API.storage.sync.get(['hideSidebarPolicy'], function (result) {
 		if (result.hideSidebarPolicy == true) {

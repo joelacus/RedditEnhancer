@@ -283,6 +283,7 @@ async function restoreBackup(json) {
 				'showPostFlair',
 				'showPostNumbers',
 				'showToTopButton',
+				'sidebarToggleButton',
 				'sidemenuFeedTop',
 				'sideMenuIconsOnly',
 				'sideMenuToggleButton',

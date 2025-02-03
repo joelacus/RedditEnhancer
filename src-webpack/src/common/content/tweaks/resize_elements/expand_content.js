@@ -77,7 +77,8 @@ function enableExpandContentOld() {
 		`
 		.listing-page div.content[role="main"],
 		.wiki-page div.content[role="main"],
-		.submit-page div.content[role="main"] {
+		.submit-page div.content[role="main"],
+		.moderator div.content[role="main"] {
 		    width: var(--re-content-width);
 		}
 		.comments-page div.content[role="main"],
@@ -104,9 +105,11 @@ function enableExpandContentOld() {
 		p#noresults {
     		margin: 10px 0 10px 10px;
 		}
-		div.usertext-edit {
+		.comments-page div.usertext-edit.md-container {
 			width: 50%;
+			max-width: initial;
 		}
+		div.markdownEditor-wrapper,
 		div.usertext-edit textarea,
 		div.roundfield .usertext-edit {
 			width: 100%;
@@ -123,6 +126,15 @@ function enableExpandContentOld() {
 		div.roundfield input[type="number"],
 		#compose-message div.roundfield select {
 		    width: 99%;
+		}
+		/* Moderator pages */
+		div.linefield,
+		div.linefield.mobile {
+		    width: 60%;
+		}
+		.moderator div.usertext-edit.md-container {
+			width: 100%;
+			max-width: initial;
 		}
 		`;
 	document.head.insertBefore(styleElement, document.head.firstChild);

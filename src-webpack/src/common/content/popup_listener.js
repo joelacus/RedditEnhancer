@@ -142,6 +142,7 @@ import { fullWidthBanner, compactHeaderSideMenu, compactSubRuleList, textPostPre
 import { resizeMainContainer, resizeMainContainerWidth } from './tweaks/resize_elements/resize_main_container';
 import { hideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
 import { customFonts } from "./tweaks/font/custom_fonts";
+import { sidebarToggleButton } from "./tweaks/hide_elements/sidebar_toggle_button";
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 /* = Listen For Settings Change = */
@@ -553,6 +554,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		setTextPostPreviewMaxHeight(value);
 	} else if (key === 'customFonts') {
 		customFonts(value);
+	} else if (key === 'sidebarToggleButton') {
+		sidebarToggleButton(value);
 	}
 	return true;
 });
