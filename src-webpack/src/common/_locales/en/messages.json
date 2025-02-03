@@ -881,6 +881,15 @@
 	"learnMore": {
 		"message": "Learn More"
 	},
+
+	"PasswordInfo": {
+		"message": "You may leave the password blank, and you will be prompted when logging in."
+	},
+
+	"SidebarToggleButton": {
+		"message": "Sidebar Toggle Button"
+  },
+
 	"resizeHomeAlsoAffects": {
 		"message": "& r/all, r/popular, Create Post, Search Results, and Wiki pages"
 	}

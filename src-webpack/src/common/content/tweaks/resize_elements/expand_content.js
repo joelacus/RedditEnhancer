@@ -77,7 +77,8 @@ function enableExpandContentOld() {
 		`
 		.listing-page div.content[role="main"],
 		.wiki-page div.content[role="main"],
-		.submit-page div.content[role="main"] {
+		.submit-page div.content[role="main"],
+		.moderator div.content[role="main"] {
 		    width: var(--re-content-width);
 		}
 		.comments-page div.content[role="main"],
@@ -90,8 +91,8 @@ function enableExpandContentOld() {
 		.listing-page.multi-page div.content[role="main"] {
 			width: var(--re-custom-feed-width);
 		}
-		body.listing-page.with-listing-chooser:not(.listing-chooser-collapsed) div.content[role="main"] {
-			max-width: calc(100% - 144px);
+		body.with-listing-chooser div.listing-chooser {
+			z-index: 0 !important;
 		}
 		/* Expand the post content, comments and wiki page content */
 		.md {
@@ -101,28 +102,39 @@ function enableExpandContentOld() {
 			margin: .25rem;
 		}
 		div.panestack-title,
-		p#noresults {
+		p#noresults,
+		div.infobar,
+		.commentarea div.menuarea {
     		margin: 10px 0 10px 10px;
 		}
-		div.usertext-edit {
+		.comments-page div.usertext-edit.md-container {
 			width: 50%;
+			max-width: initial;
 		}
+		div.markdownEditor-wrapper,
 		div.usertext-edit textarea,
-		div.roundfield .usertext-edit {
+		div.roundfield .usertext-edit,
+		.moderator div.usertext-edit.md-container {
 			width: 100%;
+			max-width: initial;
 		}
 		/* Submit post page */
-		div.formtabs-content,
-		div.roundfield {
+		.submit-page div.formtabs-content,
+		.submit-page div.roundfield {
 		    width: initial;
 		}
-		div.roundfield textarea,
+		div.roundfield textarea[name="title"],
 		div.roundfield input[type="text"],
 		div.roundfield input[type="url"],
 		div.roundfield input[type="password"],
 		div.roundfield input[type="number"],
 		#compose-message div.roundfield select {
-		    width: 99%;
+		    width: calc(100% - .5rem);
+		}
+		/* Moderator pages */
+		div.linefield,
+		div.linefield.mobile {
+		    width: 60%;
 		}
 		`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
@@ -299,7 +311,8 @@ function enableExpandContentNewNew() {
 		}
 		shreddit-app[routename="post_page"] .main-container,
 		shreddit-app[routename="comments_page"] .main-container,
-		shreddit-app[routename="profile_post_page"] .main-container {
+		shreddit-app[routename="profile_post_page"] .main-container,
+		shreddit-app[routename="post_stats"] .main-container {
 			display: grid;
 			grid-template-columns: auto var(--re-post-sidebar-width, 316px);
 		}

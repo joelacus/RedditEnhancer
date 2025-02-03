@@ -41,6 +41,7 @@ import { loadAddProfilePicturesToComments } from './tweaks/productivity/add_prof
 import { loadCompactSubRuleList } from "./tweaks/style/old_new_ui";
 import { addBorderRadiusToShadowRootElements } from "./tweaks/style/border_radius";
 import { loadHideVoteButtons } from "./tweaks/hide_elements/hide_vote_buttons";
+import { loadSidebarToggleButton } from "./tweaks/hide_elements/sidebar_toggle_button";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -48,6 +49,7 @@ export function loadTweaks() {
 		loadAutoExpandComments();
 		loadAutoLoadMoreComments();
 		loadAddProfilePicturesToComments();
+		loadSidebarToggleButton();
 	} else if (redditVersion === 'new') {
 		const link = window.location.href;
 		if (link.indexOf('/comments/') >= 0) {

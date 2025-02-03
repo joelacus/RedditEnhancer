@@ -78,7 +78,7 @@ export function postContentFontSize(value) {
 			if (!document.querySelector('style[id="re-post-content-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-post-content-font-size';
-				styleElement.textContent = `.comments-page .thing[data-type="link"] .usertext p {
+				styleElement.textContent = `.comments-page .thing[data-type="link"] .usertext div.md {
 												font-size: var(--re-post-content-font-size);
 												line-height: 1.5;
 											}`;
@@ -235,7 +235,7 @@ export function feedPostContentFontSize(value) {
 			if (!document.querySelector('style[id="re-feed-post-content-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-feed-post-content-font-size';
-				styleElement.textContent = `.listing-page .thing[data-type="link"] .usertext p {
+				styleElement.textContent = `.listing-page .thing[data-type="link"] .usertext div.md {
 												font-size: var(--re-feed-post-content-font-size);
 												line-height: 1.5;
 											}`;
