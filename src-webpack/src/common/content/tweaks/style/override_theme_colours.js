@@ -526,6 +526,7 @@ export function themePostBackgroundColour(value) {
 			 							:root shreddit-app[routename="comments_page"] .grid-container.grid {
 											--color-neutral-background: var(--re-theme-post-bg) !important;
 											--shreddit-content-background: transparent;
+											background-color: var(--re-theme-post-bg);
 										}
 										article shreddit-post,
 										[routename="post_page"] main.main {
