@@ -665,15 +665,8 @@ document.querySelector('#input-searchbar-dropdown-bg-colour-css').addEventListen
 
 // Slider - Theme Border Radius Amount
 document.querySelector('#input-border-radius-amount').addEventListener('input', function (e) {
-	// set ui
-	if (e.target.value != -1) {
-		document.querySelector('.icon-border-radius-amount').style.backgroundColor = 'var(--accent)';
-		document.querySelector('#border-radius-amount-value').innerText = e.target.value + 'px';
-	} else {
-		document.querySelector('.icon-border-radius-amount').style.backgroundColor = '';
-		document.querySelector('#border-radius-amount-value').innerText = 'off';
-	}
-	// apply
+	document.querySelector('#border-radius-amount-value').textContent = e.target.value != -1 ? e.target.value + 'px' : '';
+	document.querySelector('.icon-border-radius-amount').style.backgroundColor = e.target.value != -1 ? 'var(--accent)' : '';
 	sendMessage({ borderRadiusAmount: e.target.value });
 });
 document.querySelector('#input-border-radius-amount').addEventListener('mouseup', function (e) {
@@ -763,11 +756,11 @@ document.querySelector('#checkbox-text-post-preview-fade').addEventListener('cha
 	const textPostPreviewFade = document.querySelector('#checkbox-text-post-preview-fade').checked;
 	if (textPostPreviewFade) {
 		document.querySelectorAll('.icon-text-post-preview-fade').forEach((icon) => {
-			icon.style.backgroundColor = 'var(--accent)';
+			icon.classList.add('active');
 		});
 	} else {
 		document.querySelectorAll('.icon-text-post-preview-fade').forEach((icon) => {
-			icon.removeAttribute('background-color');
+			icon.classList.remove('active');
 		});
 	}
 	BROWSER_API.storage.sync.set({ textPostPreviewFade: textPostPreviewFade });
@@ -776,18 +769,13 @@ document.querySelector('#checkbox-text-post-preview-fade').addEventListener('cha
 
 // Slider - Text Post Preview Fade Height
 document.querySelector('#input-text-post-preview-fade-height').addEventListener('input', function (e) {
+	const textPostPreviewFade = document.querySelector('#checkbox-text-post-preview-fade').checked;
+	if (textPostPreviewFade) {
+		document.querySelector('.icon-text-post-preview-fade-height').style.backgroundColor = e.target.value != -1 ? 'var(--accent)' : '';
+	}
 	document.querySelector('#text-post-preview-fade-height').textContent = e.target.value != -1 ? e.target.value + 'px' : '';
 	sendMessage({ textPostPreviewFadeHeight: e.target.value });
 });
 document.querySelector('#input-text-post-preview-fade-height').addEventListener('mouseup', function (e) {
 	BROWSER_API.storage.sync.set({ textPostPreviewFadeHeight: e.target.value });
-});
-
-// Slider - Text Post Preview Max Height
-document.querySelector('#input-text-post-preview-max-height').addEventListener('input', function (e) {
-	document.querySelector('#text-post-preview-max-height').textContent = e.target.value != -1 ? e.target.value + 'px' : '';
-	sendMessage({ textPostPreviewMaxHeight: e.target.value });
-});
-document.querySelector('#input-text-post-preview-max-height').addEventListener('mouseup', function (e) {
-	BROWSER_API.storage.sync.set({ textPostPreviewMaxHeight: e.target.value });
 });

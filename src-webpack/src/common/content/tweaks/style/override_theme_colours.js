@@ -1301,6 +1301,11 @@ export function themeSearchbarBgColour(value) {
 		styleElement.id = 're-theme-searchbar-bg-colour';
 		styleElement.textContent = `reddit-search-large {
 										--color-secondary-background: var(--re-theme-searchbar-bg) !important;
+										--color-input-secondary-hover: color-mix(in srgb, var(--re-theme-searchbar-bg), #000 40%) !important;
+									}
+									html.theme-dark reddit-search-large,
+									html.theme-light reddit-search-large {
+										--color-neutral-background-strong: color-mix(in srgb, var(--re-theme-searchbar-bg), #000 20%) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else if (value === false) {

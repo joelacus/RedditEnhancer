@@ -249,15 +249,19 @@
 							<li class="sub-header r-old r-new r-newnew">
 								<div class="sub-header-menu">
 									<div class="r-old r-new r-newnew">
-										<a href="#resize-width" data-lang="FeedWidth"></a>
+										<a href="#resize-width" data-lang="Width"></a>
 										<div class="vdivider"></div>
 									</div>
 									<div class="r-old r-new r-newnew">
-										<a href="#feed-offset" data-lang="FeedOffset"></a>
+										<a href="#feed-offset" data-lang="Offset"></a>
 										<div class="vdivider r-newnew"></div>
 									</div>
 									<div class="r-newnew">
 										<a href="#resize-side-menu" data-lang="SideMenu"></a>
+										<div class="vdivider"></div>
+									</div>
+									<div class="r-newnew">
+										<a href="#resize-post" data-lang="Post"></a>
 										<div class="vdivider"></div>
 									</div>
 									<div class="r-newnew">
@@ -266,114 +270,118 @@
 									</div>
 								</div>
 							</li>
-							<li id="resize-layout" class="sub-header sub-search-title">
+							<li id="resize-layout" class="sub-header">
 								<span data-lang="ResizeLayout"></span>
 							</li>
-							<li class="container-3 r-old r-new r-newnew">
-								<span class="menu-item-icon icon-resize-feed icon-expand-layout"></span>
-								<span data-lang="ResizeLayout" data-search="resize,content"></span>
-								<label class="switch">
-									<input id="checkbox-expand-layout" type="checkbox" />
-									<span class="indicator"></span>
-								</label>
-							</li>
-							<li class="container-3 r-old r-new">
-								<span class="menu-item-icon icon-centre"></span>
-								<span data-lang="Centre" data-search="centre,center,middle"></span>
-								<label class="switch">
-									<input id="checkbox-layout-centre" type="checkbox" />
-									<span class="indicator"></span>
-								</label>
-							</li>
-							<li id="resize-width" class="sub-header r-old r-new r-newnew">
-								<span data-lang="Width"></span>
-							</li>
-							<li class="container r-old r-new r-newnew">
-								<div class="container r-old r-new r-newnew">
-									<div class="container-slider">
-										<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
-										<span data-lang="HomeFeedWidth" data-search="resize,content"></span>
-										<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-view-width" />
-										<span id="expand-view-width" class="input-value"></span>
-									</div>
-									<p class="info" data-lang="resizeHomeAlsoAffects"></p>
+							<li class="container">
+								<div class="container-3 r-old r-new r-newnew">
+									<span class="menu-item-icon icon-resize-feed icon-expand-layout"></span>
+									<span data-lang="ResizeLayout" data-search="resize,content"></span>
+									<label class="switch">
+										<input id="checkbox-expand-layout" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
+								</div>
+								<div class="container-3 r-old r-new">
+									<span class="menu-item-icon icon-centre"></span>
+									<span data-lang="Centre" data-search="centre,center,middle"></span>
+									<label class="switch">
+										<input id="checkbox-layout-centre" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
 								</div>
 								<div class="divider"></div>
-								<div class="container-slider r-new r-newnew">
-									<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
-									<span data-lang="SubFeedWidth" data-search="resize,content,sub"></span>
-									<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-sub-width" />
-									<span id="expand-sub-width" class="input-value"></span>
+								<div id="resize-width" class="sub-header r-old r-new r-newnew">
+									<span data-lang="Width"></span>
 								</div>
-								<div class="container-slider r-old r-new r-newnew">
-									<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
-									<span data-lang="PostWidth" data-search="resize,content,post"></span>
-									<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-post-width" />
-									<span id="expand-post-width" class="input-value"></span>
+								<div class="container r-old r-new r-newnew">
+									<div class="container r-old r-new r-newnew">
+										<div class="container-slider">
+											<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
+											<span data-lang="HomeFeedWidth" data-search="resize,content"></span>
+											<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-view-width" />
+											<span id="expand-view-width" class="input-value"></span>
+										</div>
+										<p class="info" data-lang="resizeHomeAlsoAffects"></p>
+									</div>
+									<div class="container-slider r-old r-new r-newnew">
+										<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
+										<span data-lang="SubFeedWidth" data-search="resize,content,sub"></span>
+										<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-sub-width" />
+										<span id="expand-sub-width" class="input-value"></span>
+									</div>
+									<div class="container-slider r-old r-new r-newnew">
+										<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
+										<span data-lang="PostWidth" data-search="resize,content,post"></span>
+										<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-post-width" />
+										<span id="expand-post-width" class="input-value"></span>
+									</div>
+									<div class="container-slider r-new">
+										<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
+										<span data-lang="PostOverlayWidth" data-search="resize,content,post,overlay"></span>
+										<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-post-overlay-width" />
+										<span id="expand-post-overlay-width" class="input-value"></span>
+									</div>
+									<div class="container-slider r-old r-new r-newnew">
+										<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
+										<span data-lang="UserProfileWidth" data-search="resize,content,user,profile"></span>
+										<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-user-profile-width" />
+										<span id="expand-user-profile-width" class="input-value"></span>
+									</div>
+									<div class="container-slider r-newnew">
+										<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
+										<span data-lang="TopicFeedWidth" data-search="resize,content,topic"></span>
+										<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-topic-feed-width" />
+										<span id="expand-topic-feed-width" class="input-value"></span>
+									</div>
+									<div class="container-slider r-old r-new r-newnew">
+										<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
+										<span data-lang="CustomFeedWidth" data-search="resize,content,custom"></span>
+										<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-custom-feed-width" />
+										<span id="expand-custom-feed-width" class="input-value"></span>
+									</div>
+									<div class="divider"></div>
+									<div class="container-3 r-old r-new r-newnew">
+										<span class="menu-item-icon icon-auto icon-auto-resize"></span>
+										<span data-lang="AutoExpand" data-search="auto"></span>
+										<input id="auto-expand-value" type="text" name="auto-expand-value" placeholder="px" maxlength="4" />
+									</div>
 								</div>
-								<div class="container-slider r-new">
-									<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
-									<span data-lang="PostOverlayWidth" data-search="resize,content,post,overlay"></span>
-									<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-post-overlay-width" />
-									<span id="expand-post-overlay-width" class="input-value"></span>
+								<div class="divider"></div>
+								<div id="feed-offset" class="sub-header r-newnew">
+									<span data-lang="Offset"></span>
 								</div>
-								<div class="container-slider r-old r-new r-newnew">
-									<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
-									<span data-lang="UserProfileWidth" data-search="resize,content,user,profile"></span>
-									<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-user-profile-width" />
-									<span id="expand-user-profile-width" class="input-value"></span>
-								</div>
-								<div class="container-slider r-newnew">
-									<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
-									<span data-lang="TopicFeedWidth" data-search="resize,content,topic"></span>
-									<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-topic-feed-width" />
-									<span id="expand-topic-feed-width" class="input-value"></span>
-								</div>
-								<div class="container-slider r-old r-new r-newnew">
-									<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
-									<span data-lang="CustomFeedWidth" data-search="resize,content,custom"></span>
-									<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-custom-feed-width" />
-									<span id="expand-custom-feed-width" class="input-value"></span>
-								</div>
-							</li>
-							<li class="container-3 r-old r-new r-newnew">
-								<span class="menu-item-icon icon-auto icon-auto-resize"></span>
-								<span data-lang="AutoExpand" data-search="auto"></span>
-								<input id="auto-expand-value" type="text" name="auto-expand-value" placeholder="px" maxlength="4" />
-							</li>
-							<li id="feed-offset" class="sub-header r-newnew">
-								<span data-lang="Offset"></span>
-							</li>
-							<li class="container r-newnew">
-								<div class="container-slider r-newnew">
-									<span class="menu-item-icon icon-arrows-left-right icon-resize-offset"></span>
-									<span data-lang="HomeFeedOffset" data-search="home,feed,offset"></span>
-									<input type="range" min="-100" max="100" value="0" step="2" class="slider" id="input-layout-offset" />
-									<span id="layout-offset-value" class="input-value"></span>
-								</div>
-								<div class="container-slider r-newnew">
-									<span class="menu-item-icon icon-arrows-left-right icon-resize-offset"></span>
-									<span data-lang="SubFeedOffset" data-search="sub,feed,offset"></span>
-									<input type="range" min="-100" max="100" value="0" step="2" class="slider" id="input-layout-sub-offset" />
-									<span id="layout-sub-offset-value" class="input-value"></span>
-								</div>
-								<div class="container-slider r-newnew">
-									<span class="menu-item-icon icon-arrows-left-right icon-resize-offset"></span>
-									<span data-lang="PostOffset" data-search="post,feed,offset"></span>
-									<input type="range" min="-100" max="100" value="0" step="2" class="slider" id="input-layout-post-offset" />
-									<span id="layout-post-offset-value" class="input-value"></span>
-								</div>
-								<div class="container-slider r-newnew">
-									<span class="menu-item-icon icon-arrows-left-right icon-resize-offset"></span>
-									<span data-lang="UserProfileOffset" data-search="user,feed,profile,offset"></span>
-									<input type="range" min="-100" max="100" value="0" step="2" class="slider" id="input-layout-user-profile-offset" />
-									<span id="layout-user-profile-offset-value" class="input-value"></span>
-								</div>
-								<div class="container-slider r-newnew">
-									<span class="menu-item-icon icon-arrows-left-right icon-resize-offset"></span>
-									<span data-lang="SearchPageOffset" data-search="search,feed,profile,offset"></span>
-									<input type="range" min="-100" max="100" value="0" step="2" class="slider" id="input-layout-search-page-offset" />
-									<span id="layout-search-page-offset-value" class="input-value"></span>
+								<div class="container r-newnew">
+									<div class="container-slider r-newnew">
+										<span class="menu-item-icon icon-arrows-left-right icon-resize-offset"></span>
+										<span data-lang="HomeFeedOffset" data-search="home,feed,offset"></span>
+										<input type="range" min="-100" max="100" value="0" step="2" class="slider" id="input-layout-offset" />
+										<span id="layout-offset-value" class="input-value"></span>
+									</div>
+									<div class="container-slider r-newnew">
+										<span class="menu-item-icon icon-arrows-left-right icon-resize-offset"></span>
+										<span data-lang="SubFeedOffset" data-search="sub,feed,offset"></span>
+										<input type="range" min="-100" max="100" value="0" step="2" class="slider" id="input-layout-sub-offset" />
+										<span id="layout-sub-offset-value" class="input-value"></span>
+									</div>
+									<div class="container-slider r-newnew">
+										<span class="menu-item-icon icon-arrows-left-right icon-resize-offset"></span>
+										<span data-lang="PostOffset" data-search="post,feed,offset"></span>
+										<input type="range" min="-100" max="100" value="0" step="2" class="slider" id="input-layout-post-offset" />
+										<span id="layout-post-offset-value" class="input-value"></span>
+									</div>
+									<div class="container-slider r-newnew">
+										<span class="menu-item-icon icon-arrows-left-right icon-resize-offset"></span>
+										<span data-lang="UserProfileOffset" data-search="user,feed,profile,offset"></span>
+										<input type="range" min="-100" max="100" value="0" step="2" class="slider" id="input-layout-user-profile-offset" />
+										<span id="layout-user-profile-offset-value" class="input-value"></span>
+									</div>
+									<div class="container-slider r-newnew">
+										<span class="menu-item-icon icon-arrows-left-right icon-resize-offset"></span>
+										<span data-lang="SearchPageOffset" data-search="search,feed,profile,offset"></span>
+										<input type="range" min="-100" max="100" value="0" step="2" class="slider" id="input-layout-search-page-offset" />
+										<span id="layout-search-page-offset-value" class="input-value"></span>
+									</div>
 								</div>
 							</li>
 							<li id="resize-side-menu" class="sub-header r-newnew">
@@ -385,6 +393,24 @@
 								<input type="range" min="199" max="300" value="0" step="1" class="slider" id="input-side-menu-width" />
 								<span id="side-menu-width-value" class="input-value"></span>
 							</li>
+							<li id="resize-post" class="sub-header r-newnew">
+								<span data-lang="Post"></span>
+							</li>
+							<li class="container">
+								<div class="container-slider">
+									<span class="menu-item-icon icon-ruler-horizontal icon-text-post-preview-height"></span>
+									<span data-lang="TextPostPreviewMaxHeight" data-search="text,post,fade,height"></span>
+									<input type="range" min="-1" max="500" value="0" step="1" class="slider" id="input-text-post-preview-max-height" />
+									<span id="text-post-preview-max-height" class="input-value"></span>
+								</div>
+								<p class="info"><a id="btn-set-text-post-fade-height" class="link" href="#set-text-post-fade-height" data-lang="TextPostMaxHeightInfo"></a></p>
+							</li>
+							<!--<li class="container-slider">
+								<span class="menu-item-icon icon-ruler-horizontal icon-image-post-max-height"></span>
+								<span data-lang="ImagePostMaxHeight" data-search="image,post,height"></span>
+								<input type="range" min="-1" max="500" value="0" step="1" class="slider" id="input-image-post-max-height" />
+								<span id="image-post-max-height" class="input-value"></span>
+							</li>-->
 							<li id="resize-main-container" class="sub-header r-newnew">
 								<span data-lang="MainContainer"></span>
 							</li>
@@ -1677,7 +1703,7 @@
 									</label>
 								</div>
 								<div class="divider"></div>
-								<div class="container-3 r-newnew">
+								<div class="container-3">
 									<span class="menu-item-icon icon-compress icon-compact-header-side-menu"></span>
 									<span data-lang="CompactHeaderSideMenu" data-search="compact,header,side,menu"></span>
 									<label class="switch">
@@ -1694,9 +1720,10 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+							</li>
+							<li id="set-text-post-fade-height" class="container r-newnew" style="scroll-margin-top: 35px">
 								<div class="container-3">
-									<span class="menu-item-icon icon-compress icon-text-post-preview-fade"></span>
+									<span class="menu-item-icon icon-fade icon-text-post-preview-fade"></span>
 									<span data-lang="TextPostPreviewFade" data-search="text,post,fade"></span>
 									<label class="switch">
 										<input id="checkbox-text-post-preview-fade" type="checkbox" />
@@ -1704,16 +1731,10 @@
 									</label>
 								</div>
 								<div class="container-slider">
-									<span class="menu-item-icon icon-ruler-horizontal icon-text-post-preview-fade"></span>
+									<span class="menu-item-icon icon-ruler-horizontal icon-text-post-preview-fade-height"></span>
 									<span data-lang="TextPostPreviewFadeHeight" data-search="text,post,fade"></span>
-									<input type="range" min="0" max="500" value="0" step="1" class="slider" id="input-text-post-preview-fade-height" />
+									<input type="range" min="-1" max="500" value="0" step="1" class="slider" id="input-text-post-preview-fade-height" />
 									<span id="text-post-preview-fade-height" class="input-value"></span>
-								</div>
-								<div class="container-slider">
-									<span class="menu-item-icon icon-ruler-horizontal icon-text-post-preview-fade"></span>
-									<span data-lang="TextPostPreviewMaxHeight" data-search="text,post,fade,height"></span>
-									<input type="range" min="0" max="500" value="0" step="1" class="slider" id="input-text-post-preview-max-height" />
-									<span id="text-post-preview-max-height" class="input-value"></span>
 								</div>
 							</li>
 							<li id="style-theme-colours" class="sub-header r-new r-newnew">

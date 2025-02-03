@@ -46,6 +46,7 @@ import { loadHidePostDivider } from '../../../content/tweaks/hide_elements/hide_
 import { loadHideBlurredMediaBackground } from '../../../content/tweaks/hide_elements/hide_blurred_media_background';
 import { loadResizeMainContainer } from '../../../content/tweaks/resize_elements/resize_main_container';
 import { loadHideCompactViewThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_thumbnails';
+import { loadResizePostHeight } from '../../../content/tweaks/resize_elements/resize_post';
 
 export function tweakLoaderNewNew() {
 	loadCustomBackground();
@@ -98,6 +99,7 @@ export function tweakLoaderNewNew() {
 	loadCompactHeaderSideMenu();
 	loadResizeMainContainer();
 	loadTextPostPreviewFade();
+	loadResizePostHeight();
 
 	// Always Show Post Options
 	waitForAddedNode({

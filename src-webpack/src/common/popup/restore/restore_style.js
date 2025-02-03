@@ -15,7 +15,7 @@ export function restorePopupStyleOptions() {
 			var value = result.borderRadiusAmount + 'px';
 		} else {
 			document.querySelector('#input-border-radius-amount').value = -1;
-			document.querySelector('#border-radius-amount-value').textContent = 'off';
+			document.querySelector('#border-radius-amount-value').textContent = '';
 			var value = 'false';
 		}
 		console.log('Border Radius Amount: ' + value);
@@ -860,29 +860,24 @@ export function restorePopupStyleOptions() {
 	// Text Post Preview Fade
 	BROWSER_API.storage.sync.get(['textPostPreviewFade'], function (result) {
 		const textPostPreviewFade = result.textPostPreviewFade === true;
-		document.querySelectorAll('.icon-text-post-preview-fade').forEach((icon) => {
-			icon.style.backgroundColor = textPostPreviewFade ? 'var(--accent)' : '';
-		});
 		document.querySelector('#checkbox-text-post-preview-fade').checked = textPostPreviewFade;
 		if (textPostPreviewFade) {
 			highlightMenuIcon('style-tweaks');
+			document.querySelectorAll('.icon-text-post-preview-fade').forEach((icon) => {
+				icon.classList.add('active');
+			});
 		}
 		console.log('Text Post Preview Fade: ' + textPostPreviewFade);
 	});
 
 	// Text Post Preview Fade Height
-	BROWSER_API.storage.sync.get(['textPostPreviewFadeHeight'], function (result) {
+	BROWSER_API.storage.sync.get(['textPostPreviewFade', 'textPostPreviewFadeHeight'], function (result) {
 		const value = result.textPostPreviewFadeHeight || -1;
 		document.querySelector('#input-text-post-preview-fade-height').value = value;
 		document.querySelector('#text-post-preview-fade-height').innerText = value >= 0 ? value + 'px' : '';
+		if (result.textPostPreviewFade === true && value > -1) {
+			document.querySelector('.icon-text-post-preview-fade-height').style.backgroundColor = 'var(--accent)';
+		}
 		console.log(`Text Post Preview Fade Height: ${value >= 0 ? value + 'px' : 'default'}`);
-	});
-
-	// Text Post Preview Max Height
-	BROWSER_API.storage.sync.get(['textPostPreviewMaxHeight'], function (result) {
-		const value = result.textPostPreviewMaxHeight || -1;
-		document.querySelector('#input-text-post-preview-max-height').value = value;
-		document.querySelector('#text-post-preview-max-height').innerText = value >= 0 ? value + 'px' : '';
-		console.log(`Text Post Preview Max Height: ${value >= 0 ? value + 'px' : 'default'}`);
 	});
 }

@@ -20,11 +20,11 @@ export function hideCompactViewBlankThumbnails(value) {
 
 /* === Enable/Disable Functions === */
 
-// Function - Enable Hide Compact View Blank Thumbnails - New
+// Function - Enable Hide Compact View Blank Thumbnails - New New
 function enableHideCompactViewBlankThumbnails() {
 	if (!document.head.querySelector('style[id="re-hide-compact-view-blank-thumbnail"]')) {
 		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-compact-view-blank-thumbnail';
+		styleElement.id = 're-hide-compact-view-blank-thumbnails';
 		styleElement.textContent = `shreddit-post div:has([slot="thumbnail"] [icon-name="text-post-outline"]) {
 										display: none !important;
 									}`;
@@ -32,9 +32,9 @@ function enableHideCompactViewBlankThumbnails() {
 	}
 }
 
-// Function - Disable Hide Compact View Blank Thumbnails - New
+// Function - Disable Hide Compact View Blank Thumbnails - New New
 function DisableHideCompactViewBlankThumbnails() {
-	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-compact-view-blank-thumbnail"]');
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-compact-view-blank-thumbnails"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});

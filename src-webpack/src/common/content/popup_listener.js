@@ -138,10 +138,11 @@ import { hideHomeFeed } from './tweaks/hide_elements/hide_home_feed';
 import { addProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
 import { hidePostDivider, postSeparatorHeight } from './tweaks/hide_elements/hide_post_divider';
 import { hideBlurredMediaBackground } from './tweaks/hide_elements/hide_blurred_media_background';
-import { fullWidthBanner, compactHeaderSideMenu, compactSubRuleList, textPostPreviewFade, setTextPostPreviewFadeHeight, setTextPostPreviewMaxHeight } from './tweaks/style/old_new_ui';
+import { fullWidthBanner, compactHeaderSideMenu, compactSubRuleList, textPostPreviewFade, setTextPostPreviewFadeHeight } from './tweaks/style/old_new_ui';
 import { resizeMainContainer, resizeMainContainerWidth } from './tweaks/resize_elements/resize_main_container';
 import { hideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
 import { hideCompactViewThumbnails } from './tweaks/hide_elements/hide_compact_view_thumbnails';
+import { setTextPostPreviewMaxHeight } from './tweaks/resize_elements/resize_post';
 import { customFonts } from './tweaks/font/custom_fonts';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
