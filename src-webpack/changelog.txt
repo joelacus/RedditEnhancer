@@ -1,3 +1,29 @@
+version 1.15.0
+- Updated localisations.
+- Minor bug fixes and extension improvements.
+v [New New UI]
+- Added an option to hide post thumbnails in compact view on feeds.
+!- Added an option to change the image post height.
+- Fixed a bug preventing the "Default Feed Sort Option" from working on the search page.
+- Fixed an issue with "Searchbar: Background Colour" where the search bar hover colour was defaulting to the reddit theme. 
+* Special thanks to @biminhc1 (Reddit) @bmndc (Github) for all following changes <3
+v [New New UI]
+  - Added options to fade text previews of Card posts, and to adjust the fade position and height of the text preview (experimental).
+  - Fixed an issue where opening the side menu may cause custom feeds to shrink when "Hide the Custom Feed Sidebar" is on.
+  - Fixed issues where "Show Post Flairs" may not add flairs with no rich formatting and may attach flairs twice in rare cases.
+  - Fixed an issue where post images won't show when "Hide the Header Bar" is on.
+  - Fixed an issue with "Hide the Recent Subreddit Section" in the side menu, as Reddit changed its name to "Recently Visited".
+  - Fixed an issue where resizing comment text is not persistent.
+  - "Resize Feed / Post", "Font > Post: Title" and "Custom Background" should now also apply to profile posts.
+  - "Post: Title and Text Content Colour" should now also colour h1, pre elements and text in tables.
+  - "Side Menu Width", "Hide the Side Menu" and "Side Menu Toggle Button" now uses Reddit's native CSS variables to adjust its width.
+  - "Post Background" colour should now also apply to Compact posts in moderation queue, and the new "Post Insights" page.
+  - "Resize Feed / Post" should now apply to global and subreddit mod queue.
+  - Disabled "Custom Background" on subreddit moderation pages — there's little we can do about them.
+  - Centre feeds when sidebars are hidden. It is possible to replicate the older behaviour with "Feed Offsets".
+  - Rewrote and optimised the CSS code for "Resize Feed / Post".
+  - Small styling tweaks to make blockquotes more compact.
+
 version 1.14.0
 - Added sticky sub menus in the extension settings for easier navigation.
 - The extension popup window is now 100px taller.

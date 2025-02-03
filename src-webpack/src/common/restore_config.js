@@ -184,6 +184,7 @@ async function restoreBackup(json) {
 				'hideBlurredMediaBackground',
 				'hideChatButton',
 				'hideCommunityHighlights',
+				'hideCompactViewThumbnails',
 				'hideCompactViewBlankThumbnails',
 				'hideCreatePost',
 				'hideCreatePostButton',

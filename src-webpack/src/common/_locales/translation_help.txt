@@ -1,10 +1,24 @@
 I welcome any help to improve translations, fix mistakes or add new languages.
 
-To add a new language, duplicate the "en" directory, and rename it with the two letter ISO 639 language code of the new language, then translate the "message" values.
-Regional localisations can be added also by appending the region code. For example, "en_GB" for British English.
-Any missing translations in regional files will fall back to the main language, so only differences are required.
-The "extensionVersion" item can be deleted.
+Manual:
 
-If you're unsure how to do this, open an issue and I'll help.
+To add a new language, duplicate the (en) directory, and rename it with the two letter ISO 639 language code of the new language, then translate the "message" values.
+Regional localisations can also be added by appending the region code. For example, "en-GB" for British English.
+Any missing translations in regional files will fall back to the non regional locale, so only differences are required.
+Any missing translations in a locale file will default to the English translation.
+The "extensionVersion" item is only needed in (en), so can be deleted.
+
+
+Guided (Python script):
+
+git clone git@github.com:joelacus/RedditEnhancer.git
+cd RedditEnhancer/src-webpack
+npm run lmt
+Select "Add new translation", and then type the ISO 639 locale code.
+Next, select "Find missing translations", and then select the newly added locale.
+Enter the translation when prompted for each item.
+
 
 Thank you :)
+
+https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes

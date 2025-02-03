@@ -2,3 +2,4 @@ src-webpack/dist/
 src-webpack/node_modules/
 src-webpack/package.json
 src-webpack/package-lock.json
+.prettierignore

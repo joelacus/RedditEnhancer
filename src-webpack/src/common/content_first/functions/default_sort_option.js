@@ -37,7 +37,7 @@ export function defaultSortOption() {
 						if (!lastPath.includes(sortTarget)) {
 							if (url.pathname.includes('/submit') || url.pathname.includes('/wiki') || url.pathname.includes('/rules')) {
 								return;
-							} else if ((url.searchParams.get('type') === 'posts' && /\/search\//.test(url.pathname)) || /\/user\/(?!.*\/m\/)/.test(url.pathname)) {
+							} else if (url.searchParams.get('type') === 'posts' || /\/search\//.test(url.pathname) || /\/user\/(?!.*\/m\/)/.test(url.pathname)) {
 								const sortParam = url.searchParams.get('sort');
 								if (sortParam !== sortTarget) {
 									url.searchParams.set('sort', sortTarget);
@@ -45,7 +45,7 @@ export function defaultSortOption() {
 								}
 							} else {
 								let newPath;
-								if (['hot', 'new', 'top', 'best', 'controversial', 'rising'].includes(lastPath)) {
+								if (['hot', 'new', 'top', 'best', 'controversial', 'rising', 'comments', 'relevance'].includes(lastPath)) {
 									newPath = [
 										...url.pathname
 											.split('/')

@@ -9,7 +9,7 @@ import './inputs/inputs_accessibility';
 import './inputs/inputs_account_switcher';
 import './inputs/inputs_background';
 import './inputs/inputs_dark_mode';
-import './inputs/inputs_expand_layout';
+import './inputs/inputs_resize_elements';
 import './inputs/inputs_font';
 import './inputs/inputs_hide_elements';
 import './inputs/inputs_productivity';

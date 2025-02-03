@@ -224,7 +224,7 @@ export function restorePopupResizeFeedOptions() {
 			var value = result.sideMenuWidth + 'px';
 		} else {
 			document.querySelector('#input-side-menu-width').value = 199;
-			document.querySelector('#side-menu-width-value').textContent = 'off';
+			document.querySelector('#side-menu-width-value').textContent = '';
 			var value = 'false';
 		}
 		console.log('Side Menu Width: ' + value);
@@ -238,7 +238,7 @@ export function restorePopupResizeFeedOptions() {
 		document.querySelector('#checkbox-resize-main-container').checked = !!resizeMainContainer;
 		if (resizeMainContainer) {
 			const icons = document.querySelectorAll('.icon-resize-main-container, .icon-resize-main-container-width');
-			icons.forEach(icon => icon.style.backgroundColor = 'var(--accent)');
+			icons.forEach((icon) => (icon.style.backgroundColor = 'var(--accent)'));
 			highlightMenuIcon('resize-elements');
 		}
 		console.log('Resize Main Container: ' + !!resizeMainContainer);
@@ -247,5 +247,16 @@ export function restorePopupResizeFeedOptions() {
 		document.querySelector('#input-resize-main-container-width').value = widthValue;
 		document.querySelector('#resize-main-container-width-value').innerText = widthValue + '%';
 		console.log('Resize Main Container Width: ' + widthValue + '%');
+	});
+
+	// Text Post Preview Max Height
+	BROWSER_API.storage.sync.get(['textPostPreviewMaxHeight'], function (result) {
+		const value = result.textPostPreviewMaxHeight || -1;
+		document.querySelector('#input-text-post-preview-max-height').value = value;
+		document.querySelector('#text-post-preview-max-height').innerText = value >= 0 ? value + 'px' : '';
+		if (value > -1) {
+			document.querySelector('.icon-text-post-preview-height').style.backgroundColor = 'var(--accent)';
+		}
+		console.log(`Text Post Preview Max Height: ${value >= 0 ? value + 'px' : 'default'}`);
 	});
 }

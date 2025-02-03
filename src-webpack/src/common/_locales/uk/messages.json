@@ -2,1124 +2,673 @@
 	"extensionName": {
 		"message": "Reddit Enhancer"
 	},
-
 	"extensionDescription": {
 		"message": "Різноманітні налаштування для персоналізації роботи Reddit. Підтримує всі версії Reddit."
 	},
-
 	"About": {
 		"message": "приблизно"
 	},
-
-	"ReportIssues": {
-		"message": "Повідомити про проблеми"
-	},
-
-	"BuyMeACoffee": {
-		"message": "Купи мені каву"
-	},
-
-	"DarkMode": {
-		"message": "Темний режим"
-	},
-
-	"ResizeLayout": {
-		"message": "Змінити розмір каналу / публікацію"
-	},
-
-	"Centre": {
-		"message": "центр"
-	},
-
-	"Width": {
-		"message": "Ширина"
-	},
-
-	"HomeFeedWidth": {
-		"message": "Ширина домашнього корму"
-	},
-
-	"SubFeedWidth": {
-		"message": "Ширина під-стрічки"
-	},
-
-	"UserProfileWidth": {
-		"message": "Ширина профілю користувача"
-	},
-
-	"PostOverlayWidth": {
-		"message": "Ширина накладання публікації"
-	},
-
-	"PostWidth": {
-		"message": "публікації ширина"
-	},
-
-	"Offset": {
-		"message": "Зсув"
-	},
-
-	"HomeFeedOffset": {
-		"message": "Зсув головного стрічки"
-	},
-
-	"SubFeedOffset": {
-		"message": "Зсув під-стрічки"
-	},
-
-	"PostOffset": {
-		"message": "Зсув публікації"
-	},
-
-	"UserProfileOffset": {
-		"message": "Зсув профілю користувача"
-	},
-
-	"FitImage": {
-		"message": "Масштабуйте високі зображення відповідно до публікації"
-	},
-
-	"ImageScroll": {
-		"message": "Додайте смугу прокрутки до високих зображень"
-	},
-
-	"Background": {
-		"message": "Фон"
-	},
-
-	"Blur": {
-		"message": "Розмиття"
-	},
-
-	"Shadow": {
-		"message": "Тіні"
-	},
-
-	"UseCustom": {
-		"message": "Використовуйте настроювані"
-	},
-
-	"CustomBgInputPlaceholder": {
-		"message": "Спеціальне фонове посилання"
-	},
-
-	"NewNewUI": {
-		"message": "Новий Новий UI"
-	},
-
-	"OldNewUI": {
-		"message": "Старий Новий UI"
-	},
-
-	"OldUI": {
-		"message": "Старий UI"
-	},
-
-	"Auto": {
-		"message": "Авто"
-	},
-
-	"Disabled": {
-		"message": "Вимкнено"
-	},
-
-	"BrowserTheme": {
-		"message": "Тема браузера"
-	},
-
-	"TimeRange": {
-		"message": "Часовий діапазон"
-	},
-
-	"StartTime": {
-		"message": "Час початку (24)"
-	},
-
-	"EndTime": {
-		"message": "Час закінчення (24)"
-	},
-
-	"StyleTweaks": {
-		"message": "Стиль"
-	},
-
-	"HideRedditPremium": {
-		"message": "Сховати «Reddit Premium»"
-	},
-
-	"HideCreatePost": {
-		"message": "Сховати «Створити запис»"
-	},
-
-	"HideAdvertiseButton": {
-		"message": "Сховати кнопку «Оголошення»"
-	},
-
-	"HideModerationButton": {
-		"message": "Сховати кнопку «Модерація»"
-	},
-
-	"HidePopularButton": {
-		"message": "Сховати кнопку «Популярні»"
-	},
-
-	"HideChatButton": {
-		"message": "Сховати кнопку «Чат»"
-	},
-
-	"HideHomeSidebar": {
-		"message": "Приховати бічну панель домашньої сторінки"
-	},
-
-	"HideSubSidebar": {
-		"message": "Приховати бічну панель Sub Reddit"
-	},
-
-	"Sidebar": {
-		"message": "Бічна панель"
-	},
-
-	"Header": {
-		"message": "Заголовок"
-	},
-
-	"Feed": {
-		"message": "Стрічка новин"
-	},
-
-	"HeaderButtons": {
-		"message": "Кнопки заголовка"
-	},
-
-	"HideGap": {
-		"message": "Приховати прогалини в інтерфейсі"
-	},
-
-	"Main": {
-		"message": "Головний"
-	},
-
-	"StickySort": {
-		"message": "Приклеєний порядок"
-	},
-
-	"HideUsername": {
-		"message": "Сховати ім'я користувача"
-	},
-
-	"HideKarma": {
-		"message": "Сховати карму"
-	},
-
-	"ReloadPage": {
-		"message": "Перезавантажити сторінку"
-	},
-
-	"ShowRising": {
-		"message": "Завжди показувати кнопку сортування «Rising»"
-	},
-
-	"ToTop": {
-		"message": "Додайте кнопку «Прокрутити вгору»."
-	},
-
-	"HideGetNewReddit": {
-		"message": "Приховати «Get New Reddit»"
-	},
-
-	"HideSidebarPolicy": {
-		"message": "Приховати розділ правил"
-	},
-
-	"HideElements": {
-		"message": "Приховати елементи"
-	},
-
-	"Productivity": {
-		"message": "Продуктивність"
-	},
-
-	"OpenSubInNewTab": {
-		"message": "Відкривати посилання на підфорум у новій вкладці"
-	},
-
-	"Search": {
-		"message": "Пошук"
-	},
-
-	"HidePromoted": {
-		"message": "Приховати рекламу/рекламовані посилання"
-	},
-
-	"ShowAllButton": {
-		"message": "Додати кнопку «r/All»"
-	},
-
-	"VideoPlayerReplacement": {
-		"message": "Альтернативний відеоплеєр"
-	},
-
-	"Images": {
-		"message": "Зображення"
-	},
-
-	"SortBar": {
-		"message": "Панель сортування"
-	},
-
-	"Other": {
-		"message": "додатковий"
-	},
-
-	"HideCreatePostButton": {
-		"message": "Сховати кнопку «Створити публікацію»"
-	},
-
-	"HideNotificationButton": {
-		"message": "Сховати кнопку «Сповіщення»"
-	},
-
-	"MoveFeedToTopInSidemenu": {
-		"message": "Перемістіть розділ каналу в бічному меню вгору"
-	},
-
-	"Text": {
-		"message": "текст"
-	},
-
-	"TextScroll": {
-		"message": "Додайте смугу прокрутки до довгих текстових повідомлень"
-	},
-
-	"HideSeeFullImage": {
-		"message": "Приховати «See Full Image»"
-	},
-
-	"ModerniseOldReddit": {
-		"message": "Модернізуйте old.reddit"
-	},
-
-	"HideHeaderSubBar": {
-		"message": "Приховати список Subreddit заголовка"
-	},
-
-	"HideSideMenu": {
-		"message": "Приховати бічне меню"
-	},
-
-	"PostCommentsLimit": {
-		"message": "Обмеження публікації коментарів"
-	},
-
-	"AutoExpand": {
-		"message": "Розширити до 100%, якщо ширина вікна/екрана менша:"
-	},
-
-	"HidePostSidebar": {
-		"message": "Приховати бічну панель публікації"
-	},
-
-	"HidePostOverlaySidebar": {
-		"message": "Приховати бічну панель накладання публікації"
-	},
-
-	"HideUserSidebar": {
-		"message": "Приховати бічну панель користувача"
-	},
-
-	"LimitInfinityScroll": {
-		"message": "Обмеження нескінченності прокручування"
-	},
-
-	"VideoPlayerInfo": {
-		"message": "Швидкий, легкий відеоплеєр із керуванням швидкістю на основі videojs. Спробуйте це, якщо у вас виникли проблеми із завантаженням власного програвача reddit."
-	},
-
-	"LimitCommentsInfo": {
-		"message": "Працює лише для публікацій, відкритих у новій вкладці/вікні."
-	},
-
-	"LimitInfinityScrollInfo": {
-		"message": "Beta. Це не обов’язково зменшить використання пропускної здатності, але натомість має допомогти запобігти повільній роботі сторінки, не дозволяючи Reddit додавати нові публікації, доки ви не натиснете «Завантажити ще» внизу каналу. Коли ви натискаєте «Завантажити ще», перші 25 дописів очищаються, а наступні 25 відображаються."
-	},
-
-	"DefaultFeedSortOption": {
-		"message": "Параметр сортування каналу за замовчуванням"
-	},
-
-	"DefaultCommentsSortOption": {
-		"message": "Параметр сортування коментарів за замовчуванням"
-	},
-
-	"Best": {
-		"message": "Best"
-	},
-
-	"Hot": {
-		"message": "Hot"
-	},
-
-	"New": {
-		"message": "New"
-	},
-
-	"Top": {
-		"message": "Top"
-	},
-
-	"Controversial": {
-		"message": "Controversial"
-	},
-
-	"Rising": {
-		"message": "Rising"
-	},
-
-	"Old": {
-		"message": "Old"
-	},
-
-	"Qa": {
-		"message": "Q&a"
-	},
-
-	"OpenPostInNewTab": {
-		"message": "Відкрийте посилання на публікації в новій вкладці"
-	},
-
-	"ControversialSort": {
-		"message": "Показати кнопку «Суперечливе» сортування"
-	},
-
-	"TextScrollInfo": {
-		"message": "Є обмеження. Можливо, вам доведеться відкрити публікацію, якщо вона дуже довга."
-	},
-
-	"HideNSFW": {
-		"message": "Сховати повідомлення NSFW/L"
-	},
-
-	"HideTurnOnNotificationsPopup": {
-		"message": "Сховати спливаюче вікно «Увімкнути сповіщення»"
-	},
-
-	"ScrollToNextRootComment": {
-		"message": "Кнопки шоу, щоб прокрутити до наступного/попереднього коментаря кореня"
-	},
-
-	"OpenPostInNewTabInfo": {
-		"message": "Тепер ви можете офіційно ввімкнути це на Reddit."
-	},
-
-	"OpenPostInNewTabInfoLink": {
-		"message": "User Settings > Feed Settings > Open posts in new tab"
-	},
-
-	"ShowPostNumbers": {
-		"message": "Додайте номери Post"
-	},
-
-	"Backup": {
-		"message": "Резервне копіювання"
-	},
-
-	"Restore": {
-		"message": "Відновлення"
-	},
-
-	"RestoreConfigTitle": {
-		"message": "Відновити конфігурацію резервної копії Reddit Enhancer"
-	},
-
-	"ChooseBackupFile": {
-		"message": "Виберіть файл резервної копії"
-	},
-
-	"Or": {
-		"message": "АБО"
-	},
-
-	"Drag": {
-		"message": "Перетягніть"
-	},
-
-	"Here": {
-		"message": "сюди"
-	},
-
-	"RestoreBackup": {
-		"message": "Відновити резервну копію"
-	},
-
-	"BackupRestored": {
-		"message": "Резервну копію відновлено!"
-	},
-
-	"CloseTab": {
-		"message": "Тепер ви можете закрити цю вкладку/вікно."
-	},
-
-	"Upload": {
-		"message": "Завантажити"
-	},
-
-	"CustomCSS": {
-		"message": "Власний CSS"
-	},
-
-	"FeedPostMaxHeight": {
-		"message": "висота постів"
-	},
-
-	"Post": {
-		"message": "Пост"
-	},
-
 	"Accessibility": {
 		"message": "Доступність"
 	},
-
-	"BionicReader": {
-		"message": "Біонічний читач"
-	},
-
-	"BionicReaderPosts": {
-		"message": "Біонічний читач для постів"
-	},
-
-	"BionicReaderComments": {
-		"message": "Біонічний читач для коментарів"
-	},
-
-	"BionicFontColour": {
-		"message": "Біонічний колір шрифту"
-	},
-
-	"BionicBackgroundColour": {
-		"message": "Біонічний колір фону"
-	},
-
-	"ThemeBlur": {
-		"message": "Розмите теми"
-	},
-
-	"ThemeBlurInfo": {
-		"message": "Використовуйте прозорі кольори 'rgba(0,0,0,0.5)' для побачення ефекту розмитості."
-	},
-
-	"ThemeColours": {
-		"message": "Кольори теми"
-	},
-
-	"PostVisitedTitleColour": {
-		"message": "Відвідана публікація: колір заголовка"
-	},
-
-	"HeaderBgColour": {
-		"message": "Заголовок: Колір фону"
-	},
-
-	"HeaderTextColour": {
-		"message": "Заголовок: колір тексту"
-	},
-
-	"Sort": {
-		"message": "Сортування"
-	},
-
-	"SortBgColour": {
-		"message": "Сортування: Колір фону"
-	},
-
-	"SortTextColour": {
-		"message": "Сортування: колір тексту"
-	},
-
-	"SortBorderColour": {
-		"message": "Сортування: колір рамки"
-	},
-
-	"PostBgColour": {
-		"message": "Повідомлення: Колір фону"
-	},
-
-	"PostSecondaryTextColour": {
-		"message": "Повідомлення: колір вторинного тексту"
-	},
-
-	"PostTitleContentColour": {
-		"message": "Повідомлення: заголовок і колір вмісту тексту"
-	},
-
-	"PostCommentsColour": {
-		"message": "Повідомлення: Коментарі Текстовий колір"
-	},
-
-	"PostCommentsSecondaryColour": {
-		"message": "Повідомлення: Коментарі Вторинний колір тексту"
-	},
-
-	"PostBorderColour": {
-		"message": "Повідомлення: колір рамки"
-	},
-
-	"SidebarTextColour": {
-		"message": "Бічна панель: Текстовий колір"
-	},
-
-	"SidebarBackgroundColour": {
-		"message": "Бічна панель: Фоновий колір"
-	},
-
-	"SidebarBorderColour": {
-		"message": "Бічна панель: Прикордонний колір"
-	},
-
-	"SideMenu": {
-		"message": "Бічне меню"
-	},
-
-	"SidemenuTextColour": {
-		"message": "Бічне меню: Текстовий колір"
-	},
-
-	"SidemenuBackgroundColour": {
-		"message": "Бічне меню: Фоновий колір"
-	},
-
-	"SidemenuButtonHoverColour": {
-		"message": "Бічне меню: Колір наведення кнопки"
-	},
-
-	"WhitelistBlacklist": {
-		"message": "Білий список / Чорний список"
-	},
-
-	"Whitelist": {
-		"message": "Білий список"
-	},
-
-	"Blacklist": {
-		"message": "Чорний список"
-	},
-
-	"ThemeBlacklistInfo": {
-		"message": "Використовуйте кольори теми глобально, окрім цих підреддитів:"
-	},
-
-	"ThemeWhitelistInfo": {
-		"message": "Використовуйте кольори теми тільки для цих підреддитів:"
-	},
-
-	"HideSubSidebarBlacklistInfo": {
-		"message": "Приховувати глобально, окрім цих підреддитів:"
-	},
-
-	"HideSubSidebarWhitelistInfo": {
-		"message": "Приховувати тільки на цих підреддитах:"
-	},
-
-	"HideHeaderBar": {
-		"message": "Приховати заголовну панель"
-	},
-
-	"NonStickyHeaderBar": {
-		"message": "Нефіксована заголовна панель"
-	},
-
-	"HideOriginalScrollToTop": {
-		"message": "Приховати оригінальну кнопку прокрутки до верху"
-	},
-
-	"CreatePost": {
-		"message": "Створити публікацію"
-	},
-
-	"CreatePostBgColour": {
-		"message": "Створити публікацію: Колір фону"
-	},
-
-	"CreatePostBorderColour": {
-		"message": "Створити публікацію: колір рамки"
-	},
-
 	"AlwaysShowPostOptions": {
 		"message": "Завжди показувати параметри публікації"
 	},
-
-	"LargerClassicPost": {
-		"message": "Збільшений класичний перегляд публікації"
+	"Auto": {
+		"message": "Авто"
 	},
-
-	"PositionVertically": {
-		"message": "Розташуйте вертикально"
-	},
-
-	"PositionHorizontally": {
-		"message": "Горизонтальне положення"
-	},
-
-	"BreakReminder": {
-		"message": "Нагадування про перерву"
-	},
-
-	"BreakReminderInfo": {
-		"message": "Beta. Показує нагадування про перерву через кожну встановлену кількість публікацій."
-	},
-
-	"BreakReminderFrequency": {
-		"message": "Частота нагадувань"
-	},
-
-	"TranslationHelp": {
-		"message": "Довідка з перекладу"
-	},
-
-	"Off": {
-		"message": "Вимкнено"
-	},
-
-	"ShowPostAuthor": {
-		"message": "Показати автора публікації"
-	},
-
-	"ShowPostFlair": {
-		"message": "Шоу 'Post Flair'"
-	},
-
-	"HideSideMenuTopSection": {
-		"message": "Приховати верхній розділ"
-	},
-
-	"HideSideMenuModerationSection": {
-		"message": "Приховати розділ модерування"
-	},
-
-	"HideSideMenuRecentSection": {
-		"message": "Приховати останній розділ Subreddit"
-	},
-
-	"HideSideMenuCommunitiesSection": {
-		"message": "Приховати розділ Спільноти."
-	},
-
-	"HideSideMenuResourcesSection": {
-		"message": "Сховати розділ ресурсів"
-	},
-
-	"HideSideMenuTopicsSection": {
-		"message": "Приховати розділ Теми"
-	},
-
-	"HideRelatedPosts": {
-		"message": "Приховати пов'язані публікації"
-	},
-
-	"Select": {
-		"message": "Виберіть"
-	},
-
-	"SelectRedditVersion": {
-		"message": "Виберіть версію Reddit"
-	},
-
-	"UpdateFirefox": {
-		"message": "Оновіть Firefox до версії 121 або новішої, щоб деякі функції працювали належним чином."
-	},
-
-	"ResizeFont": {
-		"message": "Змінити розмір шрифту"
-	},
-
-	"PostTitle": {
-		"message": "Назва публікації"
-	},
-
-	"PostContent": {
-		"message": "вміст публікації"
-	},
-
-	"PostComments": {
-		"message": "коментарі публікації"
-	},
-
-	"Rate": {
-		"message": "Оцінити / Відгук"
-	},
-
-	"HideUserProfilePics": {
-		"message": "Приховати зображення профілю користувача в коментарях"
-	},
-
-	"AutoExpandComments": {
-		"message": "Автоматично розгортати приховані коментарі"
-	},
-
-	"AutoExpandCommentsInfo": {
-		"message": "Це може спричинити сповільнення сторінки та використання великої кількості оперативної пам’яті, особливо якщо є багато коментарів."
-	},
-
 	"AutoCollapseAutoModeratorComment": {
 		"message": "Автоматичне згортання коментарів AutoModerator"
 	},
-
-	"HidePostHiddenMessage": {
-		"message": "Сховати повідомлення «Публікація прихована»"
+	"AutoExpand": {
+		"message": "Розширити до 100%, якщо ширина вікна/екрана менша:"
 	},
-
-	"JustOpenTheImage": {
-		"message": "Просто відкрийте зображення"
+	"AutoExpandComments": {
+		"message": "Автоматично розгортати приховані коментарі"
 	},
-
-	"JustOpenTheImageInfo": {
-		"message": "Відкривайте зображення окремо, а не вбудовані на сторінці Reddit."
+	"AutoExpandCommentsInfo": {
+		"message": "Це може спричинити сповільнення сторінки та використання великої кількості оперативної пам’яті, особливо якщо є багато коментарів."
 	},
-
-	"ScalePostToFitImage": {
-		"message": "Масштабування публікації відповідно до зображення"
-	},
-
-	"LimitImageWidth": {
-		"message": "Обмежити ширину зображення"
-	},
-
-	"Settings": {
-		"message": "Налаштування"
-	},
-
-	"ExtensionSettings": {
-		"message": "Налаштування розширення"
-	},
-
-	"Theme": {
-		"message": "Тема"
-	},
-
-	"Dark": {
-		"message": "Темний"
-	},
-
-	"Light": {
-		"message": "Світлий"
-	},
-
-	"ClassicLight": {
-		"message": "Класичний Світлий"
-	},
-
-	"BackupRestoreConfig": {
-		"message": "Резервне копіювання/Відновлення конфігурації"
-	},
-
-	"PleaseWait": {
-		"message": "Будь ласка, зачекайте"
-	},
-
-	"RestoreInfo1": {
-		"message": "Реставрація"
-	},
-
-	"RestoreInfo2": {
-		"message": "предметів. Обмеження API браузера становить 120 за хвилину. Будь ласка, залиште це вікно/вкладку відкритою ще на хвилину."
-	},
-
-	"HideJoinButtonOnPosts": {
-		"message": "Сховайте кнопку «Приєднатися» в публікаціях"
-	},
-
 	"AutoLoadMoreComments": {
 		"message": "Автоматично завантажувати додаткові коментарі"
 	},
-
-	"HideSideMenuCustomFeedsSection": {
-		"message": "Сховайте розділ «Користувацькі канали»"
-	},
-
-	"UnderlineLinks": {
-		"message": "Підкресліть посилання"
-	},
-
 	"AutoShowCommentFormattingOptions": {
 		"message": "Автоматично показувати параметри форматування під час коментування"
 	},
-
-	"Language": {
-		"message": "Мова"
+	"Background": {
+		"message": "Фон"
 	},
-
-	"SearchbarBgColour": {
-		"message": "Панель пошуку: Колір фону"
+	"Backup": {
+		"message": "Резервне копіювання"
 	},
-
-	"SearchbarDropdownBgColour": {
-		"message": "Панель пошуку: Фокусований/випадаючий колір фону"
+	"BackupRestoreConfig": {
+		"message": "Резервне копіювання/Відновлення конфігурації"
 	},
-
-	"HideSearchSidebar": {
-		"message": "Приховати бічну панель пошуку"
+	"BackupRestored": {
+		"message": "Резервну копію відновлено!"
 	},
-
+	"Best": {
+		"message": "Найкращий / Best"
+	},
+	"BionicBackgroundColour": {
+		"message": "Біонічний колір фону"
+	},
+	"BionicFontColour": {
+		"message": "Біонічний колір шрифту"
+	},
+	"BionicReader": {
+		"message": "Біонічний читач"
+	},
+	"BionicReaderComments": {
+		"message": "Біонічний читач для коментарів"
+	},
+	"BionicReaderPosts": {
+		"message": "Біонічний читач для постів"
+	},
+	"Blacklist": {
+		"message": "Чорний список"
+	},
+	"Blur": {
+		"message": "Розмиття"
+	},
+	"BreakReminder": {
+		"message": "Нагадування про перерву"
+	},
+	"BreakReminderFrequency": {
+		"message": "Частота нагадувань"
+	},
+	"BreakReminderInfo": {
+		"message": "Beta. Показує нагадування про перерву через кожну встановлену кількість публікацій."
+	},
+	"BrowserTheme": {
+		"message": "Тема браузера"
+	},
+	"BuyMeACoffee": {
+		"message": "Купи мені каву"
+	},
+	"Centre": {
+		"message": "центр"
+	},
+	"ChooseBackupFile": {
+		"message": "Виберіть файл резервної копії"
+	},
+	"ClassicLight": {
+		"message": "Класичний Світлий"
+	},
+	"CloseTab": {
+		"message": "Тепер ви можете закрити цю вкладку/вікно."
+	},
+	"CommentsCount": {
+		"message": "Коментарі враховуються / Comments count"
+	},
+	"Controversial": {
+		"message": "Суперечливий / Controversial"
+	},
+	"ControversialSort": {
+		"message": "Показати кнопку «Суперечливе» сортування"
+	},
+	"CreatePost": {
+		"message": "Створити публікацію"
+	},
+	"CreatePostBgColour": {
+		"message": "Створити публікацію: Колір фону"
+	},
+	"CreatePostBorderColour": {
+		"message": "Створити публікацію: колір рамки"
+	},
+	"CustomBgInputPlaceholder": {
+		"message": "Спеціальне фонове посилання"
+	},
+	"CustomCSS": {
+		"message": "Власний CSS"
+	},
+	"Dark": {
+		"message": "Темний"
+	},
+	"DarkMode": {
+		"message": "Темний режим"
+	},
+	"DefaultCommentsSortOption": {
+		"message": "Параметр сортування коментарів за замовчуванням"
+	},
+	"DefaultFeedSortOption": {
+		"message": "Параметр сортування каналу за замовчуванням"
+	},
+	"Disabled": {
+		"message": "Вимкнено"
+	},
+	"Drag": {
+		"message": "Перетягніть"
+	},
+	"EndTime": {
+		"message": "Час закінчення (24)"
+	},
+	"ExtensionSettings": {
+		"message": "Налаштування розширення"
+	},
+	"Feed": {
+		"message": "Стрічка новин"
+	},
+	"FeedPostMaxHeight": {
+		"message": "висота постів"
+	},
+	"FitImage": {
+		"message": "Масштабуйте високі зображення відповідно до публікації"
+	},
+	"Header": {
+		"message": "Заголовок"
+	},
+	"HeaderBgColour": {
+		"message": "Заголовок: Колір фону"
+	},
+	"HeaderButtons": {
+		"message": "Кнопки заголовка"
+	},
+	"HeaderTextColour": {
+		"message": "Заголовок: колір тексту"
+	},
+	"Here": {
+		"message": "сюди"
+	},
+	"HideAdvertiseButton": {
+		"message": "Сховати кнопку «Оголошення»"
+	},
+	"HideChatButton": {
+		"message": "Сховати кнопку «Чат»"
+	},
+	"HideCompactViewThumbnails": {
+		"message": "Сховати мініатюри в компактному вигляді"
+	},
+	"HideCreatePost": {
+		"message": "Сховати «Створити запис»"
+	},
+	"HideCreatePostButton": {
+		"message": "Сховати кнопку «Створити публікацію»"
+	},
+	"HideElements": {
+		"message": "Приховати елементи"
+	},
+	"HideGap": {
+		"message": "Приховати прогалини в інтерфейсі"
+	},
+	"HideGetNewReddit": {
+		"message": "Приховати «Get New Reddit»"
+	},
+	"HideHeaderBar": {
+		"message": "Приховати заголовну панель"
+	},
+	"HideHeaderSubBar": {
+		"message": "Приховати список Subreddit заголовка"
+	},
+	"HideHomeSidebar": {
+		"message": "Приховати бічну панель домашньої сторінки"
+	},
+	"HideJoinButtonOnPosts": {
+		"message": "Сховайте кнопку «Приєднатися» в публікаціях"
+	},
+	"HideKarma": {
+		"message": "Сховати карму"
+	},
+	"HideModerationButton": {
+		"message": "Сховати кнопку «Модерація»"
+	},
+	"HideNSFW": {
+		"message": "Сховати повідомлення NSFW/L"
+	},
+	"HideNotificationButton": {
+		"message": "Сховати кнопку «Сповіщення»"
+	},
+	"HideOriginalScrollToTop": {
+		"message": "Приховати оригінальну кнопку прокрутки до верху"
+	},
+	"HidePopularButton": {
+		"message": "Сховати кнопку «Популярні»"
+	},
+	"HidePostHiddenMessage": {
+		"message": "Сховати повідомлення «Публікація прихована»"
+	},
+	"HidePostOverlaySidebar": {
+		"message": "Приховати бічну панель накладання публікації"
+	},
+	"HidePostSidebar": {
+		"message": "Приховати бічну панель публікації"
+	},
+	"HidePromoted": {
+		"message": "Приховати рекламу/рекламовані посилання"
+	},
 	"HideRecommended": {
 		"message": "Сховати рекомендовано"
 	},
-
 	"HideRecommendedInfo": {
 		"message": "Приховування рекомендованих публікацій можна офіційно встановити в налаштуваннях користувача reddit."
 	},
-
-	"TopicFeedWidth": {
-		"message": "Ширина каналу теми"
+	"HideRedditPremium": {
+		"message": "Сховати «Reddit Premium»"
 	},
-
-	"RUI2RemovalInfo": {
-		"message": "Reddit has discontinued (Old New UI / Version 2) of the website. Options for 'Old New UI' will continue to be supported for now while other workarounds to get it back are still working."
+	"HideRelatedPosts": {
+		"message": "Приховати пов'язані публікації"
 	},
-
-	"learnMore": {
-		"message": "Learn More"
+	"HideSearchSidebar": {
+		"message": "Приховати бічну панель пошуку"
 	},
-
-	"HidePostBackButton": {
-		"message": "Hide The Post Back Button"
+	"HideSeeFullImage": {
+		"message": "Приховати «See Full Image»"
 	},
-
-	"BorderRadiusAmount": {
-		"message": "Theme Corner Radius"
+	"HideSideMenu": {
+		"message": "Приховати бічне меню"
 	},
-
-	"HidePostKarma": {
-		"message": "Hide Post Karma"
+	"HideSideMenuCommunitiesSection": {
+		"message": "Приховати розділ Спільноти."
 	},
-
-	"HideRecentPosts": {
-		"message": "Hide Recent Posts"
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Сховайте розділ «Користувацькі канали»"
 	},
-
-	"SideMenuWidth": {
-		"message": "Side Menu Width"
+	"HideSideMenuModerationSection": {
+		"message": "Приховати розділ модерування"
 	},
-
-	"SideMenuIconsOnly": {
-		"message": "Side Menu Icons Only"
+	"HideSideMenuRecentSection": {
+		"message": "Приховати останній розділ Subreddit"
 	},
-
-	"HideFavouriteButtons": {
-		"message": "Hide the Favourite Buttons"
+	"HideSideMenuResourcesSection": {
+		"message": "Сховати розділ ресурсів"
 	},
-
-	"ResetAllSettings": {
-		"message": "Reset All Settings"
+	"HideSideMenuTopSection": {
+		"message": "Приховати верхній розділ"
 	},
-
-	"Confirm": {
-		"message": "Confirm"
+	"HideSideMenuTopicsSection": {
+		"message": "Приховати розділ Теми"
 	},
-
-	"Cleared": {
-		"message": "Cleared"
+	"HideSidebarPolicy": {
+		"message": "Приховати розділ правил"
 	},
-
-	"Error": {
-		"message": "Error"
+	"HideSubSidebar": {
+		"message": "Приховати бічну панель Sub Reddit"
 	},
-
-	"SetLanguageAndTheme": {
-		"message": "Налаштування повної сторінки / Встановити мову та тему"
+	"HideSubSidebarBlacklistInfo": {
+		"message": "Приховувати глобально, окрім цих підреддитів:"
 	},
-
-	"SelectRedirect": {
-		"message": "Redirect"
+	"HideSubSidebarWhitelistInfo": {
+		"message": "Приховувати тільки на цих підреддитах:"
 	},
-
-	"Welcome": {
-		"message": "Welcome!"
+	"HideTurnOnNotificationsPopup": {
+		"message": "Сховати спливаюче вікно «Увімкнути сповіщення»"
 	},
-
-	"ModerniseOldRedditInfo": {
-		"message": "Makes old reddit look more like new reddit."
+	"HideUserProfilePics": {
+		"message": "Приховати зображення профілю користувача в коментарях"
 	},
-
-	"RUI3RedirectInfo": {
-		"message": "The redirect option to 'New New UI' is no longer necessary, however, you can use this option to force links from (sh|old).reddit.com to www.reddit.com"
+	"HideUserSidebar": {
+		"message": "Приховати бічну панель користувача"
 	},
-
-	"DontShowAgain": {
-		"message": "Don't show again"
+	"HideUsername": {
+		"message": "Сховати ім'я користувача"
 	},
-
-	"Close": {
-		"message": "Close"
+	"HomeFeedOffset": {
+		"message": "Зсув головного стрічки"
 	},
-
-	"SideMenuToggleButton": {
-		"message": "Show Side Menu Toggle Button"
+	"HomeFeedWidth": {
+		"message": "Ширина домашнього корму"
 	},
-
-	"HideCompactViewBlankThumbnails": {
-		"message": "Hide Blank Thumbnails In Compact View"
+	"Hot": {
+		"message": "Гаряче / Hot"
 	},
-
-	"HideNsfwInSearchResults": {
-		"message": "Hide 'NSFW' in the Search Results"
+	"ImagePostMaxHeight": {
+		"message": "Максимальна висота зображень"
 	},
-
-	"HideTrendingTodayInSearchResults": {
-		"message": "Hide 'Trending Today' in the Searchbar"
+	"ImageScroll": {
+		"message": "Додайте смугу прокрутки до високих зображень"
 	},
-
-	"HideCommunityHighlights": {
-		"message": "Hide 'Community Highlights'"
+	"Images": {
+		"message": "Зображення"
 	},
-
-	"HideSearchSidebarNsfwUsers": {
-		"message": "Hide NSFW Users in the Search Page Sidebar"
+	"JustOpenTheImage": {
+		"message": "Просто відкрийте зображення"
 	},
-
-	"resizeHomeAlsoAffects": {
-		"message": "& r/all, r/popular, create post, search results, and wiki pages"
+	"JustOpenTheImageInfo": {
+		"message": "Відкривайте зображення окремо, а не вбудовані на сторінці Reddit."
 	},
-
-	"SearchPageOffset": {
-		"message": "Search Page Offset"
+	"Language": {
+		"message": "Мова"
 	},
-
-	"NoSavedBackgrounds": {
-		"message": "No Saved Backgrounds"
+	"LargerClassicPost": {
+		"message": "Збільшений класичний перегляд публікації"
 	},
-
-	"HideHomeFeed": {
-		"message": "Hide Home Feed"
+	"Light": {
+		"message": "Світлий"
 	},
-
-	"RememberSectionHiddenState": {
-		"message": "Remember the hidden states of sections in the side menu"
+	"LimitCommentsInfo": {
+		"message": "Працює лише для публікацій, відкритих у новій вкладці/вікні."
 	},
-
-	"NewUpdateAvailable": {
-		"message": "Version <version> is now available. Your browser should update this extension automatically soon if you have automatic updates enabled, if not, you will have to manually check for updates in the browser extension manager."
+	"LimitImageWidth": {
+		"message": "Обмежити ширину зображення"
 	},
-
-	"UpvoteColour": {
-		"message": "Post: Upvote Colour"
+	"LimitInfinityScroll": {
+		"message": "Обмеження нескінченності прокручування"
 	},
-
-	"FontWeight": {
-		"message": "Font Weight"
+	"LimitInfinityScrollInfo": {
+		"message": "Beta. Це не обов’язково зменшить використання пропускної здатності, але натомість має допомогти запобігти повільній роботі сторінки, не дозволяючи Reddit додавати нові публікації, доки ви не натиснете «Завантажити ще» внизу каналу. Коли ви натискаєте «Завантажити ще», перші 25 дописів очищаються, а наступні 25 відображаються."
 	},
-
-	"FontWeightInfo": {
-		"message": "Not all fonts support all weights."
+	"Main": {
+		"message": "Головний"
 	},
-
-	"Font": {
-		"message": "Font"
+	"ModerniseOldReddit": {
+		"message": "Модернізуйте old.reddit"
 	},
-
-	"FeedPostTitle": {
-		"message": "Feed Post: Title"
+	"MoveFeedToTopInSidemenu": {
+		"message": "Перемістіть розділ каналу в бічному меню вгору"
 	},
-
-	"FeedPostContent": {
-		"message": "Feed Post: Content"
+	"New": {
+		"message": "новий / New"
 	},
-
-	"PostCommentActionRowColour": {
-		"message": "Post: Comment Action Row Colour"
+	"NewNewUI": {
+		"message": "Новий Новий UI"
 	},
-
-	"FilterOptionsFor": {
-		"message": "Filter Options For"
+	"NonStickyHeaderBar": {
+		"message": "Нефіксована заголовна панель"
 	},
-
-	"Redirect": {
-		"message": "Redirect"
+	"Off": {
+		"message": "Вимкнено"
 	},
-
-	"CreatePostTitle": {
-		"message": "Create Post: Title"
+	"Offset": {
+		"message": "Зсув"
 	},
-
-	"CreatePostBody": {
-		"message": "Create Post: Body"
+	"Old": {
+		"message": "Старий / Old"
 	},
-
-	"OptionsPage": {
-		"message": "Options Page"
+	"OldNewUI": {
+		"message": "Старий Новий UI"
 	},
-
-	"extensionVersionText": {
-		"message": "Extension Version"
+	"OldUI": {
+		"message": "Старий UI"
 	},
-
-	"Changelog": {
-		"message": "Changelog"
+	"OpenPostInNewTab": {
+		"message": "Відкрийте посилання на публікації в новій вкладці"
 	},
-
-	"ShowProfilePicturesOnComments": {
-		"message": "Show Profile Pictures On Comments"
+	"OpenPostInNewTabInfo": {
+		"message": "Тепер ви можете офіційно ввімкнути це на Reddit."
 	},
-
-	"CustomFeedWidth": {
-		"message": "Custom Feed Width"
+	"OpenPostInNewTabInfoLink": {
+		"message": "User Settings > Feed Settings > Open posts in new tab"
 	},
-
-	"ResizeMainContainer": {
-		"message": "Resize Main Container (experimental)"
+	"OpenSubInNewTab": {
+		"message": "Відкривати посилання на підфорум у новій вкладці"
 	},
-
-	"ResizeMainContainerInfo": {
-		"message": "For the best results, please set all Resize Feed / Post width values to 100%."
+	"Or": {
+		"message": "АБО"
 	},
-
-	"HideCustomFeedSidebar": {
-		"message": "Hide the Custom Feed Sidebar"
+	"Other": {
+		"message": "додатковий"
 	},
-
-	"HidePostDivider": {
-		"message": "Hide Post Separators"
+	"PleaseWait": {
+		"message": "Будь ласка, зачекайте"
 	},
-
-	"PostSeparatorHeight": {
-		"message": "Post Gap"
+	"PositionHorizontally": {
+		"message": "Горизонтальне положення"
 	},
-
-	"HideBlurredMediaBackground": {
-		"message": "Hide background blur behind image previews"
+	"PositionVertically": {
+		"message": "Розташуйте вертикально"
 	},
-
-	"CompactHeaderSideMenu": {
-		"message": "Compact Header Bar & Side Menu"
+	"Post": {
+		"message": "Пост"
 	},
-
+	"PostBgColour": {
+		"message": "Повідомлення: Колір фону"
+	},
+	"PostBorderColour": {
+		"message": "Повідомлення: колір рамки"
+	},
+	"PostComments": {
+		"message": "коментарі публікації"
+	},
+	"PostCommentsColour": {
+		"message": "Повідомлення: Коментарі Текстовий колір"
+	},
+	"PostCommentsLimit": {
+		"message": "Обмеження публікації коментарів"
+	},
+	"PostCommentsSecondaryColour": {
+		"message": "Повідомлення: Коментарі Вторинний колір тексту"
+	},
+	"PostContent": {
+		"message": "вміст публікації"
+	},
+	"PostOffset": {
+		"message": "Зсув публікації"
+	},
+	"PostOverlayWidth": {
+		"message": "Ширина накладання публікації"
+	},
+	"PostSecondaryTextColour": {
+		"message": "Повідомлення: колір вторинного тексту"
+	},
+	"PostTitle": {
+		"message": "Назва публікації"
+	},
+	"PostTitleContentColour": {
+		"message": "Повідомлення: заголовок і колір вмісту тексту"
+	},
+	"PostVisitedTitleColour": {
+		"message": "Відвідана публікація: колір заголовка"
+	},
+	"PostWidth": {
+		"message": "публікації ширина"
+	},
+	"Productivity": {
+		"message": "Продуктивність"
+	},
+	"Qa": {
+		"message": "Q&a"
+	},
+	"Rate": {
+		"message": "Оцінити / Відгук"
+	},
+	"Relevance": {
+		"message": "Актуальність / Relevance"
+	},
+	"ReloadPage": {
+		"message": "Перезавантажити сторінку"
+	},
+	"ReportIssues": {
+		"message": "Повідомити про проблеми"
+	},
+	"ResizeFont": {
+		"message": "Змінити розмір шрифту"
+	},
+	"ResizeLayout": {
+		"message": "Змінити розмір каналу / публікацію"
+	},
+	"Restore": {
+		"message": "Відновлення"
+	},
+	"RestoreBackup": {
+		"message": "Відновити резервну копію"
+	},
+	"RestoreConfigTitle": {
+		"message": "Відновити конфігурацію резервної копії Reddit Enhancer"
+	},
+	"RestoreInfo1": {
+		"message": "Реставрація"
+	},
+	"RestoreInfo2": {
+		"message": "предметів. Обмеження API браузера становить 120 за хвилину. Будь ласка, залиште це вікно/вкладку відкритою ще на хвилину."
+	},
+	"Rising": {
+		"message": "Підйом / Rising"
+	},
+	"ScalePostToFitImage": {
+		"message": "Масштабування публікації відповідно до зображення"
+	},
+	"ScrollToNextRootComment": {
+		"message": "Кнопки шоу, щоб прокрутити до наступного/попереднього коментаря кореня"
+	},
+	"Search": {
+		"message": "Пошук"
+	},
+	"SearchbarBgColour": {
+		"message": "Панель пошуку: Колір фону"
+	},
+	"SearchbarDropdownBgColour": {
+		"message": "Панель пошуку: Фокусований/випадаючий колір фону"
+	},
+	"Select": {
+		"message": "Виберіть"
+	},
+	"SelectRedditVersion": {
+		"message": "Виберіть версію Reddit"
+	},
+	"SetSansSerifAsFont": {
+		"message": "Встановіть \"sans-serif\" як шрифт UI"
+	},
+	"Settings": {
+		"message": "Налаштування"
+	},
+	"Shadow": {
+		"message": "Тіні"
+	},
+	"ShowAllButton": {
+		"message": "Додати кнопку «r/All»"
+	},
+	"ShowPostAuthor": {
+		"message": "Показати автора публікації"
+	},
+	"ShowPostFlair": {
+		"message": "Шоу 'Post Flair'"
+	},
+	"ShowPostNumbers": {
+		"message": "Додайте номери Post"
+	},
+	"ShowRising": {
+		"message": "Завжди показувати кнопку сортування «Rising»"
+	},
+	"SideMenu": {
+		"message": "Бічне меню"
+	},
+	"Sidebar": {
+		"message": "Бічна панель"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Бічна панель: Фоновий колір"
+	},
+	"SidebarBorderColour": {
+		"message": "Бічна панель: Прикордонний колір"
+	},
+	"SidebarTextColour": {
+		"message": "Бічна панель: Текстовий колір"
+	},
+	"SidemenuBackgroundColour": {
+		"message": "Бічне меню: Фоновий колір"
+	},
+	"SidemenuButtonHoverColour": {
+		"message": "Бічне меню: Колір наведення кнопки"
+	},
+	"SidemenuTextColour": {
+		"message": "Бічне меню: Текстовий колір"
+	},
+	"Sort": {
+		"message": "Сортування"
+	},
+	"SortBar": {
+		"message": "Панель сортування"
+	},
+	"SortBgColour": {
+		"message": "Сортування: Колір фону"
+	},
+	"SortBorderColour": {
+		"message": "Сортування: колір рамки"
+	},
+	"SortTextColour": {
+		"message": "Сортування: колір тексту"
+	},
+	"StartTime": {
+		"message": "Час початку (24)"
+	},
+	"StickySort": {
+		"message": "Приклеєний порядок"
+	},
+	"StyleTweaks": {
+		"message": "Стиль"
+	},
+	"SubFeedOffset": {
+		"message": "Зсув під-стрічки"
+	},
+	"SubFeedWidth": {
+		"message": "Ширина під-стрічки"
+	},
 	"Subreddit": {
 		"message": "Subreddit"
 	},
-
-	"FullWidthBanner": {
-		"message": "Full Width Subreddit Banner"
+	"Text": {
+		"message": "текст"
 	},
-
-	"CompactSubRuleList": {
-		"message": "Compact Subreddit Rule List"
+	"TextScroll": {
+		"message": "Додайте смугу прокрутки до довгих текстових повідомлень"
 	},
-
-	"HideCommentKarma": {
-		"message": "Hide Comment Karma"
+	"TextScrollInfo": {
+		"message": "Є обмеження. Можливо, вам доведеться відкрити публікацію, якщо вона дуже довга."
 	},
-
-	"HideVoteButtons": {
-		"message": "Hide Vote Buttons"
+	"Theme": {
+		"message": "Тема"
 	},
-
-	"TextPostPreviewFade": {
-		"message": "Add fade effect to text post previews (experimental)"
+	"ThemeBlacklistInfo": {
+		"message": "Використовуйте кольори теми глобально, окрім цих підреддитів:"
 	},
-
-	"TextPostPreviewFadeHeight": {
-		"message": "Fade Height"
+	"ThemeBlur": {
+		"message": "Розмите теми"
 	},
-
-	"TextPostPreviewMaxHeight": {
-		"message": "Text Preview Height"
+	"ThemeBlurInfo": {
+		"message": "Використовуйте прозорі кольори 'rgba(0,0,0,0.5)' для побачення ефекту розмитості."
+	},
+	"ThemeColours": {
+		"message": "Кольори теми"
+	},
+	"ThemeWhitelistInfo": {
+		"message": "Використовуйте кольори теми тільки для цих підреддитів:"
+	},
+	"TimeRange": {
+		"message": "Часовий діапазон"
+	},
+	"ToTop": {
+		"message": "Додайте кнопку «Прокрутити вгору»."
+	},
+	"Top": {
+		"message": "Топ / Top"
+	},
+	"TopicFeedWidth": {
+		"message": "Ширина каналу теми"
+	},
+	"TranslationHelp": {
+		"message": "Довідка з перекладу"
+	},
+	"UnderlineLinks": {
+		"message": "Підкресліть посилання"
+	},
+	"UpdateFirefox": {
+		"message": "Оновіть Firefox до версії 121 або новішої, щоб деякі функції працювали належним чином."
+	},
+	"Upload": {
+		"message": "Завантажити"
+	},
+	"UseCustom": {
+		"message": "Використовуйте настроювані"
+	},
+	"UserProfileOffset": {
+		"message": "Зсув профілю користувача"
+	},
+	"UserProfileWidth": {
+		"message": "Ширина профілю користувача"
+	},
+	"VideoPlayerInfo": {
+		"message": "Швидкий, легкий відеоплеєр із керуванням швидкістю на основі videojs. Спробуйте це, якщо у вас виникли проблеми із завантаженням власного програвача reddit."
+	},
+	"VideoPlayerReplacement": {
+		"message": "Альтернативний відеоплеєр"
+	},
+	"Whitelist": {
+		"message": "Білий список"
+	},
+	"WhitelistBlacklist": {
+		"message": "Білий список / Чорний список"
+	},
+	"Width": {
+		"message": "Ширина"
 	}
 }

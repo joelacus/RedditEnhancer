@@ -2,1124 +2,235 @@
 	"extensionName": {
 		"message": "Reddit Enhancer"
 	},
-
 	"extensionDescription": {
 		"message": "Különféle változtatások a Reddit élmény testreszabásához. Támogatja a Reddit összes verzióját."
 	},
-
 	"About": {
 		"message": "Ról ről"
 	},
-
-	"ReportIssues": {
-		"message": "Problémák jelentése"
-	},
-
-	"BuyMeACoffee": {
-		"message": "Vegyél nekem egy kávét"
-	},
-
-	"DarkMode": {
-		"message": "Sötét mód"
-	},
-
-	"ResizeLayout": {
-		"message": "Feed / Bejegyzés átméretezése"
-	},
-
-	"Centre": {
-		"message": "Központ"
-	},
-
-	"Width": {
-		"message": "Szélesség"
-	},
-
-	"HomeFeedWidth": {
-		"message": "Kezdőlap hírfolyam szélessége"
-	},
-
-	"SubFeedWidth": {
-		"message": "Al-hírfolyam szélessége"
-	},
-
-	"UserProfileWidth": {
-		"message": "Felhasználói profil szélessége"
-	},
-
-	"PostOverlayWidth": {
-		"message": "Bejegyzés átfedés szélessége"
-	},
-
-	"PostWidth": {
-		"message": "Bejegyzés szélessége"
-	},
-
-	"Offset": {
-		"message": "Eltolás"
-	},
-
-	"HomeFeedOffset": {
-		"message": "Kezdőlap hírfolyam eltolása"
-	},
-
-	"SubFeedOffset": {
-		"message": "Al-hírfolyam eltolása"
-	},
-
-	"PostOffset": {
-		"message": "Bejegyzés eltolása"
-	},
-
-	"UserProfileOffset": {
-		"message": "Felhasználói profil eltolása"
-	},
-
-	"FitImage": {
-		"message": "Méretarányosan magas képek illeszkedése hozzászóláshoz"
-	},
-
-	"ImageScroll": {
-		"message": "Görgetősáv hozzáadása a magas képekhez"
-	},
-
-	"Background": {
-		"message": "Háttér"
-	},
-
-	"Blur": {
-		"message": "Elhomályosít"
-	},
-
-	"Shadow": {
-		"message": "Csepp árnyékok"
-	},
-
-	"UseCustom": {
-		"message": "Egyéni használat"
-	},
-
-	"CustomBgInputPlaceholder": {
-		"message": "Egyedi háttér hivatkozás"
-	},
-
-	"NewNewUI": {
-		"message": "Új Új UI"
-	},
-
-	"OldNewUI": {
-		"message": "Régi Új UI"
-	},
-
-	"OldUI": {
-		"message": "Régi UI"
-	},
-
 	"Auto": {
 		"message": "Automatikus"
 	},
-
-	"Disabled": {
-		"message": "Tiltva"
-	},
-
-	"BrowserTheme": {
-		"message": "Böngésző témája"
-	},
-
-	"TimeRange": {
-		"message": "Időtartományban"
-	},
-
-	"StartTime": {
-		"message": "Kezdési idő (24)"
-	},
-
-	"EndTime": {
-		"message": "Idő vége (24)"
-	},
-
-	"StyleTweaks": {
-		"message": "Stílus"
-	},
-
-	"HideRedditPremium": {
-		"message": "Hide 'Reddit Premium'"
-	},
-
-	"HideCreatePost": {
-		"message": "Hide 'Create Post'"
-	},
-
-	"HideAdvertiseButton": {
-		"message": "Hide the 'Advertise' Button"
-	},
-
-	"HideModerationButton": {
-		"message": "Hide the 'Moderation' Button"
-	},
-
-	"HidePopularButton": {
-		"message": "Hide the 'Popular' Button"
-	},
-
-	"HideChatButton": {
-		"message": "Hide the 'Chat' Button"
-	},
-
-	"HideHomeSidebar": {
-		"message": "Hide the Home Page Sidebar"
-	},
-
-	"HideSubSidebar": {
-		"message": "Hide the Sub Reddit Sidebar"
-	},
-
-	"Sidebar": {
-		"message": "Sidebar"
-	},
-
-	"Header": {
-		"message": "Header"
-	},
-
-	"Feed": {
-		"message": "Feed"
-	},
-
-	"HeaderButtons": {
-		"message": "Header Buttons"
-	},
-
-	"HideGap": {
-		"message": "Hide Interface Gaps"
-	},
-
-	"Main": {
-		"message": "Main"
-	},
-
-	"StickySort": {
-		"message": "Sticky Sort"
-	},
-
-	"HideUsername": {
-		"message": "Hide Username"
-	},
-
-	"HideKarma": {
-		"message": "Hide Karma"
-	},
-
-	"ReloadPage": {
-		"message": "Reload Page"
-	},
-
-	"ShowRising": {
-		"message": "Always Show the 'Rising' Sort Button"
-	},
-
-	"ToTop": {
-		"message": "Add 'Scroll To Top' Button"
-	},
-
-	"HideGetNewReddit": {
-		"message": "Hide 'Get New Reddit'"
-	},
-
-	"HideSidebarPolicy": {
-		"message": "Hide Policies Section"
-	},
-
-	"HideElements": {
-		"message": "Hide Elements"
-	},
-
-	"Productivity": {
-		"message": "Productivity"
-	},
-
-	"OpenSubInNewTab": {
-		"message": "Open Links to subreddits in a New Tab"
-	},
-
-	"Search": {
-		"message": "Keresés"
-	},
-
-	"HidePromoted": {
-		"message": "Hide Ads/Promoted Links"
-	},
-
-	"ShowAllButton": {
-		"message": "Add 'r/All' Button"
-	},
-
-	"VideoPlayerReplacement": {
-		"message": "Alternative Video Player"
-	},
-
-	"Images": {
-		"message": "Images"
-	},
-
-	"SortBar": {
-		"message": "Sort Bar"
-	},
-
-	"Other": {
-		"message": "Other"
-	},
-
-	"HideCreatePostButton": {
-		"message": "Hide 'Create Post' Button"
-	},
-
-	"HideNotificationButton": {
-		"message": "Hide 'Notification' Button"
-	},
-
-	"MoveFeedToTopInSidemenu": {
-		"message": "Move The Feed Section In The Side Menu To The Top"
-	},
-
-	"Text": {
-		"message": "Text"
-	},
-
-	"TextScroll": {
-		"message": "Add Scrollbar To Long Text Posts"
-	},
-
-	"HideSeeFullImage": {
-		"message": "Hide 'See Full Image'"
-	},
-
-	"ModerniseOldReddit": {
-		"message": "Modernise old.reddit"
-	},
-
-	"HideHeaderSubBar": {
-		"message": "Hide Header subreddit List"
-	},
-
-	"HideSideMenu": {
-		"message": "Hide the Side Menu"
-	},
-
-	"PostCommentsLimit": {
-		"message": "Limit Post Comments"
-	},
-
-	"AutoExpand": {
-		"message": "Expand to 100% if the window/screen width is less than:"
-	},
-
-	"HidePostSidebar": {
-		"message": "Hide the Post Sidebar"
-	},
-
-	"HidePostOverlaySidebar": {
-		"message": "Hide the Post Overlay Sidebar"
-	},
-
-	"HideUserSidebar": {
-		"message": "Hide the User Sidebar"
-	},
-
-	"LimitInfinityScroll": {
-		"message": "Limit Infinity Scroll"
-	},
-
-	"VideoPlayerInfo": {
-		"message": "Fast, lightweight video player with speed controls based on videojs. Try this if you have loading issues with reddit's own player."
-	},
-
-	"LimitCommentsInfo": {
-		"message": "Only works for posts opened in a new tab/window."
-	},
-
-	"LimitInfinityScrollInfo": {
-		"message": "Beta. This won't necessarily reduce bandwidth usage, but should instead help prevent the page from becoming slow by stopping reddit from adding new posts until you click 'Load More' at the bottom of the feed. When you click 'Load More' it will clear the first 25 posts, and show the next 25."
-	},
-
-	"DefaultFeedSortOption": {
-		"message": "Default Feed Sort Option"
-	},
-
-	"DefaultCommentsSortOption": {
-		"message": "Default Comments Sort Option"
-	},
-
-	"Best": {
-		"message": "Best"
-	},
-
-	"Hot": {
-		"message": "Hot"
-	},
-
-	"New": {
-		"message": "New"
-	},
-
-	"Top": {
-		"message": "Top"
-	},
-
-	"Controversial": {
-		"message": "Controversial"
-	},
-
-	"Rising": {
-		"message": "Rising"
-	},
-
-	"Old": {
-		"message": "Old"
-	},
-
-	"Qa": {
-		"message": "Q&a"
-	},
-
-	"OpenPostInNewTab": {
-		"message": "Open Posts in New Tab"
-	},
-
-	"ControversialSort": {
-		"message": "Show the 'Controversial' Sort Button"
-	},
-
-	"TextScrollInfo": {
-		"message": "There is a limit. You may have to open the post if it is very long."
-	},
-
-	"HideNSFW": {
-		"message": "Hide NSFW/L Posts"
-	},
-
-	"HideTurnOnNotificationsPopup": {
-		"message": "Hide 'Get the best of' Popup"
-	},
-
-	"ScrollToNextRootComment": {
-		"message": "Show Navigation Buttons For The Next/Previous Root Comment"
-	},
-
-	"OpenPostInNewTabInfo": {
-		"message": "You can now enable this officially within reddit."
-	},
-
-	"OpenPostInNewTabInfoLink": {
-		"message": "User Settings > Feed Settings > Open posts in new tab"
-	},
-
-	"ShowPostNumbers": {
-		"message": "Add Post Numbers"
-	},
-
-	"Backup": {
-		"message": "Backup"
-	},
-
-	"Restore": {
-		"message": "Restore"
-	},
-
-	"RestoreConfigTitle": {
-		"message": "Restore Reddit Enhancer Backup Config"
-	},
-
-	"ChooseBackupFile": {
-		"message": "Choose backup file"
-	},
-
-	"Or": {
-		"message": "OR"
-	},
-
-	"Drag": {
-		"message": "Drag"
-	},
-
-	"Here": {
-		"message": "here"
-	},
-
-	"RestoreBackup": {
-		"message": "Restore Backup"
-	},
-
-	"BackupRestored": {
-		"message": "Backup Restored!"
-	},
-
-	"CloseTab": {
-		"message": "You can now close this tab/window."
-	},
-
-	"Upload": {
-		"message": "Upload"
-	},
-
-	"CustomCSS": {
-		"message": "Custom CSS"
-	},
-
-	"FeedPostMaxHeight": {
-		"message": "Post Height"
-	},
-
-	"Post": {
-		"message": "Post"
-	},
-
-	"Accessibility": {
-		"message": "Accessibility"
-	},
-
-	"BionicReader": {
-		"message": "Bionic Reader"
-	},
-
-	"BionicReaderPosts": {
-		"message": "Bionic Reader For Posts"
-	},
-
-	"BionicReaderComments": {
-		"message": "Bionic Reader For Comments"
-	},
-
-	"BionicFontColour": {
-		"message": "Bionic Font Colour"
-	},
-
-	"BionicBackgroundColour": {
-		"message": "Bionic Background Colour"
-	},
-
-	"ThemeBlur": {
-		"message": "Theme Blur"
-	},
-
-	"ThemeBlurInfo": {
-		"message": "Use translucent colours 'rgba(0,0,0,0.5)' to see blur effect."
-	},
-
-	"ThemeColours": {
-		"message": "Theme Colours"
-	},
-
-	"PostVisitedTitleColour": {
-		"message": "Visited Post Title Colour"
-	},
-
-	"HeaderBgColour": {
-		"message": "Header Background Colour"
-	},
-
-	"HeaderTextColour": {
-		"message": "Header Text Colour"
-	},
-
-	"Sort": {
-		"message": "Sort"
-	},
-
-	"SortBgColour": {
-		"message": "Sort: Background Colour"
-	},
-
-	"SortTextColour": {
-		"message": "Sort: Text Colour"
-	},
-
-	"SortBorderColour": {
-		"message": "Sort: Border Colour"
-	},
-
-	"PostBgColour": {
-		"message": "Post: Background Colour"
-	},
-
-	"PostCreditBar": {
-		"message": "Post: Header Bar Text Colour"
-	},
-
-	"PostTitleContentColour": {
-		"message": "Post: Title and Text Content Colour"
-	},
-
-	"PostCommentsColour": {
-		"message": "Post: Comments Text Colour"
-	},
-
-	"PostCommentsSecondaryColour": {
-		"message": "Post: Comments Secondary Text Colour"
-	},
-
-	"PostBorderColour": {
-		"message": "Post: Border Colour"
-	},
-
-	"SidebarTextColour": {
-		"message": "Sidebar: Text Colour"
-	},
-
-	"SidebarBackgroundColour": {
-		"message": "Sidebar: Background Colour"
-	},
-
-	"SidebarBorderColour": {
-		"message": "Sidebar: Border Colour"
-	},
-
-	"SideMenu": {
-		"message": "Side Menu"
-	},
-
-	"SidemenuTextColour": {
-		"message": "Side Menu: Text Colour"
-	},
-
-	"SidemenuBackgroundColour": {
-		"message": "Side Menu: Background Colour"
-	},
-
-	"SidemenuButtonHoverColour": {
-		"message": "Side Menu: Button Hover Colour"
-	},
-
-	"WhitelistBlacklist": {
-		"message": "Whitelist / Blacklist"
-	},
-
-	"Whitelist": {
-		"message": "Whitelist"
-	},
-
-	"Blacklist": {
-		"message": "Blacklist"
-	},
-
-	"ThemeBlacklistInfo": {
-		"message": "Use theme colours globally, except for these subreddits:"
-	},
-
-	"ThemeWhitelistInfo": {
-		"message": "Only use the theme colours for these subreddits:"
-	},
-
-	"HideSubSidebarBlacklistInfo": {
-		"message": "Hide globally except for on these subreddits:"
-	},
-
-	"HideSubSidebarWhitelistInfo": {
-		"message": "Only hide on these subreddits:"
-	},
-
-	"HideHeaderBar": {
-		"message": "Hide the Header Bar"
-	},
-
-	"NonStickyHeaderBar": {
-		"message": "Non Sticky Header Bar"
-	},
-
-	"HideOriginalScrollToTop": {
-		"message": "Hide the Original Scroll to Top Button"
-	},
-
-	"CreatePost": {
-		"message": "Create Post"
-	},
-
-	"CreatePostBgColour": {
-		"message": "Create Post: Background Colour"
-	},
-
-	"CreatePostBorderColour": {
-		"message": "Create Post: Border Colour"
-	},
-
-	"AlwaysShowPostOptions": {
-		"message": "Always Show Post Options"
-	},
-
-	"LargerClassicPost": {
-		"message": "Larger Classic Post View"
-	},
-
-	"PositionVertically": {
-		"message": "Position Vertically"
-	},
-
-	"PositionHorizontally": {
-		"message": "Position Horizontally"
-	},
-
-	"BreakReminder": {
-		"message": "Break Reminder"
-	},
-
-	"BreakReminderInfo": {
-		"message": "Beta. Shows a reminder to have a break every set number of posts."
-	},
-
-	"BreakReminderFrequency": {
-		"message": "Reminder Frequency"
-	},
-
-	"TranslationHelp": {
-		"message": "Fordítási segítség"
-	},
-
-	"Off": {
-		"message": "Off"
-	},
-
-	"ShowPostAuthor": {
-		"message": "Show Post Author"
-	},
-
-	"ShowPostFlair": {
-		"message": "Show Post Flair"
-	},
-
-	"HideSideMenuTopSection": {
-		"message": "Hide the Top Section"
-	},
-
-	"HideSideMenuModerationSection": {
-		"message": "Hide the Moderation Section"
-	},
-
-	"HideSideMenuRecentSection": {
-		"message": "Hide the Recent Subreddit Section"
-	},
-
-	"HideSideMenuCommunitiesSection": {
-		"message": "Hide the Communities Section"
-	},
-
-	"HideSideMenuResourcesSection": {
-		"message": "Hide the Resources Section"
-	},
-
-	"HideSideMenuTopicsSection": {
-		"message": "Hide the Topics Section"
-	},
-
-	"HideRelatedPosts": {
-		"message": "Hide Related Posts"
-	},
-
-	"Select": {
-		"message": "Válassza ki"
-	},
-
-	"SelectRedditVersion": {
-		"message": "Válassza a Reddit verziót"
-	},
-
-	"UpdateFirefox": {
-		"message": "Kérjük, frissítsen a Firefox 121-re vagy újabbra, hogy egyes funkciók megfelelően működjenek."
-	},
-
-	"ResizeFont": {
-		"message": "Betűtípus átméretezése"
-	},
-
-	"PostTitle": {
-		"message": "Postai cím"
-	},
-
-	"PostContent": {
-		"message": "Post Content"
-	},
-
-	"PostComments": {
-		"message": "Post Comments"
-	},
-
-	"Rate": {
-		"message": "Értékelés / Vélemény"
-	},
-
-	"HideUserProfilePics": {
-		"message": "Hide user profile pictures in the comments"
-	},
-
-	"AutoExpandComments": {
-		"message": "A Rejtett megjegyzések automatikus kibontása"
-	},
-
-	"AutoExpandCommentsInfo": {
-		"message": "Ez az oldal lelassulását és sok RAM használatát okozhatja, különösen, ha sok a megjegyzés."
-	},
-
 	"AutoCollapseAutoModeratorComment": {
 		"message": "AutoModerátor megjegyzésének automatikus minimalizálása"
 	},
-
-	"HidePostHiddenMessage": {
-		"message": "Hide 'Post Hidden' Message"
+	"AutoExpandComments": {
+		"message": "A Rejtett megjegyzések automatikus kibontása"
 	},
-
-	"JustOpenTheImage": {
-		"message": "Just Open The Image"
+	"AutoExpandCommentsInfo": {
+		"message": "Ez az oldal lelassulását és sok RAM használatát okozhatja, különösen, ha sok a megjegyzés."
 	},
-
-	"JustOpenTheImageInfo": {
-		"message": "Open images on their own, instead of embedded on a Reddit page."
-	},
-
-	"ScalePostToFitImage": {
-		"message": "Scale Post To Fit Image"
-	},
-
-	"LimitImageWidth": {
-		"message": "Limit Image Width"
-	},
-
-	"Settings": {
-		"message": "Beállítások"
-	},
-
-	"ExtensionSettings": {
-		"message": "Kiegészítés beállításai"
-	},
-
-	"Theme": {
-		"message": "Téma"
-	},
-
-	"Dark": {
-		"message": "Sötét"
-	},
-
-	"Light": {
-		"message": "Világos"
-	},
-
-	"ClassicLight": {
-		"message": "Klasszikus Világos"
-	},
-
-	"BackupRestoreConfig": {
-		"message": "Konfiguráció mentése/Visszaállítása"
-	},
-
-	"PleaseWait": {
-		"message": "Kérlek várj"
-	},
-
-	"RestoreInfo1": {
-		"message": ""
-	},
-
-	"RestoreInfo2": {
-		"message": "elem visszaállítása. A böngésző API-korlátja 120 percenként. Kérjük, hagyja nyitva ezt az ablakot/lapot még egy percig."
-	},
-
-	"HideJoinButtonOnPosts": {
-		"message": "Rejtsd el a „Csatlakozás” gombot a bejegyzéseken"
-	},
-
 	"AutoLoadMoreComments": {
 		"message": "További megjegyzések automatikus betöltése"
 	},
-
-	"HideSideMenuCustomFeedsSection": {
-		"message": "Az „Egyéni hírcsatornák” szakasz elrejtése"
-	},
-
-	"UnderlineLinks": {
-		"message": "A hivatkozások aláhúzása"
-	},
-
 	"AutoShowCommentFormattingOptions": {
 		"message": "A formázási beállítások automatikus megjelenítése kommenteléskor"
 	},
-
-	"Language": {
-		"message": "Nyelv"
+	"Background": {
+		"message": "Háttér"
 	},
-
-	"SearchbarBgColour": {
-		"message": "Kereső sáv: Háttérszín"
+	"BackupRestoreConfig": {
+		"message": "Konfiguráció mentése/Visszaállítása"
 	},
-
-	"SearchbarDropdownBgColour": {
-		"message": "Kereső sáv: Fókuszált/legördülő háttérszín"
+	"Blur": {
+		"message": "Elhomályosít"
 	},
-
-	"HideSearchSidebar": {
-		"message": "A Keresés oldalsáv elrejtése"
+	"BrowserTheme": {
+		"message": "Böngésző témája"
 	},
-
+	"BuyMeACoffee": {
+		"message": "Vegyél nekem egy kávét"
+	},
+	"Centre": {
+		"message": "Központ"
+	},
+	"ClassicLight": {
+		"message": "Klasszikus Világos"
+	},
+	"CommentsCount": {
+		"message": "A megjegyzések számítanak"
+	},
+	"CustomBgInputPlaceholder": {
+		"message": "Egyedi háttér hivatkozás"
+	},
+	"Dark": {
+		"message": "Sötét"
+	},
+	"DarkMode": {
+		"message": "Sötét mód"
+	},
+	"Disabled": {
+		"message": "Tiltva"
+	},
+	"EndTime": {
+		"message": "Idő vége (24)"
+	},
+	"ExtensionSettings": {
+		"message": "Kiegészítés beállításai"
+	},
+	"FitImage": {
+		"message": "Méretarányosan magas képek illeszkedése hozzászóláshoz"
+	},
+	"HideCompactViewThumbnails": {
+		"message": "Elrejtse a miniatűrök kompakt nézetben"
+	},
+	"HideJoinButtonOnPosts": {
+		"message": "Rejtsd el a „Csatlakozás” gombot a bejegyzéseken"
+	},
 	"HideRecommended": {
 		"message": "Ajánlott elrejtése"
 	},
-
 	"HideRecommendedInfo": {
 		"message": "Az ajánlott bejegyzések elrejtése hivatalosan beállítható a reddit felhasználói beállításaiban."
 	},
-
-	"TopicFeedWidth": {
-		"message": "Téma feed szélessége"
+	"HideSearchSidebar": {
+		"message": "A Keresés oldalsáv elrejtése"
 	},
-
-	"RUI2RemovalInfo": {
-		"message": "Reddit has discontinued (Old New UI / Version 2) of the website. Options for 'Old New UI' will continue to be supported for now while other workarounds to get it back are still working."
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Az „Egyéni hírcsatornák” szakasz elrejtése"
 	},
-
-	"learnMore": {
-		"message": "Learn More"
+	"HideUserProfilePics": {
+		"message": "Hide user profile pictures in the comments"
 	},
-
-	"HidePostBackButton": {
-		"message": "Hide The Post Back Button"
+	"HomeFeedOffset": {
+		"message": "Kezdőlap hírfolyam eltolása"
 	},
-
-	"BorderRadiusAmount": {
-		"message": "Theme Corner Radius"
+	"HomeFeedWidth": {
+		"message": "Kezdőlap hírfolyam szélessége"
 	},
-
-	"HidePostKarma": {
-		"message": "Hide Post Karma"
+	"ImagePostMaxHeight": {
+		"message": "A képoszlopok maximális magassága"
 	},
-
-	"HideRecentPosts": {
-		"message": "Hide Recent Posts"
+	"ImageScroll": {
+		"message": "Görgetősáv hozzáadása a magas képekhez"
 	},
-
-	"SideMenuWidth": {
-		"message": "Side Menu Width"
+	"Language": {
+		"message": "Nyelv"
 	},
-
-	"SideMenuIconsOnly": {
-		"message": "Side Menu Icons Only"
+	"Light": {
+		"message": "Világos"
 	},
-
-	"HideFavouriteButtons": {
-		"message": "Hide the Favourite Buttons"
+	"NewNewUI": {
+		"message": "Új Új UI"
 	},
-
-	"ResetAllSettings": {
-		"message": "Reset All Settings"
+	"Offset": {
+		"message": "Eltolás"
 	},
-
-	"Confirm": {
-		"message": "Confirm"
+	"OldNewUI": {
+		"message": "Régi Új UI"
 	},
-
-	"Cleared": {
-		"message": "Cleared"
+	"OldUI": {
+		"message": "Régi UI"
 	},
-
-	"Error": {
-		"message": "Error"
+	"PleaseWait": {
+		"message": "Kérlek várj"
 	},
-
+	"PostComments": {
+		"message": "Post Comments"
+	},
+	"PostContent": {
+		"message": "Post Content"
+	},
+	"PostOffset": {
+		"message": "Bejegyzés eltolása"
+	},
+	"PostOverlayWidth": {
+		"message": "Bejegyzés átfedés szélessége"
+	},
+	"PostTitle": {
+		"message": "Postai cím"
+	},
+	"PostWidth": {
+		"message": "Bejegyzés szélessége"
+	},
+	"Rate": {
+		"message": "Értékelés / Vélemény"
+	},
+	"Relevance": {
+		"message": "Relevancia"
+	},
+	"ReportIssues": {
+		"message": "Problémák jelentése"
+	},
+	"ResizeFont": {
+		"message": "Betűtípus átméretezése"
+	},
+	"ResizeLayout": {
+		"message": "Feed / Bejegyzés átméretezése"
+	},
+	"RestoreInfo1": {
+		"message": ""
+	},
+	"RestoreInfo2": {
+		"message": "elem visszaállítása. A böngésző API-korlátja 120 percenként. Kérjük, hagyja nyitva ezt az ablakot/lapot még egy percig."
+	},
+	"Search": {
+		"message": "Keresés"
+	},
+	"SearchbarBgColour": {
+		"message": "Kereső sáv: Háttérszín"
+	},
+	"SearchbarDropdownBgColour": {
+		"message": "Kereső sáv: Fókuszált/legördülő háttérszín"
+	},
+	"Select": {
+		"message": "Válassza ki"
+	},
+	"SelectRedditVersion": {
+		"message": "Válassza a Reddit verziót"
+	},
 	"SetLanguageAndTheme": {
 		"message": "Teljes oldalbeállítások / Nyelv és téma beállítása"
 	},
-
-	"SelectRedirect": {
-		"message": "Redirect"
+	"SetSansSerifAsFont": {
+		"message": "Állítsa be a \"sans-serif\" et felhasználói felületként"
 	},
-
-	"Welcome": {
-		"message": "Welcome!"
+	"Settings": {
+		"message": "Beállítások"
 	},
-
-	"ModerniseOldRedditInfo": {
-		"message": "Makes old reddit look more like new reddit."
+	"Shadow": {
+		"message": "Csepp árnyékok"
 	},
-
-	"RUI3RedirectInfo": {
-		"message": "The redirect option to 'New New UI' is no longer necessary, however, you can use this option to force links from (sh|old).reddit.com to www.reddit.com"
+	"StartTime": {
+		"message": "Kezdési idő (24)"
 	},
-
-	"DontShowAgain": {
-		"message": "Don't show again"
+	"StyleTweaks": {
+		"message": "Stílus"
 	},
-
-	"Close": {
-		"message": "Close"
+	"SubFeedOffset": {
+		"message": "Al-hírfolyam eltolása"
 	},
-
-	"SideMenuToggleButton": {
-		"message": "Show Side Menu Toggle Button"
+	"SubFeedWidth": {
+		"message": "Al-hírfolyam szélessége"
 	},
-
-	"HideCompactViewBlankThumbnails": {
-		"message": "Hide Blank Thumbnails In Compact View"
-	},
-
-	"HideNsfwInSearchResults": {
-		"message": "Hide 'NSFW' in the Search Results"
-	},
-
-	"HideTrendingTodayInSearchResults": {
-		"message": "Hide 'Trending Today' in the Searchbar"
-	},
-
-	"HideCommunityHighlights": {
-		"message": "Hide 'Community Highlights'"
-	},
-
-	"HideSearchSidebarNsfwUsers": {
-		"message": "Hide NSFW Users in the Search Page Sidebar"
-	},
-
-	"resizeHomeAlsoAffects": {
-		"message": "& r/all, r/popular, create post, search results, and wiki pages"
-	},
-
-	"SearchPageOffset": {
-		"message": "Search Page Offset"
-	},
-
-	"NoSavedBackgrounds": {
-		"message": "No Saved Backgrounds"
-	},
-
-	"HideHomeFeed": {
-		"message": "Hide Home Feed"
-	},
-
-	"RememberSectionHiddenState": {
-		"message": "Remember the hidden states of sections in the side menu"
-	},
-
-	"NewUpdateAvailable": {
-		"message": "Version <version> is now available. Your browser should update this extension automatically soon if you have automatic updates enabled, if not, you will have to manually check for updates in the browser extension manager."
-	},
-
-	"UpvoteColour": {
-		"message": "Post: Upvote Colour"
-	},
-
-	"FontWeight": {
-		"message": "Font Weight"
-	},
-
-	"FontWeightInfo": {
-		"message": "Not all fonts support all weights."
-	},
-
-	"Font": {
-		"message": "Font"
-	},
-
-	"FeedPostTitle": {
-		"message": "Feed Post: Title"
-	},
-
-	"FeedPostContent": {
-		"message": "Feed Post: Content"
-	},
-
-	"PostCommentActionRowColour": {
-		"message": "Post: Comment Action Row Colour"
-	},
-
-	"FilterOptionsFor": {
-		"message": "Filter Options For"
-	},
-
-	"Redirect": {
-		"message": "Redirect"
-	},
-
-	"CreatePostTitle": {
-		"message": "Create Post: Title"
-	},
-
-	"CreatePostBody": {
-		"message": "Create Post: Body"
-	},
-
-	"OptionsPage": {
-		"message": "Options Page"
-	},
-
-	"extensionVersionText": {
-		"message": "Extension Version"
-	},
-
-	"Changelog": {
-		"message": "Changelog"
-	},
-
-	"ShowProfilePicturesOnComments": {
-		"message": "Show Profile Pictures On Comments"
-	},
-
-	"CustomFeedWidth": {
-		"message": "Custom Feed Width"
-	},
-
-	"ResizeMainContainer": {
-		"message": "Resize Main Container (experimental)"
-	},
-
-	"ResizeMainContainerInfo": {
-		"message": "For the best results, please set all Resize Feed / Post width values to 100%."
-	},
-
-	"HideCustomFeedSidebar": {
-		"message": "Hide the Custom Feed Sidebar"
-	},
-
-	"HidePostDivider": {
-		"message": "Hide Post Separators"
-	},
-
-	"PostSeparatorHeight": {
-		"message": "Post Gap"
-	},
-
-	"HideBlurredMediaBackground": {
-		"message": "Hide background blur behind image previews"
-	},
-
-	"CompactHeaderSideMenu": {
-		"message": "Compact Header Bar & Side Menu"
-	},
-
 	"Subreddit": {
 		"message": "Subreddit"
 	},
-
-	"FullWidthBanner": {
-		"message": "Full Width Subreddit Banner"
+	"Theme": {
+		"message": "Téma"
 	},
-
-	"CompactSubRuleList": {
-		"message": "Compact Subreddit Rule List"
+	"TimeRange": {
+		"message": "Időtartományban"
 	},
-
-	"HideCommentKarma": {
-		"message": "Hide Comment Karma"
+	"TopicFeedWidth": {
+		"message": "Téma feed szélessége"
 	},
-
-	"HideVoteButtons": {
-		"message": "Hide Vote Buttons"
+	"UnderlineLinks": {
+		"message": "A hivatkozások aláhúzása"
 	},
-
-	"TextPostPreviewFade": {
-		"message": "Add fade effect to text post previews (experimental)"
+	"UpdateFirefox": {
+		"message": "Kérjük, frissítsen a Firefox 121-re vagy újabbra, hogy egyes funkciók megfelelően működjenek."
 	},
-
-	"TextPostPreviewFadeHeight": {
-		"message": "Fade Height"
+	"UseCustom": {
+		"message": "Egyéni használat"
 	},
-
-	"TextPostPreviewMaxHeight": {
-		"message": "Text Preview Height"
+	"UserProfileOffset": {
+		"message": "Felhasználói profil eltolása"
+	},
+	"UserProfileWidth": {
+		"message": "Felhasználói profil szélessége"
+	},
+	"Width": {
+		"message": "Szélesség"
 	}
 }

@@ -455,3 +455,11 @@
 	mask: url('../../icons/ui/compress-solid.svg');
 	-webkit-mask: url('../../icons/ui/compress-solid.svg');
 }
+.icon-fade {
+	mask: url('../../icons/ui/square-solid.svg');
+	-webkit-mask: url('../../icons/ui/square-solid.svg');
+	background: linear-gradient(color-mix(in srgb, var(--text-grey) 50%, transparent), transparent) !important;
+}
+.icon-fade.active {
+	background: linear-gradient(var(--accent), transparent) !important;
+}

@@ -217,11 +217,10 @@ function disableCompactHeaderSideMenu() {
 
 // Get the feature state from browser sync storage
 export function loadTextPostPreviewFade() {
-	BROWSER_API.storage.sync.get(['textPostPreviewFade', 'textPostPreviewFadeHeight', 'textPostPreviewMaxHeight'], function (result) {
+	BROWSER_API.storage.sync.get(['textPostPreviewFade', 'textPostPreviewFadeHeight'], function (result) {
 		if (result.textPostPreviewFade) {
 			textPostPreviewFade(true);
 			setTextPostPreviewFadeHeight(result.textPostPreviewFadeHeight);
-			setTextPostPreviewMaxHeight(result.textPostPreviewMaxHeight);
 		}
 	});
 }
@@ -313,7 +312,6 @@ function enableTextPostPreviewFade() {
 									    content: none;
 									}
 									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview {
-									    max-height: var(--re-text-post-preview-max-height, 250px);
 									    mask-image: linear-gradient(180deg, #000 var(--re-text-post-preview-fade, 150px), transparent);
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
@@ -334,14 +332,5 @@ export function setTextPostPreviewFadeHeight(value) {
 		document.documentElement.style.setProperty('--re-text-post-preview-fade', value + 'px');
 	} else {
 		document.documentElement.style.removeProperty('--re-text-post-preview-fade');
-	}
-}
-
-// Set the custom max height
-export function setTextPostPreviewMaxHeight(value) {
-	if (value && value > 0) {
-		document.documentElement.style.setProperty('--re-text-post-preview-max-height', value + 'px');
-	} else {
-		document.documentElement.style.removeProperty('--re-text-post-preview-max-height');
 	}
 }

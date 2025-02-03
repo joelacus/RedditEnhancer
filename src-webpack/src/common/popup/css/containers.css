@@ -15,12 +15,11 @@
 	border-radius: var(--border-radius);
 	padding: 5px;
 }
-.container > .container {
-	padding: 0;
+.container {
+	padding: 5px 0;
 }
 .sub-list li span {
 	font-size: 16px;
-	padding-right: 8px;
 }
 .container-1 {
 	display: flex;
@@ -51,12 +50,9 @@
 .container-slider {
 	display: grid;
 	grid-template-columns: 50px 150px auto 60px;
+	grid-gap: 4px;
 	padding-right: 8px;
 	min-height: 40px;
-}
-.container > .container,
-.container > .container-slider {
-	padding: 0;
 }
 .container-time {
 	display: grid;

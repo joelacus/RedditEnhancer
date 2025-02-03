@@ -277,9 +277,14 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		setTimeout(() => {
 			// delay for translation
 			if (typeof result.defaultFeedSortOption != 'undefined') {
-				const text = document.querySelector('#feed-sort-' + result.defaultFeedSortOption).textContent;
-				document.querySelector('#select-feed-sort-option .select').querySelector('span').textContent = text;
 				var value = result.defaultFeedSortOption;
+				if (value === 'best') {
+					value = 'relevance';
+				} else if (value === 'rising') {
+					value = 'hot';
+				}
+				const text = document.querySelector('#feed-sort-' + value).textContent;
+				document.querySelector('#select-feed-sort-option .select').querySelector('span').textContent = text;
 			} else if (typeof result.defaultFeedSortOption == 'undefined') {
 				const text = document.querySelector('#feed-sort-relevance').textContent;
 				document.querySelector('#select-feed-sort-option .select').querySelector('span').textContent = text;

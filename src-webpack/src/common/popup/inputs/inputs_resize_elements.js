@@ -210,3 +210,13 @@ document.querySelector('#input-resize-main-container-width').addEventListener('i
 document.querySelector('#input-resize-main-container-width').addEventListener('mouseup', function (e) {
 	BROWSER_API.storage.sync.set({ resizeMainContainerWidth: e.target.value });
 });
+
+// Slider - Text Post Preview Max Height
+document.querySelector('#input-text-post-preview-max-height').addEventListener('input', function (e) {
+	document.querySelector('#text-post-preview-max-height').textContent = e.target.value != -1 ? e.target.value + 'px' : '';
+	document.querySelector('.icon-text-post-preview-height').style.backgroundColor = e.target.value != -1 ? 'var(--accent)' : '';
+	sendMessage({ textPostPreviewMaxHeight: e.target.value });
+});
+document.querySelector('#input-text-post-preview-max-height').addEventListener('mouseup', function (e) {
+	BROWSER_API.storage.sync.set({ textPostPreviewMaxHeight: e.target.value });
+});

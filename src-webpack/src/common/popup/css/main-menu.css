@@ -212,6 +212,7 @@
 	display: grid;
 	grid-template-columns: auto 35px;
 	grid-gap: 5px;
+	padding: 5px;
 }
 .background {
 	position: relative;

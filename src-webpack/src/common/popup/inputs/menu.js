@@ -250,3 +250,15 @@ menus.forEach((menu) => {
 		});
 	}
 });
+
+// Scroll To
+document.querySelector('#btn-set-text-post-fade-height').addEventListener('click', function (e) {
+	optionsPageFunctions();
+	document.querySelectorAll('.menu-style-tweaks').forEach((btn) => {
+		btn.classList.remove('hidden');
+	});
+	document.querySelectorAll('.btn-style-tweaks').forEach((btn) => {
+		btn.classList.add('active');
+	});
+	scrollIntoView('#set-text-post-fade-height');
+});
