@@ -21,7 +21,11 @@ const CLASS_HIDE = '_rst_hide';
 
 const sidebar = document.querySelector('div.side');
 const tabmenu = document.querySelector('.tabmenu');
-const initialWidth = sidebar.offsetWidth;
+let initialWidth = 0;
+
+if (sidebar) {
+    initialWidth = sidebar.offsetWidth;
+}
 
 // Activate the feature based on Reddit version
 export function sidebarToggleButton(value) {
