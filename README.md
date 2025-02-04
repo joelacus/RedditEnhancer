@@ -60,7 +60,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide NSFW Posts|Hide any posts marked as NSFW.|All|
 |Hide NSFW Users in the Search Page Sidebar|Hide the found NSFW users in the search results page sidebar.|V3 - "New New"|
 |Hide Policies Section|Hides the content/privacy policy section in the sidebar.|V2 - "Old New"|
-|Hide Post Karma|Hides the karma on posts.|V3 - "New New"<br />V2 - "Old New"|
+|Hide Post Karma|Hides the karma on posts.|All|
 |Hide profile pictures in the comments|Simply hides the user profile pictures in the comments of a post.|V2 - "Old New"<br />V3 - "New New"|
 |Hide Promoted Links|Hides the promoted links/posts in the main feed.|All|
 |Hide Recent Posts|Hide the recent posts section in the sidebar.|V3 - "New New"|
@@ -81,8 +81,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide Username and/or Karma|You can hide your username and/or karma in the top bar.|V1 - Old<br />V2 - "Old New"|
 |Hide Post Separators|Hides the line between posts in feeds.|V3 - "New New"|
 |Hide background blur on image previews|Hides the blurred background on image posts.|V3 - "New New"|
-|Hide Comment Karma|Hide the karma on comments.|V3 - "New New"<br />V2 - "Old New"|
-|Hide Vote Buttons|Hide the vote buttons on posts and comments.|V3 - "New New"<br />V2 - "Old New"|
+|Hide Comment Karma|Hide the karma on comments.|All|
+|Hide Vote Buttons|Hide the vote buttons on posts and comments.|All|
 |Hide Thumbnails in Compact View|Hides the thumbnails on posts when viewing a feed in compact view.|V3 - "New New"|
 
 ## Productivity
@@ -129,6 +129,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |---|---|:---:|
 |Resize Font|Individually change the post title, text content and comments font size.|All|
 |Font Weight|Change the font weight (boldness) of the post content and comments.|V1 - Old<br />V3 - "New New"|
+|Set "san-serif" as UI Font|Sets the user interface font style to "sans-serif".|V1 - "Old UI"|
 
 ## Style
 
