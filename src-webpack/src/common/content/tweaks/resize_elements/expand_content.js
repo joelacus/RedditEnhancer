@@ -73,70 +73,86 @@ function enableExpandContentOld() {
 	// }
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-expand-feed-layout';
-	styleElement.textContent =
-		`
-		.listing-page div.content[role="main"],
-		.wiki-page div.content[role="main"],
-		.submit-page div.content[role="main"],
-		.moderator div.content[role="main"] {
-		    width: var(--re-content-width);
-		}
-		.comments-page div.content[role="main"],
-		.other-discussions-page div.content[role="main"] {
-		    width: var(--re-post-width);
-		}
-		.profile-page div.content[role="main"] {
-		    width: var(--re-user-profile-width);
-		}
-		.listing-page.multi-page div.content[role="main"] {
-			width: var(--re-custom-feed-width);
-		}
-		body.with-listing-chooser div.listing-chooser {
-			z-index: 0 !important;
-		}
-		/* Expand the post content, comments and wiki page content */
-		.md {
-			max-width: initial !important;
-		}
-		.wiki-page div.wiki-page-content {
-			margin: .25rem;
-		}
-		div.panestack-title,
-		p#noresults,
-		div.infobar,
-		.commentarea div.menuarea {
-    		margin: 10px 0 10px 10px;
-		}
-		.comments-page div.usertext-edit.md-container {
-			width: 50%;
-			max-width: initial;
-		}
-		div.markdownEditor-wrapper,
-		div.usertext-edit textarea,
-		div.roundfield .usertext-edit,
-		.moderator div.usertext-edit.md-container {
-			width: 100%;
-			max-width: initial;
-		}
-		/* Submit post page */
-		.submit-page div.formtabs-content,
-		.submit-page div.roundfield {
-		    width: initial;
-		}
-		div.roundfield textarea[name="title"],
-		div.roundfield input[type="text"],
-		div.roundfield input[type="url"],
-		div.roundfield input[type="password"],
-		div.roundfield input[type="number"],
-		#compose-message div.roundfield select {
-		    width: calc(100% - .5rem);
-		}
-		/* Moderator pages */
-		div.linefield,
-		div.linefield.mobile {
-		    width: 60%;
-		}
-		`;
+	styleElement.textContent = `.listing-page div.content[role="main"],
+								.wiki-page div.content[role="main"],
+								.submit-page div.content[role="main"],
+								.moderator div.content[role="main"] {
+									width: var(--re-content-width);
+								}
+								.comments-page div.content[role="main"],
+								.other-discussions-page div.content[role="main"] {
+									width: var(--re-post-width);
+								}
+								.profile-page div.content[role="main"] {
+									width: var(--re-user-profile-width);
+								}
+								.listing-page.multi-page div.content[role="main"] {
+									width: var(--re-custom-feed-width);
+								}
+								body.with-listing-chooser div.listing-chooser {
+									z-index: 0 !important;
+								}
+								/* Expand the post content, comments and wiki page content */
+								.md {
+									max-width: initial !important;
+								}
+								.wiki-page div.wiki-page-content {
+									margin: .25rem;
+								}
+								div.panestack-title,
+								p#noresults,
+								div.infobar,
+								.commentarea div.menuarea {
+									margin: 10px 0 10px 10px;
+								}
+								.comments-page div.usertext-edit.md-container {
+									width: 50%;
+									max-width: initial;
+								}
+								div.markdownEditor-wrapper,
+								div.usertext-edit textarea,
+								div.roundfield .usertext-edit,
+								.moderator div.usertext-edit.md-container {
+									width: 100%;
+									max-width: initial;
+								}
+								/* Submit post page */
+								.submit-page div.formtabs-content,
+								.submit-page div.roundfield {
+									width: initial;
+								}
+								div.roundfield textarea[name="title"],
+								div.roundfield input[type="text"],
+								div.roundfield input[type="url"],
+								div.roundfield input[type="password"],
+								div.roundfield input[type="number"],
+								#compose-message div.roundfield select {
+									width: calc(100% - .5rem);
+								}
+								/* Moderator pages */
+								div.linefield,
+								div.linefield.mobile {
+									width: 60%;
+								}
+								/* Changes for "Modernise Old Reddit" */
+								.re-modernise #re-container {
+									display: flex;
+								}
+								.re-modernise .content > .tabmenu {
+									margin-top: 16px !important;
+									width: calc(100% - 75px) !important;
+								}
+								.re-modernise .comments-page #siteTable {
+									margin-left: 0 !important;
+									width: 100% !important;
+								}
+								.re-modernise .comments-page .tabmenu {
+									margin-left: 0 !important;
+									width: calc(100% - 28px) !important;
+								}
+								.re-modernise .side {
+									margin-left: 0 !important;
+								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
@@ -287,8 +303,7 @@ function disableExpandContentNew() {
 function enableExpandContentNewNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-expand-feed-layout';
-	styleElement.textContent =
-		`
+	styleElement.textContent = `
 		.grid-container:not(.grid-full) div#subgrid-container {
 			width: 100%;
 		}
