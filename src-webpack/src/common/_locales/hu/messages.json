@@ -102,13 +102,25 @@
 		"message": "A képoszlopok maximális magassága"
 	},
 	"ImageScroll": {
-		"message": "Görgetősáv hozzáadása a magas képekhez"
+		"message": "Adjon hozzá görgetősávokat a képekhez"
+	},
+	"JustOpenTheImageInfo": {
+		"message": "Ha képeket nyit egy új lapon, nyissa meg közvetlenül anélkül, hogy beágyazná őket egy Reddit oldalra."
 	},
 	"Language": {
 		"message": "Nyelv"
 	},
 	"Light": {
 		"message": "Világos"
+	},
+	"LimitVideoWidth": {
+		"message": "Korlátozza a videó szélességét"
+	},
+	"MaxImageHeight": {
+		"message": "Maximális képmagasság"
+	},
+	"MaxVideoHeight": {
+		"message": "Maximális videómagasság"
 	},
 	"NewNewUI": {
 		"message": "Új Új UI"
@@ -163,6 +175,9 @@
 	},
 	"RestoreInfo2": {
 		"message": "elem visszaállítása. A böngésző API-korlátja 120 percenként. Kérjük, hagyja nyitva ezt az ablakot/lapot még egy percig."
+	},
+	"ScalePostToFitVideo": {
+		"message": "Skála hozzászólás a videó illesztéséhez"
 	},
 	"Search": {
 		"message": "Keresés"
@@ -229,6 +244,9 @@
 	},
 	"UserProfileWidth": {
 		"message": "Felhasználói profil szélessége"
+	},
+	"Video": {
+		"message": "Videó"
 	},
 	"Width": {
 		"message": "Szélesség"

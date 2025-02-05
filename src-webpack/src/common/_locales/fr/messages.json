@@ -426,7 +426,7 @@
 		"message": "Hauteur maximale des poteaux d'image"
 	},
 	"ImageScroll": {
-		"message": "Ajouter une barre de défilement aux images hautes"
+		"message": "Ajouter des barres de défilement aux images"
 	},
 	"Images": {
 		"message": "Images"
@@ -435,7 +435,7 @@
 		"message": "Ouvrez simplement l'image"
 	},
 	"JustOpenTheImageInfo": {
-		"message": "Ouvrez les images seules, au lieu de les intégrer sur une page Reddit."
+		"message": "Lorsque vous ouvrez des images dans un nouvel onglet, ouvrez-les directement sans les intégrer sur une page Reddit."
 	},
 	"Language": {
 		"message": "Langue"
@@ -458,11 +458,20 @@
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Cela ne réduira pas nécessairement l'utilisation de la bande passante, mais devrait plutôt empêcher la page de devenir lente en empêchant Reddit d'ajouter de nouvelles Posts jusqu'à ce que vous cliquiez sur « Charger plus » au bas du flux. Lorsque vous cliquez sur « Charger plus », les 25 premiers messages seront effacés et les 25 suivants seront affichés."
 	},
+	"LimitVideoWidth": {
+		"message": "Limiter la largeur vidéo"
+	},
 	"Main": {
 		"message": "Principal"
 	},
 	"MainContainer": {
 		"message": "Conteneur principal"
+	},
+	"MaxImageHeight": {
+		"message": "Hauteur maximale de l'image"
+	},
+	"MaxVideoHeight": {
+		"message": "Hauteur de vidéo maximale"
 	},
 	"ModerniseOldReddit": {
 		"message": "Moderniser old.reddit"
@@ -656,6 +665,9 @@
 	"ScalePostToFitImage": {
 		"message": "Mettre à l'échelle la Post pour l'adapter à l'image"
 	},
+	"ScalePostToFitVideo": {
+		"message": "Scale Post pour s'adapter à la vidéo"
+	},
 	"ScrollToNextRootComment": {
 		"message": "Afficher les boutons pour faire défiler le commentaire racine suivant / précédent"
 	},
@@ -733,6 +745,9 @@
 	},
 	"SidebarTextColour": {
 		"message": "Barre latérale : Couleur de texte"
+	},
+	"SidebarToggleButton": {
+		"message": "Bouton à bascule de barre latérale"
 	},
 	"SidemenuBackgroundColour": {
 		"message": "Menu latéral : La couleur d'arrière-plan"
@@ -853,6 +868,9 @@
 	},
 	"UserProfileWidth": {
 		"message": "Largeur du profil utilisateur"
+	},
+	"Video": {
+		"message": "Vidéo"
 	},
 	"VideoPlayerInfo": {
 		"message": "Lecteur vidéo rapide et léger avec des commandes de vitesse basées sur videojs. Essayez ceci si vous rencontrez des problèmes de chargement avec le propre lecteur de Reddit."

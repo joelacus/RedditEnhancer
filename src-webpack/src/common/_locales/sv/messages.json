@@ -192,13 +192,13 @@
 		"message": "Maximal höjd på bildstolparna"
 	},
 	"ImageScroll": {
-		"message": "Lägg till ScrollBar till höga bilder"
+		"message": "Lägg till Scrollbars till bilder"
 	},
 	"JustOpenTheImage": {
 		"message": "Öppna bara bilden"
 	},
 	"JustOpenTheImageInfo": {
-		"message": "Öppna bilder på egen hand, istället för inbäddade på en Reddit-sida."
+		"message": "När du öppnar bilder i en ny flik öppnar du dem direkt utan att bädda in dem på en Reddit-sida."
 	},
 	"Language": {
 		"message": "Språk"
@@ -212,8 +212,17 @@
 	"LimitImageWidth": {
 		"message": "Begränsa bildbredden"
 	},
+	"LimitVideoWidth": {
+		"message": "Begränsa videobredden"
+	},
 	"Main": {
 		"message": "Huvudsaklig"
+	},
+	"MaxImageHeight": {
+		"message": "Maximal bildhöjd"
+	},
+	"MaxVideoHeight": {
+		"message": "Maximal videohöjd"
 	},
 	"NewNewUI": {
 		"message": "Ny Ny UI"
@@ -289,6 +298,9 @@
 	},
 	"ScalePostToFitImage": {
 		"message": "Skala inlägg för att passa bild"
+	},
+	"ScalePostToFitVideo": {
+		"message": "Skala inlägg för att passa video"
 	},
 	"Search": {
 		"message": "Sök"
@@ -373,6 +385,9 @@
 	},
 	"UserProfileWidth": {
 		"message": "Användarprofilbredd"
+	},
+	"Video": {
+		"message": "Video"
 	},
 	"Width": {
 		"message": "Bredd"

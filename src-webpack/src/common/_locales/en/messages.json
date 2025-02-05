@@ -429,7 +429,7 @@
 		"message": "Image Post Max Height"
 	},
 	"ImageScroll": {
-		"message": "Add Scrollbar to Tall Images"
+		"message": "Add Scrollbars To Images"
 	},
 	"Images": {
 		"message": "Images"
@@ -438,7 +438,7 @@
 		"message": "Just Open The Image"
 	},
 	"JustOpenTheImageInfo": {
-		"message": "Open images on their own, instead of embedded on a Reddit page."
+		"message": "When opening images in a new tab, open them directly without embedding them on a Reddit page."
 	},
 	"Language": {
 		"message": "Language"
@@ -461,11 +461,20 @@
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. This won't necessarily reduce bandwidth usage, but should instead help prevent the page from becoming slow by stopping reddit from adding new posts until you click 'Load More' at the bottom of the feed. When you click 'Load More' it will clear the first 25 posts, and show the next 25."
 	},
+	"LimitVideoWidth": {
+		"message": "Limit Video Width"
+	},
 	"Main": {
 		"message": "Main"
 	},
 	"MainContainer": {
 		"message": "Main Container"
+	},
+	"MaxImageHeight": {
+		"message": "Max Image Height"
+	},
+	"MaxVideoHeight": {
+		"message": "Max Video Height"
 	},
 	"ModerniseOldReddit": {
 		"message": "Modernise old.reddit"
@@ -659,6 +668,9 @@
 	"ScalePostToFitImage": {
 		"message": "Scale Post To Fit Image"
 	},
+	"ScalePostToFitVideo": {
+		"message": "Scale Post To Fit Video"
+	},
 	"ScrollToNextRootComment": {
 		"message": "Show Navigation Buttons For The Next/Previous Root Comment"
 	},
@@ -736,6 +748,9 @@
 	},
 	"SidebarTextColour": {
 		"message": "Sidebar: Text Colour"
+	},
+	"SidebarToggleButton": {
+		"message": "Sidebar Toggle Button"
 	},
 	"SidemenuBackgroundColour": {
 		"message": "Side Menu: Background Colour"
@@ -857,6 +872,9 @@
 	"UserProfileWidth": {
 		"message": "User Profile Width"
 	},
+	"Video": {
+		"message": "Video"
+	},
 	"VideoPlayerInfo": {
 		"message": "Fast, lightweight video player with speed controls based on videojs. Try this if you have loading issues with reddit's own player."
 	},
@@ -881,15 +899,6 @@
 	"learnMore": {
 		"message": "Learn More"
 	},
-
-	"PasswordInfo": {
-		"message": "You may leave the password blank, and you will be prompted when logging in."
-	},
-
-	"SidebarToggleButton": {
-		"message": "Sidebar Toggle Button"
-  },
-
 	"resizeHomeAlsoAffects": {
 		"message": "& r/all, r/popular, Create Post, Search Results, and Wiki pages"
 	}

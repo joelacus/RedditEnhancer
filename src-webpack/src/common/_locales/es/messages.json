@@ -426,7 +426,7 @@
 		"message": "Altura máxima de publicaciones de imagen"
 	},
 	"ImageScroll": {
-		"message": "Agregar barra de desplazamiento a imágenes altas"
+		"message": "Agregar barras de desplazamiento a las imágenes"
 	},
 	"Images": {
 		"message": "Imágenes"
@@ -435,7 +435,7 @@
 		"message": "Simplemente abre la imagen"
 	},
 	"JustOpenTheImageInfo": {
-		"message": "Abra imágenes por sí solas, en lugar de incrustarlas en una página de Reddit."
+		"message": "Al abrir imágenes en una nueva pestaña, ábralas directamente sin incrustarlas en una página de Reddit."
 	},
 	"Language": {
 		"message": "Idioma"
@@ -458,11 +458,20 @@
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Esto no necesariamente reducirá el uso de ancho de banda, pero debería ayudar a evitar que la página se vuelva lenta al evitar que Reddit agregue nuevas publicaciones hasta que hagas clic en “Carga más” en la parte inferior del feed. Al hacer clic en “Carga más”, se borrarán las primeras 25 publicaciones y se mostrarán las siguientes 25."
 	},
+	"LimitVideoWidth": {
+		"message": "Limite el ancho del video"
+	},
 	"Main": {
 		"message": "Principal"
 	},
 	"MainContainer": {
 		"message": "Contenedor principal"
+	},
+	"MaxImageHeight": {
+		"message": "Altura máxima de la imagen"
+	},
+	"MaxVideoHeight": {
+		"message": "Altura máxima del video"
 	},
 	"ModerniseOldReddit": {
 		"message": "Modernizar old.reddit"
@@ -656,6 +665,9 @@
 	"ScalePostToFitImage": {
 		"message": "Escalar la publicación para ajustarla a la imagen"
 	},
+	"ScalePostToFitVideo": {
+		"message": "Publicación de escala para adaptarse al video"
+	},
 	"ScrollToNextRootComment": {
 		"message": "Mostrar botones para desplazarse al siguiente/comentario de raíz anterior"
 	},
@@ -733,6 +745,9 @@
 	},
 	"SidebarTextColour": {
 		"message": "Barra lateral: Color de texto"
+	},
+	"SidebarToggleButton": {
+		"message": "Botón de alternancia de barra lateral"
 	},
 	"SidemenuBackgroundColour": {
 		"message": "Menú lateral: Color de fondo"
@@ -853,6 +868,9 @@
 	},
 	"UserProfileWidth": {
 		"message": "Ancho del perfil de usuario"
+	},
+	"Video": {
+		"message": "Video"
 	},
 	"VideoPlayerInfo": {
 		"message": "Reproductor de vídeo rápido, ligero y con controles de velocidad basados en videojs. Pruebe esto si tiene problemas de carga con el reproductor de reddit."
