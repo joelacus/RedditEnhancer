@@ -67,7 +67,8 @@ function enableHideSideMenuNewNew() {
 		styleElement.textContent = `:root {
 										--re-hide-side-menu-gap-multiplyer: 1;
 									}
-									shreddit-app #left-sidebar-container {
+									shreddit-app #left-sidebar-container,
+									shreddit-app flex-left-nav-container#left-sidebar-container.left-sidebar {
 										display: none !important;
 										visibility: hidden;
 									}

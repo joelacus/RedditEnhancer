@@ -89,9 +89,6 @@ function enableExpandContentOld() {
 								.listing-page.multi-page div.content[role="main"] {
 									width: var(--re-custom-feed-width);
 								}
-								body.with-listing-chooser div.listing-chooser {
-									z-index: 0 !important;
-								}
 								/* Expand the post content, comments and wiki page content */
 								.md {
 									max-width: initial !important;
@@ -313,23 +310,23 @@ function enableExpandContentNewNew() {
 		shreddit-app[routename="topic"] .main-container,
 		shreddit-app[routename="inbox"] .main-container {
 			display: grid;
-			grid-template-columns: auto var(--re-home-sidebar-width, 316px);
+			grid-template-columns: 1fr var(--re-home-sidebar-width, 316px);
 		}
 		shreddit-app[pagetype="search_results"] .main-container {
 			display: grid;
-			grid-template-columns: auto var(--re-search-sidebar-width, 316px);
+			grid-template-columns: 1fr var(--re-search-sidebar-width, 316px);
 		}
 		shreddit-app[routename="subreddit"] .main-container,
 		shreddit-app[routename="subreddit_wiki"] .main-container {
 			display: grid;
-			grid-template-columns: auto var(--re-sub-sidebar-width, 316px);
+			grid-template-columns: 1fr var(--re-sub-sidebar-width, 316px);
 		}
 		shreddit-app[routename="post_page"] .main-container,
 		shreddit-app[routename="comments_page"] .main-container,
 		shreddit-app[routename="profile_post_page"] .main-container,
 		shreddit-app[routename="post_stats"] .main-container {
 			display: grid;
-			grid-template-columns: auto var(--re-post-sidebar-width, 316px);
+			grid-template-columns: 1fr var(--re-post-sidebar-width, 316px);
 		}
 		shreddit-app[routename="profile_overview"] .main-container,
 		shreddit-app[routename="profile_posts"] .main-container,
@@ -339,15 +336,15 @@ function enableExpandContentNewNew() {
 		shreddit-app[routename="profile_upvoted"] .main-container,
 		shreddit-app[routename="profile_downvoted"] .main-container {
 			display: grid;
-			grid-template-columns: auto var(--re-user-profile-sidebar-width, 316px);
+			grid-template-columns: 1fr var(--re-user-profile-sidebar-width, 316px);
 		}
 		shreddit-app[pagetype="custom_feed"] .main-container {
 			display: grid;
-			grid-template-columns: auto var(--re-custom-feed-sidebar-width, 316px);
+			grid-template-columns: 1fr var(--re-custom-feed-sidebar-width, 316px);
 		}
 		shreddit-app[pagetype="post_submit"] .main-container {
 			display: grid;
-			grid-template-columns: auto 316px;
+			grid-template-columns: 1fr 316px;
 		}
 		shreddit-app[routename="frontpage"] main.main,
 		shreddit-app[routename="all"] main.main,

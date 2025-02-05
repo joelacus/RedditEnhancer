@@ -36,6 +36,9 @@ function enableSideMenuWidth() {
 										div.grid-container:not(.grid-full).flex-nav-expanded {
 											--flex-nav-width: var(--re-side-menu-width);
 										}
+									}
+									flex-left-nav-container#left-sidebar-container {
+										--flex-nav-expanded-size: var(--re-side-menu-width);
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

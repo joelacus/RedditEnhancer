@@ -176,7 +176,12 @@ function enableCompactHeaderSideMenu() {
 									nav.h-header-large > div:nth-child(2) div {
 										top: 0.25rem !important;
 									}
-									div#left-sidebar-container {
+									flex-left-nav-container#left-sidebar-container reddit-sidebar-nav#left-sidebar {
+										padding-right: 0;
+									}
+									div#left-sidebar-container,
+									flex-left-nav-container div#flex-left-nav-container,
+									flex-left-nav-container[expanded="0"].hovered div#flex-left-nav-container {
 										border: none;
 									}
 									reddit-sidebar-nav {

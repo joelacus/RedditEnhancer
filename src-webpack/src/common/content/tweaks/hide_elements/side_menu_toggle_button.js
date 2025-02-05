@@ -78,14 +78,22 @@ function enableSideMenuToggleButton() {
 									[data-re-hide-side-menu="true"] {
 										--re-side-menu-width: 0;
 									}
-									shreddit-app[data-re-hide-side-menu="true"] #left-sidebar-container {
+									flex-left-nav-container#left-sidebar-container {
+										--flex-nav-closed-size: 0;
+									}
+									shreddit-app[data-re-hide-side-menu="true"] #left-sidebar-container,
+									shreddit-app div#flex-nav-buttons {
 										display: none !important;
+									}
+									flex-left-nav-container#left-sidebar-container reddit-sidebar-nav#left-sidebar {
+										padding-right: 0;
 									}
 									shreddit-app[data-re-hide-side-menu="false"] #left-sidebar-container {
 										z-index: 1;
 									}
 									@media (min-width: 1200px) {
-										[data-re-hide-side-menu="true"] .grid-container:not(.grid-full) {
+										[data-re-hide-side-menu="true"] div.grid-container:not(.grid-full),
+										[data-re-hide-side-menu="true"] div.grid-container:not(.grid-full).flex-nav-collapsed {
 											--flex-nav-width: 0;
 										}
 									}
@@ -122,6 +130,7 @@ function enableSideMenuToggleButton() {
 										transform: rotate(90deg);
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
+		document.cookie = "hui_flex_nav_expanded_state=1; path=/";
 	}
 }
 

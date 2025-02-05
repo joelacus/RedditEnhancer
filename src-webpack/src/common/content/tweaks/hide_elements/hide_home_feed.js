@@ -31,7 +31,7 @@ function enableHideHomeFeedOld() {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-home-feed';
 		styleElement.textContent = `#siteTable {
-										display: none !important;
+										visibility: hidden;
 									}
 									#re-home-feed-hidden-icon {
 										position: absolute;
@@ -53,7 +53,7 @@ async function enableHideHomeFeedNewNew() {
 		styleElement.id = 're-hide-home-feed';
 		styleElement.textContent = `#main-content,
 									main.main {
-										display: none !important;
+										visibility: hidden;
 									}
 									.main-container::before {
 										position: absolute;
