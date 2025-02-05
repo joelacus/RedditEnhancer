@@ -51,11 +51,20 @@ async function enableHideHomeFeedNewNew() {
 	if (!document.head.querySelector('style[id="re-hide-home-feed"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-home-feed';
-		styleElement.textContent = `#main-content,
-									main.main {
+		styleElement.textContent = `shreddit-app[routename="frontpage"] main.main, 
+									shreddit-app[routename="all"] main.main,
+									shreddit-app[routename="popular"] main.main,
+									shreddit-app[routename="topic"] main.main {
 										visibility: hidden;
 									}
-									.main-container::before {
+									shreddit-app[routename="frontpage"] shreddit-feed, 
+									shreddit-app[routename="all"] shreddit-feed,
+									shreddit-app[routename="popular"] shreddit-feed,
+									shreddit-app[routename="topic"] shreddit-feed,
+									shreddit-app[routename="popular"] shreddit-gallery-carousel {
+										display: none;
+									}
+									[routename="frontpage"] .main-container::before {
 										position: absolute;
 										left: calc(50% - 32px);
 										content: ${hiddenIcon};
