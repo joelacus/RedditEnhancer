@@ -16,14 +16,15 @@ export function sideMenuIconsOnly(value) {
 			styleElement.id = 're-side-menu-icons-only-1';
 			styleElement.textContent = `left-nav-top-section::part(item),
 										left-nav-create-community-button::part(item),
-										faceplate-expandable-section-helper span>span>[icon-name="caret-down-outline"],
-										faceplate-expandable-section-helper summary,
+										reddit-sidebar-nav faceplate-expandable-section-helper span>span>[icon-name="caret-down-outline"],
+										reddit-sidebar-nav faceplate-expandable-section-helper summary,
 										#moderation_section a span > .text-14,
 										custom-feed-edit-button span>.text-14,
 										reddit-recent-pages::part(item),
 										#RESOURCES span:has(>.text-14),
 										reddit-sidebar-nav div:has([href="https://redditinc.com"]),
-										#communities_section span:has(>.text-14) {
+										#communities_section span:has(>.text-14),
+										shreddit-app div#flex-nav-buttons {
 											display: none !important;
 										}
 										left-nav-top-section::part(pad-item),
@@ -36,6 +37,9 @@ export function sideMenuIconsOnly(value) {
 											width: fit-content;
 											gap: 0;
 											padding-right: 6px !important;
+										}
+										flex-left-nav-container#left-sidebar-container reddit-sidebar-nav#left-sidebar {
+											padding-right: 0;
 										}
 										#communities_section div[role="button"] {
 											padding: 5px !important;

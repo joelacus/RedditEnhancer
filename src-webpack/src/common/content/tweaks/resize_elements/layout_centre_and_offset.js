@@ -61,6 +61,9 @@ function enableLayoutCentreOld() {
 								.other-discussions-page div.content[role="main"],
 								.multi-page div.content[role="main"] {
 									margin: .5rem auto !important;
+								}
+								body.with-listing-chooser div.listing-chooser {
+									z-index: 1 !important;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
