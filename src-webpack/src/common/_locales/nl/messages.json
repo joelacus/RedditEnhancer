@@ -366,7 +366,7 @@
 		"message": "Maximale hoogte van beeldposts"
 	},
 	"ImageScroll": {
-		"message": "Voeg schuifbalk toe aan hoge afbeeldingen"
+		"message": "Voeg schuifbars toe aan afbeeldingen"
 	},
 	"Images": {
 		"message": "Afbeeldingen"
@@ -375,7 +375,7 @@
 		"message": "Open gewoon de afbeelding"
 	},
 	"JustOpenTheImageInfo": {
-		"message": "Open afbeeldingen op zichzelf, in plaats van ingebed op een Reddit-pagina."
+		"message": "Bij het openen van afbeeldingen op een nieuw tabblad, open ze rechtstreeks zonder ze op een Reddit-pagina in te bedden."
 	},
 	"Language": {
 		"message": "Taal"
@@ -398,8 +398,17 @@
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Dit zal niet noodzakelijkerwijs het bandbreedtegebruik verminderen, maar zou in plaats daarvan moeten helpen voorkomen dat de pagina traag wordt door te voorkomen dat Reddit nieuwe berichten toevoegt totdat je op 'Meer laden' onderaan de feed klikt. Wanneer u op 'Meer laden' klikt, worden de eerste 25 berichten gewist en worden de volgende 25 weergegeven."
 	},
+	"LimitVideoWidth": {
+		"message": "Beperk de videobreedte"
+	},
 	"Main": {
 		"message": "Hoofd"
+	},
+	"MaxImageHeight": {
+		"message": "Maximale beeldhoogte"
+	},
+	"MaxVideoHeight": {
+		"message": "Maximale videohoogte"
 	},
 	"ModerniseOldReddit": {
 		"message": "Moderniseer old.reddit"
@@ -562,6 +571,9 @@
 	},
 	"ScalePostToFitImage": {
 		"message": "Schaal de post zodat deze bij de afbeelding past"
+	},
+	"ScalePostToFitVideo": {
+		"message": "Schaalpost voor video"
 	},
 	"ScrollToNextRootComment": {
 		"message": "Toon knoppen om naar de volgende/vorige root opmerking te scrollen"
@@ -739,6 +751,9 @@
 	},
 	"UserProfileWidth": {
 		"message": "Breedte gebruikersprofiel"
+	},
+	"Video": {
+		"message": "Video"
 	},
 	"VideoPlayerInfo": {
 		"message": "Snelle, lichtgewicht videospeler met snelheidsregeling op basis van videojs. Probeer dit als je laadproblemen hebt met de eigen speler van reddit."

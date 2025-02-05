@@ -24,12 +24,10 @@ import { loadHidePromotedPosts } from '../../../content/tweaks/hide_elements/hid
 import { loadHideSideMenu } from '../../../content/tweaks/hide_elements/hide_side_menu';
 import { loadHideSideMenuSections } from '../../../content/tweaks/hide_elements/hide_side_menu_sections';
 import { loadHideUserProfilePics } from '../../../content/tweaks/hide_elements/hide_user_profile_pics';
-import { loadImageScroll } from '../../../content/tweaks/productivity/scroll_tall_images';
 import { loadLayoutOffset } from '../../../content/tweaks/resize_elements/layout_centre_and_offset';
 import { loadNonStickyHeaderBar } from '../../../content/tweaks/productivity/non_sticky_header_bar';
 import { loadResizeFont } from '../../../content/tweaks/font/resize_font';
 import { loadPostFontWeight } from '../../../content/tweaks/font/font_weight';
-//import { loadScalePostToFitImage } from '../../../content/functions/productivity/scale_post_to_fit_image';
 import { loadScrollToNextRootCommentPosition } from '../../../content/tweaks/productivity/scroll_to_next_root_comment';
 import { loadUnderlineLinks } from '../../../content/tweaks/accessibility/underline_links';
 import { loadHideRecommendedPosts } from '../../../content/tweaks/hide_elements/hide_recommended';
@@ -77,13 +75,11 @@ export function tweakLoaderNewNew() {
 	loadBionicReaderColours();
 	loadHideUserProfilePics();
 	loadAutoExpandComments();
-	loadImageScroll();
 	loadNonStickyHeaderBar();
 	loadHidePostHiddenMessage();
 	loadHideJoinButtonOnPosts();
 	loadUnderlineLinks();
 	loadHideRecommendedPosts();
-	//loadScalePostToFitImage();
 	//loadDragImageToResize();
 	loadHidePostBackButton();
 	loadBorderRadiusAmount();

@@ -9,12 +9,11 @@ document.querySelector('#checkbox-fit-image').addEventListener('change', functio
 		// disable other image options
 		document.querySelector('#checkbox-image-scroll').checked = false;
 		BROWSER_API.storage.sync.set({ imageScroll: false });
-		document.querySelector('.icon-scroll').style.backgroundColor = '';
-		/*document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
+		document.querySelector('.icon-image-scroll').style.backgroundColor = '';
+		document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
 		BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
 		document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
-		document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';
-		document.querySelector('#checkbox-drag-image-to-resize').checked = false;
+		/*document.querySelector('#checkbox-drag-image-to-resize').checked = false;
 		BROWSER_API.storage.sync.set({ dragImageToResize: false });
 		document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = '';
 		document.querySelector('.icon-drag-image-to-resize-initial-size').style.backgroundColor = '';*/
@@ -37,63 +36,34 @@ document.querySelector('#checkbox-image-scroll').addEventListener('change', func
 		document.querySelector('#checkbox-fit-image').checked = false;
 		BROWSER_API.storage.sync.set({ fitImage: false });
 		document.querySelector('.icon-scale').style.backgroundColor = '';
-		/*document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
+		document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
 		BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
 		document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
-		document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';
-		document.querySelector('#checkbox-drag-image-to-resize').checked = false;
+		/*document.querySelector('#checkbox-drag-image-to-resize').checked = false;
 		BROWSER_API.storage.sync.set({ dragImageToResize: false });
 		document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = '';
 		document.querySelector('.icon-drag-image-to-resize-initial-size').style.backgroundColor = '';*/
 		// enable
 		BROWSER_API.storage.sync.set({ imageScroll: true });
-		document.querySelector('.icon-scroll').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-image-scroll').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-limit-image-width').style.backgroundColor = 'var(--accent)';
 		sendMessage({ imageScroll: true });
 	} else if (state === false) {
 		BROWSER_API.storage.sync.set({ imageScroll: false });
-		document.querySelector('.icon-scroll').style.backgroundColor = '';
+		document.querySelector('.icon-image-scroll').style.backgroundColor = '';
+		document.querySelector('.icon-limit-image-width').style.backgroundColor = '';
 		sendMessage({ imageScroll: false });
 	}
 });
 
-// Slider - Add Scrollbar To Tall Images Max Image Width
-document.querySelector('#input-image-scroll-max-image-width').addEventListener('input', function (e) {
-	// set ui
-	const value = e.target.value;
-	const imageScroll = document.querySelector('#checkbox-image-scroll').checked;
-	if (imageScroll === true) {
-		if (value != 9) {
-			document.querySelector('.icon-image-scroll-max-image-width').style.backgroundColor = 'var(--accent)';
-		} else {
-			document.querySelector('.icon-image-scroll-max-image-width').style.backgroundColor = '';
-		}
-	}
-	if (value != 9) {
-		document.querySelector('#image-scroll-max-image-width-value').innerText = value + '%';
-	} else {
-		document.querySelector('#image-scroll-max-image-width-value').innerText = '100%';
-	}
-	// apply
-	sendMessage({ imageScrollMaxImageWidth: value });
-});
-document.querySelector('#input-image-scroll-max-image-width').addEventListener('mouseup', function (e) {
-	if (e.target.value != 9) {
-		document.querySelector('#image-scroll-max-image-width-value').innerText = e.target.value + '%';
-	} else {
-		document.querySelector('#image-scroll-max-image-width-value').innerText = '100%';
-	}
-	// save
-	BROWSER_API.storage.sync.set({ imageScrollMaxImageWidth: e.target.value });
-});
-/*
 // Toggle - Scale Post To Fit Image
 document.querySelector('#checkbox-scale-post-to-fit-image').addEventListener('change', function (e) {
 	const scalePostToFitImage = document.querySelector('#checkbox-scale-post-to-fit-image').checked;
-	if (scalePostToFitImage === true) {
+	if (scalePostToFitImage) {
 		// disable other image options
 		document.querySelector('#checkbox-image-scroll').checked = false;
 		BROWSER_API.storage.sync.set({ imageScroll: false });
-		document.querySelector('.icon-scroll').style.backgroundColor = '';
+		document.querySelector('.icon-image-scroll').style.backgroundColor = '';
 		document.querySelector('#checkbox-fit-image').checked = false;
 		BROWSER_API.storage.sync.set({ fitImage: false });
 		document.querySelector('.icon-scale').style.backgroundColor = '';
@@ -104,52 +74,66 @@ document.querySelector('#checkbox-scale-post-to-fit-image').addEventListener('ch
 		// enable
 		BROWSER_API.storage.sync.set({ scalePostToFitImage: true });
 		document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = 'var(--accent)';
-		// set slider icon
-		const value = document.querySelector('#input-scale-post-to-fit-image-max-image-width').value;
-		if (value != 9) {
-			document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = 'var(--accent)';
-		} else {
-			document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';
-		}
+		document.querySelector('.icon-limit-image-width').style.backgroundColor = 'var(--accent)';
 		sendMessage({ scalePostToFitImage: true });
-	} else if (scalePostToFitImage === false) {
+	} else {
 		BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
 		document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
-		document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';
+		document.querySelector('.icon-limit-image-width').style.backgroundColor = '';
 		sendMessage({ scalePostToFitImage: false });
 	}
 });
 
-// Slider - Scale Post To Fit Image Max Image Width
-document.querySelector('#input-scale-post-to-fit-image-max-image-width').addEventListener('input', function (e) {
-	// set ui
+// Toggle - Scale Post To Fit Video
+document.querySelector('#checkbox-scale-post-to-fit-video').addEventListener('change', function (e) {
+	const scalePostToFitVideo = document.querySelector('#checkbox-scale-post-to-fit-video').checked;
+	if (scalePostToFitVideo) {
+		BROWSER_API.storage.sync.set({ scalePostToFitVideo: true });
+		document.querySelector('.icon-scale-post-to-fit-video').style.backgroundColor = 'var(--accent)';
+		//document.querySelector('.icon-limit-video-width').style.backgroundColor = 'var(--accent)';
+		sendMessage({ scalePostToFitVideo: true });
+	} else {
+		BROWSER_API.storage.sync.set({ scalePostToFitVideo: false });
+		document.querySelector('.icon-scale-post-to-fit-video').style.backgroundColor = '';
+		//document.querySelector('.icon-limit-video-width').style.backgroundColor = '';
+		sendMessage({ scalePostToFitVideo: false });
+	}
+});
+
+// Slider - Limit Image Width (Add Scrollbar To Tall Images or Scale Post To Fit Image must be enabled)
+document.querySelector('#input-limit-image-width').addEventListener('input', function (e) {
 	const value = e.target.value;
+	const imageScroll = document.querySelector('#checkbox-image-scroll').checked;
 	const scalePostToFitImage = document.querySelector('#checkbox-scale-post-to-fit-image').checked;
-	if (scalePostToFitImage === true) {
-		if (value != 9) {
-			document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = 'var(--accent)';
-		} else {
-			document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';
-		}
+	const limitImageWidthValue = document.querySelector('#limit-image-width-value');
+	if (imageScroll || scalePostToFitImage) {
+		document.querySelector('.icon-limit-image-width').style.backgroundColor = value != 9 ? 'var(--accent)' : '';
 	}
-	if (value != 9) {
-		document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = e.target.value + '%';
-	} else {
-		document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = '40%';
-	}
-	// apply
-	sendMessage({ scalePostToFitImageMaxImageWidth: e.target.value });
+	limitImageWidthValue.textContent = value != 9 ? `${value}%` : '100%';
+	sendMessage({ setLimitImageWidth: value });
 });
-document.querySelector('#input-scale-post-to-fit-image-max-image-width').addEventListener('mouseup', function (e) {
-	if (e.target.value != 9) {
-		document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = e.target.value + '%';
-	} else {
-		document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = '40%';
-	}
-	// save
-	BROWSER_API.storage.sync.set({ scalePostToFitImageMaxImageWidth: e.target.value });
+document.querySelector('#input-limit-image-width').addEventListener('mouseup', function (e) {
+	const value = e.target.value;
+	document.querySelector('#limit-image-width-value').textContent = value != 9 ? value + '%' : '100%';
+	BROWSER_API.storage.sync.set({ limitImageWidth: e.target.value });
 });
-*/
+
+// Slider - Limit Video Width (Scale Post To Fit Video must be enabled)
+document.querySelector('#input-limit-video-width').addEventListener('input', function (e) {
+	const value = e.target.value;
+	const scalePostToFitVideo = document.querySelector('#checkbox-scale-post-to-fit-video').checked;
+	const limitVideoWidthValue = document.querySelector('#limit-video-width-value');
+	if (scalePostToFitVideo) {
+		document.querySelector('.icon-limit-video-width').style.backgroundColor = value != 9 ? 'var(--accent)' : '';
+	}
+	limitVideoWidthValue.textContent = value != 9 ? `${value}%` : '100%';
+	sendMessage({ setLimitVideoWidth: value });
+});
+document.querySelector('#input-limit-video-width').addEventListener('mouseup', function (e) {
+	const value = e.target.value;
+	document.querySelector('#limit-video-width-value').textContent = value != 9 ? value + '%' : '100%';
+	BROWSER_API.storage.sync.set({ limitVideoWidth: e.target.value });
+});
 
 // Toggle - Drag Image To Resize
 /*document.querySelector('#checkbox-drag-image-to-resize').addEventListener('change', function (e) {
@@ -158,14 +142,13 @@ document.querySelector('#input-scale-post-to-fit-image-max-image-width').addEven
 		// disable other image options
 		document.querySelector('#checkbox-image-scroll').checked = false;
 		BROWSER_API.storage.sync.set({ imageScroll: false });
-		document.querySelector('.icon-scroll').style.backgroundColor = '';
+		document.querySelector('.icon-image-scroll').style.backgroundColor = '';
 		document.querySelector('#checkbox-fit-image').checked = false;
 		BROWSER_API.storage.sync.set({ fitImage: false });
 		document.querySelector('.icon-scale').style.backgroundColor = '';
 		//document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
 		//BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
 		//document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
-		//document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = '';
 		// enable
 		BROWSER_API.storage.sync.set({ dragImageToResize: true });
 		document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = 'var(--accent)';

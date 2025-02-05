@@ -2,10 +2,14 @@ version 1.15.0
 - Updated localisations.
 - Minor bug fixes and extension improvements.
 v [New New UI]
-- Added an option to hide post thumbnails in compact view on feeds.
-!- Added an option to change the image post height.
-- Fixed a bug preventing the "Default Feed Sort Option" from working on the search page.
-- Fixed an issue with "Searchbar: Background Colour" where the search bar hover colour was defaulting to the reddit theme. 
+  - Added an option to hide post thumbnails in compact view on feeds.
+  - Added an options to scale the post height to fit the image or video respectively.
+  - Added an option to limit the video width when using the new "Scale Post To Fit Video" option.
+  - Improved the code for "Add Scrollbars To Images".
+  !- Added options to change the max height of image and video posts respectively.
+  - Fixed an issue where "Hide Interface Gaps" was not working correctly with "Hide the Side Menu" and "Hide the Sidebar".
+  - Fixed a bug preventing the "Default Feed Sort Option" from working on the search page.
+  - Fixed an issue with "Searchbar: Background Colour" where the search bar hover colour was defaulting to the reddit theme. 
 * Special thanks to @biminhc1 (Reddit) @bmndc (Github) for all following changes <3
 v [New New UI]
   - Added options to fade text previews of Card posts, and to adjust the fade position and height of the text preview (experimental).
@@ -23,6 +27,15 @@ v [New New UI]
   - Centre feeds when sidebars are hidden. It is possible to replicate the older behaviour with "Feed Offsets".
   - Rewrote and optimised the CSS code for "Resize Feed / Post".
   - Small styling tweaks to make blockquotes more compact.
+v [Old UI]
+  - Added an option to set "sans-serif" as main interface font on Old UI.
+  - Rewrote the "Resize Feed/Pos"t, "Layout Centre", and "Hide the Home Page sidebar" functions for Old UI.
+  - Added sliders for adjusting "User Profile" and "Custom Feed" widths on Old UI.
+  - "Hide Post Karma", "Hide Comment Karma" and "Hide Vote Buttons" should now work on Old UI.
+  - Improved the reliability of detecting Old UI when visiting www.reddit.com.
+  - Resizing title texts should not resize the domain links next to the texts.
+  - Other style tweaks, including styling normal post flairs as formatted flairs.
+
 
 version 1.14.0
 - Added sticky sub menus in the extension settings for easier navigation.

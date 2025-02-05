@@ -60,7 +60,9 @@ function enableHideGapNewNew() {
 		styleElement.id = 're-hide-ui-gap';
 		styleElement.textContent = `#main-content,
 									main.main,
-									shreddit-post {
+									shreddit-post,
+									#right-sidebar-container aside,
+									[routename="post_page"] #right-sidebar-container {
 										margin-top: 0 !important;
 									}
 									#main-content,
@@ -93,19 +95,19 @@ function enableHideGapNewNew() {
 										margin-top: 0;
 										border-radius: 0;
 									}
+									#right-sidebar-container {
+										margin-top: 3rem !important;
+									}
 									#right-sidebar-container section {
 										margin: 0 !important;
 										border-radius: 0 !important;
 									}
-									#right-sidebar-container > aside {
-										margin-top: 0 !important;
-									}
-									#right-sidebar-container > aside > div {
+									#right-sidebar-container > aside > div,
+									aside {
 										border-radius: 0 !important
 									}
 									shreddit-app[routename="post_page"] {
 										margin-right: calc(0.5rem * var(--re-hide-sidebar-gap-multiplyer)) !important;
-										/*padding-left: calc(0.5rem * var(--re-hide-side-menu-gap-multiplyer)) !important;*/
 									}
 									shreddit-app[routename="post_page"] .subgrid-container,
 									shreddit-app[routename="profile_post_page"] .subgrid-container {
@@ -119,31 +121,28 @@ function enableHideGapNewNew() {
 									shreddit-app[routename="post_page"] #main-content,
 									shreddit-app[routename="frontpage"] main.main,
 									shreddit-app[routename="subreddit"] main.main,
-									shreddit-app[routename="post_page"] main.main {
-										max-width: calc(100vw - 272px - 330px) !important;
-									}
+									shreddit-app[routename="post_page"] main.main,
 									shreddit-app[routename="profile_overview"] #main-content,
-									shreddit-app[routename="profile_overview"] main.main {
-										max-width: calc(100vw - 272px - 316px) !important;
-									}
+									shreddit-app[routename="profile_overview"] main.main,
 									html.re-hide-home-sidebar shreddit-app[routename="frontpage"] #main-content,
 									html.re-hide-post-sidebar shreddit-app[routename="post_page"] #main-content,
 									html.re-hide-home-sidebar shreddit-app[routename="frontpage"] main.main,
-									html.re-hide-post-sidebar shreddit-app[routename="post_page"] main.main {
-										max-width: calc(100vw - var(re-side-menu-width)) !important;
-									}
+									html.re-hide-post-sidebar shreddit-app[routename="post_page"] main.main,
 									html.re-hide-profile-sidebar shreddit-app[routename="profile_overview"] #main-content,
 									html.re-hide-profile-sidebar shreddit-app[routename="profile_overview"] main.main {
 										max-width: 100% !important;
+									}
+									.main-container {
+										grid-gap: 0 !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
-	document.documentElement.style.setProperty('--re-hide-side-menu-gap-multiplyer2', 0);
+	//document.documentElement.style.setProperty('--re-hide-side-menu-gap-multiplyer2', 0);
 }
 
 // Function - Disable Hide Gap - All
 function disableHideGapAll() {
-	document.documentElement.style.removeProperty('--re-hide-side-menu-gap-multiplyer2');
+	//document.documentElement.style.removeProperty('--re-hide-side-menu-gap-multiplyer2');
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-ui-gap"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);

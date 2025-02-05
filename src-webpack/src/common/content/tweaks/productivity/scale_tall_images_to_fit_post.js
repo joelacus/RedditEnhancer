@@ -1,7 +1,7 @@
 /* ===== Tweaks - Productivity - Scale Tall Images To Fit Post ===== */
 
-import { disableImageScrollAll } from './scroll_tall_images';
-//import { disableScalePostToFitImageAll } from './scale_post_to_fit_image';
+import { disableImageScrollAll } from './scroll_images';
+import { disableScalePostToFitImageAll } from './scale_post_to_fit_image';
 //import { disableDragImageToResizeAll } from './scale_image_on_drag';
 
 /* === Triggered On Page Load === */
@@ -16,7 +16,7 @@ export function fitImage(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {
 			disableImageScrollAll();
-			//disableScalePostToFitImageAll();
+			disableScalePostToFitImageAll();
 			//disableDragImageToResizeAll();
 			enableFitImageNew();
 		} else if (value === false) {

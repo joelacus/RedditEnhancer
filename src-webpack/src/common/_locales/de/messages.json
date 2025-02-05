@@ -426,7 +426,7 @@
 		"message": "Maximale Höhe der Bildbeiträge"
 	},
 	"ImageScroll": {
-		"message": "Bildlaufleiste zu großen Bildern hinzufügen"
+		"message": "Fügen Sie Bildern Scrollbars hinzu"
 	},
 	"Images": {
 		"message": "Bilder"
@@ -435,7 +435,7 @@
 		"message": "Öffnen Sie einfach das Bild"
 	},
 	"JustOpenTheImageInfo": {
-		"message": "Öffnen Sie Bilder einzeln, anstatt sie auf einer Reddit-Seite einzubetten."
+		"message": "Öffnen Sie sie beim Öffnen von Bildern in einer neuen Registerkarte direkt, ohne sie in eine Reddit-Seite einzubetten."
 	},
 	"Language": {
 		"message": "Sprache"
@@ -458,11 +458,20 @@
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Dadurch wird die Bandbreitennutzung nicht zwangsläufig reduziert, sondern es soll vielmehr dazu beitragen, eine Verlangsamung der Seite zu verhindern, indem reddit daran gehindert wird, neue Beiträge hinzuzufügen, bis Sie unten im Feed auf „Mehr laden“ klicken. Wenn Sie auf „Mehr laden“ klicken, werden die ersten 25 Beiträge gelöscht und die nächsten 25 angezeigt."
 	},
+	"LimitVideoWidth": {
+		"message": "Begrenzen Sie die Videobreite"
+	},
 	"Main": {
 		"message": "Hauptbereich"
 	},
 	"MainContainer": {
 		"message": "Hauptcontainer"
+	},
+	"MaxImageHeight": {
+		"message": "Maximale Bildhöhe"
+	},
+	"MaxVideoHeight": {
+		"message": "Maximale Videohöhe"
 	},
 	"ModerniseOldReddit": {
 		"message": "old.reddit Modernisieren"
@@ -656,6 +665,9 @@
 	"ScalePostToFitImage": {
 		"message": "Skalieren Sie den Beitrag, um ihn an das Bild anzupassen"
 	},
+	"ScalePostToFitVideo": {
+		"message": "Skalieren Sie den Beitrag, um Video anzupassen"
+	},
 	"ScrollToNextRootComment": {
 		"message": "Zeigen Sie Schaltflächen an, um zum nächsten/vorherigen Root Kommentar zu scrollen"
 	},
@@ -733,6 +745,9 @@
 	},
 	"SidebarTextColour": {
 		"message": "Seitenleiste: Textfarbe"
+	},
+	"SidebarToggleButton": {
+		"message": "Seitenleiste umschalten"
 	},
 	"SidemenuBackgroundColour": {
 		"message": "Seitenmenü: Hintergrundfarbe"
@@ -853,6 +868,9 @@
 	},
 	"UserProfileWidth": {
 		"message": "Breite des Benutzerprofils"
+	},
+	"Video": {
+		"message": "Video"
 	},
 	"VideoPlayerInfo": {
 		"message": "Schneller, leichter Videoplayer mit Geschwindigkeitssteuerung basierend auf videojs. Versuchen Sie dies, wenn Sie Ladeprobleme mit dem eigenen Player von reddit haben."

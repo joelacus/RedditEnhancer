@@ -315,7 +315,7 @@
 		"message": "Maksimal høyde på bildeposter"
 	},
 	"ImageScroll": {
-		"message": "Legg til rullefelt til høye bilder"
+		"message": "Legg til rullefelt i bilder"
 	},
 	"Images": {
 		"message": "Bilder"
@@ -324,7 +324,7 @@
 		"message": "Bare åpne bildet"
 	},
 	"JustOpenTheImageInfo": {
-		"message": "Åpne bilder på egen hånd, i stedet for innebygd på en Reddit-side."
+		"message": "Når du åpner bilder i en ny fane, må du åpne dem direkte uten å legge dem inn på en Reddit-side."
 	},
 	"Language": {
 		"message": "Språk"
@@ -347,8 +347,17 @@
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Dette vil ikke nødvendigvis redusere båndbreddebruken, men bør i stedet bidra til å forhindre at siden blir treg ved å stoppe reddit fra å legge til nye innlegg til du klikker på «Last inn mer» nederst i feeden. Når du klikker 'Last inn mer' vil det fjerne de første 25 innleggene, og vise de neste 25."
 	},
+	"LimitVideoWidth": {
+		"message": "Begrens videobredden"
+	},
 	"Main": {
 		"message": "Hoved"
+	},
+	"MaxImageHeight": {
+		"message": "Maksimal bildehøyde"
+	},
+	"MaxVideoHeight": {
+		"message": "Maksimal videohøyde"
 	},
 	"ModerniseOldReddit": {
 		"message": "Modernisere old.reddit"
@@ -493,6 +502,9 @@
 	},
 	"ScalePostToFitImage": {
 		"message": "Skaler innlegg for å passe bilde"
+	},
+	"ScalePostToFitVideo": {
+		"message": "Skala innlegg for å passe video"
 	},
 	"ScrollToNextRootComment": {
 		"message": "Vis navigasjonsknapper for neste/forrige rotkommentar"
@@ -655,6 +667,9 @@
 	},
 	"UserProfileWidth": {
 		"message": "Bredde på brukerprofil"
+	},
+	"Video": {
+		"message": "Video"
 	},
 	"VideoPlayerInfo": {
 		"message": "Rask, lett videospiller med hastighetskontroll basert på videojs. Prøv dette hvis du har lastingsproblemer med reddits egen spiller."

@@ -345,7 +345,7 @@
 		"message": "Maksymalna wysokość postów obrazu"
 	},
 	"ImageScroll": {
-		"message": "Dodaj pasek przewijania do wysokich obrazów"
+		"message": "Dodaj paski przewijane do obrazów"
 	},
 	"Images": {
 		"message": "Obrazy"
@@ -354,7 +354,7 @@
 		"message": "Po prostu otwórz obraz"
 	},
 	"JustOpenTheImageInfo": {
-		"message": "Otwieraj obrazy samodzielnie, zamiast osadzać je na stronie Reddit."
+		"message": "Podczas otwierania obrazów w nowej karcie otwórz je bezpośrednio bez osadzania ich na stronie Reddit."
 	},
 	"Language": {
 		"message": "Język"
@@ -377,8 +377,17 @@
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Niekoniecznie zmniejszy to wykorzystanie przepustowości, ale zamiast tego powinno pomóc zapobiec spowolnieniu strony, uniemożliwiając Redditowi dodawanie nowych postów, dopóki nie klikniesz „Wczytaj więcej” u dołu kanału. Kliknięcie przycisku „Załaduj więcej” spowoduje wyczyszczenie pierwszych 25 postów i wyświetlenie kolejnych 25."
 	},
+	"LimitVideoWidth": {
+		"message": "Ogranicz szerokość wideo"
+	},
 	"Main": {
 		"message": "Główny"
+	},
+	"MaxImageHeight": {
+		"message": "Maksymalna wysokość obrazu"
+	},
+	"MaxVideoHeight": {
+		"message": "Maksymalna wysokość wideo"
 	},
 	"ModerniseOldReddit": {
 		"message": "Zmodernizuj old.reddit"
@@ -538,6 +547,9 @@
 	},
 	"ScalePostToFitImage": {
 		"message": "Skaluj post, aby dopasować obraz"
+	},
+	"ScalePostToFitVideo": {
+		"message": "W skali post, aby dopasować wideo"
 	},
 	"ScrollToNextRootComment": {
 		"message": "Pokaż przyciski do przewijania do następnego/poprzedniego komentarza root"
@@ -709,6 +721,9 @@
 	},
 	"UserProfileWidth": {
 		"message": "Szerokość profilu użytkownika"
+	},
+	"Video": {
+		"message": "Wideo"
 	},
 	"VideoPlayerInfo": {
 		"message": "Szybki, lekki odtwarzacz wideo z kontrolą prędkości opartą na videojs. Spróbuj tego, jeśli masz problemy z ładowaniem własnego odtwarzacza Reddit."

@@ -132,13 +132,25 @@
 		"message": "Maximální výška obrazových příspěvků"
 	},
 	"ImageScroll": {
-		"message": "Přidejte Scrollbar na vysoké obrázky"
+		"message": "Přidejte svitky k obrázkům"
+	},
+	"JustOpenTheImageInfo": {
+		"message": "Při otevírání obrázků na nové kartě je otevřete přímo bez jejich vložení na stránku Reddit."
 	},
 	"Language": {
 		"message": "Jazyk"
 	},
 	"Light": {
 		"message": "Světlý"
+	},
+	"LimitVideoWidth": {
+		"message": "Omezte šířku videa"
+	},
+	"MaxImageHeight": {
+		"message": "Maximální výška obrazu"
+	},
+	"MaxVideoHeight": {
+		"message": "Maximální výška videa"
 	},
 	"New": {
 		"message": "Nový / New"
@@ -199,6 +211,9 @@
 	},
 	"Rising": {
 		"message": "Povstání / Rising"
+	},
+	"ScalePostToFitVideo": {
+		"message": "Měřítko příspěvku do videa"
 	},
 	"Search": {
 		"message": "Vyhledávání"
@@ -268,6 +283,9 @@
 	},
 	"UserProfileWidth": {
 		"message": "Šířka uživatelského profilu"
+	},
+	"Video": {
+		"message": "Video"
 	},
 	"Width": {
 		"message": "Šířka"

@@ -153,7 +153,10 @@
 		"message": "Kuvaviestien enimmäiskorkeus"
 	},
 	"ImageScroll": {
-		"message": "Lisää vierityspalkki korkeisiin kuviin"
+		"message": "Lisää vierityspalkkeja kuviin"
+	},
+	"JustOpenTheImageInfo": {
+		"message": "Kun avaat kuvia uudessa välilehdessä, avaa ne suoraan upottamatta niitä Reddit-sivulle."
 	},
 	"Language": {
 		"message": "Kieli"
@@ -161,8 +164,17 @@
 	"Light": {
 		"message": "Vaalea"
 	},
+	"LimitVideoWidth": {
+		"message": "Rajoita videon leveys"
+	},
 	"Main": {
 		"message": "Pää"
+	},
+	"MaxImageHeight": {
+		"message": "Suurin kuvankorkeus"
+	},
+	"MaxVideoHeight": {
+		"message": "Videon enimmäiskorkeus"
 	},
 	"New": {
 		"message": "Uusi / New"
@@ -226,6 +238,9 @@
 	},
 	"Rising": {
 		"message": "Nousemassa / Rising"
+	},
+	"ScalePostToFitVideo": {
+		"message": "Skaalaus Videon sopimaan"
 	},
 	"SearchbarBgColour": {
 		"message": "Hakupalkki: Taustaväri"
@@ -295,6 +310,9 @@
 	},
 	"UserProfileWidth": {
 		"message": "Käyttäjäprofiilin leveys"
+	},
+	"Video": {
+		"message": "Video"
 	},
 	"Width": {
 		"message": "Leveys"
