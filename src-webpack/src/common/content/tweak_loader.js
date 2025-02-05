@@ -38,10 +38,13 @@ import { loadSideMenuToggleButton } from './tweaks/hide_elements/side_menu_toggl
 import { loadHideNsfwInSearchResults, loadHideTrendingTodayInSearchResults } from './tweaks/hide_elements/hide_search_results_sections';
 import { loadRememberSideMenuSectionHiddenState } from './tweaks/hide_elements/remember_side_menu_section_hidden_state';
 import { loadAddProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
-import { loadCompactSubRuleList } from "./tweaks/style/old_new_ui";
-import { addBorderRadiusToShadowRootElements } from "./tweaks/style/border_radius";
-import { loadHideVoteButtons } from "./tweaks/hide_elements/hide_vote_buttons";
-import { loadSidebarToggleButton } from "./tweaks/hide_elements/sidebar_toggle_button";
+import { loadCompactSubRuleList } from './tweaks/style/old_new_ui';
+import { addBorderRadiusToShadowRootElements } from './tweaks/style/border_radius';
+import { loadHideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
+import { loadSidebarToggleButton } from './tweaks/hide_elements/sidebar_toggle_button';
+import { loadScalePostToFitImage } from './tweaks/productivity/scale_post_to_fit_image';
+import { loadImageScroll } from './tweaks/productivity/scroll_images';
+import { loadScalePostToFitVideo } from './tweaks/productivity/scale_post_to_fit_video';
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -188,6 +191,19 @@ export function loadTweaks() {
 				setTimeout(() => {
 					loadHideNsfwInSearchResults();
 					loadHideTrendingTodayInSearchResults();
+				}, 1000);
+			},
+		});
+
+		waitForAddedNode({
+			query: 'shreddit-post',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function () {
+				setTimeout(() => {
+					loadScalePostToFitImage();
+					loadScalePostToFitVideo();
+					loadImageScroll();
 				}, 1000);
 			},
 		});

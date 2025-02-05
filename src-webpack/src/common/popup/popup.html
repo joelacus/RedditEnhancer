@@ -295,9 +295,11 @@
 					<li id="resize-side-menu" class="sub-header r-newnew">
 						<span data-lang="SideMenu"></span>
 					</li>
-					<li class="container-slider r-newnew">
+					<li class="container-3 r-newnew">
 						<span class="menu-item-icon icon-ruler-horizontal icon-side-menu-width"></span>
 						<span data-lang="SideMenuWidth" data-search=""></span>
+						<div></div>
+						<div></div>
 						<input type="range" min="199" max="300" value="0" step="1" class="slider" id="input-side-menu-width" />
 						<span id="side-menu-width-value" class="input-value"></span>
 					</li>
@@ -305,9 +307,11 @@
 						<span data-lang="Post"></span>
 					</li>
 					<li class="container r-newnew">
-						<div class="container-slider">
-							<span class="menu-item-icon icon-ruler-horizontal icon-text-post-preview-height"></span>
+						<div class="container-3">
+							<span class="menu-item-icon icon-ruler-vertical icon-text-post-preview-height"></span>
 							<span data-lang="TextPostPreviewMaxHeight" data-search="text,post,fade,height"></span>
+							<div></div>
+							<div></div>
 							<input type="range" min="-1" max="500" value="0" step="1" class="slider" id="input-text-post-preview-max-height" />
 							<span id="text-post-preview-max-height" class="input-value"></span>
 						</div>
@@ -885,7 +889,7 @@
 						</div>
 						<div class="divider"></div>
 						<div class="container-slider r-newnew">
-							<span class="menu-item-icon icon-ruler-horizontal icon-post-separator-height"></span>
+							<span class="menu-item-icon icon-ruler-vertical icon-post-separator-height"></span>
 							<span data-lang="PostSeparatorHeight" data-search="post,space"></span>
 							<input type="range" min="-1" max="32" value="-1" step="1" class="slider" id="input-post-separator-height" />
 							<span id="post-separator-height-value" class="input-value"></span>
@@ -950,6 +954,10 @@
 								<a href="#productivity-images" data-lang="Images"></a>
 								<div class="vdivider"></div>
 							</div>
+							<div class="r-newnew">
+								<a href="#productivity-video" data-lang="Video"></a>
+								<div class="vdivider"></div>
+							</div>
 							<div class="r-new">
 								<a href="#productivity-text" data-lang="Text"></a>
 								<div class="vdivider"></div>
@@ -986,7 +994,7 @@
 					</li>
 					<li class="container r-new r-newnew">
 						<div class="container-3 r-new r-newnew">
-							<span class="menu-item-icon icon-scroll"></span>
+							<span class="menu-item-icon icon-mouse-scroll icon-image-scroll"></span>
 							<span data-lang="ImageScroll" data-search="post,tall,image,scroll"></span>
 							<label class="switch">
 								<input id="checkbox-image-scroll" type="checkbox" />
@@ -995,17 +1003,7 @@
 						</div>
 						<div class="divider"></div>
 						<div class="container-3">
-							<span class="menu-item-icon icon-ruler-horizontal icon-image-scroll-max-image-width"></span>
-							<span data-lang="LimitImageWidth" data-search=""></span>
-							<div></div>
-							<div></div>
-							<input type="range" min="9" max="100" value="9" step="1" class="slider" id="input-image-scroll-max-image-width" />
-							<span id="image-scroll-max-image-width-value" class="input-value"></span>
-						</div>
-					</li>
-					<!--<li class="container r-new">
-						<div class="container-3">
-							<span class="menu-item-icon icon-expand-arrows icon-scale-post-to-fit-image"></span>
+							<span class="menu-item-icon icon-up-down icon-scale-post-to-fit-image"></span>
 							<span data-lang="ScalePostToFitImage" data-search="post,scale,tall,image"></span>
 							<label class="switch">
 								<input id="checkbox-scale-post-to-fit-image" type="checkbox" />
@@ -1014,15 +1012,14 @@
 						</div>
 						<div class="divider"></div>
 						<div class="container-3">
-							<span class="menu-item-icon icon-ruler-horizontal icon-scale-post-to-fit-image-max-image-width"></span>
+							<span class="menu-item-icon icon-ruler-horizontal icon-limit-image-width"></span>
 							<span data-lang="LimitImageWidth" data-search=""></span>
 							<div></div>
 							<div></div>
-							<input type="range" min="9" max="100" value="9" step="1" class="slider" id="input-scale-post-to-fit-image-max-image-width" />
-							<span id="scale-post-to-fit-image-max-image-width-value" class="input-value"></span>
+							<input type="range" min="9" max="100" value="9" step="1" class="slider" id="input-limit-image-width" />
+							<span id="limit-image-width-value" class="input-value"></span>
 						</div>
-						<p>Currently only works for single images.</p>
-					</li>-->
+					</li>
 					<!--<li class="container r-new r-newnew">
 						<div class="container-3">
 							<span class="menu-item-icon icon-drag icon-drag-image-to-resize"></span>
@@ -1034,7 +1031,7 @@
 						</div>
 						<div class="divider"></div>
 						<div class="container-3">
-							<span class="menu-item-icon icon-ruler icon-drag-image-to-resize-initial-size"></span>
+							<span class="menu-item-icon icon-ruler-vertical icon-drag-image-to-resize-initial-size"></span>
 							<span data-lang="InitialSize" data-search="drag"></span>
 							<div></div>
 							<div></div>
@@ -1062,11 +1059,33 @@
 						</div>
 						<p class="info" data-lang="JustOpenTheImageInfo"></p>
 					</li>
+					<li id="productivity-video" class="sub-header r-newnew">
+						<span data-lang="Video"></span>
+					</li>
+					<li class="container r-newnew">
+						<div class="container-3">
+							<span class="menu-item-icon icon-up-down icon-scale-post-to-fit-video"></span>
+							<span data-lang="ScalePostToFitVideo" data-search="post,scale,tall,video"></span>
+							<label class="switch">
+								<input id="checkbox-scale-post-to-fit-video" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<div class="divider"></div>
+						<div class="container-3">
+							<span class="menu-item-icon icon-ruler-horizontal icon-limit-video-width"></span>
+							<span data-lang="LimitVideoWidth" data-search="scale,video,width"></span>
+							<div></div>
+							<div></div>
+							<input type="range" min="9" max="100" value="9" step="1" class="slider" id="input-limit-video-width" />
+							<span id="limit-video-width-value" class="input-value"></span>
+						</div>
+					</li>
 					<li id="productivity-text" class="sub-header r-new">
 						<span data-lang="Text"></span>
 					</li>
 					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-scroll icon-text-scroll-post"></span>
+						<span class="menu-item-icon icon-mouse-scroll icon-text-scroll-post"></span>
 						<span data-lang="TextScroll" data-search="post"></span>
 						<label class="switch">
 							<input id="checkbox-text-scroll-post" type="checkbox" />
@@ -1217,7 +1236,7 @@
 						</label>
 					</li>
 					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-ruler icon-post-height"></span>
+						<span class="menu-item-icon icon-ruler-vertical icon-post-height"></span>
 						<span data-lang="FeedPostMaxHeight" data-search="post,height,scale,size"></span>
 						<label class="switch">
 							<input id="checkbox-post-height" type="checkbox" />
@@ -1334,9 +1353,6 @@
 						<div></div>
 						<p data-lang="VideoPlayerInfo"></p>
 					</li>
-					<li id="productivity-other" class="sub-header r-new r-newnew">
-						<span data-lang="Other"></span>
-					</li>
 					<li class="container-3 r-newnew">
 						<span class="menu-item-icon icon-hide icon-auto-show-comment-formatting-options"></span>
 						<span data-lang="AutoShowCommentFormattingOptions" data-search="comment,formatting"></span>
@@ -1344,6 +1360,9 @@
 							<input id="checkbox-auto-show-comment-formatting-options" type="checkbox" />
 							<span class="indicator"></span>
 						</label>
+					</li>
+					<li id="productivity-other" class="sub-header r-new">
+						<span data-lang="Other"></span>
 					</li>
 					<li class="container-3 r-new">
 						<span class="menu-item-icon icon-turn-up icon-sidemenu-feed-top"></span>
@@ -1594,18 +1613,22 @@
 						</div>
 					</li>
 					<li class="container r-new r-newnew">
-						<div class="container-slider">
+						<div class="container-3">
 							<span class="menu-item-icon icon-blur icon-theme-blur"></span>
 							<span data-lang="ThemeBlur" data-search=""></span>
+							<div></div>
+							<div></div>
 							<input type="range" min="0" max="50" value="0" step="1" class="slider" id="input-theme-blur" />
 							<span id="theme-blur-value" class="input-value"></span>
 							<div></div>
 						</div>
 						<p class="info" data-lang="ThemeBlurInfo"></p>
 					</li>
-					<li class="container-slider r-newnew">
+					<li class="container-3 r-newnew">
 						<span class="menu-item-icon icon-square icon-border-radius-amount"></span>
 						<span data-lang="BorderRadiusAmount" data-search=""></span>
+						<div></div>
+						<div></div>
 						<input type="range" min="-1" max="40" value="0" step="1" class="slider" id="input-border-radius-amount" />
 						<span id="border-radius-amount-value" class="input-value"></span>
 					</li>
@@ -1646,9 +1669,11 @@
 								<span class="indicator"></span>
 							</label>
 						</div>
-						<div class="container-slider">
-							<span class="menu-item-icon icon-ruler-horizontal icon-text-post-preview-fade-height"></span>
+						<div class="container-3">
+							<span class="menu-item-icon icon-ruler-vertical icon-text-post-preview-fade-height"></span>
 							<span data-lang="TextPostPreviewFadeHeight" data-search="text,post,fade"></span>
+							<div></div>
+							<div></div>
 							<input type="range" min="-1" max="500" value="0" step="1" class="slider" id="input-text-post-preview-fade-height" />
 							<span id="text-post-preview-fade-height" class="input-value"></span>
 						</div>

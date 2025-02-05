@@ -62,7 +62,7 @@
 	mask: url('../../icons/ui/down-left-and-up-right-to-center-solid.svg');
 	-webkit-mask: url('../../icons/ui/down-left-and-up-right-to-center-solid.svg');
 }
-.icon-scroll {
+.icon-up-down {
 	mask: url('../../icons/ui/up-down-solid.svg');
 	-webkit-mask: url('../../icons/ui/up-down-solid.svg');
 }
@@ -274,7 +274,7 @@
 	mask: url('../../icons/ui/icon-numbers.svg');
 	-webkit-mask: url('../../icons/ui/icon-numbers.svg');
 }
-.icon-ruler {
+.icon-ruler-vertical {
 	mask: url('../../icons/ui/ruler-vertical-solid.svg');
 	-webkit-mask: url('../../icons/ui/ruler-vertical-solid.svg');
 }
@@ -462,4 +462,8 @@
 }
 .icon-fade.active {
 	background: linear-gradient(var(--accent), transparent) !important;
+}
+.icon-mouse-scroll {
+	mask: url('../../icons/ui/mouse-scroll.svg');
+	-webkit-mask: url('../../icons/ui/mouse-scroll.svg');
 }

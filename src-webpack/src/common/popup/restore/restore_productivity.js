@@ -23,7 +23,7 @@ export function restorePopupProductivityOptions() {
 	BROWSER_API.storage.sync.get(['imageScroll'], function (result) {
 		if (result.imageScroll == true) {
 			document.querySelector('#checkbox-image-scroll').checked = true;
-			document.querySelector('.icon-scroll').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-image-scroll').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('productivity-tweaks');
 			var value = true;
 		} else if (typeof result.imageScroll == 'undefined' || result.imageScroll == false) {
@@ -33,29 +33,80 @@ export function restorePopupProductivityOptions() {
 		console.log('Scroll Tall Images: ' + value);
 	});
 
-	// Add Scrollbar To Tall Images Max Image Size
-	BROWSER_API.storage.sync.get(['imageScrollMaxImageWidth'], function (result) {
-		if (typeof result.imageScrollMaxImageWidth != 'undefined') {
-			if (result.imageScrollMaxImageWidth > 9 && result.imageScrollMaxImageWidth <= 100) {
+	// Scale Post To Fit Image
+	BROWSER_API.storage.sync.get(['scalePostToFitImage'], function (result) {
+		if (result.scalePostToFitImage == true) {
+			document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-scale-post-to-fit-image').checked = true;
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else if (typeof result.scalePostToFitImage == 'undefined' || result.scalePostToFitImage == false) {
+			document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
+			var value = false;
+		}
+		console.log('Scale Post To Fit Image: ' + value);
+	});
+
+	// Scale Post To Fit Video
+	BROWSER_API.storage.sync.get(['scalePostToFitVideo'], function (result) {
+		if (result.scalePostToFitVideo == true) {
+			document.querySelector('.icon-scale-post-to-fit-video').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-scale-post-to-fit-video').checked = true;
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else if (typeof result.scalePostToFitVideo == 'undefined' || result.scalePostToFitVideo == false) {
+			document.querySelector('#checkbox-scale-post-to-fit-video').checked = false;
+			var value = false;
+		}
+		console.log('Scale Post To Fit Video: ' + value);
+	});
+
+	// Limit Image Width
+	BROWSER_API.storage.sync.get(['limitImageWidth', 'imageScroll', 'scalePostToFitImage'], function (result) {
+		if (typeof result.limitImageWidth != 'undefined') {
+			if (result.limitImageWidth > 9 && result.limitImageWidth <= 100) {
 				highlightMenuIcon('productivity-tweaks');
-				const imageScroll = document.querySelector('#checkbox-image-scroll').checked;
-				if (imageScroll === true) {
-					document.querySelector('.icon-image-scroll-max-image-width').style.backgroundColor = 'var(--accent)';
+				if (result.imageScroll == true || result.scalePostToFitImage == true) {
+					document.querySelector('.icon-limit-image-width').style.backgroundColor = 'var(--accent)';
 				}
-				document.querySelector('#input-image-scroll-max-image-width').value = result.imageScrollMaxImageWidth;
-				document.querySelector('#image-scroll-max-image-width-value').innerText = result.imageScrollMaxImageWidth + '%';
-				var value = result.imageScrollMaxImageWidth + 'px';
+				document.querySelector('#input-limit-image-width').value = result.limitImageWidth;
+				document.querySelector('#limit-image-width-value').innerText = result.limitImageWidth + '%';
+				var value = result.limitImageWidth + 'px';
 			} else {
-				document.querySelector('#input-image-scroll-max-image-width').value = 9;
-				document.querySelector('#image-scroll-max-image-width-value').innerText = '100%';
+				document.querySelector('#input-limit-image-width').value = 9;
+				document.querySelector('#limit-image-width-value').innerText = '100%';
 				var value = 'default (100%)';
 			}
-		} else if (typeof result.imageScrollMaxImageWidth == 'undefined') {
-			document.querySelector('#input-image-scroll-max-image-width').value = 9;
-			document.querySelector('#image-scroll-max-image-width-value').innerText = '100%';
+		} else if (typeof result.limitImageWidth == 'undefined') {
+			document.querySelector('#input-limit-image-width').value = 9;
+			document.querySelector('#limit-image-width-value').innerText = '100%';
 			var value = 'default (100%)';
 		}
-		console.log('Add Scrollbar To Tall Images Max Image Size: ' + value);
+		console.log('Limit Image Width: ' + value);
+	});
+
+	// Limit Video Width
+	BROWSER_API.storage.sync.get(['limitVideoWidth', 'scalePostToFitVideo'], function (result) {
+		if (typeof result.limitVideoWidth != 'undefined') {
+			if (result.limitVideoWidth > 9 && result.limitVideoWidth <= 100) {
+				highlightMenuIcon('productivity-tweaks');
+				if (result.scalePostToFitVideo == true) {
+					document.querySelector('.icon-limit-video-width').style.backgroundColor = 'var(--accent)';
+				}
+				document.querySelector('#input-limit-video-width').value = result.limitVideoWidth;
+				document.querySelector('#limit-video-width-value').innerText = result.limitVideoWidth + '%';
+				var value = result.limitVideoWidth + 'px';
+			} else {
+				document.querySelector('#input-limit-video-width').value = 9;
+				document.querySelector('#limit-video-width-value').innerText = '100%';
+				var value = 'default (100%)';
+			}
+		} else if (typeof result.limitVideoWidth == 'undefined') {
+			document.querySelector('#input-limit-video-width').value = 9;
+			document.querySelector('#limit-video-width-value').innerText = '100%';
+			var value = 'default (100%)';
+		}
+		console.log('Limit Video Width: ' + value);
 	});
 
 	// New Player
@@ -528,47 +579,6 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		}
 		console.log('Auto Expand Comments: ' + value);
 	});
-
-	/*
-// Scale Post To Fit Image
-BROWSER_API.storage.sync.get(['scalePostToFitImage'], function (result) {
-    if (result.scalePostToFitImage == true) {
-        document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = 'var(--accent)';
-        document.querySelector('#checkbox-scale-post-to-fit-image').checked = true;
-        highlightMenuIcon('productivity-tweaks');
-        var value = true;
-    } else if (typeof result.scalePostToFitImage == 'undefined' || result.scalePostToFitImage == false) {
-        document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
-        var value = false;
-    }
-    console.log('Scale Post To Fit Image: ' + value);
-});
-
-// Scale Post To Fit Image Max Image Size
-BROWSER_API.storage.sync.get(['scalePostToFitImageMaxImageWidth'], function (result) {
-    if (typeof result.scalePostToFitImageMaxImageWidth != 'undefined') {
-        if (result.scalePostToFitImageMaxImageWidth > 29 && result.scalePostToFitImageMaxImageWidth <= 100) {
-            highlightMenuIcon('productivity-tweaks');
-            const scalePostToFitImage = document.querySelector('#checkbox-scale-post-to-fit-image').checked;
-            if (scalePostToFitImage === true) {
-                document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = 'var(--accent)';
-            }
-            document.querySelector('#input-scale-post-to-fit-image-max-image-width').value = result.scalePostToFitImageMaxImageWidth;
-            document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = result.scalePostToFitImageMaxImageWidth + '%';
-            var value = result.scalePostToFitImageMaxImageWidth + 'px';
-        } else {
-            document.querySelector('#input-scale-post-to-fit-image-max-image-width').value = 29;
-            document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = '40%';
-            var value = 'default (40%)';
-        }
-    } else if (typeof result.scalePostToFitImageMaxImageWidth == 'undefined') {
-        document.querySelector('#input-scale-post-to-fit-image-max-image-width').value = 29;
-        document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = '40%';
-        var value = 'default (40%)';
-    }
-    console.log('Scale Post To Fit Image Max Image Size: ' + value);
-});
-*/
 
 	// Drag Image to Resize
 	/*BROWSER_API.storage.sync.get(['dragImageToResize'], function (result) {
