@@ -34,7 +34,7 @@ export function postTitleFontSize(value) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-post-title-font-size';
 				styleElement.textContent = `.Post [data-adclicklocation="title"] h3,
-				 							.Post:not(.scrollerItem) [data-adclicklocation="title"] div {
+				 							.Post:not(.scrollerItem) [data-adclicklocation="title"] div[style*="--posttitletextcolor"] {
 												font-size: var(--re-post-title-font-size) !important;
 												line-height: 1.5 !important;
 											}`;
