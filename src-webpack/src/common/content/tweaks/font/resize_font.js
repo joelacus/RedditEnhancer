@@ -33,10 +33,10 @@ export function postTitleFontSize(value) {
 			if (!document.querySelector('style[id="re-post-title-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-post-title-font-size';
-				styleElement.textContent = `.Post [data-adclicklocation="title"] h1,
-											.Post [data-adclicklocation="title"] h3 {
-												font-size: var(--re-post-title-font-size);
-												line-height: 1.5;
+				styleElement.textContent = `.Post [data-adclicklocation="title"] h3,
+				 							.Post:not(.scrollerItem) [data-adclicklocation="title"] div {
+												font-size: var(--re-post-title-font-size) !important;
+												line-height: 1.5 !important;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}

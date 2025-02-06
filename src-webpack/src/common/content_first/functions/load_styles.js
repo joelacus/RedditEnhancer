@@ -221,8 +221,8 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 					shreddit-post:hover {
 						z-index: 9;
 					}
-					pdp-back-button {
-						position: static !important;
+					.Post:not(.scrollerItem) div[data-ignore-click="false"] {
+						margin-left: 10px;
 					}
 					div[slot="credit-bar"] > span:has(pdp-back-button) {
 						gap: .6rem;

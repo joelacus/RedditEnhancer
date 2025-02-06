@@ -74,6 +74,7 @@ function enableExpandContentOld() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-expand-feed-layout';
 	styleElement.textContent = `.listing-page div.content[role="main"],
+								.messages-page div.content[role="main"],
 								.wiki-page div.content[role="main"],
 								.submit-page div.content[role="main"],
 								.moderator div.content[role="main"] {

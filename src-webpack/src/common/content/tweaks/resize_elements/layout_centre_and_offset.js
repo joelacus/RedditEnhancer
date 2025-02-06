@@ -52,6 +52,7 @@ function enableLayoutCentreOld() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-centre-container-old';
 	styleElement.textContent = `.listing-page div.content[role="main"],
+								.messages-page div.content[role="main"],
 								.wiki-page div.content[role="main"],
 								.profile-page div.content[role="main"],
 								.moderator div.content[role="main"],
@@ -61,6 +62,9 @@ function enableLayoutCentreOld() {
 								.other-discussions-page div.content[role="main"],
 								.multi-page div.content[role="main"] {
 									margin: .5rem auto !important;
+								}
+								.listing-page.with-listing-chooser:not(.multi-page) div.content[role="main"]::before {
+									text-align: center;
 								}
 								body.with-listing-chooser div.listing-chooser {
 									z-index: 1 !important;
