@@ -103,15 +103,15 @@ function enableExpandContentOld() {
 								.commentarea div.menuarea {
 									margin: 10px 0 10px 10px;
 								}
-								.comments-page div.usertext-edit.md-container {
-									width: 50%;
-									max-width: initial;
-								}
 								div.markdownEditor-wrapper,
 								div.usertext-edit textarea,
 								div.roundfield .usertext-edit,
 								.moderator div.usertext-edit.md-container {
 									width: 100%;
+									max-width: initial;
+								}
+								.comments-page div.usertext-edit.md-container {
+									width: 50%;
 									max-width: initial;
 								}
 								/* Submit post page */
