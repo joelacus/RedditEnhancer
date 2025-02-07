@@ -104,6 +104,9 @@ function enableExpandContentOld() {
 								.commentarea div.menuarea {
 									margin: 10px 0 10px 10px;
 								}
+								div.searchpane {
+									margin: 5px;
+								}
 								div.markdownEditor-wrapper,
 								div.usertext-edit textarea,
 								div.roundfield .usertext-edit,
