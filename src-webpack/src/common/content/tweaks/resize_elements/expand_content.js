@@ -91,7 +91,8 @@ function enableExpandContentOld() {
 									width: var(--re-custom-feed-width);
 								}
 								/* Expand the post content, comments and wiki page content */
-								.md {
+								.md,
+								div.content[role="main"] .subreddit-rules-page {
 									max-width: initial !important;
 								}
 								.wiki-page div.wiki-page-content {
