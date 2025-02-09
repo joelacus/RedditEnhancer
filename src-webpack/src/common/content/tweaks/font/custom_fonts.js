@@ -30,7 +30,12 @@ export function customFonts(value) {
                     html body, html textarea {
                         font: normal 12px/1.4 sans-serif;
                     }
-                    div#header-bottom-left,
+                    form#search input[type="text"] {
+                        font-family: inherit;
+                    }
+                    div#header-bottom-left {
+                        font-size: 1.1em;
+                    }
                     p.tagline,
                     div.menuarea,
                     .link p.title,
