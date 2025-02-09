@@ -146,6 +146,7 @@ import { hideCompactViewThumbnails } from './tweaks/hide_elements/hide_compact_v
 import { setTextPostPreviewMaxHeight } from './tweaks/resize_elements/resize_post';
 import { customFonts } from './tweaks/font/custom_fonts';
 import { scalePostToFitVideo, setLimitVideoWidth } from './tweaks/productivity/scale_post_to_fit_video';
+import { classicOldHeader } from "./tweaks/style/classic_old_header";
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 /* = Listen For Settings Change = */
@@ -563,6 +564,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		customFonts(value);
 	} else if (key === 'sidebarToggleButton') {
 		sidebarToggleButton(value);
+	} else if (key === 'classicOldHeader') {
+		classicOldHeader(value);
 	}
 	return true;
 });

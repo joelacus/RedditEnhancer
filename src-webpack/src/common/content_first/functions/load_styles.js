@@ -165,22 +165,6 @@ const styleOldReddit =
 	    width: 70px;
 	    height: 70px;
 	    object-fit: contain;
-	}
-	/* Style normal flairs as formatted flairs */
-	span.linkflairlabel {
-		font-size: inherit;
-		font-weight: 500;
-		line-height: 1.4;
-		border-radius: 2px;
-		display: inline-block;
-		height: 1rem;
-		margin: 0;
-		overflow: hidden;
-		padding: 0 4px;
-		text-overflow: ellipsis;
-		vertical-align: middle;
-		white-space: nowrap;
-		max-width: none;
 	}`;
 
 const styleOther = `.re-to-top-button:hover, .re-all-button:hover {

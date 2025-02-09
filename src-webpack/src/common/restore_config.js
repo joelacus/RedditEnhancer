@@ -148,6 +148,7 @@ async function restoreBackup(json) {
 				'borderRadiusAmount',
 				'breakReminder',
 				'breakReminderFrequency',
+				'classicOldHeader',
 				'commentsLimit',
 				'compactHeaderSideMenu',
 				'compactSubRuleList',

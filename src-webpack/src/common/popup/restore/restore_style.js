@@ -880,4 +880,15 @@ export function restorePopupStyleOptions() {
 		}
 		console.log(`Text Post Preview Fade Height: ${value >= 0 ? value + 'px' : 'default'}`);
 	});
+
+	// Classic Old Header
+	BROWSER_API.storage.sync.get(['classicOldHeader'], function (result) {
+		const classicOldHeader = result.classicOldHeader === true;
+		document.querySelector('.icon-classic-old-header').style.backgroundColor = classicOldHeader ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-classic-old-header').checked = classicOldHeader;
+		if (classicOldHeader) {
+			highlightMenuIcon('style-tweaks');
+		}
+		console.log('Classic Old Header: ' + classicOldHeader);
+	});
 }

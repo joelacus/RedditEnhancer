@@ -779,3 +779,15 @@ document.querySelector('#input-text-post-preview-fade-height').addEventListener(
 document.querySelector('#input-text-post-preview-fade-height').addEventListener('mouseup', function (e) {
 	BROWSER_API.storage.sync.set({ textPostPreviewFadeHeight: e.target.value });
 });
+
+// Toggle - Classic Old Header
+document.querySelector('#checkbox-classic-old-header').addEventListener('change', function (e) {
+	const classicOldHeader = document.querySelector('#checkbox-classic-old-header').checked;
+	if (classicOldHeader) {
+		document.querySelector('.icon-classic-old-header').style.backgroundColor = 'var(--accent)';
+	} else {
+		document.querySelector('.icon-classic-old-header').style.backgroundColor = '';
+	}
+	BROWSER_API.storage.sync.set({ classicOldHeader: classicOldHeader });
+	sendMessage({ classicOldHeader: classicOldHeader });
+});

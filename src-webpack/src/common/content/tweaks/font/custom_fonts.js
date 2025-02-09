@@ -34,9 +34,11 @@ export function customFonts(value) {
                         font-family: inherit;
                     }
                     div#header-bottom-left,
-                    span.pagename,
-                    .side div.md {
+                    span.pagename {
                         font-size: 1.1em;
+                    }
+                    .side div.md {
+                        font-size: small;
                     }
                     p.tagline,
                     div.menuarea,
@@ -51,6 +53,25 @@ export function customFonts(value) {
                     .tabmenu {
                         margin-bottom: -0.15em;
                     }
+                    /* Style normal flairs as formatted flairs */
+	                span.linkflairlabel {
+	                	font-size: inherit;
+	                	font-weight: 500;
+	                	line-height: 1.3;
+	                	border-radius: 2px;
+	                	display: inline-block;
+	                	height: 1rem;
+	                	margin: 0 5px 0 0;
+	                	overflow: hidden;
+	                	padding: 0 4px;
+	                	text-overflow: ellipsis;
+	                	vertical-align: middle;
+	                	white-space: nowrap;
+	                	max-width: none;
+	                }
+	                .link span.flair {
+	                    font-size: inherit;
+	                }
                     `;
                 document.head.insertBefore(styleElement, document.head.firstChild);
             }

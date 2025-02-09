@@ -29,6 +29,7 @@ import { loadHideCommentKarma, loadHidePostKarma } from "../../../content/tweaks
 import { loadHideVoteButtons } from "../../../content/tweaks/hide_elements/hide_vote_buttons";
 import { loadHideCompactViewBlankThumbnails } from "../../../content/tweaks/hide_elements/hide_compact_view_blank_thumbnails";
 import { loadHideCompactViewThumbnails } from "../../../content/tweaks/hide_elements/hide_compact_view_thumbnails";
+import { loadClassicOldHeader } from "../../../content/tweaks/style/classic_old_header";
 
 export function tweakLoaderOld() {
 	loadExpandContent();
@@ -53,6 +54,7 @@ export function tweakLoaderOld() {
 	loadHideVoteButtons();
 	loadHideCompactViewBlankThumbnails();
 	loadHideCompactViewThumbnails();
+	loadClassicOldHeader();
 
 	if (useLegacy) {
 		legacyObserversOld();
