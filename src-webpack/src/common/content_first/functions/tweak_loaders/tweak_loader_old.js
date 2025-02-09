@@ -27,6 +27,8 @@ import { loadScrollToNextRootComment, loadScrollToNextRootCommentPosition } from
 import { loadCustomFonts } from "../../../content/tweaks/font/custom_fonts";
 import { loadHideCommentKarma, loadHidePostKarma } from "../../../content/tweaks/hide_elements/hide_post_comment_karma";
 import { loadHideVoteButtons } from "../../../content/tweaks/hide_elements/hide_vote_buttons";
+import { loadHideCompactViewBlankThumbnails } from "../../../content/tweaks/hide_elements/hide_compact_view_blank_thumbnails";
+import { loadHideCompactViewThumbnails } from "../../../content/tweaks/hide_elements/hide_compact_view_thumbnails";
 
 export function tweakLoaderOld() {
 	loadExpandContent();
@@ -49,6 +51,8 @@ export function tweakLoaderOld() {
 	loadHidePostKarma();
 	loadHideCommentKarma();
 	loadHideVoteButtons();
+	loadHideCompactViewBlankThumbnails();
+	loadHideCompactViewThumbnails();
 
 	if (useLegacy) {
 		legacyObserversOld();

@@ -39,6 +39,8 @@ import { loadHideRecommendedPosts } from '../../../content/tweaks/hide_elements/
 import { loadHideHomeFeed } from '../../../content/tweaks/hide_elements/hide_home_feed';
 import { loadHidePostKarma, loadHideCommentKarma } from '../../../content/tweaks/hide_elements/hide_post_comment_karma';
 import { loadHideVoteButtons } from '../../../content/tweaks/hide_elements/hide_vote_buttons';
+import { loadHideCompactViewThumbnails } from "../../../content/tweaks/hide_elements/hide_compact_view_thumbnails";
+import { loadHideCompactViewBlankThumbnails } from "../../../content/tweaks/hide_elements/hide_compact_view_blank_thumbnails";
 
 export function tweakLoaderOldNew() {
 	if (typeof useLegacy != 'undefined') {
@@ -135,5 +137,7 @@ function loadCommon() {
 		loadDropShadow();
 		loadOverrideDropShadow();
 		loadHideRecommendedPosts();
+		loadHideCompactViewThumbnails();
+		loadHideCompactViewBlankThumbnails();
 	}
 }

@@ -168,14 +168,13 @@ const styleOldReddit =
 	}
 	/* Style normal flairs as formatted flairs */
 	span.linkflairlabel {
-		font-size: 12px;
+		font-size: inherit;
 		font-weight: 500;
-		line-height: 16px;
+		line-height: 1.4;
 		border-radius: 2px;
 		display: inline-block;
-		height: 16px;
-		margin-left: 0;
-		margin-right: 5px;
+		height: 1rem;
+		margin: 0;
 		overflow: hidden;
 		padding: 0 4px;
 		text-overflow: ellipsis;

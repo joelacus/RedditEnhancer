@@ -33,7 +33,9 @@ export function customFonts(value) {
                     form#search input[type="text"] {
                         font-family: inherit;
                     }
-                    div#header-bottom-left {
+                    div#header-bottom-left,
+                    span.pagename,
+                    .side div.md {
                         font-size: 1.1em;
                     }
                     p.tagline,
@@ -47,7 +49,7 @@ export function customFonts(value) {
                         letter-spacing: 0;
                     }
                     .tabmenu {
-                        margin-bottom: -1.725px;
+                        margin-bottom: -0.15em;
                     }
                     `;
                 document.head.insertBefore(styleElement, document.head.firstChild);
