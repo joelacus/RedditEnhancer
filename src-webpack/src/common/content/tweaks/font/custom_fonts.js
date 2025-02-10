@@ -45,7 +45,8 @@ export function customFonts(value) {
                     .link p.title,
                     span.domain,
                     .commentarea div.menuarea .toggle a,
-                    div.reddit-infobar.with-icon div.md {
+                    div.reddit-infobar.with-icon div.md,
+                    .sidebox div.subtitle {
                         font-size: inherit;
                     }
                     div.tagline {

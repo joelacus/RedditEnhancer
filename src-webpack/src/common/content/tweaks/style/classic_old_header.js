@@ -94,14 +94,16 @@ export function classicOldHeader(value) {
                         border: 1px solid black;
                     }
                     div.morelink,
-                    div.morelink:hover {
+                    div.morelink:hover,
+                    .disabled div.morelink,
+                    .disabled div.morelink:hover {
                         background: none;
                         letter-spacing: normal;
                         font-weight: normal;
                         text-align: left;
                         border: none;
                     }
-                    div.morelink:hover a {
+                    div:not(.disabled) > div.morelink:hover a {
                         color: #ff0202;
                     }
                     div.nub {
@@ -111,6 +113,9 @@ export function classicOldHeader(value) {
                     .res-nightmode div.sidebox,
                     .res-nightmode div.morelink {
                         background-color: unset;
+                    }
+                    .sidebox div.subtitle {
+                        margin-left: 0;
                     }
                     div.sidecontentbox .content {
                         border: none;
@@ -170,7 +175,8 @@ export function classicOldHeader(value) {
                         background-color: unset;
                         border-color: #f58e8e;
                     }
-                    .res-nightmode div.infobar {
+                    .res-nightmode div.infobar,
+                    .res-nightmode div.gold-accent {
                         background-color: unset;
                     }
                     div.infobar.commentsignupbar {
@@ -214,6 +220,10 @@ export function classicOldHeader(value) {
                         background: none;
                         border: none;
                         text-decoration: underline;
+                    }
+                    .res-nightmode span.nextprev a {
+                        background: none;
+                        border: none;
                     }
                     `;
                 document.head.insertBefore(styleElement, document.head.firstChild);
