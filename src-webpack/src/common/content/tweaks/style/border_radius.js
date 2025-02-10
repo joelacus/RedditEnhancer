@@ -15,7 +15,7 @@ export function borderRadiusAmount(value) {
 			if (!document.querySelector('style[id="re-theme-border-radius"]')) {
 				addBorderRadiusAmountStylesheet();
 			}
-		} else if (parseInt(value) === -1 || value == undefined) {
+		} else if (parseInt(value) === -1 || value === undefined) {
 			document.documentElement.style.removeProperty('--re-theme-border-radius');
 			removeBorderRadiusAmountStylesheet();
 		}
@@ -101,16 +101,12 @@ function addBorderRadiusAmountStylesheet() {
 				}
 			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
-
-		const recentPosts = document.querySelector('recent-posts');
-		if (recentPosts) {
-			recentPosts.shadowRoot.querySelector('aside').style.borderRadius = 'var(--re-theme-border-radius)';
-		}
+		window.addEventListener('load', addBorderRadiusToShadowRootElements);
 	}
 }
 
 // Add border radius to elements in shadow DOMs
-export function addBorderRadiusToShadowRootElements() {
+function addBorderRadiusToShadowRootElements() {
 	const recentPosts = document.querySelector('recent-posts')?.shadowRoot?.children[0] || null;
 	const pdpCommentSearchInput = document.querySelector('pdp-comment-search-input')?.shadowRoot || null;
 	const shadowRootElements = [
