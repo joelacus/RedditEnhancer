@@ -43,12 +43,17 @@ export function customFonts(value) {
                     p.tagline,
                     div.menuarea,
                     .link p.title,
-                    span.domain {
+                    span.domain,
+                    .commentarea div.menuarea .toggle a,
+                    div.reddit-infobar.with-icon div.md {
                         font-size: inherit;
                     }
+                    div.tagline {
+                        font-size: 0.83333em;
+                    }
                     div.morelink {
-                        font-size: 1.25em;
-                        letter-spacing: 0;
+                        font-size: 1.16em;
+                        letter-spacing: normal;
                     }
                     .tabmenu {
                         margin-bottom: -0.15em;
@@ -69,6 +74,9 @@ export function customFonts(value) {
 	                	white-space: nowrap;
 	                	max-width: none;
 	                }
+	                a.title + span.linkflairlabel {
+	                    margin-left: 5px;
+                    }
 	                .link span.flair {
 	                    font-size: inherit;
 	                }

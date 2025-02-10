@@ -21,7 +21,7 @@ export function detectRedditVersion() {
 	} else if (link.indexOf('old.reddit.com') >= 0) {
 		window.redditVersion = 'old';
 		tweakLoaderOld();
-	} else if (link.indexOf('www.reddit.com') >= 0) {
+	} else if (link.indexOf('reddit.com') >= 0) {
 		// New New UI (SH)
 		waitForAddedNode({
 			query: 'shreddit-app',

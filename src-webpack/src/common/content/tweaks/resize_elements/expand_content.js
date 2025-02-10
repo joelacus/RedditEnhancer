@@ -92,8 +92,12 @@ function enableExpandContentOld() {
 								}
 								/* Expand the post content, comments and wiki page content */
 								.md,
-								div.content[role="main"] .subreddit-rules-page {
+								div.content[role="main"] .subreddit-rules-page,
+								div.search-result-group {
 									max-width: initial !important;
+								}
+								div.search-result-group {
+									padding: 1rem;
 								}
 								.wiki-page div.wiki-page-content {
 									margin: .25rem;
@@ -110,7 +114,8 @@ function enableExpandContentOld() {
 								div.markdownEditor-wrapper,
 								div.usertext-edit textarea,
 								div.roundfield .usertext-edit,
-								.moderator div.usertext-edit.md-container {
+								.moderator div.usertext-edit.md-container,
+								form#compose-message div.roundfield {
 									width: 100%;
 									max-width: initial;
 								}
@@ -120,8 +125,11 @@ function enableExpandContentOld() {
 								}
 								/* Submit post page */
 								.submit-page div.formtabs-content,
+								div.usertext.usertext--with-margin {
+									width: 100%;
+								}
 								.submit-page div.roundfield {
-									width: initial;
+									width: calc(100% - 20px);
 								}
 								div.roundfield textarea[name="title"],
 								div.roundfield input[type="text"],
