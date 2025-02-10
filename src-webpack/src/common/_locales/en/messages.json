@@ -901,5 +901,8 @@
 	},
 	"resizeHomeAlsoAffects": {
 		"message": "& r/all, r/popular, Create Post, Search Results, and Wiki pages"
+	},
+	"ClassicOldHeader": {
+		"message": "Classic Old Header"
 	}
 }

@@ -30,7 +30,16 @@ export function customFonts(value) {
                     html body, html textarea {
                         font: normal 12px/1.4 sans-serif;
                     }
+                    form#search input[type="text"] {
+                        font-family: inherit;
+                    }
                     div#header-bottom-left,
+                    span.pagename {
+                        font-size: 1.1em;
+                    }
+                    .side div.md {
+                        font-size: small;
+                    }
                     p.tagline,
                     div.menuarea,
                     .link p.title,
@@ -42,8 +51,27 @@ export function customFonts(value) {
                         letter-spacing: 0;
                     }
                     .tabmenu {
-                        margin-bottom: -1.725px;
+                        margin-bottom: -0.15em;
                     }
+                    /* Style normal flairs as formatted flairs */
+	                span.linkflairlabel {
+	                	font-size: inherit;
+	                	font-weight: 500;
+	                	line-height: 1.3;
+	                	border-radius: 2px;
+	                	display: inline-block;
+	                	height: 1rem;
+	                	margin: 0 5px 0 0;
+	                	overflow: hidden;
+	                	padding: 0 4px;
+	                	text-overflow: ellipsis;
+	                	vertical-align: middle;
+	                	white-space: nowrap;
+	                	max-width: none;
+	                }
+	                .link span.flair {
+	                    font-size: inherit;
+	                }
                     `;
                 document.head.insertBefore(styleElement, document.head.firstChild);
             }

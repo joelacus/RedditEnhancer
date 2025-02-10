@@ -74,6 +74,7 @@ function enableExpandContentOld() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-expand-feed-layout';
 	styleElement.textContent = `.listing-page div.content[role="main"],
+								.messages-page div.content[role="main"],
 								.wiki-page div.content[role="main"],
 								.submit-page div.content[role="main"],
 								.moderator div.content[role="main"] {
@@ -90,7 +91,8 @@ function enableExpandContentOld() {
 									width: var(--re-custom-feed-width);
 								}
 								/* Expand the post content, comments and wiki page content */
-								.md {
+								.md,
+								div.content[role="main"] .subreddit-rules-page {
 									max-width: initial !important;
 								}
 								.wiki-page div.wiki-page-content {
@@ -102,15 +104,18 @@ function enableExpandContentOld() {
 								.commentarea div.menuarea {
 									margin: 10px 0 10px 10px;
 								}
-								.comments-page div.usertext-edit.md-container {
-									width: 50%;
-									max-width: initial;
+								div.searchpane {
+									margin: 5px;
 								}
 								div.markdownEditor-wrapper,
 								div.usertext-edit textarea,
 								div.roundfield .usertext-edit,
 								.moderator div.usertext-edit.md-container {
 									width: 100%;
+									max-width: initial;
+								}
+								.comments-page div.usertext-edit.md-container {
+									width: 50%;
 									max-width: initial;
 								}
 								/* Submit post page */

@@ -41,6 +41,7 @@ export function detectRedditVersion() {
 			recursive: true,
 			done: function () {
 				window.redditVersion = 'new';
+				window.tweaksLoaded = false;
 				tweakLoaderOldNew();
 			},
 		});
