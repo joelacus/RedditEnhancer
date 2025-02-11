@@ -629,7 +629,8 @@ export function themePostTextColour1(value) {
 										shreddit-post [data-post-click-location="text-body"] p,
 										shreddit-post [data-post-click-location="text-body"] h1,
 										shreddit-post [data-post-click-location="text-body"] pre,
-										shreddit-post [data-post-click-location="text-body"] table * {
+										shreddit-post [data-post-click-location="text-body"] table *,
+										shreddit-post div.md.feed-card-text-preview {
 											color: var(--re-theme-post-text) !important;
 										}
 										[data-testid="search-post"] > post-consume-tracker > div {

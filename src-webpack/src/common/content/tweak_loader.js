@@ -92,20 +92,8 @@ export function loadTweaks() {
 		loadHideVoteButtons();
 		loadSideMenuToggleButton();
 		loadCompactSubRuleList();
-		loadAutoShowCommentFormattingOptions();
 
 		// Wait for elements to load on the page before loading tweaks.
-		waitForAddedNode({
-			query: 'aside#right-rail-experience-root',
-			parent: document.querySelector('body'),
-			recursive: true,
-			done: function (el) {
-				addBorderRadiusToShadowRootElements();
-				setTimeout(() => {
-					addBorderRadiusToShadowRootElements();
-				}, 500);
-			},
-		});
 		waitForAddedNode({
 			query: '#communities_section left-nav-communities-controller',
 			shadowRoot: true,
@@ -122,7 +110,16 @@ export function loadTweaks() {
 				}, 10000);
 			},
 		});
-
+		waitForAddedNode({
+			query: 'shreddit-comment-tree',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function () {
+				setTimeout(() => {
+					loadAutoShowCommentFormattingOptions();
+				}, 500);
+			},
+		})
 		waitForAddedNode({
 			query: 'faceplate-expandable-section-helper:has([aria-controls="moderation_section"])',
 			parent: document.querySelector('body'),

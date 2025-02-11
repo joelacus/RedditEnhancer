@@ -10,16 +10,16 @@ export function loadAutoShowCommentFormattingOptions() {
 /* === Main Function === */
 export function autoShowCommentFormattingOptions(value) {
 	if (redditVersion === 'newnew') {
-		if (value === true) {
+		if (value === true && window.location.pathname.includes('/comments/')) {
 			enableAutoShowCommentFormattingOptions();
 		}
 	}
 }
 
 // Function - Enable Auto Show Comment Formatting Options - New New
-function enableAutoShowCommentFormattingOptions() {
-	// add new comment
-	document.querySelector('shreddit-composer').shadowRoot.children[0].querySelector('reddit-rte').shadowRoot.children[1].querySelector('rte-toolbar-button').click();
+async function enableAutoShowCommentFormattingOptions() {
+	const composer = document.querySelector('shreddit-composer')?.shadowRoot?.querySelector('reddit-rte')?.shadowRoot?.querySelector('rte-toolbar-button');
+	if (composer) composer.click();
 
 	const handleReplyClick = (e) => {
 		setTimeout(() => {
