@@ -21,7 +21,7 @@ const CLASS_HIDE = '_rst_hide';
 
 const sidebar = document.querySelector('div.side');
 const tabmenu = document.querySelector('.tabmenu');
-let initialWidth = 0;
+let initialWidth = 300;
 
 if (sidebar) {
     initialWidth = sidebar.offsetWidth;
