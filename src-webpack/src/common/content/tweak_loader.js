@@ -44,6 +44,7 @@ import { loadScalePostToFitImage } from './tweaks/productivity/scale_post_to_fit
 import { loadImageScroll } from './tweaks/productivity/scroll_images';
 import { loadScalePostToFitVideo } from './tweaks/productivity/scale_post_to_fit_video';
 import { loadAutoShowCommentFormattingOptions } from "./tweaks/productivity/auto_show_comment_formatting_options";
+import { addBorderRadiusToShadowRootElements } from "./tweaks/style/border_radius";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -94,6 +95,7 @@ export function loadTweaks() {
 		loadCompactSubRuleList();
 
 		// Wait for elements to load on the page before loading tweaks.
+		setTimeout(addBorderRadiusToShadowRootElements, 2000);
 		waitForAddedNode({
 			query: '#communities_section left-nav-communities-controller',
 			shadowRoot: true,

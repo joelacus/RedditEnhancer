@@ -238,7 +238,7 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 					}
 					/* Compact blockquote */
 					div.md blockquote {
-						margin: 0 0 1rem 0;
+						margin: 0 0 1rem .125rem;
 						padding: 0 0 0 1rem;
 					}
 					div.md blockquote:last-of-type {

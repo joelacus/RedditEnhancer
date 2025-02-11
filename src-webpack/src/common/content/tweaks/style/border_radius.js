@@ -101,12 +101,11 @@ function addBorderRadiusAmountStylesheet() {
 				}
 			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
-		window.addEventListener('load', addBorderRadiusToShadowRootElements);
 	}
 }
 
 // Add border radius to elements in shadow DOMs
-function addBorderRadiusToShadowRootElements() {
+export function addBorderRadiusToShadowRootElements() {
 	const recentPosts = document.querySelector('recent-posts')?.shadowRoot?.children[0] || null;
 	const pdpCommentSearchInput = document.querySelector('pdp-comment-search-input')?.shadowRoot || null;
 	const shadowRootElements = [
