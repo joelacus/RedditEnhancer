@@ -190,8 +190,11 @@ export function hideNotificationButton(value) {
 	if (redditVersion === 'old' && value === true) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-header-notification-button';
-		styleElement.textContent = `a#mail, a#mail + span.separator {
-										display: none;
+		styleElement.textContent = `a#mail,
+									a.message-count,
+									a#mail + span.separator,
+									a.message-count + span.separator {
+										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
