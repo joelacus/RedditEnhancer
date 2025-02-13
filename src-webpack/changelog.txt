@@ -1,18 +1,27 @@
 version 1.15.0
-- Updated localisations.
-- Minor bug fixes and extension improvements.
+v [General]
+  - Added a new "Media" menu category for tweaks related to post images, video, and text.
+  - Updated localisations.
+  - Minor bug fixes and extension improvements.
 v [New New UI]
+  - Added an option to multicolour the post page comment thread lines to different colours depending on the comment depth. You can customise the colours.
   - Added an option to hide post thumbnails in compact view on feeds.
-  - Added an options to scale the post height to fit the image or video respectively.
-  - Added an option to limit the video width when using the new "Scale Post To Fit Video" option.
+  - Added options to scale the post height to fit the image or video respectively.
+  - Added an option to limit the max video width when using the new "Scale Post To Fit Video" option.
   - Improved the code for "Add Scrollbars To Images".
-  !- Added options to change the max height of image and video posts respectively.
-  - Fixed an issue where "Hide Interface Gaps" was not working correctly with "Hide the Side Menu" and "Hide the Sidebar".
+  - Added options to change the max height of image and video posts respectively.
+  - Fixed "Show Post Author" not working on the search results page due to a website update.
+  - Fixed a bug where "Hide Interface Gaps" was not working correctly with "Hide the Side Menu" and "Hide the Sidebar".
   - Fixed a bug preventing the "Default Feed Sort Option" from working on the search page.
-  - Fixed an issue with "Searchbar: Background Colour" where the search bar hover colour was defaulting to the reddit theme. 
+  - Fixed an issue with "Searchbar: Background Colour" where the search bar hover colour was defaulting to the reddit theme.
+  - Fixed an issue with the comment thread lines when using a translucent post background colour.
+  - Fixed a potential issue where the main container on the submit post page didn't fully expand.
+  - The buttons for "Show Navigation Buttons For The Next/Previous Root Comment" now use the "Theme Corner Radius" value.
 * Special thanks to @biminhc1 (Reddit) @bmndc (Github) for all following changes <3
+v [General]
+  - Reddit Enhancer can now detect subdomains of reddit.com, such as np.reddit.com (No Participation).
 v [New New UI]
-  - Added options to fade text previews of Card posts, and to adjust the fade position and height of the text preview (experimental).
+  - Added options to fade text previews of "Card" posts, and to adjust the fade position and height of the text preview (experimental).
   - Fixed an issue where opening the side menu may cause custom feeds to shrink when "Hide the Custom Feed Sidebar" is on.
   - Fixed issues where "Show Post Flairs" may not add flairs with no rich formatting and may attach flairs twice in rare cases.
   - Fixed an issue where post images won't show when "Hide the Header Bar" is on.
@@ -27,8 +36,23 @@ v [New New UI]
   - Centre feeds when sidebars are hidden. It is possible to replicate the older behaviour with "Feed Offsets".
   - Rewrote and optimised the CSS code for "Resize Feed / Post".
   - Small styling tweaks to make blockquotes more compact.
+  - Fixed issues with side menu related functions after Reddit introduced collapsible side menu:
+    - Hide the Side Menu now removes the extra padding reserved for the hidden side menu toggle.
+    - Restored the original behaviour of Show Side Menu Toggle Button (make sure to refresh the page after enabling this!).
+    - Changed the native CSS variables affected by Side Menu Width.
+    - Side Menu Icons Only should no longer affect the subreddit rule list.
+  - Hide the Home Feed should now hide the Home, Popular, r/all and topic feeds while preserving the layout.
+  - Small changes to Resize Feed/Post to fix a weird behaviour in Chrome and Chromium-based browsers.
+  - Post Background should now also colour the Community Highlights posts.
+  - Improved the logic of "Auto Show Formatting Options When Commenting".
+v [Old New UI]
+  - Added support for "Hide Home Feed".
+  - Added support for "Hide Blank Thumbnails in Compact Feed" and "Hide Thumbnails in Compact Feed".
+  - Added support for "Resize Feed Post Title".
 v [Old UI]
   - Added an option to set "sans-serif" as main interface font on Old UI.
+  - Added an option to *partially* recreate Reddit's 2005–2008 header design.
+  - Added support for "Hide Blank Thumbnails in Compact Feed" and "Hide Thumbnails in Compact Feed".
   - Rewrote the "Resize Feed/Pos"t, "Layout Centre", and "Hide the Home Page sidebar" functions for Old UI.
   - Added sliders for adjusting "User Profile" and "Custom Feed" widths on Old UI.
   - "Hide Post Karma", "Hide Comment Karma" and "Hide Vote Buttons" should now work on Old UI.
@@ -36,15 +60,15 @@ v [Old UI]
   - Resizing title texts should not resize the domain links next to the texts.
   - Other style tweaks, including styling normal post flairs as formatted flairs.
 
-
 version 1.14.0
-- Added sticky sub menus in the extension settings for easier navigation.
-- The extension popup window is now 100px taller.
-- Improved the changelog page.
-- Removed "Old New UI" from the redirect menu as it is no longer relevant. The "New New UI" option will now just redirect (sh|old).reddit.com links to www.reddit.com.
-- Options for "Old New UI" will continue to be supported for now while other workarounds to get it back are still working.
-- Minor extension theme tweaks and added a new theme "Grey".
-- Bug fixes and improvements throughout the extension.
+v [General]
+  - Added sticky sub menus in the extension settings for easier navigation.
+  - The extension popup window is now 100px taller.
+  - Improved the changelog page.
+  - Removed "Old New UI" from the redirect menu as it is no longer relevant. The "New New UI" option will now just redirect (sh|old).reddit.com links to www.reddit.com.
+  - Options for "Old New UI" will continue to be supported for now while other workarounds to get it back are still working.
+  - Minor extension theme tweaks and added a new theme "Grey".
+  - Bug fixes and improvements throughout the extension.
 v [New New UI]
   - Fixed a bug with "Add Scroll Bar to Tall Images".
   - Added "Relevance" and "Comments count" default feed sort options, and removed "Best", "Rising" and "Controversial".
@@ -88,69 +112,72 @@ v [New New UI]
   - Resizing the post comment font will now also change the font size in the comment composer.
 
 version 1.13.0
-- Added a new options page as an alternative for the extension popup window.
-- Moved the "Resize Font" options into a new menu category "Font".
-- Added an update available notification for the extension ("!" next to the version number).
-- Added a "clear search input" button in the extension search bar.
-- Fixed a bug causing large text, even if the "Resize Font" feature is not used.
-- Tidied up the source code and fixed some other small bugs.
+v [General]
+  - Added a new options page as an alternative for the extension popup window.
+  - Moved the "Resize Font" options into a new menu category "Font".
+  - Added an update available notification for the extension ("!" next to the version number).
+  - Added a "clear search input" button in the extension search bar.
+  - Fixed a bug causing large text, even if the "Resize Font" feature is not used.
+  - Tidied up the source code and fixed some other small bugs.
 v [New New UI]
-- Added an option to change the width of custom feeds.
-- Added an option to change the post upvote colour.
-- Added an option to offset the search page feed.
-- Resize post title and content font now works on the profile page.
-- Added an option to change the comment action row text colour independently from the comment text colour option.
-- "Show Post Author" now works on the search results page.
-- Fixed the incorrect line height in the post title when using the resize post title font option.
+  - Added an option to change the width of custom feeds.
+  - Added an option to change the post upvote colour.
+  - Added an option to offset the search page feed.
+  - Resize post title and content font now works on the profile page.
+  - Added an option to change the comment action row text colour independently from the comment text colour option.
+  - "Show Post Author" now works on the search results page.
+  - Fixed the incorrect line height in the post title when using the resize post title font option.
 v [New New UI, Old UI]
-- Added an option to hide the home feed entirely.
-- Added an option to change the post title/content/comments font weight.
-- Added options to change the "Create Post" title and body font sizes.
-- Separated the resize post title/content font options, so you can now resize post fonts on the feed and post pages independently.
+  - Added an option to hide the home feed entirely.
+  - Added an option to change the post title/content/comments font weight.
+  - Added options to change the "Create Post" title and body font sizes.
+  - Separated the resize post title/content font options, so you can now resize post fonts on the feed and post pages independently.
 v [Old UI]
-- Added an option to add user profile pictures to comments.
-- Added support for "Show Navigation Buttons For The Next/Previous Root Comment".
+  - Added an option to add user profile pictures to comments.
+  - Added support for "Show Navigation Buttons For The Next/Previous Root Comment".
 
 version 1.12.1
 - Bug fixes.
 
 version 1.12.0
-- Slightly improved page loading efficiency.
-- Bug fixes.
+v [General]
+  - Slightly improved page loading efficiency.
+  - Bug fixes.
 v [New New UI]
-- Added an option to hide "Community Highlights".
-- Added an option to hide the "Trending Today" section in the search bar.
-- Added an option to hide NSFW results in the search bar.
-- Added an option to hide NSFW users in the search results page sidebar.
-- Added an option to remember the side menu sections open/closed states.
-- The "Show Post Author" feature now works on the "r/popular" page.
-- The "Show Post Flair" feature now works on the "r/popular" page.
-- The "Create Post" page will now use the "Home Feed Width" for the "Resize Feed" feature.
-- Refactored and cleaned up the "Resize Feed" code, and removed some old code for an older build of the New New UI.
-- Fixed a bug with the "Default Feed Sort Option" feature causing it to run on pages it shouldn't and resulting in a page error.
-- Removed the "Remove the Page Side Margin" option, as it seems to be no longer needed.
+  - Added an option to hide "Community Highlights".
+  - Added an option to hide the "Trending Today" section in the search bar.
+  - Added an option to hide NSFW results in the search bar.
+  - Added an option to hide NSFW users in the search results page sidebar.
+  - Added an option to remember the side menu sections open/closed states.
+  - The "Show Post Author" feature now works on the "r/popular" page.
+  - The "Show Post Flair" feature now works on the "r/popular" page.
+  - The "Create Post" page will now use the "Home Feed Width" for the "Resize Feed" feature.
+  - Refactored and cleaned up the "Resize Feed" code, and removed some old code for an older build of the New New UI.
+  - Fixed a bug with the "Default Feed Sort Option" feature causing it to run on pages it shouldn't and resulting in a page error.
+  - Removed the "Remove the Page Side Margin" option, as it seems to be no longer needed.
 
 version 1.11.0
-- Added a warning that "Old New UI" may no longer be accessible as Reddit is phasing it out.
-- Added a message that the redirection to sh.reddit.com for the "New New UI" may no longer be needed.
-- Added an option to reset all extension settings.
+v [General]
+  - Added a warning that "Old New UI" may no longer be accessible as Reddit is phasing it out.
+  - Added a message that the redirection to sh.reddit.com for the "New New UI" may no longer be needed.
+  - Added an option to reset all extension settings.
 v [New New UI]
-- Added an option to change the width of the side menu.
-- Added an option to hide the favourite button (star icon) on items in the side menu.
-- Added an option to just show the icons in the side menu.
-- Added an option to show a toggle button on the side menu to show/hide it.
-- Added an option to hide the post back button.
-- Added an option to change the theme border radius for some elements.
-- Added an option to hide recent posts in the sidebar.
-- Added an option to hide post karma.
-- Added an option to hide the blank thumbnail on text posts in compact view feeds.
-- "Show Post Author on the Home Feed" now works with the "Compact" view.
-- "Hide Ads/Promoted Links" now also hides comment section ads.
-- Potential fix for the page refresh bug.
-- Optimised and improved the "Default Feed Sort Option" and "Default Comments Sort Option" functions.
+  - Added an option to change the width of the side menu.
+  - Added an option to hide the favourite button (star icon) on items in the side menu.
+  - Added an option to just show the icons in the side menu.
+  - Added an option to show a toggle button on the side menu to show/hide it.
+  - Added an option to hide the post back button.
+  - Added an option to change the theme border radius for some elements.
+  - Added an option to hide recent posts in the sidebar.
+  - Added an option to hide post karma.
+  - Added an option to hide the blank thumbnail on text posts in compact view feeds.
+  - "Show Post Author on the Home Feed" now works with the "Compact" view.
+  - "Hide Ads/Promoted Links" now also hides comment section ads.
+  - Potential fix for the page refresh bug.
+  - Optimised and improved the "Default Feed Sort Option" and "Default Comments Sort Option" functions.
 v [Old UI]
-- Added support for "Default Feed Sort Option" and "Default Comments Sort Option".
-- Fixed "Sticky Sort" not loading.
+  - Added support for "Default Feed Sort Option" and "Default Comments Sort Option".
+  - Fixed "Sticky Sort" not loading.
 
 - Other small bug fixes.
 
