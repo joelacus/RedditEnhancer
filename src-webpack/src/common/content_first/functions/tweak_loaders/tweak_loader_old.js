@@ -30,6 +30,7 @@ import { loadHideVoteButtons } from '../../../content/tweaks/hide_elements/hide_
 import { loadHideCompactViewBlankThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_blank_thumbnails';
 import { loadHideCompactViewThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_thumbnails';
 import { loadClassicOldUI } from '../../../content/tweaks/style/classic_old_ui';
+import { loadHideChatButton, loadHideModerationButton, loadHideNotificationButton } from "../../../content/tweaks/hide_elements/hide_header_buttons";
 
 export function tweakLoaderOld() {
 	loadExpandContent();
@@ -55,6 +56,9 @@ export function tweakLoaderOld() {
 	loadHideCompactViewBlankThumbnails();
 	loadHideCompactViewThumbnails();
 	loadClassicOldUI();
+	loadHideChatButton();
+	loadHideModerationButton();
+	loadHideNotificationButton();
 
 	if (useLegacy) {
 		legacyObserversOld();

@@ -82,6 +82,14 @@ export function hideAdvertiseButton(value) {
 
 // Hide Chat Button
 export function hideChatButton(value) {
+	if (redditVersion === 'old' && value === true) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-header-chat-button';
+		styleElement.textContent = `a#chat, a#chat + span.separator {
+										display: none;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 	if (redditVersion === 'new' && value === true) {
 		if (useLegacy) {
 			document.querySelector('.re-chat-button').classList.add('re-hide');
@@ -146,6 +154,14 @@ export function hideCreatePostButton(value) {
 
 // Hide Moderation Button
 export function hideModerationButton(value) {
+	if (redditVersion === 'old' && value === true) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-header-mod-button';
+		styleElement.textContent = `a#new_modmail, a#new_modmail + span.separator {
+										display: none;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 	if (redditVersion === 'new' && value === true) {
 		if (useLegacy) {
 			document.querySelector('.re-moderation-button').classList.add('re-hide');
@@ -171,6 +187,14 @@ export function hideModerationButton(value) {
 
 // Hide Notification Button
 export function hideNotificationButton(value) {
+	if (redditVersion === 'old' && value === true) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-header-notification-button';
+		styleElement.textContent = `a#mail, a#mail + span.separator {
+										display: none;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 	if (redditVersion === 'new' && value === true) {
 		if (useLegacy) {
 			document.querySelector('.re-notification-button').classList.add('re-hide');

@@ -63,6 +63,10 @@ function enableLayoutCentreOld() {
 								.multi-page div.content[role="main"] {
 									margin: .5rem auto !important;
 								}
+								.comments-page div.content[role="main"],
+								.other-discussions-page div.content[role="main"] {
+									padding: 0 !important;
+								}
 								.listing-page.with-listing-chooser:not(.multi-page) div.content[role="main"]::before {
 									text-align: center;
 								}

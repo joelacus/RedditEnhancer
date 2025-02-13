@@ -73,7 +73,10 @@ function enableExpandContentOld() {
 	// }
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-expand-feed-layout';
-	styleElement.textContent = `.listing-page div.content[role="main"],
+	styleElement.textContent = `div.content {
+									margin: .5rem 0;
+								}
+								.listing-page div.content[role="main"],
 								.messages-page div.content[role="main"],
 								.wiki-page div.content[role="main"],
 								.submit-page div.content[role="main"],
@@ -83,6 +86,7 @@ function enableExpandContentOld() {
 								.comments-page div.content[role="main"],
 								.other-discussions-page div.content[role="main"] {
 									width: var(--re-post-width);
+									padding-left: 1rem;
 								}
 								.profile-page div.content[role="main"] {
 									width: var(--re-user-profile-width);
@@ -106,7 +110,15 @@ function enableExpandContentOld() {
 								p#noresults,
 								div.infobar,
 								.commentarea div.menuarea {
-									margin: 10px 0 10px 10px;
+									margin: 10px 0;
+								}
+								.comments-page div.midcol,
+								div.gold-accent.comment-visits-box,
+								div.commentarea > form.usertext {
+									margin-left: 0 !important;
+								}
+								.res-commentBoxes div.comment {
+									margin: 0 0 8px 0 !important;
 								}
 								div.searchpane {
 									margin: 5px;
