@@ -10,6 +10,7 @@
 	justify-self: center;
 	width: 30px;
 	height: 24px;
+	border-radius: 0 !important;
 	background-color: color-mix(in srgb, var(--text-grey) 50%, transparent);
 	mask-size: contain;
 	-webkit-mask-size: contain;
@@ -464,6 +465,14 @@
 	background: linear-gradient(var(--accent), transparent) !important;
 }
 .icon-mouse-scroll {
-	mask: url('../../icons/ui/mouse-scroll.svg');
-	-webkit-mask: url('../../icons/ui/mouse-scroll.svg');
+	mask: url('../../icons/ui/icon-mouse-scroll.svg');
+	-webkit-mask: url('../../icons/ui/icon-mouse-scroll.svg');
+}
+.icon-photo-video {
+	mask: url('../../icons/ui/photo-film-solid.svg');
+	-webkit-mask: url('../../icons/ui/photo-film-solid.svg');
+}
+.icon-comment-threadlines {
+	mask: url('../../icons/ui/icon-comment-threadlines.svg');
+	-webkit-mask: url('../../icons/ui/icon-comment-threadlines.svg');
 }

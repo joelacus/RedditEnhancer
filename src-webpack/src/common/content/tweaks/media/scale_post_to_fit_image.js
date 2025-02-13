@@ -1,7 +1,7 @@
 /* ===== Tweaks - Productivity - Scale Post To Fit Image ===== */
 
 import { disableImageScrollAll } from './scroll_images';
-import { disableFitImageNew } from './scale_tall_images_to_fit_post';
+import { disableFitImageNew } from '../media/scale_tall_images_to_fit_post';
 //import { disableDragImageToResizeAll } from './scale_image_on_drag';
 
 /* === Triggered On Page Load === */
@@ -33,13 +33,16 @@ function enableScalePostToFitImageNewNew() {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-scale-post-to-fit-image';
 		styleElement.textContent = `:root {
-										--re-limit-image-width: 100%
+										--re-limit-image-width: 100%;
+										--re-max-image-post-height: unset;
 									}
+									/* single image */
 									div[id*="aspect-ratio"]:has(img.preview-img) {
 										min-height: fit-content !important;
+										max-height: var(--re-max-image-post-height) !important;
 										padding: 0 !important;
 									}
-										div[id*="aspect-ratio"]:has(img.preview-img) shreddit-media-lightbox-listener {
+									div[id*="aspect-ratio"]:has(img.preview-img) shreddit-media-lightbox-listener {
 										display: block !important;
 										height: fit-content !important;
 									}
@@ -47,6 +50,7 @@ function enableScalePostToFitImageNewNew() {
 										height: fit-content !important;
 										max-width: var(--re-limit-image-width, fit-content);
 										margin: 0 auto;
+										background-color: transparent !important;
 									}
 									div[id*="aspect-ratio"]:has(img.preview-img) shreddit-media-lightbox-listener .post-background-image-filter {
 										display: none;
@@ -56,13 +60,70 @@ function enableScalePostToFitImageNewNew() {
 									}
 									div[id*="aspect-ratio"]:has(img.preview-img) img {
 										margin-bottom: 0 !important;
+										max-height: var(--re-max-image-post-height) !important;
+									}
+									/* gallery */
+									shreddit-post gallery-carousel ul,
+									shreddit-post gallery-carousel ul li,
+									shreddit-post gallery-carousel ul figure{
+										height: fit-content !important;
+									}
+									shreddit-post gallery-carousel ul {
+										max-height: var(--re-max-image-post-height) !important;
+										align-items: center;
+									}
+									shreddit-post gallery-carousel .post-background-image-filter {
+										display: none;
+									}
+									shreddit-post gallery-carousel ul figure {
+										height: 100% !important;
+									}
+									shreddit-post gallery-carousel ul figure > img {
+										max-width: var(--re-limit-image-width, fit-content) !important;
+										max-height: var(--re-max-image-post-height) !important;
+										margin: 0 auto !important;
+									}
+									shreddit-post gallery-carousel::part(gallery) {
+										max-height: fit-content !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
+
 	// Replace all instances of <shreddit-aspect-ratio> with <div>
-	document.querySelectorAll('shreddit-aspect-ratio:has(img.preview-img)').forEach(function (tag) {
-		replaceTag(tag);
-	});
+	let counter = 0;
+	const maxAttempts = 10;
+	const intervalId = setInterval(function () {
+		const images = document.querySelectorAll('shreddit-post shreddit-aspect-ratio:has(img.preview-img)');
+		if (images.length > 0) {
+			images.forEach((image) => {
+				replaceTag(image);
+			});
+			clearInterval(intervalId);
+		} else {
+			counter++;
+			if (counter >= maxAttempts) {
+				clearInterval(intervalId);
+			}
+		}
+	}, 50);
+	// Append shadow part ID
+	let g_counter = 0;
+	const g_maxAttempts = 10;
+	const g_intervalId = setInterval(function () {
+		const galleries = document.querySelectorAll('shreddit-post gallery-carousel');
+		if (galleries.length > 0) {
+			galleries.forEach((gallery) => {
+				appendPart(gallery);
+			});
+			clearInterval(g_intervalId);
+		} else {
+			g_counter++;
+			if (g_counter >= g_maxAttempts) {
+				clearInterval(g_intervalId);
+			}
+		}
+	}, 50);
+	// Start observer
 	if (document.querySelector('shreddit-feed')) {
 		observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
 	}
@@ -92,16 +153,23 @@ function revertTag(tag) {
 	tag.parentNode.replaceChild(newSar, tag);
 }
 
+// Function - Append Part Attribute
+function appendPart(gallery) {
+	gallery.shadowRoot.querySelector('faceplate-carousel').setAttribute('part', 'gallery');
+}
+
 // Observe feed for new posts
 const observer = new MutationObserver((mutations) => {
 	mutations.forEach((mutation) => {
 		mutation.addedNodes.forEach((addedNode) => {
 			if (addedNode.nodeName === 'ARTICLE') {
 				setTimeout(() => {
-					const tag = addedNode.querySelector('shreddit-aspect-ratio:has(img.preview-img)');
-					if (tag) {
-						replaceTag(tag);
-					}
+					document.querySelectorAll('shreddit-post shreddit-aspect-ratio:has(img.preview-img)').forEach((image) => {
+						replaceTag(image);
+					});
+					document.querySelectorAll('shreddit-post gallery-carousel').forEach((gallery) => {
+						appendPart(gallery);
+					});
 				}, 1000);
 			}
 		});

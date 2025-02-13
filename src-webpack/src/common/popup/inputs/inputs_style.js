@@ -751,43 +751,34 @@ document.querySelector('#checkbox-compact-header-side-menu').addEventListener('c
 	sendMessage({ compactHeaderSideMenu: compactHeaderSideMenu });
 });
 
-// Toggle - Text Post Preview Fade
-document.querySelector('#checkbox-text-post-preview-fade').addEventListener('change', function (e) {
-	const textPostPreviewFade = document.querySelector('#checkbox-text-post-preview-fade').checked;
-	if (textPostPreviewFade) {
-		document.querySelectorAll('.icon-text-post-preview-fade').forEach((icon) => {
-			icon.classList.add('active');
-		});
-	} else {
-		document.querySelectorAll('.icon-text-post-preview-fade').forEach((icon) => {
-			icon.classList.remove('active');
-		});
-	}
-	BROWSER_API.storage.sync.set({ textPostPreviewFade: textPostPreviewFade });
-	sendMessage({ textPostPreviewFade: textPostPreviewFade });
-});
-
-// Slider - Text Post Preview Fade Height
-document.querySelector('#input-text-post-preview-fade-height').addEventListener('input', function (e) {
-	const textPostPreviewFade = document.querySelector('#checkbox-text-post-preview-fade').checked;
-	if (textPostPreviewFade) {
-		document.querySelector('.icon-text-post-preview-fade-height').style.backgroundColor = e.target.value != -1 ? 'var(--accent)' : '';
-	}
-	document.querySelector('#text-post-preview-fade-height').textContent = e.target.value != -1 ? e.target.value + 'px' : '';
-	sendMessage({ textPostPreviewFadeHeight: e.target.value });
-});
-document.querySelector('#input-text-post-preview-fade-height').addEventListener('mouseup', function (e) {
-	BROWSER_API.storage.sync.set({ textPostPreviewFadeHeight: e.target.value });
-});
-
 // Toggle - Classic Old Header
-document.querySelector('#checkbox-classic-old-header').addEventListener('change', function (e) {
-	const classicOldHeader = document.querySelector('#checkbox-classic-old-header').checked;
-	if (classicOldHeader) {
-		document.querySelector('.icon-classic-old-header').style.backgroundColor = 'var(--accent)';
+document.querySelector('#checkbox-classic-old-ui').addEventListener('change', function (e) {
+	const classicOldUI = document.querySelector('#checkbox-classic-old-ui').checked;
+	if (classicOldUI) {
+		document.querySelector('.icon-classic-old-ui').style.backgroundColor = 'var(--accent)';
 	} else {
-		document.querySelector('.icon-classic-old-header').style.backgroundColor = '';
+		document.querySelector('.icon-classic-old-ui').style.backgroundColor = '';
 	}
-	BROWSER_API.storage.sync.set({ classicOldHeader: classicOldHeader });
-	sendMessage({ classicOldHeader: classicOldHeader });
+	BROWSER_API.storage.sync.set({ classicOldUI: classicOldUI });
+	sendMessage({ classicOldUI: classicOldUI });
+});
+
+// Toggle - Multicoloured Post Page Comment Thread Lines
+document.querySelector('#checkbox-multicoloured-comment-thread-lines').addEventListener('change', function (e) {
+	const multicolouredThreadLines = document.querySelector('#checkbox-multicoloured-comment-thread-lines').checked;
+	if (multicolouredThreadLines) {
+		document.querySelector('.icon-multicoloured-comment-thread-lines').style.backgroundColor = 'var(--accent)';
+	} else {
+		document.querySelector('.icon-multicoloured-comment-thread-lines').style.backgroundColor = '';
+	}
+	BROWSER_API.storage.sync.set({ multicolouredThreadLines: multicolouredThreadLines });
+	sendMessage({ multicolouredThreadLines: multicolouredThreadLines });
+});
+
+// Input - Multicoloured Post Page Comment Thread Lines Colour List
+document.querySelector('#input-multicoloured-comment-thread-lines-colour-list').addEventListener('input', function (e) {
+	const multicolouredThreadLines = document.querySelector('#checkbox-multicoloured-comment-thread-lines').checked;
+	const list_value = document.querySelector('#input-multicoloured-comment-thread-lines-colour-list').value;
+	BROWSER_API.storage.sync.set({ multicolouredThreadLinesColours: list_value });
+	sendMessage({ multicolouredThreadLines: { multicolouredThreadLines, list_value } });
 });

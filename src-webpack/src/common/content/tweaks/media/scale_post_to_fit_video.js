@@ -2,10 +2,9 @@
 
 /* === Triggered On Page Load === */
 export function loadScalePostToFitVideo() {
-	BROWSER_API.storage.sync.get(['scalePostToFitVideo', 'limitVideoWidth'], function (result) {
+	BROWSER_API.storage.sync.get(['scalePostToFitVideo'], function (result) {
 		if (result.scalePostToFitVideo) {
 			scalePostToFitVideo(true);
-			setLimitVideoWidth(result.limitVideoWidth);
 		}
 	});
 }
@@ -26,9 +25,10 @@ function enableScalePostToFitVideoNewNew() {
 	if (!document.head.querySelector('style[id="re-scale-post-to-fit-video"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-scale-post-to-fit-video';
-		styleElement.textContent = `:root {
-										--re-limit-video-width: 100%
-									}
+		styleElement.textContent = `/*:root {
+										--re-limit-video-width: unset;
+										--re-max-video-post-height: unset;
+									}*/
 									shreddit-aspect-ratio:has(shreddit-player-2) {
 										min-height: fit-content !important;
 										padding: 0 !important;
@@ -40,16 +40,23 @@ function enableScalePostToFitVideoNewNew() {
 									shreddit-aspect-ratio:has(shreddit-player-2) div:has(>img) {
 										height: fit-content !important;
 									}
-									shreddit-player-2 {
+									[slot="post-media-container"] shreddit-player-2 {
 										display: flex;
 										justify-content: center;
 										max-height: fit-content !important;
 										overflow-y: auto !important;
-										max-width: var(--re-limit-video-width, fit-content) !important;
+										max-width: var(--re-limit-video-width, 100%) !important;
 										margin: 0 auto;
 									}
-									shreddit-player-2 {
+									[slot="post-media-container"] shreddit-player-2 {
 										overflow: hidden !important;
+									}
+									[slot="post-media-container"] shreddit-player-2,
+									shreddit-player-2::part(video) {
+										max-height: var(--re-max-video-post-height, fit-content) !important;
+									}
+									shreddit-blurred-container [slot="blurred"] {
+										max-height: var(--re-max-image-post-height) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
@@ -72,6 +79,10 @@ function replaceTag(tag) {
 		newDiv.appendChild(tag.firstChild);
 	}
 	tag.parentNode.replaceChild(newDiv, tag);
+	newDiv.querySelector('shreddit-player-2').shadowRoot.querySelector('video').setAttribute('part', 'video');
+	setTimeout(() => {
+		newDiv.querySelector('shreddit-player-2').shadowRoot.querySelector('video').setAttribute('part', 'video');
+	}, 1000);
 }
 
 // Function - Revert <div> to <shreddit-aspect-ratio>
@@ -92,10 +103,9 @@ const observer = new MutationObserver((mutations) => {
 		mutation.addedNodes.forEach((addedNode) => {
 			if (addedNode.nodeName === 'ARTICLE') {
 				setTimeout(() => {
-					const tag = addedNode.querySelector('shreddit-aspect-ratio:has(shreddit-player-2)');
-					if (tag) {
+					document.querySelectorAll('shreddit-aspect-ratio:has(shreddit-player-2)').forEach((tag) => {
 						replaceTag(tag);
-					}
+					});
 				}, 1000);
 			}
 		});
@@ -112,13 +122,4 @@ export function disableScalePostToFitVideoAll() {
 	document.querySelectorAll('div[id*="aspect-ratio"]:has(shreddit-player-2)').forEach(function (tag) {
 		revertTag(tag);
 	});
-}
-
-// Function - Set Limit Video Width
-export function setLimitVideoWidth(value) {
-	if (value > 9 && value <= 100) {
-		document.documentElement.style.setProperty('--re-limit-video-width', value + '%');
-	} else {
-		document.documentElement.style.removeProperty('--re-limit-video-width');
-	}
 }

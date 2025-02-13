@@ -298,6 +298,7 @@ div.container[style*='none'] + .divider {
 }
 .info {
 	text-align: center;
+	padding: 0 4px 0 4px;
 }
 .info-blue,
 .warning {
@@ -377,6 +378,6 @@ div.container[style*='none'] + .divider {
 }
 
 /* Temp */
-#index-8 {
+#index-9 {
 	display: none;
 }

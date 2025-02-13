@@ -1,14 +1,13 @@
 /* ===== Tweaks - Productivity - Add Scroll Bar To Tall Images ===== */
 
-import { disableFitImageNew } from './scale_tall_images_to_fit_post';
+import { disableFitImageNew } from '../media/scale_tall_images_to_fit_post';
 import { disableScalePostToFitImageAll } from './scale_post_to_fit_image';
 //import { disableDragImageToResizeAll } from './scale_image_on_drag';
 
 /* === Triggered On Page Load === */
 export function loadImageScroll() {
-	BROWSER_API.storage.sync.get(['imageScroll', 'limitImageWidth'], function (result) {
+	BROWSER_API.storage.sync.get(['imageScroll'], function (result) {
 		if (result.imageScroll) imageScroll(true);
-		setLimitImageWidth(result.limitImageWidth);
 	});
 }
 
@@ -62,10 +61,11 @@ function enableImageScrollNewNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-image-scroll';
 	styleElement.textContent = `:root {
-									--re-limit-image-width: 100%
+									--re-limit-image-width: 100%;
+									--re-max-image-post-height: unset;
 								}
 								div[id*="aspect-ratio"]:has(img.preview-img) {
-									max-height: 540px !important;
+									max-height: var(--re-max-image-post-height) !important;
 									overflow-y: auto;
 								}
 								div[id*="aspect-ratio"]:has(img.preview-img) shreddit-media-lightbox-listener div {
@@ -73,6 +73,7 @@ function enableImageScrollNewNew() {
 									overflow-y: auto !important;
 									max-width: var(--re-limit-image-width, fit-content);
 									margin: 0 auto;
+									background-color: transparent !important;
 								}
 								div[id*="aspect-ratio"]:has(img.preview-img) shreddit-media-lightbox-listener .post-background-image-filter {
 									display: none;
@@ -82,8 +83,6 @@ function enableImageScrollNewNew() {
 									height: fit-content;
 									max-height: fit-content;
 									object-fit: cover !important;
-								}
-								div[id*="aspect-ratio"]:has(img.preview-img) img {
 									margin-bottom: 0 !important;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
@@ -148,13 +147,4 @@ export function disableImageScrollAll() {
 	document.querySelectorAll('div[id*="aspect-ratio"]:has(img.preview-img)').forEach(function (tag) {
 		revertTag(tag);
 	});
-}
-
-// Function - Set Limit Image Width
-export function setLimitImageWidth(value) {
-	if (value > 9 && value <= 100) {
-		document.documentElement.style.setProperty('--re-limit-image-width', value + '%');
-	} else {
-		document.documentElement.style.removeProperty('--re-limit-image-width');
-	}
 }

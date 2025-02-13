@@ -24,7 +24,7 @@ import { loadHideSidebarPolicy } from '../../../content/tweaks/hide_elements/hid
 import { loadHideTurnOnNotificationsPopup } from '../../../content/tweaks/hide_elements/hide_turn_on_notifications_popup';
 import { loadHideUsernameAndKarma } from '../../../content/tweaks/hide_elements/hide_username_and_karma';
 import { loadHideUserProfilePics } from '../../../content/tweaks/hide_elements/hide_user_profile_pics';
-import { loadImageScroll } from '../../../content/tweaks/productivity/scroll_images';
+import { loadImageScroll } from '../../../content/tweaks/media/scroll_images';
 import { loadLargerClassicPost } from '../../../content/tweaks/style/larger_classic_post';
 import { loadLayoutCentre } from '../../../content/tweaks/resize_elements/layout_centre_and_offset';
 import { loadNonStickyHeaderBar } from '../../../content/tweaks/productivity/non_sticky_header_bar';
@@ -39,8 +39,9 @@ import { loadHideRecommendedPosts } from '../../../content/tweaks/hide_elements/
 import { loadHideHomeFeed } from '../../../content/tweaks/hide_elements/hide_home_feed';
 import { loadHidePostKarma, loadHideCommentKarma } from '../../../content/tweaks/hide_elements/hide_post_comment_karma';
 import { loadHideVoteButtons } from '../../../content/tweaks/hide_elements/hide_vote_buttons';
-import { loadHideCompactViewThumbnails } from "../../../content/tweaks/hide_elements/hide_compact_view_thumbnails";
-import { loadHideCompactViewBlankThumbnails } from "../../../content/tweaks/hide_elements/hide_compact_view_blank_thumbnails";
+import { limitImageSize } from '../../../content/tweaks/media/limit_media_size';
+import { loadHideCompactViewThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_thumbnails';
+import { loadHideCompactViewBlankThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_blank_thumbnails';
 
 export function tweakLoaderOldNew() {
 	if (typeof useLegacy != 'undefined') {
@@ -125,6 +126,7 @@ function loadCommon() {
 	loadHidePostKarma();
 	loadHideCommentKarma();
 	loadHideVoteButtons();
+	limitImageSize();
 
 	if (!useLegacy) {
 		loadLayoutCentre();

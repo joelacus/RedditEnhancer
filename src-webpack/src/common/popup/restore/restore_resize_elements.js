@@ -248,15 +248,4 @@ export function restorePopupResizeFeedOptions() {
 		document.querySelector('#resize-main-container-width-value').innerText = widthValue + '%';
 		console.log('Resize Main Container Width: ' + widthValue + '%');
 	});
-
-	// Text Post Preview Max Height
-	BROWSER_API.storage.sync.get(['textPostPreviewMaxHeight'], function (result) {
-		const value = result.textPostPreviewMaxHeight || -1;
-		document.querySelector('#input-text-post-preview-max-height').value = value;
-		document.querySelector('#text-post-preview-max-height').innerText = value >= 0 ? value + 'px' : '';
-		if (value > -1) {
-			document.querySelector('.icon-text-post-preview-height').style.backgroundColor = 'var(--accent)';
-		}
-		console.log(`Text Post Preview Max Height: ${value >= 0 ? value + 'px' : 'default'}`);
-	});
 }

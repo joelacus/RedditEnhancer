@@ -1,6 +1,6 @@
 /**
  * Tweaks: Style - Classic Old UI
- * @name classicOldHeader
+ * @name classicOldUI
  * @description Attempt to replicate to the 2005–2008 Reddit interface design. nostalgic
  *
  * Huge thanks to jre and shockawer (userstyles.world) for much of the CSS code.
@@ -9,10 +9,10 @@
  */
 
 // Get the feature state from browser sync storage
-export function loadClassicOldHeader() {
-    BROWSER_API.storage.sync.get(['classicOldHeader']).then((result) => {
-        if (result.classicOldHeader) classicOldHeader(true);
-    });
+export function loadClassicOldUI() {
+	BROWSER_API.storage.sync.get(['classicOldUI']).then((result) => {
+		if (result.classicOldUI) classicOldUI(true);
+	});
 }
 
 /* Activate the feature based on Reddit version
@@ -21,14 +21,13 @@ export function loadClassicOldHeader() {
  * unpredictable. If its width is too much, it gets pushed down under the logo... let's just say it does not look good
  * Uncomment and/or replace the CSS lines, and browse around to see what I mean
  */
-export function classicOldHeader(value) {
-    if (value) {
-        if (redditVersion === 'old') {
-            if (!document.head.querySelector('style[id="re-classic-old-ui"]')) {
-                const styleElement = document.createElement('style');
-                styleElement.id = 're-classic-old-ui';
-                styleElement.textContent =
-                    `
+export function classicOldUI(value) {
+	if (value) {
+		if (redditVersion === 'old') {
+			if (!document.head.querySelector('style[id="re-classic-old-ui"]')) {
+				const styleElement = document.createElement('style');
+				styleElement.id = 're-classic-old-ui';
+				styleElement.textContent = `
                     /* HEADER */
                     div#sr-header-area {
                         border-bottom: none;
@@ -226,13 +225,13 @@ export function classicOldHeader(value) {
                         border: none;
                     }
                     `;
-                document.head.insertBefore(styleElement, document.head.firstChild);
-            }
-        }
-    } else {
-        const dynamicStyleElements = document.head.querySelectorAll('style[id="re-classic-old-ui"]');
-        dynamicStyleElements.forEach((element) => {
-            document.head.removeChild(element);
-        });
-    }
+				document.head.insertBefore(styleElement, document.head.firstChild);
+			}
+		}
+	} else {
+		const dynamicStyleElements = document.head.querySelectorAll('style[id="re-classic-old-ui"]');
+		dynamicStyleElements.forEach((element) => {
+			document.head.removeChild(element);
+		});
+	}
 }

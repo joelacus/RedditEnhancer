@@ -55,7 +55,7 @@ input:disabled {
 	align-items: center;
 	background-color: var(--btn-bg);
 	border: solid 1px var(--btn-border);
-	border-radius: var(--border-radius);
+	border-radius: var(--border-radius) !important;
 	color: var(--btn-fg);
 	transition: background-color 0.1s ease-in-out;
 	padding: 0 8px;

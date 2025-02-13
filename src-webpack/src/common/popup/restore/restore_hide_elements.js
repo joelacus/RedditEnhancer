@@ -363,20 +363,6 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide NSFW Links: ' + value);
 	});
 
-	// Hide See Full Image
-	BROWSER_API.storage.sync.get(['hideSeeFullImage'], function (result) {
-		if (result.hideSeeFullImage == true) {
-			document.querySelector('#checkbox-hide-see-full-image').checked = true;
-			document.querySelector('.icon-hide-see-full-image').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
-			var value = true;
-		} else if (typeof result.hideSeeFullImage == 'undefined' || result.hideSeeFullImage == false) {
-			document.querySelector('#checkbox-hide-see-full-image').checked = false;
-			var value = false;
-		}
-		console.log("Hide 'See Full Image' Button: " + value);
-	});
-
 	// Hide Header Sub Bar
 	BROWSER_API.storage.sync.get(['hideHeaderSubBar'], function (result) {
 		if (result.hideHeaderSubBar == true) {
@@ -947,17 +933,6 @@ export function restorePopupHideElementsOptions() {
 		document.querySelector('#input-post-separator-height').value = value;
 		document.querySelector('#post-separator-height-value').innerText = value >= 0 ? value + 'px' : '';
 		console.log(`Post Separator Length: ${value >= 0 ? value + 'px' : 'default'}`);
-	});
-
-	// Hide Blurred Media Background
-	BROWSER_API.storage.sync.get(['hideBlurredMediaBackground'], function (result) {
-		const hideBlurredMediaBackground = result.hideBlurredMediaBackground === true;
-		if (hideBlurredMediaBackground) highlightMenuIcon('hide-elements');
-		document.querySelector('#checkbox-hide-blurred-media-background').checked = hideBlurredMediaBackground;
-		document.querySelector('.icon-hide-blurred-media-background').style.backgroundColor = hideBlurredMediaBackground ? 'var(--accent)' : '';
-		document.querySelector('.icon-hide-blurred-media-background').classList.toggle('icon-show', !hideBlurredMediaBackground);
-		document.querySelector('.icon-hide-blurred-media-background').classList.toggle('icon-hide', hideBlurredMediaBackground);
-		console.log('Hide Blurred Media Background: ' + hideBlurredMediaBackground);
 	});
 
 	// Hide Vote Buttons

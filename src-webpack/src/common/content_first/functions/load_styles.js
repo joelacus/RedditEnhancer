@@ -117,10 +117,11 @@ const styleScrollToComment = `.re-scroll-to-comment-container {
 								width: 30px;
 								z-index: 9999;
 							}
-							#re-next-comment,#re-prev-comment {
+							#re-next-comment,
+							#re-prev-comment {
 								cursor: pointer;
 								padding: 4px;
-								border-radius: 2px;
+								border-radius: var(--re-theme-border-radius, 4px);
 								background-color: rgba(0,0,0,0.4);
 								color: #fff;
 								height: 22px;
@@ -149,8 +150,7 @@ const stylePagination = `.re-post.hidden {
 							display: none;
 						}`;
 
-const styleOldReddit =
-	`#re-main .listing-chooser {
+const styleOldReddit = `#re-main .listing-chooser {
 		position: absolute !important;
 		top: 70px !important;
 		z-index: 10;

@@ -18,8 +18,12 @@ export function showPostAuthor(value) {
 			document.querySelectorAll('shreddit-post').forEach((post) => {
 				attachUsername(post);
 			});
-			observer.observe(document.querySelector('shreddit-feed'), {childList: true, subtree: true});
+			observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
 		} else if (searchRoutes.includes(routename)) {
+			document.querySelectorAll('search-telemetry-tracker').forEach((post) => {
+				attachUsername(post);
+			});
+			// legacy selector
 			document.querySelectorAll('faceplate-tracker[data-testid="search-post"]').forEach((post) => {
 				attachUsername(post);
 			});
@@ -69,12 +73,8 @@ async function attachUsername(post) {
 				clearTimeout(hoverTimer);
 			});
 		}
-		const selectors = [
-			'[slot="credit-bar"] > span:has(faceplate-timeago)',
-			'[slot="credit-bar"] > div',
-			'span:has([bundlename="faceplate_hovercard"])'
-		];
-		let container = selectors.map(selector => post.querySelector(selector)).find(el => el);
+		const selectors = ['[slot="credit-bar"] > span:has(faceplate-timeago)', '[slot="credit-bar"] > div', 'span:has([bundlename="faceplate_hovercard"])'];
+		let container = selectors.map((selector) => post.querySelector(selector)).find((el) => el);
 		container.querySelector('faceplate-timeago').before(a);
 	}
 }
@@ -113,12 +113,8 @@ async function showHoverCard(post, username) {
 	hoverCard.style.top = linkRect.offsetTop + 20 + 'px';
 
 	// Append the hover card to the body
-	const selectors = [
-		'[slot="credit-bar"] > span:has(faceplate-timeago)',
-		'[slot="credit-bar"] > div',
-		'span:has([bundlename="faceplate_hovercard"])'
-	];
-	let container = selectors.map(selector => post.querySelector(selector)).find(el => el);
+	const selectors = ['[slot="credit-bar"] > span:has(faceplate-timeago)', '[slot="credit-bar"] > div', 'span:has([bundlename="faceplate_hovercard"])'];
+	let container = selectors.map((selector) => post.querySelector(selector)).find((el) => el);
 	container.querySelector('faceplate-timeago').before(hoverCard);
 	post.querySelector('.hover-card').style.display = 'block';
 }

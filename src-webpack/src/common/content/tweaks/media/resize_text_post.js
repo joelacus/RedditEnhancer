@@ -1,7 +1,7 @@
 /* ===== Tweaks - Resize Text Post ===== */
 
 /* === Triggered On Page Load === */
-export function loadResizePostHeight() {
+export function loadResizeTextPostHeight() {
 	BROWSER_API.storage.sync.get(['textPostPreviewMaxHeight'], function (result) {
 		if (result.textPostPreviewMaxHeight) setTextPostPreviewMaxHeight(result.textPostPreviewMaxHeight);
 	});
@@ -119,48 +119,3 @@ export function setTextPostPreviewMaxHeight(value) {
 		document.documentElement.style.removeProperty('--re-text-post-preview-max-height');
 	}
 }
-
-/* ===== Tweaks - Resize Image Post ===== */
-
-/* === Triggered On Page Load === 
-export function loadResizeImagePostHeight() {
-	BROWSER_API.storage.sync.get(['resizeImagePostHeight'], function (result) {
-		if (result.resizeImagePostHeight) resizeImagePostHeight(true);
-	});
-}*/
-
-/* === Main Function === 
-export function resizeImagePostHeight(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableResizeImagePostHeightNewNew();
-		} else if (value === false) {
-			disableResizeImagePostHeightNewNew();
-		}
-	}
-}*/
-
-/* === Enable/Disable Functions === 
-
-// Function - Enable Resize Image Post Height - New New
-function enableResizeImagePostHeightNewNew() {
-	if (!document.head.querySelector('style[id="re-resize-image-post-height"]')) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-resize-image-post-height';
-		styleElement.textContent = `shreddit-post:has(shreddit-aspect-ratio) [slot="post-media-container"] {
-										max-height: 100px;
-										display: flex;
-										flex-direction: column;
-										justify-content: center;
-									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
-}
-
-// Function - Disable Resize Image Post Height - New New
-function disableResizeImagePostHeightNewNew() {
-	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-resize-image-post-height"]');
-	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
-	});
-}*/

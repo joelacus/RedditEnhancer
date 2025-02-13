@@ -430,22 +430,6 @@ document.querySelector('#checkbox-hide-recommended').addEventListener('change', 
 	sendMessage({ hideRecommended: hideRecommended });
 });
 
-// Toggle - Hide See Full Image
-document.querySelector('#checkbox-hide-see-full-image').addEventListener('change', function () {
-	const hideSeeFullImage = document.querySelector('#checkbox-hide-see-full-image').checked;
-	if (hideSeeFullImage) {
-		document.querySelector('.icon-hide-see-full-image').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-hide-see-full-image').classList.remove('icon-show');
-		document.querySelector('.icon-hide-see-full-image').classList.add('icon-hide');
-	} else {
-		document.querySelector('.icon-hide-see-full-image').style.backgroundColor = '';
-		document.querySelector('.icon-hide-see-full-image').classList.add('icon-show');
-		document.querySelector('.icon-hide-see-full-image').classList.remove('icon-hide');
-	}
-	BROWSER_API.storage.sync.set({ hideSeeFullImage: hideSeeFullImage });
-	sendMessage({ hideSeeFullImage: hideSeeFullImage });
-});
-
 // Toggle - Hide Header Sub Bar
 document.querySelector('#checkbox-hide-header-sub-bar').addEventListener('change', function () {
 	const hideHeaderSubBar = document.querySelector('#checkbox-hide-header-sub-bar').checked;
@@ -1095,22 +1079,6 @@ document.querySelector('#input-post-separator-height').addEventListener('input',
 });
 document.querySelector('#input-post-separator-height').addEventListener('mouseup', function (e) {
 	BROWSER_API.storage.sync.set({ postSeparatorHeight: e.target.value });
-});
-
-// Toggle - Hide Blurred Media Background
-document.querySelector('#checkbox-hide-blurred-media-background').addEventListener('change', function () {
-	const hideBlurredMediaBackground = document.querySelector('#checkbox-hide-blurred-media-background').checked;
-	if (hideBlurredMediaBackground) {
-		document.querySelector('.icon-hide-blurred-media-background').classList.remove('icon-show');
-		document.querySelector('.icon-hide-blurred-media-background').classList.add('icon-hide');
-		document.querySelector('.icon-hide-blurred-media-background').style.backgroundColor = 'var(--accent)';
-	} else {
-		document.querySelector('.icon-hide-blurred-media-background').classList.remove('icon-hide');
-		document.querySelector('.icon-hide-blurred-media-background').classList.add('icon-show');
-		document.querySelector('.icon-hide-blurred-media-background').style.backgroundColor = '';
-	}
-	BROWSER_API.storage.sync.set({ hideBlurredMediaBackground: hideBlurredMediaBackground });
-	sendMessage({ hideBlurredMediaBackground: hideBlurredMediaBackground });
 });
 
 // Toggle - Hide Vote Buttons

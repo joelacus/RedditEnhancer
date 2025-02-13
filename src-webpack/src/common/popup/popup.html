@@ -104,6 +104,14 @@
 						<a href="#index-1" data-lang="ResizeLayout"></a>
 						<div class="vdivider"></div>
 					</div>
+					<div data-index="8" class="r-old r-new r-newnew">
+						<a href="#index-8" data-lang="Media"></a>
+						<div class="vdivider"></div>
+					</div>
+					<div data-index="0" class="r-new">
+						<a href="#index-0" data-lang="DarkMode"></a>
+						<div class="vdivider"></div>
+					</div>
 					<div data-index="2" class="r-old r-new r-newnew">
 						<a href="#index-2" data-lang="HideElements"></a>
 						<div class="vdivider"></div>
@@ -132,8 +140,8 @@
 						<a href="#index-0" data-lang="DarkMode"></a>
 						<div class="vdivider"></div>
 					</div>
-					<!--<div data-index="8" class="r-old r-new r-newnew">
-					<a href="#index-8" data-lang="AccountSwitcher"></a>
+					<!--<div data-index="9" class="r-old r-new r-newnew">
+					<a href="#index-9" data-lang="AccountSwitcher"></a>
 					<div class="vdivider"></div>
 				</div>-->
 				</div>
@@ -169,12 +177,7 @@
 								<div class="vdivider"></div>
 							</div>
 							<div class="r-newnew">
-								<a href="#resize-post" data-lang="Post"></a>
-								<div class="vdivider"></div>
-							</div>
-							<div class="r-newnew">
 								<a href="#resize-main-container" data-lang="MainContainer"></a>
-								<!--<div class="vdivider"></div>-->
 							</div>
 						</div>
 					</li>
@@ -303,26 +306,6 @@
 						<input type="range" min="199" max="300" value="0" step="1" class="slider" id="input-side-menu-width" />
 						<span id="side-menu-width-value" class="input-value"></span>
 					</li>
-					<li id="resize-post" class="sub-header r-newnew">
-						<span data-lang="Post"></span>
-					</li>
-					<li class="container r-newnew">
-						<div class="container-3">
-							<span class="menu-item-icon icon-ruler-vertical icon-text-post-preview-height"></span>
-							<span data-lang="TextPostPreviewMaxHeight" data-search="text,post,fade,height"></span>
-							<div></div>
-							<div></div>
-							<input type="range" min="-1" max="500" value="0" step="1" class="slider" id="input-text-post-preview-max-height" />
-							<span id="text-post-preview-max-height" class="input-value"></span>
-						</div>
-						<p class="info"><a id="btn-set-text-post-fade-height" class="link" href="#set-text-post-fade-height" data-lang="TextPostMaxHeightInfo"></a></p>
-					</li>
-					<!--<li class="container-slider">
-						<span class="menu-item-icon icon-ruler-horizontal icon-image-post-max-height"></span>
-						<span data-lang="ImagePostMaxHeight" data-search="image,post,height"></span>
-						<input type="range" min="-1" max="500" value="0" step="1" class="slider" id="input-image-post-max-height" />
-						<span id="image-post-max-height" class="input-value"></span>
-					</li>-->
 					<li id="resize-main-container" class="sub-header r-newnew">
 						<span data-lang="MainContainer"></span>
 					</li>
@@ -386,8 +369,11 @@
 								<a href="#hide-sidebar" data-lang="Sidebar"></a>
 								<div class="vdivider"></div>
 							</div>
-							<div class="r-old"><a href="#hide-sidebar" data-lang="Sidebar"></a></div>
-							<div class="r-new r-newnew"><a href="#hide-posts" data-lang="Post"></a></div>
+							<div class="r-old">
+								<a href="#hide-sidebar" data-lang="Sidebar"></a>
+								<div class="vdivider"></div>
+							</div>
+							<div class="r-old r-new r-newnew"><a href="#hide-posts" data-lang="Post"></a></div>
 						</div>
 					</li>
 					<li id="hide-main" class="sub-header r-old r-new r-newnew">
@@ -831,7 +817,7 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li id="hide-posts" class="sub-header r-new r-newnew">
+					<li id="hide-posts" class="sub-header r-old r-new r-newnew">
 						<span data-lang="Post"></span>
 					</li>
 					<li class="container-3 r-newnew">
@@ -895,14 +881,6 @@
 							<span id="post-separator-height-value" class="input-value"></span>
 						</div>
 					</li>
-					<li class="container-3 r-newnew">
-						<span class="menu-item-icon icon-show icon-hide-blurred-media-background"></span>
-						<span data-lang="HideBlurredMediaBackground" data-search="media,background,image,preview,post"></span>
-						<label class="switch">
-							<input id="checkbox-hide-blurred-media-background" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-					</li>
 					<li class="container r-old r-new r-newnew">
 						<div class="container-3">
 							<span class="menu-item-icon icon-show icon-hide-compact-view-thumbnails"></span>
@@ -933,59 +911,41 @@
 				</ul>
 			</li>
 
-			<li id="index-3" data-index="3">
-				<!-- Productivity Tweaks -->
-				<div id="productivity-tweaks" class="menu-item-link btn-productivity-tweaks r-old r-new r-newnew">
+			<li id="index-8" data-index="8">
+				<!-- Media Tweaks -->
+				<div id="media-tweaks" class="menu-item-link btn-media-tweaks r-old r-new r-newnew">
 					<div class="menu-item-btn">
-						<span class="menu-item-icon icon-gear icon-productivity-tweaks"></span>
-						<span data-lang="Productivity" class="menu-item-title"></span>
+						<span class="menu-item-icon icon-photo-video icon-media-tweaks"></span>
+						<span data-lang="Media" class="menu-item-title"></span>
 						<div class="icon-chevron-down"></div>
 					</div>
 					<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
 				</div>
-				<!-- Productivity Tweaks Sub Menu -->
-				<ul class="sub-list menu-productivity-tweaks hidden r-old r-new r-newnew">
+				<!-- Media Tweaks Sub Menu -->
+				<ul class="sub-list menu-media-tweaks hidden r-old r-new r-newnew">
 					<li class="sub-header sub-search-title">
-						<span data-lang="Productivity"></span>
+						<span data-lang="Media"></span>
 					</li>
-					<li class="sub-header r-old r-new r-newnew">
+					<li class="sub-header r-new r-newnew">
 						<div class="sub-header-menu">
-							<div class="r-old r-new r-newnew">
-								<a href="#productivity-images" data-lang="Images"></a>
+							<div class="r-new r-newnew">
+								<a href="#media-images" data-lang="Images"></a>
 								<div class="vdivider"></div>
 							</div>
-							<div class="r-newnew">
-								<a href="#productivity-video" data-lang="Video"></a>
+							<div class="r-new r-newnew">
+								<a href="#media-video" data-lang="Video"></a>
 								<div class="vdivider"></div>
 							</div>
-							<div class="r-new">
-								<a href="#productivity-text" data-lang="Text"></a>
-								<div class="vdivider"></div>
+							<div class="r-new r-newnew">
+								<a href="#media-text" data-lang="Text"></a>
 							</div>
-							<div class="r-old r-new r-newnew">
-								<a href="#productivity-sort-bar" data-lang="SortBar"></a>
-								<div class="vdivider"></div>
-							</div>
-							<div class="r-old r-new r-newnew">
-								<a href="#productivity-header" data-lang="Header"></a>
-								<div class="vdivider"></div>
-							</div>
-							<div class="r-new">
-								<a href="#productivity-post" data-lang="Post"></a>
-								<div class="vdivider"></div>
-							</div>
-							<div class="r-old r-newnew">
-								<a href="#productivity-post" data-lang="Post"></a>
-								<div class="vdivider"></div>
-							</div>
-							<div class="r-new r-newnew"><a href="#productivity-other" data-lang="Other"></a></div>
 						</div>
 					</li>
-					<li id="productivity-images" class="sub-header r-old r-new r-newnew">
+					<li id="media-images" class="sub-header r-new r-newnew">
 						<span data-lang="Images"></span>
 					</li>
 					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-scale"></span>
+						<span class="menu-item-icon icon-scale icon-fit-image"></span>
 						<span data-lang="FitImage" data-search="post,tall,image,shrink,scale"></span>
 						<label class="switch">
 							<input id="checkbox-fit-image" type="checkbox" />
@@ -1012,12 +972,21 @@
 						</div>
 						<div class="divider"></div>
 						<div class="container-3">
-							<span class="menu-item-icon icon-ruler-horizontal icon-limit-image-width"></span>
-							<span data-lang="LimitImageWidth" data-search=""></span>
+							<span class="menu-item-icon icon-ruler-horizontal icon-max-image-width"></span>
+							<span data-lang="MaxImageWidth" data-search="limit,max"></span>
 							<div></div>
 							<div></div>
-							<input type="range" min="9" max="100" value="9" step="1" class="slider" id="input-limit-image-width" />
-							<span id="limit-image-width-value" class="input-value"></span>
+							<input type="range" min="9" max="100" value="9" step="1" class="slider" id="input-max-image-width" />
+							<span id="max-image-width-value" class="input-value"></span>
+						</div>
+						<div class="divider"></div>
+						<div class="container-3">
+							<span class="menu-item-icon icon-ruler-vertical icon-max-image-post-height"></span>
+							<span data-lang="MaxImagePostHeight" data-search="limit,max"></span>
+							<div></div>
+							<div></div>
+							<input type="range" min="98" max="1000" value="99" step="2" class="slider" id="input-max-image-post-height" />
+							<span id="max-image-post-height-value" class="input-value"></span>
 						</div>
 					</li>
 					<!--<li class="container r-new r-newnew">
@@ -1040,6 +1009,14 @@
 						</div>
 						<p>Known bug, may open the post overlay.</p>
 					</li>-->
+					<li class="container-3 r-newnew">
+						<span class="menu-item-icon icon-show icon-hide-blurred-media-background"></span>
+						<span data-lang="HideBlurredMediaBackground" data-search="media,background,image,preview,post"></span>
+						<label class="switch">
+							<input id="checkbox-hide-blurred-media-background" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
 					<li class="container-3 r-new">
 						<span class="menu-item-icon icon-hide icon-hide-see-full-image"></span>
 						<span data-lang="HideSeeFullImage" data-search=""></span>
@@ -1059,10 +1036,10 @@
 						</div>
 						<p class="info" data-lang="JustOpenTheImageInfo"></p>
 					</li>
-					<li id="productivity-video" class="sub-header r-newnew">
+					<li id="media-video" class="sub-header r-new r-newnew">
 						<span data-lang="Video"></span>
 					</li>
-					<li class="container r-newnew">
+					<li class="container r-new r-newnew">
 						<div class="container-3">
 							<span class="menu-item-icon icon-up-down icon-scale-post-to-fit-video"></span>
 							<span data-lang="ScalePostToFitVideo" data-search="post,scale,tall,video"></span>
@@ -1073,16 +1050,71 @@
 						</div>
 						<div class="divider"></div>
 						<div class="container-3">
-							<span class="menu-item-icon icon-ruler-horizontal icon-limit-video-width"></span>
-							<span data-lang="LimitVideoWidth" data-search="scale,video,width"></span>
+							<span class="menu-item-icon icon-ruler-horizontal icon-max-video-width"></span>
+							<span data-lang="MaxVideoWidth" data-search="scale,video,width,max,limit"></span>
 							<div></div>
 							<div></div>
-							<input type="range" min="9" max="100" value="9" step="1" class="slider" id="input-limit-video-width" />
+							<input type="range" min="9" max="100" value="9" step="1" class="slider" id="input-max-video-width" />
 							<span id="limit-video-width-value" class="input-value"></span>
 						</div>
+						<div class="divider"></div>
+						<div class="container-3">
+							<span class="menu-item-icon icon-ruler-vertical icon-max-video-post-height"></span>
+							<span data-lang="MaxVideoPostHeight" data-search="limit,max"></span>
+							<div></div>
+							<div></div>
+							<input type="range" min="98" max="1000" value="99" step="2" class="slider" id="input-max-video-post-height" />
+							<span id="max-video-post-height-value" class="input-value"></span>
+						</div>
 					</li>
-					<li id="productivity-text" class="sub-header r-new">
+					<li class="container-3 r-new">
+						<span class="menu-item-icon icon-play icon-new-player"></span>
+						<span data-lang="VideoPlayerReplacement" data-search="video,player"></span>
+						<label class="switch">
+							<input id="checkbox-new-player" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+						<div></div>
+						<p data-lang="VideoPlayerInfo"></p>
+					</li>
+					<!--<div class="container-3 r-newnew">
+						<span class="menu-item-icon icon-download icon-add-download-video-button"></span>
+						<span data-lang="AddDownloadVideoButton" data-search="download,save,video"></span>
+						<label class="switch">
+							<input id="checkbox-add-download-video-button" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>-->
+					<li id="media-text" class="sub-header r-new r-newnew">
 						<span data-lang="Text"></span>
+					</li>
+					<li class="container r-newnew">
+						<div class="container-3">
+							<span class="menu-item-icon icon-ruler-vertical icon-text-post-preview-height"></span>
+							<span data-lang="TextPostPreviewMaxHeight" data-search="text,post,fade,height"></span>
+							<div></div>
+							<div></div>
+							<input type="range" min="-1" max="500" value="0" step="1" class="slider" id="input-text-post-preview-max-height" />
+							<span id="text-post-preview-max-height" class="input-value"></span>
+						</div>
+					</li>
+					<li id="set-text-post-fade-height" class="container r-newnew" style="scroll-margin-top: 35px">
+						<div class="container-3">
+							<span class="menu-item-icon icon-fade icon-text-post-preview-fade"></span>
+							<span data-lang="TextPostPreviewFade" data-search="text,post,fade"></span>
+							<label class="switch">
+								<input id="checkbox-text-post-preview-fade" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<div class="container-3">
+							<span class="menu-item-icon icon-ruler-vertical icon-text-post-preview-fade-height"></span>
+							<span data-lang="TextPostPreviewFadeHeight" data-search="text,post,fade"></span>
+							<div></div>
+							<div></div>
+							<input type="range" min="-1" max="500" value="0" step="1" class="slider" id="input-text-post-preview-fade-height" />
+							<span id="text-post-preview-fade-height" class="input-value"></span>
+						</div>
 					</li>
 					<li class="container-3 r-new">
 						<span class="menu-item-icon icon-mouse-scroll icon-text-scroll-post"></span>
@@ -1093,6 +1125,48 @@
 						</label>
 						<div></div>
 						<p class="info" data-lang="TextScrollInfo"></p>
+					</li>
+				</ul>
+			</li>
+
+			<li id="index-3" data-index="3">
+				<!-- Productivity Tweaks -->
+				<div id="productivity-tweaks" class="menu-item-link btn-productivity-tweaks r-old r-new r-newnew">
+					<div class="menu-item-btn">
+						<span class="menu-item-icon icon-gear icon-productivity-tweaks"></span>
+						<span data-lang="Productivity" class="menu-item-title"></span>
+						<div class="icon-chevron-down"></div>
+					</div>
+					<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
+				</div>
+				<!-- Productivity Tweaks Sub Menu -->
+				<ul class="sub-list menu-productivity-tweaks hidden r-old r-new r-newnew">
+					<li class="sub-header sub-search-title">
+						<span data-lang="Productivity"></span>
+					</li>
+					<li class="sub-header r-old r-new r-newnew">
+						<div class="sub-header-menu">
+							<div class="r-old r-new r-newnew">
+								<a href="#productivity-sort-bar" data-lang="SortBar"></a>
+								<div class="vdivider"></div>
+							</div>
+							<div class="r-old r-new r-newnew">
+								<a href="#productivity-header" data-lang="Header"></a>
+								<div class="vdivider"></div>
+							</div>
+							<div class="r-new">
+								<a href="#productivity-post" data-lang="Post"></a>
+								<div class="vdivider"></div>
+							</div>
+							<div class="r-old r-newnew">
+								<a href="#productivity-post" data-lang="Post"></a>
+								<div class="vdivider"></div>
+							</div>
+							<div class="r-old r-new r-newnew">
+								<a href="#productivity-comments" data-lang="Comments"></a>
+							</div>
+							<div class="r-new"><a href="#productivity-other" data-lang="Other"></a></div>
+						</div>
 					</li>
 					<li id="productivity-sort-bar" class="sub-header r-old r-new r-newnew">
 						<span data-lang="SortBar"></span>
@@ -1148,31 +1222,6 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li class="container-3 r-old r-new r-newnew">
-						<span class="menu-item-icon icon-sort icon-default-comments-sort-option"></span>
-						<span data-lang="DefaultCommentsSortOption" data-search=""></span>
-						<div></div>
-						<div></div>
-						<div id="select-comments-sort-option" class="dropdown">
-							<div class="select">
-								<span id="chosen-comments-sort-option">Sort Option</span>
-								<div class="icon dropdown-icon icon-chevron-down"></div>
-							</div>
-							<input type="hidden" name="version" />
-							<ul id="select-comments-sort-option-menu" class="dropdown-menu">
-								<li id="comments-sort-confidence"><span data-lang="Best"></span></li>
-								<li id="comments-sort-top"><span data-lang="Top"></span></li>
-								<li id="comments-sort-new"><span data-lang="New"></span></li>
-								<li id="comments-sort-controversial"><span data-lang="Controversial"></span></li>
-								<li id="comments-sort-old"><span data-lang="Old"></span></li>
-								<li id="comments-sort-qa"><span data-lang="Qa"></span></li>
-							</ul>
-						</div>
-						<label class="switch">
-							<input id="checkbox-default-comments-sort-option" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-					</li>
 					<li id="productivity-header" class="sub-header r-old r-new r-newnew">
 						<span data-lang="Header"></span>
 					</li>
@@ -1219,14 +1268,6 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li class="container-3 r-old">
-						<span class="menu-item-icon icon-user icon-add-profile-pictures-to-comments"></span>
-						<span data-lang="ShowProfilePicturesOnComments" data-search="user,profile,picture,icon,comment"></span>
-						<label class="switch">
-							<input id="checkbox-add-profile-pictures-to-comments" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-					</li>
 					<li class="container-3 r-new">
 						<span class="menu-item-icon icon-numbers icon-show-post-numbers"></span>
 						<span data-lang="ShowPostNumbers" data-search="numbers"></span>
@@ -1245,6 +1286,71 @@
 						<div></div>
 						<input type="range" min="296" max="1000" value="0" step="8" class="slider" id="input-feed-post-max-height" />
 						<span id="feed-post-max-height-value" class="input-value"></span>
+					</li>
+					<li class="container-3 r-new">
+						<span class="menu-item-icon icon-arrow-square open-sub-new-tab"></span>
+						<span data-lang="OpenSubInNewTab" data-search="tab"></span>
+						<label class="switch">
+							<input id="checkbox-open-sub-new-tab" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li class="container-3 r-new">
+						<span class="menu-item-icon icon-arrow-square open-post-new-tab"></span>
+						<span data-lang="OpenPostInNewTab" data-search="tab"></span>
+						<label class="switch">
+							<input id="checkbox-open-post-new-tab" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+						<div></div>
+						<div>
+							<p data-lang="OpenPostInNewTabInfo"></p>
+							<a data-lang="OpenPostInNewTabInfoLink" href="https://www.reddit.com/settings/feed" target="_blank" style="text-decoration: underline"></a>
+						</div>
+					</li>
+					<li class="container-3 r-new r-newnew">
+						<span class="menu-item-icon icon-ellipsis icon-always-show-post-options"></span>
+						<span data-lang="AlwaysShowPostOptions" data-search=""></span>
+						<label class="switch">
+							<input id="checkbox-always-show-post-options" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li id="productivity-comments" class="sub-header r-old r-new r-newnew">
+						<span data-lang="Comments"></span>
+					</li>
+					<li class="container-3 r-old r-new r-newnew">
+						<span class="menu-item-icon icon-sort icon-default-comments-sort-option"></span>
+						<span data-lang="DefaultCommentsSortOption" data-search=""></span>
+						<div></div>
+						<div></div>
+						<div id="select-comments-sort-option" class="dropdown">
+							<div class="select">
+								<span id="chosen-comments-sort-option">Sort Option</span>
+								<div class="icon dropdown-icon icon-chevron-down"></div>
+							</div>
+							<input type="hidden" name="version" />
+							<ul id="select-comments-sort-option-menu" class="dropdown-menu">
+								<li id="comments-sort-confidence"><span data-lang="Best"></span></li>
+								<li id="comments-sort-top"><span data-lang="Top"></span></li>
+								<li id="comments-sort-new"><span data-lang="New"></span></li>
+								<li id="comments-sort-controversial"><span data-lang="Controversial"></span></li>
+								<li id="comments-sort-old"><span data-lang="Old"></span></li>
+								<li id="comments-sort-qa"><span data-lang="Qa"></span></li>
+							</ul>
+						</div>
+						<label class="switch">
+							<input id="checkbox-default-comments-sort-option" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li class="container-3 r-old">
+						<span class="menu-item-icon icon-user icon-add-profile-pictures-to-comments"></span>
+						<span data-lang="ShowProfilePicturesOnComments" data-search="user,profile,picture,icon,comment"></span>
+						<label class="switch">
+							<input id="checkbox-add-profile-pictures-to-comments" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
 					</li>
 					<li class="container r-old r-new r-newnew">
 						<div class="container-3">
@@ -1274,27 +1380,6 @@
 							<span id="scroll-to-root-comment-position-v-value" class="input-value"></span>
 						</div>
 					</li>
-					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-arrow-square open-sub-new-tab"></span>
-						<span data-lang="OpenSubInNewTab" data-search="tab"></span>
-						<label class="switch">
-							<input id="checkbox-open-sub-new-tab" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-					</li>
-					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-arrow-square open-post-new-tab"></span>
-						<span data-lang="OpenPostInNewTab" data-search="tab"></span>
-						<label class="switch">
-							<input id="checkbox-open-post-new-tab" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-						<div></div>
-						<div>
-							<p data-lang="OpenPostInNewTabInfo"></p>
-							<a data-lang="OpenPostInNewTabInfoLink" href="https://www.reddit.com/settings/feed" target="_blank" style="text-decoration: underline"></a>
-						</div>
-					</li>
 					<li class="container-3 r-old r-new">
 						<span class="menu-item-icon icon-comments icon-post-comments-limit"></span>
 						<span data-lang="PostCommentsLimit" data-search="comments,limit"></span>
@@ -1304,14 +1389,6 @@
 						<span id="post-comments-limit-value" class="input-value"></span>
 						<div></div>
 						<p data-lang="LimitCommentsInfo"></p>
-					</li>
-					<li class="container-3 r-new r-newnew">
-						<span class="menu-item-icon icon-ellipsis icon-always-show-post-options"></span>
-						<span data-lang="AlwaysShowPostOptions" data-search=""></span>
-						<label class="switch">
-							<input id="checkbox-always-show-post-options" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
 					</li>
 					<li class="container-3 r-old r-new r-newnew">
 						<span class="menu-item-icon icon-scale icon-auto-collapse-automoderator-comment"></span>
@@ -1342,16 +1419,6 @@
 							</label>
 						</div>
 						<p class="info" data-lang="AutoExpandCommentsInfo"></p>
-					</li>
-					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-play icon-new-player"></span>
-						<span data-lang="VideoPlayerReplacement" data-search="video,player"></span>
-						<label class="switch">
-							<input id="checkbox-new-player" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-						<div></div>
-						<p data-lang="VideoPlayerInfo"></p>
 					</li>
 					<li class="container-3 r-newnew">
 						<span class="menu-item-icon icon-hide icon-auto-show-comment-formatting-options"></span>
@@ -1403,14 +1470,6 @@
 						<div></div>
 						<p data-lang="LimitInfinityScrollInfo"></p>
 					</li>
-					<!--<li class="container-3 r-newnew">
-						<span class="menu-item-icon icon-download icon-add-download-video-button"></span>
-						<span data-lang="AddDownloadVideoButton" data-search="download,save,video"></span>
-						<label class="switch">
-							<input id="checkbox-add-download-video-button" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-					</li>-->
 				</ul>
 			</li>
 
@@ -1553,7 +1612,7 @@
 								<a href="#category-style" data-lang="StyleOptions"></a>
 								<div class="vdivider"></div>
 							</div>
-							<div class="r-new r-newnew"><a href="#style-theme-colours" data-lang="ThemeColours"></a></div>
+							<div class="r-new r-newnew"><a href="#style-theme" data-lang="Theme"></a></div>
 						</div>
 					</li>
 					<li class="container-3 r-new r-newnew">
@@ -1563,6 +1622,21 @@
 							<input id="checkbox-hide-gap" type="checkbox" />
 							<span class="indicator"></span>
 						</label>
+					</li>
+					<li class="container r-newnew">
+						<div class="container-3">
+							<span class="menu-item-icon icon-comment-threadlines icon-multicoloured-comment-thread-lines"></span>
+							<span data-lang="MulticolouredCommentThreadLines" data-search="comment,thread,lines"></span>
+							<label class="switch">
+								<input id="checkbox-multicoloured-comment-thread-lines" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+							<div></div>
+							<div class="css-input-container">
+								<input id="input-multicoloured-comment-thread-lines-colour-list" type="text" placeholder="red, #f00, rgb(0,0,255)" />
+							</div>
+						</div>
+						<p class="info" data-lang="MulticolouredCommentThreadLinesInfo"></p>
 					</li>
 					<li class="container-3 r-old r-new">
 						<span class="menu-item-icon icon-expand icon-larger-classic-post"></span>
@@ -1575,7 +1649,6 @@
 					<li class="sub-header r-new">
 						<span data-lang="Shadow"></span>
 					</li>
-					<!-- Drop Shadow Style -->
 					<li class="container r-new">
 						<div class="container-3">
 							<span class="menu-item-icon icon-light-off icon-shadow"></span>
@@ -1608,37 +1681,17 @@
 							<span class="indicator"></span>
 						</label>
 						<div style="position: relative; margin-top: 16px; width: 400px">
-							<p data-lang="ModerniseOldRedditInfo"></p>
-							<p>Does not currently work with custom community themes. Please <b>disable</b> this option in your reddit preferences:<br /><b>"allow subreddits to show me custom themes"</b>.</p>
+							<p class="info" data-lang="ModerniseOldRedditInfo"></p>
+							<p class="info">Does not currently work with custom community themes. Please <b>disable</b> this option in your reddit preferences:<br /><b>"allow subreddits to show me custom themes"</b>.</p>
 						</div>
 					</li>
 					<li class="container-3 r-old">
-						<span class="menu-item-icon icon-spray-can icon-classic-old-header"></span>
-						<span data-lang="ClassicOldHeader" data-search="header"></span>
+						<span class="menu-item-icon icon-spray-can icon-classic-old-ui"></span>
+						<span data-lang="ClassicOldUI" data-search="header"></span>
 						<label class="switch">
-							<input id="checkbox-classic-old-header" type="checkbox" />
+							<input id="checkbox-classic-old-ui" type="checkbox" />
 							<span class="indicator"></span>
 						</label>
-					</li>
-					<li class="container r-new r-newnew">
-						<div class="container-3">
-							<span class="menu-item-icon icon-blur icon-theme-blur"></span>
-							<span data-lang="ThemeBlur" data-search=""></span>
-							<div></div>
-							<div></div>
-							<input type="range" min="0" max="50" value="0" step="1" class="slider" id="input-theme-blur" />
-							<span id="theme-blur-value" class="input-value"></span>
-							<div></div>
-						</div>
-						<p class="info" data-lang="ThemeBlurInfo"></p>
-					</li>
-					<li class="container-3 r-newnew">
-						<span class="menu-item-icon icon-square icon-border-radius-amount"></span>
-						<span data-lang="BorderRadiusAmount" data-search=""></span>
-						<div></div>
-						<div></div>
-						<input type="range" min="-1" max="40" value="0" step="1" class="slider" id="input-border-radius-amount" />
-						<span id="border-radius-amount-value" class="input-value"></span>
 					</li>
 					<li class="container r-newnew">
 						<div class="container-3">
@@ -1668,26 +1721,9 @@
 							</label>
 						</div>
 					</li>
-					<li id="set-text-post-fade-height" class="container r-newnew" style="scroll-margin-top: 35px">
-						<div class="container-3">
-							<span class="menu-item-icon icon-fade icon-text-post-preview-fade"></span>
-							<span data-lang="TextPostPreviewFade" data-search="text,post,fade"></span>
-							<label class="switch">
-								<input id="checkbox-text-post-preview-fade" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-						</div>
-						<div class="container-3">
-							<span class="menu-item-icon icon-ruler-vertical icon-text-post-preview-fade-height"></span>
-							<span data-lang="TextPostPreviewFadeHeight" data-search="text,post,fade"></span>
-							<div></div>
-							<div></div>
-							<input type="range" min="-1" max="500" value="0" step="1" class="slider" id="input-text-post-preview-fade-height" />
-							<span id="text-post-preview-fade-height" class="input-value"></span>
-						</div>
-					</li>
-					<li id="style-theme-colours" class="sub-header r-new r-newnew">
-						<span data-lang="ThemeColours"></span>
+					<!-- Theme -->
+					<li id="style-theme" class="sub-header r-new r-newnew">
+						<span data-lang="Theme"></span>
 					</li>
 					<li class="sub-header r-new r-newnew" style="margin-bottom: 16px; top: 24px">
 						<div class="sub-header-menu">
@@ -1717,6 +1753,26 @@
 							</div>
 							<div class="r-new r-newnew"><a href="#theme-blacklist-whitelist" data-lang="WhitelistBlacklist"></a></div>
 						</div>
+					</li>
+					<li class="container r-new r-newnew">
+						<div class="container-3">
+							<span class="menu-item-icon icon-blur icon-theme-blur"></span>
+							<span data-lang="ThemeBlur" data-search=""></span>
+							<div></div>
+							<div></div>
+							<input type="range" min="0" max="50" value="0" step="1" class="slider" id="input-theme-blur" />
+							<span id="theme-blur-value" class="input-value"></span>
+							<div></div>
+						</div>
+						<p class="info" data-lang="ThemeBlurInfo"></p>
+					</li>
+					<li class="container-3 r-newnew">
+						<span class="menu-item-icon icon-square icon-border-radius-amount"></span>
+						<span data-lang="BorderRadiusAmount" data-search=""></span>
+						<div></div>
+						<div></div>
+						<input type="range" min="-1" max="40" value="0" step="1" class="slider" id="input-border-radius-amount" />
+						<span id="border-radius-amount-value" class="input-value"></span>
 					</li>
 					<!-- Header Style -->
 					<li id="theme-header" class="sub-header r-new r-newnew" style="scroll-margin-top: 55px">
@@ -2311,7 +2367,7 @@
 				</ul>
 			</li>
 
-			<li id="index-8" data-index="8">
+			<li id="index-9" data-index="9">
 				<!-- Account Switcher
 				<div id="account-switcher-tweaks" class="menu-item-link btn-account-switcher r-new r-newnew">
 					<div class="menu-item-btn">

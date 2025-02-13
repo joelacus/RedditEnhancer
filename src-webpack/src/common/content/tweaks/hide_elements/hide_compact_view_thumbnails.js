@@ -38,8 +38,11 @@ function enableHideCompactViewThumbnailsOld() {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-compact-view-thumbnails';
 		styleElement.textContent = `a.thumbnail {
-										display: none;
+										display: none !important;
 										visibility: hidden;
+									}
+									.thing .top-matter {
+										margin-left: 4px !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

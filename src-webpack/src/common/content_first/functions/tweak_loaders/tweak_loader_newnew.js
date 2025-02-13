@@ -39,12 +39,14 @@ import { loadHideCompactViewBlankThumbnails } from '../../../content/tweaks/hide
 import { loadHideCommunityHighlights } from '../../../content/tweaks/hide_elements/hide_community_highlights';
 import { loadHideSearchSidebarNsfwUsers } from '../../../content/tweaks/hide_elements/hide_search_page_sidebar_nsfw_users';
 import { loadHideHomeFeed } from '../../../content/tweaks/hide_elements/hide_home_feed';
-import { loadFullWidthBanner, loadCompactHeaderSideMenu, loadTextPostPreviewFade } from '../../../content/tweaks/style/old_new_ui';
+import { loadFullWidthBanner, loadCompactHeaderSideMenu } from '../../../content/tweaks/style/old_new_ui';
+import { loadTextPostPreviewFade } from '../../../content/tweaks/media/text_preview_fade';
 import { loadHidePostDivider } from '../../../content/tweaks/hide_elements/hide_post_divider';
-import { loadHideBlurredMediaBackground } from '../../../content/tweaks/hide_elements/hide_blurred_media_background';
+import { loadHideBlurredMediaBackground } from '../../../content/tweaks/media/hide_blurred_media_background';
 import { loadResizeMainContainer } from '../../../content/tweaks/resize_elements/resize_main_container';
 import { loadHideCompactViewThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_thumbnails';
-import { loadResizePostHeight } from '../../../content/tweaks/resize_elements/resize_post';
+import { loadResizeTextPostHeight } from '../../../content/tweaks/media/resize_text_post';
+import { limitImageSize } from '../../../content/tweaks/media/limit_media_size';
 
 export function tweakLoaderNewNew() {
 	loadCustomBackground();
@@ -95,7 +97,8 @@ export function tweakLoaderNewNew() {
 	loadCompactHeaderSideMenu();
 	loadResizeMainContainer();
 	loadTextPostPreviewFade();
-	loadResizePostHeight();
+	loadResizeTextPostHeight();
+	limitImageSize();
 
 	// Always Show Post Options
 	waitForAddedNode({

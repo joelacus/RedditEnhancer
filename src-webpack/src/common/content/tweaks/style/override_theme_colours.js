@@ -582,6 +582,9 @@ export function themePostBackgroundColour(value) {
 											margin-bottom: 0;
 											padding-left: 8px;
 											padding-top: 8px;
+										}
+										shreddit-comments-sort-dropdown {
+											--color-neutral-background: transparent !important;
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
 		});
@@ -600,9 +603,82 @@ export function themePostBackgroundColourCSS(value) {
 		BROWSER_API.storage.sync.get(['themePostBackgroundColour'], function (result) {
 			if (result.themePostBackgroundColour === true) {
 				document.documentElement.style.setProperty('--re-theme-post-bg', value);
+				if (value.includes('rgba')) {
+					fixThreadlinesForTranslucentPosts();
+				} else {
+					undoFixThreadlinesForTranslucentPosts();
+				}
 			}
 		});
 	}
+}
+
+// Function - Run After Page Has Loaded Comments
+export function loadFixThreadlinesForTranslucentPosts() {
+	BROWSER_API.storage.sync.get(['themePostBackgroundColourCSS'], function (result) {
+		if (result.themePostBackgroundColourCSS.includes('rgba')) {
+			fixThreadlinesForTranslucentPosts();
+			comment_observer.observe(document.querySelector('shreddit-comment-tree'), { childList: true, subtree: true });
+		} else {
+			comment_observer.disconnect();
+			undoFixThreadlinesForTranslucentPosts();
+		}
+	});
+}
+
+// Observe Feed For New Comments
+const comment_observer = new MutationObserver(function (mutations) {
+	mutations.forEach(function (mutation) {
+		mutation.addedNodes.forEach(function (addedNode) {
+			if (addedNode.nodeName === '#comment') {
+				fixThreadlinesForTranslucentPosts();
+				setTimeout(() => {
+					fixThreadlinesForTranslucentPosts();
+				}, 100);
+				setTimeout(() => {
+					fixThreadlinesForTranslucentPosts();
+				}, 1000);
+			}
+		});
+	});
+});
+
+// Function - Fix Comment Threadlines For Translucent Post Background Colours
+function fixThreadlinesForTranslucentPosts() {
+	if (!document.head.querySelector('style[id="re-theme-fix-comment-threadline"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-theme-fix-comment-threadline';
+		styleElement.textContent = `shreddit-comment {
+										--color-neutral-background: transparent !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
+	document.querySelectorAll('shreddit-comment').forEach((comment) => {
+		const main_thread = comment.shadowRoot.querySelector('[data-testid="main-thread-line"]');
+		const last_thread = comment.shadowRoot.querySelector('#comment-children .threadline:last-of-type');
+		if (main_thread && last_thread) {
+			const last_thread_height = last_thread.offsetHeight;
+			main_thread.style.position = 'absolute';
+			main_thread.style.top = '0';
+			main_thread.style.height = `calc(100% - ${last_thread_height}px + 13px)`;
+		}
+	});
+}
+
+// Function - Undo Fix Comment Threadlines For Translucent Post Background Colours
+function undoFixThreadlinesForTranslucentPosts() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-fix-comment-threadline"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+	document.querySelectorAll('shreddit-comment').forEach((comment) => {
+		const main_thread = comment.shadowRoot.querySelector('[data-testid="main-thread-line"]');
+		const last_thread = comment.shadowRoot.querySelector('#comment-children .threadline:last-of-type');
+		if (main_thread && last_thread) {
+			main_thread.removeAttribute('style');
+			last_thread.removeAttribute('style');
+		}
+	});
 }
 
 // Post Text Colour

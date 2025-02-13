@@ -10,7 +10,7 @@ import { loadAutoExpandValue } from './tweaks/resize_elements/auto_expand_value'
 import { loadBionicReaderForComments, loadBionicReaderForPosts } from './tweaks/accessibility/bionic_reader';
 import { loadBreakReminder } from './tweaks/productivity/break_reminder';
 import { loadDarkModeAuto } from './tweaks/dark_mode/dark_mode';
-import { loadFitImage } from './tweaks/productivity/scale_tall_images_to_fit_post';
+import { loadFitImage } from './tweaks/media/scale_tall_images_to_fit_post';
 import { loadHideNSFW } from './tweaks/hide_elements/hide_nsfw';
 import { loadHideOriginalScrollToTop } from './tweaks/hide_elements/hide_original_scroll_to_top';
 import { loadHideSeeFullImage } from './tweaks/hide_elements/hide_see_full_image';
@@ -40,11 +40,13 @@ import { loadAddProfilePicturesToComments } from './tweaks/productivity/add_prof
 import { loadCompactSubRuleList } from './tweaks/style/old_new_ui';
 import { loadHideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
 import { loadSidebarToggleButton } from './tweaks/hide_elements/sidebar_toggle_button';
-import { loadScalePostToFitImage } from './tweaks/productivity/scale_post_to_fit_image';
-import { loadImageScroll } from './tweaks/productivity/scroll_images';
-import { loadScalePostToFitVideo } from './tweaks/productivity/scale_post_to_fit_video';
-import { loadAutoShowCommentFormattingOptions } from "./tweaks/productivity/auto_show_comment_formatting_options";
-import { addBorderRadiusToShadowRootElements } from "./tweaks/style/border_radius";
+import { loadScalePostToFitImage } from './tweaks/media/scale_post_to_fit_image';
+import { loadImageScroll } from './tweaks/media/scroll_images';
+import { loadScalePostToFitVideo } from './tweaks/media/scale_post_to_fit_video';
+import { loadFixThreadlinesForTranslucentPosts } from './tweaks/style/override_theme_colours';
+import { loadMulticolouredThreadLines } from './tweaks/style/multicoloured_threadlines';
+import { loadAutoShowCommentFormattingOptions } from './tweaks/productivity/auto_show_comment_formatting_options';
+import { addBorderRadiusToShadowRootElements } from './tweaks/style/border_radius';
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -121,7 +123,7 @@ export function loadTweaks() {
 					loadAutoShowCommentFormattingOptions();
 				}, 500);
 			},
-		})
+		});
 		waitForAddedNode({
 			query: 'faceplate-expandable-section-helper:has([aria-controls="moderation_section"])',
 			parent: document.querySelector('body'),
@@ -189,6 +191,18 @@ export function loadTweaks() {
 					loadScalePostToFitVideo();
 					loadImageScroll();
 				}, 1000);
+			},
+		});
+
+		waitForAddedNode({
+			query: 'shreddit-comment-tree shreddit-comment',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function () {
+				setTimeout(() => {
+					loadFixThreadlinesForTranslucentPosts();
+					loadMulticolouredThreadLines();
+				}, 2000);
 			},
 		});
 	}

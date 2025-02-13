@@ -409,7 +409,9 @@ function enableExpandContentNewNew() {
 				grid-template-columns: auto !important;
 			}
 		}
-		`;
+		shreddit-app[pagetype="post_submit"] main.main {
+			width: 100% !important;
+		}`;
 	document.head.appendChild(styleElement);
 	document.documentElement.classList.add('re-expand-feed-layout');
 }

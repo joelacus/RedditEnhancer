@@ -12,6 +12,7 @@ import './inputs/inputs_dark_mode';
 import './inputs/inputs_resize_elements';
 import './inputs/inputs_font';
 import './inputs/inputs_hide_elements';
+import './inputs/inputs_media';
 import './inputs/inputs_productivity';
 import './inputs/inputs_style';
 import './inputs/language_select';

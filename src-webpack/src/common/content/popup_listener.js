@@ -15,7 +15,7 @@ import { bionicReaderComments } from './tweaks/accessibility/bionic_reader';
 import { breakReminder } from './tweaks/productivity/break_reminder';
 import { darkMode, darkModeAutoListener } from './tweaks/dark_mode/dark_mode';
 import { expandLayout, expandPostOverlayWidth, expandPostWidth, expandSubWidth, expandLayoutWidth, expandUserProfileWidth, expandTopicFeedWidth, expandCustomFeedWidth } from './tweaks/resize_elements/expand_content';
-import { fitImage } from './tweaks/productivity/scale_tall_images_to_fit_post';
+import { fitImage } from './tweaks/media/scale_tall_images_to_fit_post';
 import { hideCreatePost } from './tweaks/hide_elements/hide_create_post';
 import { hideGap } from './tweaks/style/hide_gap';
 import { hideGetNewReddit } from './tweaks/hide_elements/hide_get_new_reddit';
@@ -36,7 +36,8 @@ import { hideSideMenuCommunitiesSection, hideSideMenuCustomFeedsSection, hideSid
 import { hideTurnOnNotificationsPopup } from './tweaks/hide_elements/hide_turn_on_notifications_popup';
 import { hideUsername, hideKarma } from './tweaks/hide_elements/hide_username_and_karma';
 import { hideUserProfilePics } from './tweaks/hide_elements/hide_user_profile_pics';
-import { imageScroll, setLimitImageWidth } from './tweaks/productivity/scroll_images';
+import { imageScroll } from './tweaks/media/scroll_images';
+import { setMaxImagePostHeight, setMaxImageWidth, setMaxVideoWidth, setMaxVideoPostHeight } from './tweaks/media/limit_media_size';
 import { largerClassicPost } from './tweaks/style/larger_classic_post';
 import { layoutCentre, layoutOffset, layoutSubOffset, layoutPostOffset, layoutUserProfileOffset, layoutSearchPageOffset } from './tweaks/resize_elements/layout_centre_and_offset';
 import { limitInfinityScroll } from './tweaks/productivity/limit_infinity_scroll';
@@ -119,7 +120,7 @@ import { useCustomBackground, setCustomBackground } from './tweaks/background/cu
 import { underlineLinks } from './tweaks/accessibility/underline_links';
 import { autoShowCommentFormattingOptions } from './tweaks/productivity/auto_show_comment_formatting_options';
 import { hideRecommended } from './tweaks/hide_elements/hide_recommended';
-import { scalePostToFitImage } from './tweaks/productivity/scale_post_to_fit_image';
+import { scalePostToFitImage } from './tweaks/media/scale_post_to_fit_image';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 import { hidePostBackButton } from './tweaks/hide_elements/hide_post_back_button';
 import { borderRadiusAmount } from './tweaks/style/border_radius';
@@ -137,16 +138,18 @@ import { rememberSideMenuSectionHiddenState } from './tweaks/hide_elements/remem
 import { hideHomeFeed } from './tweaks/hide_elements/hide_home_feed';
 import { addProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
 import { hidePostDivider, postSeparatorHeight } from './tweaks/hide_elements/hide_post_divider';
-import { hideBlurredMediaBackground } from './tweaks/hide_elements/hide_blurred_media_background';
-import { fullWidthBanner, compactHeaderSideMenu, compactSubRuleList, textPostPreviewFade, setTextPostPreviewFadeHeight } from './tweaks/style/old_new_ui';
+import { hideBlurredMediaBackground } from './tweaks/media/hide_blurred_media_background';
+import { fullWidthBanner, compactHeaderSideMenu, compactSubRuleList } from './tweaks/style/old_new_ui';
+import { textPostPreviewFade, setTextPostPreviewFadeHeight } from './tweaks/media/text_preview_fade';
 import { resizeMainContainer, resizeMainContainerWidth } from './tweaks/resize_elements/resize_main_container';
 import { hideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
 import { sidebarToggleButton } from './tweaks/hide_elements/sidebar_toggle_button';
 import { hideCompactViewThumbnails } from './tweaks/hide_elements/hide_compact_view_thumbnails';
-import { setTextPostPreviewMaxHeight } from './tweaks/resize_elements/resize_post';
+import { setTextPostPreviewMaxHeight } from './tweaks/media/resize_text_post';
 import { customFonts } from './tweaks/font/custom_fonts';
-import { scalePostToFitVideo, setLimitVideoWidth } from './tweaks/productivity/scale_post_to_fit_video';
-import { classicOldHeader } from "./tweaks/style/classic_old_header";
+import { scalePostToFitVideo } from './tweaks/media/scale_post_to_fit_video';
+import { classicOldUI } from './tweaks/style/classic_old_ui';
+import { multicolouredThreadLines } from './tweaks/style/multicoloured_threadlines';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 /* = Listen For Settings Change = */
@@ -198,10 +201,14 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		fitImage(value);
 	} else if (key === 'imageScroll') {
 		imageScroll(value);
-	} else if (key === 'setLimitImageWidth') {
-		setLimitImageWidth(value);
-	} else if (key === 'setLimitVideoWidth') {
-		setLimitVideoWidth(value);
+	} else if (key === 'setMaxImageWidth') {
+		setMaxImageWidth(value);
+	} else if (key === 'setMaxImagePostHeight') {
+		setMaxImagePostHeight(value);
+	} else if (key === 'setMaxVideoWidth') {
+		setMaxVideoWidth(value);
+	} else if (key === 'setMaxVideoPostHeight') {
+		setMaxVideoPostHeight(value);
 	} else if (key === 'hideRedditPremium') {
 		hideRedditPremium(value);
 	} else if (key === 'hideCreatePost') {
@@ -564,8 +571,10 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		customFonts(value);
 	} else if (key === 'sidebarToggleButton') {
 		sidebarToggleButton(value);
-	} else if (key === 'classicOldHeader') {
-		classicOldHeader(value);
+	} else if (key === 'multicolouredThreadLines') {
+		multicolouredThreadLines(value);
+	} else if (key === 'classicOldUI') {
+		classicOldUI(value);
 	}
 	return true;
 });
