@@ -30,7 +30,6 @@ import { loadSidemenuFeedTop } from './tweaks/productivity/sidemenu_feed_top';
 import { loadTextPostScroll } from './tweaks/productivity/text_post_scroll';
 import { loadAutoLoadMoreComments } from './tweaks/productivity/auto_load_more_comments';
 import { waitForAddedNode } from '../content_first/functions/tweak_loaders/main_observer';
-import { loadAutoShowCommentFormattingOptions } from './tweaks/productivity/auto_show_comment_formatting_options';
 import { loadHidePostKarma, loadHideCommentKarma } from './tweaks/hide_elements/hide_post_comment_karma';
 import { loadSideMenuIconsOnly } from './tweaks/hide_elements/side_menu_icons_only';
 import { loadHideSideMenuFavouriteButton } from './tweaks/hide_elements/hide_side_menu_favourite_button';
@@ -39,12 +38,13 @@ import { loadHideNsfwInSearchResults, loadHideTrendingTodayInSearchResults } fro
 import { loadRememberSideMenuSectionHiddenState } from './tweaks/hide_elements/remember_side_menu_section_hidden_state';
 import { loadAddProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
 import { loadCompactSubRuleList } from './tweaks/style/old_new_ui';
-import { addBorderRadiusToShadowRootElements } from './tweaks/style/border_radius';
 import { loadHideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
 import { loadSidebarToggleButton } from './tweaks/hide_elements/sidebar_toggle_button';
 import { loadScalePostToFitImage } from './tweaks/productivity/scale_post_to_fit_image';
 import { loadImageScroll } from './tweaks/productivity/scroll_images';
 import { loadScalePostToFitVideo } from './tweaks/productivity/scale_post_to_fit_video';
+import { loadAutoShowCommentFormattingOptions } from "./tweaks/productivity/auto_show_comment_formatting_options";
+import { addBorderRadiusToShadowRootElements } from "./tweaks/style/border_radius";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -95,32 +95,7 @@ export function loadTweaks() {
 		loadCompactSubRuleList();
 
 		// Wait for elements to load on the page before loading tweaks.
-		waitForAddedNode({
-			query: 'aside#right-rail-experience-root',
-			parent: document.querySelector('body'),
-			recursive: true,
-			done: function (el) {
-				addBorderRadiusToShadowRootElements();
-				setTimeout(() => {
-					addBorderRadiusToShadowRootElements();
-				}, 500);
-			},
-		});
-		waitForAddedNode({
-			query: 'comment-body-header',
-			parent: document.querySelector('body'),
-			recursive: true,
-			done: function (el) {
-				setTimeout(() => {
-					loadAutoShowCommentFormattingOptions();
-					addBorderRadiusToShadowRootElements();
-				}, 2000);
-				setTimeout(() => {
-					// loadAutoShowCommentFormattingOptions();
-					addBorderRadiusToShadowRootElements();
-				}, 10000);
-			},
-		});
+		setTimeout(addBorderRadiusToShadowRootElements, 2000);
 		waitForAddedNode({
 			query: '#communities_section left-nav-communities-controller',
 			shadowRoot: true,
@@ -137,7 +112,16 @@ export function loadTweaks() {
 				}, 10000);
 			},
 		});
-
+		waitForAddedNode({
+			query: 'shreddit-comment-tree',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function () {
+				setTimeout(() => {
+					loadAutoShowCommentFormattingOptions();
+				}, 500);
+			},
+		})
 		waitForAddedNode({
 			query: 'faceplate-expandable-section-helper:has([aria-controls="moderation_section"])',
 			parent: document.querySelector('body'),

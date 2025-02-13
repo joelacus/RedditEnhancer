@@ -33,7 +33,7 @@ export function postTitleFontSize(value) {
 			if (!document.querySelector('style[id="re-post-title-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-post-title-font-size';
-				styleElement.textContent = `.Post [data-adclicklocation="title"] h3,
+				styleElement.textContent = `.Post [data-adclicklocation="title"] h1,
 				 							.Post:not(.scrollerItem) [data-adclicklocation="title"] div[style*="--posttitletextcolor"] {
 												font-size: var(--re-post-title-font-size);
 												line-height: 1.5;
@@ -196,6 +196,16 @@ export function feedPostTitleFontSize(value) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-feed-post-title-font-size';
 				styleElement.textContent = `.listing-page .thing p.title > a {
+												font-size: var(--re-feed-post-title-font-size);
+												line-height: 1.4;
+											}`;
+				document.head.insertBefore(styleElement, document.head.firstChild);
+			}
+		} else if (redditVersion === 'new') {
+			if (!document.querySelector('style[id="re-feed-post-title-font-size"]')) {
+				const styleElement = document.createElement('style');
+				styleElement.id = 're-feed-post-title-font-size';
+				styleElement.textContent = `.Post [data-adclicklocation="title"] h3 {
 												font-size: var(--re-feed-post-title-font-size);
 												line-height: 1.4;
 											}`;

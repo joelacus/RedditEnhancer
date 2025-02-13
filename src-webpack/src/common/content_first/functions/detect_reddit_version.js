@@ -11,17 +11,17 @@ export function detectRedditVersion() {
 	if (window.tweaksLoaded) return;
 	window.tweaksLoaded = true;
 
-	const link = window.location.href;
-	if (link.indexOf('sh.reddit.com') >= 0) {
+	const link = window.location.hostname;
+	if (link === 'sh.reddit.com') {
 		window.redditVersion = 'newnew';
 		tweakLoaderNewNew();
-	} else if (link.indexOf('new.reddit.com') >= 0) {
+	} else if (link === 'new.reddit.com') {
 		window.redditVersion = 'new';
 		tweakLoaderOldNew();
-	} else if (link.indexOf('old.reddit.com') >= 0) {
+	} else if (link === 'old.reddit.com') {
 		window.redditVersion = 'old';
 		tweakLoaderOld();
-	} else if (link.indexOf('www.reddit.com') >= 0) {
+	} else if (link.includes('reddit.com')) {
 		// New New UI (SH)
 		waitForAddedNode({
 			query: 'shreddit-app',
