@@ -47,6 +47,12 @@
 	"ClassicLight": {
 		"message": "Klasszikus Világos"
 	},
+	"ClassicOldUI": {
+		"message": "Klasszikus régi felhasználói felület"
+	},
+	"Comments": {
+		"message": "Megjegyzések"
+	},
 	"CommentsCount": {
 		"message": "A megjegyzések számítanak"
 	},
@@ -98,9 +104,6 @@
 	"HomeFeedWidth": {
 		"message": "Kezdőlap hírfolyam szélessége"
 	},
-	"ImagePostMaxHeight": {
-		"message": "A képoszlopok maximális magassága"
-	},
 	"ImageScroll": {
 		"message": "Adjon hozzá görgetősávokat a képekhez"
 	},
@@ -113,14 +116,26 @@
 	"Light": {
 		"message": "Világos"
 	},
-	"LimitVideoWidth": {
-		"message": "Korlátozza a videó szélességét"
+	"MaxImagePostHeight": {
+		"message": "Maximális képoszlopmagasság"
 	},
-	"MaxImageHeight": {
-		"message": "Maximális képmagasság"
+	"MaxImageWidth": {
+		"message": "Maximális képszélesség"
 	},
-	"MaxVideoHeight": {
-		"message": "Maximális videómagasság"
+	"MaxVideoPostHeight": {
+		"message": "Maximális video-postmagasság"
+	},
+	"MaxVideoWidth": {
+		"message": "Maximális videó szélessége"
+	},
+	"Media": {
+		"message": "Média"
+	},
+	"MulticolouredCommentThreadLines": {
+		"message": "Többszínű kommentárszál sorok"
+	},
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "Választható. Sorolja fel az egyedi színeket, vesszővel elválasztva. Ezek a színek elkészítik az alapértelmezett színeket, és sorrendben fogják használni."
 	},
 	"NewNewUI": {
 		"message": "Új Új UI"

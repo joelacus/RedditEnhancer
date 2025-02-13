@@ -3,7 +3,7 @@
 		"message": "Reddit Enhancer"
 	},
 	"extensionDescription": {
-		"message": "Verschillende tweaks om uw Reddit-ervaring te personaliseren. Ondersteunt alle versies van Reddit."
+		"message": "Verschillende tweaks om uw Reddit-ervaring aan te passen. Ondersteunt alle versies van Reddit."
 	},
 	"About": {
 		"message": "Over"
@@ -101,6 +101,9 @@
 	"ClassicLight": {
 		"message": "Klassiek Licht"
 	},
+	"ClassicOldUI": {
+		"message": "Klassieke oude gebruikersinterface"
+	},
 	"Cleared": {
 		"message": "Gewist"
 	},
@@ -109,6 +112,9 @@
 	},
 	"CloseTab": {
 		"message": "U kunt dit tabblad/venster nu sluiten."
+	},
+	"Comments": {
+		"message": "Opmerkingen"
 	},
 	"CommentsCount": {
 		"message": "Reacties tellen"
@@ -362,9 +368,6 @@
 	"Hot": {
 		"message": "Heet / Hot"
 	},
-	"ImagePostMaxHeight": {
-		"message": "Maximale hoogte van beeldposts"
-	},
 	"ImageScroll": {
 		"message": "Voeg schuifbars toe aan afbeeldingen"
 	},
@@ -389,26 +392,29 @@
 	"LimitCommentsInfo": {
 		"message": "Werkt alleen voor berichten die in een nieuw tabblad/venster zijn geopend."
 	},
-	"LimitImageWidth": {
-		"message": "Beperk de afbeeldingsbreedte"
-	},
 	"LimitInfinityScroll": {
 		"message": "Beperk oneindig scrollen"
 	},
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Dit zal niet noodzakelijkerwijs het bandbreedtegebruik verminderen, maar zou in plaats daarvan moeten helpen voorkomen dat de pagina traag wordt door te voorkomen dat Reddit nieuwe berichten toevoegt totdat je op 'Meer laden' onderaan de feed klikt. Wanneer u op 'Meer laden' klikt, worden de eerste 25 berichten gewist en worden de volgende 25 weergegeven."
 	},
-	"LimitVideoWidth": {
-		"message": "Beperk de videobreedte"
-	},
 	"Main": {
 		"message": "Hoofd"
 	},
-	"MaxImageHeight": {
-		"message": "Maximale beeldhoogte"
+	"MaxImagePostHeight": {
+		"message": "Maximale afbeelding Posthoogte"
 	},
-	"MaxVideoHeight": {
-		"message": "Maximale videohoogte"
+	"MaxImageWidth": {
+		"message": "Maximale beeldbreedte"
+	},
+	"MaxVideoPostHeight": {
+		"message": "Maximale videoposthoogte"
+	},
+	"MaxVideoWidth": {
+		"message": "Maximale videobreedte"
+	},
+	"Media": {
+		"message": "Media"
 	},
 	"ModerniseOldReddit": {
 		"message": "Moderniseer old.reddit"
@@ -418,6 +424,12 @@
 	},
 	"MoveFeedToTopInSidemenu": {
 		"message": "Sposta la sezione Feed nel menu laterale verso l'alto"
+	},
+	"MulticolouredCommentThreadLines": {
+		"message": "Veelkleurige commentaarschroeflijnen"
+	},
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "Optioneel. Maak een lijst van aangepaste kleuren, gescheiden door een komma. Deze kleuren bereidt de standaardkleuren voor en worden op volgorde gebruikt."
 	},
 	"New": {
 		"message": "Nieuw / New"

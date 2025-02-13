@@ -3,7 +3,7 @@
 		"message": "Reddit Enhancer"
 	},
 	"extensionDescription": {
-		"message": "Ulike justeringer for å tilpasse Reddit-opplevelsen din. Stöder alla versioner av Reddit."
+		"message": "Olika tweaks för att anpassa din Reddit-upplevelse. Stöder alla versioner av Reddit."
 	},
 	"About": {
 		"message": "Handla om"
@@ -58,6 +58,12 @@
 	},
 	"ClassicLight": {
 		"message": "Klassisk Ljus"
+	},
+	"ClassicOldUI": {
+		"message": "Klassiskt gammalt användargränssnitt"
+	},
+	"Comments": {
+		"message": "Kommentarer"
 	},
 	"CommentsCount": {
 		"message": "Kommentarer räknas"
@@ -188,9 +194,6 @@
 	"HomeFeedWidth": {
 		"message": "Bredd på startsidan"
 	},
-	"ImagePostMaxHeight": {
-		"message": "Maximal höjd på bildstolparna"
-	},
 	"ImageScroll": {
 		"message": "Lägg till Scrollbars till bilder"
 	},
@@ -209,20 +212,29 @@
 	"Light": {
 		"message": "Ljus"
 	},
-	"LimitImageWidth": {
-		"message": "Begränsa bildbredden"
-	},
-	"LimitVideoWidth": {
-		"message": "Begränsa videobredden"
-	},
 	"Main": {
 		"message": "Huvudsaklig"
 	},
-	"MaxImageHeight": {
-		"message": "Maximal bildhöjd"
+	"MaxImagePostHeight": {
+		"message": "Maximal bild efter höjd"
 	},
-	"MaxVideoHeight": {
-		"message": "Maximal videohöjd"
+	"MaxImageWidth": {
+		"message": "Maximal bildbredd"
+	},
+	"MaxVideoPostHeight": {
+		"message": "Maximal videoinläggshöjd"
+	},
+	"MaxVideoWidth": {
+		"message": "Maximal videoutbredd"
+	},
+	"Media": {
+		"message": "Media"
+	},
+	"MulticolouredCommentThreadLines": {
+		"message": "Flerfärgade kommentartrådslinjer"
+	},
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "Frivillig. Lista anpassade färger, separerade av ett komma. Dessa färger kommer att förbereda standardfärgerna och kommer att användas i ordning."
 	},
 	"NewNewUI": {
 		"message": "Ny Ny UI"

@@ -3,7 +3,7 @@
 		"message": "Reddit Enhancer"
 	},
 	"extensionDescription": {
-		"message": "Erilaisia ​​mukautuksia Reddit-kokemuksesi mukauttamiseen. Tukee kaikkia Reddit-versioita."
+		"message": "Erilaisia ​​mukautuksia Reddit-kokemuksesi mukauttamiseen. Tukee kaikkia Reddit versioita."
 	},
 	"About": {
 		"message": "Noin"
@@ -52,6 +52,12 @@
 	},
 	"ClassicLight": {
 		"message": "Perinteinen Vaalea"
+	},
+	"ClassicOldUI": {
+		"message": "Klassinen vanha käyttöliittymä"
+	},
+	"Comments": {
+		"message": "Kommentit"
 	},
 	"CommentsCount": {
 		"message": "Kommentit laskevat"
@@ -149,9 +155,6 @@
 	"Hot": {
 		"message": "Kuuma / Hot"
 	},
-	"ImagePostMaxHeight": {
-		"message": "Kuvaviestien enimmäiskorkeus"
-	},
 	"ImageScroll": {
 		"message": "Lisää vierityspalkkeja kuviin"
 	},
@@ -164,17 +167,29 @@
 	"Light": {
 		"message": "Vaalea"
 	},
-	"LimitVideoWidth": {
-		"message": "Rajoita videon leveys"
-	},
 	"Main": {
 		"message": "Pää"
 	},
-	"MaxImageHeight": {
-		"message": "Suurin kuvankorkeus"
+	"MaxImagePostHeight": {
+		"message": "Suurin kuvan jälkeinen korkeus"
 	},
-	"MaxVideoHeight": {
-		"message": "Videon enimmäiskorkeus"
+	"MaxImageWidth": {
+		"message": "Suurin kuvan leveys"
+	},
+	"MaxVideoPostHeight": {
+		"message": "Suurin videoviestin korkeus"
+	},
+	"MaxVideoWidth": {
+		"message": "Videon enimmäisleveys"
+	},
+	"Media": {
+		"message": "Media"
+	},
+	"MulticolouredCommentThreadLines": {
+		"message": "Moniväriset kommenttien rivit"
+	},
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "Valinnainen. Lista räätälöityjä värejä, jotka on erotettu pilkulla. Nämä värit valmistavat oletusvärit ja niitä käytetään järjestyksessä."
 	},
 	"New": {
 		"message": "Uusi / New"

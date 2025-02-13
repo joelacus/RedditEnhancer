@@ -6,7 +6,7 @@
 		"message": "Reddit Enhancer"
 	},
 	"extensionDescription": {
-		"message": "Various tweaks to customise your Reddit experience. Supports all version of Reddit."
+		"message": "Various tweaks to customise your Reddit experience. Supports all versions of Reddit."
 	},
 	"About": {
 		"message": "About"
@@ -104,6 +104,9 @@
 	"ClassicLight": {
 		"message": "Classic Light"
 	},
+	"ClassicOldUI": {
+		"message": "Classic Old UI"
+	},
 	"Cleared": {
 		"message": "Cleared"
 	},
@@ -112,6 +115,9 @@
 	},
 	"CloseTab": {
 		"message": "You can now close this tab/window."
+	},
+	"Comments": {
+		"message": "Comments"
 	},
 	"CommentsCount": {
 		"message": "Comments count"
@@ -243,7 +249,7 @@
 		"message": "Hide the 'Advertise' Button"
 	},
 	"HideBlurredMediaBackground": {
-		"message": "Hide background blur behind image previews"
+		"message": "Hide Background Blur Behind Image Previews"
 	},
 	"HideChatButton": {
 		"message": "Hide the 'Chat' Button"
@@ -425,9 +431,6 @@
 	"Hot": {
 		"message": "Hot"
 	},
-	"ImagePostMaxHeight": {
-		"message": "Image Post Max Height"
-	},
 	"ImageScroll": {
 		"message": "Add Scrollbars To Images"
 	},
@@ -452,17 +455,11 @@
 	"LimitCommentsInfo": {
 		"message": "Only works for posts opened in a new tab/window."
 	},
-	"LimitImageWidth": {
-		"message": "Limit Image Width"
-	},
 	"LimitInfinityScroll": {
 		"message": "Limit Infinity Scroll"
 	},
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. This won't necessarily reduce bandwidth usage, but should instead help prevent the page from becoming slow by stopping reddit from adding new posts until you click 'Load More' at the bottom of the feed. When you click 'Load More' it will clear the first 25 posts, and show the next 25."
-	},
-	"LimitVideoWidth": {
-		"message": "Limit Video Width"
 	},
 	"Main": {
 		"message": "Main"
@@ -470,11 +467,20 @@
 	"MainContainer": {
 		"message": "Main Container"
 	},
-	"MaxImageHeight": {
-		"message": "Max Image Height"
+	"MaxImagePostHeight": {
+		"message": "Max Image Post Height"
 	},
-	"MaxVideoHeight": {
-		"message": "Max Video Height"
+	"MaxImageWidth": {
+		"message": "Max Image Width"
+	},
+	"MaxVideoPostHeight": {
+		"message": "Max Video Post Height"
+	},
+	"MaxVideoWidth": {
+		"message": "Max Video Width"
+	},
+	"Media": {
+		"message": "Media"
 	},
 	"ModerniseOldReddit": {
 		"message": "Modernise old.reddit"
@@ -484,6 +490,12 @@
 	},
 	"MoveFeedToTopInSidemenu": {
 		"message": "Move The Feed Section In The Side Menu To The Top"
+	},
+	"MulticolouredCommentThreadLines": {
+		"message": "Multicoloured Comment Thread Lines"
+	},
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "Optional. List custom colours, separated by a comma. These colours will prepend the default colours and will be used in order."
 	},
 	"New": {
 		"message": "New"
@@ -800,9 +812,6 @@
 	"Text": {
 		"message": "Text"
 	},
-	"TextPostMaxHeightInfo": {
-		"message": "Set the text fade height"
-	},
 	"TextPostPreviewFade": {
 		"message": "Add fade effect to text post previews (experimental)"
 	},
@@ -901,8 +910,5 @@
 	},
 	"resizeHomeAlsoAffects": {
 		"message": "& r/all, r/popular, Create Post, Search Results, and Wiki pages"
-	},
-	"ClassicOldHeader": {
-		"message": "Classic Old UI"
 	}
 }

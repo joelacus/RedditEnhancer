@@ -3,10 +3,16 @@
 		"message": "Reddit Enhancer"
 	},
 	"extensionDescription": {
-		"message": "Různé vylepšení pro přizpůsobení vašeho Redditu. Podporuje Reddit V1 (starý) a V3 (nejnovější)."
+		"message": "Různé vylepšení pro přizpůsobení vašeho Reddit. Podporuje všechny verze Reddit."
 	},
 	"About": {
 		"message": "O"
+	},
+	"Accessibility": {
+		"message": "Přístupnost"
+	},
+	"AlwaysShowPostOptions": {
+		"message": "Vždy zobrazujte možnosti příspěvku"
 	},
 	"Auto": {
 		"message": "Automatický"
@@ -49,6 +55,12 @@
 	},
 	"ClassicLight": {
 		"message": "Klasický Světlý"
+	},
+	"ClassicOldUI": {
+		"message": "Klasické staré ui"
+	},
+	"Comments": {
+		"message": "Komentáře"
 	},
 	"CommentsCount": {
 		"message": "Počet komentářů"
@@ -128,9 +140,6 @@
 	"Hot": {
 		"message": "Horký / Hot"
 	},
-	"ImagePostMaxHeight": {
-		"message": "Maximální výška obrazových příspěvků"
-	},
 	"ImageScroll": {
 		"message": "Přidejte svitky k obrázkům"
 	},
@@ -143,14 +152,26 @@
 	"Light": {
 		"message": "Světlý"
 	},
-	"LimitVideoWidth": {
-		"message": "Omezte šířku videa"
+	"MaxImagePostHeight": {
+		"message": "Maximální výška obrázku"
 	},
-	"MaxImageHeight": {
-		"message": "Maximální výška obrazu"
+	"MaxImageWidth": {
+		"message": "Maximální šířka obrazu"
 	},
-	"MaxVideoHeight": {
+	"MaxVideoPostHeight": {
 		"message": "Maximální výška videa"
+	},
+	"MaxVideoWidth": {
+		"message": "Maximální šířka videa"
+	},
+	"Media": {
+		"message": "Média"
+	},
+	"MulticolouredCommentThreadLines": {
+		"message": "Vícebarevné řádky vlákna komentáře"
+	},
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "Volitelný. Seznam vlastních barev, oddělených čárkou. Tyto barvy připraví výchozí barvy a budou použity v pořádku."
 	},
 	"New": {
 		"message": "Nový / New"

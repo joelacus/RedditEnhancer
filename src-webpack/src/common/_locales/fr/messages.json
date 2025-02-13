@@ -101,6 +101,9 @@
 	"ClassicLight": {
 		"message": "Clair classique"
 	},
+	"ClassicOldUI": {
+		"message": "Interface utilisateur classique ancienne"
+	},
 	"Cleared": {
 		"message": "Effacée"
 	},
@@ -109,6 +112,9 @@
 	},
 	"CloseTab": {
 		"message": "Vous pouvez maintenant fermer cet onglet/fenêtre."
+	},
+	"Comments": {
+		"message": "Commentaires"
 	},
 	"CommentsCount": {
 		"message": "Les commentaires comptent"
@@ -422,9 +428,6 @@
 	"Hot": {
 		"message": "Populaires / Hot"
 	},
-	"ImagePostMaxHeight": {
-		"message": "Hauteur maximale des poteaux d'image"
-	},
 	"ImageScroll": {
 		"message": "Ajouter des barres de défilement aux images"
 	},
@@ -449,17 +452,11 @@
 	"LimitCommentsInfo": {
 		"message": "Fonctionne uniquement pour les Posts ouvertes dans un nouvel onglet/fenêtre."
 	},
-	"LimitImageWidth": {
-		"message": "Limiter la largeur de l'image"
-	},
 	"LimitInfinityScroll": {
 		"message": "Limiter le défilement infini"
 	},
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Cela ne réduira pas nécessairement l'utilisation de la bande passante, mais devrait plutôt empêcher la page de devenir lente en empêchant Reddit d'ajouter de nouvelles Posts jusqu'à ce que vous cliquiez sur « Charger plus » au bas du flux. Lorsque vous cliquez sur « Charger plus », les 25 premiers messages seront effacés et les 25 suivants seront affichés."
-	},
-	"LimitVideoWidth": {
-		"message": "Limiter la largeur vidéo"
 	},
 	"Main": {
 		"message": "Principal"
@@ -467,11 +464,20 @@
 	"MainContainer": {
 		"message": "Conteneur principal"
 	},
-	"MaxImageHeight": {
-		"message": "Hauteur maximale de l'image"
+	"MaxImagePostHeight": {
+		"message": "Hauteur de post d'image maximale"
 	},
-	"MaxVideoHeight": {
-		"message": "Hauteur de vidéo maximale"
+	"MaxImageWidth": {
+		"message": "Largeur d'image maximale"
+	},
+	"MaxVideoPostHeight": {
+		"message": "Hauteur de post vidéo maximum"
+	},
+	"MaxVideoWidth": {
+		"message": "Largeur vidéo maximale"
+	},
+	"Media": {
+		"message": "Médias"
 	},
 	"ModerniseOldReddit": {
 		"message": "Moderniser old.reddit"
@@ -481,6 +487,12 @@
 	},
 	"MoveFeedToTopInSidemenu": {
 		"message": "Déplacez la section Flux dans le menu latéral vers le haut"
+	},
+	"MulticolouredCommentThreadLines": {
+		"message": "Lignes de threads de commentaires multicolores"
+	},
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "Facultatif. Énumérez les couleurs personnalisées, séparées par une virgule. Ces couleurs appliqueront les couleurs par défaut et seront utilisées dans l'ordre."
 	},
 	"New": {
 		"message": "Nouvelles / New"
@@ -796,9 +808,6 @@
 	},
 	"Text": {
 		"message": "Texte"
-	},
-	"TextPostMaxHeightInfo": {
-		"message": "Définir la hauteur de fondu du texte"
 	},
 	"TextPostPreviewFade": {
 		"message": "Ajouter un effet de fondu aux aperçus des posts texte (expérimental)"

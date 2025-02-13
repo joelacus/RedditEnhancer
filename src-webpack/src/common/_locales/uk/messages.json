@@ -3,7 +3,7 @@
 		"message": "Reddit Enhancer"
 	},
 	"extensionDescription": {
-		"message": "Різноманітні налаштування для персоналізації роботи Reddit. Підтримує всі версії Reddit."
+		"message": "Різноманітні налаштування для персоналізації вашого досвіду Reddit. Підтримує всі версії Reddit."
 	},
 	"About": {
 		"message": "приблизно"
@@ -95,8 +95,14 @@
 	"ClassicLight": {
 		"message": "Класичний Світлий"
 	},
+	"ClassicOldUI": {
+		"message": "Класичний старий інтерфейс"
+	},
 	"CloseTab": {
 		"message": "Тепер ви можете закрити цю вкладку/вікно."
+	},
+	"Comments": {
+		"message": "Коментарі"
 	},
 	"CommentsCount": {
 		"message": "Коментарі враховуються / Comments count"
@@ -311,9 +317,6 @@
 	"Hot": {
 		"message": "Гаряче / Hot"
 	},
-	"ImagePostMaxHeight": {
-		"message": "Максимальна висота зображень"
-	},
 	"ImageScroll": {
 		"message": "Додайте скрульні смуги до зображень"
 	},
@@ -338,32 +341,41 @@
 	"LimitCommentsInfo": {
 		"message": "Працює лише для публікацій, відкритих у новій вкладці/вікні."
 	},
-	"LimitImageWidth": {
-		"message": "Обмежити ширину зображення"
-	},
 	"LimitInfinityScroll": {
 		"message": "Обмеження нескінченності прокручування"
 	},
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Це не обов’язково зменшить використання пропускної здатності, але натомість має допомогти запобігти повільній роботі сторінки, не дозволяючи Reddit додавати нові публікації, доки ви не натиснете «Завантажити ще» внизу каналу. Коли ви натискаєте «Завантажити ще», перші 25 дописів очищаються, а наступні 25 відображаються."
 	},
-	"LimitVideoWidth": {
-		"message": "Обмежте ширину відео"
-	},
 	"Main": {
 		"message": "Головний"
 	},
-	"MaxImageHeight": {
-		"message": "Максимальна висота зображення"
+	"MaxImagePostHeight": {
+		"message": "Максимальна висота публікації зображення"
 	},
-	"MaxVideoHeight": {
-		"message": "Максимальна висота відео"
+	"MaxImageWidth": {
+		"message": "Максимальна ширина зображення"
+	},
+	"MaxVideoPostHeight": {
+		"message": "Максимальна висота відеозапису"
+	},
+	"MaxVideoWidth": {
+		"message": "Максимальна ширина відео"
+	},
+	"Media": {
+		"message": "ЗМІ"
 	},
 	"ModerniseOldReddit": {
 		"message": "Модернізуйте old.reddit"
 	},
 	"MoveFeedToTopInSidemenu": {
 		"message": "Перемістіть розділ каналу в бічному меню вгору"
+	},
+	"MulticolouredCommentThreadLines": {
+		"message": "Різнокольорові лінії ниток коментарів"
+	},
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "Необов’язково. Перелічіть спеціальні кольори, розділені комою. Ці кольори підготують кольори за замовчуванням і будуть використовуватися в порядку."
 	},
 	"New": {
 		"message": "новий / New"

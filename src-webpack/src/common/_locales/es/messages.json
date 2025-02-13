@@ -3,7 +3,7 @@
 		"message": "Reddit Enhancer"
 	},
 	"extensionDescription": {
-		"message": "Diversos ajustes para personalizar tu experiencia en Reddit. Admite todas las versiones de Reddit."
+		"message": "Diversos ajustes para personalizar tu experiencia en Reddit. Compatible con todas las versiones de Reddit."
 	},
 	"About": {
 		"message": "Acerca de"
@@ -101,6 +101,9 @@
 	"ClassicLight": {
 		"message": "Claro Clásico"
 	},
+	"ClassicOldUI": {
+		"message": "Ui antiguo clásico"
+	},
 	"Cleared": {
 		"message": "Aclarada"
 	},
@@ -109,6 +112,9 @@
 	},
 	"CloseTab": {
 		"message": "Ahora puede cerrar esta pestaña/ventana."
+	},
+	"Comments": {
+		"message": "Comentario"
 	},
 	"CommentsCount": {
 		"message": "Los comentarios cuentan"
@@ -422,9 +428,6 @@
 	"Hot": {
 		"message": "Destacando / Hot"
 	},
-	"ImagePostMaxHeight": {
-		"message": "Altura máxima de publicaciones de imagen"
-	},
 	"ImageScroll": {
 		"message": "Agregar barras de desplazamiento a las imágenes"
 	},
@@ -449,17 +452,11 @@
 	"LimitCommentsInfo": {
 		"message": "Solo funciona para publicaciones abiertas en una nueva pestaña/ventana."
 	},
-	"LimitImageWidth": {
-		"message": "Limitar el ancho de la imagen"
-	},
 	"LimitInfinityScroll": {
 		"message": "Límite de desplazamiento infinito"
 	},
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Esto no necesariamente reducirá el uso de ancho de banda, pero debería ayudar a evitar que la página se vuelva lenta al evitar que Reddit agregue nuevas publicaciones hasta que hagas clic en “Carga más” en la parte inferior del feed. Al hacer clic en “Carga más”, se borrarán las primeras 25 publicaciones y se mostrarán las siguientes 25."
-	},
-	"LimitVideoWidth": {
-		"message": "Limite el ancho del video"
 	},
 	"Main": {
 		"message": "Principal"
@@ -467,11 +464,20 @@
 	"MainContainer": {
 		"message": "Contenedor principal"
 	},
-	"MaxImageHeight": {
-		"message": "Altura máxima de la imagen"
+	"MaxImagePostHeight": {
+		"message": "Altura de publicación de imagen máxima"
 	},
-	"MaxVideoHeight": {
-		"message": "Altura máxima del video"
+	"MaxImageWidth": {
+		"message": "Ancho de imagen máximo"
+	},
+	"MaxVideoPostHeight": {
+		"message": "Altura máxima de la publicación de video"
+	},
+	"MaxVideoWidth": {
+		"message": "Ancho máximo de video"
+	},
+	"Media": {
+		"message": "Medios de comunicación"
 	},
 	"ModerniseOldReddit": {
 		"message": "Modernizar old.reddit"
@@ -481,6 +487,12 @@
 	},
 	"MoveFeedToTopInSidemenu": {
 		"message": "Mover la sección de alimentación en el menú lateral a la parte superior"
+	},
+	"MulticolouredCommentThreadLines": {
+		"message": "Líneas de hilos de comentarios multicolores"
+	},
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "Opcional. Lista de colores personalizados, separados por una coma. Estos colores prepararán los colores predeterminados y se utilizarán en orden."
 	},
 	"New": {
 		"message": "Más nuevos / New"
@@ -796,9 +808,6 @@
 	},
 	"Text": {
 		"message": "Texto"
-	},
-	"TextPostMaxHeightInfo": {
-		"message": "Establecer la altura de desvanecimiento del texto"
 	},
 	"TextPostPreviewFade": {
 		"message": "Agregar efecto de desvanecimiento a las vistas previas de la publicación de texto (experimental)"

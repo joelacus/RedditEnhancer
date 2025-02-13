@@ -95,8 +95,14 @@
 	"ClassicLight": {
 		"message": "Klassisk Lys"
 	},
+	"ClassicOldUI": {
+		"message": "Klassisk gammel brukergrensesnitt"
+	},
 	"CloseTab": {
 		"message": "Du kan nå lukke denne fanen/vinduet."
+	},
+	"Comments": {
+		"message": "Kommentarer"
 	},
 	"CommentsCount": {
 		"message": "Kommentarer teller"
@@ -311,9 +317,6 @@
 	"Hot": {
 		"message": "Varm / Hot"
 	},
-	"ImagePostMaxHeight": {
-		"message": "Maksimal høyde på bildeposter"
-	},
 	"ImageScroll": {
 		"message": "Legg til rullefelt i bilder"
 	},
@@ -338,32 +341,41 @@
 	"LimitCommentsInfo": {
 		"message": "Fungerer kun for innlegg åpnet i en ny fane/vindu."
 	},
-	"LimitImageWidth": {
-		"message": "Begrens bildebredde"
-	},
 	"LimitInfinityScroll": {
 		"message": "Begrens Infinity Scroll"
 	},
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Dette vil ikke nødvendigvis redusere båndbreddebruken, men bør i stedet bidra til å forhindre at siden blir treg ved å stoppe reddit fra å legge til nye innlegg til du klikker på «Last inn mer» nederst i feeden. Når du klikker 'Last inn mer' vil det fjerne de første 25 innleggene, og vise de neste 25."
 	},
-	"LimitVideoWidth": {
-		"message": "Begrens videobredden"
-	},
 	"Main": {
 		"message": "Hoved"
 	},
-	"MaxImageHeight": {
-		"message": "Maksimal bildehøyde"
+	"MaxImagePostHeight": {
+		"message": "Maksimal bilde etter høyde"
 	},
-	"MaxVideoHeight": {
-		"message": "Maksimal videohøyde"
+	"MaxImageWidth": {
+		"message": "Maksimal bildebredde"
+	},
+	"MaxVideoPostHeight": {
+		"message": "Maksimal video etter høyde"
+	},
+	"MaxVideoWidth": {
+		"message": "Maksimal videobredde"
+	},
+	"Media": {
+		"message": "Media"
 	},
 	"ModerniseOldReddit": {
 		"message": "Modernisere old.reddit"
 	},
 	"MoveFeedToTopInSidemenu": {
 		"message": "Flytt 'Feed' delen i sidemenyen til toppen"
+	},
+	"MulticolouredCommentThreadLines": {
+		"message": "Flerfargede kommentartrådelinjer"
+	},
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "Valgfri. Liste tilpassede farger, atskilt med komma. Disse fargene vil forberede standardfargene og vil bli brukt i rekkefølge."
 	},
 	"New": {
 		"message": "Ny / New"

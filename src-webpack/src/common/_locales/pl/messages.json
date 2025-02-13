@@ -98,6 +98,9 @@
 	"ClassicLight": {
 		"message": "Klasyczny Jasny"
 	},
+	"ClassicOldUI": {
+		"message": "Klasyczny stary interfejs użytkownika"
+	},
 	"Cleared": {
 		"message": "Wyczyszczone"
 	},
@@ -106,6 +109,9 @@
 	},
 	"CloseTab": {
 		"message": "Możesz teraz zamknąć tę kartę/okno."
+	},
+	"Comments": {
+		"message": "Uwagi"
 	},
 	"CommentsCount": {
 		"message": "Comments count"
@@ -341,9 +347,6 @@
 	"Hot": {
 		"message": "Gorący / Hot"
 	},
-	"ImagePostMaxHeight": {
-		"message": "Maksymalna wysokość postów obrazu"
-	},
 	"ImageScroll": {
 		"message": "Dodaj paski przewijane do obrazów"
 	},
@@ -368,26 +371,29 @@
 	"LimitCommentsInfo": {
 		"message": "Działa tylko w przypadku postów otwartych w nowej karcie/oknie."
 	},
-	"LimitImageWidth": {
-		"message": "Ogranicz szerokość obrazu"
-	},
 	"LimitInfinityScroll": {
 		"message": "Ogranicz nieskończone przewijanie"
 	},
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Niekoniecznie zmniejszy to wykorzystanie przepustowości, ale zamiast tego powinno pomóc zapobiec spowolnieniu strony, uniemożliwiając Redditowi dodawanie nowych postów, dopóki nie klikniesz „Wczytaj więcej” u dołu kanału. Kliknięcie przycisku „Załaduj więcej” spowoduje wyczyszczenie pierwszych 25 postów i wyświetlenie kolejnych 25."
 	},
-	"LimitVideoWidth": {
-		"message": "Ogranicz szerokość wideo"
-	},
 	"Main": {
 		"message": "Główny"
 	},
-	"MaxImageHeight": {
-		"message": "Maksymalna wysokość obrazu"
+	"MaxImagePostHeight": {
+		"message": "Maksymalna wysokość po obrazie"
 	},
-	"MaxVideoHeight": {
-		"message": "Maksymalna wysokość wideo"
+	"MaxImageWidth": {
+		"message": "Maksymalna szerokość obrazu"
+	},
+	"MaxVideoPostHeight": {
+		"message": "Maksymalna wysokość postu wideo"
+	},
+	"MaxVideoWidth": {
+		"message": "Maksymalna szerokość wideo"
+	},
+	"Media": {
+		"message": "Głoska bezdźwięczna"
 	},
 	"ModerniseOldReddit": {
 		"message": "Zmodernizuj old.reddit"
@@ -397,6 +403,12 @@
 	},
 	"MoveFeedToTopInSidemenu": {
 		"message": "Przenieś sekcję podawania w bocznym menu na górę"
+	},
+	"MulticolouredCommentThreadLines": {
+		"message": "Wielokolorowe linie wątków komentarzy"
+	},
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "Fakultatywny. Wymień niestandardowe kolory, oddzielone przecinkiem. Te kolory przygotują domyślne kolory i będą używane w kolejności."
 	},
 	"New": {
 		"message": "Nowy / New"

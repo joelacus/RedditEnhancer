@@ -3,7 +3,7 @@
 		"message": "Reddit Enhancer"
 	},
 	"extensionDescription": {
-		"message": "Verschiedene Optimierungen zur individuellen Gestaltung Ihres Reddit-Erlebnisses. Unterstützt Reddit V1 (alt) und V3 (neueste)."
+		"message": "Verschiedene Optimierungen zur individuellen Gestaltung Ihres Reddit-Erlebnisses. Unterstützt alle Versionen von Reddit."
 	},
 	"About": {
 		"message": "Über"
@@ -101,6 +101,9 @@
 	"ClassicLight": {
 		"message": "Klassisch Hell"
 	},
+	"ClassicOldUI": {
+		"message": "Klassische alte Benutzeroberfläche"
+	},
 	"Cleared": {
 		"message": "Gelöscht"
 	},
@@ -109,6 +112,9 @@
 	},
 	"CloseTab": {
 		"message": "Sie können diesen Tab/dieses Fenster nun schließen."
+	},
+	"Comments": {
+		"message": "Kommentare"
 	},
 	"CommentsCount": {
 		"message": "Kommentare zählen"
@@ -422,9 +428,6 @@
 	"Hot": {
 		"message": "Heiß / Hot"
 	},
-	"ImagePostMaxHeight": {
-		"message": "Maximale Höhe der Bildbeiträge"
-	},
 	"ImageScroll": {
 		"message": "Fügen Sie Bildern Scrollbars hinzu"
 	},
@@ -449,17 +452,11 @@
 	"LimitCommentsInfo": {
 		"message": "Funktioniert nur für Beiträge, die in einem neuen Tab/Fenster geöffnet werden."
 	},
-	"LimitImageWidth": {
-		"message": "Bildbreite begrenzen"
-	},
 	"LimitInfinityScroll": {
 		"message": "Begrenzen Sie das unendliche Scrollen"
 	},
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Dadurch wird die Bandbreitennutzung nicht zwangsläufig reduziert, sondern es soll vielmehr dazu beitragen, eine Verlangsamung der Seite zu verhindern, indem reddit daran gehindert wird, neue Beiträge hinzuzufügen, bis Sie unten im Feed auf „Mehr laden“ klicken. Wenn Sie auf „Mehr laden“ klicken, werden die ersten 25 Beiträge gelöscht und die nächsten 25 angezeigt."
-	},
-	"LimitVideoWidth": {
-		"message": "Begrenzen Sie die Videobreite"
 	},
 	"Main": {
 		"message": "Hauptbereich"
@@ -467,11 +464,20 @@
 	"MainContainer": {
 		"message": "Hauptcontainer"
 	},
-	"MaxImageHeight": {
-		"message": "Maximale Bildhöhe"
+	"MaxImagePostHeight": {
+		"message": "Maximale Bild nach der Höhe"
 	},
-	"MaxVideoHeight": {
-		"message": "Maximale Videohöhe"
+	"MaxImageWidth": {
+		"message": "Maximale Bildbreite"
+	},
+	"MaxVideoPostHeight": {
+		"message": "Maximale Videoposthöhe"
+	},
+	"MaxVideoWidth": {
+		"message": "Maximale Videobreite"
+	},
+	"Media": {
+		"message": "Medien"
 	},
 	"ModerniseOldReddit": {
 		"message": "old.reddit Modernisieren"
@@ -481,6 +487,12 @@
 	},
 	"MoveFeedToTopInSidemenu": {
 		"message": "Verschieben Sie den Feed-Bereich im Seitenmenü nach oben"
+	},
+	"MulticolouredCommentThreadLines": {
+		"message": "Mehrfarbige Kommentar-Thread-Zeilen"
+	},
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "Optional. Listen Sie benutzerdefinierte Farben auf, getrennt durch ein Komma. Diese Farben bereiten die Standardfarben vor und werden in der Reihenfolge verwendet."
 	},
 	"New": {
 		"message": "Neu / New"
@@ -796,9 +808,6 @@
 	},
 	"Text": {
 		"message": "Text"
-	},
-	"TextPostMaxHeightInfo": {
-		"message": "Setzen Sie die Textverblasungshöhe"
 	},
 	"TextPostPreviewFade": {
 		"message": "Fade-Effekt zur Vorschau von Textbeiträgen hinzufügen (experimentell)"

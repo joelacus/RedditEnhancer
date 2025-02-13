@@ -20,6 +20,12 @@
 	"HeaderTextColour": {
 		"message": "Header Text Color"
 	},
+	"MulticolouredCommentThreadLines": {
+		"message": "Multicolored Comment Thread Lines"
+	},
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "Optional. List custom colors, separated by a comma. These colors will prepend the default colors and will be used in order."
+	},
 	"PostBgColour": {
 		"message": "Post: Background Color"
 	},

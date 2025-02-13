@@ -101,6 +101,9 @@
 	"ClassicLight": {
 		"message": "Claro Clássico"
 	},
+	"ClassicOldUI": {
+		"message": "Ui antiga clássica"
+	},
 	"Cleared": {
 		"message": "Desmarcado"
 	},
@@ -109,6 +112,9 @@
 	},
 	"CloseTab": {
 		"message": "Agora você pode fechar esta aba/janela."
+	},
+	"Comments": {
+		"message": "Comentários"
 	},
 	"CommentsCount": {
 		"message": "Comentários contam"
@@ -422,9 +428,6 @@
 	"Hot": {
 		"message": "Em destaque / Hot"
 	},
-	"ImagePostMaxHeight": {
-		"message": "Altura máxima das postagens da imagem"
-	},
 	"ImageScroll": {
 		"message": "Adicione barras de rolagem às imagens"
 	},
@@ -449,17 +452,11 @@
 	"LimitCommentsInfo": {
 		"message": "Funciona apenas para postagens abertas em uma nova aba/janela."
 	},
-	"LimitImageWidth": {
-		"message": "Limitar a largura da imagem"
-	},
 	"LimitInfinityScroll": {
 		"message": "Limitar Rolagem Infinita"
 	},
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Isso não reduzirá necessariamente o uso da largura de banda, mas deverá ajudar a evitar que a página fique lenta, impedindo o reddit de adicionar novas postagens até você clicar em 'Carregue mais' na parte inferior do feed. Quando você clica em 'Carregue mais', as primeiras 25 postagens serão limpas e as próximas 25 serão exibidas."
-	},
-	"LimitVideoWidth": {
-		"message": "Limite a largura do vídeo"
 	},
 	"Main": {
 		"message": "Principal"
@@ -467,11 +464,20 @@
 	"MainContainer": {
 		"message": "Contêiner principal"
 	},
-	"MaxImageHeight": {
-		"message": "Altura máxima da imagem"
+	"MaxImagePostHeight": {
+		"message": "Altura da postagem da imagem máxima"
 	},
-	"MaxVideoHeight": {
-		"message": "Altura máxima de vídeo"
+	"MaxImageWidth": {
+		"message": "Largura máxima da imagem"
+	},
+	"MaxVideoPostHeight": {
+		"message": "Altura máxima de postagem de vídeo"
+	},
+	"MaxVideoWidth": {
+		"message": "Largura máxima de vídeo"
+	},
+	"Media": {
+		"message": "Mídia"
 	},
 	"ModerniseOldReddit": {
 		"message": "Modernizar old.reddit"
@@ -481,6 +487,12 @@
 	},
 	"MoveFeedToTopInSidemenu": {
 		"message": "Mova a seção de alimentação no menu lateral para o topo"
+	},
+	"MulticolouredCommentThreadLines": {
+		"message": "Linhas de rosca de comentários multicoloridos"
+	},
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "Opcional. Liste as cores personalizadas, separadas por vírgula. Essas cores precenderão as cores padrão e serão usadas em ordem."
 	},
 	"New": {
 		"message": "Novo / New"
@@ -796,9 +808,6 @@
 	},
 	"Text": {
 		"message": "Texto"
-	},
-	"TextPostMaxHeightInfo": {
-		"message": "Defina o texto desbotamento da altura"
 	},
 	"TextPostPreviewFade": {
 		"message": "Adicionar efeito de desbotamento às visualizações de pós texto (experimental)"
