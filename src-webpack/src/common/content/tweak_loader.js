@@ -47,6 +47,9 @@ import { loadFixThreadlinesForTranslucentPosts } from './tweaks/style/override_t
 import { loadMulticolouredThreadLines } from './tweaks/style/multicoloured_threadlines';
 import { loadAutoShowCommentFormattingOptions } from './tweaks/productivity/auto_show_comment_formatting_options';
 import { addBorderRadiusToShadowRootElements } from './tweaks/style/border_radius';
+import { loadAlwaysShowPostOptions } from './tweaks/productivity/always_show_post_options';
+import { loadReplacePostImagesWithLinks } from './tweaks/media/replace_images_with_links';
+import { loadReplacePostVideosWithLinks } from './tweaks/media/replace_videos_with_links';
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -190,6 +193,9 @@ export function loadTweaks() {
 					loadScalePostToFitImage();
 					loadScalePostToFitVideo();
 					loadImageScroll();
+					loadReplacePostImagesWithLinks();
+					loadReplacePostVideosWithLinks();
+					loadAlwaysShowPostOptions();
 				}, 1000);
 			},
 		});
@@ -203,6 +209,15 @@ export function loadTweaks() {
 					loadFixThreadlinesForTranslucentPosts();
 					loadMulticolouredThreadLines();
 				}, 2000);
+			},
+		});
+
+		waitForAddedNode({
+			query: 'shreddit-comment[author="AutoModerator"]',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function (el) {
+				loadAutoCollapseAutoModeratorComment();
 			},
 		});
 	}

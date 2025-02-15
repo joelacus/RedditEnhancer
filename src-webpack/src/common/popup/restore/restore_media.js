@@ -337,4 +337,36 @@ export function restorePopupMediaOptions() {
 		}
 		console.log('Add Scroll To Long Text Posts: ' + value);
 	});
+
+	// Replace Post Images With Links
+	BROWSER_API.storage.sync.get(['replacePostImagesWithLinks'], function (result) {
+		if (result.replacePostImagesWithLinks === true) {
+			document.querySelector('#checkbox-replace-post-images-with-links').checked = true;
+			document.querySelector('.icon-replace-post-images-with-links').classList.remove('icon-images');
+			document.querySelector('.icon-replace-post-images-with-links').classList.add('icon-link');
+			document.querySelector('.icon-replace-post-images-with-links').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('media-tweaks');
+			var value = true;
+		} else if (typeof result.replacePostImagesWithLinks == 'undefined' || result.replacePostImagesWithLinks === false) {
+			document.querySelector('#checkbox-replace-post-images-with-links').checked = false;
+			var value = false;
+		}
+		console.log('Replace Post Images With Links: ' + value);
+	});
+
+	// Replace Post Videos With Links
+	BROWSER_API.storage.sync.get(['replacePostVideosWithLinks'], function (result) {
+		if (result.replacePostVideosWithLinks === true) {
+			document.querySelector('#checkbox-replace-post-videos-with-links').checked = true;
+			document.querySelector('.icon-replace-post-videos-with-links').classList.remove('icon-film');
+			document.querySelector('.icon-replace-post-videos-with-links').classList.add('icon-link');
+			document.querySelector('.icon-replace-post-videos-with-links').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('media-tweaks');
+			var value = true;
+		} else if (typeof result.replacePostVideosWithLinks == 'undefined' || result.replacePostVideosWithLinks === false) {
+			document.querySelector('#checkbox-replace-post-videos-with-links').checked = false;
+			var value = false;
+		}
+		console.log('Replace Post Videos With Links: ' + value);
+	});
 }

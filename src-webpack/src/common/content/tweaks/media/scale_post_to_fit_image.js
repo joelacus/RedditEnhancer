@@ -155,7 +155,7 @@ function revertTag(tag) {
 
 // Function - Append Part Attribute
 function appendPart(gallery) {
-	gallery.shadowRoot.querySelector('faceplate-carousel').setAttribute('part', 'gallery');
+	gallery.shadowRoot?.querySelector('faceplate-carousel')?.setAttribute('part', 'gallery');
 }
 
 // Observe feed for new posts

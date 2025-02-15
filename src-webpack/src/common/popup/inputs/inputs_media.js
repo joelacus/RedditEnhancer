@@ -371,7 +371,7 @@ document.querySelector('#input-text-post-preview-fade-height').addEventListener(
 
 // Toggle - Add Scroll To Text Post
 document.querySelector('#checkbox-text-scroll-post').addEventListener('change', function (e) {
-	var textPostScroll = document.querySelector('#checkbox-text-scroll-post').checked;
+	const textPostScroll = document.querySelector('#checkbox-text-scroll-post').checked;
 	if (textPostScroll == true) {
 		BROWSER_API.storage.sync.set({ textPostScroll: true });
 		document.querySelector('.icon-text-scroll-post').style.backgroundColor = 'var(--accent)';
@@ -381,4 +381,34 @@ document.querySelector('#checkbox-text-scroll-post').addEventListener('change', 
 		document.querySelector('.icon-text-scroll-post').style.backgroundColor = '';
 		sendMessage({ textPostScroll: false });
 	}
+});
+
+// Toggle - Replace Post Images With Links
+document.querySelector('#checkbox-replace-post-images-with-links').addEventListener('change', function (e) {
+	const replacePostImagesWithLinks = document.querySelector('#checkbox-replace-post-images-with-links').checked;
+	BROWSER_API.storage.sync.set({ replacePostImagesWithLinks: replacePostImagesWithLinks });
+	sendMessage({ replacePostImagesWithLinks: replacePostImagesWithLinks });
+	if (replacePostImagesWithLinks) {
+		document.querySelector('.icon-replace-post-images-with-links').classList.remove('icon-images');
+		document.querySelector('.icon-replace-post-images-with-links').classList.add('icon-link');
+	} else {
+		document.querySelector('.icon-replace-post-images-with-links').classList.remove('icon-link');
+		document.querySelector('.icon-replace-post-images-with-links').classList.add('icon-images');
+	}
+	document.querySelector('.icon-replace-post-images-with-links').style.backgroundColor = replacePostImagesWithLinks ? 'var(--accent)' : '';
+});
+
+// Toggle - Replace Post Videos With Links
+document.querySelector('#checkbox-replace-post-videos-with-links').addEventListener('change', function (e) {
+	const replacePostVideosWithLinks = document.querySelector('#checkbox-replace-post-videos-with-links').checked;
+	BROWSER_API.storage.sync.set({ replacePostVideosWithLinks: replacePostVideosWithLinks });
+	sendMessage({ replacePostVideosWithLinks: replacePostVideosWithLinks });
+	if (replacePostVideosWithLinks) {
+		document.querySelector('.icon-replace-post-videos-with-links').classList.remove('icon-film');
+		document.querySelector('.icon-replace-post-videos-with-links').classList.add('icon-link');
+	} else {
+		document.querySelector('.icon-replace-post-videos-with-links').classList.remove('icon-link');
+		document.querySelector('.icon-replace-post-videos-with-links').classList.add('icon-film');
+	}
+	document.querySelector('.icon-replace-post-videos-with-links').style.backgroundColor = replacePostVideosWithLinks ? 'var(--accent)' : '';
 });

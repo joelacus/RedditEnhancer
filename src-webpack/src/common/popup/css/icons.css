@@ -476,3 +476,15 @@
 	mask: url('../../icons/ui/icon-comment-threadlines.svg');
 	-webkit-mask: url('../../icons/ui/icon-comment-threadlines.svg');
 }
+.icon-images {
+	mask: url('../../icons/ui/images-solid.svg');
+	-webkit-mask: url('../../icons/ui/images-solid.svg');
+}
+.icon-link {
+	mask: url('../../icons/ui/link-solid.svg');
+	-webkit-mask: url('../../icons/ui/link-solid.svg');
+}
+.icon-film {
+	mask: url('../../icons/ui/film-solid.svg');
+	-webkit-mask: url('../../icons/ui/film-solid.svg');
+}

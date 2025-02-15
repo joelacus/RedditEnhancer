@@ -3,10 +3,8 @@
 // Start observers to wait for elements to load before tweaking, or load the tweak directly if an observer is not needed.
 // Use this loader to apply tweaks before the page has finished loading (CSS tweaks).
 
-import { waitForAddedNode } from './main_observer';
+//import { waitForAddedNode } from './main_observer';
 
-import { loadAlwaysShowPostOptions } from '../../../content/tweaks/productivity/always_show_post_options';
-import { loadAutoCollapseAutoModeratorComment } from '../../../content/tweaks/productivity/auto_collapse_automod_comment';
 import { loadAutoExpandComments } from '../../../content/tweaks/productivity/auto_expand_comments';
 import { loadAutoExpandValue } from '../../../content/tweaks/resize_elements/auto_expand_value';
 import { loadBionicReaderColours } from '../../../content/tweaks/accessibility/bionic_reader';
@@ -99,24 +97,4 @@ export function tweakLoaderNewNew() {
 	loadTextPostPreviewFade();
 	loadResizeTextPostHeight();
 	limitImageSize();
-
-	// Always Show Post Options
-	waitForAddedNode({
-		query: 'shreddit-post',
-		parent: document.querySelector('body'),
-		recursive: true,
-		done: function (el) {
-			loadAlwaysShowPostOptions();
-		},
-	});
-
-	// Auto Collapse AutoModerator Comment
-	waitForAddedNode({
-		query: 'shreddit-comment[author="AutoModerator"]',
-		parent: document.querySelector('body'),
-		recursive: true,
-		done: function (el) {
-			loadAutoCollapseAutoModeratorComment();
-		},
-	});
 }

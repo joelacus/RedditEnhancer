@@ -102,7 +102,8 @@ export function postContentFontSize(value) {
 				styleElement.textContent = `shreddit-post div[slot="text-body"] div.md,
 											shreddit-post a[slot="text-body"] div:has(>p),
 											shreddit-profile-comment [id*="-content"],
-											div[slot="post-media-container"] div.md {
+											div[slot="post-media-container"] div.md,
+											[routename="post_page"] shreddit-post .re-media-link {
 												font-size: var(--re-post-content-font-size) !important;
 												line-height: 1.5 !important;
 											}
@@ -259,7 +260,9 @@ export function feedPostContentFontSize(value) {
 											shreddit-feed shreddit-profile-comment [id*="-content"],
 											shreddit-feed div[slot="post-media-container"] div.md,
 											div.md.feed-card-text-preview,
-											mod-queue-app shreddit-post [data-post-click-location="text-body"] div.md {
+											mod-queue-app shreddit-post [data-post-click-location="text-body"] div.md,
+											shreddit-feed shreddit-post .re-media-link,
+											shreddit-feed shreddit-post .post-link {
 												font-size: var(--re-feed-post-content-font-size) !important;
 												line-height: 1.5 !important;
 											}

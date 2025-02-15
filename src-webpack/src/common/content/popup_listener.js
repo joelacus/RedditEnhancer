@@ -150,6 +150,8 @@ import { customFonts } from './tweaks/font/custom_fonts';
 import { scalePostToFitVideo } from './tweaks/media/scale_post_to_fit_video';
 import { classicOldUI } from './tweaks/style/classic_old_ui';
 import { multicolouredThreadLines } from './tweaks/style/multicoloured_threadlines';
+import { replacePostImagesWithLinks } from './tweaks/media/replace_images_with_links';
+import { replacePostVideosWithLinks } from './tweaks/media/replace_videos_with_links';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 /* = Listen For Settings Change = */
@@ -575,6 +577,10 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		multicolouredThreadLines(value);
 	} else if (key === 'classicOldUI') {
 		classicOldUI(value);
+	} else if (key === 'replacePostImagesWithLinks') {
+		replacePostImagesWithLinks(value);
+	} else if (key === 'replacePostVideosWithLinks') {
+		replacePostVideosWithLinks(value);
 	}
 	return true;
 });
