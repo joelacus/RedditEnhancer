@@ -10,7 +10,7 @@ v [New New UI]
   - Added an option to limit the max video width when using the new "Scale Post To Fit Video" option.
   - Improved the code for "Add Scrollbars To Images".
   - Added options to change the max height of image and video posts respectively.
-  - Added options to replace post images and videos on the feed with text links instead respectively.
+  - Added options to replace post images and videos on the feed with text links instead respectively. (Currently doesn't work with NSFW images and .m3u8 videos).
   - Fixed "Show Post Author" not working on the search results page due to a website update.
   - Fixed a bug where "Hide Interface Gaps" was not working correctly with "Hide the Side Menu" and "Hide the Sidebar".
   - Fixed a bug preventing the "Default Feed Sort Option" from working on the search page.
