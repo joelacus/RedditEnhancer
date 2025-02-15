@@ -1,5 +1,5 @@
 Enhance your Reddit experience with Reddit Enhancer! A browser extension that allows you to customise your Reddit page with just a few clicks.
-Supports the Old and the Latest versions of Reddit.
+Supports all versions of Reddit.
 
 With Reddit Enhancer, you can:
 • Resize the feed and post width for a better viewing experience.
