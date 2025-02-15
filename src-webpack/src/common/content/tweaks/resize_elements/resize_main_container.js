@@ -31,10 +31,13 @@ export function resizeMainContainer(value) {
 function enableResizeMainContainer() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-resize-main-container';
-	styleElement.textContent = `@media (min-width: 960px) {
+	styleElement.textContent =
+		`
+		@media (min-width: 960px) {
             div.main-container,
-            div.masthead shreddit-gallery-carousel {
-                width: var(--re-main-container-width) !important;
+            div.masthead shreddit-gallery-carousel,
+            [pagetype="search_results"] div.masthead {
+                width: var(--re-main-container-width, 80%) !important;
                 margin: 0 auto;
             }
             /* Align subreddit title with main-content */
@@ -43,13 +46,14 @@ function enableResizeMainContainer() {
             }
             div.masthead > section,
             div.masthead:has(> custom-feed-header) {
-                width: var(--re-main-container-width);
+                width: var(--re-main-container-width, 80%);
                 margin: 0 auto;
             }
             community-appearance-entrypoint[target="banner"] {
                 margin-bottom: 3rem !important;
             }
-        }`;
+        }
+        `;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 

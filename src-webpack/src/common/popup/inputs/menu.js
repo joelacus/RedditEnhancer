@@ -164,6 +164,26 @@ document.querySelectorAll('.btn-font .menu-item-btn').forEach((btn) => {
 	});
 });
 
+// Menu Button - Media
+document.querySelectorAll('.btn-media-tweaks .menu-item-btn').forEach((btn) => {
+	btn.addEventListener('click', function (e) {
+		optionsPageFunctions();
+		const menu = document.querySelector('.menu-media-tweaks');
+		if (menu.classList.contains('hidden')) {
+			menu.classList.remove('hidden');
+			document.querySelectorAll('.btn-media-tweaks').forEach((btn) => {
+				btn.classList.add('active');
+			});
+			scrollIntoView('.btn-media-tweaks');
+		} else {
+			menu.classList.add('hidden');
+			document.querySelectorAll('.btn-media-tweaks').forEach((btn) => {
+				btn.classList.remove('active');
+			});
+		}
+	});
+});
+
 // Menu Button - Account Switcher
 /*document.querySelectorAll('.btn-account-switcher .menu-item-btn').forEach((btn) => {
 	btn.addEventListener('click', function (e) {

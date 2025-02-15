@@ -1,5 +1,5 @@
 Verbeter uw Reddit-ervaring met Reddit Enhancer! Een browserextensie waarmee u uw Reddit-pagina met slechts een paar klikken kunt aanpassen.
-Ondersteunt de oude en de nieuwste versie van Reddit.
+Ondersteunt alle versies van Reddit.
 
 Met Reddit Enhancer kunt u:
 • Pas het formaat van de feed en berichtbreedte aan voor een betere kijkervaring.

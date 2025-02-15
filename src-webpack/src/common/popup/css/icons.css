@@ -10,6 +10,7 @@
 	justify-self: center;
 	width: 30px;
 	height: 24px;
+	border-radius: 0 !important;
 	background-color: color-mix(in srgb, var(--text-grey) 50%, transparent);
 	mask-size: contain;
 	-webkit-mask-size: contain;
@@ -62,7 +63,7 @@
 	mask: url('../../icons/ui/down-left-and-up-right-to-center-solid.svg');
 	-webkit-mask: url('../../icons/ui/down-left-and-up-right-to-center-solid.svg');
 }
-.icon-scroll {
+.icon-up-down {
 	mask: url('../../icons/ui/up-down-solid.svg');
 	-webkit-mask: url('../../icons/ui/up-down-solid.svg');
 }
@@ -274,7 +275,7 @@
 	mask: url('../../icons/ui/icon-numbers.svg');
 	-webkit-mask: url('../../icons/ui/icon-numbers.svg');
 }
-.icon-ruler {
+.icon-ruler-vertical {
 	mask: url('../../icons/ui/ruler-vertical-solid.svg');
 	-webkit-mask: url('../../icons/ui/ruler-vertical-solid.svg');
 }
@@ -454,4 +455,36 @@
 .icon-compress {
 	mask: url('../../icons/ui/compress-solid.svg');
 	-webkit-mask: url('../../icons/ui/compress-solid.svg');
+}
+.icon-fade {
+	mask: url('../../icons/ui/square-solid.svg');
+	-webkit-mask: url('../../icons/ui/square-solid.svg');
+	background: linear-gradient(color-mix(in srgb, var(--text-grey) 50%, transparent), transparent) !important;
+}
+.icon-fade.active {
+	background: linear-gradient(var(--accent), transparent) !important;
+}
+.icon-mouse-scroll {
+	mask: url('../../icons/ui/icon-mouse-scroll.svg');
+	-webkit-mask: url('../../icons/ui/icon-mouse-scroll.svg');
+}
+.icon-photo-video {
+	mask: url('../../icons/ui/photo-film-solid.svg');
+	-webkit-mask: url('../../icons/ui/photo-film-solid.svg');
+}
+.icon-comment-threadlines {
+	mask: url('../../icons/ui/icon-comment-threadlines.svg');
+	-webkit-mask: url('../../icons/ui/icon-comment-threadlines.svg');
+}
+.icon-images {
+	mask: url('../../icons/ui/images-solid.svg');
+	-webkit-mask: url('../../icons/ui/images-solid.svg');
+}
+.icon-link {
+	mask: url('../../icons/ui/link-solid.svg');
+	-webkit-mask: url('../../icons/ui/link-solid.svg');
+}
+.icon-film {
+	mask: url('../../icons/ui/film-solid.svg');
+	-webkit-mask: url('../../icons/ui/film-solid.svg');
 }

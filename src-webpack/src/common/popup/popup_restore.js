@@ -8,6 +8,7 @@ import { restorePopupProductivityOptions } from './restore/restore_productivity'
 import { restorePopupRedditVersionOptions } from './restore/restore_reddit_version';
 import { restorePopupResizeFeedOptions } from './restore/restore_resize_elements';
 import { restorePopupStyleOptions } from './restore/restore_style';
+import { restorePopupMediaOptions } from './restore/restore_media';
 import { restorePopupTheme } from './restore/restore_extension_theme';
 import { detectFirefoxVersion } from '../content_first/functions/detect_browser_version';
 import { restorePopupFontOptions } from './restore/restore_font';
@@ -29,6 +30,7 @@ function restoreOptions() {
 	restorePopupBackgroundOptions();
 	restorePopupDarkModeOptions();
 	restorePopupStyleOptions();
+	restorePopupMediaOptions();
 	restorePopupProductivityOptions();
 	restorePopupResizeFeedOptions();
 	restorePopupHideElementsOptions();

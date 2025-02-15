@@ -15,7 +15,7 @@ export function restorePopupStyleOptions() {
 			var value = result.borderRadiusAmount + 'px';
 		} else {
 			document.querySelector('#input-border-radius-amount').value = -1;
-			document.querySelector('#border-radius-amount-value').textContent = 'off';
+			document.querySelector('#border-radius-amount-value').textContent = '';
 			var value = 'false';
 		}
 		console.log('Border Radius Amount: ' + value);
@@ -855,5 +855,39 @@ export function restorePopupStyleOptions() {
 			highlightMenuIcon('style-tweaks');
 		}
 		console.log('Compact Header Side Menu: ' + compactHeaderSideMenu);
+	});
+
+	// Classic Old UI
+	BROWSER_API.storage.sync.get(['classicOldUI'], function (result) {
+		const classicOldUI = result.classicOldUI === true;
+		document.querySelector('.icon-classic-old-ui').style.backgroundColor = classicOldUI ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-classic-old-ui').checked = classicOldUI;
+		if (classicOldUI) {
+			highlightMenuIcon('style-tweaks');
+		}
+		console.log('Classic Old UI: ' + classicOldUI);
+	});
+
+	// Multicoloured Post Page Comment Thread Lines
+	BROWSER_API.storage.sync.get(['multicolouredThreadLines'], function (result) {
+		const multicolouredThreadLines = result.multicolouredThreadLines === true;
+		document.querySelector('.icon-multicoloured-comment-thread-lines').style.backgroundColor = multicolouredThreadLines ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-multicoloured-comment-thread-lines').checked = multicolouredThreadLines;
+		if (multicolouredThreadLines) {
+			highlightMenuIcon('style-tweaks');
+		}
+		console.log('Multicoloured Post Page Comment Thread Lines: ' + multicolouredThreadLines);
+	});
+
+	// Multicoloured Post Page Comment Thread Lines Colour List
+	BROWSER_API.storage.sync.get(['multicolouredThreadLinesColours'], function (result) {
+		if (typeof result.multicolouredThreadLinesColours != 'undefined') {
+			document.querySelector('#input-multicoloured-comment-thread-lines-colour-list').value = result.multicolouredThreadLinesColours;
+			var value = result.multicolouredThreadLinesColours;
+		} else {
+			document.querySelector('#input-multicoloured-comment-thread-lines-colour-list').value = '';
+			var value = '';
+		}
+		console.log('Multicoloured Post Page Comment Thread Lines Colour List: ' + value);
 	});
 }

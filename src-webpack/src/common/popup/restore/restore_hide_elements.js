@@ -128,6 +128,17 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Custom Feed Sidebar: ' + hideCustomFeedSidebar);
 	});
 
+	// Sidebar Toggle Button
+	BROWSER_API.storage.sync.get(['sidebarToggleButton'], function (result) {
+		const sidebarToggleButton = result.sidebarToggleButton === true;
+		if (sidebarToggleButton) highlightMenuIcon('hide-elements');
+		document.querySelector('#checkbox-sidebar-toggle-button').checked = sidebarToggleButton;
+		document.querySelector('.icon-sidebar-toggle-button').style.backgroundColor = sidebarToggleButton ? 'var(--accent)' : '';
+		document.querySelector('.icon-sidebar-toggle-button').classList.toggle('icon-show', !sidebarToggleButton);
+		document.querySelector('.icon-sidebar-toggle-button').classList.toggle('icon-hide', sidebarToggleButton);
+		console.log('Hide Vote Buttons: ' + sidebarToggleButton);
+	});
+
 	// Hide Sidebar Policy
 	BROWSER_API.storage.sync.get(['hideSidebarPolicy'], function (result) {
 		if (result.hideSidebarPolicy == true) {
@@ -350,20 +361,6 @@ export function restorePopupHideElementsOptions() {
 			var value = false;
 		}
 		console.log('Hide NSFW Links: ' + value);
-	});
-
-	// Hide See Full Image
-	BROWSER_API.storage.sync.get(['hideSeeFullImage'], function (result) {
-		if (result.hideSeeFullImage == true) {
-			document.querySelector('#checkbox-hide-see-full-image').checked = true;
-			document.querySelector('.icon-hide-see-full-image').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
-			var value = true;
-		} else if (typeof result.hideSeeFullImage == 'undefined' || result.hideSeeFullImage == false) {
-			document.querySelector('#checkbox-hide-see-full-image').checked = false;
-			var value = false;
-		}
-		console.log("Hide 'See Full Image' Button: " + value);
 	});
 
 	// Hide Header Sub Bar
@@ -773,6 +770,22 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Compact View Blank Thumbnails: ' + value);
 	});
 
+	// Hide Compact View Thumbnails
+	BROWSER_API.storage.sync.get(['hideCompactViewThumbnails'], function (result) {
+		if (result.hideCompactViewThumbnails === true) {
+			document.querySelector('.icon-hide-compact-view-thumbnails').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-compact-view-thumbnails').checked = true;
+			highlightMenuIcon('hide-elements');
+			document.querySelector('.icon-hide-compact-view-thumbnails').classList.remove('icon-show');
+			document.querySelector('.icon-hide-compact-view-thumbnails').classList.add('icon-hide');
+			var value = true;
+		} else if (typeof result.hideCompactViewThumbnails == 'undefined' || result.hideCompactViewThumbnails === false) {
+			document.querySelector('#checkbox-hide-compact-view-thumbnails').checked = false;
+			var value = false;
+		}
+		console.log('Hide Compact View Thumbnails: ' + value);
+	});
+
 	// Hide "NSFW" In The Search Results
 	BROWSER_API.storage.sync.get(['hideNsfwInSearchResults'], function (result) {
 		if (result.hideNsfwInSearchResults === true) {
@@ -920,17 +933,6 @@ export function restorePopupHideElementsOptions() {
 		document.querySelector('#input-post-separator-height').value = value;
 		document.querySelector('#post-separator-height-value').innerText = value >= 0 ? value + 'px' : '';
 		console.log(`Post Separator Length: ${value >= 0 ? value + 'px' : 'default'}`);
-	});
-
-	// Hide Blurred Media Background
-	BROWSER_API.storage.sync.get(['hideBlurredMediaBackground'], function (result) {
-		const hideBlurredMediaBackground = result.hideBlurredMediaBackground === true;
-		if (hideBlurredMediaBackground) highlightMenuIcon('hide-elements');
-		document.querySelector('#checkbox-hide-blurred-media-background').checked = hideBlurredMediaBackground;
-		document.querySelector('.icon-hide-blurred-media-background').style.backgroundColor = hideBlurredMediaBackground ? 'var(--accent)' : '';
-		document.querySelector('.icon-hide-blurred-media-background').classList.toggle('icon-show', !hideBlurredMediaBackground);
-		document.querySelector('.icon-hide-blurred-media-background').classList.toggle('icon-hide', hideBlurredMediaBackground);
-		console.log('Hide Blurred Media Background: ' + hideBlurredMediaBackground);
 	});
 
 	// Hide Vote Buttons

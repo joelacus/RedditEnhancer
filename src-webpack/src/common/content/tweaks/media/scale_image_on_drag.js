@@ -3,7 +3,7 @@
 // Works, but activates reddit full screen image preview, or opens posts.
 
 /*import { disableFitImageNew } from './scale_tall_images_to_fit_post';
-import { disableImageScrollAll } from './scroll_tall_images';
+import { disableImageScrollAll } from './scroll_images';
 import { disableScalePostToFitImageAll } from './scale_post_to_fit_image';*/
 
 /* === Triggered On Page Load === 

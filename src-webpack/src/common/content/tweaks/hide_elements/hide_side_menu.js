@@ -67,7 +67,8 @@ function enableHideSideMenuNewNew() {
 		styleElement.textContent = `:root {
 										--re-hide-side-menu-gap-multiplyer: 1;
 									}
-									shreddit-app #left-sidebar-container {
+									shreddit-app #left-sidebar-container,
+									shreddit-app flex-left-nav-container#left-sidebar-container.left-sidebar {
 										display: none !important;
 										visibility: hidden;
 									}
@@ -75,8 +76,9 @@ function enableHideSideMenuNewNew() {
 										position: static !important;
 									}
 									@media (min-width: 1200px) {
-										shreddit-app .grid-container {
-											grid-template-columns: 0 1fr !important;
+										div.grid-container:not(.grid-full), 
+										div.grid-container:not(.grid-full).flex-nav-expanded {
+											--flex-nav-width: 0;
 										}
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);

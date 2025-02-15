@@ -526,6 +526,7 @@ export function themePostBackgroundColour(value) {
 			 							:root shreddit-app[routename="comments_page"] .grid-container.grid {
 											--color-neutral-background: var(--re-theme-post-bg) !important;
 											--shreddit-content-background: transparent;
+											background-color: var(--re-theme-post-bg);
 										}
 										article shreddit-post,
 										[routename="post_page"] main.main {
@@ -537,9 +538,21 @@ export function themePostBackgroundColour(value) {
 											--shreddit-content-background: transparent !important;
 											--color-neutral-background: var(--re-theme-post-bg) !important;
 										}
-										shreddit-feed shreddit-post:hover {
+										div[slot="mod-queue-feed"],
+										community-highlight-card {
+											--color-neutral-background: var(--re-theme-post-bg);
+											--color-neutral-background-weak: var(--re-theme-post-bg);
+										}
+										aside#mod-queue-pdp-panel {
+											background-color: var(--re-theme-post-bg);
+										}
+										shreddit-feed shreddit-post:hover,
+										community-highlight-card:hover {
 											--color-neutral-background-hover: color-mix(in srgb, var(--re-theme-post-bg), #000 10%) !important;
 											background-color: color-mix(in srgb, var(--re-theme-post-bg), #000 10%) !important;
+										}
+										shreddit-feed shreddit-post:focus-within {
+											--color-neutral-background-hover: var(--re-theme-post-bg);
 										}
 										div[slot="post-insights-panel"] > faceplate-tracker > div {
 											background-color: inherit !important;
@@ -569,6 +582,9 @@ export function themePostBackgroundColour(value) {
 											margin-bottom: 0;
 											padding-left: 8px;
 											padding-top: 8px;
+										}
+										shreddit-comments-sort-dropdown {
+											--color-neutral-background: transparent !important;
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
 		});
@@ -587,9 +603,82 @@ export function themePostBackgroundColourCSS(value) {
 		BROWSER_API.storage.sync.get(['themePostBackgroundColour'], function (result) {
 			if (result.themePostBackgroundColour === true) {
 				document.documentElement.style.setProperty('--re-theme-post-bg', value);
+				if (value.includes('rgba')) {
+					fixThreadlinesForTranslucentPosts();
+				} else {
+					undoFixThreadlinesForTranslucentPosts();
+				}
 			}
 		});
 	}
+}
+
+// Function - Run After Page Has Loaded Comments
+export function loadFixThreadlinesForTranslucentPosts() {
+	BROWSER_API.storage.sync.get(['themePostBackgroundColourCSS'], function (result) {
+		if (result.themePostBackgroundColourCSS.includes('rgba')) {
+			fixThreadlinesForTranslucentPosts();
+			comment_observer.observe(document.querySelector('shreddit-comment-tree'), { childList: true, subtree: true });
+		} else {
+			comment_observer.disconnect();
+			undoFixThreadlinesForTranslucentPosts();
+		}
+	});
+}
+
+// Observe Feed For New Comments
+const comment_observer = new MutationObserver(function (mutations) {
+	mutations.forEach(function (mutation) {
+		mutation.addedNodes.forEach(function (addedNode) {
+			if (addedNode.nodeName === '#comment') {
+				fixThreadlinesForTranslucentPosts();
+				setTimeout(() => {
+					fixThreadlinesForTranslucentPosts();
+				}, 100);
+				setTimeout(() => {
+					fixThreadlinesForTranslucentPosts();
+				}, 1000);
+			}
+		});
+	});
+});
+
+// Function - Fix Comment Threadlines For Translucent Post Background Colours
+function fixThreadlinesForTranslucentPosts() {
+	if (!document.head.querySelector('style[id="re-theme-fix-comment-threadline"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-theme-fix-comment-threadline';
+		styleElement.textContent = `shreddit-comment {
+										--color-neutral-background: transparent !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
+	document.querySelectorAll('shreddit-comment').forEach((comment) => {
+		const main_thread = comment.shadowRoot.querySelector('[data-testid="main-thread-line"]');
+		const last_thread = comment.shadowRoot.querySelector('#comment-children .threadline:last-of-type');
+		if (main_thread && last_thread) {
+			const last_thread_height = last_thread.offsetHeight;
+			main_thread.style.position = 'absolute';
+			main_thread.style.top = '0';
+			main_thread.style.height = `calc(100% - ${last_thread_height}px + 13px)`;
+		}
+	});
+}
+
+// Function - Undo Fix Comment Threadlines For Translucent Post Background Colours
+function undoFixThreadlinesForTranslucentPosts() {
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-fix-comment-threadline"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+	document.querySelectorAll('shreddit-comment').forEach((comment) => {
+		const main_thread = comment.shadowRoot.querySelector('[data-testid="main-thread-line"]');
+		const last_thread = comment.shadowRoot.querySelector('#comment-children .threadline:last-of-type');
+		if (main_thread && last_thread) {
+			main_thread.removeAttribute('style');
+			last_thread.removeAttribute('style');
+		}
+	});
 }
 
 // Post Text Colour
@@ -613,7 +702,11 @@ export function themePostTextColour1(value) {
 			styleElement.textContent = `shreddit-post [id^="post-title"] {
 											--color-neutral-content-strong: var(--re-theme-post-text) !important;
 										}
-										shreddit-post [data-post-click-location="text-body"] p {
+										shreddit-post [data-post-click-location="text-body"] p,
+										shreddit-post [data-post-click-location="text-body"] h1,
+										shreddit-post [data-post-click-location="text-body"] pre,
+										shreddit-post [data-post-click-location="text-body"] table *,
+										shreddit-post div.md.feed-card-text-preview {
 											color: var(--re-theme-post-text) !important;
 										}
 										[data-testid="search-post"] > post-consume-tracker > div {
@@ -1288,6 +1381,11 @@ export function themeSearchbarBgColour(value) {
 		styleElement.id = 're-theme-searchbar-bg-colour';
 		styleElement.textContent = `reddit-search-large {
 										--color-secondary-background: var(--re-theme-searchbar-bg) !important;
+										--color-input-secondary-hover: color-mix(in srgb, var(--re-theme-searchbar-bg), #000 40%) !important;
+									}
+									html.theme-dark reddit-search-large,
+									html.theme-light reddit-search-large {
+										--color-neutral-background-strong: color-mix(in srgb, var(--re-theme-searchbar-bg), #000 20%) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else if (value === false) {

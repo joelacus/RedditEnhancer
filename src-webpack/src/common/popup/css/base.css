@@ -43,4 +43,5 @@ h3 {
 .text-small {
 	font-size: 12px !important;
 	color: var(--text-grey);
+	text-wrap-mode: nowrap;
 }

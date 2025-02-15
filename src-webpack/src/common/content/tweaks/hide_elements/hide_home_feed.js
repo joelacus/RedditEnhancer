@@ -10,11 +10,17 @@ export function loadHideHomeFeed() {
 /* === Main Function === */
 export function hideHomeFeed(value) {
 	const path = window.location.pathname;
-	if (value === true && path === '/') {
+	if (value === true) {
 		if (redditVersion === 'newnew') {
 			enableHideHomeFeedNewNew();
 		} else if (redditVersion === 'old') {
 			enableHideHomeFeedOld();
+		} else if (redditVersion === 'new') {
+			if (path === '/' || path === '/r/all/' || path === '/r/popular/') {
+				enableHideHomeFeedNew();
+			} else {
+				disableHideHomeFeedAll();
+			}
 		}
 	} else {
 		disableHideHomeFeedAll();
@@ -30,37 +36,78 @@ function enableHideHomeFeedOld() {
 	if (!document.head.querySelector('style[id="re-hide-home-feed"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-home-feed';
-		styleElement.textContent = `#siteTable {
-										display: none !important;
+		/*
+			.listing-page: targets all pages with listings (home, all, popular, topic, custom feeds, moderator pages)
+			.with-listing-chooser: targets pages with the custom feed selector (excluding subreddits)
+			:not(.multi-page): not targeting custom feeds => home, all, popular, topic
+		 */
+		styleElement.textContent = `.listing-page.with-listing-chooser:not(.multi-page) div.content[role="main"] {
+										visibility: hidden;
 									}
-									#re-home-feed-hidden-icon {
-										position: absolute;
-										left: calc(50% - 32px);
-										content: ${hiddenIcon};
-										width: 64px;
+									.listing-page.with-listing-chooser:not(.multi-page) div.content[role="main"]::before {
+										content: "Hide Home Feed is enabled.";
+										visibility: visible;
+										display: block;
+										color: #aaa;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
-	const div = document.createElement('div');
-	div.id = 're-home-feed-hidden-icon';
-	document.querySelector('#re-container .content').append(div);
 }
 
-// Function - Enable Hide Home Feed - New New
-async function enableHideHomeFeedNewNew() {
+function enableHideHomeFeedNew() {
 	if (!document.head.querySelector('style[id="re-hide-home-feed"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-home-feed';
-		styleElement.textContent = `#main-content,
-									main.main {
-										display: none !important;
+		styleElement.textContent = `.ListingLayout-outerContainer {
+										visibility: hidden;
 									}
-									.main-container::before {
-										position: absolute;
-										left: calc(50% - 32px);
+									div#AppRouter-main-content::before {
+										visibility: visible;
+										display: block;
+										margin: 2rem auto;
 										content: ${hiddenIcon};
 										width: 64px;
-										margin: 3rem;
+									}
+									.theme-light div#AppRouter-main-content::before {
+										filter: invert(.9);
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
+}
+
+// Function - Enable Hide Home Feed - New New
+function enableHideHomeFeedNewNew() {
+	if (!document.head.querySelector('style[id="re-hide-home-feed"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-home-feed';
+		styleElement.textContent = `shreddit-app[routename="frontpage"] main.main, 
+									shreddit-app[routename="all"] main.main,
+									shreddit-app[routename="popular"] main.main,
+									shreddit-app[routename="topic"] main.main {
+										visibility: hidden;
+									}
+									shreddit-app[routename="frontpage"] shreddit-feed, 
+									shreddit-app[routename="all"] shreddit-feed,
+									shreddit-app[routename="popular"] shreddit-feed,
+									shreddit-app[routename="topic"] shreddit-feed,
+									shreddit-app[routename="popular"] shreddit-gallery-carousel {
+										display: none;
+									}
+									[routename="frontpage"] main.main::before, 
+									[routename="all"] main.main::before,
+									[routename="popular"] main.main::before,
+									[routename="topic"] main.main::before {
+										visibility: visible;
+										display: block;
+										margin: 2rem auto;
+										content: ${hiddenIcon};
+										width: 64px;
+									}
+									.theme-light [routename="frontpage"] main.main::before, 
+									.theme-light [routename="all"] main.main::before,
+									.theme-light [routename="popular"] main.main::before,
+									.theme-light [routename="topic"] main.main::before {
+										filter: invert(.9);
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

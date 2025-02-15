@@ -293,3 +293,15 @@ document.querySelector('#input-post-comments-font-weight').addEventListener('mou
 		BROWSER_API.storage.sync.set({ postCommentsFontWeight: false });
 	}
 });
+
+// Toggle - Custom Fonts
+document.querySelector('#checkbox-custom-fonts').addEventListener('change', function (e) {
+	// set ui
+	if (e.target.checked) {
+		document.querySelector('.icon-custom-fonts').style.backgroundColor = 'var(--accent)';
+	} else {
+		document.querySelector('.icon-custom-fonts').style.backgroundColor = '';
+	}
+	BROWSER_API.storage.sync.set({ customFonts: e.target.checked });
+	sendMessage({ customFonts: e.target.checked });
+});

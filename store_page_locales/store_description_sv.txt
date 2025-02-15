@@ -1,5 +1,5 @@
 Förbättra din Reddit-upplevelse med Reddit Enhancer! En webbläsartillägg som låter dig anpassa din Reddit-sida med bara några få klick.
-Stöder den gamla och den senaste versionen av Reddit.
+Stöder alla versioner av Reddit.
 
 Med Reddit Enhancer kan du:
 • Ändra storlek på flödet och inläggets bredd för en bättre tittarupplevelse.

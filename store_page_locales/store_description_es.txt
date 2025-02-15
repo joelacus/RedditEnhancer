@@ -1,5 +1,5 @@
 ¡Mejora tu experiencia en Reddit con Reddit Enhancer! Una extensión del navegador que te permite personalizar tu página de Reddit con solo unos pocos clics.
-Admite la versión antigua y la más reciente de Reddit.
+Admite todas las versiones de Reddit.
 
 Con Reddit Enhancer, puedes:
 • Cambie el tamaño del feed y el ancho de la publicación para una mejor experiencia de visualización.

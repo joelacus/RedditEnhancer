@@ -49,23 +49,39 @@ export function layoutCentre(value) {
 
 // Function - Enable Layout Centre - Old
 function enableLayoutCentreOld() {
-	const link = window.location.href;
-	if (link.indexOf('old.reddit.com/r/') <= 0) {
-		BROWSER_API.storage.sync.get(['hideHomeSidebar'], function (result) {
-			if (result.hideHomeSidebar != true) {
-				document.querySelector('#re-container').classList.add('re-centre-container-old');
-			} else {
-				document.querySelector('#re-container').classList.remove('re-centre-container-old');
-			}
-		});
-	} else {
-		document.querySelector('#re-container').classList.add('re-centre-container-old');
-	}
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-centre-container-old';
+	styleElement.textContent = `.listing-page div.content[role="main"],
+								.messages-page div.content[role="main"],
+								.wiki-page div.content[role="main"],
+								.profile-page div.content[role="main"],
+								.moderator div.content[role="main"],
+								.search-page div.content[role="main"],
+								.submit-page div.content[role="main"],
+								.comments-page div.content[role="main"],
+								.other-discussions-page div.content[role="main"],
+								.multi-page div.content[role="main"] {
+									margin: .5rem auto !important;
+								}
+								.comments-page div.content[role="main"],
+								.other-discussions-page div.content[role="main"] {
+									padding: 0 !important;
+								}
+								.listing-page.with-listing-chooser:not(.multi-page) div.content[role="main"]::before {
+									text-align: center;
+								}
+								body.with-listing-chooser div.listing-chooser {
+									z-index: 1 !important;
+								}`;
+	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
 // Function - Disable Layout Centre - Old
 function disableLayoutCentreOld() {
-	document.querySelector('#re-container').classList.remove('re-centre-container-old');
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-centre-container-old"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
 }
 
 // Function - Enable Layout Centre - New - Legacy

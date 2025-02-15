@@ -15,7 +15,30 @@ export function loadHideVoteButtons() {
 
 // Activate the feature based on Reddit version
 export function hideVoteButtons(value) {
-    if (redditVersion === 'new') {
+    if (redditVersion === 'old') {
+        if (value) {
+            if (!document.head.querySelector('style[id="re-hide-vote-buttons"]')) {
+                const styleElement = document.createElement('style');
+                styleElement.id = 're-hide-vote-buttons';
+                styleElement.textContent = `/* Post vote buttons */
+                                            .thing div.midcol,
+                                            /* Comment vote buttons */
+                                            .comment div.midcol {
+                                                display: none;
+                                                visibility: hidden;
+                                            }
+                                            a.thumbnail {
+                                                margin-left: .5rem;
+                                            }`;
+                document.head.insertBefore(styleElement, document.head.firstChild);
+            }
+        } else {
+            const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-vote-buttons"]');
+            dynamicStyleElements.forEach((element) => {
+                document.head.removeChild(element);
+            });
+        }
+    } else if (redditVersion === 'new') {
         if (value) {
             if (!document.head.querySelector('style[id="re-hide-vote-buttons"]')) {
                 const styleElement = document.createElement('style');

@@ -117,10 +117,11 @@ const styleScrollToComment = `.re-scroll-to-comment-container {
 								width: 30px;
 								z-index: 9999;
 							}
-							#re-next-comment,#re-prev-comment {
+							#re-next-comment,
+							#re-prev-comment {
 								cursor: pointer;
 								padding: 4px;
-								border-radius: 2px;
+								border-radius: var(--re-theme-border-radius, 4px);
 								background-color: rgba(0,0,0,0.4);
 								color: #fff;
 								height: 22px;
@@ -150,16 +151,21 @@ const stylePagination = `.re-post.hidden {
 						}`;
 
 const styleOldReddit = `#re-main .listing-chooser {
-							position: absolute !important;
-							top: 70px !important;
-							z-index: 10;
-						}
-						#header-bottom-right {
-							display: flex;
-						}
-						#header a, #header span {
-							color: #369;
-						}`;
+		position: absolute !important;
+		top: 70px !important;
+		z-index: 10;
+	}
+	#header-bottom-right {
+		display: flex;
+	}
+	body.with-listing-chooser #header span.pagename {
+		position: static;
+	}
+	a.thumbnail > img {
+	    width: 70px;
+	    height: 70px;
+	    object-fit: contain;
+	}`;
 
 const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 						cursor: pointer;
@@ -198,8 +204,8 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 					shreddit-post:hover {
 						z-index: 9;
 					}
-					pdp-back-button {
-						position: static !important;
+					.Post:not(.scrollerItem) div:not(:has(h3)) + div[data-ignore-click="false"] {
+						margin-left: 10px;
 					}
 					div[slot="credit-bar"] > span:has(pdp-back-button) {
 						gap: .6rem;
@@ -229,6 +235,14 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 					}
 					shreddit-app[pagetype="search_results"] main.main {
 						margin-top: 1rem;
+					}
+					/* Compact blockquote */
+					div.md blockquote {
+						margin: 0 0 1rem .125rem;
+						padding: 0 0 0 1rem;
+					}
+					div.md blockquote:last-of-type {
+						margin-bottom: 0;
 					}`;
 
 const styleScrollText = `.re-text-scroll div[data-click-id="text"][style="max-height: 250px;"], .re-text-scroll div[data-click-id="text"][style="max-height:250px"] {

@@ -2,1112 +2,334 @@
 	"extensionName": {
 		"message": "Reddit Enhancer"
 	},
-
 	"extensionDescription": {
-		"message": "Erilaisia ​​mukautuksia Reddit-kokemuksesi mukauttamiseen. Tukee kaikkia Reddit-versioita."
+		"message": "Erilaisia ​​mukautuksia Reddit-kokemuksesi mukauttamiseen. Tukee kaikkia Reddit versioita."
 	},
-
 	"About": {
 		"message": "Noin"
 	},
-
-	"ReportIssues": {
-		"message": "Ilmoita ongelmista"
-	},
-
-	"BuyMeACoffee": {
-		"message": "Osta minulle kahvia"
-	},
-
-	"DarkMode": {
-		"message": "Tumma tila"
-	},
-
-	"ResizeLayout": {
-		"message": "Muuttaa Syöte / Viesti Kokoa"
-	},
-
-	"Centre": {
-		"message": "Keskusta"
-	},
-
-	"Width": {
-		"message": "Leveys"
-	},
-
-	"HomeFeedWidth": {
-		"message": "Kotisyötteen leveys"
-	},
-
-	"SubFeedWidth": {
-		"message": "Alisyötteen leveys"
-	},
-
-	"UserProfileWidth": {
-		"message": "Käyttäjäprofiilin leveys"
-	},
-
-	"PostOverlayWidth": {
-		"message": "Viestin päällekkäisen leveys"
-	},
-
-	"PostWidth": {
-		"message": "Viestin leveys"
-	},
-
-	"Offset": {
-		"message": "Siirtymä"
-	},
-
-	"HomeFeedOffset": {
-		"message": "Kotisyötteen siirtymä"
-	},
-
-	"SubFeedOffset": {
-		"message": "Alisyötteen siirtymä"
-	},
-
-	"PostOffset": {
-		"message": "Viestin siirtymä"
-	},
-
-	"UserProfileOffset": {
-		"message": "Käyttäjäprofiilin siirtymä"
-	},
-
-	"FitImage": {
-		"message": "Skaalaa korkeat kuvat, jotka sopivat postille"
-	},
-
-	"ImageScroll": {
-		"message": "Lisää vierityspalkki korkeisiin kuviin"
-	},
-
-	"Background": {
-		"message": "Tausta"
-	},
-
-	"Blur": {
-		"message": "Hämärtää"
-	},
-
-	"Shadow": {
-		"message": "Pudottaa varjot"
-	},
-
-	"UseCustom": {
-		"message": "Käytä tapaa"
-	},
-
-	"CustomBgInputPlaceholder": {
-		"message": "Mukautettu taustalinkki"
-	},
-
-	"NewNewUI": {
-		"message": "Uusi Uusi UI"
-	},
-
-	"OldNewUI": {
-		"message": "Vanha Uusi UI"
-	},
-
-	"OldUI": {
-		"message": "Vanha UI"
-	},
-
 	"Auto": {
 		"message": "Automaattinen"
 	},
-
-	"Disabled": {
-		"message": "Liikuntarajoitteinen"
-	},
-
-	"BrowserTheme": {
-		"message": "Selainteema"
-	},
-
-	"TimeRange": {
-		"message": "Aikahaarukka"
-	},
-
-	"StartTime": {
-		"message": "Aloitusaika (24)"
-	},
-
-	"EndTime": {
-		"message": "Loppu aika (24)"
-	},
-
-	"StyleTweaks": {
-		"message": "Tyyli"
-	},
-
-	"HideRedditPremium": {
-		"message": "Piilota 'Reddit Premium'"
-	},
-
-	"HideCreatePost": {
-		"message": "Piilota 'Luo viesti'"
-	},
-
-	"HideAdvertiseButton": {
-		"message": "Piilota 'Mainosta-painike'"
-	},
-
-	"HideModerationButton": {
-		"message": "Piilota 'Maltillisuus-painike'"
-	},
-
-	"HidePopularButton": {
-		"message": "Piilota 'Suosittu-painike'"
-	},
-
-	"HideChatButton": {
-		"message": "Piilota 'Chat-painike'"
-	},
-
-	"HideHomeSidebar": {
-		"message": "Piilota kotisivun sivupalkki"
-	},
-
-	"HideSubSidebar": {
-		"message": "Piilota Subddit-sivupalkki"
-	},
-
-	"Sidebar": {
-		"message": "Sivupalkki"
-	},
-
-	"Header": {
-		"message": "Otsikko"
-	},
-
-	"Feed": {
-		"message": "Syöttää"
-	},
-
-	"HeaderButtons": {
-		"message": "Otsikkopainikkeet"
-	},
-
-	"HideGap": {
-		"message": "Piilota käyttöliittymän aukot"
-	},
-
-	"Main": {
-		"message": "Pää"
-	},
-
-	"StickySort": {
-		"message": "Tahmea lajittelupalkki"
-	},
-
-	"HideUsername": {
-		"message": "Piilota käyttäjänimi"
-	},
-
-	"HideKarma": {
-		"message": "Piilota karma"
-	},
-
-	"ReloadPage": {
-		"message": "Lataa sivu uudelleen"
-	},
-
-	"ShowRising": {
-		"message": "Always Show the 'Rising' Sort Button"
-	},
-
-	"ToTop": {
-		"message": "Add 'Scroll To Top' Button"
-	},
-
-	"HideGetNewReddit": {
-		"message": "Hide 'Get New Reddit'"
-	},
-
-	"HideSidebarPolicy": {
-		"message": "Hide Policies Section"
-	},
-
-	"HideElements": {
-		"message": "Hide Elements"
-	},
-
-	"Productivity": {
-		"message": "Productivity"
-	},
-
-	"OpenSubInNewTab": {
-		"message": "Open Links to subreddits in a New Tab"
-	},
-
-	"Search": {
-		"message": "Hae"
-	},
-
-	"HidePromoted": {
-		"message": "Hide Ads/Promoted Links"
-	},
-
-	"ShowAllButton": {
-		"message": "Add 'r/All' Button"
-	},
-
-	"VideoPlayerReplacement": {
-		"message": "Alternative Video Player"
-	},
-
-	"Images": {
-		"message": "Images"
-	},
-
-	"SortBar": {
-		"message": "Sort Bar"
-	},
-
-	"Other": {
-		"message": "Other"
-	},
-
-	"HideCreatePostButton": {
-		"message": "Hide 'Create Post' Button"
-	},
-
-	"HideNotificationButton": {
-		"message": "Hide 'Notification' Button"
-	},
-
-	"MoveFeedToTopInSidemenu": {
-		"message": "Move The Feed Section In The Side Menu To The Top"
-	},
-
-	"Text": {
-		"message": "Text"
-	},
-
-	"TextScroll": {
-		"message": "Add Scrollbar To Long Text Posts"
-	},
-
-	"HideSeeFullImage": {
-		"message": "Hide 'See Full Image'"
-	},
-
-	"ModerniseOldReddit": {
-		"message": "Modernise old.reddit"
-	},
-
-	"HideHeaderSubBar": {
-		"message": "Hide Header subreddit List"
-	},
-
-	"HideSideMenu": {
-		"message": "Hide the Side Menu"
-	},
-
-	"PostCommentsLimit": {
-		"message": "Limit Post Comments"
-	},
-
-	"AutoExpand": {
-		"message": "Expand to 100% if the window/screen width is less than:"
-	},
-
-	"HidePostSidebar": {
-		"message": "Hide the Post Sidebar"
-	},
-
-	"HidePostOverlaySidebar": {
-		"message": "Hide the Post Overlay Sidebar"
-	},
-
-	"HideUserSidebar": {
-		"message": "Hide the User Sidebar"
-	},
-
-	"LimitInfinityScroll": {
-		"message": "Limit Infinity Scroll"
-	},
-
-	"VideoPlayerInfo": {
-		"message": "Fast, lightweight video player with speed controls based on videojs. Try this if you have loading issues with reddit's own player."
-	},
-
-	"LimitCommentsInfo": {
-		"message": "Only works for posts opened in a new tab/window."
-	},
-
-	"LimitInfinityScrollInfo": {
-		"message": "Beta. This won't necessarily reduce bandwidth usage, but should instead help prevent the page from becoming slow by stopping reddit from adding new posts until you click 'Load More' at the bottom of the feed. When you click 'Load More' it will clear the first 25 posts, and show the next 25."
-	},
-
-	"DefaultFeedSortOption": {
-		"message": "Default Feed Sort Option"
-	},
-
-	"DefaultCommentsSortOption": {
-		"message": "Default Comments Sort Option"
-	},
-
-	"Best": {
-		"message": "Best"
-	},
-
-	"Hot": {
-		"message": "Hot"
-	},
-
-	"New": {
-		"message": "New"
-	},
-
-	"Top": {
-		"message": "Top"
-	},
-
-	"Controversial": {
-		"message": "Controversial"
-	},
-
-	"Rising": {
-		"message": "Rising"
-	},
-
-	"Old": {
-		"message": "Old"
-	},
-
-	"Qa": {
-		"message": "Q&a"
-	},
-
-	"OpenPostInNewTab": {
-		"message": "Open Posts in New Tab"
-	},
-
-	"ControversialSort": {
-		"message": "Show the 'Controversial' Sort Button"
-	},
-
-	"TextScrollInfo": {
-		"message": "There is a limit. You may have to open the post if it is very long."
-	},
-
-	"HideNSFW": {
-		"message": "Hide NSFW/L Posts"
-	},
-
-	"HideTurnOnNotificationsPopup": {
-		"message": "Hide 'Get the best of' Popup"
-	},
-
-	"ScrollToNextRootComment": {
-		"message": "Show Navigation Buttons For The Next/Previous Root Comment"
-	},
-
-	"OpenPostInNewTabInfo": {
-		"message": "You can now enable this officially within reddit."
-	},
-
-	"OpenPostInNewTabInfoLink": {
-		"message": "User Settings > Feed Settings > Open posts in new tab"
-	},
-
-	"ShowPostNumbers": {
-		"message": "Add Post Numbers"
-	},
-
-	"Backup": {
-		"message": "Backup"
-	},
-
-	"Restore": {
-		"message": "Restore"
-	},
-
-	"RestoreConfigTitle": {
-		"message": "Restore Reddit Enhancer Backup Config"
-	},
-
-	"ChooseBackupFile": {
-		"message": "Choose backup file"
-	},
-
-	"Or": {
-		"message": "OR"
-	},
-
-	"Drag": {
-		"message": "Drag"
-	},
-
-	"Here": {
-		"message": "here"
-	},
-
-	"RestoreBackup": {
-		"message": "Restore Backup"
-	},
-
-	"BackupRestored": {
-		"message": "Backup Restored!"
-	},
-
-	"CloseTab": {
-		"message": "You can now close this tab/window."
-	},
-
-	"Upload": {
-		"message": "Upload"
-	},
-
-	"CustomCSS": {
-		"message": "Custom CSS"
-	},
-
-	"FeedPostMaxHeight": {
-		"message": "Post Height"
-	},
-
-	"Post": {
-		"message": "Post"
-	},
-
-	"Accessibility": {
-		"message": "Accessibility"
-	},
-
-	"BionicReader": {
-		"message": "Bionic Reader"
-	},
-
-	"BionicReaderPosts": {
-		"message": "Bionic Reader For Posts"
-	},
-
-	"BionicReaderComments": {
-		"message": "Bionic Reader For Comments"
-	},
-
-	"BionicFontColour": {
-		"message": "Bionic Font Colour"
-	},
-
-	"BionicBackgroundColour": {
-		"message": "Bionic Background Colour"
-	},
-
-	"ThemeBlur": {
-		"message": "Theme Blur"
-	},
-
-	"ThemeBlurInfo": {
-		"message": "Use translucent colours 'rgba(0,0,0,0.5)' to see blur effect."
-	},
-
-	"ThemeColours": {
-		"message": "Theme Colours"
-	},
-
-	"PostVisitedTitleColour": {
-		"message": "Visited Post Title Colour"
-	},
-
-	"HeaderBgColour": {
-		"message": "Header: Background Colour"
-	},
-
-	"HeaderTextColour": {
-		"message": "Header: Text Colour"
-	},
-
-	"Sort": {
-		"message": "Sort"
-	},
-
-	"SortBgColour": {
-		"message": "Sort: Background Colour"
-	},
-
-	"SortTextColour": {
-		"message": "Sort: Text Colour"
-	},
-
-	"SortBorderColour": {
-		"message": "Sort: Border Colour"
-	},
-
-	"PostBgColour": {
-		"message": "Post: Background Colour"
-	},
-
-	"PostCreditBar": {
-		"message": "Post: Header Bar Text Colour"
-	},
-
-	"PostTitleContentColour": {
-		"message": "Post: Title and Text Content Colour"
-	},
-
-	"PostCommentsColour": {
-		"message": "Post: Comments Text Colour"
-	},
-
-	"PostCommentsSecondaryColour": {
-		"message": "Post: Comments Secondary Text Colour"
-	},
-
-	"PostBorderColour": {
-		"message": "Post: Border Colour"
-	},
-
-	"SidebarTextColour": {
-		"message": "Sidebar: Text Colour"
-	},
-
-	"SidebarBackgroundColour": {
-		"message": "Sidebar: Background Colour"
-	},
-
-	"SidebarBorderColour": {
-		"message": "Sidebar: Border Colour"
-	},
-
-	"SideMenu": {
-		"message": "Side Menu"
-	},
-
-	"SidemenuTextColour": {
-		"message": "Side Menu: Text Colour"
-	},
-
-	"SidemenuBackgroundColour": {
-		"message": "Side Menu: Background Colour"
-	},
-
-	"SidemenuButtonHoverColour": {
-		"message": "Side Menu: Button Hover Colour"
-	},
-
-	"WhitelistBlacklist": {
-		"message": "Whitelist / Blacklist"
-	},
-
-	"Whitelist": {
-		"message": "Whitelist"
-	},
-
-	"Blacklist": {
-		"message": "Blacklist"
-	},
-
-	"ThemeBlacklistInfo": {
-		"message": "Use theme colours globally, except for these subreddits:"
-	},
-
-	"ThemeWhitelistInfo": {
-		"message": "Only use the theme colours for these subreddits:"
-	},
-
-	"HideSubSidebarBlacklistInfo": {
-		"message": "Hide globally except for on these subreddits:"
-	},
-
-	"HideSubSidebarWhitelistInfo": {
-		"message": "Only hide on these subreddits:"
-	},
-
-	"HideHeaderBar": {
-		"message": "Hide the Header Bar"
-	},
-
-	"NonStickyHeaderBar": {
-		"message": "Non Sticky Header Bar"
-	},
-
-	"HideOriginalScrollToTop": {
-		"message": "Hide the Original Scroll to Top Button"
-	},
-
-	"CreatePost": {
-		"message": "Create Post"
-	},
-
-	"CreatePostBgColour": {
-		"message": "Create Post: Background Colour"
-	},
-
-	"CreatePostBorderColour": {
-		"message": "Create Post: Border Colour"
-	},
-
-	"AlwaysShowPostOptions": {
-		"message": "Always Show Post Options"
-	},
-
-	"LargerClassicPost": {
-		"message": "Larger Classic Post View"
-	},
-
-	"PositionVertically": {
-		"message": "Position Vertically"
-	},
-
-	"PositionHorizontally": {
-		"message": "Position Horizontally"
-	},
-
-	"BreakReminder": {
-		"message": "Break Reminder"
-	},
-
-	"BreakReminderInfo": {
-		"message": "Beta. Shows a reminder to have a break every set number of posts."
-	},
-
-	"BreakReminderFrequency": {
-		"message": "Reminder Frequency"
-	},
-
-	"TranslationHelp": {
-		"message": "Käännösohje"
-	},
-
-	"Off": {
-		"message": "Off"
-	},
-
-	"ShowPostAuthor": {
-		"message": "Show Post Author"
-	},
-
-	"ShowPostFlair": {
-		"message": "Show Post Flair"
-	},
-
-	"HideSideMenuTopSection": {
-		"message": "Hide the Top Section"
-	},
-
-	"HideSideMenuModerationSection": {
-		"message": "Hide the Moderation Section"
-	},
-
-	"HideSideMenuRecentSection": {
-		"message": "Hide the Recent Subreddit Section"
-	},
-
-	"HideSideMenuCommunitiesSection": {
-		"message": "Hide the Communities Section"
-	},
-
-	"HideSideMenuResourcesSection": {
-		"message": "Hide the Resources Section"
-	},
-
-	"HideSideMenuTopicsSection": {
-		"message": "Hide the Topics Section"
-	},
-
-	"HideRelatedPosts": {
-		"message": "Hide Related Posts"
-	},
-
-	"Select": {
-		"message": "Valitse"
-	},
-
-	"SelectRedditVersion": {
-		"message": "Valitse Reddit-versio"
-	},
-
-	"UpdateFirefox": {
-		"message": "Päivitä Firefox 121:een tai uudempaan, jotta jotkin ominaisuudet toimivat oikein."
-	},
-
-	"ResizeFont": {
-		"message": "Muuta fontin kokoa"
-	},
-
-	"PostTitle": {
-		"message": "Viestin otsikko"
-	},
-
-	"PostContent": {
-		"message": "Post Content"
-	},
-
-	"PostComments": {
-		"message": "Post Comments"
-	},
-
-	"Rate": {
-		"message": "Arvostele"
-	},
-
-	"HideUserProfilePics": {
-		"message": "Hide user profile pictures in the comments"
-	},
-
-	"AutoExpandComments": {
-		"message": "Laajenna piilotetut kommentit automaattisesti"
-	},
-
-	"AutoExpandCommentsInfo": {
-		"message": "Tämä saattaa hidastaa sivua ja käyttää paljon RAM-muistia, varsinkin jos kommentteja on paljon."
-	},
-
 	"AutoCollapseAutoModeratorComment": {
 		"message": "Automatisoitu AutoModerator-kommentin pienentäminen"
 	},
-
-	"HidePostHiddenMessage": {
-		"message": "Hide 'Post Hidden' Message"
+	"AutoExpandComments": {
+		"message": "Laajenna piilotetut kommentit automaattisesti"
 	},
-
-	"JustOpenTheImage": {
-		"message": "Just Open The Image"
+	"AutoExpandCommentsInfo": {
+		"message": "Tämä saattaa hidastaa sivua ja käyttää paljon RAM-muistia, varsinkin jos kommentteja on paljon."
 	},
-
-	"JustOpenTheImageInfo": {
-		"message": "Open images on their own, instead of embedded on a Reddit page."
-	},
-
-	"ScalePostToFitImage": {
-		"message": "Scale Post To Fit Image"
-	},
-
-	"LimitImageWidth": {
-		"message": "Limit Image Width"
-	},
-
-	"Settings": {
-		"message": "Asetukset"
-	},
-
-	"ExtensionSettings": {
-		"message": "Laajennusasetukset"
-	},
-
-	"Theme": {
-		"message": "Teema"
-	},
-
-	"Dark": {
-		"message": "Tumma"
-	},
-
-	"Light": {
-		"message": "Vaalea"
-	},
-
-	"ClassicLight": {
-		"message": "Perinteinen Vaalea"
-	},
-
-	"BackupRestoreConfig": {
-		"message": "Varmuuskopio/Palauta asetukset"
-	},
-
-	"PleaseWait": {
-		"message": "Odota"
-	},
-
-	"RestoreInfo1": {
-		"message": "Palautetaan"
-	},
-
-	"RestoreInfo2": {
-		"message": "kohdetta. Selaimen API-raja on 120 minuutissa. Jätä tämä ikkuna/välilehti auki vielä minuutiksi."
-	},
-
-	"HideJoinButtonOnPosts": {
-		"message": "Piilota 'Liity'-painike viesteistä"
-	},
-
 	"AutoLoadMoreComments": {
 		"message": "Lataa automaattisesti lisää kommentteja"
 	},
-
-	"HideSideMenuCustomFeedsSection": {
-		"message": "Piilota Mukautetut syötteet -osio"
-	},
-
-	"UnderlineLinks": {
-		"message": "Alleviivaa linkit"
-	},
-
 	"AutoShowCommentFormattingOptions": {
 		"message": "Näytä muotoiluasetukset automaattisesti kommentoiessasi"
 	},
-
-	"Language": {
-		"message": "Kieli"
+	"Background": {
+		"message": "Tausta"
 	},
-
-	"SearchbarBgColour": {
-		"message": "Hakupalkki: Taustaväri"
+	"BackupRestoreConfig": {
+		"message": "Varmuuskopio/Palauta asetukset"
 	},
-
-	"SearchbarDropdownBgColour": {
-		"message": "Hakupalkki: Tarkennettu / pudotettava taustaväri"
+	"Best": {
+		"message": "Parhaat / Best"
 	},
-
-	"HideSearchSidebar": {
-		"message": "Piilota hakusivupalkki"
+	"Blur": {
+		"message": "Hämärtää"
 	},
-
+	"BreakReminderFrequency": {
+		"message": "Reminder Frequency"
+	},
+	"BrowserTheme": {
+		"message": "Selainteema"
+	},
+	"BuyMeACoffee": {
+		"message": "Osta minulle kahvia"
+	},
+	"Centre": {
+		"message": "Keskusta"
+	},
+	"ClassicLight": {
+		"message": "Perinteinen Vaalea"
+	},
+	"ClassicOldUI": {
+		"message": "Klassinen vanha käyttöliittymä"
+	},
+	"Comments": {
+		"message": "Kommentit"
+	},
+	"CommentsCount": {
+		"message": "Kommentit laskevat"
+	},
+	"Controversial": {
+		"message": "Kiistanalainen / Controversial"
+	},
+	"CustomBgInputPlaceholder": {
+		"message": "Mukautettu taustalinkki"
+	},
+	"Dark": {
+		"message": "Tumma"
+	},
+	"DarkMode": {
+		"message": "Tumma tila"
+	},
+	"Disabled": {
+		"message": "Liikuntarajoitteinen"
+	},
+	"EndTime": {
+		"message": "Loppu aika (24)"
+	},
+	"ExtensionSettings": {
+		"message": "Laajennusasetukset"
+	},
+	"Feed": {
+		"message": "Syöttää"
+	},
+	"FitImage": {
+		"message": "Skaalaa korkeat kuvat, jotka sopivat postille"
+	},
+	"Header": {
+		"message": "Otsikko"
+	},
+	"HeaderButtons": {
+		"message": "Otsikkopainikkeet"
+	},
+	"HideAdvertiseButton": {
+		"message": "Piilota 'Mainosta-painike'"
+	},
+	"HideChatButton": {
+		"message": "Piilota 'Chat-painike'"
+	},
+	"HideCompactViewThumbnails": {
+		"message": "Piilota pikkukuvat kompaktiin näkymään"
+	},
+	"HideCreatePost": {
+		"message": "Piilota 'Luo viesti'"
+	},
+	"HideGap": {
+		"message": "Piilota käyttöliittymän aukot"
+	},
+	"HideHomeSidebar": {
+		"message": "Piilota kotisivun sivupalkki"
+	},
+	"HideJoinButtonOnPosts": {
+		"message": "Piilota 'Liity'-painike viesteistä"
+	},
+	"HideKarma": {
+		"message": "Piilota karma"
+	},
+	"HideModerationButton": {
+		"message": "Piilota 'Maltillisuus-painike'"
+	},
+	"HidePopularButton": {
+		"message": "Piilota 'Suosittu-painike'"
+	},
 	"HideRecommended": {
 		"message": "Piilota Suositeltu"
 	},
-
 	"HideRecommendedInfo": {
 		"message": "Suositeltujen viestien piilottaminen voidaan määrittää virallisesti redditin käyttäjäasetuksissa."
 	},
-
-	"TopicFeedWidth": {
-		"message": "Aiheen syötteen leveys"
+	"HideRedditPremium": {
+		"message": "Piilota 'Reddit Premium'"
 	},
-
-	"RUI2RemovalInfo": {
-		"message": "Reddit has discontinued (Old New UI / Version 2) of the website. Options for 'Old New UI' will continue to be supported for now while other workarounds to get it back are still working."
+	"HideSearchSidebar": {
+		"message": "Piilota hakusivupalkki"
 	},
-
-	"learnMore": {
-		"message": "Learn More"
+	"HideSideMenuCustomFeedsSection": {
+		"message": "Piilota Mukautetut syötteet -osio"
 	},
-
-	"HidePostBackButton": {
-		"message": "Hide The Post Back Button"
+	"HideSubSidebar": {
+		"message": "Piilota Subddit-sivupalkki"
 	},
-
-	"BorderRadiusAmount": {
-		"message": "Theme Corner Radius"
+	"HideUsername": {
+		"message": "Piilota käyttäjänimi"
 	},
-
-	"HidePostKarma": {
-		"message": "Hide Post Karma"
+	"HomeFeedOffset": {
+		"message": "Kotisyötteen siirtymä"
 	},
-
-	"HideRecentPosts": {
-		"message": "Hide Recent Posts"
+	"HomeFeedWidth": {
+		"message": "Kotisyötteen leveys"
 	},
-
-	"SideMenuWidth": {
-		"message": "Side Menu Width"
+	"Hot": {
+		"message": "Kuuma / Hot"
 	},
-
-	"SideMenuIconsOnly": {
-		"message": "Side Menu Icons Only"
+	"ImageScroll": {
+		"message": "Lisää vierityspalkkeja kuviin"
 	},
-
-	"HideFavouriteButtons": {
-		"message": "Hide the Favourite Buttons"
+	"JustOpenTheImageInfo": {
+		"message": "Kun avaat kuvia uudessa välilehdessä, avaa ne suoraan upottamatta niitä Reddit-sivulle."
 	},
-
-	"ResetAllSettings": {
-		"message": "Reset All Settings"
+	"Language": {
+		"message": "Kieli"
 	},
-
-	"Confirm": {
-		"message": "Confirm"
+	"Light": {
+		"message": "Vaalea"
 	},
-
-	"Cleared": {
-		"message": "Cleared"
+	"Main": {
+		"message": "Pää"
 	},
-
-	"Error": {
-		"message": "Error"
+	"MaxImagePostHeight": {
+		"message": "Suurin kuvan jälkeinen korkeus"
 	},
-
-	"SetLanguageAndTheme": {
-		"message": "Koko sivun asetukset / Aseta kieli ja teema"
+	"MaxImageWidth": {
+		"message": "Suurin kuvan leveys"
 	},
-
-	"SelectRedirect": {
-		"message": "Redirect"
+	"MaxVideoPostHeight": {
+		"message": "Suurin videoviestin korkeus"
 	},
-
-	"Welcome": {
-		"message": "Welcome!"
+	"MaxVideoWidth": {
+		"message": "Videon enimmäisleveys"
 	},
-
-	"ModerniseOldRedditInfo": {
-		"message": "Makes old reddit look more like new reddit."
+	"Media": {
+		"message": "Media"
 	},
-
-	"RUI3RedirectInfo": {
-		"message": "The redirect option to 'New New UI' is no longer necessary, however, you can use this option to force links from (sh|old).reddit.com to www.reddit.com"
+	"MulticolouredCommentThreadLines": {
+		"message": "Moniväriset kommenttien rivit"
 	},
-
-	"DontShowAgain": {
-		"message": "Don't show again"
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "Valinnainen. Lista räätälöityjä värejä, jotka on erotettu pilkulla. Nämä värit valmistavat oletusvärit ja niitä käytetään järjestyksessä."
 	},
-
-	"Close": {
-		"message": "Close"
+	"New": {
+		"message": "Uusi / New"
 	},
-
-	"SideMenuToggleButton": {
-		"message": "Show Side Menu Toggle Button"
+	"NewNewUI": {
+		"message": "Uusi Uusi UI"
 	},
-
-	"HideCompactViewBlankThumbnails": {
-		"message": "Hide Blank Thumbnails In Compact View"
+	"Offset": {
+		"message": "Siirtymä"
 	},
-
-	"HideNsfwInSearchResults": {
-		"message": "Hide 'NSFW' in the Search Results"
+	"Old": {
+		"message": "Vanha / Old"
 	},
-
-	"HideTrendingTodayInSearchResults": {
-		"message": "Hide 'Trending Today' in the Searchbar"
+	"OldNewUI": {
+		"message": "Vanha Uusi UI"
 	},
-
-	"HideCommunityHighlights": {
-		"message": "Hide 'Community Highlights'"
+	"OldUI": {
+		"message": "Vanha UI"
 	},
-
-	"HideSearchSidebarNsfwUsers": {
-		"message": "Hide NSFW Users in the Search Page Sidebar"
+	"PleaseWait": {
+		"message": "Odota"
 	},
-
-	"resizeHomeAlsoAffects": {
-		"message": "& r/all, r/popular, create post, search results, and wiki pages"
+	"PostOffset": {
+		"message": "Viestin siirtymä"
 	},
-
-	"SearchPageOffset": {
-		"message": "Search Page Offset"
+	"PostOverlayWidth": {
+		"message": "Viestin päällekkäisen leveys"
 	},
-
-	"NoSavedBackgrounds": {
-		"message": "No Saved Backgrounds"
+	"PostTitle": {
+		"message": "Viestin otsikko"
 	},
-
-	"HideHomeFeed": {
-		"message": "Hide Home Feed"
+	"PostWidth": {
+		"message": "Viestin leveys"
 	},
-
-	"RememberSectionHiddenState": {
-		"message": "Remember the hidden states of sections in the side menu"
+	"Qa": {
+		"message": "Q&a"
 	},
-
-	"NewUpdateAvailable": {
-		"message": "Version <version> is now available. Your browser should update this extension automatically soon if you have automatic updates enabled, if not, you will have to manually check for updates in the browser extension manager."
+	"Rate": {
+		"message": "Arvostele"
 	},
-
-	"UpvoteColour": {
-		"message": "Post: Upvote Colour"
+	"Relevance": {
+		"message": "Relevanssi"
 	},
-
-	"FontWeight": {
-		"message": "Font Weight"
+	"ReloadPage": {
+		"message": "Lataa sivu uudelleen"
 	},
-
-	"FontWeightInfo": {
-		"message": "Not all fonts support all weights."
+	"ReportIssues": {
+		"message": "Ilmoita ongelmista"
 	},
-
-	"Font": {
-		"message": "Font"
+	"ResizeFont": {
+		"message": "Muuta fontin kokoa"
 	},
-
-	"FeedPostTitle": {
-		"message": "Feed Post: Title"
+	"ResizeLayout": {
+		"message": "Muuttaa Syöte / Viesti Kokoa"
 	},
-
-	"FeedPostContent": {
-		"message": "Feed Post: Content"
+	"RestoreInfo1": {
+		"message": "Palautetaan"
 	},
-
-	"PostCommentActionRowColour": {
-		"message": "Post: Comment Action Row Colour"
+	"RestoreInfo2": {
+		"message": "kohdetta. Selaimen API-raja on 120 minuutissa. Jätä tämä ikkuna/välilehti auki vielä minuutiksi."
 	},
-
-	"FilterOptionsFor": {
-		"message": "Filter Options For"
+	"Rising": {
+		"message": "Nousemassa / Rising"
 	},
-
-	"Redirect": {
-		"message": "Redirect"
+	"ScalePostToFitVideo": {
+		"message": "Skaalaus Videon sopimaan"
 	},
-
-	"CreatePostTitle": {
-		"message": "Create Post: Title"
+	"SearchbarBgColour": {
+		"message": "Hakupalkki: Taustaväri"
 	},
-
-	"CreatePostBody": {
-		"message": "Create Post: Body"
+	"SearchbarDropdownBgColour": {
+		"message": "Hakupalkki: Tarkennettu / pudotettava taustaväri"
 	},
-
-	"OptionsPage": {
-		"message": "Options Page"
+	"Select": {
+		"message": "Valitse"
 	},
-
-	"extensionVersionText": {
-		"message": "Extension Version"
+	"SelectRedditVersion": {
+		"message": "Valitse Reddit-versio"
 	},
-
-	"Changelog": {
-		"message": "Changelog"
+	"SetSansSerifAsFont": {
+		"message": "Aseta \"sans-serif\" ui-fontiksi"
 	},
-
-	"ShowProfilePicturesOnComments": {
-		"message": "Show Profile Pictures On Comments"
+	"Settings": {
+		"message": "Asetukset"
 	},
-
-	"CustomFeedWidth": {
-		"message": "Custom Feed Width"
+	"Shadow": {
+		"message": "Pudottaa varjot"
 	},
-
-	"ResizeMainContainer": {
-		"message": "Resize Main Container (experimental)"
+	"Sidebar": {
+		"message": "Sivupalkki"
 	},
-
-	"ResizeMainContainerInfo": {
-		"message": "For the best results, please set all Resize Feed / Post width values to 100%."
+	"StartTime": {
+		"message": "Aloitusaika (24)"
 	},
-
-	"HideCustomFeedSidebar": {
-		"message": "Hide the Custom Feed Sidebar"
+	"StickySort": {
+		"message": "Tahmea lajittelupalkki"
 	},
-
-	"HidePostDivider": {
-		"message": "Hide Post Separators"
+	"StyleTweaks": {
+		"message": "Tyyli"
 	},
-
-	"PostSeparatorHeight": {
-		"message": "Post Gap"
+	"SubFeedOffset": {
+		"message": "Alisyötteen siirtymä"
 	},
-
-	"HideBlurredMediaBackground": {
-		"message": "Hide background blur behind image previews"
+	"SubFeedWidth": {
+		"message": "Alisyötteen leveys"
 	},
-
-	"CompactHeaderSideMenu": {
-		"message": "Compact Header Bar & Side Menu"
-	},
-
 	"Subreddit": {
 		"message": "Subreddit"
 	},
-
-	"FullWidthBanner": {
-		"message": "Full Width Subreddit Banner"
+	"Theme": {
+		"message": "Teema"
 	},
-
-	"CompactSubRuleList": {
-		"message": "Compact Subreddit Rule List"
+	"TimeRange": {
+		"message": "Aikahaarukka"
 	},
-
-	"HideCommentKarma": {
-		"message": "Hide Comment Karma"
+	"Top": {
+		"message": "Ylös / Top"
 	},
-
-	"HideVoteButtons": {
-		"message": "Hide Vote Buttons"
+	"TranslationHelp": {
+		"message": "Käännösohje"
+	},
+	"UnderlineLinks": {
+		"message": "Alleviivaa linkit"
+	},
+	"UpdateFirefox": {
+		"message": "Päivitä Firefox 121:een tai uudempaan, jotta jotkin ominaisuudet toimivat oikein."
+	},
+	"UseCustom": {
+		"message": "Käytä tapaa"
+	},
+	"UserProfileOffset": {
+		"message": "Käyttäjäprofiilin siirtymä"
+	},
+	"UserProfileWidth": {
+		"message": "Käyttäjäprofiilin leveys"
+	},
+	"Video": {
+		"message": "Video"
+	},
+	"Width": {
+		"message": "Leveys"
 	}
 }

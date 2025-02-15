@@ -10,7 +10,6 @@ import { loadHideAdvertiseButton, loadHideChatButton, loadHideCreatePostButton, 
 import { loadBionicReaderColours } from '../../../content/tweaks/accessibility/bionic_reader';
 import { loadCustomBackground } from '../../../content/tweaks/background/custom_background';
 import { loadCustomTheme } from '../../../content/tweaks/style/override_theme_colours';
-//import { loadDragImageToResize } from '../../../content/functions/productivity/scale_image_on_drag';
 import { loadDropShadow } from '../../../content/tweaks/style/drop_shadow';
 import { loadExpandContent } from '../../../content/tweaks/resize_elements/expand_content';
 import { loadHideCreatePost } from '../../../content/tweaks/hide_elements/hide_create_post';
@@ -25,7 +24,7 @@ import { loadHideSidebarPolicy } from '../../../content/tweaks/hide_elements/hid
 import { loadHideTurnOnNotificationsPopup } from '../../../content/tweaks/hide_elements/hide_turn_on_notifications_popup';
 import { loadHideUsernameAndKarma } from '../../../content/tweaks/hide_elements/hide_username_and_karma';
 import { loadHideUserProfilePics } from '../../../content/tweaks/hide_elements/hide_user_profile_pics';
-import { loadImageScroll } from '../../../content/tweaks/productivity/scroll_tall_images';
+import { loadImageScroll } from '../../../content/tweaks/media/scroll_images';
 import { loadLargerClassicPost } from '../../../content/tweaks/style/larger_classic_post';
 import { loadLayoutCentre } from '../../../content/tweaks/resize_elements/layout_centre_and_offset';
 import { loadNonStickyHeaderBar } from '../../../content/tweaks/productivity/non_sticky_header_bar';
@@ -33,14 +32,16 @@ import { loadOverrideDropShadow } from '../../../content/tweaks/style/override_d
 import { loadPostHeight } from '../../../content/tweaks/productivity/post_max_height';
 import { loadResizeFont } from '../../../content/tweaks/font/resize_font';
 import { loadPostFontWeight } from '../../../content/tweaks/font/font_weight';
-//import { loadScalePostToFitImage } from '../../../content/functions/productivity/scale_post_to_fit_image';
 import { loadScrollToNextRootCommentPosition } from '../../../content/tweaks/productivity/scroll_to_next_root_comment';
 import { loadStickySort } from '../../../content/tweaks/productivity/sticky_sort';
 import { loadUnderlineLinks } from '../../../content/tweaks/accessibility/underline_links';
 import { loadHideRecommendedPosts } from '../../../content/tweaks/hide_elements/hide_recommended';
 import { loadHideHomeFeed } from '../../../content/tweaks/hide_elements/hide_home_feed';
-import { loadHidePostKarma, loadHideCommentKarma } from "../../../content/tweaks/hide_elements/hide_post_comment_karma";
-import { loadHideVoteButtons } from "../../../content/tweaks/hide_elements/hide_vote_buttons";
+import { loadHidePostKarma, loadHideCommentKarma } from '../../../content/tweaks/hide_elements/hide_post_comment_karma';
+import { loadHideVoteButtons } from '../../../content/tweaks/hide_elements/hide_vote_buttons';
+import { limitImageSize } from '../../../content/tweaks/media/limit_media_size';
+import { loadHideCompactViewThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_thumbnails';
+import { loadHideCompactViewBlankThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_blank_thumbnails';
 
 export function tweakLoaderOldNew() {
 	if (typeof useLegacy != 'undefined') {
@@ -57,8 +58,6 @@ export function tweakLoaderOldNew() {
 	if (link.indexOf('/comments/') >= 0) {
 		// post
 		loadCommon();
-		//loadScalePostToFitImage();
-		//loadDragImageToResize();
 		loadPostHeight();
 		loadHideUserProfilePics();
 		if (useLegacy) {
@@ -92,8 +91,6 @@ export function tweakLoaderOldNew() {
 		loadPostHeight();
 		loadHideJoinButtonOnPosts();
 		loadHideHomeFeed();
-		//loadScalePostToFitImage();
-		//loadDragImageToResize();
 		if (useLegacy) {
 			observerFeedContainerAndFeed();
 			observerSort();
@@ -129,6 +126,7 @@ function loadCommon() {
 	loadHidePostKarma();
 	loadHideCommentKarma();
 	loadHideVoteButtons();
+	limitImageSize();
 
 	if (!useLegacy) {
 		loadLayoutCentre();
@@ -141,5 +139,7 @@ function loadCommon() {
 		loadDropShadow();
 		loadOverrideDropShadow();
 		loadHideRecommendedPosts();
+		loadHideCompactViewThumbnails();
+		loadHideCompactViewBlankThumbnails();
 	}
 }

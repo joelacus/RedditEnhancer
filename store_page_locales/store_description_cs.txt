@@ -1,5 +1,5 @@
 Vylepšete své zážitky z Reddit pomocí Reddit Enhancer! Rozšíření prohlížeče, které vám umožní přizpůsobit si stránku Reddit pomocí několika kliknutí.
-Podporuje starou a nejnovější verzi Reddit.
+Podporuje všechny verze Reddit.
 
 S Reddit Enhancer můžete:
 • Změňte velikost kanálu a šířky příspěvku pro lepší zážitek ze sledování.

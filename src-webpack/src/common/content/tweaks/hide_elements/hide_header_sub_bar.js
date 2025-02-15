@@ -24,8 +24,11 @@ function hideHeaderSubBarOld() {
 		const style = document.createElement('style');
 		style.id = 're-hide-header-sub-bar';
 		style.textContent = `#sr-header-area {
-							display: none !important;
-						}`;
+								display: none !important;
+							}
+							body.with-listing-chooser div.listing-chooser {
+								top: 45px;
+							}`;
 		document.head.insertBefore(style, document.head.firstChild);
 	}
 }

@@ -1,133 +1,104 @@
 {
-	"Centre": {
-		"message": "Center"
-	},
-
-	"ThemeColours": {
-		"message": "Theme Colors"
-	},
-
-	"PostVisitedTitleColour": {
-		"message": "Visited Post Title Color"
-	},
-
-	"HeaderBgColour": {
-		"message": "Header Background Color"
-	},
-
-	"HeaderTextColour": {
-		"message": "Header Text Color"
-	},
-
-	"PostCreditBar": {
-		"message": "Post Header Bar Text Color"
-	},
-
-	"BionicFontColour": {
-		"message": "Bionic Font Color"
-	},
-
 	"BionicBackgroundColour": {
 		"message": "Bionic Background Color"
 	},
-
-	"ThemeBlurInfo": {
-		"message": "Use translucent colors 'rgba(0,0,0,0.5)' to see blur effect."
+	"BionicFontColour": {
+		"message": "Bionic Font Color"
 	},
-
-	"SortBgColour": {
-		"message": "Sort: Background Color"
+	"Centre": {
+		"message": "Center"
 	},
-
-	"SortTextColour": {
-		"message": "Sort: Text Color"
-	},
-
-	"SortBorderColour": {
-		"message": "Sort: Border Color"
-	},
-
-	"PostBgColour": {
-		"message": "Post: Background Color"
-	},
-
-	"PostSecondaryTextColour": {
-		"message": "Post: Secondary Text Color"
-	},
-
-	"PostTitleContentColour": {
-		"message": "Post: Title and Text Content Color"
-	},
-
-	"PostCommentsColour": {
-		"message": "Post: Comments Text Color"
-	},
-
-	"PostCommentsSecondaryColour": {
-		"message": "Post: Comments Secondary Text Color"
-	},
-
-	"PostBorderColour": {
-		"message": "Post: Border Color"
-	},
-
-	"SidebarTextColour": {
-		"message": "Sidebar: Text Color"
-	},
-
-	"SidebarBackgroundColour": {
-		"message": "Sidebar: Background Color"
-	},
-
-	"SidebarBorderColour": {
-		"message": "Sidebar: Border Color"
-	},
-
-	"SidemenuTextColour": {
-		"message": "Side Menu: Text Color"
-	},
-
-	"SidemenuBackgroundColour": {
-		"message": "Side Menu: Background Color"
-	},
-
-	"SidemenuButtonHoverColour": {
-		"message": "Side Menu: Button Hover Color"
-	},
-
-	"ThemeBlacklistInfo": {
-		"message": "Use theme colors globally, except for these subreddits:"
-	},
-
-	"ThemeWhitelistInfo": {
-		"message": "Only use the theme colors for these subreddits:"
-	},
-
 	"CreatePostBgColour": {
 		"message": "Create Post: Background Color"
 	},
-
 	"CreatePostBorderColour": {
 		"message": "Create Post: Border Color"
 	},
-
-	"SearchbarBgColour": {
-		"message": "Searchbar: Background Color"
+	"HeaderBgColour": {
+		"message": "Header Background Color"
 	},
-
-	"SearchbarDropdownBgColour": {
-		"message": "Searchbar: Focused/Dropdown Background Color"
+	"HeaderTextColour": {
+		"message": "Header Text Color"
 	},
-
+	"MulticolouredCommentThreadLines": {
+		"message": "Multicolored Comment Thread Lines"
+	},
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "Optional. List custom colors, separated by a comma. These colors will prepend the default colors and will be used in order."
+	},
+	"PostBgColour": {
+		"message": "Post: Background Color"
+	},
+	"PostBorderColour": {
+		"message": "Post: Border Color"
+	},
+	"PostCommentActionRowColour": {
+		"message": "Post: Comment Action Row Color"
+	},
+	"PostCommentsColour": {
+		"message": "Post: Comments Text Color"
+	},
+	"PostCommentsSecondaryColour": {
+		"message": "Post: Comments Secondary Text Color"
+	},
 	"PostContentAndCommentsLinkColour": {
 		"message": "Post: Content And Comments Link Color"
 	},
-
+	"PostSecondaryTextColour": {
+		"message": "Post: Secondary Text Color"
+	},
+	"PostTitleContentColour": {
+		"message": "Post: Title and Text Content Color"
+	},
+	"PostVisitedTitleColour": {
+		"message": "Visited Post Title Color"
+	},
+	"SearchbarBgColour": {
+		"message": "Searchbar: Background Color"
+	},
+	"SearchbarDropdownBgColour": {
+		"message": "Searchbar: Focused/Dropdown Background Color"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Sidebar: Background Color"
+	},
+	"SidebarBorderColour": {
+		"message": "Sidebar: Border Color"
+	},
+	"SidebarTextColour": {
+		"message": "Sidebar: Text Color"
+	},
+	"SidemenuBackgroundColour": {
+		"message": "Side Menu: Background Color"
+	},
+	"SidemenuButtonHoverColour": {
+		"message": "Side Menu: Button Hover Color"
+	},
+	"SidemenuTextColour": {
+		"message": "Side Menu: Text Color"
+	},
+	"SortBgColour": {
+		"message": "Sort: Background Color"
+	},
+	"SortBorderColour": {
+		"message": "Sort: Border Color"
+	},
+	"SortTextColour": {
+		"message": "Sort: Text Color"
+	},
+	"ThemeBlacklistInfo": {
+		"message": "Use theme colors globally, except for these subreddits:"
+	},
+	"ThemeBlurInfo": {
+		"message": "Use translucent colors 'rgba(0,0,0,0.5)' to see blur effect."
+	},
+	"ThemeColours": {
+		"message": "Theme Colors"
+	},
+	"ThemeWhitelistInfo": {
+		"message": "Only use the theme colors for these subreddits:"
+	},
 	"UpvoteColour": {
 		"message": "Post: Upvote Color"
-	},
-
-	"PostCommentActionRowColour": {
-		"message": "Post: Comment Action Row Color"
 	}
 }

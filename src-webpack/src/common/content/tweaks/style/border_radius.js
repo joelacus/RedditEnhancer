@@ -15,7 +15,7 @@ export function borderRadiusAmount(value) {
 			if (!document.querySelector('style[id="re-theme-border-radius"]')) {
 				addBorderRadiusAmountStylesheet();
 			}
-		} else if (parseInt(value) === -1 || value == undefined) {
+		} else if (parseInt(value) === -1 || value === undefined) {
 			document.documentElement.style.removeProperty('--re-theme-border-radius');
 			removeBorderRadiusAmountStylesheet();
 		}
@@ -41,6 +41,7 @@ function addBorderRadiusAmountStylesheet() {
 			/* Comment pages, profile banner */
 			.xs\\:rounded-\\[16px\\],
 			.rounded-t-\\[1rem\\],
+			.rounded-\\[8px\\],
 			faceplate-tabgroup#profile-feed-tabgroup > a,
 			:where(button), :where(input):where([type="submit"], [type="reset"], [type="button"]),
 			/* Posts in Card view, search results and subreddit sidebar */
@@ -52,6 +53,7 @@ function addBorderRadiusAmountStylesheet() {
 			div#right-sidebar-container aside,
 			div#right-sidebar-container aside a,
 			div#right-sidebar-container aside button,
+			div#right-sidebar-container [data-testid="search-results-sidebar"],
 			/* Post media previews */
 			div[slot="thumbnail"],
 			div[slot="post-media-container"],
@@ -99,11 +101,6 @@ function addBorderRadiusAmountStylesheet() {
 				}
 			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
-
-		const recentPosts = document.querySelector('recent-posts');
-		if (recentPosts) {
-			recentPosts.shadowRoot.querySelector('aside').style.borderRadius = 'var(--re-theme-border-radius)';
-		}
 	}
 }
 

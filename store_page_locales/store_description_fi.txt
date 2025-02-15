@@ -1,5 +1,5 @@
 Paranna Reddit-kokemustasi Reddit Enhancer! Selainlaajennus, jonka avulla voit mukauttaa Reddit-sivuasi vain muutamalla napsautuksella.
-Tukee Reddit vanhaa ja uusinta versiota.
+Tukee kaikkia Reddit versioita.
 
 Reddit Enhancer avulla voit:
 • Muuta syötteen kokoa ja tekstin leveyttä parantaaksesi katselukokemusta.

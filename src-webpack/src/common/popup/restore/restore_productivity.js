@@ -5,74 +5,6 @@ import { highlightMenuIcon } from '../popup_restore';
 // Restore UI settings for "Productivity" options.
 
 export function restorePopupProductivityOptions() {
-	// Scale Tall Images To Fit Post
-	BROWSER_API.storage.sync.get(['fitImage'], function (result) {
-		if (result.fitImage == true) {
-			document.querySelector('#checkbox-fit-image').checked = true;
-			document.querySelector('.icon-scale').style.backgroundColorr = 'var(--accent)';
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.fitImage == 'undefined' || result.fitImage == false) {
-			document.querySelector('#checkbox-fit-image').checked = false;
-			var value = false;
-		}
-		console.log('Scale Tall Images: ' + value);
-	});
-
-	// Add Scrollbar To Tall Images
-	BROWSER_API.storage.sync.get(['imageScroll'], function (result) {
-		if (result.imageScroll == true) {
-			document.querySelector('#checkbox-image-scroll').checked = true;
-			document.querySelector('.icon-scroll').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.imageScroll == 'undefined' || result.imageScroll == false) {
-			document.querySelector('#checkbox-image-scroll').checked = false;
-			var value = false;
-		}
-		console.log('Scroll Tall Images: ' + value);
-	});
-
-	// Add Scrollbar To Tall Images Max Image Size
-	BROWSER_API.storage.sync.get(['imageScrollMaxImageWidth'], function (result) {
-		if (typeof result.imageScrollMaxImageWidth != 'undefined') {
-			if (result.imageScrollMaxImageWidth > 9 && result.imageScrollMaxImageWidth <= 100) {
-				highlightMenuIcon('productivity-tweaks');
-				const imageScroll = document.querySelector('#checkbox-image-scroll').checked;
-				if (imageScroll === true) {
-					document.querySelector('.icon-image-scroll-max-image-width').style.backgroundColor = 'var(--accent)';
-				}
-				document.querySelector('#input-image-scroll-max-image-width').value = result.imageScrollMaxImageWidth;
-				document.querySelector('#image-scroll-max-image-width-value').innerText = result.imageScrollMaxImageWidth + '%';
-				var value = result.imageScrollMaxImageWidth + 'px';
-			} else {
-				document.querySelector('#input-image-scroll-max-image-width').value = 9;
-				document.querySelector('#image-scroll-max-image-width-value').innerText = '100%';
-				var value = 'default (100%)';
-			}
-		} else if (typeof result.imageScrollMaxImageWidth == 'undefined') {
-			document.querySelector('#input-image-scroll-max-image-width').value = 9;
-			document.querySelector('#image-scroll-max-image-width-value').innerText = '100%';
-			var value = 'default (100%)';
-		}
-		console.log('Add Scrollbar To Tall Images Max Image Size: ' + value);
-	});
-
-	// New Player
-	BROWSER_API.storage.sync.get(['newPlayer'], function (result) {
-		if (result.newPlayer == true) {
-			document.querySelector('#checkbox-new-player').checked = true;
-			document.querySelector('.icon-new-player').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('productivity-tweaks');
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.newPlayer == 'undefined' || result.newPlayer == false) {
-			document.querySelector('#checkbox-new-player').checked = false;
-			var value = false;
-		}
-		console.log('Use New Video Player: ' + value);
-	});
-
 	// Scroll To Top
 	BROWSER_API.storage.sync.get(['showToTopButton'], function (result) {
 		if (result.showToTopButton == true) {
@@ -204,20 +136,6 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		console.log('Always Show Post Options: ' + value);
 	});
 
-	// Add Scroll To Text Post
-	BROWSER_API.storage.sync.get(['textPostScroll'], function (result) {
-		if (result.textPostScroll == true) {
-			document.querySelector('#checkbox-text-scroll-post').checked = true;
-			document.querySelector('.icon-text-scroll-post').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.textPostScroll == 'undefined' || result.textPostScroll == false) {
-			document.querySelector('#checkbox-text-scroll-post').checked = false;
-			var value = false;
-		}
-		console.log('Add Scroll To Long Text Posts: ' + value);
-	});
-
 	// Comments Limit
 	BROWSER_API.storage.sync.get(['commentsLimit'], function (result) {
 		if (typeof result.commentsLimit != 'undefined') {
@@ -277,9 +195,14 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		setTimeout(() => {
 			// delay for translation
 			if (typeof result.defaultFeedSortOption != 'undefined') {
-				const text = document.querySelector('#feed-sort-' + result.defaultFeedSortOption).textContent;
-				document.querySelector('#select-feed-sort-option .select').querySelector('span').textContent = text;
 				var value = result.defaultFeedSortOption;
+				if (value === 'best') {
+					value = 'relevance';
+				} else if (value === 'rising') {
+					value = 'hot';
+				}
+				const text = document.querySelector('#feed-sort-' + value).textContent;
+				document.querySelector('#select-feed-sort-option .select').querySelector('span').textContent = text;
 			} else if (typeof result.defaultFeedSortOption == 'undefined') {
 				const text = document.querySelector('#feed-sort-relevance').textContent;
 				document.querySelector('#select-feed-sort-option .select').querySelector('span').textContent = text;
@@ -524,119 +447,6 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		console.log('Auto Expand Comments: ' + value);
 	});
 
-	/*
-// Scale Post To Fit Image
-BROWSER_API.storage.sync.get(['scalePostToFitImage'], function (result) {
-    if (result.scalePostToFitImage == true) {
-        document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = 'var(--accent)';
-        document.querySelector('#checkbox-scale-post-to-fit-image').checked = true;
-        highlightMenuIcon('productivity-tweaks');
-        var value = true;
-    } else if (typeof result.scalePostToFitImage == 'undefined' || result.scalePostToFitImage == false) {
-        document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
-        var value = false;
-    }
-    console.log('Scale Post To Fit Image: ' + value);
-});
-
-// Scale Post To Fit Image Max Image Size
-BROWSER_API.storage.sync.get(['scalePostToFitImageMaxImageWidth'], function (result) {
-    if (typeof result.scalePostToFitImageMaxImageWidth != 'undefined') {
-        if (result.scalePostToFitImageMaxImageWidth > 29 && result.scalePostToFitImageMaxImageWidth <= 100) {
-            highlightMenuIcon('productivity-tweaks');
-            const scalePostToFitImage = document.querySelector('#checkbox-scale-post-to-fit-image').checked;
-            if (scalePostToFitImage === true) {
-                document.querySelector('.icon-scale-post-to-fit-image-max-image-width').style.backgroundColor = 'var(--accent)';
-            }
-            document.querySelector('#input-scale-post-to-fit-image-max-image-width').value = result.scalePostToFitImageMaxImageWidth;
-            document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = result.scalePostToFitImageMaxImageWidth + '%';
-            var value = result.scalePostToFitImageMaxImageWidth + 'px';
-        } else {
-            document.querySelector('#input-scale-post-to-fit-image-max-image-width').value = 29;
-            document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = '40%';
-            var value = 'default (40%)';
-        }
-    } else if (typeof result.scalePostToFitImageMaxImageWidth == 'undefined') {
-        document.querySelector('#input-scale-post-to-fit-image-max-image-width').value = 29;
-        document.querySelector('#scale-post-to-fit-image-max-image-width-value').innerText = '40%';
-        var value = 'default (40%)';
-    }
-    console.log('Scale Post To Fit Image Max Image Size: ' + value);
-});
-*/
-
-	// Drag Image to Resize
-	/*BROWSER_API.storage.sync.get(['dragImageToResize'], function (result) {
-    if (result.dragImageToResize == true) {
-        document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = 'var(--accent)';
-        document.querySelector('#checkbox-drag-image-to-resize').checked = true;
-        highlightMenuIcon('productivity-tweaks');
-        var value = true;
-    } else if (typeof result.dragImageToResize == 'undefined' || result.dragImageToResize == false) {
-        document.querySelector('#checkbox-drag-image-to-resize').checked = false;
-        var value = false;
-    }
-    console.log('Drag Image to Resize: ' + value);
-});
-
-// Drag Image to Resize Initial Size
-BROWSER_API.storage.sync.get(['dragImageToResizeInitialSize'], function (result) {
-    if (typeof result.dragImageToResizeInitialSize != 'undefined') {
-        if (result.dragImageToResizeInitialSize > 99 && result.dragImageToResizeInitialSize <= 1000) {
-            highlightMenuIcon('productivity-tweaks');
-            const dragImageToResize = document.querySelector('#checkbox-drag-image-to-resize').checked;
-            if (dragImageToResize === true) {
-                document.querySelector('.icon-drag-image-to-resize-initial-size').style.backgroundColor = 'var(--accent)';
-            }
-            document.querySelector('#input-drag-image-to-resize-initial-size').value = result.dragImageToResizeInitialSize;
-            document.querySelector('#drag-image-to-resize-initial-size-value').innerText = result.dragImageToResizeInitialSize + 'px';
-            var value = result.dragImageToResizeInitialSize + 'px';
-        } else {
-            document.querySelector('#input-drag-image-to-resize-initial-size').value = 99;
-            document.querySelector('#drag-image-to-resize-initial-size-value').innerText = '350px';
-            var value = 'default (350px)';
-        }
-    } else if (typeof result.dragImageToResizeInitialSize == 'undefined') {
-        document.querySelector('#input-drag-image-to-resize-initial-size').value = 99;
-        document.querySelector('#drag-image-to-resize-initial-size-value').innerText = '350px';
-        var value = 'default (350px)';
-    }
-    console.log('Drag Image to Resize Initial Size: ' + value);
-});*/
-
-	// Just Open The Image
-	BROWSER_API.storage.sync.get(['justOpenTheImage'], function (result) {
-		if (result.justOpenTheImage == true) {
-			if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
-				BROWSER_API.permissions.contains(
-					{
-						permissions: ['webRequest', 'webRequestBlocking'],
-						origins: ['*://*.redd.it/*'],
-					},
-					(result) => {
-						if (result) {
-							document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
-							document.querySelector('#checkbox-just-open-the-image').checked = true;
-							highlightMenuIcon('productivity-tweaks');
-							var value = true;
-						} else {
-							var value = 'false. Optional permissions not granted';
-						}
-						console.log('Just Open The Image: ' + value);
-					}
-				);
-			} else if (BROWSER_API.runtime.getManifest().manifest_version === 3) {
-				document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
-				document.querySelector('#checkbox-just-open-the-image').checked = true;
-				highlightMenuIcon('productivity-tweaks');
-				console.log('Just Open The Image: (true)');
-			}
-		} else if (typeof result.justOpenTheImage == 'undefined' || result.justOpenTheImage == false) {
-			document.querySelector('#checkbox-just-open-the-image').checked = false;
-			console.log('Just Open The Image: (false)');
-		}
-	});
-
 	// Auto Collapse AutoModerator Comment
 	BROWSER_API.storage.sync.get(['autoCollapseAutoModeratorComment'], function (result) {
 		if (result.autoCollapseAutoModeratorComment === true) {
@@ -650,20 +460,6 @@ BROWSER_API.storage.sync.get(['dragImageToResizeInitialSize'], function (result)
 		}
 		console.log('Auto Collapse AutoModerator Comment: ' + value);
 	});
-
-	// Add Download Video Button
-	/*BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
-    if (result.addDownloadVideoButton === true) {
-        document.querySelector('.icon-add-download-video-button').style.backgroundColor = 'var(--accent)';
-        document.querySelector('#checkbox-add-download-video-button').checked = true;
-        highlightMenuIcon('productivity-tweaks');
-        var value = true;
-    } else if (typeof result.addDownloadVideoButton == 'undefined' || result.addDownloadVideoButton == false) {
-        document.querySelector('#checkbox-add-download-video-button').checked = false;
-        var value = false;
-    }
-    console.log('Add Download Video Button: ' + value);
-});*/
 
 	// Auto Load More Comments
 	BROWSER_API.storage.sync.get(['autoLoadMoreComments'], function (result) {

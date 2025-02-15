@@ -1,17 +1,17 @@
 {
-	"OpenPostInNewTabInfoLink": {
-		"message": "Configurações de usuário > Configurações dos feeds > Abrir posts em nova aba"
-	},
-
 	"Best": {
 		"message": "Melhores"
 	},
-
+	"BuyMeACoffee": {
+		"message": "Me compre um café"
+	},
+	"Controversial": {
+		"message": "Polêmicos"
+	},
 	"New": {
 		"message": "Novos"
 	},
-
-	"Controversial": {
-		"message": "Polêmicos"
+	"OpenPostInNewTabInfoLink": {
+		"message": "Configurações de usuário > Configurações dos feeds > Abrir posts em nova aba"
 	}
 }

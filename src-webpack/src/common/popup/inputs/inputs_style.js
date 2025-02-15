@@ -665,15 +665,8 @@ document.querySelector('#input-searchbar-dropdown-bg-colour-css').addEventListen
 
 // Slider - Theme Border Radius Amount
 document.querySelector('#input-border-radius-amount').addEventListener('input', function (e) {
-	// set ui
-	if (e.target.value != -1) {
-		document.querySelector('.icon-border-radius-amount').style.backgroundColor = 'var(--accent)';
-		document.querySelector('#border-radius-amount-value').innerText = e.target.value + 'px';
-	} else {
-		document.querySelector('.icon-border-radius-amount').style.backgroundColor = '';
-		document.querySelector('#border-radius-amount-value').innerText = 'off';
-	}
-	// apply
+	document.querySelector('#border-radius-amount-value').textContent = e.target.value != -1 ? e.target.value + 'px' : '';
+	document.querySelector('.icon-border-radius-amount').style.backgroundColor = e.target.value != -1 ? 'var(--accent)' : '';
 	sendMessage({ borderRadiusAmount: e.target.value });
 });
 document.querySelector('#input-border-radius-amount').addEventListener('mouseup', function (e) {
@@ -756,4 +749,36 @@ document.querySelector('#checkbox-compact-header-side-menu').addEventListener('c
 	}
 	BROWSER_API.storage.sync.set({ compactHeaderSideMenu: compactHeaderSideMenu });
 	sendMessage({ compactHeaderSideMenu: compactHeaderSideMenu });
+});
+
+// Toggle - Classic Old Header
+document.querySelector('#checkbox-classic-old-ui').addEventListener('change', function (e) {
+	const classicOldUI = document.querySelector('#checkbox-classic-old-ui').checked;
+	if (classicOldUI) {
+		document.querySelector('.icon-classic-old-ui').style.backgroundColor = 'var(--accent)';
+	} else {
+		document.querySelector('.icon-classic-old-ui').style.backgroundColor = '';
+	}
+	BROWSER_API.storage.sync.set({ classicOldUI: classicOldUI });
+	sendMessage({ classicOldUI: classicOldUI });
+});
+
+// Toggle - Multicoloured Post Page Comment Thread Lines
+document.querySelector('#checkbox-multicoloured-comment-thread-lines').addEventListener('change', function (e) {
+	const multicolouredThreadLines = document.querySelector('#checkbox-multicoloured-comment-thread-lines').checked;
+	if (multicolouredThreadLines) {
+		document.querySelector('.icon-multicoloured-comment-thread-lines').style.backgroundColor = 'var(--accent)';
+	} else {
+		document.querySelector('.icon-multicoloured-comment-thread-lines').style.backgroundColor = '';
+	}
+	BROWSER_API.storage.sync.set({ multicolouredThreadLines: multicolouredThreadLines });
+	sendMessage({ multicolouredThreadLines: multicolouredThreadLines });
+});
+
+// Input - Multicoloured Post Page Comment Thread Lines Colour List
+document.querySelector('#input-multicoloured-comment-thread-lines-colour-list').addEventListener('input', function (e) {
+	const multicolouredThreadLines = document.querySelector('#checkbox-multicoloured-comment-thread-lines').checked;
+	const list_value = document.querySelector('#input-multicoloured-comment-thread-lines-colour-list').value;
+	BROWSER_API.storage.sync.set({ multicolouredThreadLinesColours: list_value });
+	sendMessage({ multicolouredThreadLines: { multicolouredThreadLines, list_value } });
 });

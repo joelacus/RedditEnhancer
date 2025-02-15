@@ -60,6 +60,9 @@ function hideHeaderBarNewNew() {
 										--shreddit-header-height: 0 !important;
 										--shreddit-header-large-height: 0 !important;
 									}
+									shreddit-app shreddit-aspect-ratio {
+										--max-height: min(100%, calc(100vh - 250px)) !important;
+									}
 									reddit-sidebar-nav {
 										top: 0 !important;
 										height: 100vh !important;

@@ -1,5 +1,5 @@
 Növelje Reddit élményét a Reddit Enhancer segítségével! Böngészőbővítmény, amellyel néhány kattintással testreszabhatja Reddit oldalát.
-Támogatja a Reddit régi és legújabb verzióját.
+Támogatja a Reddit összes verzióját.
 
 A Reddit Enhancer segítségével:
 • A jobb megtekintési élmény érdekében méretezze át a hírcsatornát és a bejegyzés szélességét.

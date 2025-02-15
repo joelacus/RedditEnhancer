@@ -1,11 +1,12 @@
 {
 	"name": "reddit_enhancer_webpack",
-	"version": "1.14.0",
+	"version": "1.15.0",
 	"description": "",
 	"scripts": {
 		"build-m2": "webpack --config ./webpack-m2.conf.js",
 		"build-m3c": "webpack --config ./webpack-m3-chrome.conf.js",
-		"build-m3e": "webpack --config ./webpack-m3-edge.conf.js"
+		"build-m3e": "webpack --config ./webpack-m3-edge.conf.js",
+		"lmt": "python3 src/common/_locales/localisation_management_tool.py -p src/common/_locales/"
 	},
 	"keywords": [],
 	"author": "Joelacus",

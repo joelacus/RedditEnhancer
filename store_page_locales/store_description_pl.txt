@@ -1,5 +1,5 @@
 Popraw swoje wrażenia z Reddit dzięki Reddit Enhancer! Rozszerzenie przeglądarki, które pozwala dostosować stronę Reddit za pomocą zaledwie kilku kliknięć.
-Obsługuje starą i najnowszą wersję Reddit.
+Obsługuje wszystkie wersje Reddit.
 
 Dzięki Reddit Enhancer możesz:
 • Zmień rozmiar kanału i szerokości postu, aby uzyskać lepsze wrażenia wizualne.

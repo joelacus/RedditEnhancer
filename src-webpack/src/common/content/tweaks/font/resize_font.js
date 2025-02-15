@@ -22,7 +22,8 @@ export function postTitleFontSize(value) {
 			if (!document.querySelector('style[id="re-post-title-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-post-title-font-size';
-				styleElement.textContent = `.comments-page .thing p.title a {
+				styleElement.textContent = `.comments-page .thing p.title > a,
+				 							.other-discussions-page .thing p.title > a {
 												font-size: var(--re-post-title-font-size);
 												line-height: 1.5;
 											}`;
@@ -33,7 +34,7 @@ export function postTitleFontSize(value) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-post-title-font-size';
 				styleElement.textContent = `.Post [data-adclicklocation="title"] h1,
-											.Post [data-adclicklocation="title"] h3 {
+				 							.Post:not(.scrollerItem) [data-adclicklocation="title"] div[style*="--posttitletextcolor"] {
 												font-size: var(--re-post-title-font-size);
 												line-height: 1.5;
 											}`;
@@ -48,6 +49,8 @@ export function postTitleFontSize(value) {
 											[routename="post_page"] div.crosspost-title a,
 											[routename="comments_page"] shreddit-post h1[slot="title"],
 											[routename="comments_page"] div.crosspost-title a,
+											[routename="profile_post_page"] shreddit-post h1[slot="title"],
+											[routename="profile_post_page"] div.crosspost-title a,
 											mod-queue-app shreddit-post h1[slot="title"] > a {
 												font-size: var(--re-post-title-font-size) !important;
 												line-height: 1.4;
@@ -75,7 +78,7 @@ export function postContentFontSize(value) {
 			if (!document.querySelector('style[id="re-post-content-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-post-content-font-size';
-				styleElement.textContent = `.comments-page .thing[data-type="link"] .usertext p {
+				styleElement.textContent = `.comments-page .thing[data-type="link"] .usertext div.md {
 												font-size: var(--re-post-content-font-size);
 												line-height: 1.5;
 											}`;
@@ -99,7 +102,8 @@ export function postContentFontSize(value) {
 				styleElement.textContent = `shreddit-post div[slot="text-body"] div.md,
 											shreddit-post a[slot="text-body"] div:has(>p),
 											shreddit-profile-comment [id*="-content"],
-											div[slot="post-media-container"] div.md {
+											div[slot="post-media-container"] div.md,
+											[routename="post_page"] shreddit-post .re-media-link {
 												font-size: var(--re-post-content-font-size) !important;
 												line-height: 1.5 !important;
 											}
@@ -122,11 +126,11 @@ export function postContentFontSize(value) {
 
 // Resize "Post Comments" Font
 export function postCommentsFontSize(value) {
-	if (value != '9' && value != false) {
+	if (value !== '9' && value !== false) {
 		if (redditVersion === 'old') {
 			if (!document.querySelector('style[id="re-post-comment-font-size"]')) {
 				const styleElement = document.createElement('style');
-				styleElement.id = 're-styles';
+				styleElement.id = 're-post-comment-font-size';
 				styleElement.textContent = `.commentarea .thing[data-type="comment"] .usertext p {
 												font-size: var(--re-post-comments-font-size);
 												line-height: 1.4;
@@ -136,7 +140,7 @@ export function postCommentsFontSize(value) {
 		} else if (redditVersion === 'new') {
 			if (!document.querySelector('style[id="re-post-comment-font-size"]')) {
 				const styleElement = document.createElement('style');
-				styleElement.id = 're-styles';
+				styleElement.id = 're-post-comment-font-size';
 				styleElement.textContent = `.Comment [data-testid="comment"] > div,
 				 							.Comment [data-testid="comment"] > div code,
 				 							div[data-test-id="comment-submission-form-richtext"] div.public-DraftEditor-content[contenteditable],
@@ -159,7 +163,7 @@ export function postCommentsFontSize(value) {
 		} else if (redditVersion === 'newnew') {
 			if (!document.querySelector('style[id="re-post-comment-font-size"]')) {
 				const styleElement = document.createElement('style');
-				styleElement.id = 're-styles';
+				styleElement.id = 're-post-comment-font-size';
 				styleElement.textContent = `shreddit-comment div.md[slot="comment"],
 											shreddit-profile-comment div.md,
 											shreddit-composer div[contenteditable] {
@@ -192,9 +196,19 @@ export function feedPostTitleFontSize(value) {
 			if (!document.querySelector('style[id="re-feed-post-title-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-feed-post-title-font-size';
-				styleElement.textContent = `.listing-page .thing p.title a {
+				styleElement.textContent = `.listing-page .thing p.title > a {
 												font-size: var(--re-feed-post-title-font-size);
-												line-height: 1.2;
+												line-height: 1.4;
+											}`;
+				document.head.insertBefore(styleElement, document.head.firstChild);
+			}
+		} else if (redditVersion === 'new') {
+			if (!document.querySelector('style[id="re-feed-post-title-font-size"]')) {
+				const styleElement = document.createElement('style');
+				styleElement.id = 're-feed-post-title-font-size';
+				styleElement.textContent = `.Post [data-adclicklocation="title"] h3 {
+												font-size: var(--re-feed-post-title-font-size);
+												line-height: 1.4;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
@@ -232,7 +246,7 @@ export function feedPostContentFontSize(value) {
 			if (!document.querySelector('style[id="re-feed-post-content-font-size"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-feed-post-content-font-size';
-				styleElement.textContent = `.listing-page .thing[data-type="link"] .usertext p {
+				styleElement.textContent = `.listing-page .thing[data-type="link"] .usertext div.md {
 												font-size: var(--re-feed-post-content-font-size);
 												line-height: 1.5;
 											}`;
@@ -246,7 +260,9 @@ export function feedPostContentFontSize(value) {
 											shreddit-feed shreddit-profile-comment [id*="-content"],
 											shreddit-feed div[slot="post-media-container"] div.md,
 											div.md.feed-card-text-preview,
-											mod-queue-app shreddit-post [data-post-click-location="text-body"] div.md {
+											mod-queue-app shreddit-post [data-post-click-location="text-body"] div.md,
+											shreddit-feed shreddit-post .re-media-link,
+											shreddit-feed shreddit-post .post-link {
 												font-size: var(--re-feed-post-content-font-size) !important;
 												line-height: 1.5 !important;
 											}
