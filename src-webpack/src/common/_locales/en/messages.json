@@ -638,6 +638,15 @@
 	"RememberSectionHiddenState": {
 		"message": "Remember the hidden states of sections in the side menu"
 	},
+	"ReplacePostImagesWithLinks": {
+		"message": "Replace Images with Links on Feeds"
+	},
+	"ReplacePostVideosWithLinks": {
+		"message": "Replace Videos with Links on Feeds"
+	},
+	"ReplacePostVideosWithLinksInfo": {
+		"message": "Only works with mp4 and gif. m3u8 videos may be difficult to play in other players."
+	},
 	"ReportIssues": {
 		"message": "Report Issues"
 	},

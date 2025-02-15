@@ -635,6 +635,15 @@
 	"RememberSectionHiddenState": {
 		"message": "Ricorda gli stati nascosti delle sezioni nel menu laterale"
 	},
+	"ReplacePostImagesWithLinks": {
+		"message": "Sostituire le immagini con collegamenti sui feed"
+	},
+	"ReplacePostVideosWithLinks": {
+		"message": "Sostituisci i video con collegamenti sui feed"
+	},
+	"ReplacePostVideosWithLinksInfo": {
+		"message": "Funziona solo con MP4 e GIF. I video di M3U8 possono essere difficili da giocare in altri giocatori."
+	},
 	"ReportIssues": {
 		"message": "Segnala problemi"
 	},

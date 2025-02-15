@@ -635,6 +635,15 @@
 	"RememberSectionHiddenState": {
 		"message": "Merken der ausgeblendeten Zustände von Abschnitten im Seitenmenü"
 	},
+	"ReplacePostImagesWithLinks": {
+		"message": "Ersetzen Sie Bilder durch Links auf Feeds"
+	},
+	"ReplacePostVideosWithLinks": {
+		"message": "Ersetzen Sie Videos durch Links auf Feeds"
+	},
+	"ReplacePostVideosWithLinksInfo": {
+		"message": "Funktioniert nur mit MP4 und GIF. M3U8-Videos sind möglicherweise schwer bei anderen Spielern zu spielen."
+	},
 	"ReportIssues": {
 		"message": "Probleme melden"
 	},
