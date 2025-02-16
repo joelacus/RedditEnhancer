@@ -66,17 +66,9 @@ function disableFullWidthBanner() {
 }
 
 /**
- * Tweaks: Style - Compact Subreddit Rule List
- * @name compactSubRuleList
- * @description Bring back Old New UI-style subreddit rule list in the right sidebar.
- *
- * Applies to: New New UI (2023-)
- */
-
-/**
- * Tweaks: Style - Compact Header Bar & Side Menu
+ * Tweaks: Style - Compact Header Bar, Side Menu & Subreddit Rule List
  * @name compactHeaderSideMenu
- * @description Attempt to make the header bar and side menu more compact by removing paddings.
+ * @description Attempt to make the header bar, side menu and subreddit rule list more compact by removing paddings.
  *
  * Applies to: New New UI (2023-)
  */
