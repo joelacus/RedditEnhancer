@@ -80,6 +80,17 @@ export function restorePopupBackgroundOptions() {
 		}
 		console.log('Background Blur: ' + value + 'px');
 	});
+
+	// Disable Background Fade Post Overlay
+	BROWSER_API.storage.sync.get(['disableBgFadePostOverlay'], function (result) {
+		const disableBgFadePostOverlay = result.disableBgFadePostOverlay === true;
+		document.querySelector('.icon-disable-bg-fade-post-overlay').style.backgroundColor = disableBgFadePostOverlay ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-disable-bg-fade-post-overlay').checked = disableBgFadePostOverlay;
+		if (disableBgFadePostOverlay) {
+			highlightMenuIcon('background');
+		}
+		console.log('Disable Background Fade Behind Post Overlay: ' + disableBgFadePostOverlay);
+	});
 }
 
 // Add Event Listeners To Backgrounds

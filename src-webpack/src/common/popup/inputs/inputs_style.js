@@ -727,18 +727,6 @@ document.querySelector('#checkbox-full-width-banner').addEventListener('change',
 	sendMessage({ fullWidthBanner: fullWidthBanner });
 });
 
-// Toggle - Compact Sub Rule List
-document.querySelector('#checkbox-compact-sub-rule-list').addEventListener('change', function (e) {
-	const compactSubRuleList = document.querySelector('#checkbox-compact-sub-rule-list').checked;
-	if (compactSubRuleList) {
-		document.querySelector('.icon-compact-sub-rule-list').style.backgroundColor = 'var(--accent)';
-	} else {
-		document.querySelector('.icon-compact-sub-rule-list').style.backgroundColor = '';
-	}
-	BROWSER_API.storage.sync.set({ compactSubRuleList: compactSubRuleList });
-	sendMessage({ compactSubRuleList: compactSubRuleList });
-});
-
 // Toggle - Compact Header Bar & Side Menu
 document.querySelector('#checkbox-compact-header-side-menu').addEventListener('change', function (e) {
 	const compactHeaderSideMenu = document.querySelector('#checkbox-compact-header-side-menu').checked;

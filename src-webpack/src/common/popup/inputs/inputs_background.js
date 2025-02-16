@@ -196,3 +196,11 @@ function addBackgroundDeleteListeners() {
 		});
 	});
 }
+
+// Toggle - Disable Background Fade Post Overlay
+document.querySelector('#checkbox-disable-bg-fade-post-overlay').addEventListener('change', function (e) {
+	const disableBgFadePostOverlay = document.querySelector('#checkbox-disable-bg-fade-post-overlay').checked;
+	document.querySelector('.icon-disable-bg-fade-post-overlay').style.backgroundColor = disableBgFadePostOverlay ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ disableBgFadePostOverlay: disableBgFadePostOverlay });
+	sendMessage({ disableBgFadePostOverlay: disableBgFadePostOverlay });
+});

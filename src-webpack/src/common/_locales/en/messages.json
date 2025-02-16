@@ -125,9 +125,6 @@
 	"CompactHeaderSideMenu": {
 		"message": "Compact the Header Bar & Side Menu"
 	},
-	"CompactSubRuleList": {
-		"message": "Compact the Subreddit Rule List"
-	},
 	"Confirm": {
 		"message": "Confirm"
 	},
@@ -175,6 +172,9 @@
 	},
 	"Disabled": {
 		"message": "Disabled"
+	},
+	"DisableBgFadePostOverlay": {
+		"message": "Disable Background Fade Behind Post Overlay"
 	},
 	"DontShowAgain": {
 		"message": "Don't show again"
