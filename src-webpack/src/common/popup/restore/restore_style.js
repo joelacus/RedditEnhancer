@@ -835,17 +835,6 @@ export function restorePopupStyleOptions() {
 		console.log('Full Width Banner: ' + fullWidthBanner);
 	});
 
-	// Compact Sub Rule List
-	BROWSER_API.storage.sync.get(['compactSubRuleList'], function (result) {
-		const compactSubRuleList = result.compactSubRuleList === true;
-		document.querySelector('.icon-compact-sub-rule-list').style.backgroundColor = compactSubRuleList ? 'var(--accent)' : '';
-		document.querySelector('#checkbox-compact-sub-rule-list').checked = compactSubRuleList;
-		if (compactSubRuleList) {
-			highlightMenuIcon('style-tweaks');
-		}
-		console.log('Compact Sub Rule List: ' + compactSubRuleList);
-	});
-
 	// Compact Header Bar & Side Menu
 	BROWSER_API.storage.sync.get(['compactHeaderSideMenu'], function (result) {
 		const compactHeaderSideMenu = result.compactHeaderSideMenu === true;

@@ -45,6 +45,7 @@ import { loadResizeMainContainer } from '../../../content/tweaks/resize_elements
 import { loadHideCompactViewThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_thumbnails';
 import { loadResizeTextPostHeight } from '../../../content/tweaks/media/resize_text_post';
 import { limitImageSize } from '../../../content/tweaks/media/limit_media_size';
+import { loadDisableBgFadePostOverlay } from "../../../content/tweaks/background/disable_background_fade_post_overlay";
 
 export function tweakLoaderNewNew() {
 	loadCustomBackground();
@@ -97,4 +98,5 @@ export function tweakLoaderNewNew() {
 	loadTextPostPreviewFade();
 	loadResizeTextPostHeight();
 	limitImageSize();
+	loadDisableBgFadePostOverlay();
 }

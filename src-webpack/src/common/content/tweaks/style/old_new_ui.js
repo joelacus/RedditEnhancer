@@ -66,79 +66,9 @@ function disableFullWidthBanner() {
 }
 
 /**
- * Tweaks: Style - Compact Subreddit Rule List
- * @name compactSubRuleList
- * @description Bring back Old New UI-style subreddit rule list in the right sidebar.
- *
- * Applies to: New New UI (2023-)
- */
-
-// Get the feature state from browser sync storage
-export function loadCompactSubRuleList() {
-	BROWSER_API.storage.sync.get(['compactSubRuleList'], function (result) {
-		if (result.compactSubRuleList) compactSubRuleList(true);
-	});
-}
-
-// Activate the feature based on Reddit version
-export function compactSubRuleList(value) {
-	if (redditVersion === 'newnew') {
-		if (value) {
-			enableCompactSubRuleList();
-		} else {
-			disableCompactSubRuleList();
-		}
-	}
-}
-
-// Enable the feature
-function enableCompactSubRuleList() {
-	if (!document.head.querySelector('style[id="re-compact-sub-rule-list"]')) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-compact-sub-rule-list';
-		styleElement.textContent = `div#right-sidebar-container div.-mx-xs.-mt-xs faceplate-tracker[source="rules_widget"] span,
-									div#right-sidebar-container div.-mx-xs.-mt-xs > div span {
-										align-items: start;
-										justify-content: start;
-										width: fit-content;
-										padding: 0;
-										gap: .3rem;
-									}
-									div#right-sidebar-container div.-mx-xs.-mt-xs faceplate-tracker[source="rules_widget"] > li div,
-									div#right-sidebar-container div.-mx-xs.-mt-xs > div {
-										padding: .35rem 0 0 0 !important;
-										margin: 0 .5rem;
-									}     
-									div#right-sidebar-container div.-mx-xs.-mt-xs faceplate-tracker[source="rules_widget"] span:first-of-type > span:first-of-type span::after,
-									div#right-sidebar-container div.-mx-xs.-mt-xs div span:first-of-type > span:first-of-type span::after {
-										content: "."
-									}
-									div#right-sidebar-container details:has(faceplate-tracker[source="rules_widget"]) div.ml-xl {
-										margin-left: .5rem;
-									}
-									div#right-sidebar-container details:has(faceplate-tracker[source="rules_widget"]) ul,
-									div#right-sidebar-container details:has(faceplate-tracker[source="rules_widget"]) ol {
-										padding-left: 1rem;
-									}
-									div#right-sidebar-container li.group:not(:has(span[avatar=""])) > div {
-										padding-left: 0.5rem;
-									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
-}
-
-// Disable the feature
-function disableCompactSubRuleList() {
-	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-compact-sub-rule-list"]');
-	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
-	});
-}
-
-/**
- * Tweaks: Style - Compact Header Bar & Side Menu
+ * Tweaks: Style - Compact Header Bar, Side Menu & Subreddit Rule List
  * @name compactHeaderSideMenu
- * @description Attempt to make the header bar and side menu more compact by removing paddings.
+ * @description Attempt to make the header bar, side menu and subreddit rule list more compact by removing paddings.
  *
  * Applies to: New New UI (2023-)
  */
@@ -199,6 +129,35 @@ function enableCompactHeaderSideMenu() {
 									}
 									div.main-container {
 										gap: 1rem;
+									}
+									
+									/* COMPACT SUBREDDIT RULE LIST */
+									div#right-sidebar-container div.-mx-xs.-mt-xs faceplate-tracker[source="rules_widget"] span,
+									div#right-sidebar-container div.-mx-xs.-mt-xs > div span {
+										align-items: start;
+										justify-content: start;
+										width: fit-content;
+										padding: 0;
+										gap: .3rem;
+									}
+									div#right-sidebar-container div.-mx-xs.-mt-xs faceplate-tracker[source="rules_widget"] > li div,
+									div#right-sidebar-container div.-mx-xs.-mt-xs > div {
+										padding: .35rem 0 0 0 !important;
+										margin: 0 .5rem;
+									}     
+									div#right-sidebar-container div.-mx-xs.-mt-xs faceplate-tracker[source="rules_widget"] span:first-of-type > span:first-of-type span::after,
+									div#right-sidebar-container div.-mx-xs.-mt-xs div span:first-of-type > span:first-of-type span::after {
+										content: "."
+									}
+									div#right-sidebar-container details:has(faceplate-tracker[source="rules_widget"]) div.ml-xl {
+										margin-left: .5rem;
+									}
+									div#right-sidebar-container details:has(faceplate-tracker[source="rules_widget"]) ul,
+									div#right-sidebar-container details:has(faceplate-tracker[source="rules_widget"]) ol {
+										padding-left: 1rem;
+									}
+									div#right-sidebar-container li.group:not(:has(span[avatar=""])) > div {
+										padding-left: 0.5rem;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
