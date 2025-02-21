@@ -9,14 +9,15 @@ export function loadCustomBackground() {
 
 /* === Main Function === */
 export function useCustomBackground(value) {
-	if (redditVersion === 'old') {
-		if (value === true) {
-			enableUseCustomBackgroundOld();
-			setBackgroundAndBlur();
-		} else if (value === false) {
-			disableUseCustomBackgroundAll();
-		}
-	} else if (redditVersion === 'new') {
+	// if (redditVersion === 'old') {
+	// 	if (value === true) {
+	// 		enableUseCustomBackgroundOld();
+	// 		setBackgroundAndBlur();
+	// 	} else if (value === false) {
+	// 		disableUseCustomBackgroundAll();
+	// 	}
+	// } else if (redditVersion === 'new') {
+	if (redditVersion === 'new') {
 		if (value === true) {
 			enableUseCustomBackgroundNew();
 			setBackgroundAndBlur();
@@ -63,6 +64,9 @@ function enableUseCustomBackgroundOld() {
 									background: var(--re-background-image) no-repeat center center / cover !important;
 									backdrop-filter: blur(var(--re-background-blur));
 									background-attachment: fixed !important;
+								}
+								.res div.comment {
+									background-color: white;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
