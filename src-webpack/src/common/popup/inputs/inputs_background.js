@@ -205,6 +205,14 @@ document.querySelector('#checkbox-disable-bg-fade-post-overlay').addEventListene
 	sendMessage({ disableBgFadePostOverlay: disableBgFadePostOverlay });
 });
 
+// Toggle - Blur Background Post Overlay
+document.querySelector('#checkbox-blur-background-post-overlay').addEventListener('change', function (e) {
+	const blurBackgroundPostOverlay = document.querySelector('#checkbox-blur-background-post-overlay').checked;
+	document.querySelector('.icon-blur-background-post-overlay').style.backgroundColor = blurBackgroundPostOverlay ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ blurBackgroundPostOverlay: blurBackgroundPostOverlay });
+	sendMessage({ blurBackgroundPostOverlay: blurBackgroundPostOverlay });
+});
+
 // Toggle - Force Custom Background On Old UI
 document.querySelector('#checkbox-force-custom-bg-old-ui').addEventListener('change', function (e) {
 	const forceCustomBgOldUI = document.querySelector('#checkbox-force-custom-bg-old-ui').checked;

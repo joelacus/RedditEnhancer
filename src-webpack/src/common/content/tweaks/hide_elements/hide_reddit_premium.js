@@ -36,6 +36,9 @@ export function hideRedditPremium(value) {
 				document.head.appendChild(styleElement);
 				styleElement.textContent = `[data-testid="frontpage-sidebar"] > div:has(.icon-premium_fill) {
 												display: none !important;
+											}
+											[data-testid="frontpage-sidebar"] > div:has(.icon-premium_fill) + div {
+												margin-top: 0;
 											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}

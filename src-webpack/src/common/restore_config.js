@@ -145,6 +145,7 @@ async function restoreBackup(json) {
 				'bionicReaderFontColour',
 				'bionicReaderFontColourCSS',
 				'bionicReaderPosts',
+				'blurBackgroundPostOverlay',
 				'borderRadiusAmount',
 				'breakReminder',
 				'breakReminderFrequency',

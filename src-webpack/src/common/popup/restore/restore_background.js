@@ -92,6 +92,17 @@ export function restorePopupBackgroundOptions() {
 		console.log('Disable Background Fade Behind Post Overlay: ' + disableBgFadePostOverlay);
 	});
 
+	// Blur Background Post Overlay
+	BROWSER_API.storage.sync.get(['blurBackgroundPostOverlay'], function (result) {
+		const blurBackgroundPostOverlay = result.blurBackgroundPostOverlay === true;
+		document.querySelector('.icon-blur-background-post-overlay').style.backgroundColor = blurBackgroundPostOverlay ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-blur-background-post-overlay').checked = blurBackgroundPostOverlay;
+		if (blurBackgroundPostOverlay) {
+			highlightMenuIcon('background');
+		}
+		console.log('Blur Background Behind Post Overlay: ' + blurBackgroundPostOverlay);
+	});
+
 	// Force Custom Background on Old Reddit
 	BROWSER_API.storage.sync.get(['forceCustomBgOldUI'], function (result) {
 		const forceCustomBgOldUI = result.forceCustomBgOldUI === true;

@@ -151,7 +151,7 @@ import { classicOldUI } from './tweaks/style/classic_old_ui';
 import { multicolouredThreadLines } from './tweaks/style/multicoloured_threadlines';
 import { replacePostImagesWithLinks } from './tweaks/media/replace_images_with_links';
 import { replacePostVideosWithLinks } from './tweaks/media/replace_videos_with_links';
-import { disableBgFadePostOverlay } from "./tweaks/background/disable_background_fade_post_overlay";
+import { disableBgFadePostOverlay, blurBackgroundPostOverlay } from "./tweaks/background/post_overlay_background";
 import { compressPostLinkDisplay } from "./tweaks/media/compress_post_link_display";
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
@@ -583,6 +583,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		replacePostVideosWithLinks(value);
 	} else if (key === 'disableBgFadePostOverlay') {
 		disableBgFadePostOverlay(value);
+	} else if (key === 'blurBackgroundPostOverlay') {
+		blurBackgroundPostOverlay(value);
 	} else if (key === 'compressPostLinkDisplay') {
 		compressPostLinkDisplay(value);
 	} else if (key === 'forceCustomBgOldUI') {

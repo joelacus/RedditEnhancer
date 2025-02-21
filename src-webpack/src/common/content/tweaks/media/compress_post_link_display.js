@@ -39,22 +39,22 @@ export function compressPostLinkDisplay(value) {
 									        	border: 1px solid var(--color-neutral-border-weak);
 									        	margin: 0;
 									        }
-									        shreddit-app[routename="post_page"] shreddit-post[post-type="link"] div[slot="post-media-container"],
-									        shreddit-app[routename="comment_page"] shreddit-post[post-type="link"] div[slot="post-media-container"] {
+									        shreddit-app[routename="post_page"] shreddit-post[post-type="link"] div[slot="post-media-container"]:has(img#post-image),
+									        shreddit-app[routename="comment_page"] shreddit-post[post-type="link"] div[slot="post-media-container"]:has(img#post-image) {
 									        	margin-top: -${titleHeight + flairHeight}px;
 									        	margin-left: auto;
 									        	width: 144px;
 									        }
-									        shreddit-app[routename="post_page"] shreddit-post[post-type="link"] h1,
-									        shreddit-app[routename="comment_page"] shreddit-post[post-type="link"] h1 {
+									        shreddit-app[routename="post_page"] shreddit-post[post-type="link"]:has(img#post-image) h1,
+									        shreddit-app[routename="comment_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 {
 									        	margin-right: 152px;
 									        }
 									        shreddit-app[routename="post_page"] shreddit-post[post-type="link"] shreddit-aspect-ratio,
 									        shreddit-app[routename="comment_page"] shreddit-post[post-type="link"] shreddit-aspect-ratio {
                                             	--max-height: 116px !important;
                                             }
-									        shreddit-app[routename="post_page"] shreddit-post[post-type="link"] h1 + a,
-									        shreddit-app[routename="comment_page"] shreddit-post[post-type="link"] h1 + a {
+									        shreddit-app[routename="post_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 + a,
+									        shreddit-app[routename="comment_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 + a {
 									        	float: left;
 									        	margin-top: calc(-116px + ${titleHeight + flairHeight}px);
 									        	max-width: calc(100% - 152px);

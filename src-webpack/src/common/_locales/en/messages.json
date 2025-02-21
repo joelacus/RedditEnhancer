@@ -74,6 +74,9 @@
 	"Blur": {
 		"message": "Blur"
 	},
+	"BlurBackgroundPostOverlay": {
+		"message": "Blur background behind post overlay"
+	},
 	"BorderRadiusAmount": {
 		"message": "Theme Corner Radius"
 	},
