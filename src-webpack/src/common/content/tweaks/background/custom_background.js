@@ -9,28 +9,23 @@ export function loadCustomBackground() {
 
 /* === Main Function === */
 export function useCustomBackground(value) {
-	// if (redditVersion === 'old') {
-	// 	if (value === true) {
-	// 		enableUseCustomBackgroundOld();
-	// 		setBackgroundAndBlur();
-	// 	} else if (value === false) {
-	// 		disableUseCustomBackgroundAll();
-	// 	}
-	// } else if (redditVersion === 'new') {
-	if (redditVersion === 'new') {
-		if (value === true) {
-			enableUseCustomBackgroundNew();
-			setBackgroundAndBlur();
-		} else if (value === false) {
-			disableUseCustomBackgroundAll();
+	if (value) {
+		setBackgroundAndBlur();
+		switch (redditVersion) {
+			case 'old':
+				BROWSER_API.storage.sync.get(['forceCustomBgOldUI', 'moderniseOldReddit'], (result) => {
+					if (result.forceCustomBgOldUI || result.moderniseOldReddit) enableUseCustomBackgroundOld();
+				});
+				break;
+			case 'new':
+				enableUseCustomBackgroundNew();
+				break;
+			case 'newnew':
+				enableUseCustomBackgroundNewNew();
+				break;
 		}
-	} else if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableUseCustomBackgroundNewNew();
-			setBackgroundAndBlur();
-		} else if (value === false) {
-			disableUseCustomBackgroundAll();
-		}
+	} else {
+		disableUseCustomBackgroundAll();
 	}
 }
 
@@ -64,9 +59,6 @@ function enableUseCustomBackgroundOld() {
 									background: var(--re-background-image) no-repeat center center / cover !important;
 									backdrop-filter: blur(var(--re-background-blur));
 									background-attachment: fixed !important;
-								}
-								.res div.comment {
-									background-color: white;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }

@@ -1,5 +1,7 @@
 /* ===== Tweaks - Style - Modernise Old Reddit ===== */
 
+import { loadCustomBackground } from "../background/custom_background";
+
 /* === Triggered On Page Load === */
 export function loadModerniseOldReddit() {
 	BROWSER_API.storage.sync.get(['moderniseOldReddit'], function (result) {
@@ -11,6 +13,7 @@ export function loadModerniseOldReddit() {
 export function moderniseOldReddit(value) {
 	const link = window.location.href;
 	if (value === true) {
+		loadCustomBackground();
 		styleModerniseOldReddit(value);
 		document.querySelector('body').classList.add('re-modernise');
 		// Header

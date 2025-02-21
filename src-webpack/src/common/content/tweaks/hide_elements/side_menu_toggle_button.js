@@ -97,9 +97,6 @@ function enableSideMenuToggleButton() {
 											--flex-nav-width: 0;
 										}
 									}
-									pdp-back-button {
-										position: static !important;
-									}
 									.re-side-menu-close,
 									.re-side-menu-open {
 										display: flex;

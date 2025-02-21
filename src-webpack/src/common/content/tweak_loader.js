@@ -49,6 +49,7 @@ import { addBorderRadiusToShadowRootElements } from './tweaks/style/border_radiu
 import { loadAlwaysShowPostOptions } from './tweaks/productivity/always_show_post_options';
 import { loadReplacePostImagesWithLinks } from './tweaks/media/replace_images_with_links';
 import { loadReplacePostVideosWithLinks } from './tweaks/media/replace_videos_with_links';
+import { loadCompressPostLinkDisplay } from "./tweaks/media/compress_post_link_display";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -194,7 +195,8 @@ export function loadTweaks() {
 					loadReplacePostImagesWithLinks();
 					loadReplacePostVideosWithLinks();
 					loadAlwaysShowPostOptions();
-				}, 1000);
+					loadCompressPostLinkDisplay();
+				}, 500);
 			},
 		});
 

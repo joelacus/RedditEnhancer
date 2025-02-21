@@ -207,6 +207,9 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 					.Post:not(.scrollerItem) div:not(:has(h3)) + div[data-ignore-click="false"] {
 						margin-left: 10px;
 					}
+					div[slot="credit-bar"] pdp-back-button {
+						position: static;
+					}
 					div[slot="credit-bar"] > span:has(pdp-back-button) {
 						gap: .6rem;
 					}

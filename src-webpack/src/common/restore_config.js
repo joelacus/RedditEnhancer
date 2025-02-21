@@ -152,6 +152,7 @@ async function restoreBackup(json) {
 				'commentsLimit',
 				'compactHeaderSideMenu',
 				'compactSubRuleList',
+				'compressPostLinkDisplay',
 				'createPostBodyFontSize',
 				'createPostTitleFontSize',
 				'customBackground',

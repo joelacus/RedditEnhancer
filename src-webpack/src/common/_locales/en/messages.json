@@ -125,6 +125,9 @@
 	"CompactHeaderSideMenu": {
 		"message": "Compact the Header Bar & Side Menu"
 	},
+	"CompressPostLinkDisplay": {
+		"message": "Compress post links in post view"
+	},
 	"Confirm": {
 		"message": "Confirm"
 	},
@@ -223,6 +226,12 @@
 	},
 	"FontWeightInfo": {
 		"message": "Not all fonts support all weights."
+	},
+	"ForceCustomBgOldUI": {
+		"message": "Force Custom Background on Old UI"
+	},
+	"ForceCustomBgOldUIInfo": {
+		"message": "Custom Background only works on Old UI with Modernise Old Reddit enabled. Toggle this on will force Custom Background on the UI (not recommended)."
 	},
 	"FullWidthBanner": {
 		"message": "Full Width Subreddit Banner"

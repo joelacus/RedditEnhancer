@@ -412,3 +412,17 @@ document.querySelector('#checkbox-replace-post-videos-with-links').addEventListe
 	}
 	document.querySelector('.icon-replace-post-videos-with-links').style.backgroundColor = replacePostVideosWithLinks ? 'var(--accent)' : '';
 });
+
+// Toggle - Compress Post Link Display
+document.querySelector('#checkbox-compress-post-link-display').addEventListener('change', function (e) {
+	const compressPostLinkDisplay = document.querySelector('#checkbox-compress-post-link-display').checked;
+	if (compressPostLinkDisplay) {
+		BROWSER_API.storage.sync.set({ compressPostLinkDisplay: true });
+		document.querySelector('.icon-compress-post-link-display').style.backgroundColor = 'var(--accent)';
+		sendMessage({ compressPostLinkDisplay: true });
+	} else {
+		BROWSER_API.storage.sync.set({ compressPostLinkDisplay: false });
+		document.querySelector('.icon-compress-post-link-display').style.backgroundColor = '';
+		sendMessage({ compressPostLinkDisplay: false });
+	}
+});

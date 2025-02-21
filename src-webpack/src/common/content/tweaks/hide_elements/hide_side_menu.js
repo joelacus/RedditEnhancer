@@ -72,9 +72,6 @@ function enableHideSideMenuNewNew() {
 										display: none !important;
 										visibility: hidden;
 									}
-									pdp-back-button {
-										position: static !important;
-									}
 									@media (min-width: 1200px) {
 										div.grid-container:not(.grid-full), 
 										div.grid-container:not(.grid-full).flex-nav-expanded {

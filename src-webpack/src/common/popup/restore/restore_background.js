@@ -91,6 +91,17 @@ export function restorePopupBackgroundOptions() {
 		}
 		console.log('Disable Background Fade Behind Post Overlay: ' + disableBgFadePostOverlay);
 	});
+
+	// Force Custom Background on Old Reddit
+	BROWSER_API.storage.sync.get(['forceCustomBgOldUI'], function (result) {
+		const forceCustomBgOldUI = result.forceCustomBgOldUI === true;
+		document.querySelector('.icon-force-custom-bg-old-ui').style.backgroundColor = forceCustomBgOldUI ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-force-custom-bg-old-ui').checked = forceCustomBgOldUI;
+		if (forceCustomBgOldUI) {
+			highlightMenuIcon('background');
+		}
+		console.log('Force Custom Background on Old Reddit: ' + forceCustomBgOldUI);
+	});
 }
 
 // Add Event Listeners To Backgrounds

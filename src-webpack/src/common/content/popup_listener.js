@@ -121,7 +121,6 @@ import { underlineLinks } from './tweaks/accessibility/underline_links';
 import { autoShowCommentFormattingOptions } from './tweaks/productivity/auto_show_comment_formatting_options';
 import { hideRecommended } from './tweaks/hide_elements/hide_recommended';
 import { scalePostToFitImage } from './tweaks/media/scale_post_to_fit_image';
-//import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 import { hidePostBackButton } from './tweaks/hide_elements/hide_post_back_button';
 import { borderRadiusAmount } from './tweaks/style/border_radius';
 import { hidePostKarma, hideCommentKarma } from './tweaks/hide_elements/hide_post_comment_karma';
@@ -153,6 +152,8 @@ import { multicolouredThreadLines } from './tweaks/style/multicoloured_threadlin
 import { replacePostImagesWithLinks } from './tweaks/media/replace_images_with_links';
 import { replacePostVideosWithLinks } from './tweaks/media/replace_videos_with_links';
 import { disableBgFadePostOverlay } from "./tweaks/background/disable_background_fade_post_overlay";
+import { compressPostLinkDisplay } from "./tweaks/media/compress_post_link_display";
+//import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 /* = Listen For Settings Change = */
@@ -582,6 +583,10 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		replacePostVideosWithLinks(value);
 	} else if (key === 'disableBgFadePostOverlay') {
 		disableBgFadePostOverlay(value);
+	} else if (key === 'compressPostLinkDisplay') {
+		compressPostLinkDisplay(value);
+	} else if (key === 'forceCustomBgOldUI') {
+		useCustomBackground(value);
 	}
 	return true;
 });

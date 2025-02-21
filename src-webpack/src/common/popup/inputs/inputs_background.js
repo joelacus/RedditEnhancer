@@ -204,3 +204,11 @@ document.querySelector('#checkbox-disable-bg-fade-post-overlay').addEventListene
 	BROWSER_API.storage.sync.set({ disableBgFadePostOverlay: disableBgFadePostOverlay });
 	sendMessage({ disableBgFadePostOverlay: disableBgFadePostOverlay });
 });
+
+// Toggle - Force Custom Background On Old UI
+document.querySelector('#checkbox-force-custom-bg-old-ui').addEventListener('change', function (e) {
+	const forceCustomBgOldUI = document.querySelector('#checkbox-force-custom-bg-old-ui').checked;
+	document.querySelector('.icon-force-custom-bg-old-ui').style.backgroundColor = forceCustomBgOldUI ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ forceCustomBgOldUI: forceCustomBgOldUI });
+	sendMessage({ forceCustomBgOldUI: forceCustomBgOldUI });
+});

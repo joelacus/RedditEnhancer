@@ -369,4 +369,18 @@ export function restorePopupMediaOptions() {
 		}
 		console.log('Replace Post Videos With Links: ' + value);
 	});
+
+	// Compress Post Link Display
+	BROWSER_API.storage.sync.get(['compressPostLinkDisplay'], function (result) {
+		if (result.compressPostLinkDisplay === true) {
+			document.querySelector('#checkbox-compress-post-link-display').checked = true;
+			document.querySelector('.icon-compress-post-link-display').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('media-tweaks');
+			var value = true;
+		} else if (typeof result.compressPostLinkDisplay === 'undefined' || result.compressPostLinkDisplay === false) {
+			document.querySelector('#checkbox-compress-post-link-display').checked = false;
+			var value = false;
+		}
+		console.log('Compress Post Link Display: ' + value);
+	});
 }
