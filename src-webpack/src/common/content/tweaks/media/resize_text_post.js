@@ -48,9 +48,9 @@ function enableResizeTextPostHeightNewNew() {
 									    overflow: inherit;
 									}
 									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > pre,
-									shreddit-post div.md > pre {
+									div.md pre {
 									    padding: 0.5rem;
-									    background-color: var(--color-tone-4);
+									    background-color: var(--color-tone-5);
 									    border: none;
 									    border-radius: 0;
 									    font-size: 1em;

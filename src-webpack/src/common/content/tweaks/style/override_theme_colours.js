@@ -735,17 +735,11 @@ export function themePostTextColour1(value) {
 				styleElement.textContent = `shreddit-post [id^="post-title"] {
 												--color-neutral-content-strong: var(--re-theme-post-text) !important;
 											}
-											/* shreddit-post [data-post-click-location="text-body"] p,
-											shreddit-post [data-post-click-location="text-body"] h1,
-											shreddit-post [data-post-click-location="text-body"] table *,
-											shreddit-post div.md.feed-card-text-preview {
-												color: var(--re-theme-post-text) !important;
-											} */
 											shreddit-post .text-neutral-content {
 												--color-neutral-content: var(--re-theme-post-text);
 											}
-											shreddit-post [data-post-click-location="text-body"] pre,
-											shreddit-post [data-post-click-location="text-body"] code {
+											div.md pre,
+											div.md code {
 												color: var(--re-theme-code-block-text, var(--re-theme-post-text)) !important;
 											}
 											[data-testid="search-post"] > post-consume-tracker > div {
