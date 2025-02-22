@@ -83,10 +83,12 @@ import {
 	themePostContentAndCommentsLinkColourCSS,
 	themePostTextColour1,
 	themePostTextColour1CSS,
+	themePostTableBorderColour,
+	themeCodeBlockColourCSS,
 	themePostTextColour2,
 	themePostTextColour2CSS,
-	themePostVisitedTitleColour,
-	themePostVisitedTitleColourCSS,
+	themePostVisitedTextColour,
+	themePostVisitedTextColourCSS,
 	themeSearchbarBgColour,
 	themeSearchbarBgColourCSS,
 	themeSearchbarDropdownBgColour,
@@ -335,14 +337,18 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		themePostBackgroundColour(value);
 	} else if (key === 'themePostBackgroundColourCSS') {
 		themePostBackgroundColourCSS(value);
-	} else if (key === 'themePostVisitedTitleColour') {
-		themePostVisitedTitleColour(value);
-	} else if (key === 'themePostVisitedTitleColourCSS') {
-		themePostVisitedTitleColourCSS(value);
+	} else if (key === 'themePostVisitedTextColour') {
+		themePostVisitedTextColour(value);
+	} else if (key === 'themePostVisitedTextColourCSS') {
+		themePostVisitedTextColourCSS(value);
 	} else if (key === 'themePostTextColour1') {
 		themePostTextColour1(value);
 	} else if (key === 'themePostTextColour1CSS') {
 		themePostTextColour1CSS(value);
+	} else if (key === 'themePostTableBorderColour') {
+		themePostTableBorderColour(value);
+	} else if (key === 'themeCodeBlockColourCSS') {
+		themeCodeBlockColourCSS(value);
 	} else if (key === 'themePostCommentsTextColour1') {
 		themePostCommentsTextColour1(value);
 	} else if (key === 'themePostCommentsTextColour1CSS') {

@@ -47,9 +47,13 @@ function enableResizeTextPostHeightNewNew() {
 									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview ul {
 									    overflow: inherit;
 									}
-									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > pre {
-									    padding: 0.5rem 0.75rem;
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > pre,
+									shreddit-post div.md > pre {
+									    padding: 0.5rem;
 									    background-color: var(--color-tone-4);
+									    border: none;
+									    border-radius: 0;
+									    font-size: 1em;
 									}
 									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > blockquote {
 										display: block !important;

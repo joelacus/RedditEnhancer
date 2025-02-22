@@ -611,14 +611,17 @@
 	"PostSeparatorHeight": {
 		"message": "Post Gap"
 	},
+	"PostTableBorderColour": {
+		"message": "Add Border to Tables in Posts"
+	},
 	"PostTitle": {
 		"message": "Post: Title"
 	},
 	"PostTitleContentColour": {
 		"message": "Post: Title and Text Content Colour"
 	},
-	"PostVisitedTitleColour": {
-		"message": "Visited Post: Title Colour"
+	"PostVisitedTextColour": {
+		"message": "Visited Post: Text Colour"
 	},
 	"PostWidth": {
 		"message": "Post Width"

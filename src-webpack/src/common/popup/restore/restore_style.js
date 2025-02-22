@@ -649,30 +649,30 @@ export function restorePopupStyleOptions() {
 		console.log('Post Comment Action Row Colour CSS: ' + value);
 	});
 
-	// Theme Post Visited Title Colour
-	BROWSER_API.storage.sync.get(['themePostVisitedTitleColour'], function (result) {
-		if (result.themePostVisitedTitleColour == true) {
-			document.querySelector('.icon-post-visited-title-colour').style.backgroundColor = 'var(--accent)';
-			document.querySelector('#checkbox-post-visited-title-colour').checked = true;
+	// Theme Post Visited Text Colour
+	BROWSER_API.storage.sync.get(['themePostVisitedTextColour'], function (result) {
+		if (result.themePostVisitedTextColour === true) {
+			document.querySelector('.icon-post-visited-text-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-post-visited-text-colour').checked = true;
 			highlightMenuIcon('style-tweaks');
 			var value = true;
-		} else if (typeof result.themePostVisitedTitleColour == 'undefined' || result.themePostVisitedTitleColour == false) {
-			document.querySelector('#checkbox-post-visited-title-colour').checked = false;
+		} else if (typeof result.themePostVisitedTextColour == 'undefined' || result.themePostVisitedTextColour === false) {
+			document.querySelector('#checkbox-post-visited-text-colour').checked = false;
 			var value = false;
 		}
-		console.log('Post Visited Title Colour: ' + value);
+		console.log('Post Visited Text Colour: ' + value);
 	});
 
-	// Theme Post Visited Title Colour CSS
-	BROWSER_API.storage.sync.get(['themePostVisitedTitleColourCSS'], function (result) {
-		if (typeof result.themePostVisitedTitleColourCSS != 'undefined') {
-			document.querySelector('#input-post-visited-title-colour-css').value = result.themePostVisitedTitleColourCSS;
-			var value = result.themePostVisitedTitleColourCSS;
+	// Theme Post Visited Text Colour CSS
+	BROWSER_API.storage.sync.get(['themePostVisitedTextColourCSS'], function (result) {
+		if (typeof result.themePostVisitedTextColourCSS != 'undefined') {
+			document.querySelector('#input-post-visited-text-colour-css').value = result.themePostVisitedTextColourCSS;
+			var value = result.themePostVisitedTextColourCSS;
 		} else {
-			document.querySelector('#input-post-visited-title-colour-css').value = '';
+			document.querySelector('#input-post-visited-text-colour-css').value = '';
 			var value = '';
 		}
-		console.log('Post Visited Title Colour CSS: ' + value);
+		console.log('Post Visited Text Colour CSS: ' + value);
 	});
 
 	// Theme Post Text Colour 2
@@ -878,5 +878,27 @@ export function restorePopupStyleOptions() {
 			var value = '';
 		}
 		console.log('Multicoloured Post Page Comment Thread Lines Colour List: ' + value);
+	});
+
+	// Post Table Border Colour
+	BROWSER_API.storage.sync.get(['postTableBorderColour'], function (result) {
+		if (result.postTableBorderColour === true) {
+			document.querySelector('.icon-post-table-border-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-post-table-border-colour').checked = true;
+			highlightMenuIcon('style-tweaks');
+		} else if (typeof result.postTableBorderColour === 'undefined' || result.postTableBorderColour === false) {
+			document.querySelector('#checkbox-post-table-border-colour').checked = false;
+		}
+		console.log('Post Table Border Colour: ' + result.postTableBorderColour);
+	});
+
+	// Code Block Colour CSS
+	BROWSER_API.storage.sync.get(['themeCodeBlockColourCSS'], function (result) {
+		if (typeof result.themeCodeBlockColourCSS != 'undefined') {
+			document.querySelector('#input-code-block-colour-css').value = result.themeCodeBlockColourCSS;
+		} else {
+			document.querySelector('#input-code-block-colour-css').value = '';
+		}
+		console.log('Code Block Colour CSS: ' + result.themeCodeBlockColourCSS);
 	});
 }
