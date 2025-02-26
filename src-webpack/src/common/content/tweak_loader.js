@@ -121,6 +121,7 @@ export function loadTweaks() {
 			parent: document.querySelector('body'),
 			recursive: true,
 			done: function () {
+				loadCompressPostLinkDisplay();
 				setTimeout(() => {
 					loadAutoShowCommentFormattingOptions();
 				}, 500);
@@ -195,7 +196,6 @@ export function loadTweaks() {
 					loadReplacePostImagesWithLinks();
 					loadReplacePostVideosWithLinks();
 					loadAlwaysShowPostOptions();
-					loadCompressPostLinkDisplay();
 				}, 500);
 			},
 		});

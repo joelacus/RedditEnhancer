@@ -17,11 +17,7 @@ export function loadCompressPostLinkDisplay() {
 export function compressPostLinkDisplay(value) {
     if (redditVersion === 'newnew') {
         if (value) {
-            // Get the height of post title, link and flair (if exists), then remove the original post link.
-            // setTimeout is set to 500ms to account for any changes in title length (see tweak_loader.js)
-            const titleHeight = document.querySelector('shreddit-post h1').offsetHeight;
-            const flairHeight = document.querySelector('shreddit-post shreddit-post-flair') ?
-                document.querySelector('shreddit-post shreddit-post-flair').offsetHeight + 8 : 0;
+            // Remove the original post link
             let postLink = document.querySelector('shreddit-post[post-type="link"]').getAttribute('content-href');
             document.querySelector('div:has(> faceplate-tracker[source="post_lightbox"])').remove();
 
@@ -41,7 +37,7 @@ export function compressPostLinkDisplay(value) {
 									        }
 									        shreddit-app[routename="post_page"] shreddit-post[post-type="link"] div[slot="post-media-container"]:has(img#post-image),
 									        shreddit-app[routename="comment_page"] shreddit-post[post-type="link"] div[slot="post-media-container"]:has(img#post-image) {
-									        	margin-top: -${titleHeight + flairHeight}px;
+									            margin-top: calc(var(--re-post-media-container-margin) * -1);
 									        	margin-left: auto;
 									        	width: 144px;
 									        }
@@ -56,11 +52,17 @@ export function compressPostLinkDisplay(value) {
 									        shreddit-app[routename="post_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 + a,
 									        shreddit-app[routename="comment_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 + a {
 									        	float: left;
-									        	margin-top: calc(-116px + ${titleHeight + flairHeight}px);
+									        	margin-top: calc(-116px + var(--re-post-media-container-margin));
 									        	max-width: calc(100% - 152px);
 									        }`;
                 document.head.insertBefore(styleElement, document.head.firstChild);
             }
+
+            // Get the height of post title, link and flair (if exists)
+            const titleHeight = document.querySelector('shreddit-post h1').offsetHeight;
+            const flairHeight = document.querySelector('shreddit-post shreddit-post-flair') ?
+                document.querySelector('shreddit-post shreddit-post-flair').offsetHeight + 8 : 0;
+            document.documentElement.style.setProperty('--re-post-media-container-margin', `${titleHeight + flairHeight}px`);
 
             // Append the new post link
             let postLink2 = document.createElement('a');

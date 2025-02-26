@@ -60,14 +60,14 @@ export function blurBackgroundPostOverlay(value) {
                 styleElement.id = 're-blur-bg-post-overlay';
                 styleElement.textContent = `#SHORTCUT_FOCUSABLE_DIV > div[class*="subredditvars-r"] > div {
                                                 background-color: transparent;
-                                                backdrop-filter: blur(15px);
-                                                -webkit-backdrop-filter: blur(15px);
+                                                backdrop-filter: blur(var(--re-theme-blur, 15px));
+                                                -webkit-backdrop-filter: blur(var(--re-theme-blur, 15px));
                                                 --comments-overlay-background: transparent !important;
                                             }
                                             div#overlayScrollContainer > div:first-child {
                                                 background-color: rgba(0, 0, 0, .15);
-                                                backdrop-filter: blur(35px);
-                                                -webkit-backdrop-filter: blur(35px);
+                                                backdrop-filter: blur(calc(var(--re-theme-blur, 15px) + 20px));
+                                                -webkit-backdrop-filter: blur(calc(var(--re-theme-blur, 15px) + 20px));
                                             }`;
                 document.head.insertBefore(styleElement, document.head.firstChild);
             }
