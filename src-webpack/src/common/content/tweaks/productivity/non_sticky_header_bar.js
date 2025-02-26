@@ -31,14 +31,15 @@ function enableNonStickyHeaderBarNew() {
 	styleElement.textContent = `header[data-redditstyle="true"] {
 									position: absolute !important;
 								}
+								div:has(> div#overlayScrollContainer),
 								#SHORTCUT_FOCUSABLE_DIV > div[class*="subredditvars-r"] > div {
 									top: 0;
 								}
 								#SHORTCUT_FOCUSABLE_DIV:has(div#overlayScrollContainer) header {
 									display: none;
 								}
-								div:has(> div#overlayScrollContainer) {
-									top: 0;
+								div[data-testid="frontpage-sidebar"] > div:last-child > div {
+									top: 1rem;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }

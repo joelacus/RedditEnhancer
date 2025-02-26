@@ -83,10 +83,12 @@ import {
 	themePostContentAndCommentsLinkColourCSS,
 	themePostTextColour1,
 	themePostTextColour1CSS,
+	themePostTableBorderColour,
+	themeCodeBlockColourCSS,
 	themePostTextColour2,
 	themePostTextColour2CSS,
-	themePostVisitedTitleColour,
-	themePostVisitedTitleColourCSS,
+	themePostVisitedTextColour,
+	themePostVisitedTextColourCSS,
 	themeSearchbarBgColour,
 	themeSearchbarBgColourCSS,
 	themeSearchbarDropdownBgColour,
@@ -121,7 +123,6 @@ import { underlineLinks } from './tweaks/accessibility/underline_links';
 import { autoShowCommentFormattingOptions } from './tweaks/productivity/auto_show_comment_formatting_options';
 import { hideRecommended } from './tweaks/hide_elements/hide_recommended';
 import { scalePostToFitImage } from './tweaks/media/scale_post_to_fit_image';
-//import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 import { hidePostBackButton } from './tweaks/hide_elements/hide_post_back_button';
 import { borderRadiusAmount } from './tweaks/style/border_radius';
 import { hidePostKarma, hideCommentKarma } from './tweaks/hide_elements/hide_post_comment_karma';
@@ -139,7 +140,7 @@ import { hideHomeFeed } from './tweaks/hide_elements/hide_home_feed';
 import { addProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
 import { hidePostDivider, postSeparatorHeight } from './tweaks/hide_elements/hide_post_divider';
 import { hideBlurredMediaBackground } from './tweaks/media/hide_blurred_media_background';
-import { fullWidthBanner, compactHeaderSideMenu, compactSubRuleList } from './tweaks/style/old_new_ui';
+import { fullWidthBanner, compactHeaderSideMenu } from './tweaks/style/old_new_ui';
 import { textPostPreviewFade, setTextPostPreviewFadeHeight } from './tweaks/media/text_preview_fade';
 import { resizeMainContainer, resizeMainContainerWidth } from './tweaks/resize_elements/resize_main_container';
 import { hideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
@@ -152,6 +153,9 @@ import { classicOldUI } from './tweaks/style/classic_old_ui';
 import { multicolouredThreadLines } from './tweaks/style/multicoloured_threadlines';
 import { replacePostImagesWithLinks } from './tweaks/media/replace_images_with_links';
 import { replacePostVideosWithLinks } from './tweaks/media/replace_videos_with_links';
+import { disableBgFadePostOverlay, blurBackgroundPostOverlay } from "./tweaks/background/post_overlay_background";
+import { compressPostLinkDisplay } from "./tweaks/media/compress_post_link_display";
+//import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
 /* = Listen For Settings Change = */
@@ -333,14 +337,18 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		themePostBackgroundColour(value);
 	} else if (key === 'themePostBackgroundColourCSS') {
 		themePostBackgroundColourCSS(value);
-	} else if (key === 'themePostVisitedTitleColour') {
-		themePostVisitedTitleColour(value);
-	} else if (key === 'themePostVisitedTitleColourCSS') {
-		themePostVisitedTitleColourCSS(value);
+	} else if (key === 'themePostVisitedTextColour') {
+		themePostVisitedTextColour(value);
+	} else if (key === 'themePostVisitedTextColourCSS') {
+		themePostVisitedTextColourCSS(value);
 	} else if (key === 'themePostTextColour1') {
 		themePostTextColour1(value);
 	} else if (key === 'themePostTextColour1CSS') {
 		themePostTextColour1CSS(value);
+	} else if (key === 'themePostTableBorderColour') {
+		themePostTableBorderColour(value);
+	} else if (key === 'themeCodeBlockColourCSS') {
+		themeCodeBlockColourCSS(value);
 	} else if (key === 'themePostCommentsTextColour1') {
 		themePostCommentsTextColour1(value);
 	} else if (key === 'themePostCommentsTextColour1CSS') {
@@ -557,8 +565,6 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		fullWidthBanner(value);
 	} else if (key === 'compactHeaderSideMenu') {
 		compactHeaderSideMenu(value);
-	} else if (key === 'compactSubRuleList') {
-		compactSubRuleList(value);
 	} else if (key === 'resizeMainContainer') {
 		resizeMainContainer(value);
 	} else if (key === 'resizeMainContainerWidth') {
@@ -581,6 +587,14 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		replacePostImagesWithLinks(value);
 	} else if (key === 'replacePostVideosWithLinks') {
 		replacePostVideosWithLinks(value);
+	} else if (key === 'disableBgFadePostOverlay') {
+		disableBgFadePostOverlay(value);
+	} else if (key === 'blurBackgroundPostOverlay') {
+		blurBackgroundPostOverlay(value);
+	} else if (key === 'compressPostLinkDisplay') {
+		compressPostLinkDisplay(value);
+	} else if (key === 'forceCustomBgOldUI') {
+		useCustomBackground(value);
 	}
 	return true;
 });

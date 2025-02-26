@@ -37,7 +37,6 @@ import { loadSideMenuToggleButton } from './tweaks/hide_elements/side_menu_toggl
 import { loadHideNsfwInSearchResults, loadHideTrendingTodayInSearchResults } from './tweaks/hide_elements/hide_search_results_sections';
 import { loadRememberSideMenuSectionHiddenState } from './tweaks/hide_elements/remember_side_menu_section_hidden_state';
 import { loadAddProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
-import { loadCompactSubRuleList } from './tweaks/style/old_new_ui';
 import { loadHideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
 import { loadSidebarToggleButton } from './tweaks/hide_elements/sidebar_toggle_button';
 import { loadScalePostToFitImage } from './tweaks/media/scale_post_to_fit_image';
@@ -50,6 +49,7 @@ import { addBorderRadiusToShadowRootElements } from './tweaks/style/border_radiu
 import { loadAlwaysShowPostOptions } from './tweaks/productivity/always_show_post_options';
 import { loadReplacePostImagesWithLinks } from './tweaks/media/replace_images_with_links';
 import { loadReplacePostVideosWithLinks } from './tweaks/media/replace_videos_with_links';
+import { loadCompressPostLinkDisplay } from "./tweaks/media/compress_post_link_display";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -97,7 +97,6 @@ export function loadTweaks() {
 		loadHideCommentKarma();
 		loadHideVoteButtons();
 		loadSideMenuToggleButton();
-		loadCompactSubRuleList();
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
@@ -196,7 +195,8 @@ export function loadTweaks() {
 					loadReplacePostImagesWithLinks();
 					loadReplacePostVideosWithLinks();
 					loadAlwaysShowPostOptions();
-				}, 1000);
+					loadCompressPostLinkDisplay();
+				}, 500);
 			},
 		});
 

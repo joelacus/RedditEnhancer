@@ -196,3 +196,27 @@ function addBackgroundDeleteListeners() {
 		});
 	});
 }
+
+// Toggle - Disable Background Fade Post Overlay
+document.querySelector('#checkbox-disable-bg-fade-post-overlay').addEventListener('change', function (e) {
+	const disableBgFadePostOverlay = document.querySelector('#checkbox-disable-bg-fade-post-overlay').checked;
+	document.querySelector('.icon-disable-bg-fade-post-overlay').style.backgroundColor = disableBgFadePostOverlay ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ disableBgFadePostOverlay: disableBgFadePostOverlay });
+	sendMessage({ disableBgFadePostOverlay: disableBgFadePostOverlay });
+});
+
+// Toggle - Blur Background Post Overlay
+document.querySelector('#checkbox-blur-background-post-overlay').addEventListener('change', function (e) {
+	const blurBackgroundPostOverlay = document.querySelector('#checkbox-blur-background-post-overlay').checked;
+	document.querySelector('.icon-blur-background-post-overlay').style.backgroundColor = blurBackgroundPostOverlay ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ blurBackgroundPostOverlay: blurBackgroundPostOverlay });
+	sendMessage({ blurBackgroundPostOverlay: blurBackgroundPostOverlay });
+});
+
+// Toggle - Force Custom Background On Old UI
+document.querySelector('#checkbox-force-custom-bg-old-ui').addEventListener('change', function (e) {
+	const forceCustomBgOldUI = document.querySelector('#checkbox-force-custom-bg-old-ui').checked;
+	document.querySelector('.icon-force-custom-bg-old-ui').style.backgroundColor = forceCustomBgOldUI ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ forceCustomBgOldUI: forceCustomBgOldUI });
+	sendMessage({ forceCustomBgOldUI: forceCustomBgOldUI });
+});

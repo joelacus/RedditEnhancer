@@ -42,6 +42,7 @@ import { loadHideVoteButtons } from '../../../content/tweaks/hide_elements/hide_
 import { limitImageSize } from '../../../content/tweaks/media/limit_media_size';
 import { loadHideCompactViewThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_thumbnails';
 import { loadHideCompactViewBlankThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_blank_thumbnails';
+import { loadBlurBackgroundPostOverlay, loadDisableBgFadePostOverlay } from "../../../content/tweaks/background/post_overlay_background";
 
 export function tweakLoaderOldNew() {
 	if (typeof useLegacy != 'undefined') {
@@ -127,6 +128,8 @@ function loadCommon() {
 	loadHideCommentKarma();
 	loadHideVoteButtons();
 	limitImageSize();
+	loadDisableBgFadePostOverlay();
+	loadBlurBackgroundPostOverlay();
 
 	if (!useLegacy) {
 		loadLayoutCentre();

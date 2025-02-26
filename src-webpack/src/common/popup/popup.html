@@ -1107,6 +1107,14 @@
 					<li id="media-text" class="sub-header r-new r-newnew">
 						<span data-lang="Text"></span>
 					</li>
+					<li class="container-3 r-newnew">
+						<span class="menu-item-icon icon-images icon-compress-post-link-display"></span>
+						<span data-lang="CompressPostLinkDisplay" data-search="post,link"></span>
+						<label class="switch">
+							<input id="checkbox-compress-post-link-display" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
 					<li class="container r-newnew">
 						<div class="container-3">
 							<span class="menu-item-icon icon-ruler-vertical icon-text-post-preview-height"></span>
@@ -1730,15 +1738,6 @@
 								<span class="indicator"></span>
 							</label>
 						</div>
-						<div class="divider"></div>
-						<div class="container-3">
-							<span class="menu-item-icon icon-compress icon-compact-sub-rule-list"></span>
-							<span data-lang="CompactSubRuleList" data-search="rule,subreddit"></span>
-							<label class="switch">
-								<input id="checkbox-compact-sub-rule-list" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-						</div>
 					</li>
 					<!-- Theme -->
 					<li id="style-theme" class="sub-header r-new r-newnew">
@@ -1979,8 +1978,24 @@
 								<span class="text-small">color:</span>
 								<input id="input-post-text-colour-css" type="text" placeholder="#fff" />
 							</div>
+							<div></div>
+							<div></div>
+							<div class="css-input-container">
+								<span class="text-small">code-color:</span>
+								<input id="input-code-block-colour-css" type="text" placeholder="#fff" />
+							</div>
+							<div></div>
 						</div>
 						<div class="divider"></div>
+						<div class="container-3 r-newnew">
+							<span class="menu-item-icon icon-spray-can icon-post-table-border-colour"></span>
+							<span data-lang="PostTableBorderColour" data-search="theme,table,colour"></span>
+							<label class="switch">
+								<input id="checkbox-post-table-border-colour" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<div class="divider r-newnew"></div>
 						<div class="container-3">
 							<span class="menu-item-icon icon-spray-can icon-post-text-colour-2"></span>
 							<span data-lang="PostSecondaryTextColour" data-search="theme,colour"></span>
@@ -1996,16 +2011,16 @@
 						</div>
 						<div class="divider"></div>
 						<div class="container-3">
-							<span class="menu-item-icon icon-spray-can icon-post-visited-title-colour"></span>
-							<span data-lang="PostVisitedTitleColour" data-search="theme,colour"></span>
+							<span class="menu-item-icon icon-spray-can icon-post-visited-text-colour"></span>
+							<span data-lang="PostVisitedTextColour" data-search="theme,text,colour"></span>
 							<label class="switch">
-								<input id="checkbox-post-visited-title-colour" type="checkbox" />
+								<input id="checkbox-post-visited-text-colour" type="checkbox" />
 								<span class="indicator"></span>
 							</label>
 							<div></div>
 							<div class="css-input-container">
 								<span class="text-small">color:</span>
-								<input id="input-post-visited-title-colour-css" type="text" placeholder="#fff" />
+								<input id="input-post-visited-text-colour-css" type="text" placeholder="#fff" />
 							</div>
 						</div>
 						<div class="divider"></div>
@@ -2260,6 +2275,35 @@
 							<div id="backgrounds-container">
 								<span id="no-saved-backgrounds-message" data-lang="NoSavedBackgrounds"></span>
 							</div>
+						</div>
+					</li>
+					<li class="container r-old">
+						<div class="container-3 r-old">
+							<span class="menu-item-icon icon-background icon-force-custom-bg-old-ui"></span>
+							<span data-lang="ForceCustomBgOldUI" data-search="force,background,old"></span>
+							<label class="switch">
+								<input id="checkbox-force-custom-bg-old-ui" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<p class="info" data-lang="ForceCustomBgOldUIInfo"></p>
+					</li>
+					<li class="container r-new">
+						<div class="container-3 r-new">
+							<span class="menu-item-icon icon-fade icon-disable-bg-fade-post-overlay"></span>
+							<span data-lang="DisableBgFadePostOverlay" data-search="transparent,background,post,overlay"></span>
+							<label class="switch">
+								<input id="checkbox-disable-bg-fade-post-overlay" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<div class="container-3 r-new">
+							<span class="menu-item-icon icon-blur icon-blur-background-post-overlay"></span>
+							<span data-lang="BlurBackgroundPostOverlay" data-search="blur,background,post,overlay"></span>
+							<label class="switch">
+								<input id="checkbox-blur-background-post-overlay" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
 						</div>
 					</li>
 				</ul>

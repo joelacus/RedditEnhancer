@@ -74,6 +74,9 @@
 	"Blur": {
 		"message": "Blur"
 	},
+	"BlurBackgroundPostOverlay": {
+		"message": "Blur background behind post overlay"
+	},
 	"BorderRadiusAmount": {
 		"message": "Theme Corner Radius"
 	},
@@ -125,8 +128,8 @@
 	"CompactHeaderSideMenu": {
 		"message": "Compact the Header Bar & Side Menu"
 	},
-	"CompactSubRuleList": {
-		"message": "Compact the Subreddit Rule List"
+	"CompressPostLinkDisplay": {
+		"message": "Compress post links in post view"
 	},
 	"Confirm": {
 		"message": "Confirm"
@@ -176,6 +179,9 @@
 	"Disabled": {
 		"message": "Disabled"
 	},
+	"DisableBgFadePostOverlay": {
+		"message": "Disable Background Fade Behind Post Overlay"
+	},
 	"DontShowAgain": {
 		"message": "Don't show again"
 	},
@@ -223,6 +229,12 @@
 	},
 	"FontWeightInfo": {
 		"message": "Not all fonts support all weights."
+	},
+	"ForceCustomBgOldUI": {
+		"message": "Force Custom Background on Old UI"
+	},
+	"ForceCustomBgOldUIInfo": {
+		"message": "Custom Background only works on Old UI with Modernise Old Reddit enabled. Toggle this on will force Custom Background on the UI (not recommended)."
 	},
 	"FullWidthBanner": {
 		"message": "Full Width Subreddit Banner"
@@ -599,14 +611,17 @@
 	"PostSeparatorHeight": {
 		"message": "Post Gap"
 	},
+	"PostTableBorderColour": {
+		"message": "Add Border to Tables in Posts"
+	},
 	"PostTitle": {
 		"message": "Post: Title"
 	},
 	"PostTitleContentColour": {
 		"message": "Post: Title and Text Content Colour"
 	},
-	"PostVisitedTitleColour": {
-		"message": "Visited Post: Title Colour"
+	"PostVisitedTextColour": {
+		"message": "Visited Post: Text Colour"
 	},
 	"PostWidth": {
 		"message": "Post Width"

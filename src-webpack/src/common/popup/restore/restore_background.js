@@ -80,6 +80,39 @@ export function restorePopupBackgroundOptions() {
 		}
 		console.log('Background Blur: ' + value + 'px');
 	});
+
+	// Disable Background Fade Post Overlay
+	BROWSER_API.storage.sync.get(['disableBgFadePostOverlay'], function (result) {
+		const disableBgFadePostOverlay = result.disableBgFadePostOverlay === true;
+		document.querySelector('.icon-disable-bg-fade-post-overlay').style.backgroundColor = disableBgFadePostOverlay ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-disable-bg-fade-post-overlay').checked = disableBgFadePostOverlay;
+		if (disableBgFadePostOverlay) {
+			highlightMenuIcon('background');
+		}
+		console.log('Disable Background Fade Behind Post Overlay: ' + disableBgFadePostOverlay);
+	});
+
+	// Blur Background Post Overlay
+	BROWSER_API.storage.sync.get(['blurBackgroundPostOverlay'], function (result) {
+		const blurBackgroundPostOverlay = result.blurBackgroundPostOverlay === true;
+		document.querySelector('.icon-blur-background-post-overlay').style.backgroundColor = blurBackgroundPostOverlay ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-blur-background-post-overlay').checked = blurBackgroundPostOverlay;
+		if (blurBackgroundPostOverlay) {
+			highlightMenuIcon('background');
+		}
+		console.log('Blur Background Behind Post Overlay: ' + blurBackgroundPostOverlay);
+	});
+
+	// Force Custom Background on Old Reddit
+	BROWSER_API.storage.sync.get(['forceCustomBgOldUI'], function (result) {
+		const forceCustomBgOldUI = result.forceCustomBgOldUI === true;
+		document.querySelector('.icon-force-custom-bg-old-ui').style.backgroundColor = forceCustomBgOldUI ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-force-custom-bg-old-ui').checked = forceCustomBgOldUI;
+		if (forceCustomBgOldUI) {
+			highlightMenuIcon('background');
+		}
+		console.log('Force Custom Background on Old Reddit: ' + forceCustomBgOldUI);
+	});
 }
 
 // Add Event Listeners To Backgrounds
