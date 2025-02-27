@@ -22,5 +22,5 @@ export function showBannerMessage(type, message) {
     const b = document.querySelector('div.re-banner');
     setTimeout(() => {
         b?.remove();
-    }, 6000);
+    }, 10000);
 }

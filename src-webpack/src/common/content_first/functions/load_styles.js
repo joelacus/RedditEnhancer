@@ -25,8 +25,8 @@ const styleBannerMsg = `
 	div.re-banner {
         top: var(--re-non-sticky-header-bar, var(--shreddit-header-height));
         margin: 0 -1rem;
-        animation: hideBanner 0.5s forwards;
-        animation-delay: 5s;
+        animation: hideBanner .5s forwards;
+        animation-delay: 7s;
         transition: max-height .5s, padding .5s;
         background-color: var(--color-banner-plain);
         color: var(--color-banner-plain-text);
