@@ -1,5 +1,7 @@
 /* ===== Tweaks - Productivity - Show Missing Post Flair On The Home Feed ===== */
 
+import { showBannerMessage } from "../../banner_message";
+
 /* === Triggered On Page Load === */
 export function loadShowPostFlair() {
 	BROWSER_API.storage.sync.get(['showPostFlair'], function (result) {
@@ -125,6 +127,9 @@ async function fetchPostData(postID) {
 		const data = await response.json();
 		return data.data;
 	} catch (error) {
+		if (error instanceof TypeError && error.message === 'NetworkError when attempting to fetch resource.') {
+			showBannerMessage('warning', 'Unable to fetch post data and attach flairs as www.reddit.com is not reachable at the moment');
+		}
 		console.error('Error fetching post data:', error);
 		throw error;
 	}

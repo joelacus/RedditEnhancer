@@ -56,7 +56,10 @@ function disableNonStickyHeaderBarNew() {
 function enableNonStickyHeaderBarNewNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-non-sticky-header-bar';
-	styleElement.textContent = `shreddit-app reddit-header-large {
+	styleElement.textContent = `:root {
+									--re-non-sticky-header-bar: 0;
+								}
+								shreddit-app reddit-header-large {
 									position: absolute !important;
 								}
 								shreddit-app reddit-sidebar-nav#left-sidebar,

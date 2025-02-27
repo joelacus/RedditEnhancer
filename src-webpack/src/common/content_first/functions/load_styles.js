@@ -10,9 +10,35 @@ export function loadStyles() {
 	// Create new style element
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-styles';
-	styleElement.textContent = styleHide + styleLayoutCentre + styleOther + styleScrollText + styleOldReddit + stylePagination + styleLoadMore + styleScrollToComment + stylePostNumber + styleBionicReader + styleBreakReminder + styleShowPostAuthor + layoutOffset;
+	styleElement.textContent = styleBannerMsg + styleHide + styleLayoutCentre + styleOther + styleScrollText + styleOldReddit + stylePagination + styleLoadMore + styleScrollToComment + stylePostNumber + styleBionicReader + styleBreakReminder + styleShowPostAuthor + layoutOffset;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
+
+const styleBannerMsg = `
+	@keyframes hideBanner {
+		to {
+			max-height: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+	}
+	div.re-banner {
+        top: var(--re-non-sticky-header-bar, var(--shreddit-header-height));
+        margin: 0 -1rem;
+        animation: hideBanner 0.5s forwards;
+        animation-delay: 5s;
+        transition: max-height .5s, padding .5s;
+        background-color: var(--color-banner-plain);
+        color: var(--color-banner-plain-text);
+    }
+    div.re-banner.warning {
+        background-color: var(--color-caution-background);
+        color: var(--color-banner-caution-text);
+    }
+    div.re-banner.error {
+        background-color: var(--color-banner-error);
+        color: var(--color-banner-error-text);
+    }`;
 
 const layoutOffset = `
 					shreddit-app[routename="frontpage"] #main-content,
@@ -191,18 +217,11 @@ const styleOther = `.re-to-top-button:hover, .re-all-button:hover {
 					#overlayScrollContainer .undefined {
 						min-width: 16px
 					}
-					[bundlename="comment_body_header"],
-					shreddit-feed article:hover {
+					[bundlename="comment_body_header"] {
 						z-index: 9;
-					}
-					reddit-header-large {
-						z-index: 99 !important;
 					}
 					navigation-indicator {
 						z-index: 999 !important;
-					}
-					shreddit-post:hover {
-						z-index: 9;
 					}
 					.Post:not(.scrollerItem) div:not(:has(h3)) + div[data-ignore-click="false"] {
 						margin-left: 10px;
