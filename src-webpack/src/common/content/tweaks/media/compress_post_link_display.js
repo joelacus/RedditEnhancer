@@ -18,8 +18,8 @@ export function compressPostLinkDisplay(value) {
     if (redditVersion === 'newnew') {
         if (value) {
             // Remove the original post link
-            let postLink = document.querySelector('shreddit-post[post-type="link"]').getAttribute('content-href');
-            document.querySelector('div:has(> faceplate-tracker[source="post_lightbox"])').remove();
+            let postLink = document.querySelector('shreddit-post[post-type="link"]')?.getAttribute('content-href');
+            document.querySelector('div:has(> faceplate-tracker[source="post_lightbox"])')?.remove();
 
             // Append Stylesheet
             if (!document.head.querySelector('style[id="re-compress-post-link-display"]')) {
@@ -65,13 +65,13 @@ export function compressPostLinkDisplay(value) {
             document.documentElement.style.setProperty('--re-post-media-container-margin', `${titleHeight + flairHeight}px`);
 
             // Append the new post link
-            let postLink2 = document.createElement('a');
-            postLink2.setAttribute('href', postLink);
-            postLink2.textContent = postLink;
-            postLink2.classList.add('relative', 'text-12', 'xs:text-14', 'font-semibold', 'mb-xs', 'post-link', 'max-w-full',
-                'truncate', 'a', 'cursor-pointer', 'hover:underline', 're-post-link');
-            postLink2.setAttribute('target', '_blank');
-            postLink2.setAttribute('rel', 'noopener noreferrer ugc');
+            let postLink2 = Object.assign(document.createElement('a'), {
+                href: postLink,
+                textContent: postLink,
+                className: 'relative text-12 xs:text-14 font-semibold mb-xs post-link max-w-full truncate a cursor-pointer hover:underline re-post-link',
+                target: '_blank',
+                rel: 'noopener noreferrer ugc'
+            });
             document.querySelector('shreddit-post').insertBefore(postLink2, document.querySelector('shreddit-post h1').nextSibling);
         } else {
             const dynamicStyleElements = document.head.querySelectorAll('style[id="re-compress-post-link-display"]');

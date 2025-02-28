@@ -1,6 +1,5 @@
 /* ===== Content First - Initialise ===== */
 
-import { loadStyles } from './functions/load_styles';
 import { detectEdgeVersion, detectFirefoxVersion } from './functions/detect_browser_version';
 import { detectRedditVersion } from './functions/detect_reddit_version';
 
@@ -28,9 +27,6 @@ if (!document.querySelector('head')) {
 
 // Init Tweaks
 export function init() {
-	// Preloads CSS For Some Tweaks
-	loadStyles();
-
 	// Detect Browser For Legacy Support (avoids using :has() selector)
 	window.useLegacy = false;
 	if (CHECK_LEGACY_FIREFOX) {

@@ -113,15 +113,16 @@ module.exports = {
 					from: 'changelog.txt',
 					to: 'changelog.txt',
 				},
+				{
+					context: path.resolve(__dirname, 'src/common'),
+					from: 'content_first/re-styles.css',
+					to: 're-styles.css',
+				}
 			],
 		}),
 		new webpack.DefinePlugin({
 			BROWSER_API: 'chrome',
-		}),
-		new webpack.DefinePlugin({
 			CHECK_LEGACY_FIREFOX: false,
-		}),
-		new webpack.DefinePlugin({
 			CHECK_LEGACY_EDGE: false,
 		}),
 	],

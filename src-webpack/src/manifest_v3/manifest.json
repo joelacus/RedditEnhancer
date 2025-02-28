@@ -23,6 +23,7 @@
 		{
 			"matches": ["*://*.reddit.com/*"],
 			"js": ["content_first.js"],
+			"css": ["re-styles.css"],
 			"run_at": "document_start"
 		},
 		{
@@ -33,7 +34,7 @@
 
 	"web_accessible_resources": [
 		{
-			"resources": ["_locales/**/*", "videojs/video-js.css", "videojs/video.min.js", "changelog.txt"],
+			"resources": ["_locales/**/*", "videojs/video-js.css", "videojs/video.min.js", "changelog.txt", "re-styles.css"],
 			"matches": ["<all_urls>"]
 		}
 	],

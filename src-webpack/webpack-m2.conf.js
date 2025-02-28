@@ -114,15 +114,16 @@ module.exports = {
 					from: 'changelog.txt',
 					to: 'changelog.txt',
 				},
+				{
+					context: path.resolve(__dirname, 'src/common'),
+					from: 'content_first/re-styles.css',
+					to: 're-styles.css',
+				}
 			],
 		}),
 		new webpack.DefinePlugin({
 			BROWSER_API: 'browser',
-		}),
-		new webpack.DefinePlugin({
 			CHECK_LEGACY_FIREFOX: true,
-		}),
-		new webpack.DefinePlugin({
 			CHECK_LEGACY_EDGE: false,
 		}),
 		/*new ZipPlugin({

@@ -65,9 +65,20 @@ export function blurBackgroundPostOverlay(value) {
                                                 --comments-overlay-background: transparent !important;
                                             }
                                             div#overlayScrollContainer > div:first-child {
-                                                background-color: rgba(0, 0, 0, .15);
                                                 backdrop-filter: blur(calc(var(--re-theme-blur, 15px) + 20px));
                                                 -webkit-backdrop-filter: blur(calc(var(--re-theme-blur, 15px) + 20px));
+                                            }
+                                            .theme-dark div#overlayScrollContainer > div:first-child {
+                                                background-color: rgba(0, 0, 0, .15);
+                                            }
+                                            .theme-light div#overlayScrollContainer > div:first-child {
+                                                background-color: rgba(255, 255, 255, .25);
+                                            }
+                                            .theme-light div#overlayScrollContainer > div:first-child :not(button.voteButton *) {
+                                                color: black !important;
+                                            }
+                                            div#overlayScrollContainer > div:first-child button.voteButton:focus {
+                                                background-color: unset;
                                             }`;
                 document.head.insertBefore(styleElement, document.head.firstChild);
             }

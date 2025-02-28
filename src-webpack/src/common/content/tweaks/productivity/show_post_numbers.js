@@ -9,60 +9,70 @@ export function loadShowPostNumbers() {
 
 /* === Main Function === */
 let postNumber = 1;
+let view;
 
 export function showPostNumbers(value) {
-	postNumber = 1;
-	const link = window.location.href;
-	if (redditVersion === 'new') {
-		if (link.indexOf('/comments/') <= 0 && link.indexOf('/settings/') <= 0 && link.indexOf('/user/') <= 0) {
-			// not post, not settings
-			if (value === true) {
-				// get all posts in feed
-				const posts = document.querySelectorAll('.Post:not(.promotedlink):not(.re-break-reminder)');
-				const post_array = [...posts];
-				post_array.forEach((element, index) => {
-					if (!element.querySelector('.re-post-number')) {
-						const el = element.querySelector('[id^="vote-arrows-"]').parentElement;
-						// create number element
-						const span = document.createElement('span');
-						span.classList.add('re-post-number');
-						span.textContent = postNumber++;
-						el.appendChild(span);
-						el.parentElement.style.minHeight = '110px';
-					}
+	// Do not run post numbers on post and settings pages
+	const noRoute = ['comments', 'settings', 'user'];
+
+	if (value) {
+		if (redditVersion === 'new' && !window.location.pathname.includes(noRoute)) {
+			// Get the current view
+			const layoutSwitchIcon = document.querySelector('button#LayoutSwitch--picker > span > i');
+			if (layoutSwitchIcon) {
+				view = layoutSwitchIcon.className.split('_').pop();
+			}
+			console.log(view);
+
+			postNumber = 1;
+			attachPostCount(postNumber);
+			observer.observe(document.querySelector('.ListingLayout-outerContainer'), {childList: true, subtree: true});
+		}
+	} else {
+		observer.disconnect();
+		const numbers = document.querySelectorAll('.re-post-number');
+		numbers.forEach((el) => {
+			el.remove();
+		});
+		postNumber = 1;
+	}
+}
+
+function attachPostCount() {
+	const posts = document.querySelectorAll('.Post:not(.promotedlink):not(.re-break-reminder)');
+	const post_array = [...posts];
+	post_array.forEach((element) => {
+		if (!element.querySelector('.re-post-number')) {
+			let el, span;
+
+			if (view === 'card') {
+				el = element.querySelector('div:has(> div > div[data-adclicklocation="top_bar"])');
+				span = Object.assign(document.createElement('span'), {
+					className: 're-post-number',
+					innerHTML: `${postNumber++} &centerdot;`
 				});
-				observer.observe(document.querySelector('.ListingLayout-outerContainer'), { childList: true, subtree: true });
-			} else if (value === false || value == undefined) {
-				observer.disconnect();
-				const numbers = document.querySelectorAll('.re-post-number');
-				numbers.forEach((el) => {
-					el.remove();
-				});
-				postNumber = 1;
+				el.insertBefore(span, el.firstChild);
 			}
 		}
-	}
+	});
 }
 
 const observer = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {
 		mutation.addedNodes.forEach(function (addedNode) {
-			if (addedNode.nodeName === 'DIV') {
-				const post = addedNode.querySelector('.Post');
-				if (post) {
-					const posts = document.querySelectorAll('.Post:not(.promotedlink):not(.re-break-reminder)');
-					const post_array = [...posts];
-					post_array.forEach((element, index) => {
-						if (!element.querySelector('.re-post-number')) {
-							const el = element.querySelector('[id^="vote-arrows-"]').parentElement;
-							// create number element
-							const span = document.createElement('span');
-							span.classList.add('re-post-number');
-							span.textContent = postNumber++;
-							el.appendChild(span);
-							el.parentElement.style.minHeight = '110px';
-						}
-					});
+			console.log(addedNode);
+			if (addedNode.nodeName === 'I') {
+				postNumber = 1;
+				attachPostCount();
+			} else if (addedNode.nodeName === 'DIV') {
+				if (addedNode.querySelector('div[data-scroller-first]')) {
+					postNumber = 1;
+					attachPostCount();
+				} else {
+					const post = addedNode.querySelector('.Post');
+					if (post) {
+						attachPostCount();
+					}
 				}
 			}
 		});

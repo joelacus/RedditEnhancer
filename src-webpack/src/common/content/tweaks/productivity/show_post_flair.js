@@ -9,12 +9,10 @@
  * If something goes wrong, the entire process is halted and RE should display a banner message. Likely happens when the
  * IP address and/or browser user-agent is blocked from API access (`403 Forbidden`).
  *
- * Reddit doesn't support CORS in its responses and `Access-Control-Allow-Origin` is not set in the header. On Chrome
+ * NOTE: Reddit doesn't support CORS in its responses and `Access-Control-Allow-Origin` is not set in the header. On Chrome
  * and Chromium-based browsers which enforce CORS by default, API requests would fail if user is browsing from subdomains
  * of reddit.com, such as sh.reddit.com. RE tries to work around this by explicitly setting 'no-cors' in the request to
  * bypass CORS, however this means that if it fails, we have no way of knowing why it failed. Oh well.
- *
- *
  *
  * Applies to: New New UI (2023-)
  */

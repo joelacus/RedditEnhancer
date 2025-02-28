@@ -50,6 +50,7 @@ import { loadAlwaysShowPostOptions } from './tweaks/productivity/always_show_pos
 import { loadReplacePostImagesWithLinks } from './tweaks/media/replace_images_with_links';
 import { loadReplacePostVideosWithLinks } from './tweaks/media/replace_videos_with_links';
 import { loadCompressPostLinkDisplay } from "./tweaks/media/compress_post_link_display";
+import { loadShowUpvoteRatio, showUpvoteRatio } from "./tweaks/productivity/show_upvote_ratio";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -80,11 +81,19 @@ export function loadTweaks() {
 		loadScrollToNextRootComment();
 		loadBionicReaderForPosts();
 		loadBionicReaderForComments();
-		loadShowPostNumbers();
 		loadBreakReminder();
 		loadHidePostKarma();
 		loadHideCommentKarma();
 		loadHideVoteButtons();
+
+		waitForAddedNode({
+			query: '.Post.scrollerItem',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function () {
+				loadShowPostNumbers();
+			},
+		});
 	} else if (redditVersion === 'newnew') {
 		//loadAddDownloadVideoButton();
 		loadBionicReaderForComments();
@@ -100,6 +109,7 @@ export function loadTweaks() {
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
+
 		waitForAddedNode({
 			query: '#communities_section left-nav-communities-controller',
 			shadowRoot: true,
@@ -121,8 +131,8 @@ export function loadTweaks() {
 			parent: document.querySelector('body'),
 			recursive: true,
 			done: function () {
-				loadCompressPostLinkDisplay();
 				setTimeout(() => {
+					loadCompressPostLinkDisplay();
 					loadAutoShowCommentFormattingOptions();
 				}, 500);
 			},
@@ -196,6 +206,7 @@ export function loadTweaks() {
 					loadReplacePostImagesWithLinks();
 					loadReplacePostVideosWithLinks();
 					loadAlwaysShowPostOptions();
+					loadShowUpvoteRatio();
 				}, 500);
 			},
 		});

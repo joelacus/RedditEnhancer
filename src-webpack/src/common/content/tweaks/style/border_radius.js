@@ -29,12 +29,18 @@ function addBorderRadiusAmountStylesheet() {
 	if (!document.head.querySelector('style[id="re-theme-border-radius"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-border-radius';
-		styleElement.textContent =
-			`/* Community highlight cards */
+		styleElement.textContent = `
+			:root {
+				--radius-sm: var(--re-theme-border-radius) !important;
+				--radius-md: var(--re-theme-border-radius) !important;
+				--radius-lg: var(--re-theme-border-radius) !important;
+			}
+			/* Community highlight cards */
 			community-highlight-card {
 				--card-border-radius: var(--re-theme-border-radius, 16px);
 				--thumbnail-radius: calc(var(--re-theme-border-radius) / 2);
 			}
+			img.banner.rounded-\\[22px\\],
 			/* r/popular cards */
 			.rounded-\\[16px\\],
 			shreddit-gallery-carousel > faceplate-tracker,
