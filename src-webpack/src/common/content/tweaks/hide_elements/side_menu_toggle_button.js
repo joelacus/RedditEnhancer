@@ -85,7 +85,7 @@ function enableSideMenuToggleButton() {
 									shreddit-app div#flex-nav-buttons {
 										display: none !important;
 									}
-									flex-left-nav-container#left-sidebar-container reddit-sidebar-nav#left-sidebar {
+									[data-re-hide-side-menu="true"] flex-left-nav-container#left-sidebar-container reddit-sidebar-nav#left-sidebar {
 										padding-right: 0;
 									}
 									shreddit-app[data-re-hide-side-menu="false"] #left-sidebar-container {

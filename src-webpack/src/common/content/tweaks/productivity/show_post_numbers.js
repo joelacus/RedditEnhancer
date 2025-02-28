@@ -39,7 +39,7 @@ export function showPostNumbers(value) {
 }
 
 function attachPostCount() {
-	const posts = document.querySelectorAll('.Post:not(.promotedlink):not(.re-break-reminder)');
+	const posts = document.querySelectorAll('.Post.scrollerItem:not(.promotedlink):not(.re-break-reminder)');
 	const post_array = [...posts];
 	post_array.forEach((element) => {
 		if (!element.querySelector('.re-post-number')) {
