@@ -117,12 +117,27 @@ span:has(.hover-card) {
     margin-top: 0;
 }
 
-/* === POST NUMBERS === */
+/* === POST NUMBERS ===
+   Stylise the post count number and position of the vote arrows in Compact view on Old New UI
+*/
 .re-post-number {
-    margin: auto .25rem auto 0;
+    margin-right: 0.25rem;
+    align-self: center;
 }
 .re-post-number + div[data-adclicklocation="title"] {
     display: inline;
+}
+.re-post-number.compact {
+    margin-left: 0.5rem;
+    min-width: 2rem;
+    text-align: right;
+}
+div:has(> div[id*="vote-arrows-"]) {
+    align-self: center;
+
+    & > div {
+        margin-top: 0;
+    }
 }
 
 /* === SCROLL TO PREVIOUS/NEXT COMMENT BUTTONS === */

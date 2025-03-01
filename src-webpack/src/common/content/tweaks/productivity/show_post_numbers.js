@@ -1,13 +1,32 @@
-/* ===== Tweaks - Productivity - Show Post Numbers ===== */
+/**
+ * Tweaks: Productivity - Show Post Numbers
+ * @name showPostNumbers
+ * @description Display the number count of posts in feeds.
+ *
+ * RE will actively scan and count posts in feeds, then display the post numbers in the info bar (Card view), next to
+ * post titles (Classic view), or between the vote buttons and post information (Compact view). Post count resets when
+ * navigating between pages or switching between views.
+ *
+ * To mimic the Old UI style of post numbers where stickied posts are not counted, RE attempts to fetch the post data
+ * of the first two posts if data-scroller-first is blank, which almost exclusively happens on subreddit pages.
+ *
+ * Applies to: Old New UI (2018-2024)
+ *
+ * @see ./show_post_flair.js
+ */
 
-/* === Triggered On Page Load === */
+import { fetchPostData } from "./show_post_flair";
+
+// Get the feature state from browser sync storage
 export function loadShowPostNumbers() {
 	BROWSER_API.storage.sync.get(['showPostNumbers'], function (result) {
 		if (result.showPostNumbers) showPostNumbers(true);
 	});
 }
 
-/* === Main Function === */
+// Flag to prevent showPostNumbers from occasionally running when attachPostCount is still running => resetting counter
+let isAttaching = false;
+// Global variables to keep track of current post number and post view
 let postNumber = 1;
 let view;
 
@@ -17,18 +36,13 @@ export function showPostNumbers(value) {
 
 	if (value) {
 		if (redditVersion === 'new' && !window.location.pathname.includes(noRoute)) {
-			// Get the current view
-			const layoutSwitchIcon = document.querySelector('button#LayoutSwitch--picker > span > i');
-			if (layoutSwitchIcon) {
-				view = layoutSwitchIcon.className.split('_').pop();
-			}
-			console.log(view);
-
 			postNumber = 1;
-			attachPostCount(postNumber);
+			getCurrentView();
+			attachPostCount();
 			observer.observe(document.querySelector('.ListingLayout-outerContainer'), {childList: true, subtree: true});
 		}
 	} else {
+		// Disconnect the observer, reset the counter and remove all post numbers
 		observer.disconnect();
 		const numbers = document.querySelectorAll('.re-post-number');
 		numbers.forEach((el) => {
@@ -38,43 +52,100 @@ export function showPostNumbers(value) {
 	}
 }
 
-function attachPostCount() {
+function getCurrentView() {
+	// Get the current post view. Reddit display the current post view with i.icon.icon-view_card
+	const layoutSwitchIcon = document.querySelector('button#LayoutSwitch--picker > span > i');
+	if (layoutSwitchIcon) {
+		view = layoutSwitchIcon.className.split('_').pop();
+	}
+}
+
+async function attachPostCount() {
+	if (isAttaching) return;
+	isAttaching = true;
+
+	// Get a NodeList of currently displaying posts and convert it to an array
 	const posts = document.querySelectorAll('.Post.scrollerItem:not(.promotedlink):not(.re-break-reminder)');
-	const post_array = [...posts];
-	post_array.forEach((element) => {
+	let postArray = [...posts];
+
+	// If data-scroller-first is blank, attempt to fetch post data of the first two posts to check if they are stickied
+	if (!document.querySelector('div[data-scroller-first]')?.querySelector('.Post.scrollerItem')) {
+		for (let i = 0; i < 2; i++) {
+			if (posts[i]) {
+				try {
+					const postData = await fetchPostData(posts[i].getAttribute('id'));
+					if (postData.children[0].data.stickied) {
+						postArray.shift(); // if so, remove the post from the array
+					}
+				} catch (e) {
+					console.info("Cannot retrieve subreddit announcement post information as something wrong " +
+						"happened on Reddit's end. Pinned posts will still be numbered. Error: ", e);
+				}
+			}
+		}
+	}
+
+	postArray.forEach((element) => {
 		if (!element.querySelector('.re-post-number')) {
 			let el, span;
 
-			if (view === 'card') {
-				el = element.querySelector('div:has(> div > div[data-adclicklocation="top_bar"])');
-				span = Object.assign(document.createElement('span'), {
-					className: 're-post-number',
-					innerHTML: `${postNumber++} &centerdot;`
-				});
-				el.insertBefore(span, el.firstChild);
+			switch (view) {
+				case 'card':
+				case 'classic':
+					// Attach the post number to the info bar in Card view and next to post titles in Classic view
+					el = element.querySelector('div:has(> div > div[data-adclicklocation="top_bar"])');
+					span = Object.assign(document.createElement('span'), {
+						className: 're-post-number',
+						innerHTML: `${postNumber++} &centerdot;`
+					});
+					el.insertBefore(span, el.firstChild);
+					break;
+				case 'compact':
+					// Attach the post number between the vote buttons and post information in Compact view
+					el = element.querySelector('div[data-click-id="background"] > div');
+					span = Object.assign(document.createElement('span'), {
+						className: 're-post-number compact',
+						innerHTML: `${postNumber++}`
+					});
+					el.insertBefore(span, el.firstChild);
+					break;
 			}
 		}
 	});
+
+	// Done attaching post numbers. Let's reset the flag
+	isAttaching = false;
 }
 
-const observer = new MutationObserver(function (mutations) {
+// Observer for watching new posts in feed
+const observer = new MutationObserver(debounce(function (mutations) {
 	mutations.forEach(function (mutation) {
 		mutation.addedNodes.forEach(function (addedNode) {
-			console.log(addedNode);
-			if (addedNode.nodeName === 'I') {
-				postNumber = 1;
-				attachPostCount();
-			} else if (addedNode.nodeName === 'DIV') {
-				if (addedNode.querySelector('div[data-scroller-first]')) {
+			if (addedNode.nodeName === 'DIV') {
+				// Did user or Reddit switch post view?
+				let previousView = view;
+				getCurrentView();
+				if (view !== previousView) {
 					postNumber = 1;
 					attachPostCount();
-				} else {
-					const post = addedNode.querySelector('.Post');
-					if (post) {
-						attachPostCount();
-					}
+				} else if (addedNode.querySelector('div[data-scroller-first]')) {
+					// Reset post number count when navigating between pages for edge SPA cases,
+					// usually showPostNumber will be triggered again instead
+					postNumber = 1;
+					attachPostCount();
+				} else if (addedNode.querySelector('.Post.scrollerItem')) {
+					attachPostCount(); // new posts added
 				}
 			}
 		});
 	});
-});
+}, 100));
+
+// Allowing some timeout between post number attachment to prevent performance issues
+function debounce(func, wait) {
+	let timeout;
+	return function (...args) {
+		clearTimeout(timeout);
+		timeout = setTimeout(() => func.apply(this, args), wait);
+	};
+}

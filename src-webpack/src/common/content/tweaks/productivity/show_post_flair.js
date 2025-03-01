@@ -127,7 +127,7 @@ async function attachFlair(post) {
 }
 
 // Function to fetch post data from Reddit API
-async function fetchPostData(postID) {
+export async function fetchPostData(postID) {
 	const fetch_url = `https://www.reddit.com/api/info.json?id=${postID}`;
 	const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 	let response;
@@ -156,7 +156,7 @@ async function fetchPostData(postID) {
 		}
 
 		// Log the error to the developer console
-		console.error('[RedditEnhancer] Error retrieving post data and assigning flairs:', error);
+		console.error('[RedditEnhancer] Error retrieving post data:', error);
 		e = true;
 		throw error;
 	}

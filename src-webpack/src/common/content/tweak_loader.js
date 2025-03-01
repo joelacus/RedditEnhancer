@@ -87,8 +87,8 @@ export function loadTweaks() {
 		loadHideVoteButtons();
 
 		waitForAddedNode({
-			query: '.Post.scrollerItem',
-			parent: document.querySelector('body'),
+			query: 'div[data-scroller-first]',
+			parent: document.querySelector('ListingLayout-outerContainer'),
 			recursive: true,
 			done: function () {
 				loadShowPostNumbers();
