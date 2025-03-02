@@ -288,6 +288,9 @@ div.md blockquote {
 div.md blockquote:last-of-type {
     margin-bottom: 0;
 }
+shreddit-post::part(re-upvote-ratio) {
+    opacity: 0.8;
+}
 
 
 .re-text-scroll div[data-click-id="text"][style="max-height: 250px;"], .re-text-scroll div[data-click-id="text"][style="max-height:250px"] {

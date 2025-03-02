@@ -761,6 +761,9 @@
 	"ShowRising": {
 		"message": "Always Show the 'Rising' Sort Button"
 	},
+	"ShowUpvoteRatio": {
+		"message": "Show Upvote Percentage in Post View"
+	},
 	"SideMenu": {
 		"message": "Side Menu"
 	},

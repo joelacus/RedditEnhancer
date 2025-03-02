@@ -50,7 +50,7 @@ import { loadAlwaysShowPostOptions } from './tweaks/productivity/always_show_pos
 import { loadReplacePostImagesWithLinks } from './tweaks/media/replace_images_with_links';
 import { loadReplacePostVideosWithLinks } from './tweaks/media/replace_videos_with_links';
 import { loadCompressPostLinkDisplay } from "./tweaks/media/compress_post_link_display";
-import { loadShowUpvoteRatio, showUpvoteRatio } from "./tweaks/productivity/show_upvote_ratio";
+import { loadShowUpvoteRatio } from "./tweaks/productivity/show_upvote_ratio";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -126,17 +126,7 @@ export function loadTweaks() {
 				}, 10000);
 			},
 		});
-		waitForAddedNode({
-			query: 'shreddit-comment-tree',
-			parent: document.querySelector('body'),
-			recursive: true,
-			done: function () {
-				setTimeout(() => {
-					loadCompressPostLinkDisplay();
-					loadAutoShowCommentFormattingOptions();
-				}, 500);
-			},
-		});
+
 		waitForAddedNode({
 			query: 'faceplate-expandable-section-helper:has([aria-controls="moderation_section"])',
 			parent: document.querySelector('body'),
@@ -145,6 +135,7 @@ export function loadTweaks() {
 				loadRememberSideMenuSectionHiddenState();
 			},
 		});
+
 		waitForAddedNode({
 			query: 'faceplate-expandable-section-helper:has([aria-controls="multireddits_section"])',
 			parent: document.querySelector('body'),
@@ -153,6 +144,7 @@ export function loadTweaks() {
 				loadRememberSideMenuSectionHiddenState();
 			},
 		});
+
 		waitForAddedNode({
 			query: 'reddit-recent-pages',
 			shadowRoot: true,
@@ -164,6 +156,7 @@ export function loadTweaks() {
 				}, 500);
 			},
 		});
+
 		waitForAddedNode({
 			query: 'faceplate-expandable-section-helper:has([aria-controls="communities_section"])',
 			parent: document.querySelector('body'),
@@ -172,6 +165,7 @@ export function loadTweaks() {
 				loadRememberSideMenuSectionHiddenState();
 			},
 		});
+
 		waitForAddedNode({
 			query: 'faceplate-expandable-section-helper:has([aria-controls="RESOURCES"])',
 			parent: document.querySelector('body'),
@@ -195,6 +189,17 @@ export function loadTweaks() {
 		});
 
 		waitForAddedNode({
+			query: 'shreddit-feed shreddit-post',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function () {
+				setTimeout(() => {
+					loadShowPostNumbers();
+				}, 500);
+			},
+		})
+
+		waitForAddedNode({
 			query: 'shreddit-post',
 			parent: document.querySelector('body'),
 			recursive: true,
@@ -207,6 +212,18 @@ export function loadTweaks() {
 					loadReplacePostVideosWithLinks();
 					loadAlwaysShowPostOptions();
 					loadShowUpvoteRatio();
+				}, 500);
+			},
+		});
+
+		waitForAddedNode({
+			query: 'shreddit-comment-tree',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function () {
+				setTimeout(() => {
+					loadCompressPostLinkDisplay();
+					loadAutoShowCommentFormattingOptions();
 				}, 500);
 			},
 		});

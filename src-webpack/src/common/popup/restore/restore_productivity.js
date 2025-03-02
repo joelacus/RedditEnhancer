@@ -504,4 +504,18 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		}
 		console.log('Sticky Sort: ' + value);
 	});
+
+	// Show Upvote Ratio
+	BROWSER_API.storage.sync.get(['showUpvoteRatio'], function (result) {
+		if (result.showUpvoteRatio === true) {
+			document.querySelector('#checkbox-show-upvote-ratio').checked = true;
+			document.querySelector('.icon-show-upvote-ratio').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else if (typeof result.showUpvoteRatio == 'undefined' || result.showUpvoteRatio === false) {
+			document.querySelector('#checkbox-show-upvote-ratio').checked = false;
+			var value = false;
+		}
+		console.log('Show Upvote Ratio: ' + value);
+	});
 }

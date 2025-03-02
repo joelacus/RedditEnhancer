@@ -155,6 +155,7 @@ import { replacePostImagesWithLinks } from './tweaks/media/replace_images_with_l
 import { replacePostVideosWithLinks } from './tweaks/media/replace_videos_with_links';
 import { disableBgFadePostOverlay, blurBackgroundPostOverlay } from "./tweaks/background/post_overlay_background";
 import { compressPostLinkDisplay } from "./tweaks/media/compress_post_link_display";
+import { showUpvoteRatio } from "./tweaks/productivity/show_upvote_ratio";
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
@@ -473,9 +474,9 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		autoExpandComments(value);
 	} else if (key === 'hidePostHiddenMessage') {
 		hidePostHiddenMessage(value);
-	} else if (key == 'scalePostToFitImage') {
+	} else if (key === 'scalePostToFitImage') {
 		scalePostToFitImage(value);
-	} else if (key == 'scalePostToFitVideo') {
+	} else if (key === 'scalePostToFitVideo') {
 		scalePostToFitVideo(value);
 	} /*else if (key == 'dragImageToResize') {
 		dragImageToResize(value);
@@ -595,6 +596,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		compressPostLinkDisplay(value);
 	} else if (key === 'forceCustomBgOldUI') {
 		useCustomBackground(value);
+	} else if (key === 'showUpvoteRatio') {
+		showUpvoteRatio(value);
 	}
 	return true;
 });

@@ -25,8 +25,8 @@ export function compressPostLinkDisplay(value) {
             if (!document.head.querySelector('style[id="re-compress-post-link-display"]')) {
                 const styleElement = document.createElement('style');
                 styleElement.id = 're-compress-post-link-display';
-                styleElement.textContent = `shreddit-app[routename="post_page"] shreddit-post[post-type="link"] img#post-image,
-		 							        shreddit-app[routename="comment_page"] shreddit-post[post-type="link"] img#post-image {
+                styleElement.textContent = `shreddit-app[routename="post_page"] shreddit-post[post-type="link"] img.preview-img,
+		 							        shreddit-app[routename="comment_page"] shreddit-post[post-type="link"] img.preview-img {
 									        	width: 144px;
 									        	height: 116px;
 									        	object-fit: cover;
@@ -63,6 +63,8 @@ export function compressPostLinkDisplay(value) {
             const flairHeight = document.querySelector('shreddit-post shreddit-post-flair') ?
                 document.querySelector('shreddit-post shreddit-post-flair').offsetHeight + 8 : 0;
             document.documentElement.style.setProperty('--re-post-media-container-margin', `${titleHeight + flairHeight}px`);
+
+            if (document.querySelector('shreddit-post a.re-post-link')) return;
 
             // Append the new post link
             let postLink2 = Object.assign(document.createElement('a'), {

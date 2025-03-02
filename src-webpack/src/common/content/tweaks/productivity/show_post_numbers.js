@@ -10,7 +10,10 @@
  * To mimic the Old UI style of post numbers where stickied posts are not counted, RE attempts to fetch the post data
  * of the first two posts if data-scroller-first is blank, which almost exclusively happens on subreddit pages.
  *
- * Applies to: Old New UI (2018-2024)
+ * NOTE: on v3 UI, posts are dynamically loaded and replaced with a placeholder (i.e. not shreddit-post). Post number
+ * track therefore may be lost if something wrong happens while user scrolls mid-page.
+ *
+ * Applies to: Old New UI (2018-2024), New New UI (2023-)
  *
  * @see ./show_post_flair.js
  */
@@ -26,20 +29,27 @@ export function loadShowPostNumbers() {
 
 // Flag to prevent showPostNumbers from occasionally running when attachPostCount is still running => resetting counter
 let isAttaching = false;
-// Global variables to keep track of current post number and post view
-let postNumber = 1;
-let view;
+// Global variables to keep track of current view
+let postNumber, view;
 
 export function showPostNumbers(value) {
 	// Do not run post numbers on post and settings pages
-	const noRoute = ['comments', 'settings', 'user'];
+	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
+	const notFeedRoutesv2 = ['comments', 'settings', 'user'];
+	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed'];
 
 	if (value) {
-		if (redditVersion === 'new' && !window.location.pathname.includes(noRoute)) {
+		if (redditVersion === 'new' && !window.location.pathname.includes(notFeedRoutesv2)) {
 			postNumber = 1;
 			getCurrentView();
-			attachPostCount();
+			attachPostCountv2();
 			observer.observe(document.querySelector('.ListingLayout-outerContainer'), {childList: true, subtree: true});
+		} else if (redditVersion === 'newnew' && feedRoutesv3.includes(routeName)) {
+			// Prevent the counter from resetting when navigating between SPA pages
+			if (!document.querySelector('.re-post-number')) postNumber = 1;
+			getCurrentView();
+			attachPostCountv3();
+			observer.observe(document.querySelector('shreddit-feed'), {childList: true, subtree: true});
 		}
 	} else {
 		// Disconnect the observer, reset the counter and remove all post numbers
@@ -53,14 +63,21 @@ export function showPostNumbers(value) {
 }
 
 function getCurrentView() {
-	// Get the current post view. Reddit display the current post view with i.icon.icon-view_card
-	const layoutSwitchIcon = document.querySelector('button#LayoutSwitch--picker > span > i');
-	if (layoutSwitchIcon) {
-		view = layoutSwitchIcon.className.split('_').pop();
+	switch (redditVersion) {
+		case 'new':
+			// Get the current post view. Reddit display the current post view with i.icon.icon-view_card
+			const layoutSwitchIcon = document.querySelector('button#LayoutSwitch--picker > span > i');
+			if (layoutSwitchIcon) {
+				view = layoutSwitchIcon.className.split('_').pop();
+			}
+			break;
+		case 'newnew':
+			view = document.querySelector('shreddit-post')?.getAttribute('view-type');
+			break;
 	}
 }
 
-async function attachPostCount() {
+async function attachPostCountv2() {
 	if (isAttaching) return;
 	isAttaching = true;
 
@@ -117,25 +134,67 @@ async function attachPostCount() {
 	isAttaching = false;
 }
 
+function attachPostCountv3() {
+	if (isAttaching) return;
+	isAttaching = true;
+
+	// Get a NodeList of currently displaying posts and convert it to an array
+	const posts = document.querySelectorAll('shreddit-post');
+	let postArray = [...posts];
+
+	postArray.forEach((element) => {
+		if (!element.querySelector('.re-post-number')) {
+			let el, span;
+
+			switch (view) {
+				case 'cardView':
+					el = element.querySelector('span[id*="feed-post-credit-bar-t3_"]');
+					break;
+				case 'compactView':
+					el = element.querySelector('div[id*="feed-post-credit-bar-t3_"]');
+					break;
+			}
+
+			span = Object.assign(document.createElement('span'), {
+				className: 're-post-number',
+				innerHTML: `${postNumber++} &bull;`
+			});
+			el.insertBefore(span, el.firstChild);
+		}
+	});
+
+	// Done attaching post numbers. Let's reset the flag
+	isAttaching = false;
+}
+
 // Observer for watching new posts in feed
 const observer = new MutationObserver(debounce(function (mutations) {
 	mutations.forEach(function (mutation) {
 		mutation.addedNodes.forEach(function (addedNode) {
-			if (addedNode.nodeName === 'DIV') {
+			console.log(addedNode);
+			if (addedNode.nodeName === 'DIV' && redditVersion === 'new') {
 				// Did user or Reddit switch post view?
 				let previousView = view;
 				getCurrentView();
 				if (view !== previousView) {
 					postNumber = 1;
-					attachPostCount();
+					attachPostCountv2();
 				} else if (addedNode.querySelector('div[data-scroller-first]')) {
 					// Reset post number count when navigating between pages for edge SPA cases,
 					// usually showPostNumber will be triggered again instead
 					postNumber = 1;
-					attachPostCount();
+					attachPostCountv2();
 				} else if (addedNode.querySelector('.Post.scrollerItem')) {
-					attachPostCount(); // new posts added
+					attachPostCountv2(); // new posts added
 				}
+			}
+			if (['TIME', 'ARTICLE', 'DIV'].includes(addedNode.nodeName) && redditVersion === 'newnew') {
+				let previousView = view;
+				getCurrentView();
+				if (view !== previousView) {
+					postNumber = 1;
+				}
+				attachPostCountv3();
 			}
 		});
 	});

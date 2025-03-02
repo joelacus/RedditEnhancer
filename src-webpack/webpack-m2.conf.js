@@ -116,8 +116,8 @@ module.exports = {
 				},
 				{
 					context: path.resolve(__dirname, 'src/common'),
-					from: 'content_first/re-styles.css',
-					to: 're-styles.css',
+					from: 'content_first/reStyles.css',
+					to: 'reStyles.css',
 				}
 			],
 		}),
