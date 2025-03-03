@@ -21,14 +21,15 @@ export function loadShowUpvoteRatio() {
 export function showUpvoteRatio(value) {
     if (redditVersion === 'new') {
         if (value && window.location.pathname.includes('/comments/')) {
-            attachRatio(document.querySelector('div#overlayScrollContainer div.Post'));
+            attachRatio(document.querySelector('div#overlayScrollContainer div.Post') || document.querySelector('div.Post'));
         } else {
             document.querySelector('.re-upvote-ratio').remove();
         }
     } else if (redditVersion === 'newnew') {
         const routeName = document.querySelector('shreddit-app').getAttribute('routename');
         const feedRoutes = ['post_page', 'comment_page'];
-        if (value && feedRoutes.includes(routeName)) {
+
+        if (value && feedRoutes.includes(routeName) && document.querySelector('shreddit-post')) {
             attachRatio(document.querySelector('shreddit-post'));
         } else {
             document.querySelector('shreddit-post::part(re-upvote-ratio)').remove();
@@ -48,7 +49,7 @@ async function attachRatio(post) {
     })
 
     if (redditVersion === 'new' && !post.querySelector('.re-upvote-ratio')) {
-        post.querySelector('button[data-click-id="upvote"] + div').append(ratio);
+        post.querySelector('button[data-click-id="upvote"] + div').insertAdjacentElement('afterend', ratio);
     } else if (redditVersion === 'newnew' && !post.querySelector('shreddit-post-flair > .re-upvote-ratio')) {
         document.querySelector('shreddit-post').shadowRoot
                 .querySelector('span[data-post-click-location="vote"] faceplate-number')

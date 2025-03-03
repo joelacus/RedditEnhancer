@@ -10,7 +10,7 @@ import { loadHideGap } from '../../../content/tweaks/style/hide_gap';
 import { loadHideHomeSidebar, loadHidePostSidebar, loadHideSubSidebarException, loadHideUserSidebar } from '../../../content/tweaks/hide_elements/hide_sidebar';
 import { loadHideRedditPremium } from '../../../content/tweaks/hide_elements/hide_reddit_premium';
 import { loadHideSidebarPolicy } from '../../../content/tweaks/hide_elements/hide_sidebar_policy';
-import { loadLayoutCentre } from '../../../content/tweaks/resize_elements/layout_centre_and_offset';
+// import { loadLayoutCentre } from '../../../content/tweaks/resize_elements/layout_centre_and_offset';
 import { loadOverrideDropShadow } from '../../../content/tweaks/style/override_drop_shadow';
 import { loadShowPostNumbers } from '../../../content/tweaks/productivity/show_post_numbers';
 import { loadStickySort } from '../../../content/tweaks/productivity/sticky_sort';
@@ -142,7 +142,7 @@ export function legacyObserversNew() {
 		done: function (el) {
 			el.parentNode.classList.add('re-post-container');
 			loadExpandContent();
-			loadLayoutCentre();
+			// loadLayoutCentre();
 		},
 	});
 	// Sidebar
@@ -175,7 +175,7 @@ export function observerFeedContainerAndFeed() {
 				document.querySelector('.ListingLayout-outerContainer').lastChild.lastChild.classList.add('re-feed');
 			}
 			loadExpandContent();
-			loadLayoutCentre();
+			// loadLayoutCentre();
 			loadHideGap();
 			loadDropShadow();
 			loadOverrideDropShadow();
@@ -268,7 +268,7 @@ export function observerUserFeedContainerAndFeed() {
 			el.parentElement.classList.add('re-feed-container');
 			el.parentElement.parentElement.parentElement.classList.add('re-feed');
 			loadExpandContent();
-			loadLayoutCentre();
+			// loadLayoutCentre();
 			loadHideGap();
 			loadDropShadow();
 			loadOverrideDropShadow();
@@ -350,7 +350,7 @@ export function observerSearchContainer() {
 			document.querySelector('[data-testid="search-results-nav"]').classList.add('re-search-results-nav');
 			document.querySelector('[data-testid="search-results-subnav"]').classList.add('re-search-results-subnav');
 			loadExpandContent();
-			loadLayoutCentre();
+			// loadLayoutCentre();
 		},
 	});
 }

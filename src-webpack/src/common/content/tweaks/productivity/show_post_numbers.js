@@ -30,7 +30,7 @@ export function loadShowPostNumbers() {
 // Flag to prevent showPostNumbers from occasionally running when attachPostCount is still running => resetting counter
 let isAttaching = false;
 // Global variables to keep track of current view
-let postNumber, view;
+let postNumber, view, firstScrollerItem;
 
 export function showPostNumbers(value) {
 	// Do not run post numbers on post and settings pages
@@ -39,15 +39,14 @@ export function showPostNumbers(value) {
 	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed'];
 
 	if (value) {
+		// Prevent the counter from resetting when navigating between SPA pages
+		if (!document.querySelector('.re-post-number')) postNumber = 1;
+		getCurrentView();
 		if (redditVersion === 'new' && !window.location.pathname.includes(notFeedRoutesv2)) {
-			postNumber = 1;
-			getCurrentView();
+			firstScrollerItem = document.querySelector('div[data-scroller-first]');
 			attachPostCountv2();
 			observer.observe(document.querySelector('.ListingLayout-outerContainer'), {childList: true, subtree: true});
 		} else if (redditVersion === 'newnew' && feedRoutesv3.includes(routeName)) {
-			// Prevent the counter from resetting when navigating between SPA pages
-			if (!document.querySelector('.re-post-number')) postNumber = 1;
-			getCurrentView();
 			attachPostCountv3();
 			observer.observe(document.querySelector('shreddit-feed'), {childList: true, subtree: true});
 		}
@@ -178,11 +177,10 @@ const observer = new MutationObserver(debounce(function (mutations) {
 				if (view !== previousView) {
 					postNumber = 1;
 					attachPostCountv2();
-				} else if (addedNode.querySelector('div[data-scroller-first]')) {
-					// Reset post number count when navigating between pages for edge SPA cases,
-					// usually showPostNumber will be triggered again instead
+				} else if (addedNode.querySelector('div[data-scroller-first]') || document.querySelector('div[data-scroller-first]') !== firstScrollerItem) {
 					postNumber = 1;
 					attachPostCountv2();
+					firstScrollerItem = document.querySelector('div[data-scroller-first]');
 				} else if (addedNode.querySelector('.Post.scrollerItem')) {
 					attachPostCountv2(); // new posts added
 				}

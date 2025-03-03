@@ -1,7 +1,8 @@
-/* === BANNER MESSAGE ===
-   Display a stickied banner message at the top of the page for 7s. Banner types can be '', 'warning' or 'error'
-   Banner will be removed off the page after 10s. @see content/banner_message.js
- */
+/* Some CSS tweaks, in the order of display (header, content layout, post, side menu/sidebar) */
+
+/* ========== BANNER MESSAGE ========== */
+/* Display a stickied banner message at the top of the page for 7s. Banner types can be '', 'warning' or 'error'
+   Banner will be removed off the page after 10s. @see content/banner_message.js  */
 @keyframes hideBanner {
     to {
         max-height: 0;
@@ -27,39 +28,98 @@ div.re-banner.error {
     color: var(--color-banner-error-text);
 }
 
-/* === LAYOUT OFFSET === */
-shreddit-app[routename="frontpage"] #main-content,
-shreddit-app[routename="all"] #main-content,
-shreddit-app[routename="popular"] #main-content,
-shreddit-app[routename="inbox"] #main-content,
+/* ========== BACK TO TOP BUTTON IN HEADER ========== */
+.re-to-top-button:hover, .re-all-button:hover {
+    cursor: pointer;
+}
+.re-to-top-button {
+    display: flex;
+    align-items: center;
+    width: 40px;
+}
+.re-to-top-button span {
+    color: inherit;
+    font-size: inherit;
+}
+
+/* ========== LAYOUT OFFSET (New New UI) =========== */
 shreddit-app[routename="frontpage"] main.main,
 shreddit-app[routename="all"] main.main,
 shreddit-app[routename="popular"] main.main,
 shreddit-app[routename="inbox"] main.main {
     transform: translateX(var(--re-layout-offset));
 }
-shreddit-app[routename="subreddit"] #main-content,
 shreddit-app[routename="subreddit"] main.main {
     transform: translateX(var(--re-layout-sub-offset));
 }
-shreddit-app[routename="post_page"] #main-content,
-shreddit-app[routename="comments_page"] #main-content,
-shreddit-app[routename="profile_post_page"] #main-content,
 shreddit-app[routename="post_page"] main.main,
 shreddit-app[routename="comments_page"] main.main,
 shreddit-app[routename="profile_post_page"] main.main {
     transform: translateX(var(--re-layout-post-offset));
 }
-shreddit-app[routename="profile_overview"] #main-content,
 shreddit-app[routename="profile_overview"] main.main {
     transform: translateX(var(--re-layout-user-profile-offset));
 }
-shreddit-app[pagetype="search_results"] #main-content,
 shreddit-app[pagetype="search_results"] main.main {
     transform: translateX(var(--re-layout-search-page-offset));
 }
+/* DEPRECATED */
+.re-feed.re-centre-feed-1 {
+    translate: 168px;
+}
+.re-feed.re-centre-feed-2 {
+    translate: 34px;
+}
+.re-feed.re-centre-feed-3 {
+    translate: -136px;
+}
+/* Align the sidebar with main container */
+shreddit-app[routename="frontpage"] #right-sidebar-container,
+shreddit-app[routename="all"] #right-sidebar-container,
+shreddit-app[routename="popular"] #right-sidebar-container,
+shreddit-app[routename="subreddit"] #right-sidebar-container {
+    margin-top: 2rem;
+}
+shreddit-app[pagetype="custom_feed"] #right-sidebar-container {
+    margin-top: 3.5rem;
+}
+shreddit-app[pagetype="search_results"] main.main {
+    margin-top: 1rem;
+}
 
-/* === SHOW POST AUTHORS === */
+/* ========== HIDE HIDDEN POSTS & OTHER ELEMENTS ========== */
+.re-post.hidden {
+    display: none;
+}
+.re-hide {
+    display: none !important;
+}
+.re-invisible {
+    visibility: hidden !important;
+}
+
+/* ========== OLD UI ========== */
+/* (1) Don't move span.pagename above the tab bar on certain pages, i.e. multireddit pages;
+   (2) All feed post thumbnails should have the same size of 70-by-70 pixels and be centered */
+#re-main .listing-chooser {
+    position: absolute !important;
+    top: 70px !important;
+    z-index: 10;
+}
+#header-bottom-right {
+    display: flex;
+}
+body.with-listing-chooser #header span.pagename {
+    position: static;
+}
+a.thumbnail > img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+/* ========== SHOW POST AUTHORS (New New UI) ========== */
+/* @see ../content/productivity/show_post_author.js */
 .re-post-author {
     color: var(--color-neutral-content-weak);
     z-index: 3;
@@ -97,7 +157,7 @@ span:has(.hover-card) {
     text-decoration: none;
 }
 
-/* === BREAK REMINDER === */
+/* ========== BREAK REMINDER ========== */
 .re-break-reminder {
     display: flex;
     align-items: center;
@@ -106,20 +166,8 @@ span:has(.hover-card) {
     font-size: 24px;
 }
 
-/* === BIONIC READER === */
-.re-bold {
-    font-weight: bold !important;
-}
-.re-hide {
-    display: none !important;
-}
-.re-bionic-modified-comments {
-    margin-top: 0;
-}
-
-/* === POST NUMBERS ===
-   Stylise the post count number and position of the vote arrows in Compact view on Old New UI
-*/
+/* ========== POST NUMBERS (Old New and New New UI) ========== */
+/* @see ../content/productivity/show_post_number.js */
 .re-post-number {
     margin-right: 0.25rem;
     align-self: center;
@@ -133,10 +181,8 @@ span:has(.hover-card) {
     text-align: right;
 }
 
-/* === POST UPVOTE & UPVOTE RATIO ===
-   - Fade the display of post upvote percentage
-   - Align the vote button div with post content in Compact view on Old New UI
- */
+/* === POST UPVOTE & UPVOTE RATIO === */
+/* Fade the display of post upvote percentage, and align the vote button div with post content in Compact view on v2 UI */
 shreddit-post::part(re-upvote-ratio) {
     opacity: 0.75;
 }
@@ -147,16 +193,216 @@ div:has(> div[id*="vote-arrows-"]) {
         margin-top: 0;
     }
 }
-button.voteButton ~ div {
-    text-align: center;
-
-    & > .re-upvote-ratio {
-        opacity: 0.75;
-        font-size: 80%;
-    }
+div[id^="vote-arrows-t3_"] button[data-click-id="upvote"] ~ .re-upvote-ratio {
+    font-size: 9px;
+    margin-bottom: 6px;
 }
 
-/* === SCROLL TO PREVIOUS/NEXT COMMENT BUTTONS === */
+/* ========== CHANGE FONT SIZE AND FONT WEIGHT ========== */
+/* Post title in detailed post view */
+/* Old UI */
+.comments-page .thing p.title > a,
+.other-discussions-page .thing p.title > a {
+    font-size: var(--re-post-title-font-size);
+    font-weight: var(--re-post-title-font-weight);
+    line-height: 1.4;
+}
+/* Old New UI */
+.Post [data-adclicklocation="title"] h1,
+.Post:not(.scrollerItem) [data-adclicklocation="title"] div[style*="--posttitletextcolor"] {
+    font-size: var(--re-post-title-font-size);
+    font-weight: var(--re-post-title-font-weight, 500);
+    line-height: 1.4;
+}
+/* New New UI */
+[routename="post_page"] shreddit-post a[slot="title"],
+[routename="post_page"] shreddit-post h1[slot="title"],
+[routename="post_page"] div.crosspost-title a,
+[routename="comments_page"] shreddit-post h1[slot="title"],
+[routename="comments_page"] div.crosspost-title a,
+[routename="profile_post_page"] shreddit-post h1[slot="title"],
+[routename="profile_post_page"] div.crosspost-title a,
+mod-queue-app shreddit-post h1[slot="title"] > a {
+    font-size: var(--re-post-title-font-size);
+    font-weight: var(--re-post-title-font-weight, 600);
+    line-height: 1.4;
+}
+shreddit-post h1[slot="title"] {
+    margin: .5rem 0;
+}
+
+/* Post text content in detailed post view */
+/* Old UI */
+.comments-page .thing[data-type="link"] .usertext div.md,
+/* Old New UI */
+.Post [data-click-id="text"] p,
+/* New New UI */
+shreddit-post div[slot="text-body"] div.md,
+shreddit-post a[slot="text-body"] div:has(>p),
+shreddit-profile-comment [id*="-content"],
+div[slot="post-media-container"] div.md,
+[routename="post_page"] shreddit-post .re-media-link {
+    font-size: var(--re-post-content-font-size, 1em);
+    font-weight: var(--re-post-content-font-weight);
+    line-height: 1.5;
+}
+/* h1 in text content */
+shreddit-post div[slot="text-body"] div.md h1 {
+    font-size: 1.5em;
+    line-height: inherit;
+}
+.Post [data-click-id="text"] p {
+    overflow: hidden;
+}
+
+/* Comment text content */
+/* Old UI */
+.commentarea .thing[data-type="comment"] .usertext p,
+/* Old New UI */
+.Comment [data-testid="comment"] > div,
+.Comment [data-testid="comment"] > div code,
+div[data-test-id="comment-submission-form-richtext"] div.public-DraftEditor-content[contenteditable],
+div[data-test-id="comment-submission-form-markdown"] textarea,
+/* New New UI */
+shreddit-comment div.md[slot="comment"],
+shreddit-profile-comment div.md,
+shreddit-composer div[contenteditable] {
+    font-size: var(--re-post-comments-font-size, 14px);
+    font-weight: var(--re-post-comments-font-weight);
+    line-height: 1.5;
+}
+/* h1 in comments */
+/* Old New UI */
+.Comment [data-testid="comment"] > div > div,
+div[data-test-id="comment-submission-form-richtext"] div.public-DraftEditor-content[contenteditable] h1,
+/* New New UI */
+shreddit-comment div.md[slot="comment"] h1,
+shreddit-profile-comment div.md h1,
+shreddit-composer div[contenteditable] h1 {
+    font-size: 1.5em;
+    line-height: inherit;
+}
+div[data-test-id="comment-submission-form-richtext"] div.public-DraftEditor-content[contenteditable] h1 > div {
+    font-size: inherit;
+    line-height: inherit;
+}
+.Comment [data-testid="comment"] > div,
+.Comment [data-testid="comment"] > div code,
+div[data-test-id="comment-submission-form-richtext"] div.public-DraftEditor-content[contenteditable],
+div[data-test-id="comment-submission-form-markdown"] textarea {
+    overflow: hidden;
+}
+
+/* Post title in feed view */
+/* Old UI */
+.listing-page .thing p.title > a,
+/* Old New UI */
+.Post [data-adclicklocation="title"] h3 {
+    font-size: var(--re-feed-post-title-font-size);
+    font-weight: var(--re-feed-post-title-font-weight);
+    line-height: 1.4;
+}
+/* New New UI */
+shreddit-feed shreddit-post a[slot="title"],
+shreddit-feed shreddit-post h1[slot="title"],
+shreddit-feed div.crosspost-title a,
+search-telemetry-tracker a[data-testid="post-title-text"],
+faceplate-tracker[data-testid="search-post"] a[data-testid="post-title-text"],
+faceplate-tracker h2.i18n-search-comment-post-title,
+mod-queue-app shreddit-post a[slot="title"] {
+    font-size: var(--re-feed-post-title-font-size);
+    font-weight: var(--re-feed-post-title-font-weight, 600);
+    line-height: 1.4;
+}
+shreddit-feed shreddit-profile-comment h2 a img {
+    min-width: 24px;
+}
+
+/* Post text content in feed view */
+/* Old UI */
+.listing-page .thing[data-type="link"] .usertext div.md,
+/* New New UI */
+shreddit-feed shreddit-post [data-post-click-location="text-body"] p,
+shreddit-feed shreddit-profile-comment [id*="-content"],
+shreddit-feed div[slot="post-media-container"] div.md,
+div.md.feed-card-text-preview,
+mod-queue-app shreddit-post [data-post-click-location="text-body"] div.md,
+shreddit-feed shreddit-post .re-media-link,
+shreddit-feed shreddit-post .post-link {
+    font-size: var(--re-feed-post-content-font-size);
+    font-weight: var(--re-feed-post-content-font-weight);
+    line-height: 1.5;
+}
+/* h1 in text content */
+shreddit-feed shreddit-post [data-post-click-location="text-body"] h1 {
+    font-size: 1.5em;
+    line-height: inherit;
+}
+
+/* Create Post title */
+/* Old UI */
+#title-field textarea {
+    font-size: var(--re-create-post-title-font-size);
+}
+/* Old New UI */
+div#AppRouter-main-content textarea[placeholder="Title"] {
+    font-size: var(--re-create-post-title-font-size);
+    line-height: 1.4;
+    height: unset !important;
+}
+/* New New UI */
+shreddit-app[pagetype="post_submit"] faceplate-textarea-input::part(title) {
+    font-size: var(--re-create-post-title-font-size) !important;
+    line-height: 1.2 !important;
+}
+
+/* Create Post text body */
+/* Old UI */
+#text-field textarea {
+    font-size: var(--re-create-post-body-font-size);
+}
+/* Old New UI */
+div:has(> div > textarea[placeholder="Title"]) + div div.public-DraftEditor-content[contenteditable],
+div:has(> div > textarea[placeholder="Title"]) + div textarea[placeholder="Url"],
+div#AppRouter-main-content div[data-testid="poll-creator"] input {
+    font-size: var(--re-create-post-body-font-size);
+    line-height: 1.4;
+}
+div:has(> div > textarea[placeholder="Title"]) + div div.public-DraftEditor-content[contenteditable] h1 {
+    font-size: 1.5em;
+    line-height: inherit;
+}
+div:has(> div > textarea[placeholder="Title"]) + div div.public-DraftEditor-content[contenteditable] h1 > div,
+div:has(> div > textarea[placeholder="Title"]) + div div.public-DraftEditor-content[contenteditable] div:has(> code) {
+    font-size: inherit;
+    line-height: inherit;
+}
+/* New New UI */
+shreddit-app[pagetype="post_submit"] shreddit-composer p > span {
+    font-size: var(--re-create-post-body-font-size) !important;
+    line-height: 1.5 !important;
+}
+/* Compact blockquote */
+div.md blockquote {
+    margin: 0 0 1rem .125rem;
+    padding: 0 0 0 1rem;
+}
+div.md blockquote:last-of-type {
+    margin-bottom: 0;
+}
+
+/* ========== BIONIC READER ========== */
+.re-bold {
+    font-weight: bold !important;
+}
+.re-hide {
+    display: none !important;
+}
+.re-bionic-modified-comments {
+    margin-top: 0;
+}
+
+/* ========== SCROLL TO PREVIOUS/NEXT COMMENT BUTTONS ========== */
 .re-scroll-to-comment-container {
     position: fixed;
     top: calc(var(--re-scroll-to-root-comment-position-v, 50%) - 32px);
@@ -186,7 +432,7 @@ button.voteButton ~ div {
     background-color: rgba(0,0,0,0.6);
 }
 
-
+/* ========== LOAD MORE ========== */
 .re-load-more {
     width: 100%;
     height: 30px;
@@ -197,47 +443,9 @@ button.voteButton ~ div {
     text-decoration: underline;
 }
 
-
-.re-post.hidden {
-    display: none;
-}
-
-/* === OLD UI ===
-   - Don't move span.pagename above the tab bar on certain pages, i.e. multireddit pages
-   - All feed post thumbnails should have the same size of 70-by-70 pixels and be centered
- */
-#re-main .listing-chooser {
-    position: absolute !important;
-    top: 70px !important;
-    z-index: 10;
-}
-#header-bottom-right {
-    display: flex;
-}
-body.with-listing-chooser #header span.pagename {
-    position: static;
-}
-a.thumbnail > img {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-}
-
-
-.re-to-top-button:hover, .re-all-button:hover {
-    cursor: pointer;
-}
+/* ========== OTHERS ========== */
 .re-sidemenu-feed-top a:hover {
     background-color: var(--newCommunityTheme-menuButtonBackground-hover);
-}
-.re-to-top-button {
-    display: flex;
-    align-items: center;
-    width: 40px;
-}
-.re-to-top-button span {
-    color: inherit;
-    font-size: inherit;
 }
 .re-sort {
     position: relative;
@@ -257,6 +465,7 @@ navigation-indicator {
 .Post:not(.scrollerItem) div:not(:has(h3)) + div[data-ignore-click="false"] {
     margin-left: 10px;
 }
+/* Back button in detailed post view on New New UI */
 div[slot="credit-bar"] pdp-back-button {
     position: static;
 }
@@ -273,6 +482,7 @@ aside#mod-queue-pdp-panel shreddit-post {
     margin: 1rem 0;
     padding: 0;
 }
+/* Vote buttons in overlayScrollContainer header on Old New UI */
 #overlayScrollContainer > :first-child div[id*="vote-arrows-"] {
     margin: 0 1rem;
 }
@@ -283,49 +493,9 @@ aside#mod-queue-pdp-panel shreddit-post {
 #overlayScrollContainer > :first-child div[id*="vote-arrows-"] button.voteButton ~ div {
     padding: 0 0.25rem;
 }
-/* Align the sidebar with main container */
-shreddit-app[routename="frontpage"] #right-sidebar-container,
-shreddit-app[routename="all"] #right-sidebar-container,
-shreddit-app[routename="popular"] #right-sidebar-container,
-shreddit-app[routename="subreddit"] #right-sidebar-container {
-    margin-top: 2rem;
-}
-shreddit-app[pagetype="custom_feed"] #right-sidebar-container {
-    margin-top: 3.5rem;
-}
-shreddit-app[pagetype="search_results"] main.main {
-    margin-top: 1rem;
-}
-/* Compact blockquote */
-div.md blockquote {
-    margin: 0 0 1rem .125rem;
-    padding: 0 0 0 1rem;
-}
-div.md blockquote:last-of-type {
-    margin-bottom: 0;
-}
 
-
+/* ========== SCROLL TEXT POST ========== */
 .re-text-scroll div[data-click-id="text"][style="max-height: 250px;"], .re-text-scroll div[data-click-id="text"][style="max-height:250px"] {
     overflow-y: auto;
     mask-image: linear-gradient(180deg,#000 90%,transparent)
-}
-
-
-.re-hide {
-    display: none !important;
-}
-.re-invisible {
-    visibility: hidden !important;
-}
-
-
-.re-feed.re-centre-feed-1 {
-    translate: 168px;
-}
-.re-feed.re-centre-feed-2 {
-    translate: 34px;
-}
-.re-feed.re-centre-feed-3 {
-    translate: -136px;
 }

@@ -65,7 +65,13 @@ export function loadTweaks() {
 			loadAutoExpandComments();
 			loadAutoLoadMoreComments();
 			loadAutoCollapseAutoModeratorComment();
-			loadShowUpvoteRatio();
+
+			waitForAddedNode({
+				query: 'div.Post',
+				parent: document.querySelector('body'),
+				recursive: true,
+				done: loadShowUpvoteRatio,
+			})
 		}
 		loadAlwaysShowRisingButton();
 		loadShowControversialSortButton();
@@ -213,7 +219,7 @@ export function loadTweaks() {
 					loadReplacePostVideosWithLinks();
 					loadAlwaysShowPostOptions();
 					loadShowUpvoteRatio();
-				}, 500);
+				}, 1000);
 			},
 		});
 

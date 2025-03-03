@@ -132,7 +132,7 @@ function loadCommon() {
 	loadBlurBackgroundPostOverlay();
 
 	if (!useLegacy) {
-		loadLayoutCentre();
+		// loadLayoutCentre();
 		loadHideAdvertiseButton();
 		loadHideChatButton();
 		loadHideCreatePostButton();
