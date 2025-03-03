@@ -42,7 +42,7 @@ shreddit-post a[slot="text-body"] div:has(>p),
 shreddit-profile-comment [id*="-content"],
 div[slot="post-media-container"] div.md,
 [routename="post_page"] shreddit-post .re-media-link {
-    font-size: var(--re-post-content-font-size, 1em);
+    font-size: var(--re-post-content-font-size, 14px);
     font-weight: var(--re-post-content-font-weight);
     line-height: 1.5;
 }
