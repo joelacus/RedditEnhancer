@@ -16,7 +16,8 @@ export function loadCompressPostLinkDisplay() {
 // Activate the feature based on Reddit version
 export function compressPostLinkDisplay(value) {
     if (redditVersion === 'newnew') {
-        if (value) {
+        // Do not compress e.g. YouTube video embeds
+        if (value && !document.querySelector('shreddit-embed')) {
             // Remove the original post link
             let postLink = document.querySelector('shreddit-post[post-type="link"]')?.getAttribute('content-href');
             document.querySelector('div:has(> faceplate-tracker[source="post_lightbox"])')?.remove();
@@ -62,7 +63,9 @@ export function compressPostLinkDisplay(value) {
             const titleHeight = document.querySelector('shreddit-post h1').offsetHeight;
             const flairHeight = document.querySelector('shreddit-post shreddit-post-flair') ?
                 document.querySelector('shreddit-post shreddit-post-flair').offsetHeight + 8 : 0;
-            document.documentElement.style.setProperty('--re-post-media-container-margin', `${titleHeight + flairHeight}px`);
+            const textBodyHeight = document.querySelector('shreddit-post div[slot="text-body"]') ?
+                document.querySelector('shreddit-post div[slot="text-body"]').offsetHeight + 8 : 0;
+            document.documentElement.style.setProperty('--re-post-media-container-margin', `calc(${titleHeight}px + ${flairHeight}px + ${textBodyHeight}px)`);
 
             if (document.querySelector('shreddit-post a.re-post-link')) return;
 

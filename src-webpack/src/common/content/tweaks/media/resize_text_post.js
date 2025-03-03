@@ -26,7 +26,7 @@ function enableResizeTextPostHeightNewNew() {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-resize-text-post-height';
 		styleElement.textContent = `shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > p, 
-									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > p ~ object,
+									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > object,
 									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > pre,
 									shreddit-post:not([view-context="BrandPostPerformanceFeed"]) div.md.feed-card-text-preview > hr {
 									    display: block !important;
