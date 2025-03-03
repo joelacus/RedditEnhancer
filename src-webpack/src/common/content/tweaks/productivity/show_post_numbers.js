@@ -171,7 +171,6 @@ function attachPostCountv3() {
 const observer = new MutationObserver(debounce(function (mutations) {
 	mutations.forEach(function (mutation) {
 		mutation.addedNodes.forEach(function (addedNode) {
-			console.log(addedNode);
 			if (addedNode.nodeName === 'DIV' && redditVersion === 'new') {
 				// Did user or Reddit switch post view?
 				let previousView = view;

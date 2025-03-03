@@ -20,8 +20,8 @@ export function loadShowUpvoteRatio() {
 // Activate the feature based on Reddit version
 export function showUpvoteRatio(value) {
     if (redditVersion === 'new') {
-        if (value && window.location.pathname.includes('comments')) {
-            attachRatio(document.querySelector('div.Post'));
+        if (value && window.location.pathname.includes('/comments/')) {
+            attachRatio(document.querySelector('div#overlayScrollContainer div.Post'));
         } else {
             document.querySelector('.re-upvote-ratio').remove();
         }
@@ -48,7 +48,7 @@ async function attachRatio(post) {
     })
 
     if (redditVersion === 'new' && !post.querySelector('.re-upvote-ratio')) {
-        document.querySelector('button[data-click-id="upvote"] + div').append(ratio);
+        post.querySelector('button[data-click-id="upvote"] + div').append(ratio);
     } else if (redditVersion === 'newnew' && !post.querySelector('shreddit-post-flair > .re-upvote-ratio')) {
         document.querySelector('shreddit-post').shadowRoot
                 .querySelector('span[data-post-click-location="vote"] faceplate-number')

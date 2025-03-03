@@ -65,6 +65,7 @@ export function loadTweaks() {
 			loadAutoExpandComments();
 			loadAutoLoadMoreComments();
 			loadAutoCollapseAutoModeratorComment();
+			loadShowUpvoteRatio();
 		}
 		loadAlwaysShowRisingButton();
 		loadShowControversialSortButton();

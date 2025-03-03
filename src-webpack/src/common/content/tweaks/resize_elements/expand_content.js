@@ -282,15 +282,16 @@ function enableExpandContentNew() {
 								#overlayScrollContainer > div:has(.Post) :first-child {
 									max-width: 100% !important;
 								}
+								/* overlayScrollContainer top bar and background */
 								#overlayScrollContainer > :first-child,
-								#overlayScrollContainer > div:has(.Post) {
-									width: var(--re-post-overlay-width) !important;
-									max-width: var(--re-post-overlay-width) !important;
+								#SHORTCUT_FOCUSABLE_DIV [class^="subredditvars-r-"] :first-child::after {
+									width: var(--re-post-overlay-width);
+									max-width: 100%;
 								}
 								#overlayScrollContainer > :first-child > div {
-									max-width: 100% !important;
+									max-width: 100%;
 								}
-								#SHORTCUT_FOCUSABLE_DIV [class^="subredditvars-r-"] :first-child::after {
+								#overlayScrollContainer > div:has(.Post) {
 									width: var(--re-post-overlay-width) !important;
 									max-width: var(--re-post-overlay-width) !important;
 								}

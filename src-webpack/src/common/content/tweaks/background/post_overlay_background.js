@@ -20,8 +20,14 @@ export function disableBgFadePostOverlay(value) {
             if (!document.head.querySelector('style[id="re-disable-bg-fade-post-overlay"]')) {
                 const styleElement = document.createElement('style');
                 styleElement.id = 're-disable-bg-fade-post-overlay';
-                styleElement.textContent = `#SHORTCUT_FOCUSABLE_DIV > div[class*="subredditvars-r"] > div {
-                                                background-color: var(--comments-overlay-background);
+                // Deliberate selectors to override Post Overlay Width
+                styleElement.textContent = `div#overlayScrollContainer > div:first-child,
+                                            #SHORTCUT_FOCUSABLE_DIV > div[class*="subredditvars-r"] :first-child::after {
+                                                width: 100%;
+                                                max-width: 100%;
+                                            }
+                                            div#overlayScrollContainer > div:first-child > div {
+                                                width: var(--re-post-overlay-width);
                                             }`;
                 document.head.insertBefore(styleElement, document.head.firstChild);
             }
@@ -65,8 +71,13 @@ export function blurBackgroundPostOverlay(value) {
                                                 --comments-overlay-background: transparent !important;
                                             }
                                             div#overlayScrollContainer > div:first-child {
+                                                width: 100%;
+                                                max-width: 100%;
                                                 backdrop-filter: blur(calc(var(--re-theme-blur, 15px) + 20px));
                                                 -webkit-backdrop-filter: blur(calc(var(--re-theme-blur, 15px) + 20px));
+                                            }
+                                            div#overlayScrollContainer > div:first-child > div {
+                                                width: var(--re-post-overlay-width);
                                             }
                                             .theme-dark div#overlayScrollContainer > div:first-child {
                                                 background-color: rgba(0, 0, 0, .15);

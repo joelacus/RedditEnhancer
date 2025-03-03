@@ -132,11 +132,27 @@ span:has(.hover-card) {
     min-width: 2rem;
     text-align: right;
 }
+
+/* === POST UPVOTE & UPVOTE RATIO ===
+   - Fade the display of post upvote percentage
+   - Align the vote button div with post content in Compact view on Old New UI
+ */
+shreddit-post::part(re-upvote-ratio) {
+    opacity: 0.75;
+}
 div:has(> div[id*="vote-arrows-"]) {
     align-self: center;
 
     & > div {
         margin-top: 0;
+    }
+}
+button.voteButton ~ div {
+    text-align: center;
+
+    & > .re-upvote-ratio {
+        opacity: 0.75;
+        font-size: 80%;
     }
 }
 
@@ -287,9 +303,6 @@ div.md blockquote {
 }
 div.md blockquote:last-of-type {
     margin-bottom: 0;
-}
-shreddit-post::part(re-upvote-ratio) {
-    opacity: 0.8;
 }
 
 
