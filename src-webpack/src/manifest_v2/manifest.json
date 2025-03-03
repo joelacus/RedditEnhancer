@@ -23,7 +23,7 @@
 		{
 			"matches": ["*://*.reddit.com/*"],
 			"js": ["content_first.js"],
-			"css": ["reStyles.css"],
+			"css": ["RE_styles.css", "RE_font.css"],
 			"run_at": "document_start"
 		},
 		{
@@ -32,7 +32,7 @@
 		}
 	],
 
-	"web_accessible_resources": ["_locales/**/*", "backup.html", "changelog.txt", "reStyles.css"],
+	"web_accessible_resources": ["_locales/**/*", "backup.html", "changelog.txt", "RE_styles.css", "RE_font.css"],
 
 	"background": {
 		"scripts": ["background.js"]
