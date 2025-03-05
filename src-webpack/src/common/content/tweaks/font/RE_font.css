@@ -129,7 +129,7 @@ div.md.feed-card-text-preview,
 mod-queue-app shreddit-post [data-post-click-location="text-body"] div.md,
 shreddit-feed shreddit-post .re-media-link,
 shreddit-feed shreddit-post .post-link {
-    font-size: var(--re-feed-post-content-font-size);
+    font-size: var(--re-feed-post-content-font-size, 14px);
     font-weight: var(--re-feed-post-content-font-weight);
     line-height: 1.5;
 }
