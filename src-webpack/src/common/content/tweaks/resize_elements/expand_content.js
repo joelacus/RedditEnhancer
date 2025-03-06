@@ -284,7 +284,7 @@ function enableExpandContentNew() {
 									margin-right: 16px;
 								}
 								#overlayScrollContainer div:has(> div[data-testid="no-edit-description-block"]) > div:first-child {
-									width: 312px;
+									width: 310px;
 								}
 								/* overlayScrollContainer top bar and background */
 								#overlayScrollContainer > :first-child,

@@ -40,10 +40,10 @@ export function showUpvoteRatio(value) {
 async function attachRatio(post) {
     const postID = post.getAttribute('id');
     const postData = await fetchPostData(postID);
-    const upvoteRatio = postData.children[0].data.upvote_ratio || -0.01;
+    const upvoteRatio = Math.round(postData.children[0].data.upvote_ratio * 100 || -1);
 
     let ratio = Object.assign(document.createElement('span'), {
-        textContent: ` (${upvoteRatio * 100}%)`,
+        textContent: ` (${upvoteRatio}%)`,
         className: 're-upvote-ratio',
         part: 're-upvote-ratio'
     })
