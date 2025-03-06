@@ -279,8 +279,12 @@ function enableExpandContentNew() {
 								.ListingLayout-backgroundContainer + div > :last-child > :first-child:has(.Post[data-testid="post-container"] [data-test-id="post-content"]) {
 									max-width: var(--re-post-width) !important;
 								}
-								#overlayScrollContainer > div:has(.Post) :first-child {
-									max-width: 100% !important;
+								#overlayScrollContainer > div:nth-child(2) > div:first-child {
+									max-width: initial;
+									margin-right: 16px;
+								}
+								#overlayScrollContainer div:has(> div[data-testid="no-edit-description-block"]) > div:first-child {
+									width: 312px;
 								}
 								/* overlayScrollContainer top bar and background */
 								#overlayScrollContainer > :first-child,
