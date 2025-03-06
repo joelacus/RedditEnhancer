@@ -22,8 +22,6 @@ export function showUpvoteRatio(value) {
     if (redditVersion === 'new') {
         if (value && window.location.pathname.includes('/comments/')) {
             attachRatio(document.querySelector('div#overlayScrollContainer div.Post') || document.querySelector('div.Post'));
-        } else {
-            document.querySelector('.re-upvote-ratio').remove();
         }
     } else if (redditVersion === 'newnew') {
         const routeName = document.querySelector('shreddit-app').getAttribute('routename');
@@ -31,8 +29,6 @@ export function showUpvoteRatio(value) {
 
         if (value && feedRoutes.includes(routeName) && document.querySelector('shreddit-post')) {
             attachRatio(document.querySelector('shreddit-post'));
-        } else {
-            document.querySelector('shreddit-post::part(re-upvote-ratio)').remove();
         }
     }
 }
