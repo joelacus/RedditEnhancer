@@ -41,7 +41,8 @@ async function attachRatio(post) {
     let ratio = Object.assign(document.createElement('span'), {
         textContent: ` (${upvoteRatio}%)`,
         className: 're-upvote-ratio',
-        part: 're-upvote-ratio'
+        part: 're-upvote-ratio',
+        title: `${upvoteRatio}% upvoted`
     })
 
     if (redditVersion === 'new' && !post.querySelector('.re-upvote-ratio')) {
