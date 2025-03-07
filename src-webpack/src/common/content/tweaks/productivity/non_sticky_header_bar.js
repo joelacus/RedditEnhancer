@@ -38,7 +38,7 @@ function enableNonStickyHeaderBarNew() {
 								#SHORTCUT_FOCUSABLE_DIV:has(div#overlayScrollContainer) header {
 									display: none;
 								}
-								div[data-testid="frontpage-sidebar"] > div:last-child > div {
+								div[data-testid$="-sidebar"] > div:last-child > div {
 									top: 1rem;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);

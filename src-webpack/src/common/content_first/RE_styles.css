@@ -291,14 +291,15 @@ aside#mod-queue-pdp-panel shreddit-post {
 }
 /* Vote buttons in overlayScrollContainer header on Old New UI */
 #overlayScrollContainer > :first-child div[id*="vote-arrows-"] {
-    margin: 0 1rem;
+    margin-left: 7px;
+    margin-right: 1rem;
 }
 #overlayScrollContainer > :first-child div[id*="vote-arrows-"]:before,
 #overlayScrollContainer > :first-child div[id*="vote-arrows-"]:after {
     display: none;
 }
 #overlayScrollContainer > :first-child div[id*="vote-arrows-"] button.voteButton ~ div {
-    padding: 0 0.25rem;
+    padding: 0 0.125rem;
 }
 
 /* ========== SCROLL TEXT POST ========== */

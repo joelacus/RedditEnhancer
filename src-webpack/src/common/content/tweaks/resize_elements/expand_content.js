@@ -261,23 +261,30 @@ function disableExpandContentNewLegacy() {
 function enableExpandContentNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-expand-feed-layout';
-	styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="frontpage-sidebar"]) {
+	styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child {
+									padding: 20px 0;
+								}
+								.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="frontpage-sidebar"]) {
 									width: var(--re-content-width) !important;
 								}
 								.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="frontpage-sidebar"]) > :first-child,
 								.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="subreddit-sidebar"]) > :first-child {
 									width: 100%;
+									max-width: 100%;
 								}
 								.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="subreddit-sidebar"]) {
 									width: var(--re-sub-width) !important;
 								}
 								.ListingLayout-backgroundContainer + div:has([data-testid="subreddit-sidebar"]) > :nth-child(2) > div {
 									max-width: var(--re-sub-width) !important;
+									padding: 0;
 									box-sizing: border-box;
 								}
 								.ListingLayout-backgroundContainer + div > div[style^="max-width"] {
 									max-width: 100%;
 								}
+								.ListingLayout-backgroundContainer + div:has(.Post[data-testid="post-container"] [data-test-id="post-content"]) > span a div,
+								.ListingLayout-backgroundContainer + div:has(.Post[data-testid="post-container"] [data-test-id="post-content"]) > :nth-child(2) > div,
 								.ListingLayout-backgroundContainer + div > :last-child:has(.Post[data-testid="post-container"] [data-test-id="post-content"]) {
 									max-width: var(--re-post-width) !important;
 								}
@@ -286,7 +293,10 @@ function enableExpandContentNew() {
 								}
 								#overlayScrollContainer > div:nth-child(2) > div:first-child {
 									max-width: initial;
-									margin-right: 16px;
+									margin: 2rem 1.25rem 2rem 0;
+								}
+								#overlayScrollContainer > div:nth-child(2) > div:last-child {
+									margin-right: 0;
 								}
 								#overlayScrollContainer div:has(> div[data-testid="no-edit-description-block"]) > div:first-child {
 									width: 310px;
@@ -299,13 +309,17 @@ function enableExpandContentNew() {
 								}
 								#overlayScrollContainer > :first-child > div {
 									max-width: 100%;
+									padding: 0;
 								}
 								#overlayScrollContainer > div:has(.Post) {
 									width: var(--re-post-overlay-width);
 									max-width: var(--re-post-overlay-width);
 								}
+								.ListingLayout-backgroundContainer + div:has([href="/settings/profile"]) > :last-child {
+									width: var(--re-user-profile-width);
+								}
 								.ListingLayout-backgroundContainer + div:has([href="/settings/profile"]) > :last-child > :first-child {
-									width: var(--re-user-profile-width) !important;
+									width: 100%;
 								}
 								.Post [data-test-id="post-content"] > div:has(.RichTextJSON-root) {
 									max-width: 100% !important;
@@ -313,6 +327,19 @@ function enableExpandContentNew() {
 								.Comment > :last-child {
 									max-width: 100% !important;
 								}
+								/* Search result pages */
+								.ListingLayout-backgroundContainer + div:has([data-testid="search-results-sidebar"]) > div {
+									max-width: var(--re-content-width);
+								}
+								.ListingLayout-backgroundContainer + div:has([data-testid="search-results-sidebar"]) > div > div {
+									flex-grow: 0;
+									max-width: initial;
+									padding: 0;
+								}
+								.ListingLayout-backgroundContainer + div:has([data-testid="search-results-sidebar"]) > div > div > :nth-child(2) > :first-child {
+									max-width: initial;
+								}
+								/* Custom feed/multireddit */
 								.ListingLayout-backgroundContainer + div:has(button#MULTIREDDIT_TOP_BAR_OVERFLOW) > :last-child {
 									width: var(--re-custom-feed-width);
 								}
