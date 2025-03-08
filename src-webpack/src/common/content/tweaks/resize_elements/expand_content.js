@@ -329,10 +329,10 @@ function enableExpandContentNew() {
 								}
 								/* Search result pages */
 								.ListingLayout-backgroundContainer + div:has([data-testid="search-results-sidebar"]) > div {
-									max-width: var(--re-content-width);
+									width: var(--re-content-width);
+									max-width: 100%;
 								}
 								.ListingLayout-backgroundContainer + div:has([data-testid="search-results-sidebar"]) > div > div {
-									flex-grow: 0;
 									max-width: initial;
 									padding: 0;
 								}
