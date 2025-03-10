@@ -269,6 +269,12 @@ div[id^="vote-arrows-t3_"] button[data-click-id="upvote"] ~ .re-upvote-ratio {
 navigation-indicator {
     z-index: 999 !important;
 }
+div[data-testid="search-scope-pill"] {
+    margin-right: 20px;
+}
+div[data-testid="search-scope-pill"] > div[data-testid="search-scope-pill-text"] {
+    flex-shrink: 0;
+}
 .Post:not(.scrollerItem) div:not(:has(h3)) + div[data-ignore-click="false"] {
     margin-left: 10px;
 }
