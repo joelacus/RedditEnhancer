@@ -315,10 +315,10 @@ function enableExpandContentNew() {
 									width: var(--re-post-overlay-width);
 									max-width: var(--re-post-overlay-width);
 								}
-								.ListingLayout-backgroundContainer + div:has([href="/settings/profile"]) > :last-child {
+								.ListingLayout-backgroundContainer + div:has(span[id^="profile--id-card--"]) > :last-child {
 									width: var(--re-user-profile-width);
 								}
-								.ListingLayout-backgroundContainer + div:has([href="/settings/profile"]) > :last-child > :first-child {
+								.ListingLayout-backgroundContainer + div:has(span[id^="profile--id-card--"]) > :last-child > :first-child {
 									width: 100%;
 								}
 								.Post [data-test-id="post-content"] > div:has(.RichTextJSON-root) {

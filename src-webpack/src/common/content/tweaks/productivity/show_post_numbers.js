@@ -35,7 +35,7 @@ let postNumber, view, firstScrollerItem;
 export function showPostNumbers(value) {
 	// Do not run post numbers on post and settings pages
 	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
-	const notFeedRoutesv2 = ['comments', 'settings', 'user'];
+	const notFeedRoutesv2 = ['comments', 'settings'];
 	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed'];
 
 	if (value) {
@@ -43,6 +43,8 @@ export function showPostNumbers(value) {
 		if (!document.querySelector('.re-post-number')) postNumber = 1;
 		getCurrentView();
 		if (redditVersion === 'new' && !window.location.pathname.includes(notFeedRoutesv2)) {
+			// Do not run on pages with mix of posts and comments (e.g. some user pages)
+			if (document.querySelector(".Post + .Comment")) return;
 			firstScrollerItem = document.querySelector('div[data-scroller-first]');
 			attachPostCountv2();
 			observer.observe(document.querySelector('.ListingLayout-outerContainer'), {childList: true, subtree: true});
