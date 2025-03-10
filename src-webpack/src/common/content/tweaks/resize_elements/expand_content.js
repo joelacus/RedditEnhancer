@@ -315,8 +315,17 @@ function enableExpandContentNew() {
 									width: var(--re-post-overlay-width);
 									max-width: var(--re-post-overlay-width);
 								}
-								.ListingLayout-backgroundContainer + div:has(span[id^="profile--id-card--"]) > :last-child {
+								.ListingLayout-backgroundContainer + div:has(span[id^="profile--id-card--"]) > :last-child,
+								.ListingLayout-backgroundContainer + div > div > div:has(a[data-testid^="/user/"]) {
 									width: var(--re-user-profile-width);
+								}
+								.ListingLayout-backgroundContainer + div > div > div:has(a[data-testid^="/user/"]) {
+									margin: 0 auto;
+									
+									& > div {
+										left: initial;
+										right: initial;
+									}
 								}
 								.ListingLayout-backgroundContainer + div:has(span[id^="profile--id-card--"]) > :last-child > :first-child {
 									width: 100%;
