@@ -87,6 +87,72 @@ shreddit-app[pagetype="search_results"] main.main {
     margin-top: 1rem;
 }
 
+/* ========== HIDE HOME FEED ========== */
+/* Old UI
+    .listing-page: targets all pages with listings (home, all, popular, topic, custom feeds, moderator pages)
+    .with-listing-chooser: targets pages with the custom feed selector (excluding subreddits)
+    :not(.multi-page): not targeting custom feeds => home, all, popular, topic
+*/
+.re-hide-home-feed .listing-page.with-listing-chooser:not(.multi-page) div.content[role="main"],
+/* Old New UI */
+.re-hide-home-feed .ListingLayout-backgroundContainer + div > :last-child > :first-child,
+/* New New UI */
+.re-hide-home-feed shreddit-app[routename="frontpage"] main.main,
+.re-hide-home-feed shreddit-app[routename="all"] main.main,
+.re-hide-home-feed shreddit-app[routename="popular"] main.main,
+.re-hide-home-feed shreddit-app[routename="topic"] main.main {
+    visibility: hidden;
+}
+/* Old New UI */
+.re-hide-home-feed .ListingLayout-backgroundContainer + div > :last-child > :first-child > *,
+/* New New UI */
+.re-hide-home-feed shreddit-app[routename="frontpage"] shreddit-feed,
+.re-hide-home-feed shreddit-app[routename="all"] shreddit-feed,
+.re-hide-home-feed shreddit-app[routename="popular"] shreddit-gallery-carousel,
+.re-hide-home-feed shreddit-app[routename="popular"] shreddit-feed,
+.re-hide-home-feed shreddit-app[routename="topic"] shreddit-feed {
+    display: none;
+}
+/* Old UI */
+.re-hide-home-feed[banner] .listing-page.with-listing-chooser:not(.multi-page) div.content[role="main"]::before {
+    display: block;
+    visibility: visible;
+    content: 'Hide Home Feed is on. Disable this feature in Reddit Enhancer\'s settings. (refresh to dismiss)';
+    opacity: 0.4;
+}
+/* Old New UI */
+.re-hide-home-feed .ListingLayout-backgroundContainer + div > :last-child > :first-child::before {
+    display: block;
+    visibility: visible;
+    content: 'Hide Home Feed is on. Disable this feature in Reddit Enhancer\'s settings.';
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-size: .75rem;
+    text-align: center;
+    opacity: 0.4;
+    /* padding: .75rem;
+    background-color: var(--newRedditTheme-post);
+    border: 1px solid var(--newRedditTheme-widgetColors-sidebarWidgetBorderColor);
+    border-radius: 4px; */
+}
+/* New New UI */
+.re-hide-home-feed[banner] shreddit-app[routename="frontpage"] main.main::before,
+.re-hide-home-feed[banner] shreddit-app[routename="all"] main.main::before,
+.re-hide-home-feed[banner] shreddit-app[routename="popular"] main.main::before,
+.re-hide-home-feed[banner] shreddit-app[routename="topic"] main.main::before {
+    display: block;
+    visibility: visible;
+    content: 'Hide Home Feed is on. Disable this feature in Reddit Enhancer\'s settings. (refresh to dismiss)';
+    font-size: .8125rem;
+    text-align: center;
+    opacity: 0.4;
+    margin-top: 3rem;
+}
+.re-hide-home-feed[banner] .listing-page.with-listing-chooser:not(.multi-page) div.content[role="main"]:hover::before,
+.re-hide-home-feed .ListingLayout-backgroundContainer + div > :last-child > :first-child:hover::before,
+.re-hide-home-feed[banner] shreddit-app main.main:hover::before {
+    opacity: 1;
+}
+
 /* ========== HIDE HIDDEN POSTS & OTHER ELEMENTS ========== */
 .re-post.hidden {
     display: none;
@@ -305,7 +371,7 @@ aside#mod-queue-pdp-panel shreddit-post {
     display: none;
 }
 #overlayScrollContainer > :first-child div[id*="vote-arrows-"] button.voteButton ~ div {
-    padding: 0 0.125rem;
+    padding: 0 0.4rem;
 }
 
 /* ========== SCROLL TEXT POST ========== */
