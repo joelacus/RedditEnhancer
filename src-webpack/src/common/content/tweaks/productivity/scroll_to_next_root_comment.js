@@ -1,19 +1,22 @@
-/* ===== Tweaks - Productivity - Scroll To Next Root Comment ===== */
+/**
+ * Tweaks: Productivity - Show Navigation Buttons for the Previous/Next Root Comment
+ * @name scrollToNextRootComment
+ * @description Add navigation buttons to scroll to the previous or next top-level comment on Reddit comment pages.
+ *
+ * Applies to: Old UI (2006-), New UI (2018-2024), New New UI (2023-)
+ */
 
-/* === Triggered On Page Load === */
+// Get the feature state from browser sync storage
 export function loadScrollToNextRootComment() {
-	BROWSER_API.storage.sync.get(['scrollToNextRootComment'], function (result) {
-		if (result.scrollToNextRootComment) scrollToNextRootComment(true);
-	});
-}
-export function loadScrollToNextRootCommentPosition() {
-	BROWSER_API.storage.sync.get(['scrollToNextRootCommentPosition', 'scrollToNextRootCommentPositionV'], function (result) {
-		scrollToNextRootCommentPosition(result.scrollToNextRootCommentPosition);
-		scrollToNextRootCommentPositionV(result.scrollToNextRootCommentPositionV);
+	BROWSER_API.storage.sync.get(['scrollToNextRootComment', 'scrollToNextRootCommentPosition', 'scrollToNextRootCommentPositionV'], function (result) {
+		if (result.scrollToNextRootComment) {
+			scrollToNextRootComment(true);
+			scrollToNextRootCommentPosition(result.scrollToNextRootCommentPosition, result.scrollToNextRootCommentPositionV);
+		}
 	});
 }
 
-/* === Main Function === */
+// Activate the feature based on Reddit version
 export function scrollToNextRootComment(value) {
 	const isCommentPage = window.location.href.match('https://.*.reddit.com/r/.*/comments/.*');
 	const enableFunctionMap = {
@@ -23,6 +26,10 @@ export function scrollToNextRootComment(value) {
 	};
 
 	if (value && isCommentPage) {
+		// Remove existing navigation buttons if any
+		if (document.querySelector('.re-scroll-to-comment-container')) {
+			disableScrollToNextRootCommentAll();
+		}
 		enableFunctionMap[redditVersion]?.();
 	} else {
 		disableScrollToNextRootCommentAll();
@@ -31,13 +38,7 @@ export function scrollToNextRootComment(value) {
 
 // Function - Enable Scroll To Next Root Comment - New
 function enableScrollToNextRootCommentNew() {
-	// Remove existing buttons
-	if (document.querySelector('.re-scroll-to-comment-container') != null) {
-		document.querySelectorAll('.re-scroll-to-comment-container').forEach(function (el) {
-			el.remove();
-		});
-	}
-
+	// Determine the header bar height based on enabled RE features
 	let headerHeight = 56; // 48px header + 8px padding
 	BROWSER_API.storage.sync.get(['hideHeaderBar', 'nonStickyHeaderBar'], (result) => {
 		if (result.hideHeaderBar || result.nonStickyHeaderBar) {
@@ -58,6 +59,7 @@ function enableScrollToNextRootCommentNew() {
 			}
 		});
 	}
+
 	// init root comment classes
 	setTimeout(() => {
 		find_root_comments();
@@ -153,13 +155,7 @@ function enableScrollToNextRootCommentNew() {
 
 // Function - Enable Scroll To Next Root Comment - New New
 function enableScrollToNextRootCommentNewNew() {
-	// Remove existing buttons
-	if (document.querySelector('.re-scroll-to-comment-container') != null) {
-		document.querySelectorAll('.re-scroll-to-comment-container').forEach(function (el) {
-			el.remove();
-		});
-	}
-
+	// Determine the header bar height based on enabled RE features
 	let headerHeight = 72; // 64px header + 8px padding
 	BROWSER_API.storage.sync.get(['hideHeaderBar', 'nonStickyHeaderBar', 'compactHeaderSideMenu'], (result) => {
 		if (result.hideHeaderBar || result.nonStickyHeaderBar) {
@@ -231,13 +227,7 @@ function enableScrollToNextRootCommentNewNew() {
 
 // Function - Enable Scroll To Next Root Comment - Old
 function enableScrollToNextRootCommentOld() {
-	// Remove existing buttons
-	if (document.querySelector('.re-scroll-to-comment-container') != null) {
-		document.querySelectorAll('.re-scroll-to-comment-container').forEach(function (el) {
-			el.remove();
-		});
-	}
-
+	// Determine the header bar height based on enabled RE features
 	// Only 6px padding, since there's no sticky header bar on default Old UI
 	let headerHeight = 6;
 	BROWSER_API.storage.sync.get(['moderniseOldReddit'], (result) => {
@@ -313,28 +303,12 @@ function disableScrollToNextRootCommentAll() {
 	});
 }
 
-// Scroll To Next Root Comment Position Horizontal
-export function scrollToNextRootCommentPosition(value) {
-	if (value === '-1' || typeof value === 'undefined') {
-		document.documentElement.style.setProperty('--re-scroll-to-root-comment-position', '48px');
-	} else {
-		document.documentElement.style.setProperty('--re-scroll-to-root-comment-position', value + '%');
+// Set the position of the comment navigation buttons. Default to x: 48px, y: 50% (see RE_styles.css)
+export function scrollToNextRootCommentPosition(valueX, valueY) {
+	if (valueX !== -1 && valueX !== '-1' && typeof valueX !== 'undefined') {
+		document.documentElement.style.setProperty('--re-scroll-to-root-comment-position', valueX + '%');
 	}
-}
-
-// Scroll To Next Root Comment Position Vertical
-export function scrollToNextRootCommentPositionV(value) {
-	if (redditVersion === 'new' || redditVersion === 'newnew') {
-		if (value === '-1' || typeof value === 'undefined') {
-			document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', '50%');
-		} else {
-			document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', value + '%');
-		}
-	} else if (redditVersion === 'old') {
-		if (value === '-1' || typeof value === 'undefined') {
-			document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', '50vh');
-		} else {
-			document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', value + 'vh');
-		}
+	if (valueY !== -1 && valueY !== '-1' && typeof valueY !== 'undefined') {
+		document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', valueY + (redditVersion === 'old' ? 'vh' : '%'));
 	}
 }
