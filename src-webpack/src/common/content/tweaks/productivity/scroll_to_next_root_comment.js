@@ -15,39 +15,17 @@ export function loadScrollToNextRootCommentPosition() {
 
 /* === Main Function === */
 export function scrollToNextRootComment(value) {
-	if (redditVersion === 'new') {
-		if (value === true) {
-			const link = window.location.href;
-			if (link.match('https://.*.reddit.com/r/.*/comments/.*')) {
-				enableScrollToNextRootCommentNew();
-			} else {
-				disableScrollToNextRootCommentAll();
-			}
-		} else if (value === false || value === undefined) {
-			disableScrollToNextRootCommentAll();
-		}
-	} else if (redditVersion === 'newnew') {
-		if (value === true) {
-			const link = window.location.href;
-			if (link.match('https://.*.reddit.com/r/.*/comments/.*')) {
-				enableScrollToNextRootCommentNewNew();
-			} else {
-				disableScrollToNextRootCommentAll();
-			}
-		} else if (value === false || value === undefined) {
-			disableScrollToNextRootCommentAll();
-		}
-	} else if (redditVersion === 'old') {
-		if (value === true) {
-			const link = window.location.href;
-			if (link.match('https://.*.reddit.com/r/.*/comments/.*')) {
-				enableScrollToNextRootCommentOld();
-			} else {
-				disableScrollToNextRootCommentAll();
-			}
-		} else if (value === false || value === undefined) {
-			disableScrollToNextRootCommentAll();
-		}
+	const isCommentPage = window.location.href.match('https://.*.reddit.com/r/.*/comments/.*');
+	const enableFunctionMap = {
+		'new': enableScrollToNextRootCommentNew,
+		'newnew': enableScrollToNextRootCommentNewNew,
+		'old': enableScrollToNextRootCommentOld
+	};
+
+	if (value && isCommentPage) {
+		enableFunctionMap[redditVersion]?.();
+	} else {
+		disableScrollToNextRootCommentAll();
 	}
 }
 
@@ -260,6 +238,14 @@ function enableScrollToNextRootCommentOld() {
 		});
 	}
 
+	// Only 6px padding, since there's no sticky header bar on default Old UI
+	let headerHeight = 6;
+	BROWSER_API.storage.sync.get(['moderniseOldReddit'], (result) => {
+		if (result.moderniseOldReddit) {
+			headerHeight = 60; // 48px header + 12px padding
+		}
+	});
+
 	// Create button container
 	const container = document.createElement('div');
 	container.classList.add('re-scroll-to-comment-container');
@@ -276,7 +262,7 @@ function enableScrollToNextRootCommentOld() {
 		let previousComment = null;
 		// find the previous ".thing" element above the current scroll position
 		for (let i = reRootComments.length - 1; i >= 0; i--) {
-			const commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 60);
+			const commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			if (currentScrollPosition > commentOffsetTop - 2 && currentScrollPosition > commentOffsetTop + 2) {
 				previousComment = reRootComments[i];
 				break;
@@ -284,7 +270,7 @@ function enableScrollToNextRootCommentOld() {
 		}
 		// scroll to comment
 		if (previousComment) {
-			const scrollToPosition = Math.floor(previousComment.getBoundingClientRect().top + currentScrollPosition - 60);
+			const scrollToPosition = Math.floor(previousComment.getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
 		}
 	});
@@ -302,7 +288,7 @@ function enableScrollToNextRootCommentOld() {
 		let nextComment = null;
 		// find the next ".thing" element below the current scroll position
 		for (let i = 0; i < reRootComments.length; i++) {
-			const commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 60);
+			const commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			if (currentScrollPosition < commentOffsetTop - 2 && currentScrollPosition < commentOffsetTop + 2) {
 				nextComment = reRootComments[i];
 				break;
@@ -310,7 +296,7 @@ function enableScrollToNextRootCommentOld() {
 		}
 		// scroll to comment
 		if (nextComment) {
-			const scrollToPosition = Math.floor(nextComment.getBoundingClientRect().top + currentScrollPosition - 60);
+			const scrollToPosition = Math.floor(nextComment.getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
 		}
 	});
