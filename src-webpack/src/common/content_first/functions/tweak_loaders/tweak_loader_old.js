@@ -23,7 +23,7 @@ import { loadPostFontWeight } from '../../../content/tweaks/font/font_weight';
 import { loadStickySort } from '../../../content/tweaks/productivity/sticky_sort';
 import { moderniseOldReddit } from '../../../content/tweaks/style/modernise_old_reddit';
 import { loadHideHomeFeed } from '../../../content/tweaks/hide_elements/hide_home_feed';
-import { loadScrollToNextRootComment, loadScrollToNextRootCommentPosition } from '../../../content/tweaks/productivity/scroll_to_next_root_comment';
+import { loadScrollToNextRootComment } from '../../../content/tweaks/productivity/scroll_to_next_root_comment';
 import { loadCustomFonts } from '../../../content/tweaks/font/custom_fonts';
 import { loadHideCommentKarma, loadHidePostKarma } from '../../../content/tweaks/hide_elements/hide_post_comment_karma';
 import { loadHideVoteButtons } from '../../../content/tweaks/hide_elements/hide_vote_buttons';
@@ -47,7 +47,6 @@ export function tweakLoaderOld() {
 	loadResizeFont();
 	loadHideHomeFeed();
 	loadScrollToNextRootComment();
-	loadScrollToNextRootCommentPosition();
 	loadPostFontWeight();
 	loadCustomFonts();
 	loadHidePostKarma();

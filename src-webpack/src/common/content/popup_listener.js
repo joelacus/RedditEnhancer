@@ -50,8 +50,7 @@ import { overrideDropShadow, overrideDropShadowCSS } from './tweaks/style/overri
 import { postHeight, postHeightSize } from './tweaks/productivity/post_max_height';
 import { postTitleFontSize, postCommentsFontSize, postContentFontSize, feedPostTitleFontSize, feedPostContentFontSize, createPostTitleFontSize, createPostBodyFontSize } from './tweaks/font/resize_font';
 import { feedPostContentFontWeight, feedPostTitleFontWeight, postCommentsFontWeight, postContentFontWeight, postTitleFontWeight } from './tweaks/font/font_weight';
-import { scrollToNextRootComment } from './tweaks/productivity/scroll_to_next_root_comment';
-import { scrollToNextRootCommentPosition, scrollToNextRootCommentPositionV } from './tweaks/productivity/scroll_to_next_root_comment';
+import { scrollToNextRootComment,  scrollToNextRootCommentPosition } from './tweaks/productivity/scroll_to_next_root_comment';
 import { showAllButton } from './tweaks/productivity/show_r_all_button';
 import { showControversialSortButton } from './tweaks/productivity/show_controversial_sort_button';
 import { showPostAuthor } from './tweaks/productivity/show_post_author';
@@ -155,6 +154,7 @@ import { replacePostImagesWithLinks } from './tweaks/media/replace_images_with_l
 import { replacePostVideosWithLinks } from './tweaks/media/replace_videos_with_links';
 import { disableBgFadePostOverlay, blurBackgroundPostOverlay } from "./tweaks/background/post_overlay_background";
 import { compressPostLinkDisplay } from "./tweaks/media/compress_post_link_display";
+import { showUpvoteRatio } from "./tweaks/productivity/show_upvote_ratio";
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
@@ -438,9 +438,9 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 	} else if (key === 'largerClassicPost') {
 		largerClassicPost(value);
 	} else if (key === 'scrollToNextRootCommentPosition') {
-		scrollToNextRootCommentPosition(value);
+		scrollToNextRootCommentPosition(value, -1);
 	} else if (key === 'scrollToNextRootCommentPositionV') {
-		scrollToNextRootCommentPositionV(value);
+		scrollToNextRootCommentPosition(-1, value);
 	} else if (key === 'breakReminder') {
 		breakReminder(value);
 	} else if (key === 'showPostAuthor') {
@@ -473,9 +473,9 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		autoExpandComments(value);
 	} else if (key === 'hidePostHiddenMessage') {
 		hidePostHiddenMessage(value);
-	} else if (key == 'scalePostToFitImage') {
+	} else if (key === 'scalePostToFitImage') {
 		scalePostToFitImage(value);
-	} else if (key == 'scalePostToFitVideo') {
+	} else if (key === 'scalePostToFitVideo') {
 		scalePostToFitVideo(value);
 	} /*else if (key == 'dragImageToResize') {
 		dragImageToResize(value);
@@ -595,6 +595,8 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 		compressPostLinkDisplay(value);
 	} else if (key === 'forceCustomBgOldUI') {
 		useCustomBackground(value);
+	} else if (key === 'showUpvoteRatio') {
+		showUpvoteRatio(value);
 	}
 	return true;
 });

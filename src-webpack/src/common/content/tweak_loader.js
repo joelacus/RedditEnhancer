@@ -50,6 +50,7 @@ import { loadAlwaysShowPostOptions } from './tweaks/productivity/always_show_pos
 import { loadReplacePostImagesWithLinks } from './tweaks/media/replace_images_with_links';
 import { loadReplacePostVideosWithLinks } from './tweaks/media/replace_videos_with_links';
 import { loadCompressPostLinkDisplay } from "./tweaks/media/compress_post_link_display";
+import { loadShowUpvoteRatio } from "./tweaks/productivity/show_upvote_ratio";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -64,6 +65,13 @@ export function loadTweaks() {
 			loadAutoExpandComments();
 			loadAutoLoadMoreComments();
 			loadAutoCollapseAutoModeratorComment();
+
+			waitForAddedNode({
+				query: 'div.Post',
+				parent: document.querySelector('body'),
+				recursive: true,
+				done: loadShowUpvoteRatio,
+			})
 		}
 		loadAlwaysShowRisingButton();
 		loadShowControversialSortButton();
@@ -80,11 +88,19 @@ export function loadTweaks() {
 		loadScrollToNextRootComment();
 		loadBionicReaderForPosts();
 		loadBionicReaderForComments();
-		loadShowPostNumbers();
 		loadBreakReminder();
 		loadHidePostKarma();
 		loadHideCommentKarma();
 		loadHideVoteButtons();
+
+		waitForAddedNode({
+			query: 'div[data-scroller-first]',
+			parent: document.querySelector('ListingLayout-outerContainer'),
+			recursive: true,
+			done: function () {
+				loadShowPostNumbers();
+			},
+		});
 	} else if (redditVersion === 'newnew') {
 		//loadAddDownloadVideoButton();
 		loadBionicReaderForComments();
@@ -100,6 +116,7 @@ export function loadTweaks() {
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
+
 		waitForAddedNode({
 			query: '#communities_section left-nav-communities-controller',
 			shadowRoot: true,
@@ -116,16 +133,7 @@ export function loadTweaks() {
 				}, 10000);
 			},
 		});
-		waitForAddedNode({
-			query: 'shreddit-comment-tree',
-			parent: document.querySelector('body'),
-			recursive: true,
-			done: function () {
-				setTimeout(() => {
-					loadAutoShowCommentFormattingOptions();
-				}, 500);
-			},
-		});
+
 		waitForAddedNode({
 			query: 'faceplate-expandable-section-helper:has([aria-controls="moderation_section"])',
 			parent: document.querySelector('body'),
@@ -134,6 +142,7 @@ export function loadTweaks() {
 				loadRememberSideMenuSectionHiddenState();
 			},
 		});
+
 		waitForAddedNode({
 			query: 'faceplate-expandable-section-helper:has([aria-controls="multireddits_section"])',
 			parent: document.querySelector('body'),
@@ -142,6 +151,7 @@ export function loadTweaks() {
 				loadRememberSideMenuSectionHiddenState();
 			},
 		});
+
 		waitForAddedNode({
 			query: 'reddit-recent-pages',
 			shadowRoot: true,
@@ -153,6 +163,7 @@ export function loadTweaks() {
 				}, 500);
 			},
 		});
+
 		waitForAddedNode({
 			query: 'faceplate-expandable-section-helper:has([aria-controls="communities_section"])',
 			parent: document.querySelector('body'),
@@ -161,6 +172,7 @@ export function loadTweaks() {
 				loadRememberSideMenuSectionHiddenState();
 			},
 		});
+
 		waitForAddedNode({
 			query: 'faceplate-expandable-section-helper:has([aria-controls="RESOURCES"])',
 			parent: document.querySelector('body'),
@@ -184,6 +196,17 @@ export function loadTweaks() {
 		});
 
 		waitForAddedNode({
+			query: 'shreddit-feed shreddit-post',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function () {
+				setTimeout(() => {
+					loadShowPostNumbers();
+				}, 500);
+			},
+		})
+
+		waitForAddedNode({
 			query: 'shreddit-post',
 			parent: document.querySelector('body'),
 			recursive: true,
@@ -195,7 +218,19 @@ export function loadTweaks() {
 					loadReplacePostImagesWithLinks();
 					loadReplacePostVideosWithLinks();
 					loadAlwaysShowPostOptions();
+					loadShowUpvoteRatio();
+				}, 1000);
+			},
+		});
+
+		waitForAddedNode({
+			query: 'shreddit-comment-tree',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function () {
+				setTimeout(() => {
 					loadCompressPostLinkDisplay();
+					loadAutoShowCommentFormattingOptions();
 				}, 500);
 			},
 		});

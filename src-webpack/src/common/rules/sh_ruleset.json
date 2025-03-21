@@ -5,11 +5,11 @@
 		"action": {
 			"type": "redirect",
 			"redirect": {
-				"transform": { "host": "www.reddit.com" }
+				"transform": { "host": "sh.reddit.com" }
 			}
 		},
 		"condition": {
-			"regexFilter": "^https://(sh|old|new)\\.reddit\\.com($|\\?|/($|\\?|avatar|best|controversial|hot|new|notifications|rising|search|settings|top|mod))",
+			"regexFilter": "^https://(www|old|new)\\.reddit\\.com($|\\?|/($|\\?|avatar|best|controversial|hot|new|notifications|rising|search|settings|top|mod))",
 			"resourceTypes": ["main_frame"]
 		}
 	},
@@ -19,11 +19,11 @@
 		"action": {
 			"type": "redirect",
 			"redirect": {
-				"transform": { "host": "www.reddit.com" }
+				"transform": { "host": "sh.reddit.com" }
 			}
 		},
 		"condition": {
-			"regexFilter": "^https://(sh|old|new)\\.reddit\\.com/r/(\\w)*($|\\?|/($|\\?|comments|controversial|hot|new|rising|top/\\w+|search|wiki))",
+			"regexFilter": "^https://(www|old|new)\\.reddit\\.com/r/(\\w)*($|\\?|/($|\\?|comments|controversial|hot|new|rising|top/\\w+|search|wiki))",
 			"resourceTypes": ["main_frame"]
 		}
 	},
@@ -33,7 +33,7 @@
 		"action": {
 			"type": "redirect",
 			"redirect": {
-				"transform": { "host": "www.reddit.com" }
+				"transform": { "host": "sh.reddit.com" }
 			}
 		},
 		"condition": {
@@ -47,11 +47,11 @@
 		"action": {
 			"type": "redirect",
 			"redirect": {
-				"transform": { "host": "www.reddit.com" }
+				"transform": { "host": "sh.reddit.com" }
 			}
 		},
 		"condition": {
-			"regexFilter": "^https://(sh|old|new)\\.reddit\\.com/u(ser)?/[0-9A-Za-z_-]*($|\\?|/($|\\?|submitted|comments|saved|hidden|upvoted|downvoted))",
+			"regexFilter": "^https://(www|old|new)\\.reddit\\.com/u(ser)?/[0-9A-Za-z_-]*($|\\?|/($|\\?|submitted|comments|saved|hidden|upvoted|downvoted))",
 			"resourceTypes": ["main_frame"]
 		}
 	}

@@ -555,3 +555,11 @@ document.querySelector('#checkbox-remember-side-menu-section-hidden-state').addE
 		sendMessage({ rememberSideMenuSectionHiddenState: false });
 	}
 });
+
+// Toggle - Show Upvote Ratio
+document.querySelector('#checkbox-show-upvote-ratio').addEventListener('change', function (e) {
+	const showUpvoteRatio = document.querySelector('#checkbox-show-upvote-ratio').checked;
+	BROWSER_API.storage.sync.set({ showUpvoteRatio: showUpvoteRatio });
+	document.querySelector('.icon-show-upvote-ratio').style.backgroundColor = showUpvoteRatio ? 'var(--accent)' : '';
+	sendMessage({ showUpvoteRatio: showUpvoteRatio });
+});

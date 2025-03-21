@@ -1,0 +1,381 @@
+/* Some CSS tweaks, in the order of display (header, content layout, post, side menu/sidebar) */
+
+/* ========== BANNER MESSAGE ========== */
+/* Display a stickied banner message at the top of the page for 7s. Banner types can be '', 'warning' or 'error'
+   Banner will be removed off the page after 10s. @see content/banner_message.js  */
+@keyframes hideBanner {
+    to {
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+div.re-banner {
+    top: var(--re-non-sticky-header-bar, var(--shreddit-header-height));
+    margin: 0 -1rem;
+    animation: hideBanner .5s forwards;
+    animation-delay: 7s;
+    transition: max-height .5s, padding .5s;
+    background-color: var(--color-banner-plain);
+    color: var(--color-banner-plain-text);
+}
+div.re-banner.warning {
+    background-color: var(--color-caution-background);
+    color: var(--color-banner-caution-text);
+}
+div.re-banner.error {
+    background-color: var(--color-banner-error);
+    color: var(--color-banner-error-text);
+}
+
+/* ========== BACK TO TOP BUTTON IN HEADER ========== */
+.re-to-top-button:hover, .re-all-button:hover {
+    cursor: pointer;
+}
+.re-to-top-button {
+    display: flex;
+    align-items: center;
+    width: 40px;
+}
+.re-to-top-button span {
+    color: inherit;
+    font-size: inherit;
+}
+
+/* ========== LAYOUT OFFSET (New New UI) =========== */
+shreddit-app[routename="frontpage"] main.main,
+shreddit-app[routename="all"] main.main,
+shreddit-app[routename="popular"] main.main,
+shreddit-app[routename="inbox"] main.main {
+    transform: translateX(var(--re-layout-offset));
+}
+shreddit-app[routename="subreddit"] main.main {
+    transform: translateX(var(--re-layout-sub-offset));
+}
+shreddit-app[routename="post_page"] main.main,
+shreddit-app[routename="comments_page"] main.main,
+shreddit-app[routename="profile_post_page"] main.main {
+    transform: translateX(var(--re-layout-post-offset));
+}
+shreddit-app[routename="profile_overview"] main.main {
+    transform: translateX(var(--re-layout-user-profile-offset));
+}
+shreddit-app[pagetype="search_results"] main.main {
+    transform: translateX(var(--re-layout-search-page-offset));
+}
+/* DEPRECATED */
+.re-feed.re-centre-feed-1 {
+    translate: 168px;
+}
+.re-feed.re-centre-feed-2 {
+    translate: 34px;
+}
+.re-feed.re-centre-feed-3 {
+    translate: -136px;
+}
+/* Align the sidebar with main container */
+shreddit-app[routename="frontpage"] #right-sidebar-container,
+shreddit-app[routename="all"] #right-sidebar-container,
+shreddit-app[routename="popular"] #right-sidebar-container,
+shreddit-app[routename="subreddit"] #right-sidebar-container {
+    margin-top: 2rem;
+}
+shreddit-app[pagetype="custom_feed"] #right-sidebar-container {
+    margin-top: 3.5rem;
+}
+shreddit-app[pagetype="search_results"] main.main {
+    margin-top: 1rem;
+}
+
+/* ========== HIDE HOME FEED ========== */
+/* Old UI
+    .listing-page: targets all pages with listings (home, all, popular, topic, custom feeds, moderator pages)
+    .with-listing-chooser: targets pages with the custom feed selector (excluding subreddits)
+    :not(.multi-page): not targeting custom feeds => home, all, popular, topic
+*/
+.re-hide-home-feed .listing-page.with-listing-chooser:not(.multi-page) div.content[role="main"],
+/* Old New UI */
+.re-hide-home-feed .ListingLayout-backgroundContainer + div > :last-child > :first-child,
+/* New New UI */
+.re-hide-home-feed shreddit-app[routename="frontpage"] main.main,
+.re-hide-home-feed shreddit-app[routename="all"] main.main,
+.re-hide-home-feed shreddit-app[routename="popular"] main.main,
+.re-hide-home-feed shreddit-app[routename="topic"] main.main {
+    visibility: hidden;
+}
+/* Old New UI */
+.re-hide-home-feed .ListingLayout-backgroundContainer + div > :last-child > :first-child > *,
+/* New New UI */
+.re-hide-home-feed shreddit-app[routename="frontpage"] shreddit-feed,
+.re-hide-home-feed shreddit-app[routename="all"] shreddit-feed,
+.re-hide-home-feed shreddit-app[routename="popular"] shreddit-gallery-carousel,
+.re-hide-home-feed shreddit-app[routename="popular"] shreddit-feed,
+.re-hide-home-feed shreddit-app[routename="topic"] shreddit-feed {
+    display: none;
+}
+/* Old UI */
+.re-hide-home-feed[banner] .listing-page.with-listing-chooser:not(.multi-page) div.content[role="main"]::before {
+    display: block;
+    visibility: visible;
+    content: 'Hide Home Feed is on. Disable this feature in Reddit Enhancer\'s settings. (refresh to dismiss)';
+    opacity: 0.4;
+}
+/* Old New UI */
+.re-hide-home-feed .ListingLayout-backgroundContainer + div > :last-child > :first-child::before {
+    display: block;
+    visibility: visible;
+    content: 'Hide Home Feed is on. Disable this feature in Reddit Enhancer\'s settings.';
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-size: .75rem;
+    text-align: center;
+    opacity: 0.4;
+    /* padding: .75rem;
+    background-color: var(--newRedditTheme-post);
+    border: 1px solid var(--newRedditTheme-widgetColors-sidebarWidgetBorderColor);
+    border-radius: 4px; */
+}
+/* New New UI */
+.re-hide-home-feed[banner] shreddit-app[routename="frontpage"] main.main::before,
+.re-hide-home-feed[banner] shreddit-app[routename="all"] main.main::before,
+.re-hide-home-feed[banner] shreddit-app[routename="popular"] main.main::before,
+.re-hide-home-feed[banner] shreddit-app[routename="topic"] main.main::before {
+    display: block;
+    visibility: visible;
+    content: 'Hide Home Feed is on. Disable this feature in Reddit Enhancer\'s settings. (refresh to dismiss)';
+    font-size: .8125rem;
+    text-align: center;
+    opacity: 0.4;
+    margin-top: 3rem;
+}
+.re-hide-home-feed[banner] .listing-page.with-listing-chooser:not(.multi-page) div.content[role="main"]:hover::before,
+.re-hide-home-feed .ListingLayout-backgroundContainer + div > :last-child > :first-child:hover::before,
+.re-hide-home-feed[banner] shreddit-app main.main:hover::before {
+    opacity: 1;
+}
+
+/* ========== HIDE HIDDEN POSTS & OTHER ELEMENTS ========== */
+.re-post.hidden {
+    display: none;
+}
+.re-hide {
+    display: none !important;
+}
+.re-invisible {
+    visibility: hidden !important;
+}
+
+/* ========== OLD UI ========== */
+/* (1) Don't move span.pagename above the tab bar on certain pages, i.e. multireddit pages;
+   (2) All feed post thumbnails should have the same size of 70-by-70 pixels and be centered */
+#re-main .listing-chooser {
+    position: absolute !important;
+    top: 70px !important;
+    z-index: 10;
+}
+#header-bottom-right {
+    display: flex;
+}
+body.with-listing-chooser #header span.pagename {
+    position: static;
+}
+a.thumbnail > img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+/* ========== SHOW POST AUTHORS (New New UI) ========== */
+/* @see ../content/productivity/show_post_author.js */
+.re-post-author {
+    color: var(--color-neutral-content-weak);
+    z-index: 3;
+}
+.re-post-author a {
+    color: var(--color-neutral-content-weak);
+    text-decoration: none;
+}
+shreddit-app[pagetype="search_results"] .re-post-author ~ faceplate-timeago {
+    margin-left: 0.25rem;
+}
+div:has(span > .hover-card),
+span:has(.hover-card) {
+    overflow: unset !important;
+}
+.hover-card {
+    display: none;
+    position: absolute;
+    width: 290px;
+    height: fit-content;
+    font: var(--font-12-16-semibold);
+    background-color: var(--color-tooltip-bg-neutral);
+    color: var(--color-tooltip-text-neutral);
+    border-radius: var(--re-theme-border-radius, 1rem);
+    box-shadow: var(--boxshadow-tooltip);
+    padding: 1rem;
+    z-index: 999;
+}
+.hover-card img {
+    border-radius: 50%;
+    width: auto;
+    height: 60px;
+}
+.hover-card .button {
+    text-decoration: none;
+}
+
+/* ========== BREAK REMINDER ========== */
+.re-break-reminder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    font-size: 24px;
+}
+
+/* ========== POST NUMBERS (Old New and New New UI) ========== */
+/* @see ../content/productivity/show_post_number.js */
+.re-post-number {
+    margin-right: 0.25rem;
+    align-self: center;
+}
+.re-post-number + div[data-adclicklocation="title"] {
+    display: inline;
+}
+.re-post-number.compact {
+    margin-left: 0.5rem;
+    min-width: 2rem;
+    text-align: right;
+}
+
+/* === POST UPVOTE & UPVOTE RATIO === */
+/* Fade the display of post upvote percentage, and align the vote button div with post content in Compact view on v2 UI */
+shreddit-post::part(re-upvote-ratio) {
+    opacity: 0.75;
+}
+div:has(> div[id*="vote-arrows-"]) {
+    align-self: center;
+
+    & > div {
+        margin-top: 0;
+    }
+}
+div[id^="vote-arrows-t3_"] button[data-click-id="upvote"] ~ .re-upvote-ratio {
+    font-size: 9px;
+    margin-bottom: 6px;
+}
+
+/* ========== BIONIC READER ========== */
+.re-bold {
+    font-weight: bold !important;
+}
+.re-hide {
+    display: none !important;
+}
+.re-bionic-modified-comments {
+    margin-top: 0;
+}
+
+/* ========== SCROLL TO PREVIOUS/NEXT COMMENT BUTTONS ========== */
+.re-scroll-to-comment-container {
+    position: fixed;
+    top: calc(var(--re-scroll-to-root-comment-position-v, 50%) - 32px);
+    left: var(--re-scroll-to-root-comment-position, 48px);
+    display: flex;
+    flex-direction: column;
+    grid-gap: 8px;
+    width: 30px;
+    z-index: 9999;
+}
+#re-next-comment,
+#re-prev-comment {
+    cursor: pointer;
+    padding: 4px;
+    border-radius: var(--re-theme-border-radius, 4px);
+    background-color: rgba(0,0,0,0.4);
+    color: #fff;
+    height: 22px;
+}
+#re-next-comment:before {
+    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 512 512"><path opacity="1" fill="white" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>');
+}
+#re-prev-comment:before {
+    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 512 512"><path opacity="1" fill="white" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>');
+}
+#re-next-comment:hover ,#re-prev-comment:hover {
+    background-color: rgba(0,0,0,0.6);
+}
+
+/* ========== LOAD MORE ========== */
+.re-load-more {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+.re-load-more:hover {
+    text-decoration: underline;
+}
+
+/* ========== OTHERS ========== */
+.re-sidemenu-feed-top a:hover {
+    background-color: var(--newCommunityTheme-menuButtonBackground-hover);
+}
+.re-sort {
+    position: relative;
+}
+.re-sidebar-sub {
+    width: 312px !important;
+}
+#overlayScrollContainer .undefined {
+    min-width: 16px
+}
+[bundlename="comment_body_header"] {
+    z-index: 9;
+}
+navigation-indicator {
+    z-index: 999 !important;
+}
+div[data-testid="search-scope-pill"] {
+    margin-right: 20px;
+}
+div[data-testid="search-scope-pill"] > div[data-testid="search-scope-pill-text"] {
+    flex-shrink: 0;
+}
+.Post:not(.scrollerItem) div:not(:has(h3)) + div[data-ignore-click="false"] {
+    margin-left: 10px;
+}
+/* Back button in detailed post view on New New UI */
+div[slot="credit-bar"] pdp-back-button {
+    position: static;
+}
+div[slot="credit-bar"] > span:has(pdp-back-button) {
+    gap: .6rem;
+}
+div[slot="credit-bar"] > span:has(pdp-back-button) > div {
+    gap: 2px;
+}
+div[slot="post-insights-panel"] .bg-neutral-background-container {
+    background-color: transparent;
+}
+aside#mod-queue-pdp-panel shreddit-post {
+    margin: 1rem 0;
+    padding: 0;
+}
+/* Vote buttons in overlayScrollContainer header on Old New UI */
+#overlayScrollContainer > :first-child div[id*="vote-arrows-"] {
+    margin-left: 7px;
+    margin-right: 1rem;
+}
+#overlayScrollContainer > :first-child div[id*="vote-arrows-"]:before,
+#overlayScrollContainer > :first-child div[id*="vote-arrows-"]:after {
+    display: none;
+}
+#overlayScrollContainer > :first-child div[id*="vote-arrows-"] button.voteButton ~ div {
+    padding: 0 0.4rem;
+}
+
+/* ========== SCROLL TEXT POST ========== */
+.re-text-scroll div[data-click-id="text"][style="max-height: 250px;"], .re-text-scroll div[data-click-id="text"][style="max-height:250px"] {
+    overflow-y: auto;
+    mask-image: linear-gradient(180deg,#000 90%,transparent)
+}

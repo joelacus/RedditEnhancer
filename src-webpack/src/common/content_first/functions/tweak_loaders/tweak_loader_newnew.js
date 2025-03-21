@@ -26,7 +26,6 @@ import { loadLayoutOffset } from '../../../content/tweaks/resize_elements/layout
 import { loadNonStickyHeaderBar } from '../../../content/tweaks/productivity/non_sticky_header_bar';
 import { loadResizeFont } from '../../../content/tweaks/font/resize_font';
 import { loadPostFontWeight } from '../../../content/tweaks/font/font_weight';
-import { loadScrollToNextRootCommentPosition } from '../../../content/tweaks/productivity/scroll_to_next_root_comment';
 import { loadUnderlineLinks } from '../../../content/tweaks/accessibility/underline_links';
 import { loadHideRecommendedPosts } from '../../../content/tweaks/hide_elements/hide_recommended';
 import { loadHidePostBackButton } from '../../../content/tweaks/hide_elements/hide_post_back_button';
@@ -69,7 +68,6 @@ export function tweakLoaderNewNew() {
 	loadExpandContent();
 	loadLayoutOffset();
 	loadHidePromotedPosts();
-	loadScrollToNextRootCommentPosition();
 	loadHideGap();
 	loadResizeFont();
 	loadBionicReaderColours();

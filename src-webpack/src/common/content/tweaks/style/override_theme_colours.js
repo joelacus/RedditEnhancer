@@ -1082,10 +1082,10 @@ export function themePostBorderColourCSS(value) {
 
 // Theme Blur Variable
 export function themeBlur(value) {
-	if (value != undefined) {
+	if (value !== undefined) {
 		document.documentElement.style.setProperty('--re-theme-blur', value + 'px');
 	} else {
-		document.documentElement.style.setProperty('--re-theme-blur', '0px');
+		document.documentElement.style.removeProperty('--re-theme-blur');
 	}
 }
 

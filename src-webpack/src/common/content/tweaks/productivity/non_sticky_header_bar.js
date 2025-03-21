@@ -38,7 +38,7 @@ function enableNonStickyHeaderBarNew() {
 								#SHORTCUT_FOCUSABLE_DIV:has(div#overlayScrollContainer) header {
 									display: none;
 								}
-								div[data-testid="frontpage-sidebar"] > div:last-child > div {
+								div[data-testid$="-sidebar"] > div:last-child > div {
 									top: 1rem;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
@@ -56,7 +56,10 @@ function disableNonStickyHeaderBarNew() {
 function enableNonStickyHeaderBarNewNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-non-sticky-header-bar';
-	styleElement.textContent = `shreddit-app reddit-header-large {
+	styleElement.textContent = `:root {
+									--re-non-sticky-header-bar: 0;
+								}
+								shreddit-app reddit-header-large {
 									position: absolute !important;
 								}
 								shreddit-app reddit-sidebar-nav#left-sidebar,

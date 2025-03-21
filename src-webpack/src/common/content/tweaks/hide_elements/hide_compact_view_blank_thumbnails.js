@@ -70,7 +70,8 @@ function enableHideCompactViewBlankThumbnailsNewNew() {
 	if (!document.head.querySelector('style[id="re-hide-compact-view-blank-thumbnail"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-compact-view-blank-thumbnails';
-		styleElement.textContent = `shreddit-post div:has([slot="thumbnail"] [icon-name="text-post-outline"]) {
+		styleElement.textContent = `shreddit-post div:has([slot="thumbnail"] [icon-name="text-post-outline"]),
+		 							shreddit-post[view-type="compactView"] div:has([slot="thumbnail"] div.thumbnail-shadow) {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);

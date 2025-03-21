@@ -20,8 +20,14 @@ export function disableBgFadePostOverlay(value) {
             if (!document.head.querySelector('style[id="re-disable-bg-fade-post-overlay"]')) {
                 const styleElement = document.createElement('style');
                 styleElement.id = 're-disable-bg-fade-post-overlay';
-                styleElement.textContent = `#SHORTCUT_FOCUSABLE_DIV > div[class*="subredditvars-r"] > div {
-                                                background-color: var(--comments-overlay-background);
+                // Deliberate selectors to override Post Overlay Width
+                styleElement.textContent = `div#overlayScrollContainer > div:first-child,
+                                            #SHORTCUT_FOCUSABLE_DIV > div[class*="subredditvars-r"] :first-child::after {
+                                                width: 100%;
+                                                max-width: 100%;
+                                            }
+                                            div#overlayScrollContainer > div:first-child > div {
+                                                width: var(--re-post-overlay-width);
                                             }`;
                 document.head.insertBefore(styleElement, document.head.firstChild);
             }
@@ -60,14 +66,30 @@ export function blurBackgroundPostOverlay(value) {
                 styleElement.id = 're-blur-bg-post-overlay';
                 styleElement.textContent = `#SHORTCUT_FOCUSABLE_DIV > div[class*="subredditvars-r"] > div {
                                                 background-color: transparent;
-                                                backdrop-filter: blur(15px);
-                                                -webkit-backdrop-filter: blur(15px);
+                                                backdrop-filter: blur(var(--re-theme-blur, 15px));
+                                                -webkit-backdrop-filter: blur(var(--re-theme-blur, 15px));
                                                 --comments-overlay-background: transparent !important;
                                             }
                                             div#overlayScrollContainer > div:first-child {
+                                                width: 100%;
+                                                max-width: 100%;
+                                                backdrop-filter: blur(calc(var(--re-theme-blur, 15px) + 20px));
+                                                -webkit-backdrop-filter: blur(calc(var(--re-theme-blur, 15px) + 20px));
+                                            }
+                                            div#overlayScrollContainer > div:first-child > div {
+                                                width: var(--re-post-overlay-width);
+                                            }
+                                            .theme-dark div#overlayScrollContainer > div:first-child {
                                                 background-color: rgba(0, 0, 0, .15);
-                                                backdrop-filter: blur(35px);
-                                                -webkit-backdrop-filter: blur(35px);
+                                            }
+                                            .theme-light div#overlayScrollContainer > div:first-child {
+                                                background-color: rgba(255, 255, 255, .25);
+                                            }
+                                            .theme-light div#overlayScrollContainer > div:first-child :not(button.voteButton *) {
+                                                color: black !important;
+                                            }
+                                            div#overlayScrollContainer > div:first-child button.voteButton:focus {
+                                                background-color: unset;
                                             }`;
                 document.head.insertBefore(styleElement, document.head.firstChild);
             }

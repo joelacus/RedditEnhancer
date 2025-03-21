@@ -261,41 +261,74 @@ function disableExpandContentNewLegacy() {
 function enableExpandContentNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-expand-feed-layout';
-	styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="frontpage-sidebar"]) > :first-child {
+	styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child {
+									padding: 20px 0;
+								}
+								.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="frontpage-sidebar"]) {
 									width: var(--re-content-width) !important;
 								}
-								.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="subreddit-sidebar"]) > :first-child:has(#view--layout--FUE) {
+								.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="frontpage-sidebar"]) > :first-child,
+								.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="subreddit-sidebar"]) > :first-child {
+									width: 100%;
+									max-width: 100%;
+								}
+								.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="subreddit-sidebar"]) {
 									width: var(--re-sub-width) !important;
 								}
+								.ListingLayout-backgroundContainer + div:has([data-testid="subreddit-sidebar"]) > :nth-child(2) > div {
+									max-width: var(--re-sub-width) !important;
+									padding: 0;
+									box-sizing: border-box;
+								}
 								.ListingLayout-backgroundContainer + div > div[style^="max-width"] {
-									max-width: 100% !important;
+									max-width: 100%;
 								}
-								/*.ListingLayout-backgroundContainer + div > div[style^="max-width"] > :first-child {
-									max-width: var(--re-sub-width) !important; 
-								}*/
+								.ListingLayout-backgroundContainer + div:has(.Post[data-testid="post-container"] [data-test-id="post-content"]) > span a div,
+								.ListingLayout-backgroundContainer + div:has(.Post[data-testid="post-container"] [data-test-id="post-content"]) > :nth-child(2) > div,
 								.ListingLayout-backgroundContainer + div > :last-child:has(.Post[data-testid="post-container"] [data-test-id="post-content"]) {
-									max-width: 100% !important;
-								}
-								.ListingLayout-backgroundContainer + div > :last-child > :first-child:has(.Post[data-testid="post-container"] [data-test-id="post-content"]) {
 									max-width: var(--re-post-width) !important;
 								}
-								#overlayScrollContainer > div:has(.Post) :first-child {
-									max-width: 100% !important;
+								.ListingLayout-backgroundContainer + div > :last-child > :first-child:has(.Post[data-testid="post-container"] [data-test-id="post-content"]) {
+									max-width: 100%;
 								}
+								#overlayScrollContainer > div:nth-child(2) > div:first-child {
+									max-width: initial;
+									margin: 2rem 1.25rem 2rem 0;
+								}
+								#overlayScrollContainer > div:nth-child(2) > div:last-child {
+									margin-right: 0;
+								}
+								#overlayScrollContainer div:has(> div[data-testid="no-edit-description-block"]) > div:first-child {
+									width: 310px;
+								}
+								/* overlayScrollContainer top bar and background */
 								#overlayScrollContainer > :first-child,
-								#overlayScrollContainer > div:has(.Post) {
-									width: var(--re-post-overlay-width) !important;
-									max-width: var(--re-post-overlay-width) !important;
+								#SHORTCUT_FOCUSABLE_DIV [class^="subredditvars-r-"] :first-child::after {
+									width: var(--re-post-overlay-width);
+									max-width: 100%;
 								}
 								#overlayScrollContainer > :first-child > div {
-									max-width: 100% !important;
+									max-width: 100%;
+									padding: 0;
 								}
-								#SHORTCUT_FOCUSABLE_DIV [class^="subredditvars-r-"] :first-child::after {
-									width: var(--re-post-overlay-width) !important;
-									max-width: var(--re-post-overlay-width) !important;
+								#overlayScrollContainer > div:has(.Post) {
+									width: var(--re-post-overlay-width);
+									max-width: var(--re-post-overlay-width);
 								}
-								.ListingLayout-backgroundContainer + div:has([href="/settings/profile"]) > :last-child > :first-child {
-									width: var(--re-user-profile-width) !important;
+								.ListingLayout-backgroundContainer + div:has(span[id^="profile--id-card--"]) > :last-child,
+								.ListingLayout-backgroundContainer + div > div > div:has(a[data-testid^="/user/"]) {
+									width: var(--re-user-profile-width);
+								}
+								.ListingLayout-backgroundContainer + div > div > div:has(a[data-testid^="/user/"]) {
+									margin: 0 auto;
+									
+									& > div {
+										left: initial;
+										right: initial;
+									}
+								}
+								.ListingLayout-backgroundContainer + div:has(span[id^="profile--id-card--"]) > :last-child > :first-child {
+									width: 100%;
 								}
 								.Post [data-test-id="post-content"] > div:has(.RichTextJSON-root) {
 									max-width: 100% !important;
@@ -303,8 +336,24 @@ function enableExpandContentNew() {
 								.Comment > :last-child {
 									max-width: 100% !important;
 								}
-								.ListingLayout-backgroundContainer + div:has(button#MULTIREDDIT_TOP_BAR_OVERFLOW) > :last-child > :first-child {
+								/* Search result pages */
+								.ListingLayout-backgroundContainer + div:has([data-testid="search-results-sidebar"]) > div {
+									width: var(--re-content-width);
+									max-width: 100%;
+								}
+								.ListingLayout-backgroundContainer + div:has([data-testid="search-results-sidebar"]) > div > div {
+									max-width: initial;
+									padding: 0;
+								}
+								.ListingLayout-backgroundContainer + div:has([data-testid="search-results-sidebar"]) > div > div > :nth-child(2) > :first-child {
+									max-width: initial;
+								}
+								/* Custom feed/multireddit */
+								.ListingLayout-backgroundContainer + div:has(button#MULTIREDDIT_TOP_BAR_OVERFLOW) > :last-child {
 									width: var(--re-custom-feed-width);
+								}
+								.ListingLayout-backgroundContainer + div:has(button#MULTIREDDIT_TOP_BAR_OVERFLOW) > :last-child > :first-child {
+									width: 100%;
 								}
 								.ListingLayout-backgroundContainer + div:has(button#MULTIREDDIT_TOP_BAR_OVERFLOW) > :first-child > div {
 									max-width: var(--re-custom-feed-width);

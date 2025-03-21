@@ -157,6 +157,9 @@ function styleModerniseOldReddit(value) {
 											position: sticky !important;
 											top: 0 !important;
 										}
+										#header-bottom-right {
+										    display: flex;
+										}
 										#siteTable {
 											margin: 0 24px 0 24px;
 										}
