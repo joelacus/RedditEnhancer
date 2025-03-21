@@ -261,10 +261,7 @@ function disableExpandContentNewLegacy() {
 function enableExpandContentNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-expand-feed-layout';
-	styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child {
-									padding: 20px 0;
-								}
-								.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="frontpage-sidebar"]) {
+	styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="frontpage-sidebar"]) {
 									width: var(--re-content-width) !important;
 								}
 								.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="frontpage-sidebar"]) > :first-child,
@@ -277,7 +274,6 @@ function enableExpandContentNew() {
 								}
 								.ListingLayout-backgroundContainer + div:has([data-testid="subreddit-sidebar"]) > :nth-child(2) > div {
 									max-width: var(--re-sub-width) !important;
-									padding: 0;
 									box-sizing: border-box;
 								}
 								.ListingLayout-backgroundContainer + div > div[style^="max-width"] {
