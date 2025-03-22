@@ -305,7 +305,6 @@ function enableExpandContentNew() {
 								}
 								#overlayScrollContainer > :first-child > div {
 									max-width: 100%;
-									padding: 0;
 								}
 								#overlayScrollContainer > div:has(.Post) {
 									width: var(--re-post-overlay-width);
@@ -339,7 +338,6 @@ function enableExpandContentNew() {
 								}
 								.ListingLayout-backgroundContainer + div:has([data-testid="search-results-sidebar"]) > div > div {
 									max-width: initial;
-									padding: 0;
 								}
 								.ListingLayout-backgroundContainer + div:has([data-testid="search-results-sidebar"]) > div > div > :nth-child(2) > :first-child {
 									max-width: initial;
