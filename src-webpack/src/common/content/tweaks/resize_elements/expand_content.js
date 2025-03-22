@@ -289,10 +289,7 @@ function enableExpandContentNew() {
 								}
 								#overlayScrollContainer > div:nth-child(2) > div:first-child {
 									max-width: initial;
-									margin: 2rem 1.25rem 2rem 0;
-								}
-								#overlayScrollContainer > div:nth-child(2) > div:last-child {
-									margin-right: 0;
+									margin-right: 1.25rem;
 								}
 								#overlayScrollContainer div:has(> div[data-testid="no-edit-description-block"]) > div:first-child {
 									width: 310px;
@@ -305,7 +302,6 @@ function enableExpandContentNew() {
 								}
 								#overlayScrollContainer > :first-child > div {
 									max-width: 100%;
-									padding: 0;
 								}
 								#overlayScrollContainer > div:has(.Post) {
 									width: var(--re-post-overlay-width);
@@ -339,7 +335,6 @@ function enableExpandContentNew() {
 								}
 								.ListingLayout-backgroundContainer + div:has([data-testid="search-results-sidebar"]) > div > div {
 									max-width: initial;
-									padding: 0;
 								}
 								.ListingLayout-backgroundContainer + div:has([data-testid="search-results-sidebar"]) > div > div > :nth-child(2) > :first-child {
 									max-width: initial;
