@@ -15,9 +15,9 @@ export function alwaysShowRisingButton(value) {
 			if (link.indexOf('/comments/') <= 0 && link.indexOf('/user/') <= 0 && link.indexOf('/settings/') <= 0) {
 				// not post, not user, not settings
 				// hides overflow button
-				/*if (document.querySelector("#ListingSort--Overflow")) {
-					document.querySelector("#ListingSort--Overflow").parentNode.parentNode.style.display = "none"	
-				}*/
+				if (document.querySelector("#ListingSort--Overflow")) {
+					document.querySelector("div:has(> div > button#ListingSort--Overflow)").style.display = "none";
+				}
 
 				// set language
 				const lang = document.querySelector('html').lang;

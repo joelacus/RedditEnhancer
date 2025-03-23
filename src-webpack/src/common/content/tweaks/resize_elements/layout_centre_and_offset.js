@@ -48,6 +48,7 @@ function enableLayoutCentreOld() {
 								.other-discussions-page div.content[role="main"],
 								.multi-page div.content[role="main"] {
 									margin: .5rem auto !important;
+									max-width: calc(100% - 2rem);
 								}
 								.comments-page div.content[role="main"],
 								.other-discussions-page div.content[role="main"] {
