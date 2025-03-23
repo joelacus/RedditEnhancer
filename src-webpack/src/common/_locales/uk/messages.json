@@ -368,7 +368,7 @@
 	"ModerniseOldReddit": {
 		"message": "Модернізуйте old.reddit"
 	},
-	"MoveFeedToTopInSidemenu": {
+	"MoveFeedToTopInSideMenu": {
 		"message": "Перемістіть розділ каналу в бічному меню вгору"
 	},
 	"MulticolouredCommentThreadLines": {
@@ -566,6 +566,15 @@
 	"SideMenu": {
 		"message": "Бічне меню"
 	},
+	"SideMenuBackgroundColour": {
+		"message": "Бічне меню: Фоновий колір"
+	},
+	"SideMenuButtonHoverColour": {
+		"message": "Бічне меню: Колір наведення кнопки"
+	},
+	"SideMenuTextColour": {
+		"message": "Бічне меню: Текстовий колір"
+	},
 	"Sidebar": {
 		"message": "Бічна панель"
 	},
@@ -577,15 +586,6 @@
 	},
 	"SidebarTextColour": {
 		"message": "Бічна панель: Текстовий колір"
-	},
-	"SidemenuBackgroundColour": {
-		"message": "Бічне меню: Фоновий колір"
-	},
-	"SidemenuButtonHoverColour": {
-		"message": "Бічне меню: Колір наведення кнопки"
-	},
-	"SidemenuTextColour": {
-		"message": "Бічне меню: Текстовий колір"
 	},
 	"Sort": {
 		"message": "Сортування"
@@ -697,5 +697,8 @@
 	},
 	"Width": {
 		"message": "Ширина"
+	},
+	"seconds": {
+		"message": "секунди"
 	}
 }

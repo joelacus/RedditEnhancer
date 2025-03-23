@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.15.0"
+		"message": "1.16.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -128,8 +128,8 @@
 	"CompactHeaderSideMenu": {
 		"message": "Compact the Header Bar & Side Menu"
 	},
-	"CompressPostLinkDisplay": {
-		"message": "Compress post links in post view"
+	"CompactPostLinkPreview": {
+		"message": "Compact Post Link Previews"
 	},
 	"Confirm": {
 		"message": "Confirm"
@@ -164,6 +164,9 @@
 	"CustomFeedWidth": {
 		"message": "Custom Feed Width"
 	},
+	"CustomHeaderLogo": {
+		"message": "Custom Header Logo"
+	},
 	"Dark": {
 		"message": "Dark"
 	},
@@ -176,11 +179,20 @@
 	"DefaultFeedSortOption": {
 		"message": "Default Feed Sort Option"
 	},
-	"Disabled": {
-		"message": "Disabled"
+	"DefaultHomeFeedSortOption": {
+		"message": "Default Home Feed Sort Option"
+	},
+	"DefaultSortFeedOptionGracePeriod": {
+		"message": "Override Default Sort Option"
+	},
+	"DefaultSortFeedOptionOverrideInfo": {
+		"message": "The amount of time after the page has been auto redirected in which you can override the default sort option."
 	},
 	"DisableBgFadePostOverlay": {
 		"message": "Disable Background Fade Behind Post Overlay"
+	},
+	"Disabled": {
+		"message": "Disabled"
 	},
 	"DontShowAgain": {
 		"message": "Don't show again"
@@ -500,7 +512,7 @@
 	"ModerniseOldRedditInfo": {
 		"message": "Makes old reddit look more like new reddit."
 	},
-	"MoveFeedToTopInSidemenu": {
+	"MoveFeedToTopInSideMenu": {
 		"message": "Move The Feed Section In The Side Menu To The Top"
 	},
 	"MulticolouredCommentThreadLines": {
@@ -767,8 +779,17 @@
 	"SideMenu": {
 		"message": "Side Menu"
 	},
+	"SideMenuBackgroundColour": {
+		"message": "Side Menu: Background Colour"
+	},
+	"SideMenuButtonHoverColour": {
+		"message": "Side Menu: Button Hover Colour"
+	},
 	"SideMenuIconsOnly": {
 		"message": "Side Menu Icons Only"
+	},
+	"SideMenuTextColour": {
+		"message": "Side Menu: Text Colour"
 	},
 	"SideMenuToggleButton": {
 		"message": "Show Side Menu Toggle Button"
@@ -790,15 +811,6 @@
 	},
 	"SidebarToggleButton": {
 		"message": "Sidebar Toggle Button"
-	},
-	"SidemenuBackgroundColour": {
-		"message": "Side Menu: Background Colour"
-	},
-	"SidemenuButtonHoverColour": {
-		"message": "Side Menu: Button Hover Colour"
-	},
-	"SidemenuTextColour": {
-		"message": "Side Menu: Text Colour"
 	},
 	"Sort": {
 		"message": "Sort"
@@ -908,6 +920,9 @@
 	"UserProfileWidth": {
 		"message": "User Profile Width"
 	},
+	"UsernameHoverPopupDelay": {
+		"message": "Username Hover Popup Delay"
+	},
 	"Video": {
 		"message": "Video"
 	},
@@ -937,5 +952,8 @@
 	},
 	"resizeHomeAlsoAffects": {
 		"message": "& r/all, r/popular, Create Post, Search Results, and Wiki pages"
+	},
+	"seconds": {
+		"message": "seconds"
 	}
 }

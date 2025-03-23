@@ -71,6 +71,9 @@
 	"Blur": {
 		"message": "Vervagen"
 	},
+	"BlurBackgroundPostOverlay": {
+		"message": "Vervaging achtergrond achter post-overlay"
+	},
 	"BorderRadiusAmount": {
 		"message": "Thema hoek radius"
 	},
@@ -122,6 +125,9 @@
 	"CompactHeaderSideMenu": {
 		"message": "Compact de headerbalk en het zijmenu"
 	},
+	"CompactPostLinkPreview": {
+		"message": "Compact de voorbeeldberichten van de postkoppeling"
+	},
 	"CompactSubRuleList": {
 		"message": "Compact de lijst met subreddit regel"
 	},
@@ -158,6 +164,9 @@
 	"CustomFeedWidth": {
 		"message": "Aangepaste voedingsbreedte"
 	},
+	"CustomHeaderLogo": {
+		"message": "Aangepaste header-logo"
+	},
 	"Dark": {
 		"message": "Donker"
 	},
@@ -169,6 +178,18 @@
 	},
 	"DefaultFeedSortOption": {
 		"message": "Standaard optie voor het sorteren van feeds"
+	},
+	"DefaultHomeFeedSortOption": {
+		"message": "Standaard optie voor sorteren thuis feed"
+	},
+	"DefaultSortFeedOptionGracePeriod": {
+		"message": "Verhaal de standaard sorteeroptie"
+	},
+	"DefaultSortFeedOptionOverrideInfo": {
+		"message": "De hoeveelheid tijd nadat de pagina automatisch is omgeleid, waarbij u de standaardsoptie kunt overschrijven."
+	},
+	"DisableBgFadePostOverlay": {
+		"message": "Achtergrondvervaging achter post-overlay uitschakelen"
 	},
 	"Disabled": {
 		"message": "Uitgeschakeld"
@@ -220,6 +241,12 @@
 	},
 	"FontWeightInfo": {
 		"message": "Niet alle lettertypen ondersteunen alle gewichten."
+	},
+	"ForceCustomBgOldUI": {
+		"message": "Forceer aangepaste achtergrond op oude gebruikersinterface"
+	},
+	"ForceCustomBgOldUIInfo": {
+		"message": "Aangepaste achtergrond werkt alleen op oude gebruikersinterface met modernisering van oude Reddit ingeschakeld. Schakel dit in zal de aangepaste achtergrond op de gebruikersinterface forceren (niet aanbevolen)."
 	},
 	"FullWidthBanner": {
 		"message": "Volledige breedte subreddit banner"
@@ -485,7 +512,7 @@
 	"ModerniseOldRedditInfo": {
 		"message": "Zorgt ervoor dat het oude Reddit meer op het nieuwe Reddit lijkt."
 	},
-	"MoveFeedToTopInSidemenu": {
+	"MoveFeedToTopInSideMenu": {
 		"message": "Sposta la sezione Feed nel menu laterale verso l'alto"
 	},
 	"MulticolouredCommentThreadLines": {
@@ -596,11 +623,17 @@
 	"PostSeparatorHeight": {
 		"message": "Bericht gap"
 	},
+	"PostTableBorderColour": {
+		"message": "Voeg rand toe aan tafels in berichten"
+	},
 	"PostTitle": {
 		"message": "Berichttitel"
 	},
 	"PostTitleContentColour": {
 		"message": "Bericht: Titel en tekstinhoudskleur"
+	},
+	"PostVisitedTextColour": {
+		"message": "Bezochte bericht: Tekstkleur"
 	},
 	"PostVisitedTitleColour": {
 		"message": "Bezocht bericht: Titelkleur"
@@ -743,11 +776,23 @@
 	"ShowRising": {
 		"message": "Toon altijd de knop “Rising” sorteren"
 	},
+	"ShowUpvoteRatio": {
+		"message": "Toon het upvote percentage op de postpagina"
+	},
 	"SideMenu": {
 		"message": "Zijmenu"
 	},
+	"SideMenuBackgroundColour": {
+		"message": "Zijmenu: Achtergrond kleur"
+	},
+	"SideMenuButtonHoverColour": {
+		"message": "Zijmenu: Knopzweefkleur"
+	},
 	"SideMenuIconsOnly": {
 		"message": "Alleen pictogrammen in het zijmenu"
+	},
+	"SideMenuTextColour": {
+		"message": "Zijmenu: Tekstkleur"
 	},
 	"SideMenuToggleButton": {
 		"message": "Geef de knop Zijmenu Toggle weer"
@@ -769,15 +814,6 @@
 	},
 	"SidebarToggleButton": {
 		"message": "Zijbalkschakelknop"
-	},
-	"SidemenuBackgroundColour": {
-		"message": "Zijmenu: Achtergrond kleur"
-	},
-	"SidemenuButtonHoverColour": {
-		"message": "Zijmenu: Knopzweefkleur"
-	},
-	"SidemenuTextColour": {
-		"message": "Zijmenu: Tekstkleur"
 	},
 	"Sort": {
 		"message": "Sorteren"
@@ -887,6 +923,9 @@
 	"UserProfileWidth": {
 		"message": "Breedte gebruikersprofiel"
 	},
+	"UsernameHoverPopupDelay": {
+		"message": "Vertraging bij zwevende gebruikersnaam-popup"
+	},
 	"Video": {
 		"message": "Video"
 	},
@@ -916,5 +955,8 @@
 	},
 	"resizeHomeAlsoAffects": {
 		"message": "& r/all, r/populair, maak bericht, zoekresultaten en wiki-pagina's"
+	},
+	"seconds": {
+		"message": "seconden"
 	}
 }

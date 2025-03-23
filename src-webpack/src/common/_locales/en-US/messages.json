@@ -59,6 +59,15 @@
 	"SearchbarDropdownBgColour": {
 		"message": "Searchbar: Focused/Dropdown Background Color"
 	},
+	"SideMenuBackgroundColour": {
+		"message": "Side Menu: Background Color"
+	},
+	"SideMenuButtonHoverColour": {
+		"message": "Side Menu: Button Hover Color"
+	},
+	"SideMenuTextColour": {
+		"message": "Side Menu: Text Color"
+	},
 	"SidebarBackgroundColour": {
 		"message": "Sidebar: Background Color"
 	},
@@ -67,15 +76,6 @@
 	},
 	"SidebarTextColour": {
 		"message": "Sidebar: Text Color"
-	},
-	"SidemenuBackgroundColour": {
-		"message": "Side Menu: Background Color"
-	},
-	"SidemenuButtonHoverColour": {
-		"message": "Side Menu: Button Hover Color"
-	},
-	"SidemenuTextColour": {
-		"message": "Side Menu: Text Color"
 	},
 	"SortBgColour": {
 		"message": "Sort: Background Color"

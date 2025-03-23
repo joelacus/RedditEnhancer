@@ -71,6 +71,9 @@
 	"Blur": {
 		"message": "Verwischen"
 	},
+	"BlurBackgroundPostOverlay": {
+		"message": "Verwischen Sie den Hintergrund hinter dem Post-Overlay"
+	},
 	"BorderRadiusAmount": {
 		"message": "Themen-Eckenradius"
 	},
@@ -122,6 +125,9 @@
 	"CompactHeaderSideMenu": {
 		"message": "Kompakte Kopfleiste und Seitenmenü"
 	},
+	"CompactPostLinkPreview": {
+		"message": "Kompakte Post-Link-Voransichten"
+	},
 	"CompactSubRuleList": {
 		"message": "Kompakte Subreddit-Regelliste"
 	},
@@ -158,6 +164,9 @@
 	"CustomFeedWidth": {
 		"message": "Benutzerdefinierte Feedbreite"
 	},
+	"CustomHeaderLogo": {
+		"message": "Benutzerdefinierte Header-Logo"
+	},
 	"Dark": {
 		"message": "Dunkel"
 	},
@@ -169,6 +178,18 @@
 	},
 	"DefaultFeedSortOption": {
 		"message": "Standardoption für die Feed-Sortierung"
+	},
+	"DefaultHomeFeedSortOption": {
+		"message": "Standard-Home-Feed-Sortieroption"
+	},
+	"DefaultSortFeedOptionGracePeriod": {
+		"message": "Standard-Sortieroption überschreiben"
+	},
+	"DefaultSortFeedOptionOverrideInfo": {
+		"message": "Die Zeit nach der Seite wurde automatisch umgeleitet, in der Sie die Option Standard-Sortieroption überschreiben können."
+	},
+	"DisableBgFadePostOverlay": {
+		"message": "Deaktivieren Sie den Hintergrund verblassen hinter Post Overlay"
 	},
 	"Disabled": {
 		"message": "Behinderte"
@@ -220,6 +241,12 @@
 	},
 	"FontWeightInfo": {
 		"message": "Nicht alle Schriftarten unterstützen alle Stärken."
+	},
+	"ForceCustomBgOldUI": {
+		"message": "Erzwingen Sie den benutzerdefinierten Hintergrund auf der Old UI"
+	},
+	"ForceCustomBgOldUIInfo": {
+		"message": "Der benutzerdefinierte Hintergrund funktioniert nur auf der Old UI mit der modernisierenden alten Reddit aktiviert. Wenn Sie dies einschalten, erzwingen Sie den benutzerdefinierten Hintergrund für die Benutzeroberfläche (nicht empfohlen)."
 	},
 	"FullWidthBanner": {
 		"message": "Subreddit-banner in voller breite"
@@ -485,7 +512,7 @@
 	"ModerniseOldRedditInfo": {
 		"message": "Lässt das alte Reddit mehr wie das neue Reddit aussehen."
 	},
-	"MoveFeedToTopInSidemenu": {
+	"MoveFeedToTopInSideMenu": {
 		"message": "Verschieben Sie den Feed-Bereich im Seitenmenü nach oben"
 	},
 	"MulticolouredCommentThreadLines": {
@@ -596,11 +623,17 @@
 	"PostSeparatorHeight": {
 		"message": "Beitragslücke"
 	},
+	"PostTableBorderColour": {
+		"message": "Fügen Sie den Tischen in Posts Grenze hinzu"
+	},
 	"PostTitle": {
 		"message": "Beitragstitel"
 	},
 	"PostTitleContentColour": {
 		"message": "Beitrag: Titel und Textinhaltsfarbe"
+	},
+	"PostVisitedTextColour": {
+		"message": "Besuchter Beitrag: Textfarbe"
 	},
 	"PostVisitedTitleColour": {
 		"message": "Besuchter Beitrag: Titelfarbe"
@@ -743,11 +776,23 @@
 	"ShowRising": {
 		"message": "Zeige den Button „Aufsteigend“ immer"
 	},
+	"ShowUpvoteRatio": {
+		"message": "Zeigen Sie den Prozentsatz in der Postansicht an"
+	},
 	"SideMenu": {
 		"message": "Seitenmenü"
 	},
+	"SideMenuBackgroundColour": {
+		"message": "Seitenmenü: Hintergrundfarbe"
+	},
+	"SideMenuButtonHoverColour": {
+		"message": "Seitenmenü: Schaltflächen-Hover-Farbe"
+	},
 	"SideMenuIconsOnly": {
 		"message": "Nur Seitenmenü Symbole"
+	},
+	"SideMenuTextColour": {
+		"message": "Seitenmenü: Textfarbe"
 	},
 	"SideMenuToggleButton": {
 		"message": "Umschaltfläche für Seitenmenü anzeigen"
@@ -769,15 +814,6 @@
 	},
 	"SidebarToggleButton": {
 		"message": "Seitenleiste umschalten"
-	},
-	"SidemenuBackgroundColour": {
-		"message": "Seitenmenü: Hintergrundfarbe"
-	},
-	"SidemenuButtonHoverColour": {
-		"message": "Seitenmenü: Schaltflächen-Hover-Farbe"
-	},
-	"SidemenuTextColour": {
-		"message": "Seitenmenü: Textfarbe"
 	},
 	"Sort": {
 		"message": "Sortieren"
@@ -887,6 +923,9 @@
 	"UserProfileWidth": {
 		"message": "Breite des Benutzerprofils"
 	},
+	"UsernameHoverPopupDelay": {
+		"message": "Benutzername Hover Popup-Verzögerung"
+	},
 	"Video": {
 		"message": "Video"
 	},
@@ -916,5 +955,8 @@
 	},
 	"resizeHomeAlsoAffects": {
 		"message": "& r/all, r/popular, Beiträge, Suchergebnisse und Wiki-Seiten erstellen"
+	},
+	"seconds": {
+		"message": "Sekunden"
 	}
 }

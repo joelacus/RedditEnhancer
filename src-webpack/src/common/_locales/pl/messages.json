@@ -71,6 +71,9 @@
 	"Blur": {
 		"message": "Rozmazać"
 	},
+	"BlurBackgroundPostOverlay": {
+		"message": "Rozmycie tła za nakładką postu"
+	},
 	"BorderRadiusAmount": {
 		"message": "Motyw Promień narożnika"
 	},
@@ -91,6 +94,9 @@
 	},
 	"Centre": {
 		"message": "Środek"
+	},
+	"Changelog": {
+		"message": "Changelog"
 	},
 	"ChooseBackupFile": {
 		"message": "Wybierz plik kopii zapasowej"
@@ -116,6 +122,12 @@
 	"CommentsCount": {
 		"message": "Comments count"
 	},
+	"CompactHeaderSideMenu": {
+		"message": "Kompaktowe pasek nagłówka i menu boczne"
+	},
+	"CompactPostLinkPreview": {
+		"message": "Kompaktowe podgląd linków postu"
+	},
 	"Confirm": {
 		"message": "Potwierdzać"
 	},
@@ -131,14 +143,26 @@
 	"CreatePostBgColour": {
 		"message": "Utwórz Post: Kolor tła"
 	},
+	"CreatePostBody": {
+		"message": "Utwórz post: Ciało"
+	},
 	"CreatePostBorderColour": {
 		"message": "Utwórz Post: Kolor obramowania"
+	},
+	"CreatePostTitle": {
+		"message": "Utwórz post: Tytuł"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Niestandardowy link w tle"
 	},
 	"CustomCSS": {
 		"message": "Niestandardowe CSS"
+	},
+	"CustomFeedWidth": {
+		"message": "Niestandardowa szerokość kanału"
+	},
+	"CustomHeaderLogo": {
+		"message": "Niestandardowe logo nagłówka"
 	},
 	"Dark": {
 		"message": "Ciemny"
@@ -151,6 +175,12 @@
 	},
 	"DefaultFeedSortOption": {
 		"message": "Domyślna opcja sortowania kanałów"
+	},
+	"DefaultHomeFeedSortOption": {
+		"message": "Domyślna opcja sortowania kanału domowego"
+	},
+	"DisableBgFadePostOverlay": {
+		"message": "Wyłącz tło zanikanie za nakładką postu"
 	},
 	"Disabled": {
 		"message": "Wyłączony"
@@ -173,11 +203,47 @@
 	"Feed": {
 		"message": "Strumień"
 	},
+	"FeedOffset": {
+		"message": "Offset kanału"
+	},
+	"FeedPostContent": {
+		"message": "Postu kanału: Treść"
+	},
 	"FeedPostMaxHeight": {
 		"message": "Publikacja wysokość"
 	},
+	"FeedPostTitle": {
+		"message": "Postu kanału: Tytuł"
+	},
+	"FeedWidth": {
+		"message": "Kanału Szerokość"
+	},
+	"FilterOptionsFor": {
+		"message": "Opcje filtru dla"
+	},
 	"FitImage": {
 		"message": "Skaluj wysokie obrazy, aby pasowały do postu"
+	},
+	"Font": {
+		"message": "Chrzcielnica"
+	},
+	"FontWeight": {
+		"message": "Waga czcionki"
+	},
+	"FontWeightInfo": {
+		"message": "Nie wszystkie czcionki obsługują wszystkie ciężary."
+	},
+	"ForceCustomBgOldUI": {
+		"message": "Wymień niestandardowe tło na starym interfejsie użytkownika"
+	},
+	"ForceCustomBgOldUIInfo": {
+		"message": "Niestandardowe tło działa tylko na starym interfejsie użytkownika z włączonym starych Reddit. Przełącz to, będzie wymuszać niestandardowe tło na interfejsie użytkownika (niezalecane)."
+	},
+	"FullWidthBanner": {
+		"message": "Sztandar Subreddit pełnej szerokości"
+	},
+	"Grey": {
+		"message": "Szary"
 	},
 	"Header": {
 		"message": "Nagłówek"
@@ -197,8 +263,14 @@
 	"HideAdvertiseButton": {
 		"message": "Ukryj przycisk „Reklamuj”"
 	},
+	"HideBlurredMediaBackground": {
+		"message": "Ukryj tło Rozmycie za podglądami obrazów"
+	},
 	"HideChatButton": {
 		"message": "Ukryj przycisk „Czat”"
+	},
+	"HideCommentKarma": {
+		"message": "Ukryj komentarz karma"
 	},
 	"HideCompactViewThumbnails": {
 		"message": "Ukryj miniatury w kompaktowym widoku"
@@ -401,7 +473,7 @@
 	"ModerniseOldRedditInfo": {
 		"message": "Sprawia, że stary Reddit wygląda bardziej jak nowy Reddit."
 	},
-	"MoveFeedToTopInSidemenu": {
+	"MoveFeedToTopInSideMenu": {
 		"message": "Przenieś sekcję podawania w bocznym menu na górę"
 	},
 	"MulticolouredCommentThreadLines": {
@@ -614,8 +686,17 @@
 	"SideMenu": {
 		"message": "Menu boczne"
 	},
+	"SideMenuBackgroundColour": {
+		"message": "Menu boczne: Kolor tła"
+	},
+	"SideMenuButtonHoverColour": {
+		"message": "Menu boczne: Kolor najechania przyciskiem"
+	},
 	"SideMenuIconsOnly": {
 		"message": "Tylko ikony menu bocznego"
+	},
+	"SideMenuTextColour": {
+		"message": "Menu boczne: Kolor tekstu"
 	},
 	"SideMenuWidth": {
 		"message": "Szerokość menu bocznego"
@@ -631,15 +712,6 @@
 	},
 	"SidebarTextColour": {
 		"message": "Pasek boczny: Kolor tekstu"
-	},
-	"SidemenuBackgroundColour": {
-		"message": "Menu boczne: Kolor tła"
-	},
-	"SidemenuButtonHoverColour": {
-		"message": "Menu boczne: Kolor najechania przyciskiem"
-	},
-	"SidemenuTextColour": {
-		"message": "Menu boczne: Kolor tekstu"
 	},
 	"Sort": {
 		"message": "Sortuj"
@@ -757,5 +829,8 @@
 	},
 	"learnMore": {
 		"message": "Dowiedz się więcej"
+	},
+	"seconds": {
+		"message": "sekundy"
 	}
 }

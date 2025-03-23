@@ -71,6 +71,9 @@
 	"Blur": {
 		"message": "Flou"
 	},
+	"BlurBackgroundPostOverlay": {
+		"message": "Fond flou derrière la superposition du poteau"
+	},
 	"BorderRadiusAmount": {
 		"message": "Thème rayon d'angle"
 	},
@@ -122,6 +125,9 @@
 	"CompactHeaderSideMenu": {
 		"message": "Menu de tête et côté compacte"
 	},
+	"CompactPostLinkPreview": {
+		"message": "Aperçu du lien de publication compact"
+	},
 	"CompactSubRuleList": {
 		"message": "Liste des règles de subdreddit compacte"
 	},
@@ -158,6 +164,9 @@
 	"CustomFeedWidth": {
 		"message": "Largeur de flux personnalisée"
 	},
+	"CustomHeaderLogo": {
+		"message": "Logo d'en-tête personnalisé"
+	},
 	"Dark": {
 		"message": "Sombre"
 	},
@@ -169,6 +178,18 @@
 	},
 	"DefaultFeedSortOption": {
 		"message": "Option de tri des flux par défaut"
+	},
+	"DefaultHomeFeedSortOption": {
+		"message": "Option de tri de flux à domicile par défaut"
+	},
+	"DefaultSortFeedOptionGracePeriod": {
+		"message": "Remplacer l'option de tri par défaut"
+	},
+	"DefaultSortFeedOptionOverrideInfo": {
+		"message": "La durée après la rediffusion automatique de la page dans laquelle vous pouvez remplacer l'option de tri par défaut."
+	},
+	"DisableBgFadePostOverlay": {
+		"message": "Désactiver l'arrière-plan s'estompe derrière la superposition du poteau"
 	},
 	"Disabled": {
 		"message": "Désactivé"
@@ -220,6 +241,12 @@
 	},
 	"FontWeightInfo": {
 		"message": "Toutes les polices ne prennent pas en charge tous les poids."
+	},
+	"ForceCustomBgOldUI": {
+		"message": "Forcer un fond personnalisé sur l'ancienne interface utilisateur"
+	},
+	"ForceCustomBgOldUIInfo": {
+		"message": "L'arrière-plan personnalisé fonctionne uniquement sur l'ancienne interface utilisateur avec modernisation Old Reddit activé. Basculer ceci obligera un fond personnalisé sur l'interface utilisateur (non recommandé)."
 	},
 	"FullWidthBanner": {
 		"message": "Bannière de subreddit pleine largeur"
@@ -485,7 +512,7 @@
 	"ModerniseOldRedditInfo": {
 		"message": "Rend le vieux Reddit plus semblable au nouveau Reddit."
 	},
-	"MoveFeedToTopInSidemenu": {
+	"MoveFeedToTopInSideMenu": {
 		"message": "Déplacez la section Flux dans le menu latéral vers le haut"
 	},
 	"MulticolouredCommentThreadLines": {
@@ -596,11 +623,17 @@
 	"PostSeparatorHeight": {
 		"message": "Écart de poste"
 	},
+	"PostTableBorderColour": {
+		"message": "Ajouter une bordure aux tables dans les poteaux"
+	},
 	"PostTitle": {
 		"message": "Titre du poste"
 	},
 	"PostTitleContentColour": {
 		"message": "Post : Couleur du titre et du contenu du texte"
+	},
+	"PostVisitedTextColour": {
+		"message": "Post visité: Couleur de texte"
 	},
 	"PostVisitedTitleColour": {
 		"message": "Post visité : Couleur du titre"
@@ -743,11 +776,23 @@
 	"ShowRising": {
 		"message": "Toujours afficher le bouton de tri « En hausse »"
 	},
+	"ShowUpvoteRatio": {
+		"message": "Affichez le pourcentage de vote up dans la vue de la publication"
+	},
 	"SideMenu": {
 		"message": "Menu latéral"
 	},
+	"SideMenuBackgroundColour": {
+		"message": "Menu latéral : La couleur d'arrière-plan"
+	},
+	"SideMenuButtonHoverColour": {
+		"message": "Menu latéral : Couleur du survol du bouton"
+	},
 	"SideMenuIconsOnly": {
 		"message": "Icônes du menu latéral uniquement"
+	},
+	"SideMenuTextColour": {
+		"message": "Menu latéral : Couleur de texte"
 	},
 	"SideMenuToggleButton": {
 		"message": "Afficher le bouton bascule du menu latéral"
@@ -769,15 +814,6 @@
 	},
 	"SidebarToggleButton": {
 		"message": "Bouton à bascule de barre latérale"
-	},
-	"SidemenuBackgroundColour": {
-		"message": "Menu latéral : La couleur d'arrière-plan"
-	},
-	"SidemenuButtonHoverColour": {
-		"message": "Menu latéral : Couleur du survol du bouton"
-	},
-	"SidemenuTextColour": {
-		"message": "Menu latéral : Couleur de texte"
 	},
 	"Sort": {
 		"message": "Trier"
@@ -887,6 +923,9 @@
 	"UserProfileWidth": {
 		"message": "Largeur du profil utilisateur"
 	},
+	"UsernameHoverPopupDelay": {
+		"message": "Délai lors du survol du nom d'utilisateur pour ouvrir les informations contextuelles"
+	},
 	"Video": {
 		"message": "Vidéo"
 	},
@@ -916,5 +955,8 @@
 	},
 	"resizeHomeAlsoAffects": {
 		"message": "& r/all, r/popular, créer des post, des résultats de recherche et des pages wiki"
+	},
+	"seconds": {
+		"message": "secondes"
 	}
 }
