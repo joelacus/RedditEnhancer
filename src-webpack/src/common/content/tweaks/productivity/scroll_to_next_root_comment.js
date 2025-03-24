@@ -8,10 +8,10 @@
 
 // Get the feature state from browser sync storage
 export function loadScrollToNextRootComment() {
-	BROWSER_API.storage.sync.get(['scrollToNextRootComment', 'scrollToNextRootCommentPosition', 'scrollToNextRootCommentPositionV'], function (result) {
+	BROWSER_API.storage.sync.get(['scrollToNextRootComment', 'scrollToNextRootCommentPosition'], function (result) {
 		if (result.scrollToNextRootComment) {
 			scrollToNextRootComment(true);
-			scrollToNextRootCommentPosition(result.scrollToNextRootCommentPosition, result.scrollToNextRootCommentPositionV);
+			scrollToNextRootCommentPosition(result.scrollToNextRootCommentPosition);
 		}
 	});
 }
@@ -20,9 +20,9 @@ export function loadScrollToNextRootComment() {
 export function scrollToNextRootComment(value) {
 	const isCommentPage = window.location.href.match('https://.*.reddit.com/r/.*/comments/.*');
 	const enableFunctionMap = {
-		'new': enableScrollToNextRootCommentNew,
-		'newnew': enableScrollToNextRootCommentNewNew,
-		'old': enableScrollToNextRootCommentOld
+		new: enableScrollToNextRootCommentNew,
+		newnew: enableScrollToNextRootCommentNewNew,
+		old: enableScrollToNextRootCommentOld,
 	};
 
 	if (value && isCommentPage) {
@@ -304,11 +304,11 @@ function disableScrollToNextRootCommentAll() {
 }
 
 // Set the position of the comment navigation buttons. Default to x: 48px, y: 50% (see RE_styles.css)
-export function scrollToNextRootCommentPosition(valueX, valueY) {
-	if (valueX !== -1 && valueX !== '-1' && typeof valueX !== 'undefined') {
-		document.documentElement.style.setProperty('--re-scroll-to-root-comment-position', valueX + '%');
+export function scrollToNextRootCommentPosition(pos) {
+	if (pos.x !== -1 && pos.x !== '-1' && typeof pos.x !== 'undefined') {
+		document.documentElement.style.setProperty('--re-scroll-to-root-comment-position', pos.x + '%');
 	}
-	if (valueY !== -1 && valueY !== '-1' && typeof valueY !== 'undefined') {
-		document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', valueY + (redditVersion === 'old' ? 'vh' : '%'));
+	if (pos.y !== -1 && pos.y !== '-1' && typeof pos.y !== 'undefined') {
+		document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', pos.y + (redditVersion === 'old' ? 'vh' : '%'));
 	}
 }

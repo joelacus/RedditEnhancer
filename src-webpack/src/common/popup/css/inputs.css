@@ -362,9 +362,10 @@ input:disabled {
 .dropdown-menu-up li:active {
 	background-color: var(--btn-active);
 }
+#select-home-feed-sort-option-menu,
 #select-feed-sort-option-menu,
 #select-comments-sort-option-menu {
-	top: 34px;
+	top: 35px;
 }
 #select-feed-sort-option .select span,
 #select-comments-sort-option .select span {

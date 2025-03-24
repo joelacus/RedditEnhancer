@@ -30,7 +30,8 @@ import { loadHideVoteButtons } from '../../../content/tweaks/hide_elements/hide_
 import { loadHideCompactViewBlankThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_blank_thumbnails';
 import { loadHideCompactViewThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_thumbnails';
 import { loadClassicOldUI } from '../../../content/tweaks/style/classic_old_ui';
-import { loadHideChatButton, loadHideModerationButton, loadHideNotificationButton } from "../../../content/tweaks/hide_elements/hide_header_buttons";
+import { loadHideChatButton, loadHideModerationButton, loadHideNotificationButton } from '../../../content/tweaks/hide_elements/hide_header_buttons';
+import { loadCustomHeaderLogo } from '../../../content/tweaks/style/custom_header_logo';
 
 export function tweakLoaderOld() {
 	loadExpandContent();
@@ -58,6 +59,7 @@ export function tweakLoaderOld() {
 	loadHideChatButton();
 	loadHideModerationButton();
 	loadHideNotificationButton();
+	loadCustomHeaderLogo();
 
 	if (useLegacy) {
 		legacyObserversOld();

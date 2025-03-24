@@ -49,8 +49,9 @@ import { addBorderRadiusToShadowRootElements } from './tweaks/style/border_radiu
 import { loadAlwaysShowPostOptions } from './tweaks/productivity/always_show_post_options';
 import { loadReplacePostImagesWithLinks } from './tweaks/media/replace_images_with_links';
 import { loadReplacePostVideosWithLinks } from './tweaks/media/replace_videos_with_links';
-import { loadCompressPostLinkDisplay } from "./tweaks/media/compress_post_link_display";
-import { loadShowUpvoteRatio } from "./tweaks/productivity/show_upvote_ratio";
+import { loadCompactPostLinkPreview } from './tweaks/media/compact_post_link_preview';
+import { loadUsernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
+import { loadShowUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -71,7 +72,7 @@ export function loadTweaks() {
 				parent: document.querySelector('body'),
 				recursive: true,
 				done: loadShowUpvoteRatio,
-			})
+			});
 		}
 		loadAlwaysShowRisingButton();
 		loadShowControversialSortButton();
@@ -113,6 +114,7 @@ export function loadTweaks() {
 		loadHideCommentKarma();
 		loadHideVoteButtons();
 		loadSideMenuToggleButton();
+		loadUsernameHoverPopupDelay();
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
@@ -204,7 +206,7 @@ export function loadTweaks() {
 					loadShowPostNumbers();
 				}, 500);
 			},
-		})
+		});
 
 		waitForAddedNode({
 			query: 'shreddit-post',
@@ -229,7 +231,7 @@ export function loadTweaks() {
 			recursive: true,
 			done: function () {
 				setTimeout(() => {
-					loadCompressPostLinkDisplay();
+					loadCompactPostLinkPreview();
 					loadAutoShowCommentFormattingOptions();
 				}, 500);
 			},

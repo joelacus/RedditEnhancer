@@ -25,11 +25,7 @@ function enableScalePostToFitVideoNewNew() {
 	if (!document.head.querySelector('style[id="re-scale-post-to-fit-video"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-scale-post-to-fit-video';
-		styleElement.textContent = `/*:root {
-										--re-limit-video-width: unset;
-										--re-max-video-post-height: unset;
-									}*/
-									shreddit-aspect-ratio:has(shreddit-player-2) {
+		styleElement.textContent = `shreddit-aspect-ratio:has(shreddit-player-2) {
 										min-height: fit-content !important;
 										padding: 0 !important;
 									}
@@ -51,9 +47,14 @@ function enableScalePostToFitVideoNewNew() {
 									[slot="post-media-container"] shreddit-player-2 {
 										overflow: hidden !important;
 									}
-									[slot="post-media-container"] shreddit-player-2,
-									shreddit-player-2::part(video) {
+									[slot="post-media-container"] shreddit-player-2 {
 										max-height: var(--re-max-video-post-height, fit-content) !important;
+									}
+									shreddit-player-2::part(video) {
+										min-width: 100%;
+										min-height: 100%;
+										width: auto;
+										height: auto;
 									}
 									shreddit-blurred-container [slot="blurred"] {
 										max-height: var(--re-max-image-post-height) !important;

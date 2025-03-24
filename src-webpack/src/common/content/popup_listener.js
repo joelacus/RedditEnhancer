@@ -50,7 +50,7 @@ import { overrideDropShadow, overrideDropShadowCSS } from './tweaks/style/overri
 import { postHeight, postHeightSize } from './tweaks/productivity/post_max_height';
 import { postTitleFontSize, postCommentsFontSize, postContentFontSize, feedPostTitleFontSize, feedPostContentFontSize, createPostTitleFontSize, createPostBodyFontSize } from './tweaks/font/resize_font';
 import { feedPostContentFontWeight, feedPostTitleFontWeight, postCommentsFontWeight, postContentFontWeight, postTitleFontWeight } from './tweaks/font/font_weight';
-import { scrollToNextRootComment,  scrollToNextRootCommentPosition } from './tweaks/productivity/scroll_to_next_root_comment';
+import { scrollToNextRootComment, scrollToNextRootCommentPosition } from './tweaks/productivity/scroll_to_next_root_comment';
 import { showAllButton } from './tweaks/productivity/show_r_all_button';
 import { showControversialSortButton } from './tweaks/productivity/show_controversial_sort_button';
 import { showPostAuthor } from './tweaks/productivity/show_post_author';
@@ -152,9 +152,11 @@ import { classicOldUI } from './tweaks/style/classic_old_ui';
 import { multicolouredThreadLines } from './tweaks/style/multicoloured_threadlines';
 import { replacePostImagesWithLinks } from './tweaks/media/replace_images_with_links';
 import { replacePostVideosWithLinks } from './tweaks/media/replace_videos_with_links';
-import { disableBgFadePostOverlay, blurBackgroundPostOverlay } from "./tweaks/background/post_overlay_background";
-import { compressPostLinkDisplay } from "./tweaks/media/compress_post_link_display";
-import { showUpvoteRatio } from "./tweaks/productivity/show_upvote_ratio";
+import { disableBgFadePostOverlay, blurBackgroundPostOverlay } from './tweaks/background/post_overlay_background';
+import { compactPostLinkPreview } from './tweaks/media/compact_post_link_preview';
+import { usernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
+import { showUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
+import { customHeaderLogo, setCustomHeaderLogoUrl } from './tweaks/style/custom_header_logo';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
@@ -163,440 +165,252 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 	const key = Object.keys(msg)[0];
 	const value = Object.values(msg)[0];
 	//console.log(key, value);
-	if (key === 'darkMode') {
-		darkMode(value);
-	} else if (key === 'darkModeAutoListener') {
-		darkModeAutoListener(value);
-	} else if (key === 'useCustomBackground') {
-		useCustomBackground(value);
-	} else if (key === 'setCustomBackground') {
-		setCustomBackground(value);
-	} else if (key === 'bgBlur') {
-		bgBlur(value);
-	} else if (key === 'expandLayout') {
-		expandLayout(value);
-	} else if (key === 'expandLayoutWidth') {
-		expandLayoutWidth(value);
-	} else if (key === 'expandPostOverlayWidth') {
-		expandPostOverlayWidth(value);
-	} else if (key === 'expandPostWidth') {
-		expandPostWidth(value);
-	} else if (key === 'expandSubWidth') {
-		expandSubWidth(value);
-	} else if (key === 'expandUserProfileWidth') {
-		expandUserProfileWidth(value);
-	} else if (key === 'expandTopicFeedWidth') {
-		expandTopicFeedWidth(value);
-	} else if (key === 'expandCustomFeedWidth') {
-		expandCustomFeedWidth(value);
-	} else if (key === 'layoutOffset') {
-		layoutOffset(value);
-	} else if (key === 'layoutSubOffset') {
-		layoutSubOffset(value);
-	} else if (key === 'layoutPostOffset') {
-		layoutPostOffset(value);
-	} else if (key === 'layoutUserProfileOffset') {
-		layoutUserProfileOffset(value);
-	} else if (key === 'layoutSearchPageOffset') {
-		layoutSearchPageOffset(value);
-	} else if (key === 'layoutCentre') {
-		layoutCentre(value);
-	} else if (key === 'shadows') {
-		addDropShadow(value);
-	} else if (key === 'fitImage') {
-		fitImage(value);
-	} else if (key === 'imageScroll') {
-		imageScroll(value);
-	} else if (key === 'setMaxImageWidth') {
-		setMaxImageWidth(value);
-	} else if (key === 'setMaxImagePostHeight') {
-		setMaxImagePostHeight(value);
-	} else if (key === 'setMaxVideoWidth') {
-		setMaxVideoWidth(value);
-	} else if (key === 'setMaxVideoPostHeight') {
-		setMaxVideoPostHeight(value);
-	} else if (key === 'hideRedditPremium') {
-		hideRedditPremium(value);
-	} else if (key === 'hideCreatePost') {
-		hideCreatePost(value);
-	} else if (key === 'hideAdvertiseButton') {
-		hideAdvertiseButton(value);
-	} else if (key === 'hideChatButton') {
-		hideChatButton(value);
-	} else if (key === 'hideModerationButton') {
-		hideModerationButton(value);
-	} else if (key === 'hidePopularButton') {
-		hidePopularButton(value);
-	} else if (key === 'hideNotificationButton') {
-		hideNotificationButton(value);
-	} else if (key === 'hideCreatePostButton') {
-		hideCreatePostButton(value);
-	} else if (key === 'hideHomeSidebar') {
-		hideHomeSidebar(value);
-	} else if (key === 'hideSubSidebar') {
-		hideSubSidebar(value);
-	} else if (key === 'hideGap') {
-		hideGap(value);
-	} else if (key === 'stickySort') {
-		stickySort(value);
-	} else if (key === 'hideUsername') {
-		hideUsername(value);
-	} else if (key === 'hideKarma') {
-		hideKarma(value);
-	} else if (key === 'alwaysShowRisingButton') {
-		alwaysShowRisingButton(value);
-	} else if (key === 'hideGetNewReddit') {
-		hideGetNewReddit(value);
-	} else if (key === 'hideSidebarPolicy') {
-		hideSidebarPolicy(value);
-	} else if (key === 'openSubInNewTab') {
-		openSubInNewTab(value);
-	} else if (key === 'openPostInNewTab') {
-		openPostInNewTab(value);
-	} else if (key === 'hidePromoted') {
-		hidePromoted(value);
-	} else if (key === 'hideRecommended') {
-		hideRecommended(value);
-	} else if (key === 'showToTopButton') {
-		showToTopButton(value);
-	} else if (key === 'showAllButton') {
-		showAllButton(value);
-	} else if (key === 'newPlayer') {
-		newPlayer(value);
-	} else if (key === 'sidemenuFeedTop') {
-		sidemenuFeedTop(value);
-	} else if (key === 'textPostScroll') {
-		textPostScroll(value);
-	} else if (key === 'hideSeeFullImage') {
-		hideSeeFullImage(value);
-	} else if (key === 'moderniseOldReddit') {
-		moderniseOldReddit(value);
-	} else if (key === 'hideHeaderSubBar') {
-		hideHeaderSubBar(value);
-	} else if (key === 'hideSideMenuOld') {
-		hideSideMenuOld(value);
-	} else if (key === 'hideSideMenu') {
-		hideSideMenu(value);
-	} else if (key === 'autoExpandValue') {
-		autoExpandValue(value);
-	} else if (key === 'hidePostSidebar') {
-		hidePostSidebar(value);
-	} else if (key === 'hidePostOverlaySidebar') {
-		hidePostOverlaySidebar(value);
-	} else if (key === 'hideUserSidebar') {
-		hideUserSidebar(value);
-	} else if (key === 'hideCustomFeedSidebar') {
-		hideCustomFeedSidebar(value);
-	} else if (key === 'hideRelatedPostsSection') {
-		hideRelatedPostsSection(value);
-	} else if (key === 'limitInfinityScroll') {
-		limitInfinityScroll(value);
-	} else if (key === 'showControversialSortButton') {
-		showControversialSortButton(value);
-	} else if (key === 'hideNSFW') {
-		hideNSFW(value);
-	} else if (key === 'hideTurnOnNotificationsPopup') {
-		hideTurnOnNotificationsPopup(value);
-	} else if (key === 'scrollToNextRootComment') {
-		scrollToNextRootComment(value);
-	} else if (key === 'showPostNumbers') {
-		showPostNumbers(value);
-	} else if (key === 'overrideDropShadow') {
-		overrideDropShadow(value);
-	} else if (key === 'overrideDropShadowCSS') {
-		overrideDropShadowCSS(value);
-	} else if (key === 'postHeight') {
-		postHeight(value);
-	} else if (key === 'postHeightSize') {
-		postHeightSize(value);
-	} else if (key === 'themeHeaderBackgroundColour') {
-		themeHeaderBackgroundColour(value);
-	} else if (key === 'themeHeaderBackgroundColourCSS') {
-		themeHeaderBackgroundColourCSS(value);
-	} else if (key === 'themeHeaderTextColour') {
-		themeHeaderTextColour(value);
-	} else if (key === 'themeHeaderTextColourCSS') {
-		themeHeaderTextColourCSS(value);
-	} else if (key === 'themeSortBackgroundColour') {
-		themeSortBackgroundColour(value);
-	} else if (key === 'themeSortBackgroundColourCSS') {
-		themeSortBackgroundColourCSS(value);
-	} else if (key === 'themeSortTextColour') {
-		themeSortTextColour(value);
-	} else if (key === 'themeSortTextColourCSS') {
-		themeSortTextColourCSS(value);
-	} else if (key === 'themeSortTextColour2') {
-		themeSortTextColour2(value);
-	} else if (key === 'themeSortTextColour2CSS') {
-		themeSortTextColour2CSS(value);
-	} else if (key === 'themeSortBorderColour') {
-		themeSortBorderColour(value);
-	} else if (key === 'themeSortBorderColourCSS') {
-		themeSortBorderColourCSS(value);
-	} else if (key === 'themePostBackgroundColour') {
-		themePostBackgroundColour(value);
-	} else if (key === 'themePostBackgroundColourCSS') {
-		themePostBackgroundColourCSS(value);
-	} else if (key === 'themePostVisitedTextColour') {
-		themePostVisitedTextColour(value);
-	} else if (key === 'themePostVisitedTextColourCSS') {
-		themePostVisitedTextColourCSS(value);
-	} else if (key === 'themePostTextColour1') {
-		themePostTextColour1(value);
-	} else if (key === 'themePostTextColour1CSS') {
-		themePostTextColour1CSS(value);
-	} else if (key === 'themePostTableBorderColour') {
-		themePostTableBorderColour(value);
-	} else if (key === 'themeCodeBlockColourCSS') {
-		themeCodeBlockColourCSS(value);
-	} else if (key === 'themePostCommentsTextColour1') {
-		themePostCommentsTextColour1(value);
-	} else if (key === 'themePostCommentsTextColour1CSS') {
-		themePostCommentsTextColour1CSS(value);
-	} else if (key === 'themePostCommentsTextColour2') {
-		themePostCommentsTextColour2(value);
-	} else if (key === 'themePostCommentsTextColour2CSS') {
-		themePostCommentsTextColour2CSS(value);
-	} else if (key === 'themePostTextColour2') {
-		themePostTextColour2(value);
-	} else if (key === 'themePostTextColour2CSS') {
-		themePostTextColour2CSS(value);
-	} else if (key === 'themePostBorderColour') {
-		themePostBorderColour(value);
-	} else if (key === 'themePostBorderColourCSS') {
-		themePostBorderColourCSS(value);
-	} else if (key === 'themeCreatePostBackgroundColour') {
-		themeCreatePostBackgroundColour(value);
-	} else if (key === 'themeCreatePostBackgroundColourCSS') {
-		themeCreatePostBackgroundColourCSS(value);
-	} else if (key === 'themeCreatePostBorderColour') {
-		themeCreatePostBorderColour(value);
-	} else if (key === 'themeCreatePostBorderColourCSS') {
-		themeCreatePostBorderColourCSS(value);
-	} else if (key === 'themeSidebarTextColour') {
-		themeSidebarTextColour(value);
-	} else if (key === 'themeSidebarTextColourCSS') {
-		themeSidebarTextColourCSS(value);
-	} else if (key === 'themeSidebarBgColour') {
-		themeSidebarBgColour(value);
-	} else if (key === 'themeSidebarBgColourCSS') {
-		themeSidebarBgColourCSS(value);
-	} else if (key === 'themeSidebarBorderColour') {
-		themeSidebarBorderColour(value);
-	} else if (key === 'themeSidebarBorderColourCSS') {
-		themeSidebarBorderColourCSS(value);
-	} else if (key === 'themeSidemenuTextColour') {
-		themeSidemenuTextColour(value);
-	} else if (key === 'themeSidemenuTextColourCSS') {
-		themeSidemenuTextColourCSS(value);
-	} else if (key === 'themeSidemenuBgColour') {
-		themeSidemenuBgColour(value);
-	} else if (key === 'themeSidemenuBgColourCSS') {
-		themeSidemenuBgColourCSS(value);
-	} else if (key === 'themeSidemenuButtonHoverColour') {
-		themeSidemenuButtonHoverColour(value);
-	} else if (key === 'themeSidemenuButtonHoverColourCSS') {
-		themeSidemenuButtonHoverColourCSS(value);
-	} else if (key === 'themePostContentAndCommentsLinkColour') {
-		themePostContentAndCommentsLinkColour(value);
-	} else if (key === 'themePostContentAndCommentsLinkColourCSS') {
-		themePostContentAndCommentsLinkColourCSS(value);
-	} else if (key === 'themeSearchbarBgColour') {
-		themeSearchbarBgColour(value);
-	} else if (key === 'themeSearchbarBgColourCSS') {
-		themeSearchbarBgColourCSS(value);
-	} else if (key === 'themeSearchbarDropdownBgColour') {
-		themeSearchbarDropdownBgColour(value);
-	} else if (key === 'themeSearchbarDropdownBgColourCSS') {
-		themeSearchbarDropdownBgColourCSS(value);
-	} else if (key === 'themePostUpvoteColour') {
-		themePostUpvoteColour(value);
-	} else if (key === 'themePostUpvoteColourCSS') {
-		themePostUpvoteColourCSS(value);
-	} else if (key === 'themeBlur') {
-		themeBlur(value);
-	} else if (key === 'bionicReaderPosts') {
-		bionicReaderPosts(value);
-	} else if (key === 'bionicReaderComments') {
-		bionicReaderComments(value);
-	} else if (key === 'bionicReaderFontColour') {
-		bionicReaderFontColour(value);
-	} else if (key === 'bionicReaderFontColourCSS') {
-		bionicReaderFontColourCSS(value);
-	} else if (key === 'bionicReaderBgColour') {
-		bionicReaderBgColour(value);
-	} else if (key === 'bionicReaderBgColourCSS') {
-		bionicReaderBgColourCSS(value);
-	} else if (key === 'alwaysShowPostOptions') {
-		alwaysShowPostOptions(value);
-	} else if (key === 'hideHeaderBar') {
-		hideHeaderBar(value);
-	} else if (key === 'nonStickyHeaderBar') {
-		nonStickyHeaderBar(value);
-	} else if (key === 'hideOriginalScrollToTop') {
-		hideOriginalScrollToTop(value);
-	} else if (key === 'largerClassicPost') {
-		largerClassicPost(value);
-	} else if (key === 'scrollToNextRootCommentPosition') {
-		scrollToNextRootCommentPosition(value, -1);
-	} else if (key === 'scrollToNextRootCommentPositionV') {
-		scrollToNextRootCommentPosition(-1, value);
-	} else if (key === 'breakReminder') {
-		breakReminder(value);
-	} else if (key === 'showPostAuthor') {
-		showPostAuthor(value);
-	} else if (key === 'showPostFlair') {
-		showPostFlair(value);
-	} else if (key === 'hideSideMenuTopSection') {
-		hideSideMenuTopSection(value);
-	} else if (key === 'hideSideMenuModerationSection') {
-		hideSideMenuModerationSection(value);
-	} else if (key === 'hideSideMenuRecentSection') {
-		hideSideMenuRecentSection(value);
-	} else if (key === 'hideSideMenuCustomFeedsSection') {
-		hideSideMenuCustomFeedsSection(value);
-	} else if (key === 'hideSideMenuCommunitiesSection') {
-		hideSideMenuCommunitiesSection(value);
-	} else if (key === 'hideSideMenuResourcesSection') {
-		hideSideMenuResourcesSection(value);
-	} else if (key === 'hideSideMenuTopicsSection') {
-		hideSideMenuTopicsSection(value);
-	} else if (key === 'postTitleFontSize') {
-		postTitleFontSize(value);
-	} else if (key === 'postContentFontSize') {
-		postContentFontSize(value);
-	} else if (key === 'postCommentsFontSize') {
-		postCommentsFontSize(value);
-	} else if (key === 'hideUserProfilePics') {
-		hideUserProfilePics(value);
-	} else if (key === 'autoExpandComments') {
-		autoExpandComments(value);
-	} else if (key === 'hidePostHiddenMessage') {
-		hidePostHiddenMessage(value);
-	} else if (key === 'scalePostToFitImage') {
-		scalePostToFitImage(value);
-	} else if (key === 'scalePostToFitVideo') {
-		scalePostToFitVideo(value);
-	} /*else if (key == 'dragImageToResize') {
-		dragImageToResize(value);
-	} else if (key == 'dragImageToResizeInitialSize') {
-		dragImageToResizeInitialSize(value);
-	}*/ /* else if (key == 'addDownloadVideoButton') {
-		addDownloadVideoButton(value);
-	}*/ else if (key === 'autoCollapseAutoModeratorComment') {
-		autoCollapseAutoModeratorComment(value);
-	} else if (key === 'hideJoinButtonOnPosts') {
-		hideJoinButtonOnPosts(value);
-	} else if (key === 'autoLoadMoreComments') {
-		autoLoadMoreComments(value);
-	} else if (key === 'underlineLinks') {
-		underlineLinks(value);
-	} else if (key === 'autoShowCommentFormattingOptions') {
-		autoShowCommentFormattingOptions(value);
-	} else if (key === 'hideSearchSidebar') {
-		hideSearchSidebar(value);
-	} else if (key === 'hidePostBackButton') {
-		hidePostBackButton(value);
-	} else if (key === 'borderRadiusAmount') {
-		borderRadiusAmount(value);
-	} else if (key === 'hidePostKarma') {
-		hidePostKarma(value);
-	} else if (key === 'hideCommentKarma') {
-		hideCommentKarma(value);
-	} else if (key === 'hideVoteButtons') {
-		hideVoteButtons(value);
-	} else if (key === 'hideRecentPosts') {
-		hideRecentPosts(value);
-	} else if (key === 'sideMenuWidth') {
-		sideMenuWidth(value);
-	} else if (key === 'sideMenuIconsOnly') {
-		sideMenuIconsOnly(value);
-	} else if (key === 'hideSideMenuFavouriteButton') {
-		hideSideMenuFavouriteButton(value);
-	} else if (key === 'sideMenuToggleButton') {
-		sideMenuToggleButton(value);
-	} else if (key === 'hideCompactViewBlankThumbnails') {
-		hideCompactViewBlankThumbnails(value);
-	} else if (key === 'hideCompactViewThumbnails') {
-		hideCompactViewThumbnails(value);
-	} else if (key === 'hideNsfwInSearchResults') {
-		hideNsfwInSearchResults(value);
-	} else if (key === 'hideTrendingTodayInSearchResults') {
-		hideTrendingTodayInSearchResults(value);
-	} else if (key === 'hideCommunityHighlights') {
-		hideCommunityHighlights(value);
-	} else if (key === 'hideSearchSidebarNsfwUsers') {
-		hideSearchSidebarNsfwUsers(value);
-	} else if (key === 'rememberSideMenuSectionHiddenState') {
-		rememberSideMenuSectionHiddenState(value);
-	} else if (key === 'hideHomeFeed') {
-		hideHomeFeed(value);
-	} else if (key === 'postTitleFontWeight') {
-		postTitleFontWeight(value);
-	} else if (key === 'postContentFontWeight') {
-		postContentFontWeight(value);
-	} else if (key === 'postCommentsFontWeight') {
-		postCommentsFontWeight(value);
-	} else if (key === 'feedPostTitleFontSize') {
-		feedPostTitleFontSize(value);
-	} else if (key === 'feedPostContentFontSize') {
-		feedPostContentFontSize(value);
-	} else if (key === 'feedPostTitleFontWeight') {
-		feedPostTitleFontWeight(value);
-	} else if (key === 'feedPostContentFontWeight') {
-		feedPostContentFontWeight(value);
-	} else if (key === 'themePostCommentActionRowColour') {
-		themePostCommentActionRowColour(value);
-	} else if (key === 'themePostCommentActionRowColourCSS') {
-		themePostCommentActionRowColourCSS(value);
-	} else if (key === 'createPostTitleFontSize') {
-		createPostTitleFontSize(value);
-	} else if (key === 'createPostBodyFontSize') {
-		createPostBodyFontSize(value);
-	} else if (key === 'addProfilePicturesToComments') {
-		addProfilePicturesToComments(value);
-	} else if (key === 'hidePostDivider') {
-		hidePostDivider(value);
-	} else if (key === 'postSeparatorHeight') {
-		postSeparatorHeight(value);
-	} else if (key === 'hideBlurredMediaBackground') {
-		hideBlurredMediaBackground(value);
-	} else if (key === 'fullWidthBanner') {
-		fullWidthBanner(value);
-	} else if (key === 'compactHeaderSideMenu') {
-		compactHeaderSideMenu(value);
-	} else if (key === 'resizeMainContainer') {
-		resizeMainContainer(value);
-	} else if (key === 'resizeMainContainerWidth') {
-		resizeMainContainerWidth(value);
-	} else if (key === 'textPostPreviewFade') {
-		textPostPreviewFade(value);
-	} else if (key === 'textPostPreviewFadeHeight') {
-		setTextPostPreviewFadeHeight(value);
-	} else if (key === 'textPostPreviewMaxHeight') {
-		setTextPostPreviewMaxHeight(value);
-	} else if (key === 'customFonts') {
-		customFonts(value);
-	} else if (key === 'sidebarToggleButton') {
-		sidebarToggleButton(value);
-	} else if (key === 'multicolouredThreadLines') {
-		multicolouredThreadLines(value);
-	} else if (key === 'classicOldUI') {
-		classicOldUI(value);
-	} else if (key === 'replacePostImagesWithLinks') {
-		replacePostImagesWithLinks(value);
-	} else if (key === 'replacePostVideosWithLinks') {
-		replacePostVideosWithLinks(value);
-	} else if (key === 'disableBgFadePostOverlay') {
-		disableBgFadePostOverlay(value);
-	} else if (key === 'blurBackgroundPostOverlay') {
-		blurBackgroundPostOverlay(value);
-	} else if (key === 'compressPostLinkDisplay') {
-		compressPostLinkDisplay(value);
-	} else if (key === 'forceCustomBgOldUI') {
-		useCustomBackground(value);
-	} else if (key === 'showUpvoteRatio') {
-		showUpvoteRatio(value);
+
+	// Find the function in the registry matching the same name as the key.
+	if (typeof functionRegistry[key] === 'function') {
+		functionRegistry[key](value);
+	} else {
+		console.error(`Function ${key} not found`);
 	}
+
 	return true;
 });
+
+/* = Functions Registry = */
+const functionRegistry = {
+	darkMode,
+	darkModeAutoListener,
+	useCustomBackground,
+	setCustomBackground,
+	bgBlur,
+	expandLayout,
+	expandLayoutWidth,
+	expandPostOverlayWidth,
+	expandPostWidth,
+	expandSubWidth,
+	expandUserProfileWidth,
+	expandTopicFeedWidth,
+	expandCustomFeedWidth,
+	layoutOffset,
+	layoutSubOffset,
+	layoutPostOffset,
+	layoutUserProfileOffset,
+	layoutSearchPageOffset,
+	layoutCentre,
+	shadows,
+	fitImage,
+	imageScroll,
+	setMaxImageWidth,
+	setMaxImagePostHeight,
+	setMaxVideoWidth,
+	setMaxVideoPostHeight,
+	hideRedditPremium,
+	hideCreatePost,
+	hideAdvertiseButton,
+	hideChatButton,
+	hideModerationButton,
+	hidePopularButton,
+	hideNotificationButton,
+	hideCreatePostButton,
+	hideHomeSidebar,
+	hideSubSidebar,
+	hideGap,
+	stickySort,
+	hideUsername,
+	hideKarma,
+	alwaysShowRisingButton,
+	hideGetNewReddit,
+	hideSidebarPolicy,
+	openSubInNewTab,
+	openPostInNewTab,
+	hidePromoted,
+	hideRecommended,
+	showToTopButton,
+	showAllButton,
+	newPlayer,
+	sidemenuFeedTop,
+	textPostScroll,
+	hideSeeFullImage,
+	moderniseOldReddit,
+	hideHeaderSubBar,
+	hideSideMenuOld,
+	hideSideMenu,
+	autoExpandValue,
+	hidePostSidebar,
+	hidePostOverlaySidebar,
+	hideUserSidebar,
+	hideCustomFeedSidebar,
+	hideRelatedPostsSection,
+	limitInfinityScroll,
+	showControversialSortButton,
+	hideNSFW,
+	hideTurnOnNotificationsPopup,
+	scrollToNextRootComment,
+	showPostNumbers,
+	overrideDropShadow,
+	overrideDropShadowCSS,
+	postHeight,
+	postHeightSize,
+	themeHeaderBackgroundColour,
+	themeHeaderBackgroundColourCSS,
+	themeHeaderTextColour,
+	themeHeaderTextColourCSS,
+	themeSortBackgroundColour,
+	themeSortBackgroundColourCSS,
+	themeSortTextColour,
+	themeSortTextColourCSS,
+	themeSortTextColour2,
+	themeSortTextColour2CSS,
+	themeSortBorderColour,
+	themeSortBorderColourCSS,
+	themePostBackgroundColour,
+	themePostBackgroundColourCSS,
+	themePostVisitedTextColour,
+	themePostVisitedTextColourCSS,
+	themePostTextColour1,
+	themePostTextColour1CSS,
+	themePostTableBorderColour,
+	themeCodeBlockColourCSS,
+	themePostCommentsTextColour1,
+	themePostCommentsTextColour1CSS,
+	themePostCommentsTextColour2,
+	themePostCommentsTextColour2CSS,
+	themePostTextColour2,
+	themePostTextColour2CSS,
+	themePostBorderColour,
+	themePostBorderColourCSS,
+	themeCreatePostBackgroundColour,
+	themeCreatePostBackgroundColourCSS,
+	themeCreatePostBorderColour,
+	themeCreatePostBorderColourCSS,
+	themeSidebarTextColour,
+	themeSidebarTextColourCSS,
+	themeSidebarBgColour,
+	themeSidebarBgColourCSS,
+	themeSidebarBorderColour,
+	themeSidebarBorderColourCSS,
+	themeSidemenuTextColour,
+	themeSidemenuTextColourCSS,
+	themeSidemenuBgColour,
+	themeSidemenuBgColourCSS,
+	themeSidemenuButtonHoverColour,
+	themeSidemenuButtonHoverColourCSS,
+	themePostContentAndCommentsLinkColour,
+	themePostContentAndCommentsLinkColourCSS,
+	themeSearchbarBgColour,
+	themeSearchbarBgColourCSS,
+	themeSearchbarDropdownBgColour,
+	themeSearchbarDropdownBgColourCSS,
+	themePostUpvoteColour,
+	themePostUpvoteColourCSS,
+	themeBlur,
+	bionicReaderPosts,
+	bionicReaderComments,
+	bionicReaderFontColour,
+	bionicReaderFontColourCSS,
+	bionicReaderBgColour,
+	bionicReaderBgColourCSS,
+	alwaysShowPostOptions,
+	hideHeaderBar,
+	nonStickyHeaderBar,
+	hideOriginalScrollToTop,
+	largerClassicPost,
+	scrollToNextRootCommentPosition,
+	breakReminder,
+	showPostAuthor,
+	showPostFlair,
+	hideSideMenuTopSection,
+	hideSideMenuModerationSection,
+	hideSideMenuRecentSection,
+	hideSideMenuCustomFeedsSection,
+	hideSideMenuCommunitiesSection,
+	hideSideMenuResourcesSection,
+	hideSideMenuTopicsSection,
+	postTitleFontSize,
+	postContentFontSize,
+	postCommentsFontSize,
+	hideUserProfilePics,
+	autoExpandComments,
+	hidePostHiddenMessage,
+	scalePostToFitImage,
+	scalePostToFitVideo,
+	autoCollapseAutoModeratorComment,
+	hideJoinButtonOnPosts,
+	autoLoadMoreComments,
+	underlineLinks,
+	autoShowCommentFormattingOptions,
+	hideSearchSidebar,
+	hidePostBackButton,
+	borderRadiusAmount,
+	hidePostKarma,
+	hideCommentKarma,
+	hideVoteButtons,
+	hideRecentPosts,
+	sideMenuWidth,
+	sideMenuIconsOnly,
+	hideSideMenuFavouriteButton,
+	sideMenuToggleButton,
+	hideCompactViewBlankThumbnails,
+	hideCompactViewThumbnails,
+	hideNsfwInSearchResults,
+	hideTrendingTodayInSearchResults,
+	hideCommunityHighlights,
+	hideSearchSidebarNsfwUsers,
+	rememberSideMenuSectionHiddenState,
+	hideHomeFeed,
+	postTitleFontWeight,
+	postContentFontWeight,
+	postCommentsFontWeight,
+	feedPostTitleFontSize,
+	feedPostContentFontSize,
+	feedPostTitleFontWeight,
+	feedPostContentFontWeight,
+	themePostCommentActionRowColour,
+	themePostCommentActionRowColourCSS,
+	createPostTitleFontSize,
+	createPostBodyFontSize,
+	addProfilePicturesToComments,
+	hidePostDivider,
+	postSeparatorHeight,
+	hideBlurredMediaBackground,
+	fullWidthBanner,
+	compactHeaderSideMenu,
+	resizeMainContainer,
+	resizeMainContainerWidth,
+	textPostPreviewFade,
+	textPostPreviewFadeHeight,
+	textPostPreviewMaxHeight,
+	customFonts,
+	sidebarToggleButton,
+	multicolouredThreadLines,
+	classicOldUI,
+	replacePostImagesWithLinks,
+	replacePostVideosWithLinks,
+	disableBgFadePostOverlay,
+	blurBackgroundPostOverlay,
+	compactPostLinkPreview,
+	forceCustomBgOldUI,
+	usernameHoverPopupDelay,
+	showUpvoteRatio,
+	customHeaderLogo,
+	setCustomHeaderLogoUrl,
+	//dragImageToResize,
+	//dragImageToResizeInitialSize,
+	//addDownloadVideoButton,
+};
+
+function forceCustomBgOldUI(value) {
+	useCustomBackground(value);
+}
+
+function shadows(value) {
+	addDropShadow(value);
+}
+
+function textPostPreviewFadeHeight(value) {
+	setTextPostPreviewFadeHeight(value);
+}
+
+function textPostPreviewMaxHeight(value) {
+	setTextPostPreviewMaxHeight(value);
+}

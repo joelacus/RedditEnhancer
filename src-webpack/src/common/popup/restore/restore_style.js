@@ -881,15 +881,15 @@ export function restorePopupStyleOptions() {
 	});
 
 	// Post Table Border Colour
-	BROWSER_API.storage.sync.get(['postTableBorderColour'], function (result) {
-		if (result.postTableBorderColour === true) {
+	BROWSER_API.storage.sync.get(['themePostTableBorderColour'], function (result) {
+		if (result.themePostTableBorderColour === true) {
 			document.querySelector('.icon-post-table-border-colour').style.backgroundColor = 'var(--accent)';
 			document.querySelector('#checkbox-post-table-border-colour').checked = true;
 			highlightMenuIcon('style-tweaks');
-		} else if (typeof result.postTableBorderColour === 'undefined' || result.postTableBorderColour === false) {
+		} else if (typeof result.themePostTableBorderColour === 'undefined' || result.themePostTableBorderColour === false) {
 			document.querySelector('#checkbox-post-table-border-colour').checked = false;
 		}
-		console.log('Post Table Border Colour: ' + result.postTableBorderColour);
+		console.log('Post Table Border Colour: ' + result.themePostTableBorderColour);
 	});
 
 	// Code Block Colour CSS
@@ -900,5 +900,23 @@ export function restorePopupStyleOptions() {
 			document.querySelector('#input-code-block-colour-css').value = '';
 		}
 		console.log('Code Block Colour CSS: ' + result.themeCodeBlockColourCSS);
+	});
+
+	// Custom Header Logo
+	BROWSER_API.storage.sync.get(['customHeaderLogo'], function (result) {
+		const customHeaderLogo = result.customHeaderLogo === true;
+		document.querySelector('.icon-custom-header-logo').style.backgroundColor = customHeaderLogo ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-custom-header-logo').checked = customHeaderLogo;
+		if (customHeaderLogo) {
+			highlightMenuIcon('style-tweaks');
+		}
+		console.log('Custom Header Logo: ' + customHeaderLogo);
+	});
+
+	// Custom Header Logo URL
+	BROWSER_API.storage.sync.get(['customHeaderLogoUrl'], function (result) {
+		const url = result.customHeaderLogoUrl ?? '';
+		document.querySelector('#input-custom-header-logo-url').value = url;
+		console.log('Custom Header Logo URL: ' + url);
 	});
 }

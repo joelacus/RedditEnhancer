@@ -413,16 +413,16 @@ document.querySelector('#checkbox-replace-post-videos-with-links').addEventListe
 	document.querySelector('.icon-replace-post-videos-with-links').style.backgroundColor = replacePostVideosWithLinks ? 'var(--accent)' : '';
 });
 
-// Toggle - Compress Post Link Display
-document.querySelector('#checkbox-compress-post-link-display').addEventListener('change', function (e) {
-	const compressPostLinkDisplay = document.querySelector('#checkbox-compress-post-link-display').checked;
-	if (compressPostLinkDisplay) {
-		BROWSER_API.storage.sync.set({ compressPostLinkDisplay: true });
-		document.querySelector('.icon-compress-post-link-display').style.backgroundColor = 'var(--accent)';
-		sendMessage({ compressPostLinkDisplay: true });
+// Toggle - Compact Post Link Preview
+document.querySelector('#checkbox-compact-post-link-preview').addEventListener('change', function (e) {
+	const compactPostLinkPreview = document.querySelector('#checkbox-compact-post-link-preview').checked;
+	if (compactPostLinkPreview) {
+		BROWSER_API.storage.sync.set({ compactPostLinkPreview: true });
+		document.querySelector('.icon-compact-post-link-preview').style.backgroundColor = 'var(--accent)';
+		sendMessage({ compactPostLinkPreview: true });
 	} else {
-		BROWSER_API.storage.sync.set({ compressPostLinkDisplay: false });
-		document.querySelector('.icon-compress-post-link-display').style.backgroundColor = '';
-		sendMessage({ compressPostLinkDisplay: false });
+		BROWSER_API.storage.sync.set({ compactPostLinkPreview: false });
+		document.querySelector('.icon-compact-post-link-preview').style.backgroundColor = '';
+		sendMessage({ compactPostLinkPreview: false });
 	}
 });

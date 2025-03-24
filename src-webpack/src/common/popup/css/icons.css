@@ -488,3 +488,7 @@
 	mask: url('../../icons/ui/film-solid.svg');
 	-webkit-mask: url('../../icons/ui/film-solid.svg');
 }
+.icon-hourglass {
+	mask: url('../../icons/ui/hourglass-solid.svg');
+	-webkit-mask: url('../../icons/ui/hourglass-solid.svg');
+}

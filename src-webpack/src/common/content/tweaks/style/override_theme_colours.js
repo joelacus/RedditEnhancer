@@ -43,38 +43,7 @@ function loadTheme() {
 			themeBlur('10px');
 		}
 	});
-	BROWSER_API.storage.sync.get([
-		'themeCreatePostBackgroundColour',
-		'themeCreatePostBorderColour',
-		'themeHeaderBackgroundColour',
-		'themeHeaderTextColour',
-		'themePostBackgroundColour',
-		'themePostBorderColour',
-		'themePostCommentsTextColour1',
-		'themePostCommentsTextColour2',
-		'themePostContentAndCommentsLinkColour',
-		'themePostTextColour1',
-		'themePostTextColour1CSS',
-		'themeCodeBlockColourCSS',
-		'themePostTextColour2',
-		'themePostVisitedTextColour',
-		'themeSearchbarBgColour',
-		'themeSearchbarDropdownBgColour',
-		'themeSidebarBgColour',
-		'themeSidebarBorderColour',
-		'themeSidebarTextColour',
-		'themeSidemenuBgColour',
-		'themeSidemenuButtonHoverColour',
-		'themeSidemenuTextColour',
-		'themeSortBackgroundColour',
-		'themeSortBorderColour',
-		'themeSortTextColour',
-		'themeSortTextColour2',
-		'themePostUpvoteColour',
-		'themePostCommentActionRowColour',
-		'themePostCommentActionRowColourCSS',
-		'themePostTableBorderColour'
-	], function (result) {
+	BROWSER_API.storage.sync.get(['themeCreatePostBackgroundColour', 'themeCreatePostBorderColour', 'themeHeaderBackgroundColour', 'themeHeaderTextColour', 'themePostBackgroundColour', 'themePostBorderColour', 'themePostCommentsTextColour1', 'themePostCommentsTextColour2', 'themePostContentAndCommentsLinkColour', 'themePostTextColour1', 'themePostTextColour1CSS', 'themeCodeBlockColourCSS', 'themePostTextColour2', 'themePostVisitedTextColour', 'themeSearchbarBgColour', 'themeSearchbarDropdownBgColour', 'themeSidebarBgColour', 'themeSidebarBorderColour', 'themeSidebarTextColour', 'themeSidemenuBgColour', 'themeSidemenuButtonHoverColour', 'themeSidemenuTextColour', 'themeSortBackgroundColour', 'themeSortBorderColour', 'themeSortTextColour', 'themeSortTextColour2', 'themePostUpvoteColour', 'themePostCommentActionRowColour', 'themePostCommentActionRowColourCSS', 'themePostTableBorderColour'], function (result) {
 		themeCreatePostBackgroundColour(result.themeCreatePostBackgroundColour);
 		themeCreatePostBorderColour(result.themeCreatePostBorderColour);
 		themeHeaderBackgroundColour(result.themeHeaderBackgroundColour);
@@ -619,6 +588,18 @@ export function themePostBackgroundColour(value) {
 										}
 										shreddit-comments-sort-dropdown {
 											--color-neutral-background: transparent !important;
+										}
+										shreddit-profile-comment{
+											background-color: var(--re-theme-post-bg);
+											border-radius: var(--re-theme-border-radius, 1rem);
+											margin-bottom: 8px;
+										}
+										shreddit-profile-comment:hover {
+											background-color: transparent;
+										}
+										shreddit-profile-comment > div:hover {
+											border-radius: var(--re-theme-border-radius, 1rem) !important;
+											background-color: color-mix(in srgb, var(--re-theme-post-bg), #000 10%) !important;
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
 		});

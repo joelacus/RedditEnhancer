@@ -785,3 +785,24 @@ document.querySelector('#input-code-block-colour-css').addEventListener('keyup',
 	BROWSER_API.storage.sync.set({ themeCodeBlockColourCSS: css });
 	sendMessage({ themeCodeBlockColourCSS: css });
 });
+
+// Toggle - Custom Header Logo
+document.querySelector('#checkbox-custom-header-logo').addEventListener('change', function (e) {
+	const customHeaderLogo = document.querySelector('#checkbox-custom-header-logo').checked;
+	if (customHeaderLogo) {
+		BROWSER_API.storage.sync.set({ customHeaderLogo: true });
+		document.querySelector('.icon-custom-header-logo').style.backgroundColor = 'var(--accent)';
+		sendMessage({ customHeaderLogo: true });
+	} else {
+		BROWSER_API.storage.sync.set({ customHeaderLogo: false });
+		document.querySelector('.icon-custom-header-logo').style.backgroundColor = '';
+		sendMessage({ customHeaderLogo: false });
+	}
+});
+
+// Input - Custom Header Logo URL
+document.querySelector('#input-custom-header-logo-url').addEventListener('keyup', function (e) {
+	const url = document.querySelector('#input-custom-header-logo-url').value;
+	BROWSER_API.storage.sync.set({ customHeaderLogoUrl: url });
+	sendMessage({ setCustomHeaderLogoUrl: url });
+});

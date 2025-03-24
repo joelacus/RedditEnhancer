@@ -176,6 +176,44 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		console.log('Limit Infinity Scroll: ' + value);
 	});
 
+	// Enable Default Home Feed Sort Option
+	BROWSER_API.storage.sync.get(['enableDefaultHomeFeedSortOption'], function (result) {
+		if (result.enableDefaultHomeFeedSortOption == true) {
+			document.querySelector('#checkbox-default-home-feed-sort-option').checked = true;
+			document.querySelector('.icon-default-home-feed-sort-option').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else if (typeof result.enableDefaultHomeFeedSortOption == 'undefined' || result.enableDefaultHomeFeedSortOption == false) {
+			document.querySelector('#checkbox-default-home-feed-sort-option').checked = false;
+			var value = false;
+		}
+		console.log('Enable Default Home Feed Sort Option: ' + value);
+	});
+
+	// Default Home Feed Sort Option
+	BROWSER_API.storage.sync.get(['defaultHomeFeedSortOption'], function (result) {
+		setTimeout(() => {
+			// delay for translation
+			if (typeof result.defaultHomeFeedSortOption != 'undefined') {
+				var value = result.defaultHomeFeedSortOption;
+				console.log(value);
+				if (value === 'relevance') {
+					value = 'best';
+				}
+				if (value === 'rising') {
+					value = 'hot';
+				}
+				const text = document.querySelector(`#select-home-feed-sort-option-menu [data-value="${value}"]`).textContent;
+				document.querySelector('#select-home-feed-sort-option .select').querySelector('span').textContent = text;
+			} else if (typeof result.defaultHomeFeedSortOption == 'undefined') {
+				const text = document.querySelector('#select-home-feed-sort-option-menu [data-value="best"]').textContent;
+				document.querySelector('#select-home-feed-sort-option .select').querySelector('span').textContent = text;
+				var value = 'best';
+			}
+			console.log('Default Home Feed Sort Option: ' + value);
+		}, 500);
+	});
+
 	// Enable Default Feed Sort Option
 	BROWSER_API.storage.sync.get(['enableDefaultFeedSortOption'], function (result) {
 		if (result.enableDefaultFeedSortOption == true) {
@@ -196,17 +234,17 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 			// delay for translation
 			if (typeof result.defaultFeedSortOption != 'undefined') {
 				var value = result.defaultFeedSortOption;
-				if (value === 'best') {
-					value = 'relevance';
+				if (value === 'relevance') {
+					value = 'best';
 				} else if (value === 'rising') {
 					value = 'hot';
 				}
-				const text = document.querySelector('#feed-sort-' + value).textContent;
+				const text = document.querySelector(`#select-feed-sort-option-menu [data-value="${value}"]`).textContent;
 				document.querySelector('#select-feed-sort-option .select').querySelector('span').textContent = text;
 			} else if (typeof result.defaultFeedSortOption == 'undefined') {
-				const text = document.querySelector('#feed-sort-relevance').textContent;
+				const text = document.querySelector('#select-feed-sort-option-menu [data-value="best"]').textContent;
 				document.querySelector('#select-feed-sort-option .select').querySelector('span').textContent = text;
-				var value = 'relevance';
+				var value = 'best';
 			}
 			console.log('Default Feed Sort Option: ' + value);
 		}, 500);
@@ -336,33 +374,35 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		console.log('Larger Classic Post: ' + value);
 	});
 
-	// Scroll To Next Root Comment Position Horizontal
+	// Scroll To Next Root Comment Position X
 	BROWSER_API.storage.sync.get(['scrollToNextRootCommentPosition'], function (result) {
-		if (typeof result.scrollToNextRootCommentPosition == 'undefined' || result.scrollToNextRootCommentPosition === '-1') {
-			document.querySelector('#input-scroll-to-root-comment-position').value = -1;
-			document.querySelector('#scroll-to-root-comment-position-value').innerText = '48px';
+		const valueX = result.scrollToNextRootCommentPosition.x;
+		if (typeof valueX == 'undefined' || valueX === '-1') {
+			document.querySelector('#input-scroll-to-root-comment-position-x').value = -1;
+			document.querySelector('#scroll-to-root-comment-position-x-value').innerText = '48px';
 			console.log('Scroll To Next Root Comment Position: 48px');
-		} else if (typeof result.scrollToNextRootCommentPosition != 'undefined') {
-			document.querySelector('#input-scroll-to-root-comment-position').value = result.scrollToNextRootCommentPosition;
-			document.querySelector('#scroll-to-root-comment-position-value').innerText = result.scrollToNextRootCommentPosition + '%';
-			document.querySelector('.icon-scroll-to-root-comment-position').style.backgroundColor = 'var(--accent)';
-			var value = result.scrollToNextRootCommentPosition;
-			console.log('Scroll To Next Root Comment Position: ' + value + '%');
+		} else if (typeof valueX != 'undefined') {
+			document.querySelector('#input-scroll-to-root-comment-position-x').value = valueX;
+			document.querySelector('#scroll-to-root-comment-position-x-value').innerText = valueX + '%';
+			document.querySelector('.icon-scroll-to-root-comment-position-x').style.backgroundColor = 'var(--accent)';
+			var value = valueX;
+			console.log('Scroll To Next Root Comment Position X: ' + value + '%');
 		}
 	});
 
-	// Scroll To Next Root Comment Position Vertical
-	BROWSER_API.storage.sync.get(['scrollToNextRootCommentPositionV'], function (result) {
-		if (typeof result.scrollToNextRootCommentPositionV == 'undefined' || result.scrollToNextRootCommentPositionV === '-1') {
-			document.querySelector('#input-scroll-to-root-comment-position-v').value = -1;
-			document.querySelector('#scroll-to-root-comment-position-v-value').innerText = '50%';
+	// Scroll To Next Root Comment Position Y
+	BROWSER_API.storage.sync.get(['scrollToNextRootCommentPosition'], function (result) {
+		const valueY = result.scrollToNextRootCommentPosition.y;
+		if (typeof valueY == 'undefined' || valueY === '-1') {
+			document.querySelector('#input-scroll-to-root-comment-position-y').value = -1;
+			document.querySelector('#scroll-to-root-comment-position-y-value').innerText = '50%';
 			console.log('Scroll To Next Root Comment Position Vertically: 50%');
-		} else if (typeof result.scrollToNextRootCommentPositionV != 'undefined') {
-			document.querySelector('#input-scroll-to-root-comment-position-v').value = result.scrollToNextRootCommentPositionV;
-			document.querySelector('#scroll-to-root-comment-position-v-value').innerText = result.scrollToNextRootCommentPositionV + '%';
-			document.querySelector('.icon-scroll-to-root-comment-position-v').style.backgroundColor = 'var(--accent)';
-			var value = result.scrollToNextRootCommentPositionV;
-			console.log('Scroll To Next Root Comment Position Vertically: ' + value + '%');
+		} else if (typeof valueY != 'undefined') {
+			document.querySelector('#input-scroll-to-root-comment-position-y').value = valueY;
+			document.querySelector('#scroll-to-root-comment-position-y-value').innerText = valueY + '%';
+			document.querySelector('.icon-scroll-to-root-comment-position-y').style.backgroundColor = 'var(--accent)';
+			var value = valueY;
+			console.log('Scroll To Next Root Comment Position Y: ' + value + '%');
 		}
 	});
 
@@ -505,6 +545,21 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		console.log('Sticky Sort: ' + value);
 	});
 
+	// Username Hover Popup Delay
+	BROWSER_API.storage.sync.get(['usernameHoverPopupDelay'], function (result) {
+		if (typeof result.usernameHoverPopupDelay == 'undefined' || result.usernameHoverPopupDelay === '-0.5') {
+			document.querySelector('#input-username-hover-popup-delay').value = -0.5;
+			document.querySelector('#username-hover-popup-delay-value').innerText = '0.5s';
+			console.log('Scroll To Next Root Comment Position: 0.5s');
+		} else if (typeof result.usernameHoverPopupDelay != 'undefined') {
+			document.querySelector('#input-username-hover-popup-delay').value = result.usernameHoverPopupDelay;
+			document.querySelector('#username-hover-popup-delay-value').innerText = result.usernameHoverPopupDelay + 's';
+			document.querySelector('.icon-username-hover-popup-delay').style.backgroundColor = 'var(--accent)';
+			var value = result.usernameHoverPopupDelay;
+			console.log('Username Hover Popup Delay: ' + value + 's');
+		}
+	});
+
 	// Show Upvote Ratio
 	BROWSER_API.storage.sync.get(['showUpvoteRatio'], function (result) {
 		if (result.showUpvoteRatio === true) {
@@ -517,5 +572,12 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 			var value = false;
 		}
 		console.log('Show Upvote Ratio: ' + value);
+	});
+
+	// Default Sort Feed Option Grace Period
+	BROWSER_API.storage.sync.get(['DefaultSortFeedOptionGracePeriod'], function (result) {
+		const value = result.DefaultSortFeedOptionGracePeriod || 20;
+		document.querySelector('#input-default-sort-feed-option-grace-period').value = value;
+		console.log('Default Sort Feed Option Grace Period: ' + value);
 	});
 }

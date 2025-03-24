@@ -1,3 +1,43 @@
+version 1.16.0
+v [General]
+  - Split "Default Feed Sort Option" into two options, one for the home feed, and one for other feeds.
+  - Added the ability to override the default feed sort option within a set period of time after the page was last auto redirected (default 20 seconds).
+  - Refactored and improved some code.
+  - Updated localisations.
+  - Bug fixes.
+v [New New UI]
+  - Added an option to change the username hover popup delay.
+  - Comments on the user profile feed will now use the post background colour and theme corner radius.
+  - Fixed a bug causing videos to not go fullscreen if the "Scale Post To Fit Video" option is enabled.
+  - Due to some code changes, you may have to re-configure the button position for the scroll to next/previous root comment feature.
+  - Auto hide cookie and google popups.
+v [New New UI & Old UI]
+  - Added an option to replace the Reddit logo in the header bar with a custom image.
+* Special thanks to @biminhc1 (Reddit) @bmndc (Github) for all following changes <3
+v [All]
+- Show Navigation Buttons Between Root Comments should now adjust to changes with header bar height when Hide Header Bar, Non-Sticky Header Bar or Compact Header Bar & Side Menu is on.
+- Small style fixes to Show Side Menu Toggle Button, Modernise Old UI and Theme Border Radius.
+- Hide Home Feed message should now only display once per tab or window, and can be dismissed by refreshing the tab.
+v [New New UI & Old New UI]
+  - Added an option to show the upvote ratio of a post in post detail view.
+  - Rewrote "Show Post Number" to support New New UI and improve reaction to new feeds and posts on Old New UI.
+v [New New UI]
+  - Added an option to compact the post link preview in post detail view.
+  - Added options to add borders to tables and change codeblock colour separately from text content.
+  - Fixed an issue where Visited Post text colour may not apply to post text preview.
+  - Fixed an issue where Show Post Flair may not work on reddit.com subdomains on Chromium-based browsers due to CORS.
+  - Hide Blank Thumbnails in Compact View should now also hide blurred NSFW and spoiler post thumbnails.
+  - Back button on posts should now remain inside the post container at all times.
+  - Merged Compact the Subreddit Rule List into Compact the Header Bar & Side Menu to reduce confusion.
+  - RE can now display banner messages for quick notifications (i.e. if anything went wrong).
+v [Old New UI]
+  - Added an option to disable the semi-transparent background behind post overlays.
+  - Added an option to blur the background behind post overlays.
+  - Changed the logic of Resize Feed/Post, adding support for resizing search result feeds.
+  - Dropped support for Layout Centre. It is possible to centre the feed/post with Hide Sidebar functions.
+v [Old UI]  
+  - Custom Background should no longer apply on Old UI unless being forced, or Modernise Old Reddit is on.
+
 version 1.15.0
 v [General]
   - Added a new "Media" menu category for tweaks related to post images, video, and text.
@@ -54,7 +94,7 @@ v [Old UI]
   - Added an option to set "sans-serif" as main interface font on Old UI.
   - Added an option to *partially* recreate Reddit's 2005–2008 header design.
   - Added support for "Hide Blank Thumbnails in Compact Feed" and "Hide Thumbnails in Compact Feed".
-  - Rewrote the "Resize Feed/Pos"t, "Layout Centre", and "Hide the Home Page sidebar" functions for Old UI.
+  - Rewrote the "Resize Feed/Post", "Layout Centre", and "Hide the Home Page sidebar" functions for Old UI.
   - Added sliders for adjusting "User Profile" and "Custom Feed" widths on Old UI.
   - "Hide Post Karma", "Hide Comment Karma" and "Hide Vote Buttons" should now work on Old UI.
   - Improved the reliability of detecting Old UI when visiting www.reddit.com.
@@ -544,5 +584,5 @@ version 0.3.0
 - Cleaned up some code.
 - Fixed a couple bugs.
 
-version ?.?.?
+version 0.?.?
 * ¯\_(ツ)_/¯
