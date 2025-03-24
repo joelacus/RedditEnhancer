@@ -52,18 +52,19 @@ I welcome any help if you would like to improve or contribute new language trans
 ## Media
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
-|Just Open The Image|This will open just the image in a new tab when you click on it and not be embedded in a page. Only works on Firefox.|All|
 |Add fade effect to text post previews|Adds a fade effect to the bottom of long text posts.|3|
-|Hide Background Blur Behind Image Previews|Hides the blurred background on image posts.|3|
 |Add Scrollbars To Images|Add a scrollbar to tall images so you can see the full width of the image, but scroll on the image to see more.|3<br />2|
-|Scale Post To Fit Image|Dynamically scale the post vertically to fit the maximum height of the image.|3|
-|Scale Post To Fit Video|Dynamically scale the post vertically to fit the maximum height of the video.|3|
-|Max Image Width|Limits the maximum post image content width relative to the post.|3|
+|Compact Post Link Previews|Makes the website image preview of link posts smaller and more compact.|3|
+|Hide Background Blur Behind Image Previews|Hides the blurred background on image posts.|3|
+|Just Open The Image|This will open just the image in a new tab when you click on it and not be embedded in a page. Only works on Firefox.|All|
 |Max Image Post Height|Sets the maximum height of the post content. Note: This may set the image width to less than the "Limit Image Width" value to keep the correct aspect ratio if "Scale Post To Fit Image" is enabled.|3|
-|Max Video Width|Limits the maximum post video content width relative to the post.|3|
+|Max Image Width|Limits the maximum post image content width relative to the post.|3|
 |Max Video Post Height|Sets the maximum height of the post content. Note: This may set the video width to less than the "Limit Video Width" value to keep the correct aspect ratio if "Scale Post To Fit Video" is enabled.|3|
+|Max Video Width|Limits the maximum post video content width relative to the post.|3|
 |Replace Images with Links on Feeds|Hide post images and show text links instead on feeds. (Currently doesn't work with NSFW images).|3|
 |Replace Videos with Links on Feeds|Hide post videos and show text links instead on feeds. (Only works with .mp4 and .gif videos, .m3u8 links may be unplayable in other players).|3|
+|Scale Post To Fit Image|Dynamically scale the post vertically to fit the maximum height of the image.|3|
+|Scale Post To Fit Video|Dynamically scale the post vertically to fit the maximum height of the video.|3|
 |Add Scrollbar To Long Text Posts|This adds a scrollbar to long text posts on the feed so you can read a bit more. There is a limit.|2|
 
 ## Hide Elements
@@ -127,10 +128,12 @@ I welcome any help if you would like to improve or contribute new language trans
 |Show Side Menu Toggle Button|Adds a toggle button on the side menu to show/hide the side menu.|3|
 |Side Menu Icons Only|A mini version of the side menu where it only shows the icons.|3|
 |Side Menu Width|Change the width of the side menu.|3|
+|Username Hover Popup Delay|Set a custom delay for when hovering over a username before the user info card pops up.|3|
+|Add Post Numbers|Number each post to keep track of how many you have scrolled passed.|3<br />2|
+|Show Upvote Percentage in Post View|Show the upvote ratio/percentage next to the post karma.|3<br />2|
 |Limit Image Width|Limit the width of the image/video relative to the post when used with "Add Scrollbar To Tall Images" or "Scale Post To Fit Image"|3<br />2|
 |Non Sticky Header Bar|Prevents the header bar from staying at the top of the screen as you scroll.|3<br />2|
 |Add 'r/All' Button|Adds a new button to the header for 'r/All'.|2|
-|Add Post Numbers|Number each post to keep track of how many you have scrolled passed.|2|
 |Alternative Video Player|Replaces the default reddit video player with videojs. This is more reliable and loads video faster. It also has an option to change the playback speed.|2|
 |Always Show Rising Sort Button|The sort by rising button is no longer hidden in a pointless submenu. Can be disabled.|2|
 |Break Reminders|Set how often you are reminded how many posts you have scrolled passed.|2|
@@ -162,6 +165,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Compact Subreddit Rule List|Compact the spacing in the subreddit rule list.|3|
 |Full Width Subreddit Banner|Stretch the subreddit banners to take the entire width of browser window.|3|
 |Multicoloured Comment Thread Lines|Change the colours of the comment thread lines on the post page. You can set custom colours.|3|
+|Add Border to Tables in Posts|Adds a border to tables in post to make them easier to read.|3|
+|Custom Header Logo|Set a custom image URL to replace the Reddit header logo.|3 <br />1|
 |Drop Shadows|This adds a drop shadow around the feed, post and other elements so that they stand out more if you use a background image, or light mode. You can also use custom CSS.|2|
 |Hide The Interface Gaps|This will remove all the gaps between the interface elements if you don't like that style.|3<br />2|
 |Theme Colours + Blur|You can change various theme colours for the website, and add blur to translucent UI elements.|3<br />2|
@@ -203,13 +208,13 @@ Feel free to add any new languages and/or region differences.
 |[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|100%|
 |[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|100%|
 |[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|100%|
-|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|82.7%|
-|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|76.1%|
-|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|76.1%|
-|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|44.1%|
-|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|36.3%|
-|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|34.0%|
-|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|29.1%|
+|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|8710%|
+|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|73.3%|
+|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|73.3%|
+|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|53.5%|
+|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|35.2%|
+|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|33.0%|
+|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|28.3%|
 
 
 # Build
