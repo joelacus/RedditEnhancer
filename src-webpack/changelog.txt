@@ -15,9 +15,9 @@ v [New New UI & Old UI]
   - Added an option to replace the Reddit logo in the header bar with a custom image.
 * Special thanks to @biminhc1 (Reddit) @bmndc (Github) for all following changes <3
 v [All]
-- Show Navigation Buttons Between Root Comments should now adjust to changes with header bar height when Hide Header Bar, Non-Sticky Header Bar or Compact Header Bar & Side Menu is on.
-- Small style fixes to Show Side Menu Toggle Button, Modernise Old UI and Theme Border Radius.
-- Hide Home Feed message should now only display once per tab or window, and can be dismissed by refreshing the tab.
+  - Show Navigation Buttons Between Root Comments should now adjust to changes with header bar height when Hide Header Bar, Non-Sticky Header Bar or Compact Header Bar & Side Menu is on.
+  - Small style fixes to Show Side Menu Toggle Button, Modernise Old UI and Theme Border Radius.
+  - Hide Home Feed message should now only display once per tab or window, and can be dismissed by refreshing the tab.
 v [New New UI & Old New UI]
   - Added an option to show the upvote ratio of a post in post detail view.
   - Rewrote "Show Post Number" to support New New UI and improve reaction to new feeds and posts on Old New UI.
