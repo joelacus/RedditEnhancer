@@ -71,6 +71,9 @@
 	"Blur": {
 		"message": "Desenfoque"
 	},
+	"BlurBackgroundPostOverlay": {
+		"message": "Fondo de desenfoque detrás de la superposición posterior"
+	},
 	"BorderRadiusAmount": {
 		"message": "Radio de la esquina temática"
 	},
@@ -122,6 +125,9 @@
 	"CompactHeaderSideMenu": {
 		"message": "Compacte la barra de encabezado y el menú lateral"
 	},
+	"CompactPostLinkPreview": {
+		"message": "Vistas previas del enlace de publicación compacta"
+	},
 	"CompactSubRuleList": {
 		"message": "Lista de reglas de subreddit compacto"
 	},
@@ -158,6 +164,9 @@
 	"CustomFeedWidth": {
 		"message": "Ancho de feed personalizado"
 	},
+	"CustomHeaderLogo": {
+		"message": "Logotipo de encabezado personalizado"
+	},
 	"Dark": {
 		"message": "Oscuro"
 	},
@@ -169,6 +178,18 @@
 	},
 	"DefaultFeedSortOption": {
 		"message": "Opción de clasificación de feed predeterminada"
+	},
+	"DefaultHomeFeedSortOption": {
+		"message": "Opción de ordenación de publicaciones del feed de inicio predeterminado"
+	},
+	"DefaultSortFeedOptionGracePeriod": {
+		"message": "Anular la opción de clasificación predeterminada"
+	},
+	"DefaultSortFeedOptionOverrideInfo": {
+		"message": "La cantidad de tiempo después de la página se ha redirigido automáticamente en el que puede anular la opción de clasificación predeterminada."
+	},
+	"DisableBgFadePostOverlay": {
+		"message": "Deshabilitar el fondo Fade detrás de la superposición posterior"
 	},
 	"Disabled": {
 		"message": "Desactivado"
@@ -220,6 +241,12 @@
 	},
 	"FontWeightInfo": {
 		"message": "No todas las fuentes admiten todos los pesos."
+	},
+	"ForceCustomBgOldUI": {
+		"message": "Forzar antecedentes personalizados en la ui antigua"
+	},
+	"ForceCustomBgOldUIInfo": {
+		"message": "Los antecedentes personalizados solo funciona en la UI antigua con modernizar antiguo Reddit habilitado. Alternar esto forzará los antecedentes personalizados en la interfaz de usuario (no recomendado)."
 	},
 	"FullWidthBanner": {
 		"message": "Banner de ancho de ancho completo"
@@ -485,7 +512,7 @@
 	"ModerniseOldRedditInfo": {
 		"message": "Hace que el antiguo Reddit se parezca más al nuevo Reddit."
 	},
-	"MoveFeedToTopInSidemenu": {
+	"MoveFeedToTopInSideMenu": {
 		"message": "Mover la sección de alimentación en el menú lateral a la parte superior"
 	},
 	"MulticolouredCommentThreadLines": {
@@ -596,11 +623,17 @@
 	"PostSeparatorHeight": {
 		"message": "Brecha de publicación"
 	},
+	"PostTableBorderColour": {
+		"message": "Agregar borde a tablas en publicaciones"
+	},
 	"PostTitle": {
 		"message": "Título de la Publicación"
 	},
 	"PostTitleContentColour": {
 		"message": "Publicación: Título y color del contenido del texto"
+	},
+	"PostVisitedTextColour": {
+		"message": "Publicación visitada: color de texto"
 	},
 	"PostVisitedTitleColour": {
 		"message": "Publicación visitada: Color del título"
@@ -743,11 +776,23 @@
 	"ShowRising": {
 		"message": "Mostrar siempre el botón “En Alza” de clasificación"
 	},
+	"ShowUpvoteRatio": {
+		"message": "Mostrar porcentaje de votos a la vista posterior"
+	},
 	"SideMenu": {
 		"message": "Menú lateral"
 	},
+	"SideMenuBackgroundColour": {
+		"message": "Menú lateral: Color de fondo"
+	},
+	"SideMenuButtonHoverColour": {
+		"message": "Menú lateral: Color del botón al pasar el cursor"
+	},
 	"SideMenuIconsOnly": {
 		"message": "Solo iconos del menú lateral"
+	},
+	"SideMenuTextColour": {
+		"message": "Menú lateral: Color de texto"
 	},
 	"SideMenuToggleButton": {
 		"message": "Mostrar botón de alternancia del menú lateral"
@@ -769,15 +814,6 @@
 	},
 	"SidebarToggleButton": {
 		"message": "Botón de alternancia de barra lateral"
-	},
-	"SidemenuBackgroundColour": {
-		"message": "Menú lateral: Color de fondo"
-	},
-	"SidemenuButtonHoverColour": {
-		"message": "Menú lateral: Color del botón al pasar el cursor"
-	},
-	"SidemenuTextColour": {
-		"message": "Menú lateral: Color de texto"
 	},
 	"Sort": {
 		"message": "Ordenar"
@@ -887,6 +923,9 @@
 	"UserProfileWidth": {
 		"message": "Ancho del perfil de usuario"
 	},
+	"UsernameHoverPopupDelay": {
+		"message": "Retraso al pasar el cursor sobre el nombre de usuario para abrir la información emergente"
+	},
 	"Video": {
 		"message": "Video"
 	},
@@ -916,5 +955,8 @@
 	},
 	"resizeHomeAlsoAffects": {
 		"message": "& r/all, r/popular, crear publicaciones, resultados de búsqueda y páginas wiki"
+	},
+	"seconds": {
+		"message": "segundos"
 	}
 }

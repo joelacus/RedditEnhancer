@@ -26,13 +26,11 @@ import { loadHideUsernameAndKarma } from '../../../content/tweaks/hide_elements/
 import { loadHideUserProfilePics } from '../../../content/tweaks/hide_elements/hide_user_profile_pics';
 import { loadImageScroll } from '../../../content/tweaks/media/scroll_images';
 import { loadLargerClassicPost } from '../../../content/tweaks/style/larger_classic_post';
-import { loadLayoutCentre } from '../../../content/tweaks/resize_elements/layout_centre_and_offset';
 import { loadNonStickyHeaderBar } from '../../../content/tweaks/productivity/non_sticky_header_bar';
 import { loadOverrideDropShadow } from '../../../content/tweaks/style/override_drop_shadow';
 import { loadPostHeight } from '../../../content/tweaks/productivity/post_max_height';
 import { loadResizeFont } from '../../../content/tweaks/font/resize_font';
 import { loadPostFontWeight } from '../../../content/tweaks/font/font_weight';
-import { loadScrollToNextRootCommentPosition } from '../../../content/tweaks/productivity/scroll_to_next_root_comment';
 import { loadStickySort } from '../../../content/tweaks/productivity/sticky_sort';
 import { loadUnderlineLinks } from '../../../content/tweaks/accessibility/underline_links';
 import { loadHideRecommendedPosts } from '../../../content/tweaks/hide_elements/hide_recommended';
@@ -42,6 +40,7 @@ import { loadHideVoteButtons } from '../../../content/tweaks/hide_elements/hide_
 import { limitImageSize } from '../../../content/tweaks/media/limit_media_size';
 import { loadHideCompactViewThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_thumbnails';
 import { loadHideCompactViewBlankThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_blank_thumbnails';
+import { loadBlurBackgroundPostOverlay, loadDisableBgFadePostOverlay } from "../../../content/tweaks/background/post_overlay_background";
 
 export function tweakLoaderOldNew() {
 	if (typeof useLegacy != 'undefined') {
@@ -113,7 +112,6 @@ function loadCommon() {
 	loadHideHeaderBar();
 	loadHideUsernameAndKarma();
 	loadHideTurnOnNotificationsPopup();
-	loadScrollToNextRootCommentPosition();
 	loadHidePopularButton();
 	loadHidePromotedPosts();
 	loadBionicReaderColours();
@@ -127,9 +125,10 @@ function loadCommon() {
 	loadHideCommentKarma();
 	loadHideVoteButtons();
 	limitImageSize();
+	loadDisableBgFadePostOverlay();
+	loadBlurBackgroundPostOverlay();
 
 	if (!useLegacy) {
-		loadLayoutCentre();
 		loadHideAdvertiseButton();
 		loadHideChatButton();
 		loadHideCreatePostButton();

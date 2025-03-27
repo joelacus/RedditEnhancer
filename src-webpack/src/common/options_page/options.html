@@ -288,7 +288,7 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="container-3 r-old r-new">
+								<div class="container-3 r-old">
 									<span class="menu-item-icon icon-centre"></span>
 									<span data-lang="Centre" data-search="centre,center,middle"></span>
 									<label class="switch">
@@ -1202,6 +1202,14 @@
 							<li id="media-text" class="sub-header r-new r-newnew">
 								<span data-lang="Text"></span>
 							</li>
+							<li class="container-3 r-newnew">
+								<span class="menu-item-icon icon-compress icon-compact-post-link-preview"></span>
+								<span data-lang="CompactPostLinkPreview" data-search="post,link"></span>
+								<label class="switch">
+									<input id="checkbox-compact-post-link-preview" type="checkbox" />
+									<span class="indicator"></span>
+								</label>
+							</li>
 							<li class="container r-newnew">
 								<div class="container-3">
 									<span class="menu-item-icon icon-ruler-vertical icon-text-post-preview-height"></span>
@@ -1310,31 +1318,68 @@
 								</label>
 							</li>
 							<li class="container-3 r-old r-new r-newnew">
+								<span class="menu-item-icon icon-sort icon-default-home-feed-sort-option"></span>
+								<span data-lang="DefaultHomeFeedSortOption" data-search=""></span>
+								<div></div>
+								<div></div>
+								<div id="select-home-feed-sort-option" class="dropdown">
+									<div class="select">
+										<span id="chosen-home-feed-sort-option">Best</span>
+										<div class="icon dropdown-icon icon-chevron-down"></div>
+									</div>
+									<input type="hidden" name="version" />
+									<ul id="select-home-feed-sort-option-menu" class="dropdown-menu">
+										<li data-value="best" class="r-newnew r-old"><span data-lang="Best"></span></li>
+										<li data-value="hot" class="r-newnew r-new"><span data-lang="Hot"></span></li>
+										<li data-value="new" class="r-newnew r-new r-old"><span data-lang="New"></span></li>
+										<li data-value="top" class="r-newnew r-new r-old"><span data-lang="Top"></span></li>
+										<li data-value="rising" class="r-newnew r-new r-old"><span data-lang="Rising"></span></li>
+									</ul>
+								</div>
+								<label class="switch">
+									<input id="checkbox-default-home-feed-sort-option" type="checkbox" />
+									<span class="indicator"></span>
+								</label>
+							</li>
+							<li class="container-3 r-old r-new r-newnew">
 								<span class="menu-item-icon icon-sort icon-default-feed-sort-option"></span>
 								<span data-lang="DefaultFeedSortOption" data-search=""></span>
 								<div></div>
 								<div></div>
 								<div id="select-feed-sort-option" class="dropdown">
 									<div class="select">
-										<span id="chosen-feed-sort-option">Sort Option</span>
+										<span id="chosen-feed-sort-option">Best</span>
 										<div class="icon dropdown-icon icon-chevron-down"></div>
 									</div>
 									<input type="hidden" name="version" />
 									<ul id="select-feed-sort-option-menu" class="dropdown-menu">
-										<!--<li id="feed-sort-best"><span data-lang="Best"></span></li>-->
-										<li id="feed-sort-relevance" class="r-newnew r-old"><span data-lang="Relevance"></span></li>
-										<li id="feed-sort-hot" class="r-newnew r-new"><span data-lang="Hot"></span></li>
-										<li id="feed-sort-top" class="r-newnew r-new r-old"><span data-lang="Top"></span></li>
-										<li id="feed-sort-new" class="r-newnew r-new r-old"><span data-lang="New"></span></li>
-										<li id="feed-sort-comments" class="r-newnew r-old"><span data-lang="CommentsCount"></span></li>
-										<!--<li id="feed-sort-controversial"><span data-lang="Controversial"></span></li>
-										<li id="feed-sort-rising"><span data-lang="Rising"></span></li>-->
+										<!--<li data-value="best"><span data-lang="Best"></span></li>-->
+										<li data-value="best" class="r-newnew r-old"><span data-lang="Best"></span></li>
+										<li data-value="hot" class="r-newnew r-new"><span data-lang="Hot"></span></li>
+										<li data-value="top" class="r-newnew r-new r-old"><span data-lang="Top"></span></li>
+										<li data-value="new" class="r-newnew r-new r-old"><span data-lang="New"></span></li>
+										<li data-value="comments" class="r-newnew r-old"><span data-lang="CommentsCount"></span></li>
+										<!--<li data-value="controversial"><span data-lang="Controversial"></span></li>
+										<li data-value="rising"><span data-lang="Rising"></span></li>-->
 									</ul>
 								</div>
 								<label class="switch">
 									<input id="checkbox-default-feed-sort-option" type="checkbox" />
 									<span class="indicator"></span>
 								</label>
+							</li>
+							<li class="container r-old r-new r-newnew">
+								<div class="container-3">
+									<div></div>
+									<span data-lang="DefaultSortFeedOptionGracePeriod" data-search="sort"></span>
+									<div></div>
+									<div></div>
+									<div class="css-input-container">
+										<input id="input-default-sort-feed-option-grace-period" type="number" maxlength="3" placeholder="20" />
+										<span data-lang="seconds"></span>
+									</div>
+								</div>
+								<p class="info" data-lang="DefaultSortFeedOptionOverrideInfo"></p>
 							</li>
 							<li id="productivity-header" class="sub-header r-old r-new r-newnew">
 								<span data-lang="Header"></span>
@@ -1375,6 +1420,14 @@
 								</label>
 							</li>
 							<li class="container-3 r-newnew">
+								<span class="menu-item-icon icon-hourglass icon-username-hover-popup-delay"></span>
+								<span data-lang="UsernameHoverPopupDelay" data-search="username,author,delay,hover"></span>
+								<div></div>
+								<div></div>
+								<input type="range" min="-0.5" max="10" value="-0.5" step="0.5" class="slider" id="input-username-hover-popup-delay" />
+								<span id="username-hover-popup-delay-value" class="input-value"></span>
+							</li>
+							<li class="container-3 r-newnew">
 								<span class="menu-item-icon icon-star icon-show-post-flair"></span>
 								<span data-lang="ShowPostFlair" data-search="user,flair"></span>
 								<label class="switch">
@@ -1382,11 +1435,19 @@
 									<span class="indicator"></span>
 								</label>
 							</li>
-							<li class="container-3 r-new">
+							<li class="container-3 r-new r-newnew">
 								<span class="menu-item-icon icon-numbers icon-show-post-numbers"></span>
 								<span data-lang="ShowPostNumbers" data-search="numbers"></span>
 								<label class="switch">
 									<input id="checkbox-show-post-numbers" type="checkbox" />
+									<span class="indicator"></span>
+								</label>
+							</li>
+							<li class="container-3 r-new r-newnew">
+								<span class="menu-item-icon icon-arrow-up icon-show-upvote-ratio"></span>
+								<span data-lang="ShowUpvoteRatio" data-search="upvote,vote"></span>
+								<label class="switch">
+									<input id="checkbox-show-upvote-ratio" type="checkbox" />
 									<span class="indicator"></span>
 								</label>
 							</li>
@@ -1477,21 +1538,21 @@
 								</div>
 								<div class="divider"></div>
 								<div class="container-3">
-									<span class="menu-item-icon icon-arrow-right icon-scroll-to-root-comment-position"></span>
+									<span class="menu-item-icon icon-arrow-right icon-scroll-to-root-comment-position-x"></span>
 									<span data-lang="PositionHorizontally" data-search="scroll,arrows,comment,first,root"></span>
 									<div></div>
 									<div></div>
-									<input type="range" min="-1" max="100" value="0" step="1" class="slider" id="input-scroll-to-root-comment-position" />
-									<span id="scroll-to-root-comment-position-value" class="input-value"></span>
+									<input type="range" min="-1" max="100" value="0" step="1" class="slider" id="input-scroll-to-root-comment-position-x" />
+									<span id="scroll-to-root-comment-position-x-value" class="input-value"></span>
 								</div>
 								<div class="divider"></div>
 								<div class="container-3">
-									<span class="menu-item-icon icon-arrow-down icon-scroll-to-root-comment-position-v"></span>
+									<span class="menu-item-icon icon-arrow-down icon-scroll-to-root-comment-position-y"></span>
 									<span data-lang="PositionVertically" data-search="scroll,arrows,comment,first,root"></span>
 									<div></div>
 									<div></div>
-									<input type="range" min="-1" max="100" value="0" step="1" class="slider" id="input-scroll-to-root-comment-position-v" />
-									<span id="scroll-to-root-comment-position-v-value" class="input-value"></span>
+									<input type="range" min="-1" max="100" value="0" step="1" class="slider" id="input-scroll-to-root-comment-position-y" />
+									<span id="scroll-to-root-comment-position-y-value" class="input-value"></span>
 								</div>
 							</li>
 							<li class="container-3 r-old r-new">
@@ -1547,7 +1608,7 @@
 							</li>
 							<li class="container-3 r-new">
 								<span class="menu-item-icon icon-turn-up icon-sidemenu-feed-top"></span>
-								<span data-lang="MoveFeedToTopInSidemenu" data-search="feed,sidemenu,top"></span>
+								<span data-lang="MoveFeedToTopInSideMenu" data-search="feed,sidemenu,top"></span>
 								<label class="switch">
 									<input id="checkbox-sidemenu-feed-top" type="checkbox" />
 									<span class="indicator"></span>
@@ -1666,10 +1727,10 @@
 									<span id="create-post-body-font-size-value" class="input-value"></span>
 								</div>
 							</li>
-							<li id="font-weight" class="sub-header r-old r-newnew">
+							<li id="font-weight" class="sub-header r-old r-new r-newnew">
 								<span data-lang="FontWeight"></span>
 							</li>
-							<li class="container r-old r-newnew">
+							<li class="container r-old r-new r-newnew">
 								<div class="container-slider">
 									<span class="menu-item-icon icon-bold icon-post-title-font-weight"></span>
 									<span data-lang="PostTitle" data-search=""></span>
@@ -1825,14 +1886,17 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
-								<div class="container-3">
-									<span class="menu-item-icon icon-compress icon-compact-sub-rule-list"></span>
-									<span data-lang="CompactSubRuleList" data-search="rule,subreddit"></span>
-									<label class="switch">
-										<input id="checkbox-compact-sub-rule-list" type="checkbox" />
-										<span class="indicator"></span>
-									</label>
+							</li>
+							<li class="container-3 r-old r-newnew">
+								<span class="menu-item-icon icon-background icon-custom-header-logo"></span>
+								<span data-lang="CustomHeaderLogo" data-search="logo,icon"></span>
+								<label class="switch">
+									<input id="checkbox-custom-header-logo" type="checkbox" />
+									<span class="indicator"></span>
+								</label>
+								<div></div>
+								<div class="css-input-container" style="margin-bottom: 4px">
+									<input id="input-custom-header-logo-url" type="text" placeholder="Image URL" />
 								</div>
 							</li>
 							<!-- Theme -->
@@ -2074,8 +2138,24 @@
 										<span class="text-small">color:</span>
 										<input id="input-post-text-colour-css" type="text" placeholder="#fff" />
 									</div>
+									<div></div>
+									<div></div>
+									<div class="css-input-container">
+										<span class="text-small">code-color:</span>
+										<input id="input-code-block-colour-css" type="text" placeholder="#fff" />
+									</div>
+									<div></div>
 								</div>
 								<div class="divider"></div>
+								<div class="container-3 r-newnew">
+									<span class="menu-item-icon icon-spray-can icon-post-table-border-colour"></span>
+									<span data-lang="PostTableBorderColour" data-search="theme,table,colour"></span>
+									<label class="switch">
+										<input id="checkbox-post-table-border-colour" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
+								</div>
+								<div class="divider r-newnew"></div>
 								<div class="container-3">
 									<span class="menu-item-icon icon-spray-can icon-post-text-colour-2"></span>
 									<span data-lang="PostSecondaryTextColour" data-search="theme,colour"></span>
@@ -2091,16 +2171,16 @@
 								</div>
 								<div class="divider"></div>
 								<div class="container-3">
-									<span class="menu-item-icon icon-spray-can icon-post-visited-title-colour"></span>
-									<span data-lang="PostVisitedTitleColour" data-search="theme,colour"></span>
+									<span class="menu-item-icon icon-spray-can icon-post-visited-text-colour"></span>
+									<span data-lang="PostVisitedTitleColour" data-search="theme,text,colour"></span>
 									<label class="switch">
-										<input id="checkbox-post-visited-title-colour" type="checkbox" />
+										<input id="checkbox-post-visited-text-colour" type="checkbox" />
 										<span class="indicator"></span>
 									</label>
 									<div></div>
 									<div class="css-input-container">
 										<span class="text-small">color:</span>
-										<input id="input-post-visited-title-colour-css" type="text" placeholder="#fff" />
+										<input id="input-post-visited-text-colour-css" type="text" placeholder="#fff" />
 									</div>
 								</div>
 								<div class="divider"></div>
@@ -2242,7 +2322,7 @@
 							<li class="container r-new r-newnew">
 								<div class="container-3">
 									<span class="menu-item-icon icon-spray-can icon-sidemenu-text-colour"></span>
-									<span data-lang="SidemenuTextColour" data-search="theme,colour"></span>
+									<span data-lang="SideMenuTextColour" data-search="theme,colour"></span>
 									<label class="switch">
 										<input id="checkbox-sidemenu-text-colour" type="checkbox" />
 										<span class="indicator"></span>
@@ -2256,7 +2336,7 @@
 								<div class="divider"></div>
 								<div class="container-3">
 									<span class="menu-item-icon icon-spray-can icon-sidemenu-bg-colour"></span>
-									<span data-lang="SidemenuBackgroundColour" data-search="theme,colour"></span>
+									<span data-lang="SideMenuBackgroundColour" data-search="theme,colour"></span>
 									<label class="switch">
 										<input id="checkbox-sidemenu-bg-colour" type="checkbox" />
 										<span class="indicator"></span>
@@ -2270,7 +2350,7 @@
 								<div class="divider"></div>
 								<div class="container-3">
 									<span class="menu-item-icon icon-spray-can icon-sidemenu-button-hover-colour"></span>
-									<span data-lang="SidemenuButtonHoverColour" data-search="theme,colour"></span>
+									<span data-lang="SideMenuButtonHoverColour" data-search="theme,colour"></span>
 									<label class="switch">
 										<input id="checkbox-sidemenu-button-hover-colour" type="checkbox" />
 										<span class="indicator"></span>
@@ -2286,32 +2366,34 @@
 							<li id="theme-blacklist-whitelist" class="sub-header r-new r-newnew" style="scroll-margin-top: 55px">
 								<span data-lang="WhitelistBlacklist"></span>
 							</li>
-							<li class="container-3 r-new r-newnew">
-								<span class="menu-item-icon icon-list-check-solid icon-theme-exceptions"></span>
-								<span data-lang="WhitelistBlacklist" data-search=""></span>
-								<label class="switch">
-									<input id="checkbox-theme-exceptions-enable" type="checkbox" />
-									<span class="indicator"></span>
-								</label>
-								<div></div>
-								<div class="tab-switcher">
-									<div id="btn-theme-whitelist" class=""><span data-lang="Whitelist" data-search=""></span></div>
-									<div id="btn-theme-blacklist" class="tab-active"><span data-lang="Blacklist" data-search=""></span></div>
+							<li class="container r-new r-newnew">
+								<div class="container-3">
+									<span class="menu-item-icon icon-list-check-solid icon-theme-exceptions"></span>
+									<span data-lang="WhitelistBlacklist" data-search=""></span>
+									<label class="switch">
+										<input id="checkbox-theme-exceptions-enable" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
+									<div></div>
+									<div class="tab-switcher">
+										<div id="btn-theme-whitelist" class=""><span data-lang="Whitelist" data-search=""></span></div>
+										<div id="btn-theme-blacklist" class="tab-active"><span data-lang="Blacklist" data-search=""></span></div>
+									</div>
+									<div></div>
+									<div></div>
+									<span data-lang="ThemeWhitelistInfo" class="hidden"></span>
+									<span data-lang="ThemeBlacklistInfo"></span>
+									<div></div>
+									<div></div>
+									<textarea id="input-theme-exceptions" rows="4" cols="auto" placeholder="subreddit,subreddit"></textarea>
 								</div>
-								<div></div>
-								<div></div>
-								<span data-lang="ThemeWhitelistInfo" class="hidden"></span>
-								<span data-lang="ThemeBlacklistInfo"></span>
-								<div></div>
-								<div></div>
-								<textarea id="input-theme-exceptions" rows="4" cols="auto" placeholder="subreddit,subreddit"></textarea>
 							</li>
 						</ul>
 					</li>
 
 					<li id="index-5" data-index="5">
 						<!-- Background -->
-						<div id="background" class="menu-item-link btn-background r-old r-new r-newnew">
+						<div id="background" class="menu-item-link btn-background r-new r-newnew">
 							<div class="menu-item-btn">
 								<span class="menu-item-icon icon-background"></span>
 								<span data-lang="Background" class="menu-item-title"></span>
@@ -2348,13 +2430,41 @@
 										<button class="btn btn-add-custom-background icon icon-plus" type="submit" value="Add Background URL"></button>
 									</form>
 								</div>
-								<div class="divider"></div>
 								<div class="container r-old r-new r-newnew">
 									<button class="btn-edit-backgrounds btn-icon icon-bin" data-search="background,image" value="Enable Background Edit Mode"></button>
 									<button class="btn-edit-backgrounds-save btn-icon icon-check" style="display: none" value="Disable Background Edit Mode"></button>
 									<div id="backgrounds-container">
 										<span id="no-saved-backgrounds-message" data-lang="NoSavedBackgrounds"></span>
 									</div>
+								</div>
+							</li>
+							<li class="container r-old">
+								<div class="container-3 r-old">
+									<span class="menu-item-icon icon-background icon-force-custom-bg-old-ui"></span>
+									<span data-lang="ForceCustomBgOldUI" data-search="force,background,old"></span>
+									<label class="switch">
+										<input id="checkbox-force-custom-bg-old-ui" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
+								</div>
+								<p class="info" data-lang="ForceCustomBgOldUIInfo"></p>
+							</li>
+							<li class="container r-new">
+								<div class="container-3 r-new">
+									<span class="menu-item-icon icon-fade icon-disable-bg-fade-post-overlay"></span>
+									<span data-lang="DisableBgFadePostOverlay" data-search="transparent,background,post,overlay"></span>
+									<label class="switch">
+										<input id="checkbox-disable-bg-fade-post-overlay" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
+								</div>
+								<div class="container-3 r-new">
+									<span class="menu-item-icon icon-blur icon-blur-background-post-overlay"></span>
+									<span data-lang="BlurBackgroundPostOverlay" data-search="blur,background,post,overlay"></span>
+									<label class="switch">
+										<input id="checkbox-blur-background-post-overlay" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
 								</div>
 							</li>
 						</ul>

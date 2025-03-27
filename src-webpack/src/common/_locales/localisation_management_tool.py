@@ -9,7 +9,7 @@
 #  Localisation Management Tool
 #
 #  Author:        github.com/joelacus
-#  Version:       1.0
+#  Version:       1.1
 #  Description:   Easily manage localisation files for web extensions.
 #
 #  Features:      Add a new translation into each localisation file.
@@ -33,6 +33,7 @@ import platform
 import argparse
 import requests
 import asyncio
+import time
 from typing import Dict, List, Tuple
 
 
@@ -292,10 +293,11 @@ def find_missing_translations(selected_locale, selected_locale_name):
                     custom_translation = input(f"? Enter text to auto translation into ({selected_locale}):")
                     auto_translated = get_translation(selected_locale, custom_translation)
                     if not auto_translated == None:
-                        print(f"> Translated into Spanish (es). Accept translation?: {colours.LIGHTGREEN}{auto_translated}{colours.RESET}")
+                        print(f"> Translated into {selected_locale_name} ({selected_locale}). Accept translation?: {colours.LIGHTGREEN}{auto_translated}{colours.RESET}")
                 elif response.lower() == '/skip':
                     break
                 elif response.lower() == '/back':
+                    time.sleep(0.5)
                     find_missing_translations_menu()
                 elif response.lower() == '/exit':
                     sys.exit(1)

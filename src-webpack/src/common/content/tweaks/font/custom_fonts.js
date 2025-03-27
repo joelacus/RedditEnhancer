@@ -30,7 +30,11 @@ export function customFonts(value) {
                     html body, html textarea {
                         font: normal 12px/1.4 sans-serif;
                     }
-                    form#search input[type="text"] {
+                    form#search input[type="text"],
+                    div.crossposting-modal div.modal-body,
+                    div.crossposting-modal div.modal-body h1,
+                    div.crossposting-modal div.modal-body form#cross_post *,
+                    div.crossposting-modal select.crosspost-field.crosspost-subreddit {
                         font-family: inherit;
                     }
                     div#header-bottom-left,
@@ -46,7 +50,8 @@ export function customFonts(value) {
                     span.domain,
                     .commentarea div.menuarea .toggle a,
                     div.reddit-infobar.with-icon div.md,
-                    .sidebox div.subtitle {
+                    .sidebox div.subtitle,
+                    div.crossposting-modal div.modal-body :not(h1):not(.crosspost-field) {
                         font-size: inherit;
                     }
                     div.tagline {
@@ -58,6 +63,9 @@ export function customFonts(value) {
                     }
                     .tabmenu {
                         margin-bottom: -0.15em;
+                    }
+                    div.crossposting-modal div.modal-body {
+                        padding: 1rem;
                     }
                     /* Style normal flairs as formatted flairs */
 	                span.linkflairlabel {

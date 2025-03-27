@@ -8,6 +8,9 @@
 	"About": {
 		"message": "Handla om"
 	},
+	"Accessibility": {
+		"message": "Tillgänglighet"
+	},
 	"AlwaysShowPostOptions": {
 		"message": "Visa alltid inläggsalternativ"
 	},
@@ -16,6 +19,9 @@
 	},
 	"AutoCollapseAutoModeratorComment": {
 		"message": "Automatisk minimera AutoModerator-kommentar"
+	},
+	"AutoExpand": {
+		"message": "Expandera till 100% om fönster/skärmbredd är mindre än:"
 	},
 	"AutoExpandComments": {
 		"message": "Expandera dolda kommentarer automatiskt"
@@ -32,11 +38,44 @@
 	"Background": {
 		"message": "Bakgrund"
 	},
+	"Backup": {
+		"message": "Säkerhetskopiering"
+	},
 	"BackupRestoreConfig": {
 		"message": "Säkerhetskopia/Återställ konfigurationg"
 	},
+	"BackupRestored": {
+		"message": "Säkerhetskopiering återställd!"
+	},
+	"Best": {
+		"message": "Bäst"
+	},
+	"BionicBackgroundColour": {
+		"message": "Bionisk bakgrundsfärg"
+	},
+	"BionicFontColour": {
+		"message": "Bioniskt teckensnittsfärg"
+	},
+	"BionicReader": {
+		"message": "Bionisk läsare"
+	},
+	"BionicReaderComments": {
+		"message": "Bionic läsare för kommentarer"
+	},
+	"BionicReaderPosts": {
+		"message": "Bionic läsare för inlägg"
+	},
+	"Blacklist": {
+		"message": "Svartlista"
+	},
 	"Blur": {
 		"message": "Fläck"
+	},
+	"BlurBackgroundPostOverlay": {
+		"message": "Oskärpa bakgrund bakom postöverlägget"
+	},
+	"BorderRadiusAmount": {
+		"message": "Temahörnradie"
 	},
 	"BreakReminder": {
 		"message": "Pauspåminnelse"
@@ -56,11 +95,26 @@
 	"Centre": {
 		"message": "Centrum"
 	},
+	"Changelog": {
+		"message": "Byte"
+	},
+	"ChooseBackupFile": {
+		"message": "Välj säkerhetskopieringsfil"
+	},
 	"ClassicLight": {
 		"message": "Klassisk Ljus"
 	},
 	"ClassicOldUI": {
 		"message": "Klassiskt gammalt användargränssnitt"
+	},
+	"Cleared": {
+		"message": "Rensad"
+	},
+	"Close": {
+		"message": "Nära"
+	},
+	"CloseTab": {
+		"message": "Du kan nu stänga fliken/fönstret."
 	},
 	"Comments": {
 		"message": "Kommentarer"
@@ -68,14 +122,62 @@
 	"CommentsCount": {
 		"message": "Kommentarer räknas"
 	},
+	"CompactHeaderSideMenu": {
+		"message": "Kompakt rubrikstången och sidemenyn"
+	},
+	"CompactPostLinkPreview": {
+		"message": "Förhandsvisningar av kompakt postlänk"
+	},
+	"Confirm": {
+		"message": "Bekräfta"
+	},
+	"Controversial": {
+		"message": "Kontroversiell"
+	},
+	"ControversialSort": {
+		"message": "Visa den \"kontroversiella\" sorteringsknappen"
+	},
+	"CreatePost": {
+		"message": "Skapa inlägg"
+	},
+	"CreatePostBgColour": {
+		"message": "Skapa inlägg: Bakgrundsfärg"
+	},
+	"CreatePostBody": {
+		"message": "Skapa inlägg: Kropp"
+	},
+	"CreatePostBorderColour": {
+		"message": "Skapa inlägg: Kantfärg"
+	},
+	"CreatePostTitle": {
+		"message": "Skapa inlägg: Titel"
+	},
 	"CustomBgInputPlaceholder": {
 		"message": "Anpassad bakgrundslänk"
+	},
+	"CustomCSS": {
+		"message": "Anpassad CSS"
+	},
+	"CustomFeedWidth": {
+		"message": "Anpassad foderbredd"
+	},
+	"CustomHeaderLogo": {
+		"message": "Anpassad rubriklogotyp"
 	},
 	"Dark": {
 		"message": "Mörk"
 	},
 	"DarkMode": {
 		"message": "Mörkt läge"
+	},
+	"DefaultCommentsSortOption": {
+		"message": "Standardkommentarer Sortalternativ"
+	},
+	"DefaultFeedSortOption": {
+		"message": "Standardfoder Sorteringsalternativ"
+	},
+	"DefaultHomeFeedSortOption": {
+		"message": "Standardalternativ för hemmatning"
 	},
 	"Disabled": {
 		"message": "Inaktiverad"
@@ -403,5 +505,8 @@
 	},
 	"Width": {
 		"message": "Bredd"
+	},
+	"seconds": {
+		"message": "sekunder"
 	}
 }

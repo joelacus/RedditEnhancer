@@ -1,64 +1,50 @@
-/* ===== Tweaks - Productivity - Scroll To Next Root Comment ===== */
+/**
+ * Tweaks: Productivity - Show Navigation Buttons for the Previous/Next Root Comment
+ * @name scrollToNextRootComment
+ * @description Add navigation buttons to scroll to the previous or next top-level comment on Reddit comment pages.
+ *
+ * Applies to: Old UI (2006-), New UI (2018-2024), New New UI (2023-)
+ */
 
-/* === Triggered On Page Load === */
+// Get the feature state from browser sync storage
 export function loadScrollToNextRootComment() {
-	BROWSER_API.storage.sync.get(['scrollToNextRootComment'], function (result) {
-		if (result.scrollToNextRootComment) scrollToNextRootComment(true);
-	});
-}
-export function loadScrollToNextRootCommentPosition() {
-	BROWSER_API.storage.sync.get(['scrollToNextRootCommentPosition', 'scrollToNextRootCommentPositionV'], function (result) {
-		scrollToNextRootCommentPosition(result.scrollToNextRootCommentPosition);
-		scrollToNextRootCommentPositionV(result.scrollToNextRootCommentPositionV);
+	BROWSER_API.storage.sync.get(['scrollToNextRootComment', 'scrollToNextRootCommentPosition'], function (result) {
+		if (result.scrollToNextRootComment) {
+			scrollToNextRootComment(true);
+			scrollToNextRootCommentPosition(result.scrollToNextRootCommentPosition);
+		}
 	});
 }
 
-/* === Main Function === */
+// Activate the feature based on Reddit version
 export function scrollToNextRootComment(value) {
-	if (redditVersion === 'new') {
-		if (value === true) {
-			const link = window.location.href;
-			if (link.match('https://.*.reddit.com/r/.*/comments/.*')) {
-				enableScrollToNextRootCommentNew();
-			} else {
-				disableScrollToNextRootCommentAll();
-			}
-		} else if (value === false || value === undefined) {
+	const isCommentPage = window.location.href.match('https://.*.reddit.com/r/.*/comments/.*');
+	const enableFunctionMap = {
+		new: enableScrollToNextRootCommentNew,
+		newnew: enableScrollToNextRootCommentNewNew,
+		old: enableScrollToNextRootCommentOld,
+	};
+
+	if (value && isCommentPage) {
+		// Remove existing navigation buttons if any
+		if (document.querySelector('.re-scroll-to-comment-container')) {
 			disableScrollToNextRootCommentAll();
 		}
-	} else if (redditVersion === 'newnew') {
-		if (value === true) {
-			const link = window.location.href;
-			if (link.match('https://.*.reddit.com/r/.*/comments/.*')) {
-				enableScrollToNextRootCommentNewNew();
-			} else {
-				disableScrollToNextRootCommentAll();
-			}
-		} else if (value === false || value === undefined) {
-			disableScrollToNextRootCommentAll();
-		}
-	} else if (redditVersion === 'old') {
-		if (value === true) {
-			const link = window.location.href;
-			if (link.match('https://.*.reddit.com/r/.*/comments/.*')) {
-				enableScrollToNextRootCommentOld();
-			} else {
-				disableScrollToNextRootCommentAll();
-			}
-		} else if (value === false || value === undefined) {
-			disableScrollToNextRootCommentAll();
-		}
+		enableFunctionMap[redditVersion]?.();
+	} else {
+		disableScrollToNextRootCommentAll();
 	}
 }
 
 // Function - Enable Scroll To Next Root Comment - New
 function enableScrollToNextRootCommentNew() {
-	// Remove existing buttons
-	if (document.querySelector('.re-scroll-to-comment-container') != null) {
-		document.querySelectorAll('.re-scroll-to-comment-container').forEach(function (el) {
-			el.remove();
-		});
-	}
+	// Determine the header bar height based on enabled RE features
+	let headerHeight = 56; // 48px header + 8px padding
+	BROWSER_API.storage.sync.get(['hideHeaderBar', 'nonStickyHeaderBar'], (result) => {
+		if (result.hideHeaderBar || result.nonStickyHeaderBar) {
+			headerHeight = 8;
+		}
+	});
 
 	// Find all root comments and add class
 	function find_root_comments() {
@@ -73,6 +59,7 @@ function enableScrollToNextRootCommentNew() {
 			}
 		});
 	}
+
 	// init root comment classes
 	setTimeout(() => {
 		find_root_comments();
@@ -100,9 +87,9 @@ function enableScrollToNextRootCommentNew() {
 		// find the previous "re-root-comment" element above the current scroll position
 		for (let i = reRootComments.length - 1; i >= 0; i--) {
 			if (document.querySelector('#overlayScrollContainer')) {
-				var commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 100);
+				var commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - headerHeight - 48);
 			} else {
-				var commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 45);
+				var commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			}
 			if (commentOffsetTop < currentScrollPosition) {
 				previousComment = reRootComments[i];
@@ -112,10 +99,10 @@ function enableScrollToNextRootCommentNew() {
 		// scroll to comment
 		if (previousComment) {
 			if (document.querySelector('#overlayScrollContainer')) {
-				const scrollToPosition = Math.floor(previousComment.getBoundingClientRect().top + currentScrollPosition - 100);
+				const scrollToPosition = Math.floor(previousComment.getBoundingClientRect().top + currentScrollPosition - headerHeight - 48);
 				document.querySelector('#overlayScrollContainer').scrollTo({ top: scrollToPosition, behavior: 'smooth' });
 			} else {
-				const scrollToPosition = Math.floor(previousComment.getBoundingClientRect().top + currentScrollPosition - 45);
+				const scrollToPosition = Math.floor(previousComment.getBoundingClientRect().top + currentScrollPosition - headerHeight);
 				window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
 			}
 		}
@@ -140,9 +127,9 @@ function enableScrollToNextRootCommentNew() {
 		// find the next "re-root-comment" element below the current scroll position
 		for (let i = 0; i < reRootComments.length; i++) {
 			if (document.querySelector('#overlayScrollContainer')) {
-				var commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 100);
+				var commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - headerHeight - 48);
 			} else {
-				var commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 45);
+				var commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			}
 			if (commentOffsetTop > currentScrollPosition) {
 				nextComment = reRootComments[i];
@@ -152,10 +139,10 @@ function enableScrollToNextRootCommentNew() {
 		// scroll to comment
 		if (nextComment) {
 			if (document.querySelector('#overlayScrollContainer')) {
-				const scrollToPosition = Math.floor(nextComment.getBoundingClientRect().top + currentScrollPosition - 100);
+				const scrollToPosition = Math.floor(nextComment.getBoundingClientRect().top + currentScrollPosition - headerHeight - 48);
 				document.querySelector('#overlayScrollContainer').scrollTo({ top: scrollToPosition, behavior: 'smooth' });
 			} else {
-				const scrollToPosition = Math.floor(nextComment.getBoundingClientRect().top + currentScrollPosition - 45);
+				const scrollToPosition = Math.floor(nextComment.getBoundingClientRect().top + currentScrollPosition - headerHeight);
 				window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
 			}
 		}
@@ -168,12 +155,15 @@ function enableScrollToNextRootCommentNew() {
 
 // Function - Enable Scroll To Next Root Comment - New New
 function enableScrollToNextRootCommentNewNew() {
-	// Remove existing buttons
-	if (document.querySelector('.re-scroll-to-comment-container') != null) {
-		document.querySelectorAll('.re-scroll-to-comment-container').forEach(function (el) {
-			el.remove();
-		});
-	}
+	// Determine the header bar height based on enabled RE features
+	let headerHeight = 72; // 64px header + 8px padding
+	BROWSER_API.storage.sync.get(['hideHeaderBar', 'nonStickyHeaderBar', 'compactHeaderSideMenu'], (result) => {
+		if (result.hideHeaderBar || result.nonStickyHeaderBar) {
+			headerHeight = 8;
+		} else if (result.compactHeaderSideMenu) {
+			headerHeight = 56; // 48px header + 8px padding
+		}
+	});
 
 	// Create button container
 	const container = document.createElement('div');
@@ -191,7 +181,7 @@ function enableScrollToNextRootCommentNewNew() {
 		let previousComment = null;
 		// find the previous "shreddit-comment" element above the current scroll position
 		for (let i = reRootComments.length - 1; i >= 0; i--) {
-			const commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 60);
+			const commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			if (currentScrollPosition > commentOffsetTop - 2 && currentScrollPosition > commentOffsetTop + 2) {
 				previousComment = reRootComments[i];
 				break;
@@ -199,7 +189,7 @@ function enableScrollToNextRootCommentNewNew() {
 		}
 		// scroll to comment
 		if (previousComment) {
-			const scrollToPosition = Math.floor(previousComment.getBoundingClientRect().top + currentScrollPosition - 60);
+			const scrollToPosition = Math.floor(previousComment.getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
 		}
 	});
@@ -217,7 +207,7 @@ function enableScrollToNextRootCommentNewNew() {
 		let nextComment = null;
 		// find the next "shreddit-comment" element below the current scroll position
 		for (let i = 0; i < reRootComments.length; i++) {
-			const commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 60);
+			const commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			if (currentScrollPosition < commentOffsetTop - 2 && currentScrollPosition < commentOffsetTop + 2) {
 				nextComment = reRootComments[i];
 				break;
@@ -225,7 +215,7 @@ function enableScrollToNextRootCommentNewNew() {
 		}
 		// scroll to comment
 		if (nextComment) {
-			const scrollToPosition = Math.floor(nextComment.getBoundingClientRect().top + currentScrollPosition - 60);
+			const scrollToPosition = Math.floor(nextComment.getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
 		}
 	});
@@ -237,12 +227,14 @@ function enableScrollToNextRootCommentNewNew() {
 
 // Function - Enable Scroll To Next Root Comment - Old
 function enableScrollToNextRootCommentOld() {
-	// Remove existing buttons
-	if (document.querySelector('.re-scroll-to-comment-container') != null) {
-		document.querySelectorAll('.re-scroll-to-comment-container').forEach(function (el) {
-			el.remove();
-		});
-	}
+	// Determine the header bar height based on enabled RE features
+	// Only 6px padding, since there's no sticky header bar on default Old UI
+	let headerHeight = 6;
+	BROWSER_API.storage.sync.get(['moderniseOldReddit'], (result) => {
+		if (result.moderniseOldReddit) {
+			headerHeight = 60; // 48px header + 12px padding
+		}
+	});
 
 	// Create button container
 	const container = document.createElement('div');
@@ -260,7 +252,7 @@ function enableScrollToNextRootCommentOld() {
 		let previousComment = null;
 		// find the previous ".thing" element above the current scroll position
 		for (let i = reRootComments.length - 1; i >= 0; i--) {
-			const commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 60);
+			const commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			if (currentScrollPosition > commentOffsetTop - 2 && currentScrollPosition > commentOffsetTop + 2) {
 				previousComment = reRootComments[i];
 				break;
@@ -268,7 +260,7 @@ function enableScrollToNextRootCommentOld() {
 		}
 		// scroll to comment
 		if (previousComment) {
-			const scrollToPosition = Math.floor(previousComment.getBoundingClientRect().top + currentScrollPosition - 60);
+			const scrollToPosition = Math.floor(previousComment.getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
 		}
 	});
@@ -286,7 +278,7 @@ function enableScrollToNextRootCommentOld() {
 		let nextComment = null;
 		// find the next ".thing" element below the current scroll position
 		for (let i = 0; i < reRootComments.length; i++) {
-			const commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - 60);
+			const commentOffsetTop = Math.floor(reRootComments[i].getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			if (currentScrollPosition < commentOffsetTop - 2 && currentScrollPosition < commentOffsetTop + 2) {
 				nextComment = reRootComments[i];
 				break;
@@ -294,7 +286,7 @@ function enableScrollToNextRootCommentOld() {
 		}
 		// scroll to comment
 		if (nextComment) {
-			const scrollToPosition = Math.floor(nextComment.getBoundingClientRect().top + currentScrollPosition - 60);
+			const scrollToPosition = Math.floor(nextComment.getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
 		}
 	});
@@ -311,28 +303,12 @@ function disableScrollToNextRootCommentAll() {
 	});
 }
 
-// Scroll To Next Root Comment Position Horizontal
-export function scrollToNextRootCommentPosition(value) {
-	if (value === '-1' || typeof value === 'undefined') {
-		document.documentElement.style.setProperty('--re-scroll-to-root-comment-position', '48px');
-	} else {
-		document.documentElement.style.setProperty('--re-scroll-to-root-comment-position', value + '%');
+// Set the position of the comment navigation buttons. Default to x: 48px, y: 50% (see RE_styles.css)
+export function scrollToNextRootCommentPosition(pos) {
+	if (pos.x !== -1 && pos.x !== '-1' && typeof pos.x !== 'undefined') {
+		document.documentElement.style.setProperty('--re-scroll-to-root-comment-position', pos.x + '%');
 	}
-}
-
-// Scroll To Next Root Comment Position Vertical
-export function scrollToNextRootCommentPositionV(value) {
-	if (redditVersion === 'new' || redditVersion === 'newnew') {
-		if (value === '-1' || typeof value === 'undefined') {
-			document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', '50%');
-		} else {
-			document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', value + '%');
-		}
-	} else if (redditVersion === 'old') {
-		if (value === '-1' || typeof value === 'undefined') {
-			document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', '50vh');
-		} else {
-			document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', value + 'vh');
-		}
+	if (pos.y !== -1 && pos.y !== '-1' && typeof pos.y !== 'undefined') {
+		document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', pos.y + (redditVersion === 'old' ? 'vh' : '%'));
 	}
 }

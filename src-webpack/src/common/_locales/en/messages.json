@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.15.0"
+		"message": "1.16.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -74,6 +74,9 @@
 	"Blur": {
 		"message": "Blur"
 	},
+	"BlurBackgroundPostOverlay": {
+		"message": "Blur background behind post overlay"
+	},
 	"BorderRadiusAmount": {
 		"message": "Theme Corner Radius"
 	},
@@ -125,8 +128,8 @@
 	"CompactHeaderSideMenu": {
 		"message": "Compact the Header Bar & Side Menu"
 	},
-	"CompactSubRuleList": {
-		"message": "Compact the Subreddit Rule List"
+	"CompactPostLinkPreview": {
+		"message": "Compact Post Link Previews"
 	},
 	"Confirm": {
 		"message": "Confirm"
@@ -161,6 +164,9 @@
 	"CustomFeedWidth": {
 		"message": "Custom Feed Width"
 	},
+	"CustomHeaderLogo": {
+		"message": "Custom Header Logo"
+	},
 	"Dark": {
 		"message": "Dark"
 	},
@@ -172,6 +178,18 @@
 	},
 	"DefaultFeedSortOption": {
 		"message": "Default Feed Sort Option"
+	},
+	"DefaultHomeFeedSortOption": {
+		"message": "Default Home Feed Sort Option"
+	},
+	"DefaultSortFeedOptionGracePeriod": {
+		"message": "Override Default Sort Option"
+	},
+	"DefaultSortFeedOptionOverrideInfo": {
+		"message": "The amount of time after the page has been auto redirected in which you can override the default sort option."
+	},
+	"DisableBgFadePostOverlay": {
+		"message": "Disable Background Fade Behind Post Overlay"
 	},
 	"Disabled": {
 		"message": "Disabled"
@@ -223,6 +241,12 @@
 	},
 	"FontWeightInfo": {
 		"message": "Not all fonts support all weights."
+	},
+	"ForceCustomBgOldUI": {
+		"message": "Force Custom Background on Old UI"
+	},
+	"ForceCustomBgOldUIInfo": {
+		"message": "Custom Background only works on Old UI with Modernise Old Reddit enabled. Toggle this on will force Custom Background on the UI (not recommended)."
 	},
 	"FullWidthBanner": {
 		"message": "Full Width Subreddit Banner"
@@ -488,7 +512,7 @@
 	"ModerniseOldRedditInfo": {
 		"message": "Makes old reddit look more like new reddit."
 	},
-	"MoveFeedToTopInSidemenu": {
+	"MoveFeedToTopInSideMenu": {
 		"message": "Move The Feed Section In The Side Menu To The Top"
 	},
 	"MulticolouredCommentThreadLines": {
@@ -599,14 +623,17 @@
 	"PostSeparatorHeight": {
 		"message": "Post Gap"
 	},
+	"PostTableBorderColour": {
+		"message": "Add Border to Tables in Posts"
+	},
 	"PostTitle": {
 		"message": "Post: Title"
 	},
 	"PostTitleContentColour": {
 		"message": "Post: Title and Text Content Colour"
 	},
-	"PostVisitedTitleColour": {
-		"message": "Visited Post: Title Colour"
+	"PostVisitedTextColour": {
+		"message": "Visited Post: Text Colour"
 	},
 	"PostWidth": {
 		"message": "Post Width"
@@ -746,11 +773,23 @@
 	"ShowRising": {
 		"message": "Always Show the 'Rising' Sort Button"
 	},
+	"ShowUpvoteRatio": {
+		"message": "Show Upvote Percentage in Post View"
+	},
 	"SideMenu": {
 		"message": "Side Menu"
 	},
+	"SideMenuBackgroundColour": {
+		"message": "Side Menu: Background Colour"
+	},
+	"SideMenuButtonHoverColour": {
+		"message": "Side Menu: Button Hover Colour"
+	},
 	"SideMenuIconsOnly": {
 		"message": "Side Menu Icons Only"
+	},
+	"SideMenuTextColour": {
+		"message": "Side Menu: Text Colour"
 	},
 	"SideMenuToggleButton": {
 		"message": "Show Side Menu Toggle Button"
@@ -772,15 +811,6 @@
 	},
 	"SidebarToggleButton": {
 		"message": "Sidebar Toggle Button"
-	},
-	"SidemenuBackgroundColour": {
-		"message": "Side Menu: Background Colour"
-	},
-	"SidemenuButtonHoverColour": {
-		"message": "Side Menu: Button Hover Colour"
-	},
-	"SidemenuTextColour": {
-		"message": "Side Menu: Text Colour"
 	},
 	"Sort": {
 		"message": "Sort"
@@ -890,6 +920,9 @@
 	"UserProfileWidth": {
 		"message": "User Profile Width"
 	},
+	"UsernameHoverPopupDelay": {
+		"message": "Username Hover Popup Delay"
+	},
 	"Video": {
 		"message": "Video"
 	},
@@ -919,5 +952,8 @@
 	},
 	"resizeHomeAlsoAffects": {
 		"message": "& r/all, r/popular, Create Post, Search Results, and Wiki pages"
+	},
+	"seconds": {
+		"message": "seconds"
 	}
 }

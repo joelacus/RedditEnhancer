@@ -2,13 +2,15 @@
 
 /* === Triggered On Page Load === */
 export function loadShowPostAuthor() {
-	BROWSER_API.storage.sync.get(['showPostAuthor'], function (result) {
-		if (result.showPostAuthor) showPostAuthor(true);
+	BROWSER_API.storage.sync.get(['showPostAuthor', 'usernameHoverPopupDelay'], function (result) {
+		if (result.showPostAuthor) showPostAuthor(true, result.usernameHoverPopupDelay);
 	});
 }
 
 /* === Main Function === */
-export function showPostAuthor(value) {
+let hover_delay = 500;
+export function showPostAuthor(value, delay) {
+	if (delay) hover_delay = delay * 1000;
 	const routename = document.querySelector('shreddit-app').getAttribute('routename');
 	const feedRoutes = ['frontpage', 'popular', 'custom_feed'];
 	const searchRoutes = ['global_serp', 'community_serp', 'custom_feed_serp'];
@@ -67,7 +69,7 @@ async function attachUsername(post) {
 			a.addEventListener('mouseenter', () => {
 				hoverTimer = setTimeout(function () {
 					showHoverCard(post, author);
-				}, 500);
+				}, hover_delay);
 			});
 			a.addEventListener('mouseleave', () => {
 				clearTimeout(hoverTimer);

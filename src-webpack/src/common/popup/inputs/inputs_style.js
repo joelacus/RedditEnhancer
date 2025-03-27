@@ -303,25 +303,19 @@ document.querySelector('#input-post-comments-secondary-text-colour-css').addEven
 	sendMessage({ themePostCommentsTextColour2CSS: css });
 });
 
-// Toggle - Post Visited Title Colour
-document.querySelector('#checkbox-post-visited-title-colour').addEventListener('change', function (e) {
-	const themePostVisitedTitleColour = document.querySelector('#checkbox-post-visited-title-colour').checked;
-	if (themePostVisitedTitleColour == true) {
-		BROWSER_API.storage.sync.set({ themePostVisitedTitleColour: true });
-		document.querySelector('.icon-post-visited-title-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themePostCommentsTextColour2: true });
-	} else if (themePostVisitedTitleColour == false) {
-		BROWSER_API.storage.sync.set({ themePostVisitedTitleColour: false });
-		document.querySelector('.icon-post-visited-title-colour').style.backgroundColor = '';
-		BROWSER_API.storage.sync.set({ themePostVisitedTitleColour: false });
-	}
+// Toggle - Post Visited Text Colour
+document.querySelector('#checkbox-post-visited-text-colour').addEventListener('change', function (e) {
+	const themePostVisitedTextColour = document.querySelector('#checkbox-post-visited-text-colour').checked;
+	BROWSER_API.storage.sync.set({ themePostVisitedTextColour: themePostVisitedTextColour });
+	document.querySelector('.icon-post-visited-text-colour').style.backgroundColor = themePostVisitedTextColour ? 'var(--accent)' : '';
+	sendMessage({ themePostVisitedTextColour: themePostVisitedTextColour });
 });
 
-// Input - Post Visited Title Colour CSS
-document.querySelector('#input-post-visited-title-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-post-visited-title-colour-css').value;
-	BROWSER_API.storage.sync.set({ themePostVisitedTitleColourCSS: css });
-	sendMessage({ themePostVisitedTitleColourCSS: css });
+// Input - Post Visited Text Colour CSS
+document.querySelector('#input-post-visited-text-colour-css').addEventListener('keyup', function (e) {
+	const css = document.querySelector('#input-post-visited-text-colour-css').value;
+	BROWSER_API.storage.sync.set({ themePostVisitedTextColourCSS: css });
+	sendMessage({ themePostVisitedTextColourCSS: css });
 });
 
 // Toggle - Post Text Secondary Colour
@@ -727,18 +721,6 @@ document.querySelector('#checkbox-full-width-banner').addEventListener('change',
 	sendMessage({ fullWidthBanner: fullWidthBanner });
 });
 
-// Toggle - Compact Sub Rule List
-document.querySelector('#checkbox-compact-sub-rule-list').addEventListener('change', function (e) {
-	const compactSubRuleList = document.querySelector('#checkbox-compact-sub-rule-list').checked;
-	if (compactSubRuleList) {
-		document.querySelector('.icon-compact-sub-rule-list').style.backgroundColor = 'var(--accent)';
-	} else {
-		document.querySelector('.icon-compact-sub-rule-list').style.backgroundColor = '';
-	}
-	BROWSER_API.storage.sync.set({ compactSubRuleList: compactSubRuleList });
-	sendMessage({ compactSubRuleList: compactSubRuleList });
-});
-
 // Toggle - Compact Header Bar & Side Menu
 document.querySelector('#checkbox-compact-header-side-menu').addEventListener('change', function (e) {
 	const compactHeaderSideMenu = document.querySelector('#checkbox-compact-header-side-menu').checked;
@@ -781,4 +763,46 @@ document.querySelector('#input-multicoloured-comment-thread-lines-colour-list').
 	const list_value = document.querySelector('#input-multicoloured-comment-thread-lines-colour-list').value;
 	BROWSER_API.storage.sync.set({ multicolouredThreadLinesColours: list_value });
 	sendMessage({ multicolouredThreadLines: { multicolouredThreadLines, list_value } });
+});
+
+// Toggle - Post Table Border Colour
+document.querySelector('#checkbox-post-table-border-colour').addEventListener('change', function (e) {
+	const themePostTableBorderColour = document.querySelector('#checkbox-post-table-border-colour').checked;
+	if (themePostTableBorderColour) {
+		BROWSER_API.storage.sync.set({ themePostTableBorderColour: true });
+		document.querySelector('.icon-post-table-border-colour').style.backgroundColor = 'var(--accent)';
+		sendMessage({ themePostTableBorderColour: true });
+	} else {
+		BROWSER_API.storage.sync.set({ themePostTableBorderColour: false });
+		document.querySelector('.icon-post-table-border-colour').style.backgroundColor = '';
+		sendMessage({ themePostTableBorderColour: false });
+	}
+});
+
+// Input - Code Block Colour CSS
+document.querySelector('#input-code-block-colour-css').addEventListener('keyup', function (e) {
+	const css = document.querySelector('#input-code-block-colour-css').value;
+	BROWSER_API.storage.sync.set({ themeCodeBlockColourCSS: css });
+	sendMessage({ themeCodeBlockColourCSS: css });
+});
+
+// Toggle - Custom Header Logo
+document.querySelector('#checkbox-custom-header-logo').addEventListener('change', function (e) {
+	const customHeaderLogo = document.querySelector('#checkbox-custom-header-logo').checked;
+	if (customHeaderLogo) {
+		BROWSER_API.storage.sync.set({ customHeaderLogo: true });
+		document.querySelector('.icon-custom-header-logo').style.backgroundColor = 'var(--accent)';
+		sendMessage({ customHeaderLogo: true });
+	} else {
+		BROWSER_API.storage.sync.set({ customHeaderLogo: false });
+		document.querySelector('.icon-custom-header-logo').style.backgroundColor = '';
+		sendMessage({ customHeaderLogo: false });
+	}
+});
+
+// Input - Custom Header Logo URL
+document.querySelector('#input-custom-header-logo-url').addEventListener('keyup', function (e) {
+	const url = document.querySelector('#input-custom-header-logo-url').value;
+	BROWSER_API.storage.sync.set({ customHeaderLogoUrl: url });
+	sendMessage({ setCustomHeaderLogoUrl: url });
 });

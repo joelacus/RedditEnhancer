@@ -265,5 +265,8 @@
 	},
 	"Width": {
 		"message": "Szélesség"
+	},
+	"seconds": {
+		"message": "másodperc"
 	}
 }

@@ -310,5 +310,8 @@
 	},
 	"Width": {
 		"message": "Šířka"
+	},
+	"seconds": {
+		"message": "sekundy"
 	}
 }

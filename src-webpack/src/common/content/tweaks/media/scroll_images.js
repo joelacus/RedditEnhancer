@@ -70,8 +70,8 @@ function enableImageScrollNewNew() {
 								}
 								div[id*="aspect-ratio"]:has(img.preview-img) shreddit-media-lightbox-listener div {
 									height: fit-content !important;
-									overflow-y: auto !important;
 									max-width: var(--re-limit-image-width, fit-content);
+									max-height: fit-content !important;
 									margin: 0 auto;
 									background-color: transparent !important;
 								}

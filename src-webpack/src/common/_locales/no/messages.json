@@ -368,7 +368,7 @@
 	"ModerniseOldReddit": {
 		"message": "Modernisere old.reddit"
 	},
-	"MoveFeedToTopInSidemenu": {
+	"MoveFeedToTopInSideMenu": {
 		"message": "Flytt 'Feed' delen i sidemenyen til toppen"
 	},
 	"MulticolouredCommentThreadLines": {
@@ -566,6 +566,15 @@
 	"SideMenu": {
 		"message": "Sidemeny"
 	},
+	"SideMenuBackgroundColour": {
+		"message": "Sidemeny: Bakgrunnsfarge"
+	},
+	"SideMenuButtonHoverColour": {
+		"message": "Sidemeny: Hover farge på knapp"
+	},
+	"SideMenuTextColour": {
+		"message": "Sidemeny: Tekstfarge"
+	},
 	"Sidebar": {
 		"message": "Sidefelt"
 	},
@@ -577,15 +586,6 @@
 	},
 	"SidebarTextColour": {
 		"message": "Sidefelt: Tekstfarge"
-	},
-	"SidemenuBackgroundColour": {
-		"message": "Sidemeny: Bakgrunnsfarge"
-	},
-	"SidemenuButtonHoverColour": {
-		"message": "Sidemeny: Hover farge på knapp"
-	},
-	"SidemenuTextColour": {
-		"message": "Sidemeny: Tekstfarge"
 	},
 	"Sort": {
 		"message": "Sortere"
@@ -697,5 +697,8 @@
 	},
 	"Width": {
 		"message": "Bredde"
+	},
+	"seconds": {
+		"message": "sekunder"
 	}
 }

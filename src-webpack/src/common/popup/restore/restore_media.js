@@ -369,4 +369,18 @@ export function restorePopupMediaOptions() {
 		}
 		console.log('Replace Post Videos With Links: ' + value);
 	});
+
+	// Compact Post Link Preview
+	BROWSER_API.storage.sync.get(['compactPostLinkPreview'], function (result) {
+		if (result.compactPostLinkPreview === true) {
+			document.querySelector('#checkbox-compact-post-link-preview').checked = true;
+			document.querySelector('.icon-compact-post-link-preview').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('media-tweaks');
+			var value = true;
+		} else if (typeof result.compactPostLinkPreview === 'undefined' || result.compactPostLinkPreview === false) {
+			document.querySelector('#checkbox-compact-post-link-preview').checked = false;
+			var value = false;
+		}
+		console.log('Compact Post Link Preview: ' + value);
+	});
 }

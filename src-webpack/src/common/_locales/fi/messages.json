@@ -331,5 +331,8 @@
 	},
 	"Width": {
 		"message": "Leveys"
+	},
+	"seconds": {
+		"message": "sekunti"
 	}
 }

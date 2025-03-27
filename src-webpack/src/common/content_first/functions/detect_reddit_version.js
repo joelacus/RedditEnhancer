@@ -12,6 +12,7 @@ export function detectRedditVersion() {
 	window.tweaksLoaded = true;
 
 	const link = window.location.hostname;
+	console.log(link);
 	if (link === 'sh.reddit.com') {
 		window.redditVersion = 'newnew';
 		tweakLoaderNewNew();
