@@ -375,6 +375,10 @@ aside#mod-queue-pdp-panel shreddit-post {
 #overlayScrollContainer > :first-child div[id*='vote-arrows-'] button.voteButton ~ div {
 	padding: 0 0.4rem;
 }
+/* Multicoloured Comment Thread Lines: reset --color-tone-4 for children of shreddit-comment */
+shreddit-comment .bg-tone-4 {
+	--color-tone-4: #2c3033;
+}
 
 /* ========== SCROLL TEXT POST ========== */
 .re-text-scroll div[data-click-id='text'][style='max-height: 250px;'],
