@@ -115,6 +115,9 @@ mod-queue-app shreddit-post a[slot='title'] {
 	font-weight: var(--re-feed-post-title-font-weight, 600);
 	line-height: 1.4;
 }
+shreddit-feed shreddit-post[view-type='compactView'] a[slot='title'] {
+	font-size: var(--re-feed-post-title-font-size, 1rem);
+}
 shreddit-feed shreddit-profile-comment h2 a img {
 	min-width: 24px;
 }
