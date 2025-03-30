@@ -771,6 +771,31 @@ export function restorePopupStyleOptions() {
 		console.log('Theme Blur: ' + value + 'px');
 	});
 
+	// Hide Blocked Keyword Posts Enable
+	BROWSER_API.storage.sync.get(['hideBlockedKeywordPostsEnable'], function (result) {
+		if (result.hideBlockedKeywordPostsEnable == true) {
+			document.querySelector('.icon-theme-exceptions').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').checked = true;
+			highlightMenuIcon('style-tweaks');
+			var value = true;
+		} else if (typeof result.hideBlockedKeywordPostsEnable == 'undefined' || result.hideBlockedKeywordPostsEnable == false) {
+			document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').checked = false;
+			var value = false;
+		}
+		console.log('Hide Blocked Keyword Posts Enable: ' + value);
+	});
+
+	// Hide Blocked Keyword Posts List
+	BROWSER_API.storage.sync.get(['hideBlockedKeywordPostsList'], function (result) {
+		if (typeof result.hideBlockedKeywordPostsList != 'undefined') {
+			var value = result.hideBlockedKeywordPostsList;
+			document.querySelector('#input-blocked-keyword-posts').value = value;
+		} else {
+			var value = '';
+		}
+		console.log('Hide Blocked Keyword Posts List: ' + value);
+	});
+	
 	// Theme Exceptions Enable
 	BROWSER_API.storage.sync.get(['themeExceptionsEnable'], function (result) {
 		if (result.themeExceptionsEnable == true) {
@@ -784,6 +809,7 @@ export function restorePopupStyleOptions() {
 		}
 		console.log('Theme Exceptions Enable: ' + value);
 	});
+
 
 	// Theme Exception Mode
 	BROWSER_API.storage.sync.get(['themeExceptionMode'], function (result) {

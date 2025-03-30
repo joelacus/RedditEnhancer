@@ -272,6 +272,9 @@
 	"HideAdvertiseButton": {
 		"message": "Ocultar botão “Anunciar”"
 	},
+	"HideBlockedKeywordsPosts": {
+		"message": "Ocultar Publicações com Palavras-Chave Bloqueadas"
+	},
 	"HideBlurredMediaBackground": {
 		"message": "Ocultar o fundo do fundo atrás das visualizações de imagem"
 	},
