@@ -71,8 +71,6 @@ function enableHideBlockedKeywordPostsOld() {
 }
 
 // Function - Enable Hide Blocked Keyword Posts - New New
-let keywordPostObserver = null;
-
 function enableHideBlockedKeywordPostsNewNew() {
 	BROWSER_API.storage.sync.get(['hideBlockedKeywordPostsList'], function (result) {
 		keywordList = result.hideBlockedKeywordPostsList
