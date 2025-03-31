@@ -39,8 +39,9 @@ export function hideBlockedKeywordPosts(value) {
 function enableHideBlockedKeywordPostsOld() {
 	BROWSER_API.storage.sync.get(['hideBlockedKeywordPostsList'], function (result) {
 		keywordList = result.hideBlockedKeywordPostsList
-			?.split(',')
-			.map(word => word.trim().toLowerCase()) || [];
+			?.toLowerCase()
+			.split(',')
+			.map(word => word.trim()) || [];
 		keywordFilteringEnabled = true;
 		const styleId = "re-hide-keyword-posts";
 
