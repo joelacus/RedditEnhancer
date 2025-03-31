@@ -204,6 +204,7 @@ export function loadTweaks() {
 			recursive: true,
 			done: function () {
 				setTimeout(() => {
+					loadHideBlockedKeywordPosts();
 					loadShowPostNumbers();
 				}, 500);
 			},
