@@ -1,5 +1,8 @@
 /* ===== Tweaks - Hide - Blocked Keyword Posts ===== */
 
+let keywordList = [];
+let keywordFilteringEnabled = false;
+
 /* === Triggered On Page Load === */
 export function loadHideBlockedKeywordPosts() {
 	BROWSER_API.storage.sync.get(['hideBlockedKeywordPostsEnable'], function (result) {
@@ -10,16 +13,22 @@ export function loadHideBlockedKeywordPosts() {
 /* === Main Function === */
 export function hideBlockedKeywordPosts(value) {
 	if (redditVersion === 'old') {
-		if (value === true) {
+		if (value) {
 			enableHideBlockedKeywordPostsOld();
-		} else if (value === false) {
+		} 
+		else {
 			disableHideBlockedKeywordPostsAll();
+			keywordFilteringEnabled = false
 		}
 	} else if (redditVersion === 'newnew') {
-		if (value === true) {
+		if (value) {
 			enableHideBlockedKeywordPostsNewNew();
-		} else if (value === false) {
+			observer.observe(document.querySelector('.main-container'), {childList: true, subtree: true})
+		} 
+		else {
+			keywordPostObserver.disconnect();
 			disableHideBlockedKeywordPostsAll();
+			keywordFilteringEnabled = false
 		}
 	}
 }
@@ -29,7 +38,10 @@ export function hideBlockedKeywordPosts(value) {
 // Function - Enable Hide Blocked Keyword Posts - Old
 function enableHideBlockedKeywordPostsOld() {
 	BROWSER_API.storage.sync.get(['hideBlockedKeywordPostsList'], function (result) {
-		const keywordList = result.hideBlockedKeywordPostsList?.split(',') || [];
+		keywordList = result.hideBlockedKeywordPostsList
+			?.split(',')
+			.map(word => word.trim().toLowerCase()) || [];
+		keywordFilteringEnabled = true;
 		const styleId = "re-hide-keyword-posts";
 
 		if (!document.head.querySelector(`style[id="${styleId}"]`)) {
@@ -41,7 +53,7 @@ function enableHideBlockedKeywordPostsOld() {
 				if (!titleAnchor) return;
 
 				const titleText = titleAnchor.textContent.toLowerCase();
-				if (keywordList.some(word => titleText.includes(word.trim().toLowerCase()))) {
+				if (keywordList.some(word => titleText.includes(word))) {
 					post.classList.add("re-hidden-keyword");
 				}
 			});
@@ -62,7 +74,10 @@ let keywordPostObserver = null;
 
 function enableHideBlockedKeywordPostsNewNew() {
 	BROWSER_API.storage.sync.get(['hideBlockedKeywordPostsList'], function (result) {
-		const keywordList = result.hideBlockedKeywordPostsList?.split(',') || [];
+		keywordList = result.hideBlockedKeywordPostsList
+			?.split(',')
+			.map(word => word.trim().toLowerCase()) || [];
+		keywordFilteringEnabled = true;
 		const styleId = "re-hide-keyword-posts";
 
 		// inject CSS style block
@@ -77,52 +92,10 @@ function enableHideBlockedKeywordPostsNewNew() {
 			document.head.appendChild(styleElement);
 		}
 
-		// tag posts
-		const filterPost = (post) => {
-			if (post.classList.contains('re-hidden-keyword')) return;
-
-			const titleAnchor = post.querySelector('a[id^="post-title-"]');
-			if (!titleAnchor) return;
-
-			const titleText = titleAnchor.textContent.toLowerCase();
-			if (keywordList.some(word => titleText.includes(word.trim().toLowerCase()))) {
-				post.classList.add('re-hidden-keyword');
-			}
-		};
-
 		// initial scan of all posts
-		document.querySelectorAll('shreddit-post').forEach(filterPost);
-
-		// start observer to handle dynamically added posts
-		const container = document.querySelector('.main-container') || document.body;
-
-		if (keywordPostObserver) keywordPostObserver.disconnect(); // Reset if already running
-
-		keywordPostObserver = new MutationObserver((mutations) => {
-			mutations.forEach((mutation) => {
-				mutation.addedNodes.forEach((node) => {
-					if (!(node instanceof HTMLElement)) return;
-		
-					// If the node itself is a post
-					if (node.tagName === 'SHREDDIT-POST') {
-						filterPost(node);
-					}
-		
-					// If it might contain posts inside
-					const nestedPosts = node.querySelectorAll?.('shreddit-post');
-					nestedPosts?.forEach(filterPost);
-				});
-			});
-		});
-		
-		keywordPostObserver.observe(container, {
-			childList: true,
-			subtree: true,
-		});
+		document.querySelectorAll('article > shreddit-post').forEach(filterBlockedKeywordPost);
 	});
 }
-
-
 
 // Function - Disable Hide Blocked Keyword Posts - All
 function disableHideBlockedKeywordPostsAll() {
@@ -132,9 +105,32 @@ function disableHideBlockedKeywordPostsAll() {
 	document.querySelectorAll('shreddit-post.re-hidden-keyword').forEach(post => {
 		post.classList.remove('re-hidden-keyword');
 	});
+}
 
-	if (keywordPostObserver) {
-		keywordPostObserver.disconnect();
-		keywordPostObserver = null;
+function filterBlockedKeywordPost(post) {
+	if (post.classList.contains('re-hidden-keyword')) return;
+
+	const titleAnchor = post.querySelector('a[id^="post-title-"]');
+	if (!titleAnchor) return;
+
+	const titleText = titleAnchor.textContent.toLowerCase();
+	if (keywordList.some(word => titleText.includes(word))) {
+		post.classList.add('re-hidden-keyword');
 	}
 }
+
+// Observe feed for new posts
+const observer = new MutationObserver((mutations) => {
+	mutations.forEach((mutation) => {
+		mutation.addedNodes.forEach((node) => {
+			if (!(node instanceof HTMLElement)) return;
+
+			if (node.tagName === 'ARTICLE') {
+				const post = node.querySelector('shreddit-post');
+				if (post && keywordFilteringEnabled) {
+					filterBlockedKeywordPost(post);
+				}
+			}
+		});
+	});
+});
