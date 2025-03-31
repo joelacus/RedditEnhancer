@@ -1,4 +1,4 @@
-/* ===== Tweaks - Hide - NSFW Posts ===== */
+/* ===== Tweaks - Hide - Blocked Keyword Posts ===== */
 
 /* === Triggered On Page Load === */
 export function loadHideBlockedKeywordPosts() {
@@ -115,7 +115,6 @@ function enableHideBlockedKeywordPostsNewNew() {
 			});
 		});
 		
-
 		keywordPostObserver.observe(container, {
 			childList: true,
 			subtree: true,
