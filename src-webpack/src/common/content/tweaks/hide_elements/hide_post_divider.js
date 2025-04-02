@@ -57,6 +57,14 @@ function enableHidePostDivider() {
 									main.main post-consume-tracker > div {
 										margin: var(--re-post-separator-height, 0) 0;
 									}
+									shreddit-async-loader[bundlename="feed_announcement"] {
+										margin: 0;
+										margin-bottom: var(--re-post-separator-height, 10px);
+									
+										& > feed-announcement {
+											margin: 0;
+										}
+									}
 									/* Add padding to posts, Card and Compact view */
 									article > shreddit-post[view-type="cardView"] {
 										margin: 0 !important;

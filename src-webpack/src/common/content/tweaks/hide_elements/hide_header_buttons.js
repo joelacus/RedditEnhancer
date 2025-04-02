@@ -201,7 +201,9 @@ export function hideNotificationButton(value) {
 									a#mail + span.separator,
 									a.message-count + span.separator,
 									a#notifications, 
-									a#notifications + span.separator {
+									a#notifications + span.separator,
+									a.badge-count,
+									a.badge-count + span.separator {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
