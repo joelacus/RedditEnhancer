@@ -830,6 +830,24 @@ document.querySelector('#checkbox-hide-search-sidebar').addEventListener('change
 	}
 });
 
+// Toggle - Hide Blocked Keyword Posts
+document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').addEventListener('change', function () {
+	const hideBlockedKeywordPostsEnable = document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').checked;
+	if (hideBlockedKeywordPostsEnable) {
+		document.querySelector('.icon-hide-blocked-keyword-posts').style.backgroundColor = 'var(--accent)';
+	} else {
+		document.querySelector('.icon-hide-blocked-keyword-posts').style.backgroundColor = '';
+	}
+	BROWSER_API.storage.sync.set({ hideBlockedKeywordPostsEnable: hideBlockedKeywordPostsEnable });
+	sendMessage({ hideBlockedKeywordPostsEnable: hideBlockedKeywordPostsEnable });
+});
+
+// Textarea - Hide Blocked Keyword Posts
+document.querySelector('#input-blocked-keyword-posts').addEventListener('keyup', function (e) {
+	const value = e.target.value;
+	BROWSER_API.storage.sync.set({ hideBlockedKeywordPostsList: value });
+});
+
 // Toggle - Hide Post Back Button
 document.querySelector('#checkbox-hide-post-back-button').addEventListener('change', function () {
 	const hidePostBackButton = document.querySelector('#checkbox-hide-post-back-button').checked;

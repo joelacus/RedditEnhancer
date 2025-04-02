@@ -138,6 +138,7 @@ import { rememberSideMenuSectionHiddenState } from './tweaks/hide_elements/remem
 import { hideHomeFeed } from './tweaks/hide_elements/hide_home_feed';
 import { addProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
 import { hidePostDivider, postSeparatorHeight } from './tweaks/hide_elements/hide_post_divider';
+import { hideBlockedKeywordPosts } from './tweaks/hide_elements/hide_blocked_keyword_posts';
 import { hideBlurredMediaBackground } from './tweaks/media/hide_blurred_media_background';
 import { fullWidthBanner, compactHeaderSideMenu } from './tweaks/style/old_new_ui';
 import { textPostPreviewFade, setTextPostPreviewFadeHeight } from './tweaks/media/text_preview_fade';
@@ -207,6 +208,7 @@ const functionRegistry = {
 	hideRedditPremium,
 	hideCreatePost,
 	hideAdvertiseButton,
+	hideBlockedKeywordPosts,
 	hideChatButton,
 	hideModerationButton,
 	hidePopularButton,

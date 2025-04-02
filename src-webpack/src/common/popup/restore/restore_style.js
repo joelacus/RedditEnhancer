@@ -770,7 +770,7 @@ export function restorePopupStyleOptions() {
 		}
 		console.log('Theme Blur: ' + value + 'px');
 	});
-
+	
 	// Theme Exceptions Enable
 	BROWSER_API.storage.sync.get(['themeExceptionsEnable'], function (result) {
 		if (result.themeExceptionsEnable == true) {
@@ -784,6 +784,7 @@ export function restorePopupStyleOptions() {
 		}
 		console.log('Theme Exceptions Enable: ' + value);
 	});
+
 
 	// Theme Exception Mode
 	BROWSER_API.storage.sync.get(['themeExceptionMode'], function (result) {

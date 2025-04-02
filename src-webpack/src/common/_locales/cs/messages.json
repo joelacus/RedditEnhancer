@@ -92,6 +92,9 @@
 	"HideAdvertiseButton": {
 		"message": "Skryjte tlačítko „Inzerovat“"
 	},
+	"HideBlockedKeywordsPosts": {
+		"message": "Skrýt Příspěvky s Blokovanými Klíčovými Slovy"
+	},
 	"HideChatButton": {
 		"message": "Skryjte tlačítko „Chat“"
 	},
