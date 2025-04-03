@@ -263,6 +263,9 @@
 	"HideAdvertiseButton": {
 		"message": "Ukryj przycisk „Reklamuj”"
 	},
+	"HideBlockedKeywordsPosts": {
+  		"message": "Ukryj Posty z Zablokowanymi Słowami Kluczowymi"
+	},
 	"HideBlurredMediaBackground": {
 		"message": "Ukryj tło Rozmycie za podglądami obrazów"
 	},

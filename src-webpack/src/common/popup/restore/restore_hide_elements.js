@@ -219,6 +219,31 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Popular Button: ' + value);
 	});
 
+	// Hide Blocked Keyword Posts Enable
+	BROWSER_API.storage.sync.get(['hideBlockedKeywordPostsEnable'], function (result) {
+		if (result.hideBlockedKeywordPostsEnable == true) {
+			document.querySelector('.icon-theme-exceptions').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').checked = true;
+			highlightMenuIcon('style-tweaks');
+			var value = true;
+		} else if (typeof result.hideBlockedKeywordPostsEnable == 'undefined' || result.hideBlockedKeywordPostsEnable == false) {
+			document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').checked = false;
+			var value = false;
+		}
+		console.log('Hide Blocked Keyword Posts Enable: ' + value);
+	});
+
+	// Hide Blocked Keyword Posts List
+	BROWSER_API.storage.sync.get(['hideBlockedKeywordPostsList'], function (result) {
+		if (typeof result.hideBlockedKeywordPostsList != 'undefined') {
+			var value = result.hideBlockedKeywordPostsList;
+			document.querySelector('#input-blocked-keyword-posts').value = value;
+		} else {
+			var value = '';
+		}
+		console.log('Hide Blocked Keyword Posts List: ' + value);
+	});
+
 	// Hide Chat Button
 	BROWSER_API.storage.sync.get(['hideChatButton'], function (result) {
 		if (result.hideChatButton == true) {

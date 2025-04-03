@@ -272,6 +272,9 @@
 	"HideAdvertiseButton": {
 		"message": "Hide the 'Advertise' Button"
 	},
+	"HideBlockedKeywordsPosts": {
+		"message": "Hide Posts with Blocked Keywords"
+	},
 	"HideBlurredMediaBackground": {
 		"message": "Hide Background Blur Behind Image Previews"
 	},

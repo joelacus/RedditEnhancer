@@ -75,6 +75,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide Home Feed|Hides the home feed entirely.|All|
 |Hide NSFW Posts|Hide any posts marked as NSFW.|All|
 |Hide Post Karma|Hides the karma on posts.|All|
+|Hide Blocked Keyword Posts|Hides any post that contains keywords of your choosing.|3<br />1|
 |Hide Promoted Links|Hides the promoted links/posts in the main feed.|All|
 |Hide The Home Sidebar|Hides the sidebar on the reddit home page.|All|
 |Hide Vote Buttons|Hide the vote buttons on posts and comments.|All|

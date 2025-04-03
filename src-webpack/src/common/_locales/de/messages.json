@@ -272,6 +272,9 @@
 	"HideAdvertiseButton": {
 		"message": "Ausblenden der „Werbung“ Schaltfläche"
 	},
+	"HideBlockedKeywordsPosts": {
+		"message": "Beiträge mit Blockierten Schlüsselwörtern Ausblenden"
+	},
 	"HideBlurredMediaBackground": {
 		"message": "Hintergrundunschärfe hinter Bildvorschauen verbergen"
 	},

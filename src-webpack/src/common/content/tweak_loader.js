@@ -12,6 +12,7 @@ import { loadBreakReminder } from './tweaks/productivity/break_reminder';
 import { loadDarkModeAuto } from './tweaks/dark_mode/dark_mode';
 import { loadFitImage } from './tweaks/media/scale_tall_images_to_fit_post';
 import { loadHideNSFW } from './tweaks/hide_elements/hide_nsfw';
+import { loadHideBlockedKeywordPosts } from './tweaks/hide_elements/hide_blocked_keyword_posts';
 import { loadHideOriginalScrollToTop } from './tweaks/hide_elements/hide_original_scroll_to_top';
 import { loadHideSeeFullImage } from './tweaks/hide_elements/hide_see_full_image';
 import { loadLimitInfinityScroll } from './tweaks/productivity/limit_infinity_scroll';
@@ -203,6 +204,7 @@ export function loadTweaks() {
 			recursive: true,
 			done: function () {
 				setTimeout(() => {
+					loadHideBlockedKeywordPosts();
 					loadShowPostNumbers();
 				}, 500);
 			},
@@ -263,6 +265,7 @@ export function loadTweaks() {
 	loadAutoExpandValue();
 	loadDarkModeAuto();
 	loadHideNSFW();
+	loadHideBlockedKeywordPosts();
 	loadShowToTopButton();
 
 	// Run again (make sure it loaded correctly)
