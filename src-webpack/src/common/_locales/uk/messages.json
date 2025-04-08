@@ -179,6 +179,9 @@
 	"HideAdvertiseButton": {
 		"message": "Сховати кнопку «Оголошення»"
 	},
+	"HideBlockedKeywordsPosts": {
+  		"message": "Приховати Дописи з Заблокованими Ключовими Словами"
+	},
 	"HideChatButton": {
 		"message": "Сховати кнопку «Чат»"
 	},

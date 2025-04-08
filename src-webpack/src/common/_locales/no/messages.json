@@ -179,6 +179,9 @@
 	"HideAdvertiseButton": {
 		"message": "Skjul 'Annonser' knappen"
 	},
+	"HideBlockedKeywordsPosts": {
+		"message": "Skjul Innlegg med Blokkerte Nøkkelord"
+	},
 	"HideChatButton": {
 		"message": "Skjul 'Chat' knappen"
 	},
