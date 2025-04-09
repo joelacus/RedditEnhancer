@@ -103,15 +103,33 @@ function enableCompactHeaderSideMenu() {
 										--shreddit-header-height: 48px !important;
 										--shreddit-header-large-height: 48px !important;
 									}
+									@media (min-width: 1200px) {
+										div.grid-container:not(.grid-full),
+										div.grid-container:not(.grid-full).flex-nav-collapsed {
+											--flex-nav-width: 0 !important;
+											grid-template-columns: 0 1fr;
+										}
+									}
 									.pt-md {
 										padding-top: initial !important;
 									}
-									.re-header-menu svg, .re-header-menu img {
+									.re-header-menu {
+										border: 1px solid transparent;
+										border-radius: var(--re-theme-border-radius, 4px);
+									}
+									.re-header-menu:hover {
+										border: 1px solid var(--color-neutral-border-weak);
+									}
+									.re-header-menu > div > :first-child {
 										position: static;
 										height: 24px;
-									}
-									.re-header-menu img {
 										width: 24px;
+										border: none;
+										background-color: transparent;
+										object-fit: contain;
+									}
+									.re-header-menu > div > span {
+										font-weight: 600;
 									}
 									nav.h-header-large > div.justify-stretch > div {
 										position: static;
@@ -170,9 +188,7 @@ function enableCompactHeaderSideMenu() {
 									flex-left-nav-container div#flex-left-nav-container,
 									flex-left-nav-container[expanded="0"].hovered div#flex-left-nav-container {
 										border: none;
-									}
-									reddit-sidebar-nav {
-										top: 48px !important;
+										display: none;
 									}
 									shreddit-app reddit-sidebar-nav#left-sidebar {
 										padding: 0;
@@ -295,23 +311,27 @@ function formatNumber(num) {
 }
 
 export function headerSideMenu() {
-	if (!sessionStorage.getItem('compactHeaderSideMenu') || document.querySelector('.re-header-menu')) return null;
+	if (!sessionStorage.getItem('compactHeaderSideMenu') || document.querySelector('.re-header-menu')) return;
 
 	const currentPage = document.querySelector('shreddit-app').getAttribute('routename');
 	let logo, title;
 
 	switch (currentPage) {
 		case 'frontpage':
-			title = '<span>Home</span>';
+			title = 'Home';
 			logo = document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('a[href="/?feed=home"] svg').outerHTML;
 			break;
 		case 'popular':
-			title = '<span>Popular</span>';
+			title = 'Popular';
 			logo = document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('a[href="/r/popular/"] svg').outerHTML;
 			break;
 		case 'all':
-			title = '<span>All</span>';
+			title = 'All';
 			logo = document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('a[href="/r/all/"] svg').outerHTML;
+			break;
+		case 'explore_page':
+			title = 'Explore';
+			logo = document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('a[href="/explore/"] svg').outerHTML;
 			break;
 		case 'subreddit':
 		case 'subreddit_wiki':
@@ -329,35 +349,46 @@ export function headerSideMenu() {
 		case 'profile_downvoted':
 		case 'profile_post_page':
 			title = "u/" + window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1];
-			logo = document.querySelector('img[data-testid="profile-icon"]').outerHTML;
+			logo = document.querySelector('[data-testid$="profile-icon"]')?.outerHTML;
 			break;
 		case 'custom_feed':
 			title = document.title;
 			logo = `<img alt="" class="rounded-sm h-lg w-lg mb-0" src=${document.querySelector('custom-feed-header')?.shadowRoot?.querySelector('img').getAttribute('src')}>`
 			break;
 		case 'post_submit':
-			title = '<span>Create post</span>';
+			title = 'Create post';
 			logo = document.querySelector('a#create-post svg').outerHTML;
 			break;
 		case 'inbox':
-			title = '<span>Notifications</span>';
+			title = 'Notifications';
 			logo = document.querySelector('a#notifications-inbox-button svg').outerHTML;
 			break;
 		default:
 			if (document.querySelector('mod-queue-app')) {
 				title = "r/" + window.location.pathname.match(/^\/mod\/([^\/]+)\/?/)[1];
 				logo = document.querySelector('img[alt="subreddit icon"]').outerHTML;
+				break;
 			} else {
 				title = currentPage.charAt(0).toUpperCase() + currentPage.slice(1);
 				logo = '';
+				break;
 			}
 	}
 
 	const sideMenu = Object.assign(document.createElement('nav'), {
-		innerHTML: `${logo}${title}`,
-		className: 're-header-menu flex items-center mb-0 h-[40px] mr-md font-semibold text-neutral-content-strong',
-		style: `width: 256px; gap: 10px;`,
+		innerHTML: `<div class="flex items-center gap-xs px-xs h-full">${logo}<span>${title}</span></div>`,
+		className: 're-header-menu mb-0 h-[40px] mr-md text-neutral-content-strong box-border',
+		style: `width: 256px;`,
 	});
+
+	const sideMenu2 = document.querySelector('reddit-sidebar-nav');
+	sideMenu2.setAttribute('style', 'display: none; position: absolute; top: 44px; width: 256px; height: 60vh; min-height: 512px;');
+	sideMenu.appendChild(sideMenu2);
+	sideMenu.querySelector('div').addEventListener('click', () => {
+		sideMenu2.style.display = (getComputedStyle(sideMenu2).display === 'none') ? 'block' : 'none';
+	});
+	document.querySelector('flex-left-nav-container')?.remove();
+
 	const searchBar = document.querySelector('reddit-header-large header > nav.h-header-large > div.justify-stretch');
 	searchBar.parentNode.insertBefore(sideMenu, searchBar);
 }

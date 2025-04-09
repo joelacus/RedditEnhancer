@@ -59,11 +59,17 @@ export function compactPostLinkPreview(value) {
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
 
+			if (document.querySelector('shreddit-post div[slot="text-body"]')) {
+				const dynamicStyleElements = document.head.querySelectorAll('style[id="re-compact-post-link-display"]');
+				dynamicStyleElements.forEach((element) => {
+					document.head.removeChild(element);
+				});
+			}
+
 			// Get the height of post title, link and flair (if exists)
 			const titleHeight = document.querySelector('shreddit-post h1').offsetHeight;
 			const flairHeight = document.querySelector('shreddit-post shreddit-post-flair') ? document.querySelector('shreddit-post shreddit-post-flair').offsetHeight + 8 : 0;
-			const textBodyHeight = document.querySelector('shreddit-post div[slot="text-body"]') ? document.querySelector('shreddit-post div[slot="text-body"]').offsetHeight + 8 : 0;
-			document.documentElement.style.setProperty('--re-post-media-container-margin', `calc(${titleHeight}px + ${flairHeight}px + ${textBodyHeight}px)`);
+			document.documentElement.style.setProperty('--re-post-media-container-margin', `calc(${titleHeight}px + ${flairHeight}px)`);
 
 			if (document.querySelector('shreddit-post a.re-post-link')) return;
 
