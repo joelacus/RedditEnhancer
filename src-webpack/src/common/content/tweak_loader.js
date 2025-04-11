@@ -53,7 +53,7 @@ import { loadReplacePostVideosWithLinks } from './tweaks/media/replace_videos_wi
 import { loadCompactPostLinkPreview } from './tweaks/media/compact_post_link_preview';
 import { loadUsernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
 import { loadShowUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
-import { postCompactHeaderSideMenu, headerSideMenu } from "./tweaks/style/old_new_ui";
+import { headerSideMenu } from "./tweaks/style/old_new_ui";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -122,6 +122,14 @@ export function loadTweaks() {
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
 
 		waitForAddedNode({
+			query: 'shreddit-app > faceplate-perfmetric-collector + div',
+			parent: document.querySelector('body'),
+			done: () => {
+				headerSideMenu();
+			}
+		});
+
+		waitForAddedNode({
 			query: '#communities_section left-nav-communities-controller',
 			shadowRoot: true,
 			parent: document.querySelector('body'),
@@ -130,7 +138,6 @@ export function loadTweaks() {
 				setTimeout(() => {
 					loadSideMenuIconsOnly();
 					loadHideSideMenuFavouriteButton();
-					headerSideMenu();
 				}, 2000);
 				setTimeout(() => {
 					loadSideMenuIconsOnly();
@@ -259,15 +266,6 @@ export function loadTweaks() {
 			recursive: true,
 			done: function (el) {
 				loadAutoCollapseAutoModeratorComment();
-			},
-		});
-
-		waitForAddedNode({
-			query: 'shreddit-app > faceplate-perfmetric-collector + div',
-			parent: document.querySelector('body'),
-			done: function (el) {
-				postCompactHeaderSideMenu();
-				headerSideMenu();
 			},
 		});
 	}
