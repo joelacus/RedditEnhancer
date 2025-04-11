@@ -53,7 +53,7 @@ import { loadReplacePostVideosWithLinks } from './tweaks/media/replace_videos_wi
 import { loadCompactPostLinkPreview } from './tweaks/media/compact_post_link_preview';
 import { loadUsernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
 import { loadShowUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
-import { headerSideMenu } from "./tweaks/style/old_new_ui";
+import { loadAttachSideMenuHeader } from "./tweaks/style/old_new_ui";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -125,7 +125,7 @@ export function loadTweaks() {
 			query: 'shreddit-app > faceplate-perfmetric-collector + div',
 			parent: document.querySelector('body'),
 			done: () => {
-				headerSideMenu();
+				loadAttachSideMenuHeader();
 			}
 		});
 

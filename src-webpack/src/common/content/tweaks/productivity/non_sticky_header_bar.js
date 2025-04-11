@@ -62,7 +62,7 @@ function enableNonStickyHeaderBarNewNew() {
 								shreddit-app reddit-header-large {
 									position: absolute !important;
 								}
-								shreddit-app reddit-sidebar-nav#left-sidebar,
+								shreddit-app :not(.re-header-menu) > reddit-sidebar-nav,
 								shreddit-app div#flex-left-nav-container {
 									position: sticky;
 									height: 100vh !important;

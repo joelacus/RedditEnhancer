@@ -7,6 +7,7 @@
  */
 
 import { showBannerMessage } from "../../banner_message";
+import {sideMenuToggleButton} from "../hide_elements/side_menu_toggle_button";
 
 // Get the feature state from browser sync storage
 export function loadFullWidthBanner() {
@@ -103,81 +104,6 @@ function enableCompactHeaderSideMenu() {
 										--shreddit-header-height: 48px !important;
 										--shreddit-header-large-height: 48px !important;
 									}
-									@media (min-width: 1200px) {
-										div.grid-container:not(.grid-full),
-										div.grid-container:not(.grid-full).flex-nav-collapsed {
-											--flex-nav-width: 0 !important;
-											grid-template-columns: 0 1fr;
-										}
-									}
-									.re-header-menu {
-										border: 1px solid transparent;
-										border-radius: var(--re-theme-border-radius, 4px);
-									}
-									.re-header-menu:hover {
-										border: 1px solid var(--color-neutral-border-weak);
-									}
-									.re-header-menu > div > :first-child:not(span) {
-										position: static;
-										height: 24px;
-										width: 24px;
-										border: none;
-										background-color: transparent;
-										object-fit: contain;
-									}
-									.re-header-menu > div > span {
-										font-weight: 600;
-									}
-									nav.h-header-large > div.justify-stretch > div {
-										position: static;
-									}
-									nav.h-header-large > div.justify-stretch > div > div {
-										width: 100%;
-										margin: 0;
-									}
-									nav.h-header-large > div.justify-stretch reddit-search-large {
-										max-width: initial;
-									}
-									nav.h-header-large > div:nth-child(2) div {
-										top: 0.25rem !important;
-									}
-									nav.h-header-large > div.justify-end {
-										padding-left: .75rem;
-									}
-									nav.h-header-large > div.justify-end > div:first-child {
-										gap: .25rem;
-									}
-									nav.h-header-large > div.justify-end > .w-\\[40px\\] {
-										width: initial;
-									}
-									#create-post {
-										padding: var(--rem10);
-									}
-									#create-post > span > span:first-child {
-										margin-right: 0;
-									}
-									#create-post > span > span + span {
-										display: none;
-									}
-									button#expand-user-drawer-button {
-										width: initial;
-										max-width: 220px;
-										padding: 0 .25rem;
-									}
-									button#expand-user-drawer-button::after {
-										content: '▼';
-										margin-left: .5rem;
-									}
-									div.re-user-info {
-										width: 156px;
-										line-height: 1.5;
-										text-align: left;
-									}
-									@media (max-width: 1199px) {
-										div.re-user-info {
-											display: none;
-										}
-									}
 									flex-left-nav-container#left-sidebar-container reddit-sidebar-nav#left-sidebar {
 										padding-right: 0;
 									}
@@ -185,7 +111,6 @@ function enableCompactHeaderSideMenu() {
 									flex-left-nav-container div#flex-left-nav-container,
 									flex-left-nav-container[expanded="0"].hovered div#flex-left-nav-container {
 										border: none;
-										display: none;
 									}
 									shreddit-app reddit-sidebar-nav#left-sidebar {
 										padding: 0;
@@ -239,54 +164,149 @@ function disableCompactHeaderSideMenu() {
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
-	if (document.querySelector('.re-user-info')) document.querySelector('.re-user-info').remove();
-	if (document.querySelector('#re-header-menu')) document.querySelector('.re-header-menu').remove();
 }
 
-let e = false;
-async function fetchData(query) {
-	const fetch_url = `https://www.reddit.com/${query}/about.json`;
-	const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
-	let response;
+/**
+ * Tweaks: Style - Display current page and user info in header
+ *
+ * @name attachSideMenuHeader
+ * @description Bring back Old New UI header style by attaching the side menu to and display user info in the header.
+ *
+ * This feature only works when Compact Header Bar and Side Menu is turn on.
+ *
+ * Note: similar to Productivity/Show Post Flair, this feature calls Reddit's public JSON APIs to get the logo of the
+ * current subreddit and user. All implications of fetching Reddit's APIs with GET requests still apply here.
+ *
+ * Applies to: New New UI (2023-)
+ *
+ * @async fetchData
+ */
 
-	try {
-		// See explanation above
-		if (isChrome && window.location.hostname === 'sh.reddit.com') {
-			response = await fetch(fetch_url, { method: 'GET', mode: 'no-cors' });
-		} else {
-			response = await fetch(fetch_url, { method: 'GET' });
-		}
-		if (!response.ok) { throw response.status; }
-		const data = await response.json();
-		return data.data;
-	} catch (error) {
-		// whoa there, pardner!
-		if (e) return;
+let optOutAttach, e = false, listenerAttached = false;
+// Get the feature state from browser sync storage
+export function loadAttachSideMenuHeader() {
+	BROWSER_API.storage.sync.get(['attachSideMenuHeader', 'optOutAttachSideMenu'], function (result) {
+		optOutAttachSideMenu(result.optOutAttachSideMenu);
+		attachSideMenuHeader(result.attachSideMenuHeader);
+	});
+}
 
-		// Log the error to the developer console
-		console.error('[RedditEnhancer] Error getting info for attaching side menu to and display user info in header:', error);
-		e = true;
-		throw error;
+// Activate the feature based on Reddit version
+export function attachSideMenuHeader(value) {
+	if (redditVersion === 'newnew') {
+		if (!sessionStorage.getItem("compactHeaderSideMenu")) return;
+		value ? enableAttachSideMenuHeader() : disableAttachSideMenuHeader();
 	}
 }
 
-function formatNumber(num) {
-	const units = [
-		{ value: 1E18, symbol: 'e' },
-		{ value: 1E15, symbol: 'p' },
-		{ value: 1E12, symbol: 't' },
-		{ value: 1E9, symbol: 'g' },
-		{ value: 1E6, symbol: 'm' },
-		{ value: 1E3, symbol: 'k' },
-		{ value: 1, symbol: '' }
-	];
-	const item = units.find(unit => num >= unit.value);
-	return item ? (num / item.value).toFixed(1).replace(/\.0$/, '') + item.symbol : '0';
+export function optOutAttachSideMenu(value) {
+	optOutAttach = value;
 }
 
-export async function headerSideMenu() {
-	if (!sessionStorage.getItem("compactHeaderSideMenu")) return;
+// Enable the feature
+async function enableAttachSideMenuHeader() {
+	if (!document.head.querySelector('style[id="re-attach-side-menu-header"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-attach-side-menu-header';
+		styleElement.textContent =
+			`
+			.re-header-menu {
+				width: 256px;
+				border: 1px solid transparent;
+				border-radius: var(--re-theme-border-radius, 4px);
+			}
+			.re-header-menu:hover {
+				border: 1px solid var(--color-neutral-border-weak);
+			}
+			.re-header-menu > div > :first-child:not(span) {
+				position: static;
+				height: 24px;
+				width: 24px;
+				border: none;
+				background-color: transparent;
+				object-fit: contain;
+			}
+			.re-header-menu > div > span {
+				font-weight: 600;
+			}
+			.re-header-menu reddit-sidebar-nav {
+				display: none;
+				position: absolute;
+				top: 44px;
+				width: var(--re-side-menu-width, 256px);
+				height: 60vh;
+				min-height: 512px;
+			}
+			nav.h-header-large > div.justify-stretch > div {
+				position: static;
+			}
+			nav.h-header-large > div.justify-stretch > div > div {
+				width: 100%;
+				margin: 0;
+			}
+			nav.h-header-large > div.justify-stretch reddit-search-large {
+				max-width: initial;
+			}
+			nav.h-header-large > div:nth-child(2) div {
+				top: 0.25rem !important;
+			}
+			nav.h-header-large > div.justify-end {
+				padding-left: .75rem;
+			}
+			nav.h-header-large > div.justify-end > div:first-child {
+				gap: .25rem;
+			}
+			nav.h-header-large > div.justify-end > .w-\\[40px\\] {
+				width: initial;
+			}
+			#create-post {
+				padding: var(--rem10);
+			}
+			#create-post > span > span:first-child {
+				margin-right: 0;
+			}
+			#create-post > span > span + span {
+				display: none;
+			}
+			button#expand-user-drawer-button {
+				width: initial;
+				max-width: 220px;
+				padding: 0 .25rem;
+			}
+			button#expand-user-drawer-button::after {
+				content: '▼';
+				margin-left: .5rem;
+			}
+			div.re-user-info {
+				width: 156px;
+				line-height: 1.5;
+				text-align: left;
+			}
+			@media (max-width: 1199px) {
+				.re-header-menu span,
+				div.re-user-info {
+					display: none;
+				}
+			}
+			`;
+		if (!optOutAttach) styleElement.textContent += `
+			.re-header-menu {
+				width: var(--re-side-menu-width, 256px);
+			}
+			flex-left-nav-container#left-sidebar-container {
+				display: none;
+			}
+			@media (min-width: 1200px) {
+				div.grid-container:not(.grid-full),
+				div.grid-container:not(.grid-full).flex-nav-collapsed {
+					--flex-nav-width: 0 !important;
+					grid-template-columns: 0 1fr;
+				}
+			}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 
+	// Display username and karma within the toggle user drawer button
 	if (!document.querySelector('.re-user-info')) {
 		let loggedIn = document.querySelector('shreddit-app')?.getAttribute('user-logged-in') === 'true';
 		if (loggedIn) {
@@ -303,9 +323,9 @@ export async function headerSideMenu() {
 		}
 	}
 
+	// Attach the side menu to the header
 	const currentPage = document.querySelector('shreddit-app').getAttribute('routename');
 	let logo, title, data;
-
 	switch (currentPage) {
 		case 'frontpage':
 			title = 'Home';
@@ -336,7 +356,12 @@ export async function headerSideMenu() {
 		case 'wiki_page':
 			title = "r/" + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
 			data = await fetchData(title);
-			logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon}">`;
+			if (data.community_icon || data.icon_img) {
+				logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0"
+						src="${data.community_icon ? data.community_icon : data.icon_img}">`;
+			} else {
+				logo = document.querySelector('.shreddit-subreddit-icon__icon').outerHTML;
+			}
 			break;
 		case 'profile_overview':
 		case 'profile_posts':
@@ -349,7 +374,8 @@ export async function headerSideMenu() {
 		case 'profile_serp':
 			title = "u/" + window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1];
 			data = await fetchData(`user/${window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1]}`);
-			logo = `<img alt="${title} user avatar" class="${data.snoovatar_img ? '' : 'rounded-full'} h-lg w-lg mb-0" src="${data.snoovatar_img ? data.snoovatar_img : data.icon_img}">`;
+			logo = `<img alt="${title} user avatar" class="${data.snoovatar_img ? '' : 'rounded-full'} h-lg w-lg mb-0" 
+					src="${data.snoovatar_img ? data.snoovatar_img : data.icon_img}">`;
 			break;
 		case 'global_serp':
 			title = 'Search results';
@@ -388,24 +414,76 @@ export async function headerSideMenu() {
 			}
 			break;
 	}
-
 	if (document.querySelector('.re-header-menu')) return;
-
 	const sideMenu = Object.assign(document.createElement('nav'), {
 		innerHTML: `<div class="flex items-center gap-xs px-xs h-full">${logo}<span>${title}</span></div>`,
 		className: 're-header-menu mb-0 h-[40px] mr-md text-neutral-content-strong box-border',
-		style: `width: 256px;`,
 	});
 
-	const sideMenu2 = document.querySelector('reddit-sidebar-nav');
-	if (sideMenu2) {
-		sideMenu2.setAttribute('style', 'display: none; position: absolute; top: 44px; width: 256px; height: 60vh; min-height: 512px;');
-		sideMenu.appendChild(sideMenu2);
-		sideMenu.querySelector('div').addEventListener('click', () => {
-			sideMenu2.style.display = (getComputedStyle(sideMenu2).display === 'none') ? 'block' : 'none';
-		});
+	if (!optOutAttach) {
+		const sideMenu2 = document.querySelector('reddit-sidebar-nav');
+		if (sideMenu2) {
+			sideMenu2.setAttribute('style', '');
+			sideMenu.appendChild(sideMenu2);
+			sideMenu.querySelector('div').addEventListener('click', (e) => {
+				e.stopPropagation();
+				sideMenu2.style.display = (getComputedStyle(sideMenu2).display === 'none') ? 'block' : 'none';
+			});
+			window.addEventListener('click', () => {
+				if (!sideMenu.contains(e.target)) sideMenu2.style.display = 'none';
+			});
+		}
 	}
 
 	const searchBar = document.querySelector('reddit-header-large header > nav.h-header-large > div.justify-stretch');
 	searchBar.parentNode.insertBefore(sideMenu, searchBar);
+}
+
+// Disable the feature
+function disableAttachSideMenuHeader() {
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-attach-side-menu-header"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+	if (document.querySelector('.re-header-menu')) document.querySelector('.re-header-menu').remove();
+	if (document.querySelector('.re-user-info')) document.querySelector('.re-user-info').remove();
+}
+
+async function fetchData(query) {
+	const fetch_url = `https://www.reddit.com/${query}/about.json`;
+	const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+	let response;
+
+	try {
+		if (isChrome && window.location.hostname === 'sh.reddit.com') {
+			response = await fetch(fetch_url, { method: 'GET', mode: 'no-cors' });
+		} else {
+			response = await fetch(fetch_url, { method: 'GET' });
+		}
+		if (!response.ok) { throw response.status; }
+		const data = await response.json();
+		return data.data;
+	} catch (error) {
+		// whoa there, pardner!
+		if (e) return;
+
+		// Log the error to the developer console
+		console.error('[RedditEnhancer] Error getting info for attaching side menu to and display user info in header: ', error);
+		e = true;
+		throw error;
+	}
+}
+
+function formatNumber(num) {
+	const units = [
+		{ value: 1E18, symbol: 'e' },
+		{ value: 1E15, symbol: 'p' },
+		{ value: 1E12, symbol: 't' },
+		{ value: 1E9, symbol: 'g' },
+		{ value: 1E6, symbol: 'm' },
+		{ value: 1E3, symbol: 'k' },
+		{ value: 1, symbol: '' }
+	];
+	const item = units.find(unit => num >= unit.value);
+	return item ? (num / item.value).toFixed(1).replace(/\.0$/, '') + item.symbol : '0';
 }

@@ -365,6 +365,8 @@ async function restoreBackup(json) {
 				'underlineLinks',
 				'useCustomBackground',
 				'usernameHoverPopupDelay',
+				'attachSideMenuHeader',
+				'optOutAttachSideMenu',
 			].includes(key)
 		) {
 			validKeys.push(key);

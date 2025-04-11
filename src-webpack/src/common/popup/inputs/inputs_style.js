@@ -806,3 +806,31 @@ document.querySelector('#input-custom-header-logo-url').addEventListener('keyup'
 	BROWSER_API.storage.sync.set({ customHeaderLogoUrl: url });
 	sendMessage({ setCustomHeaderLogoUrl: url });
 });
+
+// Toggle - Attach Side Menu Header
+document.querySelector('#checkbox-attach-side-menu-header').addEventListener('change', function (e) {
+	const attachSideMenuHeader = document.querySelector('#checkbox-attach-side-menu-header').checked;
+	if (attachSideMenuHeader) {
+		BROWSER_API.storage.sync.set({ attachSideMenuHeader: true });
+		document.querySelector('.icon-attach-side-menu-header').style.backgroundColor = 'var(--accent)';
+		sendMessage({ attachSideMenuHeader: true });
+	} else {
+		BROWSER_API.storage.sync.set({ attachSideMenuHeader: false });
+		document.querySelector('.icon-attach-side-menu-header').style.backgroundColor = '';
+		sendMessage({ attachSideMenuHeader: false });
+	}
+});
+
+// Toggle - Opt Out Attach Side Menu
+document.querySelector('#checkbox-opt-out-attach-side-menu').addEventListener('change', function (e) {
+	const optOutAttachSideMenu = document.querySelector('#checkbox-opt-out-attach-side-menu').checked;
+	if (optOutAttachSideMenu) {
+		BROWSER_API.storage.sync.set({ optOutAttachSideMenu: true });
+		document.querySelector('.icon-opt-out-attach-side-menu').style.backgroundColor = 'var(--accent)';
+		sendMessage({ optOutAttachSideMenu: true });
+	} else {
+		BROWSER_API.storage.sync.set({ optOutAttachSideMenu: false });
+		document.querySelector('.icon-opt-out-attach-side-menu').style.backgroundColor = '';
+		sendMessage({ optOutAttachSideMenu: false });
+	}
+});

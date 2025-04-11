@@ -140,7 +140,7 @@ import { addProfilePicturesToComments } from './tweaks/productivity/add_profile_
 import { hidePostDivider, postSeparatorHeight } from './tweaks/hide_elements/hide_post_divider';
 import { hideBlockedKeywordPosts } from './tweaks/hide_elements/hide_blocked_keyword_posts';
 import { hideBlurredMediaBackground } from './tweaks/media/hide_blurred_media_background';
-import { fullWidthBanner, compactHeaderSideMenu } from './tweaks/style/old_new_ui';
+import { fullWidthBanner, compactHeaderSideMenu, attachSideMenuHeader, optOutAttachSideMenu } from './tweaks/style/old_new_ui';
 import { textPostPreviewFade, setTextPostPreviewFadeHeight } from './tweaks/media/text_preview_fade';
 import { resizeMainContainer, resizeMainContainerWidth } from './tweaks/resize_elements/resize_main_container';
 import { hideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
@@ -396,6 +396,8 @@ const functionRegistry = {
 	showUpvoteRatio,
 	customHeaderLogo,
 	setCustomHeaderLogoUrl,
+	attachSideMenuHeader,
+	optOutAttachSideMenu,
 	//dragImageToResize,
 	//dragImageToResizeInitialSize,
 	//addDownloadVideoButton,

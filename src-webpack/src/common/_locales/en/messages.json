@@ -17,6 +17,12 @@
 	"AlwaysShowPostOptions": {
 		"message": "Always Show Post Options"
 	},
+	"AttachSideMenuHeader": {
+		"message": "Display page and user info in header"
+	},
+	"AttachSideMenuHeaderInfo": {
+		"message": "Experimental. Only works with Compact Header Bar and Side Menu activated, and might conflict with hiding side menu functions."
+	},
 	"Auto": {
 		"message": "Auto"
 	},
@@ -568,6 +574,9 @@
 	},
 	"OptionsPage": {
 		"message": "Options Page"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Don't attach side menu as a dropdown panel"
 	},
 	"Or": {
 		"message": "OR"
