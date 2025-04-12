@@ -382,7 +382,10 @@ aside#mod-queue-pdp-panel shreddit-post {
 	padding: 0 0.4rem;
 }
 /* Multicoloured Comment Thread Lines: reset --color-tone-4 for children of shreddit-comment */
-shreddit-comment .bg-tone-4 {
+.theme-light shreddit-comment .bg-tone-4 {
+	--color-tone-4: #dedfe0;
+}
+.theme-dark shreddit-comment .bg-tone-4 {
 	--color-tone-4: #2c3033;
 }
 
