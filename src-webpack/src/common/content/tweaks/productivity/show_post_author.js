@@ -95,7 +95,6 @@ async function showHoverCard(post, username) {
 	document.querySelectorAll('faceplate-tracker').forEach((post) => {
 		post.style.zIndex = '';
 	});
-	post.style.zIndex = 9;
 
 	// Check if hover card already exists
 	const existingHoverCard = post.querySelector('.hover-card');

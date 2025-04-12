@@ -39,7 +39,9 @@ function setBackgroundAndBlur() {
 
 // Set Custom Background Property
 export function setCustomBackground(value) {
-	document.documentElement.style.setProperty('--re-background-image', 'url("' + value + '")');
+	if (value !== '') {
+		document.documentElement.style.setProperty('--re-background-image', 'url("' + value + '")');
+	}
 }
 
 // Set Background Blur Property
@@ -106,6 +108,7 @@ function enableUseCustomBackgroundNewNew() {
 								shreddit-app[routename="post_stats"] main.main {
 									margin: 1rem 0;
 									padding: 0 1rem .75rem 1rem;
+									height: min-content;
 									background-color: var(--re-theme-post-bg, var(--color-neutral-background, #000));
 									border-radius: var(--re-theme-border-radius, 0);
 									box-sizing: border-box;

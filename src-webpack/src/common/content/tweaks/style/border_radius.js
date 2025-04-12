@@ -84,6 +84,7 @@ function addBorderRadiusAmountStylesheet() {
 			author-flair-event-handler span,
 			community-achievements-flair span,
 			div.flair span,
+			.rounded-\\[20px\\],
 			span:has(div.flair-content) {
 				line-height: 1.4 !important;
 				border-radius: calc(var(--re-theme-border-radius) / 2) !important;

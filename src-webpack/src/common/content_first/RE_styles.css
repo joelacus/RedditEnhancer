@@ -404,3 +404,37 @@ shreddit-comment .bg-tone-4 {
 	position: sticky !important;
 	top: 48px;
 }
+
+/* ========= Default Old New UI theme colours ========== */
+.theme-dark {
+	--re-theme-header-bg: #1a1a1b;
+	--re-theme-searchbar-bg: #272729;
+	--re-theme-searchbar-dropdown-bg: #1a1a1b;
+	--re-theme-post-bg: rgb(26, 26, 27);
+	--re-theme-post-text: #d7dadc;
+	--re-theme-post-text-2: #d7dadc;
+	--re-theme-post-comments-text: #d7dadc;
+	--re-theme-post-comments-text-2: #818384;
+	--re-theme-post-border: #343536;
+	--re-theme-sidebar-text: #d7dadc;
+	--re-theme-sidebar-bg: #1a1a1b;
+	--re-theme-sidemenu-text: #d7dadc;
+	--re-theme-sidemenu-bg: #1a1a1b;
+	--re-theme-sidemenu-btn-hover: rgba(255, 255, 255, 0.04);
+	--re-background-image: black;
+}
+.theme-light {
+	--re-theme-header-bg: white;
+	--re-theme-searchbar-bg: #f6f7f8;
+	--re-theme-searchbar-dropdown-bg: white;
+	--re-theme-post-bg: white;
+	--re-theme-post-text-2: black;
+	--re-theme-post-border: #ccc;
+	--re-theme-sidebar-text: black;
+	--re-theme-sidebar-bg: white;
+	--re-theme-sidemenu-bg: white;
+	--re-background-image: #dae0e6;
+}
+[routename="subreddit"] div.masthead {
+	background-color: var(--re-theme-post-bg);
+}
