@@ -113,6 +113,10 @@ function enableUseCustomBackgroundNewNew() {
 									& > shreddit-post {
 										margin: 0;
 										padding: 0;
+										
+										& div[slot="credit-bar"] {
+											padding-top: 0.875rem;
+										}
 									}
 								}
 								shreddit-app[routename="post_stats"] main.main > div {

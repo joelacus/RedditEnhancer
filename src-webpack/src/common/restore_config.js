@@ -188,6 +188,7 @@ async function restoreBackup(json) {
 				'fitImage',
 				'fullWidthBanner',
 				'hideAdvertiseButton',
+				'hideBlockedKeywordPosts',
 				'hideBlockedKeywordPostsList',
 				'hideBlurredMediaBackground',
 				'hideChatButton',

@@ -138,7 +138,6 @@ import { rememberSideMenuSectionHiddenState } from './tweaks/hide_elements/remem
 import { hideHomeFeed } from './tweaks/hide_elements/hide_home_feed';
 import { addProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
 import { hidePostDivider, postSeparatorHeight } from './tweaks/hide_elements/hide_post_divider';
-import { hideBlockedKeywordPosts } from './tweaks/hide_elements/hide_blocked_keyword_posts';
 import { hideBlurredMediaBackground } from './tweaks/media/hide_blurred_media_background';
 import { fullWidthBanner, compactHeaderSideMenu, attachSideMenuHeader, optOutAttachSideMenu } from './tweaks/style/old_new_ui';
 import { textPostPreviewFade, setTextPostPreviewFadeHeight } from './tweaks/media/text_preview_fade';
@@ -158,6 +157,7 @@ import { compactPostLinkPreview } from './tweaks/media/compact_post_link_preview
 import { usernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
 import { showUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
 import { customHeaderLogo, setCustomHeaderLogoUrl } from './tweaks/style/custom_header_logo';
+import { hideBlockedKeywordPosts } from "./tweaks/hide_elements/hide_blocked_keyword_posts";
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 

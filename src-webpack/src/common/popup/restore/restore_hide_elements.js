@@ -220,13 +220,13 @@ export function restorePopupHideElementsOptions() {
 	});
 
 	// Hide Blocked Keyword Posts Enable
-	BROWSER_API.storage.sync.get(['hideBlockedKeywordPostsEnable'], function (result) {
-		if (result.hideBlockedKeywordPostsEnable == true) {
+	BROWSER_API.storage.sync.get(['hideBlockedKeywordPosts'], function (result) {
+		if (result.hideBlockedKeywordPosts === true) {
 			document.querySelector('.icon-theme-exceptions').style.backgroundColor = 'var(--accent)';
 			document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').checked = true;
 			highlightMenuIcon('style-tweaks');
 			var value = true;
-		} else if (typeof result.hideBlockedKeywordPostsEnable == 'undefined' || result.hideBlockedKeywordPostsEnable == false) {
+		} else if (typeof result.hideBlockedKeywordPosts === 'undefined' || result.hideBlockedKeywordPosts === false) {
 			document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').checked = false;
 			var value = false;
 		}

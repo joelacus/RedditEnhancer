@@ -838,14 +838,15 @@ document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').addEventLi
 	} else {
 		document.querySelector('.icon-hide-blocked-keyword-posts').style.backgroundColor = '';
 	}
-	BROWSER_API.storage.sync.set({ hideBlockedKeywordPostsEnable: hideBlockedKeywordPostsEnable });
-	sendMessage({ hideBlockedKeywordPostsEnable: hideBlockedKeywordPostsEnable });
+	BROWSER_API.storage.sync.set({ hideBlockedKeywordPosts: hideBlockedKeywordPostsEnable });
+	sendMessage({ hideBlockedKeywordPosts: hideBlockedKeywordPostsEnable });
 });
 
 // Textarea - Hide Blocked Keyword Posts
 document.querySelector('#input-blocked-keyword-posts').addEventListener('keyup', function (e) {
 	const value = e.target.value;
 	BROWSER_API.storage.sync.set({ hideBlockedKeywordPostsList: value });
+	sendMessage({ hideBlockedKeywordPostsList: value });
 });
 
 // Toggle - Hide Post Back Button

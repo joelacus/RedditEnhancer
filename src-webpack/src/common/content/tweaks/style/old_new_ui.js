@@ -112,10 +112,10 @@ function enableCompactHeaderSideMenu() {
 									flex-left-nav-container[expanded="0"].hovered div#flex-left-nav-container {
 										border: none;
 									}
-									shreddit-app reddit-sidebar-nav#left-sidebar {
+									reddit-sidebar-nav#left-sidebar {
 										padding: 0;
 									}
-									shreddit-app reddit-sidebar-nav#left-sidebar hr {
+									reddit-sidebar-nav#left-sidebar hr {
 										display: none;
 										visibility: hidden;
 									}
@@ -313,7 +313,7 @@ async function enableAttachSideMenuHeader() {
 			let username = document.querySelector('shreddit-app > div:last-child')?.shadowRoot
 				?.querySelector('rs-current-user').getAttribute('display-name');
 			const user = await fetchData(`user/${username}`);
-			if (!document.querySelector('.re-user-info')) {
+			if (username && !document.querySelector('.re-user-info') && document.querySelector('button#expand-user-drawer-button')) {
 				const a = Object.assign(document.createElement('div'), {
 					innerHTML: `<div class="font-semibold overflow-hidden text-ellipsis">${username}</div><span class="text-neutral-content-weak">${formatNumber(user.total_karma)} karma</span>`,
 					className: "re-user-info inline-block ml-2xs text-12 font-normal"
@@ -326,93 +326,98 @@ async function enableAttachSideMenuHeader() {
 	// Attach the side menu to the header
 	const currentPage = document.querySelector('shreddit-app').getAttribute('routename');
 	let logo, title, data;
-	switch (currentPage) {
-		case 'frontpage':
-			title = 'Home';
-			logo = document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('a[href="/?feed=home"] svg').outerHTML;
-			break;
-		case 'popular':
-			title = 'Popular';
-			logo = document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('a[href="/r/popular/"] svg').outerHTML;
-			break;
-		case 'all':
-			title = 'All';
-			logo = document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('a[href="/r/all/"] svg').outerHTML;
-			break;
-		case 'explore_page':
-			title = 'Explore';
-			logo = document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('a[href="/explore/"] svg').outerHTML;
-			break;
-		case 'mod_queue_all':
-			title = 'Mod Queue';
-			logo = '';
-			break;
-		case 'subreddit':
-		case 'subreddit_wiki':
-		case 'post_page':
-		case 'comment_page':
-		case 'community_serp':
-		case 'post_submit_subreddit':
-		case 'wiki_page':
-			title = "r/" + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
-			data = await fetchData(title);
-			if (data.community_icon || data.icon_img) {
-				logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0"
-						src="${data.community_icon ? data.community_icon : data.icon_img}">`;
-			} else {
-				logo = document.querySelector('.shreddit-subreddit-icon__icon').outerHTML;
-			}
-			break;
-		case 'profile_overview':
-		case 'profile_posts':
-		case 'profile_comments':
-		case 'profile_saved':
-		case 'profile_hidden':
-		case 'profile_upvoted':
-		case 'profile_downvoted':
-		case 'profile_post_page':
-		case 'profile_serp':
-			title = "u/" + window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1];
-			data = await fetchData(`user/${window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1]}`);
-			logo = `<img alt="${title} user avatar" class="${data.snoovatar_img ? '' : 'rounded-full'} h-lg w-lg mb-0" 
-					src="${data.snoovatar_img ? data.snoovatar_img : data.icon_img}">`;
-			break;
-		case 'global_serp':
-			title = 'Search results';
-			logo = '';
-			break;
-		case 'custom_feed':
-			title = document.querySelector('custom-feed-header').getAttribute('display-name');
-			logo = `<img alt="${title} icon" class="rounded-sm h-lg w-lg mb-0" src=${document.querySelector('custom-feed-header').getAttribute('icon')}>`
-			break;
-		case 'post_submit':
-			title = 'Create post';
-			logo = document.querySelector('a#create-post svg').outerHTML;
-			break;
-		case 'inbox':
-			title = 'Notifications';
-			logo = document.querySelector('a#notifications-inbox-button svg').outerHTML;
-			break;
-		case 'settings-account-page':
-		case 'settings-profile-page':
-		case 'settings-privacy-page':
-		case 'settings-preferences-page':
-		case 'settings-notifications-page':
-		case 'settings-email-page':
-			title = 'Settings';
-			logo = '';
-			break;
-		default:
-			if (document.querySelector('moderation-tracker#mod-tracker')) {
+	try {
+		switch (currentPage) {
+			case 'frontpage':
+				title = 'Home';
+				logo = document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('a[href="/?feed=home"] svg').outerHTML;
+				break;
+			case 'popular':
+				title = 'Popular';
+				logo = document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('a[href="/r/popular/"] svg').outerHTML;
+				break;
+			case 'all':
+				title = 'All';
+				logo = document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('a[href="/r/all/"] svg').outerHTML;
+				break;
+			case 'explore-page':
+				title = 'Explore';
+				logo = document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('a[href="/explore/"] svg').outerHTML;
+				break;
+			case 'mod_queue_all':
+				title = 'Mod Queue';
+				logo = '';
+				break;
+			case 'subreddit':
+			case 'subreddit_wiki':
+			case 'post_page':
+			case 'comment_page':
+			case 'community_serp':
+			case 'post_submit_subreddit':
+			case 'wiki_page':
 				title = "r/" + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
 				data = await fetchData(title);
-				logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon}">`;
-			} else {
-				// Fallback for unknown pages
-				title = currentPage.charAt(0).toUpperCase() + currentPage.slice(1);
+				if (data.community_icon || data.icon_img) {
+					logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0"
+							src="${data.community_icon ? data.community_icon : data.icon_img}">`;
+				} else {
+					logo = document.querySelector('.shreddit-subreddit-icon__icon').outerHTML;
+				}
+				break;
+			case 'profile_overview':
+			case 'profile_posts':
+			case 'profile_comments':
+			case 'profile_saved':
+			case 'profile_hidden':
+			case 'profile_upvoted':
+			case 'profile_downvoted':
+			case 'profile_post_page':
+			case 'profile_serp':
+				title = "u/" + window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1];
+				data = await fetchData(`user/${window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1]}`);
+				logo = `<img alt="${title} user avatar" class="${data.snoovatar_img ? '' : 'rounded-full'} h-lg w-lg mb-0" 
+						src="${data.snoovatar_img ? data.snoovatar_img : data.icon_img}">`;
+				break;
+			case 'global_serp':
+				title = 'Search results';
 				logo = '';
-			}
-			break;
+				break;
+			case 'custom_feed':
+				title = document.querySelector('custom-feed-header').getAttribute('display-name');
+				logo = `<img alt="${title} icon" class="rounded-sm h-lg w-lg mb-0" src=${document.querySelector('custom-feed-header').getAttribute('icon')}>`
+				break;
+			case 'post_submit':
+				title = 'Create post';
+				logo = document.querySelector('a#create-post svg').outerHTML;
+				break;
+			case 'inbox':
+				title = 'Notifications';
+				logo = document.querySelector('a#notifications-inbox-button svg').outerHTML;
+				break;
+			case 'settings-account-page':
+			case 'settings-profile-page':
+			case 'settings-privacy-page':
+			case 'settings-preferences-page':
+			case 'settings-notifications-page':
+			case 'settings-email-page':
+				title = 'Settings';
+				logo = '';
+				break;
+			default:
+				if (document.querySelector('moderation-tracker#mod-tracker')) {
+					title = "r/" + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
+					data = await fetchData(title);
+					logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon}">`;
+				} else {
+					// Fallback for unknown pages
+					title = currentPage.charAt(0).toUpperCase() + currentPage.slice(1);
+					logo = '';
+				}
+				break;
+		}
+	} catch (error) {
+		title = currentPage.charAt(0).toUpperCase() + currentPage.slice(1);
+		logo = '';
 	}
 	if (document.querySelector('.re-header-menu')) return;
 	const sideMenu = Object.assign(document.createElement('nav'), {

@@ -62,6 +62,7 @@ export function loadTweaks() {
 		loadAutoLoadMoreComments();
 		loadAddProfilePicturesToComments();
 		loadSidebarToggleButton();
+		loadHideBlockedKeywordPosts();
 	} else if (redditVersion === 'new') {
 		const link = window.location.href;
 		if (link.indexOf('/comments/') >= 0) {
@@ -274,13 +275,13 @@ export function loadTweaks() {
 	loadAutoExpandValue();
 	loadDarkModeAuto();
 	loadHideNSFW();
-	loadHideBlockedKeywordPosts();
 	loadShowToTopButton();
 
 	// Run again (make sure it loaded correctly)
 	setTimeout(() => {
 		loadShowToTopButton();
 		loadShowAllButton();
+		loadAttachSideMenuHeader();
 	}, 5000);
 }
 loadTweaks();
