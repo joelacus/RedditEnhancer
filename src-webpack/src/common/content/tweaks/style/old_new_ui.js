@@ -351,7 +351,7 @@ async function enableAttachSideMenuHeader() {
 			case 'subreddit':
 			case 'subreddit_wiki':
 			case 'post_page':
-			case 'comment_page':
+			case 'comments_page':
 			case 'community_serp':
 			case 'post_submit_subreddit':
 			case 'wiki_page':

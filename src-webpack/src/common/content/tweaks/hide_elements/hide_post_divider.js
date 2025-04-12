@@ -45,6 +45,7 @@ function enableHidePostDivider() {
 									/* Add margins between posts to compensate for removed dividers, Card and Compact view */
 									article:has(> shreddit-post[view-type="cardView"]),
 									faceplate-batch > article:has(> shreddit-post[view-type="cardView"]),
+									community-highlight-carousel[feed-view-type="cardView"],
 									/* Comment search results */
 									reddit-feed > faceplate-tracker > div {
 										margin-bottom: var(--re-post-separator-height, 10px) !important;
