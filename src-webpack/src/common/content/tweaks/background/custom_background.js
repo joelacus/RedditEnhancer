@@ -102,6 +102,9 @@ function enableUseCustomBackgroundNewNew() {
 								shreddit-app .sidebar-grid {
 									background: none !important;
 								}
+								[routename="subreddit"] div.masthead {
+									background-color: var(--re-theme-post-bg);
+								}
 								shreddit-app[routename="post_page"] main.main,
 								shreddit-app[routename="comments_page"] main.main,
 								shreddit-app[routename="profile_post_page"] main.main,

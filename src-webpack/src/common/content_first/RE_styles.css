@@ -438,6 +438,3 @@ aside#mod-queue-pdp-panel shreddit-post {
 	--re-theme-sidemenu-bg: white;
 	--re-background-image: #dae0e6;
 }
-[routename="subreddit"] div.masthead {
-	background-color: var(--re-theme-post-bg);
-}
