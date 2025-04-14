@@ -834,3 +834,17 @@ document.querySelector('#checkbox-opt-out-attach-side-menu').addEventListener('c
 		sendMessage({ optOutAttachSideMenu: false });
 	}
 });
+
+// Toggle - Left Side Vote Buttons
+document.querySelector('#checkbox-left-side-vote-buttons').addEventListener('change', function (e) {
+	const leftSideVoteButtons = document.querySelector('#checkbox-left-side-vote-buttons').checked;
+	if (leftSideVoteButtons) {
+		BROWSER_API.storage.sync.set({ leftSideVoteButtons: true });
+		document.querySelector('.icon-left-side-vote-buttons').style.backgroundColor = 'var(--accent)';
+		sendMessage({ leftSideVoteButtons: true });
+	} else {
+		BROWSER_API.storage.sync.set({ leftSideVoteButtons: false });
+		document.querySelector('.icon-left-side-vote-buttons').style.backgroundColor = '';
+		sendMessage({ leftSideVoteButtons: false });
+	}
+});

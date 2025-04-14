@@ -60,7 +60,8 @@ export function hidePostKarma(value) {
 			if (!document.head.querySelector('style[id="re-hide-post-karma"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-hide-post-karma';
-				styleElement.textContent = `shreddit-post::part(karma) {
+				styleElement.textContent = `.re-vote-panel faceplate-number,
+											shreddit-post::part(karma) {
 												display: none !important;
   											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);

@@ -62,7 +62,7 @@ async function attachUsername(post) {
 	if (!post.querySelector('.re-post-author')) {
 		const a = document.createElement('span');
 		a.classList.add('re-post-author');
-		a.innerHTML = `Posted by <a href="/user/${author}">u/${author}</a>`;
+		a.innerHTML = `<a href="/user/${author}">u/${author}</a>`;
 
 		let hoverTimer;
 		if (author !== '[deleted]') {
@@ -95,7 +95,6 @@ async function showHoverCard(post, username) {
 	document.querySelectorAll('faceplate-tracker').forEach((post) => {
 		post.style.zIndex = '';
 	});
-	post.style.zIndex = '3';
 
 	// Check if hover card already exists
 	const existingHoverCard = post.querySelector('.hover-card');

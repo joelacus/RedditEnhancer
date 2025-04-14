@@ -105,10 +105,19 @@ function enableUseCustomBackgroundNewNew() {
 								[routename="subreddit"] div.masthead {
 									background-color: var(--re-theme-post-bg);
 								}
-								shreddit-app[routename="post_page"] main.main,
-								shreddit-app[routename="comments_page"] main.main,
-								shreddit-app[routename="profile_post_page"] main.main,
-								shreddit-app[routename="post_stats"] main.main {
+								community-highlight-carousel {
+									background-color: var(--re-theme-post-bg, transparent);
+									border: 1px solid var(--re-theme-post-border, transparent);
+									border-radius: var(--re-theme-border-radius, 0);
+								}
+								community-highlight-carousel.community-highlight-carousel > h3 {
+									padding-left: .75rem;
+									padding-block: .125rem;
+								}
+								[routename="post_page"] main.main,
+								[routename="comments_page"] main.main,
+								[routename="profile_post_page"] main.main,
+								[routename="post_stats"] main.main {
 									margin: 1rem 0;
 									padding: 0 1rem .75rem 1rem;
 									height: min-content;
@@ -121,8 +130,12 @@ function enableUseCustomBackgroundNewNew() {
 										padding: 0;
 										
 										& div[slot="credit-bar"] {
-											padding-top: 0.875rem;
+											padding-top: 0.75rem;
 										}
+									}
+									
+									div.re-vote-panel {
+										margin-top: 0 !important;
 									}
 								}
 								shreddit-app[routename="post_stats"] main.main > div {

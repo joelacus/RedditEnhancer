@@ -105,6 +105,13 @@ function addBorderRadiusAmountStylesheet() {
 				& > faceplate-tracker a {
 					border-radius: 0 0 var(--re-theme-border-radius) var(--re-theme-border-radius);
 				}
+			}
+			shreddit-composer {
+				--color-neutral-border: transparent;
+				--color-neutral-border-medium: transparent;
+				background-color: var(--color-neutral-background);
+				border: 1px solid var(--color-neutral-border-weak);
+				border-radius: var(--re-theme-border-radius);
 			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

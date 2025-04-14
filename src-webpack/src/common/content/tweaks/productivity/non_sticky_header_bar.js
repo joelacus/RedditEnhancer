@@ -69,10 +69,7 @@ function enableNonStickyHeaderBarNewNew() {
 									top: 0 !important;
 								}
 								shreddit-app #right-sidebar-container {
-									position: sticky;
-									height: 100vh;
-									top: 0;
-									max-height: unset !important;
+									max-height: initial !important;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }

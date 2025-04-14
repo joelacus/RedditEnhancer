@@ -1115,3 +1115,35 @@ document.querySelector('#checkbox-hide-vote-buttons').addEventListener('change',
 	BROWSER_API.storage.sync.set({ hideVoteButtons: hideVoteButtons });
 	sendMessage({ hideVoteButtons: hideVoteButtons });
 });
+
+// Toggle - Hide Video Recommendations
+document.querySelector('#checkbox-hide-video-recommendations').addEventListener('change', function () {
+	const hideVideoRecommendations = document.querySelector('#checkbox-hide-video-recommendations').checked;
+	if (hideVideoRecommendations) {
+		document.querySelector('.icon-hide-video-recommendations').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-video-recommendations').classList.remove('icon-show');
+		document.querySelector('.icon-hide-video-recommendations').classList.add('icon-hide');
+	} else {
+		document.querySelector('.icon-hide-video-recommendations').style.backgroundColor = '';
+		document.querySelector('.icon-hide-video-recommendations').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-video-recommendations').classList.add('icon-show');
+	}
+	BROWSER_API.storage.sync.set({ hideVideoRecommendations: hideVideoRecommendations });
+	sendMessage({ hideVideoRecommendations: hideVideoRecommendations });
+});
+
+// Toggle - Hide Community Status
+document.querySelector('#checkbox-hide-community-status').addEventListener('change', function () {
+	const hideCommunityStatus = document.querySelector('#checkbox-hide-community-status').checked;
+	if (hideCommunityStatus) {
+		document.querySelector('.icon-hide-community-status').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-community-status').classList.remove('icon-show');
+		document.querySelector('.icon-hide-community-status').classList.add('icon-hide');
+	} else {
+		document.querySelector('.icon-hide-community-status').style.backgroundColor = '';
+		document.querySelector('.icon-hide-community-status').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-community-status').classList.add('icon-show');
+	}
+	BROWSER_API.storage.sync.set({ hideCommunityStatus: hideCommunityStatus });
+	sendMessage({ hideCommunityStatus: hideCommunityStatus });
+});

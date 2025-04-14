@@ -54,7 +54,7 @@ export function compactPostLinkPreview(value) {
 									        shreddit-app[routename="comment_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 + a {
 									        	float: left;
 									        	margin-top: calc(-116px + var(--re-post-media-container-margin));
-									        	max-width: calc(100% - 152px);
+									        	max-width: calc(100% - 144px - 2rem);
 									        }`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}

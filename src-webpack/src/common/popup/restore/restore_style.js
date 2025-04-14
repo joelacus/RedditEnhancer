@@ -942,4 +942,15 @@ export function restorePopupStyleOptions() {
 		}
 		console.log('Opt Out Attach Side Menu: ' + optOutAttachSideMenu);
 	});
+
+	// Left Side Vote Buttons
+	BROWSER_API.storage.sync.get(['leftSideVoteButtons'], function (result) {
+		const leftSideVoteButtons = result.leftSideVoteButtons === true;
+		document.querySelector('.icon-left-side-vote-buttons').style.backgroundColor = leftSideVoteButtons ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-left-side-vote-buttons').checked = leftSideVoteButtons;
+		if (leftSideVoteButtons) {
+			highlightMenuIcon('style-tweaks');
+		}
+		console.log('Left Side Vote Buttons: ' + leftSideVoteButtons);
+	});
 }

@@ -158,6 +158,9 @@ import { usernameHoverPopupDelay } from './tweaks/productivity/username_hover_po
 import { showUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
 import { customHeaderLogo, setCustomHeaderLogoUrl } from './tweaks/style/custom_header_logo';
 import { hideBlockedKeywordPosts } from "./tweaks/hide_elements/hide_blocked_keyword_posts";
+import { hideVideoRecommendations } from "./tweaks/media/hide_video_recommendations";
+import { leftSideVoteButtons } from "./tweaks/style/left_side_vote_buttons";
+import { hideCommunityStatus } from "./tweaks/hide_elements/hide_community_status";
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
@@ -398,6 +401,9 @@ const functionRegistry = {
 	setCustomHeaderLogoUrl,
 	attachSideMenuHeader,
 	optOutAttachSideMenu,
+	hideVideoRecommendations,
+	leftSideVoteButtons,
+	hideCommunityStatus,
 	//dragImageToResize,
 	//dragImageToResizeInitialSize,
 	//addDownloadVideoButton,

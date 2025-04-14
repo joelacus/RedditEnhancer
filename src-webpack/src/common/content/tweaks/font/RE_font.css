@@ -67,7 +67,8 @@ div[data-test-id="comment-submission-form-markdown"] textarea,
 /* New New UI */
 shreddit-comment div.md[slot="comment"],
 shreddit-profile-comment div.md,
-shreddit-composer div[contenteditable] {
+shreddit-composer div[contenteditable],
+shreddit-composer::part(md-inner) {
 	font-size: var(--re-post-comments-font-size, 14px);
 	font-weight: var(--re-post-comments-font-weight);
 	line-height: 1.5;

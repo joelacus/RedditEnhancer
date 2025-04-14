@@ -54,6 +54,7 @@ import { loadCompactPostLinkPreview } from './tweaks/media/compact_post_link_pre
 import { loadUsernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
 import { loadShowUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
 import { loadAttachSideMenuHeader } from "./tweaks/style/old_new_ui";
+import { loadLeftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -233,6 +234,7 @@ export function loadTweaks() {
 					loadReplacePostVideosWithLinks();
 					loadAlwaysShowPostOptions();
 					loadShowUpvoteRatio();
+					loadLeftSideVoteButtons();
 				}, 1000);
 			},
 		});

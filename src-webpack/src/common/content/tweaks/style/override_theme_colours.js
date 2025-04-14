@@ -569,13 +569,6 @@ export function themePostBackgroundColour(value) {
 											backdrop-filter: blur(var(--re-theme-blur)) !important;
 											border-radius: 8px;
 										}
-										shreddit-comment-tree {
-											border-radius: 16px;
-											padding-left: .5rem;
-											padding-right: .5rem;
-											margin-left: -.5rem;
-											margin-right: -.5rem;
-										}
 										#main-content [bundlename="comment_body_header"],
 										main.main [bundlename="comment_body_header"] {
 											position: relative;
@@ -879,7 +872,7 @@ export function themePostCommentsTextColour2(value) {
 											--color-neutral-content-weak: var(--re-theme-post-comments-text-2) !important;
 											--color-secondary-weak: var(--re-theme-post-comments-text-2) !important;
 										}
-										shreddit-comment-tree * {
+										shreddit-comment-tree :not(shreddit-composer) {
 											--color-neutral-content-strong: var(--re-theme-post-comments-text-2) !important;
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);

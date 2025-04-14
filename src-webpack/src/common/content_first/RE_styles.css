@@ -195,7 +195,17 @@ a.thumbnail > img {
 /* @see ../content/productivity/show_post_author.js */
 .re-post-author {
 	color: var(--color-neutral-content-weak);
-	z-index: 3;
+	z-index: 4;
+}
+shreddit-feed :not([post-type="crosspost"]) .re-post-author::before {
+	content: "Posted by\00a0";
+	color: var(--color-neutral-content-weak);
+	align-self: center;
+}
+shreddit-feed [post-type="crosspost"] .re-post-author::before {
+	content: "Crossposted by\00a0";
+	color: var(--color-neutral-content-weak);
+	align-self: center;
 }
 .re-post-author a {
 	color: var(--color-neutral-content-weak);
@@ -207,6 +217,9 @@ shreddit-app[pagetype='search_results'] .re-post-author ~ faceplate-timeago {
 div:has(span > .hover-card),
 span:has(.hover-card) {
 	overflow: unset !important;
+}
+shreddit-post:has(.hover-card) {
+	z-index: 3;
 }
 .hover-card {
 	display: none;
@@ -244,6 +257,7 @@ span:has(.hover-card) {
 .re-post-number {
 	margin-right: 0.25rem;
 	align-self: center;
+	color: var(--color-neutral-content-weak);
 }
 .re-post-number + div[data-adclicklocation='title'] {
 	display: inline;
@@ -254,9 +268,39 @@ span:has(.hover-card) {
 	text-align: right;
 }
 
-/* === POST UPVOTE & UPVOTE RATIO === */
+/* === VOTE PANEL, POST UPVOTE & UPVOTE RATIO === */
+/* ========== Vote panel ========== */
+.re-vote-panel > span {
+	padding: .25rem;
+}
+.re-vote-panel > span > span {
+	flex-direction: column;
+	background-color: transparent;
+	color: var(--button-color-text-default);
+}
+.re-vote-panel button[upvote],
+.re-vote-panel button[downvote] {
+	color: var(--button-color-text-default);
+}
+.re-vote-panel button[upvote][aria-pressed="true"] svg,
+.re-vote-panel span.bg-action-upvote faceplate-number {
+	color: var(--color-action-upvote);
+}
+.re-vote-panel button[downvote][aria-pressed="true"] svg,
+.re-vote-panel span.bg-action-downvote faceplate-number {
+	color: var(--color-action-downvote);
+}
+.re-vote-panel button:hover {
+	background-color: var(--button-color-background-hover);
+}
+.re-vote-panel faceplate-number {
+	display: flex;
+	flex-direction: column;
+}
+
 /* Fade the display of post upvote percentage, and align the vote button div with post content in Compact view on v2 UI */
-shreddit-post::part(re-upvote-ratio) {
+shreddit-post::part(re-upvote-ratio),
+.re-vote-panel .re-upvote-ratio {
 	opacity: 0.75;
 }
 div:has(> div[id*='vote-arrows-']) {
@@ -270,8 +314,11 @@ div[id^='vote-arrows-t3_'] button[data-click-id='upvote'] ~ .re-upvote-ratio {
 	font-size: 9px;
 	margin-bottom: 6px;
 }
+.re-vote-panel .re-upvote-ratio {
+	font-size: 9px;
+}
 
-/* ========== BIONIC READER ========== */
+	/* ========== BIONIC READER ========== */
 .re-bold {
 	font-weight: bold !important;
 }
@@ -387,6 +434,9 @@ aside#mod-queue-pdp-panel shreddit-post {
 }
 .theme-dark shreddit-comment .bg-tone-4 {
 	--color-tone-4: #2c3033;
+}
+shreddit-composer::part(md-inner) {
+	padding: 0.5rem 0.75rem;
 }
 
 /* ========== SCROLL TEXT POST ========== */
