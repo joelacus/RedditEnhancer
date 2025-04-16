@@ -142,8 +142,7 @@ async function attachVoteButtons() {
 const observer = new MutationObserver(debounce(mutations => {
     mutations.forEach(function (mutation) {
         mutation.addedNodes.forEach(addedNode => {
-            console.log(addedNode);
-            if (['TIME', 'ARTICLE', 'DIV'].includes(addedNode.nodeName)) {
+            if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
                 attachVoteButtons();
             }
         });

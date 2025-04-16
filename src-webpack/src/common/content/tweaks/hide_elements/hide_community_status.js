@@ -22,7 +22,8 @@ export function hideCommunityStatus(value) {
                 const styleElement = document.createElement('style');
                 styleElement.id = 're-hide-community-status';
                 styleElement.textContent = `span[slot="community-status"],
-                                            community-status-tooltip {
+                                            community-status-tooltip,
+                                            activate-feature[name^="CommunityStatusEditModal_"] {
                                                 display: none !important;
                                             }`;
                 document.head.insertBefore(styleElement, document.head.firstChild);
