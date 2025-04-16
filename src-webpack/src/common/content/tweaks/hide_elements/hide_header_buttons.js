@@ -92,9 +92,6 @@ export function hideChatButton(value) {
 										display: none;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
-		if (document.querySelector('iframe.chat-app-window')) {
-			document.querySelector('iframe.chat-app-window').remove();
-		}
 	}
 	if (redditVersion === 'new' && value === true) {
 		if (useLegacy) {

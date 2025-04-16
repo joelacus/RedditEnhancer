@@ -301,6 +301,13 @@ async function enableAttachSideMenuHeader() {
 				margin-bottom: .25rem;
 				font-size: small;
 			}
+			div.masthead div:has(> h1)::after {
+				content: attr(data-sub-name);
+				margin-top: 0.35rem;
+				margin-bottom: -1.35rem;
+				font-weight: 600;
+				color: var(--color-tone-1);
+			}
 			`;
 		if (!optOutAttach) styleElement.textContent += `
 			.re-header-menu {
@@ -362,6 +369,12 @@ async function enableAttachSideMenuHeader() {
 				break;
 			case 'subreddit':
 			case 'subreddit_wiki':
+				const subredditName = document.querySelector('shreddit-subreddit-header')?.getAttribute('display-name');
+				if (subredditName && subredditName.length > 0) {
+					document.querySelector('div.masthead h1').textContent = subredditName;
+					document.querySelector('div.masthead div:has(> h1)')?.setAttribute('data-sub-name',
+						"r/" + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2]);
+				}
 			case 'post_page':
 			case 'comments_page':
 			case 'community_serp':

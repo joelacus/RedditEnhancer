@@ -100,6 +100,14 @@ function enableLeftSideVoteButtons() {
 			    padding: 1rem 3rem;
                 width: calc(100% - 4.5rem);
             }
+            div[slot="commentAvatar"] a span,
+            div[slot="commentAvatar"] a svg {
+                width: 1.75rem;
+                height: 1.75rem;
+            }
+            div[slot="commentAvatar"] a > span {
+                margin: 0 0.125rem;
+            }
 			`;
         document.head.insertBefore(styleElement, document.head.firstChild);
     }

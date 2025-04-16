@@ -82,6 +82,7 @@ shreddit-app[routename='subreddit'] #right-sidebar-container {
 	margin-top: 2rem;
 }
 shreddit-app[routename='subreddit'] #right-sidebar-container faceplate-partial > aside,
+shreddit-app[routename='subreddit_wiki'] #right-sidebar-container faceplate-partial > aside,
 shreddit-app[routename='post_page'] #right-sidebar-container faceplate-partial > aside,
 shreddit-app[routename='comment_page'] #right-sidebar-container faceplate-partial > aside {
 	margin-top: 1rem;
