@@ -406,7 +406,7 @@ div[data-testid='search-scope-pill'] > div[data-testid='search-scope-pill-text']
 div[slot='credit-bar'] pdp-back-button {
 	position: static;
 }
-div[slot='credit-bar'] > span:has(pdp-back-button) {
+div[slot='credit-bar'] > span:has(pdp-back-button):has(span.avatar + div > div) {
 	gap: 0.6rem;
 }
 div[slot='credit-bar'] > span:has(pdp-back-button) > div {
