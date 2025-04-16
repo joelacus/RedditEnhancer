@@ -108,7 +108,6 @@ function enableUseCustomBackgroundNewNew() {
 								}
 								community-highlight-carousel {
 									background-color: var(--re-theme-post-bg, transparent);
-									border: 1px solid var(--re-theme-post-border, transparent);
 									border-radius: var(--re-theme-border-radius, 0);
 								}
 								community-highlight-carousel.community-highlight-carousel > h3 {
@@ -126,11 +125,11 @@ function enableUseCustomBackgroundNewNew() {
 									border-radius: var(--re-theme-border-radius, 0);
 									box-sizing: border-box;
 									
-									& > shreddit-post {
+									& shreddit-post {
 										margin: 0;
 										padding: 0;
 										
-										& div[slot="credit-bar"] {
+										& > :first-child {
 											padding-top: 0.75rem;
 										}
 									}

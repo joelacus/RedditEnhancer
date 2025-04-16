@@ -198,12 +198,14 @@ a.thumbnail > img {
 	color: var(--color-neutral-content-weak);
 	z-index: 4;
 }
-shreddit-feed :not([post-type="crosspost"]) .re-post-author::before {
+:not([post-type="crosspost"]) .re-post-author::before,
+.re-post-author-active shreddit-feed :not([post-type="crosspost"]) span[slot="authorName"]::before {
 	content: "Posted by\00a0";
 	color: var(--color-neutral-content-weak);
 	align-self: center;
 }
-shreddit-feed [post-type="crosspost"] .re-post-author::before {
+[post-type="crosspost"] .re-post-author::before,
+.re-post-author-active shreddit-feed [post-type="crosspost"] span[slot="authorName"]::before {
 	content: "Crossposted by\00a0";
 	color: var(--color-neutral-content-weak);
 	align-self: center;
@@ -437,7 +439,8 @@ aside#mod-queue-pdp-panel shreddit-post {
 	--color-tone-4: #2c3033;
 }
 shreddit-composer::part(md-inner) {
-	padding: 0.5rem 0.75rem;
+	padding: 0.25rem 1rem;
+	font-family: var(--font-sans);
 }
 
 /* ========== SCROLL TEXT POST ========== */

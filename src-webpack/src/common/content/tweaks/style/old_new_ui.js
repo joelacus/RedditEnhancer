@@ -7,7 +7,6 @@
  */
 
 import { showBannerMessage } from "../../banner_message";
-import {sideMenuToggleButton} from "../hide_elements/side_menu_toggle_button";
 
 // Get the feature state from browser sync storage
 export function loadFullWidthBanner() {
@@ -124,16 +123,6 @@ function enableCompactHeaderSideMenu() {
 									}
 									div.main-container {
 										gap: 1rem;
-									}
-									shreddit-feed :not([post-type="crosspost"]) span[slot="authorName"]::before {
-										content: "Posted by\\00a0";
-										color: var(--color-neutral-content-weak);
-										align-self: center;
-									}
-									shreddit-feed [post-type="crosspost"] span[slot="authorName"]::before {
-										content: "Crossposted by\\00a0";
-										color: var(--color-neutral-content-weak);
-										align-self: center;
 									}
 									
 									/* COMPACT SUBREDDIT RULE LIST */
@@ -306,7 +295,7 @@ async function enableAttachSideMenuHeader() {
 				margin-top: 0.35rem;
 				margin-bottom: -1.35rem;
 				font-weight: 600;
-				color: var(--color-tone-1);
+				color: var(--color-tone-2);
 			}
 			`;
 		if (!optOutAttach) styleElement.textContent += `
@@ -369,12 +358,6 @@ async function enableAttachSideMenuHeader() {
 				break;
 			case 'subreddit':
 			case 'subreddit_wiki':
-				const subredditName = document.querySelector('shreddit-subreddit-header')?.getAttribute('display-name');
-				if (subredditName && subredditName.length > 0) {
-					document.querySelector('div.masthead h1').textContent = subredditName;
-					document.querySelector('div.masthead div:has(> h1)')?.setAttribute('data-sub-name',
-						"r/" + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2]);
-				}
 			case 'post_page':
 			case 'comments_page':
 			case 'community_serp':
@@ -483,6 +466,47 @@ function disableAttachSideMenuHeader() {
 	if (document.querySelector('.re-user-info')) document.querySelector('.re-user-info').remove();
 }
 
+/**
+ * Tweaks: Style - Show subreddit display name in its banner
+ *
+ * @name subredditDisplayNameBanner
+ * @description Duh.
+ *
+ * Applies to: New New UI (2023-)
+ */
+
+// Get the feature state from browser sync storage
+export function loadSubredditDisplayNameBanner() {
+	BROWSER_API.storage.sync.get(['subredditDisplayNameBanner'], function (result) {
+		if (result.subredditDisplayNameBanner) subredditDisplayNameBanner(true);
+	});
+}
+
+// Activate the feature based on Reddit version
+export function subredditDisplayNameBanner(value) {
+	if (redditVersion === 'newnew') {
+		if (value) {
+			const route = document.querySelector('shreddit-app')?.getAttribute('routename');
+			if (route === 'subreddit' || route === 'subreddit_wiki') {
+				const subredditName = document.querySelector('shreddit-subreddit-header')?.getAttribute('display-name');
+				if (subredditName && subredditName.length > 0) {
+					document.querySelector('div.masthead h1').textContent = subredditName;
+					document.querySelector('div.masthead div:has(> h1)')?.setAttribute('data-sub-name',
+						"r/" + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2]);
+				}
+			}
+		} else {
+			showBannerMessage('info', '[RedditEnhancer] Please refresh the page for the change to take effect.');
+		}
+	}
+}
+
+/**
+ * Format numbers to short form, e.g. 1500 to 1.5k.
+ *
+ * @param num
+ * @returns {string|string}
+ */
 function formatNumber(num) {
 	const units = [
 		{ value: 1E18, symbol: 'e' },

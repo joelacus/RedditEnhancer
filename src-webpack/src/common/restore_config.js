@@ -309,6 +309,7 @@ async function restoreBackup(json) {
 				'sideMenuToggleButtonHiddenState',
 				'sideMenuWidth',
 				'stickySort',
+				'subredditDisplayNameBanner',
 				'textPostScroll',
 				'textPostPreviewFade',
 				'textPostPreviewFadeHeight',

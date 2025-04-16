@@ -491,6 +491,9 @@
 	"LeftSideVoteButtons": {
 		"message": "Show vote buttons on the left"
 	},
+	"LeftSideVoteButtonsInfo": {
+		"message": "Note: Activating this function hides the back button in post view by default. Hide the Post Back Button will have no effect."
+	},
 	"Light": {
 		"message": "Light"
 	},
@@ -868,6 +871,9 @@
 	},
 	"Subreddit": {
 		"message": "Subreddit"
+	},
+	"SubredditDisplayNameBanner": {
+		"message": "Show the subreddit display name in its banner"
 	},
 	"Text": {
 		"message": "Text"

@@ -7,8 +7,8 @@
  * Applies to: New New UI (2023-)
  */
 
-import { fetchPostData } from "../productivity/show_post_flair";
-import {showBannerMessage} from "../../banner_message";
+import { showBannerMessage } from "../../banner_message";
+
 let isAttaching = false;
 
 // Get the feature state from browser sync storage
@@ -27,6 +27,17 @@ export function leftSideVoteButtons(value) {
             if (document.querySelector('shreddit-feed')) {
                 observer.observe(document.querySelector('shreddit-feed'), {childList: true, subtree: true});
             }
+            if (document.querySelector('shreddit-post[view-context="CommentsPage"]')) {
+                const crosspost = document.querySelector('shreddit-post').getAttribute('view-type');
+                const tagline = document.querySelector('shreddit-post span.avatar + div > div');
+                const author = tagline.querySelector('a.author-name');
+                if (crosspost === 'crosspost') {
+                    author.textContent = "Crossposted by u/" + author.textContent;
+                } else {
+                    author.textContent = "Posted by u/" + author.textContent;
+                }
+                document.querySelector('shreddit-post span#time-ago-separator').insertAdjacentElement("afterend", tagline);
+            }
         } else {
             disableLeftSideVoteButtons();
             observer.disconnect();
@@ -39,10 +50,9 @@ function enableLeftSideVoteButtons() {
     if (!document.head.querySelector('style[id="re-left-side-vote-buttons"]')) {
         const styleElement = document.createElement('style');
         styleElement.id = 're-left-side-vote-buttons';
-        styleElement.textContent =
-            `
-			shreddit-feed > article,
-			shreddit-feed faceplate-batch > article {
+        styleElement.textContent = `
+			shreddit-feed > article:has(> shreddit-post),
+			shreddit-feed faceplate-batch > article:has(> shreddit-post) {
 				display: flex;
 				background-color: color-mix(in srgb, var(--re-theme-post-bg, var(--color-neutral-background)), transparent 25%);
 				backdrop-filter: blur(var(--re-theme-blur));
@@ -88,15 +98,15 @@ function enableLeftSideVoteButtons() {
                     padding-left: 48px;
                     padding-right: 1rem;
                 }
+                shreddit-comments-page-tools {
+                    padding-left: 28px;
+                }
                 shreddit-comment-tree {
                     margin-left: .5rem;
-                    
-                    & .md {
-                        padding-right: 1rem;
-                    }
+                    padding-right: 1rem;
                 }
 			}
-			div[id^="comment-tree-content-anchor-"] > div {
+			span[id^="comment-tree-content-anchor-"] > div {
 			    padding: 1rem 3rem;
                 width: calc(100% - 4.5rem);
             }
@@ -107,6 +117,22 @@ function enableLeftSideVoteButtons() {
             }
             div[slot="commentAvatar"] a > span {
                 margin: 0 0.125rem;
+            }
+            div[slot="credit-bar"] span.avatar,
+            div[slot="credit-bar"] span.avatar * {
+                width: 20px !important;
+                height: 20px;
+                margin: initial;
+                font-size: initial;
+                line-height: normal;
+            }
+            shreddit-post > div.flex.relative.pt-md[slot="credit-bar"] {
+                padding-top: .5rem;
+                height: 24px;
+            }
+            [routename="post_page"] shreddit-post span.avatar + div > div,
+            [routename="comment_page"] shreddit-post span.avatar + div > div {
+                display: none;
             }
 			`;
         document.head.insertBefore(styleElement, document.head.firstChild);

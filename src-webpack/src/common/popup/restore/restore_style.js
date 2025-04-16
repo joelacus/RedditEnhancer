@@ -953,4 +953,15 @@ export function restorePopupStyleOptions() {
 		}
 		console.log('Left Side Vote Buttons: ' + leftSideVoteButtons);
 	});
+
+	// Subreddit Display Name Banner
+	BROWSER_API.storage.sync.get(['subredditDisplayNameBanner'], function (result) {
+		const subredditDisplayNameBanner = result.subredditDisplayNameBanner === true;
+		document.querySelector('.icon-subreddit-display-name-banner').style.backgroundColor = subredditDisplayNameBanner ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-subreddit-display-name-banner').checked = subredditDisplayNameBanner;
+		if (subredditDisplayNameBanner) {
+			highlightMenuIcon('style-tweaks');
+		}
+		console.log('Subreddit Display Name Banner: ' + subredditDisplayNameBanner);
+	});
 }

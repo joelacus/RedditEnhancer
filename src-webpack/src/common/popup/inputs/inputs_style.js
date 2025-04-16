@@ -848,3 +848,17 @@ document.querySelector('#checkbox-left-side-vote-buttons').addEventListener('cha
 		sendMessage({ leftSideVoteButtons: false });
 	}
 });
+
+// Toggle - Subreddit Display Name Banner
+document.querySelector('#checkbox-subreddit-display-name-banner').addEventListener('change', function (e) {
+	const subredditDisplayNameBanner = document.querySelector('#checkbox-subreddit-display-name-banner').checked;
+	if (subredditDisplayNameBanner) {
+		BROWSER_API.storage.sync.set({ subredditDisplayNameBanner: true });
+		document.querySelector('.icon-subreddit-display-name-banner').style.backgroundColor = 'var(--accent)';
+		sendMessage({ subredditDisplayNameBanner: true });
+	} else {
+		BROWSER_API.storage.sync.set({ subredditDisplayNameBanner: false });
+		document.querySelector('.icon-subreddit-display-name-banner').style.backgroundColor = '';
+		sendMessage({ subredditDisplayNameBanner: false });
+	}
+});
