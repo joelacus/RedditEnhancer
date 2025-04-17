@@ -16,56 +16,49 @@ export function loadAutoShowCommentFormattingOptions() {
 
 /* === Main Function === */
 export function autoShowCommentFormattingOptions(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true && window.location.pathname.includes('/comments/')) {
-			const composer = document.querySelector('shreddit-composer')?.shadowRoot;
-			if (!composer) return;
+	if (redditVersion !== 'newnew' || !value || !window.location.pathname.includes('/comments/')) return;
 
-			const rteComposer = composer.querySelector('reddit-rte')?.shadowRoot?.querySelector('rte-toolbar-button');
-			if (rteComposer) composer.click();
+	// Process all shreddit composers
+	document.querySelectorAll('shreddit-composer').forEach(processComposer);
 
-			const mdComposer = composer.querySelector('shreddit-markdown-composer');
-			if (mdComposer) {
-				mdComposer.shadowRoot?.querySelector('div.flex')?.remove();
+	// Attach event listeners to reply buttons
+	document.querySelectorAll('[slot="comment-reply"]').forEach(attachReplyButtonListener);
 
-				const textarea = mdComposer.shadowRoot.querySelector('div.textarea-container textarea');
-				mdComposer.setAttribute('exportparts', 'md-inner');
-				textarea.setAttribute('part', 'md-inner');
-			}
+	// Observe shreddit-comment-tree for dynamic changes
+	setTimeout(() => {
+		observer.observe(document.querySelector('shreddit-comment-tree'), { childList: true, subtree: true });
+	}, 1000);
+}
 
-			// reply to comments
-			document.querySelectorAll('[slot="comment-reply"]').forEach((btn) => {
-				if (!btn.getAttribute('re-showFormatting')) {
-					btn.setAttribute('re-showFormatting', '');
-					btn.addEventListener('click', handleReplyClick);
-				}
-			});
+function processComposer(composer) {
+	const rteComposer = composer.shadowRoot.querySelector('reddit-rte')?.shadowRoot?.querySelector('rte-toolbar-button');
+	if (rteComposer && !rteComposer.getAttribute('re-showFormatting')) {
+		rteComposer.click();
+		rteComposer.setAttribute('re-showFormatting', '');
+	}
 
-			setTimeout(() => {
-				observer.observe(document.querySelector('shreddit-comment-tree'), {childList: true, subtree: true});
-			}, 1000);
-		}
+	const mdComposer = composer.shadowRoot.querySelector('shreddit-markdown-composer');
+	if (mdComposer) {
+		mdComposer.shadowRoot?.querySelector('div.flex')?.remove();
+		const textarea = mdComposer.shadowRoot?.querySelector('div.textarea-container textarea');
+		mdComposer.setAttribute('exportparts', 'md-inner');
+		if (textarea) textarea.setAttribute('part', 'md-inner');
+	}
+}
+
+function attachReplyButtonListener(btn) {
+	if (!btn.getAttribute('re-showFormatting')) {
+		btn.setAttribute('re-showFormatting', '');
+		btn.addEventListener('click', handleReplyClick);
 	}
 }
 
 const handleReplyClick = (e) => {
 	setTimeout(() => {
 		const composer = e.target.closest('shreddit-comment-action-row').querySelector('[bundlename="comment_composer"] shreddit-composer');
-		if (composer.shadowRoot.querySelector('reddit-rte')) {
-			const toolbarButton = composer.shadowRoot.children[0].querySelector('reddit-rte').shadowRoot.querySelector('rte-toolbar-button[screenreadercontent="Show formatting options"]');
-			toolbarButton.click();
-		} else if (composer.shadowRoot.querySelector('shreddit-markdown-composer')) {
-			const toolbar = composer.shadowRoot.children[0].querySelector('shreddit-markdown-composer').shadowRoot.querySelector('div.flex');
-			toolbar.remove();
+		if (composer) processComposer(composer);
 
-			const mdComposer = composer.shadowRoot.querySelector('shreddit-markdown-composer');
-			const textarea = mdComposer.shadowRoot.querySelector('div.textarea-container textarea');
-			mdComposer.setAttribute('exportparts', 'md-inner');
-			textarea.setAttribute('part', 'md-inner');
-		}
-		setTimeout(() => {
-			composer.querySelector('div').focus();
-		}, 100);
+		setTimeout(() => composer.querySelector('div')?.focus(), 100);
 	}, 100);
 };
 
@@ -73,18 +66,12 @@ const observer = new MutationObserver(mutations => {
 	mutations.forEach(function (mutation) {
 		mutation.addedNodes.forEach(addedNode => {
 			if (addedNode.nodeName === 'SHREDDIT-COMMENT') {
-				const replyBtn = addedNode.querySelector('faceplate-tracker[slot="comment-reply"]');
-				if (!replyBtn.getAttribute('re-showFormatting')) {
-					replyBtn.setAttribute('re-showFormatting', '');
-					replyBtn.addEventListener('click', handleReplyClick);
-				}
-				// reapply just to be sure
-				document.querySelectorAll('[slot="comment-reply"]').forEach((btn) => {
-					if (!btn.getAttribute('re-showFormatting')) {
-						btn.setAttribute('re-showFormatting', '');
-						btn.addEventListener('click', handleReplyClick);
-					}
-				});
+				attachReplyButtonListener(addedNode.querySelector('faceplate-tracker[slot="comment-reply"]'));
+				document.querySelectorAll('[slot="comment-reply"]').forEach(attachReplyButtonListener); // reapply just to be sure
+			} else if (addedNode.nodeName === 'SHREDDIT-ASYNC-LOADER') {
+				setTimeout(() => {
+					document.querySelectorAll('shreddit-composer').forEach(processComposer);
+				}, 300);
 			}
 		});
 	});

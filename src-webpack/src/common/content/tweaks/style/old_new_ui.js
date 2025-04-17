@@ -204,8 +204,7 @@ async function enableAttachSideMenuHeader() {
 	if (!document.head.querySelector('style[id="re-attach-side-menu-header"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-attach-side-menu-header';
-		styleElement.textContent =
-			`
+		styleElement.textContent = `
 			.re-header-menu {
 				width: 256px;
 				border: 1px solid transparent;
@@ -279,7 +278,7 @@ async function enableAttachSideMenuHeader() {
 				text-align: left;
 			}
 			@media (max-width: 1199px) {
-				.re-header-menu span,
+				.re-header-menu,
 				div.re-user-info {
 					display: none;
 				}
@@ -289,29 +288,24 @@ async function enableAttachSideMenuHeader() {
 				display: block;
 				margin-bottom: .25rem;
 				font-size: small;
-			}
-			div.masthead div:has(> h1)::after {
-				content: attr(data-sub-name);
-				margin-top: 0.35rem;
-				margin-bottom: -1.35rem;
-				font-weight: 600;
-				color: var(--color-tone-2);
-			}
-			`;
-		if (!optOutAttach) styleElement.textContent += `
-			.re-header-menu {
-				width: var(--re-side-menu-width, 256px);
-			}
-			flex-left-nav-container#left-sidebar-container {
-				display: none;
-			}
-			@media (min-width: 1200px) {
-				div.grid-container:not(.grid-full),
-				div.grid-container:not(.grid-full).flex-nav-collapsed {
-					--flex-nav-width: 0 !important;
-					grid-template-columns: 0 1fr;
 				}
-			}`;
+		`;
+		if (!optOutAttach) {
+			styleElement.textContent += `
+				.re-header-menu {
+					width: var(--re-side-menu-width, 256px);
+				}
+				flex-left-nav-container#left-sidebar-container {
+					display: none;
+				}
+				@media (min-width: 1200px) {
+					div.grid-container:not(.grid-full),
+					div.grid-container:not(.grid-full).flex-nav-collapsed {
+						--flex-nav-width: 0 !important;
+						grid-template-columns: 0 1fr;
+					}
+				}`;
+		}
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
 
@@ -363,6 +357,7 @@ async function enableAttachSideMenuHeader() {
 			case 'community_serp':
 			case 'post_submit_subreddit':
 			case 'wiki_page':
+			case 'mod_queue':
 				title = "r/" + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
 				data = await fetchData(`${title}/about.json`);
 				if (data.community_icon || data.icon_img) {
@@ -411,9 +406,9 @@ async function enableAttachSideMenuHeader() {
 				logo = '';
 				break;
 			default:
-				if (document.querySelector('moderation-tracker#mod-tracker')) {
+				if (window.location.pathname.includes('/mod/')) {
 					title = "r/" + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
-					data = await fetchData(title);
+					data = await fetchData(`${title}/about.json`);
 					logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon}">`;
 				} else {
 					// Fallback for unknown pages
@@ -467,41 +462,6 @@ function disableAttachSideMenuHeader() {
 }
 
 /**
- * Tweaks: Style - Show subreddit display name in its banner
- *
- * @name subredditDisplayNameBanner
- * @description Duh.
- *
- * Applies to: New New UI (2023-)
- */
-
-// Get the feature state from browser sync storage
-export function loadSubredditDisplayNameBanner() {
-	BROWSER_API.storage.sync.get(['subredditDisplayNameBanner'], function (result) {
-		if (result.subredditDisplayNameBanner) subredditDisplayNameBanner(true);
-	});
-}
-
-// Activate the feature based on Reddit version
-export function subredditDisplayNameBanner(value) {
-	if (redditVersion === 'newnew') {
-		if (value) {
-			const route = document.querySelector('shreddit-app')?.getAttribute('routename');
-			if (route === 'subreddit' || route === 'subreddit_wiki') {
-				const subredditName = document.querySelector('shreddit-subreddit-header')?.getAttribute('display-name');
-				if (subredditName && subredditName.length > 0) {
-					document.querySelector('div.masthead h1').textContent = subredditName;
-					document.querySelector('div.masthead div:has(> h1)')?.setAttribute('data-sub-name',
-						"r/" + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2]);
-				}
-			}
-		} else {
-			showBannerMessage('info', '[RedditEnhancer] Please refresh the page for the change to take effect.');
-		}
-	}
-}
-
-/**
  * Format numbers to short form, e.g. 1500 to 1.5k.
  *
  * @param num
@@ -543,5 +503,56 @@ async function fetchData(query) {
 		console.error('[RedditEnhancer] Error getting info for attaching side menu to and display user info in header: ', error);
 		e = true;
 		throw error;
+	}
+}
+
+/**
+ * Tweaks: Style - Show subreddit display name in its banner
+ *
+ * @name subredditDisplayNameBanner
+ * @description Duh.
+ *
+ * Applies to: New New UI (2023-)
+ */
+
+// Get the feature state from browser sync storage
+export function loadSubredditDisplayNameBanner() {
+	BROWSER_API.storage.sync.get(['subredditDisplayNameBanner'], function (result) {
+		if (result.subredditDisplayNameBanner) subredditDisplayNameBanner(true);
+	});
+}
+
+// Activate the feature based on Reddit version
+export function subredditDisplayNameBanner(value) {
+	if (redditVersion === 'newnew') {
+		if (value && window.innerWidth >= 960) {
+			if (!document.head.querySelector('style[id="re-subreddit-display-name-banner"]')) {
+				const styleElement = document.createElement('style');
+				styleElement.id = 're-subreddit-display-name-banner';
+				styleElement.textContent = `div.masthead div:has(> h1)::after {
+												content: attr(data-sub-name);
+												margin-top: 0.35rem;
+												margin-bottom: -1.35rem;
+												font-weight: 600;
+												color: var(--color-tone-2);
+											}`;
+				document.head.insertBefore(styleElement, document.head.firstChild);
+			}
+			const route = document.querySelector('shreddit-app')?.getAttribute('routename');
+			if (route === 'subreddit' || route === 'subreddit_wiki') {
+				const subredditName = document.querySelector('shreddit-subreddit-header')?.getAttribute('display-name');
+				if (subredditName && subredditName.length > 0) {
+					document.querySelector('div.masthead h1').textContent = subredditName;
+					document.querySelector('div.masthead div:has(> h1)')?.setAttribute('data-sub-name',
+						"r/" + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2]);
+				}
+			}
+		} else {
+			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-subreddit-display-name-banner"]');
+			dynamicStyleElements.forEach((element) => {
+				document.head.removeChild(element);
+			});
+			document.querySelector('div.masthead h1').textContent = "r/" + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
+		}
 	}
 }
