@@ -128,11 +128,17 @@ function enableLeftSideVoteButtons() {
             }
             shreddit-post > div.flex.relative.pt-md[slot="credit-bar"] {
                 padding-top: .5rem;
+                padding-bottom: 0;
                 height: 24px;
             }
             [routename="post_page"] shreddit-post span.avatar + div > div,
             [routename="comment_page"] shreddit-post span.avatar + div > div {
                 display: none;
+            }
+            shreddit-post div[slot="credit-bar"] pdp-back-button {
+                position: absolute;
+                left: -6rem;
+                top: 0;
             }
 			`;
         document.head.insertBefore(styleElement, document.head.firstChild);

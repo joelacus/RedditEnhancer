@@ -94,6 +94,10 @@ shreddit-app[pagetype='custom_feed'] #right-sidebar-container {
 shreddit-app[pagetype='search_results'] main.main {
 	margin-top: 1rem;
 }
+div[data-testid="search-results-sidebar"] {
+	padding-left: 0;
+	padding-right: 0;
+}
 
 /* ========== HIDE HOME FEED ========== */
 /* Old UI
