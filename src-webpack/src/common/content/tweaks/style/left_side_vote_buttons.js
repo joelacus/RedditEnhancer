@@ -21,7 +21,7 @@ export function loadLeftSideVoteButtons() {
 // Activate the feature based on Reddit version
 export function leftSideVoteButtons(value) {
     if (redditVersion === 'newnew') {
-        if (value) {
+        if (value && !document.querySelector('shreddit-app').getAttribute('routename').includes('mod_queue')) {
             enableLeftSideVoteButtons();
             attachVoteButtons();
             if (document.querySelector('shreddit-feed')) {
