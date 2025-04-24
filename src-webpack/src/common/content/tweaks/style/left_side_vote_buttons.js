@@ -54,7 +54,7 @@ function enableLeftSideVoteButtons() {
 			shreddit-feed > article:has(> shreddit-post),
 			shreddit-feed faceplate-batch > article:has(> shreddit-post) {
 				display: flex;
-				background-color: color-mix(in srgb, var(--re-theme-post-bg, var(--color-neutral-background)), transparent 25%);
+				background-color: color-mix(in srgb, var(--color-neutral-background), transparent 25%);
 				backdrop-filter: blur(var(--re-theme-blur));
 				border: 1px solid var(--re-theme-post-border);
 				border-radius: var(--re-theme-border-radius);
@@ -65,7 +65,7 @@ function enableLeftSideVoteButtons() {
 				border: none;
 				min-width: 0;
 			}
-			shreddit-feed div.re-vote-panel {
+			shreddit-feed .re-vote-panel {
 			    display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -76,17 +76,17 @@ function enableLeftSideVoteButtons() {
 			shreddit-app[routename="profile_post_page"] main.main {
 			    padding-left: 0;
 			    
-			    & div.re-vote-panel {
+			    & .re-vote-panel {
 			        display: inline-block;
 			        width: 40px;
 			        vertical-align: top;
 			        padding: .5rem .25rem;
-			        margin-top: 1.5rem;
+			        margin-top: .75rem;
 			    }
-			    & div.re-vote-panel + shreddit-post {
+			    & .re-vote-panel + shreddit-post {
                     display: inline-block;
                     width: calc(100% - 48px);
-                    padding-left: .25rem;
+                    padding-left: .75rem;
                     
                     & div.md {
                         padding-right: 1rem;

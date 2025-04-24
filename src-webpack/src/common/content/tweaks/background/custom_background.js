@@ -134,8 +134,11 @@ function enableUseCustomBackgroundNewNew() {
 										}
 									}
 									
-									div.re-vote-panel {
+									& div.re-vote-panel {
 										margin-top: 0 !important;
+									}
+									& div.re-vote-panel + shreddit-post {
+										padding-left: .25rem !important;
 									}
 								}
 								shreddit-app[routename="post_stats"] main.main > div {
@@ -149,7 +152,8 @@ function enableUseCustomBackgroundNewNew() {
 								shreddit-app div.sidebar-grid {
 									background-color: var(--color-neutral-background) !important;
 									max-width: unset;
-								}`;
+								}
+								`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 

@@ -19,7 +19,7 @@ export function compactPostLinkPreview(value) {
 		const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
 		const postRoutes = ['post_page', 'comments_page', 'profile_post_page'];
 		// Do not compact e.g. YouTube video embeds
-		if (value && !document.querySelector('shreddit-embed') && postRoutes.includes(routeName)) {
+		if (value && postRoutes.includes(routeName) && !document.querySelector('shreddit-embed')) {
 			// Remove the original post link
 			let postLink = document.querySelector('shreddit-post[post-type="link"]')?.getAttribute('content-href');
 			document.querySelector('div:has(> faceplate-tracker[source="post_lightbox"])')?.remove();

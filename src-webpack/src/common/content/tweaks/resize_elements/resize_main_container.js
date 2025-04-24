@@ -39,7 +39,6 @@ function enableResizeMainContainer() {
             [pagetype="search_results"] div.masthead {
                 width: var(--re-main-container-width, 80%) !important;
                 margin: 0 auto;
-                display: block;
             }
             /* Align subreddit title with main-content */
             shreddit-app div.subgrid-container {

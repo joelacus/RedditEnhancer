@@ -379,6 +379,10 @@ div[id^='vote-arrows-t3_'] button[data-click-id='upvote'] ~ .re-upvote-ratio {
 }
 
 /* ========== OTHERS ========== */
+shreddit-feed article:focus-within {
+	position: relative;
+	z-index: 1;
+}
 .re-sidemenu-feed-top a:hover {
 	background-color: var(--newCommunityTheme-menuButtonBackground-hover);
 }

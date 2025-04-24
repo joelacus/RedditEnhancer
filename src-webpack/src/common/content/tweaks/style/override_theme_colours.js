@@ -535,6 +535,7 @@ export function themePostBackgroundColour(value) {
 										[routename="post_page"] main.main {
 											backdrop-filter: blur(var(--re-theme-blur)) !important;
 										}
+										shreddit-feed article,
 										shreddit-post,
 										comment-body-header,
 										#comment-tree {

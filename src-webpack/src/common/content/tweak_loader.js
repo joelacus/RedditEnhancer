@@ -234,8 +234,7 @@ export function loadTweaks() {
 					loadReplacePostImagesWithLinks();
 					loadReplacePostVideosWithLinks();
 					loadLeftSideVoteButtons();
-					loadCompactPostLinkPreview();
-				}, 100);
+				}, 500);
 				loadAlwaysShowPostOptions();
 				loadShowUpvoteRatio();
 			},
@@ -248,6 +247,7 @@ export function loadTweaks() {
 			done: function () {
 				setTimeout(() => {
 					loadAutoShowCommentFormattingOptions();
+					loadCompactPostLinkPreview();
 				}, 500);
 			},
 		});
