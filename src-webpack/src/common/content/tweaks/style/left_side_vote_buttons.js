@@ -28,13 +28,13 @@ export function leftSideVoteButtons(value) {
                 observer.observe(document.querySelector('shreddit-feed'), {childList: true, subtree: true});
             }
             if (document.querySelector('shreddit-post[view-context="CommentsPage"]')) {
-                const crosspost = document.querySelector('shreddit-post').getAttribute('view-type');
+                const crosspost = document.querySelector('shreddit-post').getAttribute('post-type');
                 const tagline = document.querySelector('shreddit-post span.avatar + div > div');
-                const author = tagline.querySelector('a.author-name');
+                const author = tagline.querySelector('faceplate-tracker[noun="user_profile"]:first-child');
                 if (crosspost === 'crosspost') {
-                    author.textContent = "Crossposted by u/" + author.textContent;
+                    author.childNodes[0].textContent = "Crossposted by u/" + author.childNodes[0].textContent;
                 } else {
-                    author.textContent = "Posted by u/" + author.textContent;
+                    author.childNodes[0].textContent = "Posted by u/" + author.childNodes[0].textContent;
                 }
                 document.querySelector('shreddit-post span#time-ago-separator').insertAdjacentElement("afterend", tagline);
             }
@@ -88,8 +88,7 @@ function enableLeftSideVoteButtons() {
                     width: calc(100% - 48px);
                     padding-left: .25rem;
                     
-                    & div.md,
-                    & div[slot="post-media-container"] {
+                    & div.md {
                         padding-right: 1rem;
                     }
                 }
@@ -128,7 +127,6 @@ function enableLeftSideVoteButtons() {
             }
             shreddit-post > div.flex.relative.pt-md[slot="credit-bar"] {
                 padding-top: .5rem;
-                padding-bottom: 0;
                 height: 24px;
             }
             [routename="post_page"] shreddit-post span.avatar + div > div,
@@ -139,6 +137,10 @@ function enableLeftSideVoteButtons() {
                 position: absolute;
                 left: -6rem;
                 top: 0;
+            }
+            shreddit-app[routename="post_page"] shreddit-post[post-type="link"]:has(img#post-image) h1,
+            shreddit-app[routename="comment_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 {
+                margin-right: calc(144px + 2rem);
             }
 			`;
         document.head.insertBefore(styleElement, document.head.firstChild);

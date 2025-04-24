@@ -217,8 +217,8 @@ export function loadTweaks() {
 			done: function () {
 				setTimeout(() => {
 					loadHideBlockedKeywordPosts();
-					loadShowPostNumbers();
 				}, 500);
+				loadShowPostNumbers();
 			},
 		});
 
@@ -233,10 +233,11 @@ export function loadTweaks() {
 					loadImageScroll();
 					loadReplacePostImagesWithLinks();
 					loadReplacePostVideosWithLinks();
-					loadAlwaysShowPostOptions();
-					loadShowUpvoteRatio();
 					loadLeftSideVoteButtons();
-				}, 1000);
+					loadCompactPostLinkPreview();
+				}, 100);
+				loadAlwaysShowPostOptions();
+				loadShowUpvoteRatio();
 			},
 		});
 
@@ -246,7 +247,6 @@ export function loadTweaks() {
 			recursive: true,
 			done: function () {
 				setTimeout(() => {
-					loadCompactPostLinkPreview();
 					loadAutoShowCommentFormattingOptions();
 				}, 500);
 			},
