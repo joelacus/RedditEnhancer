@@ -80,12 +80,12 @@ function enableLeftSideVoteButtons() {
 			        display: inline-block;
 			        width: 40px;
 			        vertical-align: top;
-			        padding: .5rem .25rem;
+			        padding: .25rem 0;
 			        margin-top: .75rem;
 			    }
 			    & .re-vote-panel + shreddit-post {
                     display: inline-block;
-                    width: calc(100% - 48px);
+                    width: calc(100% - 40px);
                     padding-left: .75rem;
                     
                     & div.md {
@@ -94,14 +94,14 @@ function enableLeftSideVoteButtons() {
                 }
                 comment-body-header {
                     margin-left: 0;
-                    padding-left: 48px;
+                    padding-left: 44px;
                     padding-right: 1rem;
                 }
                 shreddit-comments-page-tools {
                     padding-left: 28px;
                 }
                 shreddit-comment-tree {
-                    margin-left: .5rem;
+                    margin-left: .3rem;
                     padding-right: 1rem;
                 }
 			}
@@ -135,7 +135,7 @@ function enableLeftSideVoteButtons() {
             }
             shreddit-post div[slot="credit-bar"] pdp-back-button {
                 position: absolute;
-                left: -6rem;
+                left: -5.5rem;
                 top: 0;
             }
             shreddit-app[routename="post_page"] shreddit-post[post-type="link"]:has(img#post-image) h1,

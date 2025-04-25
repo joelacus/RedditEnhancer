@@ -44,8 +44,8 @@ function enableFullWidthBanner() {
 									shreddit-app[routename="subreddit"] div.main-container,
 									shreddit-app[routename="subreddit_wiki"] div.main-container {
 										width: initial;
-										padding: 0 1.1rem;
-										gap: 1.1rem;
+										padding: 0 1.5rem;
+										gap: 1.25rem;
 									}
 									html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit"] div.main-container,
 									html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit_wiki"] div.main-container {
@@ -118,11 +118,16 @@ function enableCompactHeaderSideMenu() {
 										display: none;
 										visibility: hidden;
 									}
+									nav.h-header-large > .justify-stretch > div {
+										top: .25rem;
+									}
 									div.subgrid-container {
-										padding: 0 1rem;
+										padding: 0;
 									}
 									div.main-container {
-										gap: 1rem;
+										padding: 0 1.5rem;
+										gap: 1.25rem;
+										width: auto;
 									}
 									
 									/* COMPACT SUBREDDIT RULE LIST */
