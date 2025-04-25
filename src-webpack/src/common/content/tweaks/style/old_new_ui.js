@@ -535,7 +535,13 @@ export function subredditDisplayNameBanner(value) {
 												margin-bottom: -1.35rem;
 												font-weight: 600;
 												color: var(--color-tone-2);
-											}`;
+											}
+											div.masthead > section {
+                								margin-block: 0;
+           									}
+											community-appearance-entrypoint[target="banner"] {
+                								margin-bottom: 3rem !important;
+            								}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
 			const route = document.querySelector('shreddit-app')?.getAttribute('routename');
