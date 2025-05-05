@@ -48,7 +48,7 @@ function enableAlwaysShowPostOptionsNewNew() {
 			});
 			observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
 		}
-	}, 5000);
+	}, 100);
 }
 
 // Function - Attach Menu And Move Items - New New
@@ -71,17 +71,8 @@ function attachMenu(post) {
 const observer = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {
 		mutation.addedNodes.forEach(function (addedNode) {
-			if (addedNode.nodeName === 'ARTICLE') {
-				const post = addedNode.querySelector('shreddit-post');
-				if (addedNode) {
-					attachMenu(post);
-				}
-				setTimeout(() => {
-					const post = addedNode.querySelector('shreddit-post');
-					if (addedNode) {
-						attachMenu(post);
-					}
-				}, 3000);
+			if (['TIME', 'ARTICLE', 'DIV'].includes(addedNode.nodeName)) {
+				document.querySelectorAll('shreddit-post').forEach(attachMenu);
 			}
 		});
 	});

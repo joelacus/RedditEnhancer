@@ -16,6 +16,7 @@ export function showPostAuthor(value, delay) {
 	const searchRoutes = ['global_serp', 'community_serp', 'custom_feed_serp'];
 
 	if (redditVersion === 'newnew' && value === true) {
+		document.documentElement.classList.add('re-post-author-active');
 		if (feedRoutes.includes(routename)) {
 			document.querySelectorAll('shreddit-post').forEach((post) => {
 				attachUsername(post);
@@ -31,7 +32,8 @@ export function showPostAuthor(value, delay) {
 			});
 			observer.observe(document.querySelector('reddit-feed'), { childList: true, subtree: true });
 		}
-	} else if (redditVersion === 'newnew' && value === false) {
+	} else {
+		document.documentElement.classList.remove('re-post-author-active');
 		if (routes.includes(routename)) {
 			observer.disconnect();
 			removeUsername();
@@ -49,8 +51,7 @@ function removeUsername() {
 }
 
 // Attach post author to post header.
-// TODO: replace "Posted by" with "Crossposted by" on x-posted posts (no screenshot available?)
-async function attachUsername(post) {
+export async function attachUsername(post) {
 	let author = post.getAttribute('author');
 	if (!author) {
 		// Fetch Author From URL Lookup
@@ -62,7 +63,7 @@ async function attachUsername(post) {
 	if (!post.querySelector('.re-post-author')) {
 		const a = document.createElement('span');
 		a.classList.add('re-post-author');
-		a.innerHTML = `Posted by <a href="/user/${author}">u/${author}</a>`;
+		a.innerHTML = `<a href="/user/${author}">u/${author}</a>`;
 
 		let hoverTimer;
 		if (author !== '[deleted]') {
@@ -95,7 +96,6 @@ async function showHoverCard(post, username) {
 	document.querySelectorAll('faceplate-tracker').forEach((post) => {
 		post.style.zIndex = '';
 	});
-	post.style.zIndex = 9;
 
 	// Check if hover card already exists
 	const existingHoverCard = post.querySelector('.hover-card');
@@ -185,51 +185,39 @@ function createHoverCard(userData) {
 		userCommentKarama = userData.comment_karma.toLocaleString();
 	}
 	hoverCard.innerHTML = `
-		<div class="p-md flex flex-col">
-			<div class="flex flex-row justify-items-start">
-				<div class="mr-sm">
-					<img src="${userData.snoovatar_img}" alt="User Avatar">
+		<div class="flex flex-row justify-items-start items-center">
+			<div class="mr-sm">
+				<img class="mb-0" src="${userData.snoovatar_img ? userData.snoovatar_img : userData.icon_img}" alt="User Avatar">
+			</div>
+			<div class="flex flex-col max-w-[calc(100%-60px)] mr-[-4px]">
+				<div class="flex overflow-hidden text-ellipsis w-[calc(100%+4px)]">
+					<div class="flex items-center">
+						<a rpl="" class="font-bold text-18 text-neutral-content-strong a no-visited hover:underline" href="${userProfileLink}">${userData.name}</a>
+					</div>
 				</div>
-				<div class="flex flex-col max-w-[calc(100%-60px)] mr-[-4px]">
-					<div class="flex overflow-hidden text-ellipsis w-[calc(100%+4px)]">
-						<div class="flex items-center">
-							<a rpl="" class="font-bold text-18 text-neutral-content-strong a no-visited hover:underline" href="${userProfileLink}">${userData.name}</a>
-						</div>
-					</div>
-					<div class="flex items-start justify-start text-neutral-content-weak">
-						<span class="truncate">${userDisplayName}</span>
-					</div>
-					<div class="flex items-center text-neutral-content-weak">
-						<svg rpl="" class="mr-2xs" fill="currentColor" height="16" icon-name="cake-outline" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-							<path d="m19.426 8.687-8.3-4.73A5.1 5.1 0 0 0 7.746.948c-.84 0-3.587 1.758-3.587 4.125 0 .112.023.218.032.328l-3.816 3.4A1.1 1.1 0 0 0 0 9.623v8.214a1.153 1.153 0 0 0 1.175 1.125L18.819 19c.318 0 .623-.124.85-.347a1.092 1.092 0 0 0 .331-.778V9.652a1.117 1.117 0 0 0-.574-.965ZM7.7 2.195c.387.076 2.382 1.308 2.382 2.878a2.34 2.34 0 1 1-4.675 0C5.409 3.5 7.4 2.271 7.7 2.195ZM18.75 14.75H4.451V16h14.3v1.75l-17.5-.037V11.25h17.5l-.001 3.5Zm0-4.75H1.25v-.3l3.325-2.967a3.555 3.555 0 0 0 6.717-1.24L18.75 9.74V10Z"></path>
-						</svg>
-						<time datetime="" data-testid="cake-day" title="">
-							${new Date(userData.created_utc * 1000).toLocaleDateString()}
-						</time>
-					</div>
+				<div class="flex items-start justify-start text-neutral-content-weak">
+					<span class="truncate">${userDisplayName}</span>
+				</div>
+				<div class="flex items-center text-neutral-content-weak">
+					<svg rpl="" class="mr-2xs" fill="currentColor" height="16" icon-name="cake-outline" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
+						<path d="m19.426 8.687-8.3-4.73A5.1 5.1 0 0 0 7.746.948c-.84 0-3.587 1.758-3.587 4.125 0 .112.023.218.032.328l-3.816 3.4A1.1 1.1 0 0 0 0 9.623v8.214a1.153 1.153 0 0 0 1.175 1.125L18.819 19c.318 0 .623-.124.85-.347a1.092 1.092 0 0 0 .331-.778V9.652a1.117 1.117 0 0 0-.574-.965ZM7.7 2.195c.387.076 2.382 1.308 2.382 2.878a2.34 2.34 0 1 1-4.675 0C5.409 3.5 7.4 2.271 7.7 2.195ZM18.75 14.75H4.451V16h14.3v1.75l-17.5-.037V11.25h17.5l-.001 3.5Zm0-4.75H1.25v-.3l3.325-2.967a3.555 3.555 0 0 0 6.717-1.24L18.75 9.74V10Z"></path>
+					</svg>
+					<time datetime="" data-testid="cake-day" title="">
+						${new Date(userData.created_utc * 1000).toLocaleDateString()}
+					</time>
 				</div>
 			</div>
 		</div>
-
-		<div class="flex flex-row text-neutral-content">
+		<div class="mt-md flex flex-row text-neutral-content">
 			<div class="flex flex-col">
-				<span data-testid="karma-number" class="font-semibold text-14">
-					${userData.total_karma.toLocaleString()}
-				</span>
-				<div class="text-neutral-content-weak text-12">
-					Post Karma
-				</div>
+				<span data-testid="karma-number" class="font-semibold text-14">${userData.total_karma.toLocaleString()}</span>
+				<div class="text-neutral-content-weak text-12">Post karma</div>
 			</div>
-		<div class="flex flex-col ml-md">
-			<span data-testid="karma-number" class="font-semibold text-14">
-				${userCommentKarama}
-			</span>
-				<div class="text-neutral-content-weak text-12">
-					Comment Karma
-				</div>
+			<div class="flex flex-col ml-md">
+				<span data-testid="karma-number" class="font-semibold text-14">${userCommentKarama}</span>
+				<div class="text-neutral-content-weak text-12">Comment karma</div>
 			</div>
 		</div>
-
 		<a rpl="" aria-label="Open chat" class="button-small px-[var(--rem10)] button-secondary button inline-flex items-center justify-center mt-md" href="https://chat.reddit.com/user/${userData.name}" target="_blank">
 			<span class="flex items-center justify-center">
 				<span class="flex mr-xs">
@@ -240,7 +228,6 @@ function createHoverCard(userData) {
 				<span class="flex items-center gap-xs">Chat</span>
 			</span>
 		</a>
-	</div>
 	`;
 	return hoverCard;
 }

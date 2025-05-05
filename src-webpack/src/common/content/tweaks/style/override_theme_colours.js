@@ -535,6 +535,7 @@ export function themePostBackgroundColour(value) {
 										[routename="post_page"] main.main {
 											backdrop-filter: blur(var(--re-theme-blur)) !important;
 										}
+										shreddit-feed article,
 										shreddit-post,
 										comment-body-header,
 										#comment-tree {
@@ -551,8 +552,8 @@ export function themePostBackgroundColour(value) {
 										}
 										shreddit-feed shreddit-post:hover,
 										community-highlight-card:hover {
-											--color-neutral-background-hover: color-mix(in srgb, var(--re-theme-post-bg), #000 10%) !important;
-											background-color: color-mix(in srgb, var(--re-theme-post-bg), #000 10%) !important;
+											--color-neutral-background-hover: color-mix(in srgb, var(--re-theme-post-bg), #000 5%) !important;
+											background-color: color-mix(in srgb, var(--re-theme-post-bg), #000 5%) !important;
 										}
 										shreddit-feed shreddit-post:focus-within {
 											--color-neutral-background-hover: var(--re-theme-post-bg);
@@ -568,13 +569,6 @@ export function themePostBackgroundColour(value) {
 											--color-neutral-background: var(--re-theme-post-bg) !important;
 											backdrop-filter: blur(var(--re-theme-blur)) !important;
 											border-radius: 8px;
-										}
-										shreddit-comment-tree {
-											border-radius: 16px;
-											padding-left: .5rem;
-											padding-right: .5rem;
-											margin-left: -.5rem;
-											margin-right: -.5rem;
 										}
 										#main-content [bundlename="comment_body_header"],
 										main.main [bundlename="comment_body_header"] {
@@ -879,7 +873,7 @@ export function themePostCommentsTextColour2(value) {
 											--color-neutral-content-weak: var(--re-theme-post-comments-text-2) !important;
 											--color-secondary-weak: var(--re-theme-post-comments-text-2) !important;
 										}
-										shreddit-comment-tree * {
+										shreddit-comment-tree :not(shreddit-composer) {
 											--color-neutral-content-strong: var(--re-theme-post-comments-text-2) !important;
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
@@ -1168,7 +1162,7 @@ export function themeSidebarBgColour(value) {
 											--color-neutral-background-hover: rgba(0,0,0,0.6) !important;
 											backdrop-filter: blur(var(--re-theme-blur)) !important;
 										}
-										#right-sidebar-container .button {
+										.theme-dark #right-sidebar-container .button {
 											--button-color-background-default: rgba(0,0,0,0.4) !important;
 											--button-color-background-hover: rgba(0,0,0,0.6) !important;
 										}
@@ -1440,11 +1434,11 @@ export function themeSearchbarBgColour(value) {
 		styleElement.id = 're-theme-searchbar-bg-colour';
 		styleElement.textContent = `reddit-search-large {
 										--color-secondary-background: var(--re-theme-searchbar-bg) !important;
-										--color-input-secondary-hover: color-mix(in srgb, var(--re-theme-searchbar-bg), #000 40%) !important;
+										--color-input-secondary-hover: color-mix(in srgb, var(--re-theme-searchbar-bg), #000 5%) !important;
 									}
 									html.theme-dark reddit-search-large,
 									html.theme-light reddit-search-large {
-										--color-neutral-background-strong: color-mix(in srgb, var(--re-theme-searchbar-bg), #000 20%) !important;
+										--color-neutral-background-strong: var(--re-theme-searchbar-bg) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else if (value === false) {
@@ -1464,7 +1458,7 @@ export function themeSearchbarBgColourCSS(value) {
 				if (value) {
 					document.documentElement.style.setProperty('--re-theme-searchbar-bg', value);
 				} else {
-					document.documentElement.style.setProperty('--re-theme-searchbar-bg', 'inherit');
+					document.documentElement.style.removeProperty('--re-theme-searchbar-bg');
 				}
 			}
 		});
@@ -1511,7 +1505,7 @@ export function themeSearchbarDropdownBgColourCSS(value) {
 				if (value) {
 					document.documentElement.style.setProperty('--re-theme-searchbar-dropdown-bg', value);
 				} else {
-					document.documentElement.style.setProperty('--re-theme-searchbar-dropdown-bg', 'inherit');
+					document.documentElement.style.removeProperty('--re-theme-searchbar-dropdown-bg');
 				}
 			}
 		});

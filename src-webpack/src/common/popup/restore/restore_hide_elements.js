@@ -220,13 +220,13 @@ export function restorePopupHideElementsOptions() {
 	});
 
 	// Hide Blocked Keyword Posts Enable
-	BROWSER_API.storage.sync.get(['hideBlockedKeywordPostsEnable'], function (result) {
-		if (result.hideBlockedKeywordPostsEnable == true) {
+	BROWSER_API.storage.sync.get(['hideBlockedKeywordPosts'], function (result) {
+		if (result.hideBlockedKeywordPosts === true) {
 			document.querySelector('.icon-theme-exceptions').style.backgroundColor = 'var(--accent)';
 			document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').checked = true;
 			highlightMenuIcon('style-tweaks');
 			var value = true;
-		} else if (typeof result.hideBlockedKeywordPostsEnable == 'undefined' || result.hideBlockedKeywordPostsEnable == false) {
+		} else if (typeof result.hideBlockedKeywordPosts === 'undefined' || result.hideBlockedKeywordPosts === false) {
 			document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').checked = false;
 			var value = false;
 		}
@@ -969,5 +969,27 @@ export function restorePopupHideElementsOptions() {
 		document.querySelector('.icon-hide-vote-buttons').classList.toggle('icon-show', !hideVoteButtons);
 		document.querySelector('.icon-hide-vote-buttons').classList.toggle('icon-hide', hideVoteButtons);
 		console.log('Hide Vote Buttons: ' + hideVoteButtons);
+	});
+
+	// Hide Video Recommendations
+	BROWSER_API.storage.sync.get(['hideVideoRecommendations'], function (result) {
+		const hideVideoRecommendations = result.hideVideoRecommendations === true;
+		if (hideVideoRecommendations) highlightMenuIcon('hide-elements');
+		document.querySelector('#checkbox-hide-video-recommendations').checked = hideVideoRecommendations;
+		document.querySelector('.icon-hide-video-recommendations').style.backgroundColor = hideVideoRecommendations ? 'var(--accent)' : '';
+		document.querySelector('.icon-hide-video-recommendations').classList.toggle('icon-show', !hideVideoRecommendations);
+		document.querySelector('.icon-hide-video-recommendations').classList.toggle('icon-hide', hideVideoRecommendations);
+		console.log('Hide Video Recommendations: ' + hideVideoRecommendations);
+	});
+
+	// Hide Community Status
+	BROWSER_API.storage.sync.get(['hideCommunityStatus'], function (result) {
+		const hideCommunityStatus = result.hideCommunityStatus === true;
+		if (hideCommunityStatus) highlightMenuIcon('hide-elements');
+		document.querySelector('#checkbox-hide-community-status').checked = hideCommunityStatus;
+		document.querySelector('.icon-hide-community-status').style.backgroundColor = hideCommunityStatus ? 'var(--accent)' : '';
+		document.querySelector('.icon-hide-community-status').classList.toggle('icon-show', !hideCommunityStatus);
+		document.querySelector('.icon-hide-community-status').classList.toggle('icon-hide', hideCommunityStatus);
+		console.log('Hide Community Status: ' + hideCommunityStatus);
 	});
 }

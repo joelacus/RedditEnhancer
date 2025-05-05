@@ -422,6 +422,14 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
+					<li class="container-3 r-newnew">
+						<span class="menu-item-icon icon-show icon-hide-community-status"></span>
+						<span data-lang="HideCommunityStatus" data-search="community,status,icon"></span>
+						<label class="switch">
+							<input id="checkbox-hide-community-status" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
 					<li class="container-3 r-old r-new r-newnew">
 						<span class="menu-item-icon icon-show icon-hide-home-feed"></span>
 						<span data-lang="HideHomeFeed" data-search=""></span>
@@ -1107,6 +1115,14 @@
 						</label>
 						<div></div>
 						<p data-lang="VideoPlayerInfo"></p>
+					</li>
+					<li class="container-3 r-newnew">
+						<span class="menu-item-icon icon-play icon-hide-video-recommendations"></span>
+						<span data-lang="HideVideoRecommendations" data-search="video,post,recommend,suggest,overlay"></span>
+						<label class="switch">
+							<input id="checkbox-hide-video-recommendations" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
 					</li>
 					<!--<div class="container-3 r-newnew">
 						<span class="menu-item-icon icon-download icon-add-download-video-button"></span>
@@ -1803,6 +1819,44 @@
 								<span class="indicator"></span>
 							</label>
 						</div>
+						<div class="divider"></div>
+						<div class="container-3">
+							<span class="menu-item-icon icon-compress icon-attach-side-menu-header"></span>
+							<span data-lang="AttachSideMenuHeader" data-search="side,menu,header"></span>
+							<label class="switch">
+								<input id="checkbox-attach-side-menu-header" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+							<div style="position: relative; margin-top: 16px; width: 400px">
+								<p class="info" data-lang="AttachSideMenuHeaderInfo"></p>
+							</div>
+						</div>
+						<div class="container-3">
+							<span class="menu-item-icon icon-compress icon-opt-out-attach-side-menu"></span>
+							<span data-lang="OptOutAttachSideMenu" data-search="side,menu,header"></span>
+							<label class="switch">
+								<input id="checkbox-opt-out-attach-side-menu" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<div class="divider"></div>
+						<div class="container-3">
+							<span class="menu-item-icon icon-arrow-up icon-left-side-vote-buttons"></span>
+							<span data-lang="LeftSideVoteButtons" data-search="header"></span>
+							<label class="switch">
+								<input id="checkbox-left-side-vote-buttons" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<div class="divider"></div>
+						<div class="container-3">
+							<span class="menu-item-icon icon-header icon-subreddit-display-name-banner"></span>
+							<span data-lang="SubredditDisplayNameBanner" data-search="banner,subreddit,name"></span>
+							<label class="switch">
+								<input id="checkbox-subreddit-display-name-banner" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
 					</li>
 					<li class="container-3 r-old r-newnew">
 						<span class="menu-item-icon icon-background icon-custom-header-logo"></span>
@@ -1884,7 +1938,7 @@
 							<div></div>
 							<div class="css-input-container">
 								<span class="text-small">background:</span>
-								<input id="input-header-bg-colour-css" type="text" placeholder="rgba(0,0,0,0.5)" />
+								<input id="input-header-bg-colour-css" type="text" placeholder="#1a1a1b" />
 							</div>
 						</div>
 						<div class="divider"></div>
@@ -1912,7 +1966,7 @@
 							<div></div>
 							<div class="css-input-container">
 								<span class="text-small">background:</span>
-								<input id="input-searchbar-bg-colour-css" type="text" placeholder="rgba(0,0,0,0.2)" />
+								<input id="input-searchbar-bg-colour-css" type="text" placeholder="#272729" />
 							</div>
 						</div>
 						<div class="divider"></div>
@@ -1926,7 +1980,7 @@
 							<div></div>
 							<div class="css-input-container">
 								<span class="text-small">background:</span>
-								<input id="input-searchbar-dropdown-bg-colour-css" type="text" placeholder="rgba(0,0,0,0.4)" />
+								<input id="input-searchbar-dropdown-bg-colour-css" type="text" placeholder="#1a1a1b" />
 							</div>
 						</div>
 					</li>
@@ -2039,7 +2093,7 @@
 							<div></div>
 							<div class="css-input-container">
 								<span class="text-small">background:</span>
-								<input id="input-post-bg-colour-css" type="text" placeholder="rgba(0,0,0,0.5)" />
+								<input id="input-post-bg-colour-css" type="text" placeholder="rgb(26,26,27)" />
 							</div>
 						</div>
 						<div class="divider"></div>
@@ -2053,7 +2107,7 @@
 							<div></div>
 							<div class="css-input-container">
 								<span class="text-small">color:</span>
-								<input id="input-post-text-colour-css" type="text" placeholder="#fff" />
+								<input id="input-post-text-colour-css" type="text" placeholder="#d7dadc" />
 							</div>
 							<div></div>
 							<div></div>
@@ -2083,7 +2137,7 @@
 							<div></div>
 							<div class="css-input-container">
 								<span class="text-small">color:</span>
-								<input id="input-post-text-colour-2-css" type="text" placeholder="rgb(200,200,200)" />
+								<input id="input-post-text-colour-2-css" type="text" placeholder="#d7dadc" />
 							</div>
 						</div>
 						<div class="divider"></div>
@@ -2111,7 +2165,7 @@
 							<div></div>
 							<div class="css-input-container">
 								<span class="text-small">color:</span>
-								<input id="input-post-comments-text-colour-css" type="text" placeholder="#fff" />
+								<input id="input-post-comments-text-colour-css" type="text" placeholder="#d7dadc" />
 							</div>
 						</div>
 						<div class="divider"></div>
@@ -2125,7 +2179,7 @@
 							<div></div>
 							<div class="css-input-container">
 								<span class="text-small">color:</span>
-								<input id="input-post-comments-secondary-text-colour-css" type="text" placeholder="#808080" />
+								<input id="input-post-comments-secondary-text-colour-css" type="text" placeholder="#818384" />
 							</div>
 						</div>
 						<div class="divider"></div>
@@ -2153,7 +2207,7 @@
 							<div></div>
 							<div class="css-input-container">
 								<span class="text-small">border-color:</span>
-								<input id="input-post-border-colour-css" type="text" placeholder="rgb(0,0,0)" />
+								<input id="input-post-border-colour-css" type="text" placeholder="#343536" />
 							</div>
 						</div>
 						<div class="divider"></div>
@@ -2200,7 +2254,7 @@
 							<div></div>
 							<div class="css-input-container">
 								<span class="text-small">color:</span>
-								<input id="input-sidebar-text-colour-css" type="text" placeholder="#fff" />
+								<input id="input-sidebar-text-colour-css" type="text" placeholder="#d7dadc" />
 							</div>
 						</div>
 						<div class="divider"></div>
@@ -2214,7 +2268,7 @@
 							<div></div>
 							<div class="css-input-container">
 								<span class="text-small">background-color:</span>
-								<input id="input-sidebar-bg-colour-css" type="text" placeholder="rgba(0,0,0,0.5)" />
+								<input id="input-sidebar-bg-colour-css" type="text" placeholder="#1a1a1b" />
 							</div>
 						</div>
 						<div class="divider r-new"></div>
@@ -2247,7 +2301,7 @@
 							<div></div>
 							<div class="css-input-container">
 								<span class="text-small">color:</span>
-								<input id="input-sidemenu-text-colour-css" type="text" placeholder="#fff" />
+								<input id="input-sidemenu-text-colour-css" type="text" placeholder="#d7dadc" />
 							</div>
 						</div>
 						<div class="divider"></div>
@@ -2261,7 +2315,7 @@
 							<div></div>
 							<div class="css-input-container">
 								<span class="text-small">background-color:</span>
-								<input id="input-sidemenu-bg-colour-css" type="text" placeholder="rgba(0,0,0,0.5)" />
+								<input id="input-sidemenu-bg-colour-css" type="text" placeholder="#1a1a1b" />
 							</div>
 						</div>
 						<div class="divider"></div>
@@ -2275,7 +2329,7 @@
 							<div></div>
 							<div class="css-input-container">
 								<span class="text-small">background-color:</span>
-								<input id="input-sidemenu-button-hover-colour-css" type="text" placeholder="rgba(0,0,0,0.8)" />
+								<input id="input-sidemenu-button-hover-colour-css" type="text" placeholder="rgba(255,255,255,0.04)" />
 							</div>
 						</div>
 					</li>

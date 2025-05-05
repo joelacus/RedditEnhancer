@@ -38,10 +38,9 @@ function enableUsernameHoverPopupDelayNewNew(value) {
 	if (observer_active) return;
 	observer_active = true;
 	let feed = document.querySelector('reddit-feed');
-	if (!feed) {
-		feed = document.querySelector('shreddit-feed');
+	if (feed) {
+		observer.observe(feed, {childList: true, subtree: true});
 	}
-	observer.observe(feed, { childList: true, subtree: true });
 }
 
 // Function - Disable Username Hover Popup Delay - All

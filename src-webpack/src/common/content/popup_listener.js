@@ -138,9 +138,14 @@ import { rememberSideMenuSectionHiddenState } from './tweaks/hide_elements/remem
 import { hideHomeFeed } from './tweaks/hide_elements/hide_home_feed';
 import { addProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
 import { hidePostDivider, postSeparatorHeight } from './tweaks/hide_elements/hide_post_divider';
-import { hideBlockedKeywordPosts } from './tweaks/hide_elements/hide_blocked_keyword_posts';
 import { hideBlurredMediaBackground } from './tweaks/media/hide_blurred_media_background';
-import { fullWidthBanner, compactHeaderSideMenu } from './tweaks/style/old_new_ui';
+import {
+	fullWidthBanner,
+	compactHeaderSideMenu,
+	attachSideMenuHeader,
+	optOutAttachSideMenu,
+	subredditDisplayNameBanner
+} from './tweaks/style/old_new_ui';
 import { textPostPreviewFade, setTextPostPreviewFadeHeight } from './tweaks/media/text_preview_fade';
 import { resizeMainContainer, resizeMainContainerWidth } from './tweaks/resize_elements/resize_main_container';
 import { hideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
@@ -158,6 +163,10 @@ import { compactPostLinkPreview } from './tweaks/media/compact_post_link_preview
 import { usernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
 import { showUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
 import { customHeaderLogo, setCustomHeaderLogoUrl } from './tweaks/style/custom_header_logo';
+import { hideBlockedKeywordPosts } from "./tweaks/hide_elements/hide_blocked_keyword_posts";
+import { hideVideoRecommendations } from "./tweaks/media/hide_video_recommendations";
+import { leftSideVoteButtons } from "./tweaks/style/left_side_vote_buttons";
+import { hideCommunityStatus } from "./tweaks/hide_elements/hide_community_status";
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
@@ -396,6 +405,12 @@ const functionRegistry = {
 	showUpvoteRatio,
 	customHeaderLogo,
 	setCustomHeaderLogoUrl,
+	attachSideMenuHeader,
+	optOutAttachSideMenu,
+	hideVideoRecommendations,
+	leftSideVoteButtons,
+	hideCommunityStatus,
+	subredditDisplayNameBanner,
 	//dragImageToResize,
 	//dragImageToResizeInitialSize,
 	//addDownloadVideoButton,

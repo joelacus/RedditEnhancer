@@ -12,7 +12,6 @@
 }
 div.re-banner {
 	top: var(--re-non-sticky-header-bar, var(--shreddit-header-height));
-	margin: 0 -1rem;
 	animation: hideBanner 0.5s forwards;
 	animation-delay: 7s;
 	transition: max-height 0.5s, padding 0.5s;
@@ -81,11 +80,22 @@ shreddit-app[routename='popular'] #right-sidebar-container,
 shreddit-app[routename='subreddit'] #right-sidebar-container {
 	margin-top: 2rem;
 }
+shreddit-app[routename='subreddit'] #right-sidebar-container faceplate-partial > aside,
+shreddit-app[routename='subreddit_wiki'] #right-sidebar-container faceplate-partial > aside,
+shreddit-app[routename='post_page'] #right-sidebar-container faceplate-partial > aside,
+shreddit-app[routename='comment_page'] #right-sidebar-container faceplate-partial > aside {
+	margin-top: 1rem;
+	padding-top: 0;
+}
 shreddit-app[pagetype='custom_feed'] #right-sidebar-container {
 	margin-top: 3.5rem;
 }
 shreddit-app[pagetype='search_results'] main.main {
 	margin-top: 1rem;
+}
+div[data-testid="search-results-sidebar"] {
+	padding-left: 0;
+	padding-right: 0;
 }
 
 /* ========== HIDE HOME FEED ========== */
@@ -189,7 +199,19 @@ a.thumbnail > img {
 /* @see ../content/productivity/show_post_author.js */
 .re-post-author {
 	color: var(--color-neutral-content-weak);
-	z-index: 3;
+	z-index: 4;
+}
+:not([post-type="crosspost"]) .re-post-author::before,
+.re-post-author-active shreddit-feed :not([post-type="crosspost"]) span[slot="authorName"]::before {
+	content: "Posted by\00a0";
+	color: var(--color-neutral-content-weak);
+	align-self: center;
+}
+[post-type="crosspost"] .re-post-author::before,
+.re-post-author-active shreddit-feed [post-type="crosspost"] span[slot="authorName"]::before {
+	content: "Crossposted by\00a0";
+	color: var(--color-neutral-content-weak);
+	align-self: center;
 }
 .re-post-author a {
 	color: var(--color-neutral-content-weak);
@@ -201,6 +223,9 @@ shreddit-app[pagetype='search_results'] .re-post-author ~ faceplate-timeago {
 div:has(span > .hover-card),
 span:has(.hover-card) {
 	overflow: unset !important;
+}
+shreddit-post:has(.hover-card) {
+	z-index: 3;
 }
 .hover-card {
 	display: none;
@@ -238,6 +263,7 @@ span:has(.hover-card) {
 .re-post-number {
 	margin-right: 0.25rem;
 	align-self: center;
+	color: var(--color-neutral-content-weak);
 }
 .re-post-number + div[data-adclicklocation='title'] {
 	display: inline;
@@ -248,9 +274,39 @@ span:has(.hover-card) {
 	text-align: right;
 }
 
-/* === POST UPVOTE & UPVOTE RATIO === */
+/* === VOTE PANEL, POST UPVOTE & UPVOTE RATIO === */
+/* ========== Vote panel ========== */
+.re-vote-panel > span {
+	padding: .25rem;
+}
+.re-vote-panel > span > span {
+	flex-direction: column;
+	background-color: transparent;
+	color: var(--button-color-text-default);
+}
+.re-vote-panel button[upvote],
+.re-vote-panel button[downvote] {
+	color: var(--button-color-text-default);
+}
+.re-vote-panel button[upvote][aria-pressed="true"] svg,
+.re-vote-panel span.bg-action-upvote faceplate-number {
+	color: var(--color-action-upvote);
+}
+.re-vote-panel button[downvote][aria-pressed="true"] svg,
+.re-vote-panel span.bg-action-downvote faceplate-number {
+	color: var(--color-action-downvote);
+}
+.re-vote-panel button:hover {
+	background-color: var(--button-color-background-hover);
+}
+.re-vote-panel faceplate-number {
+	display: flex;
+	flex-direction: column;
+}
+
 /* Fade the display of post upvote percentage, and align the vote button div with post content in Compact view on v2 UI */
-shreddit-post::part(re-upvote-ratio) {
+shreddit-post::part(re-upvote-ratio),
+.re-vote-panel .re-upvote-ratio {
 	opacity: 0.75;
 }
 div:has(> div[id*='vote-arrows-']) {
@@ -264,8 +320,11 @@ div[id^='vote-arrows-t3_'] button[data-click-id='upvote'] ~ .re-upvote-ratio {
 	font-size: 9px;
 	margin-bottom: 6px;
 }
+.re-vote-panel .re-upvote-ratio {
+	font-size: 9px;
+}
 
-/* ========== BIONIC READER ========== */
+	/* ========== BIONIC READER ========== */
 .re-bold {
 	font-weight: bold !important;
 }
@@ -319,6 +378,10 @@ div[id^='vote-arrows-t3_'] button[data-click-id='upvote'] ~ .re-upvote-ratio {
 }
 
 /* ========== OTHERS ========== */
+shreddit-feed article:focus-within {
+	position: relative;
+	z-index: 1;
+}
 .re-sidemenu-feed-top a:hover {
 	background-color: var(--newCommunityTheme-menuButtonBackground-hover);
 }
@@ -350,7 +413,7 @@ div[data-testid='search-scope-pill'] > div[data-testid='search-scope-pill-text']
 div[slot='credit-bar'] pdp-back-button {
 	position: static;
 }
-div[slot='credit-bar'] > span:has(pdp-back-button) {
+div[slot='credit-bar'] > span:has(pdp-back-button):has(span.avatar + div > div) {
 	gap: 0.6rem;
 }
 div[slot='credit-bar'] > span:has(pdp-back-button) > div {
@@ -375,6 +438,17 @@ aside#mod-queue-pdp-panel shreddit-post {
 #overlayScrollContainer > :first-child div[id*='vote-arrows-'] button.voteButton ~ div {
 	padding: 0 0.4rem;
 }
+/* Multicoloured Comment Thread Lines: reset --color-tone-4 for children of shreddit-comment */
+.theme-light shreddit-comment .bg-tone-4 {
+	--color-tone-4: #dedfe0;
+}
+.theme-dark shreddit-comment .bg-tone-4 {
+	--color-tone-4: #2c3033;
+}
+shreddit-composer::part(md-inner) {
+	padding: 0.25rem 1rem;
+	font-family: var(--font-sans);
+}
 
 /* ========== SCROLL TEXT POST ========== */
 .re-text-scroll div[data-click-id='text'][style='max-height: 250px;'],
@@ -393,4 +467,35 @@ aside#mod-queue-pdp-panel shreddit-post {
 #flex-left-nav-container {
 	position: sticky !important;
 	top: 48px;
+}
+
+/* ========= Default Old New UI theme colours ========== */
+.theme-dark {
+	--re-theme-header-bg: #1a1a1b;
+	--re-theme-searchbar-bg: #272729;
+	--re-theme-searchbar-dropdown-bg: #1a1a1b;
+	--re-theme-post-bg: rgb(26, 26, 27);
+	--re-theme-post-text: #d7dadc;
+	--re-theme-post-text-2: #d7dadc;
+	--re-theme-post-comments-text: #d7dadc;
+	--re-theme-post-comments-text-2: #818384;
+	--re-theme-post-border: #343536;
+	--re-theme-sidebar-text: #d7dadc;
+	--re-theme-sidebar-bg: #1a1a1b;
+	--re-theme-sidemenu-text: #d7dadc;
+	--re-theme-sidemenu-bg: #1a1a1b;
+	--re-theme-sidemenu-btn-hover: rgba(255, 255, 255, 0.04);
+	--re-background-image: black;
+}
+.theme-light {
+	--re-theme-header-bg: white;
+	--re-theme-searchbar-bg: #f6f7f8;
+	--re-theme-searchbar-dropdown-bg: white;
+	--re-theme-post-bg: white;
+	--re-theme-post-text-2: black;
+	--re-theme-post-border: #ccc;
+	--re-theme-sidebar-text: black;
+	--re-theme-sidebar-bg: white;
+	--re-theme-sidemenu-bg: white;
+	--re-background-image: #dae0e6;
 }

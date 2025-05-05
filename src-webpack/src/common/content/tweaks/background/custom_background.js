@@ -39,7 +39,9 @@ function setBackgroundAndBlur() {
 
 // Set Custom Background Property
 export function setCustomBackground(value) {
-	document.documentElement.style.setProperty('--re-background-image', 'url("' + value + '")');
+	if (value !== '') {
+		document.documentElement.style.setProperty('--re-background-image', 'url("' + value + '")');
+	}
 }
 
 // Set Background Blur Property
@@ -100,19 +102,43 @@ function enableUseCustomBackgroundNewNew() {
 								shreddit-app .sidebar-grid {
 									background: none !important;
 								}
-								shreddit-app[routename="post_page"] main.main,
-								shreddit-app[routename="comments_page"] main.main,
-								shreddit-app[routename="profile_post_page"] main.main,
-								shreddit-app[routename="post_stats"] main.main {
+								[routename="subreddit"] div.masthead,
+								[routename="subreddit_wiki"] div.masthead {
+									background-color: var(--re-theme-post-bg);
+								}
+								community-highlight-carousel {
+									background-color: var(--re-theme-post-bg, transparent);
+									border-radius: var(--re-theme-border-radius, 0);
+								}
+								community-highlight-carousel.community-highlight-carousel > h3 {
+									padding-left: .75rem;
+									padding-block: .125rem;
+								}
+								[routename="post_page"] main.main,
+								[routename="comments_page"] main.main,
+								[routename="profile_post_page"] main.main,
+								[routename="post_stats"] main.main {
 									margin: 1rem 0;
-									padding: .75rem 1rem;
+									padding: 0 1rem .75rem 1rem;
+									height: min-content;
 									background-color: var(--re-theme-post-bg, var(--color-neutral-background, #000));
 									border-radius: var(--re-theme-border-radius, 0);
 									box-sizing: border-box;
 									
-									& > shreddit-post {
+									& shreddit-post {
 										margin: 0;
 										padding: 0;
+										
+										& > :first-child {
+											padding-top: 0.75rem;
+										}
+									}
+									
+									& div.re-vote-panel {
+										margin-top: 0 !important;
+									}
+									& div.re-vote-panel + shreddit-post {
+										padding-left: .25rem !important;
 									}
 								}
 								shreddit-app[routename="post_stats"] main.main > div {
@@ -126,7 +152,8 @@ function enableUseCustomBackgroundNewNew() {
 								shreddit-app div.sidebar-grid {
 									background-color: var(--color-neutral-background) !important;
 									max-width: unset;
-								}`;
+								}
+								`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 

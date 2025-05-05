@@ -806,3 +806,59 @@ document.querySelector('#input-custom-header-logo-url').addEventListener('keyup'
 	BROWSER_API.storage.sync.set({ customHeaderLogoUrl: url });
 	sendMessage({ setCustomHeaderLogoUrl: url });
 });
+
+// Toggle - Attach Side Menu Header
+document.querySelector('#checkbox-attach-side-menu-header').addEventListener('change', function (e) {
+	const attachSideMenuHeader = document.querySelector('#checkbox-attach-side-menu-header').checked;
+	if (attachSideMenuHeader) {
+		BROWSER_API.storage.sync.set({ attachSideMenuHeader: true });
+		document.querySelector('.icon-attach-side-menu-header').style.backgroundColor = 'var(--accent)';
+		sendMessage({ attachSideMenuHeader: true });
+	} else {
+		BROWSER_API.storage.sync.set({ attachSideMenuHeader: false });
+		document.querySelector('.icon-attach-side-menu-header').style.backgroundColor = '';
+		sendMessage({ attachSideMenuHeader: false });
+	}
+});
+
+// Toggle - Opt Out Attach Side Menu
+document.querySelector('#checkbox-opt-out-attach-side-menu').addEventListener('change', function (e) {
+	const optOutAttachSideMenu = document.querySelector('#checkbox-opt-out-attach-side-menu').checked;
+	if (optOutAttachSideMenu) {
+		BROWSER_API.storage.sync.set({ optOutAttachSideMenu: true });
+		document.querySelector('.icon-opt-out-attach-side-menu').style.backgroundColor = 'var(--accent)';
+		sendMessage({ optOutAttachSideMenu: true });
+	} else {
+		BROWSER_API.storage.sync.set({ optOutAttachSideMenu: false });
+		document.querySelector('.icon-opt-out-attach-side-menu').style.backgroundColor = '';
+		sendMessage({ optOutAttachSideMenu: false });
+	}
+});
+
+// Toggle - Left Side Vote Buttons
+document.querySelector('#checkbox-left-side-vote-buttons').addEventListener('change', function (e) {
+	const leftSideVoteButtons = document.querySelector('#checkbox-left-side-vote-buttons').checked;
+	if (leftSideVoteButtons) {
+		BROWSER_API.storage.sync.set({ leftSideVoteButtons: true });
+		document.querySelector('.icon-left-side-vote-buttons').style.backgroundColor = 'var(--accent)';
+		sendMessage({ leftSideVoteButtons: true });
+	} else {
+		BROWSER_API.storage.sync.set({ leftSideVoteButtons: false });
+		document.querySelector('.icon-left-side-vote-buttons').style.backgroundColor = '';
+		sendMessage({ leftSideVoteButtons: false });
+	}
+});
+
+// Toggle - Subreddit Display Name Banner
+document.querySelector('#checkbox-subreddit-display-name-banner').addEventListener('change', function (e) {
+	const subredditDisplayNameBanner = document.querySelector('#checkbox-subreddit-display-name-banner').checked;
+	if (subredditDisplayNameBanner) {
+		BROWSER_API.storage.sync.set({ subredditDisplayNameBanner: true });
+		document.querySelector('.icon-subreddit-display-name-banner').style.backgroundColor = 'var(--accent)';
+		sendMessage({ subredditDisplayNameBanner: true });
+	} else {
+		BROWSER_API.storage.sync.set({ subredditDisplayNameBanner: false });
+		document.querySelector('.icon-subreddit-display-name-banner').style.backgroundColor = '';
+		sendMessage({ subredditDisplayNameBanner: false });
+	}
+});

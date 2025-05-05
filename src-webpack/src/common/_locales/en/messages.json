@@ -17,6 +17,12 @@
 	"AlwaysShowPostOptions": {
 		"message": "Always Show Post Options"
 	},
+	"AttachSideMenuHeader": {
+		"message": "Display page and user info in header"
+	},
+	"AttachSideMenuHeaderInfo": {
+		"message": "Experimental. Might conflict with hiding side menu functions."
+	},
 	"Auto": {
 		"message": "Auto"
 	},
@@ -287,6 +293,9 @@
 	"HideCommunityHighlights": {
 		"message": "Hide 'Community Highlights'"
 	},
+	"HideCommunityStatus": {
+		"message": "Hide Community Status"
+	},
 	"HideCompactViewBlankThumbnails": {
 		"message": "Hide Blank Thumbnails In Compact View"
 	},
@@ -446,6 +455,9 @@
 	"HideUsername": {
 		"message": "Hide Username"
 	},
+	"HideVideoRecommendations": {
+		"message": "Hide recommended posts when video ends"
+	},
 	"HideVoteButtons": {
 		"message": "Hide Vote Buttons"
 	},
@@ -475,6 +487,9 @@
 	},
 	"LargerClassicPost": {
 		"message": "Larger Classic Post View"
+	},
+	"LeftSideVoteButtons": {
+		"message": "Show vote buttons on the left"
 	},
 	"Light": {
 		"message": "Light"
@@ -568,6 +583,9 @@
 	},
 	"OptionsPage": {
 		"message": "Options Page"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Don't attach side menu as a dropdown panel"
 	},
 	"Or": {
 		"message": "OR"
@@ -850,6 +868,9 @@
 	},
 	"Subreddit": {
 		"message": "Subreddit"
+	},
+	"SubredditDisplayNameBanner": {
+		"message": "Show the subreddit display name in its banner"
 	},
 	"Text": {
 		"message": "Text"

@@ -44,6 +44,10 @@ function enableHideRecommendedPostsNewNew() {
 	styleElement.textContent = `shreddit-post[recommendation-subreddit-name],
 								shreddit-post[recommendation-source]{
 									display: none !important;
+								}
+								chat-channel-recommendations-wrapper,
+								chat-channel-recommendations-wrapper + div {
+									display: none;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }

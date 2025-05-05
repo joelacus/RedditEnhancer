@@ -53,6 +53,8 @@ import { loadReplacePostVideosWithLinks } from './tweaks/media/replace_videos_wi
 import { loadCompactPostLinkPreview } from './tweaks/media/compact_post_link_preview';
 import { loadUsernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
 import { loadShowUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
+import { loadAttachSideMenuHeader, loadSubredditDisplayNameBanner } from "./tweaks/style/old_new_ui";
+import { loadLeftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -61,6 +63,7 @@ export function loadTweaks() {
 		loadAutoLoadMoreComments();
 		loadAddProfilePicturesToComments();
 		loadSidebarToggleButton();
+		loadHideBlockedKeywordPosts();
 	} else if (redditVersion === 'new') {
 		const link = window.location.href;
 		if (link.indexOf('/comments/') >= 0) {
@@ -116,9 +119,18 @@ export function loadTweaks() {
 		loadHideVoteButtons();
 		loadSideMenuToggleButton();
 		loadUsernameHoverPopupDelay();
+		loadSubredditDisplayNameBanner();
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
+
+		waitForAddedNode({
+			query: 'shreddit-app > faceplate-perfmetric-collector + div',
+			parent: document.querySelector('body'),
+			done: () => {
+				loadAttachSideMenuHeader();
+			}
+		});
 
 		waitForAddedNode({
 			query: '#communities_section left-nav-communities-controller',
@@ -205,8 +217,8 @@ export function loadTweaks() {
 			done: function () {
 				setTimeout(() => {
 					loadHideBlockedKeywordPosts();
-					loadShowPostNumbers();
 				}, 500);
+				loadShowPostNumbers();
 			},
 		});
 
@@ -221,9 +233,10 @@ export function loadTweaks() {
 					loadImageScroll();
 					loadReplacePostImagesWithLinks();
 					loadReplacePostVideosWithLinks();
-					loadAlwaysShowPostOptions();
-					loadShowUpvoteRatio();
-				}, 1000);
+					loadLeftSideVoteButtons();
+				}, 500);
+				loadAlwaysShowPostOptions();
+				loadShowUpvoteRatio();
 			},
 		});
 
@@ -233,8 +246,8 @@ export function loadTweaks() {
 			recursive: true,
 			done: function () {
 				setTimeout(() => {
-					loadCompactPostLinkPreview();
 					loadAutoShowCommentFormattingOptions();
+					loadCompactPostLinkPreview();
 				}, 500);
 			},
 		});
@@ -265,13 +278,13 @@ export function loadTweaks() {
 	loadAutoExpandValue();
 	loadDarkModeAuto();
 	loadHideNSFW();
-	loadHideBlockedKeywordPosts();
 	loadShowToTopButton();
 
 	// Run again (make sure it loaded correctly)
 	setTimeout(() => {
 		loadShowToTopButton();
 		loadShowAllButton();
+		loadAttachSideMenuHeader();
 	}, 5000);
 }
 loadTweaks();
