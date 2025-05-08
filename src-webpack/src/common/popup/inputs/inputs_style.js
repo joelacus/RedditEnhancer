@@ -827,10 +827,14 @@ document.querySelector('#checkbox-opt-out-attach-side-menu').addEventListener('c
 	if (optOutAttachSideMenu) {
 		BROWSER_API.storage.sync.set({ optOutAttachSideMenu: true });
 		document.querySelector('.icon-opt-out-attach-side-menu').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-opt-out-attach-side-menu').classList.remove('icon-dropdown');
+		document.querySelector('.icon-opt-out-attach-side-menu').classList.add('icon-dropdown-slash');
 		sendMessage({ optOutAttachSideMenu: true });
 	} else {
 		BROWSER_API.storage.sync.set({ optOutAttachSideMenu: false });
 		document.querySelector('.icon-opt-out-attach-side-menu').style.backgroundColor = '';
+		document.querySelector('.icon-opt-out-attach-side-menu').classList.remove('icon-dropdown-slash');
+		document.querySelector('.icon-opt-out-attach-side-menu').classList.add('icon-dropdown');
 		sendMessage({ optOutAttachSideMenu: false });
 	}
 });

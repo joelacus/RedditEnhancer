@@ -93,7 +93,7 @@ shreddit-app[pagetype='custom_feed'] #right-sidebar-container {
 shreddit-app[pagetype='search_results'] main.main {
 	margin-top: 1rem;
 }
-div[data-testid="search-results-sidebar"] {
+div[data-testid='search-results-sidebar'] {
 	padding-left: 0;
 	padding-right: 0;
 }
@@ -201,15 +201,15 @@ a.thumbnail > img {
 	color: var(--color-neutral-content-weak);
 	z-index: 4;
 }
-:not([post-type="crosspost"]) .re-post-author::before,
-.re-post-author-active shreddit-feed :not([post-type="crosspost"]) span[slot="authorName"]::before {
-	content: "Posted by\00a0";
+:not([post-type='crosspost']) .re-post-author::before,
+.re-post-author-active shreddit-feed :not([post-type='crosspost']) span[slot='authorName']::before {
+	content: 'Posted by\00a0';
 	color: var(--color-neutral-content-weak);
 	align-self: center;
 }
-[post-type="crosspost"] .re-post-author::before,
-.re-post-author-active shreddit-feed [post-type="crosspost"] span[slot="authorName"]::before {
-	content: "Crossposted by\00a0";
+[post-type='crosspost'] .re-post-author::before,
+.re-post-author-active shreddit-feed [post-type='crosspost'] span[slot='authorName']::before {
+	content: 'Crossposted by\00a0';
 	color: var(--color-neutral-content-weak);
 	align-self: center;
 }
@@ -276,8 +276,11 @@ shreddit-post:has(.hover-card) {
 
 /* === VOTE PANEL, POST UPVOTE & UPVOTE RATIO === */
 /* ========== Vote panel ========== */
+article:has(> .re-vote-panel) {
+	border-radius: var(--re-theme-border-radius, 1rem);
+}
 .re-vote-panel > span {
-	padding: .25rem;
+	padding: 0.25rem;
 }
 .re-vote-panel > span > span {
 	flex-direction: column;
@@ -288,11 +291,11 @@ shreddit-post:has(.hover-card) {
 .re-vote-panel button[downvote] {
 	color: var(--button-color-text-default);
 }
-.re-vote-panel button[upvote][aria-pressed="true"] svg,
+.re-vote-panel button[upvote][aria-pressed='true'] svg,
 .re-vote-panel span.bg-action-upvote faceplate-number {
 	color: var(--color-action-upvote);
 }
-.re-vote-panel button[downvote][aria-pressed="true"] svg,
+.re-vote-panel button[downvote][aria-pressed='true'] svg,
 .re-vote-panel span.bg-action-downvote faceplate-number {
 	color: var(--color-action-downvote);
 }
@@ -324,7 +327,7 @@ div[id^='vote-arrows-t3_'] button[data-click-id='upvote'] ~ .re-upvote-ratio {
 	font-size: 9px;
 }
 
-	/* ========== BIONIC READER ========== */
+/* ========== BIONIC READER ========== */
 .re-bold {
 	font-weight: bold !important;
 }
@@ -469,7 +472,7 @@ shreddit-composer::part(md-inner) {
 	top: 48px;
 }
 
-/* ========= Default Old New UI theme colours ========== */
+/* ========== Default Old New UI theme colours ========== */
 .theme-dark {
 	--re-theme-header-bg: #1a1a1b;
 	--re-theme-searchbar-bg: #272729;

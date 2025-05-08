@@ -196,7 +196,6 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 			// delay for translation
 			if (typeof result.defaultHomeFeedSortOption != 'undefined') {
 				var value = result.defaultHomeFeedSortOption;
-				console.log(value);
 				if (value === 'relevance') {
 					value = 'best';
 				}

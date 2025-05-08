@@ -40,19 +40,19 @@ function enableHideSideMenuFavouriteButton() {
 		.querySelector('left-nav-communities-controller')
 		.shadowRoot.querySelectorAll('left-nav-community-item')
 		.forEach((item) => {
-			item.shadowRoot.querySelector('span:has([icon-name="star-outline"])').setAttribute('part', 'star');
+			item.shadowRoot.querySelector('span:has(> span > shreddit-favorite-button), span:has([icon-name="star-outline"])')?.setAttribute('part', 'star');
 		});
 	document
 		.querySelector('left-nav-moderation-controller')
 		.shadowRoot.querySelectorAll('left-nav-community-item')
 		.forEach((item) => {
-			item.shadowRoot.querySelector('span:has([icon-name="star-outline"])').setAttribute('part', 'star');
+			item.shadowRoot.querySelector('span:has(> span > shreddit-favorite-button), span:has([icon-name="star-outline"])')?.setAttribute('part', 'star');
 		});
 	document
 		.querySelector('left-nav-multireddits-controller')
 		.shadowRoot.querySelectorAll('left-nav-multireddit-item')
 		.forEach((item) => {
-			item.shadowRoot.querySelector('span:has([icon-name="star-outline"])').setAttribute('part', 'star');
+			item.shadowRoot.querySelector('span:has(> span > shreddit-favorite-button), span:has([icon-name="star-outline"])')?.setAttribute('part', 'star');
 		});
 	BROWSER_API.storage.sync.get(['sideMenuIconsOnly'], function (result) {
 		if (result.sideMenuIconsOnly) {

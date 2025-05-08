@@ -770,7 +770,7 @@ export function restorePopupStyleOptions() {
 		}
 		console.log('Theme Blur: ' + value + 'px');
 	});
-	
+
 	// Theme Exceptions Enable
 	BROWSER_API.storage.sync.get(['themeExceptionsEnable'], function (result) {
 		if (result.themeExceptionsEnable == true) {
@@ -784,7 +784,6 @@ export function restorePopupStyleOptions() {
 		}
 		console.log('Theme Exceptions Enable: ' + value);
 	});
-
 
 	// Theme Exception Mode
 	BROWSER_API.storage.sync.get(['themeExceptionMode'], function (result) {
@@ -936,6 +935,10 @@ export function restorePopupStyleOptions() {
 	BROWSER_API.storage.sync.get(['optOutAttachSideMenu'], function (result) {
 		const optOutAttachSideMenu = result.optOutAttachSideMenu === true;
 		document.querySelector('.icon-opt-out-attach-side-menu').style.backgroundColor = optOutAttachSideMenu ? 'var(--accent)' : '';
+		if (optOutAttachSideMenu) {
+			document.querySelector('.icon-opt-out-attach-side-menu').classList.remove('icon-dropdown');
+			document.querySelector('.icon-opt-out-attach-side-menu').classList.add('icon-dropdown-slash');
+		}
 		document.querySelector('#checkbox-opt-out-attach-side-menu').checked = optOutAttachSideMenu;
 		if (optOutAttachSideMenu) {
 			highlightMenuIcon('style-tweaks');

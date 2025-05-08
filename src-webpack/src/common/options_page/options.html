@@ -1011,18 +1011,6 @@
 									<span class="indicator"></span>
 								</label>
 							</li>
-							<li class="container r-old r-newnew">
-								<div class="container-3">
-									<span class="menu-item-icon icon-list-check-solid icon-hide-blocked-keyword-posts"></span>
-									<span data-lang="HideBlockedKeywordsPosts" data-search=""></span>
-									<label class="switch">
-										<input id="checkbox-hide-blocked-keyword-posts-enable" type="checkbox" />
-										<span class="indicator"></span>
-									</label>
-									<div></div>
-									<textarea id="input-blocked-keyword-posts" rows="4" cols="auto" placeholder="keyword,keyword"></textarea>
-								</div>
-							</li>
 						</ul>
 					</li>
 
@@ -1730,7 +1718,7 @@
 									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-post-comments-font-size" />
 									<span id="post-comments-font-size-value" class="input-value"></span>
 								</div>
-								<div class="container-slider r-old r-new r-newnew">
+								<div class="container-slider">
 									<span class="menu-item-icon icon-font icon-feed-post-title-font-size"></span>
 									<span data-lang="FeedPostTitle" data-search=""></span>
 									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-feed-post-title-font-size" />
@@ -1742,13 +1730,13 @@
 									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-feed-post-content-font-size" />
 									<span id="feed-post-content-font-size-value" class="input-value"></span>
 								</div>
-								<div class="container-slider r-old r-new r-newnew">
+								<div class="container-slider">
 									<span class="menu-item-icon icon-font icon-create-post-title-font-size"></span>
 									<span data-lang="CreatePostTitle" data-search=""></span>
 									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-create-post-title-font-size" />
 									<span id="create-post-title-font-size-value" class="input-value"></span>
 								</div>
-								<div class="container-slider r-old r-new r-newnew">
+								<div class="container-slider">
 									<span class="menu-item-icon icon-font icon-create-post-body-font-size"></span>
 									<span data-lang="CreatePostBody" data-search=""></span>
 									<input type="range" min="9" max="40" value="0" step="1" class="slider" id="input-create-post-body-font-size" />
@@ -1783,7 +1771,7 @@
 									<input type="range" min="0" max="900" value="0" step="100" class="slider" id="input-feed-post-title-font-weight" />
 									<span id="feed-post-title-font-weight-value" class="input-value"></span>
 								</div>
-								<div class="container-slider">
+								<div class="container-slider r-old r-newnew">
 									<span class="menu-item-icon icon-bold icon-feed-post-content-font-weight"></span>
 									<span data-lang="FeedPostContent" data-search=""></span>
 									<input type="range" min="0" max="900" value="0" step="100" class="slider" id="input-feed-post-content-font-weight" />
@@ -1815,6 +1803,14 @@
 										<a href="#category-style" data-lang="StyleOptions"></a>
 										<div class="vdivider"></div>
 									</div>
+									<div class="r-old r-new r-newnew">
+										<a href="#style-post" data-lang="Post"></a>
+										<div class="vdivider"></div>
+									</div>
+									<div class="r-old r-newnew">
+										<a href="#style-header" data-lang="Header"></a>
+										<div class="vdivider"></div>
+									</div>
 									<div class="r-new r-newnew"><a href="#style-theme" data-lang="Theme"></a></div>
 								</div>
 							</li>
@@ -1825,6 +1821,9 @@
 									<input id="checkbox-hide-gap" type="checkbox" />
 									<span class="indicator"></span>
 								</label>
+							</li>
+							<li id="style-post" class="sub-header r-newnew">
+								<span data-lang="Post"></span>
 							</li>
 							<li class="container r-newnew">
 								<div class="container-3">
@@ -1846,6 +1845,75 @@
 								<span data-lang="LargerClassicPost" data-search="classic,post,larger,size"></span>
 								<label class="switch">
 									<input id="checkbox-larger-classic-post" type="checkbox" />
+									<span class="indicator"></span>
+								</label>
+							</li>
+							<li class="container-3 r-newnew">
+								<span class="menu-item-icon icon-arrow-up icon-left-side-vote-buttons"></span>
+								<span data-lang="LeftSideVoteButtons" data-search="header"></span>
+								<label class="switch">
+									<input id="checkbox-left-side-vote-buttons" type="checkbox" />
+									<span class="indicator"></span>
+								</label>
+							</li>
+							<li id="style-header" class="sub-header r-old r-newnew">
+								<span data-lang="Header"></span>
+							</li>
+							<li class="container-3 r-old r-newnew">
+								<span class="menu-item-icon icon-background icon-custom-header-logo"></span>
+								<span data-lang="CustomHeaderLogo" data-search="logo,icon"></span>
+								<label class="switch">
+									<input id="checkbox-custom-header-logo" type="checkbox" />
+									<span class="indicator"></span>
+								</label>
+								<div></div>
+								<div class="css-input-container" style="margin-bottom: 4px">
+									<input id="input-custom-header-logo-url" type="text" placeholder="Image URL" />
+								</div>
+							</li>
+							<li class="container-3 r-newnew">
+								<span class="menu-item-icon icon-expand icon-full-width-banner"></span>
+								<span data-lang="FullWidthBanner" data-search="banner,subreddit"></span>
+								<label class="switch">
+									<input id="checkbox-full-width-banner" type="checkbox" />
+									<span class="indicator"></span>
+								</label>
+							</li>
+							<li class="container-3 r-newnew">
+								<span class="menu-item-icon icon-compress icon-compact-header-side-menu"></span>
+								<span data-lang="CompactHeaderSideMenu" data-search="compact,header,side,menu"></span>
+								<label class="switch">
+									<input id="checkbox-compact-header-side-menu" type="checkbox" />
+									<span class="indicator"></span>
+								</label>
+							</li>
+							<li class="container r-newnew">
+								<div class="container-3">
+									<span class="menu-item-icon icon-portrait icon-attach-side-menu-header"></span>
+									<span data-lang="AttachSideMenuHeader" data-search="side,menu,header"></span>
+									<label class="switch">
+										<input id="checkbox-attach-side-menu-header" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
+									<div style="position: relative; margin-top: 16px; width: 400px">
+										<p class="info" data-lang="AttachSideMenuHeaderInfo"></p>
+									</div>
+								</div>
+								<div class="divider"></div>
+								<div class="container-3">
+									<span class="menu-item-icon icon-dropdown icon-opt-out-attach-side-menu"></span>
+									<span data-lang="OptOutAttachSideMenu" data-search="side,menu,header"></span>
+									<label class="switch">
+										<input id="checkbox-opt-out-attach-side-menu" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
+								</div>
+							</li>
+							<li class="container-3 r-newnew">
+								<span class="menu-item-icon icon-header icon-subreddit-display-name-banner"></span>
+								<span data-lang="SubredditDisplayNameBanner" data-search="banner,subreddit,name"></span>
+								<label class="switch">
+									<input id="checkbox-subreddit-display-name-banner" type="checkbox" />
 									<span class="indicator"></span>
 								</label>
 							</li>
@@ -1895,75 +1963,6 @@
 									<input id="checkbox-classic-old-ui" type="checkbox" />
 									<span class="indicator"></span>
 								</label>
-							</li>
-							<li class="container r-newnew">
-								<div class="container-3">
-									<span class="menu-item-icon icon-expand icon-full-width-banner"></span>
-									<span data-lang="FullWidthBanner" data-search="banner,subreddit"></span>
-									<label class="switch">
-										<input id="checkbox-full-width-banner" type="checkbox" />
-										<span class="indicator"></span>
-									</label>
-								</div>
-								<div class="divider"></div>
-								<div class="container-3">
-									<span class="menu-item-icon icon-compress icon-compact-header-side-menu"></span>
-									<span data-lang="CompactHeaderSideMenu" data-search="compact,header,side,menu"></span>
-									<label class="switch">
-										<input id="checkbox-compact-header-side-menu" type="checkbox" />
-										<span class="indicator"></span>
-									</label>
-								</div>
-								<div class="divider"></div>
-								<div class="container-3">
-									<span class="menu-item-icon icon-compress icon-attach-side-menu-header"></span>
-									<span data-lang="AttachSideMenuHeader" data-search="side,menu,header"></span>
-									<label class="switch">
-										<input id="checkbox-attach-side-menu-header" type="checkbox" />
-										<span class="indicator"></span>
-									</label>
-									<div style="position: relative; margin-top: 16px; width: 400px">
-										<p class="info" data-lang="AttachSideMenuHeaderInfo"></p>
-									</div>
-								</div>
-								<div class="container-3">
-									<span class="menu-item-icon icon-compress icon-opt-out-attach-side-menu"></span>
-									<span data-lang="OptOutAttachSideMenu" data-search="side,menu,header"></span>
-									<label class="switch">
-										<input id="checkbox-opt-out-attach-side-menu" type="checkbox" />
-										<span class="indicator"></span>
-									</label>
-								</div>
-								<div class="divider"></div>
-								<div class="container-3">
-									<span class="menu-item-icon icon-arrow-up icon-left-side-vote-buttons"></span>
-									<span data-lang="LeftSideVoteButtons" data-search="header"></span>
-									<label class="switch">
-										<input id="checkbox-left-side-vote-buttons" type="checkbox" />
-										<span class="indicator"></span>
-									</label>
-								</div>
-								<div class="divider"></div>
-								<div class="container-3">
-									<span class="menu-item-icon icon-header icon-subreddit-display-name-banner"></span>
-									<span data-lang="SubredditDisplayNameBanner" data-search="banner,subreddit,name"></span>
-									<label class="switch">
-										<input id="checkbox-subreddit-display-name-banner" type="checkbox" />
-										<span class="indicator"></span>
-									</label>
-								</div>
-							</li>
-							<li class="container-3 r-old r-newnew">
-								<span class="menu-item-icon icon-background icon-custom-header-logo"></span>
-								<span data-lang="CustomHeaderLogo" data-search="logo,icon"></span>
-								<label class="switch">
-									<input id="checkbox-custom-header-logo" type="checkbox" />
-									<span class="indicator"></span>
-								</label>
-								<div></div>
-								<div class="css-input-container" style="margin-bottom: 4px">
-									<input id="input-custom-header-logo-url" type="text" placeholder="Image URL" />
-								</div>
 							</li>
 							<!-- Theme -->
 							<li id="style-theme" class="sub-header r-new r-newnew">
@@ -2033,7 +2032,7 @@
 									<div></div>
 									<div class="css-input-container">
 										<span class="text-small">background:</span>
-										<input id="input-header-bg-colour-css" type="text" placeholder="rgba(0,0,0,0.5)" />
+										<input id="input-header-bg-colour-css" type="text" placeholder="#1a1a1b" />
 									</div>
 								</div>
 								<div class="divider"></div>
@@ -2061,7 +2060,7 @@
 									<div></div>
 									<div class="css-input-container">
 										<span class="text-small">background:</span>
-										<input id="input-searchbar-bg-colour-css" type="text" placeholder="rgba(0,0,0,0.2)" />
+										<input id="input-searchbar-bg-colour-css" type="text" placeholder="#272729" />
 									</div>
 								</div>
 								<div class="divider"></div>
@@ -2075,7 +2074,7 @@
 									<div></div>
 									<div class="css-input-container">
 										<span class="text-small">background:</span>
-										<input id="input-searchbar-dropdown-bg-colour-css" type="text" placeholder="rgba(0,0,0,0.4)" />
+										<input id="input-searchbar-dropdown-bg-colour-css" type="text" placeholder="#1a1a1b" />
 									</div>
 								</div>
 							</li>
@@ -2188,7 +2187,7 @@
 									<div></div>
 									<div class="css-input-container">
 										<span class="text-small">background:</span>
-										<input id="input-post-bg-colour-css" type="text" placeholder="rgba(0,0,0,0.5)" />
+										<input id="input-post-bg-colour-css" type="text" placeholder="rgb(26,26,27)" />
 									</div>
 								</div>
 								<div class="divider"></div>
@@ -2202,7 +2201,7 @@
 									<div></div>
 									<div class="css-input-container">
 										<span class="text-small">color:</span>
-										<input id="input-post-text-colour-css" type="text" placeholder="#fff" />
+										<input id="input-post-text-colour-css" type="text" placeholder="#d7dadc" />
 									</div>
 									<div></div>
 									<div></div>
@@ -2232,13 +2231,13 @@
 									<div></div>
 									<div class="css-input-container">
 										<span class="text-small">color:</span>
-										<input id="input-post-text-colour-2-css" type="text" placeholder="rgb(200,200,200)" />
+										<input id="input-post-text-colour-2-css" type="text" placeholder="#d7dadc" />
 									</div>
 								</div>
 								<div class="divider"></div>
 								<div class="container-3">
 									<span class="menu-item-icon icon-spray-can icon-post-visited-text-colour"></span>
-									<span data-lang="PostVisitedTitleColour" data-search="theme,text,colour"></span>
+									<span data-lang="PostVisitedTextColour" data-search="theme,text,colour"></span>
 									<label class="switch">
 										<input id="checkbox-post-visited-text-colour" type="checkbox" />
 										<span class="indicator"></span>
@@ -2260,7 +2259,7 @@
 									<div></div>
 									<div class="css-input-container">
 										<span class="text-small">color:</span>
-										<input id="input-post-comments-text-colour-css" type="text" placeholder="#fff" />
+										<input id="input-post-comments-text-colour-css" type="text" placeholder="#d7dadc" />
 									</div>
 								</div>
 								<div class="divider"></div>
@@ -2274,7 +2273,7 @@
 									<div></div>
 									<div class="css-input-container">
 										<span class="text-small">color:</span>
-										<input id="input-post-comments-secondary-text-colour-css" type="text" placeholder="#808080" />
+										<input id="input-post-comments-secondary-text-colour-css" type="text" placeholder="#818384" />
 									</div>
 								</div>
 								<div class="divider"></div>
@@ -2302,7 +2301,7 @@
 									<div></div>
 									<div class="css-input-container">
 										<span class="text-small">border-color:</span>
-										<input id="input-post-border-colour-css" type="text" placeholder="rgb(0,0,0)" />
+										<input id="input-post-border-colour-css" type="text" placeholder="#343536" />
 									</div>
 								</div>
 								<div class="divider"></div>
@@ -2349,7 +2348,7 @@
 									<div></div>
 									<div class="css-input-container">
 										<span class="text-small">color:</span>
-										<input id="input-sidebar-text-colour-css" type="text" placeholder="#fff" />
+										<input id="input-sidebar-text-colour-css" type="text" placeholder="#d7dadc" />
 									</div>
 								</div>
 								<div class="divider"></div>
@@ -2363,7 +2362,7 @@
 									<div></div>
 									<div class="css-input-container">
 										<span class="text-small">background-color:</span>
-										<input id="input-sidebar-bg-colour-css" type="text" placeholder="rgba(0,0,0,0.5)" />
+										<input id="input-sidebar-bg-colour-css" type="text" placeholder="#1a1a1b" />
 									</div>
 								</div>
 								<div class="divider r-new"></div>
@@ -2396,7 +2395,7 @@
 									<div></div>
 									<div class="css-input-container">
 										<span class="text-small">color:</span>
-										<input id="input-sidemenu-text-colour-css" type="text" placeholder="#fff" />
+										<input id="input-sidemenu-text-colour-css" type="text" placeholder="#d7dadc" />
 									</div>
 								</div>
 								<div class="divider"></div>
@@ -2410,7 +2409,7 @@
 									<div></div>
 									<div class="css-input-container">
 										<span class="text-small">background-color:</span>
-										<input id="input-sidemenu-bg-colour-css" type="text" placeholder="rgba(0,0,0,0.5)" />
+										<input id="input-sidemenu-bg-colour-css" type="text" placeholder="#1a1a1b" />
 									</div>
 								</div>
 								<div class="divider"></div>
@@ -2424,7 +2423,7 @@
 									<div></div>
 									<div class="css-input-container">
 										<span class="text-small">background-color:</span>
-										<input id="input-sidemenu-button-hover-colour-css" type="text" placeholder="rgba(0,0,0,0.8)" />
+										<input id="input-sidemenu-button-hover-colour-css" type="text" placeholder="rgba(255,255,255,0.04)" />
 									</div>
 								</div>
 							</li>
@@ -2459,7 +2458,7 @@
 
 					<li id="index-5" data-index="5">
 						<!-- Background -->
-						<div id="background" class="menu-item-link btn-background r-new r-newnew">
+						<div id="background" class="menu-item-link btn-background r-old r-new r-newnew">
 							<div class="menu-item-btn">
 								<span class="menu-item-icon icon-background"></span>
 								<span data-lang="Background" class="menu-item-title"></span>
@@ -2492,7 +2491,7 @@
 							<li class="container r-old r-new r-newnew">
 								<div class="container r-old r-new r-newnew">
 									<form class="custom-input-container" data-search="background,image">
-										<input type="text" id="input-custom-background" name="custom" maxlength="1000" />
+										<input type="text" id="input-custom-background" name="custom" maxlength="1000" style="margin-left: 4px" />
 										<button class="btn btn-add-custom-background icon icon-plus" type="submit" value="Add Background URL"></button>
 									</form>
 								</div>
@@ -2653,6 +2652,36 @@
 								<span class="menu-item-icon icon-clock"></span>
 								<label data-lang="EndTime" for="time-end" data-search="dark,night"></label>
 								<input type="time" id="dm-time-end" name="time-end" class="time-input" />
+							</li>
+						</ul>
+					</li>
+
+					<li id="index-10" data-index="10">
+						<!-- Block -->
+						<div id="block" class="menu-item-link btn-block r-old r-newnew">
+							<div class="menu-item-btn">
+								<span class="menu-item-icon icon-block"></span>
+								<span data-lang="Block" class="menu-item-title"></span>
+								<div class="icon-chevron-down"></div>
+							</div>
+							<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
+						</div>
+						<!-- Block Sub Menu -->
+						<ul class="sub-list menu-block hidden r-old r-newnew">
+							<li class="sub-header sub-search-title">
+								<span data-lang="Block"></span>
+							</li>
+							<li class="container r-old r-newnew">
+								<div class="container-3">
+									<span class="menu-item-icon icon-list-check-solid icon-hide-blocked-keyword-posts"></span>
+									<span data-lang="HideBlockedKeywordsPosts" data-search=""></span>
+									<label class="switch">
+										<input id="checkbox-hide-blocked-keyword-posts-enable" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
+									<div></div>
+									<textarea id="input-blocked-keyword-posts" rows="4" cols="auto" placeholder="keyword,keyword"></textarea>
+								</div>
 							</li>
 						</ul>
 					</li>

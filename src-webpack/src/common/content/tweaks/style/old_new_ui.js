@@ -6,7 +6,7 @@
  * Applies to: New New UI (2023-)
  */
 
-import { showBannerMessage } from "../../banner_message";
+import { showBannerMessage } from '../../banner_message';
 
 // Get the feature state from browser sync storage
 export function loadFullWidthBanner() {
@@ -184,7 +184,9 @@ function disableCompactHeaderSideMenu() {
  * @async fetchData
  */
 
-let optOutAttach, e = false, listenerAttached = false;
+let optOutAttach,
+	e = false,
+	listenerAttached = false;
 // Get the feature state from browser sync storage
 export function loadAttachSideMenuHeader() {
 	BROWSER_API.storage.sync.get(['attachSideMenuHeader', 'optOutAttachSideMenu'], function (result) {
@@ -217,6 +219,16 @@ async function enableAttachSideMenuHeader() {
 			}
 			.re-header-menu:hover {
 				border: 1px solid var(--color-neutral-border-weak);
+				cursor: pointer;
+			}
+			.re-header-menu reddit-sidebar-nav {
+				backdrop-filter: blur(20px);
+			}
+			.re-header-menu:not(:has(reddit-sidebar-nav)) {
+				border: none !important;
+			}
+			.re-header-menu:has(reddit-sidebar-nav) .re-side-menu-close {
+				display: none !important;
 			}
 			.re-header-menu > div > :first-child:not(span) {
 				position: static;
@@ -322,7 +334,7 @@ async function enableAttachSideMenuHeader() {
 			if (user && !document.querySelector('.re-user-info') && document.querySelector('button#expand-user-drawer-button')) {
 				const a = Object.assign(document.createElement('div'), {
 					innerHTML: `<div class="font-semibold overflow-hidden text-ellipsis">${user.name}</div><span class="text-neutral-content-weak">${formatNumber(user.total_karma)} karma</span>`,
-					className: "re-user-info inline-block ml-2xs text-12 font-normal"
+					className: 're-user-info inline-block ml-2xs text-12 font-normal',
 				});
 				document.querySelector('button#expand-user-drawer-button').appendChild(a);
 				document.documentElement.style.setProperty('--re-username', "'" + user.name + "'");
@@ -363,7 +375,7 @@ async function enableAttachSideMenuHeader() {
 			case 'post_submit_subreddit':
 			case 'wiki_page':
 			case 'mod_queue':
-				title = "r/" + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
+				title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
 				data = await fetchData(`${title}/about.json`);
 				if (data.community_icon || data.icon_img) {
 					logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon ? data.community_icon : data.icon_img}">`;
@@ -380,7 +392,7 @@ async function enableAttachSideMenuHeader() {
 			case 'profile_downvoted':
 			case 'profile_post_page':
 			case 'profile_serp':
-				title = "u/" + window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1];
+				title = 'u/' + window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1];
 				data = await fetchData(`user/${window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1]}/about.json`);
 				logo = `<img alt="${title} user avatar" class="${data.snoovatar_img ? '' : 'rounded-full'} h-lg w-lg mb-0" 
 						src="${data.snoovatar_img ? data.snoovatar_img : data.icon_img}">`;
@@ -391,7 +403,7 @@ async function enableAttachSideMenuHeader() {
 				break;
 			case 'custom_feed':
 				title = document.querySelector('custom-feed-header').getAttribute('display-name');
-				logo = `<img alt="${title} icon" class="rounded-sm h-lg w-lg mb-0" src=${document.querySelector('custom-feed-header').getAttribute('icon')}>`
+				logo = `<img alt="${title} icon" class="rounded-sm h-lg w-lg mb-0" src=${document.querySelector('custom-feed-header').getAttribute('icon')}>`;
 				break;
 			case 'post_submit':
 				title = 'Create post';
@@ -412,7 +424,7 @@ async function enableAttachSideMenuHeader() {
 				break;
 			default:
 				if (window.location.pathname.includes('/mod/')) {
-					title = "r/" + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
+					title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
 					data = await fetchData(`${title}/about.json`);
 					logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon}">`;
 				} else {
@@ -434,8 +446,8 @@ async function enableAttachSideMenuHeader() {
 
 	if (!optOutAttach) {
 		const banner = () => {
-			showBannerMessage('info', 'Reddit Enhancer wasn\'t able to attach the side menu. Please refresh the page. Sorry!');
-		}
+			showBannerMessage('info', "Reddit Enhancer wasn't able to attach the side menu. Please refresh the page. Sorry!");
+		};
 		sideMenu.querySelector('div').addEventListener('click', banner);
 		const sideMenu2 = document.querySelector('reddit-sidebar-nav');
 		if (sideMenu2) {
@@ -443,7 +455,7 @@ async function enableAttachSideMenuHeader() {
 			sideMenu.appendChild(sideMenu2);
 			sideMenu.querySelector('div').addEventListener('click', (e) => {
 				e.stopPropagation();
-				sideMenu2.style.display = (getComputedStyle(sideMenu2).display === 'none') ? 'block' : 'none';
+				sideMenu2.style.display = getComputedStyle(sideMenu2).display === 'none' ? 'block' : 'none';
 			});
 			window.addEventListener('click', () => {
 				if (!sideMenu.contains(e.target)) sideMenu2.style.display = 'none';
@@ -474,15 +486,15 @@ function disableAttachSideMenuHeader() {
  */
 function formatNumber(num) {
 	const units = [
-		{ value: 1E18, symbol: 'e' },
-		{ value: 1E15, symbol: 'p' },
-		{ value: 1E12, symbol: 't' },
-		{ value: 1E9, symbol: 'g' },
-		{ value: 1E6, symbol: 'm' },
-		{ value: 1E3, symbol: 'k' },
-		{ value: 1, symbol: '' }
+		{ value: 1e18, symbol: 'e' },
+		{ value: 1e15, symbol: 'p' },
+		{ value: 1e12, symbol: 't' },
+		{ value: 1e9, symbol: 'g' },
+		{ value: 1e6, symbol: 'm' },
+		{ value: 1e3, symbol: 'k' },
+		{ value: 1, symbol: '' },
 	];
-	const item = units.find(unit => num >= unit.value);
+	const item = units.find((unit) => num >= unit.value);
 	return item ? (num / item.value).toFixed(1).replace(/\.0$/, '') + item.symbol : '0';
 }
 
@@ -497,7 +509,9 @@ async function fetchData(query) {
 		} else {
 			response = await fetch(fetch_url, { method: 'GET' });
 		}
-		if (!response.ok) { throw response.status; }
+		if (!response.ok) {
+			throw response.status;
+		}
 		const data = await response.json();
 		return data.data;
 	} catch (error) {
@@ -554,8 +568,7 @@ export function subredditDisplayNameBanner(value) {
 				const subredditName = document.querySelector('shreddit-subreddit-header')?.getAttribute('display-name');
 				if (subredditName && subredditName.length > 0) {
 					document.querySelector('div.masthead h1').textContent = subredditName;
-					document.querySelector('div.masthead div:has(> h1)')?.setAttribute('data-sub-name',
-						"r/" + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2]);
+					document.querySelector('div.masthead div:has(> h1)')?.setAttribute('data-sub-name', 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2]);
 				}
 			}
 		} else {
@@ -563,7 +576,7 @@ export function subredditDisplayNameBanner(value) {
 			dynamicStyleElements.forEach((element) => {
 				document.head.removeChild(element);
 			});
-			document.querySelector('div.masthead h1').textContent = "r/" + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
+			document.querySelector('div.masthead h1').textContent = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
 		}
 	}
 }

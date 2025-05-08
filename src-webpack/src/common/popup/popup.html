@@ -93,7 +93,7 @@
 			<span data-lang="Welcome"></span>
 		</div>
 
-		<!-- Top Category Menu -->
+		<!-- = Quick Category Menu Selector = -->
 		<div>
 			<div id="top-menu-accordion" class="accordion">
 				<div class="accordion-header">
@@ -138,6 +138,10 @@
 					</div>
 					<div data-index="0" class="r-new">
 						<a href="#index-0" data-lang="DarkMode"></a>
+						<div class="vdivider"></div>
+					</div>
+					<div data-index="10" class="r-old r-newnew">
+						<a href="#index-10" data-lang="Block"></a>
 						<div class="vdivider"></div>
 					</div>
 					<!--<div data-index="9" class="r-old r-new r-newnew">
@@ -915,18 +919,6 @@
 							<input id="checkbox-hide-user-profile-pics" type="checkbox" />
 							<span class="indicator"></span>
 						</label>
-					</li>
-					<li class="container r-old r-newnew">
-						<div class="container-3">
-							<span class="menu-item-icon icon-list-check-solid icon-hide-blocked-keyword-posts"></span>
-							<span data-lang="HideBlockedKeywordsPosts" data-search=""></span>
-							<label class="switch">
-								<input id="checkbox-hide-blocked-keyword-posts-enable" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-							<div></div>
-							<textarea id="input-blocked-keyword-posts" rows="4" cols="auto" placeholder="keyword,keyword"></textarea>
-						</div>
 					</li>
 				</ul>
 			</li>
@@ -1720,6 +1712,14 @@
 								<a href="#category-style" data-lang="StyleOptions"></a>
 								<div class="vdivider"></div>
 							</div>
+							<div class="r-old r-new r-newnew">
+								<a href="#style-post" data-lang="Post"></a>
+								<div class="vdivider"></div>
+							</div>
+							<div class="r-old r-newnew">
+								<a href="#style-header" data-lang="Header"></a>
+								<div class="vdivider"></div>
+							</div>
 							<div class="r-new r-newnew"><a href="#style-theme" data-lang="Theme"></a></div>
 						</div>
 					</li>
@@ -1730,6 +1730,9 @@
 							<input id="checkbox-hide-gap" type="checkbox" />
 							<span class="indicator"></span>
 						</label>
+					</li>
+					<li id="style-post" class="sub-header r-newnew">
+						<span data-lang="Post"></span>
 					</li>
 					<li class="container r-newnew">
 						<div class="container-3">
@@ -1751,6 +1754,75 @@
 						<span data-lang="LargerClassicPost" data-search="classic,post,larger,size"></span>
 						<label class="switch">
 							<input id="checkbox-larger-classic-post" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li class="container-3 r-newnew">
+						<span class="menu-item-icon icon-arrow-up icon-left-side-vote-buttons"></span>
+						<span data-lang="LeftSideVoteButtons" data-search="header"></span>
+						<label class="switch">
+							<input id="checkbox-left-side-vote-buttons" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li id="style-header" class="sub-header r-old r-newnew">
+						<span data-lang="Header"></span>
+					</li>
+					<li class="container-3 r-old r-newnew">
+						<span class="menu-item-icon icon-background icon-custom-header-logo"></span>
+						<span data-lang="CustomHeaderLogo" data-search="logo,icon"></span>
+						<label class="switch">
+							<input id="checkbox-custom-header-logo" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+						<div></div>
+						<div class="css-input-container" style="margin-bottom: 4px">
+							<input id="input-custom-header-logo-url" type="text" placeholder="Image URL" />
+						</div>
+					</li>
+					<li class="container-3 r-newnew">
+						<span class="menu-item-icon icon-expand icon-full-width-banner"></span>
+						<span data-lang="FullWidthBanner" data-search="banner,subreddit"></span>
+						<label class="switch">
+							<input id="checkbox-full-width-banner" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li class="container-3 r-newnew">
+						<span class="menu-item-icon icon-compress icon-compact-header-side-menu"></span>
+						<span data-lang="CompactHeaderSideMenu" data-search="compact,header,side,menu"></span>
+						<label class="switch">
+							<input id="checkbox-compact-header-side-menu" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li class="container r-newnew">
+						<div class="container-3">
+							<span class="menu-item-icon icon-portrait icon-attach-side-menu-header"></span>
+							<span data-lang="AttachSideMenuHeader" data-search="side,menu,header"></span>
+							<label class="switch">
+								<input id="checkbox-attach-side-menu-header" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+							<div style="position: relative; margin-top: 16px; width: 400px">
+								<p class="info" data-lang="AttachSideMenuHeaderInfo"></p>
+							</div>
+						</div>
+						<div class="divider"></div>
+						<div class="container-3">
+							<span class="menu-item-icon icon-dropdown icon-opt-out-attach-side-menu"></span>
+							<span data-lang="OptOutAttachSideMenu" data-search="side,menu,header"></span>
+							<label class="switch">
+								<input id="checkbox-opt-out-attach-side-menu" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+					</li>
+					<li class="container-3 r-newnew">
+						<span class="menu-item-icon icon-header icon-subreddit-display-name-banner"></span>
+						<span data-lang="SubredditDisplayNameBanner" data-search="banner,subreddit,name"></span>
+						<label class="switch">
+							<input id="checkbox-subreddit-display-name-banner" type="checkbox" />
 							<span class="indicator"></span>
 						</label>
 					</li>
@@ -1800,75 +1872,6 @@
 							<input id="checkbox-classic-old-ui" type="checkbox" />
 							<span class="indicator"></span>
 						</label>
-					</li>
-					<li class="container r-newnew">
-						<div class="container-3">
-							<span class="menu-item-icon icon-expand icon-full-width-banner"></span>
-							<span data-lang="FullWidthBanner" data-search="banner,subreddit"></span>
-							<label class="switch">
-								<input id="checkbox-full-width-banner" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-						</div>
-						<div class="divider"></div>
-						<div class="container-3">
-							<span class="menu-item-icon icon-compress icon-compact-header-side-menu"></span>
-							<span data-lang="CompactHeaderSideMenu" data-search="compact,header,side,menu"></span>
-							<label class="switch">
-								<input id="checkbox-compact-header-side-menu" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-						</div>
-						<div class="divider"></div>
-						<div class="container-3">
-							<span class="menu-item-icon icon-compress icon-attach-side-menu-header"></span>
-							<span data-lang="AttachSideMenuHeader" data-search="side,menu,header"></span>
-							<label class="switch">
-								<input id="checkbox-attach-side-menu-header" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-							<div style="position: relative; margin-top: 16px; width: 400px">
-								<p class="info" data-lang="AttachSideMenuHeaderInfo"></p>
-							</div>
-						</div>
-						<div class="container-3">
-							<span class="menu-item-icon icon-compress icon-opt-out-attach-side-menu"></span>
-							<span data-lang="OptOutAttachSideMenu" data-search="side,menu,header"></span>
-							<label class="switch">
-								<input id="checkbox-opt-out-attach-side-menu" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-						</div>
-						<div class="divider"></div>
-						<div class="container-3">
-							<span class="menu-item-icon icon-arrow-up icon-left-side-vote-buttons"></span>
-							<span data-lang="LeftSideVoteButtons" data-search="header"></span>
-							<label class="switch">
-								<input id="checkbox-left-side-vote-buttons" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-						</div>
-						<div class="divider"></div>
-						<div class="container-3">
-							<span class="menu-item-icon icon-header icon-subreddit-display-name-banner"></span>
-							<span data-lang="SubredditDisplayNameBanner" data-search="banner,subreddit,name"></span>
-							<label class="switch">
-								<input id="checkbox-subreddit-display-name-banner" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-						</div>
-					</li>
-					<li class="container-3 r-old r-newnew">
-						<span class="menu-item-icon icon-background icon-custom-header-logo"></span>
-						<span data-lang="CustomHeaderLogo" data-search="logo,icon"></span>
-						<label class="switch">
-							<input id="checkbox-custom-header-logo" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-						<div></div>
-						<div class="css-input-container" style="margin-bottom: 4px">
-							<input id="input-custom-header-logo-url" type="text" placeholder="Image URL" />
-						</div>
 					</li>
 					<!-- Theme -->
 					<li id="style-theme" class="sub-header r-new r-newnew">
@@ -2558,6 +2561,36 @@
 						<span class="menu-item-icon icon-clock"></span>
 						<label data-lang="EndTime" for="time-end" data-search="dark,night"></label>
 						<input type="time" id="dm-time-end" name="time-end" class="time-input" />
+					</li>
+				</ul>
+			</li>
+
+			<li id="index-10" data-index="10">
+				<!-- Block -->
+				<div id="block" class="menu-item-link btn-block r-old r-newnew">
+					<div class="menu-item-btn">
+						<span class="menu-item-icon icon-block"></span>
+						<span data-lang="Block" class="menu-item-title"></span>
+						<div class="icon-chevron-down"></div>
+					</div>
+					<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
+				</div>
+				<!-- Block Sub Menu -->
+				<ul class="sub-list menu-block hidden r-old r-newnew">
+					<li class="sub-header sub-search-title">
+						<span data-lang="Block"></span>
+					</li>
+					<li class="container r-old r-newnew">
+						<div class="container-3">
+							<span class="menu-item-icon icon-list-check-solid icon-hide-blocked-keyword-posts"></span>
+							<span data-lang="HideBlockedKeywordsPosts" data-search=""></span>
+							<label class="switch">
+								<input id="checkbox-hide-blocked-keyword-posts-enable" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+							<div></div>
+							<textarea id="input-blocked-keyword-posts" rows="4" cols="auto" placeholder="keyword,keyword"></textarea>
+						</div>
 					</li>
 				</ul>
 			</li>

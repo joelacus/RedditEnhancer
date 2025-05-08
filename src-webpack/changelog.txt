@@ -1,3 +1,36 @@
+version 1.17.0
+v [General]
+- Added a new "Block" menu category.
+
+v [New New UI]
+  - Block posts by keywords. Special thanks to @matthew-c-lee (Github) for adding this feature <3
+  - Fixed "Hide the Favourite Buttons" option not working due to a website update.
+* Special thanks to @biminhc1 (Reddit) @bmndc (Github) for all following changes <3
+v [New New UI]
+  - Added options to attach the side menu as a dropdown panel, display user info and karma count in the header.
+  - Added an option to display post vote buttons on the left side of the post.
+  - Added an option to hide the community status icons next to its r/ handle in feed view, subreddit view and sidebar.
+  - Added an option to hide the end card recommendations of Reddit's video player.
+  - Added an option to primarily display the subreddit display name in its title section instead of just the r/ handle.
+  - Added default fallback for Background and Style colour options to mimic Old New UI theme colours.
+  - Fixed an issue where the default font size for post titles in Compact view on New New UI may be a bit too small.
+  - Fixed an issue where "Auto Show Formatting Options When Commenting" fails to add click event to correct button.
+  - Fixed an observer issue where "Always Show Post Options" may abruptly stop.
+  - Fixed a rare issue where user flairs in comment threads may be unintentionally styled by Multicoloured Comment.
+  - Fixed an issue where font weight settings may not be restored in popup and options page.
+  - Fixed an issue where "compact" Post Link Preview" may alter link display of pseudo link posts with text body.
+  - Fixed an issue where turning off "Resize Feed/Posts" while "Resize Main Container" is on may cause glitches on Firefox.
+  - Fixed an issue where post overflow menu might be covered by the post below.
+  - "Hide Recommended Posts" now also hides the Related chat channels section at the end of some posts.
+  - Community highlight panel and the subreddit header now also use post background colour for increased readability.
+  - "Non-Sticky Header Bar" will no longer stick the right sidebar on the screen per Reddit's default behaviour.
+  - Added "Posted by" labels to posts in subreddit view if "Show Post Author" is on, replaced with "Crossposted by" on crossposted posts.
+  - Reddit's comment composer border radius can now be changed up to 20px.
+  - Reddit's feed announcements (i.e. that one Minesweeper game ad) are styled to match with normal posts.
+  - Improved loading time of "Show Post Numbers", "Show Upvote Percentage in Post View", "Always Show Post Options" etc
+v [Old UI]
+  - Reddit recently announced they will be replacing DMs on Old UI with Reddit Chat and a link to the Notifications page on New New UI. Hide 'Notification' Button and Hide Chat Button are updated to reflect this change.
+
 version 1.16.0
 v [General]
   - Split "Default Feed Sort Option" into two options, one for the home feed, and one for other feeds.

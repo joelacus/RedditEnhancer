@@ -492,3 +492,19 @@
 	mask: url('../../icons/ui/hourglass-solid.svg');
 	-webkit-mask: url('../../icons/ui/hourglass-solid.svg');
 }
+.icon-dropdown {
+	mask: url('../../icons/ui/square-caret-down-solid.svg');
+	-webkit-mask: url('../../icons/ui/square-caret-down-solid.svg');
+}
+.icon-dropdown-slash {
+	mask: url('../../icons/ui/icon-dropdown-slash.svg');
+	-webkit-mask: url('../../icons/ui/icon-dropdown-slash.svg');
+}
+.icon-portrait {
+	mask: url('../../icons/ui/image-portrait-solid.svg');
+	-webkit-mask: url('../../icons/ui/image-portrait-solid.svg');
+}
+.icon-block {
+	mask: url('../../icons/ui/ban-solid.svg');
+	-webkit-mask: url('../../icons/ui/ban-solid.svg');
+}
