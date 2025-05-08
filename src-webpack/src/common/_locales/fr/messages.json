@@ -14,6 +14,12 @@
 	"AlwaysShowPostOptions": {
 		"message": "Toujours afficher les options de Post"
 	},
+	"AttachSideMenuHeader": {
+		"message": "Page d'affichage et d'informations utilisateur dans l'en-tête"
+	},
+	"AttachSideMenuHeaderInfo": {
+		"message": "Expérimental. Pourrait entrer en conflit avec les fonctions de menu latéral de cachette."
+	},
 	"Auto": {
 		"message": "Auto"
 	},
@@ -67,6 +73,9 @@
 	},
 	"Blacklist": {
 		"message": "Liste Noire"
+	},
+	"Block": {
+		"message": "Bloc"
 	},
 	"Blur": {
 		"message": "Flou"
@@ -273,7 +282,7 @@
 		"message": "Masquer le bouton « Annoncer »"
 	},
 	"HideBlockedKeywordsPosts": {
-  		"message": "Masquer les Publications avec des Mots-Clés Bloqués"
+		"message": "Masquer les Publications avec des Mots-Clés Bloqués"
 	},
 	"HideBlurredMediaBackground": {
 		"message": "Masquer le flou d’arrière-plan derrière les aperçus des images"
@@ -286,6 +295,9 @@
 	},
 	"HideCommunityHighlights": {
 		"message": "Masquer « Temps forts de la communauté »"
+	},
+	"HideCommunityStatus": {
+		"message": "Masquer le statut de la communauté"
 	},
 	"HideCompactViewBlankThumbnails": {
 		"message": "Masquer les vignettes vides dans la vue compacte"
@@ -446,6 +458,9 @@
 	"HideUsername": {
 		"message": "Masquer le nom d'utilisateur"
 	},
+	"HideVideoRecommendations": {
+		"message": "Masquer les articles recommandés à la fin de la vidéo"
+	},
 	"HideVoteButtons": {
 		"message": "Masquer les boutons de vote"
 	},
@@ -475,6 +490,9 @@
 	},
 	"LargerClassicPost": {
 		"message": "Vue de Post classique plus grande"
+	},
+	"LeftSideVoteButtons": {
+		"message": "Afficher les boutons de vote à gauche"
 	},
 	"Light": {
 		"message": "Clair"
@@ -565,6 +583,9 @@
 	},
 	"OpenSubInNewTab": {
 		"message": "Ouvrir les liens vers les sous-reddits dans un nouvel onglet"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Ne fixez pas le menu latéral comme panneau déroulant"
 	},
 	"OptionsPage": {
 		"message": "Page d'options"
@@ -853,6 +874,9 @@
 	},
 	"Subreddit": {
 		"message": "Subreddit"
+	},
+	"SubredditDisplayNameBanner": {
+		"message": "Afficher le nom d'affichage subreddit  dans sa bannière"
 	},
 	"Text": {
 		"message": "Texte"

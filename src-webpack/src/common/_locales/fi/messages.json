@@ -35,6 +35,9 @@
 	"Best": {
 		"message": "Parhaat / Best"
 	},
+	"Block": {
+		"message": "Lohko"
+	},
 	"Blur": {
 		"message": "Hämärtää"
 	},

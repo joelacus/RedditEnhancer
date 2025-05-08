@@ -68,6 +68,9 @@
 	"Blacklist": {
 		"message": "Blacklist"
 	},
+	"Block": {
+		"message": "Block"
+	},
 	"Blur": {
 		"message": "Verwischen"
 	},

@@ -32,6 +32,9 @@
 	"BackupRestoreConfig": {
 		"message": "Konfiguráció mentése/Visszaállítása"
 	},
+	"Block": {
+		"message": "Tömb"
+	},
 	"Blur": {
 		"message": "Elhomályosít"
 	},

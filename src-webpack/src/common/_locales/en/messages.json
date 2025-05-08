@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.16.0"
+		"message": "1.17.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -76,6 +76,9 @@
 	},
 	"Blacklist": {
 		"message": "Blacklist"
+	},
+	"Block": {
+		"message": "Block"
 	},
 	"Blur": {
 		"message": "Blur"
@@ -581,11 +584,11 @@
 	"OpenSubInNewTab": {
 		"message": "Open Links to subreddits in a New Tab"
 	},
-	"OptionsPage": {
-		"message": "Options Page"
-	},
 	"OptOutAttachSideMenu": {
 		"message": "Don't attach side menu as a dropdown panel"
+	},
+	"OptionsPage": {
+		"message": "Options Page"
 	},
 	"Or": {
 		"message": "OR"

@@ -68,6 +68,9 @@
 	"Blacklist": {
 		"message": "Lista nera"
 	},
+	"Block": {
+		"message": "Bloccare"
+	},
 	"Blur": {
 		"message": "Sfocatura"
 	},
