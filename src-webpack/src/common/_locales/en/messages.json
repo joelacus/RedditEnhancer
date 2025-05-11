@@ -14,6 +14,12 @@
 	"Accessibility": {
 		"message": "Accessibility"
 	},
+	"AddNsfwTag": {
+		"message": "Add NSFW tag"
+	},
+	"AddSpoilerTag": {
+		"message": "Add spoiler tag"
+	},
 	"AlwaysShowPostOptions": {
 		"message": "Always Show Post Options"
 	},
@@ -197,6 +203,9 @@
 	"DefaultSortFeedOptionOverrideInfo": {
 		"message": "The amount of time after the page has been auto redirected in which you can override the default sort option."
 	},
+	"Delete": {
+		"message": "Delete"
+	},
 	"DisableBgFadePostOverlay": {
 		"message": "Disable Background Fade Behind Post Overlay"
 	},
@@ -208,6 +217,9 @@
 	},
 	"Drag": {
 		"message": "Drag"
+	},
+	"EditPost": {
+		"message": "Edit post"
 	},
 	"EndTime": {
 		"message": "End Time (24)"
@@ -241,6 +253,9 @@
 	},
 	"FitImage": {
 		"message": "Scale Tall Images to Fit Post"
+	},
+	"FollowPost": {
+		"message": "Follow Post"
 	},
 	"Font": {
 		"message": "Font"
@@ -277,6 +292,9 @@
 	},
 	"Here": {
 		"message": "here"
+	},
+	"Hide": {
+		"message": "Hide"
 	},
 	"HideAdvertiseButton": {
 		"message": "Hide the 'Advertise' Button"
@@ -512,6 +530,9 @@
 	"MainContainer": {
 		"message": "Main Container"
 	},
+	"MarkAsBrandAffiliate": {
+		"message": "Mark as brand affiliate"
+	},
 	"MaxImagePostHeight": {
 		"message": "Max Image Post Height"
 	},
@@ -698,6 +719,9 @@
 	"ReplacePostVideosWithLinksInfo": {
 		"message": "Only works with mp4 and gif. m3u8 videos may be difficult to play in other players."
 	},
+	"Report": {
+		"message": "Report"
+	},
 	"ReportIssues": {
 		"message": "Report Issues"
 	},
@@ -736,6 +760,9 @@
 	},
 	"Rising": {
 		"message": "Rising"
+	},
+	"Save": {
+		"message": "Save"
 	},
 	"ScalePostToFitImage": {
 		"message": "Scale Post To Fit Image"

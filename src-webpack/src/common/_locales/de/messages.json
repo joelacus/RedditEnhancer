@@ -11,8 +11,20 @@
 	"Accessibility": {
 		"message": "Barrierefreiheit"
 	},
+	"AddNsfwTag": {
+		"message": "Fügen Sie NSFW-Tag hinzu"
+	},
+	"AddSpoilerTag": {
+		"message": "Spoiler-Tag hinzufügen"
+	},
 	"AlwaysShowPostOptions": {
 		"message": "Beitragsoptionen immer anzeigen"
+	},
+	"AttachSideMenuHeader": {
+		"message": "Seite und Benutzerinformationen im Header anzeigen"
+	},
+	"AttachSideMenuHeaderInfo": {
+		"message": "Experimentell. Könnte zu Konflikten mit dem Ausblenden von Seitenmenüfunktionen führen."
 	},
 	"Auto": {
 		"message": "Auto"
@@ -191,6 +203,9 @@
 	"DefaultSortFeedOptionOverrideInfo": {
 		"message": "Die Zeit nach der Seite wurde automatisch umgeleitet, in der Sie die Option Standard-Sortieroption überschreiben können."
 	},
+	"Delete": {
+		"message": "Löschen"
+	},
 	"DisableBgFadePostOverlay": {
 		"message": "Deaktivieren Sie den Hintergrund verblassen hinter Post Overlay"
 	},
@@ -202,6 +217,9 @@
 	},
 	"Drag": {
 		"message": "Ziehen"
+	},
+	"EditPost": {
+		"message": "Beitrag bearbeiten"
 	},
 	"EndTime": {
 		"message": "Endzeit (24)"
@@ -235,6 +253,9 @@
 	},
 	"FitImage": {
 		"message": "Große Bilder so skalieren, dass sie in den Post passen"
+	},
+	"FollowPost": {
+		"message": "Beitrag folgen"
 	},
 	"Font": {
 		"message": "Schriftart"
@@ -272,6 +293,9 @@
 	"Here": {
 		"message": "hier"
 	},
+	"Hide": {
+		"message": "Verstecken"
+	},
 	"HideAdvertiseButton": {
 		"message": "Ausblenden der „Werbung“ Schaltfläche"
 	},
@@ -289,6 +313,9 @@
 	},
 	"HideCommunityHighlights": {
 		"message": "„Community-Highlights“ ausblenden"
+	},
+	"HideCommunityStatus": {
+		"message": "Community-Status ausblenden"
 	},
 	"HideCompactViewBlankThumbnails": {
 		"message": "Leere Miniaturansichten in der Kompaktansicht ausblenden"
@@ -449,6 +476,9 @@
 	"HideUsername": {
 		"message": "Benutzernamen Ausblenden"
 	},
+	"HideVideoRecommendations": {
+		"message": "Empfohlene Beiträge ausblenden, wenn das Video endet"
+	},
 	"HideVoteButtons": {
 		"message": "Abstimmungsschaltflächen ausblenden"
 	},
@@ -479,6 +509,9 @@
 	"LargerClassicPost": {
 		"message": "Größere klassische Beitragsansicht"
 	},
+	"LeftSideVoteButtons": {
+		"message": "Abstimmungsschaltflächen links anzeigen"
+	},
 	"Light": {
 		"message": "Hell"
 	},
@@ -496,6 +529,9 @@
 	},
 	"MainContainer": {
 		"message": "Hauptcontainer"
+	},
+	"MarkAsBrandAffiliate": {
+		"message": "Als Markenpartner markieren"
 	},
 	"MaxImagePostHeight": {
 		"message": "Maximale Bild nach der Höhe"
@@ -568,6 +604,9 @@
 	},
 	"OpenSubInNewTab": {
 		"message": "Links zu Subreddits in neuem Tab öffnen"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Hängen sie das seitenmenü nicht als dropdown-panel an"
 	},
 	"OptionsPage": {
 		"message": "Seite „Optionen“"
@@ -683,6 +722,9 @@
 	"ReplacePostVideosWithLinksInfo": {
 		"message": "Funktioniert nur mit MP4 und GIF. M3U8-Videos sind möglicherweise schwer bei anderen Spielern zu spielen."
 	},
+	"Report": {
+		"message": "Bericht"
+	},
 	"ReportIssues": {
 		"message": "Probleme melden"
 	},
@@ -721,6 +763,9 @@
 	},
 	"Rising": {
 		"message": "Aufsteigend / Rising"
+	},
+	"Save": {
+		"message": "Speichern"
 	},
 	"ScalePostToFitImage": {
 		"message": "Skalieren Sie den Beitrag, um ihn an das Bild anzupassen"
@@ -856,6 +901,9 @@
 	},
 	"Subreddit": {
 		"message": "Subreddit"
+	},
+	"SubredditDisplayNameBanner": {
+		"message": "Den anzeigenamen des subreddits im banner anzeigen"
 	},
 	"Text": {
 		"message": "Text"

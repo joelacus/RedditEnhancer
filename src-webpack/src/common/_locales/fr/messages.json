@@ -11,6 +11,12 @@
 	"Accessibility": {
 		"message": "Accessibilité"
 	},
+	"AddNsfwTag": {
+		"message": "Ajouter la balise NSFW"
+	},
+	"AddSpoilerTag": {
+		"message": "Ajouter une balise de spoiler"
+	},
 	"AlwaysShowPostOptions": {
 		"message": "Toujours afficher les options de Post"
 	},
@@ -197,6 +203,9 @@
 	"DefaultSortFeedOptionOverrideInfo": {
 		"message": "La durée après la rediffusion automatique de la page dans laquelle vous pouvez remplacer l'option de tri par défaut."
 	},
+	"Delete": {
+		"message": "Supprimer"
+	},
 	"DisableBgFadePostOverlay": {
 		"message": "Désactiver l'arrière-plan s'estompe derrière la superposition du poteau"
 	},
@@ -208,6 +217,9 @@
 	},
 	"Drag": {
 		"message": "Faites glisser"
+	},
+	"EditPost": {
+		"message": "Modifier la publication"
 	},
 	"EndTime": {
 		"message": "Heure de Fin (24)"
@@ -241,6 +253,9 @@
 	},
 	"FitImage": {
 		"message": "Mettre à l'échelle les images hautes pour s'adapter à la Post"
+	},
+	"FollowPost": {
+		"message": "Suivre"
 	},
 	"Font": {
 		"message": "Fonte"
@@ -277,6 +292,9 @@
 	},
 	"Here": {
 		"message": "ici"
+	},
+	"Hide": {
+		"message": "Cacher"
 	},
 	"HideAdvertiseButton": {
 		"message": "Masquer le bouton « Annoncer »"
@@ -512,6 +530,9 @@
 	"MainContainer": {
 		"message": "Conteneur principal"
 	},
+	"MarkAsBrandAffiliate": {
+		"message": "Marquez comme affilié de marque"
+	},
 	"MaxImagePostHeight": {
 		"message": "Hauteur de post d'image maximale"
 	},
@@ -701,6 +722,9 @@
 	"ReplacePostVideosWithLinksInfo": {
 		"message": "Fonctionne uniquement avec MP4 et GIF. Les vidéos M3U8 peuvent être difficiles à jouer chez d'autres joueurs."
 	},
+	"Report": {
+		"message": "Rapport"
+	},
 	"ReportIssues": {
 		"message": "Signaler des problèmes"
 	},
@@ -739,6 +763,9 @@
 	},
 	"Rising": {
 		"message": "En hausse / Rising"
+	},
+	"Save": {
+		"message": "Sauvegarder"
 	},
 	"ScalePostToFitImage": {
 		"message": "Mettre à l'échelle la Post pour l'adapter à l'image"
