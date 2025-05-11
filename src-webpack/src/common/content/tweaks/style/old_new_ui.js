@@ -226,6 +226,7 @@ async function enableAttachSideMenuHeader() {
 			}
 			.re-header-menu:not(:has(reddit-sidebar-nav)) {
 				border: none !important;
+				cursor: default !important;
 			}
 			.re-header-menu:has(reddit-sidebar-nav) .re-side-menu-close {
 				display: none !important;

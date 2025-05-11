@@ -1,5 +1,7 @@
 /* ===== Default Sort Option ===== */
 
+import { logToDevConsole } from '../../content/logging';
+
 export function defaultSortOption() {
 	// Don't redirect the page if it has been redirected in the last 20 seconds. (allows for manual override of sort option)
 	BROWSER_API.storage.sync.get(['DefaultSortFeedOptionGracePeriod'], function (result) {
@@ -46,6 +48,7 @@ export function defaultSortOption() {
 								return;
 							} else {
 								url.pathname = sortTarget;
+								logToDevConsole('log', `Redirecting home feed to (${sortTarget}) ${url.href}`);
 								window.location.replace(url.href);
 							}
 						}
@@ -58,7 +61,6 @@ export function defaultSortOption() {
 							if (sortTarget === 'relevance') {
 								sortTarget = 'best';
 							}
-							console.log(sortTarget);
 							const lastPath = url.pathname
 								.split('/')
 								.filter((item) => item !== '')
@@ -71,6 +73,7 @@ export function defaultSortOption() {
 										const sortParam = url.searchParams.get('sort');
 										if (sortParam !== sortTarget) {
 											url.searchParams.set('sort', sortTarget);
+											logToDevConsole('log', `Redirecting feed to (${sortTarget}) ${url.href}`);
 											window.location.replace(url.href);
 										}
 									} else {
@@ -84,11 +87,13 @@ export function defaultSortOption() {
 												sortTarget,
 											].join('/');
 											url.pathname = newPath;
+											logToDevConsole('log', `Redirecting feed to (${sortTarget}) ${url.href}`);
 											window.location.replace(url.href);
 										} else {
 											if (url.pathname === '/' || /\/r\/|\/m\//.test(url.pathname)) {
 												newPath = [...url.pathname.split('/').filter((item) => item !== ''), sortTarget].join('/');
 												url.pathname = newPath;
+												logToDevConsole('log', `Redirecting feed to (${sortTarget}) ${url.href}`);
 												window.location.replace(url.href);
 											}
 										}
@@ -96,6 +101,7 @@ export function defaultSortOption() {
 								}
 							} else {
 								url.pathname = sortTarget;
+								logToDevConsole('log', `Redirecting feed to (${sortTarget}) ${url.href}`);
 								window.location.replace(url.href);
 							}
 						}

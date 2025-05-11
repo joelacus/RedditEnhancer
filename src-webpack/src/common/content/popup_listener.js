@@ -3,7 +3,7 @@
 // Listens for commands from the settings popup to enable/disable/change tweaks.
 
 import { addDropShadow } from './tweaks/style/drop_shadow';
-import { alwaysShowPostOptions } from './tweaks/productivity/always_show_post_options';
+import { alwaysShowPostOptions, hidePostBrandAwarenessOption, hidePostDeleteOption, hidePostEditOption, hidePostHideOption, hidePostNotificationOption, hidePostNsfwOption, hidePostReportOption, hidePostSaveOption, hidePostSpoilerOption } from './tweaks/productivity/always_show_post_options';
 import { alwaysShowRisingButton } from './tweaks/productivity/always_show_rising';
 import { autoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
 import { autoExpandComments } from './tweaks/productivity/auto_expand_comments';
@@ -139,13 +139,7 @@ import { hideHomeFeed } from './tweaks/hide_elements/hide_home_feed';
 import { addProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
 import { hidePostDivider, postSeparatorHeight } from './tweaks/hide_elements/hide_post_divider';
 import { hideBlurredMediaBackground } from './tweaks/media/hide_blurred_media_background';
-import {
-	fullWidthBanner,
-	compactHeaderSideMenu,
-	attachSideMenuHeader,
-	optOutAttachSideMenu,
-	subredditDisplayNameBanner
-} from './tweaks/style/old_new_ui';
+import { fullWidthBanner, compactHeaderSideMenu, attachSideMenuHeader, optOutAttachSideMenu, subredditDisplayNameBanner } from './tweaks/style/old_new_ui';
 import { textPostPreviewFade, setTextPostPreviewFadeHeight } from './tweaks/media/text_preview_fade';
 import { resizeMainContainer, resizeMainContainerWidth } from './tweaks/resize_elements/resize_main_container';
 import { hideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
@@ -163,10 +157,10 @@ import { compactPostLinkPreview } from './tweaks/media/compact_post_link_preview
 import { usernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
 import { showUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
 import { customHeaderLogo, setCustomHeaderLogoUrl } from './tweaks/style/custom_header_logo';
-import { hideBlockedKeywordPosts } from "./tweaks/hide_elements/hide_blocked_keyword_posts";
-import { hideVideoRecommendations } from "./tweaks/media/hide_video_recommendations";
-import { leftSideVoteButtons } from "./tweaks/style/left_side_vote_buttons";
-import { hideCommunityStatus } from "./tweaks/hide_elements/hide_community_status";
+import { hideBlockedKeywordPosts } from './tweaks/hide_elements/hide_blocked_keyword_posts';
+import { hideVideoRecommendations } from './tweaks/media/hide_video_recommendations';
+import { leftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
+import { hideCommunityStatus } from './tweaks/hide_elements/hide_community_status';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
@@ -411,6 +405,15 @@ const functionRegistry = {
 	leftSideVoteButtons,
 	hideCommunityStatus,
 	subredditDisplayNameBanner,
+	hidePostNotificationOption,
+	hidePostSaveOption,
+	hidePostHideOption,
+	hidePostReportOption,
+	hidePostEditOption,
+	hidePostDeleteOption,
+	hidePostSpoilerOption,
+	hidePostNsfwOption,
+	hidePostBrandAwarenessOption,
 	//dragImageToResize,
 	//dragImageToResizeInitialSize,
 	//addDownloadVideoButton,
