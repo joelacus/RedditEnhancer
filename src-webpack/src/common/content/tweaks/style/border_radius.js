@@ -84,6 +84,7 @@ function addBorderRadiusAmountStylesheet() {
 			author-flair-event-handler span,
 			community-achievements-flair span,
 			div.flair span,
+			.rounded-\\[20px\\],
 			span:has(div.flair-content) {
 				line-height: 1.4 !important;
 				border-radius: calc(var(--re-theme-border-radius) / 2) !important;
@@ -104,6 +105,16 @@ function addBorderRadiusAmountStylesheet() {
 				& > faceplate-tracker a {
 					border-radius: 0 0 var(--re-theme-border-radius) var(--re-theme-border-radius);
 				}
+			}
+			shreddit-composer,
+			comment-composer-host faceplate-textarea-input {
+				--color-neutral-border: transparent;
+				--color-neutral-border-medium: transparent;
+				--color-neutral-background-hover: var(--color-neutral-background);
+				background-color: var(--color-neutral-background);
+				border: 1px solid var(--color-neutral-border-weak);
+				border-radius: var(--re-theme-border-radius);
+				--font-16-20-regular: initial;
 			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

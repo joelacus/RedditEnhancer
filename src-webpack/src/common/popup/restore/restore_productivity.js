@@ -124,16 +124,160 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 
 	// Always Show Post Options
 	BROWSER_API.storage.sync.get(['alwaysShowPostOptions'], function (result) {
-		if (result.alwaysShowPostOptions == true) {
+		if (result.alwaysShowPostOptions === true) {
 			document.querySelector('#checkbox-always-show-post-options').checked = true;
 			document.querySelector('.icon-always-show-post-options').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('productivity-tweaks');
 			var value = true;
-		} else if (typeof result.alwaysShowPostOptions == 'undefined' || result.alwaysShowPostOptions == false) {
+		} else {
 			document.querySelector('#checkbox-always-show-post-options').checked = false;
 			var value = false;
 		}
 		console.log('Always Show Post Options: ' + value);
+	});
+
+	// Always Show Post Options - Hide "Notification" Option
+	BROWSER_API.storage.sync.get(['hidePostNotificationOption'], function (result) {
+		if (result.hidePostNotificationOption === true) {
+			document.querySelector('#checkbox-hide-post-notification-option').checked = true;
+			document.querySelector('.icon-hide-post-notification-option').classList.remove('icon-notification');
+			document.querySelector('.icon-hide-post-notification-option').classList.add('icon-notification-slash');
+			document.querySelector('.icon-hide-post-notification-option').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else {
+			document.querySelector('#checkbox-hide-post-notification-option').checked = false;
+			var value = false;
+		}
+		console.log('Hide Post "Notification" Option: ' + value);
+	});
+
+	// Always Show Post Options - Hide "Save" Option
+	BROWSER_API.storage.sync.get(['hidePostSaveOption'], function (result) {
+		if (result.hidePostSaveOption === true) {
+			document.querySelector('#checkbox-hide-post-save-option').checked = true;
+			document.querySelector('.icon-hide-post-save-option').classList.remove('icon-bookmark');
+			document.querySelector('.icon-hide-post-save-option').classList.add('icon-bookmark-slash');
+			document.querySelector('.icon-hide-post-save-option').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else {
+			document.querySelector('#checkbox-hide-post-save-option').checked = false;
+			var value = false;
+		}
+		console.log('Hide Post "Save" Option: ' + value);
+	});
+
+	// Always Show Post Options - Hide "Hide" Option
+	BROWSER_API.storage.sync.get(['hidePostHideOption'], function (result) {
+		if (result.hidePostHideOption === true) {
+			document.querySelector('#checkbox-hide-post-hide-option').checked = true;
+			document.querySelector('.icon-hide-post-hide-option').classList.remove('icon-show');
+			document.querySelector('.icon-hide-post-hide-option').classList.add('icon-hide');
+			document.querySelector('.icon-hide-post-hide-option').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else {
+			document.querySelector('#checkbox-hide-post-hide-option').checked = false;
+			var value = false;
+		}
+		console.log('Hide Post "Hide" Option: ' + value);
+	});
+
+	// Always Show Post Options - Hide "Report" Option
+	BROWSER_API.storage.sync.get(['hidePostReportOption'], function (result) {
+		if (result.hidePostReportOption === true) {
+			document.querySelector('#checkbox-hide-post-report-option').checked = true;
+			document.querySelector('.icon-hide-post-report-option').classList.remove('icon-flag');
+			document.querySelector('.icon-hide-post-report-option').classList.add('icon-flag-slash');
+			document.querySelector('.icon-hide-post-report-option').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else {
+			document.querySelector('#checkbox-hide-post-report-option').checked = false;
+			var value = false;
+		}
+		console.log('Hide Post "Report" Option: ' + value);
+	});
+
+	// Always Show Post Options - Hide "Edit" Option
+	BROWSER_API.storage.sync.get(['hidePostEditOption'], function (result) {
+		if (result.hidePostEditOption === true) {
+			document.querySelector('#checkbox-hide-post-edit-option').checked = true;
+			document.querySelector('.icon-hide-post-edit-option').classList.remove('icon-pen');
+			document.querySelector('.icon-hide-post-edit-option').classList.add('icon-pen-slash');
+			document.querySelector('.icon-hide-post-edit-option').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else {
+			document.querySelector('#checkbox-hide-post-edit-option').checked = false;
+			var value = false;
+		}
+		console.log('Hide Post "Edit" Option: ' + value);
+	});
+
+	// Always Show Post Options - Hide "Delete" Option
+	BROWSER_API.storage.sync.get(['hidePostDeleteOption'], function (result) {
+		if (result.hidePostDeleteOption === true) {
+			document.querySelector('#checkbox-hide-post-delete-option').checked = true;
+			document.querySelector('.icon-hide-post-delete-option').classList.remove('icon-bin');
+			document.querySelector('.icon-hide-post-delete-option').classList.add('icon-bin-slash');
+			document.querySelector('.icon-hide-post-delete-option').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else {
+			document.querySelector('#checkbox-hide-post-delete-option').checked = false;
+			var value = false;
+		}
+		console.log('Hide Post "Delete" Option: ' + value);
+	});
+
+	// Always Show Post Options - Hide "Spoiler" Option
+	BROWSER_API.storage.sync.get(['hidePostSpoilerOption'], function (result) {
+		if (result.hidePostSpoilerOption === true) {
+			document.querySelector('#checkbox-hide-post-spoiler-option').checked = true;
+			document.querySelector('.icon-hide-post-spoiler-option').classList.remove('icon-bin');
+			document.querySelector('.icon-hide-post-spoiler-option').classList.add('icon-bin-slash');
+			document.querySelector('.icon-hide-post-spoiler-option').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else {
+			document.querySelector('#checkbox-hide-post-spoiler-option').checked = false;
+			var value = false;
+		}
+		console.log('Hide Post "Spoiler" Option: ' + value);
+	});
+
+	// Always Show Post Options - Hide "NSFW" Option
+	BROWSER_API.storage.sync.get(['hidePostNsfwOption'], function (result) {
+		if (result.hidePostNsfwOption === true) {
+			document.querySelector('#checkbox-hide-post-nsfw-option').checked = true;
+			document.querySelector('.icon-hide-post-nsfw-option').classList.remove('icon-nsfw');
+			document.querySelector('.icon-hide-post-nsfw-option').classList.add('icon-nsfw-slash');
+			document.querySelector('.icon-hide-post-nsfw-option').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else {
+			document.querySelector('#checkbox-hide-post-nsfw-option').checked = false;
+			var value = false;
+		}
+		console.log('Hide Post "NSFW" Option: ' + value);
+	});
+
+	// Always Show Post Options - Hide "Brand Awareness" Option
+	BROWSER_API.storage.sync.get(['hidePostBrandAwarenessOption'], function (result) {
+		if (result.hidePostBrandAwarenessOption === true) {
+			document.querySelector('#checkbox-hide-post-brand-awareness-option').checked = true;
+			document.querySelector('.icon-hide-post-brand-awareness-option').classList.remove('icon-brand-awareness');
+			document.querySelector('.icon-hide-post-brand-awareness-option').classList.add('icon-brand-awareness-slash');
+			document.querySelector('.icon-hide-post-brand-awareness-option').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else {
+			document.querySelector('#checkbox-hide-post-brand-awareness-option').checked = false;
+			var value = false;
+		}
+		console.log('Hide Post "Brand Awareness" Option: ' + value);
 	});
 
 	// Comments Limit
@@ -196,7 +340,6 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 			// delay for translation
 			if (typeof result.defaultHomeFeedSortOption != 'undefined') {
 				var value = result.defaultHomeFeedSortOption;
-				console.log(value);
 				if (value === 'relevance') {
 					value = 'best';
 				}

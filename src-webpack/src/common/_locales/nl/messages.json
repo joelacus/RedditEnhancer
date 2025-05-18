@@ -68,6 +68,9 @@
 	"Blacklist": {
 		"message": "Zwarte lijst"
 	},
+	"Block": {
+		"message": "Blok"
+	},
 	"Blur": {
 		"message": "Vervagen"
 	},
@@ -271,6 +274,9 @@
 	},
 	"HideAdvertiseButton": {
 		"message": "Verberg de knop “Adverteren”"
+	},
+	"HideBlockedKeywordsPosts": {
+		"message": "Berichten met Geblokkeerde Trefwoorden Verbergen"
 	},
 	"HideBlurredMediaBackground": {
 		"message": "Verberg de achtergrond vervagingen achter beeldvoorbeelden"

@@ -255,6 +255,10 @@
 	mask: url('../../icons/ui/trash-can-solid.svg');
 	-webkit-mask: url('../../icons/ui/trash-can-solid.svg');
 }
+.icon-bin-slash {
+	mask: url('../../icons/ui/icon-bin-slash.svg');
+	-webkit-mask: url('../../icons/ui/icon-bin-slash.svg');
+}
 .icon-check {
 	mask: url('../../icons/ui/check-solid.svg');
 	-webkit-mask: url('../../icons/ui/check-solid.svg');
@@ -491,4 +495,60 @@
 .icon-hourglass {
 	mask: url('../../icons/ui/hourglass-solid.svg');
 	-webkit-mask: url('../../icons/ui/hourglass-solid.svg');
+}
+.icon-dropdown {
+	mask: url('../../icons/ui/square-caret-down-solid.svg');
+	-webkit-mask: url('../../icons/ui/square-caret-down-solid.svg');
+}
+.icon-dropdown-slash {
+	mask: url('../../icons/ui/icon-dropdown-slash.svg');
+	-webkit-mask: url('../../icons/ui/icon-dropdown-slash.svg');
+}
+.icon-portrait {
+	mask: url('../../icons/ui/image-portrait-solid.svg');
+	-webkit-mask: url('../../icons/ui/image-portrait-solid.svg');
+}
+.icon-block {
+	mask: url('../../icons/ui/ban-solid.svg');
+	-webkit-mask: url('../../icons/ui/ban-solid.svg');
+}
+.icon-bookmark {
+	mask: url('../../icons/ui/bookmark-regular.svg');
+	-webkit-mask: url('../../icons/ui/bookmark-regular.svg');
+}
+.icon-bookmark-slash {
+	mask: url('../../icons/ui/icon-bookmark-slash.svg');
+	-webkit-mask: url('../../icons/ui/icon-bookmark-slash.svg');
+}
+.icon-flag {
+	mask: url('../../icons/ui/flag-solid.svg');
+	-webkit-mask: url('../../icons/ui/flag-solid.svg');
+}
+.icon-flag-slash {
+	mask: url('../../icons/ui/icon-flag-slash.svg');
+	-webkit-mask: url('../../icons/ui/icon-flag-slash.svg');
+}
+.icon-brand-awareness {
+	mask: url('../../icons/ui/icon-brand-awareness.svg');
+	-webkit-mask: url('../../icons/ui/icon-brand-awareness.svg');
+}
+.icon-brand-awareness-slash {
+	mask: url('../../icons/ui/icon-brand-awareness-slash.svg');
+	-webkit-mask: url('../../icons/ui/icon-brand-awareness-slash.svg');
+}
+.icon-spoiler {
+	mask: url('../../icons/ui/icon-spoiler.svg');
+	-webkit-mask: url('../../icons/ui/icon-spoiler.svg');
+}
+.icon-spoiler-slash {
+	mask: url('../../icons/ui/icon-spoiler-slash.svg');
+	-webkit-mask: url('../../icons/ui/icon-spoiler-slash.svg');
+}
+.icon-pen {
+	mask: url('../../icons/ui/pen-solid.svg');
+	-webkit-mask: url('../../icons/ui/pen-solid.svg');
+}
+.icon-pen-slash {
+	mask: url('../../icons/ui/icon-pen-slash.svg');
+	-webkit-mask: url('../../icons/ui/icon-pen-slash.svg');
 }

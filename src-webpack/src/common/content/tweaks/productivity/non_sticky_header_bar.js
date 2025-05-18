@@ -62,17 +62,14 @@ function enableNonStickyHeaderBarNewNew() {
 								shreddit-app reddit-header-large {
 									position: absolute !important;
 								}
-								shreddit-app reddit-sidebar-nav#left-sidebar,
+								shreddit-app :not(.re-header-menu) > reddit-sidebar-nav,
 								shreddit-app div#flex-left-nav-container {
 									position: sticky;
 									height: 100vh !important;
 									top: 0 !important;
 								}
 								shreddit-app #right-sidebar-container {
-									position: sticky;
-									height: 100vh;
-									top: 0;
-									max-height: unset !important;
+									max-height: initial !important;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }

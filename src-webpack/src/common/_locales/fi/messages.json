@@ -35,6 +35,9 @@
 	"Best": {
 		"message": "Parhaat / Best"
 	},
+	"Block": {
+		"message": "Lohko"
+	},
 	"Blur": {
 		"message": "Hämärtää"
 	},
@@ -97,6 +100,9 @@
 	},
 	"HideAdvertiseButton": {
 		"message": "Piilota 'Mainosta-painike'"
+	},
+	"HideBlockedKeywordsPosts": {
+		"message": "Piilota Julkaisut, Joissa On Estettyjä Avainsanoja"
 	},
 	"HideChatButton": {
 		"message": "Piilota 'Chat-painike'"

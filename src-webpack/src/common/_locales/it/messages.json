@@ -68,6 +68,9 @@
 	"Blacklist": {
 		"message": "Lista nera"
 	},
+	"Block": {
+		"message": "Bloccare"
+	},
 	"Blur": {
 		"message": "Sfocatura"
 	},
@@ -271,6 +274,9 @@
 	},
 	"HideAdvertiseButton": {
 		"message": "Nascondi il pulsante “Pubblicità”"
+	},
+	"HideBlockedKeywordsPosts": {
+		"message": "Nascondi Post con Parole Chiave Bloccate"
 	},
 	"HideBlurredMediaBackground": {
 		"message": "Nascondi sfondo sfocato dietro le anteprime dell'immagine"

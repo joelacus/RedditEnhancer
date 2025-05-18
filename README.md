@@ -18,7 +18,7 @@ I welcome any help if you would like to improve or contribute new language trans
 
 # Features
 
-[Redirect](#redirect) | [Resize Feed](#resize-feed) | [Background](#background) | [Hide Elements](#hide-elements) | [Productivity](#productivity) | [Font](#font) | [Style](#style) | [Accessibility](#accessibility) | [Other](#other)
+[Redirect](#redirect) |[Block](#block) | [Resize Feed](#resize-feed-and-posts) | [Background](#background) | [Hide Elements](#hide-elements) | [Productivity](#productivity) | [Font](#font) | [Style](#style) | [Accessibility](#accessibility) | [Other](#other)
 
 ## Version Info
 |Reddit Version|Common Name|Official Name|
@@ -30,9 +30,14 @@ I welcome any help if you would like to improve or contribute new language trans
 ## Redirect
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
-|Auto Redirect To Preferred Reddit Version/UI|Automatically redirect any reddit page to the old or latest version of Reddit (2/Version 2 of Reddit is no longer supported).|3<br>1
+|Auto Redirect To Preferred Reddit Version/UI|Automatically redirect any reddit page to the old or latest version of Reddit (2/Version 2 of Reddit is no longer supported).|3<br>1|
 
-## Resize Feed / Posts
+## Block
+|Feature|Description|Reddit Version Support|
+|---|---|:---:|
+|Hide Post with Blocked Keywords|Hide all posts that contain a specified keyword(s).|3<br>1|
+
+## Resize Feed and Posts
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
 |Resize Feed/Post|This makes the feed/post wider so you can see more content and make more use of your screen.|All|
@@ -71,21 +76,23 @@ I welcome any help if you would like to improve or contribute new language trans
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
 |Hide Blank Thumbnails In Compact View|Hides the blank thumbnails on text posts in "compact view" feeds.|All|
+|Hide Blocked Keyword Posts|Hides any post that contains keywords of your choosing.|3<br />1|
 |Hide Comment Karma|Hide the karma on comments.|All|
-|Hide Home Feed|Hides the home feed entirely.|All|
-|Hide NSFW Posts|Hide any posts marked as NSFW.|All|
-|Hide Post Karma|Hides the karma on posts.|All|
-|Hide Promoted Links|Hides the promoted links/posts in the main feed.|All|
-|Hide The Home Sidebar|Hides the sidebar on the reddit home page.|All|
-|Hide Vote Buttons|Hide the vote buttons on posts and comments.|All|
-|Hide "Trending Today" in the Search Results|Hide the "Trending Today" section in the search bar.|3|
 |Hide Community Highlights|Hide the "Community Highlights" section at the top of some subreddits.|3|
+|Hide Community Status|Hide the community status icons next to the subreddit name in feeds and the sidebar.|3|
+|Hide Home Feed|Hides the home feed entirely.|All|
 |Hide NSFW in the Search Results|Hide the type-a-head NSFW search results in the search bar.|3|
+|Hide NSFW Posts|Hide any posts marked as NSFW.|All|
 |Hide NSFW Users in the Search Page Sidebar|Hide the found NSFW users in the search results page sidebar.|3|
+|Hide Post Karma|Hides the karma on posts.|All|
 |Hide Post Separators|Hides the line between posts in feeds.|3|
+|Hide Promoted Links|Hides the promoted links/posts in the main feed.|All|
 |Hide Recent Posts|Hide the recent posts section in the sidebar.|3|
+|Hide "Trending Today" in the Search Results|Hide the "Trending Today" section in the search bar.|3|
 |Hide the Favourite Buttons|Hide the favourite buttons (star icons) on subreddits in the side menu.|3|
+|Hide The Home Sidebar|Hides the sidebar on the reddit home page.|All|
 |Hide The Post Back Button|Hides the back button on posts.|3|
+|Hide Vote Buttons|Hide the vote buttons on posts and comments.|All|
 |Hide Thumbnails in Compact View|Hides the thumbnails on posts when viewing a feed in compact view.|3<br />1|
 |Hide Buttons In The Header|This allows you to individually hide the buttons in the header you don't use to clean up the interface.|3<br />2|
 |Hide profile pictures in the comments|Simply hides the user profile pictures in the comments of a post.|3<br />2|
@@ -120,7 +127,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Default Comments Sort Option|Set how you want the comments to be sorted automatically when the page loads.|All|
 |Default Feed Sort Option|Set how you want the feed to be sorted automatically when the page loads.|All|
 |Show navigation buttons to scroll to the next/previous root comment on a post|Scroll to the next/previous root/first comments on a post.|All|
-|Always Show Post Options|Moves the items in the post overflow menu into the header bar for quicker access.|3|
+|Always Show Post Options|Moves the items in the post overflow menu into the header bar for quicker access. You can toggle off any buttons you don't want to see.|3|
 |Auto Show Formatting Options When Commenting|Automatically enables the formatting options when commenting on posts.|3|
 |Remember Side Menu Section Hidden States|Remember if the sections in the left side menu are open or closed.|3|
 |Show Post Author|Shows the missing post author on the home and other feeds.|3|
@@ -160,13 +167,17 @@ I welcome any help if you would like to improve or contribute new language trans
 
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
+|Add Border to Tables in Posts|Adds a border to tables in post to make them easier to read.|3|
 |Border Radius Amount|Sets the border (corner) radius amount for certain elements on the page.|3|
 |Compact Header Bar & Side Menu|Compact the spacing in the header bar and side menu.|3|
 |Compact Subreddit Rule List|Compact the spacing in the subreddit rule list.|3|
-|Full Width Subreddit Banner|Stretch the subreddit banners to take the entire width of browser window.|3|
-|Multicoloured Comment Thread Lines|Change the colours of the comment thread lines on the post page. You can set custom colours.|3|
-|Add Border to Tables in Posts|Adds a border to tables in post to make them easier to read.|3|
 |Custom Header Logo|Set a custom image URL to replace the Reddit header logo.|3 <br />1|
+|Display page and user info in the header|Show username and karma in the top right of the header, and add the side menu as a dropdown menu in the header.|3|
+|Full Width Subreddit Banner|Stretch the subreddit banners to take the entire width of browser window.|3|
+|Hide recommended posts when video ends|Hide the end card of recommended posts when a video ends.|3|
+|Multicoloured Comment Thread Lines|Change the colours of the comment thread lines on the post page. You can set custom colours.|3|
+|Show the subreddit display name in its banner|Show the display name in the subreddit banner as well as the sub link name.|3|
+|Show vote buttons on the left|Move the post vote buttons to the left of the post instead of at the bottom.|3|
 |Drop Shadows|This adds a drop shadow around the feed, post and other elements so that they stand out more if you use a background image, or light mode. You can also use custom CSS.|2|
 |Hide The Interface Gaps|This will remove all the gaps between the interface elements if you don't like that style.|3<br />2|
 |Theme Colours + Blur|You can change various theme colours for the website, and add blur to translucent UI elements.|3<br />2|
@@ -202,19 +213,19 @@ Feel free to add any new languages and/or region differences.
 |Language|Completion|
 |---|---|
 |[English](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/en/messages.json)|100%|
-|[Spanish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/es/messages.json)|100%|
+|[Spanish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/es/messages.json)|95.2%|
 |[German](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/de/messages.json)|100%|
 |[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|100%|
-|[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|100%|
-|[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|100%|
-|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|100%|
-|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|8710%|
-|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|73.3%|
-|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|73.3%|
-|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|53.5%|
-|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|35.2%|
-|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|33.0%|
-|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|28.3%|
+|[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|95.2%|
+|[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|95.2%|
+|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|95.2%|
+|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|83%|
+|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|69.9%|
+|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|69.9%|
+|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|51.2%|
+|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|33.9%|
+|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|31.8%|
+|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|27.1%|
 
 
 # Build

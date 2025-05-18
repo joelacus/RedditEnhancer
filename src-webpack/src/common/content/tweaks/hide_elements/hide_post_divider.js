@@ -45,6 +45,7 @@ function enableHidePostDivider() {
 									/* Add margins between posts to compensate for removed dividers, Card and Compact view */
 									article:has(> shreddit-post[view-type="cardView"]),
 									faceplate-batch > article:has(> shreddit-post[view-type="cardView"]),
+									community-highlight-carousel[feed-view-type="cardView"],
 									/* Comment search results */
 									reddit-feed > faceplate-tracker > div {
 										margin-bottom: var(--re-post-separator-height, 10px) !important;
@@ -56,6 +57,14 @@ function enableHidePostDivider() {
 									main.main search-telemetry-tracker > div,
 									main.main post-consume-tracker > div {
 										margin: var(--re-post-separator-height, 0) 0;
+									}
+									shreddit-async-loader[bundlename="feed_announcement"] {
+										margin: 0;
+										margin-bottom: var(--re-post-separator-height, 10px);
+									
+										& > feed-announcement {
+											margin: 0;
+										}
 									}
 									/* Add padding to posts, Card and Compact view */
 									article > shreddit-post[view-type="cardView"] {

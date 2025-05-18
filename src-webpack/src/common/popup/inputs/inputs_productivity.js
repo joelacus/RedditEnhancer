@@ -136,6 +136,168 @@ document.querySelector('#checkbox-always-show-post-options').addEventListener('c
 	}
 });
 
+// Toggle - Always Show Post Options - Hide "Notification" Option
+document.querySelector('#checkbox-hide-post-notification-option').addEventListener('change', function (e) {
+	const hidePostNotificationOption = document.querySelector('#checkbox-hide-post-notification-option').checked;
+	if (hidePostNotificationOption === true) {
+		BROWSER_API.storage.sync.set({ hidePostNotificationOption: true });
+		document.querySelector('.icon-hide-post-notification-option').classList.remove('icon-notification');
+		document.querySelector('.icon-hide-post-notification-option').classList.add('icon-notification-slash');
+		document.querySelector('.icon-hide-post-notification-option').style.backgroundColor = 'var(--accent)';
+		sendMessage({ hidePostNotificationOption: true });
+	} else if (hidePostNotificationOption === false) {
+		BROWSER_API.storage.sync.set({ hidePostNotificationOption: false });
+		document.querySelector('.icon-hide-post-notification-option').style.backgroundColor = '';
+		document.querySelector('.icon-hide-post-notification-option').classList.remove('icon-notification-slash');
+		document.querySelector('.icon-hide-post-notification-option').classList.add('icon-notification');
+		sendMessage({ hidePostNotificationOption: false });
+	}
+});
+
+// Toggle - Always Show Post Options - Hide "Save" Option
+document.querySelector('#checkbox-hide-post-save-option').addEventListener('change', function (e) {
+	const hidePostSaveOption = document.querySelector('#checkbox-hide-post-save-option').checked;
+	if (hidePostSaveOption === true) {
+		BROWSER_API.storage.sync.set({ hidePostSaveOption: true });
+		document.querySelector('.icon-hide-post-save-option').classList.remove('icon-bookmark');
+		document.querySelector('.icon-hide-post-save-option').classList.add('icon-bookmark-slash');
+		document.querySelector('.icon-hide-post-save-option').style.backgroundColor = 'var(--accent)';
+		sendMessage({ hidePostSaveOption: true });
+	} else if (hidePostSaveOption === false) {
+		BROWSER_API.storage.sync.set({ hidePostSaveOption: false });
+		document.querySelector('.icon-hide-post-save-option').style.backgroundColor = '';
+		document.querySelector('.icon-hide-post-save-option').classList.remove('icon-bookmark-slash');
+		document.querySelector('.icon-hide-post-save-option').classList.add('icon-bookmark');
+		sendMessage({ hidePostSaveOption: false });
+	}
+});
+
+// Toggle - Always Show Post Options - Hide "Hide" Option
+document.querySelector('#checkbox-hide-post-hide-option').addEventListener('change', function (e) {
+	const hidePostHideOption = document.querySelector('#checkbox-hide-post-hide-option').checked;
+	if (hidePostHideOption === true) {
+		BROWSER_API.storage.sync.set({ hidePostHideOption: true });
+		document.querySelector('.icon-hide-post-hide-option').classList.remove('icon-show');
+		document.querySelector('.icon-hide-post-hide-option').classList.add('icon-hide');
+		document.querySelector('.icon-hide-post-hide-option').style.backgroundColor = 'var(--accent)';
+		sendMessage({ hidePostHideOption: true });
+	} else if (hidePostHideOption === false) {
+		BROWSER_API.storage.sync.set({ hidePostHideOption: false });
+		document.querySelector('.icon-hide-post-hide-option').style.backgroundColor = '';
+		document.querySelector('.icon-hide-post-hide-option').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-post-hide-option').classList.add('icon-show');
+		sendMessage({ hidePostHideOption: false });
+	}
+});
+
+// Toggle - Always Show Post Options - Hide "Report" Option
+document.querySelector('#checkbox-hide-post-report-option').addEventListener('change', function (e) {
+	const hidePostReportOption = document.querySelector('#checkbox-hide-post-report-option').checked;
+	if (hidePostReportOption === true) {
+		BROWSER_API.storage.sync.set({ hidePostReportOption: true });
+		document.querySelector('.icon-hide-post-report-option').classList.remove('icon-flag');
+		document.querySelector('.icon-hide-post-report-option').classList.add('icon-flag-slash');
+		document.querySelector('.icon-hide-post-report-option').style.backgroundColor = 'var(--accent)';
+		sendMessage({ hidePostReportOption: true });
+	} else if (hidePostReportOption === false) {
+		BROWSER_API.storage.sync.set({ hidePostReportOption: false });
+		document.querySelector('.icon-hide-post-report-option').style.backgroundColor = '';
+		document.querySelector('.icon-hide-post-report-option').classList.remove('icon-flag-slash');
+		document.querySelector('.icon-hide-post-report-option').classList.add('icon-flag');
+		sendMessage({ hidePostReportOption: false });
+	}
+});
+
+// Toggle - Always Show Post Options - Hide "Edit" Option
+document.querySelector('#checkbox-hide-post-edit-option').addEventListener('change', function (e) {
+	const hidePostEditOption = document.querySelector('#checkbox-hide-post-edit-option').checked;
+	if (hidePostEditOption === true) {
+		BROWSER_API.storage.sync.set({ hidePostEditOption: true });
+		document.querySelector('.icon-hide-post-edit-option').classList.remove('icon-pen');
+		document.querySelector('.icon-hide-post-edit-option').classList.add('icon-pen-slash');
+		document.querySelector('.icon-hide-post-edit-option').style.backgroundColor = 'var(--accent)';
+		sendMessage({ hidePostEditOption: true });
+	} else if (hidePostEditOption === false) {
+		BROWSER_API.storage.sync.set({ hidePostEditOption: false });
+		document.querySelector('.icon-hide-post-edit-option').style.backgroundColor = '';
+		document.querySelector('.icon-hide-post-edit-option').classList.remove('icon-pen-slash');
+		document.querySelector('.icon-hide-post-edit-option').classList.add('icon-pen');
+		sendMessage({ hidePostEditOption: false });
+	}
+});
+
+// Toggle - Always Show Post Options - Hide "Delete" Option
+document.querySelector('#checkbox-hide-post-delete-option').addEventListener('change', function (e) {
+	const hidePostDeleteOption = document.querySelector('#checkbox-hide-post-delete-option').checked;
+	if (hidePostDeleteOption === true) {
+		BROWSER_API.storage.sync.set({ hidePostDeleteOption: true });
+		document.querySelector('.icon-hide-post-delete-option').classList.remove('icon-bin');
+		document.querySelector('.icon-hide-post-delete-option').classList.add('icon-bin-slash');
+		document.querySelector('.icon-hide-post-delete-option').style.backgroundColor = 'var(--accent)';
+		sendMessage({ hidePostDeleteOption: true });
+	} else if (hidePostDeleteOption === false) {
+		BROWSER_API.storage.sync.set({ hidePostDeleteOption: false });
+		document.querySelector('.icon-hide-post-delete-option').style.backgroundColor = '';
+		document.querySelector('.icon-hide-post-delete-option').classList.remove('icon-bin-slash');
+		document.querySelector('.icon-hide-post-delete-option').classList.add('icon-bin');
+		sendMessage({ hidePostDeleteOption: false });
+	}
+});
+
+// Toggle - Always Show Post Options - Hide "Spoiler" Option
+document.querySelector('#checkbox-hide-post-spoiler-option').addEventListener('change', function (e) {
+	const hidePostSpoilerOption = document.querySelector('#checkbox-hide-post-spoiler-option').checked;
+	if (hidePostSpoilerOption === true) {
+		BROWSER_API.storage.sync.set({ hidePostSpoilerOption: true });
+		document.querySelector('.icon-hide-post-spoiler-option').classList.remove('icon-spoiler');
+		document.querySelector('.icon-hide-post-spoiler-option').classList.add('icon-spoiler-slash');
+		document.querySelector('.icon-hide-post-spoiler-option').style.backgroundColor = 'var(--accent)';
+		sendMessage({ hidePostSpoilerOption: true });
+	} else if (hidePostSpoilerOption === false) {
+		BROWSER_API.storage.sync.set({ hidePostSpoilerOption: false });
+		document.querySelector('.icon-hide-post-spoiler-option').style.backgroundColor = '';
+		document.querySelector('.icon-hide-post-spoiler-option').classList.remove('icon-spoiler-slash');
+		document.querySelector('.icon-hide-post-spoiler-option').classList.add('icon-spoiler');
+		sendMessage({ hidePostSpoilerOption: false });
+	}
+});
+
+// Toggle - Always Show Post Options - Hide "NSFW" Option
+document.querySelector('#checkbox-hide-post-nsfw-option').addEventListener('change', function (e) {
+	const hidePostNsfwOption = document.querySelector('#checkbox-hide-post-nsfw-option').checked;
+	if (hidePostNsfwOption === true) {
+		BROWSER_API.storage.sync.set({ hidePostNsfwOption: true });
+		document.querySelector('.icon-hide-post-nsfw-option').classList.remove('icon-nsfw');
+		document.querySelector('.icon-hide-post-nsfw-option').classList.add('icon-nsfw-slash');
+		document.querySelector('.icon-hide-post-nsfw-option').style.backgroundColor = 'var(--accent)';
+		sendMessage({ hidePostNsfwOption: true });
+	} else if (hidePostNsfwOption === false) {
+		BROWSER_API.storage.sync.set({ hidePostNsfwOption: false });
+		document.querySelector('.icon-hide-post-nsfw-option').style.backgroundColor = '';
+		document.querySelector('.icon-hide-post-nsfw-option').classList.remove('icon-nsfw-slash');
+		document.querySelector('.icon-hide-post-nsfw-option').classList.add('icon-nsfw');
+		sendMessage({ hidePostNsfwOption: false });
+	}
+});
+
+// Toggle - Always Show Post Options - Hide "Brand Awareness" Option
+document.querySelector('#checkbox-hide-post-brand-awareness-option').addEventListener('change', function (e) {
+	const hidePostBrandAwarenessOption = document.querySelector('#checkbox-hide-post-brand-awareness-option').checked;
+	if (hidePostBrandAwarenessOption === true) {
+		BROWSER_API.storage.sync.set({ hidePostBrandAwarenessOption: true });
+		document.querySelector('.icon-hide-post-brand-awareness-option').classList.remove('icon-brand-awareness');
+		document.querySelector('.icon-hide-post-brand-awareness-option').classList.add('icon-brand-awareness-slash');
+		document.querySelector('.icon-hide-post-brand-awareness-option').style.backgroundColor = 'var(--accent)';
+		sendMessage({ hidePostBrandAwarenessOption: true });
+	} else if (hidePostBrandAwarenessOption === false) {
+		BROWSER_API.storage.sync.set({ hidePostBrandAwarenessOption: false });
+		document.querySelector('.icon-hide-post-brand-awareness-option').style.backgroundColor = '';
+		document.querySelector('.icon-hide-post-brand-awareness-option').classList.remove('icon-brand-awareness-slash');
+		document.querySelector('.icon-hide-post-brand-awareness-option').classList.add('icon-brand-awareness');
+		sendMessage({ hidePostBrandAwarenessOption: false });
+	}
+});
+
 // Slider - Comments Limit
 document.querySelector('#input-post-comments-limit').addEventListener('input', function (e) {
 	// set ui

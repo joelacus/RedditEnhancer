@@ -85,7 +85,10 @@ export function hideChatButton(value) {
 	if (redditVersion === 'old' && value === true) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-header-chat-button';
-		styleElement.textContent = `a#chat, a#chat + span.separator {
+		styleElement.textContent = `a#chat,
+									a#chat + span.separator,
+									a#chat-v2, 
+									a#chat-v2 + span.separator {
 										display: none;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
@@ -193,7 +196,11 @@ export function hideNotificationButton(value) {
 		styleElement.textContent = `a#mail,
 									a.message-count,
 									a#mail + span.separator,
-									a.message-count + span.separator {
+									a.message-count + span.separator,
+									a#notifications, 
+									a#notifications + span.separator,
+									a.badge-count,
+									a.badge-count + span.separator {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);

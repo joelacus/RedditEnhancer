@@ -52,8 +52,12 @@ async function attachRatio(post) {
 
 	if (redditVersion === 'new' && !post.querySelector('.re-upvote-ratio')) {
 		post.querySelector('button[data-click-id="upvote"] + div').insertAdjacentElement('afterend', ratio);
-	} else if (redditVersion === 'newnew' && !post.shadowRoot.querySelector('.re-upvote-ratio')) {
-		document.querySelector('shreddit-post').shadowRoot.querySelector('span[data-post-click-location="vote"] faceplate-number').append(ratio);
+	} else if (redditVersion === 'newnew') {
+		if (document.querySelector('.re-vote-panel') && !document.querySelector('.re-upvote-ratio')) {
+			document.querySelector('.re-vote-panel faceplate-number').append(ratio);
+		} else if (!post.shadowRoot.querySelector('.re-upvote-ratio')) {
+			document.querySelector('shreddit-post')?.shadowRoot?.querySelector('span[data-post-click-location="vote"] faceplate-number')?.append(ratio);
+		}
 	}
 }
 

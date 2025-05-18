@@ -45,6 +45,8 @@ import { loadHideCompactViewThumbnails } from '../../../content/tweaks/hide_elem
 import { loadResizeTextPostHeight } from '../../../content/tweaks/media/resize_text_post';
 import { limitImageSize } from '../../../content/tweaks/media/limit_media_size';
 import { loadCustomHeaderLogo } from '../../../content/tweaks/style/custom_header_logo';
+import { loadHideVideoRecommendations } from "../../../content/tweaks/media/hide_video_recommendations";
+import { loadHideCommunityStatus } from "../../../content/tweaks/hide_elements/hide_community_status";
 
 export function tweakLoaderNewNew() {
 	loadCustomBackground();
@@ -97,4 +99,6 @@ export function tweakLoaderNewNew() {
 	loadResizeTextPostHeight();
 	limitImageSize();
 	loadCustomHeaderLogo();
+	loadHideVideoRecommendations();
+	loadHideCommunityStatus();
 }

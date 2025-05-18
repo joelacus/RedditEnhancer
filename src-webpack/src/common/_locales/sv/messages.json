@@ -68,6 +68,9 @@
 	"Blacklist": {
 		"message": "Svartlista"
 	},
+	"Block": {
+		"message": "Blockera"
+	},
 	"Blur": {
 		"message": "Fläck"
 	},
@@ -202,6 +205,9 @@
 	},
 	"HideAdvertiseButton": {
 		"message": "Dölj 'Annonsera' knappen"
+	},
+	"HideBlockedKeywordsPosts": {
+		"message": "Dölj Inlägg med Blockerade Nyckelord"
 	},
 	"HideChatButton": {
 		"message": "Dölj 'Chatt' knappen"

@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.16.0"
+		"message": "1.17.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -14,8 +14,20 @@
 	"Accessibility": {
 		"message": "Accessibility"
 	},
+	"AddNsfwTag": {
+		"message": "Add NSFW tag"
+	},
+	"AddSpoilerTag": {
+		"message": "Add spoiler tag"
+	},
 	"AlwaysShowPostOptions": {
 		"message": "Always Show Post Options"
+	},
+	"AttachSideMenuHeader": {
+		"message": "Display page and user info in header"
+	},
+	"AttachSideMenuHeaderInfo": {
+		"message": "Experimental. Might conflict with hiding side menu functions."
 	},
 	"Auto": {
 		"message": "Auto"
@@ -70,6 +82,9 @@
 	},
 	"Blacklist": {
 		"message": "Blacklist"
+	},
+	"Block": {
+		"message": "Block"
 	},
 	"Blur": {
 		"message": "Blur"
@@ -188,6 +203,9 @@
 	"DefaultSortFeedOptionOverrideInfo": {
 		"message": "The amount of time after the page has been auto redirected in which you can override the default sort option."
 	},
+	"Delete": {
+		"message": "Delete"
+	},
 	"DisableBgFadePostOverlay": {
 		"message": "Disable Background Fade Behind Post Overlay"
 	},
@@ -199,6 +217,9 @@
 	},
 	"Drag": {
 		"message": "Drag"
+	},
+	"EditPost": {
+		"message": "Edit post"
 	},
 	"EndTime": {
 		"message": "End Time (24)"
@@ -232,6 +253,9 @@
 	},
 	"FitImage": {
 		"message": "Scale Tall Images to Fit Post"
+	},
+	"FollowPost": {
+		"message": "Follow Post"
 	},
 	"Font": {
 		"message": "Font"
@@ -269,8 +293,14 @@
 	"Here": {
 		"message": "here"
 	},
+	"Hide": {
+		"message": "Hide"
+	},
 	"HideAdvertiseButton": {
 		"message": "Hide the 'Advertise' Button"
+	},
+	"HideBlockedKeywordsPosts": {
+		"message": "Hide Posts with Blocked Keywords"
 	},
 	"HideBlurredMediaBackground": {
 		"message": "Hide Background Blur Behind Image Previews"
@@ -283,6 +313,9 @@
 	},
 	"HideCommunityHighlights": {
 		"message": "Hide 'Community Highlights'"
+	},
+	"HideCommunityStatus": {
+		"message": "Hide Community Status"
 	},
 	"HideCompactViewBlankThumbnails": {
 		"message": "Hide Blank Thumbnails In Compact View"
@@ -443,6 +476,9 @@
 	"HideUsername": {
 		"message": "Hide Username"
 	},
+	"HideVideoRecommendations": {
+		"message": "Hide recommended posts when video ends"
+	},
 	"HideVoteButtons": {
 		"message": "Hide Vote Buttons"
 	},
@@ -473,6 +509,9 @@
 	"LargerClassicPost": {
 		"message": "Larger Classic Post View"
 	},
+	"LeftSideVoteButtons": {
+		"message": "Show vote buttons on the left"
+	},
 	"Light": {
 		"message": "Light"
 	},
@@ -490,6 +529,9 @@
 	},
 	"MainContainer": {
 		"message": "Main Container"
+	},
+	"MarkAsBrandAffiliate": {
+		"message": "Mark as brand affiliate"
 	},
 	"MaxImagePostHeight": {
 		"message": "Max Image Post Height"
@@ -562,6 +604,9 @@
 	},
 	"OpenSubInNewTab": {
 		"message": "Open Links to subreddits in a New Tab"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Don't attach side menu as a dropdown panel"
 	},
 	"OptionsPage": {
 		"message": "Options Page"
@@ -674,6 +719,9 @@
 	"ReplacePostVideosWithLinksInfo": {
 		"message": "Only works with mp4 and gif. m3u8 videos may be difficult to play in other players."
 	},
+	"Report": {
+		"message": "Report"
+	},
 	"ReportIssues": {
 		"message": "Report Issues"
 	},
@@ -712,6 +760,9 @@
 	},
 	"Rising": {
 		"message": "Rising"
+	},
+	"Save": {
+		"message": "Save"
 	},
 	"ScalePostToFitImage": {
 		"message": "Scale Post To Fit Image"
@@ -847,6 +898,9 @@
 	},
 	"Subreddit": {
 		"message": "Subreddit"
+	},
+	"SubredditDisplayNameBanner": {
+		"message": "Show the subreddit display name in its banner"
 	},
 	"Text": {
 		"message": "Text"

@@ -11,8 +11,20 @@
 	"Accessibility": {
 		"message": "Accessibilité"
 	},
+	"AddNsfwTag": {
+		"message": "Ajouter la balise NSFW"
+	},
+	"AddSpoilerTag": {
+		"message": "Ajouter une balise de spoiler"
+	},
 	"AlwaysShowPostOptions": {
 		"message": "Toujours afficher les options de Post"
+	},
+	"AttachSideMenuHeader": {
+		"message": "Page d'affichage et d'informations utilisateur dans l'en-tête"
+	},
+	"AttachSideMenuHeaderInfo": {
+		"message": "Expérimental. Pourrait entrer en conflit avec les fonctions de menu latéral de cachette."
 	},
 	"Auto": {
 		"message": "Auto"
@@ -67,6 +79,9 @@
 	},
 	"Blacklist": {
 		"message": "Liste Noire"
+	},
+	"Block": {
+		"message": "Bloc"
 	},
 	"Blur": {
 		"message": "Flou"
@@ -188,6 +203,9 @@
 	"DefaultSortFeedOptionOverrideInfo": {
 		"message": "La durée après la rediffusion automatique de la page dans laquelle vous pouvez remplacer l'option de tri par défaut."
 	},
+	"Delete": {
+		"message": "Supprimer"
+	},
 	"DisableBgFadePostOverlay": {
 		"message": "Désactiver l'arrière-plan s'estompe derrière la superposition du poteau"
 	},
@@ -199,6 +217,9 @@
 	},
 	"Drag": {
 		"message": "Faites glisser"
+	},
+	"EditPost": {
+		"message": "Modifier la publication"
 	},
 	"EndTime": {
 		"message": "Heure de Fin (24)"
@@ -232,6 +253,9 @@
 	},
 	"FitImage": {
 		"message": "Mettre à l'échelle les images hautes pour s'adapter à la Post"
+	},
+	"FollowPost": {
+		"message": "Suivre"
 	},
 	"Font": {
 		"message": "Fonte"
@@ -269,8 +293,14 @@
 	"Here": {
 		"message": "ici"
 	},
+	"Hide": {
+		"message": "Cacher"
+	},
 	"HideAdvertiseButton": {
 		"message": "Masquer le bouton « Annoncer »"
+	},
+	"HideBlockedKeywordsPosts": {
+		"message": "Masquer les Publications avec des Mots-Clés Bloqués"
 	},
 	"HideBlurredMediaBackground": {
 		"message": "Masquer le flou d’arrière-plan derrière les aperçus des images"
@@ -283,6 +313,9 @@
 	},
 	"HideCommunityHighlights": {
 		"message": "Masquer « Temps forts de la communauté »"
+	},
+	"HideCommunityStatus": {
+		"message": "Masquer le statut de la communauté"
 	},
 	"HideCompactViewBlankThumbnails": {
 		"message": "Masquer les vignettes vides dans la vue compacte"
@@ -443,6 +476,9 @@
 	"HideUsername": {
 		"message": "Masquer le nom d'utilisateur"
 	},
+	"HideVideoRecommendations": {
+		"message": "Masquer les articles recommandés à la fin de la vidéo"
+	},
 	"HideVoteButtons": {
 		"message": "Masquer les boutons de vote"
 	},
@@ -473,6 +509,9 @@
 	"LargerClassicPost": {
 		"message": "Vue de Post classique plus grande"
 	},
+	"LeftSideVoteButtons": {
+		"message": "Afficher les boutons de vote à gauche"
+	},
 	"Light": {
 		"message": "Clair"
 	},
@@ -490,6 +529,9 @@
 	},
 	"MainContainer": {
 		"message": "Conteneur principal"
+	},
+	"MarkAsBrandAffiliate": {
+		"message": "Marquez comme affilié de marque"
 	},
 	"MaxImagePostHeight": {
 		"message": "Hauteur de post d'image maximale"
@@ -562,6 +604,9 @@
 	},
 	"OpenSubInNewTab": {
 		"message": "Ouvrir les liens vers les sous-reddits dans un nouvel onglet"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Ne fixez pas le menu latéral comme panneau déroulant"
 	},
 	"OptionsPage": {
 		"message": "Page d'options"
@@ -677,6 +722,9 @@
 	"ReplacePostVideosWithLinksInfo": {
 		"message": "Fonctionne uniquement avec MP4 et GIF. Les vidéos M3U8 peuvent être difficiles à jouer chez d'autres joueurs."
 	},
+	"Report": {
+		"message": "Rapport"
+	},
 	"ReportIssues": {
 		"message": "Signaler des problèmes"
 	},
@@ -715,6 +763,9 @@
 	},
 	"Rising": {
 		"message": "En hausse / Rising"
+	},
+	"Save": {
+		"message": "Sauvegarder"
 	},
 	"ScalePostToFitImage": {
 		"message": "Mettre à l'échelle la Post pour l'adapter à l'image"
@@ -850,6 +901,9 @@
 	},
 	"Subreddit": {
 		"message": "Subreddit"
+	},
+	"SubredditDisplayNameBanner": {
+		"message": "Afficher le nom d'affichage subreddit  dans sa bannière"
 	},
 	"Text": {
 		"message": "Texte"

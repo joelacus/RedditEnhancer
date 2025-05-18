@@ -184,6 +184,26 @@ document.querySelectorAll('.btn-media-tweaks .menu-item-btn').forEach((btn) => {
 	});
 });
 
+// Menu Button - Block
+document.querySelectorAll('.btn-block .menu-item-btn').forEach((btn) => {
+	btn.addEventListener('click', function (e) {
+		optionsPageFunctions();
+		const menu = document.querySelector('.menu-block');
+		if (menu.classList.contains('hidden')) {
+			menu.classList.remove('hidden');
+			document.querySelectorAll('.btn-block').forEach((btn) => {
+				btn.classList.add('active');
+			});
+			scrollIntoView('.btn-block');
+		} else {
+			menu.classList.add('hidden');
+			document.querySelectorAll('.btn-block').forEach((btn) => {
+				btn.classList.remove('active');
+			});
+		}
+	});
+});
+
 // Menu Button - Account Switcher
 /*document.querySelectorAll('.btn-account-switcher .menu-item-btn').forEach((btn) => {
 	btn.addEventListener('click', function (e) {

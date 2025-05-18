@@ -1,9 +1,18 @@
 /* ===== Background script ===== */
 
 import { darkModeTimeCalc } from './content/tweaks/dark_mode/dark_mode_time_calc';
-
 //const muxjs = require('mux.js');
 let fetchUrl = '';
+
+// Logging
+function timestamp() {
+	const D = new Date();
+	const time = D.toLocaleTimeString();
+	const date = D.toLocaleDateString('en-GB');
+	const timestamp = `${date} ${time}`;
+	return timestamp;
+}
+console.log(`${timestamp()} - Extension loaded`);
 
 // Listen For Messages
 BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendResponse) {
@@ -54,6 +63,12 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 		disableJustOpenTheImage();
 	} else if (request.autoRedirectVersion) {
 		updateRedirectRuleset(request.autoRedirectVersion);
+	} else if (request.log === 'log') {
+		console.log(`${timestamp()} - ${request.message}`);
+	} else if (request.log === 'warn') {
+		console.warn(`${timestamp()} - ${request.message}`);
+	} else if (request.log === 'error') {
+		console.error(`${timestamp()} - ${request.message}`);
 	} /* else if (request.action === 'downloadVideo') {
 		const videoUrl = request.videoUrl;
 		BROWSER_API.downloads.download({

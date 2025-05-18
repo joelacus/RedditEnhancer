@@ -1,5 +1,6 @@
 /* ===== Inputs / Hide Elements ===== */
 
+import { refreshBlockedPosts } from '../../content/tweaks/block/block_posts_by_keyword';
 import { sendMessage } from '../send_message';
 
 // Toggle - Hide Reddit Premium
@@ -830,6 +831,35 @@ document.querySelector('#checkbox-hide-search-sidebar').addEventListener('change
 	}
 });
 
+// Toggle - Hide Blocked Keyword Posts
+document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').addEventListener('change', function () {
+	const hideBlockedKeywordPostsEnable = document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').checked;
+	if (hideBlockedKeywordPostsEnable) {
+		document.querySelector('.icon-hide-blocked-keyword-posts').style.backgroundColor = 'var(--accent)';
+	} else {
+		document.querySelector('.icon-hide-blocked-keyword-posts').style.backgroundColor = '';
+	}
+	BROWSER_API.storage.sync.set({ hideBlockedKeywordPosts: hideBlockedKeywordPostsEnable });
+	sendMessage({ hideBlockedKeywordPosts: hideBlockedKeywordPostsEnable });
+});
+
+// Textarea - Hide Blocked Keyword Posts
+let timeout;
+document.querySelector('#input-blocked-keyword-posts').addEventListener('keyup', function (e) {
+	const keywordList = e.target.value;
+	BROWSER_API.storage.sync.set({ hideBlockedKeywordPostsList: keywordList });
+	// apply blocked keywords after 2 seconds of no input if enabled
+	const hideBlockedKeywordPostsEnable = document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').checked;
+	if (hideBlockedKeywordPostsEnable) {
+		clearTimeout(timeout);
+		timeout = setTimeout(() => {
+			console.log('Refreshing blocked posts...');
+			sendMessage({ hideBlockedKeywordPosts: false });
+			sendMessage({ hideBlockedKeywordPosts: true });
+		}, 2000);
+	}
+});
+
 // Toggle - Hide Post Back Button
 document.querySelector('#checkbox-hide-post-back-button').addEventListener('change', function () {
 	const hidePostBackButton = document.querySelector('#checkbox-hide-post-back-button').checked;
@@ -1095,4 +1125,36 @@ document.querySelector('#checkbox-hide-vote-buttons').addEventListener('change',
 	}
 	BROWSER_API.storage.sync.set({ hideVoteButtons: hideVoteButtons });
 	sendMessage({ hideVoteButtons: hideVoteButtons });
+});
+
+// Toggle - Hide Video Recommendations
+document.querySelector('#checkbox-hide-video-recommendations').addEventListener('change', function () {
+	const hideVideoRecommendations = document.querySelector('#checkbox-hide-video-recommendations').checked;
+	if (hideVideoRecommendations) {
+		document.querySelector('.icon-hide-video-recommendations').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-video-recommendations').classList.remove('icon-show');
+		document.querySelector('.icon-hide-video-recommendations').classList.add('icon-hide');
+	} else {
+		document.querySelector('.icon-hide-video-recommendations').style.backgroundColor = '';
+		document.querySelector('.icon-hide-video-recommendations').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-video-recommendations').classList.add('icon-show');
+	}
+	BROWSER_API.storage.sync.set({ hideVideoRecommendations: hideVideoRecommendations });
+	sendMessage({ hideVideoRecommendations: hideVideoRecommendations });
+});
+
+// Toggle - Hide Community Status
+document.querySelector('#checkbox-hide-community-status').addEventListener('change', function () {
+	const hideCommunityStatus = document.querySelector('#checkbox-hide-community-status').checked;
+	if (hideCommunityStatus) {
+		document.querySelector('.icon-hide-community-status').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-community-status').classList.remove('icon-show');
+		document.querySelector('.icon-hide-community-status').classList.add('icon-hide');
+	} else {
+		document.querySelector('.icon-hide-community-status').style.backgroundColor = '';
+		document.querySelector('.icon-hide-community-status').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-community-status').classList.add('icon-show');
+	}
+	BROWSER_API.storage.sync.set({ hideCommunityStatus: hideCommunityStatus });
+	sendMessage({ hideCommunityStatus: hideCommunityStatus });
 });

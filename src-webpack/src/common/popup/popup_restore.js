@@ -13,6 +13,7 @@ import { restorePopupTheme } from './restore/restore_extension_theme';
 import { detectFirefoxVersion } from '../content_first/functions/detect_browser_version';
 import { restorePopupFontOptions } from './restore/restore_font';
 import { fetchLatestVersion } from './functions/check_for_updates';
+import { restorePopupBlockOptions } from './restore/restore_block';
 
 /* = Restore Tweak Options On Popup Load = */
 window.onload = function () {
@@ -36,6 +37,7 @@ function restoreOptions() {
 	restorePopupHideElementsOptions();
 	restorePopupFontOptions();
 	restorePopupAccessibilityOptions();
+	restorePopupBlockOptions();
 
 	// Account Switcher
 	/*BROWSER_API.storage.local.get(['accounts'], function (result) {

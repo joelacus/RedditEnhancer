@@ -129,7 +129,7 @@ export function restorePopupStyleOptions() {
 		console.log('Sidebar Background Colour CSS: ' + value);
 	});
 
-	// Sidemenu Text Colour
+	// Side Menu Text Colour
 	BROWSER_API.storage.sync.get(['themeSidemenuTextColour'], function (result) {
 		if (result.themeSidemenuTextColour == true) {
 			document.querySelector('.icon-sidemenu-text-colour').style.backgroundColor = 'var(--accent)';
@@ -140,10 +140,10 @@ export function restorePopupStyleOptions() {
 			document.querySelector('#checkbox-sidemenu-text-colour').checked = false;
 			var value = false;
 		}
-		console.log('Sidemenu Text Colour: ' + value);
+		console.log('Side Menu Text Colour: ' + value);
 	});
 
-	// Sidemenu Text Colour CSS
+	// Side Menu Text Colour CSS
 	BROWSER_API.storage.sync.get(['themeSidemenuTextColourCSS'], function (result) {
 		if (typeof result.themeSidemenuTextColourCSS != 'undefined') {
 			document.querySelector('#input-sidemenu-text-colour-css').value = result.themeSidemenuTextColourCSS;
@@ -152,10 +152,10 @@ export function restorePopupStyleOptions() {
 			document.querySelector('#input-sidemenu-text-colour-css').value = '';
 			var value = '';
 		}
-		console.log('Sidemenu Text Colour CSS: ' + value);
+		console.log('Side Menu Text Colour CSS: ' + value);
 	});
 
-	// Sidemenu Background Colour
+	// Side Menu Background Colour
 	BROWSER_API.storage.sync.get(['themeSidemenuBgColour'], function (result) {
 		if (result.themeSidemenuBgColour == true) {
 			document.querySelector('.icon-sidemenu-bg-colour').style.backgroundColor = 'var(--accent)';
@@ -166,10 +166,10 @@ export function restorePopupStyleOptions() {
 			document.querySelector('#checkbox-sidemenu-bg-colour').checked = false;
 			var value = false;
 		}
-		console.log('Sidemenu Background Colour: ' + value);
+		console.log('Side Menu Background Colour: ' + value);
 	});
 
-	// Sidemenu Background Colour CSS
+	// Side Menu Background Colour CSS
 	BROWSER_API.storage.sync.get(['themeSidemenuBgColourCSS'], function (result) {
 		if (typeof result.themeSidemenuBgColourCSS != 'undefined') {
 			document.querySelector('#input-sidemenu-bg-colour-css').value = result.themeSidemenuBgColourCSS;
@@ -178,10 +178,10 @@ export function restorePopupStyleOptions() {
 			document.querySelector('#input-sidemenu-bg-colour-css').value = '';
 			var value = '';
 		}
-		console.log('Sidemenu Background Colour CSS: ' + value);
+		console.log('Side Menu Background Colour CSS: ' + value);
 	});
 
-	// Sidemenu Button Hover Colour
+	// Side Menu Button Hover Colour
 	BROWSER_API.storage.sync.get(['themeSidemenuButtonHoverColour'], function (result) {
 		if (result.themeSidemenuButtonHoverColour == true) {
 			document.querySelector('.icon-sidemenu-button-hover-colour').style.backgroundColor = 'var(--accent)';
@@ -192,10 +192,10 @@ export function restorePopupStyleOptions() {
 			document.querySelector('#checkbox-sidemenu-button-hover-colour').checked = false;
 			var value = false;
 		}
-		console.log('Sidemenu Button Hover Colour: ' + value);
+		console.log('Side Menu Button Hover Colour: ' + value);
 	});
 
-	// Sidemenu Button Hover Colour CSS
+	// Side Menu Button Hover Colour CSS
 	BROWSER_API.storage.sync.get(['themeSidemenuButtonHoverColourCSS'], function (result) {
 		if (typeof result.themeSidemenuButtonHoverColourCSS != 'undefined') {
 			document.querySelector('#input-sidemenu-button-hover-colour-css').value = result.themeSidemenuButtonHoverColourCSS;
@@ -204,7 +204,7 @@ export function restorePopupStyleOptions() {
 			document.querySelector('#input-sidemenu-button-hover-colour-css').value = '';
 			var value = '';
 		}
-		console.log('Sidemenu Button Hover Colour CSS: ' + value);
+		console.log('Side Menu Button Hover Colour CSS: ' + value);
 	});
 
 	// Sidebar Border Colour
@@ -918,5 +918,53 @@ export function restorePopupStyleOptions() {
 		const url = result.customHeaderLogoUrl ?? '';
 		document.querySelector('#input-custom-header-logo-url').value = url;
 		console.log('Custom Header Logo URL: ' + url);
+	});
+
+	// Attach Side Menu Header
+	BROWSER_API.storage.sync.get(['attachSideMenuHeader'], function (result) {
+		const attachSideMenuHeader = result.attachSideMenuHeader === true;
+		document.querySelector('.icon-attach-side-menu-header').style.backgroundColor = attachSideMenuHeader ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-attach-side-menu-header').checked = attachSideMenuHeader;
+		if (attachSideMenuHeader) {
+			highlightMenuIcon('style-tweaks');
+		}
+		console.log('Attach Side Menu Toggle: ' + attachSideMenuHeader);
+	});
+
+	// Opt Out Attach Side Menu
+	BROWSER_API.storage.sync.get(['optOutAttachSideMenu'], function (result) {
+		const optOutAttachSideMenu = result.optOutAttachSideMenu === true;
+		document.querySelector('.icon-opt-out-attach-side-menu').style.backgroundColor = optOutAttachSideMenu ? 'var(--accent)' : '';
+		if (optOutAttachSideMenu) {
+			document.querySelector('.icon-opt-out-attach-side-menu').classList.remove('icon-dropdown');
+			document.querySelector('.icon-opt-out-attach-side-menu').classList.add('icon-dropdown-slash');
+		}
+		document.querySelector('#checkbox-opt-out-attach-side-menu').checked = optOutAttachSideMenu;
+		if (optOutAttachSideMenu) {
+			highlightMenuIcon('style-tweaks');
+		}
+		console.log('Opt Out Attach Side Menu: ' + optOutAttachSideMenu);
+	});
+
+	// Left Side Vote Buttons
+	BROWSER_API.storage.sync.get(['leftSideVoteButtons'], function (result) {
+		const leftSideVoteButtons = result.leftSideVoteButtons === true;
+		document.querySelector('.icon-left-side-vote-buttons').style.backgroundColor = leftSideVoteButtons ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-left-side-vote-buttons').checked = leftSideVoteButtons;
+		if (leftSideVoteButtons) {
+			highlightMenuIcon('style-tweaks');
+		}
+		console.log('Left Side Vote Buttons: ' + leftSideVoteButtons);
+	});
+
+	// Subreddit Display Name Banner
+	BROWSER_API.storage.sync.get(['subredditDisplayNameBanner'], function (result) {
+		const subredditDisplayNameBanner = result.subredditDisplayNameBanner === true;
+		document.querySelector('.icon-subreddit-display-name-banner').style.backgroundColor = subredditDisplayNameBanner ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-subreddit-display-name-banner').checked = subredditDisplayNameBanner;
+		if (subredditDisplayNameBanner) {
+			highlightMenuIcon('style-tweaks');
+		}
+		console.log('Subreddit Display Name Banner: ' + subredditDisplayNameBanner);
 	});
 }
