@@ -18,7 +18,7 @@ I welcome any help if you would like to improve or contribute new language trans
 
 # Features
 
-[Redirect](#redirect) | [Resize Feed](#resize-feed) | [Background](#background) | [Hide Elements](#hide-elements) | [Productivity](#productivity) | [Font](#font) | [Style](#style) | [Accessibility](#accessibility) | [Other](#other)
+[Redirect](#redirect) |[Block](#block) | [Resize Feed](#resize-feed-and-posts) | [Background](#background) | [Hide Elements](#hide-elements) | [Productivity](#productivity) | [Font](#font) | [Style](#style) | [Accessibility](#accessibility) | [Other](#other)
 
 ## Version Info
 |Reddit Version|Common Name|Official Name|
@@ -37,7 +37,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |---|---|:---:|
 |Hide Post with Blocked Keywords|Hide all posts that contain a specified keyword(s).|3<br>1|
 
-## Resize Feed / Posts
+## Resize Feed and Posts
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
 |Resize Feed/Post|This makes the feed/post wider so you can see more content and make more use of your screen.|All|
