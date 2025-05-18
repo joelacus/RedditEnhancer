@@ -157,7 +157,7 @@ import { compactPostLinkPreview } from './tweaks/media/compact_post_link_preview
 import { usernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
 import { showUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
 import { customHeaderLogo, setCustomHeaderLogoUrl } from './tweaks/style/custom_header_logo';
-import { hideBlockedKeywordPosts } from './tweaks/hide_elements/hide_blocked_keyword_posts';
+import { hideBlockedKeywordPosts } from './tweaks/block/block_posts_by_keyword';
 import { hideVideoRecommendations } from './tweaks/media/hide_video_recommendations';
 import { leftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { hideCommunityStatus } from './tweaks/hide_elements/hide_community_status';

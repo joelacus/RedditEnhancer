@@ -129,7 +129,7 @@ export function restorePopupStyleOptions() {
 		console.log('Sidebar Background Colour CSS: ' + value);
 	});
 
-	// Sidemenu Text Colour
+	// Side Menu Text Colour
 	BROWSER_API.storage.sync.get(['themeSidemenuTextColour'], function (result) {
 		if (result.themeSidemenuTextColour == true) {
 			document.querySelector('.icon-sidemenu-text-colour').style.backgroundColor = 'var(--accent)';
@@ -140,10 +140,10 @@ export function restorePopupStyleOptions() {
 			document.querySelector('#checkbox-sidemenu-text-colour').checked = false;
 			var value = false;
 		}
-		console.log('Sidemenu Text Colour: ' + value);
+		console.log('Side Menu Text Colour: ' + value);
 	});
 
-	// Sidemenu Text Colour CSS
+	// Side Menu Text Colour CSS
 	BROWSER_API.storage.sync.get(['themeSidemenuTextColourCSS'], function (result) {
 		if (typeof result.themeSidemenuTextColourCSS != 'undefined') {
 			document.querySelector('#input-sidemenu-text-colour-css').value = result.themeSidemenuTextColourCSS;
@@ -152,10 +152,10 @@ export function restorePopupStyleOptions() {
 			document.querySelector('#input-sidemenu-text-colour-css').value = '';
 			var value = '';
 		}
-		console.log('Sidemenu Text Colour CSS: ' + value);
+		console.log('Side Menu Text Colour CSS: ' + value);
 	});
 
-	// Sidemenu Background Colour
+	// Side Menu Background Colour
 	BROWSER_API.storage.sync.get(['themeSidemenuBgColour'], function (result) {
 		if (result.themeSidemenuBgColour == true) {
 			document.querySelector('.icon-sidemenu-bg-colour').style.backgroundColor = 'var(--accent)';
@@ -166,10 +166,10 @@ export function restorePopupStyleOptions() {
 			document.querySelector('#checkbox-sidemenu-bg-colour').checked = false;
 			var value = false;
 		}
-		console.log('Sidemenu Background Colour: ' + value);
+		console.log('Side Menu Background Colour: ' + value);
 	});
 
-	// Sidemenu Background Colour CSS
+	// Side Menu Background Colour CSS
 	BROWSER_API.storage.sync.get(['themeSidemenuBgColourCSS'], function (result) {
 		if (typeof result.themeSidemenuBgColourCSS != 'undefined') {
 			document.querySelector('#input-sidemenu-bg-colour-css').value = result.themeSidemenuBgColourCSS;
@@ -178,10 +178,10 @@ export function restorePopupStyleOptions() {
 			document.querySelector('#input-sidemenu-bg-colour-css').value = '';
 			var value = '';
 		}
-		console.log('Sidemenu Background Colour CSS: ' + value);
+		console.log('Side Menu Background Colour CSS: ' + value);
 	});
 
-	// Sidemenu Button Hover Colour
+	// Side Menu Button Hover Colour
 	BROWSER_API.storage.sync.get(['themeSidemenuButtonHoverColour'], function (result) {
 		if (result.themeSidemenuButtonHoverColour == true) {
 			document.querySelector('.icon-sidemenu-button-hover-colour').style.backgroundColor = 'var(--accent)';
@@ -192,10 +192,10 @@ export function restorePopupStyleOptions() {
 			document.querySelector('#checkbox-sidemenu-button-hover-colour').checked = false;
 			var value = false;
 		}
-		console.log('Sidemenu Button Hover Colour: ' + value);
+		console.log('Side Menu Button Hover Colour: ' + value);
 	});
 
-	// Sidemenu Button Hover Colour CSS
+	// Side Menu Button Hover Colour CSS
 	BROWSER_API.storage.sync.get(['themeSidemenuButtonHoverColourCSS'], function (result) {
 		if (typeof result.themeSidemenuButtonHoverColourCSS != 'undefined') {
 			document.querySelector('#input-sidemenu-button-hover-colour-css').value = result.themeSidemenuButtonHoverColourCSS;
@@ -204,7 +204,7 @@ export function restorePopupStyleOptions() {
 			document.querySelector('#input-sidemenu-button-hover-colour-css').value = '';
 			var value = '';
 		}
-		console.log('Sidemenu Button Hover Colour CSS: ' + value);
+		console.log('Side Menu Button Hover Colour CSS: ' + value);
 	});
 
 	// Sidebar Border Colour

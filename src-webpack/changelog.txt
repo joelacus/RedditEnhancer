@@ -5,7 +5,7 @@ v [General]
 v [New New UI]
   - Block posts by keywords. Special thanks to @matthew-c-lee (Github) for adding this feature <3
   - When using "Always Show Post Options", you can now toggle off any buttons you don't want to see.
-  - Fixed "Hide the Favourite Buttons" option not working due to a website update.
+  - Fixed "Hide the Favourite Buttons" option for the side menu not working due to a website update.
 * Special thanks to @biminhc1 (Reddit) @bmndc (Github) for all following changes <3
 v [New New UI]
   - Added options to attach the side menu as a dropdown panel, display user info and karma count in the header.

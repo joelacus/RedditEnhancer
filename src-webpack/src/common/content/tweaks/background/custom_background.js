@@ -108,7 +108,7 @@ function enableUseCustomBackgroundNewNew() {
 								}
 								community-highlight-carousel {
 									background-color: var(--re-theme-post-bg, transparent);
-									border-radius: var(--re-theme-border-radius, 0);
+									border-radius: var(--re-theme-border-radius, 1rem);
 								}
 								community-highlight-carousel.community-highlight-carousel > h3 {
 									padding-left: .75rem;

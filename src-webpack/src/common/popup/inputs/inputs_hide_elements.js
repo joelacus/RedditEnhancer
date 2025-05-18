@@ -1,5 +1,6 @@
 /* ===== Inputs / Hide Elements ===== */
 
+import { refreshBlockedPosts } from '../../content/tweaks/block/block_posts_by_keyword';
 import { sendMessage } from '../send_message';
 
 // Toggle - Hide Reddit Premium
@@ -843,10 +844,20 @@ document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').addEventLi
 });
 
 // Textarea - Hide Blocked Keyword Posts
+let timeout;
 document.querySelector('#input-blocked-keyword-posts').addEventListener('keyup', function (e) {
-	const value = e.target.value;
-	BROWSER_API.storage.sync.set({ hideBlockedKeywordPostsList: value });
-	sendMessage({ hideBlockedKeywordPostsList: value });
+	const keywordList = e.target.value;
+	BROWSER_API.storage.sync.set({ hideBlockedKeywordPostsList: keywordList });
+	// apply blocked keywords after 2 seconds of no input if enabled
+	const hideBlockedKeywordPostsEnable = document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').checked;
+	if (hideBlockedKeywordPostsEnable) {
+		clearTimeout(timeout);
+		timeout = setTimeout(() => {
+			console.log('Refreshing blocked posts...');
+			sendMessage({ hideBlockedKeywordPosts: false });
+			sendMessage({ hideBlockedKeywordPosts: true });
+		}, 2000);
+	}
 });
 
 // Toggle - Hide Post Back Button

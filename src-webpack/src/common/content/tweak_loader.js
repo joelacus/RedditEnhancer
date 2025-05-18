@@ -12,7 +12,7 @@ import { loadBreakReminder } from './tweaks/productivity/break_reminder';
 import { loadDarkModeAuto } from './tweaks/dark_mode/dark_mode';
 import { loadFitImage } from './tweaks/media/scale_tall_images_to_fit_post';
 import { loadHideNSFW } from './tweaks/hide_elements/hide_nsfw';
-import { loadHideBlockedKeywordPosts } from './tweaks/hide_elements/hide_blocked_keyword_posts';
+import { loadHideBlockedKeywordPosts } from './tweaks/block/block_posts_by_keyword';
 import { loadHideOriginalScrollToTop } from './tweaks/hide_elements/hide_original_scroll_to_top';
 import { loadHideSeeFullImage } from './tweaks/hide_elements/hide_see_full_image';
 import { loadLimitInfinityScroll } from './tweaks/productivity/limit_infinity_scroll';
@@ -53,7 +53,7 @@ import { loadReplacePostVideosWithLinks } from './tweaks/media/replace_videos_wi
 import { loadCompactPostLinkPreview } from './tweaks/media/compact_post_link_preview';
 import { loadUsernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
 import { loadShowUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
-import { loadAttachSideMenuHeader, loadSubredditDisplayNameBanner } from "./tweaks/style/old_new_ui";
+import { loadAttachSideMenuHeader, loadSubredditDisplayNameBanner } from './tweaks/style/old_new_ui';
 import { loadLeftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 
 export function loadTweaks() {
@@ -129,7 +129,7 @@ export function loadTweaks() {
 			parent: document.querySelector('body'),
 			done: () => {
 				loadAttachSideMenuHeader();
-			}
+			},
 		});
 
 		waitForAddedNode({
