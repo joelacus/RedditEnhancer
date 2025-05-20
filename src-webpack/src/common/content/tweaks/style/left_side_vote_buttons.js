@@ -101,7 +101,7 @@ function enableLeftSideVoteButtons() {
                     padding-left: 28px;
                 }
                 shreddit-comment-tree {
-                    margin-left: .3rem;
+                    margin-left: 5px;
                     padding-right: 1rem;
                 }
 			}
