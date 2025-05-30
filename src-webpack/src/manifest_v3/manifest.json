@@ -34,7 +34,7 @@
 
 	"web_accessible_resources": [
 		{
-			"resources": ["_locales/**/*", "videojs/video-js.css", "videojs/video.min.js", "changelog.txt", "RE_styles.css", "RE_font.css"],
+			"resources": ["_locales/**/*", "videojs/video-js.css", "videojs/video.min.js", "changelog.txt", "RE_styles.css", "RE_font.css", "rules/bg_v2_image.json"],
 			"matches": ["<all_urls>"]
 		}
 	],

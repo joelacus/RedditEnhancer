@@ -1,0 +1,32 @@
+{
+	"adultswim": {
+		"colour": "#1a1a1a"
+	},
+	"apple": {
+		"colour": "#fafafa"
+	},
+	"britishproblems": {
+		"colour": "#e6c0a3"
+	},
+	"explainlikeimfive": {
+		"colour": "#646d73"
+	},
+	"taskmaster": {
+		"url": "https://styles.redditmedia.com/t5_39mk7/styles/backgroundImage_afrz60m4oz711.jpg",
+		"config": "repeat center top"
+	},
+	"typography": {
+		"url": "https://styles.redditmedia.com/t5_2qhx0/styles/backgroundImage_uynqcothmgh91.png",
+		"config": "no-repeat center / cover"
+	},
+	"Windows10": {
+		"colour": "#0078d7"
+	},
+	"Windows11": {
+		"url": "https://styles.redditmedia.com/t5_2veqb/styles/backgroundImage_ueg1vl77d2x81.jpg",
+		"config": "no-repeat center / cover"
+	},
+	"Windows_Redesign": {
+		"colour": "#edeff1"
+	}
+}
