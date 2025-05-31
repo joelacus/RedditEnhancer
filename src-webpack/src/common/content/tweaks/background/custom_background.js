@@ -7,6 +7,8 @@ export function loadCustomBackground() {
 	});
 }
 
+let customBackground = false;
+
 /* === Main Function === */
 export function useCustomBackground(value) {
 	if (value) {
@@ -40,7 +42,8 @@ function setBackgroundAndBlur() {
 // Set Custom Background Property
 export function setCustomBackground(value) {
 	if (value !== '') {
-		document.documentElement.style.setProperty('--re-background-image', 'url("' + value + '")');
+		document.documentElement.style.setProperty('--re-background-image', 'url("' + value + '") no-repeat center center / cover');
+		customBackground = true;
 	}
 }
 
@@ -58,7 +61,7 @@ function enableUseCustomBackgroundOld() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-custom-background';
 	styleElement.textContent = `body {
-									background: var(--re-background-image) no-repeat center center / cover !important;
+									background: var(--re-background-image) !important;
 									backdrop-filter: blur(var(--re-background-blur));
 									background-attachment: fixed !important;
 								}`;
@@ -70,7 +73,7 @@ function enableUseCustomBackgroundNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-custom-background';
 	styleElement.textContent = `.ListingLayout-backgroundContainer {
-									--pseudo-before-background: var(--re-background-image) no-repeat center center / cover !important;
+									--pseudo-before-background: var(--re-background-image) !important;
 								}
 								.ListingLayout-backgroundContainer:before {
 									filter: blur(var(--re-background-blur));
@@ -90,7 +93,7 @@ function enableUseCustomBackgroundNewNew() {
 								body:before {
 									content: "";
 									position: fixed;
-									background: var(--re-background-image) no-repeat center center / cover;
+									background: var(--re-background-image);
 									width: 100%;
 									height: 100vh; 
 									transform: scale(1);
@@ -166,4 +169,34 @@ function disableUseCustomBackgroundAll() {
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
+}
+
+export function setSubredditBackground() {
+	const subreddit = window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2] || null;
+	// If a custom background is already set, do not override it
+	if (customBackground) return;
+	if (subreddit) {
+		fetch(BROWSER_API.runtime.getURL('rules/bg_v2_image.json'))
+			.then(res => {
+				if (!res.ok) throw new Error('Network response was not ok');
+				return res.json();
+			})
+			.then(data => {
+				const url = subreddit && data[subreddit]?.url;
+				const colour = subreddit && data[subreddit]?.colour;
+				if (url) {
+					const config = data[subreddit]?.config;
+					document.documentElement.style.setProperty('--re-background-image', `url("${url}") ${config}`);
+				} else if (colour) {
+					document.documentElement.style.setProperty('--re-background-image', `${colour}`);
+				} else {
+					document.documentElement.style.removeProperty('--re-background-image');
+				}
+			})
+			.catch(err => {
+				console.error('Failed to load bg_v2_image.json', err);
+			});
+	} else {
+		document.documentElement.style.removeProperty('--re-background-image');
+	}
 }

@@ -32,7 +32,7 @@
 		}
 	],
 
-	"web_accessible_resources": ["_locales/**/*", "backup.html", "changelog.txt", "RE_styles.css", "RE_font.css"],
+	"web_accessible_resources": ["_locales/**/*", "backup.html", "changelog.txt", "RE_styles.css", "RE_font.css", "rules/bg_v2_image.json"],
 
 	"background": {
 		"scripts": ["background.js"]
