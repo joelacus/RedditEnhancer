@@ -2,14 +2,100 @@
 	"adultswim": {
 		"colour": "#1a1a1a"
 	},
+	"Art": {
+		"colour": "#000000"
+	},
+	"AskReddit": {
+		"colour": "#dde3eb"
+	},
+	"askscience": {
+		"colour": "#ececec"
+	},
 	"apple": {
 		"colour": "#fafafa"
+	},
+	"aww": {
+		"colour": "#ebebeb"
+	},
+	"books": {
+		"colour": "#efebe9"
 	},
 	"britishproblems": {
 		"colour": "#e6c0a3"
 	},
+	"dataisbeautiful": {
+		"colour": "#ffffff"
+	},
+	"doctorwho": {
+		"colour": "#005ba1"
+	},
+	"EarthPorn": {
+		"colour": "#bbbdbf"
+	},
 	"explainlikeimfive": {
 		"colour": "#646d73"
+	},
+	"food": {
+		"colour": "#349e48"
+	},
+	"futurology": {
+		"colour": "#edeff1"
+	},
+	"gadgets": {
+		"url": "#f4f4f4"
+	},
+	"gaming": {
+		"colour": "#bbbdbf"
+	},
+	"gifs": {
+		"url": "https://styles.redditmedia.com/t5_2qt55/styles/backgroundImage_to1809wgttg31.png",
+		"config": "no-repeat center / cover"
+	},
+	"IAmA": {
+		"url": "https://styles.redditmedia.com/t5_2qzb6/styles/backgroundImage_t2zjv8oq7f251.jpg",
+		"config": "no-repeat center / cover"
+	},
+	"LifeProTips": {
+		"colour": "#eeeeee"
+	},
+	"memes": {
+		"colour": "#f0f8ff"
+	},
+	"mildlyinteresting": {
+		"colour": "#edeff1"
+	},
+	"movies": {
+		"colour": "#02315c"
+	},
+	"Music": {
+		"colour": "#014980"
+	},
+	"news": {
+		"colour": "#bfc2c7"
+	},
+	"nottheonion": {
+		"colour": "#ffffff"
+	},
+	"ProgrammerHumor": {
+		"colour": "#edeff1"
+	},
+	"photoshopbattles": {
+		"colour": "#fefefe"
+	},
+	"pics": {
+		"colour": "#ffffff"
+	},
+	"science": {
+		"colour": "#eef1f7"
+	},
+	"Showerthoughts": {
+		"colour": "#f3f3f3"
+	},
+	"space": {
+		"colour": "#373c3f"
+	},
+	"sports": {
+		"colour": "#edeff1"
 	},
 	"taskmaster": {
 		"url": "https://styles.redditmedia.com/t5_39mk7/styles/backgroundImage_afrz60m4oz711.jpg",
@@ -18,6 +104,12 @@
 	"typography": {
 		"url": "https://styles.redditmedia.com/t5_2qhx0/styles/backgroundImage_uynqcothmgh91.png",
 		"config": "no-repeat center / cover"
+	},
+	"unixporn": {
+		"colour": "#ebebeb"
+	},
+	"videos": {
+		"colour": "#373c3f"
 	},
 	"Windows10": {
 		"colour": "#0078d7"

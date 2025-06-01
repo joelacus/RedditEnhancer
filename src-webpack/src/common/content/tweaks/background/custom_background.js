@@ -174,7 +174,7 @@ function disableUseCustomBackgroundAll() {
 export function setSubredditBackground() {
 	const subreddit = window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2] || null;
 	// If a custom background is already set, do not override it
-	if (customBackground) return;
+	if (customBackground || document.documentElement.classList.contains('theme-dark')) return;
 	if (subreddit) {
 		fetch(BROWSER_API.runtime.getURL('rules/bg_v2_image.json'))
 			.then(res => {
