@@ -1,21 +1,23 @@
-/* ===== Tweaks - Hide - Recommended Posts ===== */
+/**
+ * Tweak type: Hide Elements
+ * Tweak name: Hide Recommended/Suggested Posts
+ *
+ * @name hideRecommended
+ * @description Hide Recommended/Suggested posts on the feed.
+ *
+ * Compatibility: V3 - New New UI (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Get saved value and enable tweak if true on page load === */
 export function loadHideRecommendedPosts() {
 	BROWSER_API.storage.sync.get(['hideRecommended'], function (result) {
 		if (result.hideRecommended) hideRecommended(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable tweak based on Reddit version === */
 export function hideRecommended(value) {
-	if (redditVersion === 'new') {
-		if (value === true) {
-			enableHideRecommendedPostsNew();
-		} else if (value === false) {
-			disableHideRecommendedPostsAll();
-		}
-	} else if (redditVersion === 'newnew') {
+	if (redditVersion === 'newnew') {
 		if (value === true) {
 			enableHideRecommendedPostsNewNew();
 		} else if (value === false) {
@@ -24,25 +26,14 @@ export function hideRecommended(value) {
 	}
 }
 
-/* === Enable/Disable Functions === */
+/* === Functions to Enable/Disable the tweak === */
 
-// Function - Enable Hide Recommended Posts - New
-function enableHideRecommendedPostsNew() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-hide-recommended-posts';
-	styleElement.textContent = `.Post:has([data-click-id="background"] > .RichTextJSON-root > p):has([id^="subscribe-button"]),
-								[data-testid="frontpage-sidebar"] > div:has(.ad-banner) {
-									display: none !important;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
-}
-
-// Function - Enable Hide Recommended Posts - New New
+// Enable Hide Recommended Posts - V3
 function enableHideRecommendedPostsNewNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-hide-recommended-posts';
-	styleElement.textContent = `shreddit-post[recommendation-subreddit-name],
-								shreddit-post[recommendation-source]{
+	styleElement.textContent = `article:has(shreddit-post[recommendation-subreddit-name]),
+								article:has(shreddit-post[recommendation-source]){
 									display: none !important;
 								}
 								article:has(shreddit-post[recommendation-subreddit-name]),
@@ -55,7 +46,7 @@ function enableHideRecommendedPostsNewNew() {
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
-// Function - Disable Hide Recommended Posts - All
+// Disable Hide Recommended Posts - All
 function disableHideRecommendedPostsAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-recommended-posts"]');
 	dynamicStyleElements.forEach((element) => {

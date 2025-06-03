@@ -1,7 +1,10 @@
+version 1.18.0
+v [New New UI]
+  - Fixed an issue where "Show vote buttons on the left" used with "Hide NSFW/L Posts" or "Hide Recommended/Suggested Posts", would show only partially hidden posts.
+
 version 1.17.0
 v [General]
-- Added a new "Block" menu category.
-
+  - Added a new "Block" menu category.
 v [New New UI]
   - Block posts by keywords. Special thanks to @matthew-c-lee (Github) for adding this feature <3
   - When using "Always Show Post Options", you can now toggle off any buttons you don't want to see.
