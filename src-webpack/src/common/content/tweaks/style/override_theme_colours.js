@@ -1156,7 +1156,7 @@ export function themeSidebarBgColour(value) {
 			document.documentElement.style.setProperty('--re-theme-sidebar-bg', result.themeSidebarBgColourCSS);
 			const styleElement = document.createElement('style');
 			styleElement.id = 're-theme-sidebar-bg-colour';
-			styleElement.textContent = `#right-sidebar-container > *,
+			styleElement.textContent = `#right-sidebar-contents > *,
 										[pagetype="search_results"] #right-sidebar-container > div > div {
 											--color-neutral-background-weak: var(--re-theme-sidebar-bg) !important;
 											--color-neutral-background-hover: rgba(0,0,0,0.6) !important;

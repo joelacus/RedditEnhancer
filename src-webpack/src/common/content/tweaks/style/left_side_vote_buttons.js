@@ -4,6 +4,12 @@
  * @name leftSideVoteButtons
  * @description Move the vote buttons to the left side of the post.
  *
+ * On v3 UI, post content in feed are nested under two HTML elements, an <article> and a custom semantic <shreddit-post>,
+ * the latter of which is grid-based. To place the vote buttons on the left side of the posts, because moving the
+ * grid layout takes a lot of shadow DOM effort, within the <article> I have to shrink the <shreddit-post> and align it
+ * to the right, leaving enough space on the left for the buttons. This means that the vote buttons are part of <article>
+ * rather than <shreddit-post>.
+ *
  * Applies to: New New UI (2023-)
  */
 

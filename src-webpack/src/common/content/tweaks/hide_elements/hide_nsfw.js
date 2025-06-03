@@ -62,7 +62,9 @@ function enableHideNsfwPostsNewNew() {
 	if (!document.head.querySelector('style[id="re-hide-nsfw-posts"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-nsfw-posts';
-		styleElement.textContent = `shreddit-app shreddit-post:has([reason="nsfw"]),
+		styleElement.textContent = `shreddit-feed article:has(shreddit-post[nsfw]),
+									shreddit-feed article:has(shreddit-post:has([reason="nsfw"])),
+									shreddit-app shreddit-post:has([reason="nsfw"]),
 									shreddit-app shreddit-post[nsfw] {
 										display: none !important;
 									}`;
