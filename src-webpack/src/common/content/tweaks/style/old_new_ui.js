@@ -552,12 +552,26 @@ export function subredditDisplayNameBanner(value) {
 				styleElement.textContent = `div.masthead div:has(> h1)::after {
 												content: attr(data-sub-name);
 												margin-top: 0.35rem;
-												margin-bottom: -1.35rem;
+												margin-bottom: 10px;
 												font-weight: 600;
 												color: var(--color-tone-2);
 											}
 											div.masthead > section {
-                								margin-block: 0;
+												top: 0;
+                								margin-top: 10px !important;
+           									}
+           									.masthead .items-end,
+           									.masthead section > div > .items-center {
+           										align-items: initial;
+           									}
+           									.masthead .xs\\:h-\\[88px\\] {
+           										height: initial;
+           									}
+           									.masthead span[avatar] {
+           										margin-top: -40px;
+           									}
+           									.masthead h1 {
+           										margin-top: initial;
            									}
 											community-appearance-entrypoint[target="banner"] {
                 								margin-bottom: 3rem !important;

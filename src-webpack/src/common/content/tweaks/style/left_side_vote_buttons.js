@@ -93,10 +93,6 @@ function enableLeftSideVoteButtons() {
                     display: inline-block;
                     width: calc(100% - 40px);
                     padding-left: .75rem;
-                    
-                    & div.md {
-                        padding-right: 1rem;
-                    }
                 }
                 comment-body-header {
                     margin-left: 0;
@@ -108,6 +104,9 @@ function enableLeftSideVoteButtons() {
                 }
                 shreddit-comment-tree {
                     margin-left: 5px;
+                }
+                shreddit-post .md,
+                shreddit-comment > .md {
                     padding-right: 1rem;
                 }
 			}

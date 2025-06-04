@@ -1,128 +1,215 @@
-/* ===== Default Sort Option ===== */
+/**
+ * Set the preferred sort option for home feed, comments, user activities,
+ * custom feeds and search results.
+ *
+ * On v3 UI, the home feed and comment sort options are attached to the Reddit
+ * logo and the post links, so Reddit SPA will immediately sort the feed instead
+ * of having to go through a page reload.
+ *
+ * User can change the feed sort option manually at any time.
+ */
 
-import { logToDevConsole } from '../../content/logging';
+// Preload home feed and comment sorting options to attach to Reddit logo and posts
+const {
+    enableDefaultHomeFeedSortOption: homeFeedSort,
+    defaultHomeFeedSortOption: homeFeedSortOption,
+    enableDefaultCommentsSortOption: commentSort,
+    defaultCommentsSortOption: commentSortOption
+} = await getStorage([
+    'enableDefaultHomeFeedSortOption',
+    'defaultHomeFeedSortOption',
+    'enableDefaultCommentsSortOption',
+    'defaultCommentsSortOption'
+]);
+let type, popstate = false;
 
-export function defaultSortOption() {
-	// Don't redirect the page if it has been redirected in the last 20 seconds. (allows for manual override of sort option)
-	BROWSER_API.storage.sync.get(['DefaultSortFeedOptionGracePeriod'], function (result) {
-		const grace_period = result.DefaultSortFeedOptionGracePeriod ?? 20;
-		const now = Date.now();
-		const isWithinGracePeriod = now - parseInt(sessionStorage.getItem('lastPageRedirectTime')) <= grace_period * 1000;
-		if (isWithinGracePeriod) return;
+// When pressing the back button on the page or in the browser, Reddit SPA makes
+// a popstate event. Detect this popstate event to stop defaultSortOption from
+// reloading the previous page, which is usually an already sorted feed
+window.addEventListener('popstate', () => { popstate = true; });
 
-		sessionStorage.setItem('lastPageRedirectTime', now);
+export async function defaultSortOption() {
+    // Get the current URL, which tells RE the current type of page
+    const url = new URL(window.location.href);
+    // Once the page has loaded, attempt to attach the sorting option to the
+    // posts and the Reddit logo in the header
+    if (document.readyState === 'complete') {
+        attachSortObserver(url);
+    } else {
+        window.addEventListener('load', () => attachSortObserver(url));
+    }
+    // If it is the same type of page (because user manually change the sorting
+    // option), or was navigated using the Back button, don't override previous sort
+    if (classify(url) || popstate) {
+        popstate = false;
+        return;
+    }
 
-		const url = new URL(window.location.href);
-		if (url.pathname.includes('/comments/') || (url.searchParams.get('type') === 'comments' && /\/search\//.test(url.pathname))) {
-			// Set default comments sort option if true
-			BROWSER_API.storage.sync.get(['enableDefaultCommentsSortOption', 'defaultCommentsSortOption'], function (result) {
-				if (result.enableDefaultCommentsSortOption && result.defaultCommentsSortOption !== undefined) {
-					const url = new URL(window.location.href);
-					const sortTarget = result.defaultCommentsSortOption;
-					const sortValue = url.searchParams.get('sort');
-					if (typeof sortTarget !== undefined) {
-						if (sortValue) {
-							if (sortValue !== sortTarget) {
-								url.searchParams.set('sort', sortTarget);
-								window.location.replace(url.href);
-							}
-						} else {
-							url.searchParams.set('sort', sortTarget);
-							window.location.replace(url.href);
-						}
-					}
-				}
-			});
-		} else {
-			// Set default feed sort option if true
-			BROWSER_API.storage.sync.get(['enableDefaultFeedSortOption', 'defaultFeedSortOption', 'enableDefaultHomeFeedSortOption', 'defaultHomeFeedSortOption'], function (result) {
-				if (isHomePage()) {
-					if (result.enableDefaultHomeFeedSortOption) {
-						if (result.defaultHomeFeedSortOption !== undefined) {
-							const url = new URL(window.location.href);
-							var sortTarget = result.defaultHomeFeedSortOption;
-							if (sortTarget === 'relevance') {
-								sortTarget = 'best';
-							}
-							if (url.pathname.includes(sortTarget)) {
-								return;
-							} else {
-								url.pathname = sortTarget;
-								logToDevConsole('log', `Redirecting home feed to (${sortTarget}) ${url.href}`);
-								window.location.replace(url.href);
-							}
-						}
-					}
-				} else {
-					if (result.enableDefaultFeedSortOption) {
-						if (result.defaultFeedSortOption !== undefined) {
-							const url = new URL(window.location.href);
-							var sortTarget = result.defaultFeedSortOption;
-							if (sortTarget === 'relevance') {
-								sortTarget = 'best';
-							}
-							const lastPath = url.pathname
-								.split('/')
-								.filter((item) => item !== '')
-								.pop();
-							if (lastPath) {
-								if (!lastPath.includes(sortTarget)) {
-									if (url.pathname.includes('/submit') || url.pathname.includes('/wiki') || url.pathname.includes('/rules')) {
-										return;
-									} else if (url.searchParams.get('type') === 'posts' || /\/search\//.test(url.pathname) || /\/user\/(?!.*\/m\/)/.test(url.pathname)) {
-										const sortParam = url.searchParams.get('sort');
-										if (sortParam !== sortTarget) {
-											url.searchParams.set('sort', sortTarget);
-											logToDevConsole('log', `Redirecting feed to (${sortTarget}) ${url.href}`);
-											window.location.replace(url.href);
-										}
-									} else {
-										let newPath;
-										if (['hot', 'new', 'top', 'best', 'controversial', 'rising', 'comments'].includes(lastPath)) {
-											newPath = [
-												...url.pathname
-													.split('/')
-													.filter((item) => item !== '')
-													.slice(0, -1),
-												sortTarget,
-											].join('/');
-											url.pathname = newPath;
-											logToDevConsole('log', `Redirecting feed to (${sortTarget}) ${url.href}`);
-											window.location.replace(url.href);
-										} else {
-											if (url.pathname === '/' || /\/r\/|\/m\//.test(url.pathname)) {
-												newPath = [...url.pathname.split('/').filter((item) => item !== ''), sortTarget].join('/');
-												url.pathname = newPath;
-												logToDevConsole('log', `Redirecting feed to (${sortTarget}) ${url.href}`);
-												window.location.replace(url.href);
-											}
-										}
-									}
-								}
-							} else {
-								url.pathname = sortTarget;
-								logToDevConsole('log', `Redirecting feed to (${sortTarget}) ${url.href}`);
-								window.location.replace(url.href);
-							}
-						}
-					}
-				}
-			});
-		}
-	});
+    if (/\/(submit|wiki|rules)/.test(url.pathname)) {
+        console.log("[RedditEnhancer] Skipping defaultSortOption because the current page (submit, wiki, rules) is not sortable");
+    } else if (url.pathname.includes('/comments/') || (url.searchParams.get('type') === 'comments' && /\/search\//.test(url.pathname))) {
+        // Post page and comment search page
+        try {
+            const {
+                enableDefaultCommentsSortOption: sort,
+                defaultCommentsSortOption: sortOption
+            } = await getStorage(['enableDefaultCommentsSortOption', 'defaultCommentsSortOption']);
+            const currentSort = url.searchParams.get('sort');
+            console.log(`[RedditEnhancer] Detected post page or comment search page. Sorting enabled: ${sort}, target sort: ${sortOption}, current sort: ${currentSort}`);
+            if (sort && sortOption && (!currentSort || currentSort !== sortOption)) {
+                url.searchParams.set('sort', sortOption);
+                window.location.replace(url.href);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    } else if (['', '/', '/best/', '/hot/', '/new/', '/top/', '/rising/'].includes(url.pathname)) {
+        // Home page
+        try {
+            const {
+                enableDefaultHomeFeedSortOption: sort,
+                defaultHomeFeedSortOption: sortOption
+            } = await getStorage(['enableDefaultHomeFeedSortOption', 'defaultHomeFeedSortOption']);
+            console.log(`[RedditEnhancer] Detected home feed. Sorting enabled: ${sort}, target sort: ${sortOption}`);
+            if (sort && sortOption && !url.pathname.includes(sortOption)) {
+                url.pathname = sortOption;
+                window.location.replace(url.href);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    } else if (url.searchParams.get('type') === 'posts' || /\/search\//.test(url.pathname) || /\/user\/(?!.*\/m\/)/.test(url.pathname)) {
+        // Post search and user pages
+        try {
+            let {
+                enableDefaultFeedSortOption: sort,
+                defaultFeedSortOption: sortOption
+            } = await getStorage(['enableDefaultFeedSortOption', 'defaultFeedSortOption']);
+            const currentSort = url.searchParams.get('sort');
+            console.log(`[RedditEnhancer] Detected post search page or user page. Sorting enabled: ${sort}, target sort: ${sortOption}, current sort: ${currentSort}`);
+            if (sortOption.equals('relevance')) sortOption = 'best';
+            if (sort && sortOption && (!currentSort || currentSort !== sortOption)) {
+                url.searchParams.set('sort', sortOption);
+                window.location.replace(url.href);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    } else if (/\/r\/|\/m\//.test(url.pathname)) {
+        // Subreddit and multireddit (custom feed) pages
+        try {
+            const {
+                enableDefaultFeedSortOption: sort,
+                defaultFeedSortOption: sortOption
+            } = await getStorage(['enableDefaultFeedSortOption', 'defaultFeedSortOption']);
+            const currentSort = url.pathname.split('/').filter(item => item !== '').pop();
+            console.log(`[RedditEnhancer] Detected subreddit or multireddit (custom feed) page. Sorting enabled: ${sort}, target sort: ${sortOption}, current sort/name: ${currentSort}`);
+            if (sort && sortOption && (!currentSort || currentSort !== sortOption)) {
+                url.pathname = [...url.pathname.split('/').filter((item) => item !== ''), sortOption].join('/');
+                window.location.replace(url.href);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
-defaultSortOption();
 
-function isHomePage() {
-	let pathname = window.location.pathname;
-	if (pathname.length > 1 && pathname.endsWith('/')) {
-		pathname = pathname.slice(0, -1);
-	}
-	if (pathname === '/' || pathname === '') {
-		return true;
-	}
-	if (pathname === '/best' || pathname === '/hot' || pathname === '/new' || pathname === '/top' || pathname === '/rising') {
-		return true;
-	}
-	return false;
+// Attach home feed and comment sorting options to the Reddit logo and feed posts
+// on homepage, subreddit listings and custom feeds. A MutationObserver is placed
+// to watch for new posts loaded dynamically using virtual scroll.
+function attachSortObserver(url) {
+    // Comment sorting option to posts
+    if (/^(\/(best|hot|new|top|rising)\/|\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?)$|\/m\//.test(url.pathname) && commentSort && commentSortOption) {
+        changePostURLToSort();
+        observer.observe(document.querySelector('shreddit-feed'), {childList: true});
+        console.log("[RedditEnhancer] defaultSortOption: Attached observer for watching new posts");
+    }
+    // Home feed sorting option to Reddit logo
+    if (homeFeedSort && homeFeedSortOption) {
+        document.getElementById("reddit-logo")?.setAttribute('href', `/${homeFeedSortOption}`);
+        console.log("[RedditEnhancer] defaultSortOption: Attached home feed sort option to Reddit logo");
+    }
+}
+
+// Add the comment sorting option to the href attribute of shreddit-post > a.
+export function changePostURLToSort() {
+    const posts = document.querySelectorAll('shreddit-post');
+    let postArray = [...posts];
+    for (const post of postArray) {
+        if (post.getAttribute('sort') === commentSortOption) continue;
+        const redirect = post.querySelector('a:first-child[slot="full-post-link"]');
+        if (redirect) {
+            redirect.setAttribute('href', redirect.getAttribute('href') + '?sort=' + commentSortOption);
+            post.setAttribute('sort', commentSortOption);
+        }
+    }
+}
+
+defaultSortOption().then(() => {}).catch(console.error);
+
+/**
+ * Get the feature state from browser sync storage
+ *
+ * @param keys Keys to get
+ * @returns {Promise<Map>} browser.runtime.lastError if RE fails to access browser
+ * sync storage;<br>result (containing key values) otherwise
+ */
+function getStorage(keys) {
+    return new Promise((resolve, reject) => {
+        BROWSER_API.storage.sync.get(keys, (result) => {
+            if (BROWSER_API.runtime.lastError) return reject(BROWSER_API.runtime.lastError);
+            resolve(result);
+        });
+    });
+}
+
+/**
+ * Check if the page is the same type as the previous page (prevents applying
+ * defaultSortOption when a previous sorting option has been applied).
+ *
+ * @param url URL of the current page to check
+ * @returns {boolean} Whether defaultSortOption should be applied
+ */
+function classify(url) {
+    if (['', '/', '/best/', '/hot/', '/new/', '/top/', '/rising/'].includes(url.pathname) && type !== 'home') {
+        type = 'home';
+        return false;
+    } else if (url.pathname.includes('/comments/') && type !== 'comments') {
+        type = 'comments';
+        return false;
+    } else if (/\/r\//.test(url.pathname) && type !== 'subreddit') {
+        type = 'subreddit';
+        return false;
+    } else if (/\/m\//.test(url.pathname) && type !== 'multireddit') {
+        type = 'multireddit';
+        return false;
+    } else if (/\/user\/(?!.*\/m\/)/.test(url.pathname) && type !== 'user') {
+        type = 'user';
+        return false;
+    } else if (url.searchParams.get('type') === 'comments' && /\/search\//.test(url.pathname) && type !== 'comment_search') {
+        type = 'comment_search';
+        return false;
+    } else if (url.searchParams.get('type') === 'posts' && /\/search\//.test(url.pathname) && type !== 'post_search') {
+        type = 'post_search';
+        return false;
+    } else return true;
+}
+
+// Observer for watching new posts in feed
+const observer = new MutationObserver(debounce(mutations => {
+    mutations.forEach(function (mutation) {
+        mutation.addedNodes.forEach(addedNode => {
+            if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+                changePostURLToSort();
+            }
+        });
+    });
+}, 100));
+
+function debounce(func, wait) {
+    let timeout;
+    return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
 }

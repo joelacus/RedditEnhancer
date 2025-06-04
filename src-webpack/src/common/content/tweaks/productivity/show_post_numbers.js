@@ -47,10 +47,10 @@ export function showPostNumbers(value) {
 			if (document.querySelector(".Post + .Comment")) return;
 			firstScrollerItem = document.querySelector('div[data-scroller-first]');
 			attachPostCountv2();
-			observer.observe(document.querySelector('.ListingLayout-outerContainer'), {childList: true, subtree: true});
+			observer.observe(document.querySelector('.ListingLayout-outerContainer'), {childList: true});
 		} else if (redditVersion === 'newnew' && feedRoutesv3.includes(routeName)) {
 			attachPostCountv3();
-			observer.observe(document.querySelector('shreddit-feed'), {childList: true, subtree: true});
+			observer.observe(document.querySelector('shreddit-feed'), {childList: true});
 		}
 	} else {
 		// Disconnect the observer, reset the counter and remove all post numbers

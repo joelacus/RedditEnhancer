@@ -116,7 +116,8 @@ function enableHidePromotedPostsNewNew() {
 		styleElement.textContent = `shreddit-ad-post,
 									shreddit-comments-page-ad,
 									shreddit-sidebar-ad,
-									shreddit-comment-tree-ad {
+									shreddit-comment-tree-ad,
+									shreddit-async-loader[bundlename="feed_announcement"] {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);

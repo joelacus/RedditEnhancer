@@ -36,8 +36,6 @@ function enableHideRecommendedPostsNewNew() {
 								article:has(shreddit-post[recommendation-source]){
 									display: none !important;
 								}
-								article:has(shreddit-post[recommendation-subreddit-name]),
-								article:has(shreddit-post[recommendation-source]),
 								chat-feed-element-wrapper,
 								chat-channel-recommendations-wrapper,
 								chat-channel-recommendations-wrapper + div {
