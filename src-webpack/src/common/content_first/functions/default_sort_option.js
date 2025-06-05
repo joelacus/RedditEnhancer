@@ -23,7 +23,7 @@ const {
     'enableDefaultCommentsSortOption',
     'defaultCommentsSortOption'
 ]);
-let type, popstate = false;
+let type, subreddit, popstate = false;
 
 // When pressing the back button on the page or in the browser, Reddit SPA makes
 // a popstate event. Detect this popstate event to stop defaultSortOption from
@@ -42,7 +42,8 @@ export async function defaultSortOption() {
     }
     // If it is the same type of page (because user manually change the sorting
     // option), or was navigated using the Back button, don't override previous sort
-    if (classify(url) || popstate || /^(\/(best|hot|new|top|rising)\/|\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?)$|\/m\//.test(url.pathname) && type === 'comments') {
+    if (classify(url) || popstate) {
+        console.debug("[RedditEnhancer] Skipping defaultSortOption for temporary sort option change, or due to popstate event: " + popstate);
         popstate = false;
         return;
     }
@@ -103,7 +104,7 @@ export async function defaultSortOption() {
             showBannerMessage('error', '[RedditEnhancer] An error occurred when redirecting to the preferred feed sort option.');
             console.error("[RedditEnhancer] Error occurred when redirecting to the preferred feed sort option: " + error);
         }
-    } else if (/^(\/r\/[^\/] +\/(best|hot|new|top|rising)?\/?)$|\/m\//.test(url.pathname)) {
+    } else if (/^\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?$|\/m\//.test(url.pathname)) {
         // Subreddit and multireddit (custom feed) pages
         try {
             const {
@@ -185,20 +186,23 @@ function getStorage(keys) {
  * @returns {boolean} Whether defaultSortOption should be applied
  */
 function classify(url) {
-    if (['', '/', '/best/', '/hot/', '/new/', '/top/', '/rising/'].includes(url.pathname) && type !== 'home') {
+    const previousType = type, previousSub = subreddit;
+    subreddit = url.pathname.match(/^\/r\/([^\/]+)\//)?.[1];
+
+    if (['/', '/best/', '/hot/', '/new/', '/top/', '/rising/'].includes(url.pathname) && type !== 'home') {
         type = 'home';
-        return false;
+        return !!window.chrome && (!!window.CSS || !!window.webkitRequestFileSystem) && previousType === 'comments';
     } else if (url.pathname.includes('/comments/') && type !== 'comments') {
         type = 'comments';
         return false;
-    } else if (/^(\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?)$/.test(url.pathname) && type !== 'subreddit') {
+    } else if (/^\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?$/.test(url.pathname) && (type !== 'subreddit' || subreddit !== previousSub)) {
         // Note: when temporarily changing the comment sort option, `type` may
         // change to `subreddit` for a split second (?!)
         type = 'subreddit';
-        return false;
+        return !!window.chrome && (!!window.CSS || !!window.webkitRequestFileSystem) && previousType === 'comments';
     } else if (/\/m\//.test(url.pathname) && type !== 'multireddit') {
         type = 'multireddit';
-        return false;
+        return !!window.chrome && (!!window.CSS || !!window.webkitRequestFileSystem) && previousType === 'comments';
     } else if (/\/user\/(?!.*\/m\/)/.test(url.pathname) && type !== 'user') {
         type = 'user';
         return false;
