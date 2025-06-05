@@ -526,7 +526,8 @@ export function themePostBackgroundColour(value) {
 			const styleElement = document.createElement('style');
 			styleElement.id = 're-theme-post-bg-colour';
 			styleElement.textContent = `:root shreddit-app[routename="post_page"] .grid-container.grid,
-			 							:root shreddit-app[routename="comments_page"] .grid-container.grid {
+			 							:root shreddit-app[routename="comments_page"] .grid-container.grid,
+			 							:root shreddit-app[routename="profile_post_page_comments"] .grid-container.grid {
 											--color-neutral-background: var(--re-theme-post-bg) !important;
 											--shreddit-content-background: transparent;
 											background-color: var(--re-theme-post-bg);
@@ -1263,7 +1264,7 @@ export function themeSidemenuBgColour(value) {
 			document.documentElement.style.setProperty('--re-theme-sidemenu-bg', result.themeSidemenuBgColourCSS);
 			const styleElement = document.createElement('style');
 			styleElement.id = 're-theme-sidemenu-bg-colour';
-			styleElement.textContent = `#left-sidebar-container {
+			styleElement.textContent = `#left-sidebar-container, reddit-sidebar-nav {
 											--color-neutral-background: var(--re-theme-sidemenu-bg) !important;
 											--color-neutral-background-hover: rgba(0,0,0,0.2) !important;
 											--color-neutral-background-selected: rgba(0,0,0,0.3) !important;

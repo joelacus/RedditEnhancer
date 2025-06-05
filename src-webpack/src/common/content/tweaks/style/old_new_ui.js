@@ -184,9 +184,8 @@ function disableCompactHeaderSideMenu() {
  * @async fetchData
  */
 
-let optOutAttach,
-	e = false,
-	listenerAttached = false;
+let optOutAttach, e = false;
+
 // Get the feature state from browser sync storage
 export function loadAttachSideMenuHeader() {
 	BROWSER_API.storage.sync.get(['attachSideMenuHeader', 'optOutAttachSideMenu'], function (result) {
@@ -202,6 +201,7 @@ export function attachSideMenuHeader(value) {
 	}
 }
 
+// Set the opt-out state for attaching the side menu to the header (while still keeping page title and user info)
 export function optOutAttachSideMenu(value) {
 	optOutAttach = value;
 }
@@ -306,8 +306,7 @@ async function enableAttachSideMenuHeader() {
 				display: block;
 				margin-bottom: .25rem;
 				font-size: small;
-				}
-		`;
+			}`;
 		if (!optOutAttach) {
 			styleElement.textContent += `
 				.re-header-menu {
@@ -327,42 +326,64 @@ async function enableAttachSideMenuHeader() {
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
 
-	// Display username and karma within the toggle user drawer button
-	if (!document.querySelector('.re-user-info')) {
-		let loggedIn = document.querySelector('shreddit-app')?.getAttribute('user-logged-in') === 'true';
-		if (loggedIn) {
-			const user = await fetchData(`api/me.json`);
-			if (user && !document.querySelector('.re-user-info') && document.querySelector('button#expand-user-drawer-button')) {
-				const a = Object.assign(document.createElement('div'), {
-					innerHTML: `<div class="font-semibold overflow-hidden text-ellipsis">${user.name}</div><span class="text-neutral-content-weak">${formatNumber(user.total_karma)} karma</span>`,
-					className: 're-user-info inline-block ml-2xs text-12 font-normal',
-				});
-				document.querySelector('button#expand-user-drawer-button').appendChild(a);
-				document.documentElement.style.setProperty('--re-username', "'" + user.name + "'");
-			}
-		}
+	try {
+		await Promise.all([attachUserInfo(), attachPageTitle()]);
+	} catch (e) {
+		// Log the error to the developer console
+		console.error('[RedditEnhancer] Error attaching user info and page title in header: ', e);
 	}
+}
 
-	// Attach the side menu to the header
+// Disable the feature
+function disableAttachSideMenuHeader() {
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-attach-side-menu-header"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+	if (document.querySelector('.re-header-menu')) document.querySelector('.re-header-menu').remove();
+	if (document.querySelector('.re-user-info')) document.querySelector('.re-user-info').remove();
+}
+
+// Display username and karma within the toggle user drawer button
+async function attachUserInfo() {
+	let loggedIn = document.querySelector('shreddit-app')?.getAttribute('user-logged-in') === 'true';
+	if (!loggedIn || document.querySelector('.re-user-info')) return;
+
+	const user = await fetchData(`api/me.json`);
+	if (user && user.name && user.total_karma && document.querySelector('button#expand-user-drawer-button')) {
+		const a = Object.assign(document.createElement('div'), {
+			innerHTML: `<div class="font-semibold overflow-hidden text-ellipsis">${user.name}</div><span class="text-neutral-content-weak">${formatNumber(user.total_karma)} karma</span>`,
+			className: 're-user-info inline-block ml-2xs text-12 font-normal',
+		});
+		document.querySelector('button#expand-user-drawer-button').appendChild(a);
+		document.documentElement.style.setProperty('--re-username', "'" + user.name + "'");
+	} else {
+		throw new Error('[RedditEnhancer] attachSideMenuHeader: Unable to fetch user data.');
+	}
+}
+
+// Attach the side menu to the header
+async function attachPageTitle() {
 	const currentPage = document.querySelector('shreddit-app').getAttribute('routename');
-	let logo, title, data;
+	let logo = '', title = '', data;
+
 	try {
 		switch (currentPage) {
 			case 'frontpage':
 				title = 'Home';
-				logo = document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('a[href="/?feed=home"] svg').outerHTML;
+				logo = `<svg rpl="" fill="currentColor" height="20" icon-name="home-fill" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m19.724 6.765-9.08-6.11A1.115 1.115 0 0 0 9.368.647L.276 6.765a.623.623 0 0 0 .35 1.141h.444v10.001c.001.278.113.544.31.74.196.195.462.304.739.303h5.16a.704.704 0 0 0 .706-.707v-4.507c0-.76 1.138-1.475 2.02-1.475.882 0 2.02.715 2.02 1.475v4.507a.71.71 0 0 0 .707.707h5.16c.274-.001.538-.112.732-.307.195-.195.305-.46.306-.736v-10h.445a.618.618 0 0 0 .598-.44.625.625 0 0 0-.25-.702Z"></path></svg>`;
 				break;
 			case 'popular':
 				title = 'Popular';
-				logo = document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('a[href="/r/popular/"] svg').outerHTML;
+				logo = `<svg rpl="" fill="currentColor" height="20" icon-name="popular-fill" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M10 0a10 10 0 1 0 10 10A10.01 10.01 0 0 0 10 0Zm4 13.791L10.812 10.6l-6.245 6.247a8.92 8.92 0 0 1-1.414-1.414L9.4 9.188 6.209 6h7.778l.013.638v7.153Z"></path></svg>`;
 				break;
 			case 'all':
 				title = 'All';
-				logo = document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('a[href="/r/all/"] svg').outerHTML;
+				logo = `<svg rpl="" fill="currentColor" height="20" icon-name="all-fill" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M10 0a10 10 0 1 0 10 10A10.01 10.01 0 0 0 10 0ZM7 18.209a8.664 8.664 0 0 1-1.5-.719V14H7v4.209Zm4 .479c-.332.04-.666.06-1 .062-.169 0-.334-.016-.5-.025V10H11v8.688Zm4-1.517c-.471.33-.973.612-1.5.843V6H15v11.171Z"></path></svg>`;
 				break;
 			case 'explore-page':
 				title = 'Explore';
-				logo = document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('a[href="/explore/"] svg').outerHTML;
+				logo = `<svg rpl="" fill="currentColor" height="20" icon-name="communities-fill" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M17.806 16.25a10 10 0 1 0-1.403 1.43l2.187 2.15 1.403-1.429-2.187-2.151ZM13.133 6.04a2.453 2.453 0 1 1 0 4.905 2.453 2.453 0 0 1 0-4.905Zm-6.056 0a2.453 2.453 0 1 1 0 4.905 2.453 2.453 0 0 1 0-4.905ZM11.733 17.8a7.982 7.982 0 0 1-9.018-4.504 3.507 3.507 0 0 1 2.898-1.49h2.495a3.574 3.574 0 0 1 3.623 3.515l.002 2.48Zm1.503-.493v-1.986a4.946 4.946 0 0 0-1.477-3.515h2.247a3.628 3.628 0 0 1 3.139 1.796 8.065 8.065 0 0 1-3.909 3.705Z"></path></svg>`;
 				break;
 			case 'mod_queue_all':
 				title = 'Mod Queue';
@@ -378,7 +399,7 @@ async function enableAttachSideMenuHeader() {
 			case 'mod_queue':
 				title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
 				data = await fetchData(`${title}/about.json`);
-				if (data.community_icon || data.icon_img) {
+				if (data && (data.community_icon || data.icon_img)) {
 					logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon ? data.community_icon : data.icon_img}">`;
 				} else {
 					logo = document.querySelector('.shreddit-subreddit-icon__icon').outerHTML;
@@ -392,11 +413,14 @@ async function enableAttachSideMenuHeader() {
 			case 'profile_upvoted':
 			case 'profile_downvoted':
 			case 'profile_post_page':
+			case 'profile_post_page_comments':
 			case 'profile_serp':
 				title = 'u/' + window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1];
 				data = await fetchData(`user/${window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1]}/about.json`);
-				logo = `<img alt="${title} user avatar" class="${data.snoovatar_img ? '' : 'rounded-full'} h-lg w-lg mb-0" 
+				if (data && (data.snoovatar_img || data.icon_img)) {
+					logo = `<img alt="${title} user avatar" class="${data.snoovatar_img ? '' : 'rounded-full'} h-lg w-lg mb-0" 
 						src="${data.snoovatar_img ? data.snoovatar_img : data.icon_img}">`;
+				} else logo = '';
 				break;
 			case 'global_serp':
 				title = 'Search results';
@@ -408,11 +432,11 @@ async function enableAttachSideMenuHeader() {
 				break;
 			case 'post_submit':
 				title = 'Create post';
-				logo = document.querySelector('a#create-post svg').outerHTML;
+				logo = `<svg rpl="" fill="currentColor" height="20" icon-name="add-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M18 9.25h-7.25V2a.772.772 0 0 0-.75-.75.772.772 0 0 0-.75.75v7.25H2a.772.772 0 0 0-.75.75c0 .398.352.75.75.75h7.25V18c0 .398.352.75.75.75s.75-.352.75-.75v-7.25H18c.398 0 .75-.352.75-.75a.772.772 0 0 0-.75-.75Z"></path></svg>`;
 				break;
 			case 'inbox':
 				title = 'Notifications';
-				logo = document.querySelector('a#notifications-inbox-button svg').outerHTML;
+				logo = `<svg rpl="" fill="currentColor" height="20" icon-name="notification-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M11 18h1a2 2 0 0 1-4 0h3Zm8-3.792v.673A1.12 1.12 0 0 1 17.883 16H2.117A1.12 1.12 0 0 1 1 14.881v-.673a3.947 3.947 0 0 1 1.738-3.277A2.706 2.706 0 0 0 3.926 8.7V7.087a6.07 6.07 0 0 1 12.138 0l.01 1.613a2.7 2.7 0 0 0 1.189 2.235A3.949 3.949 0 0 1 19 14.208Zm-1.25 0a2.7 2.7 0 0 0-1.188-2.242A3.956 3.956 0 0 1 14.824 8.7V7.088a4.819 4.819 0 1 0-9.638 0v1.615a3.956 3.956 0 0 1-1.738 3.266 2.7 2.7 0 0 0-1.198 2.239v.542h15.5v-.542Z"></path></svg>`;
 				break;
 			case 'settings-account-page':
 			case 'settings-profile-page':
@@ -422,6 +446,11 @@ async function enableAttachSideMenuHeader() {
 			case 'settings-email-page':
 				title = 'Settings';
 				logo = '';
+				break;
+			case 'guides':
+			case 'guides_conversation':
+				title = 'Answers';
+				logo = `<svg rpl="" fill="currentColor" height="20" icon-name="answers-fill" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M16.11 18.57h.03a4.37 4.37 0 0 0 3.23-4.22c0-2.42-1.96-4.38-4.38-4.38h-.02c-.4 0-1.32.06-2.21.57-1.22.71-2 1.97-2.12 3.35v.02c0 .11-.02.21-.02.32 0 1.33-.46 2.57-1.34 3.6-.29.34-.61.63-.97.88H15c.17 0 .35-.01.51-.03.08 0 .15-.02.23-.03.13-.02.25-.05.37-.08Z"></path><path d="M13.17 2.58s-.02-.02-.02-.03a4.374 4.374 0 0 0-5.27-.69 4.38 4.38 0 0 0-1.6 5.98v.02c.21.35.72 1.11 1.62 1.63 1.23.71 2.71.75 3.96.16 0 0 .01 0 .02-.01.1-.05.19-.09.29-.14 1.16-.67 2.46-.88 3.79-.64.43.08.85.22 1.24.4l-3.34-5.79c-.09-.15-.18-.29-.29-.43-.05-.06-.1-.12-.14-.18-.08-.1-.17-.19-.26-.28Z"></path><path d="M.78 13.18v.03c-.49 1.86.29 3.9 2.04 4.91a4.38 4.38 0 0 0 5.98-1.6v-.02c.21-.35.62-1.17.62-2.2 0-1.41-.7-2.72-1.84-3.51 0 0-.01 0-.02-.01-.09-.06-.17-.12-.27-.18a5.511 5.511 0 0 1-2.73-4.24l-3.34 5.79c-.09.15-.16.31-.23.46-.03.07-.06.14-.08.21l-.12.36H.78Z"></path></svg>`;
 				break;
 			default:
 				if (window.location.pathname.includes('/mod/')) {
@@ -439,44 +468,41 @@ async function enableAttachSideMenuHeader() {
 		title = currentPage.charAt(0).toUpperCase() + currentPage.slice(1);
 		logo = '';
 	}
+
 	if (document.querySelector('.re-header-menu')) return;
 	const sideMenu = Object.assign(document.createElement('nav'), {
 		innerHTML: `<div class="flex items-center gap-xs px-xs h-full">${logo}<span>${title}</span></div>`,
 		className: 're-header-menu mb-0 h-[40px] mr-md text-neutral-content-strong box-border',
 	});
 
-	if (!optOutAttach) {
-		const banner = () => {
-			showBannerMessage('info', "Reddit Enhancer wasn't able to attach the side menu. Please refresh the page. Sorry!");
-		};
-		sideMenu.querySelector('div').addEventListener('click', banner);
-		const sideMenu2 = document.querySelector('reddit-sidebar-nav');
-		if (sideMenu2) {
-			sideMenu2.setAttribute('style', '');
-			sideMenu.appendChild(sideMenu2);
-			sideMenu.querySelector('div').addEventListener('click', (e) => {
-				e.stopPropagation();
-				sideMenu2.style.display = getComputedStyle(sideMenu2).display === 'none' ? 'block' : 'none';
-			});
-			window.addEventListener('click', () => {
-				if (!sideMenu.contains(e.target)) sideMenu2.style.display = 'none';
-			});
-			sideMenu.querySelector('div').removeEventListener('click', banner);
-		}
-	}
+	// Attach the side menu to the header
+	if (!optOutAttach) attachSideMenu(sideMenu);
 
+	// Finally, insert the side menu into the header
 	const searchBar = document.querySelector('reddit-header-large header > nav.h-header-large > div.justify-stretch');
-	searchBar.parentNode.insertBefore(sideMenu, searchBar);
+	if (searchBar) searchBar.parentNode.insertBefore(sideMenu, searchBar);
 }
 
-// Disable the feature
-function disableAttachSideMenuHeader() {
-	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-attach-side-menu-header"]');
-	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
-	});
-	if (document.querySelector('.re-header-menu')) document.querySelector('.re-header-menu').remove();
-	if (document.querySelector('.re-user-info')) document.querySelector('.re-user-info').remove();
+function attachSideMenu(sideMenu) {
+	// Clicking the side menu toggle without the side menu will show a warning banner
+	const banner = () => showBannerMessage('warning', "Reddit Enhancer wasn't able to attach the side menu. Please refresh the page. Sorry!");
+	sideMenu.querySelector('div').addEventListener('click', banner);
+
+	const sideMenu2 = document.querySelector('reddit-sidebar-nav');
+	if (sideMenu2) {
+		sideMenu2.setAttribute('style', '');
+		sideMenu.appendChild(sideMenu2);
+		// Display or hide the side menu when clicking on the header button
+		sideMenu.querySelector('div').addEventListener('click', (e) => {
+			e.stopPropagation();
+			sideMenu2.style.display = getComputedStyle(sideMenu2).display === 'none' ? 'block' : 'none';
+		});
+		// Hide the side menu when clicking outside of it
+		window.addEventListener('click', (e) => {
+			if (!sideMenu.contains(e.target)) sideMenu2.style.display = 'none';
+		});
+		sideMenu.querySelector('div').removeEventListener('click', banner);
+	}
 }
 
 /**
@@ -500,27 +526,22 @@ function formatNumber(num) {
 }
 
 async function fetchData(query) {
-	const fetch_url = `https://www.reddit.com/${query}`;
-	const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
-	let response;
+	if (e) throw new Error('[RedditEnhancer] attachSideMenuHeader is disabled due to previous errors.');
+
+	const fetchUrl = `https://www.reddit.com/${query}`;
+	const isChrome = !!window.chrome?.webstore || !!window.chrome?.runtime;
 
 	try {
-		if (isChrome && window.location.hostname === 'sh.reddit.com') {
-			response = await fetch(fetch_url, { method: 'GET', mode: 'no-cors' });
-		} else {
-			response = await fetch(fetch_url, { method: 'GET' });
-		}
-		if (!response.ok) {
-			throw response.status;
-		}
-		const data = await response.json();
-		return data.data;
-	} catch (error) {
-		// whoa there, pardner!
-		if (e) return;
+		const response = await fetch(fetchUrl, {
+			method: 'GET',
+			mode: isChrome && window.location.hostname === 'sh.reddit.com' ? 'no-cors' : undefined,
+		});
 
-		// Log the error to the developer console
-		console.error('[RedditEnhancer] Error getting info for attaching side menu to and display user info in header: ', error);
+		if (!response.ok) throw response.status;
+
+		return (await response.json()).data;
+	} catch (error) {
+		console.error('[RedditEnhancer] attachSideMenuHeader: Error fetching data: ', error);
 		e = true;
 		throw error;
 	}

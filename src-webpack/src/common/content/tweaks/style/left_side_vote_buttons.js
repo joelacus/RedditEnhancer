@@ -79,7 +79,8 @@ function enableLeftSideVoteButtons() {
             }
 			shreddit-app[routename="post_page"] main.main,
 			shreddit-app[routename="comments_page"] main.main,
-			shreddit-app[routename="profile_post_page"] main.main {
+			shreddit-app[routename="profile_post_page"] main.main,
+			shreddit-app[routename="profile_post_page_comments"] main.main {
 			    padding-left: 0;
 			    
 			    & .re-vote-panel {
@@ -146,6 +147,31 @@ function enableLeftSideVoteButtons() {
             shreddit-app[routename="post_page"] shreddit-post[post-type="link"]:has(img#post-image) h1,
             shreddit-app[routename="comment_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 {
                 margin-right: calc(144px + 2rem);
+            }
+            
+            [routename="profile_post_page"] #pdp-credit-bar > span.truncate > span,
+            [routename="profile_post_page"] #pdp-credit-bar > span.truncate > div .subreddit-name,
+            [routename="profile_post_page"] #pdp-credit-bar > span.truncate > div #time-ago-separator,
+            [routename="profile_post_page_comments"] #pdp-credit-bar > span.truncate > span,
+            [routename="profile_post_page_comments"] #pdp-credit-bar > span.truncate > div .subreddit-name,
+            [routename="profile_post_page_comments"] #pdp-credit-bar > span.truncate > div #time-ago-separator {
+                display: none;
+            }
+            [routename="profile_post_page"] #pdp-credit-bar > span.truncate,
+            [routename="profile_post_page_comments"] #pdp-credit-bar > span.truncate {
+                align-items: start;
+            }
+            [routename="profile_post_page"] #pdp-credit-bar > span.truncate > div,
+            [routename="profile_post_page_comments"] #pdp-credit-bar > span.truncate > div {
+                flex-direction: row-reverse;
+            }
+            [routename="profile_post_page"] #pdp-credit-bar .author-name:before,
+            [routename="profile_post_page_comments"] #pdp-credit-bar .author-name:before {
+                content: "Posted by u/";
+            }
+            [routename="profile_post_page"] shreddit-post h1[slot="title"],
+            [routename="profile_post_page_comments"] shreddit-post h1[slot="title"] {
+                margin-top: 0;
             }
 			`;
         document.head.insertBefore(styleElement, document.head.firstChild);

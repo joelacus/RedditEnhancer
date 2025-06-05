@@ -35,14 +35,16 @@ export async function defaultSortOption() {
     const url = new URL(window.location.href);
     // Once the page has loaded, attempt to attach the sorting option to the
     // posts and the Reddit logo in the header
-    if (document.readyState === 'complete') {
-        attachSortObserver(url);
-    } else {
-        window.addEventListener('load', () => attachSortObserver(url));
+    if (redditVersion === "newnew") {
+        if (document.readyState === 'complete') {
+            attachSortObserver(url);
+        } else {
+            window.addEventListener('load', () => attachSortObserver(url));
+        }
     }
     // If it is the same type of page (because user manually change the sorting
     // option), or was navigated using the Back button, don't override previous sort
-    if (classify(url) || popstate) {
+    if (url.href.includes('#lightbox') || classify(url) || popstate) {
         console.debug("[RedditEnhancer] Skipping defaultSortOption for temporary sort option change, or due to popstate event: " + popstate);
         popstate = false;
         return;
@@ -94,7 +96,7 @@ export async function defaultSortOption() {
             } = await getStorage(['enableDefaultFeedSortOption', 'defaultFeedSortOption']);
             const currentSort = url.searchParams.get('sort');
             console.debug(`[RedditEnhancer] Detected post search page or user page. Sorting enabled: ${sort}, target sort: ${sortOption}, current sort: ${currentSort}`);
-            if (sortOption.equals('relevance')) sortOption = 'best';
+            if (sortOption === 'relevance') sortOption = 'best';
             if (sort && sortOption && (!currentSort || currentSort !== sortOption)) {
                 url.searchParams.set('sort', sortOption);
                 console.debug("[RedditEnhancer] defaultSortOption: Redirecting to " + url.href);

@@ -120,6 +120,7 @@ function enableUseCustomBackgroundNewNew() {
 								[routename="post_page"] main.main,
 								[routename="comments_page"] main.main,
 								[routename="profile_post_page"] main.main,
+								[routename="profile_post_page_comments"] main.main,
 								[routename="post_stats"] main.main {
 									margin: 1rem 0;
 									padding: 0 1rem .75rem 1rem;
@@ -149,7 +150,8 @@ function enableUseCustomBackgroundNewNew() {
 								}
 								shreddit-app[routename="post_page"] div[slot="post-insights-panel"] .p-md,
 								shreddit-app[routename="comments_page"] div[slot="post-insights-panel"] .p-md,
-								shreddit-app[routename="profile_post_page"] div[slot="post-insights-panel"] .p-md {
+								shreddit-app[routename="profile_post_page"] div[slot="post-insights-panel"] .p-md
+								shreddit-app[routename="profile_post_page_comments"] div[slot="post-insights-panel"] .p-md {
 									padding: 0;
 								}
 								shreddit-app div.sidebar-grid {

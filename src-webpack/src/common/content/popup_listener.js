@@ -161,6 +161,7 @@ import { hideBlockedKeywordPosts } from './tweaks/block/block_posts_by_keyword';
 import { hideVideoRecommendations } from './tweaks/media/hide_video_recommendations';
 import { leftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { hideCommunityStatus } from './tweaks/hide_elements/hide_community_status';
+import { rightSidePostThumbnails } from "./tweaks/style/right_side_post_thumbnails";
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
@@ -414,6 +415,7 @@ const functionRegistry = {
 	hidePostSpoilerOption,
 	hidePostNsfwOption,
 	hidePostBrandAwarenessOption,
+	rightSidePostThumbnails
 	//dragImageToResize,
 	//dragImageToResizeInitialSize,
 	//addDownloadVideoButton,
