@@ -9,6 +9,8 @@
  * User can change the feed sort option manually at any time.
  */
 
+import { showBannerMessage } from "../../content/banner_message";
+
 // Preload home feed and comment sorting options to attach to Reddit logo and posts
 const {
     enableDefaultHomeFeedSortOption: homeFeedSort,
@@ -40,13 +42,13 @@ export async function defaultSortOption() {
     }
     // If it is the same type of page (because user manually change the sorting
     // option), or was navigated using the Back button, don't override previous sort
-    if (classify(url) || popstate) {
+    if (classify(url) || popstate || /^(\/(best|hot|new|top|rising)\/|\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?)$|\/m\//.test(url.pathname) && type === 'comments') {
         popstate = false;
         return;
     }
 
     if (/\/(submit|wiki|rules)/.test(url.pathname)) {
-        console.log("[RedditEnhancer] Skipping defaultSortOption because the current page (submit, wiki, rules) is not sortable");
+        console.debug("[RedditEnhancer] Skipping defaultSortOption because the current page (submit, wiki, rules) is not sortable");
     } else if (url.pathname.includes('/comments/') || (url.searchParams.get('type') === 'comments' && /\/search\//.test(url.pathname))) {
         // Post page and comment search page
         try {
@@ -55,13 +57,15 @@ export async function defaultSortOption() {
                 defaultCommentsSortOption: sortOption
             } = await getStorage(['enableDefaultCommentsSortOption', 'defaultCommentsSortOption']);
             const currentSort = url.searchParams.get('sort');
-            console.log(`[RedditEnhancer] Detected post page or comment search page. Sorting enabled: ${sort}, target sort: ${sortOption}, current sort: ${currentSort}`);
+            console.debug(`[RedditEnhancer] Detected post page or comment search page. Sorting enabled: ${sort}, target sort: ${sortOption}, current sort: ${currentSort}`);
             if (sort && sortOption && (!currentSort || currentSort !== sortOption)) {
                 url.searchParams.set('sort', sortOption);
+                console.debug("[RedditEnhancer] defaultSortOption: Redirecting to " + url.href);
                 window.location.replace(url.href);
             }
         } catch (error) {
-            console.error(error);
+            showBannerMessage('error', '[RedditEnhancer] An error occurred when redirecting to the preferred comment sort option.');
+            console.error("[RedditEnhancer] Error occurred when redirecting to the preferred comment sort option: " + error);
         }
     } else if (['', '/', '/best/', '/hot/', '/new/', '/top/', '/rising/'].includes(url.pathname)) {
         // Home page
@@ -70,13 +74,15 @@ export async function defaultSortOption() {
                 enableDefaultHomeFeedSortOption: sort,
                 defaultHomeFeedSortOption: sortOption
             } = await getStorage(['enableDefaultHomeFeedSortOption', 'defaultHomeFeedSortOption']);
-            console.log(`[RedditEnhancer] Detected home feed. Sorting enabled: ${sort}, target sort: ${sortOption}`);
+            console.debug(`[RedditEnhancer] Detected home feed. Sorting enabled: ${sort}, target sort: ${sortOption}`);
             if (sort && sortOption && !url.pathname.includes(sortOption)) {
                 url.pathname = sortOption;
+                console.debug("[RedditEnhancer] defaultSortOption: Redirecting to " + url.href);
                 window.location.replace(url.href);
             }
         } catch (error) {
-            console.log(error);
+            showBannerMessage('error', '[RedditEnhancer] An error occurred when redirecting to the preferred home feed sort option.');
+            console.error("[RedditEnhancer] Error occurred when redirecting to the preferred home feed sort option: " + error);
         }
     } else if (url.searchParams.get('type') === 'posts' || /\/search\//.test(url.pathname) || /\/user\/(?!.*\/m\/)/.test(url.pathname)) {
         // Post search and user pages
@@ -86,16 +92,18 @@ export async function defaultSortOption() {
                 defaultFeedSortOption: sortOption
             } = await getStorage(['enableDefaultFeedSortOption', 'defaultFeedSortOption']);
             const currentSort = url.searchParams.get('sort');
-            console.log(`[RedditEnhancer] Detected post search page or user page. Sorting enabled: ${sort}, target sort: ${sortOption}, current sort: ${currentSort}`);
+            console.debug(`[RedditEnhancer] Detected post search page or user page. Sorting enabled: ${sort}, target sort: ${sortOption}, current sort: ${currentSort}`);
             if (sortOption.equals('relevance')) sortOption = 'best';
             if (sort && sortOption && (!currentSort || currentSort !== sortOption)) {
                 url.searchParams.set('sort', sortOption);
+                console.debug("[RedditEnhancer] defaultSortOption: Redirecting to " + url.href);
                 window.location.replace(url.href);
             }
         } catch (error) {
-            console.log(error);
+            showBannerMessage('error', '[RedditEnhancer] An error occurred when redirecting to the preferred feed sort option.');
+            console.error("[RedditEnhancer] Error occurred when redirecting to the preferred feed sort option: " + error);
         }
-    } else if (/\/r\/|\/m\//.test(url.pathname)) {
+    } else if (/^(\/r\/[^\/] +\/(best|hot|new|top|rising)?\/?)$|\/m\//.test(url.pathname)) {
         // Subreddit and multireddit (custom feed) pages
         try {
             const {
@@ -103,13 +111,15 @@ export async function defaultSortOption() {
                 defaultFeedSortOption: sortOption
             } = await getStorage(['enableDefaultFeedSortOption', 'defaultFeedSortOption']);
             const currentSort = url.pathname.split('/').filter(item => item !== '').pop();
-            console.log(`[RedditEnhancer] Detected subreddit or multireddit (custom feed) page. Sorting enabled: ${sort}, target sort: ${sortOption}, current sort/name: ${currentSort}`);
+            console.debug(`[RedditEnhancer] Detected subreddit or multireddit (custom feed) page. Sorting enabled: ${sort}, target sort: ${sortOption}, current sort/name: ${currentSort}`);
             if (sort && sortOption && (!currentSort || currentSort !== sortOption)) {
                 url.pathname = [...url.pathname.split('/').filter((item) => item !== ''), sortOption].join('/');
+                console.debug("[RedditEnhancer] defaultSortOption: Redirecting to " + url.href);
                 window.location.replace(url.href);
             }
         } catch (error) {
-            console.log(error);
+            showBannerMessage('error', '[RedditEnhancer] An error occurred when redirecting to the preferred feed sort option.');
+            console.error("[RedditEnhancer] Error occurred when redirecting to the preferred feed sort option: " + error);
         }
     }
 }
@@ -122,12 +132,12 @@ function attachSortObserver(url) {
     if (/^(\/(best|hot|new|top|rising)\/|\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?)$|\/m\//.test(url.pathname) && commentSort && commentSortOption) {
         changePostURLToSort();
         observer.observe(document.querySelector('shreddit-feed'), {childList: true});
-        console.log("[RedditEnhancer] defaultSortOption: Attached observer for watching new posts");
+        console.debug("[RedditEnhancer] defaultSortOption: Attached observer for watching new posts");
     }
     // Home feed sorting option to Reddit logo
     if (homeFeedSort && homeFeedSortOption) {
         document.getElementById("reddit-logo")?.setAttribute('href', `/${homeFeedSortOption}`);
-        console.log("[RedditEnhancer] defaultSortOption: Attached home feed sort option to Reddit logo");
+        console.debug("[RedditEnhancer] defaultSortOption: Attached home feed sort option to Reddit logo");
     }
 }
 
@@ -136,11 +146,15 @@ export function changePostURLToSort() {
     const posts = document.querySelectorAll('shreddit-post');
     let postArray = [...posts];
     for (const post of postArray) {
-        if (post.getAttribute('sort') === commentSortOption) continue;
-        const redirect = post.querySelector('a:first-child[slot="full-post-link"]');
-        if (redirect) {
-            redirect.setAttribute('href', redirect.getAttribute('href') + '?sort=' + commentSortOption);
-            post.setAttribute('sort', commentSortOption);
+        try {
+            if (post.getAttribute('sort') === commentSortOption) continue;
+            const redirect = post.querySelector('a:first-child[slot="full-post-link"]');
+            if (redirect) {
+                redirect.setAttribute('href', redirect.getAttribute('href') + '?sort=' + commentSortOption);
+                post.setAttribute('sort', commentSortOption);
+            }
+        } catch (error) {
+            console.error("[RedditEnhancer] Error occurred when attaching comment sort option to posts: " + error);
         }
     }
 }
@@ -177,7 +191,9 @@ function classify(url) {
     } else if (url.pathname.includes('/comments/') && type !== 'comments') {
         type = 'comments';
         return false;
-    } else if (/\/r\//.test(url.pathname) && type !== 'subreddit') {
+    } else if (/^(\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?)$/.test(url.pathname) && type !== 'subreddit') {
+        // Note: when temporarily changing the comment sort option, `type` may
+        // change to `subreddit` for a split second (?!)
         type = 'subreddit';
         return false;
     } else if (/\/m\//.test(url.pathname) && type !== 'multireddit') {
