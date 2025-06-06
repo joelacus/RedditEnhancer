@@ -48,16 +48,14 @@ export async function defaultSortOption() {
             if (redditVersion === "newnew") attachSortObserver(url);
         });
     }
-    // If it is the same type of page (because user manually change the sorting
-    // option), or was navigated using the Back button, don't override previous sort
-    if (url.href.includes('#lightbox') || classify(url) || popstate) {
+
+    if (/\/(submit|wiki|rules|notifications)/.test(url.pathname)) {
+        console.debug("[RedditEnhancer] Skipping defaultSortOption because the current page (submit, wiki, rules) is not sortable");
+        const page = url.pathname.match(/\/(submit|wiki|rules|notifications)/)?.[1];
+        sessionStorage.setItem('RE.page', page);
+    } else if (url.href.includes('#lightbox') || classify(url) || popstate) {
         console.debug("[RedditEnhancer] Skipping defaultSortOption for temporary sort option change, or due to popstate or pageshow event: " + popstate);
         popstate = false;
-        return;
-    }
-
-    if (/\/(submit|wiki|rules)/.test(url.pathname)) {
-        console.debug("[RedditEnhancer] Skipping defaultSortOption because the current page (submit, wiki, rules) is not sortable");
     } else if (url.pathname.includes('/comments/') || (url.searchParams.get('type') === 'comments' && /\/search\//.test(url.pathname))) {
         // Post page and comment search page
         try {
@@ -147,6 +145,7 @@ function attachSortObserver(url) {
     if (homeFeedSort && homeFeedSortOption) {
         document.getElementById("reddit-logo")?.setAttribute('href', `/${homeFeedSortOption}`);
         console.debug("[RedditEnhancer] defaultSortOption: Attached home feed sort option to Reddit logo");
+        document.querySelector('left-nav-top-section')?.shadowRoot?.querySelector('#home-posts > a')?.setAttribute('href', `/${homeFeedSortOption}?feed=home`);
     }
 }
 
