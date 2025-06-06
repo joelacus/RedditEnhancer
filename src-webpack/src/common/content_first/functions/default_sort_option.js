@@ -23,7 +23,7 @@ const {
     'enableDefaultCommentsSortOption',
     'defaultCommentsSortOption'
 ]);
-let type, subreddit, popstate = false;
+let subreddit, popstate = false;
 
 // When pressing the back button on the page or in the browser, Reddit SPA makes
 // a popstate event. Detect this popstate event to stop defaultSortOption from
@@ -35,12 +35,12 @@ export async function defaultSortOption() {
     const url = new URL(window.location.href);
     // Once the page has loaded, attempt to attach the sorting option to the
     // posts and the Reddit logo in the header
-    if (redditVersion === "newnew") {
-        if (document.readyState === 'complete') {
-            attachSortObserver(url);
-        } else {
-            window.addEventListener('load', () => attachSortObserver(url));
-        }
+    if (document.readyState === 'complete') {
+        if (redditVersion === "newnew") attachSortObserver(url);
+    } else {
+        window.addEventListener('load', () => {
+            if (redditVersion === "newnew") attachSortObserver(url);
+        });
     }
     // If it is the same type of page (because user manually change the sorting
     // option), or was navigated using the Back button, don't override previous sort
@@ -188,31 +188,31 @@ function getStorage(keys) {
  * @returns {boolean} Whether defaultSortOption should be applied
  */
 function classify(url) {
-    const previousType = type, previousSub = subreddit;
+    const previousType = sessionStorage.getItem('RE.page'), previousSub = subreddit;
     subreddit = url.pathname.match(/^\/r\/([^\/]+)\//)?.[1];
 
-    if (['/', '/best/', '/hot/', '/new/', '/top/', '/rising/'].includes(url.pathname) && type !== 'home') {
-        type = 'home';
+    if (['/', '/best/', '/hot/', '/new/', '/top/', '/rising/'].includes(url.pathname) && previousType !== 'home') {
+        sessionStorage.setItem('RE.page', 'home');
         return !!window.chrome && (!!window.CSS || !!window.webkitRequestFileSystem) && previousType === 'comments';
-    } else if (url.pathname.includes('/comments/') && type !== 'comments') {
-        type = 'comments';
+    } else if (url.pathname.includes('/comments/') && previousType !== 'comments') {
+        sessionStorage.setItem('RE.page', 'comments');
         return false;
-    } else if (/^\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?$/.test(url.pathname) && (type !== 'subreddit' || subreddit !== previousSub)) {
+    } else if (/^\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?$/.test(url.pathname) && (previousType !== 'subreddit' || subreddit !== previousSub)) {
         // Note: when temporarily changing the comment sort option, `type` may
         // change to `subreddit` for a split second (?!)
-        type = 'subreddit';
+        sessionStorage.setItem('RE.page', 'subreddit');
         return !!window.chrome && (!!window.CSS || !!window.webkitRequestFileSystem) && previousType === 'comments';
-    } else if (/\/m\//.test(url.pathname) && type !== 'multireddit') {
-        type = 'multireddit';
+    } else if (/\/m\//.test(url.pathname) && previousType !== 'multireddit') {
+        sessionStorage.setItem('RE.page', 'multireddit');
         return !!window.chrome && (!!window.CSS || !!window.webkitRequestFileSystem) && previousType === 'comments';
-    } else if (/\/user\/(?!.*\/m\/)/.test(url.pathname) && type !== 'user') {
-        type = 'user';
+    } else if (/\/user\/(?!.*\/m\/)/.test(url.pathname) && previousType !== 'user') {
+        sessionStorage.setItem('RE.page', 'user');
         return false;
-    } else if (url.searchParams.get('type') === 'comments' && /\/search\//.test(url.pathname) && type !== 'comment_search') {
-        type = 'comment_search';
+    } else if (url.searchParams.get('type') === 'comments' && /\/search\//.test(url.pathname) && previousType !== 'comment_search') {
+        sessionStorage.setItem('RE.page', 'comment_search');
         return false;
-    } else if (url.searchParams.get('type') === 'posts' && /\/search\//.test(url.pathname) && type !== 'post_search') {
-        type = 'post_search';
+    } else if (url.searchParams.get('type') === 'posts' && /\/search\//.test(url.pathname) && previousType !== 'post_search') {
+        sessionStorage.setItem('RE.page', 'post_search');
         return false;
     } else return true;
 }
