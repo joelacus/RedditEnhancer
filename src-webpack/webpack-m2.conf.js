@@ -124,6 +124,11 @@ module.exports = {
 					from: 'content/tweaks/font/RE_font.css',
 					to: 'RE_font.css',
 				},
+				{
+					context: path.resolve(__dirname, 'src/common'),
+					from: 'content/tweaks/background/bg_v2_image.json',
+					to: 'rules',
+				}
 			],
 		}),
 		new webpack.DefinePlugin({

@@ -389,6 +389,7 @@ function enableExpandContentNewNew() {
 		shreddit-app[routename="post_page"] .main-container,
 		shreddit-app[routename="comments_page"] .main-container,
 		shreddit-app[routename="profile_post_page"] .main-container,
+		shreddit-app[routename="profile_post_page_comments"] .main-container,
 		shreddit-app[routename="post_stats"] .main-container {
 			display: grid;
 			grid-template-columns: 1fr var(--re-post-sidebar-width, 316px);
@@ -433,6 +434,7 @@ function enableExpandContentNewNew() {
 		shreddit-app[routename="post_page"] main.main,
 		shreddit-app[routename="comments_page"] main.main,
 		shreddit-app[routename="profile_post_page"] main.main,
+		shreddit-app[routename="profile_post_page_comments"] main.main,
 		shreddit-app[routename="post_stats"] main.main {
 			max-width: var(--re-post-width);
 			justify-self: center;

@@ -758,6 +758,9 @@
 	"RestoreInfo2": {
 		"message": "items. Browser API limit is 120 per minute. Please leave this tab/window open for another minute."
 	},
+	"RightSidePostThumbnails": {
+		"message": "Show Post Thumbnails on the Right Side"
+	},
 	"Rising": {
 		"message": "Rising"
 	},

@@ -967,4 +967,15 @@ export function restorePopupStyleOptions() {
 		}
 		console.log('Subreddit Display Name Banner: ' + subredditDisplayNameBanner);
 	});
+
+	// Right Side Post Thumbnails
+	BROWSER_API.storage.sync.get(['rightSidePostThumbnails'], function (result) {
+		const rightSidePostThumbnails = result.rightSidePostThumbnails === true;
+		document.querySelector('.icon-right-side-post-thumbnails').style.backgroundColor = rightSidePostThumbnails ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-right-side-post-thumbnails').checked = rightSidePostThumbnails;
+		if (rightSidePostThumbnails) {
+			highlightMenuIcon('style-tweaks');
+		}
+		console.log('Right Side Post Thumbnails: ' + rightSidePostThumbnails);
+	});
 }
