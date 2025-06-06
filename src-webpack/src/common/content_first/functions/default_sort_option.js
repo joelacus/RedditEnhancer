@@ -28,7 +28,13 @@ let subreddit, popstate = false;
 // When pressing the back button on the page or in the browser, Reddit SPA makes
 // a popstate event. Detect this popstate event to stop defaultSortOption from
 // reloading the previous page, which is usually an already sorted feed
-window.addEventListener('popstate', () => { popstate = true; });
+//
+// Note: FF only. popstate events on Chrome happens after pressing the back button,
+// then having interaction with the new page (including navigating to a new page),
+// whereas popstate on FF happens right after pressing the back button
+window.addEventListener('popstate', () => {
+    if (typeof window.InstallTrigger !== 'undefined') popstate = true;
+});
 
 export async function defaultSortOption() {
     // Get the current URL, which tells RE the current type of page
@@ -45,7 +51,7 @@ export async function defaultSortOption() {
     // If it is the same type of page (because user manually change the sorting
     // option), or was navigated using the Back button, don't override previous sort
     if (url.href.includes('#lightbox') || classify(url) || popstate) {
-        console.debug("[RedditEnhancer] Skipping defaultSortOption for temporary sort option change, or due to popstate event: " + popstate);
+        console.debug("[RedditEnhancer] Skipping defaultSortOption for temporary sort option change, or due to popstate or pageshow event: " + popstate);
         popstate = false;
         return;
     }
@@ -197,7 +203,7 @@ function classify(url) {
     } else if (url.pathname.includes('/comments/') && previousType !== 'comments') {
         sessionStorage.setItem('RE.page', 'comments');
         return false;
-    } else if (/^\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?$/.test(url.pathname) && (previousType !== 'subreddit' || subreddit !== previousSub)) {
+    } else if (/^\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?$/.test(url.pathname) && (previousType !== 'subreddit' || previousType === 'subreddit' && subreddit !== previousSub)) {
         // Note: when temporarily changing the comment sort option, `type` may
         // change to `subreddit` for a split second (?!)
         sessionStorage.setItem('RE.page', 'subreddit');
