@@ -326,6 +326,12 @@ div[id^='vote-arrows-t3_'] button[data-click-id='upvote'] ~ .re-upvote-ratio {
 .re-vote-panel .re-upvote-ratio {
 	font-size: 10px;
 }
+:not(.re-vote-panel) ::part(re-upvote-ratio):before {
+	content: '\00a0(';
+}
+:not(.re-vote-panel) ::part(re-upvote-ratio):after {
+	content: ')';
+}
 
 /* ========== BIONIC READER ========== */
 .re-bold {

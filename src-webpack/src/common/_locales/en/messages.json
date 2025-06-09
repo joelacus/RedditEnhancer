@@ -989,6 +989,9 @@
 	"VideoPlayerReplacement": {
 		"message": "Alternative Video Player"
 	},
+	"ViewCrossposts": {
+		"message": "Add link to view crossposts in other subreddits"
+	},
 	"Welcome": {
 		"message": "Welcome!"
 	},

@@ -56,6 +56,7 @@ import { loadShowUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
 import { loadAttachSideMenuHeader, loadSubredditDisplayNameBanner } from './tweaks/style/old_new_ui';
 import { loadLeftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { setSubredditBackground } from "./tweaks/background/custom_background";
+import { loadViewCrossposts } from "./tweaks/productivity/view_crossposts";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -250,6 +251,7 @@ export function loadTweaks() {
 				setTimeout(() => {
 					loadAutoShowCommentFormattingOptions();
 					loadCompactPostLinkPreview();
+					loadViewCrossposts();
 				}, 500);
 			},
 		});

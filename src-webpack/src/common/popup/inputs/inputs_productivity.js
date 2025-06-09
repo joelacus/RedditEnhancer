@@ -820,3 +820,11 @@ document.querySelector('#input-default-sort-feed-option-grace-period').addEventL
 		e.preventDefault();
 	}
 });
+
+// Toggle - View Crossposts
+document.querySelector('#checkbox-view-crossposts').addEventListener('change', function (e) {
+	const viewCrossposts = document.querySelector('#checkbox-view-crossposts').checked;
+	BROWSER_API.storage.sync.set({ viewCrossposts: viewCrossposts });
+	document.querySelector('.icon-view-crossposts').style.backgroundColor = viewCrossposts ? 'var(--accent)' : '';
+	sendMessage({ viewCrossposts: viewCrossposts });
+});

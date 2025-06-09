@@ -82,17 +82,20 @@ function enableExpandContentOld() {
 								.submit-page div.content[role="main"],
 								.moderator div.content[role="main"] {
 									width: var(--re-content-width);
+									max-width: calc(100% - 15px);
 								}
 								.comments-page div.content[role="main"],
 								.other-discussions-page div.content[role="main"] {
 									width: var(--re-post-width);
-									padding-left: 1rem;
+									margin: .5rem 1rem;
+									max-width: calc(100% - 2rem);
 								}
 								.profile-page div.content[role="main"] {
 									width: var(--re-user-profile-width);
 								}
 								.listing-page.multi-page div.content[role="main"] {
 									width: var(--re-custom-feed-width);
+									max-width: calc(100% - 15px);
 								}
 								/* Expand the post content, comments and wiki page content */
 								.md,

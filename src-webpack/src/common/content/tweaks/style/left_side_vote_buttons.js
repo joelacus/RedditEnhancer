@@ -148,6 +148,9 @@ function enableLeftSideVoteButtons() {
             shreddit-app[routename="comment_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 {
                 margin-right: calc(144px + 2rem);
             }
+            #re-crosspost-list {
+                margin-left: 2rem;
+            }
             
             [routename="profile_post_page"] #pdp-credit-bar > span.truncate > span,
             [routename="profile_post_page"] #pdp-credit-bar > span.truncate > div .subreddit-name,

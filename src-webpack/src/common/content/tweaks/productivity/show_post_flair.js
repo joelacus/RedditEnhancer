@@ -148,11 +148,11 @@ export async function fetchPostData(postID) {
 
 		// If this is a known error, display a visual banner message
 		if (error instanceof TypeError && error.message === 'NetworkError when attempting to fetch resource.') {
-			showBannerMessage('error', 'Cannot retrieve post data and assign flairs as www.reddit.com is currently unreachable.');
+			showBannerMessage('error', 'Cannot retrieve post data as www.reddit.com is currently unreachable.');
 		} else if (error === 403) {
-			showBannerMessage('error', 'Error retrieving post data and assigning flairs: you seem to be rate-limited by reddit');
+			showBannerMessage('error', 'Error retrieving post data: you seem to be rate-limited by reddit');
 		} else {
-			showBannerMessage('error', 'Cannot retrieve post data and assign flairs as something wrong happened on Reddit\'s end.');
+			showBannerMessage('error', 'Cannot retrieve post data as something wrong happened on Reddit\'s end.');
 		}
 
 		// Log the error to the developer console
