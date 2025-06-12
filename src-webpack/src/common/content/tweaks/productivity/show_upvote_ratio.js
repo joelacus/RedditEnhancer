@@ -44,7 +44,7 @@ async function attachRatio(post) {
 	const upvoteRatio = Math.round(postData.children[0].data.upvote_ratio * 100 || -1);
 
 	let ratio = Object.assign(document.createElement('span'), {
-		textContent: ` (${upvoteRatio}%)`,
+		textContent: `${upvoteRatio}%`,
 		className: 're-upvote-ratio',
 		part: 're-upvote-ratio',
 		title: `${upvoteRatio}% upvoted`,

@@ -723,4 +723,18 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		document.querySelector('#input-default-sort-feed-option-grace-period').value = value;
 		console.log('Default Sort Feed Option Grace Period: ' + value);
 	});
+
+	// View Crossposts
+	BROWSER_API.storage.sync.get(['viewCrossposts'], function (result) {
+		if (result.viewCrossposts) {
+			document.querySelector('#checkbox-view-crossposts').checked = true;
+			document.querySelector('.icon-view-crossposts').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else {
+			document.querySelector('#checkbox-view-crossposts').checked = false;
+			var value = false;
+		}
+		console.log('View Crossposts: ' + value);
+	})
 }

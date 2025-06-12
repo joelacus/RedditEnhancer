@@ -22,13 +22,15 @@
 [routename='comments_page'] div.crosspost-title a,
 [routename='profile_post_page'] shreddit-post h1[slot='title'],
 [routename='profile_post_page'] div.crosspost-title a,
+[routename='profile_post_page_comments'] shreddit-post h1[slot='title'],
+[routename='profile_post_page_comments'] div.crosspost-title a,
 mod-queue-app shreddit-post h1[slot='title'] > a {
 	font-size: var(--re-post-title-font-size, 1.5rem);
 	font-weight: var(--re-post-title-font-weight, 600);
 	line-height: 1.4;
 }
 shreddit-post h1[slot='title'] {
-	margin: 0.5rem 0;
+	margin: 0.35rem 0 0.5rem;
 }
 
 /* Post text content in detailed post view */
