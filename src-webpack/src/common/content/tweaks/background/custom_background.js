@@ -7,8 +7,6 @@ export function loadCustomBackground() {
 	});
 }
 
-let customBackground = false;
-
 /* === Main Function === */
 export function useCustomBackground(value) {
 	if (value) {
@@ -43,7 +41,6 @@ function setBackgroundAndBlur() {
 export function setCustomBackground(value) {
 	if (value !== '') {
 		document.documentElement.style.setProperty('--re-background-image', 'url("' + value + '") no-repeat center center / cover');
-		customBackground = true;
 	}
 }
 
@@ -171,34 +168,4 @@ function disableUseCustomBackgroundAll() {
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
-}
-
-export function setSubredditBackground() {
-	const subreddit = window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2] || null;
-	// If a custom background is already set, do not override it
-	if (customBackground || document.documentElement.classList.contains('theme-dark')) return;
-	if (subreddit) {
-		fetch(BROWSER_API.runtime.getURL('rules/bg_v2_image.json'))
-			.then(res => {
-				if (!res.ok) throw new Error('Network response was not ok');
-				return res.json();
-			})
-			.then(data => {
-				const url = subreddit && data[subreddit]?.url;
-				const colour = subreddit && data[subreddit]?.colour;
-				if (url) {
-					const config = data[subreddit]?.config;
-					document.documentElement.style.setProperty('--re-background-image', `url("${url}") ${config}`);
-				} else if (colour) {
-					document.documentElement.style.setProperty('--re-background-image', `${colour}`);
-				} else {
-					document.documentElement.style.removeProperty('--re-background-image');
-				}
-			})
-			.catch(err => {
-				console.error('Failed to load bg_v2_image.json', err);
-			});
-	} else {
-		document.documentElement.style.removeProperty('--re-background-image');
-	}
 }

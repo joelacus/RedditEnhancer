@@ -55,7 +55,7 @@ async function enableViewCrossposts() {
         // Create a list container for crossposts, hidden until clicked
         const container = Object.assign(document.createElement('section'), {
             id: 're-crosspost-list',
-            className: 'hidden p-sm',
+            className: 'hidden py-sm',
         });
         // Add crossposts to the container. Note: Set is used to filter out duplicates returned by Reddit API based on permalinks
         const uniqueItems = new Set();

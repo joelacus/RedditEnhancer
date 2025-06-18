@@ -55,6 +55,10 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 					sendResponse(response);
 				});
 				return true;
+			} else if (action.action === 'markVisited' && action.url) {
+				BROWSER_API.history.addUrl({ url: action.url }, () => {
+					console.log(`${timestamp()} - Marking URL as visited: ${action.url}`);
+				});
 			}
 		}
 	} else if (request.justOpenTheImage === true) {

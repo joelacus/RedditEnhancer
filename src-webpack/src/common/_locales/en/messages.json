@@ -384,7 +384,7 @@
 		"message": "Hide The Post Back Button"
 	},
 	"HidePostDivider": {
-		"message": "Hide Post Separators"
+		"message": "Hide post and sidebar dividers"
 	},
 	"HidePostHiddenMessage": {
 		"message": "Hide 'Post Hidden' Message"
@@ -532,6 +532,9 @@
 	},
 	"MarkAsBrandAffiliate": {
 		"message": "Mark as brand affiliate"
+	},
+	"MarkReadOnOpenExpandos": {
+		"message": "Mark posts as read when opening expandos in Compact view"
 	},
 	"MaxImagePostHeight": {
 		"message": "Max Image Post Height"

@@ -519,7 +519,7 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 
 	// Scroll To Next Root Comment Position X
 	BROWSER_API.storage.sync.get(['scrollToNextRootCommentPosition'], function (result) {
-		const valueX = result.scrollToNextRootCommentPosition.x;
+		const valueX = result.scrollToNextRootCommentPosition.x || 'undefined';
 		if (typeof valueX == 'undefined' || valueX === '-1') {
 			document.querySelector('#input-scroll-to-root-comment-position-x').value = -1;
 			document.querySelector('#scroll-to-root-comment-position-x-value').innerText = '48px';
@@ -736,5 +736,32 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 			var value = false;
 		}
 		console.log('View Crossposts: ' + value);
-	})
+	});
+
+	// Mark Read On Open Expandos
+	BROWSER_API.storage.sync.get(['markReadOnOpenExpandos'], function (result) {
+		if (result.markReadOnOpenExpandos === true) {
+			if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
+				BROWSER_API.permissions.contains({ permissions: ['history'] }).then((granted) => {
+					if (granted) {
+						console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission granted');
+					} else {
+						console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission denied');
+						document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+					}
+				}).catch((e) => {
+					console.error('[RedditEnhancer] markReadOnOpenExpandos: Error getting history permission: ', e);
+					document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+				});
+			}
+			document.querySelector('#checkbox-mark-read-on-open-expandos').checked = true;
+			document.querySelector('.icon-mark-read-on-open-expandos').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else if (typeof result.markReadOnOpenExpandos == 'undefined' || result.markReadOnOpenExpandos === false) {
+			document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+			var value = false;
+		}
+		console.log('Mark Read On Open Expandos: ' + value);
+	});
 }

@@ -149,7 +149,7 @@ function enableLeftSideVoteButtons() {
                 margin-right: calc(144px + 2rem);
             }
             #re-crosspost-list {
-                margin-left: 2rem;
+                margin-left: 40px;
             }
             
             [routename="profile_post_page"] #pdp-credit-bar > span.truncate > span,

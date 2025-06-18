@@ -1157,11 +1157,11 @@ export function themeSidebarBgColour(value) {
 			document.documentElement.style.setProperty('--re-theme-sidebar-bg', result.themeSidebarBgColourCSS);
 			const styleElement = document.createElement('style');
 			styleElement.id = 're-theme-sidebar-bg-colour';
-			styleElement.textContent = `#right-sidebar-contents > *,
+			styleElement.textContent = `#right-sidebar-contents aside,
 										[pagetype="search_results"] #right-sidebar-container > div > div {
 											--color-neutral-background-weak: var(--re-theme-sidebar-bg) !important;
 											--color-neutral-background-hover: rgba(0,0,0,0.6) !important;
-											backdrop-filter: blur(var(--re-theme-blur)) !important;
+											backdrop-filter: blur(var(--re-theme-blur));
 										}
 										.theme-dark #right-sidebar-container .button {
 											--button-color-background-default: rgba(0,0,0,0.4) !important;

@@ -124,12 +124,16 @@ function addBorderRadiusAmountStylesheet() {
 export function addBorderRadiusToShadowRootElements() {
 	const recentPosts = document.querySelector('recent-posts')?.shadowRoot?.children[0] || null;
 	const pdpCommentSearchInput = document.querySelector('pdp-comment-search-input')?.shadowRoot || null;
+	const subredditHeader = document.querySelector('shreddit-subreddit-header')?.shadowRoot || null;
+	const achievementsEntrypoint = document.querySelector('achievements-entrypoint')?.shadowRoot || null;
 	const shadowRootElements = [
 		recentPosts,
 		pdpCommentSearchInput?.querySelector('button'),
 		pdpCommentSearchInput?.querySelector('faceplate-search-input'),
 		pdpCommentSearchInput?.querySelector('button#cancel-pdp-comment-search-button'),
-		pdpCommentSearchInput?.querySelector('faceplate-search-input')?.shadowRoot?.querySelector('div.label-container')
+		pdpCommentSearchInput?.querySelector('faceplate-search-input')?.shadowRoot?.querySelector('div.label-container'),
+		subredditHeader?.querySelector('div.header'),
+		achievementsEntrypoint?.querySelector('div'),
 	];
 	shadowRootElements.forEach((element) => {
 		if (element) {
@@ -142,6 +146,13 @@ export function addBorderRadiusToShadowRootElements() {
 	if (pdpCommentSearchInput) {
 		pdpCommentSearchInput.querySelector('button').style.border = 'none';
 		pdpCommentSearchInput.querySelector('button').style.padding = '0';
+	}
+	if (subredditHeader) {
+		subredditHeader.querySelector('div.header')?.setAttribute('part', 'header');
+	}
+	if (achievementsEntrypoint) {
+		achievementsEntrypoint.querySelector('div:has(.achievements-entrypoint)')?.setAttribute('part', 'achievements-entrypoint');
+		achievementsEntrypoint.querySelector('hr')?.remove();
 	}
 }
 

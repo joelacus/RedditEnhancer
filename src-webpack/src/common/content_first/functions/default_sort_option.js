@@ -136,7 +136,7 @@ export async function defaultSortOption() {
 // to watch for new posts loaded dynamically using virtual scroll.
 function attachSortObserver(url) {
     // Comment sorting option to posts
-    if (/^(\/(best|hot|new|top|rising)\/|\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?)$|\/m\//.test(url.pathname) && commentSort && commentSortOption) {
+    if (/^\/$|^(\/(best|hot|new|top|rising)\/|\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?)$|\/m\//.test(url.pathname) && commentSort && commentSortOption) {
         changePostURLToSort();
         observer.observe(document.querySelector('shreddit-feed'), {childList: true});
         console.debug("[RedditEnhancer] defaultSortOption: Attached observer for watching new posts");
@@ -156,11 +156,17 @@ export function changePostURLToSort() {
     for (const post of postArray) {
         try {
             if (post.getAttribute('sort') === commentSortOption) continue;
+            // WILL AFFECT SHARE LINK.
+            // post.setAttribute('permalink', post.getAttribute('permalink') + '?sort=' + commentSortOption);
             const redirect = post.querySelector('a:first-child[slot="full-post-link"]');
             if (redirect) {
                 redirect.setAttribute('href', redirect.getAttribute('href') + '?sort=' + commentSortOption);
-                post.setAttribute('sort', commentSortOption);
             }
+            // const compact = post.querySelector('unpacking-overflow-menu');
+            // if (compact) {
+            //     compact.setAttribute('permalink', compact.getAttribute('permalink') + '?sort=' + commentSortOption);
+            // }
+            post.setAttribute('sort', commentSortOption);
         } catch (error) {
             console.error("[RedditEnhancer] Error occurred when attaching comment sort option to posts: " + error);
         }

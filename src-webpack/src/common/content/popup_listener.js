@@ -163,6 +163,7 @@ import { leftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { hideCommunityStatus } from './tweaks/hide_elements/hide_community_status';
 import { rightSidePostThumbnails } from "./tweaks/style/right_side_post_thumbnails";
 import { viewCrossposts } from "./tweaks/productivity/view_crossposts";
+import { markReadOnOpenExpandos } from "./tweaks/productivity/mark_read_on_open_expandos";
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
@@ -417,7 +418,8 @@ const functionRegistry = {
 	hidePostNsfwOption,
 	hidePostBrandAwarenessOption,
 	rightSidePostThumbnails,
-	viewCrossposts
+	viewCrossposts,
+	markReadOnOpenExpandos
 	//dragImageToResize,
 	//dragImageToResizeInitialSize,
 	//addDownloadVideoButton,

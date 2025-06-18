@@ -79,6 +79,62 @@ function enableHidePostDivider() {
 									shreddit-app[routename="mod_queue"] article > shreddit-post,
 									shreddit-app[routename="mod_queue_all"] article > shreddit-post {
 										padding-left: 2rem !important;
+									}
+									
+									#right-sidebar-contents aside:has(shreddit-subreddit-header) {
+										backdrop-filter: initial !important;
+									}
+									shreddit-app[routename='subreddit'] #right-sidebar-container aside,
+									shreddit-app[routename='subreddit_wiki'] #right-sidebar-container aside,
+									shreddit-app[routename='post_page'] #right-sidebar-container aside,
+									shreddit-app[routename='comment_page'] #right-sidebar-container aside {
+										background-color: transparent;
+									
+										> .py-md {
+											padding: 0;
+										}
+										shreddit-subreddit-header, ::part(header), ::part(achievements-entrypoint), shreddit-subreddit-header ~ div.px-md {
+											background-color: var(--color-neutral-background-weak);
+											backdrop-filter: blur(var(--re-theme-blur));
+											margin-bottom: 1rem;
+											border-radius: var(--re-theme-border-radius, 8px);
+										}
+										::part(header), ::part(achievements-entrypoint), shreddit-subreddit-header ~ div.px-md {
+											padding: 1rem;
+										}
+										community-author-flair {
+											margin-bottom: 0;
+										}
+										hr {
+											display: none;
+										}
+									}
+									shreddit-app[pagetype='custom_feed'] #right-sidebar-container {
+										aside {
+											background-color: transparent;
+										}
+										aside > div.px-md,
+										custom-feed-description,
+										custom-feed-community-list,
+										custom-feed-recommendations {
+											background-color: var(--color-neutral-background-weak);
+											margin-bottom: 1rem;
+											border-radius: var(--re-theme-border-radius, 8px);
+											backdrop-filter: blur(var(--re-theme-blur));
+										}
+										custom-feed-description {
+											padding: 0.5rem 0;
+										}
+										custom-feed-community-list,
+										custom-feed-recommendations {
+											padding-bottom: 1rem;
+										}
+										aside > div.px-md {
+											padding: 1rem;
+										}
+										hr {
+											display: none;
+										}
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

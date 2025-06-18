@@ -88,7 +88,7 @@ function addEventListenersToSideMenuSections() {
 
 	// Recent Section Event Listener
 	setTimeout(() => {
-		const recentSection = document.querySelector('reddit-recent-pages').shadowRoot.querySelector('faceplate-expandable-section-helper');
+		const recentSection = document.querySelector('reddit-recent-pages')?.shadowRoot?.querySelector('faceplate-expandable-section-helper');
 		if (recentSection && addRecentSectionListener) {
 			recentSection.addEventListener('click', function (e) {
 				const sectionState = e.currentTarget.getAttribute('open');
@@ -162,7 +162,7 @@ function setRememberSideMenuSectionHiddenStates(openStates) {
 	// Recent Section
 	setTimeout(() => {
 		const recent = openStates.recent;
-		const recentSection = document.querySelector('reddit-recent-pages').shadowRoot.querySelector('faceplate-expandable-section-helper');
+		const recentSection = document.querySelector('reddit-recent-pages')?.shadowRoot?.querySelector('faceplate-expandable-section-helper');
 		if (recent === true && recentSection) {
 			recentSection.removeAttribute('open');
 		}

@@ -55,8 +55,8 @@ import { loadUsernameHoverPopupDelay } from './tweaks/productivity/username_hove
 import { loadShowUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
 import { loadAttachSideMenuHeader, loadSubredditDisplayNameBanner } from './tweaks/style/old_new_ui';
 import { loadLeftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
-import { setSubredditBackground } from "./tweaks/background/custom_background";
 import { loadViewCrossposts } from "./tweaks/productivity/view_crossposts";
+import { loadMarkReadOnOpenExpandos } from "./tweaks/productivity/mark_read_on_open_expandos";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -122,7 +122,6 @@ export function loadTweaks() {
 		loadSideMenuToggleButton();
 		loadUsernameHoverPopupDelay();
 		loadSubredditDisplayNameBanner();
-		setSubredditBackground();
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
@@ -222,6 +221,7 @@ export function loadTweaks() {
 					loadHideBlockedKeywordPosts();
 				}, 500);
 				loadShowPostNumbers();
+				loadMarkReadOnOpenExpandos();
 			},
 		});
 
@@ -252,6 +252,7 @@ export function loadTweaks() {
 					loadAutoShowCommentFormattingOptions();
 					loadCompactPostLinkPreview();
 					loadViewCrossposts();
+					addBorderRadiusToShadowRootElements();
 				}, 500);
 			},
 		});

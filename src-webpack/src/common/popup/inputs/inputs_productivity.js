@@ -828,3 +828,26 @@ document.querySelector('#checkbox-view-crossposts').addEventListener('change', f
 	document.querySelector('.icon-view-crossposts').style.backgroundColor = viewCrossposts ? 'var(--accent)' : '';
 	sendMessage({ viewCrossposts: viewCrossposts });
 });
+
+// Toggle - Mark Read On Open Expandos
+document.querySelector('#checkbox-mark-read-on-open-expandos').addEventListener('change', function (e) {
+	const markReadOnOpenExpandos = document.querySelector('#checkbox-mark-read-on-open-expandos').checked;
+	if (markReadOnOpenExpandos) {
+		if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
+			BROWSER_API.permissions.request({ permissions: ['history'] }).then((granted) => {
+				if (granted) {
+					console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission granted');
+				} else {
+					console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission denied');
+					document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+				}
+			}).catch((e) => {
+				console.error('[RedditEnhancer] markReadOnOpenExpandos: Error requesting history permission: ', e);
+				document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+			});
+		}
+	}
+	BROWSER_API.storage.sync.set({ markReadOnOpenExpandos: markReadOnOpenExpandos });
+	document.querySelector('.icon-mark-read-on-open-expandos').style.backgroundColor = markReadOnOpenExpandos ? 'var(--accent)' : '';
+	sendMessage({ markReadOnOpenExpandos: markReadOnOpenExpandos });
+});

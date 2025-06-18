@@ -87,7 +87,7 @@ function enableExpandContentOld() {
 								.comments-page div.content[role="main"],
 								.other-discussions-page div.content[role="main"] {
 									width: var(--re-post-width);
-									margin: .5rem 1rem;
+									margin: .5rem 8px;
 									max-width: calc(100% - 2rem);
 								}
 								.profile-page div.content[role="main"] {
