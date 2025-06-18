@@ -301,6 +301,7 @@ async function restoreBackup(json) {
 				'replacePostVideosWithLinks',
 				'resizeMainContainer',
 				'resizeMainContainerWidth',
+				'rightSidePostThumbnails',
 				'scalePostToFitImage',
 				'scalePostToFitVideo',
 				'scrollToNextRootComment',
