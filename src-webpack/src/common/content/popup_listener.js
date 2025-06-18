@@ -119,7 +119,7 @@ import {
 } from './tweaks/style/override_theme_colours';
 import { useCustomBackground, setCustomBackground } from './tweaks/background/custom_background';
 import { underlineLinks } from './tweaks/accessibility/underline_links';
-import { autoShowCommentFormattingOptions } from './tweaks/productivity/auto_show_comment_formatting_options';
+import { betterCommentBox } from './tweaks/productivity/better_comment_box';
 import { hideRecommended } from './tweaks/hide_elements/hide_recommended';
 import { scalePostToFitImage } from './tweaks/media/scale_post_to_fit_image';
 import { hidePostBackButton } from './tweaks/hide_elements/hide_post_back_button';
@@ -346,7 +346,7 @@ const functionRegistry = {
 	hideJoinButtonOnPosts,
 	autoLoadMoreComments,
 	underlineLinks,
-	autoShowCommentFormattingOptions,
+	betterCommentBox,
 	hideSearchSidebar,
 	hidePostBackButton,
 	borderRadiusAmount,

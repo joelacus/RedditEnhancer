@@ -45,7 +45,7 @@ import { loadImageScroll } from './tweaks/media/scroll_images';
 import { loadScalePostToFitVideo } from './tweaks/media/scale_post_to_fit_video';
 import { loadFixThreadlinesForTranslucentPosts } from './tweaks/style/override_theme_colours';
 import { loadMulticolouredThreadLines } from './tweaks/style/multicoloured_threadlines';
-import { loadAutoShowCommentFormattingOptions } from './tweaks/productivity/auto_show_comment_formatting_options';
+import { loadBetterCommentBox } from './tweaks/productivity/better_comment_box';
 import { addBorderRadiusToShadowRootElements } from './tweaks/style/border_radius';
 import { loadAlwaysShowPostOptions } from './tweaks/productivity/always_show_post_options';
 import { loadReplacePostImagesWithLinks } from './tweaks/media/replace_images_with_links';
@@ -249,7 +249,7 @@ export function loadTweaks() {
 			recursive: true,
 			done: function () {
 				setTimeout(() => {
-					loadAutoShowCommentFormattingOptions();
+					loadBetterCommentBox();
 					loadCompactPostLinkPreview();
 					loadViewCrossposts();
 					addBorderRadiusToShadowRootElements();

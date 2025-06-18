@@ -658,20 +658,18 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		console.log('Auto Load More Comments: ' + value);
 	});
 
-	// Auto Show Comment Formatting Options
-	BROWSER_API.storage.sync.get(['autoShowCommentFormattingOptions'], function (result) {
-		if (result.autoShowCommentFormattingOptions === true) {
-			document.querySelector('.icon-auto-show-comment-formatting-options').style.backgroundColor = 'var(--accent)';
-			document.querySelector('#checkbox-auto-show-comment-formatting-options').checked = true;
+	// Better Comment Box
+	BROWSER_API.storage.sync.get(['betterCommentBox'], function (result) {
+		if (result.betterCommentBox === true) {
+			document.querySelector('.icon-better-comment-box').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-better-comment-box').checked = true;
 			highlightMenuIcon('productivity-tweaks');
-			document.querySelector('.icon-auto-show-comment-formatting-options').classList.remove('icon-hide');
-			document.querySelector('.icon-auto-show-comment-formatting-options').classList.add('icon-show');
 			var value = true;
-		} else if (typeof result.autoShowCommentFormattingOptions == 'undefined' || result.autoShowCommentFormattingOptions === false) {
-			document.querySelector('#checkbox-auto-show-comment-formatting-options').checked = false;
+		} else if (typeof result.betterCommentBox == 'undefined' || result.betterCommentBox === false) {
+			document.querySelector('#checkbox-better-comment-box').checked = false;
 			var value = false;
 		}
-		console.log('Auto Show Comment Formatting Options: ' + value);
+		console.log('Better Comment Box: ' + value);
 	});
 
 	// Sticky Sort

@@ -274,7 +274,9 @@ Required Permissions:
 - Tabs. Necessary for communication with open tabs on reddit.com. This is essential for applying features and tweaks within the reddit.com domain. This permission may appear as "Read your browsing history", when installing the extension, but is limited to the current open tabs.
 - declarativeNetRequest. Required to redirect the user to their preferred UI if enabled. Also required to open an image directly on its own if opened in a new tab.
 
+Optional Permissions:
 
+- Browser History: "Mark posts as read when opening expandos in Compact view" requires access to the browser history to add the URL of the posts in question to the history, so the browser would see the post as visited and `:visited` CSS pseudo-class would be applied to the post link. Reddit Enhancer does *not* read or modify the browser history in any other way, and this can be later disabled in the browser extension settings.
 
 Third-Party Services:
 

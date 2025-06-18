@@ -718,22 +718,12 @@ document.querySelector('#checkbox-auto-load-more-comments').addEventListener('ch
 	}
 });
 
-// Toggle - Auto Show Comment Formatting Options
-document.querySelector('#checkbox-auto-show-comment-formatting-options').addEventListener('change', function (e) {
-	const autoShowCommentFormattingOptions = document.querySelector('#checkbox-auto-show-comment-formatting-options').checked;
-	if (autoShowCommentFormattingOptions === true) {
-		BROWSER_API.storage.sync.set({ autoShowCommentFormattingOptions: true });
-		document.querySelector('.icon-auto-show-comment-formatting-options').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-auto-show-comment-formatting-options').classList.remove('icon-hide');
-		document.querySelector('.icon-auto-show-comment-formatting-options').classList.add('icon-show');
-		sendMessage({ autoShowCommentFormattingOptions: true });
-	} else if (autoShowCommentFormattingOptions === false) {
-		BROWSER_API.storage.sync.set({ autoShowCommentFormattingOptions: false });
-		document.querySelector('.icon-auto-show-comment-formatting-options').style.backgroundColor = '';
-		document.querySelector('.icon-auto-show-comment-formatting-options').classList.remove('icon-show');
-		document.querySelector('.icon-auto-show-comment-formatting-options').classList.add('icon-hide');
-		sendMessage({ autoShowCommentFormattingOptions: false });
-	}
+// Toggle - Better Comment Box
+document.querySelector('#checkbox-better-comment-box').addEventListener('change', function (e) {
+	const betterCommentBox = document.querySelector('#checkbox-better-comment-box').checked;
+	BROWSER_API.storage.sync.set({ betterCommentBox: betterCommentBox });
+	document.querySelector('.icon-better-comment-box').style.backgroundColor = betterCommentBox ? 'var(--accent)' : '';
+	sendMessage({ betterCommentBox: betterCommentBox });
 });
 
 // Slider - Side Menu Width

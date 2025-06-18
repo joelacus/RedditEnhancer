@@ -1,21 +1,23 @@
 /**
- * Tweaks: Productivity - Auto Show Comment Formatting Options
+ * Tweaks: Productivity - Better Comment Box
  *
- * @name autoShowCommentFormattingOptions
- * @description Automatically click the button to show formatting options when commenting.
+ * @name betterCommentBox
+ * @description Automatically show formatting options when commenting, add the Ctrl/Cmd + Enter shortcut to submit comments,
+ * and hide the toolbar for switching to rich-text editor when setting Markdown composer as default.
  *
  * Applies to: New New UI (2023-)
  */
+import { showBannerMessage } from "../../banner_message";
 
 /* === Triggered On Page Load === */
-export function loadAutoShowCommentFormattingOptions() {
-	BROWSER_API.storage.sync.get(['autoShowCommentFormattingOptions'], function (result) {
-		if (result.autoShowCommentFormattingOptions) autoShowCommentFormattingOptions(true);
+export function loadBetterCommentBox() {
+	BROWSER_API.storage.sync.get(['betterCommentBox'], function (result) {
+		if (result.betterCommentBox) betterCommentBox(true);
 	});
 }
 
 /* === Main Function === */
-export function autoShowCommentFormattingOptions(value) {
+export function betterCommentBox(value) {
 	if (redditVersion !== 'newnew' || !value || !window.location.pathname.includes('/comments/')) return;
 
 	// Process all shreddit composers
@@ -31,18 +33,41 @@ export function autoShowCommentFormattingOptions(value) {
 }
 
 function processComposer(composer) {
-	const rteComposer = composer.shadowRoot.querySelector('reddit-rte')?.shadowRoot?.querySelector('rte-toolbar-button');
+	const submitButton = composer.querySelector('button[type="submit"]');
+	if (!submitButton) {
+		showBannerMessage('error', '[RedditEnhancer] autoShowCommentFormattingOptions: No submit button found in composer.');
+	}
+
+	const rteComposer = composer.shadowRoot.querySelector('reddit-rte');
 	if (rteComposer && !rteComposer.getAttribute('re-showFormatting')) {
-		rteComposer.click();
+		rteComposer.shadowRoot?.querySelector('rte-toolbar.toolbar-top-responsive')?.classList.remove('hidden');
+		rteComposer.shadowRoot?.querySelector('rte-toolbar-button:last-child')?.remove();
+		composer.querySelector('div[contenteditable="true"]')?.addEventListener('keydown', (e) => {
+			if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+				e.preventDefault();
+				submitButton.click();
+				showBannerMessage('info', 'Submitting comment...');
+			}
+		});
 		rteComposer.setAttribute('re-showFormatting', '');
 	}
 
 	const mdComposer = composer.shadowRoot.querySelector('shreddit-markdown-composer');
-	if (mdComposer) {
+	if (mdComposer && !mdComposer.getAttribute('re-showFormatting')) {
 		mdComposer.shadowRoot?.querySelector('div.flex')?.remove();
 		const textarea = mdComposer.shadowRoot?.querySelector('div.textarea-container textarea');
 		mdComposer.setAttribute('exportparts', 'md-inner');
-		if (textarea) textarea.setAttribute('part', 'md-inner');
+		if (textarea) {
+			textarea.setAttribute('part', 'md-inner');
+			textarea.addEventListener('keydown', (e) => {
+				if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+					e.preventDefault();
+					submitButton.click();
+					showBannerMessage('info', 'Submitting comment...');
+				}
+			});
+			textarea.setAttribute('re-showFormatting', '');
+		}
 	}
 }
 
