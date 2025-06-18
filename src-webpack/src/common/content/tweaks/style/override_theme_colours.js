@@ -1521,7 +1521,8 @@ export function themePostUpvoteColour(value) {
 		});
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-post-upvote-colour';
-		styleElement.textContent = `shreddit-post {
+		styleElement.textContent = `shreddit-post,
+									.re-vote-panel {
 										--color-action-upvote: var(--re-theme-post-upvote-colour) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
