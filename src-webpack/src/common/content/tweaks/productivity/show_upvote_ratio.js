@@ -4,11 +4,9 @@
  * @description Show the upvote ratio of post in post detail view.
  *
  * Applies to: New New UI (2023-)
- *
- * @see ./show_post_flair.js
  */
 
-import { fetchPostData } from './show_post_flair';
+import { showBannerMessage } from "../../banner_message";
 
 // Get the feature state from browser sync storage
 export function loadShowUpvoteRatio() {
@@ -40,7 +38,24 @@ export function showUpvoteRatio(value) {
 // Function - Enable Show Upvote Ratio
 async function attachRatio(post) {
 	const postID = post.getAttribute('id');
-	const postData = await fetchPostData(postID);
+	let postData;
+
+	try {
+		postData = (await BROWSER_API.runtime.sendMessage({
+			actions: [{
+				action: 'fetchData',
+				url: `https://www.reddit.com/api/info.json?id=${postID}`
+			}]
+		})).data;
+	} catch (e) {
+		console.error(`[RedditEnhancer] showUpvoteRatio: Error fetching post data for ID ${postID}`, error);
+		showBannerMessage('error', error.error || error);
+		return;
+	}
+	if (!postData || !postData.children || !postData.children[0]) {
+		console.warn(`[RedditEnhancer] showUpvoteRatio: No data found for post ID ${postID}`);
+		return;
+	}
 	const upvoteRatio = Math.round(postData.children[0].data.upvote_ratio * 100 || -1);
 
 	let ratio = Object.assign(document.createElement('span'), {

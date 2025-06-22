@@ -349,7 +349,7 @@ async function attachUserInfo() {
 	let loggedIn = document.querySelector('shreddit-app')?.getAttribute('user-logged-in') === 'true';
 	if (!loggedIn || document.querySelector('.re-user-info')) return;
 
-	const user = await fetchData(`api/me.json`);
+	const user = (await BROWSER_API.runtime.sendMessage({ actions: [{ action: 'fetchData', url: 'https://www.reddit.com/api/me.json' }] })).data;
 	if (user && user.name && user.total_karma && document.querySelector('button#expand-user-drawer-button')) {
 		const a = Object.assign(document.createElement('div'), {
 			innerHTML: `<div class="font-semibold overflow-hidden text-ellipsis">${user.name}</div><span class="text-neutral-content-weak">${formatNumber(user.total_karma)} karma</span>`,
@@ -398,7 +398,12 @@ async function attachPageTitle() {
 			case 'wiki_page':
 			case 'mod_queue':
 				title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
-				data = await fetchData(`${title}/about.json`);
+				data = (await BROWSER_API.runtime.sendMessage({
+					actions: [{
+						action: 'fetchData',
+						url: `https://www.reddit.com/${title}/about.json`
+					}]
+				})).data;
 				if (data && (data.community_icon || data.icon_img)) {
 					logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon ? data.community_icon : data.icon_img}">`;
 				} else {
@@ -416,7 +421,12 @@ async function attachPageTitle() {
 			case 'profile_post_page_comments':
 			case 'profile_serp':
 				title = 'u/' + window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1];
-				data = await fetchData(`user/${window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1]}/about.json`);
+				data = (await BROWSER_API.runtime.sendMessage({
+					actions: [{
+						action: 'fetchData',
+						url: `https://www.reddit.com/user/${window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1]}/about.json`
+					}]
+				})).data;
 				if (data && (data.snoovatar_img || data.icon_img)) {
 					logo = `<img alt="${title} user avatar" class="${data.snoovatar_img ? '' : 'rounded-full'} h-lg w-lg mb-0" 
 						src="${data.snoovatar_img ? data.snoovatar_img : data.icon_img}">`;
@@ -455,7 +465,12 @@ async function attachPageTitle() {
 			default:
 				if (window.location.pathname.includes('/mod/')) {
 					title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
-					data = await fetchData(`${title}/about.json`);
+					data = (await BROWSER_API.runtime.sendMessage({
+						actions: [{
+							action: 'fetchData',
+							url: `https://www.reddit.com/${title}/about.json`
+						}]
+					})).data;
 					logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon}">`;
 				} else {
 					// Fallback for unknown pages
@@ -523,28 +538,6 @@ function formatNumber(num) {
 	];
 	const item = units.find((unit) => num >= unit.value);
 	return item ? (num / item.value).toFixed(1).replace(/\.0$/, '') + item.symbol : '0';
-}
-
-async function fetchData(query) {
-	if (e) throw new Error('[RedditEnhancer] attachSideMenuHeader is disabled due to previous errors.');
-
-	const fetchUrl = `https://www.reddit.com/${query}`;
-	const isChrome = !!window.chrome?.webstore || !!window.chrome?.runtime;
-
-	try {
-		const response = await fetch(fetchUrl, {
-			method: 'GET',
-			mode: isChrome && window.location.hostname === 'sh.reddit.com' ? 'no-cors' : undefined,
-		});
-
-		if (!response.ok) throw response.status;
-
-		return (await response.json()).data;
-	} catch (error) {
-		console.error('[RedditEnhancer] attachSideMenuHeader: Error fetching data: ', error);
-		e = true;
-		throw error;
-	}
 }
 
 /**

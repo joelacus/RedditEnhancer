@@ -6,7 +6,6 @@
  *
  * Applies to: New New UI (2023-)
  */
-import { showBannerMessage } from "../../banner_message";
 
 let running = false;
 
@@ -43,7 +42,7 @@ async function enableViewCrossposts() {
         }
         const id = post.getAttribute('id').match(/t3_([^\/]+)/)[1];
         console.debug(`[RedditEnhancer] viewCrossposts: Fetching crosspost data for post ID ${id}`);
-        const data = await fetchPostData(id);
+        const data = await BROWSER_API.runtime.sendMessage({ actions: [{ action: 'fetchData', url: `https://www.reddit.com/duplicates/${id}.json` }] });
         if (!data || !Array.isArray(data) || data.length < 2) {
             throw new TypeError('[RedditEnhancer] viewCrossposts: no crossposts found, Reddit API returned no data or unexpected data format');
         }
@@ -159,36 +158,6 @@ function disableViewCrossposts() {
         console.debug('[RedditEnhancer] viewCrossposts: Toggle link removed');
     } else {
         console.warn('[RedditEnhancer] viewCrossposts: No toggle link found to remove');
-    }
-}
-
-// Function to fetch post data from Reddit API
-async function fetchPostData(postID) {
-    const fetch_url = `https://www.reddit.com/duplicates/${postID}.json`;
-    const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
-    let response;
-
-    try {
-        if (isChrome && window.location.hostname === 'sh.reddit.com') {
-            response = await fetch(fetch_url, { method: 'GET', mode: 'no-cors' });
-        } else {
-            response = await fetch(fetch_url, { method: 'GET' });
-        }
-        if (!response.ok) { throw response.status; }
-        return await response.json();
-    } catch (error) {
-        // If this is a known error, display a visual banner message
-        if (error instanceof TypeError && error.message === 'NetworkError when attempting to fetch resource.') {
-            showBannerMessage('error', 'Cannot retrieve post data as www.reddit.com is currently unreachable.');
-        } else if (error === 403) {
-            showBannerMessage('error', 'Error retrieving post data: you seem to be rate-limited by reddit');
-        } else {
-            showBannerMessage('error', 'Cannot retrieve post data as something wrong happened on Reddit\'s end.');
-        }
-
-        // Log the error to the developer console
-        console.error('[RedditEnhancer] Error retrieving post data:', error);
-        throw error;
     }
 }
 

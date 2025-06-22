@@ -48,10 +48,11 @@ function enableMarkReadOnOpenExpandos() {
         if (expando && expando.getAttribute('re-mark-read-on-open') !== '') {
             expando.addEventListener('click', () => {
                 // Send a message to background.js, which has the permission to call history.addUrl()
-                BROWSER_API.runtime.sendMessage({ actions: [{ action: 'markVisited', url: url }] }).then((response) => {
-                }).catch((error) => {
-                    console.error(`[RedditEnhancer] markReadOnOpenExpandos: Error marking post as read: ${url}`);
-                });
+                BROWSER_API.runtime.sendMessage({ actions: [{ action: 'markVisited', url: url }] })
+                    .then(function (response) {})
+                    .catch(function (error) {
+                        console.error(`[RedditEnhancer] markReadOnOpenExpandos: Error marking post as read: ${url}, `, error);
+                    });
             });
             expando.setAttribute('re-mark-read-on-open', '');
         }
