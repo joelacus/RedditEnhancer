@@ -514,7 +514,7 @@ function attachSideMenu(sideMenu) {
 		});
 		// Hide the side menu when clicking outside of it
 		window.addEventListener('click', (e) => {
-			if (!sideMenu.contains(e.target)) sideMenu2.style.display = 'none';
+			if (!sideMenu.contains(e.target) || !sideMenu2.contains(e.target)) sideMenu2.style.display = 'none';
 		});
 		sideMenu.querySelector('div').removeEventListener('click', banner);
 	}

@@ -127,7 +127,7 @@ export function loadTweaks() {
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
 
 		waitForAddedNode({
-			query: 'shreddit-app > faceplate-perfmetric-collector + div',
+			query: 'flex-left-nav-container',
 			parent: document.querySelector('body'),
 			done: () => {
 				loadAttachSideMenuHeader();
@@ -281,7 +281,7 @@ export function loadTweaks() {
 
 	// Common
 	loadAutoExpandValue();
-	loadDarkModeAuto();
+	// loadDarkModeAuto();
 	loadHideNSFW();
 	loadShowToTopButton();
 
@@ -289,7 +289,6 @@ export function loadTweaks() {
 	setTimeout(() => {
 		loadShowToTopButton();
 		loadShowAllButton();
-		loadAttachSideMenuHeader();
 	}, 5000);
 }
 loadTweaks();
