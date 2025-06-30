@@ -24,6 +24,8 @@ export function compactPostLinkPreview(value) {
 			let postLink = document.querySelector('shreddit-post[post-type="link"]')?.getAttribute('content-href');
 			document.querySelector('div:has(> faceplate-tracker[source="post_lightbox"])')?.remove();
 
+			if (/(imgur\.com|imgur\.io|ibb\.co)/.test(new URL(postLink).hostname)) return;
+
 			// Append Stylesheet
 			if (!document.head.querySelector('style[id="re-compact-post-link-display"]')) {
 				const styleElement = document.createElement('style');
