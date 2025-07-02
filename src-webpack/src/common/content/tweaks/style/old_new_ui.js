@@ -290,14 +290,14 @@ async function enableAttachSideMenuHeader() {
 				content: '▼';
 				margin-left: .5rem;
 			}
-			div.re-user-info {
+			div#re-user-info {
 				width: 156px;
 				line-height: 1.5;
 				text-align: left;
 			}
 			@media (max-width: 1199px) {
 				.re-header-menu,
-				div.re-user-info {
+				div#re-user-info {
 					display: none;
 				}
 			}
@@ -341,7 +341,7 @@ function disableAttachSideMenuHeader() {
 		document.head.removeChild(element);
 	});
 	if (document.querySelector('.re-header-menu')) document.querySelector('.re-header-menu').remove();
-	if (document.querySelector('.re-user-info')) document.querySelector('.re-user-info').remove();
+	if (document.querySelector('#re-user-info')) document.querySelector('#re-user-info').remove();
 }
 
 // Display username and karma within the toggle user drawer button
@@ -349,13 +349,13 @@ async function attachUserInfo() {
 	let loggedIn = document.querySelector('shreddit-app')?.getAttribute('user-logged-in') === 'true';
 	if (!loggedIn) return;
 
-	if (document.querySelector('.re-user-info')) return;
-
+	document.querySelector('#re-user-info')?.remove();
 	const user = (await BROWSER_API.runtime.sendMessage({ actions: [{ action: 'fetchData', url: 'https://www.reddit.com/api/me.json' }] })).data;
 	if (user && user.name && user.total_karma && document.querySelector('button#expand-user-drawer-button')) {
 		const a = Object.assign(document.createElement('div'), {
+			id: 're-user-info',
 			innerHTML: `<div class="font-semibold overflow-hidden text-ellipsis">${user.name}</div><span class="text-neutral-content-weak">${formatNumber(user.total_karma)} karma</span>`,
-			className: 're-user-info inline-block ml-2xs text-12 font-normal',
+			className: 'inline-block ml-2xs text-12 font-normal',
 		});
 		document.querySelector('button#expand-user-drawer-button').appendChild(a);
 		document.documentElement.style.setProperty('--re-username', "'" + user.name + "'");
