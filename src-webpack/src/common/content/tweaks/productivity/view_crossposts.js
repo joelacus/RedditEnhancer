@@ -115,7 +115,7 @@ async function enableViewCrossposts() {
         const link = Object.assign(document.createElement('a'), {
             id: 're-view-crossposts',
             textContent: `View discussions in ${container.children.length} other communit${container.children.length > 1 ? 'ies' : 'y'}`,
-            className: 'mt-sm text-right shrink-0 text-neutral-content-weak',
+            className: 'mt-sm text-right shrink-0 text-neutral-content-weak text-12',
         });
         // Add a click event listener to toggle the visibility of the crosspost container and the comment tree
         link.addEventListener('click', (e) => {

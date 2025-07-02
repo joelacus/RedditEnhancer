@@ -347,7 +347,9 @@ function disableAttachSideMenuHeader() {
 // Display username and karma within the toggle user drawer button
 async function attachUserInfo() {
 	let loggedIn = document.querySelector('shreddit-app')?.getAttribute('user-logged-in') === 'true';
-	if (!loggedIn || document.querySelector('.re-user-info')) return;
+	if (!loggedIn) return;
+
+	if (document.querySelector('.re-user-info')) return;
 
 	const user = (await BROWSER_API.runtime.sendMessage({ actions: [{ action: 'fetchData', url: 'https://www.reddit.com/api/me.json' }] })).data;
 	if (user && user.name && user.total_karma && document.querySelector('button#expand-user-drawer-button')) {
