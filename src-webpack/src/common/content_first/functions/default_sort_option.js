@@ -120,7 +120,8 @@ export async function defaultSortOption() {
             const currentSort = url.pathname.split('/').filter(item => item !== '').pop();
             console.debug(`[RedditEnhancer] Detected subreddit or multireddit (custom feed) page. Sorting enabled: ${sort}, target sort: ${sortOption}, current sort/name: ${currentSort}`);
             if (sort && sortOption && (!currentSort || currentSort !== sortOption)) {
-                url.pathname = [...url.pathname.split('/').filter((item) => item !== ''), sortOption].join('/');
+                // Replace the pathname, remove currentSort at the end
+                url.pathname = url.pathname.replace(/\/(best|hot|new|top|rising)\/?$/, '') + `/${sortOption}`;
                 console.debug("[RedditEnhancer] defaultSortOption: Redirecting to " + url.href);
                 window.location.replace(url.href);
             }
