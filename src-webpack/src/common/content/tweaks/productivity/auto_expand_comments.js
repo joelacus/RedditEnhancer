@@ -24,7 +24,7 @@ let expand_comments_button;
 
 // Function - Enable Auto Expand Comments - New New
 function enableAutoExpandCommentsNewNew() {
-	expand_comments_button = 'shreddit-comment[collapsed]';
+	expand_comments_button = 'shreddit-comment[collapsed]:not([re-manually-collapsed])';
 	window.addEventListener('scroll', expandComments);
 }
 
@@ -54,7 +54,7 @@ function expandComments() {
 	// Get the elements within the current scroll view
 	var elementsInViewport = document.querySelectorAll(expand_comments_button);
 
-	var visibleElements = [];
+	let visibleElements = [];
 
 	elementsInViewport.forEach(function (element) {
 		var rect = element.getBoundingClientRect();
@@ -64,6 +64,15 @@ function expandComments() {
 		if (elementX >= scrollX && elementX <= scrollX + window.innerWidth && elementY >= scrollY && elementY <= scrollY + window.innerHeight) {
 			visibleElements.push(element);
 		}
+	});
+
+	// Listen for user events that manually collapse comments, and do not open them again
+	const comments = document.querySelectorAll('shreddit-comment:not(.re-collapse-event)');
+	comments.forEach(function (comment) {
+		comment.addEventListener('click', function () {
+			comment.setAttribute('re-manually-collapsed', '');
+		});
+		comment.classList.add('re-collapse-event');
 	});
 
 	// Expand Comments
