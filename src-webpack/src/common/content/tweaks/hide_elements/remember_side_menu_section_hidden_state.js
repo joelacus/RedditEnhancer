@@ -88,7 +88,7 @@ function addEventListenersToSideMenuSections() {
 
 	// Recent Section Event Listener
 	setTimeout(() => {
-		const recentSection = document.querySelector('reddit-recent-pages').shadowRoot.querySelector('faceplate-expandable-section-helper');
+		const recentSection = document.querySelector('reddit-recent-pages')?.shadowRoot?.querySelector('faceplate-expandable-section-helper');
 		if (recentSection && addRecentSectionListener) {
 			recentSection.addEventListener('click', function (e) {
 				const sectionState = e.currentTarget.getAttribute('open');
@@ -150,6 +150,7 @@ function setRememberSideMenuSectionHiddenStates(openStates) {
 	const moderationSection = document.querySelector('faceplate-expandable-section-helper:has([aria-controls="moderation_section"])');
 	if (moderation === true && moderationSection) {
 		moderationSection.removeAttribute('open');
+		moderationSection.querySelector('details')?.removeAttribute('open');
 	}
 
 	// Custom Feeds Section
@@ -157,14 +158,16 @@ function setRememberSideMenuSectionHiddenStates(openStates) {
 	const customFeedsSection = document.querySelector('faceplate-expandable-section-helper:has([aria-controls="multireddits_section"])');
 	if (customFeeds === true && customFeedsSection) {
 		customFeedsSection.removeAttribute('open');
+		customFeedsSection.querySelector('details')?.removeAttribute('open');
 	}
 
 	// Recent Section
 	setTimeout(() => {
 		const recent = openStates.recent;
-		const recentSection = document.querySelector('reddit-recent-pages').shadowRoot.querySelector('faceplate-expandable-section-helper');
+		const recentSection = document.querySelector('reddit-recent-pages')?.shadowRoot?.querySelector('faceplate-expandable-section-helper');
 		if (recent === true && recentSection) {
 			recentSection.removeAttribute('open');
+			recentSection.querySelector('details')?.removeAttribute('open');
 		}
 	}, 2000);
 
@@ -173,6 +176,7 @@ function setRememberSideMenuSectionHiddenStates(openStates) {
 	const communitiesSection = document.querySelector('faceplate-expandable-section-helper:has([aria-controls="communities_section"])');
 	if (communities === true && communitiesSection) {
 		communitiesSection.removeAttribute('open');
+		communitiesSection.querySelector('details')?.removeAttribute('open');
 	}
 
 	// Resources Section
@@ -180,5 +184,6 @@ function setRememberSideMenuSectionHiddenStates(openStates) {
 	const resourcesSection = document.querySelector('faceplate-expandable-section-helper:has([aria-controls="RESOURCES"])');
 	if (resources === true && resourcesSection) {
 		resourcesSection.removeAttribute('open');
+		resourcesSection.querySelector('details')?.removeAttribute('open');
 	}
 }

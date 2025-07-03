@@ -40,7 +40,7 @@ function setBackgroundAndBlur() {
 // Set Custom Background Property
 export function setCustomBackground(value) {
 	if (value !== '') {
-		document.documentElement.style.setProperty('--re-background-image', 'url("' + value + '")');
+		document.documentElement.style.setProperty('--re-background-image', 'url("' + value + '") no-repeat center center / cover');
 	}
 }
 
@@ -58,7 +58,7 @@ function enableUseCustomBackgroundOld() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-custom-background';
 	styleElement.textContent = `body {
-									background: var(--re-background-image) no-repeat center center / cover !important;
+									background: var(--re-background-image) !important;
 									backdrop-filter: blur(var(--re-background-blur));
 									background-attachment: fixed !important;
 								}`;
@@ -70,7 +70,7 @@ function enableUseCustomBackgroundNew() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-custom-background';
 	styleElement.textContent = `.ListingLayout-backgroundContainer {
-									--pseudo-before-background: var(--re-background-image) no-repeat center center / cover !important;
+									--pseudo-before-background: var(--re-background-image) !important;
 								}
 								.ListingLayout-backgroundContainer:before {
 									filter: blur(var(--re-background-blur));
@@ -90,7 +90,7 @@ function enableUseCustomBackgroundNewNew() {
 								body:before {
 									content: "";
 									position: fixed;
-									background: var(--re-background-image) no-repeat center center / cover;
+									background: var(--re-background-image);
 									width: 100%;
 									height: 100vh; 
 									transform: scale(1);
@@ -117,6 +117,7 @@ function enableUseCustomBackgroundNewNew() {
 								[routename="post_page"] main.main,
 								[routename="comments_page"] main.main,
 								[routename="profile_post_page"] main.main,
+								[routename="profile_post_page_comments"] main.main,
 								[routename="post_stats"] main.main {
 									margin: 1rem 0;
 									padding: 0 1rem .75rem 1rem;
@@ -146,7 +147,8 @@ function enableUseCustomBackgroundNewNew() {
 								}
 								shreddit-app[routename="post_page"] div[slot="post-insights-panel"] .p-md,
 								shreddit-app[routename="comments_page"] div[slot="post-insights-panel"] .p-md,
-								shreddit-app[routename="profile_post_page"] div[slot="post-insights-panel"] .p-md {
+								shreddit-app[routename="profile_post_page"] div[slot="post-insights-panel"] .p-md
+								shreddit-app[routename="profile_post_page_comments"] div[slot="post-insights-panel"] .p-md {
 									padding: 0;
 								}
 								shreddit-app div.sidebar-grid {

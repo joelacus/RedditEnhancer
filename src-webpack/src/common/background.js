@@ -2,7 +2,7 @@
 
 import { darkModeTimeCalc } from './content/tweaks/dark_mode/dark_mode_time_calc';
 //const muxjs = require('mux.js');
-let fetchUrl = '';
+const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 
 // Logging
 function timestamp() {
@@ -45,16 +45,15 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 		return true;
 	} else if (request.actions) {
 		for (const action of request.actions) {
-			if (action.action === 'changeFetchUrl') {
-				// Set the new fetch URL based on the action
-				fetchUrl = action.newFetchUrl;
-			} else if (action.action === 'fetchData') {
+			if (action.action === 'fetchData' && action.url) {
 				// Fetch data using the current fetch URL
-				fetchData(function (response) {
-					// Send the data back to the caller
-					sendResponse(response);
-				});
+				console.log('fetchData', action.url);
+				fetchData(action.url, sendResponse);
 				return true;
+			} else if (action.action === 'markVisited' && action.url) {
+				BROWSER_API.history.addUrl({ url: action.url }, function () {
+					console.log(`${timestamp()} - Marking URL as visited: ${action.url}`);
+				});
 			}
 		}
 	} else if (request.justOpenTheImage === true) {
@@ -134,23 +133,29 @@ function checkTime(i) {
 	}
 }
 
-// Function to fetch data
-function fetchData(sendResponse) {
-	fetch(fetchUrl)
+// @see content/tweaks/productivity/show_post_flair.js
+function fetchData(url, sendResponse) {
+	fetch(url, {
+		method: 'GET',
+		mode: isChrome && window.location.hostname === 'sh.reddit.com' ? 'no-cors' : 'cors'
+	})
 		.then((response) => {
-			if (!response.ok) {
-				throw new Error('Network response was not ok');
-			}
-			return response.text();
+			if (!response.ok) throw response.status;
+			return response.json();
 		})
 		.then((data) => {
 			// Send the data back to the caller
-			sendResponse({ data });
+			sendResponse(data);
 		})
 		.catch((error) => {
-			console.error('Error fetching data:', error);
-			// Send an error back to the caller
-			sendResponse({ action: 'fetchData', error: error.message });
+			console.error('Error fetching data from API: ', JSON.stringify(error));
+			if (error instanceof TypeError && error.message === 'NetworkError when attempting to fetch resource.') {
+				sendResponse({ error: 'Cannot retrieve data as www.reddit.com is currently unreachable.' });
+			} else if (error === 403) {
+				sendResponse({ error: 'Error retrieving data: you seem to be rate-limited by reddit' });
+			} else {
+				sendResponse({ error: error.message || String(error) });
+			}
 		});
 }
 

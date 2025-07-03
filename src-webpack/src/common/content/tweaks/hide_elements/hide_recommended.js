@@ -36,6 +36,7 @@ function enableHideRecommendedPostsNewNew() {
 								article:has(shreddit-post[recommendation-source]){
 									display: none !important;
 								}
+								chat-feed-element-wrapper,
 								chat-channel-recommendations-wrapper,
 								chat-channel-recommendations-wrapper + div {
 									display: none;

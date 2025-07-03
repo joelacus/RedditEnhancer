@@ -718,22 +718,12 @@ document.querySelector('#checkbox-auto-load-more-comments').addEventListener('ch
 	}
 });
 
-// Toggle - Auto Show Comment Formatting Options
-document.querySelector('#checkbox-auto-show-comment-formatting-options').addEventListener('change', function (e) {
-	const autoShowCommentFormattingOptions = document.querySelector('#checkbox-auto-show-comment-formatting-options').checked;
-	if (autoShowCommentFormattingOptions === true) {
-		BROWSER_API.storage.sync.set({ autoShowCommentFormattingOptions: true });
-		document.querySelector('.icon-auto-show-comment-formatting-options').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-auto-show-comment-formatting-options').classList.remove('icon-hide');
-		document.querySelector('.icon-auto-show-comment-formatting-options').classList.add('icon-show');
-		sendMessage({ autoShowCommentFormattingOptions: true });
-	} else if (autoShowCommentFormattingOptions === false) {
-		BROWSER_API.storage.sync.set({ autoShowCommentFormattingOptions: false });
-		document.querySelector('.icon-auto-show-comment-formatting-options').style.backgroundColor = '';
-		document.querySelector('.icon-auto-show-comment-formatting-options').classList.remove('icon-show');
-		document.querySelector('.icon-auto-show-comment-formatting-options').classList.add('icon-hide');
-		sendMessage({ autoShowCommentFormattingOptions: false });
-	}
+// Toggle - Better Comment Box
+document.querySelector('#checkbox-better-comment-box').addEventListener('change', function (e) {
+	const betterCommentBox = document.querySelector('#checkbox-better-comment-box').checked;
+	BROWSER_API.storage.sync.set({ betterCommentBox: betterCommentBox });
+	document.querySelector('.icon-better-comment-box').style.backgroundColor = betterCommentBox ? 'var(--accent)' : '';
+	sendMessage({ betterCommentBox: betterCommentBox });
 });
 
 // Slider - Side Menu Width
@@ -819,4 +809,35 @@ document.querySelector('#input-default-sort-feed-option-grace-period').addEventL
 	if ((e.shiftKey || e.keyCode < 48 || e.keyCode > 57) && (e.keyCode < 96 || e.keyCode > 105)) {
 		e.preventDefault();
 	}
+});
+
+// Toggle - View Crossposts
+document.querySelector('#checkbox-view-crossposts').addEventListener('change', function (e) {
+	const viewCrossposts = document.querySelector('#checkbox-view-crossposts').checked;
+	BROWSER_API.storage.sync.set({ viewCrossposts: viewCrossposts });
+	document.querySelector('.icon-view-crossposts').style.backgroundColor = viewCrossposts ? 'var(--accent)' : '';
+	sendMessage({ viewCrossposts: viewCrossposts });
+});
+
+// Toggle - Mark Read On Open Expandos
+document.querySelector('#checkbox-mark-read-on-open-expandos').addEventListener('change', function (e) {
+	const markReadOnOpenExpandos = document.querySelector('#checkbox-mark-read-on-open-expandos').checked;
+	if (markReadOnOpenExpandos) {
+		if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
+			BROWSER_API.permissions.request({ permissions: ['history'] }).then((granted) => {
+				if (granted) {
+					console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission granted');
+				} else {
+					console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission denied');
+					document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+				}
+			}).catch((e) => {
+				console.error('[RedditEnhancer] markReadOnOpenExpandos: Error requesting history permission: ', e);
+				document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+			});
+		}
+	}
+	BROWSER_API.storage.sync.set({ markReadOnOpenExpandos: markReadOnOpenExpandos });
+	document.querySelector('.icon-mark-read-on-open-expandos').style.backgroundColor = markReadOnOpenExpandos ? 'var(--accent)' : '';
+	sendMessage({ markReadOnOpenExpandos: markReadOnOpenExpandos });
 });

@@ -14,11 +14,7 @@
  * track therefore may be lost if something wrong happens while user scrolls mid-page.
  *
  * Applies to: Old New UI (2018-2024), New New UI (2023-)
- *
- * @see ./show_post_flair.js
  */
-
-import { fetchPostData } from "./show_post_flair";
 
 // Get the feature state from browser sync storage
 export function loadShowPostNumbers() {
@@ -47,10 +43,10 @@ export function showPostNumbers(value) {
 			if (document.querySelector(".Post + .Comment")) return;
 			firstScrollerItem = document.querySelector('div[data-scroller-first]');
 			attachPostCountv2();
-			observer.observe(document.querySelector('.ListingLayout-outerContainer'), {childList: true, subtree: true});
+			observer.observe(document.querySelector('.ListingLayout-outerContainer'), {childList: true});
 		} else if (redditVersion === 'newnew' && feedRoutesv3.includes(routeName)) {
 			attachPostCountv3();
-			observer.observe(document.querySelector('shreddit-feed'), {childList: true, subtree: true});
+			observer.observe(document.querySelector('shreddit-feed'), {childList: true});
 		}
 	} else {
 		// Disconnect the observer, reset the counter and remove all post numbers
@@ -91,13 +87,14 @@ async function attachPostCountv2() {
 		for (let i = 0; i < 2; i++) {
 			if (posts[i]) {
 				try {
-					const postData = await fetchPostData(posts[i].getAttribute('id'));
+					const postID = posts[i].getAttribute('id');
+					const postData = (await BROWSER_API.runtime.sendMessage({ actions: [{ action: 'fetchData', url: `https://www.reddit.com/api/info.json?id=${postID}` }] })).data;
 					if (postData.children[0].data.stickied) {
 						postArray.shift(); // if so, remove the post from the array
 					}
 				} catch (e) {
 					console.info("Cannot retrieve subreddit announcement post information as something wrong " +
-						"happened on Reddit's end. Pinned posts will still be numbered. Error: ", e);
+						"happened on Reddit's end. Pinned posts will still be numbered. Error: ", error.error || error);
 				}
 			}
 		}

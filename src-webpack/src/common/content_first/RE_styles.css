@@ -80,15 +80,15 @@ shreddit-app[routename='popular'] #right-sidebar-container,
 shreddit-app[routename='subreddit'] #right-sidebar-container {
 	margin-top: 2rem;
 }
-shreddit-app[routename='subreddit'] #right-sidebar-container faceplate-partial > aside,
-shreddit-app[routename='subreddit_wiki'] #right-sidebar-container faceplate-partial > aside,
-shreddit-app[routename='post_page'] #right-sidebar-container faceplate-partial > aside,
-shreddit-app[routename='comment_page'] #right-sidebar-container faceplate-partial > aside {
+shreddit-app[routename='subreddit'] #right-sidebar-container aside,
+shreddit-app[routename='subreddit_wiki'] #right-sidebar-container aside,
+shreddit-app[routename='post_page'] #right-sidebar-container aside,
+shreddit-app[routename='comment_page'] #right-sidebar-container aside {
 	margin-top: 1rem;
-	padding-top: 0;
+	padding: 0;
 }
 shreddit-app[pagetype='custom_feed'] #right-sidebar-container {
-	margin-top: 3.5rem;
+	margin-top: 2.5rem;
 }
 shreddit-app[pagetype='search_results'] main.main {
 	margin-top: 1rem;
@@ -324,7 +324,13 @@ div[id^='vote-arrows-t3_'] button[data-click-id='upvote'] ~ .re-upvote-ratio {
 	margin-bottom: 6px;
 }
 .re-vote-panel .re-upvote-ratio {
-	font-size: 9px;
+	font-size: 10px;
+}
+:not(.re-vote-panel) ::part(re-upvote-ratio):before {
+	content: '\00a0(';
+}
+:not(.re-vote-panel) ::part(re-upvote-ratio):after {
+	content: ')';
 }
 
 /* ========== BIONIC READER ========== */

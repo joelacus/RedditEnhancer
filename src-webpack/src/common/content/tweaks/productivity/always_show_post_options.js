@@ -68,7 +68,7 @@ function attachMenu(post) {
 		menu.classList.add('re-btn-menu');
 		postCreditBar.lastElementChild.insertBefore(menu, postCreditBar.lastElementChild.lastElementChild);
 		const postMenu = post.querySelector('shreddit-post-overflow-menu');
-		if (postMenu.shadowRoot) {
+		if (postMenu && postMenu.shadowRoot) {
 			postMenu.shadowRoot.querySelectorAll('faceplate-menu > li > div:not(.hidden)').forEach((item) => {
 				menu.appendChild(item);
 			});

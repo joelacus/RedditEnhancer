@@ -519,8 +519,8 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 
 	// Scroll To Next Root Comment Position X
 	BROWSER_API.storage.sync.get(['scrollToNextRootCommentPosition'], function (result) {
-		const valueX = result.scrollToNextRootCommentPosition.x;
-		if (typeof valueX == 'undefined' || valueX === '-1') {
+		const valueX = result.scrollToNextRootCommentPosition.x || undefined;
+		if (typeof valueX == 'undefined' || valueX === '-1' || valueX === 'undefined') {
 			document.querySelector('#input-scroll-to-root-comment-position-x').value = -1;
 			document.querySelector('#scroll-to-root-comment-position-x-value').innerText = '48px';
 			console.log('Scroll To Next Root Comment Position: 48px');
@@ -531,12 +531,10 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 			var value = valueX;
 			console.log('Scroll To Next Root Comment Position X: ' + value + '%');
 		}
-	});
 
-	// Scroll To Next Root Comment Position Y
-	BROWSER_API.storage.sync.get(['scrollToNextRootCommentPosition'], function (result) {
-		const valueY = result.scrollToNextRootCommentPosition.y;
-		if (typeof valueY == 'undefined' || valueY === '-1') {
+		// Scroll To Next Root Comment Position Y
+		const valueY = result.scrollToNextRootCommentPosition.y || undefined;
+		if (typeof valueY == 'undefined' || valueY === '-1' || valueY === 'undefined') {
 			document.querySelector('#input-scroll-to-root-comment-position-y').value = -1;
 			document.querySelector('#scroll-to-root-comment-position-y-value').innerText = '50%';
 			console.log('Scroll To Next Root Comment Position Vertically: 50%');
@@ -658,20 +656,18 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		console.log('Auto Load More Comments: ' + value);
 	});
 
-	// Auto Show Comment Formatting Options
-	BROWSER_API.storage.sync.get(['autoShowCommentFormattingOptions'], function (result) {
-		if (result.autoShowCommentFormattingOptions === true) {
-			document.querySelector('.icon-auto-show-comment-formatting-options').style.backgroundColor = 'var(--accent)';
-			document.querySelector('#checkbox-auto-show-comment-formatting-options').checked = true;
+	// Better Comment Box
+	BROWSER_API.storage.sync.get(['betterCommentBox'], function (result) {
+		if (result.betterCommentBox === true) {
+			document.querySelector('.icon-better-comment-box').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-better-comment-box').checked = true;
 			highlightMenuIcon('productivity-tweaks');
-			document.querySelector('.icon-auto-show-comment-formatting-options').classList.remove('icon-hide');
-			document.querySelector('.icon-auto-show-comment-formatting-options').classList.add('icon-show');
 			var value = true;
-		} else if (typeof result.autoShowCommentFormattingOptions == 'undefined' || result.autoShowCommentFormattingOptions === false) {
-			document.querySelector('#checkbox-auto-show-comment-formatting-options').checked = false;
+		} else if (typeof result.betterCommentBox == 'undefined' || result.betterCommentBox === false) {
+			document.querySelector('#checkbox-better-comment-box').checked = false;
 			var value = false;
 		}
-		console.log('Auto Show Comment Formatting Options: ' + value);
+		console.log('Better Comment Box: ' + value);
 	});
 
 	// Sticky Sort
@@ -722,5 +718,46 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		const value = result.DefaultSortFeedOptionGracePeriod || 20;
 		document.querySelector('#input-default-sort-feed-option-grace-period').value = value;
 		console.log('Default Sort Feed Option Grace Period: ' + value);
+	});
+
+	// View Crossposts
+	BROWSER_API.storage.sync.get(['viewCrossposts'], function (result) {
+		if (result.viewCrossposts) {
+			document.querySelector('#checkbox-view-crossposts').checked = true;
+			document.querySelector('.icon-view-crossposts').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else {
+			document.querySelector('#checkbox-view-crossposts').checked = false;
+			var value = false;
+		}
+		console.log('View Crossposts: ' + value);
+	});
+
+	// Mark Read On Open Expandos
+	BROWSER_API.storage.sync.get(['markReadOnOpenExpandos'], function (result) {
+		if (result.markReadOnOpenExpandos === true) {
+			if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
+				BROWSER_API.permissions.contains({ permissions: ['history'] }).then((granted) => {
+					if (granted) {
+						console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission granted');
+					} else {
+						console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission denied');
+						document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+					}
+				}).catch((e) => {
+					console.error('[RedditEnhancer] markReadOnOpenExpandos: Error getting history permission: ', e);
+					document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+				});
+			}
+			document.querySelector('#checkbox-mark-read-on-open-expandos').checked = true;
+			document.querySelector('.icon-mark-read-on-open-expandos').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else if (typeof result.markReadOnOpenExpandos == 'undefined' || result.markReadOnOpenExpandos === false) {
+			document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+			var value = false;
+		}
+		console.log('Mark Read On Open Expandos: ' + value);
 	});
 }

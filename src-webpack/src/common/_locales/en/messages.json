@@ -47,9 +47,6 @@
 	"AutoLoadMoreComments": {
 		"message": "Auto Load More Comments"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Auto Show Formatting Options When Commenting"
-	},
 	"Background": {
 		"message": "Background"
 	},
@@ -64,6 +61,12 @@
 	},
 	"Best": {
 		"message": "Best"
+	},
+	"BetterCommentBox": {
+		"message": "Better Comment Box"
+	},
+	"BetterCommentBoxInfo": {
+		"message": "Automatically show formatting options when commenting, add Ctrl/Cmd + Enter shortcut to submit comments, and hide the toolbar for switching to rich-text editor when setting Markdown composer as default."
 	},
 	"BionicBackgroundColour": {
 		"message": "Bionic Background Colour"
@@ -384,7 +387,7 @@
 		"message": "Hide The Post Back Button"
 	},
 	"HidePostDivider": {
-		"message": "Hide Post Separators"
+		"message": "Hide post and sidebar dividers"
 	},
 	"HidePostHiddenMessage": {
 		"message": "Hide 'Post Hidden' Message"
@@ -532,6 +535,9 @@
 	},
 	"MarkAsBrandAffiliate": {
 		"message": "Mark as brand affiliate"
+	},
+	"MarkReadOnOpenExpandos": {
+		"message": "Mark posts as read when opening expandos in Compact view"
 	},
 	"MaxImagePostHeight": {
 		"message": "Max Image Post Height"
@@ -757,6 +763,9 @@
 	},
 	"RestoreInfo2": {
 		"message": "items. Browser API limit is 120 per minute. Please leave this tab/window open for another minute."
+	},
+	"RightSidePostThumbnails": {
+		"message": "Show Post Thumbnails on the Right Side"
 	},
 	"Rising": {
 		"message": "Rising"
@@ -985,6 +994,9 @@
 	},
 	"VideoPlayerReplacement": {
 		"message": "Alternative Video Player"
+	},
+	"ViewCrossposts": {
+		"message": "Add link to view crossposts in other subreddits"
 	},
 	"Welcome": {
 		"message": "Welcome!"

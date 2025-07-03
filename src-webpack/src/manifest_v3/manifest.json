@@ -15,7 +15,7 @@
 		"256": "icons/icon-256.png"
 	},
 
-	"permissions": ["storage", "tabs", "declarativeNetRequest"],
+	"permissions": ["storage", "tabs", "declarativeNetRequest", "history"],
 
 	"host_permissions": ["*://*.reddit.com/*", "*://*.redd.it/*"],
 

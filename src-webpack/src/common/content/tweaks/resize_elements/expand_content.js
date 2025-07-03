@@ -82,17 +82,20 @@ function enableExpandContentOld() {
 								.submit-page div.content[role="main"],
 								.moderator div.content[role="main"] {
 									width: var(--re-content-width);
+									max-width: calc(100% - 15px);
 								}
 								.comments-page div.content[role="main"],
 								.other-discussions-page div.content[role="main"] {
 									width: var(--re-post-width);
-									padding-left: 1rem;
+									margin: .5rem 8px;
+									max-width: calc(100% - 2rem);
 								}
 								.profile-page div.content[role="main"] {
 									width: var(--re-user-profile-width);
 								}
 								.listing-page.multi-page div.content[role="main"] {
 									width: var(--re-custom-feed-width);
+									max-width: calc(100% - 15px);
 								}
 								/* Expand the post content, comments and wiki page content */
 								.md,
@@ -389,6 +392,7 @@ function enableExpandContentNewNew() {
 		shreddit-app[routename="post_page"] .main-container,
 		shreddit-app[routename="comments_page"] .main-container,
 		shreddit-app[routename="profile_post_page"] .main-container,
+		shreddit-app[routename="profile_post_page_comments"] .main-container,
 		shreddit-app[routename="post_stats"] .main-container {
 			display: grid;
 			grid-template-columns: 1fr var(--re-post-sidebar-width, 316px);
@@ -433,6 +437,7 @@ function enableExpandContentNewNew() {
 		shreddit-app[routename="post_page"] main.main,
 		shreddit-app[routename="comments_page"] main.main,
 		shreddit-app[routename="profile_post_page"] main.main,
+		shreddit-app[routename="profile_post_page_comments"] main.main,
 		shreddit-app[routename="post_stats"] main.main {
 			max-width: var(--re-post-width);
 			justify-self: center;

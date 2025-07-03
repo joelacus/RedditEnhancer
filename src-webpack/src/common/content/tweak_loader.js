@@ -45,7 +45,7 @@ import { loadImageScroll } from './tweaks/media/scroll_images';
 import { loadScalePostToFitVideo } from './tweaks/media/scale_post_to_fit_video';
 import { loadFixThreadlinesForTranslucentPosts } from './tweaks/style/override_theme_colours';
 import { loadMulticolouredThreadLines } from './tweaks/style/multicoloured_threadlines';
-import { loadAutoShowCommentFormattingOptions } from './tweaks/productivity/auto_show_comment_formatting_options';
+import { loadBetterCommentBox } from './tweaks/productivity/better_comment_box';
 import { addBorderRadiusToShadowRootElements } from './tweaks/style/border_radius';
 import { loadAlwaysShowPostOptions } from './tweaks/productivity/always_show_post_options';
 import { loadReplacePostImagesWithLinks } from './tweaks/media/replace_images_with_links';
@@ -55,6 +55,8 @@ import { loadUsernameHoverPopupDelay } from './tweaks/productivity/username_hove
 import { loadShowUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
 import { loadAttachSideMenuHeader, loadSubredditDisplayNameBanner } from './tweaks/style/old_new_ui';
 import { loadLeftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
+import { loadViewCrossposts } from "./tweaks/productivity/view_crossposts";
+import { loadMarkReadOnOpenExpandos } from "./tweaks/productivity/mark_read_on_open_expandos";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -125,7 +127,7 @@ export function loadTweaks() {
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
 
 		waitForAddedNode({
-			query: 'shreddit-app > faceplate-perfmetric-collector + div',
+			query: 'flex-left-nav-container',
 			parent: document.querySelector('body'),
 			done: () => {
 				loadAttachSideMenuHeader();
@@ -219,6 +221,7 @@ export function loadTweaks() {
 					loadHideBlockedKeywordPosts();
 				}, 500);
 				loadShowPostNumbers();
+				loadMarkReadOnOpenExpandos();
 			},
 		});
 
@@ -246,8 +249,10 @@ export function loadTweaks() {
 			recursive: true,
 			done: function () {
 				setTimeout(() => {
-					loadAutoShowCommentFormattingOptions();
+					loadBetterCommentBox();
 					loadCompactPostLinkPreview();
+					loadViewCrossposts();
+					addBorderRadiusToShadowRootElements();
 				}, 500);
 			},
 		});
@@ -276,7 +281,7 @@ export function loadTweaks() {
 
 	// Common
 	loadAutoExpandValue();
-	loadDarkModeAuto();
+	// loadDarkModeAuto();
 	loadHideNSFW();
 	loadShowToTopButton();
 
@@ -284,7 +289,6 @@ export function loadTweaks() {
 	setTimeout(() => {
 		loadShowToTopButton();
 		loadShowAllButton();
-		loadAttachSideMenuHeader();
 	}, 5000);
 }
 loadTweaks();

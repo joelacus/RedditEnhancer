@@ -123,7 +123,7 @@ module.exports = {
 					context: path.resolve(__dirname, 'src/common'),
 					from: 'content/tweaks/font/RE_font.css',
 					to: 'RE_font.css',
-				},
+				}
 			],
 		}),
 		new webpack.DefinePlugin({

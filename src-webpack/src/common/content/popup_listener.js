@@ -119,7 +119,7 @@ import {
 } from './tweaks/style/override_theme_colours';
 import { useCustomBackground, setCustomBackground } from './tweaks/background/custom_background';
 import { underlineLinks } from './tweaks/accessibility/underline_links';
-import { autoShowCommentFormattingOptions } from './tweaks/productivity/auto_show_comment_formatting_options';
+import { betterCommentBox } from './tweaks/productivity/better_comment_box';
 import { hideRecommended } from './tweaks/hide_elements/hide_recommended';
 import { scalePostToFitImage } from './tweaks/media/scale_post_to_fit_image';
 import { hidePostBackButton } from './tweaks/hide_elements/hide_post_back_button';
@@ -161,6 +161,9 @@ import { hideBlockedKeywordPosts } from './tweaks/block/block_posts_by_keyword';
 import { hideVideoRecommendations } from './tweaks/media/hide_video_recommendations';
 import { leftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { hideCommunityStatus } from './tweaks/hide_elements/hide_community_status';
+import { rightSidePostThumbnails } from "./tweaks/style/right_side_post_thumbnails";
+import { viewCrossposts } from "./tweaks/productivity/view_crossposts";
+import { markReadOnOpenExpandos } from "./tweaks/productivity/mark_read_on_open_expandos";
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
@@ -343,7 +346,7 @@ const functionRegistry = {
 	hideJoinButtonOnPosts,
 	autoLoadMoreComments,
 	underlineLinks,
-	autoShowCommentFormattingOptions,
+	betterCommentBox,
 	hideSearchSidebar,
 	hidePostBackButton,
 	borderRadiusAmount,
@@ -414,6 +417,9 @@ const functionRegistry = {
 	hidePostSpoilerOption,
 	hidePostNsfwOption,
 	hidePostBrandAwarenessOption,
+	rightSidePostThumbnails,
+	viewCrossposts,
+	markReadOnOpenExpandos
 	//dragImageToResize,
 	//dragImageToResizeInitialSize,
 	//addDownloadVideoButton,

@@ -76,6 +76,11 @@ export async function attachUsername(post) {
 				clearTimeout(hoverTimer);
 			});
 		}
+		const tag = post.querySelector('shreddit-distinguished-post-tags');
+		if (tag) {
+			tag.remove();
+			a.appendChild(tag);
+		}
 		const selectors = ['[slot="credit-bar"] > span:has(faceplate-timeago)', '[slot="credit-bar"] > div', 'span:has([bundlename="faceplate_hovercard"])'];
 		let container = selectors.map((selector) => post.querySelector(selector)).find((el) => el);
 		container.querySelector('faceplate-timeago').before(a);

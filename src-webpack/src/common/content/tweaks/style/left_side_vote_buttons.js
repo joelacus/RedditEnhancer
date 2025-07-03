@@ -4,6 +4,12 @@
  * @name leftSideVoteButtons
  * @description Move the vote buttons to the left side of the post.
  *
+ * On v3 UI, post content in feed are nested under two HTML elements, an <article> and a custom semantic <shreddit-post>,
+ * the latter of which is grid-based. To place the vote buttons on the left side of the posts, because moving the
+ * grid layout takes a lot of shadow DOM effort, within the <article> I have to shrink the <shreddit-post> and align it
+ * to the right, leaving enough space on the left for the buttons. This means that the vote buttons are part of <article>
+ * rather than <shreddit-post>.
+ *
  * Applies to: New New UI (2023-)
  */
 
@@ -73,7 +79,8 @@ function enableLeftSideVoteButtons() {
             }
 			shreddit-app[routename="post_page"] main.main,
 			shreddit-app[routename="comments_page"] main.main,
-			shreddit-app[routename="profile_post_page"] main.main {
+			shreddit-app[routename="profile_post_page"] main.main,
+			shreddit-app[routename="profile_post_page_comments"] main.main {
 			    padding-left: 0;
 			    
 			    & .re-vote-panel {
@@ -87,10 +94,6 @@ function enableLeftSideVoteButtons() {
                     display: inline-block;
                     width: calc(100% - 40px);
                     padding-left: .75rem;
-                    
-                    & div.md {
-                        padding-right: 1rem;
-                    }
                 }
                 comment-body-header {
                     margin-left: 0;
@@ -101,7 +104,10 @@ function enableLeftSideVoteButtons() {
                     padding-left: 28px;
                 }
                 shreddit-comment-tree {
-                    margin-left: .3rem;
+                    margin-left: 5px;
+                }
+                shreddit-post .md,
+                shreddit-comment > .md {
                     padding-right: 1rem;
                 }
 			}
@@ -141,6 +147,34 @@ function enableLeftSideVoteButtons() {
             shreddit-app[routename="post_page"] shreddit-post[post-type="link"]:has(img#post-image) h1,
             shreddit-app[routename="comment_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 {
                 margin-right: calc(144px + 2rem);
+            }
+            #re-crosspost-list {
+                margin-left: 40px;
+            }
+            
+            [routename="profile_post_page"] #pdp-credit-bar > span.truncate > span,
+            [routename="profile_post_page"] #pdp-credit-bar > span.truncate > div .subreddit-name,
+            [routename="profile_post_page"] #pdp-credit-bar > span.truncate > div #time-ago-separator,
+            [routename="profile_post_page_comments"] #pdp-credit-bar > span.truncate > span,
+            [routename="profile_post_page_comments"] #pdp-credit-bar > span.truncate > div .subreddit-name,
+            [routename="profile_post_page_comments"] #pdp-credit-bar > span.truncate > div #time-ago-separator {
+                display: none;
+            }
+            [routename="profile_post_page"] #pdp-credit-bar > span.truncate,
+            [routename="profile_post_page_comments"] #pdp-credit-bar > span.truncate {
+                align-items: start;
+            }
+            [routename="profile_post_page"] #pdp-credit-bar > span.truncate > div,
+            [routename="profile_post_page_comments"] #pdp-credit-bar > span.truncate > div {
+                flex-direction: row-reverse;
+            }
+            [routename="profile_post_page"] #pdp-credit-bar .author-name:before,
+            [routename="profile_post_page_comments"] #pdp-credit-bar .author-name:before {
+                content: "Posted by u/";
+            }
+            [routename="profile_post_page"] shreddit-post h1[slot="title"],
+            [routename="profile_post_page_comments"] shreddit-post h1[slot="title"] {
+                margin-top: 0;
             }
 			`;
         document.head.insertBefore(styleElement, document.head.firstChild);
