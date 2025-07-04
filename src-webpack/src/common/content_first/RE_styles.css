@@ -201,7 +201,7 @@ a.thumbnail > img {
 /* ========== SHOW POST AUTHORS (New New UI) ========== */
 /* @see ../content/productivity/show_post_author.js */
 .re-post-author-active reddit-header-large {
-	z-index: 5;
+	z-index: 10;
 }
 .re-post-author {
 	color: var(--color-neutral-content-weak);
