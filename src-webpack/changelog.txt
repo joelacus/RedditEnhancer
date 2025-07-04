@@ -2,6 +2,7 @@ version 1.18.0
 v [New New UI]
   - Fixed an issue where "Show vote buttons on the left" used with "Hide NSFW/L Posts" or "Hide Recommended/Suggested Posts", would show only partially hidden posts.
   - Fixed "Upvote Colour" not working with the option to move the vote buttons to the left of the post.
+  - "Auto Expand Comments" now remembers if you have closed a comment thread and will not re-expand it.
 
 version 1.17.0
 v [General]
