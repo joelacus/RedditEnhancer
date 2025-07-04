@@ -71,7 +71,7 @@ export function hidePostKarma(value) {
 				enableHidePostKarma(post);
 			});
 			// observer
-			observer.observe(document.querySelector('.main-container'), {childList: true, subtree: true});
+			observer.observe(document.querySelector('.main-container'), { childList: true });
 		} else {
 			observer.disconnect();
 			disableHidePostKarma();
@@ -147,7 +147,7 @@ export function hideCommentKarma(value) {
 
 // Function - Enable Hide Post Karma - New New
 function enableHidePostKarma(post) {
-	post.shadowRoot.querySelector('span:has(>faceplate-number)').setAttribute('part', 'karma');
+	post.shadowRoot.querySelector('[data-post-click-location="vote"] faceplate-number')?.setAttribute('part', 'karma');
 }
 
 // Function - Disable Hide Post Karma - New New

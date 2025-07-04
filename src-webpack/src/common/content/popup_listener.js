@@ -3,7 +3,7 @@
 // Listens for commands from the settings popup to enable/disable/change tweaks.
 
 import { addDropShadow } from './tweaks/style/drop_shadow';
-import { alwaysShowPostOptions, hidePostBrandAwarenessOption, hidePostDeleteOption, hidePostEditOption, hidePostHideOption, hidePostNotificationOption, hidePostNsfwOption, hidePostReportOption, hidePostSaveOption, hidePostSpoilerOption } from './tweaks/productivity/always_show_post_options';
+import { alwaysShowPostOptions } from './tweaks/productivity/always_show_post_options';
 import { alwaysShowRisingButton } from './tweaks/productivity/always_show_rising';
 import { autoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
 import { autoExpandComments } from './tweaks/productivity/auto_expand_comments';
@@ -164,6 +164,7 @@ import { hideCommunityStatus } from './tweaks/hide_elements/hide_community_statu
 import { rightSidePostThumbnails } from "./tweaks/style/right_side_post_thumbnails";
 import { viewCrossposts } from "./tweaks/productivity/view_crossposts";
 import { markReadOnOpenExpandos } from "./tweaks/productivity/mark_read_on_open_expandos";
+import { hideAwards } from "./tweaks/hide_elements/hide_awards";
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
@@ -408,18 +409,10 @@ const functionRegistry = {
 	leftSideVoteButtons,
 	hideCommunityStatus,
 	subredditDisplayNameBanner,
-	hidePostNotificationOption,
-	hidePostSaveOption,
-	hidePostHideOption,
-	hidePostReportOption,
-	hidePostEditOption,
-	hidePostDeleteOption,
-	hidePostSpoilerOption,
-	hidePostNsfwOption,
-	hidePostBrandAwarenessOption,
 	rightSidePostThumbnails,
 	viewCrossposts,
-	markReadOnOpenExpandos
+	markReadOnOpenExpandos,
+	hideAwards
 	//dragImageToResize,
 	//dragImageToResizeInitialSize,
 	//addDownloadVideoButton,

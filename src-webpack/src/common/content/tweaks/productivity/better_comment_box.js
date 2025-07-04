@@ -5,6 +5,8 @@
  * @description Automatically show formatting options when commenting, add the Ctrl/Cmd + Enter shortcut to submit comments,
  * and hide the toolbar for switching to rich-text editor when setting Markdown composer as default.
  *
+ * ResizeObserver is used to watch for resizes in the comment tree, which expands as new comments are added.
+ *
  * Applies to: New New UI (2023-)
  */
 import { showBannerMessage } from "../../banner_message";
@@ -28,7 +30,7 @@ export function betterCommentBox(value) {
 
 	// Observe shreddit-comment-tree for dynamic changes
 	setTimeout(() => {
-		observer.observe(document.querySelector('shreddit-comment-tree'), { childList: true, subtree: true });
+		observer.observe(document.querySelector('shreddit-comment-tree'));
 	}, 1000);
 }
 
@@ -38,7 +40,7 @@ function processComposer(composer) {
 		showBannerMessage('error', '[RedditEnhancer] autoShowCommentFormattingOptions: No submit button found in composer.');
 	}
 
-	const rteComposer = composer.shadowRoot.querySelector('reddit-rte');
+	const rteComposer = composer.shadowRoot?.querySelector('reddit-rte');
 	if (rteComposer && !rteComposer.getAttribute('re-showFormatting')) {
 		rteComposer.shadowRoot?.querySelector('rte-toolbar.toolbar-top-responsive')?.classList.remove('hidden');
 		rteComposer.shadowRoot?.querySelector('rte-toolbar-button:last-child')?.remove();
@@ -87,17 +89,11 @@ const handleReplyClick = (e) => {
 	}, 100);
 };
 
-const observer = new MutationObserver(mutations => {
-	mutations.forEach(function (mutation) {
-		mutation.addedNodes.forEach(addedNode => {
-			if (addedNode.nodeName === 'SHREDDIT-COMMENT') {
-				attachReplyButtonListener(addedNode.querySelector('faceplate-tracker[slot="comment-reply"]'));
-				document.querySelectorAll('[slot="comment-reply"]').forEach(attachReplyButtonListener); // reapply just to be sure
-			} else if (addedNode.nodeName === 'SHREDDIT-ASYNC-LOADER') {
-				setTimeout(() => {
-					document.querySelectorAll('shreddit-composer').forEach(processComposer);
-				}, 300);
-			}
-		});
+const observer = new ResizeObserver(function (entries) {
+	entries.forEach(function (entry) {
+		if (entry.target.nodeName === 'SHREDDIT-COMMENT-TREE') {
+			entry.target.querySelectorAll('shreddit-composer').forEach(processComposer);
+			entry.target.querySelectorAll('[slot="comment-reply"]').forEach(attachReplyButtonListener);
+		}
 	});
 });

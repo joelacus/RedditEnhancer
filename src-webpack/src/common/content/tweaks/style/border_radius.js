@@ -52,6 +52,9 @@ function addBorderRadiusAmountStylesheet() {
 			/* Posts in Card view, search results and subreddit sidebar */
 			shreddit-app article > shreddit-post[view-type="cardView"],
 			shreddit-post div.hover-card,
+			shreddit-post::part(button),
+			#subreddit-wiki-header,
+			#subreddit-wiki-header + div,
 			main.main search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
 			div[data-testid="search-crosspost-unit"] div:has(> search-telemetry-tracker),
 			div#right-sidebar-container > *,

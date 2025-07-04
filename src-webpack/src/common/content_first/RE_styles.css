@@ -87,6 +87,9 @@ shreddit-app[routename='comment_page'] #right-sidebar-container aside {
 	margin-top: 1rem;
 	padding: 0;
 }
+shreddit-app[routename='subreddit_wiki'] shreddit-title {
+	display: none;
+}
 shreddit-app[pagetype='custom_feed'] #right-sidebar-container {
 	margin-top: 2.5rem;
 }
@@ -197,6 +200,9 @@ a.thumbnail > img {
 
 /* ========== SHOW POST AUTHORS (New New UI) ========== */
 /* @see ../content/productivity/show_post_author.js */
+.re-post-author-active reddit-header-large {
+	z-index: 5;
+}
 .re-post-author {
 	color: var(--color-neutral-content-weak);
 	z-index: 4;
@@ -457,6 +463,16 @@ aside#mod-queue-pdp-panel shreddit-post {
 shreddit-composer::part(md-inner) {
 	padding: 0.25rem 1rem;
 	font-family: var(--font-sans);
+}
+.re-hide-awards award-button {
+	display: none !important;
+}
+#subreddit-wiki-header {
+	gap: 0;
+	margin-bottom: 0;
+}
+#subreddit-wiki-header + div {
+	padding: 1rem;
 }
 
 /* ========== SCROLL TEXT POST ========== */

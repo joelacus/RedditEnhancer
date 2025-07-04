@@ -57,6 +57,7 @@ import { loadAttachSideMenuHeader, loadSubredditDisplayNameBanner } from './twea
 import { loadLeftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { loadViewCrossposts } from "./tweaks/productivity/view_crossposts";
 import { loadMarkReadOnOpenExpandos } from "./tweaks/productivity/mark_read_on_open_expandos";
+import {loadHideAwards} from "./tweaks/hide_elements/hide_awards";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -240,6 +241,7 @@ export function loadTweaks() {
 				}, 500);
 				loadAlwaysShowPostOptions();
 				loadShowUpvoteRatio();
+				loadHideAwards();
 			},
 		});
 
@@ -253,6 +255,7 @@ export function loadTweaks() {
 					loadCompactPostLinkPreview();
 					loadViewCrossposts();
 					addBorderRadiusToShadowRootElements();
+					loadAlwaysShowPostOptions();
 				}, 500);
 			},
 		});
@@ -268,6 +271,15 @@ export function loadTweaks() {
 				}, 2000);
 			},
 		});
+
+		waitForAddedNode({
+			query: 'shreddit-feed shreddit-profile-comment',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function (el) {
+				loadAlwaysShowPostOptions();
+			},
+		})
 
 		waitForAddedNode({
 			query: 'shreddit-comment[author="AutoModerator"]',

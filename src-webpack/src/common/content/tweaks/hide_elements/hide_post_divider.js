@@ -93,7 +93,11 @@ function enableHidePostDivider() {
 										> .py-md {
 											padding: 0;
 										}
-										shreddit-subreddit-header, ::part(header), ::part(achievements-entrypoint), shreddit-subreddit-header ~ div.px-md {
+										shreddit-subreddit-header,
+										::part(header),
+										::part(achievements-entrypoint),
+										shreddit-subreddit-header ~ div.px-md,
+										shreddit-subreddit-header ~ faceplate-expandable-section-helper > details {
 											background-color: var(--color-neutral-background-weak);
 											backdrop-filter: blur(var(--re-theme-blur));
 											margin-bottom: 1rem;

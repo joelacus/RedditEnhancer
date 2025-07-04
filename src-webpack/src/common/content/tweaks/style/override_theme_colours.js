@@ -554,7 +554,9 @@ export function themePostBackgroundColour(value) {
 											--color-neutral-background: var(--re-theme-post-bg);
 											--color-neutral-background-weak: var(--re-theme-post-bg);
 										}
-										aside#mod-queue-pdp-panel {
+										aside#mod-queue-pdp-panel,
+										#subreddit-wiki-header,
+										#subreddit-wiki-header + div {
 											background-color: var(--re-theme-post-bg);
 										}
 										shreddit-feed shreddit-post:hover,
@@ -567,10 +569,6 @@ export function themePostBackgroundColour(value) {
 										}
 										div[slot="post-insights-panel"] > faceplate-tracker > div {
 											background-color: inherit !important;
-										}
-										shreddit-post button:hover {
-											--color-secondary-background-hover: rgba(0,0,0,0.3) !important;
-											--button-border-color: rgba(0,0,0,0.6) !important;
 										}
 										[pagetype="search_results"] main.main > div {
 											--color-neutral-background: var(--re-theme-post-bg) !important;
@@ -585,7 +583,7 @@ export function themePostBackgroundColour(value) {
 											margin-left: -0.5rem;
 											margin-bottom: 0;
 											padding-left: 8px;
-											padding-top: 8px;
+											padding-top: 12px;
 										}
 										shreddit-comments-sort-dropdown {
 											--color-neutral-background: transparent !important;
@@ -1574,8 +1572,10 @@ export function themePostCommentActionRowColour(value) {
 		});
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-post-comment-action-row-colour';
-		styleElement.textContent = `shreddit-comment shreddit-comment-action-row {
+		styleElement.textContent = `shreddit-post,
+									shreddit-comment-action-row {
 										--color-button-plain-text: var(--re-theme-post-comment-action-row-colour) !important;
+										--color-button-plain-text-weak: var(--re-theme-post-comment-action-row-colour) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else {

@@ -302,6 +302,9 @@
 	"HideAdvertiseButton": {
 		"message": "Hide the 'Advertise' Button"
 	},
+	"HideAwards": {
+		"message": "Hide Give Awards button"
+	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Hide Posts with Blocked Keywords"
 	},

@@ -37,7 +37,7 @@ export function showPostFlair(value) {
 
 	if (redditVersion === 'newnew' && value && feedRoutes.includes(routeName)) {
 		document.querySelectorAll('shreddit-post').forEach(attachFlair);
-		observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
+		observer.observe(document.querySelector('shreddit-feed'), { childList: true });
 	} else {
 		// Disconnect the observer and remove all added post flairs
 		observer.disconnect();
@@ -102,7 +102,7 @@ async function attachFlair(post) {
 		// Append each flair to <span>
 		for (let f = 0; f < flair.length; f++) {
 			if (flair[f].e === 'text') {
-				const flairText = flair[f].t;
+				const flairText = new DOMParser().parseFromString(flair[f].t, 'text/html').body.textContent || flair[f].t;
 				const url = '/' + postSub + '/?f=flair_name%3A%22' + flairName + '%22';
 				a.href = url;
 				span.append(flairText);
