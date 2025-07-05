@@ -9,15 +9,11 @@ export function loadLargerClassicPost() {
 
 /* === Main Function === */
 export function largerClassicPost(value) {
-	if (redditVersion === 'old' && value === true) {
+	if (redditVersion === 'old' && value) {
 		enableLargerClassicPostOld();
-	} else if (redditVersion === 'new' && value === true) {
-		if (useLegacy) {
-			enableLargerClassicPostNewLegacy();
-		} else {
-			enableLargerClassicPostNew();
-		}
-	} else if (value === false) {
+	} else if (redditVersion === 'new' && value) {
+		enableLargerClassicPostNew();
+	} else {
 		disableLargerClassicPostAll();
 	}
 }
@@ -50,43 +46,6 @@ function enableLargerClassicPostOld() {
 										width: auto;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
-}
-
-// Function - Enable Larger Classic Post - New - Legacy
-function enableLargerClassicPostNewLegacy() {
-	if (!document.head.querySelector('style[id="re-larger-classic-post"]')) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-larger-classic-post';
-		styleElement.textContent = `.re-feed-container.view-classic {
-										display: flex;
-										flex-direction: column;
-										grid-gap: 8px;
-									}
-									.re-feed-container.view-classic .Post {
-										border-radius: 4px;
-									}
-									.re-feed-container.view-classic > div [data-click-id="image"] {
-										width: 170px;
-										height: 120px;
-									}
-									.re-feed-container.view-classic [data-click-id="background"] > div:first-child > div:first-child {
-										height: 130px;
-									}
-									.re-feed-container.view-classic [data-click-id="background"] > div > div:first-child > div:first-child {
-										height: 120px;
-									}
-									.re-feed-container.view-classic [data-click-id="background"] > div > [data-click-id="body"] > div:last-child {
-										bottom: 10px;
-									}
-									.re-feed-container.view-classic [data-click-id="body"] h3 {
-										font-size: 18px;
-									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
-
-	if (document.querySelector('.re-sort .icon-view_classic')) {
-		document.querySelector('.re-feed-container').classList.add('view-classic');
 	}
 }
 

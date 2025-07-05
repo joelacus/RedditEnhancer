@@ -46,33 +46,18 @@ function enableShowToTopButtonNew() {
 		document.querySelector('.re-to-top-button').remove();
 		enableShowToTopButtonNew();
 	} else {
-		if (useLegacy) {
-			const styles = document.querySelector('#re-header-buttons [href="/r/popular/"]').classList;
-			const div = document.createElement('div');
-			div.setAttribute('class', styles);
-			div.classList.remove('re-popular-button', 're-hide');
-			div.classList.add('re-to-top-button');
-			div.setAttribute('aria-label', 'To Top');
-			div.setAttribute('title', 'To Top');
-			const i = document.createElement('i');
-			i.setAttribute('class', 'icon icon-up');
-			div.appendChild(i);
-			const container = document.querySelector('#re-header-buttons');
-			container.prepend(div, container.firstChild);
-		} else {
-			const styles = document.querySelector('#change-username-tooltip-id span:has(.icon-add)').classList;
-			const div = document.createElement('div');
-			div.setAttribute('class', styles);
-			div.classList.remove('re-hide');
-			div.classList.add('re-to-top-button');
-			div.setAttribute('aria-label', 'To Top');
-			div.setAttribute('title', 'To Top');
-			const i = document.createElement('i');
-			i.setAttribute('class', 'icon icon-up');
-			div.appendChild(i);
-			const container = document.querySelector('#change-username-tooltip-id');
-			container.prepend(div, container.firstChild);
-		}
+		const styles = document.querySelector('#change-username-tooltip-id span:has(.icon-add)').classList;
+		const div = document.createElement('div');
+		div.setAttribute('class', styles);
+		div.classList.remove('re-hide');
+		div.classList.add('re-to-top-button');
+		div.setAttribute('aria-label', 'To Top');
+		div.setAttribute('title', 'To Top');
+		const i = document.createElement('i');
+		i.setAttribute('class', 'icon icon-up');
+		div.appendChild(i);
+		const container = document.querySelector('#change-username-tooltip-id');
+		container.prepend(div, container.firstChild);
 	}
 	// Scroll To Top button listener
 	document.querySelector('.re-to-top-button').addEventListener('click', function (e) {

@@ -28,8 +28,7 @@ export function expandLayout(value) {
 				enableExpandContentOld();
 				break;
 			case 'new':
-				if (useLegacy) enableExpandContentNewLegacy();
-				else enableExpandContentNew();
+				enableExpandContentNew();
 				break;
 			case 'newnew':
 				enableExpandContentNewNew();
@@ -37,7 +36,6 @@ export function expandLayout(value) {
 		}
 	} else {
 		disableExpandContentAll();
-		if (legacy) document.querySelector('.re-feed').style.maxWidth = '1600px';
 	}
 }
 
@@ -49,27 +47,6 @@ export function snapSidebar(value) {
 
 // Function - Enable Expand Content - Old
 function enableExpandContentOld() {
-	// const reMain = document.querySelector('#re-main');
-	// if (!reMain) {
-	// 	// Restructure HTML
-	// 	const main = document.createElement('div');
-	// 	main.id = 're-main';
-	// 	const container = document.createElement('div');
-	// 	container.id = 're-container';
-	// 	const body = document.querySelector('body');
-	// 	const sidemenu = document.querySelector('.listing-chooser');
-	// 	const side = document.querySelector('.side');
-	// 	const content = document.querySelector('.content[role="main"]');
-	// 	const sort = document.querySelector('#header .tabmenu');
-	// 	body.insertBefore(main, side);
-	// 	if (sidemenu) {
-	// 		main.append(sidemenu);
-	// 	}
-	// 	container.append(content);
-	// 	container.append(side);
-	// 	main.append(container);
-	// 	content.insertBefore(sort, content.firstChild);
-	// }
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-expand-feed-layout';
 	styleElement.textContent = `div.content {
@@ -178,74 +155,6 @@ function enableExpandContentOld() {
 									margin-left: 0 !important;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
-}
-
-// Function - Enable Expand Content - New - Legacy
-function enableExpandContentNewLegacy() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-expand-feed-layout';
-	styleElement.textContent = `.re-feed {
-									width: var(--re-content-width) !important;
-									max-width: var(--re-content-width) !important;
-								}
-								.re-sub {
-									width: var(--re-sub-width) !important;
-									max-width: var(--re-sub-width) !important;
-								}
-								.re-post {
-									width: var(--re-psot-width) !important;
-									max-width: var(--re-psot-width) !important;
-								}
-								.re-user {
-									width: var(--re-user-profile-width) !important;
-									max-width: var(--re-user-profile-width) !important;
-								}
-								.re-feed > div,
-								.re-feed-sub > div,
-								.re-feed-post > div,
-								.re-feed-user > div {
-									width: 100% !important;
-									max-width: 100% !important;
-								}
-								.re-search {
-									min-width: calc(var(--re-content-width) - 48px) !important;
-									max-width: calc(var(--re-content-width) - 48px) !important;
-								}
-								.re-search-parent {
-									min-width: 100%;
-									margin: 0;
-								}
-								.re-post-container {
-									width: 100% !important;
-									max-width: 100% !important;
-								}
-								.re-post-container .Comment div:nth-child(3) {
-									max-width: 100% !important;
-								}
-								[data-test-id="post-content"] [data-click-id="text"] {
-									max-width: 100% !important;
-								}
-								#overlayScrollContainer div {
-									max-width: 100%;
-								}
-								#overlayScrollContainer > div {
-									max-width: var(--re-post-overlay-width);
-									background-color: var(--comments-overlay-background);
-								}
-								#overlayScrollContainer [data-test-id="post-content"] div[style="max-width: 800px;"] {
-									max-width: none !important;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
-	document.querySelector('.re-feed').style = '';
-}
-
-// Function - Disable Expand Content - New - Legacy
-function disableExpandContentNewLegacy() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-expand-feed-layout"]');
-	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
-	});
-	document.querySelector('.re-feed').style.maxWidth = '1600px';
 }
 
 // Function - Enable Expand Content - New

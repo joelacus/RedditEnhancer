@@ -1,27 +1,31 @@
-/* ===== Tweaks - Hide - Community Highlights ===== */
+/**
+ * Tweaks: Hide Elements - Hide Community Highlights
+ * @name hideCommunityHighlights
+ * @description Hides the community highlights element at the top of a subreddit.
+ *
+ * Applies to: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHideCommunityHighlights() {
 	BROWSER_API.storage.sync.get(['hideCommunityHighlights'], function (result) {
 		if (result.hideCommunityHighlights) hideCommunityHighlights(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function hideCommunityHighlights(value) {
 	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHideCommunityHighlights();
-		} else if (value === false) {
+		if (value) {
+			enableHideCommunityHighlightsRV3();
+		} else {
 			disableHideCommunityHighlights();
 		}
 	}
 }
 
-/* === Enable/Disable Functions === */
-
-// Function - Enable Hide Community Highlights - New New
-function enableHideCommunityHighlights() {
+// Enable Hide Community Highlights - RV3
+function enableHideCommunityHighlightsRV3() {
 	if (!document.head.querySelector('style[id="re-hide-community-highlights"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-community-highlights';
@@ -32,7 +36,7 @@ function enableHideCommunityHighlights() {
 	}
 }
 
-// Function - Disable Hide Community Highlights - New New
+// Disable Hide Community Highlights - RV3
 function disableHideCommunityHighlights() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-community-highlights"]');
 	dynamicStyleElements.forEach((element) => {

@@ -10,29 +10,21 @@ export function loadHidePromotedPosts() {
 /* === Main Function === */
 export function hidePromoted(value) {
 	if (redditVersion === 'old') {
-		if (value === true) {
+		if (value) {
 			enableHidePromotedPostsOld();
-		} else if (value === false) {
+		} else {
 			disableHidePromotedPostsAll();
 		}
 	} else if (redditVersion === 'new') {
-		if (value === true) {
-			if (useLegacy) {
-				enableHidePromotedPostsNewLegacy();
-			} else {
-				enableHidePromotedPostsNew();
-			}
-		} else if (value === false) {
-			if (useLegacy) {
-				disableHidePromotedPostsNewLegacy();
-			} else {
-				disableHidePromotedPostsAll();
-			}
+		if (value) {
+			enableHidePromotedPostsNew();
+		} else {
+			disableHidePromotedPostsAll();
 		}
 	} else if (redditVersion === 'newnew') {
-		if (value === true) {
+		if (value) {
 			enableHidePromotedPostsNewNew();
-		} else if (value === false) {
+		} else {
 			disableHidePromotedPostsAll();
 		}
 	}
@@ -52,17 +44,6 @@ function enableHidePromotedPostsOld() {
 	}
 }
 
-// Function - Enable Hide Promoted Posts - New - Legacy
-function enableHidePromotedPostsNewLegacy() {
-	const links = document.querySelectorAll('.re-feed-container .promotedlink');
-	if (links) {
-		links.forEach(function (link) {
-			link.parentNode.parentNode.parentNode.classList.add('re-hide');
-		});
-	}
-	observer.observe(document.body, { childList: true, subtree: true });
-}
-
 const observer = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {
 		mutation.addedNodes.forEach(function (addedNode) {
@@ -78,17 +59,6 @@ const observer = new MutationObserver(function (mutations) {
 		});
 	});
 });
-
-// Function - Disable Hide Promoted Posts - New - Legacy
-function disableHidePromotedPostsNewLegacy() {
-	observer.disconnect();
-	const links = document.querySelectorAll('.re-feed-container .promotedlink');
-	if (links) {
-		links.forEach(function (link) {
-			link.parentNode.parentNode.parentNode.classList.remove('re-hide');
-		});
-	}
-}
 
 // Function - Enable Hide Promoted Posts - New
 function enableHidePromotedPostsNew() {

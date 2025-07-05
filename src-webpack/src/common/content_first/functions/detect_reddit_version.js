@@ -2,51 +2,23 @@
 
 import { waitForAddedNode } from './tweak_loaders/main_observer';
 import { tweakLoaderOld } from './tweak_loaders/tweak_loader_old';
-import { tweakLoaderOldNew } from './tweak_loaders/tweak_loader_oldnew';
 import { tweakLoaderNewNew } from './tweak_loaders/tweak_loader_newnew';
 
+// Detect the Reddit version and load the tweaks accordingly
 export function detectRedditVersion() {
 	// Do not reload tweaks if already loaded. Most of these are CSS injection tweaks and should only be loaded once.
 	// If it is very necessary to reload the tweak, consider putting it in tweak_loader.js.
 	if (window.tweaksLoaded) return;
 	window.tweaksLoaded = true;
 
-	const link = window.location.hostname;
-	console.log(link);
-	if (link === 'sh.reddit.com') {
-		window.redditVersion = 'newnew';
-		tweakLoaderNewNew();
-	} else if (link === 'new.reddit.com') {
-		window.redditVersion = 'new';
-		tweakLoaderOldNew();
-	} else if (link === 'old.reddit.com') {
+	const hostname = window.location.hostname;
+	if (hostname === 'old.reddit.com') {
 		window.redditVersion = 'old';
 		tweakLoaderOld();
-	} else if (link.includes('reddit.com')) {
-		// New New UI (SH)
-		waitForAddedNode({
-			query: 'shreddit-app',
-			parent: document.querySelector('body'),
-			recursive: true,
-			done: function () {
-				window.redditVersion = 'newnew';
-				tweakLoaderNewNew();
-			},
-		});
-
-		// Old New UI
-		waitForAddedNode({
-			id: true,
-			query: '2x-container',
-			parent: document.querySelector('body'),
-			recursive: true,
-			done: function () {
-				window.redditVersion = 'new';
-				window.tweaksLoaded = false;
-				tweakLoaderOldNew();
-			},
-		});
-
+	} else if (hostname === 'www.reddit.com' || hostname === 'sh.reddit.com' || hostname === 'new.reddit.com') {
+		window.redditVersion = 'newnew';
+		tweakLoaderNewNew();
+	} else {
 		// Old UI
 		waitForAddedNode({
 			query: 'div.footer-parent',
@@ -57,36 +29,35 @@ export function detectRedditVersion() {
 				tweakLoaderOld();
 			},
 		});
-	}
-}
 
-/*export function getRedditVersion() {
-	const link = window.location.href;
-	if (link.indexOf('sh.reddit.com') >= 0) {
-		return 'newnew';
-	} else if (link.indexOf('new.reddit.com') >= 0) {
-		return 'new';
-	} else if (link.indexOf('old.reddit.com') >= 0) {
-		return 'old';
-	} else if (link.indexOf('www.reddit.com') >= 0) {
 		// New New UI (SH)
 		waitForAddedNode({
 			query: 'shreddit-app',
 			parent: document.querySelector('body'),
 			recursive: true,
 			done: function () {
-				return 'newnew';
+				window.redditVersion = 'newnew';
+				tweakLoaderNewNew();
 			},
 		});
+	}
+}
 
-		// Old New UI
+// Return the Reddit version
+export function getRedditVersion() {
+	const hostname = window.location.href;
+	if (hostname === 'old.reddit.com') {
+		return 1;
+	} else if (hostname === 'www.reddit.com' || hostname === 'sh.reddit.com' || hostname === 'new.reddit.com') {
+		return 3;
+	} else {
+		// New New UI (SH)
 		waitForAddedNode({
-			id: true,
-			query: '2x-container',
+			query: 'shreddit-app',
 			parent: document.querySelector('body'),
 			recursive: true,
 			done: function () {
-				return 'new';
+				return 3;
 			},
 		});
 
@@ -97,8 +68,8 @@ export function detectRedditVersion() {
 			parent: document.querySelector('body'),
 			recursive: true,
 			done: function () {
-				return 'old';
+				return 1;
 			},
 		});
 	}
-}*/
+}

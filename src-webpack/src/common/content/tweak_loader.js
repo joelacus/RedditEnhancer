@@ -7,9 +7,9 @@ import { loadAlwaysShowRisingButton } from './tweaks/productivity/always_show_ri
 import { loadAutoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
 import { loadAutoExpandComments } from './tweaks/productivity/auto_expand_comments';
 import { loadAutoExpandValue } from './tweaks/resize_elements/auto_expand_value';
-import { loadBionicReaderForComments, loadBionicReaderForPosts } from './tweaks/accessibility/bionic_reader';
+import { loadBionicReader } from './tweaks/accessibility/bionic_reader';
 import { loadBreakReminder } from './tweaks/productivity/break_reminder';
-import { loadDarkModeAuto } from './tweaks/dark_mode/dark_mode';
+//import { loadDarkModeAuto } from './tweaks/dark_mode/dark_mode';
 import { loadFitImage } from './tweaks/media/scale_tall_images_to_fit_post';
 import { loadHideNSFW } from './tweaks/hide_elements/hide_nsfw';
 import { loadHideBlockedKeywordPosts } from './tweaks/block/block_posts_by_keyword';
@@ -57,7 +57,7 @@ import { loadAttachSideMenuHeader, loadSubredditDisplayNameBanner } from './twea
 import { loadLeftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { loadViewCrossposts } from "./tweaks/productivity/view_crossposts";
 import { loadMarkReadOnOpenExpandos } from "./tweaks/productivity/mark_read_on_open_expandos";
-import {loadHideAwards} from "./tweaks/hide_elements/hide_awards";
+import { loadHideAwards } from "./tweaks/hide_elements/hide_awards";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -94,8 +94,7 @@ export function loadTweaks() {
 		loadOpenPostInNewTab();
 		loadShowAllButton();
 		loadScrollToNextRootComment();
-		loadBionicReaderForPosts();
-		loadBionicReaderForComments();
+		loadBionicReader();
 		loadBreakReminder();
 		loadHidePostKarma();
 		loadHideCommentKarma();
@@ -111,8 +110,7 @@ export function loadTweaks() {
 		});
 	} else if (redditVersion === 'newnew') {
 		//loadAddDownloadVideoButton();
-		loadBionicReaderForComments();
-		loadBionicReaderForPosts();
+		loadBionicReader();
 		loadScrollToNextRootComment();
 		loadShowPostAuthor();
 		loadShowPostFlair();

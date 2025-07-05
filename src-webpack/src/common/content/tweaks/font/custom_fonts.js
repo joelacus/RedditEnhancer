@@ -8,25 +8,24 @@
  *
  * Currently, this function only sets sans-serif as UI font on Old UI. Other UIs may be considered later.
  *
- * Applies to: Old UI (2005–)
+ * Applies to: RV1 (Old New UI) (2018-2024)
  */
 
 // Get the feature state from browser sync storage
 export function loadCustomFonts() {
-    BROWSER_API.storage.sync.get(['customFonts']).then((result) => {
-        if (result.customFonts) customFonts(true);
-    });
+	BROWSER_API.storage.sync.get(['customFonts']).then((result) => {
+		if (result.customFonts) customFonts(true);
+	});
 }
 
 // Activate the feature based on Reddit version
 export function customFonts(value) {
-    if (value) {
-        if (redditVersion === 'old') {
-            if (!document.head.querySelector('style[id="re-custom-fonts"]')) {
-                const styleElement = document.createElement('style');
-                styleElement.id = 're-custom-fonts';
-                styleElement.textContent =
-                    `
+	if (value) {
+		if (redditVersion === 'old') {
+			if (!document.head.querySelector('style[id="re-custom-fonts"]')) {
+				const styleElement = document.createElement('style');
+				styleElement.id = 're-custom-fonts';
+				styleElement.textContent = `
                     html body, html textarea {
                         font: normal 12px/1.4 sans-serif;
                     }
@@ -90,13 +89,13 @@ export function customFonts(value) {
 	                    font-size: inherit;
 	                }
                     `;
-                document.head.insertBefore(styleElement, document.head.firstChild);
-            }
-        }
-    } else {
-        const dynamicStyleElements = document.head.querySelectorAll('style[id="re-custom-fonts"]');
-        dynamicStyleElements.forEach((element) => {
-            document.head.removeChild(element);
-        });
-    }
+				document.head.insertBefore(styleElement, document.head.firstChild);
+			}
+		}
+	} else {
+		const dynamicStyleElements = document.head.querySelectorAll('style[id="re-custom-fonts"]');
+		dynamicStyleElements.forEach((element) => {
+			document.head.removeChild(element);
+		});
+	}
 }
