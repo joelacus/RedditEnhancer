@@ -102,10 +102,6 @@ function enableUseCustomBackgroundNewNew() {
 								shreddit-app .sidebar-grid {
 									background: none !important;
 								}
-								[routename="subreddit"] div.masthead,
-								[routename="subreddit_wiki"] div.masthead {
-									background-color: var(--re-theme-post-bg);
-								}
 								community-highlight-carousel {
 									background-color: var(--re-theme-post-bg, transparent);
 									border-radius: var(--re-theme-border-radius, 1rem);

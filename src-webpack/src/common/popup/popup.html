@@ -180,9 +180,6 @@
 								<a href="#resize-side-menu" data-lang="SideMenu"></a>
 								<div class="vdivider"></div>
 							</div>
-							<div class="r-newnew">
-								<a href="#resize-main-container" data-lang="MainContainer"></a>
-							</div>
 						</div>
 					</li>
 					<li id="resize-layout" class="sub-header r-newnew">
@@ -194,6 +191,14 @@
 							<span data-lang="ResizeLayout" data-search="resize,content"></span>
 							<label class="switch">
 								<input id="checkbox-expand-layout" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<div class="container-3 r-newnew">
+							<span class="menu-item-icon icon-arrow-right icon-snap-sidebar"></span>
+							<span data-lang="SnapSidebar" data-search="snap,sidebar,right"></span>
+							<label class="switch">
+								<input id="checkbox-snap-sidebar" type="checkbox" />
 								<span class="indicator"></span>
 							</label>
 						</div>
@@ -210,6 +215,14 @@
 							<span data-lang="Width"></span>
 						</div>
 						<div class="container r-old r-new r-newnew">
+							<div class="container r-newnew">
+								<div class="container-slider">
+									<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
+									<span data-lang="GlobalWidth" data-search="resize,container,content"></span>
+									<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-resize-main-container-width" />
+									<span id="resize-main-container-width-value" class="input-value"></span>
+								</div>
+							</div>
 							<div class="container r-old r-new r-newnew">
 								<div class="container-slider">
 									<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
@@ -309,29 +322,6 @@
 						<div></div>
 						<input type="range" min="199" max="300" value="0" step="1" class="slider" id="input-side-menu-width" />
 						<span id="side-menu-width-value" class="input-value"></span>
-					</li>
-					<li id="resize-main-container" class="sub-header r-newnew">
-						<span data-lang="MainContainer"></span>
-					</li>
-					<li class="container r-newnew">
-						<div class="container-3">
-							<span class="menu-item-icon icon-resize-feed icon-resize-main-container"></span>
-							<span data-lang="ResizeMainContainer" data-search="resize,container,content"></span>
-							<label class="switch">
-								<input id="checkbox-resize-main-container" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-						</div>
-						<div class="divider"></div>
-						<div class="container-slider r-newnew">
-							<span class="menu-item-icon icon-ruler-horizontal icon-resize-main-container-width"></span>
-							<span data-lang="Width" data-search="resize,container,content"></span>
-							<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-resize-main-container-width" />
-							<span id="resize-main-container-width-value" class="input-value"></span>
-							<div style="position: relative; margin-top: 16px; width: 400px">
-								<p class="info" data-lang="ResizeMainContainerInfo"></p>
-							</div>
-						</div>
 					</li>
 				</ul>
 			</li>

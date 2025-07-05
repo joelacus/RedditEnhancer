@@ -41,19 +41,20 @@ function enableFullWidthBanner() {
 										max-width: 100% !important;
 										width: 100%;
 									}
-									shreddit-app[routename="subreddit"] div.main-container,
-									shreddit-app[routename="subreddit_wiki"] div.main-container {
-										width: initial;
+									shreddit-app[routename="subreddit"] div.masthead,
+									shreddit-app[routename="subreddit_wiki"] div.masthead {
+										max-width: revert;
+										padding: revert;
+										background-color: var(--re-theme-post-bg);
+									}
+									shreddit-app[routename="subreddit"] div.masthead > section,
+									shreddit-app[routename="subreddit_wiki"] div.masthead > section {
+										max-width: min(var(--re-sub-width), var(--re-main-container-width));
 										padding: 0 1.5rem;
-										gap: 1.25rem;
 									}
 									html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit"] div.main-container,
 									html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit_wiki"] div.main-container {
 										justify-content: center;
-									}
-									/* Community highlight */
-									shreddit-gallery-carousel > li {
-										padding: 0 !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
@@ -120,14 +121,6 @@ function enableCompactHeaderSideMenu() {
 									}
 									nav.h-header-large > .justify-stretch > div {
 										top: .25rem;
-									}
-									div.subgrid-container {
-										padding: 0;
-									}
-									div.main-container {
-										padding: 0 1.5rem;
-										gap: 1.25rem;
-										width: auto;
 									}
 									
 									/* COMPACT SUBREDDIT RULE LIST */

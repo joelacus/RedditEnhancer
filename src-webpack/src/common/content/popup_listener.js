@@ -14,7 +14,7 @@ import { bionicReaderBgColour, bionicReaderBgColourCSS, bionicReaderFontColour, 
 import { bionicReaderComments } from './tweaks/accessibility/bionic_reader';
 import { breakReminder } from './tweaks/productivity/break_reminder';
 import { darkMode, darkModeAutoListener } from './tweaks/dark_mode/dark_mode';
-import { expandLayout, expandPostOverlayWidth, expandPostWidth, expandSubWidth, expandLayoutWidth, expandUserProfileWidth, expandTopicFeedWidth, expandCustomFeedWidth } from './tweaks/resize_elements/expand_content';
+import { expandLayout, snapSidebar, expandPostOverlayWidth, expandPostWidth, expandSubWidth, expandLayoutWidth, expandUserProfileWidth, expandTopicFeedWidth, expandCustomFeedWidth, resizeMainContainerWidth } from './tweaks/resize_elements/expand_content';
 import { fitImage } from './tweaks/media/scale_tall_images_to_fit_post';
 import { hideCreatePost } from './tweaks/hide_elements/hide_create_post';
 import { hideGap } from './tweaks/style/hide_gap';
@@ -141,7 +141,6 @@ import { hidePostDivider, postSeparatorHeight } from './tweaks/hide_elements/hid
 import { hideBlurredMediaBackground } from './tweaks/media/hide_blurred_media_background';
 import { fullWidthBanner, compactHeaderSideMenu, attachSideMenuHeader, optOutAttachSideMenu, subredditDisplayNameBanner } from './tweaks/style/old_new_ui';
 import { textPostPreviewFade, setTextPostPreviewFadeHeight } from './tweaks/media/text_preview_fade';
-import { resizeMainContainer, resizeMainContainerWidth } from './tweaks/resize_elements/resize_main_container';
 import { hideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
 import { sidebarToggleButton } from './tweaks/hide_elements/sidebar_toggle_button';
 import { hideCompactViewThumbnails } from './tweaks/hide_elements/hide_compact_view_thumbnails';
@@ -384,7 +383,6 @@ const functionRegistry = {
 	hideBlurredMediaBackground,
 	fullWidthBanner,
 	compactHeaderSideMenu,
-	resizeMainContainer,
 	resizeMainContainerWidth,
 	textPostPreviewFade,
 	textPostPreviewFadeHeight,
@@ -412,7 +410,8 @@ const functionRegistry = {
 	rightSidePostThumbnails,
 	viewCrossposts,
 	markReadOnOpenExpandos,
-	hideAwards
+	hideAwards,
+	snapSidebar
 	//dragImageToResize,
 	//dragImageToResizeInitialSize,
 	//addDownloadVideoButton,

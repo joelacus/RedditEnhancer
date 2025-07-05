@@ -278,6 +278,9 @@
 	"FullWidthBanner": {
 		"message": "Full Width Subreddit Banner"
 	},
+	"GlobalWidth": {
+		"message": "Global Max. Width"
+	},
 	"Grey": {
 		"message": "Grey"
 	},
@@ -874,6 +877,9 @@
 	},
 	"SidebarToggleButton": {
 		"message": "Sidebar Toggle Button"
+	},
+	"SnapSidebar": {
+		"message": "Snap sidebar to the right edge"
 	},
 	"Sort": {
 		"message": "Sort"
