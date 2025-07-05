@@ -150,28 +150,20 @@ function disableHideHomeSidebarOld() {
 
 // Function - Enable Hide Home Sidebar - New
 function enableHideHomeSidebarNew() {
-	if (useLegacy) {
-		document.querySelector('.re-sidebar-home').parentNode.classList.add('re-hide');
-	} else {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-home-sidebar';
-		styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child div:has([data-testid="frontpage-sidebar"]) {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-home-sidebar';
+	styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child div:has([data-testid="frontpage-sidebar"]) {
 										display: none;
 									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
+	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
 // Function - Disable Home Sidebar - New
 function disableHideHomeSidebarNew() {
-	if (useLegacy) {
-		document.querySelector('.re-sidebar-home').parentNode.classList.remove('re-hide');
-	} else {
-		const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-home-sidebar"]');
-		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
-		});
-	}
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-home-sidebar"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
 }
 
 // Function - Enable Hide Home Sidebar - New New
@@ -234,28 +226,20 @@ export function hideSubSidebar(value) {
 
 // Function - Enable Hide Sub Sidebar - New
 export function enableHideSubSidebarNew() {
-	if (useLegacy) {
-		document.querySelector('.re-sidebar-sub').parentNode.classList.add('re-hide');
-	} else {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-sub-sidebar';
-		styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child > :last-child:has([data-testid="subreddit-sidebar"]) {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-sub-sidebar';
+	styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child > :last-child:has([data-testid="subreddit-sidebar"]) {
 										display: none;
 									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
+	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
 // Function - Disable Hide Sub Sidebar - New
 export function disableHideSubSidebarNew() {
-	if (useLegacy) {
-		document.querySelector('.re-sidebar-sub').parentNode.classList.remove('re-hide');
-	} else {
-		const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-sub-sidebar"]');
-		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
-		});
-	}
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-sub-sidebar"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
 }
 
 // Function - Enable Hide Sub Sidebar - New New
@@ -305,21 +289,12 @@ export function hidePostSidebar(value) {
 
 // Function - Enable Hide Post Sidebar - New
 function enableHidePostSidebarNew() {
-	if (useLegacy) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-post-sidebar';
-		styleElement.textContent = `.re-sidebar-post {
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-post-sidebar';
+	styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child > :last-child:has([id^="IdCard--Subscribers"]):has(> :not([data-testid="subreddit-sidebar"])) {
 										display: none !important;
 									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	} else {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-post-sidebar';
-		styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child > :last-child:has([id^="IdCard--Subscribers"]):has(> :not([data-testid="subreddit-sidebar"])) {
-										display: none !important;
-									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
+	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
 // Function - Disable Hide Post Sidebar - New
@@ -420,40 +395,12 @@ function disableHidePostOverlaySidebarNew() {
 /* === Main Function - Hide User Sidebar === */
 
 export function hideUserSidebar(value) {
-	if (redditVersion === 'new') {
-		if (value === true) {
-			if (useLegacy) {
-				enableHideUserSidebarNewLegacy();
-			} else {
-				enableHideUserSidebarNew();
-			}
-		} else if (value === false) {
-			if (useLegacy) {
-				disableHideUserSidebarNewLegacy();
-			} else {
-				disableHideUserSidebarAll();
-			}
-		}
-	} else if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHideUserSidebarNewNew();
-		} else if (value === false) {
-			disableHideUserSidebarAll();
-		}
-	}
-}
-
-// Function - Enable Hide User Sidebar - New - Legacy
-export function enableHideUserSidebarNewLegacy() {
-	if (document.querySelector('.re-sidebar-user')) {
-		document.querySelector('.re-sidebar-user').classList.add('re-hide');
-	}
-}
-
-// Function - Disable Hide User Sidebar - New - Legacy
-export function disableHideUserSidebarNewLegacy() {
-	if (document.querySelector('.re-sidebar-user')) {
-		document.querySelector('.re-sidebar-user').classList.remove('re-hide');
+	if (redditVersion === 'new' && value) {
+		enableHideUserSidebarNew();
+	} else if (redditVersion === 'newnew' && value) {
+		enableHideUserSidebarNewNew();
+	} else {
+		disableHideUserSidebarAll();
 	}
 }
 

@@ -16,7 +16,6 @@ import { breakReminder } from './tweaks/productivity/break_reminder';
 import { darkMode, darkModeAutoListener } from './tweaks/dark_mode/dark_mode';
 import { expandLayout, expandPostOverlayWidth, expandPostWidth, expandSubWidth, expandLayoutWidth, expandUserProfileWidth, expandTopicFeedWidth, expandCustomFeedWidth } from './tweaks/resize_elements/expand_content';
 import { fitImage } from './tweaks/media/scale_tall_images_to_fit_post';
-import { hideCreatePost } from './tweaks/hide_elements/hide_create_post';
 import { hideGap } from './tweaks/style/hide_gap';
 import { hideGetNewReddit } from './tweaks/hide_elements/hide_get_new_reddit';
 import { hideHeaderBar } from './tweaks/hide_elements/hide_header_bar';
@@ -152,7 +151,6 @@ import { classicOldUI } from './tweaks/style/classic_old_ui';
 import { multicolouredThreadLines } from './tweaks/style/multicoloured_threadlines';
 import { replacePostImagesWithLinks } from './tweaks/media/replace_images_with_links';
 import { replacePostVideosWithLinks } from './tweaks/media/replace_videos_with_links';
-import { disableBgFadePostOverlay, blurBackgroundPostOverlay } from './tweaks/background/post_overlay_background';
 import { compactPostLinkPreview } from './tweaks/media/compact_post_link_preview';
 import { usernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
 import { showUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
@@ -161,9 +159,9 @@ import { hideBlockedKeywordPosts } from './tweaks/block/block_posts_by_keyword';
 import { hideVideoRecommendations } from './tweaks/media/hide_video_recommendations';
 import { leftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { hideCommunityStatus } from './tweaks/hide_elements/hide_community_status';
-import { rightSidePostThumbnails } from "./tweaks/style/right_side_post_thumbnails";
-import { viewCrossposts } from "./tweaks/productivity/view_crossposts";
-import { markReadOnOpenExpandos } from "./tweaks/productivity/mark_read_on_open_expandos";
+import { rightSidePostThumbnails } from './tweaks/style/right_side_post_thumbnails';
+import { viewCrossposts } from './tweaks/productivity/view_crossposts';
+import { markReadOnOpenExpandos } from './tweaks/productivity/mark_read_on_open_expandos';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
@@ -212,7 +210,6 @@ const functionRegistry = {
 	setMaxVideoWidth,
 	setMaxVideoPostHeight,
 	hideRedditPremium,
-	hideCreatePost,
 	hideAdvertiseButton,
 	hideBlockedKeywordPosts,
 	hideChatButton,
@@ -394,8 +391,6 @@ const functionRegistry = {
 	classicOldUI,
 	replacePostImagesWithLinks,
 	replacePostVideosWithLinks,
-	disableBgFadePostOverlay,
-	blurBackgroundPostOverlay,
 	compactPostLinkPreview,
 	forceCustomBgOldUI,
 	usernameHoverPopupDelay,
@@ -419,7 +414,7 @@ const functionRegistry = {
 	hidePostBrandAwarenessOption,
 	rightSidePostThumbnails,
 	viewCrossposts,
-	markReadOnOpenExpandos
+	markReadOnOpenExpandos,
 	//dragImageToResize,
 	//dragImageToResizeInitialSize,
 	//addDownloadVideoButton,

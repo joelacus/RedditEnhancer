@@ -21,22 +21,6 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Reddit Premium: ' + value);
 	});
 
-	// Hide Create Post
-	BROWSER_API.storage.sync.get(['hideCreatePost'], function (result) {
-		if (result.hideCreatePost == true) {
-			document.querySelector('#checkbox-hide-create-post').checked = true;
-			document.querySelector('.icon-hide-create-post').classList.remove('icon-plus');
-			document.querySelector('.icon-hide-create-post').classList.add('icon-plus-slash');
-			document.querySelector('.icon-hide-create-post').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('hide-elements');
-			var value = true;
-		} else if (typeof result.hideCreatePost == 'undefined' || result.hideCreatePost == false) {
-			document.querySelector('#checkbox-hide-create-post').checked = false;
-			var value = false;
-		}
-		console.log('Hide Create Post: ' + value);
-	});
-
 	// Hide Home Sidebar
 	BROWSER_API.storage.sync.get(['hideHomeSidebar'], function (result) {
 		if (result.hideHomeSidebar == true) {

@@ -2,7 +2,6 @@
 
 import { waitForAddedNode } from './main_observer';
 import { loadTweaks } from '../../../content/tweak_loader';
-import { tweakLoaderOldNew } from './tweak_loader_oldnew';
 import { scrollToNextRootComment } from '../../../content/tweaks/productivity/scroll_to_next_root_comment';
 
 // Post Sidebar
@@ -12,11 +11,7 @@ export function observerPostOverlay() {
 		parent: document.querySelector('body'),
 		recursive: true,
 		done: function (el) {
-			if (useLegacy) {
-				el.classList.add('re-sidebar-post');
-			}
 			scrollToNextRootComment();
-			tweakLoaderOldNew();
 			loadTweaks();
 		},
 	});
