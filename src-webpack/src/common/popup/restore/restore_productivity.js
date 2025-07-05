@@ -760,4 +760,18 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		}
 		console.log('Mark Read On Open Expandos: ' + value);
 	});
+
+	// Highlight OP
+	BROWSER_API.storage.sync.get(['highlightOp'], function (result) {
+		if (result.highlightOp === true) {
+			document.querySelector('#checkbox-highlight-op').checked = true;
+			document.querySelector('.icon-highlight-op').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else if (typeof result.highlightOp == 'undefined' || result.highlightOp === false) {
+			document.querySelector('#checkbox-highlight-op').checked = false;
+			var value = false;
+		}
+		console.log('Highlight OP: ' + value);
+	});
 }

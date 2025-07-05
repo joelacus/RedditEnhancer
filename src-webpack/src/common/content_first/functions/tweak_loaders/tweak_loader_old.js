@@ -33,6 +33,7 @@ import { loadClassicOldUI } from '../../../content/tweaks/style/classic_old_ui';
 import { loadHideChatButton, loadHideModerationButton, loadHideNotificationButton } from '../../../content/tweaks/hide_elements/hide_header_buttons';
 import { loadCustomHeaderLogo } from '../../../content/tweaks/style/custom_header_logo';
 import { loadRightSidePostThumbnails } from "../../../content/tweaks/style/right_side_post_thumbnails";
+import { loadHighlightOP } from "../../../content/tweaks/productivity/highlight_op";
 
 export function tweakLoaderOld() {
 	loadExpandContent();
@@ -62,6 +63,7 @@ export function tweakLoaderOld() {
 	loadHideNotificationButton();
 	loadCustomHeaderLogo();
 	loadRightSidePostThumbnails();
+	loadHighlightOP();
 
 	if (useLegacy) {
 		legacyObserversOld();

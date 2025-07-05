@@ -841,3 +841,11 @@ document.querySelector('#checkbox-mark-read-on-open-expandos').addEventListener(
 	document.querySelector('.icon-mark-read-on-open-expandos').style.backgroundColor = markReadOnOpenExpandos ? 'var(--accent)' : '';
 	sendMessage({ markReadOnOpenExpandos: markReadOnOpenExpandos });
 });
+
+// Toggle - Highlight OP
+document.querySelector('#checkbox-highlight-op').addEventListener('change', function (e) {
+	const highlightOp = document.querySelector('#checkbox-highlight-op').checked;
+	BROWSER_API.storage.sync.set({ highlightOp: highlightOp });
+	document.querySelector('.icon-highlight-op').style.backgroundColor = highlightOp ? 'var(--accent)' : '';
+	sendMessage({ highlightOp: highlightOp });
+});

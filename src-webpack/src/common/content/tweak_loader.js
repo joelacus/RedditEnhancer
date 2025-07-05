@@ -57,7 +57,8 @@ import { loadAttachSideMenuHeader, loadSubredditDisplayNameBanner } from './twea
 import { loadLeftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { loadViewCrossposts } from "./tweaks/productivity/view_crossposts";
 import { loadMarkReadOnOpenExpandos } from "./tweaks/productivity/mark_read_on_open_expandos";
-import {loadHideAwards} from "./tweaks/hide_elements/hide_awards";
+import { loadHideAwards } from "./tweaks/hide_elements/hide_awards";
+import { loadHighlightOP } from "./tweaks/productivity/highlight_op";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -116,7 +117,6 @@ export function loadTweaks() {
 		loadScrollToNextRootComment();
 		loadShowPostAuthor();
 		loadShowPostFlair();
-		loadAutoLoadMoreComments();
 		loadHidePostKarma();
 		loadHideCommentKarma();
 		loadHideVoteButtons();
@@ -256,6 +256,9 @@ export function loadTweaks() {
 					loadViewCrossposts();
 					addBorderRadiusToShadowRootElements();
 					loadAlwaysShowPostOptions();
+					loadHighlightOP();
+					loadAutoExpandComments();
+					loadAutoLoadMoreComments();
 				}, 500);
 			},
 		});

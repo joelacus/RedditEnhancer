@@ -491,6 +491,9 @@
 	"HideVoteButtons": {
 		"message": "Hide Vote Buttons"
 	},
+	"HighlightOp": {
+		"message": "Highlight comments from original poster (OP)"
+	},
 	"HomeFeedOffset": {
 		"message": "Home Feed Offset"
 	},

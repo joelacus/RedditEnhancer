@@ -164,6 +164,7 @@ import { rightSidePostThumbnails } from "./tweaks/style/right_side_post_thumbnai
 import { viewCrossposts } from "./tweaks/productivity/view_crossposts";
 import { markReadOnOpenExpandos } from "./tweaks/productivity/mark_read_on_open_expandos";
 import { hideAwards } from "./tweaks/hide_elements/hide_awards";
+import { highlightOp } from "./tweaks/productivity/highlight_op";
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 //import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
 
@@ -411,7 +412,8 @@ const functionRegistry = {
 	viewCrossposts,
 	markReadOnOpenExpandos,
 	hideAwards,
-	snapSidebar
+	snapSidebar,
+	highlightOP: highlightOp,
 	//dragImageToResize,
 	//dragImageToResizeInitialSize,
 	//addDownloadVideoButton,

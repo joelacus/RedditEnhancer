@@ -474,6 +474,12 @@ shreddit-composer::part(md-inner) {
 #subreddit-wiki-header + div {
 	padding: 1rem;
 }
+shreddit-app[routename='post_page'] shreddit-post span[slot='mod-overflow-menu'],
+shreddit-app[routename='comments_page'] shreddit-post span[slot='mod-overflow-menu'],
+shreddit-app[routename='profile_post_page'] shreddit-post span[slot='mod-overflow-menu'],
+shreddit-comment:not([is-highlighted]) > shreddit-comment-action-row > span[slot='mod-overflow-menu'] {
+	margin-right: 0.75rem;
+}
 
 /* ========== SCROLL TEXT POST ========== */
 .re-text-scroll div[data-click-id='text'][style='max-height: 250px;'],

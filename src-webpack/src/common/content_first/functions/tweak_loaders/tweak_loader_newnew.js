@@ -5,7 +5,6 @@
 
 //import { waitForAddedNode } from './main_observer';
 
-import { loadAutoExpandComments } from '../../../content/tweaks/productivity/auto_expand_comments';
 import { loadAutoExpandValue } from '../../../content/tweaks/resize_elements/auto_expand_value';
 import { loadBionicReaderColours } from '../../../content/tweaks/accessibility/bionic_reader';
 import { loadCustomBackground } from '../../../content/tweaks/background/custom_background';
@@ -74,7 +73,6 @@ export function tweakLoaderNewNew() {
 	loadResizeFont();
 	loadBionicReaderColours();
 	loadHideUserProfilePics();
-	loadAutoExpandComments();
 	loadNonStickyHeaderBar();
 	loadHidePostHiddenMessage();
 	loadHideJoinButtonOnPosts();

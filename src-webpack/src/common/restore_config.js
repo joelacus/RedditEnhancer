@@ -258,6 +258,7 @@ async function restoreBackup(json) {
 				'hideUserProfilePics',
 				'hideUserSidebar',
 				'hideVideoRecommendations',
+				'highlightOp',
 				'imageScroll',
 				'justOpenTheImage',
 				'language',
