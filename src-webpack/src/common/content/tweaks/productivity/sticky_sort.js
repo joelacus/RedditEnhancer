@@ -10,24 +10,16 @@ export function loadStickySort() {
 /* === Main Function === */
 export function stickySort(value) {
 	if (redditVersion === 'old') {
-		if (value === true) {
+		if (value) {
 			enableStickySortOld();
-		} else if (value === false) {
+		} else {
 			disableStickySortOld();
 		}
 	} else if (redditVersion === 'new') {
-		if (useLegacy) {
-			if (value === true) {
-				enableStickySortNewLegacy();
-			} else if (value === false) {
-				disableStickySortNewLegacy();
-			}
+		if (value) {
+			enableStickySortNew();
 		} else {
-			if (value === true) {
-				enableStickySortNew();
-			} else if (value === false) {
-				disableStickySortNew();
-			}
+			disableStickySortNew();
 		}
 	}
 }
@@ -55,32 +47,6 @@ function disableStickySortOld() {
 	});
 	if (document.querySelector('.tabmenu')) {
 		document.querySelector('.tabmenu').classList.remove('re-sticky-sort');
-	}
-}
-
-// Function - Enable Sticky Sort - New - Legacy
-function enableStickySortNewLegacy() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-sticky-sort';
-	styleElement.textContent = `.re-sticky-sort {
-									position: sticky !important;
-									top: 48px;
-									z-index: 99;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
-	if (document.querySelector('.re-sort')) {
-		document.querySelector('.re-sort').classList.add('re-sticky-sort');
-	}
-}
-
-// Function - Disable Sticky Sort - New - Legacy
-function disableStickySortNewLegacy() {
-	const dynamicStyleElements = document.querySelectorAll('#re-sticky-sort');
-	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
-	});
-	if (document.querySelector('.re-sort')) {
-		document.querySelector('.re-sort').classList.remove('re-sticky-sort');
 	}
 }
 

@@ -10,32 +10,15 @@ export function loadHideOriginalScrollToTop() {
 /* === Main Function === */
 export function hideOriginalScrollToTop(value) {
 	if (redditVersion === 'new') {
-		if (useLegacy && value === true) {
-			enableHideOriginalScrollToTopNewLegacy();
-		} else if (!useLegacy && value === true) {
+		if (value) {
 			enableHideOriginalScrollToTopNew();
-		} else if (value === false) {
+		} else {
 			disableHideOriginalScrollToTopAll();
 		}
 	}
 }
 
 /* === Enable/Disable Functions === */
-
-// Function - Enable Hide Original Scroll To Top - New (Legacy)
-function enableHideOriginalScrollToTopNewLegacy() {
-	if (!document.head.querySelector('style[id="re-hide-original-scroll-to-top"]')) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-original-scroll-to-top';
-		document.head.appendChild(styleElement);
-		styleElement.textContent = `.re-sidebar [style="top:calc(100vh - 8px)"], 
-									.re-sidebar [style="top: calc(-8px + 100vh);"],
-									.re-sidebar-post [style="top: calc(-56px + 100vh);"] {
-										display: none;
-									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
-}
 
 // Function - Enable Hide Original Scroll To Top - New
 function enableHideOriginalScrollToTopNew() {

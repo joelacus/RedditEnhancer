@@ -10,32 +10,11 @@ export function loadHideSeeFullImage() {
 /* === Main Function === */
 export function hideSeeFullImage(value) {
 	if (redditVersion === 'new') {
-		if (useLegacy) {
-			if (value === true) {
-				enableHideSeeFullImageNewLegacy();
-			} else if (value === false) {
-				disableHideSeeFullImageAll();
-			}
+		if (value) {
+			enableHideSeeFullImageNew();
 		} else {
-			if (value === true) {
-				enableHideSeeFullImageNew();
-			} else if (value === false) {
-				disableHideSeeFullImageAll();
-			}
+			disableHideSeeFullImageAll();
 		}
-	}
-}
-
-// Function - Enable Hide See Full Image - New - Legacy
-function enableHideSeeFullImageNewLegacy() {
-	if (!document.head.querySelector('style[id="re-hide-see-full-image"]')) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-see-full-image';
-		styleElement.textContent = `.media-element div:last-child, 
-									figure > div > img + div {
-										display: none;
-									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
 }
 

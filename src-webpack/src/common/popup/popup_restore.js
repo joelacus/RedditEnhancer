@@ -50,8 +50,8 @@ function restoreOptions() {
 
 /* = Check Firefox Version = */
 if (CHECK_LEGACY_FIREFOX) {
-	const useLegacy = detectFirefoxVersion();
-	if (useLegacy) {
+	const firefox_outdated = detectFirefoxVersion();
+	if (firefox_outdated) {
 		console.log('Firefox version is below 121. Please update.');
 		document.querySelector('#firefox-update-message').style.display = 'grid';
 	}

@@ -27,16 +27,16 @@ if (!document.querySelector('head')) {
 
 // Init Tweaks
 export function init() {
-	// Detect Browser For Legacy Support (avoids using :has() selector)
-	window.useLegacy = false;
+	// Detect outdated web browser versions. Some features require the :has() selector and may not work correctly.
 	if (CHECK_LEGACY_FIREFOX) {
-		useLegacy = detectFirefoxVersion();
-		console.log('use legacy loaders: ' + useLegacy);
+		if (detectFirefoxVersion()) {
+			console.log('[Reddit Enhancer] Firefox is outdated. Please update to version 121 or newer.');
+		}
 	}
 	if (CHECK_LEGACY_EDGE) {
-		useLegacy = detectEdgeVersion();
-		if (useLegacy) console.log('detected Edge on Windows 10');
-		console.log('use legacy loaders: ' + useLegacy);
+		if (detectEdgeVersion()) {
+			console.log('[Reddit Enhancer] Edge is outdated. Please update to the latest version.');
+		}
 	}
 
 	// Detect Reddit Version And Continue Loading Tweaks

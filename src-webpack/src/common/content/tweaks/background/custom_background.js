@@ -1,35 +1,35 @@
-/* ===== Tweaks - Background - Use Custom Background ===== */
+/**
+ * Tweaks: Background - Use Custom Background
+ * @name useCustomBackground
+ * @description Change the web page background to a custom image. Also changes the background image blur.
+ *
+ * Applies to: RV1 (Old New UI) (2018-2024), RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadCustomBackground() {
 	BROWSER_API.storage.sync.get(['useCustomBackground'], function (result) {
 		if (result.useCustomBackground) useCustomBackground(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function useCustomBackground(value) {
 	if (value) {
 		setBackgroundAndBlur();
-		switch (redditVersion) {
-			case 'old':
-				BROWSER_API.storage.sync.get(['forceCustomBgOldUI', 'moderniseOldReddit'], (result) => {
-					if (result.forceCustomBgOldUI || result.moderniseOldReddit) enableUseCustomBackgroundOld();
-				});
-				break;
-			case 'new':
-				enableUseCustomBackgroundNew();
-				break;
-			case 'newnew':
-				enableUseCustomBackgroundNewNew();
-				break;
+		if (redditVersion === 'old') {
+			BROWSER_API.storage.sync.get(['forceCustomBgOldUI', 'moderniseOldReddit'], (result) => {
+				if (result.forceCustomBgOldUI || result.moderniseOldReddit) enableUseCustomBackgroundRV1();
+			});
+		} else if (redditVersion === 'newnew') {
+			enableUseCustomBackgroundRV3();
 		}
 	} else {
 		disableUseCustomBackgroundAll();
 	}
 }
 
-// Function - Set Background and Blur Properties
+// Load Background and Blur Properties
 function setBackgroundAndBlur() {
 	BROWSER_API.storage.sync.get(['customBackground', 'bgBlur'], function (result) {
 		setCustomBackground(result.customBackground);
@@ -53,8 +53,8 @@ export function bgBlur(value) {
 	}
 }
 
-// Function - Enable Use Custom Background - Old
-function enableUseCustomBackgroundOld() {
+// Enable Use Custom Background - RV1
+function enableUseCustomBackgroundRV1() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-custom-background';
 	styleElement.textContent = `body {
@@ -65,23 +65,8 @@ function enableUseCustomBackgroundOld() {
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
-// Function - Enable Use Custom Background - New
-function enableUseCustomBackgroundNew() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-custom-background';
-	styleElement.textContent = `.ListingLayout-backgroundContainer {
-									--pseudo-before-background: var(--re-background-image) !important;
-								}
-								.ListingLayout-backgroundContainer:before {
-									filter: blur(var(--re-background-blur));
-									transform: scale(1.22);
-									overflow: hidden;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
-}
-
-// Function - Enable Use Custom Background - New New
-function enableUseCustomBackgroundNewNew() {
+// Enable Use Custom Background - RV3
+function enableUseCustomBackgroundRV3() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-custom-background';
 	styleElement.textContent = `body {
@@ -155,7 +140,7 @@ function enableUseCustomBackgroundNewNew() {
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
-// Function - Disable Use Custom Background - All
+// Disable Use Custom Background - All
 function disableUseCustomBackgroundAll() {
 	document.documentElement.style.setProperty('--re-background-image', '');
 	document.documentElement.style.setProperty('--re-background-blur', '');

@@ -713,13 +713,6 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		console.log('Show Upvote Ratio: ' + value);
 	});
 
-	// Default Sort Feed Option Grace Period
-	BROWSER_API.storage.sync.get(['DefaultSortFeedOptionGracePeriod'], function (result) {
-		const value = result.DefaultSortFeedOptionGracePeriod || 20;
-		document.querySelector('#input-default-sort-feed-option-grace-period').value = value;
-		console.log('Default Sort Feed Option Grace Period: ' + value);
-	});
-
 	// View Crossposts
 	BROWSER_API.storage.sync.get(['viewCrossposts'], function (result) {
 		if (result.viewCrossposts) {
@@ -738,17 +731,20 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 	BROWSER_API.storage.sync.get(['markReadOnOpenExpandos'], function (result) {
 		if (result.markReadOnOpenExpandos === true) {
 			if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
-				BROWSER_API.permissions.contains({ permissions: ['history'] }).then((granted) => {
-					if (granted) {
-						console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission granted');
-					} else {
-						console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission denied');
+				BROWSER_API.permissions
+					.contains({ permissions: ['history'] })
+					.then((granted) => {
+						if (granted) {
+							console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission granted');
+						} else {
+							console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission denied');
+							document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+						}
+					})
+					.catch((e) => {
+						console.error('[RedditEnhancer] markReadOnOpenExpandos: Error getting history permission: ', e);
 						document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
-					}
-				}).catch((e) => {
-					console.error('[RedditEnhancer] markReadOnOpenExpandos: Error getting history permission: ', e);
-					document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
-				});
+					});
 			}
 			document.querySelector('#checkbox-mark-read-on-open-expandos').checked = true;
 			document.querySelector('.icon-mark-read-on-open-expandos').style.backgroundColor = 'var(--accent)';

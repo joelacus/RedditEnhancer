@@ -4,8 +4,6 @@
 // Use this loader to apply tweaks before the page has finished loading (CSS tweaks).
 
 import { waitForAddedNode } from './main_observer';
-import { legacyObserversOld } from './legacy_observers';
-
 import { loadAutoCollapseAutoModeratorComment } from '../../../content/tweaks/productivity/auto_collapse_automod_comment';
 import { loadCustomBackground } from '../../../content/tweaks/background/custom_background';
 import { loadCustomTheme } from '../../../content/tweaks/style/override_theme_colours';
@@ -63,13 +61,8 @@ export function tweakLoaderOld() {
 	loadHideNotificationButton();
 	loadCustomHeaderLogo();
 	loadRightSidePostThumbnails();
+	loadHideRedditPremium();
 	loadHighlightOP();
-
-	if (useLegacy) {
-		legacyObserversOld();
-	} else {
-		loadHideRedditPremium();
-	}
 
 	// Body
 	waitForAddedNode({

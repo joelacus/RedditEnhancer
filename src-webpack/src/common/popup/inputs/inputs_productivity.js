@@ -783,34 +783,6 @@ document.querySelector('#checkbox-show-upvote-ratio').addEventListener('change',
 	sendMessage({ showUpvoteRatio: showUpvoteRatio });
 });
 
-// Input - Default Sort Feed Option Grace Period
-['keyup', 'change'].forEach((evt) =>
-	document.querySelector('#input-default-sort-feed-option-grace-period').addEventListener(evt, function (e) {
-		const seconds = document.querySelector('#input-default-sort-feed-option-grace-period').value;
-		console.log(seconds);
-		BROWSER_API.storage.sync.set({ DefaultSortFeedOptionGracePeriod: seconds });
-	})
-);
-document.querySelector('#input-default-sort-feed-option-grace-period').addEventListener('keydown', function (e) {
-	// Allow: backspace, delete, tab, escape, enter and numeric keys
-	if (
-		[46, 8, 9, 27, 13].indexOf(e.keyCode) !== -1 ||
-		// Allow: Ctrl+A, Ctrl+C, Ctrl+V
-		(e.keyCode === 65 && e.ctrlKey === true) ||
-		(e.keyCode === 67 && e.ctrlKey === true) ||
-		(e.keyCode === 86 && e.ctrlKey === true) ||
-		// Allow: home, end, left, right
-		(e.keyCode >= 35 && e.keyCode <= 39)
-	) {
-		// let it happen, don't do anything
-		return;
-	}
-	// Ensure that it is a number and stop the keypress
-	if ((e.shiftKey || e.keyCode < 48 || e.keyCode > 57) && (e.keyCode < 96 || e.keyCode > 105)) {
-		e.preventDefault();
-	}
-});
-
 // Toggle - View Crossposts
 document.querySelector('#checkbox-view-crossposts').addEventListener('change', function (e) {
 	const viewCrossposts = document.querySelector('#checkbox-view-crossposts').checked;

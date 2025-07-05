@@ -21,24 +21,6 @@ document.querySelector('#checkbox-hide-reddit-premium').addEventListener('change
 	}
 });
 
-// Toggle - Hide Create Post
-document.querySelector('#checkbox-hide-create-post').addEventListener('change', function () {
-	const hideCreatePost = document.querySelector('#checkbox-hide-create-post').checked;
-	if (hideCreatePost === true) {
-		BROWSER_API.storage.sync.set({ hideCreatePost: true });
-		document.querySelector('.icon-hide-create-post').classList.remove('icon-plus');
-		document.querySelector('.icon-hide-create-post').classList.add('icon-plus-slash');
-		document.querySelector('.icon-hide-create-post').style.backgroundColor = 'var(--accent)';
-		sendMessage({ hideCreatePost: true });
-	} else if (hideCreatePost === false) {
-		BROWSER_API.storage.sync.set({ hideCreatePost: false });
-		document.querySelector('.icon-hide-create-post').classList.add('icon-plus');
-		document.querySelector('.icon-hide-create-post').classList.remove('icon-plus-slash');
-		document.querySelector('.icon-hide-create-post').style.backgroundColor = '';
-		sendMessage({ hideCreatePost: false });
-	}
-});
-
 // Toggle - Hide Home Sidebar
 document.querySelector('#checkbox-hide-home-sidebar').addEventListener('change', function (e) {
 	const hideHomeSidebar = e.target.checked;
