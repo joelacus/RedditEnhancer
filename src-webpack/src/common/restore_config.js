@@ -219,7 +219,6 @@ async function restoreBackup(json) {
 				'hidePostKarma',
 				'hidePostNotificationOption',
 				'hidePostNsfwOption',
-				'hidePostOverlaySidebar',
 				'hidePostReportOption',
 				'hidePostSaveOption',
 				'hidePostSidebar',

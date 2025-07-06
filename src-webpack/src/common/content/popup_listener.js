@@ -20,7 +20,7 @@ import { hideGap } from './tweaks/style/hide_gap';
 import { hideGetNewReddit } from './tweaks/hide_elements/hide_get_new_reddit';
 import { hideHeaderBar } from './tweaks/hide_elements/hide_header_bar';
 import { hideHeaderSubBar } from './tweaks/hide_elements/hide_header_sub_bar';
-import { hideHomeSidebar, hideSubSidebar, hidePostSidebar, hidePostOverlaySidebar, hideUserSidebar, hideRelatedPostsSection, hideSearchSidebar, hideCustomFeedSidebar } from './tweaks/hide_elements/hide_sidebar';
+import { hideHomeSidebar, hideSubSidebar, hidePostSidebar, hideUserSidebar, hideRelatedPostsSection, hideSearchSidebar, hideCustomFeedSidebar } from './tweaks/hide_elements/hide_sidebar';
 import { hideJoinButtonOnPosts } from './tweaks/hide_elements/hide_post_join_button';
 import { hideNSFW } from './tweaks/hide_elements/hide_nsfw';
 import { hideModerationButton, hideChatButton, hideAdvertiseButton, hideNotificationButton, hideCreatePostButton } from './tweaks/hide_elements/hide_header_buttons';
@@ -235,7 +235,6 @@ const functionRegistry = {
 	hideSideMenu,
 	autoExpandValue,
 	hidePostSidebar,
-	hidePostOverlaySidebar,
 	hideUserSidebar,
 	hideCustomFeedSidebar,
 	hideRelatedPostsSection,

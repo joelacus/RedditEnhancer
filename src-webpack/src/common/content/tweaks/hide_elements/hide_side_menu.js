@@ -1,47 +1,40 @@
-/* ===== Tweaks - Hide - Side Menu ===== */
+/**
+ * Tweaks: Hide Elements - Hide The Side Menu
+ *
+ * @name hideSideMenu
+ * @description Hide the side menu (left).
+ *
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
+ */
 
 import { loadSideMenuWidth } from '../resize_elements/side_menu_width';
 
-/* === Triggered On Page Load === */
-
-// Load Hide Side Menu - Old
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHideSideMenuOld() {
 	BROWSER_API.storage.sync.get(['hideSideMenuOld'], function (result) {
 		if (result.hideSideMenuOld) hideSideMenuOld(true);
 	});
 }
 
-// Load Hide Side Menu - New New
 export function loadHideSideMenu() {
 	BROWSER_API.storage.sync.get(['hideSideMenu'], function (result) {
 		if (result.hideSideMenu) hideSideMenu(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 
-// Hide Side Menu - Old
+/* = Hide Side Menu - RV1 = */
 export function hideSideMenuOld(value) {
-	if (value === true) {
-		enableHideSideMenuOld();
-	} else if (value === false) {
-		disableHideSideMenuOld();
+	if (value) {
+		enableHideSideMenuRV1();
+	} else {
+		disableHideSideMenuRV1();
 	}
 }
 
-// Hide Side Menu - New New
-export function hideSideMenu(value) {
-	if (value === true) {
-		enableHideSideMenuNewNew();
-	} else if (value === false) {
-		disableHideSideMenuNewNew();
-	}
-}
-
-/* === Enable/Disable Functions === */
-
-// Function - Enable Hide Side Menu - Old
-function enableHideSideMenuOld() {
+// Enable Hide Side Menu - RV1
+function enableHideSideMenuRV1() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-hide-side-menu-old';
 	styleElement.textContent = `.listing-chooser {
@@ -50,15 +43,24 @@ function enableHideSideMenuOld() {
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
-// Function - Disable Hide Side Menu - Old
-function disableHideSideMenuOld() {
+// Disable Hide Side Menu - RV1
+function disableHideSideMenuRV1() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-side-menu-old"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
 }
 
-// Function - Enable Hide Side Menu - New New
+/* = Hide Side Menu - RV3 = */
+export function hideSideMenu(value) {
+	if (value) {
+		enableHideSideMenuNewNew();
+	} else {
+		disableHideSideMenuNewNew();
+	}
+}
+
+// Enable Hide Side Menu - RV3
 function enableHideSideMenuNewNew() {
 	document.querySelector('html').classList.add('re-hide-side-menu');
 	if (!document.head.querySelector('style[id="re-hide-side-menu"]')) {
@@ -86,7 +88,7 @@ function enableHideSideMenuNewNew() {
 	}, 1000);
 }
 
-// Function - Disable Hide Side Menu - New New
+// Disable Hide Side Menu - RV3
 function disableHideSideMenuNewNew() {
 	document.querySelector('html').classList.remove('re-hide-side-menu');
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu"]');

@@ -1,24 +1,30 @@
-/* ===== Tweaks - Productivity - Remember Side Menu Section Hidden State ===== */
+/**
+ * Tweaks: Hide Elements - Remember Side Menu Section Hidden State
+ *
+ * @name rememberSideMenuSectionHiddenState
+ * @description Remember the open/hidden states of the sections in the side menu (left).
+ *
+ * Notes: Doesn't seem to work well with side menu auto hide.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
-// doesn't seem to work well with side menu auto hide
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadRememberSideMenuSectionHiddenState() {
 	BROWSER_API.storage.sync.get(['rememberSideMenuSectionHiddenState'], function (result) {
 		if (result.rememberSideMenuSectionHiddenState) rememberSideMenuSectionHiddenState(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function rememberSideMenuSectionHiddenState(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableRememberSideMenuSectionHiddenState();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableRememberSideMenuSectionHiddenStateRV3();
 	}
 }
 
-// Function - Enable Remember Side Menu Section Hidden State - New New
-function enableRememberSideMenuSectionHiddenState() {
+// Enable Remember Side Menu Section Hidden State - RV3
+function enableRememberSideMenuSectionHiddenStateRV3() {
 	setTimeout(() => {
 		addEventListenersToSideMenuSections();
 		BROWSER_API.storage.sync.get(['rememberSideMenuSectionHiddenStateValues'], function (result) {
@@ -43,7 +49,7 @@ function enableRememberSideMenuSectionHiddenState() {
 	}, 1000);
 }
 
-// Function - Add Event Listeners To Side Menu Sections
+// Add Event Listeners To Side Menu Sections
 let addModerationSectionListener = true;
 let addCustomFeedsSectionListener = true;
 let addRecentSectionListener = true;
@@ -143,7 +149,7 @@ function addEventListenersToSideMenuSections() {
 	}
 }
 
-// Function - Set Side Menu Section Hidden States
+// Set Side Menu Section Hidden States
 function setRememberSideMenuSectionHiddenStates(openStates) {
 	// Moderation Section
 	const moderation = openStates.moderation;

@@ -135,22 +135,6 @@ document.querySelector('#checkbox-hide-post-sidebar').addEventListener('change',
 	}
 });
 
-// Toggle - Hide Post Overlay Sidebar
-document.querySelector('#checkbox-hide-post-overlay-sidebar').addEventListener('change', function () {
-	const hidePostOverlaySidebar = document.querySelector('#checkbox-hide-post-overlay-sidebar').checked;
-	if (hidePostOverlaySidebar) {
-		document.querySelector('.icon-hide-post-overlay-sidebar').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-hide-post-overlay-sidebar').classList.remove('icon-show');
-		document.querySelector('.icon-hide-post-overlay-sidebar').classList.add('icon-hide');
-	} else {
-		document.querySelector('.icon-hide-post-overlay-sidebar').style.backgroundColor = '';
-		document.querySelector('.icon-hide-post-overlay-sidebar').classList.add('icon-show');
-		document.querySelector('.icon-hide-post-overlay-sidebar').classList.remove('icon-hide');
-	}
-	BROWSER_API.storage.sync.set({ hidePostOverlaySidebar: hidePostOverlaySidebar });
-	sendMessage({ hidePostOverlaySidebar: hidePostOverlaySidebar });
-});
-
 // Toggle - Hide User Sidebar
 document.querySelector('#checkbox-hide-user-sidebar').addEventListener('change', function () {
 	const hideUserSidebar = document.querySelector('#checkbox-hide-user-sidebar').checked;

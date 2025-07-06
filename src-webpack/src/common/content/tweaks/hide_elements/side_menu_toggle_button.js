@@ -1,28 +1,31 @@
-/* ===== Tweaks - Hide - Side Menu Toggle Button ===== */
+/**
+ * Tweaks: Hide Elements - Side Menu Toggle Button
+ *
+ * @name sideMenuToggleButton
+ * @description Add a button to the top of the side menu (left) to toggle it open or closed.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
 import { loadSideMenuWidth } from '../resize_elements/side_menu_width';
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadSideMenuToggleButton() {
 	BROWSER_API.storage.sync.get(['sideMenuToggleButton'], function (result) {
 		if (result.sideMenuToggleButton) sideMenuToggleButton(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function sideMenuToggleButton(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableSideMenuToggleButton();
-		} else if (value === false) {
-			disableSideMenuToggleButton();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableSideMenuToggleButton();
+	} else {
+		disableSideMenuToggleButton();
 	}
 }
 
-/* === Enable/Disable Functions === */
-
-// Function - Enable Side Menu Toggle Button - New New
+// Enable Side Menu Toggle Button - RV3
 function enableSideMenuToggleButton() {
 	// create and append close button
 	const chevron = '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path opacity="1" fill="currentColor" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>';
@@ -127,11 +130,11 @@ function enableSideMenuToggleButton() {
 										transform: rotate(90deg);
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
-		document.cookie = "hui_flex_nav_expanded_state=1; path=/";
+		document.cookie = 'hui_flex_nav_expanded_state=1; path=/';
 	}
 }
 
-// Function - Disable Side Menu Toggle Button - New New
+//  Disable Side Menu Toggle Button - RV3
 function disableSideMenuToggleButton() {
 	document.querySelector('html').classList.remove('re-hide-side-menu');
 	document.querySelector('shreddit-app').removeAttribute('data-re-hide-side-menu');

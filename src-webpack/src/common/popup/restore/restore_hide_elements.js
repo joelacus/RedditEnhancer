@@ -69,22 +69,6 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Post Sidebar: ' + value);
 	});
 
-	// Hide Post Overlay Sidebar
-	BROWSER_API.storage.sync.get(['hidePostOverlaySidebar'], function (result) {
-		if (result.hidePostOverlaySidebar == true) {
-			document.querySelector('#checkbox-hide-post-overlay-sidebar').checked = true;
-			document.querySelector('.icon-hide-post-overlay-sidebar').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.icon-hide-post-overlay-sidebar').classList.remove('icon-show');
-			document.querySelector('.icon-hide-post-overlay-sidebar').classList.add('icon-hide');
-			highlightMenuIcon('hide-elements');
-			var value = true;
-		} else if (typeof result.hidePostOverlaySidebar == 'undefined' || result.hidePostOverlaySidebar == false) {
-			document.querySelector('#checkbox-hide-post-overlay-sidebar').checked = false;
-			var value = false;
-		}
-		console.log('Hide Post Overlay Sidebar: ' + value);
-	});
-
 	// Hide User Sidebar
 	BROWSER_API.storage.sync.get(['hideUserSidebar'], function (result) {
 		if (result.hideUserSidebar == true) {
