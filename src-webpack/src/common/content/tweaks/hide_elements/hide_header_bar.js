@@ -4,7 +4,7 @@
  * @name hideHeaderBar
  * @description Hide the top/header bar.
  *
- * Applies to: RV3 (New New UI) (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
 /* === Run by Tweak Loader when the Page Loads === */

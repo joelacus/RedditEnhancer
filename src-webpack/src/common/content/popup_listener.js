@@ -23,16 +23,12 @@ import { hideHeaderSubBar } from './tweaks/hide_elements/hide_header_sub_bar';
 import { hideHomeSidebar, hideSubSidebar, hidePostSidebar, hidePostOverlaySidebar, hideUserSidebar, hideRelatedPostsSection, hideSearchSidebar, hideCustomFeedSidebar } from './tweaks/hide_elements/hide_sidebar';
 import { hideJoinButtonOnPosts } from './tweaks/hide_elements/hide_post_join_button';
 import { hideNSFW } from './tweaks/hide_elements/hide_nsfw';
-import { hideOriginalScrollToTop } from './tweaks/hide_elements/hide_original_scroll_to_top';
-import { hidePopularButton, hideModerationButton, hideChatButton, hideAdvertiseButton, hideNotificationButton, hideCreatePostButton } from './tweaks/hide_elements/hide_header_buttons';
+import { hideModerationButton, hideChatButton, hideAdvertiseButton, hideNotificationButton, hideCreatePostButton } from './tweaks/hide_elements/hide_header_buttons';
 import { hidePostHiddenMessage } from './tweaks/hide_elements/hide_post_hidden_message';
 import { hidePromoted } from './tweaks/hide_elements/hide_promoted';
 import { hideRedditPremium } from './tweaks/hide_elements/hide_reddit_premium';
-import { hideSeeFullImage } from './tweaks/hide_elements/hide_see_full_image';
-import { hideSidebarPolicy } from './tweaks/hide_elements/hide_sidebar_policy';
 import { hideSideMenuOld, hideSideMenu } from './tweaks/hide_elements/hide_side_menu';
 import { hideSideMenuCommunitiesSection, hideSideMenuCustomFeedsSection, hideSideMenuModerationSection, hideSideMenuRecentSection, hideSideMenuResourcesSection, hideSideMenuTopSection, hideSideMenuTopicsSection } from './tweaks/hide_elements/hide_side_menu_sections';
-import { hideTurnOnNotificationsPopup } from './tweaks/hide_elements/hide_turn_on_notifications_popup';
 import { hideUsername, hideKarma } from './tweaks/hide_elements/hide_username_and_karma';
 import { hideUserProfilePics } from './tweaks/hide_elements/hide_user_profile_pics';
 import { imageScroll } from './tweaks/media/scroll_images';
@@ -214,7 +210,6 @@ const functionRegistry = {
 	hideBlockedKeywordPosts,
 	hideChatButton,
 	hideModerationButton,
-	hidePopularButton,
 	hideNotificationButton,
 	hideCreatePostButton,
 	hideHomeSidebar,
@@ -225,7 +220,6 @@ const functionRegistry = {
 	hideKarma,
 	alwaysShowRisingButton,
 	hideGetNewReddit,
-	hideSidebarPolicy,
 	openSubInNewTab,
 	openPostInNewTab,
 	hidePromoted,
@@ -235,7 +229,6 @@ const functionRegistry = {
 	newPlayer,
 	sidemenuFeedTop,
 	textPostScroll,
-	hideSeeFullImage,
 	moderniseOldReddit,
 	hideHeaderSubBar,
 	hideSideMenuOld,
@@ -249,7 +242,6 @@ const functionRegistry = {
 	limitInfinityScroll,
 	showControversialSortButton,
 	hideNSFW,
-	hideTurnOnNotificationsPopup,
 	scrollToNextRootComment,
 	showPostNumbers,
 	overrideDropShadow,
@@ -318,7 +310,6 @@ const functionRegistry = {
 	alwaysShowPostOptions,
 	hideHeaderBar,
 	nonStickyHeaderBar,
-	hideOriginalScrollToTop,
 	largerClassicPost,
 	scrollToNextRootCommentPosition,
 	breakReminder,

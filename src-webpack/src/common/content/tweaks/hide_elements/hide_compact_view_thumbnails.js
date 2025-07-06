@@ -4,7 +4,7 @@
  * @name hideCompactViewThumbnails
  * @description Hide the community status next to the r/ handle on posts, sidebar and subreddit pages.
  *
- * Applies to: RV1 (Old New UI) (2018-2024), RV3 (New New UI) (2023-)
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
 /* === Run by Tweak Loader when the Page Loads === */

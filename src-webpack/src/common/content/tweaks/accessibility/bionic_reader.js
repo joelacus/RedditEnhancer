@@ -1,10 +1,11 @@
 /**
  * Tweaks: Accessibility - Bionic Reader
+ *
  * @name bionicReader
  * @description Makes the first two letters of a word bold to increase reading efficiency.
  *              Additionally, can change the font colour and text background colour to increase the contrast for easier reading.
  *
- * Applies to: RV1 (Old New UI) (2018-2024), RV3 (New New UI) (2023-)
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
 /* === Run by Tweak Loader when the Page Loads === */

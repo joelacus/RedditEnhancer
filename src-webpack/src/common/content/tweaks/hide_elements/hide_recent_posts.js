@@ -1,27 +1,30 @@
-/* ===== Tweaks - Hide - Recent Posts ===== */
+/**
+ * Tweaks: Hide Elements - Hide Recent Posts
+ *
+ * @name hideRecentPosts
+ * @description Hide the recent posts in the sidebar.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHideRecentPosts() {
 	BROWSER_API.storage.sync.get(['hideRecentPosts'], function (result) {
 		if (result.hideRecentPosts) hideRecentPosts(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function hideRecentPosts(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHideRecentPosts();
-		} else if (value === false) {
-			disableHideRecentPosts();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableHideRecentPostsRV3();
+	} else {
+		disableHideRecentPostsAll();
 	}
 }
 
-/* === Enable/Disable Functions === */
-
-// Function - Enable Hide Recent Posts - New New
-function enableHideRecentPosts() {
+// Enable Hide Recent Posts - RV3
+function enableHideRecentPostsRV3() {
 	if (!document.head.querySelector('style[id="re-hide-recent-posts"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-recent-posts';
@@ -32,8 +35,8 @@ function enableHideRecentPosts() {
 	}
 }
 
-// Function - Disable Hide Recent Posts - New New
-function disableHideRecentPosts() {
+// Disable Hide Recent Posts - All
+function disableHideRecentPostsAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-recent-posts"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);

@@ -172,22 +172,6 @@ document.querySelector('#checkbox-just-open-the-image').addEventListener('change
 	}
 });
 
-// Toggle - Hide See Full Image
-document.querySelector('#checkbox-hide-see-full-image').addEventListener('change', function () {
-	const hideSeeFullImage = document.querySelector('#checkbox-hide-see-full-image').checked;
-	if (hideSeeFullImage) {
-		document.querySelector('.icon-hide-see-full-image').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-hide-see-full-image').classList.remove('icon-show');
-		document.querySelector('.icon-hide-see-full-image').classList.add('icon-hide');
-	} else {
-		document.querySelector('.icon-hide-see-full-image').style.backgroundColor = '';
-		document.querySelector('.icon-hide-see-full-image').classList.add('icon-show');
-		document.querySelector('.icon-hide-see-full-image').classList.remove('icon-hide');
-	}
-	BROWSER_API.storage.sync.set({ hideSeeFullImage: hideSeeFullImage });
-	sendMessage({ hideSeeFullImage: hideSeeFullImage });
-});
-
 // Toggle - Drag Image To Resize
 /*document.querySelector('#checkbox-drag-image-to-resize').addEventListener('change', function (e) {
 	const dragImageToResize = document.querySelector('#checkbox-drag-image-to-resize').checked;

@@ -4,7 +4,7 @@
  * @name hideHeaderSubBar
  * @description Hide the top bar on old Reddit with the list of joined subreddits.
  *
- * Applies to: RV1 (Old New UI) (2018-2024)
+ * Compatibility: RV1 (Old UI) (2005-)
  */
 
 /* === Run by Tweak Loader when the Page Loads === */
@@ -22,8 +22,6 @@ export function hideHeaderSubBar(value) {
 		disableHideHeaderSubBarRV1();
 	}
 }
-
-/* === Enable/Disable The Feature === */
 
 // Enable Hide Header Sub Bar - RV1
 function enableHideHeaderSubBarRV1() {

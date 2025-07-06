@@ -141,21 +141,6 @@ export function restorePopupMediaOptions() {
 		}
 	});
 
-	// Hide See Full Image
-	BROWSER_API.storage.sync.get(['hideSeeFullImage'], function (result) {
-		if (result.hideSeeFullImage == true) {
-			document.querySelector('#checkbox-hide-see-full-image').checked = true;
-			document.querySelector('.icon-hide-see-full-image').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('media-tweaks');
-			var value = true;
-		} else if (typeof result.hideSeeFullImage == 'undefined' || result.hideSeeFullImage == false) {
-			document.querySelector('#checkbox-hide-see-full-image').checked = false;
-			var value = false;
-		}
-		console.log("Hide 'See Full Image' Button: " + value);
-	});
-
 	// Drag Image to Resize
 	/*BROWSER_API.storage.sync.get(['dragImageToResize'], function (result) {
 		if (result.dragImageToResize == true) {

@@ -13,8 +13,6 @@ import { loadBreakReminder } from './tweaks/productivity/break_reminder';
 import { loadFitImage } from './tweaks/media/scale_tall_images_to_fit_post';
 import { loadHideNSFW } from './tweaks/hide_elements/hide_nsfw';
 import { loadHideBlockedKeywordPosts } from './tweaks/block/block_posts_by_keyword';
-import { loadHideOriginalScrollToTop } from './tweaks/hide_elements/hide_original_scroll_to_top';
-import { loadHideSeeFullImage } from './tweaks/hide_elements/hide_see_full_image';
 import { loadLimitInfinityScroll } from './tweaks/productivity/limit_infinity_scroll';
 import { loadModerniseOldReddit } from './tweaks/style/modernise_old_reddit';
 import { loadNewPlayer } from './tweaks/productivity/video_player';
@@ -66,47 +64,6 @@ export function loadTweaks() {
 		loadAddProfilePicturesToComments();
 		loadSidebarToggleButton();
 		loadHideBlockedKeywordPosts();
-	} else if (redditVersion === 'new') {
-		const link = window.location.href;
-		if (link.indexOf('/comments/') >= 0) {
-			loadAutoExpandComments();
-			loadAutoLoadMoreComments();
-			loadAutoCollapseAutoModeratorComment();
-
-			waitForAddedNode({
-				query: 'div.Post',
-				parent: document.querySelector('body'),
-				recursive: true,
-				done: loadShowUpvoteRatio,
-			});
-		}
-		loadAlwaysShowRisingButton();
-		loadShowControversialSortButton();
-		loadFitImage();
-		loadHideSeeFullImage();
-		loadSidemenuFeedTop();
-		loadTextPostScroll();
-		loadLimitInfinityScroll();
-		loadHideOriginalScrollToTop();
-		loadNewPlayer();
-		loadOpenSubInNewTab();
-		loadOpenPostInNewTab();
-		loadShowAllButton();
-		loadScrollToNextRootComment();
-		loadBionicReader();
-		loadBreakReminder();
-		loadHidePostKarma();
-		loadHideCommentKarma();
-		loadHideVoteButtons();
-
-		waitForAddedNode({
-			query: 'div[data-scroller-first]',
-			parent: document.querySelector('ListingLayout-outerContainer'),
-			recursive: true,
-			done: function () {
-				loadShowPostNumbers();
-			},
-		});
 	} else if (redditVersion === 'newnew') {
 		//loadAddDownloadVideoButton();
 		loadBionicReader();

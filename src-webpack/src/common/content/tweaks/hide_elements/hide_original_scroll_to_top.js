@@ -1,6 +1,14 @@
-/* ===== Tweaks - Hide - Original Scroll To Top ===== */
+/**
+ * Tweaks: Hide Elements - Hide Original Scroll To Top
+ *
+ * @name hideNSFW
+ * @description Hide NSFW/L posts on the feed.
+ *
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
+
 export function loadHideOriginalScrollToTop() {
 	BROWSER_API.storage.sync.get(['hideOriginalScrollToTop'], function (result) {
 		if (result.hideOriginalScrollToTop) hideOriginalScrollToTop(true);

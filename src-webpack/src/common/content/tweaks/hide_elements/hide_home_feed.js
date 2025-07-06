@@ -1,13 +1,20 @@
-/* ===== Tweaks - Hide - Home Feed ===== */
+/**
+ * Tweaks: Hide Elements - Hide Home Feed
+ *
+ * @name hideHomeFeed
+ * @description Hide home feed to prevent distraction.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHideHomeFeed() {
 	BROWSER_API.storage.sync.get(['hideHomeFeed'], function (result) {
 		if (result.hideHomeFeed) hideHomeFeed(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function hideHomeFeed(value) {
 	const path = window.location.pathname;
 	const regex = /^\/(r\/(all|popular)\/)?$/;

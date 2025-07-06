@@ -4,7 +4,7 @@
  * @name hideGetNewReddit
  * @description Hide the "Get New Reddit" button.
  *
- * Applies to: RV1 (Old New UI) (2018-2024)
+ * Compatibility: RV1 (Old UI) (2005-)
  */
 
 /* === Run by Tweak Loader when the Page Loads === */
