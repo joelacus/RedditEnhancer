@@ -21,20 +21,6 @@ export function restorePopupMediaOptions() {
 		console.log('Scroll Tall Images: ' + value);
 	});
 
-	// Scale Tall Images To Fit Post
-	BROWSER_API.storage.sync.get(['fitImage'], function (result) {
-		if (result.fitImage == true) {
-			document.querySelector('#checkbox-fit-image').checked = true;
-			document.querySelector('.icon-fit-image').style.backgroundColorr = 'var(--accent)';
-			highlightMenuIcon('media-tweaks');
-			var value = true;
-		} else if (typeof result.fitImage == 'undefined' || result.fitImage == false) {
-			document.querySelector('#checkbox-fit-image').checked = false;
-			var value = false;
-		}
-		console.log('Scale Tall Images: ' + value);
-	});
-
 	// Scale Post To Fit Image
 	BROWSER_API.storage.sync.get(['scalePostToFitImage'], function (result) {
 		if (result.scalePostToFitImage == true) {

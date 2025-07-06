@@ -9,9 +9,6 @@ document.querySelector('#checkbox-image-scroll').addEventListener('change', func
 	const imageScroll = document.querySelector('#checkbox-image-scroll').checked;
 	if (imageScroll) {
 		// disable other image options
-		document.querySelector('#checkbox-fit-image').checked = false;
-		BROWSER_API.storage.sync.set({ fitImage: false });
-		document.querySelector('.icon-fit-image').style.backgroundColor = '';
 		document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
 		BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
 		document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
@@ -32,31 +29,6 @@ document.querySelector('#checkbox-image-scroll').addEventListener('change', func
 	BROWSER_API.storage.sync.set({ imageScroll: imageScroll });
 });
 
-// Toggle - Scale Tall Images To Fit Post
-document.querySelector('#checkbox-fit-image').addEventListener('change', function (e) {
-	const fitImage = document.querySelector('#checkbox-fit-image').checked;
-	if (fitImage) {
-		// disable other image options
-		document.querySelector('#checkbox-image-scroll').checked = false;
-		BROWSER_API.storage.sync.set({ imageScroll: false });
-		document.querySelector('.icon-image-scroll').style.backgroundColor = '';
-		document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
-		BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
-		document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
-		/*document.querySelector('#checkbox-drag-image-to-resize').checked = false;
-		BROWSER_API.storage.sync.set({ dragImageToResize: false });
-		document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = '';
-		document.querySelector('.icon-drag-image-to-resize-initial-size').style.backgroundColor = '';*/
-		const maxImageWidthValue = document.querySelector('#input-max-image-width').value;
-		document.querySelector('.icon-max-image-width').style.backgroundColor = maxImageWidthValue != 9 ? 'var(--accent)' : '';
-	} else {
-		document.querySelector('.icon-max-image-width').style.backgroundColor = '';
-	}
-	document.querySelector('.icon-fit-image').style.backgroundColor = fitImage == true ? 'var(--accent)' : '';
-	sendMessage({ fitImage: fitImage });
-	BROWSER_API.storage.sync.set({ fitImage: fitImage });
-});
-
 // Toggle - Scale Post To Fit Image
 document.querySelector('#checkbox-scale-post-to-fit-image').addEventListener('change', function (e) {
 	const scalePostToFitImage = document.querySelector('#checkbox-scale-post-to-fit-image').checked;
@@ -65,9 +37,6 @@ document.querySelector('#checkbox-scale-post-to-fit-image').addEventListener('ch
 		document.querySelector('#checkbox-image-scroll').checked = false;
 		BROWSER_API.storage.sync.set({ imageScroll: false });
 		document.querySelector('.icon-image-scroll').style.backgroundColor = '';
-		document.querySelector('#checkbox-fit-image').checked = false;
-		BROWSER_API.storage.sync.set({ fitImage: false });
-		document.querySelector('.icon-fit-image').style.backgroundColor = '';
 		//document.querySelector('#checkbox-drag-image-to-resize').checked = false;
 		//BROWSER_API.storage.sync.set({ dragImageToResize: false });
 		//document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = '';
@@ -180,9 +149,6 @@ document.querySelector('#checkbox-just-open-the-image').addEventListener('change
 		document.querySelector('#checkbox-image-scroll').checked = false;
 		BROWSER_API.storage.sync.set({ imageScroll: false });
 		document.querySelector('.icon-image-scroll').style.backgroundColor = '';
-		document.querySelector('#checkbox-fit-image').checked = false;
-		BROWSER_API.storage.sync.set({ fitImage: false });
-		document.querySelector('.icon-fit-image').style.backgroundColor = '';
 		//document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
 		//BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
 		//document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';

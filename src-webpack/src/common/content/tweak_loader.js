@@ -10,7 +10,6 @@ import { loadAutoExpandValue } from './tweaks/resize_elements/auto_expand_value'
 import { loadBionicReader } from './tweaks/accessibility/bionic_reader';
 import { loadBreakReminder } from './tweaks/productivity/break_reminder';
 //import { loadDarkModeAuto } from './tweaks/dark_mode/dark_mode';
-import { loadFitImage } from './tweaks/media/scale_tall_images_to_fit_post';
 import { loadHideNSFW } from './tweaks/hide_elements/hide_nsfw';
 import { loadHideBlockedKeywordPosts } from './tweaks/block/block_posts_by_keyword';
 import { loadLimitInfinityScroll } from './tweaks/productivity/limit_infinity_scroll';
