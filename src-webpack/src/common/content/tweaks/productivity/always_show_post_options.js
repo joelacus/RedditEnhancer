@@ -104,14 +104,19 @@ function attachPostMenu(post) {
 			awardBtn.classList.add('rounded-sm', 'mr-2xs');
 		}
 
-		const shareBtn = btnContainer.querySelector('shreddit-post-share-button')?.shadowRoot?.querySelector('button');
+		const shareBtn = btnContainer.querySelector('shreddit-post-share-button');
 		if (shareBtn) {
+			const shareInnerBtn = shareBtn.shadowRoot?.querySelector('button');
+			if (shareInnerBtn) {
+				shareInnerBtn.className = 'button flex flex-row justify-center items-center font-semibold relative text-12 button-plain-weak inline-flex p-[6px] rounded-sm mr-2xs h-[28px]';
+				shareInnerBtn.removeAttribute('style');
+			}
 			shareBtn.setAttribute('slot', 'share-button');
 			post.appendChild(shareBtn);
 		}
 	}
 
-	const shareBtn = post.querySelector('.share-dropdown-menu button, button[slot="share-button"]');
+	const shareBtn = post.querySelector('.share-dropdown-menu button');
 	if (shareBtn) {
 		shareBtn.classList.replace('px-sm', 'p-[6px]');
 		shareBtn.classList.replace('button-secondary', 'button-plain-weak');

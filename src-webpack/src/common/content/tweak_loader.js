@@ -82,7 +82,7 @@ export function loadTweaks() {
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
 
 		waitForAddedNode({
-			query: 'flex-left-nav-container',
+			query: 'flex-left-nav-container, #left-sidebar-container',
 			parent: document.querySelector('body'),
 			done: () => {
 				loadAttachSideMenuHeader();

@@ -265,7 +265,8 @@ function enableExpandContentNewNew() {
 				gap: revert;
 				padding: revert;
 			}
-			div.main-container.grid {
+			div.main-container.grid,
+			div.main-container.flex {
             	grid-template-columns: 1fr minmax(0,316px);
             	gap: 1.25rem;
             	margin: 0 auto;
@@ -325,6 +326,9 @@ function enableExpandContentNewNew() {
 				shreddit-app[pagetype="custom_feed"] .main-container,
 				shreddit-app[pagetype="custom_feed"] div.masthead {
 					max-width: min(var(--re-custom-feed-width), var(--re-main-container-width));
+				}
+				main.main#main-content {
+					max-width: 100%;
 				}
 			}`;
 	} else {

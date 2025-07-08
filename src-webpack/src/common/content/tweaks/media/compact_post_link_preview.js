@@ -21,8 +21,11 @@ export function compactPostLinkPreview(value) {
 		const postRoutes = ['post_page', 'comments_page', 'profile_post_page'];
 		// Do not compact e.g. YouTube video embeds
 		if (value && postRoutes.includes(routeName) && !document.querySelector('shreddit-embed')) {
+			const post = document.querySelector('shreddit-post[post-type="link"]');
+			if (!post) return;
+
 			// Remove the original post link
-			let postLink = document.querySelector('shreddit-post[post-type="link"]')?.getAttribute('content-href');
+			let postLink = post.getAttribute('content-href');
 			document.querySelector('div:has(> faceplate-tracker[source="post_lightbox"])')?.remove();
 
 			if (/(imgur\.com|imgur\.io|ibb\.co)/.test(new URL(postLink).hostname)) return;
@@ -46,6 +49,7 @@ export function compactPostLinkPreview(value) {
 									            margin-top: calc(var(--re-post-media-container-margin) * -1);
 									        	margin-left: auto;
 									        	width: 144px;
+									        	height: 116px;
 									        }
 									        [routename="post_page"] shreddit-post[post-type="link"]:has(img#post-image) h1,
 									        [routename="comment_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 {
@@ -64,7 +68,7 @@ export function compactPostLinkPreview(value) {
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
 
-			if (document.querySelector('shreddit-post div[slot="text-body"]')) {
+			if (post.querySelector('div[slot="text-body"]')) {
 				const dynamicStyleElements = document.head.querySelectorAll('style[id="re-compact-post-link-display"]');
 				dynamicStyleElements.forEach((element) => {
 					document.head.removeChild(element);
@@ -72,9 +76,10 @@ export function compactPostLinkPreview(value) {
 			}
 
 			// Get the height of post title, link and flair (if exists)
-			const titleHeight = document.querySelector('shreddit-post h1').offsetHeight;
-			const flairHeight = document.querySelector('shreddit-post shreddit-post-flair') ? document.querySelector('shreddit-post shreddit-post-flair').offsetHeight + 8 : 0;
-			document.documentElement.style.setProperty('--re-post-media-container-margin', `calc(${titleHeight}px + ${flairHeight}px)`);
+			const tagHeight = (post.getAttribute('spoiler') !== null || post.getAttribute('nsfw') !== null) ? 24 : 0;
+			const titleHeight = post.querySelector('h1').offsetHeight;
+			const flairHeight = post.querySelector('shreddit-post-flair') ? document.querySelector('shreddit-post shreddit-post-flair').offsetHeight + 8 : 0;
+			document.documentElement.style.setProperty('--re-post-media-container-margin', `calc(${tagHeight}px + ${titleHeight}px + ${flairHeight}px)`);
 
 			if (document.querySelector('shreddit-post a.re-post-link')) return;
 
@@ -86,7 +91,7 @@ export function compactPostLinkPreview(value) {
 				target: '_blank',
 				rel: 'noopener noreferrer ugc',
 			});
-			document.querySelector('shreddit-post').insertBefore(postLink2, document.querySelector('shreddit-post h1').nextSibling);
+			post.insertBefore(postLink2, document.querySelector('shreddit-post h1').nextSibling);
 		} else {
 			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-compact-post-link-display"]');
 			dynamicStyleElements.forEach((element) => {
