@@ -224,10 +224,11 @@ async function enableAttachSideMenuHeader() {
 			.re-header-menu:has(reddit-sidebar-nav) .re-side-menu-close {
 				display: none !important;
 			}
+			/* Icon of the toggle menu button */
 			.re-header-menu > div > :first-child:not(span) {
 				position: static;
-				height: 24px;
-				width: 24px;
+				height: 24px !important;
+				width: 24px !important;
 				border: none;
 				background-color: transparent;
 				object-fit: contain;
