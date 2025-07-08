@@ -77,9 +77,6 @@
 	"ExtensionSettings": {
 		"message": "Kiegészítés beállításai"
 	},
-	"FitImage": {
-		"message": "Méretarányosan magas képek illeszkedése hozzászóláshoz"
-	},
 	"HideCompactViewThumbnails": {
 		"message": "Elrejtse a miniatűrök kompakt nézetben"
 	},
@@ -145,9 +142,6 @@
 	},
 	"Offset": {
 		"message": "Eltolás"
-	},
-	"OldNewUI": {
-		"message": "Régi Új UI"
 	},
 	"OldUI": {
 		"message": "Régi UI"

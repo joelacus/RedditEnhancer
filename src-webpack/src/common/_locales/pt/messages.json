@@ -74,9 +74,6 @@
 	"Blur": {
 		"message": "Desfocar"
 	},
-	"BlurBackgroundPostOverlay": {
-		"message": "Fundo desfoque atrás da sobreposição de post"
-	},
 	"BorderRadiusAmount": {
 		"message": "Raio do canto do tema"
 	},
@@ -185,15 +182,6 @@
 	"DefaultHomeFeedSortOption": {
 		"message": "Opção de classificação de feed doméstico padrão"
 	},
-	"DefaultSortFeedOptionGracePeriod": {
-		"message": "Substituir a opção de classificação padrão"
-	},
-	"DefaultSortFeedOptionOverrideInfo": {
-		"message": "A quantidade de tempo após a página ter sido redirecionada automaticamente, na qual você pode substituir a opção de classificação padrão."
-	},
-	"DisableBgFadePostOverlay": {
-		"message": "Desativar o fundo desaparecendo atrás da sobreposição de post"
-	},
 	"Disabled": {
 		"message": "Desabilitada"
 	},
@@ -232,9 +220,6 @@
 	},
 	"FilterOptionsFor": {
 		"message": "Opções de filtro para"
-	},
-	"FitImage": {
-		"message": "Dimensionar imagens altas para caber no post"
 	},
 	"Font": {
 		"message": "Fonte"
@@ -296,9 +281,6 @@
 	"HideCompactViewThumbnails": {
 		"message": "Esconda as miniaturas em visão compacta"
 	},
-	"HideCreatePost": {
-		"message": "Ocultar “Criar publicação”"
-	},
 	"HideCreatePostButton": {
 		"message": "Ocultar botão “Criar postagem”"
 	},
@@ -347,12 +329,6 @@
 	"HideNsfwInSearchResults": {
 		"message": "Ocultar 'NSFW' nos resultados da pesquisa"
 	},
-	"HideOriginalScrollToTop": {
-		"message": "Ocultar o Botão Original de Rolagem para o Topo"
-	},
-	"HidePopularButton": {
-		"message": "Ocultar botão “Populares”"
-	},
 	"HidePostBackButton": {
 		"message": "Ocultar o botão Publicar Voltar"
 	},
@@ -364,9 +340,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Ocultar pós-carma"
-	},
-	"HidePostOverlaySidebar": {
-		"message": "Ocultar a barra lateral de sobreposição de postagem"
 	},
 	"HidePostSidebar": {
 		"message": "Ocultar a barra lateral do post"
@@ -395,9 +368,6 @@
 	"HideSearchSidebarNsfwUsers": {
 		"message": "Ocultar utilizadores NSFW na barra lateral da página de pesquisa"
 	},
-	"HideSeeFullImage": {
-		"message": "Ocultar “Ver Imagem Completa”"
-	},
 	"HideSideMenu": {
 		"message": "Limitar comentários de postagem"
 	},
@@ -422,9 +392,6 @@
 	"HideSideMenuTopicsSection": {
 		"message": "Ocultar a seção de tópicos"
 	},
-	"HideSidebarPolicy": {
-		"message": "Ocultar seção de políticas"
-	},
 	"HideSubSidebar": {
 		"message": "Ocultar a barra lateral do Sub Reddit"
 	},
@@ -436,9 +403,6 @@
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "Ocultar 'Tendências atuais' na barra de pesquisa"
-	},
-	"HideTurnOnNotificationsPopup": {
-		"message": "Ocultar “Ligue o pop-up de notificações”"
 	},
 	"HideUserProfilePics": {
 		"message": "Ocultar fotos de perfil de usuário nos comentários"
@@ -551,9 +515,6 @@
 	"Old": {
 		"message": "Velha / Old"
 	},
-	"OldNewUI": {
-		"message": "Velho Novo UI"
-	},
 	"OldUI": {
 		"message": "Velho UI"
 	},
@@ -652,9 +613,6 @@
 	},
 	"Qa": {
 		"message": "Q&a"
-	},
-	"RUI2RemovalInfo": {
-		"message": "O Reddit descontinuou (Velho Novo UI / versão 2) do site. As opções para 'Velho Novo UI' continuarão sendo suportadas por enquanto, enquanto outras soluções alternativas para recuperá -lo ainda estão funcionando."
 	},
 	"RUI3RedirectInfo": {
 		"message": "A opção de redireccionamento para 'Nova Nova UI' já não é necessária, no entanto, pode utilizar esta opção para forçar links de (sh|old).reddit.com para www.reddit.com"

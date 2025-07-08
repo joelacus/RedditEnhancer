@@ -74,9 +74,6 @@
 	"Blur": {
 		"message": "Sfocatura"
 	},
-	"BlurBackgroundPostOverlay": {
-		"message": "Sfondo sfocato dietro il post di overlay"
-	},
 	"BorderRadiusAmount": {
 		"message": "Raggio d'angolo tematico"
 	},
@@ -185,15 +182,6 @@
 	"DefaultHomeFeedSortOption": {
 		"message": "Opzione di ordinamento del feed di casa predefinito"
 	},
-	"DefaultSortFeedOptionGracePeriod": {
-		"message": "Sostituire l'opzione di ordinamento predefinita"
-	},
-	"DefaultSortFeedOptionOverrideInfo": {
-		"message": "La quantità di tempo dopo la pagina è stata reindirizzata automatica in cui è possibile sovrascrivere l'opzione di ordinamento predefinita."
-	},
-	"DisableBgFadePostOverlay": {
-		"message": "Disabilita lo sfondo dissolvenza dietro il post di overlay"
-	},
 	"Disabled": {
 		"message": "Disabilitato"
 	},
@@ -232,9 +220,6 @@
 	},
 	"FilterOptionsFor": {
 		"message": "Opzioni di filtro per"
-	},
-	"FitImage": {
-		"message": "Ridimensiona le immagini alte per adattarle al post"
 	},
 	"Font": {
 		"message": "Font"
@@ -296,9 +281,6 @@
 	"HideCompactViewThumbnails": {
 		"message": "Nascondi le miniature in vista compatta"
 	},
-	"HideCreatePost": {
-		"message": "Nascondi “Crea una pubblicazione”"
-	},
 	"HideCreatePostButton": {
 		"message": "Nascondi il pulsante “Crea post”"
 	},
@@ -347,12 +329,6 @@
 	"HideNsfwInSearchResults": {
 		"message": "Nascondi 'NSFW' nei risultati della ricerca"
 	},
-	"HideOriginalScrollToTop": {
-		"message": "Nascondi il pulsante Scorri in alto originale"
-	},
-	"HidePopularButton": {
-		"message": "Nascondi il pulsante “Popolari”"
-	},
 	"HidePostBackButton": {
 		"message": "Nascondi il pulsante Post Indietro"
 	},
@@ -364,9 +340,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Nascondi il Karma del Post"
-	},
-	"HidePostOverlaySidebar": {
-		"message": "Nascondi la barra laterale in sovrapposizione dei post"
 	},
 	"HidePostSidebar": {
 		"message": "Nascondi la barra laterale del post"
@@ -395,9 +368,6 @@
 	"HideSearchSidebarNsfwUsers": {
 		"message": "Nascondi gli utenti NSFW nella barra laterale della pagina di ricerca"
 	},
-	"HideSeeFullImage": {
-		"message": "Nascondi “Vedi Immagine Intera”"
-	},
 	"HideSideMenu": {
 		"message": "Nascondi Menu Laterale"
 	},
@@ -422,9 +392,6 @@
 	"HideSideMenuTopicsSection": {
 		"message": "Nascondi la sezione Argomenti"
 	},
-	"HideSidebarPolicy": {
-		"message": "Nascondi sezione Politiche"
-	},
 	"HideSubSidebar": {
 		"message": "Nascondi la barra laterale di Sub Reddit"
 	},
@@ -436,9 +403,6 @@
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "Nascondi 'Di tendenza oggi' nella barra di ricerca"
-	},
-	"HideTurnOnNotificationsPopup": {
-		"message": "Nascondi il popup “Accendi le notifiche”"
 	},
 	"HideUserProfilePics": {
 		"message": "Nascondi le immagini del profilo utente nei commenti"
@@ -551,9 +515,6 @@
 	"Old": {
 		"message": "Vecchia / Old"
 	},
-	"OldNewUI": {
-		"message": "Vecchio Nuovo UI"
-	},
 	"OldUI": {
 		"message": "Vecchio UI"
 	},
@@ -652,9 +613,6 @@
 	},
 	"Qa": {
 		"message": "Q&a"
-	},
-	"RUI2RemovalInfo": {
-		"message": "Reddit has discontinued (Old New UI / Version 2) of the website. Options for 'Old New UI' will continue to be supported for now while other workarounds to get it back are still working."
 	},
 	"RUI3RedirectInfo": {
 		"message": "L'opzione di reindirizzamento a 'Nuovo Nuovo UI' non è più necessaria, tuttavia, puoi utilizzare questa opzione per forzare i collegamenti da (sh|old).reddit.com a www.reddit.com"

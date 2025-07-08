@@ -74,9 +74,6 @@
 	"Blur": {
 		"message": "Fläck"
 	},
-	"BlurBackgroundPostOverlay": {
-		"message": "Oskärpa bakgrund bakom postöverlägget"
-	},
 	"BorderRadiusAmount": {
 		"message": "Temahörnradie"
 	},
@@ -194,9 +191,6 @@
 	"Feed": {
 		"message": "Ström"
 	},
-	"FitImage": {
-		"message": "Skala höga bilder för att passa inlägg"
-	},
 	"Header": {
 		"message": "Rubrik"
 	},
@@ -214,9 +208,6 @@
 	},
 	"HideCompactViewThumbnails": {
 		"message": "Dölj miniatyrbilderna i kompakt vy"
-	},
-	"HideCreatePost": {
-		"message": "Dölj 'Skapa inlägg'"
 	},
 	"HideElements": {
 		"message": "Dölj Element"
@@ -238,9 +229,6 @@
 	},
 	"HideModerationButton": {
 		"message": "Dölj 'Måtta' knappen"
-	},
-	"HidePopularButton": {
-		"message": "Hide den 'Populärap knappen"
 	},
 	"HidePostHiddenMessage": {
 		"message": "Dölj 'Post Hidden' meddelande"
@@ -283,9 +271,6 @@
 	},
 	"HideSideMenuTopicsSection": {
 		"message": "Dölj avsnittet Ämnen"
-	},
-	"HideSidebarPolicy": {
-		"message": "Dölj policyer"
 	},
 	"HideSubSidebar": {
 		"message": "Dölj Sub Reddit sidofältet"
@@ -352,9 +337,6 @@
 	},
 	"Offset": {
 		"message": "Förskjutning"
-	},
-	"OldNewUI": {
-		"message": "Gammal Ny UI"
 	},
 	"OldUI": {
 		"message": "Gammal UI"
