@@ -292,6 +292,7 @@ article:has(> .re-vote-panel) {
 	flex-direction: column;
 	background-color: transparent;
 	color: var(--button-color-text-default);
+	height: revert;
 }
 .re-vote-panel button[upvote],
 .re-vote-panel button[downvote] {

@@ -809,11 +809,7 @@ document.querySelector('#checkbox-mark-read-on-open-expandos').addEventListener(
 				.catch((e) => {
 					console.error('[RedditEnhancer] markReadOnOpenExpandos: Error requesting "history" permission: ', e);
 					document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
-				}
-			}).catch((e) => {
-				console.error('[RedditEnhancer] markReadOnOpenExpandos: Error requesting history permission: ', e);
-				document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
-			});
+				});
 		}
 	}
 	BROWSER_API.storage.sync.set({ markReadOnOpenExpandos: markReadOnOpenExpandos });

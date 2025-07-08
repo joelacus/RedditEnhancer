@@ -159,7 +159,7 @@ import { markReadOnOpenExpandos } from "./tweaks/productivity/mark_read_on_open_
 import { hideAwards } from "./tweaks/hide_elements/hide_awards";
 import { highlightOp } from "./tweaks/productivity/highlight_op";
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
-import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
+import { addDownloadVideoButton } from './tweaks/media/add_download_video_button';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
