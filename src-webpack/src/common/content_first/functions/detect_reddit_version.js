@@ -15,7 +15,7 @@ export function detectRedditVersion() {
 	if (hostname === 'old.reddit.com') {
 		window.redditVersion = 'old';
 		tweakLoaderOld();
-	} else if (hostname === 'www.reddit.com' || hostname === 'sh.reddit.com' || hostname === 'new.reddit.com') {
+	} else if (hostname === 'sh.reddit.com') {
 		window.redditVersion = 'newnew';
 		tweakLoaderNewNew();
 	} else {
@@ -48,7 +48,7 @@ export function getRedditVersion() {
 	const hostname = window.location.href;
 	if (hostname === 'old.reddit.com') {
 		return 1;
-	} else if (hostname === 'www.reddit.com' || hostname === 'sh.reddit.com' || hostname === 'new.reddit.com') {
+	} else if (hostname === 'sh.reddit.com') {
 		return 3;
 	} else {
 		// New New UI (SH)

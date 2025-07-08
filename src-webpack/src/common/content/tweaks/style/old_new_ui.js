@@ -241,8 +241,11 @@ async function enableAttachSideMenuHeader() {
 				position: absolute;
 				top: 44px;
 				width: var(--re-side-menu-width, 256px);
-				height: 60vh;
-				min-height: 512px;
+				height: fit-content;
+				max-height: max(512px, 60vh);
+			}
+			.re-header-menu reddit-sidebar-nav nav {
+				min-height: revert;
 			}
 			nav.h-header-large > div.justify-stretch > div {
 				position: static;
@@ -344,7 +347,7 @@ async function attachUserInfo() {
 	if (!loggedIn) return;
 
 	document.querySelector('#re-user-info')?.remove();
-	const user = (await BROWSER_API.runtime.sendMessage({ actions: [{ action: 'fetchData', url: 'https://www.reddit.com/api/me.json' }] })).data;
+	const user = (await BROWSER_API.runtime.sendMessage({ actions: [{ action: 'fetchData', url: 'https://www.reddit.com/api/me.json' }] }))?.data;
 	if (user && user.name && user.total_karma && document.querySelector('button#expand-user-drawer-button')) {
 		const a = Object.assign(document.createElement('div'), {
 			id: 're-user-info',

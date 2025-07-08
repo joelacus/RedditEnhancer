@@ -54,7 +54,7 @@ function processComposer(composer) {
 		rteComposer.setAttribute('re-showFormatting', '');
 	}
 
-	const mdComposer = composer.shadowRoot.querySelector('shreddit-markdown-composer');
+	const mdComposer = composer.shadowRoot?.querySelector('shreddit-markdown-composer');
 	if (mdComposer && !mdComposer.getAttribute('re-showFormatting')) {
 		mdComposer.shadowRoot?.querySelector('div.flex')?.remove();
 		const textarea = mdComposer.shadowRoot?.querySelector('div.textarea-container textarea');

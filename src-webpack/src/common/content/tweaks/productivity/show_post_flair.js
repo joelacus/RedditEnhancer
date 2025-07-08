@@ -32,7 +32,7 @@ export function loadShowPostFlair() {
 // Activate the feature based on Reddit version
 // NOTE: adding flairs to search results leads to 429s, so restrain from doing that for now
 export function showPostFlair(value) {
-	const routeName = document.querySelector('shreddit-app').getAttribute('routename');
+	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
 	const feedRoutes = ['frontpage', 'popular', 'custom_feed'];
 
 	if (redditVersion === 'newnew' && value && feedRoutes.includes(routeName)) {

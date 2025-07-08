@@ -11,7 +11,7 @@ export function loadShowPostAuthor() {
 let hover_delay = 500;
 export function showPostAuthor(value, delay) {
 	if (delay) hover_delay = delay * 1000;
-	const routename = document.querySelector('shreddit-app').getAttribute('routename');
+	const routename = document.querySelector('shreddit-app')?.getAttribute('routename');
 	const feedRoutes = ['frontpage', 'popular', 'custom_feed', 'profile_saved'];
 	const searchRoutes = ['global_serp', 'community_serp', 'custom_feed_serp'];
 

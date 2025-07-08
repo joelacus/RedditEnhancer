@@ -36,13 +36,17 @@ export function leftSideVoteButtons(value) {
             if (document.querySelector('shreddit-post[view-context="CommentsPage"]')) {
                 const crosspost = document.querySelector('shreddit-post').getAttribute('post-type');
                 const tagline = document.querySelector('shreddit-post span.avatar + div > div');
-                const author = tagline.querySelector('faceplate-tracker[noun="user_profile"]:first-child');
-                if (crosspost === 'crosspost') {
-                    author.childNodes[0].textContent = "Crossposted by u/" + author.childNodes[0].textContent;
-                } else {
-                    author.childNodes[0].textContent = "Posted by u/" + author.childNodes[0].textContent;
+                if (tagline) {
+                    const author = tagline.querySelector('faceplate-tracker[noun="user_profile"]:first-child');
+                    if (author) {
+                        if (crosspost === 'crosspost') {
+                            author.childNodes[0].textContent = "Crossposted by u/" + author.childNodes[0].textContent;
+                        } else {
+                            author.childNodes[0].textContent = "Posted by u/" + author.childNodes[0].textContent;
+                        }
+                    }
+                    document.querySelector('shreddit-post span#time-ago-separator').insertAdjacentElement("afterend", tagline);
                 }
-                document.querySelector('shreddit-post span#time-ago-separator').insertAdjacentElement("afterend", tagline);
             }
         } else {
             disableLeftSideVoteButtons();

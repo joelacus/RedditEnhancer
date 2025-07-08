@@ -71,7 +71,7 @@ function attachPostMenu(post) {
 	// Stylise the overflow menu and attach it outside the shadow DOM
 	overflowMenu.setAttribute('slot', 'overflow-menu');
 	overflowMenu.setAttribute('position', 'bottom-start');
-	overflowMenu.classList.add('z-10');
+	overflowMenu.classList.add('z-5');
 	overflowMenu.querySelector('button')?.classList.replace('button-plain', 'button-plain-weak');
 	post.appendChild(overflowMenu);
 
@@ -110,9 +110,13 @@ function attachPostMenu(post) {
 			if (shareInnerBtn) {
 				shareInnerBtn.className = 'button flex flex-row justify-center items-center font-semibold relative text-12 button-plain-weak inline-flex p-[6px] rounded-sm mr-2xs h-[28px]';
 				shareInnerBtn.removeAttribute('style');
+				shareBtn.setAttribute('slot', 'share-button');
+				post.appendChild(shareBtn);
+			} else {
+				const slot = document.createElement('slot');
+				slot.name = 'ssr-share-button';
+				btnContainer.querySelector('slot[name="share-button"]')?.insertAdjacentElement('afterend', slot);
 			}
-			shareBtn.setAttribute('slot', 'share-button');
-			post.appendChild(shareBtn);
 		}
 	}
 

@@ -85,7 +85,7 @@ shreddit-app[routename='subreddit_wiki'] #right-sidebar-container aside,
 shreddit-app[routename='post_page'] #right-sidebar-container aside,
 shreddit-app[routename='comment_page'] #right-sidebar-container aside {
 	margin-top: 1rem;
-	padding: 0;
+	padding-block: 0;
 }
 shreddit-app[routename='subreddit_wiki'] shreddit-title {
 	display: none;
@@ -410,9 +410,9 @@ shreddit-feed article:focus-within {
 #overlayScrollContainer .undefined {
 	min-width: 16px;
 }
-[bundlename='comment_body_header'] {
+/* [bundlename='comment_body_header'] {
 	z-index: 9;
-}
+} */
 navigation-indicator {
 	z-index: 999 !important;
 }
@@ -530,4 +530,13 @@ shreddit-comment:not([is-highlighted]) > shreddit-comment-action-row > span[slot
 	--re-theme-sidebar-bg: white;
 	--re-theme-sidemenu-bg: white;
 	--re-background-image: #dae0e6;
+}
+
+/* Reddit's changes for signed-out users */
+.\@container\/story-cluster div {
+	margin-bottom: var(--re-post-separator-height);
+	padding: 1rem;
+	border: 1px solid var(--re-theme-post-border);
+	border-radius: var(--re-theme-border-radius);
+	background-color: var(--re-theme-post-bg);
 }

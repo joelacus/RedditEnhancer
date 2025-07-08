@@ -83,6 +83,14 @@ function enableHidePostDivider() {
 									#right-sidebar-contents aside:has(shreddit-subreddit-header) {
 										backdrop-filter: initial !important;
 									}
+									shreddit-app[routename='post_page']:not([user-logged-in]) #right-sidebar-container aside:not(:has(shreddit-subreddit-header)),
+									shreddit-app[routename='comment_page']:not([user-logged-in]) #right-sidebar-container aside:not(:has(shreddit-subreddit-header)) {
+										background-color: var(--color-neutral-background-weak);
+										backdrop-filter: blur(var(--re-theme-blur));
+										margin-bottom: 1rem;
+										border-radius: var(--re-theme-border-radius, 8px);
+										padding: 1rem;
+									}
 									shreddit-app[routename='subreddit'] #right-sidebar-container aside,
 									shreddit-app[routename='subreddit_wiki'] #right-sidebar-container aside,
 									shreddit-app[routename='post_page'] #right-sidebar-container aside,

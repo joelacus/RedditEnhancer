@@ -110,10 +110,10 @@ function checkTime(i) {
 
 // Fetch JSON data
 // @see content/tweaks/productivity/show_post_flair.js
-function fetchData(url, sendResponse) {
+async function fetchData(url, sendResponse) {
 	fetch(url, {
 		method: 'GET',
-		mode: IS_CHROME && window.location.hostname === 'sh.reddit.com' ? 'no-cors' : 'cors',
+		mode: IS_CHROME && (await getActiveTabDomain()) === 'sh.reddit.com' ? 'no-cors' : 'cors',
 	})
 		.then((response) => {
 			if (!response.ok) throw response.status;
@@ -124,7 +124,7 @@ function fetchData(url, sendResponse) {
 			sendResponse(data);
 		})
 		.catch((error) => {
-			console.error('Error fetching data from API: ', JSON.stringify(error));
+			console.error('Error fetching data from API: ', JSON.stringify(error, null, 2) || String(error));
 			if (error instanceof TypeError && error.message === 'NetworkError when attempting to fetch resource.') {
 				sendResponse({ error: 'Cannot retrieve data as www.reddit.com is currently unreachable.' });
 			} else if (error === 403) {
@@ -133,6 +133,15 @@ function fetchData(url, sendResponse) {
 				sendResponse({ error: error.message || String(error) });
 			}
 		});
+}
+
+async function getActiveTabDomain() {
+	const tabs = await BROWSER_API.tabs.query({ active: true, currentWindow: true });
+	if (tabs.length > 0 && tabs[0].url) {
+		const url = new URL(tabs[0].url);
+		return url.hostname;
+	}
+	return null;
 }
 
 // Fetch text files
