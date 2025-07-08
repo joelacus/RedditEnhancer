@@ -408,7 +408,7 @@ const functionRegistry = {
 	markReadOnOpenExpandos,
 	hideAwards,
 	snapSidebar,
-	highlightOP: highlightOp,
+	highlightOp,
 	//dragImageToResize,
 	//dragImageToResizeInitialSize,
 	//addDownloadVideoButton,
