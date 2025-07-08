@@ -1,26 +1,33 @@
-/* ===== Tweaks - Productivity - Add User Profile Pictures To Comments (Old UI) ===== */
+/**
+ * Tweaks: Productivity - Add User Profile Pictures To Comments
+ *
+ * @name addProfilePicturesToComments
+ * @description Add the comment author's profile picture to their comment.
+ *
+ * Compatibility: RV1 (Old UI) (2005-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadAddProfilePicturesToComments() {
 	BROWSER_API.storage.sync.get(['addProfilePicturesToComments'], function (result) {
 		if (result.addProfilePicturesToComments) addProfilePicturesToComments(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function addProfilePicturesToComments(value) {
 	const comments_page = document.querySelector('body').classList.contains('comments-page');
-	if (redditVersion === 'old' && value === true && comments_page === true) {
+	if (redditVersion === 'old' && value && comments_page === true) {
 		document.querySelectorAll('.commentarea > .sitetable .thing').forEach((post) => {
 			attachProfilePicture(post);
 		});
-	} else if (redditVersion === 'old' && value === false) {
-		removeProfilePictures();
+	} else {
+		removeProfilePicturesRV1();
 	}
 }
 
 // Remove all user profile pics
-function removeProfilePictures() {
+function removeProfilePicturesRV1() {
 	document.querySelectorAll('.thing .tagline').forEach((comment) => {
 		if (comment.querySelector('.re-user-pic')) {
 			comment.querySelector('.re-user-pic').remove();
@@ -49,15 +56,18 @@ async function attachProfilePicture(comment) {
 
 // Function to fetch user data from Reddit API
 async function fetchUserData(user) {
-	const fetch_url = `https://www.reddit.com/user/${user}/about.json`;
 	return new Promise((resolve, reject) => {
 		BROWSER_API.runtime.sendMessage(
 			{
-				actions: [{ action: 'changeFetchUrl', newFetchUrl: fetch_url }, { action: 'fetchData' }],
+				actions: [
+					{
+						action: 'fetchData',
+						url: `https://www.reddit.com/user/${user}/about.json`,
+					},
+				],
 			},
 			function (response) {
-				const data = JSON.parse(response.data);
-				resolve(data.data);
+				resolve(response.data);
 			}
 		);
 	});

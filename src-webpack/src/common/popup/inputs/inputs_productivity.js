@@ -796,11 +796,18 @@ document.querySelector('#checkbox-mark-read-on-open-expandos').addEventListener(
 	const markReadOnOpenExpandos = document.querySelector('#checkbox-mark-read-on-open-expandos').checked;
 	if (markReadOnOpenExpandos) {
 		if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
-			BROWSER_API.permissions.request({ permissions: ['history'] }).then((granted) => {
-				if (granted) {
-					console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission granted');
-				} else {
-					console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission denied');
+			BROWSER_API.permissions
+				.request({ permissions: ['history'] })
+				.then((granted) => {
+					if (granted) {
+						console.debug('[RedditEnhancer] markReadOnOpenExpandos: "history" permission granted');
+					} else {
+						console.debug('[RedditEnhancer] markReadOnOpenExpandos: "history" permission denied');
+						document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+					}
+				})
+				.catch((e) => {
+					console.error('[RedditEnhancer] markReadOnOpenExpandos: Error requesting "history" permission: ', e);
 					document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
 				}
 			}).catch((e) => {

@@ -1,6 +1,12 @@
-/* ===== Tweaks - Hide - Buttons In The Header Bar ===== */
+/**
+ * Tweaks: Hide Elements - Hide Buttons In The Header Bar
+ *
+ * @description Hide buttons in the top/header bar.
+ *
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 
 // Hide Advertise Button
 export function loadHideAdvertiseButton() {
@@ -37,32 +43,18 @@ export function loadHideNotificationButton() {
 	});
 }
 
-// Hide Popular Button
-export function loadHidePopularButton() {
-	BROWSER_API.storage.sync.get(['hidePopularButton'], function (result) {
-		if (result.hidePopularButton) hidePopularButton(true);
-	});
-}
-
-/* === Main Function === */
+/* === Enable/Disable The Features === */
 
 // Hide Advertise Button
 export function hideAdvertiseButton(value) {
-	if (redditVersion === 'new' && value === true) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-header-advertise-button';
-		styleElement.textContent = `#change-username-tooltip-id span:has(.icon-topic_activism) {
-											display: none !important;
-										}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	} else if (redditVersion === 'newnew' && value === true) {
+	if (redditVersion === 'newnew' && value) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-header-advertise-button';
 		styleElement.textContent = `header span[data-part="advertise"] {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
-	} else if (value === false) {
+	} else {
 		const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-advertise-button"]');
 		dynamicStyleElements.forEach((element) => {
 			document.head.removeChild(element);
@@ -70,11 +62,9 @@ export function hideAdvertiseButton(value) {
 	}
 }
 
-/* === Enable/Disable Functions === */
-
 // Hide Chat Button
 export function hideChatButton(value) {
-	if (redditVersion === 'old' && value === true) {
+	if (redditVersion === 'old' && value) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-header-chat-button';
 		styleElement.textContent = `a#chat,
@@ -84,22 +74,14 @@ export function hideChatButton(value) {
 										display: none;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
-	if (redditVersion === 'new' && value === true) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-header-chat-button';
-		styleElement.textContent = `#change-username-tooltip-id span:has(.icon-chat) {
-											display: none !important;
-										}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	} else if (redditVersion === 'newnew' && value === true) {
+	} else if (redditVersion === 'newnew' && value) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-header-chat-button';
 		styleElement.textContent = `header span[data-part="chat"] {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
-	} else if (value === false) {
+	} else {
 		const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-chat-button"]');
 		dynamicStyleElements.forEach((element) => {
 			document.head.removeChild(element);
@@ -109,21 +91,14 @@ export function hideChatButton(value) {
 
 // Hide Create Post Button
 export function hideCreatePostButton(value) {
-	if (redditVersion === 'new' && value === true) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-header-create-post-button';
-		styleElement.textContent = `#change-username-tooltip-id span:has(.icon-add) {
-											display: none !important;
-										}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	} else if (redditVersion === 'newnew' && value === true) {
+	if (redditVersion === 'newnew' && value) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-header-create-post-button';
 		styleElement.textContent = `header span[data-part="create"] {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
-	} else if (value === false) {
+	} else {
 		const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-create-post-button"]');
 		dynamicStyleElements.forEach((element) => {
 			document.head.removeChild(element);
@@ -133,22 +108,14 @@ export function hideCreatePostButton(value) {
 
 // Hide Moderation Button
 export function hideModerationButton(value) {
-	if (redditVersion === 'old' && value === true) {
+	if (redditVersion === 'old' && value) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-header-mod-button';
 		styleElement.textContent = `a#new_modmail, a#new_modmail + span.separator {
 										display: none;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
-	if (redditVersion === 'new' && value === true) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-header-mod-button';
-		styleElement.textContent = `#change-username-tooltip-id span:has(.icon-mod) {
-											display: none !important;
-										}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	} else if (value === false) {
+	} else {
 		const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-mod-button"]');
 		dynamicStyleElements.forEach((element) => {
 			document.head.removeChild(element);
@@ -158,7 +125,7 @@ export function hideModerationButton(value) {
 
 // Hide Notification Button
 export function hideNotificationButton(value) {
-	if (redditVersion === 'old' && value === true) {
+	if (redditVersion === 'old' && value) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-header-notification-button';
 		styleElement.textContent = `a#mail,
@@ -172,44 +139,17 @@ export function hideNotificationButton(value) {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
-	if (redditVersion === 'new' && value === true) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-header-notification-button';
-		styleElement.textContent = `#change-username-tooltip-id span:has(.icon-notification) {
-										display: none !important;
-									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	} else if (redditVersion === 'newnew' && value === true) {
+	} else if (redditVersion === 'newnew' && value) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-header-notification-button';
 		styleElement.textContent = `header span[data-part="inbox"] {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
-	} else if (value === false) {
+	} else {
 		const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-notification-button"]');
 		dynamicStyleElements.forEach((element) => {
 			document.head.removeChild(element);
 		});
-	}
-}
-
-// Hide Popular Button
-export function hidePopularButton(value) {
-	if (redditVersion === 'new') {
-		if (value === true) {
-			const styleElement = document.createElement('style');
-			styleElement.id = 're-hide-header-popular-button';
-			styleElement.textContent = `#SHORTCUT_FOCUSABLE_DIV div a[href="/r/popular/"] {
-											display: none !important;
-										}`;
-			document.head.insertBefore(styleElement, document.head.firstChild);
-		} else if (value === false) {
-			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-popular-button"]');
-			dynamicStyleElements.forEach((element) => {
-				document.head.removeChild(element);
-			});
-		}
 	}
 }

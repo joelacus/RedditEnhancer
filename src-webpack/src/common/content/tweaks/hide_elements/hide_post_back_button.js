@@ -1,27 +1,30 @@
-/* ===== Tweaks - Hide - Post Back Button ===== */
+/**
+ * Tweaks: Hide Elements - Hide Post Back Button
+ *
+ * @name hidePostBackButton
+ * @description Hide the back button on a post.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHidePostBackButton() {
 	BROWSER_API.storage.sync.get(['hidePostBackButton'], function (result) {
 		if (result.hidePostBackButton) hidePostBackButton(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function hidePostBackButton(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHideBackButton();
-		} else if (value === false) {
-			disableHideBackButton();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableHideBackButtonRV3();
+	} else {
+		disableHideBackButton();
 	}
 }
 
-/* === Enable/Disable Functions === */
-
-// Function - Enable Hide Post Back Button - New
-function enableHideBackButton() {
+// Enable Hide Post Back Button - RV3
+function enableHideBackButtonRV3() {
 	if (!document.head.querySelector('style[id="re-hide-post-back-button"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-post-back-button';
@@ -32,7 +35,7 @@ function enableHideBackButton() {
 	}
 }
 
-// Function - Disable Hide Post Back Button - New
+// Disable Hide Post Back Button - RV3
 function disableHideBackButton() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-post-back-button"]');
 	dynamicStyleElements.forEach((element) => {

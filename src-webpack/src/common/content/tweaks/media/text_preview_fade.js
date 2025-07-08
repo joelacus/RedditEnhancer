@@ -1,12 +1,13 @@
 /**
- * Tweaks: Style - Add Fading Effects to Text Post Preview
- * @name textPostPreviewFade
- * @description Add fading effects to preview of text posts in feed in Card view.
+ * Tweaks: Media - Text Post Preview Fade
  *
- * Applies to: New New UI (2023-)
+ * @name textPostPreviewFade
+ * @description Add fading effects to the preview of text posts on the feed in Card view.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
-// Get the feature state from browser sync storage
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadTextPostPreviewFade() {
 	BROWSER_API.storage.sync.get(['textPostPreviewFade', 'textPostPreviewFadeHeight'], function (result) {
 		if (result.textPostPreviewFade) {
@@ -16,18 +17,16 @@ export function loadTextPostPreviewFade() {
 	});
 }
 
-// Activate the feature based on Reddit version
+/* === Enable/Disable The Feature === */
 export function textPostPreviewFade(value) {
-	if (redditVersion === 'newnew') {
-		if (value) {
-			enableTextPostPreviewFade();
-		} else {
-			disableTextPostPreviewFade();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableTextPostPreviewFade();
+	} else {
+		disableTextPostPreviewFade();
 	}
 }
 
-// Enable the feature
+// Enable Text Post Fade
 function enableTextPostPreviewFade() {
 	if (!document.head.querySelector('style[id="re-text-post-preview-fade"]')) {
 		const styleElement = document.createElement('style');
@@ -39,7 +38,7 @@ function enableTextPostPreviewFade() {
 	}
 }
 
-// Disable the feature
+// Disable Text Post Fade
 function disableTextPostPreviewFade() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-text-post-preview-fade"]');
 	dynamicStyleElements.forEach((element) => {

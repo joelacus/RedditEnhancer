@@ -30,18 +30,11 @@ import { initTopCategoryMenu } from './functions/init_top_category_menu';
 document.querySelector('#firefox-update-message .close').addEventListener('click', function (e) {
 	e.currentTarget.closest('.banner-message').style.display = 'none';
 });
-document.querySelector('#old-new-ui-removal-message .close').addEventListener('click', function (e) {
-	e.currentTarget.closest('.banner-message').style.display = 'none';
-});
 document.querySelector('#new-new-ui-message .close').addEventListener('click', function (e) {
 	e.currentTarget.closest('.banner-message').style.display = 'none';
 });
 
 // Don't Show Again
-document.querySelector('#old-new-ui-removal-message .dont-show-again').addEventListener('click', function (e) {
-	e.currentTarget.closest('.banner-message').style.display = 'none';
-	localStorage.setItem('DontShowAgainOldNewUiWarning', true);
-});
 document.querySelector('#new-new-ui-message .dont-show-again').addEventListener('click', function (e) {
 	e.currentTarget.closest('.banner-message').style.display = 'none';
 	localStorage.setItem('DontShowAgainNewNewUiMessage', true);

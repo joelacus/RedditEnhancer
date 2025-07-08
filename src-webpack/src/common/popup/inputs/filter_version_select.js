@@ -23,27 +23,6 @@ export function filterShowOldVersion() {
 	});
 }
 
-// Show Tweaks For New Reddit
-export function filterShowNewVersion() {
-	document.querySelector('#search').value = '';
-	document.querySelectorAll('.r-old').forEach(function (item) {
-		item.classList.add('hidden');
-	});
-	document.querySelectorAll('.r-newnew').forEach(function (item) {
-		item.classList.add('hidden');
-	});
-	document.querySelectorAll('.r-new').forEach(function (item) {
-		if (item.classList.contains('sub-list')) {
-			item.classList.add('hidden');
-		} else {
-			item.classList.remove('hidden');
-		}
-	});
-	document.querySelectorAll('.menu-item-link').forEach((el) => {
-		el.classList.remove('active');
-	});
-}
-
 // Show Tweaks For New New Reddit
 export function filterShowNewNewVersion() {
 	document.querySelector('#search').value = '';
@@ -92,11 +71,6 @@ export function initFilter() {
 		selectFilterShowOldVersion(e.target.textContent);
 	});
 
-	// Filter Old New UI options
-	document.querySelector('#new-reddit').addEventListener('click', function (e) {
-		selectFilterShowNewVersion(e.target.textContent);
-	});
-
 	// Filter New New UI options
 	document.querySelector('#newnew-reddit').addEventListener('click', function (e) {
 		selectFilterShowNewNewVersion(e.target.textContent);
@@ -112,19 +86,6 @@ export function selectFilterShowOldVersion(version) {
 	BROWSER_API.storage.sync.set({ redditVersion: 'old' });
 	version_dropdown.classList.remove('active');
 	version_dropdownMenu.style.maxHeight = '0';
-}
-
-export function selectFilterShowNewVersion(version) {
-	const version_dropdown = document.querySelector('#select-version');
-	const version_dropdownMenu = document.querySelector('#select-version-menu');
-	document.querySelector('#select-version .select span').textContent = version;
-	filterShowNewVersion();
-	BROWSER_API.storage.sync.set({ redditVersion: 'new' });
-	version_dropdown.classList.remove('active');
-	version_dropdownMenu.style.maxHeight = '0';
-	if (localStorage.getItem('DontShowAgainOldNewUiWarning') === null) {
-		document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
-	}
 }
 
 export function selectFilterShowNewNewVersion(version) {

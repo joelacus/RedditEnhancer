@@ -1,19 +1,20 @@
 /**
  * Tweaks: Media - Compact Post Link Display
- * @name compactPostLinkPreview
- * @description Compact the display of external link in link post view.
  *
- * Applies to: New New UI (2023-)
+ * @name compactPostLinkPreview
+ * @description Compact the display of the external link preview on a link post.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
-// Get the feature state from browser sync storage
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadCompactPostLinkPreview() {
 	BROWSER_API.storage.sync.get(['compactPostLinkPreview'], function (result) {
 		compactPostLinkPreview(result.compactPostLinkPreview);
 	});
 }
 
-// Activate the feature based on Reddit version
+/* === Enable/Disable The Feature === */
 export function compactPostLinkPreview(value) {
 	if (redditVersion === 'newnew') {
 		const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');

@@ -8,7 +8,7 @@
  *
  * Currently, this function only sets sans-serif as UI font on Old UI. Other UIs may be considered later.
  *
- * Applies to: RV1 (Old New UI) (2018-2024)
+ * Applies to: RV1 (Old UI) (2005-)
  */
 
 // Get the feature state from browser sync storage

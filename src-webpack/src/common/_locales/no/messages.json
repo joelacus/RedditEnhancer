@@ -161,9 +161,6 @@
 	"FeedPostMaxHeight": {
 		"message": "Innlegg høyde"
 	},
-	"FitImage": {
-		"message": "Skala høye bilder for å passe innlegg"
-	},
 	"Header": {
 		"message": "Overskrift"
 	},
@@ -190,9 +187,6 @@
 	},
 	"HideCompactViewThumbnails": {
 		"message": "Skjul miniatyrbildene i kompakt visning"
-	},
-	"HideCreatePost": {
-		"message": "Skjul 'Lag innlegg'"
 	},
 	"HideCreatePostButton": {
 		"message": "Skjul 'Opprett innlegg' knappen"
@@ -230,17 +224,8 @@
 	"HideNotificationButton": {
 		"message": "Skjul 'Varsling' knappen"
 	},
-	"HideOriginalScrollToTop": {
-		"message": "Skjul den opprinnelige rulle til topp-knappen"
-	},
-	"HidePopularButton": {
-		"message": "Skjul den 'Populære' knappen"
-	},
 	"HidePostHiddenMessage": {
 		"message": "Skjul 'Legg inn skjult' melding"
-	},
-	"HidePostOverlaySidebar": {
-		"message": "Skjul sidefeltet for innleggsoverlegg"
 	},
 	"HidePostSidebar": {
 		"message": "Skjul innleggssidefeltet"
@@ -262,9 +247,6 @@
 	},
 	"HideSearchSidebar": {
 		"message": "Skjul søkesidefeltet"
-	},
-	"HideSeeFullImage": {
-		"message": "Skjul 'Se hele bildet'"
 	},
 	"HideSideMenu": {
 		"message": "Skjul sidemenyen"
@@ -290,9 +272,6 @@
 	"HideSideMenuTopicsSection": {
 		"message": "Skjul Emnedelen"
 	},
-	"HideSidebarPolicy": {
-		"message": "Skjul politikk-seksjonen"
-	},
 	"HideSubSidebar": {
 		"message": "Skjul Sub Reddit sidefeltet"
 	},
@@ -301,9 +280,6 @@
 	},
 	"HideSubSidebarWhitelistInfo": {
 		"message": "Skjul deg bare på disse subreddits:"
-	},
-	"HideTurnOnNotificationsPopup": {
-		"message": "Skjul 'Get the best of' popup"
 	},
 	"HideUserProfilePics": {
 		"message": "Skjul brukerprofilbilder i kommentarene"
@@ -400,9 +376,6 @@
 	},
 	"Old": {
 		"message": "Gammel / Old"
-	},
-	"OldNewUI": {
-		"message": "Gammel Ny UI"
 	},
 	"OldUI": {
 		"message": "Gammel UI"

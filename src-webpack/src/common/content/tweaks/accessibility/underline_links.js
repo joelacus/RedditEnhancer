@@ -1,9 +1,10 @@
 /**
  * Tweaks: Accessibility - Underline Links
+ *
  * @name underlineLinks
  * @description Ensures that links are underlined in posts and comments to make the stand out.
  *
- * Applies to: RV3 (New New UI) (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
 /* === Run by Tweak Loader when the Page Loads === */

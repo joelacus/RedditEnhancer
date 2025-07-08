@@ -1,6 +1,13 @@
-/* ===== Tweaks - Hide - Username and Karma ===== */
+/**
+ * Tweaks: Hide Elements - Hide Username And Karma
+ *
+ * @name hideUsernameAndKarma
+ * @description Hide the username and/or karma in the top/header bar.
+ *
+ * Compatibility: RV1 (Old UI) (2005-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHideUsernameAndKarma() {
 	BROWSER_API.storage.sync.get(['hideUsername', 'hideKarma'], function (result) {
 		if (result.hideUsername) hideUsername(true);
@@ -8,46 +15,19 @@ export function loadHideUsernameAndKarma() {
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Features === */
 
-// Hide Username
+/* = Hide Username = */
 export function hideUsername(value) {
-	if (redditVersion === 'old') {
-		if (value === true) {
-			enableHideUsernameOld();
-		} else if (value === false) {
-			disableHideUsernameOld();
-		}
-	} else if (redditVersion === 'new') {
-		if (value === true) {
-			enableHideUsernameNew();
-		} else if (value === false) {
-			disableHideUsernameNew();
-		}
+	if (redditVersion === 'old' && value) {
+		enableHideUsernameRV1();
+	} else {
+		disableHideUsernameAll();
 	}
 }
 
-// Hide Karma
-export function hideKarma(value) {
-	if (redditVersion === 'old') {
-		if (value == true) {
-			enableHideKarmaOld();
-		} else if (value == false) {
-			disableHideKarmaOld();
-		}
-	} else if (redditVersion === 'new') {
-		if (value == true) {
-			enableHideKarmaNew();
-		} else if (value == false) {
-			disableHideKarmaNew();
-		}
-	}
-}
-
-/* === Enable/Disable Functions === */
-
-// Function - Enable Hide Username - Old
-function enableHideUsernameOld() {
+// Enable Hide Username - RV1
+function enableHideUsernameRV1() {
 	if (!document.head.querySelector('style[id="re-hide-username"]')) {
 		const style = document.createElement('style');
 		style.id = 're-hide-username';
@@ -58,36 +38,25 @@ function enableHideUsernameOld() {
 	}
 }
 
-// Function - Disable Hide Username - Old
-function disableHideUsernameOld() {
+// Disable Hide Username - All
+function disableHideUsernameAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-username"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
 }
 
-// Function - Enable Hide Username - New
-function enableHideUsernameNew() {
-	if (!document.head.querySelector('style[id="re-hide-username"]')) {
-		const style = document.createElement('style');
-		style.id = 're-hide-username';
-		style.textContent = `#email-collection-tooltip-id > span span:first-child {
-								display: none !important;
-							}`;
-		document.head.insertBefore(style, document.head.firstChild);
+/* = Hide Karma = */
+export function hideKarma(value) {
+	if (redditVersion === 'old' && value) {
+		enableHideKarmaRV1();
+	} else {
+		disableHideKarmaAll();
 	}
 }
 
-// Function - Disable Hide Username - New
-function disableHideUsernameNew() {
-	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-username"]');
-	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
-	});
-}
-
-// Function - Enable Hide Karma - Old
-function enableHideKarmaOld() {
+// Enable Hide Karma - RV1
+function enableHideKarmaRV1() {
 	if (!document.head.querySelector('style[id="re-hide-karma"]')) {
 		const style = document.createElement('style');
 		style.id = 're-hide-karma';
@@ -98,28 +67,8 @@ function enableHideKarmaOld() {
 	}
 }
 
-// Function - Disable Hide Karma - Old
-function disableHideKarmaOld() {
-	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-karma"]');
-	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
-	});
-}
-
-// Function - Enable Hide Karma - New
-function enableHideKarmaNew() {
-	if (!document.head.querySelector('style[id="re-hide-karma"]')) {
-		const style = document.createElement('style');
-		style.id = 're-hide-karma';
-		style.textContent = `#email-collection-tooltip-id > span span:last-child {
-								display: none !important;
-							}`;
-		document.head.insertBefore(style, document.head.firstChild);
-	}
-}
-
-// Function - Disable Hide Karma - New
-function disableHideKarmaNew() {
+// Disable Hide Karma - All
+function disableHideKarmaAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-karma"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);

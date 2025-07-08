@@ -1,35 +1,30 @@
 /**
- * Tweak type: Hide Elements
- * Tweak name: Hide Recommended/Suggested Posts
+ * Tweaks: Hide Elements - Hide Recommended/Suggested Posts
  *
  * @name hideRecommended
  * @description Hide Recommended/Suggested posts on the feed.
  *
- * Compatibility: V3 - New New UI (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Get saved value and enable tweak if true on page load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHideRecommendedPosts() {
 	BROWSER_API.storage.sync.get(['hideRecommended'], function (result) {
 		if (result.hideRecommended) hideRecommended(true);
 	});
 }
 
-/* === Enable/Disable tweak based on Reddit version === */
+/* === Enable/Disable The Feature === */
 export function hideRecommended(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHideRecommendedPostsNewNew();
-		} else if (value === false) {
-			disableHideRecommendedPostsAll();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableHideRecommendedPostsRV3();
+	} else {
+		disableHideRecommendedPostsAll();
 	}
 }
 
-/* === Functions to Enable/Disable the tweak === */
-
-// Enable Hide Recommended Posts - V3
-function enableHideRecommendedPostsNewNew() {
+// Enable Hide Recommended Posts - RV3
+function enableHideRecommendedPostsRV3() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-hide-recommended-posts';
 	styleElement.textContent = `article:has(shreddit-post[recommendation-subreddit-name]),

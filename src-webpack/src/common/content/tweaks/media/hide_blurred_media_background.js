@@ -1,38 +1,36 @@
 /**
- * Tweaks: Hide Elements - Disable background blur behind image previews
+ * Tweaks: Media - Disable Blurred Media Background
+ *
  * @name hideBlurredMediaBackground
  * @description Hide the background blur behind (single & carousel) image previews.
  *
- * Applies to: New New UI (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
-// Get the feature state from browser sync storage
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHideBlurredMediaBackground() {
-    BROWSER_API.storage.sync.get(['hideBlurredMediaBackground']).then((result) => {
-        if (result.hideBlurredMediaBackground) {
-            hideBlurredMediaBackground(true);
-        }
-    });
+	BROWSER_API.storage.sync.get(['hideBlurredMediaBackground']).then((result) => {
+		if (result.hideBlurredMediaBackground) {
+			hideBlurredMediaBackground(true);
+		}
+	});
 }
 
-// Activate the feature based on Reddit version
+/* === Enable/Disable The Feature === */
 export function hideBlurredMediaBackground(value) {
-    if (redditVersion === 'newnew') {
-        if (value) {
-            enableHideBlurredMediaBackground();
-        } else {
-            disableHideBlurredMediaBackground();
-        }
-    }
+	if (redditVersion === 'newnew' && value) {
+		enableHideBlurredMediaBackground();
+	} else {
+		disableHideBlurredMediaBackground();
+	}
 }
 
-// Enable the feature
+// Enable "Disable Blurred Media Background"
 function enableHideBlurredMediaBackground() {
-    if (!document.head.querySelector('style[id="re-hide-blurred-media-background"]')) {
-        const styleElement = document.createElement('style');
-        styleElement.id = 're-hide-blurred-media-background';
-        styleElement.textContent =
-            `/* Hide the black background for post with one image */
+	if (!document.head.querySelector('style[id="re-hide-blurred-media-background"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-blurred-media-background';
+		styleElement.textContent = `/* Hide the black background for post with one image */
             .bg-black {
                 --tw-bg-opacity: 0 !important;
             }
@@ -51,14 +49,14 @@ function enableHideBlurredMediaBackground() {
                 display: none;
                 visibility: hidden;
             }`;
-        document.head.insertBefore(styleElement, document.head.firstChild);
-    }
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
-// Disable the feature
+// Disable "Disable Blurred Media Background"
 function disableHideBlurredMediaBackground() {
-    const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-blurred-media-background"]');
-    dynamicStyleElements.forEach((element) => {
-        document.head.removeChild(element);
-    });
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-blurred-media-background"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
 }

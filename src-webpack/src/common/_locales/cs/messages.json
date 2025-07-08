@@ -89,9 +89,6 @@
 	"ExtensionSettings": {
 		"message": "Nastavení rozšíření"
 	},
-	"FitImage": {
-		"message": "Měřítko vysokých obrázků, aby se vešly"
-	},
 	"HideAdvertiseButton": {
 		"message": "Skryjte tlačítko „Inzerovat“"
 	},
@@ -104,9 +101,6 @@
 	"HideCompactViewThumbnails": {
 		"message": "Skrýt miniatury v kompaktním pohledu"
 	},
-	"HideCreatePost": {
-		"message": "Skrýt „Vytvořit příspěvek“"
-	},
 	"HideHomeSidebar": {
 		"message": "Skrýt postranní panel domovské stránky"
 	},
@@ -115,9 +109,6 @@
 	},
 	"HideModerationButton": {
 		"message": "Skryjte tlačítko „Moderování“"
-	},
-	"HidePopularButton": {
-		"message": "Skrýt tlačítko „Populární“"
 	},
 	"HideRecommended": {
 		"message": "Skrýt doporučené"
@@ -190,9 +181,6 @@
 	},
 	"Old": {
 		"message": "Starý / Old"
-	},
-	"OldNewUI": {
-		"message": "Starý Nový UI"
 	},
 	"OldUI": {
 		"message": "Starý UI"

@@ -74,9 +74,6 @@
 	"Blur": {
 		"message": "Rozmazać"
 	},
-	"BlurBackgroundPostOverlay": {
-		"message": "Rozmycie tła za nakładką postu"
-	},
 	"BorderRadiusAmount": {
 		"message": "Motyw Promień narożnika"
 	},
@@ -182,9 +179,6 @@
 	"DefaultHomeFeedSortOption": {
 		"message": "Domyślna opcja sortowania kanału domowego"
 	},
-	"DisableBgFadePostOverlay": {
-		"message": "Wyłącz tło zanikanie za nakładką postu"
-	},
 	"Disabled": {
 		"message": "Wyłączony"
 	},
@@ -223,9 +217,6 @@
 	},
 	"FilterOptionsFor": {
 		"message": "Opcje filtru dla"
-	},
-	"FitImage": {
-		"message": "Skaluj wysokie obrazy, aby pasowały do postu"
 	},
 	"Font": {
 		"message": "Chrzcielnica"
@@ -281,9 +272,6 @@
 	"HideCompactViewThumbnails": {
 		"message": "Ukryj miniatury w kompaktowym widoku"
 	},
-	"HideCreatePost": {
-		"message": "Ukryj „Utwórz wpis”"
-	},
 	"HideCreatePostButton": {
 		"message": "Ukryj przycisk „Utwórz post”"
 	},
@@ -323,12 +311,6 @@
 	"HideNotificationButton": {
 		"message": "Ukryj przycisk „Powiadomienie”"
 	},
-	"HideOriginalScrollToTop": {
-		"message": "Ukryj oryginalny przycisk przewijania do góry"
-	},
-	"HidePopularButton": {
-		"message": "Ukryj przycisk „Popularne”"
-	},
 	"HidePostBackButton": {
 		"message": "Ukryj przycisk Wstecz"
 	},
@@ -337,9 +319,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Ukryj Post Karma"
-	},
-	"HidePostOverlaySidebar": {
-		"message": "Ukryj pasek boczny nakładki postu"
 	},
 	"HidePostSidebar": {
 		"message": "Ukryj pasek boczny postu"
@@ -365,9 +344,6 @@
 	"HideSearchSidebar": {
 		"message": "Ukryj pasek boczny wyszukiwania"
 	},
-	"HideSeeFullImage": {
-		"message": "Ukryj „See Full Image”"
-	},
 	"HideSideMenu": {
 		"message": "Ukryj boczne menu"
 	},
@@ -392,9 +368,6 @@
 	"HideSideMenuTopicsSection": {
 		"message": "Ukryj sekcję tematów"
 	},
-	"HideSidebarPolicy": {
-		"message": "Ukryj sekcję zasad"
-	},
 	"HideSubSidebar": {
 		"message": "Ukryj pasek boczny Sub Reddit"
 	},
@@ -403,9 +376,6 @@
 	},
 	"HideSubSidebarWhitelistInfo": {
 		"message": "Ukryj się tylko na tych subredditach:"
-	},
-	"HideTurnOnNotificationsPopup": {
-		"message": "Ukryj wyskakujące okienko „włącz powiadomienia”"
 	},
 	"HideUserProfilePics": {
 		"message": "Ukryj zdjęcia profilowe użytkownika w komentarzach"
@@ -506,9 +476,6 @@
 	"Old": {
 		"message": "Stary / Old"
 	},
-	"OldNewUI": {
-		"message": "Stary Nowy UI"
-	},
 	"OldUI": {
 		"message": "Stary UI"
 	},
@@ -589,9 +556,6 @@
 	},
 	"Qa": {
 		"message": "Q&a"
-	},
-	"RUI2RemovalInfo": {
-		"message": "Reddit has discontinued (Old New UI / Version 2) of the website. Options for 'Old New UI' will continue to be supported for now while other workarounds to get it back are still working."
 	},
 	"RUI3RedirectInfo": {
 		"message": "Opcja przekierowania do „Nowy Nowy UI” nie jest już konieczna, można jednak użyć tej opcji, aby wymusić linki z (sh|old).reddit.com do www.reddit.com"
