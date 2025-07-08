@@ -245,7 +245,7 @@ export function restorePopupMediaOptions() {
 	});
 
 	// Add Download Video Button
-	/*BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
+	BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
 		if (result.addDownloadVideoButton === true) {
 			document.querySelector('.icon-add-download-video-button').style.backgroundColor = 'var(--accent)';
 			document.querySelector('#checkbox-add-download-video-button').checked = true;
@@ -256,7 +256,7 @@ export function restorePopupMediaOptions() {
 			var value = false;
 		}
 		console.log('Add Download Video Button: ' + value);
-	});*/
+	});
 
 	/* = Text = */
 

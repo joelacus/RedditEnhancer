@@ -265,18 +265,37 @@ document.querySelector('#checkbox-new-player').addEventListener('change', functi
 });
 
 // Toggle - Add Video Download Button
-/*document.querySelector('#checkbox-add-download-video-button').addEventListener('change', function (e) {
+document.querySelector('#checkbox-add-download-video-button').addEventListener('change', function (e) {
 	const addDownloadVideoButton = document.querySelector('#checkbox-add-download-video-button').checked;
-	if (addDownloadVideoButton === true) {
-		BROWSER_API.storage.sync.set({ addDownloadVideoButton: true });
-		document.querySelector('.icon-add-download-video-button').style.backgroundColor = 'var(--accent)';
-		sendMessage({ addDownloadVideoButton: true });
-	} else if (addDownloadVideoButton === false) {
-		BROWSER_API.storage.sync.set({ addDownloadVideoButton: false });
-		document.querySelector('.icon-add-download-video-button').style.backgroundColor = '';
-		sendMessage({ addDownloadVideoButton: false });
+	if (addDownloadVideoButton) {
+		if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
+			BROWSER_API.permissions
+				.request({ permissions: ['downloads'] })
+				.then((granted) => {
+					if (granted) {
+						console.debug('[RedditEnhancer] addDownloadVideoButton: "downloads" permission granted');
+						enabled(true);
+					} else {
+						console.debug('[RedditEnhancer] addDownloadVideoButton: "downloads" permission denied');
+						document.querySelector('#checkbox-add-download-video-button').checked = false;
+					}
+				})
+				.catch((e) => {
+					console.error('[RedditEnhancer] addDownloadVideoButton: Error requesting "downloads" permission: ', e);
+					document.querySelector('#checkbox-add-download-video-button').checked = false;
+				});
+		} else {
+			enabled(true);
+		}
+	} else {
+		enabled(false);
 	}
-});*/
+	function enabled(value) {
+		BROWSER_API.storage.sync.set({ addDownloadVideoButton: value });
+		document.querySelector('.icon-add-download-video-button').style.backgroundColor = value ? 'var(--accent)' : '';
+		sendMessage({ addDownloadVideoButton: value });
+	}
+});
 
 /* = Text = */
 

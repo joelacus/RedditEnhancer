@@ -1,7 +1,6 @@
 /* ===== Background script ===== */
 
 import { darkModeTimeCalc } from './content/tweaks/dark_mode/dark_mode_time_calc';
-//const muxjs = require('mux.js');
 const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 
 // Logging
@@ -54,6 +53,21 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 				BROWSER_API.history.addUrl({ url: action.url }, function () {
 					console.log(`${timestamp()} - Marking URL as visited: ${action.url}`);
 				});
+			} else if (action.action === 'downloadVideo' && action.filename && action.url) {
+				BROWSER_API.downloads.download(
+					{
+						url: action.url,
+						filename: action.filename.endsWith('.mp4') ? action.filename : `${action.filename}.mp4`,
+						saveAs: true,
+					},
+					(downloadId) => {
+						if (BROWSER_API.runtime.lastError) {
+							console.error(`${timestamp()} - Download failed:, ${BROWSER_API.runtime.lastError}`);
+						} else {
+							console.log(`${timestamp()} - Downloading video: ${action.filename} - ${action.url}`);
+						}
+					}
+				);
 			}
 		}
 	} else if (request.justOpenTheImage === true) {
@@ -68,47 +82,7 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 		console.warn(`${timestamp()} - ${request.message}`);
 	} else if (request.log === 'error') {
 		console.error(`${timestamp()} - ${request.message}`);
-	} /* else if (request.action === 'downloadVideo') {
-		const videoUrl = request.videoUrl;
-		BROWSER_API.downloads.download({
-			url: videoUrl,
-			filename: 'downloaded-video.mp4', // Set the desired file name
-			saveAs: true, // Show the "Save As" dialog
-		});
-	} else if (request.action === 'testQualities') {
-		const videoUrl = request.url;
-		const audioUrl = videoUrl.replace(/DASH_\d+\.mp4$/, 'DASH_AUDIO_128.mp4');
-		const availableQualities = ['96', '220', '270', '360', '480', '720', '1080'];
-		// Iterate over qualities and find the highest available quality
-		async function findHighestQuality() {
-			let highestQuality = '96';
-			let highestQualityUrl = videoUrl;
-			for (const quality of availableQualities) {
-				const testUrl = videoUrl.replace(/_(\d+)\.mp4$/, `_${quality}.mp4`);
-				const isAvailable = await testVideoQuality(testUrl);
-				if (isAvailable) {
-					highestQuality = quality;
-					highestQualityUrl = videoUrl.replace(/_(\d+)\.mp4$/, `_${quality}.mp4`);
-				}
-			}
-			console.log(highestQuality);
-			mergeVideoAndAudio(highestQualityUrl, audioUrl);
-			sendResponse({ highestQuality, highestQualityUrl, audioUrl });
-		}
-		findHighestQuality();
-		return true;
-	}*/
-
-	// Function to test video quality
-	/*async function testVideoQuality(url) {
-		try {
-			const response = await fetch(url, { method: 'HEAD' });
-			return response.ok;
-		} catch (error) {
-			console.error('Error testing video quality:', error);
-			return false;
-		}
-	}*/
+	}
 });
 
 // Dark Mode Time Range Check On Add-On Load
@@ -137,7 +111,7 @@ function checkTime(i) {
 function fetchData(url, sendResponse) {
 	fetch(url, {
 		method: 'GET',
-		mode: isChrome && window.location.hostname === 'sh.reddit.com' ? 'no-cors' : 'cors'
+		mode: isChrome && window.location.hostname === 'sh.reddit.com' ? 'no-cors' : 'cors',
 	})
 		.then((response) => {
 			if (!response.ok) throw response.status;
@@ -286,54 +260,3 @@ function updateRedirectRuleset(version) {
 		console.log('Updated enabled rulesets');
 	});
 }
-
-/* ===== Merge Video And Audio ===== (DOESN'T WORK) 
-const appendBuffer = (buffer1, buffer2) => {
-	const tmp = new Uint8Array(buffer1.byteLength + buffer2.byteLength);
-	tmp.set(new Uint8Array(buffer1), 0);
-	tmp.set(new Uint8Array(buffer2), buffer1.byteLength);
-	return tmp.buffer;
-};
-
-const mergeVideoAndAudio = async (videoUrl, audioUrl) => {
-	const videoResponse = await fetch(videoUrl);
-	console.log(videoResponse);
-	const videoBuffer = await videoResponse.arrayBuffer();
-	console.log(videoBuffer);
-
-	const audioResponse = await fetch(audioUrl);
-	const audioBuffer = await audioResponse.arrayBuffer();
-
-	//const transmuxer = new muxjs.mp4.Transmuxer({ remux: true });
-	var transmuxer = new muxjs.mp4.Transmuxer(initOptions);
-	console.log(transmuxer);
-
-	let mergedBuffer = new Uint8Array(0);
-	console.log(mergedBuffer);
-
-	transmuxer.on('data', (segment) => {
-		console.log('got data!');
-		mergedBuffer = appendBuffer(mergedBuffer.buffer, segment.initSegment);
-		mergedBuffer = appendBuffer(mergedBuffer.buffer, segment.data);
-		console.log(mergedBuffer);
-	});
-
-	transmuxer.on('done', () => {
-		const blob = new Blob([mergedBuffer], { type: 'video/mp4' });
-		const url = URL.createObjectURL(blob);
-		browser.downloads.download({
-			url: url,
-			filename: 'merged-video.mp4',
-			saveAs: true,
-		});
-	});
-
-	console.log('push');
-
-	// Push video and audio data to the transmuxer
-	transmuxer.push(new Uint8Array(videoBuffer));
-	transmuxer.push(new Uint8Array(audioBuffer));
-
-	// Signal that we are done with pushing data
-	transmuxer.flush();
-};*/

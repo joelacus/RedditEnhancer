@@ -34,9 +34,8 @@
 				</div>
 				<input type="hidden" name="version" />
 				<ul id="select-version-menu" class="dropdown-menu">
-					<li id="newnew-reddit"><span data-lang="NewNewUI"></span></li>
-					<li id="new-reddit"><span data-lang="OldNewUI"></span></li>
-					<li id="old-reddit"><span data-lang="OldUI"></span></li>
+					<li id="newnew-reddit"><span data-lang="Latest"></span></li>
+					<li id="old-reddit"><span data-lang="Old"></span></li>
 				</ul>
 				<div id="start-page-select-version" class="start-page-info hidden">
 					<div class="icon icon-arrow-up"></div>
@@ -54,9 +53,8 @@
 				<input type="hidden" name="reddit-version" />
 				<ul id="select-reddit-version-menu" class="dropdown-menu">
 					<li id="redirect-off" data-version="off"><span data-lang="Off"></span></li>
-					<li id="redirect-newnew-reddit" data-version="newnew"><span data-lang="NewNewUI"></span></li>
-					<li id="redirect-new-reddit" data-version="new" style="display: none"><span data-lang="OldNewUI"></span></li>
-					<li id="redirect-old-reddit" data-version="old"><span data-lang="OldUI"></span></li>
+					<li id="redirect-newnew-reddit" data-version="newnew"><span data-lang="Latest"></span></li>
+					<li id="redirect-old-reddit" data-version="old"><span data-lang="Old"></span></li>
 				</ul>
 				<div id="start-page-select-redirect" class="start-page-info hidden">
 					<div class="icon icon-arrow-up"></div>
@@ -70,14 +68,6 @@
 			<span data-lang="UpdateFirefox"></span>
 			<div class="message-buttons">
 				<div class="btn close" data-lang="Close"></div>
-			</div>
-		</div>
-		<div id="old-new-ui-removal-message" class="banner-message" style="display: none">
-			<span data-lang="RUI2RemovalInfo"></span>
-			<div class="message-buttons">
-				<a class="btn" href="https://www.reddit.com/r/help/comments/1ehmgmr/next_steps_for_newredditcom/" target="_blank" data-lang="learnMore"></a>
-				<div class="btn close" data-lang="Close"></div>
-				<div class="btn dont-show-again" data-lang="DontShowAgain"></div>
 			</div>
 		</div>
 		<div id="new-new-ui-message" class="banner-message amber" style="display: none">
@@ -994,6 +984,17 @@
 					<li id="media-video" class="sub-header r-new r-newnew">
 						<span data-lang="Video"></span>
 					</li>
+					<li class="container r-newnew">
+						<div class="container-3">
+							<span class="menu-item-icon icon-download icon-add-download-video-button"></span>
+							<span data-lang="AddDownloadVideoButton" data-search="download,save,video"></span>
+							<label class="switch">
+								<input id="checkbox-add-download-video-button" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<p class="info" data-lang="AddDownloadVideoButtonInfo"></p>
+					</li>
 					<li class="container r-new r-newnew">
 						<div class="container-3">
 							<span class="menu-item-icon icon-up-down icon-scale-post-to-fit-video"></span>
@@ -1051,14 +1052,6 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<!--<div class="container-3 r-newnew">
-						<span class="menu-item-icon icon-download icon-add-download-video-button"></span>
-						<span data-lang="AddDownloadVideoButton" data-search="download,save,video"></span>
-						<label class="switch">
-							<input id="checkbox-add-download-video-button" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-					</li>-->
 					<li id="media-text" class="sub-header r-new r-newnew">
 						<span data-lang="Text"></span>
 					</li>

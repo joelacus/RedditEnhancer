@@ -157,8 +157,8 @@ import { hideCommunityStatus } from './tweaks/hide_elements/hide_community_statu
 import { rightSidePostThumbnails } from './tweaks/style/right_side_post_thumbnails';
 import { viewCrossposts } from './tweaks/productivity/view_crossposts';
 import { markReadOnOpenExpandos } from './tweaks/productivity/mark_read_on_open_expandos';
-//import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
-//import { addDownloadVideoButton } from './functions/productivity/add_download_video_button';
+import { addDownloadVideoButton } from './tweaks/media/add_download_video_button';
+//import { dragImageToResize, dragImageToResizeInitialSize } from './tweaks/productivity/scale_image_on_drag';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -403,9 +403,9 @@ const functionRegistry = {
 	rightSidePostThumbnails,
 	viewCrossposts,
 	markReadOnOpenExpandos,
+	addDownloadVideoButton,
 	//dragImageToResize,
 	//dragImageToResizeInitialSize,
-	//addDownloadVideoButton,
 };
 
 function forceCustomBgOldUI(value) {
