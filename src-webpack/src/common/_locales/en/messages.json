@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.18.0"
+		"message": "2.0.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -13,6 +13,12 @@
 	},
 	"Accessibility": {
 		"message": "Accessibility"
+	},
+	"AddDownloadVideoButton": {
+		"message": "Add 'Download Video' button to video posts"
+	},
+	"AddDownloadVideoButtonInfo": {
+		"message": "This currently only supports mp4 URLs, not m3u8, so some video posts won't have the download button :/"
 	},
 	"AddNsfwTag": {
 		"message": "Add NSFW tag"
@@ -91,9 +97,6 @@
 	},
 	"Blur": {
 		"message": "Blur"
-	},
-	"BlurBackgroundPostOverlay": {
-		"message": "Blur background behind post overlay"
 	},
 	"BorderRadiusAmount": {
 		"message": "Theme Corner Radius"
@@ -200,17 +203,8 @@
 	"DefaultHomeFeedSortOption": {
 		"message": "Default Home Feed Sort Option"
 	},
-	"DefaultSortFeedOptionGracePeriod": {
-		"message": "Override Default Sort Option"
-	},
-	"DefaultSortFeedOptionOverrideInfo": {
-		"message": "The amount of time after the page has been auto redirected in which you can override the default sort option."
-	},
 	"Delete": {
 		"message": "Delete"
-	},
-	"DisableBgFadePostOverlay": {
-		"message": "Disable Background Fade Behind Post Overlay"
 	},
 	"Disabled": {
 		"message": "Disabled"
@@ -253,9 +247,6 @@
 	},
 	"FilterOptionsFor": {
 		"message": "Filter Options For"
-	},
-	"FitImage": {
-		"message": "Scale Tall Images to Fit Post"
 	},
 	"FollowPost": {
 		"message": "Follow Post"
@@ -332,9 +323,6 @@
 	"HideCompactViewThumbnails": {
 		"message": "Hide Thumbnails in Compact View"
 	},
-	"HideCreatePost": {
-		"message": "Hide 'Create Post'"
-	},
 	"HideCreatePostButton": {
 		"message": "Hide 'Create Post' Button"
 	},
@@ -383,12 +371,6 @@
 	"HideNsfwInSearchResults": {
 		"message": "Hide NSFW results in the Searchbar"
 	},
-	"HideOriginalScrollToTop": {
-		"message": "Hide the Original Scroll to Top Button"
-	},
-	"HidePopularButton": {
-		"message": "Hide the 'Popular' Button"
-	},
 	"HidePostBackButton": {
 		"message": "Hide The Post Back Button"
 	},
@@ -400,9 +382,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Hide Post Karma"
-	},
-	"HidePostOverlaySidebar": {
-		"message": "Hide the Post Overlay Sidebar"
 	},
 	"HidePostSidebar": {
 		"message": "Hide the Post Sidebar"
@@ -431,9 +410,6 @@
 	"HideSearchSidebarNsfwUsers": {
 		"message": "Hide NSFW Users in the Search Sidebar"
 	},
-	"HideSeeFullImage": {
-		"message": "Hide 'See Full Image'"
-	},
 	"HideSideMenu": {
 		"message": "Hide the Side Menu"
 	},
@@ -458,9 +434,6 @@
 	"HideSideMenuTopicsSection": {
 		"message": "Hide the Topics Section"
 	},
-	"HideSidebarPolicy": {
-		"message": "Hide Policies Section"
-	},
 	"HideSubSidebar": {
 		"message": "Hide the Sub Reddit Sidebar"
 	},
@@ -472,9 +445,6 @@
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "Hide 'Trending Today' in the Searchbar"
-	},
-	"HideTurnOnNotificationsPopup": {
-		"message": "Hide 'Get the best of' Popup"
 	},
 	"HideUserProfilePics": {
 		"message": "Hide user profile pictures in the comments"
@@ -520,6 +490,9 @@
 	},
 	"LargerClassicPost": {
 		"message": "Larger Classic Post View"
+	},
+	"Latest": {
+		"message": "Latest"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Show vote buttons on the left"
@@ -601,9 +574,6 @@
 	},
 	"Old": {
 		"message": "Old"
-	},
-	"OldNewUI": {
-		"message": "Old New UI"
 	},
 	"OldUI": {
 		"message": "Old UI"
@@ -703,9 +673,6 @@
 	},
 	"Qa": {
 		"message": "Q&a"
-	},
-	"RUI2RemovalInfo": {
-		"message": "Reddit has discontinued (Old New UI / Version 2) of the website. Options for 'Old New UI' will continue to be supported for now while other workarounds to get it back are still working."
 	},
 	"RUI3RedirectInfo": {
 		"message": "The redirect option to 'New New UI' is no longer necessary, however, you can use this option to force links from (sh|old).reddit.com to www.reddit.com"

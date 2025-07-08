@@ -1,6 +1,13 @@
-/* ===== Tweaks - Productivity - Scale Post To Fit Video ===== */
+/**
+ * Tweaks: Media - Scale Post To Fit Video
+ *
+ * @name scalePostToFitVideo
+ * @description Scale the post vertically to fit the full height of the video.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadScalePostToFitVideo() {
 	BROWSER_API.storage.sync.get(['scalePostToFitVideo'], function (result) {
 		if (result.scalePostToFitVideo) {
@@ -9,19 +16,17 @@ export function loadScalePostToFitVideo() {
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function scalePostToFitVideo(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableScalePostToFitVideoNewNew();
-		} else if (value === false) {
-			disableScalePostToFitVideoAll();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableScalePostToFitVideoRV3();
+	} else {
+		disableScalePostToFitVideoAll();
 	}
 }
 
-// Function - Enable Scale Post To Fit Video - New New
-function enableScalePostToFitVideoNewNew() {
+// Enable Scale Post To Fit Video - RV3
+function enableScalePostToFitVideoRV3() {
 	if (!document.head.querySelector('style[id="re-scale-post-to-fit-video"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-scale-post-to-fit-video';
@@ -70,7 +75,7 @@ function enableScalePostToFitVideoNewNew() {
 	}
 }
 
-// Function - Replace <shreddit-aspect-ratio> with <div>
+// Replace <shreddit-aspect-ratio> with <div>
 function replaceTag(tag) {
 	const newDiv = document.createElement('div');
 	Array.from(tag.attributes).forEach((attr) => {
@@ -86,7 +91,7 @@ function replaceTag(tag) {
 	}, 1000);
 }
 
-// Function - Revert <div> to <shreddit-aspect-ratio>
+// Revert <div> to <shreddit-aspect-ratio>
 function revertTag(tag) {
 	const newSar = document.createElement('shreddit-aspect-ratio');
 	Array.from(tag.attributes).forEach((attr) => {
@@ -113,7 +118,7 @@ const observer = new MutationObserver((mutations) => {
 	});
 });
 
-// Function - Disable Scale Post To Fit Video - All
+// Disable Scale Post To Fit Video - All
 export function disableScalePostToFitVideoAll() {
 	observer.disconnect();
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-scale-post-to-fit-video"]');

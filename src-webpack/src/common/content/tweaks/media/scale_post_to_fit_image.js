@@ -1,10 +1,16 @@
-/* ===== Tweaks - Productivity - Scale Post To Fit Image ===== */
+/**
+ * Tweaks: Media - Scale Post To Fit Image
+ *
+ * @name scalePostToFitImage
+ * @description Scale the post vertically to fit the full height of the image.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
 import { disableImageScrollAll } from './scroll_images';
-import { disableFitImageNew } from '../media/scale_tall_images_to_fit_post';
 //import { disableDragImageToResizeAll } from './scale_image_on_drag';
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadScalePostToFitImage() {
 	BROWSER_API.storage.sync.get(['scalePostToFitImage'], function (result) {
 		if (result.scalePostToFitImage) {
@@ -13,22 +19,19 @@ export function loadScalePostToFitImage() {
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function scalePostToFitImage(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			disableImageScrollAll();
-			disableFitImageNew();
-			//disableDragImageToResizeAll();
-			enableScalePostToFitImageNewNew();
-		} else if (value === false) {
-			disableScalePostToFitImageAll();
-		}
+	if (redditVersion === 'newnew' && value) {
+		disableImageScrollAll();
+		//disableDragImageToResizeAll();
+		enableScalePostToFitImageRV3();
+	} else {
+		disableScalePostToFitImageAll();
 	}
 }
 
-// Function - Enable Scale Post To Fit Image - New New
-function enableScalePostToFitImageNewNew() {
+// Enable Scale Post To Fit Image - RV3
+function enableScalePostToFitImageRV3() {
 	if (!document.head.querySelector('style[id="re-scale-post-to-fit-image"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-scale-post-to-fit-image';
@@ -129,7 +132,7 @@ function enableScalePostToFitImageNewNew() {
 	}
 }
 
-// Function - Replace <shreddit-aspect-ratio> with <div>
+// Replace <shreddit-aspect-ratio> with <div>
 function replaceTag(tag) {
 	const newDiv = document.createElement('div');
 	Array.from(tag.attributes).forEach((attr) => {
@@ -141,7 +144,7 @@ function replaceTag(tag) {
 	tag.parentNode.replaceChild(newDiv, tag);
 }
 
-// Function - Revert <div> to <shreddit-aspect-ratio>
+// Revert <div> to <shreddit-aspect-ratio>
 function revertTag(tag) {
 	const newSar = document.createElement('shreddit-aspect-ratio');
 	Array.from(tag.attributes).forEach((attr) => {
@@ -153,7 +156,7 @@ function revertTag(tag) {
 	tag.parentNode.replaceChild(newSar, tag);
 }
 
-// Function - Append Part Attribute
+// Append Part Attribute
 function appendPart(gallery) {
 	gallery.shadowRoot?.querySelector('faceplate-carousel')?.setAttribute('part', 'gallery');
 }
@@ -176,7 +179,7 @@ const observer = new MutationObserver((mutations) => {
 	});
 });
 
-// Function - Disable Scale Post To Fit Image - All
+// Disable Scale Post To Fit Image - All
 export function disableScalePostToFitImageAll() {
 	observer.disconnect();
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-scale-post-to-fit-image"]');

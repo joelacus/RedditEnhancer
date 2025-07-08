@@ -161,9 +161,6 @@
 	"FeedPostMaxHeight": {
 		"message": "висота постів"
 	},
-	"FitImage": {
-		"message": "Масштабуйте високі зображення відповідно до публікації"
-	},
 	"Header": {
 		"message": "Заголовок"
 	},
@@ -190,9 +187,6 @@
 	},
 	"HideCompactViewThumbnails": {
 		"message": "Сховати мініатюри в компактному вигляді"
-	},
-	"HideCreatePost": {
-		"message": "Сховати «Створити запис»"
 	},
 	"HideCreatePostButton": {
 		"message": "Сховати кнопку «Створити публікацію»"
@@ -230,17 +224,8 @@
 	"HideNotificationButton": {
 		"message": "Сховати кнопку «Сповіщення»"
 	},
-	"HideOriginalScrollToTop": {
-		"message": "Приховати оригінальну кнопку прокрутки до верху"
-	},
-	"HidePopularButton": {
-		"message": "Сховати кнопку «Популярні»"
-	},
 	"HidePostHiddenMessage": {
 		"message": "Сховати повідомлення «Публікація прихована»"
-	},
-	"HidePostOverlaySidebar": {
-		"message": "Приховати бічну панель накладання публікації"
 	},
 	"HidePostSidebar": {
 		"message": "Приховати бічну панель публікації"
@@ -262,9 +247,6 @@
 	},
 	"HideSearchSidebar": {
 		"message": "Приховати бічну панель пошуку"
-	},
-	"HideSeeFullImage": {
-		"message": "Приховати «See Full Image»"
 	},
 	"HideSideMenu": {
 		"message": "Приховати бічне меню"
@@ -290,9 +272,6 @@
 	"HideSideMenuTopicsSection": {
 		"message": "Приховати розділ Теми"
 	},
-	"HideSidebarPolicy": {
-		"message": "Приховати розділ правил"
-	},
 	"HideSubSidebar": {
 		"message": "Приховати бічну панель Sub Reddit"
 	},
@@ -301,9 +280,6 @@
 	},
 	"HideSubSidebarWhitelistInfo": {
 		"message": "Приховувати тільки на цих підреддитах:"
-	},
-	"HideTurnOnNotificationsPopup": {
-		"message": "Сховати спливаюче вікно «Увімкнути сповіщення»"
 	},
 	"HideUserProfilePics": {
 		"message": "Приховати зображення профілю користувача в коментарях"
@@ -400,9 +376,6 @@
 	},
 	"Old": {
 		"message": "Старий / Old"
-	},
-	"OldNewUI": {
-		"message": "Старий Новий UI"
 	},
 	"OldUI": {
 		"message": "Старий UI"

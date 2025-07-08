@@ -3,7 +3,7 @@
  * @name hideBlockedKeywordPosts
  * @description Hide all posts containing certain keywords in the title or content.
  *
- * Applies to: RV1 (Old New UI) (2018-2024), RV3 (New New UI) (2023-)
+ * Applies to: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
 import { logToDevConsole } from '../../logging';

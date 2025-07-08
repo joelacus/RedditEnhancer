@@ -134,19 +134,18 @@ async function fetchUserData(username, url) {
 		const cleanedPath = url.replace(/\/+$/, '');
 		var fetchURL = `${cleanedPath}.json`;
 	}
-
 	return new Promise((resolve, reject) => {
 		BROWSER_API.runtime.sendMessage(
 			{
-				actions: [{ action: 'changeFetchUrl', newFetchUrl: fetchURL }, { action: 'fetchData' }],
+				actions: [
+					{
+						action: 'fetchData',
+						url: fetchURL,
+					},
+				],
 			},
 			function (response) {
-				const data = JSON.parse(response.data);
-				if (data.data) {
-					resolve(data.data);
-				} else {
-					resolve(data);
-				}
+				resolve(response.data);
 			}
 		);
 	});

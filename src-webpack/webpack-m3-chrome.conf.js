@@ -129,6 +129,7 @@ module.exports = {
 			BROWSER_API: 'chrome',
 			CHECK_LEGACY_FIREFOX: false,
 			CHECK_LEGACY_EDGE: false,
+			IS_CHROME: true,
 		}),
 	],
 	optimization: {

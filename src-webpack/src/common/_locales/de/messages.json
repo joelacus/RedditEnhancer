@@ -86,9 +86,6 @@
 	"Blur": {
 		"message": "Verwischen"
 	},
-	"BlurBackgroundPostOverlay": {
-		"message": "Verwischen Sie den Hintergrund hinter dem Post-Overlay"
-	},
 	"BorderRadiusAmount": {
 		"message": "Themen-Eckenradius"
 	},
@@ -197,17 +194,8 @@
 	"DefaultHomeFeedSortOption": {
 		"message": "Standard-Home-Feed-Sortieroption"
 	},
-	"DefaultSortFeedOptionGracePeriod": {
-		"message": "Standard-Sortieroption überschreiben"
-	},
-	"DefaultSortFeedOptionOverrideInfo": {
-		"message": "Die Zeit nach der Seite wurde automatisch umgeleitet, in der Sie die Option Standard-Sortieroption überschreiben können."
-	},
 	"Delete": {
 		"message": "Löschen"
-	},
-	"DisableBgFadePostOverlay": {
-		"message": "Deaktivieren Sie den Hintergrund verblassen hinter Post Overlay"
 	},
 	"Disabled": {
 		"message": "Behinderte"
@@ -250,9 +238,6 @@
 	},
 	"FilterOptionsFor": {
 		"message": "Filteroptionen für"
-	},
-	"FitImage": {
-		"message": "Große Bilder so skalieren, dass sie in den Post passen"
 	},
 	"FollowPost": {
 		"message": "Beitrag folgen"
@@ -323,9 +308,6 @@
 	"HideCompactViewThumbnails": {
 		"message": "Verstecken Sie die Miniaturansichten in kompakter Ansicht"
 	},
-	"HideCreatePost": {
-		"message": "Ausblenden von „Beitrag erstellen“"
-	},
 	"HideCreatePostButton": {
 		"message": "Schaltfläche „Beitrag erstellen“ Ausblenden"
 	},
@@ -374,12 +356,6 @@
 	"HideNsfwInSearchResults": {
 		"message": "„NSFW“ in den Suchergebnissen ausblenden"
 	},
-	"HideOriginalScrollToTop": {
-		"message": "Blenden Sie die ursprüngliche Schaltfläche „Nach oben scrollen“ aus"
-	},
-	"HidePopularButton": {
-		"message": "Ausblenden der „Beliebt“ Schaltfläche"
-	},
 	"HidePostBackButton": {
 		"message": "Schaltfläche „Zurück zum Posten“ ausblenden"
 	},
@@ -391,9 +367,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Beitragskarma verbergen"
-	},
-	"HidePostOverlaySidebar": {
-		"message": "Blenden Sie die Beitrags-Overlay-Seitenleiste aus"
 	},
 	"HidePostSidebar": {
 		"message": "Blenden Sie die Seitenleiste des Beitrags aus"
@@ -422,9 +395,6 @@
 	"HideSearchSidebarNsfwUsers": {
 		"message": "NSFW Benutzer in der Seitenleiste der Suchseite ausblenden"
 	},
-	"HideSeeFullImage": {
-		"message": "„Ganzes Bild anzeigen“ Ausblenden"
-	},
 	"HideSideMenu": {
 		"message": "Seitenmenü Ausblenden"
 	},
@@ -449,9 +419,6 @@
 	"HideSideMenuTopicsSection": {
 		"message": "Themenbereich ausblenden"
 	},
-	"HideSidebarPolicy": {
-		"message": "Richtlinienabschnitt Ausblenden"
-	},
 	"HideSubSidebar": {
 		"message": "Subreddit-Seitenleiste Ausblenden"
 	},
@@ -463,9 +430,6 @@
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "„Trending Today“ in der Suchleiste ausblenden"
-	},
-	"HideTurnOnNotificationsPopup": {
-		"message": "Verstecken Sie das Popup „Benachrichtigungen aktivieren“"
 	},
 	"HideUserProfilePics": {
 		"message": "Benutzerprofilbilder in den Kommentaren ausblenden"
@@ -587,9 +551,6 @@
 	"Old": {
 		"message": "Alt / Old"
 	},
-	"OldNewUI": {
-		"message": "Alter Neuer UI"
-	},
 	"OldUI": {
 		"message": "Alter UI"
 	},
@@ -691,9 +652,6 @@
 	},
 	"Qa": {
 		"message": "Q&a"
-	},
-	"RUI2RemovalInfo": {
-		"message": "Reddit hat die Website (Alte Neue UI / Version 2) eingestellt. Optionen für „Alte Neue UI“ werden vorerst weiterhin unterstützt, während andere Workarounds, um sie wiederherzustellen, weiterhin funktionieren."
 	},
 	"RUI3RedirectInfo": {
 		"message": "Die Umleitungsoption zu „Neuer Neuer UI“ ist nicht mehr erforderlich. Sie können diese Option jedoch verwenden, um Links von (sh|old).reddit.com zu www.reddit.com zu erzwingen."

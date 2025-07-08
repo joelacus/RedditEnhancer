@@ -21,20 +21,6 @@ export function restorePopupMediaOptions() {
 		console.log('Scroll Tall Images: ' + value);
 	});
 
-	// Scale Tall Images To Fit Post
-	BROWSER_API.storage.sync.get(['fitImage'], function (result) {
-		if (result.fitImage == true) {
-			document.querySelector('#checkbox-fit-image').checked = true;
-			document.querySelector('.icon-fit-image').style.backgroundColorr = 'var(--accent)';
-			highlightMenuIcon('media-tweaks');
-			var value = true;
-		} else if (typeof result.fitImage == 'undefined' || result.fitImage == false) {
-			document.querySelector('#checkbox-fit-image').checked = false;
-			var value = false;
-		}
-		console.log('Scale Tall Images: ' + value);
-	});
-
 	// Scale Post To Fit Image
 	BROWSER_API.storage.sync.get(['scalePostToFitImage'], function (result) {
 		if (result.scalePostToFitImage == true) {
@@ -139,21 +125,6 @@ export function restorePopupMediaOptions() {
 			document.querySelector('#checkbox-just-open-the-image').checked = false;
 			console.log('Just Open The Image: (false)');
 		}
-	});
-
-	// Hide See Full Image
-	BROWSER_API.storage.sync.get(['hideSeeFullImage'], function (result) {
-		if (result.hideSeeFullImage == true) {
-			document.querySelector('#checkbox-hide-see-full-image').checked = true;
-			document.querySelector('.icon-hide-see-full-image').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('media-tweaks');
-			var value = true;
-		} else if (typeof result.hideSeeFullImage == 'undefined' || result.hideSeeFullImage == false) {
-			document.querySelector('#checkbox-hide-see-full-image').checked = false;
-			var value = false;
-		}
-		console.log("Hide 'See Full Image' Button: " + value);
 	});
 
 	// Drag Image to Resize
@@ -274,7 +245,7 @@ export function restorePopupMediaOptions() {
 	});
 
 	// Add Download Video Button
-	/*BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
+	BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
 		if (result.addDownloadVideoButton === true) {
 			document.querySelector('.icon-add-download-video-button').style.backgroundColor = 'var(--accent)';
 			document.querySelector('#checkbox-add-download-video-button').checked = true;
@@ -285,7 +256,7 @@ export function restorePopupMediaOptions() {
 			var value = false;
 		}
 		console.log('Add Download Video Button: ' + value);
-	});*/
+	});
 
 	/* = Text = */
 

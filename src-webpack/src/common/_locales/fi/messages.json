@@ -89,9 +89,6 @@
 	"Feed": {
 		"message": "Syöttää"
 	},
-	"FitImage": {
-		"message": "Skaalaa korkeat kuvat, jotka sopivat postille"
-	},
 	"Header": {
 		"message": "Otsikko"
 	},
@@ -110,9 +107,6 @@
 	"HideCompactViewThumbnails": {
 		"message": "Piilota pikkukuvat kompaktiin näkymään"
 	},
-	"HideCreatePost": {
-		"message": "Piilota 'Luo viesti'"
-	},
 	"HideGap": {
 		"message": "Piilota käyttöliittymän aukot"
 	},
@@ -127,9 +121,6 @@
 	},
 	"HideModerationButton": {
 		"message": "Piilota 'Maltillisuus-painike'"
-	},
-	"HidePopularButton": {
-		"message": "Piilota 'Suosittu-painike'"
 	},
 	"HideRecommended": {
 		"message": "Piilota Suositeltu"
@@ -208,9 +199,6 @@
 	},
 	"Old": {
 		"message": "Vanha / Old"
-	},
-	"OldNewUI": {
-		"message": "Vanha Uusi UI"
 	},
 	"OldUI": {
 		"message": "Vanha UI"

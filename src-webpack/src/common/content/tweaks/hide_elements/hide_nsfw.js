@@ -1,42 +1,32 @@
 /**
- * Tweak type: Hide Elements
- * Tweak name: Hide NSFW/L Posts
+ * Tweaks: Hide Elements - Hide NSFW/L Posts
  *
  * @name hideNSFW
  * @description Hide NSFW/L posts on the feed.
  *
- * Compatibility: V1 - Old UI (2005-)
- *                V3 - New New UI (2023-)
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Get saved value and enable tweak if true on page load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHideNSFW() {
 	BROWSER_API.storage.sync.get(['hideNSFW'], function (result) {
 		if (result.hideNSFW) hideNSFW(true);
 	});
 }
 
-/* === Enable/Disable tweak based on Reddit version === */
+/* === Enable/Disable The Feature === */
 export function hideNSFW(value) {
-	if (redditVersion === 'old') {
-		if (value === true) {
-			enableHideNsfwPostsV1();
-		} else if (value === false) {
-			disableHideNsfwPostsAll();
-		}
-	} else if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHideNsfwPostsV3();
-		} else if (value === false) {
-			disableHideNsfwPostsAll();
-		}
+	if (redditVersion === 'old' && value) {
+		enableHideNsfwPostsRV1();
+	} else if (redditVersion === 'newnew' && value) {
+		enableHideNsfwPostsRV3();
+	} else {
+		disableHideNsfwPostsAll();
 	}
 }
 
-/* === Functions to Enable/Disable the tweak === */
-
-// Enable "Hide NSFW Posts" - V1
-function enableHideNsfwPostsV1() {
+// Enable Hide NSFW Posts - RV1
+function enableHideNsfwPostsRV1() {
 	if (!document.head.querySelector('style[id="re-hide-nsfw-posts"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-nsfw-posts';
@@ -47,8 +37,8 @@ function enableHideNsfwPostsV1() {
 	}
 }
 
-// Enable "Hide NSFW Posts" - V3
-function enableHideNsfwPostsV3() {
+// Enable Hide NSFW Posts - RV3
+function enableHideNsfwPostsRV3() {
 	if (!document.head.querySelector('style[id="re-hide-nsfw-posts"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-nsfw-posts';
@@ -60,7 +50,7 @@ function enableHideNsfwPostsV3() {
 	}
 }
 
-// Disable "Hide NSFW Posts" - All
+// Disable Hide NSFW Posts - All
 function disableHideNsfwPostsAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-nsfw-posts"]');
 	dynamicStyleElements.forEach((element) => {

@@ -4,7 +4,7 @@
  * @name hideCommunityStatus
  * @description Hide the community status next to the r/ handle on posts, sidebar and subreddit pages.
  *
- * Applies to: RV3 (New New UI) (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
 /* === Run by Tweak Loader when the Page Loads === */

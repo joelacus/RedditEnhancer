@@ -519,7 +519,7 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 
 	// Scroll To Next Root Comment Position X
 	BROWSER_API.storage.sync.get(['scrollToNextRootCommentPosition'], function (result) {
-		const valueX = result.scrollToNextRootCommentPosition.x || undefined;
+		const valueX = result.scrollToNextRootCommentPosition?.x || undefined;
 		if (typeof valueX == 'undefined' || valueX === '-1' || valueX === 'undefined') {
 			document.querySelector('#input-scroll-to-root-comment-position-x').value = -1;
 			document.querySelector('#scroll-to-root-comment-position-x-value').innerText = '48px';
@@ -533,7 +533,7 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		}
 
 		// Scroll To Next Root Comment Position Y
-		const valueY = result.scrollToNextRootCommentPosition.y || undefined;
+		const valueY = result.scrollToNextRootCommentPosition?.y || undefined;
 		if (typeof valueY == 'undefined' || valueY === '-1' || valueY === 'undefined') {
 			document.querySelector('#input-scroll-to-root-comment-position-y').value = -1;
 			document.querySelector('#scroll-to-root-comment-position-y-value').innerText = '50%';

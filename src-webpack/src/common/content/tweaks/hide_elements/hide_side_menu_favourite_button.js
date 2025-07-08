@@ -1,15 +1,22 @@
-/* ===== Tweaks - Hide - Side Menu Favourite Buttons ===== */
+/**
+ * Tweaks: Hide Elements - Hide Side Menu Favourite Buttons
+ *
+ * @name hideSideMenuFavouriteButton
+ * @description Hide the favourite (star) buttons in the community section of the side menu.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHideSideMenuFavouriteButton() {
 	BROWSER_API.storage.sync.get(['hideSideMenuFavouriteButton'], function (result) {
 		if (result.hideSideMenuFavouriteButton) hideSideMenuFavouriteButton(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function hideSideMenuFavouriteButton(value) {
-	if (redditVersion === 'newnew' && value === true) {
+	if (redditVersion === 'newnew' && value) {
 		// create stylesheet
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-side-menu-favourite-button';
@@ -29,12 +36,12 @@ export function hideSideMenuFavouriteButton(value) {
 		}
 		// append part attribute to items
 		enableHideSideMenuFavouriteButton();
-	} else if (redditVersion === 'newnew' && value === false) {
+	} else {
 		disableHideSideMenuFavouriteButton();
 	}
 }
 
-// Function - Enable Hide Side Menu Favourite Button - New New
+// Enable Hide Side Menu Favourite Button - RV3
 function enableHideSideMenuFavouriteButton() {
 	document
 		.querySelector('left-nav-communities-controller')
@@ -61,7 +68,7 @@ function enableHideSideMenuFavouriteButton() {
 	});
 }
 
-// Function - Disable Hide Side Menu Favourite Button - New New
+// Disable Hide Side Menu Favourite Button - RV3
 function disableHideSideMenuFavouriteButton() {
 	const dynamicStyleElements = document.querySelector('left-nav-communities-controller').shadowRoot.querySelector('left-nav-community-item').querySelectorAll('style[id="re-hide-side-menu-favourite-button"]');
 	dynamicStyleElements.forEach((element) => {

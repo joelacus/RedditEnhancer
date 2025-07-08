@@ -1,12 +1,13 @@
 /**
- * Tweaks: Hide Elements - Hide post separators
+ * Tweaks: Hide Elements - Hide Post Separators
+ *
  * @name hidePostDivider
  * @description Hide the separator lines between entries in feeds (frontpage, subreddits, etc.)
  *
- * Applies to: New New UI (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
-// Get the feature state from browser sync storage
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHidePostDivider() {
 	BROWSER_API.storage.sync.get(['hidePostDivider', 'postSeparatorHeight']).then((result) => {
 		if (result.hidePostDivider) {
@@ -16,18 +17,16 @@ export function loadHidePostDivider() {
 	});
 }
 
-// Activate the feature based on Reddit version
+/* === Enable/Disable The Feature === */
 export function hidePostDivider(value) {
-	if (redditVersion === 'newnew') {
-		if (value) {
-			enableHidePostDivider();
-		} else {
-			disableHidePostDivider();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableHidePostDivider();
+	} else {
+		disableHidePostDivider();
 	}
 }
 
-// Enable the feature
+// Enable Hide Post Separators - RV3
 function enableHidePostDivider() {
 	if (!document.head.querySelector('style[id="re-hide-post-divider"]')) {
 		const styleElement = document.createElement('style');
@@ -144,7 +143,7 @@ function enableHidePostDivider() {
 	}
 }
 
-// Disable the feature
+// Disable Hide Post Separators - RV3
 function disableHidePostDivider() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-post-divider"]');
 	dynamicStyleElements.forEach((element) => {

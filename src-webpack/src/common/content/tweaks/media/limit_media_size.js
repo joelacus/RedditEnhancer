@@ -1,8 +1,15 @@
-/* ===== Tweaks - Media - Limit Media Size ===== */
+/**
+ * Tweaks: Media - Limit Media Size
+ *
+ * @name limitImageSize
+ * @description Limit image and video width and height.
+ *
+ * Notes: "Add Scrollbar To Tall Images" or "Scale Post To Fit Image" must be enabled.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-// "Add Scrollbar To Tall Images" or "Scale Post To Fit Image" must be enabled.
-
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function limitImageSize() {
 	BROWSER_API.storage.sync.get(['maxImageWidth', 'maxImagePostHeight', 'maxVideoWidth', 'maxVideoPostHeight'], function (result) {
 		setMaxImageWidth(result.maxImageWidth);
@@ -12,9 +19,9 @@ export function limitImageSize() {
 	});
 }
 
-/* === Main Functions === */
+/* === Set Properties === */
 
-// Function - Set Limit Image Width
+// Set Limit Image Width
 export function setMaxImageWidth(value) {
 	if (value > 9 && value <= 100) {
 		document.documentElement.style.setProperty('--re-limit-image-width', value + '%');
@@ -23,7 +30,7 @@ export function setMaxImageWidth(value) {
 	}
 }
 
-// Function - Set Max Image Post Height
+// Set Max Image Post Height
 export function setMaxImagePostHeight(value) {
 	if (value > 99 && value <= 1000) {
 		document.documentElement.style.setProperty('--re-max-image-post-height', value + 'px');
@@ -32,7 +39,7 @@ export function setMaxImagePostHeight(value) {
 	}
 }
 
-// Function - Set Limit Video Width
+// Set Limit Video Width
 export function setMaxVideoWidth(value) {
 	if (value > 9 && value <= 100) {
 		document.documentElement.style.setProperty('--re-limit-video-width', value + '%');
@@ -41,7 +48,7 @@ export function setMaxVideoWidth(value) {
 	}
 }
 
-// Function - Set Max Video Post Height
+// Set Max Video Post Height
 export function setMaxVideoPostHeight(value) {
 	if (value > 99 && value <= 1000) {
 		document.documentElement.style.setProperty('--re-max-video-post-height', value + 'px');

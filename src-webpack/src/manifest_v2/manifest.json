@@ -17,7 +17,7 @@
 
 	"permissions": ["storage", "tabs", "*://*.reddit.com/*", "declarativeNetRequest"],
 
-	"optional_permissions": ["webRequest", "webRequestBlocking", "*://*.redd.it/*", "history"],
+	"optional_permissions": ["webRequest", "webRequestBlocking", "*://*.redd.it/*", "history", "downloads"],
 
 	"content_scripts": [
 		{

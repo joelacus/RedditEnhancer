@@ -74,9 +74,6 @@
 	"Blur": {
 		"message": "Vervagen"
 	},
-	"BlurBackgroundPostOverlay": {
-		"message": "Vervaging achtergrond achter post-overlay"
-	},
 	"BorderRadiusAmount": {
 		"message": "Thema hoek radius"
 	},
@@ -185,15 +182,6 @@
 	"DefaultHomeFeedSortOption": {
 		"message": "Standaard optie voor sorteren thuis feed"
 	},
-	"DefaultSortFeedOptionGracePeriod": {
-		"message": "Verhaal de standaard sorteeroptie"
-	},
-	"DefaultSortFeedOptionOverrideInfo": {
-		"message": "De hoeveelheid tijd nadat de pagina automatisch is omgeleid, waarbij u de standaardsoptie kunt overschrijven."
-	},
-	"DisableBgFadePostOverlay": {
-		"message": "Achtergrondvervaging achter post-overlay uitschakelen"
-	},
 	"Disabled": {
 		"message": "Uitgeschakeld"
 	},
@@ -232,9 +220,6 @@
 	},
 	"FilterOptionsFor": {
 		"message": "Filteropties voor"
-	},
-	"FitImage": {
-		"message": "Schaal grote afbeeldingen om op de post te passen"
 	},
 	"Font": {
 		"message": "Lettertype"
@@ -296,9 +281,6 @@
 	"HideCompactViewThumbnails": {
 		"message": "Verberg de miniaturen in compacte weergave"
 	},
-	"HideCreatePost": {
-		"message": "Verberg “Bericht maken”"
-	},
 	"HideCreatePostButton": {
 		"message": "Knop “Bericht maken” Verbergen"
 	},
@@ -347,12 +329,6 @@
 	"HideNsfwInSearchResults": {
 		"message": "Verberg NSFW-resultaten in de zoekbalk"
 	},
-	"HideOriginalScrollToTop": {
-		"message": "Verberg de knop Origineel scrollen naar boven"
-	},
-	"HidePopularButton": {
-		"message": "Verberg de knop “Populair”"
-	},
 	"HidePostBackButton": {
 		"message": "Verberg de knop 'Post terug'"
 	},
@@ -364,9 +340,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Bericht verbergen Karma"
-	},
-	"HidePostOverlaySidebar": {
-		"message": "Verberg de zijbalk van de berichtoverlay"
 	},
 	"HidePostSidebar": {
 		"message": "Verberg de berichtzijbalk"
@@ -395,9 +368,6 @@
 	"HideSearchSidebarNsfwUsers": {
 		"message": "Verberg NSFW-gebruikers in de zijkant van de zoekopdracht"
 	},
-	"HideSeeFullImage": {
-		"message": "Verberg “See Full Image”"
-	},
 	"HideSideMenu": {
 		"message": "Zijmenu Verbergen"
 	},
@@ -422,9 +392,6 @@
 	"HideSideMenuTopicsSection": {
 		"message": "Verberg de sectie Onderwerpen"
 	},
-	"HideSidebarPolicy": {
-		"message": "Sectie Beleid verbergen"
-	},
 	"HideSubSidebar": {
 		"message": "Verberg de zijbalk van Sub Reddit"
 	},
@@ -436,9 +403,6 @@
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "Verberg 'trending vandaag' in de zoekbalk"
-	},
-	"HideTurnOnNotificationsPopup": {
-		"message": "Pop-up “Meldingen inschakelen” verbergen"
 	},
 	"HideUserProfilePics": {
 		"message": "Verberg gebruikersprofielfoto's in de reacties"
@@ -551,9 +515,6 @@
 	"Old": {
 		"message": "Oud / Old"
 	},
-	"OldNewUI": {
-		"message": "Oude Nieuwe UI"
-	},
 	"OldUI": {
 		"message": "Oude UI"
 	},
@@ -652,9 +613,6 @@
 	},
 	"Qa": {
 		"message": "Q&a"
-	},
-	"RUI2RemovalInfo": {
-		"message": "Reddit is stopgezet (Oude Nieuwe UI / versie 2) van de website. Opties voor 'Oude Nieuwe UI' zullen voorlopig worden ondersteund, terwijl andere oplossingen om het terug te krijgen nog steeds aan het werk zijn."
 	},
 	"RUI3RedirectInfo": {
 		"message": "De optie Redirect naar 'Nieuwe Nieuwe UI' is niet langer nodig, maar u kunt deze optie gebruiken om links van (sh | old) te forceren .reddit.com naar www.reddit.com"

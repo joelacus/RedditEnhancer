@@ -1,45 +1,30 @@
-/* ===== Tweaks - Hide - Post Hidden Message ===== */
+/**
+ * Tweaks: Hide Elements - Hide Post Hidden Message
+ *
+ * @name hidePostHiddenMessage
+ * @description Hide the "Post Hidden" message when you hide a post on a feed.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHidePostHiddenMessage() {
 	BROWSER_API.storage.sync.get(['hidePostHiddenMessage'], function (result) {
 		if (result.hidePostHiddenMessage) hidePostHiddenMessage(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function hidePostHiddenMessage(value) {
-	if (redditVersion === 'new') {
-		if (value === true) {
-			enableHidePostHiddenMessageNew();
-		} else if (value === false) {
-			disableHidePostHiddenMessageAll();
-		}
-	} else if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHidePostHiddenMessageNewNew();
-		} else if (value === false) {
-			disableHidePostHiddenMessageAll();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableHidePostHiddenMessageRV3();
+	} else {
+		disableHidePostHiddenMessageAll();
 	}
 }
 
-/* === Enable/Disable Functions === */
-
-// Function - Hide Post Hidden Message - New
-function enableHidePostHiddenMessageNew() {
-	if (!document.head.querySelector('style[id="re-hide-post-hidden-message"]')) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-post-hidden-message';
-		styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child > :first-child > div:has(.Post) > div:has(div>div>h3) {
-										display: none !important;
-									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
-}
-
-// Function - Hide Post Hidden Message - New New
-function enableHidePostHiddenMessageNewNew() {
+// Enable Hide Post Hidden Message - RV3
+function enableHidePostHiddenMessageRV3() {
 	if (!document.head.querySelector('style[id="re-hide-post-hidden-message"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-post-hidden-message';
@@ -50,7 +35,7 @@ function enableHidePostHiddenMessageNewNew() {
 	}
 }
 
-// Function - Hide Post Hidden Message - All
+// Disable Hide Post Hidden Message - All
 function disableHidePostHiddenMessageAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-post-hidden-message"]');
 	dynamicStyleElements.forEach((element) => {

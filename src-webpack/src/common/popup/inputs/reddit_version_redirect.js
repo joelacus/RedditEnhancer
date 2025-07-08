@@ -1,7 +1,7 @@
 /* ===== Inputs / Auto Redirect To Reddit Version ===== */
 
 import i18next from 'i18next';
-import { selectFilterShowNewNewVersion, selectFilterShowNewVersion, selectFilterShowOldVersion } from './filter_version_select';
+import { selectFilterShowNewNewVersion, selectFilterShowOldVersion } from './filter_version_select';
 
 const redirect_dropdown = document.querySelector('#select-reddit-version');
 const redirect_dropdownMenu = document.querySelector('#select-reddit-version-menu');
@@ -33,11 +33,6 @@ redirect_dropdownMenu.addEventListener('click', function (e) {
 	}
 	if (version === 'old') {
 		selectFilterShowOldVersion(i18next.t('OldUI.message'));
-	} else if (version === 'new') {
-		if (localStorage.getItem('DontShowAgainOldNewUiWarning') === null) {
-			document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
-		}
-		selectFilterShowNewVersion(i18next.t('OldNewUI.message'));
 	} else if (version === 'newnew') {
 		selectFilterShowNewNewVersion(i18next.t('NewNewUI.message'));
 		if (localStorage.getItem('DontShowAgainNewNewUiMessage') === null) {

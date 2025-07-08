@@ -130,6 +130,7 @@ module.exports = {
 			BROWSER_API: 'browser',
 			CHECK_LEGACY_FIREFOX: true,
 			CHECK_LEGACY_EDGE: false,
+			IS_CHROME: false,
 		}),
 		/*new ZipPlugin({
 			filename: 'reddit-enhancer.zip',

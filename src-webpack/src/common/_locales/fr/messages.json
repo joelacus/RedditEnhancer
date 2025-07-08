@@ -86,9 +86,6 @@
 	"Blur": {
 		"message": "Flou"
 	},
-	"BlurBackgroundPostOverlay": {
-		"message": "Fond flou derrière la superposition du poteau"
-	},
 	"BorderRadiusAmount": {
 		"message": "Thème rayon d'angle"
 	},
@@ -197,17 +194,8 @@
 	"DefaultHomeFeedSortOption": {
 		"message": "Option de tri de flux à domicile par défaut"
 	},
-	"DefaultSortFeedOptionGracePeriod": {
-		"message": "Remplacer l'option de tri par défaut"
-	},
-	"DefaultSortFeedOptionOverrideInfo": {
-		"message": "La durée après la rediffusion automatique de la page dans laquelle vous pouvez remplacer l'option de tri par défaut."
-	},
 	"Delete": {
 		"message": "Supprimer"
-	},
-	"DisableBgFadePostOverlay": {
-		"message": "Désactiver l'arrière-plan s'estompe derrière la superposition du poteau"
 	},
 	"Disabled": {
 		"message": "Désactivé"
@@ -250,9 +238,6 @@
 	},
 	"FilterOptionsFor": {
 		"message": "Options de filtrage pour"
-	},
-	"FitImage": {
-		"message": "Mettre à l'échelle les images hautes pour s'adapter à la Post"
 	},
 	"FollowPost": {
 		"message": "Suivre"
@@ -323,9 +308,6 @@
 	"HideCompactViewThumbnails": {
 		"message": "Masquer les vignettes en vue compacte"
 	},
-	"HideCreatePost": {
-		"message": "Masquer « Créer une Post »"
-	},
 	"HideCreatePostButton": {
 		"message": "Masquer le bouton « Créer un article »"
 	},
@@ -374,12 +356,6 @@
 	"HideNsfwInSearchResults": {
 		"message": "Masquer « NSFW » dans les résultats de recherche"
 	},
-	"HideOriginalScrollToTop": {
-		"message": "Masquer le bouton de défilement original vers le haut"
-	},
-	"HidePopularButton": {
-		"message": "Masquer le bouton « Populaire »"
-	},
 	"HidePostBackButton": {
 		"message": "Masquer le bouton de retour de la post"
 	},
@@ -391,9 +367,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Masquer le karma de post"
-	},
-	"HidePostOverlaySidebar": {
-		"message": "Masquer la barre latérale de superposition de Post"
 	},
 	"HidePostSidebar": {
 		"message": "Masquer la barre latérale de la page Post"
@@ -422,9 +395,6 @@
 	"HideSearchSidebarNsfwUsers": {
 		"message": "Masquer les utilisateurs NSFW dans la barre latérale de la page de recherche"
 	},
-	"HideSeeFullImage": {
-		"message": "Masquer « Voir l'image Complète »"
-	},
 	"HideSideMenu": {
 		"message": "Masquer le menu latéral"
 	},
@@ -449,9 +419,6 @@
 	"HideSideMenuTopicsSection": {
 		"message": "Masquer la section 'Sujets'"
 	},
-	"HideSidebarPolicy": {
-		"message": "Masquer la section Politiques"
-	},
 	"HideSubSidebar": {
 		"message": "Masquer la barre latérale de Sub Reddit"
 	},
@@ -463,9 +430,6 @@
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "Masquer « Tendance du jour » dans la barre de recherche"
-	},
-	"HideTurnOnNotificationsPopup": {
-		"message": "Masquer la fenêtre contextuelle «Activer les notifications»"
 	},
 	"HideUserProfilePics": {
 		"message": "Masquer les photos de profil utilisateur dans les commentaires"
@@ -587,9 +551,6 @@
 	"Old": {
 		"message": "Ancien / Old"
 	},
-	"OldNewUI": {
-		"message": "Vieux Nouveau UI"
-	},
 	"OldUI": {
 		"message": "Vieux UI"
 	},
@@ -691,9 +652,6 @@
 	},
 	"Qa": {
 		"message": "Q&a"
-	},
-	"RUI2RemovalInfo": {
-		"message": "Reddit has discontinued (Old New UI / Version 2) of the website. Options for 'Old New UI' will continue to be supported for now while other workarounds to get it back are still working."
 	},
 	"RUI3RedirectInfo": {
 		"message": "L'option de redirection vers « Nouvelle Nouvelle UI » n'est plus nécessaire, cependant, vous pouvez utiliser cette option pour forcer les liens de (sh|old).reddit.com vers www.reddit.com"

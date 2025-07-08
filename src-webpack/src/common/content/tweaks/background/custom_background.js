@@ -1,9 +1,10 @@
 /**
  * Tweaks: Background - Use Custom Background
+ *
  * @name useCustomBackground
  * @description Change the web page background to a custom image. Also changes the background image blur.
  *
- * Applies to: RV1 (Old New UI) (2018-2024), RV3 (New New UI) (2023-)
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
 /* === Run by Tweak Loader when the Page Loads === */
