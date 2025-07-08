@@ -42,7 +42,7 @@ export function init_i18n(lang) {
 function translate() {
 	BROWSER_API.storage.sync.get(['redditVersion'], function (result) {
 		if (result.redditVersion === 'old') {
-			document.querySelector('#chosen-version').textContent = i18next.t('OldUI.message');
+			document.querySelector('#chosen-version').textContent = i18next.t('Old.message');
 		} else if (result.redditVersion === 'newnew') {
 			document.querySelector('#chosen-version').textContent = i18next.t('Latest.message');
 		} else {
@@ -51,7 +51,7 @@ function translate() {
 	});
 	BROWSER_API.storage.sync.get(['autoRedirectVersion'], function (result) {
 		if (result.autoRedirectVersion === 'old') {
-			document.querySelector('#chosen-reddit-version').textContent = i18next.t('OldUI.message');
+			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Old.message');
 		} else if (result.autoRedirectVersion === 'newnew') {
 			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Latest.message');
 		} else {

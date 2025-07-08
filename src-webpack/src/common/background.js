@@ -1,7 +1,6 @@
 /* ===== Background script ===== */
 
 import { darkModeTimeCalc } from './content/tweaks/dark_mode/dark_mode_time_calc';
-const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 
 // Logging
 function timestamp() {
@@ -45,9 +44,11 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 	} else if (request.actions) {
 		for (const action of request.actions) {
 			if (action.action === 'fetchData' && action.url) {
-				// Fetch data using the current fetch URL
 				console.log('fetchData', action.url);
 				fetchData(action.url, sendResponse);
+				return true;
+			} else if (action.action === 'fetchText' && action.url) {
+				fetchText(action.url, sendResponse);
 				return true;
 			} else if (action.action === 'markVisited' && action.url) {
 				BROWSER_API.history.addUrl({ url: action.url }, function () {
@@ -107,11 +108,12 @@ function checkTime(i) {
 	}
 }
 
+// Fetch JSON data
 // @see content/tweaks/productivity/show_post_flair.js
 function fetchData(url, sendResponse) {
 	fetch(url, {
 		method: 'GET',
-		mode: isChrome && window.location.hostname === 'sh.reddit.com' ? 'no-cors' : 'cors',
+		mode: IS_CHROME && window.location.hostname === 'sh.reddit.com' ? 'no-cors' : 'cors',
 	})
 		.then((response) => {
 			if (!response.ok) throw response.status;
@@ -130,6 +132,24 @@ function fetchData(url, sendResponse) {
 			} else {
 				sendResponse({ error: error.message || String(error) });
 			}
+		});
+}
+
+// Fetch text files
+function fetchText(url, sendResponse) {
+	fetch(url)
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error(`HTTP error! Status: ${response.status}`);
+			}
+			return response.text();
+		})
+		.then((text) => {
+			sendResponse({ success: true, data: text });
+		})
+		.catch((error) => {
+			console.error('Error fetching the text file:', error);
+			sendResponse({ success: false, error: error.message });
 		});
 }
 

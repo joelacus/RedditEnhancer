@@ -800,14 +800,14 @@ document.querySelector('#checkbox-mark-read-on-open-expandos').addEventListener(
 				.request({ permissions: ['history'] })
 				.then((granted) => {
 					if (granted) {
-						console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission granted');
+						console.debug('[RedditEnhancer] markReadOnOpenExpandos: "history" permission granted');
 					} else {
-						console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission denied');
+						console.debug('[RedditEnhancer] markReadOnOpenExpandos: "history" permission denied');
 						document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
 					}
 				})
 				.catch((e) => {
-					console.error('[RedditEnhancer] markReadOnOpenExpandos: Error requesting history permission: ', e);
+					console.error('[RedditEnhancer] markReadOnOpenExpandos: Error requesting "history" permission: ', e);
 					document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
 				});
 		}
