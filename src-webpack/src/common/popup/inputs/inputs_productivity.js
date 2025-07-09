@@ -30,42 +30,6 @@ document.querySelector('#checkbox-show-to-top-button').addEventListener('change'
 	}
 });
 
-// Toggle - Always Show Rising Sort Button
-document.querySelector('#checkbox-always-show-rising-button').addEventListener('change', function (e) {
-	var alwaysShowRisingButton = document.querySelector('#checkbox-always-show-rising-button').checked;
-	if (alwaysShowRisingButton == true) {
-		BROWSER_API.storage.sync.set({ alwaysShowRisingButton: true });
-		document.querySelector('.always-show-rising-button').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.always-show-rising-button').classList.remove('icon-rising');
-		document.querySelector('.always-show-rising-button').classList.add('icon-rising-fill');
-		sendMessage({ alwaysShowRisingButton: true });
-	} else if (alwaysShowRisingButton == false) {
-		BROWSER_API.storage.sync.set({ alwaysShowRisingButton: false });
-		document.querySelector('.always-show-rising-button').style.backgroundColor = '';
-		document.querySelector('.always-show-rising-button').classList.add('icon-rising');
-		document.querySelector('.always-show-rising-button').classList.remove('icon-rising-fill');
-		sendMessage({ alwaysShowRisingButton: false });
-	}
-});
-
-// Toggle - Show Controversial Sort Button
-document.querySelector('#checkbox-controversial-sort-button').addEventListener('change', function (e) {
-	var showControversialSortButton = document.querySelector('#checkbox-controversial-sort-button').checked;
-	if (showControversialSortButton == true) {
-		BROWSER_API.storage.sync.set({ showControversialSortButton: true });
-		document.querySelector('.icon-controversial-sort-button').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-controversial-sort-button').classList.remove('icon-sword');
-		document.querySelector('.icon-controversial-sort-button').classList.add('icon-sword-fill');
-		sendMessage({ showControversialSortButton: true });
-	} else if (showControversialSortButton == false) {
-		BROWSER_API.storage.sync.set({ showControversialSortButton: false });
-		document.querySelector('.icon-controversial-sort-button').style.backgroundColor = '';
-		document.querySelector('.icon-controversial-sort-button').classList.add('icon-sword');
-		document.querySelector('.icon-controversial-sort-button').classList.remove('icon-sword-fill');
-		sendMessage({ showControversialSortButton: false });
-	}
-});
-
 // Toggle - Open Sub Links In New Tab
 document.querySelector('#checkbox-open-sub-new-tab').addEventListener('change', function (e) {
 	var openSubInNewTab = document.querySelector('#checkbox-open-sub-new-tab').checked;
@@ -91,34 +55,6 @@ document.querySelector('#checkbox-open-post-new-tab').addEventListener('change',
 		BROWSER_API.storage.sync.set({ openPostInNewTab: false });
 		document.querySelector('.open-post-new-tab').style.backgroundColor = '';
 		sendMessage({ openPostInNewTab: false });
-	}
-});
-
-// Toggle - Show r/All Button
-document.querySelector('#checkbox-show-r-all-button').addEventListener('change', function (e) {
-	var showAllButton = document.querySelector('#checkbox-show-r-all-button').checked;
-	if (showAllButton == true) {
-		BROWSER_API.storage.sync.set({ showAllButton: true });
-		document.querySelector('.icon-show-r-all').style.backgroundColor = 'var(--accent)';
-		sendMessage({ showAllButton: true });
-	} else if (showAllButton == false) {
-		BROWSER_API.storage.sync.set({ showAllButton: false });
-		document.querySelector('.icon-show-r-all').style.backgroundColor = '';
-		sendMessage({ showAllButton: false });
-	}
-});
-
-// Toggle - Move Feed Section In Side Menu To The Top
-document.querySelector('#checkbox-sidemenu-feed-top').addEventListener('change', function (e) {
-	var sidemenuFeedTop = document.querySelector('#checkbox-sidemenu-feed-top').checked;
-	if (sidemenuFeedTop == true) {
-		BROWSER_API.storage.sync.set({ sidemenuFeedTop: true });
-		document.querySelector('.icon-sidemenu-feed-top').style.backgroundColor = 'var(--accent)';
-		sendMessage({ sidemenuFeedTop: true });
-	} else if (sidemenuFeedTop == false) {
-		BROWSER_API.storage.sync.set({ sidemenuFeedTop: false });
-		document.querySelector('.icon-sidemenu-feed-top').style.backgroundColor = '';
-		sendMessage({ sidemenuFeedTop: false });
 	}
 });
 
@@ -325,7 +261,7 @@ document.querySelector('#input-post-comments-limit').addEventListener('mouseup',
 });
 
 // Toggle - Limit Infinity Scroll
-document.querySelector('#checkbox-limit-infinity-scroll').addEventListener('change', function (e) {
+/*document.querySelector('#checkbox-limit-infinity-scroll').addEventListener('change', function (e) {
 	var limitInfinityScroll = document.querySelector('#checkbox-limit-infinity-scroll').checked;
 	if (limitInfinityScroll == true) {
 		BROWSER_API.storage.sync.set({ limitInfinityScroll: true });
@@ -343,7 +279,7 @@ document.querySelector('#checkbox-limit-infinity-scroll').addEventListener('chan
 		document.querySelector('.icon-limit-infinity-scroll').classList.remove('icon-infinity-slash');
 		sendMessage({ limitInfinityScroll: false });
 	}
-});
+});*/
 
 // Toggle - Enable Default Home Feed Sort Option
 document.querySelector('#checkbox-default-home-feed-sort-option').addEventListener('change', function (e) {
@@ -592,44 +528,6 @@ document.querySelector('#checkbox-add-profile-pictures-to-comments').addEventLis
 	}
 });
 
-// Toggle - Post Height
-document.querySelector('#checkbox-post-height').addEventListener('change', function (e) {
-	const postHeight = document.querySelector('#checkbox-post-height').checked;
-	if (postHeight === true) {
-		// enable
-		BROWSER_API.storage.sync.set({ postHeight: true });
-		document.querySelector('.icon-post-height').style.backgroundColor = 'var(--accent)';
-		sendMessage({ postHeight: true });
-	} else if (postHeight === false) {
-		BROWSER_API.storage.sync.set({ postHeight: false });
-		document.querySelector('.icon-post-height').style.backgroundColor = '';
-		sendMessage({ postHeight: false });
-	}
-});
-
-// Slider - Feed Post Height
-document.querySelector('#input-feed-post-max-height').addEventListener('input', function (e) {
-	// set ui
-	if (value != 296) {
-		document.querySelector('#feed-post-max-height-value').innerText = e.target.value + 'px';
-	} else {
-		document.querySelector('#feed-post-max-height-value').innerText = '512px';
-	}
-});
-document.querySelector('#input-feed-post-max-height').addEventListener('mouseup', function (e) {
-	if (e.target.value != 296) {
-		document.querySelector('#feed-post-max-height-value').innerText = e.target.value + 'px';
-		var value = e.target.value;
-	} else {
-		document.querySelector('#feed-post-max-height-value').innerText = '512px';
-		var value = 512;
-	}
-	// apply
-	sendMessage({ postHeightSize: value });
-	// save
-	BROWSER_API.storage.sync.set({ postHeightSize: e.target.value });
-});
-
 // Toggle - Non Sticky Header Bar
 document.querySelector('#checkbox-non-sticky-header-bar').addEventListener('change', function (e) {
 	var nonStickyHeaderBar = document.querySelector('#checkbox-non-sticky-header-bar').checked;
@@ -649,7 +547,7 @@ document.querySelector('#checkbox-non-sticky-header-bar').addEventListener('chan
 });
 
 // Toggle - Break Reminder
-document.querySelector('#checkbox-break-reminder').addEventListener('change', function (e) {
+/*document.querySelector('#checkbox-break-reminder').addEventListener('change', function (e) {
 	var breakReminder = document.querySelector('#checkbox-break-reminder').checked;
 	if (breakReminder == true) {
 		BROWSER_API.storage.sync.set({ breakReminder: true });
@@ -667,14 +565,12 @@ document.querySelector('#checkbox-break-reminder').addEventListener('change', fu
 
 // Slider - Break Reminder Frequency
 document.querySelector('#input-break-reminder-frequency').addEventListener('input', function (e) {
-	// set ui
 	document.querySelector('#break-reminder-frequency-value').innerText = e.target.value;
-	// apply
 	sendMessage({ breakReminderFrequency: e.target.value });
 });
 document.querySelector('#input-break-reminder-frequency').addEventListener('mouseup', function (e) {
 	BROWSER_API.storage.sync.set({ breakReminderFrequency: e.target.value });
-});
+});*/
 
 // Toggle - Auto Expand Comments
 document.querySelector('#checkbox-auto-expand-comments').addEventListener('change', function (e) {

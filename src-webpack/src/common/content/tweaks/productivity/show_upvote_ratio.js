@@ -1,52 +1,51 @@
 /**
  * Tweaks: Productivity - Show Upvote Ratio
+ *
  * @name showUpvoteRatio
  * @description Show the upvote ratio of post in post detail view.
  *
- * Applies to: New New UI (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
-import { showBannerMessage } from "../../banner_message";
+import { showBannerMessage } from '../../banner_message';
 
-// Get the feature state from browser sync storage
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadShowUpvoteRatio() {
 	BROWSER_API.storage.sync.get(['showUpvoteRatio'], function (result) {
 		if (result.showUpvoteRatio) showUpvoteRatio(true);
 	});
 }
 
-// Activate the feature based on Reddit version
+/* === Enable/Disable The Feature === */
 export function showUpvoteRatio(value) {
-	if (redditVersion === 'new') {
-		if (value && window.location.pathname.includes('/comments/')) {
-			attachRatio(document.querySelector('div#overlayScrollContainer div.Post') || document.querySelector('div.Post'));
-		} else {
-			disableShowUpvoteRatioNew();
-		}
-	} else if (redditVersion === 'newnew') {
-		const routeName = document.querySelector('shreddit-app').getAttribute('routename');
+	if (redditVersion === 'newnew') {
+		const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
 		const feedRoutes = ['post_page', 'comment_page'];
 
 		if (value && feedRoutes.includes(routeName) && document.querySelector('shreddit-post')) {
 			attachRatio(document.querySelector('shreddit-post'));
 		} else {
-			disableShowUpvoteRatioNewNew();
+			disableShowUpvoteRatioRV3();
 		}
 	}
 }
 
-// Function - Enable Show Upvote Ratio
+// Enable Show Upvote Ratio
 async function attachRatio(post) {
 	const postID = post.getAttribute('id');
 	let postData;
 
 	try {
-		postData = (await BROWSER_API.runtime.sendMessage({
-			actions: [{
-				action: 'fetchData',
-				url: `https://www.reddit.com/api/info.json?id=${postID}`
-			}]
-		})).data;
+		postData = (
+			await BROWSER_API.runtime.sendMessage({
+				actions: [
+					{
+						action: 'fetchData',
+						url: `https://www.reddit.com/api/info.json?id=${postID}`,
+					},
+				],
+			})
+		).data;
 	} catch (e) {
 		console.error(`[RedditEnhancer] showUpvoteRatio: Error fetching post data for ID ${postID}`, error);
 		showBannerMessage('error', error.error || error);
@@ -76,14 +75,8 @@ async function attachRatio(post) {
 	}
 }
 
-// Function - Disable Show Upvote Ratio - New
-function disableShowUpvoteRatioNew() {
-	const ratio = document.querySelector('div.Post').shadowRoot.querySelector('.re-upvote-ratio');
-	if (ratio) ratio.remove();
-}
-
-// Function - Disable Show Upvote Ratio - New New
-function disableShowUpvoteRatioNewNew() {
+// Disable Show Upvote Ratio - RV3
+function disableShowUpvoteRatioRV3() {
 	const ratio = document.querySelector('shreddit-post').shadowRoot.querySelector('.re-upvote-ratio');
 	if (ratio) ratio.remove();
 }

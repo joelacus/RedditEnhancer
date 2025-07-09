@@ -31,7 +31,7 @@ export function loadAlwaysShowPostOptions() {
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Features === */
 export function alwaysShowPostOptions(value) {
 	if (value && redditVersion === 'newnew') {
 		// Attach menu options to posts and comment action rows already present on the page

@@ -1,72 +1,51 @@
-/* ===== Tweaks - Productivity - Auto Load More Comments ===== */
+/**
+ * Tweaks: Productivity - Auto Load More Comment
+ *
+ * @name autoLoadMoreComments
+ * @description Automatically load more comments as the user scrolls down the post comments page.
+ *
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
+ */
 
-//import { waitForAddedNode } from '../../../content_first/functions/tweak_loaders/main_observer';
-
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadAutoLoadMoreComments() {
 	BROWSER_API.storage.sync.get(['autoLoadMoreComments'], function (result) {
 		if (result.autoLoadMoreComments) autoLoadMoreComments(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function autoLoadMoreComments(value) {
-	if (redditVersion === 'newnew' && value === true) {
+	if (redditVersion === 'newnew' && value) {
 		setTimeout(() => {
 			window.scrollTo(0, document.body.scrollHeight);
 		}, 2000);
 		setTimeout(() => {
 			document.documentElement.scrollTop = 0;
 		}, 3000);
-		/*function findLoadMoreButtonAndClick() {
-			const btn = document.querySelector('#comment-tree > :last-child:has(button) button');
-			if (btn) {
-				btn.click();
-				setTimeout(findLoadMoreButtonAndClick, 5000);
-			}
-		}
-		waitForAddedNode(
-			{
-				query: '#comment-tree > :last-child:has(button) button',
-				parent: document.querySelector('body'),
-				recursive: true,
-				done: function (el) {
-					findLoadMoreButtonAndClick();
-				},
-			},
-			false
-		);*/
-		enableAutoLoadMoreCommentsNewNew();
-	} else if (redditVersion === 'new' && value === true) {
-		enableAutoLoadMoreCommentsNew();
-	} else if (redditVersion === 'old' && value === true) {
-		enableAutoLoadMoreCommentsOld();
-	} else if (value === false) {
+		enableAutoLoadMoreCommentsRV3();
+	} else if (redditVersion === 'old' && value) {
+		enableAutoLoadMoreCommentsRV1();
+	} else {
 		disableAutoLoadMoreCommentsAll();
 	}
 }
 
 let load_more_comments_button;
 
-// Function - Enable Auto Load More Comments - Old
-function enableAutoLoadMoreCommentsOld() {
-	load_more_comments_button = '.morecomments a';
-	window.addEventListener('scroll', loadMoreComments);
-}
-
-// Function - Enable Auto Load More Comments - New
-function enableAutoLoadMoreCommentsNew() {
-	load_more_comments_button = '[id^="moreComments"] p';
-	window.addEventListener('scroll', loadMoreComments);
-}
-
-// Function - Enable Auto Load More Comments - New New
-function enableAutoLoadMoreCommentsNewNew() {
+// Enable Auto Load More Comments - RV3
+function enableAutoLoadMoreCommentsRV3() {
 	load_more_comments_button = 'faceplate-partial[src*="/more-comments/"]';
 	window.addEventListener('scroll', loadMoreComments);
 }
 
-// Function - Disable Auto Load More Comments - All
+// Enable Auto Load More Comments - RV1
+function enableAutoLoadMoreCommentsRV1() {
+	load_more_comments_button = '.morecomments a';
+	window.addEventListener('scroll', loadMoreComments);
+}
+
+// Disable Auto Load More Comments - All
 function disableAutoLoadMoreCommentsAll() {
 	window.removeEventListener('scroll', loadMoreComments);
 }

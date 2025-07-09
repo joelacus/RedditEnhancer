@@ -4,11 +4,10 @@
  * @name autoExpandComments
  * @description Automatically expand collapsed comments as the user scrolls down the post comments page.
  *
- * Applies to: Old UI (2005-)
- *             New New UI (2023-)
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadAutoExpandComments() {
 	BROWSER_API.storage.sync.get(['autoExpandComments'], function (result) {
 		if (result.autoExpandComments) autoExpandComments(true);

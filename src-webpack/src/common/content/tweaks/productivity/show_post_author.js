@@ -1,13 +1,20 @@
-/* ===== Tweaks - Productivity - Show Missing Post Author On Home/Popular/Search Feeds ===== */
+/**
+ * Tweaks: Productivity - Show Post Author
+ *
+ * @name showPostAuthor
+ * @description Show missing post author on Home/Popular/Search feeds.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadShowPostAuthor() {
 	BROWSER_API.storage.sync.get(['showPostAuthor', 'usernameHoverPopupDelay'], function (result) {
 		if (result.showPostAuthor) showPostAuthor(true, result.usernameHoverPopupDelay);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 let hover_delay = 500;
 export function showPostAuthor(value, delay) {
 	if (delay) hover_delay = delay * 1000;

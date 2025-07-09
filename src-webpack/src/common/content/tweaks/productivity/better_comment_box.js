@@ -3,22 +3,23 @@
  *
  * @name betterCommentBox
  * @description Automatically show formatting options when commenting, add the Ctrl/Cmd + Enter shortcut to submit comments,
- * and hide the toolbar for switching to rich-text editor when setting Markdown composer as default.
+ *              and hide the toolbar for switching to rich-text editor when setting Markdown composer as default.
  *
  * ResizeObserver is used to watch for resizes in the comment tree, which expands as new comments are added.
  *
- * Applies to: New New UI (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
-import { showBannerMessage } from "../../banner_message";
 
-/* === Triggered On Page Load === */
+import { showBannerMessage } from '../../banner_message';
+
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadBetterCommentBox() {
 	BROWSER_API.storage.sync.get(['betterCommentBox'], function (result) {
 		if (result.betterCommentBox) betterCommentBox(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function betterCommentBox(value) {
 	if (redditVersion !== 'newnew' || !value || !window.location.pathname.includes('/comments/')) return;
 
