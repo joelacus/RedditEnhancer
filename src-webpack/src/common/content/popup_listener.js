@@ -3,7 +3,7 @@
 // Listens for commands from the settings popup to enable/disable/change tweaks.
 
 import { addDropShadow } from './tweaks/style/drop_shadow';
-import { alwaysShowPostOptions } from './tweaks/productivity/always_show_post_options';
+import { alwaysShowPostOptions, hidePostBrandAwarenessOption, hidePostDeleteOption, hidePostEditOption, hidePostHideOption, hidePostNotificationOption, hidePostNsfwOption, hidePostReportOption, hidePostSaveOption, hidePostSpoilerOption } from './tweaks/productivity/always_show_post_options';
 import { autoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
 import { autoExpandComments } from './tweaks/productivity/auto_expand_comments';
 import { autoExpandValue } from './tweaks/resize_elements/auto_expand_value';
@@ -376,6 +376,15 @@ const functionRegistry = {
 	leftSideVoteButtons,
 	hideCommunityStatus,
 	subredditDisplayNameBanner,
+	hidePostNotificationOption,
+	hidePostSaveOption,
+	hidePostHideOption,
+	hidePostReportOption,
+	hidePostEditOption,
+	hidePostDeleteOption,
+	hidePostSpoilerOption,
+	hidePostNsfwOption,
+	hidePostBrandAwarenessOption,
 	rightSidePostThumbnails,
 	viewCrossposts,
 	markReadOnOpenExpandos,

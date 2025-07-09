@@ -24,12 +24,14 @@ export function autoExpandComments(value) {
 			if (comments) {
 				comments.querySelectorAll('.comment').forEach(expandComments);
 				observer.observe(comments);
+				console.debug('[RedditEnhancer] autoExpandComments: Expanded all hidden comments and attached ResizeObserver to comment area.');
 			}
 		} else if (redditVersion === 'newnew') {
 			const comments = document.querySelector('shreddit-comment-tree');
 			if (comments) {
 				comments.querySelectorAll('shreddit-comment').forEach(expandComments);
 				observer.observe(comments);
+				console.debug('[RedditEnhancer] autoExpandComments: Expanded all collapsed comments and attached ResizeObserver to shreddit-comment-tree.');
 			}
 		}
 	} else {

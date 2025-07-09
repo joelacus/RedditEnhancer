@@ -579,11 +579,13 @@ export function themePostBackgroundColour(value) {
 										main.main [bundlename="comment_body_header"] {
 											position: relative;
 										}
-										[bundlename="comment_body_header"] comment-body-header {
-											margin-left: -0.5rem;
-											margin-bottom: 0;
-											padding-left: 8px;
-											padding-top: 12px;
+										@media (min-width: 960px) {
+											[bundlename="comment_body_header"] comment-body-header {
+												margin-left: -0.5rem;
+												margin-bottom: 0;
+												padding-left: 8px;
+												padding-top: 12px;
+											}
 										}
 										shreddit-comments-sort-dropdown {
 											--color-neutral-background: transparent !important;
@@ -630,7 +632,7 @@ export function themePostBackgroundColourCSS(value) {
 // Function - Run After Page Has Loaded Comments
 export function loadFixThreadlinesForTranslucentPosts() {
 	BROWSER_API.storage.sync.get(['themePostBackgroundColourCSS'], function (result) {
-		if (result.themePostBackgroundColourCSS && result.themePostBackgroundColourCSS.includes('rgba')) {
+		if (result.themePostBackgroundColourCSS?.includes('rgba') || result.themePostBackgroundColourCSS?.includes('transparent')) {
 			fixThreadlinesForTranslucentPosts();
 			comment_observer.observe(document.querySelector('shreddit-comment-tree'), { childList: true, subtree: true });
 		} else {
@@ -1180,6 +1182,11 @@ export function themeSidebarBgColour(value) {
 										[pagetype="search_results"] #right-sidebar-container,
 										[routename="all"] #right-sidebar-container {
 											backdrop-filter: none !important;
+										}
+										@media (max-width: 960px) {
+											#right-sidebar-contents {
+												background-color: var(--re-theme-sidebar-bg);
+											}
 										}`;
 			document.head.insertBefore(styleElement, document.head.firstChild);
 		}

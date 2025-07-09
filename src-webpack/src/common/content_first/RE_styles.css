@@ -27,6 +27,14 @@ div.re-banner.error {
 	color: var(--color-banner-error-text);
 }
 
+/* ========== MOBILE ========== */
+@media (max-width: 1200px) {
+	shreddit-app.overflow-visible {
+		width: 100vw;
+		overflow: hidden;
+	}
+}
+
 /* ========== BACK TO TOP BUTTON IN HEADER ========== */
 .re-to-top-button:hover,
 .re-all-button:hover {
@@ -207,17 +215,19 @@ a.thumbnail > img {
 	color: var(--color-neutral-content-weak);
 	z-index: 4;
 }
-:not([post-type='crosspost']) .re-post-author::before,
-.re-post-author-active shreddit-feed :not([post-type='crosspost']) span[slot='authorName']::before {
-	content: 'Posted by\00a0';
-	color: var(--color-neutral-content-weak);
-	align-self: center;
-}
-[post-type='crosspost'] .re-post-author::before,
-.re-post-author-active shreddit-feed [post-type='crosspost'] span[slot='authorName']::before {
-	content: 'Crossposted by\00a0';
-	color: var(--color-neutral-content-weak);
-	align-self: center;
+@media (min-width: 768px) {
+	:not([post-type='crosspost']) .re-post-author::before,
+	.re-post-author-active shreddit-feed :not([post-type='crosspost']) span[slot='authorName']::before {
+		content: 'Posted by\00a0';
+		color: var(--color-neutral-content-weak);
+		align-self: center;
+	}
+	[post-type='crosspost'] .re-post-author::before,
+	.re-post-author-active shreddit-feed [post-type='crosspost'] span[slot='authorName']::before {
+		content: 'Crossposted by\00a0';
+		color: var(--color-neutral-content-weak);
+		align-self: center;
+	}
 }
 .re-post-author a {
 	color: var(--color-neutral-content-weak);

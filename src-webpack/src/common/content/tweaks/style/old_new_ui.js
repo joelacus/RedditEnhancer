@@ -604,7 +604,8 @@ export function subredditDisplayNameBanner(value) {
 			dynamicStyleElements.forEach((element) => {
 				document.head.removeChild(element);
 			});
-			document.querySelector('div.masthead h1').textContent = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
+			const title = document.querySelector('div.masthead h1');
+			if (title) title.textContent = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
 		}
 	}
 }

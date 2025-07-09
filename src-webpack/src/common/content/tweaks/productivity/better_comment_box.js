@@ -24,7 +24,7 @@ export function betterCommentBox(value) {
 	if (redditVersion !== 'newnew' || !value || !window.location.pathname.includes('/comments/')) return;
 
 	// Process all shreddit composers
-	document.querySelectorAll('shreddit-composer').forEach(processComposer);
+	document.querySelectorAll('shreddit-composer, shreddit-simple-composer').forEach(processComposer);
 
 	// Attach event listeners to reply buttons
 	document.querySelectorAll('[slot="comment-reply"]').forEach(attachReplyButtonListener);
@@ -39,6 +39,23 @@ function processComposer(composer) {
 	const submitButton = composer.querySelector('button[type="submit"]');
 	if (!submitButton) {
 		showBannerMessage('error', '[RedditEnhancer] autoShowCommentFormattingOptions: No submit button found in composer.');
+	}
+
+	if (composer.tagName === 'SHREDDIT-SIMPLE-COMPOSER' && !composer.getAttribute('re-showFormatting')) {
+		const border = composer.shadowRoot?.querySelector('.border');
+		const textarea = composer.shadowRoot?.querySelector('div[contenteditable]');
+
+		if (border) {
+			border.classList.remove('rounded-5', 'focus-within:border-neutral-border-strong');
+			border.classList.replace('border-neutral-border', 'border-neutral-border-weak');
+		}
+		if (textarea) {
+			textarea.classList.replace('text-16', 'text-14');
+			textarea.classList.add('py-2xs');
+			textarea.classList.remove('rounded-tl-[1.25rem]', 'rounded-tr-[1.25rem]', 'py-sm');
+		}
+		composer.removeAttribute('placeholder');
+		composer.setAttribute('re-showFormatting', '');
 	}
 
 	const rteComposer = composer.shadowRoot?.querySelector('reddit-rte');
@@ -93,7 +110,7 @@ const handleReplyClick = (e) => {
 const observer = new ResizeObserver(function (entries) {
 	entries.forEach(function (entry) {
 		if (entry.target.nodeName === 'SHREDDIT-COMMENT-TREE') {
-			entry.target.querySelectorAll('shreddit-composer').forEach(processComposer);
+			entry.target.querySelectorAll('shreddit-composer, shreddit-simple-composer').forEach(processComposer);
 			entry.target.querySelectorAll('[slot="comment-reply"]').forEach(attachReplyButtonListener);
 		}
 	});

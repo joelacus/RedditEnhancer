@@ -124,6 +124,16 @@ function enableUseCustomBackgroundRV3() {
 										padding-left: .25rem !important;
 									}
 								}
+								@media (max-width: 768px) {
+									shreddit-app[routename="post_page"] main.main,
+									shreddit-app[routename="comments_page"] main.main,
+									shreddit-app[routename="profile_post_page"] main.main,
+									shreddit-app[routename="profile_post_page_comments"] main.main,
+									shreddit-app[routename="post_stats"] main.main {
+										margin: 0;
+										padding: 0;
+									}
+								}
 								shreddit-app[routename="post_stats"] main.main > div {
 									margin-top: 0;
 								}
