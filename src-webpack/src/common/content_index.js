@@ -4,5 +4,4 @@
 
 import './content/tweak_loader';
 import './content/popup_listener';
-import './content/video_observer';
 import './content/detect_page_change';

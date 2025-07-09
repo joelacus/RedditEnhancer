@@ -1,6 +1,16 @@
-/* ===== Tweaks - Productivity - Always Show Post Options ===== */
+/**
+ * Tweaks: Productivity - Always Show Post Options
+ *
+ * @name alwaysShowPostOptions
+ * @description Move buttons from the post overflow menu into the post header for quicker and easier access.
+ *              The user can also choose to hide any buttons they don't want to see.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+import { showBannerMessage } from '../../banner_message';
+
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadAlwaysShowPostOptions() {
 	BROWSER_API.storage.sync.get(['alwaysShowPostOptions', 'hidePostNotificationOption', 'hidePostSaveOption', 'hidePostHideOption', 'hidePostReportOption', 'hidePostEditOption', 'hidePostDeleteOption', 'hidePostSpoilerOption', 'hidePostNSFWOption', 'hidePostBrandAwarenessOption'], function (result) {
 		if (result.alwaysShowPostOptions) alwaysShowPostOptions(true);
@@ -11,22 +21,22 @@ export function loadAlwaysShowPostOptions() {
 		if (result.hidePostEditOption) hidePostEditOption(true);
 		if (result.hidePostDeleteOption) hidePostDeleteOption(true);
 		if (result.hidePostSpoilerOption) hidePostSpoilerOption(true);
-		if (result.hidePostNSFWOption) hidePostNSFWOption(true);
+		if (result.hidePostNSFWOption) hidePostNsfwOption(true);
 		if (result.hidePostBrandAwarenessOption) hidePostBrandAwarenessOption(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Features === */
 export function alwaysShowPostOptions(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableAlwaysShowPostOptionsNewNew();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableAlwaysShowPostOptionsRV3();
+	} else {
+		showBannerMessage('info', '[RedditEnhancer] Please refresh the page for the change to take full effect.');
 	}
 }
 
-// Function - Enable Always Show Post Options - New New
-function enableAlwaysShowPostOptionsNewNew() {
+// Enable Always Show Post Options - RV3
+function enableAlwaysShowPostOptionsRV3() {
 	if (!document.querySelector('style[id="re-post-expand-menu"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-post-expand-menu';
@@ -60,7 +70,7 @@ function enableAlwaysShowPostOptionsNewNew() {
 	}, 100);
 }
 
-// Function - Attach Menu And Move Items - New New
+// Attach Menu And Move Items - RV3
 function attachMenu(post) {
 	if (!post.querySelector('.re-btn-menu > div')) {
 		const postCreditBar = post.querySelector('[slot="credit-bar"]');
@@ -76,7 +86,7 @@ function attachMenu(post) {
 	}
 }
 
-// Observe feed for new posts - New New
+// Observe feed for new posts - RV3
 const observer = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {
 		mutation.addedNodes.forEach(function (addedNode) {
@@ -87,7 +97,7 @@ const observer = new MutationObserver(function (mutations) {
 	});
 });
 
-// Function - Enable Hide "Notification" Option - New New
+// Hide "Notification" Option - RV3
 export function hidePostNotificationOption(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
@@ -109,7 +119,7 @@ export function hidePostNotificationOption(value) {
 	}
 }
 
-// Function - Enable Hide "Save" Option - New New
+// Hide "Save" Option - RV3
 export function hidePostSaveOption(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
@@ -130,7 +140,7 @@ export function hidePostSaveOption(value) {
 	}
 }
 
-// Function - Enable Hide "Hide" Option - New New
+// Hide "Hide" Option - RV3
 export function hidePostHideOption(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
@@ -151,7 +161,7 @@ export function hidePostHideOption(value) {
 	}
 }
 
-// Function - Enable Hide "Report" Option - New New
+// Hide "Report" Option - RV3
 export function hidePostReportOption(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
@@ -172,7 +182,7 @@ export function hidePostReportOption(value) {
 	}
 }
 
-// Function - Enable Hide "Edit" Option - New New
+// Hide "Edit" Option - RV3
 export function hidePostEditOption(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
@@ -193,7 +203,7 @@ export function hidePostEditOption(value) {
 	}
 }
 
-// Function - Enable Hide "Delete" Option - New New
+// Enable Hide "Delete" Option - RV3
 export function hidePostDeleteOption(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
@@ -214,7 +224,7 @@ export function hidePostDeleteOption(value) {
 	}
 }
 
-// Function - Enable Hide "Spoiler" Option - New New
+// Hide "Spoiler" Option - RV3
 export function hidePostSpoilerOption(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
@@ -235,7 +245,7 @@ export function hidePostSpoilerOption(value) {
 	}
 }
 
-// Function - Enable Hide "NSFW" Option - New New
+// Hide "NSFW" Option - RV3
 export function hidePostNsfwOption(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
@@ -256,7 +266,7 @@ export function hidePostNsfwOption(value) {
 	}
 }
 
-// Function - Enable Hide "Brand Awareness" Option - New New
+// Enable Hide "Brand Awareness" Option - RV3
 export function hidePostBrandAwarenessOption(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {

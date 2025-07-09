@@ -230,20 +230,6 @@ export function restorePopupMediaOptions() {
 		console.log('Max Video Post Height: ' + value);
 	});
 
-	// New Player
-	BROWSER_API.storage.sync.get(['newPlayer'], function (result) {
-		if (result.newPlayer == true) {
-			document.querySelector('#checkbox-new-player').checked = true;
-			document.querySelector('.icon-new-player').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('media-tweaks');
-			var value = true;
-		} else if (typeof result.newPlayer == 'undefined' || result.newPlayer == false) {
-			document.querySelector('#checkbox-new-player').checked = false;
-			var value = false;
-		}
-		console.log('Use New Video Player: ' + value);
-	});
-
 	// Add Download Video Button
 	BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
 		if (result.addDownloadVideoButton === true) {
@@ -293,20 +279,6 @@ export function restorePopupMediaOptions() {
 			document.querySelector('.icon-text-post-preview-fade-height').style.backgroundColor = 'var(--accent)';
 		}
 		console.log(`Text Post Preview Fade Height: ${value >= 0 ? value + 'px' : 'default'}`);
-	});
-
-	// Add Scroll To Text Post
-	BROWSER_API.storage.sync.get(['textPostScroll'], function (result) {
-		if (result.textPostScroll == true) {
-			document.querySelector('#checkbox-text-scroll-post').checked = true;
-			document.querySelector('.icon-text-scroll-post').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('media-tweaks');
-			var value = true;
-		} else if (typeof result.textPostScroll == 'undefined' || result.textPostScroll == false) {
-			document.querySelector('#checkbox-text-scroll-post').checked = false;
-			var value = false;
-		}
-		console.log('Add Scroll To Long Text Posts: ' + value);
 	});
 
 	// Replace Post Images With Links

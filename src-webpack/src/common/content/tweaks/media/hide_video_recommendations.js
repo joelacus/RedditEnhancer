@@ -26,7 +26,8 @@ function enableHideVideoRecommendations() {
 	if (!document.head.querySelector('style[id="re-hide-video-recommendations"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-video-recommendations';
-		styleElement.textContent = `shreddit-aspect-ratio div[slot="recommendation-overlay"] {
+		styleElement.textContent = `shreddit-aspect-ratio div[slot="recommendation-overlay"],
+									shreddit-player-2 .overlay-recommendations {
                                         display: none;
                                     }`;
 		document.head.insertBefore(styleElement, document.head.firstChild);

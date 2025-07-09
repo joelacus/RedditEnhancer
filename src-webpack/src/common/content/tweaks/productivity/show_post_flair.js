@@ -1,5 +1,6 @@
 /**
  * Tweaks: Productivity - Show Post Flair
+ *
  * @name showPostFlair
  *
  * Attempt to attach post flairs to posts in frontpage, popular and multireddit feeds, which are omitted by default.
@@ -14,22 +15,22 @@
  * of reddit.com, such as sh.reddit.com. RE tries to work around this by explicitly setting 'no-cors' in the request to
  * bypass CORS, however this means that if it fails, we have no way of knowing why it failed. Oh well.
  *
- * Applies to: New New UI (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
-import { showBannerMessage } from "../../banner_message";
+import { showBannerMessage } from '../../banner_message';
 
 // Flag to halt the process and prevent multiple error messages when an error occur
 let e = false;
 
-// Get the feature state from browser sync storage
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadShowPostFlair() {
 	BROWSER_API.storage.sync.get(['showPostFlair'], function (result) {
 		if (result.showPostFlair) showPostFlair(true);
 	});
 }
 
-// Activate the feature based on Reddit version
+/* === Enable/Disable The Feature === */
 // NOTE: adding flairs to search results leads to 429s, so restrain from doing that for now
 export function showPostFlair(value) {
 	const routeName = document.querySelector('shreddit-app').getAttribute('routename');
@@ -41,7 +42,7 @@ export function showPostFlair(value) {
 	} else {
 		// Disconnect the observer and remove all added post flairs
 		observer.disconnect();
-		document.querySelectorAll('shreddit-post .re-post-flair').forEach(flair => flair.remove());
+		document.querySelectorAll('shreddit-post .re-post-flair').forEach((flair) => flair.remove());
 	}
 }
 
@@ -53,12 +54,16 @@ async function attachFlair(post) {
 	let postData;
 
 	try {
-		postData = (await BROWSER_API.runtime.sendMessage({
-			actions: [{
-				action: 'fetchData',
-				url: `https://www.reddit.com/api/info.json?id=${postID}`
-			}]
-		})).data;
+		postData = (
+			await BROWSER_API.runtime.sendMessage({
+				actions: [
+					{
+						action: 'fetchData',
+						url: `https://www.reddit.com/api/info.json?id=${postID}`,
+					},
+				],
+			})
+		).data;
 	} catch (error) {
 		console.log(error);
 		showBannerMessage('error', error.error || error);
@@ -85,8 +90,7 @@ async function attachFlair(post) {
 
 		// Build <span>
 		let span = Object.assign(document.createElement('span'), {
-			className: 'bg-tone-4 inline-block truncate max-w-full text-12 font-normal align-text-bottom box-border px-[6px] ' +
-				'rounded-[20px] leading-4 text-secondary relative top-[-0.25rem] xs:top-[-2px] my-2xs xs:mb-sm py-0',
+			className: 'bg-tone-4 inline-block truncate max-w-full text-12 font-normal align-text-bottom box-border px-[6px] ' + 'rounded-[20px] leading-4 text-secondary relative top-[-0.25rem] xs:top-[-2px] my-2xs xs:mb-sm py-0',
 			style: `background-color: ${flairBgColour}; display: inline-flex; grid-gap: 4px;`,
 		});
 		if (flairBgColour && flairBgColour !== 'transparent') {
@@ -127,15 +131,15 @@ async function attachFlair(post) {
 			width: '16',
 			height: '16',
 			src: flairEmojiURL,
-			alt: 'emoji' + flairEmoji
+			alt: 'emoji' + flairEmoji,
 		});
 		const div = Object.assign(document.createElement('div'), {
 			className: 'loaded',
-			style: 'width:16px; height:16px;'
+			style: 'width:16px; height:16px;',
 		});
 		const img = Object.assign(document.createElement('img'), {
 			src: flairEmojiURL,
-			alt: 'emoji' + flairEmoji
+			alt: 'emoji' + flairEmoji,
 		});
 		div.append(img);
 		faceplate_img.append(div);
@@ -144,17 +148,17 @@ async function attachFlair(post) {
 }
 
 // Observe feed for new posts
-const observer = new MutationObserver(mutations => {
-    mutations.forEach(mutation => {
-        mutation.addedNodes.forEach(addedNode => {
-            if (addedNode.nodeName === 'ARTICLE') {
-                setTimeout(() => {
-                    const post = addedNode.querySelector('shreddit-post');
-                    if (post) {
-                        attachFlair(post);
-                    }
-                }, 1000);
-            }
-        });
-    });
+const observer = new MutationObserver((mutations) => {
+	mutations.forEach((mutation) => {
+		mutation.addedNodes.forEach((addedNode) => {
+			if (addedNode.nodeName === 'ARTICLE') {
+				setTimeout(() => {
+					const post = addedNode.querySelector('shreddit-post');
+					if (post) {
+						attachFlair(post);
+					}
+				}, 1000);
+			}
+		});
+	});
 });

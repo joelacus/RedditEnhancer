@@ -4,7 +4,6 @@
 
 import { addDropShadow } from './tweaks/style/drop_shadow';
 import { alwaysShowPostOptions, hidePostBrandAwarenessOption, hidePostDeleteOption, hidePostEditOption, hidePostHideOption, hidePostNotificationOption, hidePostNsfwOption, hidePostReportOption, hidePostSaveOption, hidePostSpoilerOption } from './tweaks/productivity/always_show_post_options';
-import { alwaysShowRisingButton } from './tweaks/productivity/always_show_rising';
 import { autoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
 import { autoExpandComments } from './tweaks/productivity/auto_expand_comments';
 import { autoExpandValue } from './tweaks/resize_elements/auto_expand_value';
@@ -34,26 +33,20 @@ import { imageScroll } from './tweaks/media/scroll_images';
 import { setMaxImagePostHeight, setMaxImageWidth, setMaxVideoWidth, setMaxVideoPostHeight } from './tweaks/media/limit_media_size';
 import { largerClassicPost } from './tweaks/style/larger_classic_post';
 import { layoutCentre, layoutOffset, layoutSubOffset, layoutPostOffset, layoutUserProfileOffset, layoutSearchPageOffset } from './tweaks/resize_elements/layout_centre_and_offset';
-import { limitInfinityScroll } from './tweaks/productivity/limit_infinity_scroll';
+//import { limitInfinityScroll } from './tweaks/productivity/limit_infinity_scroll';
 import { moderniseOldReddit } from './tweaks/style/modernise_old_reddit';
-import { newPlayer } from './tweaks/productivity/video_player';
 import { nonStickyHeaderBar } from './tweaks/productivity/non_sticky_header_bar';
 import { openPostInNewTab } from './tweaks/productivity/open_post_links_in_new_tab';
 import { openSubInNewTab } from './tweaks/productivity/open_sub_links_in_new_tab';
 import { overrideDropShadow, overrideDropShadowCSS } from './tweaks/style/override_drop_shadow';
-import { postHeight, postHeightSize } from './tweaks/productivity/post_max_height';
 import { postTitleFontSize, postCommentsFontSize, postContentFontSize, feedPostTitleFontSize, feedPostContentFontSize, createPostTitleFontSize, createPostBodyFontSize } from './tweaks/font/resize_font';
 import { feedPostContentFontWeight, feedPostTitleFontWeight, postCommentsFontWeight, postContentFontWeight, postTitleFontWeight } from './tweaks/font/font_weight';
 import { scrollToNextRootComment, scrollToNextRootCommentPosition } from './tweaks/productivity/scroll_to_next_root_comment';
-import { showAllButton } from './tweaks/productivity/show_r_all_button';
-import { showControversialSortButton } from './tweaks/productivity/show_controversial_sort_button';
 import { showPostAuthor } from './tweaks/productivity/show_post_author';
 import { showPostFlair } from './tweaks/productivity/show_post_flair';
 import { showPostNumbers } from './tweaks/productivity/show_post_numbers';
 import { showToTopButton } from './tweaks/productivity/scroll_to_top';
-import { sidemenuFeedTop } from './tweaks/productivity/sidemenu_feed_top';
 import { stickySort } from './tweaks/productivity/sticky_sort';
-import { textPostScroll } from './tweaks/productivity/text_post_scroll';
 import {
 	themeBlur,
 	themeCreatePostBackgroundColour,
@@ -216,17 +209,12 @@ const functionRegistry = {
 	stickySort,
 	hideUsername,
 	hideKarma,
-	alwaysShowRisingButton,
 	hideGetNewReddit,
 	openSubInNewTab,
 	openPostInNewTab,
 	hidePromoted,
 	hideRecommended,
 	showToTopButton,
-	showAllButton,
-	newPlayer,
-	sidemenuFeedTop,
-	textPostScroll,
 	moderniseOldReddit,
 	hideHeaderSubBar,
 	hideSideMenuOld,
@@ -236,15 +224,12 @@ const functionRegistry = {
 	hideUserSidebar,
 	hideCustomFeedSidebar,
 	hideRelatedPostsSection,
-	limitInfinityScroll,
-	showControversialSortButton,
+	//limitInfinityScroll,
 	hideNSFW,
 	scrollToNextRootComment,
 	showPostNumbers,
 	overrideDropShadow,
 	overrideDropShadowCSS,
-	postHeight,
-	postHeightSize,
 	themeHeaderBackgroundColour,
 	themeHeaderBackgroundColourCSS,
 	themeHeaderTextColour,

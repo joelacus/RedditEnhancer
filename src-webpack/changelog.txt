@@ -4,12 +4,16 @@ v [General]
   - New permission required (history), although optional for Firefox users, for the new feature "Mark posts as read when expanded in compact view". This option simply adds the post URL to your browser's history to mark it as "read".
   - Removed code and support for the deprecated Reddit version "Old New UI".
   - Cleaned up code to improve performance and maintainability.
+  - Bug fixes and improvements.
 v [New New UI]
   - Added a new option to add a "Download Video" button to video posts. (This currently only works for mp4 URLs, not m3u8, so some posts won't have the download button).
+  - Added support for "Open Post In New Tab".
+  - Added support for "Open Subreddit In New Tab".
   - Fixed an issue where "Show vote buttons on the left" used with "Hide NSFW/L Posts" or "Hide Recommended/Suggested Posts", would show only partially hidden posts.
   - Fixed "Upvote Colour" not working with the option to move the vote buttons to the left of the post.
   - "Auto Expand Comments" now remembers if you have closed a comment thread and will not re-expand it.
   - The "Override Default Sort Option" grace period has been removed as it it not longer required. You can now manually change the feed sort option whenever you want without the "Default Feed Sort Option" feature from auto reverting to what is set in the extension.  
+  - Fixed "Hide Video Recommendations" not working due to a website update.
 
 version 1.17.0
 v [General]

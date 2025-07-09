@@ -1,59 +1,29 @@
-/* ===== Tweaks - Productivity - Non Sticky Header Bar ===== */
+/**
+ * Tweaks: Productivity - Non Sticky Header Bar
+ * @name nonStickyHeaderBar
+ * @description Prevent the top/header bar from being fixed to the top of the page when the user scrolls down.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadNonStickyHeaderBar() {
 	BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
 		if (result.nonStickyHeaderBar) nonStickyHeaderBar(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function nonStickyHeaderBar(value) {
-	if (redditVersion === 'new') {
-		if (value == true) {
-			enableNonStickyHeaderBarNew();
-		} else if (value == false) {
-			disableNonStickyHeaderBarNew();
-		}
-	} else if (redditVersion === 'newnew') {
-		if (value == true) {
-			enableNonStickyHeaderBarNewNew();
-		} else if (value == false) {
-			disableNonStickyHeaderBarNewNew();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableNonStickyHeaderBarRV3();
+	} else {
+		disableNonStickyHeaderBarAll();
 	}
 }
 
-// Function - Enable Non Sticky Header Bar - New
-function enableNonStickyHeaderBarNew() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-non-sticky-header-bar';
-	styleElement.textContent = `header[data-redditstyle="true"] {
-									position: absolute !important;
-								}
-								div:has(> div#overlayScrollContainer),
-								#SHORTCUT_FOCUSABLE_DIV > div[class*="subredditvars-r"] > div {
-									top: 0;
-								}
-								#SHORTCUT_FOCUSABLE_DIV:has(div#overlayScrollContainer) header {
-									display: none;
-								}
-								div[data-testid$="-sidebar"] > div:last-child > div {
-									top: 1rem;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
-}
-
-// Function - Disable Non Sticky Header Bar - New
-function disableNonStickyHeaderBarNew() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-non-sticky-header-bar"]');
-	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
-	});
-}
-
-// Function - Enable Non Sticky Header Bar - New New
-function enableNonStickyHeaderBarNewNew() {
+// Enable Non Sticky Header Bar - RV3
+function enableNonStickyHeaderBarRV3() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-non-sticky-header-bar';
 	styleElement.textContent = `:root {
@@ -74,8 +44,8 @@ function enableNonStickyHeaderBarNewNew() {
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
-// Function - Disable Non Sticky Header Bar - New New
-function disableNonStickyHeaderBarNewNew() {
+// Disable Non Sticky Header Bar - All
+function disableNonStickyHeaderBarAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-non-sticky-header-bar"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);

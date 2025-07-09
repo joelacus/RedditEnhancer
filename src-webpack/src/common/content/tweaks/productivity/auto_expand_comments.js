@@ -4,43 +4,42 @@
  * @name autoExpandComments
  * @description Automatically expand collapsed comments as the user scrolls down the post comments page.
  *
- * Applies to: Old UI (2005-)
- *             New New UI (2023-)
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadAutoExpandComments() {
 	BROWSER_API.storage.sync.get(['autoExpandComments'], function (result) {
 		if (result.autoExpandComments) autoExpandComments(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function autoExpandComments(value) {
 	if (redditVersion === 'newnew' && value) {
-		enableAutoExpandCommentsNewNew();
+		enableAutoExpandCommentsRV3();
 	} else if (redditVersion === 'old' && value) {
-		enableAutoExpandCommentsOld();
-	} else if (value === false) {
+		enableAutoExpandCommentsRV1();
+	} else {
 		disableAutoExpandCommentsAll();
 	}
 }
 
 let comment_id;
 
-// Function - Enable Auto Expand Comments - New New
-function enableAutoExpandCommentsNewNew() {
+// Enable Auto Expand Comments - RV3
+function enableAutoExpandCommentsRV3() {
 	comment_id = 'shreddit-comment';
 	window.addEventListener('scroll', expandComments);
 }
 
-// Function - Enable Auto Expand Comments - Old
-function enableAutoExpandCommentsOld() {
+// Enable Auto Expand Comments - RV1
+function enableAutoExpandCommentsRV1() {
 	comment_id = '.comment.collapsed';
 	window.addEventListener('scroll', expandComments);
 }
 
-// Function - Disable Auto Expand Comments - All
+// Disable Auto Expand Comments - All
 function disableAutoExpandCommentsAll() {
 	window.removeEventListener('scroll', expandComments);
 }

@@ -19,38 +19,6 @@ export function restorePopupProductivityOptions() {
 		console.log('Show Scroll To Top Button: ' + value);
 	});
 
-	// Always Show Rising Sort Button
-	BROWSER_API.storage.sync.get(['alwaysShowRisingButton'], function (result) {
-		if (result.alwaysShowRisingButton == true) {
-			document.querySelector('#checkbox-always-show-rising-button').checked = true;
-			document.querySelector('.always-show-rising-button').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.always-show-rising-button').classList.remove('icon-rising');
-			document.querySelector('.always-show-rising-button').classList.add('icon-rising-fill');
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.alwaysShowRisingButton == 'undefined' || result.alwaysShowRisingButton == false) {
-			document.querySelector('#checkbox-always-show-rising-button').checked = false;
-			var value = false;
-		}
-		console.log('Always Show Rising Sort Button: ' + value);
-	});
-
-	// Show Controversial Sort Button
-	BROWSER_API.storage.sync.get(['showControversialSortButton'], function (result) {
-		if (result.showControversialSortButton == true) {
-			document.querySelector('#checkbox-controversial-sort-button').checked = true;
-			document.querySelector('.icon-controversial-sort-button').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.icon-controversial-sort-button').classList.remove('icon-sword');
-			document.querySelector('.icon-controversial-sort-button').classList.add('icon-sword-fill');
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.showControversialSortButton == 'undefined' || result.showControversialSortButton == false) {
-			document.querySelector('#checkbox-controversial-sort-button').checked = false;
-			var value = false;
-		}
-		console.log('Show Controversial Sort Button: ' + value);
-	});
-
 	// Open Sub Links In New Tab
 	BROWSER_API.storage.sync.get(['openSubInNewTab'], function (result) {
 		if (result.openSubInNewTab == true) {
@@ -93,34 +61,6 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
     }
     console.log("Add Emoji Picker: "+value)
 })*/
-
-	// Show r/All Button
-	BROWSER_API.storage.sync.get(['showAllButton'], function (result) {
-		if (result.showAllButton == true) {
-			document.querySelector('#checkbox-show-r-all-button').checked = true;
-			document.querySelector('.icon-show-r-all').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.showAllButton == 'undefined' || result.showAllButton == false) {
-			document.querySelector('#checkbox-show-r-all-button').checked = false;
-			var value = false;
-		}
-		console.log('Show r/All Button: ' + value);
-	});
-
-	// Move Feed Section In Side Menu To The Top
-	BROWSER_API.storage.sync.get(['sidemenuFeedTop'], function (result) {
-		if (result.sidemenuFeedTop == true) {
-			document.querySelector('#checkbox-sidemenu-feed-top').checked = true;
-			document.querySelector('.icon-sidemenu-feed-top').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.sidemenuFeedTop == 'undefined' || result.sidemenuFeedTop == false) {
-			document.querySelector('#checkbox-sidemenu-feed-top').checked = false;
-			var value = false;
-		}
-		console.log('Move Feed Section In Side Menu To The Top: ' + value);
-	});
 
 	// Always Show Post Options
 	BROWSER_API.storage.sync.get(['alwaysShowPostOptions'], function (result) {
@@ -305,7 +245,7 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 	});
 
 	// Limit Infinity Scroll
-	BROWSER_API.storage.sync.get(['limitInfinityScroll'], function (result) {
+	/*BROWSER_API.storage.sync.get(['limitInfinityScroll'], function (result) {
 		if (result.limitInfinityScroll == true) {
 			document.querySelector('#checkbox-limit-infinity-scroll').checked = true;
 			document.querySelector('.icon-limit-infinity-scroll').style.backgroundColor = 'var(--accent)';
@@ -318,7 +258,7 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 			var value = false;
 		}
 		console.log('Limit Infinity Scroll: ' + value);
-	});
+	});*/
 
 	// Enable Default Home Feed Sort Option
 	BROWSER_API.storage.sync.get(['enableDefaultHomeFeedSortOption'], function (result) {
@@ -452,41 +392,6 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		console.log('Show Post Numbers: ' + value);
 	});
 
-	// Post Height
-	BROWSER_API.storage.sync.get(['postHeight'], function (result) {
-		if (result.postHeight === true) {
-			document.querySelector('#checkbox-post-height').checked = true;
-			document.querySelector('.icon-post-height').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.postHeight == 'undefined' || result.postHeight == false) {
-			document.querySelector('#checkbox-post-height').checked = false;
-			var value = false;
-		}
-		console.log('Post Height: ' + value);
-	});
-
-	// Post Height Size
-	BROWSER_API.storage.sync.get(['postHeightSize'], function (result) {
-		if (typeof result.postHeightSize != 'undefined') {
-			if (result.postHeightSize > 304 && result.postHeightSize <= 1000) {
-				highlightMenuIcon('productivity-tweaks');
-				document.querySelector('#input-feed-post-max-height').value = result.postHeightSize;
-				document.querySelector('#feed-post-max-height-value').innerText = result.postHeightSize + 'px';
-				var value = result.postHeightSize + 'px';
-			} else {
-				document.querySelector('#input-feed-post-max-height').value = 296;
-				document.querySelector('#feed-post-max-height-value').innerText = '512px';
-				var value = 'default (512px)';
-			}
-		} else if (typeof result.postHeightSize == 'undefined') {
-			document.querySelector('#input-feed-post-max-height').value = 296;
-			document.querySelector('#feed-post-max-height-value').innerText = '512px';
-			var value = 'default (512px)';
-		}
-		console.log('Post Height Size: ' + value);
-	});
-
 	// Non Sticky Header Bar
 	BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
 		if (result.nonStickyHeaderBar == true) {
@@ -561,7 +466,7 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 	});
 
 	// Break Reminder Frequency
-	BROWSER_API.storage.sync.get(['breakReminderFrequency'], function (result) {
+	/*BROWSER_API.storage.sync.get(['breakReminderFrequency'], function (result) {
 		if (typeof result.breakReminderFrequency == 'undefined') {
 			var value = 50;
 		} else if (typeof result.breakReminderFrequency != 'undefined') {
@@ -570,7 +475,7 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		document.querySelector('#input-break-reminder-frequency').value = value;
 		document.querySelector('#break-reminder-frequency-value').innerText = value;
 		console.log('Break Reminder Frequency: ' + value);
-	});
+	});*/
 
 	// Show Post Author
 	BROWSER_API.storage.sync.get(['showPostAuthor'], function (result) {

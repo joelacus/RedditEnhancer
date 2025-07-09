@@ -250,20 +250,6 @@ document.querySelector('#input-max-video-post-height').addEventListener('mouseup
 	BROWSER_API.storage.sync.set({ maxVideoPostHeight: e.target.value });
 });
 
-// Toggle - New Video Player
-document.querySelector('#checkbox-new-player').addEventListener('change', function (e) {
-	var newPlayer = document.querySelector('#checkbox-new-player').checked;
-	if (newPlayer == true) {
-		BROWSER_API.storage.sync.set({ newPlayer: true });
-		document.querySelector('.icon-new-player').style.backgroundColor = 'var(--accent)';
-		sendMessage({ newPlayer: true });
-	} else if (newPlayer == false) {
-		BROWSER_API.storage.sync.set({ newPlayer: false });
-		document.querySelector('.icon-new-player').style.backgroundColor = '';
-		sendMessage({ newPlayer: false });
-	}
-});
-
 // Toggle - Add Video Download Button
 document.querySelector('#checkbox-add-download-video-button').addEventListener('change', function (e) {
 	const addDownloadVideoButton = document.querySelector('#checkbox-add-download-video-button').checked;
@@ -336,20 +322,6 @@ document.querySelector('#input-text-post-preview-fade-height').addEventListener(
 });
 document.querySelector('#input-text-post-preview-fade-height').addEventListener('mouseup', function (e) {
 	BROWSER_API.storage.sync.set({ textPostPreviewFadeHeight: e.target.value });
-});
-
-// Toggle - Add Scroll To Text Post
-document.querySelector('#checkbox-text-scroll-post').addEventListener('change', function (e) {
-	const textPostScroll = document.querySelector('#checkbox-text-scroll-post').checked;
-	if (textPostScroll == true) {
-		BROWSER_API.storage.sync.set({ textPostScroll: true });
-		document.querySelector('.icon-text-scroll-post').style.backgroundColor = 'var(--accent)';
-		sendMessage({ textPostScroll: true });
-	} else if (textPostScroll == false) {
-		BROWSER_API.storage.sync.set({ textPostScroll: false });
-		document.querySelector('.icon-text-scroll-post').style.backgroundColor = '';
-		sendMessage({ textPostScroll: false });
-	}
 });
 
 // Toggle - Replace Post Images With Links

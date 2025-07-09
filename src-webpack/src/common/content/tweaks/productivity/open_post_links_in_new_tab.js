@@ -1,55 +1,55 @@
-/* ===== Tweaks - Productivity - Open links to post in new tab ===== */
+/**
+ * Tweaks: Productivity - Open Post In New Tab
+ * @name openPostInNewTab
+ * @description Set post links to open in a new tab.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadOpenPostInNewTab() {
 	BROWSER_API.storage.sync.get(['openPostInNewTab'], function (result) {
 		if (result.openPostInNewTab) openPostInNewTab(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function openPostInNewTab(value) {
-	const link = window.location.href;
-	if (redditVersion === 'new') {
-		if (link.indexOf('/comments/') <= 0 && link.indexOf('/settings/') <= 0) {
-			// not post, not settings
-			if (value == true) {
-				const links = document.querySelectorAll('.re-feed-container [href*="/comments/"]');
-				if (links) {
-					links.forEach(function (link) {
-						link.classList.add('re-post-link');
-						link.removeAttribute('data-click-id');
-						link.setAttribute('target', '_blank');
-						link.addEventListener('click', function (event) {
-							event.stopPropagation();
-						});
+	if (redditVersion === 'newnew' && value) {
+		if (document.querySelector('shreddit-app shreddit-feed')) {
+			const links = document.querySelectorAll('shreddit-post [slot="full-post-link"]');
+			if (links) {
+				links.forEach(function (link) {
+					link.classList.add('re-post-link');
+					link.setAttribute('target', '_blank');
+					link.addEventListener('click', function (event) {
+						event.stopPropagation();
 					});
-				}
-				observer.observe(document.querySelector('.re-feed-container'), { childList: true, subtree: true });
-			} else if (value == false) {
-				observer.disconnect();
-				const links = document.querySelectorAll('.re-post-link');
-				if (links) {
-					links.forEach(function (link) {
-						link.classList.remove('re-post-link');
-						link.setAttribute('data-click-id', 'body');
-						link.removeAttribute('target');
-					});
-				}
+				});
 			}
+			observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
+		}
+	} else {
+		observer.disconnect();
+		const links = document.querySelectorAll('.re-post-link');
+		if (links) {
+			links.forEach(function (link) {
+				link.classList.remove('re-post-link');
+				link.setAttribute('target', '_self');
+			});
 		}
 	}
 }
 
+// Observe feed for new posts - RV3
 const observer = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {
 		mutation.addedNodes.forEach(function (addedNode) {
-			if (addedNode.nodeName === 'DIV') {
-				const links = addedNode.querySelectorAll('[data-click-id="body"][href*="/comments/"]');
+			if (['TIME', 'ARTICLE', 'DIV'].includes(addedNode.nodeName)) {
+				const links = addedNode.querySelectorAll('shreddit-post [slot="full-post-link"]');
 				if (links.length >= 1) {
 					links.forEach(function (link) {
 						link.classList.add('re-post-link');
-						link.removeAttribute('data-click-id');
 						link.setAttribute('target', '_blank');
 						link.addEventListener('click', function (event) {
 							event.stopPropagation();

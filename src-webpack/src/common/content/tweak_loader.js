@@ -3,7 +3,6 @@
 // Applies certain tweaks after the page has loaded.
 
 import { loadAddDownloadVideoButton } from './tweaks/media/add_download_video_button';
-//import { loadAlwaysShowRisingButton } from './tweaks/productivity/always_show_rising';
 import { loadAutoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
 import { loadAutoExpandComments } from './tweaks/productivity/auto_expand_comments';
 import { loadAutoExpandValue } from './tweaks/resize_elements/auto_expand_value';
@@ -14,18 +13,13 @@ import { loadHideNSFW } from './tweaks/hide_elements/hide_nsfw';
 import { loadHideBlockedKeywordPosts } from './tweaks/block/block_posts_by_keyword';
 //import { loadLimitInfinityScroll } from './tweaks/productivity/limit_infinity_scroll';
 import { loadModerniseOldReddit } from './tweaks/style/modernise_old_reddit';
-//import { loadNewPlayer } from './tweaks/productivity/video_player';
-//import { loadOpenPostInNewTab } from './tweaks/productivity/open_post_links_in_new_tab';
-//import { loadOpenSubInNewTab } from './tweaks/productivity/open_sub_links_in_new_tab';
+import { loadOpenPostInNewTab } from './tweaks/productivity/open_post_links_in_new_tab';
+import { loadOpenSubInNewTab } from './tweaks/productivity/open_sub_links_in_new_tab';
 import { loadScrollToNextRootComment } from './tweaks/productivity/scroll_to_next_root_comment';
-import { loadShowAllButton } from './tweaks/productivity/show_r_all_button';
-//import { loadShowControversialSortButton } from './tweaks/productivity/show_controversial_sort_button';
 import { loadShowPostAuthor } from './tweaks/productivity/show_post_author';
 import { loadShowPostFlair } from './tweaks/productivity/show_post_flair';
 import { loadShowPostNumbers } from './tweaks/productivity/show_post_numbers';
 import { loadShowToTopButton } from './tweaks/productivity/scroll_to_top';
-//import { loadSidemenuFeedTop } from './tweaks/productivity/sidemenu_feed_top';
-//import { loadTextPostScroll } from './tweaks/productivity/text_post_scroll';
 import { loadAutoLoadMoreComments } from './tweaks/productivity/auto_load_more_comments';
 import { waitForAddedNode } from '../content_first/functions/tweak_loaders/main_observer';
 import { loadHidePostKarma, loadHideCommentKarma } from './tweaks/hide_elements/hide_post_comment_karma';
@@ -76,6 +70,8 @@ export function loadTweaks() {
 		loadSideMenuToggleButton();
 		loadUsernameHoverPopupDelay();
 		loadSubredditDisplayNameBanner();
+		loadOpenPostInNewTab();
+		loadOpenSubInNewTab();
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
@@ -242,7 +238,6 @@ export function loadTweaks() {
 	// Run again (make sure it loaded correctly)
 	setTimeout(() => {
 		loadShowToTopButton();
-		loadShowAllButton();
 	}, 5000);
 }
 loadTweaks();

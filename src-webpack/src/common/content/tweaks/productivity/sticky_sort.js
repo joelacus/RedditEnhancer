@@ -1,31 +1,32 @@
-/* ===== Tweaks - Productivity - Sticky Sort ===== */
+/**
+ * Tweaks: Productivity - Sticky Sort
+ *
+ * @name stickySort
+ * @description Always keep the sort bar visible when the user scrolls down the page.
+ *
+ * Compatibility: RV1 (Old UI) (2005-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadStickySort() {
 	BROWSER_API.storage.sync.get(['stickySort'], function (result) {
 		if (result.stickySort) stickySort(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function stickySort(value) {
 	if (redditVersion === 'old') {
 		if (value) {
-			enableStickySortOld();
+			enableStickySortRV1();
 		} else {
-			disableStickySortOld();
-		}
-	} else if (redditVersion === 'new') {
-		if (value) {
-			enableStickySortNew();
-		} else {
-			disableStickySortNew();
+			disableStickySortRV1();
 		}
 	}
 }
 
-// Function - Enable Sticky Sort - Old
-function enableStickySortOld() {
+// Enable Sticky Sort - RV1
+function enableStickySortRV1() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-sticky-sort';
 	styleElement.textContent = `.re-sticky-sort {
@@ -39,8 +40,8 @@ function enableStickySortOld() {
 	}
 }
 
-// Function - Disable Sticky Sort - Old
-function disableStickySortOld() {
+// Disable Sticky Sort - RV1
+function disableStickySortRV1() {
 	const dynamicStyleElements = document.querySelectorAll('#re-sticky-sort');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
@@ -48,24 +49,4 @@ function disableStickySortOld() {
 	if (document.querySelector('.tabmenu')) {
 		document.querySelector('.tabmenu').classList.remove('re-sticky-sort');
 	}
-}
-
-// Function - Enable Sticky Sort - New
-function enableStickySortNew() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-sticky-sort';
-	styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child > :first-child > div:has(#view--layout--FUE) {
-									position: sticky !important;
-									top: 48px;
-									z-index: 99;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
-}
-
-// Function - Disable Sticky Sort - New
-function disableStickySortNew() {
-	const dynamicStyleElements = document.querySelectorAll('#re-sticky-sort');
-	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
-	});
 }

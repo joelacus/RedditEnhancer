@@ -1,13 +1,20 @@
-/* ===== Tweaks - Productivity - Limit Infinity Scroll ===== */
+/**
+ * Tweaks: Productivity - Limit Infinity Scroll
+ *
+ * @name limitInfinityScroll
+ * @description Prevent the page from automatically loading more posts when the user reaches the bottom of the feed, unless they click the "Load More" button.
+ *
+ * Compatibility: Needs rewriting to work with RV3, unless we just have "Break Reminder" as this could be more trouble than it's worth.
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === 
 export function loadLimitInfinityScroll() {
 	BROWSER_API.storage.sync.get(['limitInfinityScroll'], function (result) {
 		if (result.limitInfinityScroll) limitInfinityScroll(true);
 	});
-}
+}*/
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === 
 export function limitInfinityScroll(value) {
 	const link = window.location.href;
 	if (link.indexOf('old.reddit.com') <= 0 && link.indexOf('/comments/') <= 0 && link.indexOf('/settings/') <= 0 && link.indexOf('/user/') <= 0) {
@@ -121,22 +128,22 @@ const observer = new MutationObserver(function (mutations_list) {
 	});
 
 	// remove new posts if max threshold is reached
-	/*const feedContainer = document.querySelector('.re-feed-container');
-	const maxItems = 50;
-	mutations_list.forEach((mutation) => {
-		if (mutation.addedNodes.length) {
-			const currentItems = feedContainer.childElementCount;
-			if (currentItems >= maxItems) {
-				mutation.addedNodes.forEach((node) => {
-					node.remove();
-				});
-			}
-			const hiddenPosts = document.querySelectorAll('.re-post');
-			for (let i = 0; i < 25 && i < hiddenPosts.length; i++) {
-				hiddenPosts[i].classList.remove('hidden');
-			}
-		}
-	});*/
+	//const feedContainer = document.querySelector('.re-feed-container');
+	//const maxItems = 50;
+	//mutations_list.forEach((mutation) => {
+	//	if (mutation.addedNodes.length) {
+	//		const currentItems = feedContainer.childElementCount;
+	//		if (currentItems >= maxItems) {
+	//			mutation.addedNodes.forEach((node) => {
+	//				node.remove();
+	//			});
+	//		}
+	//		const hiddenPosts = document.querySelectorAll('.re-post');
+	//		for (let i = 0; i < 25 && i < hiddenPosts.length; i++) {
+	//			hiddenPosts[i].classList.remove('hidden');
+	//		}
+	//	}
+	//});
 });
 
 // Toggle Observer
@@ -157,4 +164,4 @@ function postObserver(i) {
 		// stop observer
 		observer.disconnect();
 	}
-}
+}*/
