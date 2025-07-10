@@ -295,7 +295,9 @@ function enableExpandContentNewNew() {
 				shreddit-app[pagetype="search_results"] div.masthead,
 				shreddit-app[pagetype="post_submit"] .main-container,
 				shreddit-app[routename="inbox"] .main-container,
-				shreddit-app[routename^="settings-"] .main-container {
+				shreddit-app[routename^="settings-"] .main-container,
+				shreddit-app[routename="community_page"] .main-container,
+				shreddit-app[pagetype="explore"] .main-container {
 					max-width: min(var(--re-content-width), var(--re-main-container-width));
 				}
 				shreddit-app[routename="subreddit"] .main-container,
@@ -347,7 +349,9 @@ function enableExpandContentNewNew() {
 				shreddit-app[pagetype="search_results"] main.main,
 				shreddit-app[pagetype="post_submit"] main.main,
 				shreddit-app[routename="inbox"] main.main,
-				shreddit-app[routename^="settings-"] main.main {
+				shreddit-app[routename^="settings-"] main.main,
+				shreddit-app[routename="community_page"] main.main,
+				shreddit-app[pagetype="explore"] main.main {
 					max-width: var(--re-content-width);
 					margin: 0 auto;
 				}

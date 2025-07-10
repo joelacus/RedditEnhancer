@@ -147,7 +147,7 @@ function enableUseCustomBackgroundRV3() {
 									background-color: var(--color-neutral-background) !important;
 									max-width: unset;
 								}
-								[pagetype^="settings_"] {
+								[pagetype^="settings_"], [routename="inbox"], [pagetype="explore"], [routename="community_page"] {
 									background-color: var(--re-theme-post-bg, rgba(0,0,0,0.4));
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
