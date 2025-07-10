@@ -69,6 +69,9 @@ function enableHideSideMenuNewNew() {
 		styleElement.textContent = `:root {
 										--re-hide-side-menu-gap-multiplyer: 1;
 									}
+									#left-nav-drawer,
+									reddit-sidebar-nav#left-sidebar,
+									faceplate-tracker[noun="hamburger_menu"],
 									shreddit-app #left-sidebar-container,
 									shreddit-app flex-left-nav-container#left-sidebar-container.left-sidebar {
 										display: none !important;

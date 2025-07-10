@@ -94,7 +94,8 @@ export function hideCreatePostButton(value) {
 	if (redditVersion === 'newnew' && value) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-header-create-post-button';
-		styleElement.textContent = `header span[data-part="create"] {
+		styleElement.textContent = `header span[data-part="create"],
+		 							create-post-entry-point-wrapper {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
@@ -142,7 +143,9 @@ export function hideNotificationButton(value) {
 	} else if (redditVersion === 'newnew' && value) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-header-notification-button';
-		styleElement.textContent = `header span[data-part="inbox"] {
+		styleElement.textContent = `header span[data-part="inbox"],
+									faceplate-loader[name^="HeaderActionItemInbox_"] + div,
+		 							#notifications-inbox-button {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);

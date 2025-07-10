@@ -32,14 +32,23 @@ export function hideAwards(value) {
 
         // Initially remove award buttons from existing posts
         document.querySelectorAll('shreddit-post').forEach(removeAwardBtn);
+        document.querySelectorAll('shreddit-comment[award-count]').forEach(removeCommentAwardHighlight);
 
         // Observe the feed for new posts and remove their award buttons
         const feed = document.querySelector('shreddit-feed');
-        if (feed) observer.observe(feed, { childList: true });
+        if (feed) postObserver.observe(feed, { childList: true });
+
+        // Observe comments for award highlights and remove them
+        const commentTree = document.querySelector('shreddit-comment-tree');
+        if (commentTree) {
+            postObserver.observe(commentTree, { childList: true });
+            commentObserver.observe(commentTree);
+        }
     } else {
         // Remove the CSS class that hides award buttons and disconnect the observer
         document.documentElement.classList.remove('re-hide-awards');
-        observer.disconnect();
+        postObserver.disconnect();
+        commentObserver.disconnect();
         showBannerMessage('info', '[RedditEnhancer] Please refresh the page for the changes to take effect.');
     }
 }
@@ -53,14 +62,24 @@ function removeAwardBtn(post) {
     if (overflowMenu) overflowMenu.removeAttribute('is-post-awardable');
 }
 
+function removeCommentAwardHighlight(comment) {
+    comment.removeAttribute('award-count');
+}
+
 // Observe feed for new posts
-const observer = new MutationObserver(debounce(function (mutations) {
+const postObserver = new MutationObserver(debounce(function (mutations) {
     mutations.forEach(function (mutation) {
         mutation.addedNodes.forEach(function (addedNode) {
-            if (['TIME', 'ARTICLE', 'DIV', 'SPAN', 'FACEPLATE-PARTIAL', 'FACEPLATE-LOADER'].includes(addedNode.nodeName)) {
+            if (['TIME', 'ARTICLE', 'DIV', 'SPAN', 'FACEPLATE-PARTIAL', 'FACEPLATE-LOADER', 'SHREDDIT-COMMENT'].includes(addedNode.nodeName)) {
                 document.querySelectorAll('shreddit-post').forEach(removeAwardBtn);
             }
         });
+    });
+}, 100));
+
+const commentObserver = new ResizeObserver(debounce(function (mutations) {
+    mutations.forEach(function (mutation) {
+        mutation.target.querySelectorAll('shreddit-comment[award-count]').forEach(removeCommentAwardHighlight);
     });
 }, 100));
 

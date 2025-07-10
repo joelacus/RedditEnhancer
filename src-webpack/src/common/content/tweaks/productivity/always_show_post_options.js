@@ -60,7 +60,7 @@ function attachPostMenu(post) {
 	const overflowMenuContainer = post.querySelector('shreddit-post-overflow-menu');
 	if (!overflowMenuContainer) return;
 	const overflowMenu = overflowMenuContainer.shadowRoot?.querySelector('faceplate-dropdown-menu, faceplate-bottom-sheet');
-	const overflowMenuBtnPlaceholder = post.querySelector('[slot="credit-bar"] > span + span, [slot="credit-bar"] > span > span + span');
+	const overflowMenuBtnPlaceholder = post.querySelector('[id^="feed-post-credit-bar-t3_"] + span, span:has(> pdp-back-button) + span');
 	if (!overflowMenu || !overflowMenuBtnPlaceholder) return;
 	const placeholder = post.querySelector('shreddit-async-loader[bundlename="shreddit_post_overflow_menu"]');
 	if (placeholder) placeholder.remove();
@@ -87,6 +87,7 @@ function attachPostMenu(post) {
 	if (btnContainer) {
 		btnContainer.classList.remove('h-2xl', 'gap-sm');
 		btnContainer.classList.replace('flex-nowrap', 'flex-wrap');
+		btnContainer.classList.replace('py-xs', 'py-sm');
 
 		const commentBtn = btnContainer.querySelector('button[data-post-click-location="comments-button"], a');
 		if (commentBtn) {
@@ -202,7 +203,7 @@ function attachCommentMenu(commentActionRow) {
 	if (commentActionRow.classList.contains('re-comment-options-attached')) return;
 
 	// Check for all necessary elements
-	commentActionRow.classList.add('overflow-auto');
+	commentActionRow.classList.add('overflow-y-hidden');
 	const overflowMenuContainer = commentActionRow.querySelector('shreddit-overflow-menu');
 	if (!overflowMenuContainer) return;
 	overflowMenuContainer.removeAttribute('should-use-bottom-sheet');
@@ -288,16 +289,28 @@ function attachCommentMenu(commentActionRow) {
 		commentBtn.classList.replace('px-sm', 'p-2xs');
 	}
 
-	const shareBtn = commentActionRow.querySelector('shreddit-comment-share-button button');
+	const shareBtnContainer = commentActionRow.querySelector('shreddit-comment-share-button');
+	shareBtnContainer?.classList.remove('hidden');
+
+	const shareBtn = shareBtnContainer?.querySelector('button');
 	if (shareBtn) {
 		shareBtn.setAttribute('style', 'height: initial;');
 		shareBtn.classList.replace('px-sm', 'p-2xs');
 
 		const icon = shareBtn.querySelector('span > span');
+		const text = shareBtn.querySelector('span > span + span');
+		if (icon && !text) {
+			const textSpan = document.createElement('span');
+			textSpan.textContent = 'Share';
+			icon.insertAdjacentElement('afterend', textSpan);
+		}
 		if (icon) icon.classList.add('hidden');
 	}
 
-	const awardBtn = commentActionRow.querySelector('award-button')?.shadowRoot?.querySelector('button');
+	const awardBtnContainer = commentActionRow.querySelector('award-button');
+	awardBtnContainer?.classList.remove('hidden');
+
+	const awardBtn = awardBtnContainer?.shadowRoot?.querySelector('button');
 	if (awardBtn) {
 		awardBtn.setAttribute('style', 'height: initial;');
 		awardBtn.classList.replace('px-sm', 'p-2xs');
@@ -325,6 +338,11 @@ const postObserver = new MutationObserver(debounce(function (mutations) {
 const commentObserver = new ResizeObserver(debounce(function (mutations) {
 	mutations.forEach(function (mutation) {
 		mutation.target.querySelectorAll('shreddit-comment-action-row:not(.re-comment-options-attached)').forEach(attachCommentMenu);
+		mutation.target.querySelectorAll('faceplate-partial[src*="/more-comments/"] button').forEach(function (button) {
+			button.addEventListener('click', setTimeout(function () {
+				document.querySelectorAll('shreddit-comment-action-row:not(.re-comment-options-attached)').forEach(attachCommentMenu);
+			}, 500));
+		});
 	});
 }, 100));
 

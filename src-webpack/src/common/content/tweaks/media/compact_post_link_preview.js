@@ -68,7 +68,7 @@ export function compactPostLinkPreview(value) {
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
 
-			if (post.querySelector('div[slot="text-body"]')) {
+			if (post.querySelector('div[slot="text-body"]') || window.innerWidth < 768) {
 				const dynamicStyleElements = document.head.querySelectorAll('style[id="re-compact-post-link-display"]');
 				dynamicStyleElements.forEach((element) => {
 					document.head.removeChild(element);
@@ -87,7 +87,7 @@ export function compactPostLinkPreview(value) {
 			let postLink2 = Object.assign(document.createElement('a'), {
 				href: postLink,
 				textContent: postLink,
-				className: 'relative text-12 xs:text-14 font-semibold mb-xs post-link max-w-full truncate a cursor-pointer hover:underline re-post-link',
+				className: 'relative text-12 xs:text-14 ml-md xs:ml-0 font-semibold mb-xs post-link max-w-full truncate a cursor-pointer hover:underline re-post-link',
 				target: '_blank',
 				rel: 'noopener noreferrer ugc',
 			});

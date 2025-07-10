@@ -33,6 +33,32 @@ div.re-banner.error {
 		width: 100vw;
 		overflow: hidden;
 	}
+	.main-container {
+		gap: 1px;
+		padding-bottom: 0;
+	}
+	div.mt-xs[slot="post-flair"] {
+		margin: .25rem 0;
+	}
+	comment-body-header > div.items-center {
+		flex-direction: column;
+		align-items: end;
+	}
+	shreddit-comments-sort-dropdown.mt-sm {
+		margin-top: .5rem;
+	}
+	#re-view-crossposts {
+		line-height: 40px;
+		margin-top: 0;
+	}
+	#re-crosspost-list {
+		padding-inline: 1rem;
+	}
+	.re-post-link {
+		display: block;
+		margin-top: .75rem;
+		margin-right: 1rem;
+	}
 }
 
 /* ========== BACK TO TOP BUTTON IN HEADER ========== */
