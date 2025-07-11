@@ -4,7 +4,6 @@
 
 import { loadAddDownloadVideoButton } from './tweaks/media/add_download_video_button';
 import { loadAutoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
-import { loadAutoExpandComments } from './tweaks/productivity/auto_expand_comments';
 import { loadAutoExpandValue } from './tweaks/resize_elements/auto_expand_value';
 import { loadBionicReader } from './tweaks/accessibility/bionic_reader';
 //import { loadBreakReminder } from './tweaks/productivity/break_reminder';
@@ -54,7 +53,6 @@ import { loadHighlightOP } from "./tweaks/productivity/highlight_op";
 export function loadTweaks() {
 	if (redditVersion === 'old') {
 		loadModerniseOldReddit();
-		loadAutoExpandComments();
 		loadAutoLoadMoreComments();
 		loadAddProfilePicturesToComments();
 		loadSidebarToggleButton();
@@ -207,8 +205,7 @@ export function loadTweaks() {
 					addBorderRadiusToShadowRootElements();
 					loadAlwaysShowPostOptions();
 					loadHighlightOP();
-					loadAutoExpandComments();
-					loadAutoLoadMoreComments();
+					loadHideAwards();
 				}, 500);
 			},
 		});
@@ -222,6 +219,7 @@ export function loadTweaks() {
 					loadFixThreadlinesForTranslucentPosts();
 					loadMulticolouredThreadLines();
 				}, 2000);
+				loadAutoLoadMoreComments();
 			},
 		});
 

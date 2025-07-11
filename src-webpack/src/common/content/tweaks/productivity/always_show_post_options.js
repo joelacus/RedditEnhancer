@@ -339,9 +339,11 @@ const commentObserver = new ResizeObserver(debounce(function (mutations) {
 	mutations.forEach(function (mutation) {
 		mutation.target.querySelectorAll('shreddit-comment-action-row:not(.re-comment-options-attached)').forEach(attachCommentMenu);
 		mutation.target.querySelectorAll('faceplate-partial[src*="/more-comments/"] button').forEach(function (button) {
-			button.addEventListener('click', setTimeout(function () {
-				document.querySelectorAll('shreddit-comment-action-row:not(.re-comment-options-attached)').forEach(attachCommentMenu);
-			}, 500));
+			button.addEventListener('click', function () {
+				setTimeout(function () {
+					document.querySelectorAll('shreddit-comment-action-row:not(.re-comment-options-attached)').forEach(attachCommentMenu);
+				}, 500);
+			});
 		});
 	});
 }, 100));

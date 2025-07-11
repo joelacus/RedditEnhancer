@@ -83,7 +83,7 @@ function enableExpandContentOld() {
 									padding: 1rem;
 								}
 								.wiki-page div.wiki-page-content {
-									margin: .25rem;
+									margin: 8px;
 								}
 								div.panestack-title,
 								p#noresults,

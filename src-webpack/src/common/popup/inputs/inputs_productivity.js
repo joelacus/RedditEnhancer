@@ -572,20 +572,6 @@ document.querySelector('#input-break-reminder-frequency').addEventListener('mous
 	BROWSER_API.storage.sync.set({ breakReminderFrequency: e.target.value });
 });*/
 
-// Toggle - Auto Expand Comments
-document.querySelector('#checkbox-auto-expand-comments').addEventListener('change', function (e) {
-	const autoExpandComments = document.querySelector('#checkbox-auto-expand-comments').checked;
-	if (autoExpandComments === true) {
-		BROWSER_API.storage.sync.set({ autoExpandComments: true });
-		document.querySelector('.icon-auto-expand-comments').style.backgroundColor = 'var(--accent)';
-		sendMessage({ autoExpandComments: true });
-	} else if (autoExpandComments === false) {
-		BROWSER_API.storage.sync.set({ autoExpandComments: false });
-		document.querySelector('.icon-auto-expand-comments').style.backgroundColor = '';
-		sendMessage({ autoExpandComments: false });
-	}
-});
-
 // Toggle - Auto Collapse AutoModerator Comment
 document.querySelector('#checkbox-auto-collapse-automoderator-comment').addEventListener('change', function (e) {
 	const autoCollapseAutoModeratorComment = document.querySelector('#checkbox-auto-collapse-automoderator-comment').checked;

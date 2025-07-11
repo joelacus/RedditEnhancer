@@ -396,14 +396,14 @@ async function attachPageTitle() {
 			case 'post_submit_subreddit':
 			case 'wiki_page':
 			case 'mod_queue':
-				title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
-				data = (await BROWSER_API.runtime.sendMessage({
+				title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2];
+				if (title) data = (await BROWSER_API.runtime.sendMessage({
 					actions: [{
 						action: 'fetchData',
 						url: `https://www.reddit.com/${title}/about.json`
 					}]
 				})).data;
-				if (data && (data.community_icon || data.icon_img)) {
+				if (title && data && (data.community_icon || data.icon_img)) {
 					logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon ? data.community_icon : data.icon_img}">`;
 				} else {
 					logo = document.querySelector('.shreddit-subreddit-icon__icon').outerHTML;
@@ -426,7 +426,7 @@ async function attachPageTitle() {
 						url: `https://www.reddit.com/user/${window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1]}/about.json`
 					}]
 				})).data;
-				if (data && (data.snoovatar_img || data.icon_img)) {
+				if (title && data && (data.snoovatar_img || data.icon_img)) {
 					logo = `<img alt="${title} user avatar" class="${data.snoovatar_img ? '' : 'rounded-full'} h-lg w-lg mb-0" 
 						src="${data.snoovatar_img ? data.snoovatar_img : data.icon_img}">`;
 				} else logo = '';
@@ -463,14 +463,14 @@ async function attachPageTitle() {
 				break;
 			default:
 				if (window.location.pathname.includes('/mod/')) {
-					title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
-					data = (await BROWSER_API.runtime.sendMessage({
+					title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2];
+					if (title) data = (await BROWSER_API.runtime.sendMessage({
 						actions: [{
 							action: 'fetchData',
 							url: `https://www.reddit.com/${title}/about.json`
 						}]
 					})).data;
-					logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon}">`;
+					if (title && data) logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon}">`;
 				} else {
 					// Fallback for unknown pages
 					title = currentPage.charAt(0).toUpperCase() + currentPage.slice(1);

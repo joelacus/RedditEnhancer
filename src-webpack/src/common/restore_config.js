@@ -132,7 +132,6 @@ async function restoreBackup(json) {
 				'addProfilePicturesToComments',
 				'alwaysShowPostOptions',
 				'autoCollapseAutoModeratorComment',
-				'autoExpandComments',
 				'autoExpandValue',
 				'autoRedirectVersion',
 				'autoLoadMoreComments',

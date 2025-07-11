@@ -519,20 +519,6 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		console.log('Add User Profile Pictures To Comments: ' + value);
 	});
 
-	// Auto Expand Comments
-	BROWSER_API.storage.sync.get(['autoExpandComments'], function (result) {
-		if (result.autoExpandComments == true) {
-			document.querySelector('.icon-auto-expand-comments').style.backgroundColor = 'var(--accent)';
-			document.querySelector('#checkbox-auto-expand-comments').checked = true;
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.autoExpandComments == 'undefined' || result.autoExpandComments == false) {
-			document.querySelector('#checkbox-auto-expand-comments').checked = false;
-			var value = false;
-		}
-		console.log('Auto Expand Comments: ' + value);
-	});
-
 	// Auto Collapse AutoModerator Comment
 	BROWSER_API.storage.sync.get(['autoCollapseAutoModeratorComment'], function (result) {
 		if (result.autoCollapseAutoModeratorComment === true) {

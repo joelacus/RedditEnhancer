@@ -5,7 +5,6 @@
 import { addDropShadow } from './tweaks/style/drop_shadow';
 import { alwaysShowPostOptions, hidePostBrandAwarenessOption, hidePostDeleteOption, hidePostEditOption, hidePostHideOption, hidePostNotificationOption, hidePostNsfwOption, hidePostReportOption, hidePostSaveOption, hidePostSpoilerOption } from './tweaks/productivity/always_show_post_options';
 import { autoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
-import { autoExpandComments } from './tweaks/productivity/auto_expand_comments';
 import { autoExpandValue } from './tweaks/resize_elements/auto_expand_value';
 import { autoLoadMoreComments } from './tweaks/productivity/auto_load_more_comments';
 import { bgBlur } from './tweaks/background/custom_background';
@@ -309,7 +308,6 @@ const functionRegistry = {
 	postContentFontSize,
 	postCommentsFontSize,
 	hideUserProfilePics,
-	autoExpandComments,
 	hidePostHiddenMessage,
 	scalePostToFitImage,
 	scalePostToFitVideo,

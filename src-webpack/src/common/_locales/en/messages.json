@@ -44,14 +44,11 @@
 	"AutoExpand": {
 		"message": "Expand to 100% if the window/screen width is less than:"
 	},
-	"AutoExpandComments": {
-		"message": "Auto Expand Hidden Comments"
-	},
 	"AutoExpandCommentsInfo": {
 		"message": "This may cause the page to slow down and use a lot of RAM, especially if there are a lot of comments."
 	},
 	"AutoLoadMoreComments": {
-		"message": "Auto Load More Comments"
+		"message": "Auto Expand & Load More Comments"
 	},
 	"Background": {
 		"message": "Background"

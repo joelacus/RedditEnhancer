@@ -16,68 +16,61 @@ export function loadAutoLoadMoreComments() {
 
 /* === Enable/Disable The Feature === */
 export function autoLoadMoreComments(value) {
-	if (redditVersion === 'newnew' && value) {
-		setTimeout(() => {
-			window.scrollTo(0, document.body.scrollHeight);
-		}, 2000);
-		setTimeout(() => {
-			document.documentElement.scrollTop = 0;
-		}, 3000);
-		enableAutoLoadMoreCommentsRV3();
-	} else if (redditVersion === 'old' && value) {
-		enableAutoLoadMoreCommentsRV1();
-	} else {
-		disableAutoLoadMoreCommentsAll();
-	}
-}
+	if (value) {
+		if (redditVersion === 'newnew') {
+			const viewMoreCommentBtn = document.querySelector('#top-level-more-comments-partial');
+			if (viewMoreCommentBtn) viewMoreCommentBtn.dispatchEvent(new Event('faceplate-enter', {bubbles: true}));
+			window.addEventListener('scroll', v3);
 
-let load_more_comments_button;
-
-// Enable Auto Load More Comments - RV3
-function enableAutoLoadMoreCommentsRV3() {
-	load_more_comments_button = 'faceplate-partial[src*="/more-comments/"]';
-	window.addEventListener('scroll', loadMoreComments);
-}
-
-// Enable Auto Load More Comments - RV1
-function enableAutoLoadMoreCommentsRV1() {
-	load_more_comments_button = '.morecomments a';
-	window.addEventListener('scroll', loadMoreComments);
-}
-
-// Disable Auto Load More Comments - All
-function disableAutoLoadMoreCommentsAll() {
-	window.removeEventListener('scroll', loadMoreComments);
-}
-
-// Function to check for "load more comments" buttons on scroll
-function loadMoreComments() {
-	// Get the current scroll position
-	var scrollX = window.scrollX || window.pageXOffset;
-	var scrollY = window.scrollY || window.pageYOffset;
-
-	// Get the elements within the current scroll view
-	var elementsInViewport = document.querySelectorAll(load_more_comments_button);
-
-	var visibleElements = [];
-
-	elementsInViewport.forEach(function (element) {
-		var rect = element.getBoundingClientRect();
-		var elementX = rect.left + scrollX;
-		var elementY = rect.top + scrollY;
-
-		if (elementX >= scrollX && elementX <= scrollX + window.innerWidth && elementY >= scrollY && elementY <= scrollY + window.innerHeight) {
-			visibleElements.push(element);
+			const comments = document.querySelector('shreddit-comment-tree');
+			if (comments) {
+				comments.querySelectorAll('shreddit-comment').forEach(expandComments);
+				observer.observe(comments);
+			}
+		} else if (redditVersion === 'old') {
+			window.addEventListener('scroll', v1);
+			const comments = document.querySelector('.commentarea');
+			if (comments) {
+				comments.querySelectorAll('.comment').forEach(expandComments);
+				observer.observe(comments);
+			}
 		}
-	});
-
-	// Load Comments
-	for (let i = 0; i < visibleElements.length; i++) {
-		setTimeout(() => {
-			visibleElements[i].focus({
-				preventScroll: true,
-			});
-			visibleElements[i].click();
-		}, i * 750);
+	} else {
+		observer.disconnect();
+		window.removeEventListener('scroll', v1);
+		window.removeEventListener('scroll', v3);
 	}
 }
+
+function v1() {
+	document.querySelectorAll('.morecomments a').forEach(loadMoreComments);
+}
+
+function v3() {
+	document.querySelectorAll('faceplate-partial[src*="/more-comments/"]').forEach(loadMoreComments);
+}
+
+function expandComments(comment) {
+	if (redditVersion === 'old' && comment.classList.contains('collapsed') && comment.getAttribute('data-author') !== 'AutoModerator') {
+		comment.querySelector('a.expand').click();
+		comment.dataset.uncollapsed = 'true';
+		console.debug('[RedditEnhancer] autoLoadMoreComments: Comment uncollapsed:', comment);
+	} else if (redditVersion === 'newnew' && comment.getAttribute('author') !== 'AutoModerator') {
+		comment.removeAttribute('collapsed');
+		comment.setAttribute('re-uncollapsed', '');
+	}
+}
+
+function loadMoreComments(button) {
+	const rect = button.getBoundingClientRect();
+	if (rect.top >= window.innerHeight * -1 && rect.bottom <= window.innerHeight * 2) {
+		button.focus({ preventScroll: true });
+		button.click();
+	}
+}
+
+const observer = new ResizeObserver(function (mutations) {
+	mutations.forEach(function (mutation) {
+		mutation.target.querySelectorAll('.comment:not([data-uncollapsed]), shreddit-comment:not([re-uncollapsed])').forEach(expandComments);
+	});
+});
