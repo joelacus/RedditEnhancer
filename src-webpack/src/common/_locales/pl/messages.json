@@ -134,9 +134,6 @@
 	"Controversial": {
 		"message": "Kontrowersyjny / Controversial"
 	},
-	"ControversialSort": {
-		"message": "Mostrar o botão de classificação „Controverso”"
-	},
 	"CreatePost": {
 		"message": "Utwórz Post"
 	},
@@ -205,9 +202,6 @@
 	},
 	"FeedPostContent": {
 		"message": "Postu kanału: Treść"
-	},
-	"FeedPostMaxHeight": {
-		"message": "Publikacja wysokość"
 	},
 	"FeedPostTitle": {
 		"message": "Postu kanału: Tytuł"
@@ -449,9 +443,6 @@
 	"ModerniseOldRedditInfo": {
 		"message": "Sprawia, że stary Reddit wygląda bardziej jak nowy Reddit."
 	},
-	"MoveFeedToTopInSideMenu": {
-		"message": "Przenieś sekcję podawania w bocznym menu na górę"
-	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Wielokolorowe linie wątków komentarzy"
 	},
@@ -638,9 +629,6 @@
 	"Shadow": {
 		"message": "Rzuć cienie"
 	},
-	"ShowAllButton": {
-		"message": "Dodaj przycisk „r/All”"
-	},
 	"ShowPostAuthor": {
 		"message": "Pokaż autora wpisu"
 	},
@@ -649,9 +637,6 @@
 	},
 	"ShowPostNumbers": {
 		"message": "Dodaj liczby post"
-	},
-	"ShowRising": {
-		"message": "Zawsze pokaż przycisk sortowania „Rising”"
 	},
 	"SideMenu": {
 		"message": "Menu boczne"
@@ -719,12 +704,6 @@
 	"Text": {
 		"message": "Tekst"
 	},
-	"TextScroll": {
-		"message": "Dodaj pasek przewijania do długich postów tekstowych"
-	},
-	"TextScrollInfo": {
-		"message": "Istnieje limit. Być może będziesz musiał otworzyć post, jeśli jest bardzo długi."
-	},
 	"Theme": {
 		"message": "Motyw"
 	},
@@ -781,9 +760,6 @@
 	},
 	"VideoPlayerInfo": {
 		"message": "Szybki, lekki odtwarzacz wideo z kontrolą prędkości opartą na videojs. Spróbuj tego, jeśli masz problemy z ładowaniem własnego odtwarzacza Reddit."
-	},
-	"VideoPlayerReplacement": {
-		"message": "Alternatywny odtwarzacz wideo"
 	},
 	"Welcome": {
 		"message": "Powitanie!"

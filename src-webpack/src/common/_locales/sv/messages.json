@@ -134,9 +134,6 @@
 	"Controversial": {
 		"message": "Kontroversiell"
 	},
-	"ControversialSort": {
-		"message": "Visa den \"kontroversiella\" sorteringsknappen"
-	},
 	"CreatePost": {
 		"message": "Skapa inlägg"
 	},
@@ -433,9 +430,6 @@
 	},
 	"ShowPostFlair": {
 		"message": "Visa inläggskänsla"
-	},
-	"ShowRising": {
-		"message": "Visa alltid den 'Rising' sorteringsknappen"
 	},
 	"Sidebar": {
 		"message": "Sidofält"

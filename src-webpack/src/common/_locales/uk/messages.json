@@ -113,9 +113,6 @@
 	"Controversial": {
 		"message": "Суперечливий / Controversial"
 	},
-	"ControversialSort": {
-		"message": "Показати кнопку «Суперечливе» сортування"
-	},
 	"CreatePost": {
 		"message": "Створити публікацію"
 	},
@@ -157,9 +154,6 @@
 	},
 	"Feed": {
 		"message": "Стрічка новин"
-	},
-	"FeedPostMaxHeight": {
-		"message": "висота постів"
 	},
 	"Header": {
 		"message": "Заголовок"
@@ -350,9 +344,6 @@
 	"ModerniseOldReddit": {
 		"message": "Модернізуйте old.reddit"
 	},
-	"MoveFeedToTopInSideMenu": {
-		"message": "Перемістіть розділ каналу в бічному меню вгору"
-	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Різнокольорові лінії ниток коментарів"
 	},
@@ -527,9 +518,6 @@
 	"Shadow": {
 		"message": "Тіні"
 	},
-	"ShowAllButton": {
-		"message": "Додати кнопку «r/All»"
-	},
 	"ShowPostAuthor": {
 		"message": "Показати автора публікації"
 	},
@@ -538,9 +526,6 @@
 	},
 	"ShowPostNumbers": {
 		"message": "Додайте номери Post"
-	},
-	"ShowRising": {
-		"message": "Завжди показувати кнопку сортування «Rising»"
 	},
 	"SideMenu": {
 		"message": "Бічне меню"
@@ -602,12 +587,6 @@
 	"Text": {
 		"message": "текст"
 	},
-	"TextScroll": {
-		"message": "Додайте смугу прокрутки до довгих текстових повідомлень"
-	},
-	"TextScrollInfo": {
-		"message": "Є обмеження. Можливо, вам доведеться відкрити публікацію, якщо вона дуже довга."
-	},
 	"Theme": {
 		"message": "Тема"
 	},
@@ -664,9 +643,6 @@
 	},
 	"VideoPlayerInfo": {
 		"message": "Швидкий, легкий відеоплеєр із керуванням швидкістю на основі videojs. Спробуйте це, якщо у вас виникли проблеми із завантаженням власного програвача reddit."
-	},
-	"VideoPlayerReplacement": {
-		"message": "Альтернативний відеоплеєр"
 	},
 	"Whitelist": {
 		"message": "Білий список"

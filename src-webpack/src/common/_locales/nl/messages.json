@@ -137,9 +137,6 @@
 	"Controversial": {
 		"message": "Controverseel"
 	},
-	"ControversialSort": {
-		"message": "Toon de “Controversiële” sorteerknop"
-	},
 	"CreatePost": {
 		"message": "Bericht Maken"
 	},
@@ -208,9 +205,6 @@
 	},
 	"FeedPostContent": {
 		"message": "Feed Bericht: Inhoud"
-	},
-	"FeedPostMaxHeight": {
-		"message": "Hoogte van Bericht"
 	},
 	"FeedPostTitle": {
 		"message": "Feed Bericht: Titel"
@@ -482,9 +476,6 @@
 	"ModerniseOldRedditInfo": {
 		"message": "Zorgt ervoor dat het oude Reddit meer op het nieuwe Reddit lijkt."
 	},
-	"MoveFeedToTopInSideMenu": {
-		"message": "Sposta la sezione Feed nel menu laterale verso l'alto"
-	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Veelkleurige commentaarschroeflijnen"
 	},
@@ -722,9 +713,6 @@
 	"Shadow": {
 		"message": "Slagschaduwen"
 	},
-	"ShowAllButton": {
-		"message": "Knop “r/All” toevoegen"
-	},
 	"ShowPostAuthor": {
 		"message": "Toon berichtauteur"
 	},
@@ -736,9 +724,6 @@
 	},
 	"ShowProfilePicturesOnComments": {
 		"message": "Toon profielfoto's op reacties"
-	},
-	"ShowRising": {
-		"message": "Toon altijd de knop “Rising” sorteren"
 	},
 	"ShowUpvoteRatio": {
 		"message": "Toon het upvote percentage op de postpagina"
@@ -827,12 +812,6 @@
 	"TextPostPreviewMaxHeight": {
 		"message": "Tekstvoorbeeldhoogte"
 	},
-	"TextScroll": {
-		"message": "Schuifbalk toevoegen aan lange tekstberichten"
-	},
-	"TextScrollInfo": {
-		"message": "Er is een limiet. Misschien moet u de post openen als het erg lang is."
-	},
 	"Theme": {
 		"message": "Thema"
 	},
@@ -895,9 +874,6 @@
 	},
 	"VideoPlayerInfo": {
 		"message": "Snelle, lichtgewicht videospeler met snelheidsregeling op basis van videojs. Probeer dit als je laadproblemen hebt met de eigen speler van reddit."
-	},
-	"VideoPlayerReplacement": {
-		"message": "Alternatieve videospeler"
 	},
 	"Welcome": {
 		"message": "Welkom!"

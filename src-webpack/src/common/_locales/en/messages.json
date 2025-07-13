@@ -155,9 +155,6 @@
 	"Controversial": {
 		"message": "Controversial"
 	},
-	"ControversialSort": {
-		"message": "Show the 'Controversial' Sort Button"
-	},
 	"CreatePost": {
 		"message": "Create Post"
 	},
@@ -232,9 +229,6 @@
 	},
 	"FeedPostContent": {
 		"message": "Feed Post: Content"
-	},
-	"FeedPostMaxHeight": {
-		"message": "Post Height"
 	},
 	"FeedPostTitle": {
 		"message": "Feed Post: Title"
@@ -342,7 +336,7 @@
 		"message": "Hide the Header Bar"
 	},
 	"HideHeaderSubBar": {
-		"message": "Hide Header subreddit List"
+		"message": "Hide Header Subreddit List"
 	},
 	"HideHomeFeed": {
 		"message": "Hide Home Feed"
@@ -539,9 +533,6 @@
 	"ModerniseOldRedditInfo": {
 		"message": "Makes old reddit look more like new reddit."
 	},
-	"MoveFeedToTopInSideMenu": {
-		"message": "Move The Feed Section In The Side Menu To The Top"
-	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Multicoloured Comment Thread Lines"
 	},
@@ -585,7 +576,7 @@
 		"message": "User Settings > Feed Settings > Open posts in new tab"
 	},
 	"OpenSubInNewTab": {
-		"message": "Open Links to subreddits in a New Tab"
+		"message": "Open Links to Subreddits in a New Tab"
 	},
 	"OptOutAttachSideMenu": {
 		"message": "Don't attach side menu as a dropdown panel"
@@ -788,9 +779,6 @@
 	"Shadow": {
 		"message": "Drop Shadows"
 	},
-	"ShowAllButton": {
-		"message": "Add 'r/All' Button"
-	},
 	"ShowPostAuthor": {
 		"message": "Show Post Author"
 	},
@@ -802,9 +790,6 @@
 	},
 	"ShowProfilePicturesOnComments": {
 		"message": "Show Profile Pictures On Comments"
-	},
-	"ShowRising": {
-		"message": "Always Show the 'Rising' Sort Button"
 	},
 	"ShowUpvoteRatio": {
 		"message": "Show Upvote Percentage in Post View"
@@ -899,12 +884,6 @@
 	"TextPostPreviewMaxHeight": {
 		"message": "Text Preview Height"
 	},
-	"TextScroll": {
-		"message": "Add Scrollbar To Long Text Posts"
-	},
-	"TextScrollInfo": {
-		"message": "There is a limit. You may have to open the post if it is very long."
-	},
 	"Theme": {
 		"message": "Theme"
 	},
@@ -967,9 +946,6 @@
 	},
 	"VideoPlayerInfo": {
 		"message": "Fast, lightweight video player with speed controls based on videojs. Try this if you have loading issues with reddit's own player."
-	},
-	"VideoPlayerReplacement": {
-		"message": "Alternative Video Player"
 	},
 	"ViewCrossposts": {
 		"message": "Add link to view crossposts in other subreddits"

@@ -137,9 +137,6 @@
 	"Controversial": {
 		"message": "Más polémicos / Controversial"
 	},
-	"ControversialSort": {
-		"message": "Mostrar o botão de classificação “Más polémicos”"
-	},
 	"CreatePost": {
 		"message": "Crear Publicación"
 	},
@@ -208,9 +205,6 @@
 	},
 	"FeedPostContent": {
 		"message": "Publicación de alimentación: contenido"
-	},
-	"FeedPostMaxHeight": {
-		"message": "Altura Publicación"
 	},
 	"FeedPostTitle": {
 		"message": "Post de alimentación: título"
@@ -482,9 +476,6 @@
 	"ModerniseOldRedditInfo": {
 		"message": "Hace que el antiguo Reddit se parezca más al nuevo Reddit."
 	},
-	"MoveFeedToTopInSideMenu": {
-		"message": "Mover la sección de alimentación en el menú lateral a la parte superior"
-	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Líneas de hilos de comentarios multicolores"
 	},
@@ -722,9 +713,6 @@
 	"Shadow": {
 		"message": "Sombras paralelas"
 	},
-	"ShowAllButton": {
-		"message": "Agregar botón “r/All”"
-	},
 	"ShowPostAuthor": {
 		"message": "Mostrar autor de la publicación"
 	},
@@ -736,9 +724,6 @@
 	},
 	"ShowProfilePicturesOnComments": {
 		"message": "Mostrar fotos de perfil en los comentarios"
-	},
-	"ShowRising": {
-		"message": "Mostrar siempre el botón “En Alza” de clasificación"
 	},
 	"ShowUpvoteRatio": {
 		"message": "Mostrar porcentaje de votos a la vista posterior"
@@ -827,12 +812,6 @@
 	"TextPostPreviewMaxHeight": {
 		"message": "Altura de vista previa de texto"
 	},
-	"TextScroll": {
-		"message": "Agregar barra de desplazamiento a publicaciones de texto largo"
-	},
-	"TextScrollInfo": {
-		"message": "Hay un límite. Es posible que tenga que abrir la publicación si es muy larga."
-	},
 	"Theme": {
 		"message": "Tema"
 	},
@@ -895,9 +874,6 @@
 	},
 	"VideoPlayerInfo": {
 		"message": "Reproductor de vídeo rápido, ligero y con controles de velocidad basados en videojs. Pruebe esto si tiene problemas de carga con el reproductor de reddit."
-	},
-	"VideoPlayerReplacement": {
-		"message": "Reproductor de video alternativo"
 	},
 	"Welcome": {
 		"message": "Bienvenida!"

@@ -149,9 +149,6 @@
 	"Controversial": {
 		"message": "Controversés"
 	},
-	"ControversialSort": {
-		"message": "Afficher le bouton de tri «Controversés»"
-	},
 	"CreatePost": {
 		"message": "Créer une Post"
 	},
@@ -226,9 +223,6 @@
 	},
 	"FeedPostContent": {
 		"message": "Flux Post: Contenu"
-	},
-	"FeedPostMaxHeight": {
-		"message": "Hauteur du Post"
 	},
 	"FeedPostTitle": {
 		"message": "Flux Post: Titre"
@@ -518,9 +512,6 @@
 	"ModerniseOldRedditInfo": {
 		"message": "Rend le vieux Reddit plus semblable au nouveau Reddit."
 	},
-	"MoveFeedToTopInSideMenu": {
-		"message": "Déplacez la section Flux dans le menu latéral vers le haut"
-	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Lignes de threads de commentaires multicolores"
 	},
@@ -767,9 +758,6 @@
 	"Shadow": {
 		"message": "Ombres portées"
 	},
-	"ShowAllButton": {
-		"message": "Ajouter le bouton « r/All »"
-	},
 	"ShowPostAuthor": {
 		"message": "Afficher l'auteur du message"
 	},
@@ -781,9 +769,6 @@
 	},
 	"ShowProfilePicturesOnComments": {
 		"message": "Afficher les photos de profil dans les commentaires"
-	},
-	"ShowRising": {
-		"message": "Toujours afficher le bouton de tri « En hausse »"
 	},
 	"ShowUpvoteRatio": {
 		"message": "Affichez le pourcentage de vote up dans la vue de la publication"
@@ -875,12 +860,6 @@
 	"TextPostPreviewMaxHeight": {
 		"message": "Hauteur de l'aperçu du texte"
 	},
-	"TextScroll": {
-		"message": "Ajouter une barre de défilement aux messages de texte long"
-	},
-	"TextScrollInfo": {
-		"message": "Il existe une limite. Vous devrez peut-être ouvrir le message s'il est très long."
-	},
 	"Theme": {
 		"message": "Thème"
 	},
@@ -943,9 +922,6 @@
 	},
 	"VideoPlayerInfo": {
 		"message": "Lecteur vidéo rapide et léger avec des commandes de vitesse basées sur videojs. Essayez ceci si vous rencontrez des problèmes de chargement avec le propre lecteur de Reddit."
-	},
-	"VideoPlayerReplacement": {
-		"message": "Lecteur vidéo alternatif"
 	},
 	"Welcome": {
 		"message": "Bienvenue !"

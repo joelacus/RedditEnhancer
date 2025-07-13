@@ -113,9 +113,6 @@
 	"Controversial": {
 		"message": "Kontroversielt / Controversial"
 	},
-	"ControversialSort": {
-		"message": "Vis den 'kontroversielle' sorteringsknappen"
-	},
 	"CreatePost": {
 		"message": "Opprett Innlegg"
 	},
@@ -157,9 +154,6 @@
 	},
 	"Feed": {
 		"message": "Strøm"
-	},
-	"FeedPostMaxHeight": {
-		"message": "Innlegg høyde"
 	},
 	"Header": {
 		"message": "Overskrift"
@@ -350,9 +344,6 @@
 	"ModerniseOldReddit": {
 		"message": "Modernisere old.reddit"
 	},
-	"MoveFeedToTopInSideMenu": {
-		"message": "Flytt 'Feed' delen i sidemenyen til toppen"
-	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Flerfargede kommentartrådelinjer"
 	},
@@ -527,9 +518,6 @@
 	"Shadow": {
 		"message": "Slipp skygger"
 	},
-	"ShowAllButton": {
-		"message": "Legg til 'r/All' knappen"
-	},
 	"ShowPostAuthor": {
 		"message": "Vis Innleggsforfatter"
 	},
@@ -538,9 +526,6 @@
 	},
 	"ShowPostNumbers": {
 		"message": "Legg til postnummer"
-	},
-	"ShowRising": {
-		"message": "Vis alltid 'Rising-knappen'"
 	},
 	"SideMenu": {
 		"message": "Sidemeny"
@@ -602,12 +587,6 @@
 	"Text": {
 		"message": "Tekst"
 	},
-	"TextScroll": {
-		"message": "Legg til rullefelt i lange tekstinnlegg"
-	},
-	"TextScrollInfo": {
-		"message": "Det er en grense. Du må kanskje åpne innlegget hvis det er veldig langt."
-	},
 	"Theme": {
 		"message": "Tema"
 	},
@@ -664,9 +643,6 @@
 	},
 	"VideoPlayerInfo": {
 		"message": "Rask, lett videospiller med hastighetskontroll basert på videojs. Prøv dette hvis du har lastingsproblemer med reddits egen spiller."
-	},
-	"VideoPlayerReplacement": {
-		"message": "Alternativ videospiller"
 	},
 	"Whitelist": {
 		"message": "Hviteliste"

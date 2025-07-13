@@ -149,9 +149,6 @@
 	"Controversial": {
 		"message": "Kontrovers / Controversial"
 	},
-	"ControversialSort": {
-		"message": "Zeigen Sie die Sortierschaltfläche „Kontrovers“ an"
-	},
 	"CreatePost": {
 		"message": "Beitrag Erstellen"
 	},
@@ -226,9 +223,6 @@
 	},
 	"FeedPostContent": {
 		"message": "Feed-Beitrag: Inhalt"
-	},
-	"FeedPostMaxHeight": {
-		"message": "Beitragslänge"
 	},
 	"FeedPostTitle": {
 		"message": "Feed-Beitrag: Titel"
@@ -518,9 +512,6 @@
 	"ModerniseOldRedditInfo": {
 		"message": "Lässt das alte Reddit mehr wie das neue Reddit aussehen."
 	},
-	"MoveFeedToTopInSideMenu": {
-		"message": "Verschieben Sie den Feed-Bereich im Seitenmenü nach oben"
-	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Mehrfarbige Kommentar-Thread-Zeilen"
 	},
@@ -767,9 +758,6 @@
 	"Shadow": {
 		"message": "Schlagschatten"
 	},
-	"ShowAllButton": {
-		"message": "Fügen Sie die Schaltfläche „r/All“ hinzu"
-	},
 	"ShowPostAuthor": {
 		"message": "Post-Autor anzeigen"
 	},
@@ -781,9 +769,6 @@
 	},
 	"ShowProfilePicturesOnComments": {
 		"message": "Profilbilder in Kommentaren anzeigen"
-	},
-	"ShowRising": {
-		"message": "Zeige den Button „Aufsteigend“ immer"
 	},
 	"ShowUpvoteRatio": {
 		"message": "Zeigen Sie den Prozentsatz in der Postansicht an"
@@ -875,12 +860,6 @@
 	"TextPostPreviewMaxHeight": {
 		"message": "Höhe der Textvorschau"
 	},
-	"TextScroll": {
-		"message": "Bildlaufleiste zu langen Textbeiträgen hinzufügen"
-	},
-	"TextScrollInfo": {
-		"message": "Es gibt eine Grenze. Möglicherweise müssen Sie den Beitrag öffnen, wenn er sehr lang ist."
-	},
 	"Theme": {
 		"message": "Farbschema"
 	},
@@ -943,9 +922,6 @@
 	},
 	"VideoPlayerInfo": {
 		"message": "Schneller, leichter Videoplayer mit Geschwindigkeitssteuerung basierend auf videojs. Versuchen Sie dies, wenn Sie Ladeprobleme mit dem eigenen Player von reddit haben."
-	},
-	"VideoPlayerReplacement": {
-		"message": "Alternativer Videoplayer"
 	},
 	"Welcome": {
 		"message": "Willkommen!"
