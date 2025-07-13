@@ -29,8 +29,6 @@
 		"i18next-http-backend": "^3.0.1",
 		"npm": "^11.0.0",
 		"semver": "^7.6.3",
-		"sortablejs": "^1.15.6",
-		"stream": "^0.0.3",
-		"video.js": "^8.21.0"
+		"sortablejs": "^1.15.6"
 	}
 }

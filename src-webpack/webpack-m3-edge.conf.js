@@ -74,21 +74,6 @@ module.exports = {
 					to: 'manifest.json',
 				},
 				{
-					context: path.resolve(__dirname, 'src/common/videojs'),
-					from: 'video.js',
-					to: 'videojs/video.min.js',
-				},
-				{
-					context: path.resolve(__dirname, 'src/common/videojs'),
-					from: 'vtt.js',
-					to: 'videojs',
-				},
-				{
-					context: 'node_modules/video.js/dist/',
-					from: 'video-js.css',
-					to: 'videojs',
-				},
-				{
 					context: path.resolve(__dirname, 'src/common'),
 					from: 'restore_config.html',
 					to: 'restore_config.html',

@@ -2,7 +2,7 @@
 
 A browser extension to tweak the user interface on Reddit.
 
-Supports Version 1 (Old) and Version 3 (New New) of Reddit. Version 2 (Old New) has been discontinued, but features will still be supported for the time being while workarounds to get Old New UI back are still working.<br>Not all features support all versions.
+Supports Version 1 (Old) and Version 3 (New New) of Reddit. Version 2 (Old New) has been discontinued, and code regarding this version will be gradually phased out.<br>Not all features support all versions.
 
 Feel free to suggest new features and report any bugs on the Issues page.
 
@@ -57,6 +57,7 @@ I welcome any help if you would like to improve or contribute new language trans
 ## Media
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
+|Add "Download Video" Button|This adds a button to video posts to download the video. It currently only supports mp4 URLs, not m3u8, so some posts won't have the download button.|3|
 |Add fade effect to text post previews|Adds a fade effect to the bottom of long text posts.|3|
 |Add Scrollbars To Images|Add a scrollbar to tall images so you can see the full width of the image, but scroll on the image to see more.|3<br />2|
 |Compact Post Link Previews|Makes the website image preview of link posts smaller and more compact.|3|
@@ -82,21 +83,21 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide Community Status|Hide the community status icons next to the subreddit name in feeds and the sidebar.|3|
 |Hide Home Feed|Hides the home feed entirely.|All|
 |Hide NSFW in the Search Results|Hide the type-a-head NSFW search results in the search bar.|3|
-|Hide NSFW Posts|Hide any posts marked as NSFW.|All|
 |Hide NSFW Users in the Search Page Sidebar|Hide the found NSFW users in the search results page sidebar.|3|
 |Hide Post Karma|Hides the karma on posts.|All|
 |Hide Post Separators|Hides the line between posts in feeds.|3|
 |Hide Promoted Links|Hides the promoted links/posts in the main feed.|All|
 |Hide Recent Posts|Hide the recent posts section in the sidebar.|3|
+|Hide Recommended Posts|Hides recommended/suggested posts, as well as recommended sub reddits in the sidebar.|3|
 |Hide "Trending Today" in the Search Results|Hide the "Trending Today" section in the search bar.|3|
 |Hide the Favourite Buttons|Hide the favourite buttons (star icons) on subreddits in the side menu.|3|
 |Hide The Home Sidebar|Hides the sidebar on the reddit home page.|All|
 |Hide The Post Back Button|Hides the back button on posts.|3|
 |Hide Vote Buttons|Hide the vote buttons on posts and comments.|All|
+|Hide NSFW/L Posts|Hide any posts marked as NSFW/L.|3<br />1|
 |Hide Thumbnails in Compact View|Hides the thumbnails on posts when viewing a feed in compact view.|3<br />1|
 |Hide Buttons In The Header|This allows you to individually hide the buttons in the header you don't use to clean up the interface.|3<br />2|
 |Hide profile pictures in the comments|Simply hides the user profile pictures in the comments of a post.|3<br />2|
-|Hide Recommended Posts|Hides recommended/suggested posts, as well as recommended sub reddits in the sidebar.|3<br />2|
 |Hide The "Post Hidden" Message|Hides the "Post Hidden" message when you hide a post|3<br />2|
 |Hide the Header Bar|Hide the header bar/panel at the top.|3<br />2|
 |Hide The Join Button On Posts|Hides the 'Join' button on posts on r/all and r/popular.|3<br />2|
@@ -270,13 +271,14 @@ Browser Sync:
 
 Required Permissions:
 
-- Storage. Required for saving and restoring user settings. Reddit Enhancer does not have access to external storage or personal data.
-- Tabs. Necessary for communication with open tabs on reddit.com. This is essential for applying features and tweaks within the reddit.com domain. This permission may appear as "Read your browsing history", when installing the extension, but is limited to the current open tabs.
-- declarativeNetRequest. Required to redirect the user to their preferred UI if enabled. Also required to open an image directly on its own if opened in a new tab.
+- Storage: Required for saving and restoring user settings. Reddit Enhancer does not have access to external storage or personal data.
+- Tabs: Necessary for communication with open tabs on reddit.com. This is essential for applying features and tweaks within the reddit.com domain. This permission may appear as "Read your browsing history", when installing the extension, but is limited to the current open tabs.
+- declarativeNetRequest: Required to redirect the user to their preferred UI if enabled. Also required to open an image directly on its own if opened in a new tab.
 
 Optional Permissions:
 
 - Browser History: "Mark posts as read when opening expandos in Compact view" requires access to the browser history to add the URL of the posts in question to the history, so the browser would see the post as visited and `:visited` CSS pseudo-class would be applied to the post link. Reddit Enhancer does *not* read or modify the browser history in any other way, and this can be later disabled in the browser extension settings.
+- Downloads: "Add 'Download Video' button to posts" requires this permission to download post videos to your computer.
 
 Third-Party Services:
 
