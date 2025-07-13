@@ -1,20 +1,27 @@
-/* ===== Tweaks - Style - Modernise Old Reddit ===== */
+/**
+ * Tweaks: Style - Modernise Old Reddit
+ *
+ * @name largerClassicPost
+ * @description Style old Reddit look and feel like new Reddit.
+ *
+ * Compatibility: RV1 (Old UI) (2005-)
+ */
 
-import { loadCustomBackground } from "../background/custom_background";
+import { loadCustomBackground } from '../background/custom_background';
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadModerniseOldReddit() {
 	BROWSER_API.storage.sync.get(['moderniseOldReddit'], function (result) {
 		if (result.moderniseOldReddit) moderniseOldReddit(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function moderniseOldReddit(value) {
 	const link = window.location.href;
 	if (value === true) {
 		loadCustomBackground();
-		styleModerniseOldReddit(value);
+		styleModerniseOldReddit();
 		document.querySelector('body').classList.add('re-modernise');
 		// Header
 		const header_container = document.querySelector('.re-header-container');
@@ -111,46 +118,15 @@ export function moderniseOldReddit(value) {
 			const main = document.querySelector('#re-main');
 			body.insertBefore(main, header.nextSibling);
 		}
-
-		// Expand Post
-		/*const posts = document.querySelectorAll('#siteTable .thing');
-				posts.forEach(function(post) {
-					const expando = post.querySelector('.expando-button');
-					if (expando) {
-						post.addEventListener('click', function(event) {
-							 // Get the clicked element
-							  const clickedElement = event.target;
-
-							  // Get the target element of the event
-							  const targetElement = event.currentTarget;
-
-							  // Check if the clicked element is the same as the target element
-							  if (clickedElement === targetElement) {
-							    // Ignore the event
-							    return;
-							  }
-
-							  // Check if the clicked element is a hyperlink
-							  if (clickedElement.tagName === 'A') {
-							    // Handle hyperlink event
-							    console.log('Clicked a hyperlink');
-							  } else {
-							  	console.log(clickedElement)
-							    // Handle other event
-							    console.log('Clicked an element with an event');
-							  }
-						});	
-					}
-				});*/
 	}
 }
 
-function styleModerniseOldReddit(value) {
-	if (value === true) {
-		if (!document.head.querySelector('style[id="re-modernise-old-reddit"]')) {
-			const styleElement = document.createElement('style');
-			styleElement.id = 're-modernise-old-reddit';
-			styleElement.textContent = `body{
+// Append stylesheet
+function styleModerniseOldReddit() {
+	if (!document.head.querySelector('style[id="re-modernise-old-reddit"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-modernise-old-reddit';
+		styleElement.textContent = `body{
 											background-color: #030303 !important;
 										}
 										#header {
@@ -460,7 +436,6 @@ function styleModerniseOldReddit(value) {
 										#newlink .formtabs-content {
 											margin: 0 auto;	
 										}`;
-			document.head.append(styleElement);
-		}
+		document.head.append(styleElement);
 	}
 }

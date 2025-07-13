@@ -1,60 +1,32 @@
-/* ===== Tweaks - Style - Hide Interface Gap ===== */
+/**
+ * Tweaks: Style - Hide Interface Gap
+ *
+ * @name hideGap
+ * @description Hide any and all gaps within the Reddit UI.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHideGap() {
 	BROWSER_API.storage.sync.get(['hideGap'], function (result) {
 		if (result.hideGap) hideGap(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function hideGap(value) {
-	if (redditVersion === 'new') {
+	if (redditVersion === 'newnew') {
 		if (value === true) {
-			enableHideGapNew();
-		} else {
-			disableHideGapAll();
-		}
-	} else if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHideGapNewNew();
+			enableHideGapRV3();
 		} else if (value === false) {
 			disableHideGapAll();
 		}
 	}
 }
 
-/* === Enable/Disable Functions === */
-
-// Function - Enable Hide Gap - New
-function enableHideGapNew() {
-	if (!document.head.querySelector('style[id="re-hide-ui-gap"]')) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-ui-gap';
-		styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child {
-										padding: 0 !important;
-									}
-									.ListingLayout-backgroundContainer + div > :last-child > :first-child > :first-child,
-									.ListingLayout-backgroundContainer + div > :last-child > :last-child {
-										margin: 0 !important;;  
-									}
-									.ListingLayout-backgroundContainer + div > :last-child > :first-child > div:has(#view--layout--FUE) {
-										margin: 0 !important;
-										border-radius: 0 !important;
-									}
-									.ListingLayout-backgroundContainer + div > :last-child > :last-child > :first-child > div {
-										border-radius: 0 !important;
-										margin-top: 0 !important;
-									}
-									.ListingLayout-backgroundContainer + div > :last-child > :last-child > :first-child > div > div {
-										border-radius: 0 !important;
-									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
-}
-
-// Function - Enable Hide Gap - New New
-function enableHideGapNewNew() {
+// Enable Hide Gap - RV3
+function enableHideGapRV3() {
 	if (!document.head.querySelector('style[id="re-hide-ui-gap"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-ui-gap';
@@ -137,12 +109,10 @@ function enableHideGapNewNew() {
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
-	//document.documentElement.style.setProperty('--re-hide-side-menu-gap-multiplyer2', 0);
 }
 
-// Function - Disable Hide Gap - All
+// Disable Hide Gap - All
 function disableHideGapAll() {
-	//document.documentElement.style.removeProperty('--re-hide-side-menu-gap-multiplyer2');
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-ui-gap"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);

@@ -47,21 +47,6 @@ export function restorePopupProductivityOptions() {
 		console.log('Open Post Links In New Tab: ' + value);
 	});
 
-	/*
-// Add Emoji Picker
-BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
-    if (result.addEmojiPicker == true) {
-        document.querySelector("#checkbox-add-emoji-picker").checked = true
-        document.querySelector(".icon-emoji-picker").style.backgroundColor = "var(--accent)"
-        highlightMenuIcon('productivity-tweaks');
-        var value = true
-    } else if ((typeof result.addEmojiPicker == 'undefined')||(result.addEmojiPicker == false)) {
-        document.querySelector("#checkbox-add-emoji-picker").checked = false
-        var value = false
-    }
-    console.log("Add Emoji Picker: "+value)
-})*/
-
 	// Always Show Post Options
 	BROWSER_API.storage.sync.get(['alwaysShowPostOptions'], function (result) {
 		if (result.alwaysShowPostOptions === true) {
@@ -620,30 +605,36 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 
 	// Mark Read On Open Expandos
 	BROWSER_API.storage.sync.get(['markReadOnOpenExpandos'], function (result) {
+		let value;
 		if (result.markReadOnOpenExpandos === true) {
 			if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
 				BROWSER_API.permissions
 					.contains({ permissions: ['history'] })
 					.then((granted) => {
 						if (granted) {
-							console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission granted');
+							console.debug('markReadOnOpenExpandos: history permission granted');
+							document.querySelector('#checkbox-mark-read-on-open-expandos').checked = true;
+							document.querySelector('.icon-mark-read-on-open-expandos').style.backgroundColor = 'var(--accent)';
+							highlightMenuIcon('productivity-tweaks');
+							value = true;
 						} else {
-							console.debug('[RedditEnhancer] markReadOnOpenExpandos: history permission denied');
+							console.debug('markReadOnOpenExpandos: history permission denied');
 							document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
 						}
 					})
 					.catch((e) => {
-						console.error('[RedditEnhancer] markReadOnOpenExpandos: Error getting history permission: ', e);
+						console.error('markReadOnOpenExpandos: Error getting history permission: ', e);
 						document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
 					});
+			} else {
+				document.querySelector('#checkbox-mark-read-on-open-expandos').checked = true;
+				document.querySelector('.icon-mark-read-on-open-expandos').style.backgroundColor = 'var(--accent)';
+				highlightMenuIcon('productivity-tweaks');
+				value = true;
 			}
-			document.querySelector('#checkbox-mark-read-on-open-expandos').checked = true;
-			document.querySelector('.icon-mark-read-on-open-expandos').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
 		} else if (typeof result.markReadOnOpenExpandos == 'undefined' || result.markReadOnOpenExpandos === false) {
 			document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
-			var value = false;
+			value = false;
 		}
 		console.log('Mark Read On Open Expandos: ' + value);
 	});

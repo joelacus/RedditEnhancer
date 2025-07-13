@@ -1,36 +1,32 @@
 /**
  * Tweaks: Style - Custom Header Logo
+ *
  * @name customHeaderLogo
  * @description Set a custom image URL to replace the Reddit header logo.
  *
- * Applies to: New New UI (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
-// Load the feature state from browser sync storage
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadCustomHeaderLogo() {
 	BROWSER_API.storage.sync.get(['customHeaderLogo', 'setCustomHeaderLogoUrl'], function (result) {
-		if (result.customHeaderLogo) {
-			customHeaderLogo(true);
-		}
+		if (result.customHeaderLogo) customHeaderLogo(true);
 	});
 }
 
-// Activate the feature based on Reddit version
+/* === Enable/Disable The Feature === */
 export function customHeaderLogo(value) {
-	const enableFunctionMap = {
-		newnew: enableCustomHeaderLogoNewNew,
-		old: enableCustomHeaderLogoOld,
-	};
-
-	if (value) {
-		enableFunctionMap[redditVersion]?.(value);
+	if (redditVersion === 'newnew') {
+		enableCustomHeaderLogoRV3();
+	} else if (redditVersion === 'old') {
+		enableCustomHeaderLogoRV1();
 	} else {
 		disableCustomHeaderLogoAll();
 	}
 }
 
-// Function - Enable Custom Header Logo - New New
-export function enableCustomHeaderLogoNewNew() {
+// Enable Custom Header Logo - RV3
+export function enableCustomHeaderLogoRV3() {
 	if (!document.head.querySelector('style[id="re-custom-logo"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-custom-logo';
@@ -53,8 +49,8 @@ export function enableCustomHeaderLogoNewNew() {
 	});
 }
 
-// Function - Enable Custom Header Logo - Old
-export function enableCustomHeaderLogoOld() {
+// Enable Custom Header Logo - RV1
+export function enableCustomHeaderLogoRV1() {
 	if (!document.head.querySelector('style[id="re-custom-logo"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-custom-logo';
@@ -71,7 +67,7 @@ export function enableCustomHeaderLogoOld() {
 	});
 }
 
-// Function - Disable Custom Header Logo
+// Disable Custom Header Logo - All
 export function disableCustomHeaderLogoAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-custom-logo"]');
 	dynamicStyleElements.forEach((element) => {
@@ -80,7 +76,7 @@ export function disableCustomHeaderLogoAll() {
 	document.documentElement.style.removeProperty('--re-custom-logo');
 }
 
-// Function - Set Custom Header Logo URL Style Property
+// Set Custom Header Logo URL Style Property
 export function setCustomHeaderLogoUrl(url) {
 	document.documentElement.style.setProperty('--re-custom-logo', `url(${url})`);
 }

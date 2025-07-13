@@ -1,13 +1,20 @@
-/* ===== Tweaks - Style - Border Radius ===== */
+/**
+ * Tweaks: Style - Border Radius
+ *
+ * @name borderRadiusAmount
+ * @description Change the corner radius of various UI elements on Reddit.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadBorderRadiusAmount() {
 	BROWSER_API.storage.sync.get(['borderRadiusAmount'], function (result) {
 		if (result.borderRadiusAmount) borderRadiusAmount(result.borderRadiusAmount);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function borderRadiusAmount(value) {
 	if (redditVersion === 'newnew') {
 		if (parseInt(value) >= 0) {
@@ -22,9 +29,7 @@ export function borderRadiusAmount(value) {
 	}
 }
 
-/* === Enable/Disable Functions === */
-
-// Function - Add Border Radius Amount Stylesheet
+// Add Border Radius Amount Stylesheet
 function addBorderRadiusAmountStylesheet() {
 	if (!document.head.querySelector('style[id="re-theme-border-radius"]')) {
 		const styleElement = document.createElement('style');
@@ -131,15 +136,7 @@ export function addBorderRadiusToShadowRootElements() {
 	const pdpCommentSearchInput = document.querySelector('pdp-comment-search-input')?.shadowRoot || null;
 	const subredditHeader = document.querySelector('shreddit-subreddit-header')?.shadowRoot || null;
 	const achievementsEntrypoint = document.querySelector('achievements-entrypoint')?.shadowRoot || null;
-	const shadowRootElements = [
-		recentPosts,
-		pdpCommentSearchInput?.querySelector('button'),
-		pdpCommentSearchInput?.querySelector('faceplate-search-input'),
-		pdpCommentSearchInput?.querySelector('button#cancel-pdp-comment-search-button'),
-		pdpCommentSearchInput?.querySelector('faceplate-search-input')?.shadowRoot?.querySelector('div.label-container'),
-		subredditHeader?.querySelector('div.header'),
-		achievementsEntrypoint?.querySelector('div'),
-	];
+	const shadowRootElements = [recentPosts, pdpCommentSearchInput?.querySelector('button'), pdpCommentSearchInput?.querySelector('faceplate-search-input'), pdpCommentSearchInput?.querySelector('button#cancel-pdp-comment-search-button'), pdpCommentSearchInput?.querySelector('faceplate-search-input')?.shadowRoot?.querySelector('div.label-container'), subredditHeader?.querySelector('div.header'), achievementsEntrypoint?.querySelector('div')];
 	shadowRootElements.forEach((element) => {
 		if (element) {
 			element.style.borderRadius = 'var(--re-theme-border-radius)';
@@ -161,7 +158,7 @@ export function addBorderRadiusToShadowRootElements() {
 	}
 }
 
-// Function - Remove Border Radius Amount Stylesheet
+// Remove Border Radius Amount Stylesheet
 function removeBorderRadiusAmountStylesheet() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-theme-border-radius"]');
 	dynamicStyleElements.forEach((element) => {

@@ -682,21 +682,28 @@ document.querySelector('#checkbox-mark-read-on-open-expandos').addEventListener(
 				.request({ permissions: ['history'] })
 				.then((granted) => {
 					if (granted) {
-						console.debug('[RedditEnhancer] markReadOnOpenExpandos: "history" permission granted');
+						console.debug('markReadOnOpenExpandos: "history" permission granted');
+						enabled(true);
 					} else {
-						console.debug('[RedditEnhancer] markReadOnOpenExpandos: "history" permission denied');
+						console.debug('markReadOnOpenExpandos: "history" permission denied');
 						document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
 					}
 				})
 				.catch((e) => {
-					console.error('[RedditEnhancer] markReadOnOpenExpandos: Error requesting "history" permission: ', e);
+					console.error('markReadOnOpenExpandos: Error requesting "history" permission: ', e);
 					document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
 				});
+		} else {
+			enabled(true);
 		}
+	} else {
+		enabled(false);
 	}
-	BROWSER_API.storage.sync.set({ markReadOnOpenExpandos: markReadOnOpenExpandos });
-	document.querySelector('.icon-mark-read-on-open-expandos').style.backgroundColor = markReadOnOpenExpandos ? 'var(--accent)' : '';
-	sendMessage({ markReadOnOpenExpandos: markReadOnOpenExpandos });
+	function enabled(value) {
+		BROWSER_API.storage.sync.set({ markReadOnOpenExpandos: value });
+		document.querySelector('.icon-mark-read-on-open-expandos').style.backgroundColor = value ? 'var(--accent)' : '';
+		sendMessage({ markReadOnOpenExpandos: value });
+	}
 });
 
 // Toggle - Highlight OP

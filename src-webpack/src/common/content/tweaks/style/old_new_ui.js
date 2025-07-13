@@ -1,21 +1,22 @@
 /**
  * Tweaks: Style - Full Width Banner
+ *
  * @name fullWidthBanner
  * @description Show the subreddit banner at full viewport width.
  *
- * Applies to: New New UI (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
 import { showBannerMessage } from '../../banner_message';
 
-// Get the feature state from browser sync storage
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadFullWidthBanner() {
 	BROWSER_API.storage.sync.get(['fullWidthBanner'], function (result) {
 		if (result.fullWidthBanner) fullWidthBanner(true);
 	});
 }
 
-// Activate the feature based on Reddit version
+/* === Enable/Disable The Feature === */
 export function fullWidthBanner(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
@@ -26,7 +27,7 @@ export function fullWidthBanner(value) {
 	}
 }
 
-// Enable the feature
+// Enable Full Width BAnner - RV3
 function enableFullWidthBanner() {
 	if (!document.head.querySelector('style[id="re-full-width-banner"]')) {
 		const styleElement = document.createElement('style');
@@ -60,7 +61,7 @@ function enableFullWidthBanner() {
 	}
 }
 
-// Disable the feature
+// Disable Full Width BAnner - RV3
 function disableFullWidthBanner() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-full-width-banner"]');
 	dynamicStyleElements.forEach((element) => {
@@ -70,20 +71,21 @@ function disableFullWidthBanner() {
 
 /**
  * Tweaks: Style - Compact Header Bar, Side Menu & Subreddit Rule List
+ *
  * @name compactHeaderSideMenu
  * @description Attempt to make the header bar, side menu and subreddit rule list more compact by removing paddings.
  *
- * Applies to: New New UI (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
-// Get the feature state from browser sync storage
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadCompactHeaderSideMenu() {
 	BROWSER_API.storage.sync.get(['compactHeaderSideMenu'], function (result) {
 		if (result.compactHeaderSideMenu) compactHeaderSideMenu(true);
 	});
 }
 
-// Activate the feature based on Reddit version
+/* === Enable/Disable The Feature === */
 export function compactHeaderSideMenu(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
@@ -95,7 +97,7 @@ export function compactHeaderSideMenu(value) {
 	}
 }
 
-// Enable the feature
+// Enable Compact Header and Side Menu - RV3
 function enableCompactHeaderSideMenu() {
 	if (!document.head.querySelector('style[id="re-compact-header-side-menu"]')) {
 		const styleElement = document.createElement('style');
@@ -155,7 +157,7 @@ function enableCompactHeaderSideMenu() {
 	}
 }
 
-// Disable the feature
+// Disable Compact Header and Side Menu - RV3
 function disableCompactHeaderSideMenu() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-compact-header-side-menu"]');
 	dynamicStyleElements.forEach((element) => {
@@ -172,14 +174,15 @@ function disableCompactHeaderSideMenu() {
  * Note: similar to Productivity/Show Post Flair, this feature calls Reddit's public JSON APIs to get the logo of the
  * current subreddit and user. All implications of fetching Reddit's APIs with GET requests still apply here.
  *
- * Applies to: New New UI (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  *
  * @async fetchData
  */
 
-let optOutAttach, e = false;
+let optOutAttach,
+	e = false;
 
-// Get the feature state from browser sync storage
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadAttachSideMenuHeader() {
 	BROWSER_API.storage.sync.get(['attachSideMenuHeader', 'optOutAttachSideMenu'], function (result) {
 		optOutAttachSideMenu(result.optOutAttachSideMenu);
@@ -187,7 +190,7 @@ export function loadAttachSideMenuHeader() {
 	});
 }
 
-// Activate the feature based on Reddit version
+/* === Enable/Disable The Feature === */
 export function attachSideMenuHeader(value) {
 	if (redditVersion === 'newnew') {
 		value ? enableAttachSideMenuHeader() : disableAttachSideMenuHeader();
@@ -199,7 +202,7 @@ export function optOutAttachSideMenu(value) {
 	optOutAttach = value;
 }
 
-// Enable the feature
+// Enable Attach Side Menu to the Header
 async function enableAttachSideMenuHeader() {
 	if (!document.head.querySelector('style[id="re-attach-side-menu-header"]')) {
 		const styleElement = document.createElement('style');
@@ -331,7 +334,7 @@ async function enableAttachSideMenuHeader() {
 	}
 }
 
-// Disable the feature
+// Disable Attach Side Menu to the Header
 function disableAttachSideMenuHeader() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-attach-side-menu-header"]');
 	dynamicStyleElements.forEach((element) => {
@@ -364,7 +367,9 @@ async function attachUserInfo() {
 // Attach the side menu to the header
 async function attachPageTitle() {
 	const currentPage = document.querySelector('shreddit-app').getAttribute('routename');
-	let logo = '', title = '', data;
+	let logo = '',
+		title = '',
+		data;
 
 	try {
 		switch (currentPage) {
@@ -397,12 +402,17 @@ async function attachPageTitle() {
 			case 'wiki_page':
 			case 'mod_queue':
 				title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2];
-				if (title) data = (await BROWSER_API.runtime.sendMessage({
-					actions: [{
-						action: 'fetchData',
-						url: `https://www.reddit.com/${title}/about.json`
-					}]
-				})).data;
+				if (title)
+					data = (
+						await BROWSER_API.runtime.sendMessage({
+							actions: [
+								{
+									action: 'fetchData',
+									url: `https://www.reddit.com/${title}/about.json`,
+								},
+							],
+						})
+					).data;
 				if (title && data && (data.community_icon || data.icon_img)) {
 					logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon ? data.community_icon : data.icon_img}">`;
 				} else {
@@ -420,12 +430,16 @@ async function attachPageTitle() {
 			case 'profile_post_page_comments':
 			case 'profile_serp':
 				title = 'u/' + window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1];
-				data = (await BROWSER_API.runtime.sendMessage({
-					actions: [{
-						action: 'fetchData',
-						url: `https://www.reddit.com/user/${window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1]}/about.json`
-					}]
-				})).data;
+				data = (
+					await BROWSER_API.runtime.sendMessage({
+						actions: [
+							{
+								action: 'fetchData',
+								url: `https://www.reddit.com/user/${window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1]}/about.json`,
+							},
+						],
+					})
+				).data;
 				if (title && data && (data.snoovatar_img || data.icon_img)) {
 					logo = `<img alt="${title} user avatar" class="${data.snoovatar_img ? '' : 'rounded-full'} h-lg w-lg mb-0" 
 						src="${data.snoovatar_img ? data.snoovatar_img : data.icon_img}">`;
@@ -464,12 +478,17 @@ async function attachPageTitle() {
 			default:
 				if (window.location.pathname.includes('/mod/')) {
 					title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2];
-					if (title) data = (await BROWSER_API.runtime.sendMessage({
-						actions: [{
-							action: 'fetchData',
-							url: `https://www.reddit.com/${title}/about.json`
-						}]
-					})).data;
+					if (title)
+						data = (
+							await BROWSER_API.runtime.sendMessage({
+								actions: [
+									{
+										action: 'fetchData',
+										url: `https://www.reddit.com/${title}/about.json`,
+									},
+								],
+							})
+						).data;
 					if (title && data) logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon}">`;
 				} else {
 					// Fallback for unknown pages
@@ -545,17 +564,17 @@ function formatNumber(num) {
  * @name subredditDisplayNameBanner
  * @description Duh.
  *
- * Applies to: New New UI (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
-// Get the feature state from browser sync storage
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadSubredditDisplayNameBanner() {
 	BROWSER_API.storage.sync.get(['subredditDisplayNameBanner'], function (result) {
 		if (result.subredditDisplayNameBanner) subredditDisplayNameBanner(true);
 	});
 }
 
-// Activate the feature based on Reddit version
+/* === Enable/Disable The Feature === */
 export function subredditDisplayNameBanner(value) {
 	if (redditVersion === 'newnew') {
 		if (value && window.innerWidth >= 960) {

@@ -1,26 +1,27 @@
 /**
  * Tweaks: Style - Classic Old UI
+ *
  * @name classicOldUI
  * @description Attempt to replicate to the 2005–2008 Reddit interface design. nostalgic
  *
- * Huge thanks to jre and shockawer (userstyles.world) for much of the CSS code.
+ * Credit: Huge thanks to jre and shockawer (userstyles.world) for much of the CSS code.
  *
- * Applies to: Old UI (2005–)
+ * Note: although it is technically possible to completely recreate the blue tab strip, Reddit has since introduced
+ *       the multireddit side menu and put span.pagename next to ul.tabmenu, which makes setting the width for ul.tabmenu
+ *       unpredictable. If its width is too much, it gets pushed down under the logo... let's just say it does not look good.
+ *       Uncomment and/or replace the CSS lines, and browse around to see what I mean
+ *
+ * Compatibility: RV1 (Old UI) (2005-)
  */
 
-// Get the feature state from browser sync storage
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadClassicOldUI() {
 	BROWSER_API.storage.sync.get(['classicOldUI']).then((result) => {
 		if (result.classicOldUI) classicOldUI(true);
 	});
 }
 
-/* Activate the feature based on Reddit version
- * NOTE: although it is technically possible to completely recreate the blue tab strip, Reddit has since introduced
- * the multireddit side menu and put span.pagename next to ul.tabmenu, which makes setting the width for ul.tabmenu
- * unpredictable. If its width is too much, it gets pushed down under the logo... let's just say it does not look good
- * Uncomment and/or replace the CSS lines, and browse around to see what I mean
- */
+/* === Enable/Disable The Feature === */
 export function classicOldUI(value) {
 	if (value) {
 		if (redditVersion === 'old') {

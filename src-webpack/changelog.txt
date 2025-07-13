@@ -1,19 +1,45 @@
 version 2.0.0
 v [General]
-  - New permission required (downloads), although optional for Firefox users, for the new feature "Add 'Download Video' button to video posts".
-  - New permission required (history), although optional for Firefox users, for the new feature "Mark posts as read when expanded in compact view". This option simply adds the post URL to your browser's history to mark it as "read".
+  - New permission required (downloads) for the new feature "Add 'Download Video' button to video posts". This permission is optional for Firefox users.
+  - New permission required (history) for the new feature "Mark posts as read when opening expandos in Compact view". This option simply adds the post URL to your browser's history to mark it as "read", it does not read or modify your history in any other way. This permission is optional for Firefox users.
   - Removed code and support for the deprecated Reddit version "Old New UI".
-  - Cleaned up code to improve performance and maintainability.
+  - Cleaned up a lot of code to improve performance and maintainability.
   - Bug fixes and improvements.
 v [New New UI]
-  - Added a new option to add a "Download Video" button to video posts. (This currently only works for mp4 URLs, not m3u8, so some posts won't have the download button).
+  - Added a new option "Add 'Download Video' button to video posts". (This currently only works for mp4 URLs, not m3u8, so some posts won't have the download button).
   - Added support for "Open Post In New Tab".
   - Added support for "Open Subreddit In New Tab".
+  - Added support for "Add Drop Shadows". This will add a drop shadow effect to various UI elements on the site.
   - Fixed an issue where "Show vote buttons on the left" used with "Hide NSFW/L Posts" or "Hide Recommended/Suggested Posts", would show only partially hidden posts.
   - Fixed "Upvote Colour" not working with the option to move the vote buttons to the left of the post.
-  - "Auto Expand Comments" now remembers if you have closed a comment thread and will not re-expand it.
+  - "Auto Expand More Comments" now remembers if you have closed a comment thread and will not re-expand it.
   - The "Override Default Sort Option" grace period has been removed as it it not longer required. You can now manually change the feed sort option whenever you want without the "Default Feed Sort Option" feature from auto reverting to what is set in the extension.  
   - Fixed "Hide Video Recommendations" not working due to a website update.
+* Special thanks to @biminhc1 (Reddit) @bmndc (Github) for all following changes <3
+v [New New UI]
+  - Added a new option "Highlight comments from the original poster (OP)".
+  - Added a new option "Hide 'Give Awards' button". This applies to posts and comments.
+  - Added a new option "Add link to view crossposts in other subreddits" to view crossposts of a post in post view, bringing back the "View discussions in other communities" link from "Old New UI".
+  - Added a new option "Mark posts as read when opening expandos in Compact view". Requires the (history) permission.
+  - Rewritten "Always Show Post Options", which now displays post and comment options in their action bars.
+  - Resize Main Container now serves as the default behaviour for "Resize Feed/Post". It now resizes the total width of the main content and the sidebar to the feed width or the global container width (the lower one takes precedence). It is possible to opt into using the older behaviour by turning on "Snap sidebar to the right edge".
+  - Renamed "Auto Show Formatting Options When Commenting" to "Better Comment Box". It now listens for the Ctrl/Command + Enter in the comment box to submit a comment. As the functions have been renamed, users who have activated "Auto Show Formatting Options When Commenting" should re-activate the new "Better Comment Box" feature.
+  - "Auto Expand Hidden Comments" and "Auto Load More Comments" have been merged into "Auto Expand and Load More Comments", and have been rewritten to improve their reliability. For those who have previously used "Auto Expand Hidden Comments", you will need to turn on the new option.
+  - Rewrote "Default Sort Options" to improve its stability. It now also attaches comment sort option to feed posts, removing the need to redirect comment pages as they are opened.
+  - Renamed "Hide Post Dividers" to "Hide post and sidebar dividers". It now also hides the dividers in the subreddit and post sidebars, separating sections into their own boxes.
+  - "Hide Recommended/Suggested" now also hides Reddit Chat previews and Reddit announcements (ads for Reddit).
+  - Fixed an issue where calling the window context in the background script to detect the current Reddit domain may cause the extension to crash on Chrome.
+  - Fixed an issue on Chromium-based browsers where post author taglines may appear on top of the site header.
+  - Fixed an issue where thread lines of the 1st comment level may not appear in some zoom levels on Firefox (Windows).
+  - "Resize Feed/Post", "Fonts", "Style" and "Custom Background" settings should now apply to "profile_post_page_comments" page type.
+  - "Compact Post Link Preview" should no longer compress posts with links to image hosting sites (Imgur and Imgbb).
+  - Fixed an issue where post link may overlap the flair for posts with content tags (NSFW and Spoiler) when "Compact Post Link Previews" is on.
+  - User tags (MOD, ADMIN, OP etc.) should now display after the post author text when "Show Post Author" is on.
+  - Improved the stability of "Remember the hidden states of sections in the side menu" and "Display page and user info in header". Page and user info should now be fetched and inserted concurrently, and load as the side menu appears.
+  - Improved the observer reliability, element detection and performance of functions.
+  - Cleaned up and improved code maintainability for fetching data from Reddit public APIs and theme colour functions.
+v [Old UI]
+  - Added a setting to move post thumbnails to the right (kudos to emaag on userstyles.world!)
 
 version 1.17.0
 v [General]

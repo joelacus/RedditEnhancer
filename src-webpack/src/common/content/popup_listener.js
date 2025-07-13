@@ -37,7 +37,7 @@ import { moderniseOldReddit } from './tweaks/style/modernise_old_reddit';
 import { nonStickyHeaderBar } from './tweaks/productivity/non_sticky_header_bar';
 import { openPostInNewTab } from './tweaks/productivity/open_post_links_in_new_tab';
 import { openSubInNewTab } from './tweaks/productivity/open_sub_links_in_new_tab';
-import { overrideDropShadow, overrideDropShadowCSS } from './tweaks/style/override_drop_shadow';
+import { overrideDropShadow, overrideDropShadowCSS } from './tweaks/style/drop_shadow';
 import { postTitleFontSize, postCommentsFontSize, postContentFontSize, feedPostTitleFontSize, feedPostContentFontSize, createPostTitleFontSize, createPostBodyFontSize } from './tweaks/font/resize_font';
 import { feedPostContentFontWeight, feedPostTitleFontWeight, postCommentsFontWeight, postContentFontWeight, postTitleFontWeight } from './tweaks/font/font_weight';
 import { scrollToNextRootComment, scrollToNextRootCommentPosition } from './tweaks/productivity/scroll_to_next_root_comment';
@@ -145,11 +145,11 @@ import { hideBlockedKeywordPosts } from './tweaks/block/block_posts_by_keyword';
 import { hideVideoRecommendations } from './tweaks/media/hide_video_recommendations';
 import { leftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { hideCommunityStatus } from './tweaks/hide_elements/hide_community_status';
-import { rightSidePostThumbnails } from "./tweaks/style/right_side_post_thumbnails";
-import { viewCrossposts } from "./tweaks/productivity/view_crossposts";
-import { markReadOnOpenExpandos } from "./tweaks/productivity/mark_read_on_open_expandos";
-import { hideAwards } from "./tweaks/hide_elements/hide_awards";
-import { highlightOp } from "./tweaks/productivity/highlight_op";
+import { rightSidePostThumbnails } from './tweaks/style/right_side_post_thumbnails';
+import { viewCrossposts } from './tweaks/productivity/view_crossposts';
+import { markReadOnOpenExpandos } from './tweaks/productivity/mark_read_on_open_expandos';
+import { hideAwards } from './tweaks/hide_elements/hide_awards';
+import { highlightOp } from './tweaks/productivity/highlight_op';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 import { addDownloadVideoButton } from './tweaks/media/add_download_video_button';
 
@@ -190,7 +190,7 @@ const functionRegistry = {
 	layoutUserProfileOffset,
 	layoutSearchPageOffset,
 	layoutCentre,
-	shadows,
+	addDropShadow,
 	imageScroll,
 	setMaxImageWidth,
 	setMaxImagePostHeight,
@@ -396,10 +396,6 @@ const functionRegistry = {
 
 function forceCustomBgOldUI(value) {
 	useCustomBackground(value);
-}
-
-function shadows(value) {
-	addDropShadow(value);
 }
 
 function textPostPreviewFadeHeight(value) {

@@ -1,27 +1,30 @@
-/* ===== Tweaks - Style - Multicoloured Thread Lines ===== */
+/**
+ * Tweaks: Style - Multicoloured Thread Lines
+ *
+ * @name multicolouredThreadLines
+ * @description Set the post page comment thread lines to different colours depending on the comment depth.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-// Set the post page comment thread lines to different colours depending on the comment depth.
-
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadMulticolouredThreadLines() {
 	BROWSER_API.storage.sync.get(['multicolouredThreadLines'], function (result) {
 		if (result.multicolouredThreadLines) multicolouredThreadLines(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function multicolouredThreadLines(value, colours) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableMulticolouredThreadLines(colours);
-		} else if (value === false) {
-			disableMulticolouredThreadLines();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableMulticolouredThreadLinesRV3(colours);
+	} else {
+		disableMulticolouredThreadLinesRV3();
 	}
 }
 
-// Function - Enable Multicoloured Thread Lines
-function enableMulticolouredThreadLines() {
+// Enable Multicoloured Thread Lines - RV3
+function enableMulticolouredThreadLinesRV3() {
 	BROWSER_API.storage.sync.get(['multicolouredThreadLinesColours'], function (result) {
 		// Get Colours, or set default
 		const default_colours = ['#e40303', '#ff8c00', '#ffed00', '#388e3c', '#0070ff', '#7e49db', '#f44ae2', '#03e4cf', '#028ed3', '#744f95'];
@@ -33,7 +36,7 @@ function enableMulticolouredThreadLines() {
 		}
 
 		// Reset Thread Lines
-		disableMulticolouredThreadLines();
+		disableMulticolouredThreadLinesRV3();
 
 		// Select all root comments
 		const elements = document.querySelectorAll('shreddit-comment-tree > shreddit-comment');
@@ -59,8 +62,8 @@ function enableMulticolouredThreadLines() {
 	});
 }
 
-// Function - Disable Multicoloured Thread Lines
-function disableMulticolouredThreadLines() {
+// Disable Multicoloured Thread Lines - RV3
+function disableMulticolouredThreadLinesRV3() {
 	document.querySelectorAll('shreddit-comment').forEach((comment) => {
 		comment.style.removeProperty('--color-tone-4');
 	});

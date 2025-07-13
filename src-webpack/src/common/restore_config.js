@@ -293,7 +293,7 @@ async function restoreBackup(json) {
 				'scalePostToFitVideo',
 				'scrollToNextRootComment',
 				'scrollToNextRootCommentPosition',
-				'shadows',
+				'addDropShadow',
 				'showPostAuthor',
 				'showPostFlair',
 				'showPostNumbers',

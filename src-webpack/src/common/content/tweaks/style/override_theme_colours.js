@@ -1,6 +1,12 @@
-/* ===== Tweaks - Style - Theme Colours ===== */
+/**
+ * Tweaks: Style - Theme Colours
+ *
+ * @description Change the colours of various elements on Reddit.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 
 // Theme Exception
 export function loadCustomTheme() {
@@ -110,7 +116,7 @@ function removeTheme() {
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Features === */
 
 // Header Background Colour
 export function themeHeaderBackgroundColour(value) {
@@ -629,7 +635,7 @@ export function themePostBackgroundColourCSS(value) {
 	}
 }
 
-// Function - Run After Page Has Loaded Comments
+// Run After Page Has Loaded Comments
 export function loadFixThreadlinesForTranslucentPosts() {
 	BROWSER_API.storage.sync.get(['themePostBackgroundColourCSS'], function (result) {
 		if (result.themePostBackgroundColourCSS?.includes('rgba') || result.themePostBackgroundColourCSS?.includes('transparent')) {
@@ -659,7 +665,7 @@ const comment_observer = new MutationObserver(function (mutations) {
 	});
 });
 
-// Function - Fix Comment Threadlines For Translucent Post Background Colours
+// Fix Comment Threadlines For Translucent Post Background Colours
 function fixThreadlinesForTranslucentPosts() {
 	if (!document.head.querySelector('style[id="re-theme-fix-comment-threadline"]')) {
 		const styleElement = document.createElement('style');
@@ -681,7 +687,7 @@ function fixThreadlinesForTranslucentPosts() {
 	});
 }
 
-// Function - Undo Fix Comment Threadlines For Translucent Post Background Colours
+// Undo Fix Comment Threadlines For Translucent Post Background Colours
 function undoFixThreadlinesForTranslucentPosts() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-fix-comment-threadline"]');
 	dynamicStyleElements.forEach((element) => {
@@ -1210,7 +1216,7 @@ export function themeSidebarBgColourCSS(value) {
 	}
 }
 
-// Sidemenu Text Colour
+// Side Menu Text Colour
 export function themeSidemenuTextColour(value) {
 	if (value) {
 		BROWSER_API.storage.sync.get(['themeSidemenuTextColourCSS'], function (result) {
@@ -1247,7 +1253,7 @@ export function themeSidemenuTextColour(value) {
 	}
 }
 
-// Sidemenu Text Colour CSS
+// Side Menu Text Colour CSS
 export function themeSidemenuTextColourCSS(value) {
 	if (redditVersion === 'new' || redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themeSidemenuTextColour'], function (result) {
@@ -1258,7 +1264,7 @@ export function themeSidemenuTextColourCSS(value) {
 	}
 }
 
-// Sidemenu Background Colour
+// Side Menu Background Colour
 export function themeSidemenuBgColour(value) {
 	if (value) {
 		BROWSER_API.storage.sync.get(['themeSidemenuBgColourCSS'], function (result) {
@@ -1300,7 +1306,7 @@ export function themeSidemenuBgColour(value) {
 	}
 }
 
-// Sidemenu Background Colour CSS
+// Side Menu Background Colour CSS
 export function themeSidemenuBgColourCSS(value) {
 	if (redditVersion === 'new' || redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themeSidemenuBgColour'], function (result) {
@@ -1311,7 +1317,7 @@ export function themeSidemenuBgColourCSS(value) {
 	}
 }
 
-// Sidemenu Button Hover Colour
+// Side Menu Button Hover Colour
 export function themeSidemenuButtonHoverColour(value) {
 	if (redditVersion === 'newnew' && value === true) {
 		BROWSER_API.storage.sync.get(['themeSidemenuButtonHoverColourCSS'], function (result) {
@@ -1341,7 +1347,7 @@ export function themeSidemenuButtonHoverColour(value) {
 	}
 }
 
-// Sidemenu Button Hover Colour CSS
+// Side Menu Button Hover Colour CSS
 export function themeSidemenuButtonHoverColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themeSidemenuButtonHoverColour'], function (result) {

@@ -21,20 +21,20 @@ export function restorePopupStyleOptions() {
 		console.log('Border Radius Amount: ' + value);
 	});
 
-	// Dropshadows
-	BROWSER_API.storage.sync.get(['shadows'], function (result) {
-		if (result.shadows == true) {
-			document.querySelector('#checkbox-shadow').checked = true;
-			document.querySelector('.icon-shadow').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.icon-shadow').classList.add('icon-light-on');
-			document.querySelector('.icon-shadow').classList.remove('icon-light-off');
+	// Add Drop Shadow
+	BROWSER_API.storage.sync.get(['addDropShadow'], function (result) {
+		if (result.addDropShadow == true) {
+			document.querySelector('#checkbox-add-drop-shadow').checked = true;
+			document.querySelector('.icon-add-drop-shadow').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-add-drop-shadow').classList.add('icon-light-on');
+			document.querySelector('.icon-add-drop-shadow').classList.remove('icon-light-off');
 			highlightMenuIcon('style-tweaks');
 			var value = true;
-		} else if (typeof result.shadows == 'undefined' || result.shadows == false) {
-			document.querySelector('#checkbox-shadow').checked = false;
+		} else if (typeof result.addDropShadow == 'undefined' || result.addDropShadow == false) {
+			document.querySelector('#checkbox-add-drop-shadow').checked = false;
 			var value = false;
 		}
-		console.log('Use Drop Shadows: ' + value);
+		console.log('Add Drop Shadows: ' + value);
 	});
 
 	// Override Drop Shadow

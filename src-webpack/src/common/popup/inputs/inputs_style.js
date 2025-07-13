@@ -16,36 +16,27 @@ document.querySelector('#checkbox-hide-gap').addEventListener('change', function
 	}
 });
 
-// Toggle - Dropshadows
-document.querySelector('#checkbox-shadow').addEventListener('change', function (e) {
-	const state = document.querySelector('#checkbox-shadow').checked;
-	if (state == true) {
-		BROWSER_API.storage.sync.set({ shadows: true });
-		document.querySelector('.icon-shadow').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-shadow').classList.add('icon-light-on');
-		document.querySelector('.icon-shadow').classList.remove('icon-light-off');
-		sendMessage({ shadows: true });
-	} else if (state == false) {
-		BROWSER_API.storage.sync.set({ shadows: false });
-		document.querySelector('.icon-shadow').style.backgroundColor = '';
-		document.querySelector('.icon-shadow').classList.remove('icon-light-on');
-		document.querySelector('.icon-shadow').classList.add('icon-light-off');
-		sendMessage({ shadows: false });
+// Toggle - Add Drop Shadow
+document.querySelector('#checkbox-add-drop-shadow').addEventListener('change', function (e) {
+	const addDropShadow = document.querySelector('#checkbox-add-drop-shadow').checked;
+	BROWSER_API.storage.sync.set({ addDropShadow: addDropShadow === true });
+	sendMessage({ addDropShadow: addDropShadow === true });
+	document.querySelector('.icon-add-drop-shadow').style.backgroundColor = addDropShadow === true ? 'var(--accent)' : '';
+	if (addDropShadow) {
+		document.querySelector('.icon-add-drop-shadow').classList.add('icon-light-on');
+		document.querySelector('.icon-add-drop-shadow').classList.remove('icon-light-off');
+	} else {
+		document.querySelector('.icon-add-drop-shadow').classList.remove('icon-light-on');
+		document.querySelector('.icon-add-drop-shadow').classList.add('icon-light-off');
 	}
 });
 
 // Toggle - Drop Shadow CSS Override
 document.querySelector('#checkbox-shadow-override').addEventListener('change', function (e) {
 	const overrideDropShadow = document.querySelector('#checkbox-shadow-override').checked;
-	if (overrideDropShadow == true) {
-		BROWSER_API.storage.sync.set({ overrideDropShadow: true });
-		document.querySelector('.icon-drop-shadow-override').style.backgroundColor = 'var(--accent)';
-		sendMessage({ overrideDropShadow: true });
-	} else if (overrideDropShadow == false) {
-		BROWSER_API.storage.sync.set({ overrideDropShadow: false });
-		document.querySelector('.icon-drop-shadow-override').style.backgroundColor = '';
-		sendMessage({ overrideDropShadow: false });
-	}
+	document.querySelector('.icon-drop-shadow-override').style.backgroundColor = overrideDropShadow === true ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ overrideDropShadow: overrideDropShadow === true });
+	sendMessage({ overrideDropShadow: overrideDropShadow === true });
 });
 
 // Input - Drop Shadow Override CSS

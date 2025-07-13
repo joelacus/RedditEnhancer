@@ -10,57 +10,57 @@
  * to the right, leaving enough space on the left for the buttons. This means that the vote buttons are part of <article>
  * rather than <shreddit-post>.
  *
- * Applies to: New New UI (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
-import { showBannerMessage } from "../../banner_message";
+import { showBannerMessage } from '../../banner_message';
 
 let isAttaching = false;
 
-// Get the feature state from browser sync storage
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadLeftSideVoteButtons() {
-    BROWSER_API.storage.sync.get(['leftSideVoteButtons'], function (result) {
-        if (result.leftSideVoteButtons) leftSideVoteButtons(true);
-    });
+	BROWSER_API.storage.sync.get(['leftSideVoteButtons'], function (result) {
+		if (result.leftSideVoteButtons) leftSideVoteButtons(true);
+	});
 }
 
-// Activate the feature based on Reddit version
+/* === Enable/Disable The Feature === */
 export function leftSideVoteButtons(value) {
-    if (redditVersion === 'newnew') {
-        if (value && !document.querySelector('shreddit-app').getAttribute('routename').includes('mod_queue')) {
-            enableLeftSideVoteButtons();
-            attachVoteButtons();
-            if (document.querySelector('shreddit-feed')) {
-                observer.observe(document.querySelector('shreddit-feed'), {childList: true, subtree: true});
-            }
-            if (document.querySelector('shreddit-post[view-context="CommentsPage"]')) {
-                const crosspost = document.querySelector('shreddit-post').getAttribute('post-type');
-                const tagline = document.querySelector('shreddit-post span.avatar + div > div');
-                if (tagline) {
-                    const author = tagline.querySelector('faceplate-tracker[noun="user_profile"]:first-child');
-                    if (author) {
-                        if (crosspost === 'crosspost') {
-                            author.childNodes[0].textContent = "Crossposted by u/" + author.childNodes[0].textContent;
-                        } else {
-                            author.childNodes[0].textContent = "Posted by u/" + author.childNodes[0].textContent;
-                        }
-                    }
-                    document.querySelector('shreddit-post span#time-ago-separator').insertAdjacentElement("afterend", tagline);
-                }
-            }
-        } else {
-            disableLeftSideVoteButtons();
-            observer.disconnect();
-        }
-    }
+	if (redditVersion === 'newnew') {
+		if (value && !document.querySelector('shreddit-app').getAttribute('routename').includes('mod_queue')) {
+			enableLeftSideVoteButtonsRV3();
+			attachVoteButtons();
+			if (document.querySelector('shreddit-feed')) {
+				observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
+			}
+			if (document.querySelector('shreddit-post[view-context="CommentsPage"]')) {
+				const crosspost = document.querySelector('shreddit-post').getAttribute('post-type');
+				const tagline = document.querySelector('shreddit-post span.avatar + div > div');
+				if (tagline) {
+					const author = tagline.querySelector('faceplate-tracker[noun="user_profile"]:first-child');
+					if (author) {
+						if (crosspost === 'crosspost') {
+							author.childNodes[0].textContent = 'Crossposted by u/' + author.childNodes[0].textContent;
+						} else {
+							author.childNodes[0].textContent = 'Posted by u/' + author.childNodes[0].textContent;
+						}
+					}
+					document.querySelector('shreddit-post span#time-ago-separator').insertAdjacentElement('afterend', tagline);
+				}
+			}
+		} else {
+			disableLeftSideVoteButtonsRV3();
+			observer.disconnect();
+		}
+	}
 }
 
-// Enable the feature
-function enableLeftSideVoteButtons() {
-    if (!document.head.querySelector('style[id="re-left-side-vote-buttons"]')) {
-        const styleElement = document.createElement('style');
-        styleElement.id = 're-left-side-vote-buttons';
-        styleElement.textContent = `
+// Enable Left Side Vote Buttons - RV3
+function enableLeftSideVoteButtonsRV3() {
+	if (!document.head.querySelector('style[id="re-left-side-vote-buttons"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-left-side-vote-buttons';
+		styleElement.textContent = `
 			shreddit-feed > article:has(> shreddit-post),
 			shreddit-feed faceplate-batch > article:has(> shreddit-post) {
 				display: flex;
@@ -181,59 +181,61 @@ function enableLeftSideVoteButtons() {
                 margin-top: 0;
             }
 			`;
-        document.head.insertBefore(styleElement, document.head.firstChild);
-    }
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
 }
 
-// Disable the feature
-function disableLeftSideVoteButtons() {
-    const dynamicStyleElements = document.head.querySelectorAll('style[id="re-left-side-vote-buttons"]');
-    dynamicStyleElements.forEach((element) => {
-        document.head.removeChild(element);
-    });
-    showBannerMessage('info', '[RedditEnhancer] Please refresh the page for the change to take full effect.');
+// Disable Left Side Vote Buttons - RV3
+function disableLeftSideVoteButtonsRV3() {
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-left-side-vote-buttons"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+	showBannerMessage('info', '[RedditEnhancer] Please refresh the page for the change to take full effect.');
 }
 
 async function attachVoteButtons() {
-    if (isAttaching) return;
-    isAttaching = true;
+	if (isAttaching) return;
+	isAttaching = true;
 
-    // Get a NodeList of currently displaying posts and convert it to an array
-    const posts = document.querySelectorAll('shreddit-post');
-    let postArray = [...posts];
+	// Get a NodeList of currently displaying posts and convert it to an array
+	const posts = document.querySelectorAll('shreddit-post');
+	let postArray = [...posts];
 
-    for (const post of postArray) {
-        if (!post.parentNode.querySelector('.re-vote-panel')) {
-            const votePanel = Object.assign(document.createElement('div'), {
-                className: 're-vote-panel',
-            });
-            const voteButtons = post.shadowRoot?.querySelector('span[data-post-click-location="vote"]')?.parentNode;
-            if (voteButtons) {
-                votePanel.appendChild(voteButtons);
-                post.parentNode.insertBefore(votePanel, post);
-            }
-        }
-    }
+	for (const post of postArray) {
+		if (!post.parentNode.querySelector('.re-vote-panel')) {
+			const votePanel = Object.assign(document.createElement('div'), {
+				className: 're-vote-panel',
+			});
+			const voteButtons = post.shadowRoot?.querySelector('span[data-post-click-location="vote"]')?.parentNode;
+			if (voteButtons) {
+				votePanel.appendChild(voteButtons);
+				post.parentNode.insertBefore(votePanel, post);
+			}
+		}
+	}
 
-    isAttaching = false;
+	isAttaching = false;
 }
 
 // Observer for watching new posts in feed
-const observer = new MutationObserver(debounce(mutations => {
-    mutations.forEach(function (mutation) {
-        mutation.addedNodes.forEach(addedNode => {
-            if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
-                attachVoteButtons();
-            }
-        });
-    });
-}, 100));
+const observer = new MutationObserver(
+	debounce((mutations) => {
+		mutations.forEach(function (mutation) {
+			mutation.addedNodes.forEach((addedNode) => {
+				if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+					attachVoteButtons();
+				}
+			});
+		});
+	}, 100)
+);
 
 // Allowing some timeout between attachment to prevent performance issues
 function debounce(func, wait) {
-    let timeout;
-    return function (...args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, args), wait);
-    };
+	let timeout;
+	return function (...args) {
+		clearTimeout(timeout);
+		timeout = setTimeout(() => func.apply(this, args), wait);
+	};
 }
