@@ -5,7 +5,6 @@
 import { addDropShadow } from './tweaks/style/drop_shadow';
 import { alwaysShowPostOptions, hidePostBrandAwarenessOption, hidePostDeleteOption, hidePostEditOption, hidePostHideOption, hidePostNotificationOption, hidePostNsfwOption, hidePostReportOption, hidePostSaveOption, hidePostSpoilerOption } from './tweaks/productivity/always_show_post_options';
 import { autoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
-import { autoExpandComments } from './tweaks/productivity/auto_expand_comments';
 import { autoExpandValue } from './tweaks/resize_elements/auto_expand_value';
 import { autoLoadMoreComments } from './tweaks/productivity/auto_load_more_comments';
 import { bgBlur } from './tweaks/background/custom_background';
@@ -13,7 +12,7 @@ import { bionicReaderBgColour, bionicReaderBgColourCSS, bionicReaderFontColour, 
 import { bionicReaderComments } from './tweaks/accessibility/bionic_reader';
 import { breakReminder } from './tweaks/productivity/break_reminder';
 import { darkMode, darkModeAutoListener } from './tweaks/dark_mode/dark_mode';
-import { expandLayout, expandPostOverlayWidth, expandPostWidth, expandSubWidth, expandLayoutWidth, expandUserProfileWidth, expandTopicFeedWidth, expandCustomFeedWidth } from './tweaks/resize_elements/expand_content';
+import { expandLayout, snapSidebar, expandPostOverlayWidth, expandPostWidth, expandSubWidth, expandLayoutWidth, expandUserProfileWidth, expandTopicFeedWidth, expandCustomFeedWidth, resizeMainContainerWidth } from './tweaks/resize_elements/expand_content';
 import { hideGap } from './tweaks/style/hide_gap';
 import { hideGetNewReddit } from './tweaks/hide_elements/hide_get_new_reddit';
 import { hideHeaderBar } from './tweaks/hide_elements/hide_header_bar';
@@ -128,7 +127,6 @@ import { hidePostDivider, postSeparatorHeight } from './tweaks/hide_elements/hid
 import { hideBlurredMediaBackground } from './tweaks/media/hide_blurred_media_background';
 import { fullWidthBanner, compactHeaderSideMenu, attachSideMenuHeader, optOutAttachSideMenu, subredditDisplayNameBanner } from './tweaks/style/old_new_ui';
 import { textPostPreviewFade, setTextPostPreviewFadeHeight } from './tweaks/media/text_preview_fade';
-import { resizeMainContainer, resizeMainContainerWidth } from './tweaks/resize_elements/resize_main_container';
 import { hideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
 import { sidebarToggleButton } from './tweaks/hide_elements/sidebar_toggle_button';
 import { hideCompactViewThumbnails } from './tweaks/hide_elements/hide_compact_view_thumbnails';
@@ -147,11 +145,13 @@ import { hideBlockedKeywordPosts } from './tweaks/block/block_posts_by_keyword';
 import { hideVideoRecommendations } from './tweaks/media/hide_video_recommendations';
 import { leftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { hideCommunityStatus } from './tweaks/hide_elements/hide_community_status';
-import { rightSidePostThumbnails } from './tweaks/style/right_side_post_thumbnails';
-import { viewCrossposts } from './tweaks/productivity/view_crossposts';
-import { markReadOnOpenExpandos } from './tweaks/productivity/mark_read_on_open_expandos';
+import { rightSidePostThumbnails } from "./tweaks/style/right_side_post_thumbnails";
+import { viewCrossposts } from "./tweaks/productivity/view_crossposts";
+import { markReadOnOpenExpandos } from "./tweaks/productivity/mark_read_on_open_expandos";
+import { hideAwards } from "./tweaks/hide_elements/hide_awards";
+import { highlightOp } from "./tweaks/productivity/highlight_op";
+//import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 import { addDownloadVideoButton } from './tweaks/media/add_download_video_button';
-//import { dragImageToResize, dragImageToResizeInitialSize } from './tweaks/productivity/scale_image_on_drag';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -308,7 +308,6 @@ const functionRegistry = {
 	postContentFontSize,
 	postCommentsFontSize,
 	hideUserProfilePics,
-	autoExpandComments,
 	hidePostHiddenMessage,
 	scalePostToFitImage,
 	scalePostToFitVideo,
@@ -353,7 +352,6 @@ const functionRegistry = {
 	hideBlurredMediaBackground,
 	fullWidthBanner,
 	compactHeaderSideMenu,
-	resizeMainContainer,
 	resizeMainContainerWidth,
 	textPostPreviewFade,
 	textPostPreviewFadeHeight,
@@ -388,6 +386,9 @@ const functionRegistry = {
 	rightSidePostThumbnails,
 	viewCrossposts,
 	markReadOnOpenExpandos,
+	hideAwards,
+	snapSidebar,
+	highlightOp,
 	addDownloadVideoButton,
 	//dragImageToResize,
 	//dragImageToResizeInitialSize,

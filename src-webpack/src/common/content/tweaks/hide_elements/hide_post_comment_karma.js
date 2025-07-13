@@ -50,7 +50,7 @@ export function hidePostKarma(value) {
 				enableHidePostKarma(post);
 			});
 			// observer
-			observer.observe(document.querySelector('.main-container'), { childList: true, subtree: true });
+			observer.observe(document.querySelector('.main-container'), { childList: true });
 		} else {
 			observer.disconnect();
 			disableHidePostKarma();

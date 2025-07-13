@@ -1060,3 +1060,19 @@ document.querySelector('#checkbox-hide-community-status').addEventListener('chan
 	BROWSER_API.storage.sync.set({ hideCommunityStatus: hideCommunityStatus });
 	sendMessage({ hideCommunityStatus: hideCommunityStatus });
 });
+
+// Toggle - Hide Awards
+document.querySelector('#checkbox-hide-awards').addEventListener('change', function () {
+	const hideAwards = document.querySelector('#checkbox-hide-awards').checked;
+	if (hideAwards) {
+		document.querySelector('.icon-hide-awards').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-awards').classList.remove('icon-show');
+		document.querySelector('.icon-hide-awards').classList.add('icon-hide');
+	} else {
+		document.querySelector('.icon-hide-awards').style.backgroundColor = '';
+		document.querySelector('.icon-hide-awards').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-awards').classList.add('icon-show');
+	}
+	BROWSER_API.storage.sync.set({ hideAwards: hideAwards });
+	sendMessage({ hideAwards: hideAwards });
+})

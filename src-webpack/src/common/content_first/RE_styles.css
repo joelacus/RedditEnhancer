@@ -27,6 +27,40 @@ div.re-banner.error {
 	color: var(--color-banner-error-text);
 }
 
+/* ========== MOBILE ========== */
+@media (max-width: 1200px) {
+	shreddit-app.overflow-visible {
+		width: 100vw;
+		overflow: hidden;
+	}
+	.main-container {
+		gap: 1px;
+		padding-bottom: 0;
+	}
+	div.mt-xs[slot="post-flair"] {
+		margin: .25rem 0;
+	}
+	comment-body-header > div.items-center {
+		flex-direction: column;
+		align-items: end;
+	}
+	shreddit-comments-sort-dropdown.mt-sm {
+		margin-top: .5rem;
+	}
+	#re-view-crossposts {
+		line-height: 40px;
+		margin-top: 0;
+	}
+	#re-crosspost-list {
+		padding-inline: 1rem;
+	}
+	.re-post-link {
+		display: block;
+		margin-top: .75rem;
+		margin-right: 1rem;
+	}
+}
+
 /* ========== BACK TO TOP BUTTON IN HEADER ========== */
 .re-to-top-button:hover,
 .re-all-button:hover {
@@ -85,7 +119,10 @@ shreddit-app[routename='subreddit_wiki'] #right-sidebar-container aside,
 shreddit-app[routename='post_page'] #right-sidebar-container aside,
 shreddit-app[routename='comment_page'] #right-sidebar-container aside {
 	margin-top: 1rem;
-	padding: 0;
+	padding-block: 0;
+}
+shreddit-app[routename='subreddit_wiki'] shreddit-title {
+	display: none;
 }
 shreddit-app[pagetype='custom_feed'] #right-sidebar-container {
 	margin-top: 2.5rem;
@@ -197,21 +234,26 @@ a.thumbnail > img {
 
 /* ========== SHOW POST AUTHORS (New New UI) ========== */
 /* @see ../content/productivity/show_post_author.js */
+.re-post-author-active reddit-header-large {
+	z-index: 10;
+}
 .re-post-author {
 	color: var(--color-neutral-content-weak);
 	z-index: 4;
 }
-:not([post-type='crosspost']) .re-post-author::before,
-.re-post-author-active shreddit-feed :not([post-type='crosspost']) span[slot='authorName']::before {
-	content: 'Posted by\00a0';
-	color: var(--color-neutral-content-weak);
-	align-self: center;
-}
-[post-type='crosspost'] .re-post-author::before,
-.re-post-author-active shreddit-feed [post-type='crosspost'] span[slot='authorName']::before {
-	content: 'Crossposted by\00a0';
-	color: var(--color-neutral-content-weak);
-	align-self: center;
+@media (min-width: 768px) {
+	:not([post-type='crosspost']) .re-post-author::before,
+	.re-post-author-active shreddit-feed :not([post-type='crosspost']) span[slot='authorName']::before {
+		content: 'Posted by\00a0';
+		color: var(--color-neutral-content-weak);
+		align-self: center;
+	}
+	[post-type='crosspost'] .re-post-author::before,
+	.re-post-author-active shreddit-feed [post-type='crosspost'] span[slot='authorName']::before {
+		content: 'Crossposted by\00a0';
+		color: var(--color-neutral-content-weak);
+		align-self: center;
+	}
 }
 .re-post-author a {
 	color: var(--color-neutral-content-weak);
@@ -286,6 +328,7 @@ article:has(> .re-vote-panel) {
 	flex-direction: column;
 	background-color: transparent;
 	color: var(--button-color-text-default);
+	height: revert;
 }
 .re-vote-panel button[upvote],
 .re-vote-panel button[downvote] {
@@ -403,9 +446,9 @@ shreddit-feed article:focus-within {
 #overlayScrollContainer .undefined {
 	min-width: 16px;
 }
-[bundlename='comment_body_header'] {
+/* [bundlename='comment_body_header'] {
 	z-index: 9;
-}
+} */
 navigation-indicator {
 	z-index: 999 !important;
 }
@@ -458,6 +501,22 @@ shreddit-composer::part(md-inner) {
 	padding: 0.25rem 1rem;
 	font-family: var(--font-sans);
 }
+.re-hide-awards award-button {
+	display: none !important;
+}
+#subreddit-wiki-header {
+	gap: 0;
+	margin-bottom: 0;
+}
+#subreddit-wiki-header + div {
+	padding: 1rem;
+}
+shreddit-app[routename='post_page'] shreddit-post span[slot='mod-overflow-menu'],
+shreddit-app[routename='comments_page'] shreddit-post span[slot='mod-overflow-menu'],
+shreddit-app[routename='profile_post_page'] shreddit-post span[slot='mod-overflow-menu'],
+shreddit-comment:not([is-highlighted]) > shreddit-comment-action-row > span[slot='mod-overflow-menu'] {
+	margin-right: 0.75rem;
+}
 
 /* ========== SCROLL TEXT POST ========== */
 .re-text-scroll div[data-click-id='text'][style='max-height: 250px;'],
@@ -507,4 +566,13 @@ shreddit-composer::part(md-inner) {
 	--re-theme-sidebar-bg: white;
 	--re-theme-sidemenu-bg: white;
 	--re-background-image: #dae0e6;
+}
+
+/* Reddit's changes for signed-out users */
+.\@container\/story-cluster div {
+	margin-bottom: var(--re-post-separator-height);
+	padding: 1rem;
+	border: 1px solid var(--re-theme-post-border);
+	border-radius: var(--re-theme-border-radius);
+	background-color: var(--re-theme-post-bg);
 }

@@ -230,22 +230,32 @@ export function restorePopupResizeFeedOptions() {
 		console.log('Side Menu Width: ' + value);
 	});
 
-	// Resize Main Container & Resize Main Container Width
-	BROWSER_API.storage.sync.get(['resizeMainContainer', 'resizeMainContainerWidth'], function (result) {
-		const resizeMainContainer = result.resizeMainContainer;
-		const resizeMainContainerWidth = result.resizeMainContainerWidth;
-
-		document.querySelector('#checkbox-resize-main-container').checked = !!resizeMainContainer;
-		if (resizeMainContainer) {
-			const icons = document.querySelectorAll('.icon-resize-main-container, .icon-resize-main-container-width');
-			icons.forEach((icon) => (icon.style.backgroundColor = 'var(--accent)'));
-			highlightMenuIcon('resize-elements');
+	// Snap Sidebar
+	BROWSER_API.storage.sync.get(['snapSidebar'], function (result) {
+		if (result.snapSidebar) {
+			document.querySelector('#checkbox-snap-sidebar').checked = true;
+			document.querySelector('.icon-snap-sidebar').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#input-resize-main-container-width').disabled = true;
+			var value = true;
+		} else if (typeof result.snapSidebar == 'undefined' || result.snapSidebar === false) {
+			document.querySelector('#checkbox-snap-sidebar').checked = false;
+			document.querySelector('#input-resize-main-container-width').disabled = false;
+			var value = false;
 		}
-		console.log('Resize Main Container: ' + !!resizeMainContainer);
+		console.log('Snap Sidebar: ' + value);
+	});
 
-		const widthValue = resizeMainContainerWidth !== undefined ? resizeMainContainerWidth : 80;
-		document.querySelector('#input-resize-main-container-width').value = widthValue;
-		document.querySelector('#resize-main-container-width-value').innerText = widthValue + '%';
-		console.log('Resize Main Container Width: ' + widthValue + '%');
+	// Resize Main Container Width
+	BROWSER_API.storage.sync.get(['resizeMainContainerWidth'], function (result) {
+		if (typeof result.resizeMainContainerWidth != 'undefined') {
+			document.querySelector('#input-resize-main-container-width').value = result.resizeMainContainerWidth;
+			document.querySelector('#resize-main-container-width-value').textContent = result.resizeMainContainerWidth + '%';
+			var value = result.resizeMainContainerWidth;
+		} else {
+			document.querySelector('#input-resize-main-container-width').value = 80;
+			document.querySelector('#resize-main-container-width-value').textContent = '80%';
+			var value = '80';
+		}
+		console.log('Resize Main Container Width: ' + value + '%');
 	});
 }

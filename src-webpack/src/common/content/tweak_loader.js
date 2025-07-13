@@ -4,7 +4,6 @@
 
 import { loadAddDownloadVideoButton } from './tweaks/media/add_download_video_button';
 import { loadAutoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
-import { loadAutoExpandComments } from './tweaks/productivity/auto_expand_comments';
 import { loadAutoExpandValue } from './tweaks/resize_elements/auto_expand_value';
 import { loadBionicReader } from './tweaks/accessibility/bionic_reader';
 //import { loadBreakReminder } from './tweaks/productivity/break_reminder';
@@ -46,13 +45,14 @@ import { loadUsernameHoverPopupDelay } from './tweaks/productivity/username_hove
 import { loadShowUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
 import { loadAttachSideMenuHeader, loadSubredditDisplayNameBanner } from './tweaks/style/old_new_ui';
 import { loadLeftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
-import { loadViewCrossposts } from './tweaks/productivity/view_crossposts';
-import { loadMarkReadOnOpenExpandos } from './tweaks/productivity/mark_read_on_open_expandos';
+import { loadViewCrossposts } from "./tweaks/productivity/view_crossposts";
+import { loadMarkReadOnOpenExpandos } from "./tweaks/productivity/mark_read_on_open_expandos";
+import { loadHideAwards } from "./tweaks/hide_elements/hide_awards";
+import { loadHighlightOP } from "./tweaks/productivity/highlight_op";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
 		loadModerniseOldReddit();
-		loadAutoExpandComments();
 		loadAutoLoadMoreComments();
 		loadAddProfilePicturesToComments();
 		loadSidebarToggleButton();
@@ -63,7 +63,6 @@ export function loadTweaks() {
 		loadScrollToNextRootComment();
 		loadShowPostAuthor();
 		loadShowPostFlair();
-		loadAutoLoadMoreComments();
 		loadHidePostKarma();
 		loadHideCommentKarma();
 		loadHideVoteButtons();
@@ -77,7 +76,7 @@ export function loadTweaks() {
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
 
 		waitForAddedNode({
-			query: 'flex-left-nav-container',
+			query: 'flex-left-nav-container, #left-sidebar-container',
 			parent: document.querySelector('body'),
 			done: () => {
 				loadAttachSideMenuHeader();
@@ -190,6 +189,7 @@ export function loadTweaks() {
 				}, 500);
 				loadAlwaysShowPostOptions();
 				loadShowUpvoteRatio();
+				loadHideAwards();
 			},
 		});
 
@@ -203,6 +203,9 @@ export function loadTweaks() {
 					loadCompactPostLinkPreview();
 					loadViewCrossposts();
 					addBorderRadiusToShadowRootElements();
+					loadAlwaysShowPostOptions();
+					loadHighlightOP();
+					loadHideAwards();
 				}, 500);
 			},
 		});
@@ -216,8 +219,18 @@ export function loadTweaks() {
 					loadFixThreadlinesForTranslucentPosts();
 					loadMulticolouredThreadLines();
 				}, 2000);
+				loadAutoLoadMoreComments();
 			},
 		});
+
+		waitForAddedNode({
+			query: 'shreddit-feed shreddit-profile-comment',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function (el) {
+				loadAlwaysShowPostOptions();
+			},
+		})
 
 		waitForAddedNode({
 			query: 'shreddit-comment[author="AutoModerator"]',

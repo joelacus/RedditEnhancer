@@ -27,7 +27,9 @@ export function openSubInNewTab(value) {
 				});
 			});
 		}
-		observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
+		if (document.querySelector('shreddit-feed')) {
+			observer.observe(document.querySelector('shreddit-feed'), {childList: true, subtree: true});
+		}
 	} else {
 		observer.disconnect();
 		const links = document.querySelectorAll('.re-sub-link');

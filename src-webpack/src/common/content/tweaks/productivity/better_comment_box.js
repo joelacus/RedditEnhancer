@@ -5,6 +5,8 @@
  * @description Automatically show formatting options when commenting, add the Ctrl/Cmd + Enter shortcut to submit comments,
  *              and hide the toolbar for switching to rich-text editor when setting Markdown composer as default.
  *
+ * ResizeObserver is used to watch for resizes in the comment tree, which expands as new comments are added.
+ *
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
@@ -22,14 +24,14 @@ export function betterCommentBox(value) {
 	if (redditVersion !== 'newnew' || !value || !window.location.pathname.includes('/comments/')) return;
 
 	// Process all shreddit composers
-	document.querySelectorAll('shreddit-composer').forEach(processComposer);
+	document.querySelectorAll('shreddit-composer, shreddit-simple-composer').forEach(processComposer);
 
 	// Attach event listeners to reply buttons
 	document.querySelectorAll('[slot="comment-reply"]').forEach(attachReplyButtonListener);
 
 	// Observe shreddit-comment-tree for dynamic changes
 	setTimeout(() => {
-		observer.observe(document.querySelector('shreddit-comment-tree'), { childList: true, subtree: true });
+		observer.observe(document.querySelector('shreddit-comment-tree'));
 	}, 1000);
 }
 
@@ -39,7 +41,24 @@ function processComposer(composer) {
 		showBannerMessage('error', '[RedditEnhancer] autoShowCommentFormattingOptions: No submit button found in composer.');
 	}
 
-	const rteComposer = composer.shadowRoot.querySelector('reddit-rte');
+	if (composer.tagName === 'SHREDDIT-SIMPLE-COMPOSER' && !composer.getAttribute('re-showFormatting')) {
+		const border = composer.shadowRoot?.querySelector('.border');
+		const textarea = composer.shadowRoot?.querySelector('div[contenteditable]');
+
+		if (border) {
+			border.classList.remove('rounded-5', 'focus-within:border-neutral-border-strong');
+			border.classList.replace('border-neutral-border', 'border-neutral-border-weak');
+		}
+		if (textarea) {
+			textarea.classList.replace('text-16', 'text-14');
+			textarea.classList.add('py-2xs');
+			textarea.classList.remove('rounded-tl-[1.25rem]', 'rounded-tr-[1.25rem]', 'py-sm');
+		}
+		composer.removeAttribute('placeholder');
+		composer.setAttribute('re-showFormatting', '');
+	}
+
+	const rteComposer = composer.shadowRoot?.querySelector('reddit-rte');
 	if (rteComposer && !rteComposer.getAttribute('re-showFormatting')) {
 		rteComposer.shadowRoot?.querySelector('rte-toolbar.toolbar-top-responsive')?.classList.remove('hidden');
 		rteComposer.shadowRoot?.querySelector('rte-toolbar-button:last-child')?.remove();
@@ -53,7 +72,7 @@ function processComposer(composer) {
 		rteComposer.setAttribute('re-showFormatting', '');
 	}
 
-	const mdComposer = composer.shadowRoot.querySelector('shreddit-markdown-composer');
+	const mdComposer = composer.shadowRoot?.querySelector('shreddit-markdown-composer');
 	if (mdComposer && !mdComposer.getAttribute('re-showFormatting')) {
 		mdComposer.shadowRoot?.querySelector('div.flex')?.remove();
 		const textarea = mdComposer.shadowRoot?.querySelector('div.textarea-container textarea');
@@ -88,17 +107,11 @@ const handleReplyClick = (e) => {
 	}, 100);
 };
 
-const observer = new MutationObserver((mutations) => {
-	mutations.forEach(function (mutation) {
-		mutation.addedNodes.forEach((addedNode) => {
-			if (addedNode.nodeName === 'SHREDDIT-COMMENT') {
-				attachReplyButtonListener(addedNode.querySelector('faceplate-tracker[slot="comment-reply"]'));
-				document.querySelectorAll('[slot="comment-reply"]').forEach(attachReplyButtonListener); // reapply just to be sure
-			} else if (addedNode.nodeName === 'SHREDDIT-ASYNC-LOADER') {
-				setTimeout(() => {
-					document.querySelectorAll('shreddit-composer').forEach(processComposer);
-				}, 300);
-			}
-		});
+const observer = new ResizeObserver(function (entries) {
+	entries.forEach(function (entry) {
+		if (entry.target.nodeName === 'SHREDDIT-COMMENT-TREE') {
+			entry.target.querySelectorAll('shreddit-composer, shreddit-simple-composer').forEach(processComposer);
+			entry.target.querySelectorAll('[slot="comment-reply"]').forEach(attachReplyButtonListener);
+		}
 	});
 });

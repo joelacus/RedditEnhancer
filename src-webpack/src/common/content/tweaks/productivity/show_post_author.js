@@ -18,8 +18,8 @@ export function loadShowPostAuthor() {
 let hover_delay = 500;
 export function showPostAuthor(value, delay) {
 	if (delay) hover_delay = delay * 1000;
-	const routename = document.querySelector('shreddit-app').getAttribute('routename');
-	const feedRoutes = ['frontpage', 'popular', 'custom_feed'];
+	const routename = document.querySelector('shreddit-app')?.getAttribute('routename');
+	const feedRoutes = ['frontpage', 'popular', 'custom_feed', 'profile_saved'];
 	const searchRoutes = ['global_serp', 'community_serp', 'custom_feed_serp'];
 
 	if (redditVersion === 'newnew' && value === true) {
@@ -28,7 +28,7 @@ export function showPostAuthor(value, delay) {
 			document.querySelectorAll('shreddit-post').forEach((post) => {
 				attachUsername(post);
 			});
-			observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
+			observer.observe(document.querySelector('shreddit-feed'), { childList: true });
 		} else if (searchRoutes.includes(routename)) {
 			document.querySelectorAll('search-telemetry-tracker').forEach((post) => {
 				attachUsername(post);

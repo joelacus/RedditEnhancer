@@ -44,14 +44,11 @@
 	"AutoExpand": {
 		"message": "Expand to 100% if the window/screen width is less than:"
 	},
-	"AutoExpandComments": {
-		"message": "Auto Expand Hidden Comments"
-	},
 	"AutoExpandCommentsInfo": {
 		"message": "This may cause the page to slow down and use a lot of RAM, especially if there are a lot of comments."
 	},
 	"AutoLoadMoreComments": {
-		"message": "Auto Load More Comments"
+		"message": "Auto Expand & Load More Comments"
 	},
 	"Background": {
 		"message": "Background"
@@ -269,6 +266,9 @@
 	"FullWidthBanner": {
 		"message": "Full Width Subreddit Banner"
 	},
+	"GlobalWidth": {
+		"message": "Global Max. Width"
+	},
 	"Grey": {
 		"message": "Grey"
 	},
@@ -292,6 +292,9 @@
 	},
 	"HideAdvertiseButton": {
 		"message": "Hide the 'Advertise' Button"
+	},
+	"HideAwards": {
+		"message": "Hide Give Awards button"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Hide Posts with Blocked Keywords"
@@ -454,6 +457,9 @@
 	},
 	"HideVoteButtons": {
 		"message": "Hide Vote Buttons"
+	},
+	"HighlightOp": {
+		"message": "Highlight comments from original poster (OP)"
 	},
 	"HomeFeedOffset": {
 		"message": "Home Feed Offset"
@@ -838,6 +844,9 @@
 	},
 	"SidebarToggleButton": {
 		"message": "Sidebar Toggle Button"
+	},
+	"SnapSidebar": {
+		"message": "Snap sidebar to the right edge"
 	},
 	"Sort": {
 		"message": "Sort"

@@ -882,4 +882,15 @@ export function restorePopupHideElementsOptions() {
 		document.querySelector('.icon-hide-community-status').classList.toggle('icon-hide', hideCommunityStatus);
 		console.log('Hide Community Status: ' + hideCommunityStatus);
 	});
+
+	// Hide Awards
+	BROWSER_API.storage.sync.get(['hideAwards'], function (result) {
+		const hideAwards = result.hideAwards === true;
+		if (hideAwards) highlightMenuIcon('hide-elements');
+		document.querySelector('#checkbox-hide-awards').checked = hideAwards;
+		document.querySelector('.icon-hide-awards').style.backgroundColor = hideAwards ? 'var(--accent)' : '';
+		document.querySelector('.icon-hide-awards').classList.toggle('icon-show', !hideAwards);
+		document.querySelector('.icon-hide-awards').classList.toggle('icon-hide', hideAwards);
+		console.log('Hide Awards: ' + hideAwards);
+	})
 }

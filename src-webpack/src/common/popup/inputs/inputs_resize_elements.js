@@ -188,25 +188,30 @@ document.querySelector('#input-layout-search-page-offset').addEventListener('mou
 	BROWSER_API.storage.sync.set({ layoutSearchPageOffset: e.target.value });
 });
 
-// Toggle - Resize Main Container
-document.querySelector('#checkbox-resize-main-container').addEventListener('change', function (e) {
-	const resizeMainContainer = document.querySelector('#checkbox-resize-main-container').checked;
-	if (resizeMainContainer) {
-		document.querySelector('.icon-resize-main-container').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-resize-main-container-width').style.backgroundColor = 'var(--accent)';
+// Toggle - Snap Sidebar
+document.querySelector('#checkbox-snap-sidebar').addEventListener('change', function (e) {
+	const snapSidebar = document.querySelector('#checkbox-snap-sidebar').checked;
+	if (snapSidebar) {
+		document.querySelector('.icon-snap-sidebar').style.backgroundColor = 'var(--accent)';
+		document.querySelector('#input-resize-main-container-width').value = 100;
+		document.querySelector('#input-resize-main-container-width').disabled = true;
+		document.querySelector('#resize-main-container-width-value').textContent = '100%';
+		BROWSER_API.storage.sync.set({ resizeMainContainerWidth: 100 });
 	} else {
-		document.querySelector('.icon-resize-main-container').style.backgroundColor = '';
-		document.querySelector('.icon-resize-main-container-width').style.backgroundColor = '';
+		document.querySelector('.icon-snap-sidebar').style.backgroundColor = '';
+		document.querySelector('#input-resize-main-container-width').disabled = false;
 	}
-	BROWSER_API.storage.sync.set({ resizeMainContainer: resizeMainContainer });
-	sendMessage({ resizeMainContainer: resizeMainContainer });
+	BROWSER_API.storage.sync.set({ snapSidebar: snapSidebar });
+	sendMessage({ snapSidebar: snapSidebar });
 });
 
 // Slider - Resize Main Container Width
 document.querySelector('#input-resize-main-container-width').addEventListener('input', function (e) {
 	document.querySelector('#resize-main-container-width-value').textContent = e.target.value + '%';
+	console.log(`Resizing main container width to ${e.target.value}%`);
 	sendMessage({ resizeMainContainerWidth: e.target.value });
 });
 document.querySelector('#input-resize-main-container-width').addEventListener('mouseup', function (e) {
+	console.log(`Setting main container width to ${e.target.value}%`);
 	BROWSER_API.storage.sync.set({ resizeMainContainerWidth: e.target.value });
 });

@@ -88,10 +88,6 @@ function enableUseCustomBackgroundRV3() {
 								shreddit-app .sidebar-grid {
 									background: none !important;
 								}
-								[routename="subreddit"] div.masthead,
-								[routename="subreddit_wiki"] div.masthead {
-									background-color: var(--re-theme-post-bg);
-								}
 								community-highlight-carousel {
 									background-color: var(--re-theme-post-bg, transparent);
 									border-radius: var(--re-theme-border-radius, 1rem);
@@ -128,6 +124,16 @@ function enableUseCustomBackgroundRV3() {
 										padding-left: .25rem !important;
 									}
 								}
+								@media (max-width: 768px) {
+									shreddit-app[routename="post_page"] main.main,
+									shreddit-app[routename="comments_page"] main.main,
+									shreddit-app[routename="profile_post_page"] main.main,
+									shreddit-app[routename="profile_post_page_comments"] main.main,
+									shreddit-app[routename="post_stats"] main.main {
+										margin: 0;
+										padding: 0;
+									}
+								}
 								shreddit-app[routename="post_stats"] main.main > div {
 									margin-top: 0;
 								}
@@ -141,7 +147,7 @@ function enableUseCustomBackgroundRV3() {
 									background-color: var(--color-neutral-background) !important;
 									max-width: unset;
 								}
-								[pagetype="settings_account"] #main-content {
+								[pagetype^="settings_"], [routename="inbox"], [pagetype="explore"], [routename="community_page"] {
 									background-color: var(--re-theme-post-bg, rgba(0,0,0,0.4));
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);

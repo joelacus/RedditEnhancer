@@ -41,19 +41,20 @@ function enableFullWidthBanner() {
 										max-width: 100% !important;
 										width: 100%;
 									}
-									shreddit-app[routename="subreddit"] div.main-container,
-									shreddit-app[routename="subreddit_wiki"] div.main-container {
-										width: initial;
+									shreddit-app[routename="subreddit"] div.masthead,
+									shreddit-app[routename="subreddit_wiki"] div.masthead {
+										max-width: revert;
+										padding: revert;
+										background-color: var(--re-theme-post-bg);
+									}
+									shreddit-app[routename="subreddit"] div.masthead > section,
+									shreddit-app[routename="subreddit_wiki"] div.masthead > section {
+										max-width: min(var(--re-sub-width), var(--re-main-container-width));
 										padding: 0 1.5rem;
-										gap: 1.25rem;
 									}
 									html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit"] div.main-container,
 									html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit_wiki"] div.main-container {
 										justify-content: center;
-									}
-									/* Community highlight */
-									shreddit-gallery-carousel > li {
-										padding: 0 !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
@@ -120,14 +121,6 @@ function enableCompactHeaderSideMenu() {
 									}
 									nav.h-header-large > .justify-stretch > div {
 										top: .25rem;
-									}
-									div.subgrid-container {
-										padding: 0;
-									}
-									div.main-container {
-										padding: 0 1.5rem;
-										gap: 1.25rem;
-										width: auto;
 									}
 									
 									/* COMPACT SUBREDDIT RULE LIST */
@@ -231,10 +224,11 @@ async function enableAttachSideMenuHeader() {
 			.re-header-menu:has(reddit-sidebar-nav) .re-side-menu-close {
 				display: none !important;
 			}
+			/* Icon of the toggle menu button */
 			.re-header-menu > div > :first-child:not(span) {
 				position: static;
-				height: 24px;
-				width: 24px;
+				height: 24px !important;
+				width: 24px !important;
 				border: none;
 				background-color: transparent;
 				object-fit: contain;
@@ -247,8 +241,11 @@ async function enableAttachSideMenuHeader() {
 				position: absolute;
 				top: 44px;
 				width: var(--re-side-menu-width, 256px);
-				height: 60vh;
-				min-height: 512px;
+				height: fit-content;
+				max-height: max(512px, 60vh);
+			}
+			.re-header-menu reddit-sidebar-nav nav {
+				min-height: revert;
 			}
 			nav.h-header-large > div.justify-stretch > div {
 				position: static;
@@ -350,7 +347,7 @@ async function attachUserInfo() {
 	if (!loggedIn) return;
 
 	document.querySelector('#re-user-info')?.remove();
-	const user = (await BROWSER_API.runtime.sendMessage({ actions: [{ action: 'fetchData', url: 'https://www.reddit.com/api/me.json' }] })).data;
+	const user = (await BROWSER_API.runtime.sendMessage({ actions: [{ action: 'fetchData', url: 'https://www.reddit.com/api/me.json' }] }))?.data;
 	if (user && user.name && user.total_karma && document.querySelector('button#expand-user-drawer-button')) {
 		const a = Object.assign(document.createElement('div'), {
 			id: 're-user-info',
@@ -399,14 +396,14 @@ async function attachPageTitle() {
 			case 'post_submit_subreddit':
 			case 'wiki_page':
 			case 'mod_queue':
-				title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
-				data = (await BROWSER_API.runtime.sendMessage({
+				title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2];
+				if (title) data = (await BROWSER_API.runtime.sendMessage({
 					actions: [{
 						action: 'fetchData',
 						url: `https://www.reddit.com/${title}/about.json`
 					}]
 				})).data;
-				if (data && (data.community_icon || data.icon_img)) {
+				if (title && data && (data.community_icon || data.icon_img)) {
 					logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon ? data.community_icon : data.icon_img}">`;
 				} else {
 					logo = document.querySelector('.shreddit-subreddit-icon__icon').outerHTML;
@@ -429,7 +426,7 @@ async function attachPageTitle() {
 						url: `https://www.reddit.com/user/${window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1]}/about.json`
 					}]
 				})).data;
-				if (data && (data.snoovatar_img || data.icon_img)) {
+				if (title && data && (data.snoovatar_img || data.icon_img)) {
 					logo = `<img alt="${title} user avatar" class="${data.snoovatar_img ? '' : 'rounded-full'} h-lg w-lg mb-0" 
 						src="${data.snoovatar_img ? data.snoovatar_img : data.icon_img}">`;
 				} else logo = '';
@@ -466,14 +463,14 @@ async function attachPageTitle() {
 				break;
 			default:
 				if (window.location.pathname.includes('/mod/')) {
-					title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
-					data = (await BROWSER_API.runtime.sendMessage({
+					title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2];
+					if (title) data = (await BROWSER_API.runtime.sendMessage({
 						actions: [{
 							action: 'fetchData',
 							url: `https://www.reddit.com/${title}/about.json`
 						}]
 					})).data;
-					logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon}">`;
+					if (title && data) logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon}">`;
 				} else {
 					// Fallback for unknown pages
 					title = currentPage.charAt(0).toUpperCase() + currentPage.slice(1);
@@ -607,7 +604,8 @@ export function subredditDisplayNameBanner(value) {
 			dynamicStyleElements.forEach((element) => {
 				document.head.removeChild(element);
 			});
-			document.querySelector('div.masthead h1').textContent = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
+			const title = document.querySelector('div.masthead h1');
+			if (title) title.textContent = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
 		}
 	}
 }

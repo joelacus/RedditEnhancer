@@ -5,7 +5,6 @@
 
 //import { waitForAddedNode } from './main_observer';
 
-import { loadAutoExpandComments } from '../../../content/tweaks/productivity/auto_expand_comments';
 import { loadAutoExpandValue } from '../../../content/tweaks/resize_elements/auto_expand_value';
 import { loadBionicReaderColours } from '../../../content/tweaks/accessibility/bionic_reader';
 import { loadCustomBackground } from '../../../content/tweaks/background/custom_background';
@@ -40,7 +39,6 @@ import { loadFullWidthBanner, loadCompactHeaderSideMenu } from '../../../content
 import { loadTextPostPreviewFade } from '../../../content/tweaks/media/text_preview_fade';
 import { loadHidePostDivider } from '../../../content/tweaks/hide_elements/hide_post_divider';
 import { loadHideBlurredMediaBackground } from '../../../content/tweaks/media/hide_blurred_media_background';
-import { loadResizeMainContainer } from '../../../content/tweaks/resize_elements/resize_main_container';
 import { loadHideCompactViewThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_thumbnails';
 import { loadResizeTextPostHeight } from '../../../content/tweaks/media/resize_text_post';
 import { limitImageSize } from '../../../content/tweaks/media/limit_media_size';
@@ -75,7 +73,6 @@ export function tweakLoaderNewNew() {
 	loadResizeFont();
 	loadBionicReaderColours();
 	loadHideUserProfilePics();
-	loadAutoExpandComments();
 	loadNonStickyHeaderBar();
 	loadHidePostHiddenMessage();
 	loadHideJoinButtonOnPosts();
@@ -94,7 +91,6 @@ export function tweakLoaderNewNew() {
 	loadHideBlurredMediaBackground();
 	loadFullWidthBanner();
 	loadCompactHeaderSideMenu();
-	loadResizeMainContainer();
 	loadTextPostPreviewFade();
 	loadResizeTextPostHeight();
 	limitImageSize();
