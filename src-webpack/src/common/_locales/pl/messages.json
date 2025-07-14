@@ -185,6 +185,9 @@
 	"Drag": {
 		"message": "Przeciągnij"
 	},
+	"DropShadow": {
+		"message": "Rzuć cienie"
+	},
 	"EndTime": {
 		"message": "Koniec Czasu (24hr)"
 	},
@@ -549,7 +552,7 @@
 		"message": "Q&a"
 	},
 	"RUI3RedirectInfo": {
-		"message": "Opcja przekierowania do „Nowy Nowy UI” nie jest już konieczna, można jednak użyć tej opcji, aby wymusić linki z (sh|old).reddit.com do www.reddit.com"
+		"message": "Opcja przekierowania do Najnowszy UI (Nowy Nowy UI) nie jest już konieczna, można jednak użyć tej opcji, aby wymusić linki z (sh|old|new).reddit.com do www.reddit.com"
 	},
 	"Rate": {
 		"message": "Oceń / Recenzję"
@@ -625,9 +628,6 @@
 	},
 	"Settings": {
 		"message": "Ustawienia"
-	},
-	"Shadow": {
-		"message": "Rzuć cienie"
 	},
 	"ShowPostAuthor": {
 		"message": "Pokaż autora wpisu"

@@ -209,6 +209,9 @@
 	"Drag": {
 		"message": "Drag"
 	},
+	"DropShadow": {
+		"message": "Drop Shadow"
+	},
 	"EditPost": {
 		"message": "Edit post"
 	},
@@ -663,7 +666,7 @@
 		"message": "Q&a"
 	},
 	"RUI3RedirectInfo": {
-		"message": "The redirect option to 'New New UI' is no longer necessary, however, you can use this option to force links from (sh|old).reddit.com to www.reddit.com"
+		"message": "The redirect option to the Latest UI (New New UI) is no longer necessary, however, you can use this option to force links from (sh|old|new).reddit.com to www.reddit.com"
 	},
 	"Rate": {
 		"message": "Rate / Review"
@@ -775,9 +778,6 @@
 	},
 	"Settings": {
 		"message": "Settings"
-	},
-	"Shadow": {
-		"message": "Drop Shadows"
 	},
 	"ShowPostAuthor": {
 		"message": "Show Post Author"

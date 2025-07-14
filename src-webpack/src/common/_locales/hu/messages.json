@@ -71,6 +71,9 @@
 	"Disabled": {
 		"message": "Tiltva"
 	},
+	"DropShadow": {
+		"message": "Csepp árnyékok"
+	},
 	"EndTime": {
 		"message": "Idő vége (24)"
 	},
@@ -214,9 +217,6 @@
 	},
 	"Settings": {
 		"message": "Beállítások"
-	},
-	"Shadow": {
-		"message": "Csepp árnyékok"
 	},
 	"StartTime": {
 		"message": "Kezdési idő (24)"

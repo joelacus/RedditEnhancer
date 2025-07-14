@@ -146,6 +146,9 @@
 	"Drag": {
 		"message": "Перетягніть"
 	},
+	"DropShadow": {
+		"message": "Тіні"
+	},
 	"EndTime": {
 		"message": "Час закінчення (24)"
 	},
@@ -514,9 +517,6 @@
 	},
 	"Settings": {
 		"message": "Налаштування"
-	},
-	"Shadow": {
-		"message": "Тіні"
 	},
 	"ShowPostAuthor": {
 		"message": "Показати автора публікації"

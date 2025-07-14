@@ -146,6 +146,9 @@
 	"Drag": {
 		"message": "Dra"
 	},
+	"DropShadow": {
+		"message": "Slipp skygger"
+	},
 	"EndTime": {
 		"message": "Sluttid (24)"
 	},
@@ -514,9 +517,6 @@
 	},
 	"Settings": {
 		"message": "Innstillinger"
-	},
-	"Shadow": {
-		"message": "Slipp skygger"
 	},
 	"ShowPostAuthor": {
 		"message": "Vis Innleggsforfatter"

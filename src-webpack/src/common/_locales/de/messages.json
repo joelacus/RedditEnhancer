@@ -11,6 +11,12 @@
 	"Accessibility": {
 		"message": "Barrierefreiheit"
 	},
+	"AddDownloadVideoButton": {
+		"message": "Fügen Sie Video-Posts \"Video herunterladen\" hinzu"
+	},
+	"AddDownloadVideoButtonInfo": {
+		"message": "Dies unterstützt derzeit nur MP4-URLs, nicht M3U8, sodass einige Video-Posts nicht den Download -Schaltfläche haben :/"
+	},
 	"AddNsfwTag": {
 		"message": "Fügen Sie NSFW-Tag hinzu"
 	},
@@ -61,6 +67,12 @@
 	},
 	"Best": {
 		"message": "Beste"
+	},
+	"BetterCommentBox": {
+		"message": "Besseres Kommentarbox"
+	},
+	"BetterCommentBoxInfo": {
+		"message": "Zeigen Sie beim Kommentieren automatisch Formatierungsoptionen an, fügen Sie Ctrl/Cmd + hinzu, um Shortcut einzugeben, um Kommentare einzureichen, und verbergen Sie die Symbolleiste zum Wechsel zum Rich-Text-Editor, wenn Sie den Markdown-Komponisten als Standardeinstellung festlegen."
 	},
 	"BionicBackgroundColour": {
 		"message": "Bionische Hintergrundfarbe"
@@ -203,6 +215,9 @@
 	"Drag": {
 		"message": "Ziehen"
 	},
+	"DropShadow": {
+		"message": "Schlagschatten"
+	},
 	"EditPost": {
 		"message": "Beitrag bearbeiten"
 	},
@@ -254,6 +269,9 @@
 	"FullWidthBanner": {
 		"message": "Subreddit-banner in voller breite"
 	},
+	"GlobalWidth": {
+		"message": "Globale Maximalbreite"
+	},
 	"Grey": {
 		"message": "Grau"
 	},
@@ -277,6 +295,9 @@
 	},
 	"HideAdvertiseButton": {
 		"message": "Ausblenden der „Werbung“ Schaltfläche"
+	},
+	"HideAwards": {
+		"message": "Schaltfläche „Auszeichnungen vergeben“ ausblenden"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Beiträge mit Blockierten Schlüsselwörtern Ausblenden"
@@ -440,6 +461,9 @@
 	"HideVoteButtons": {
 		"message": "Abstimmungsschaltflächen ausblenden"
 	},
+	"HighlightOp": {
+		"message": "Markieren Sie Kommentare aus dem Originalplakat (OP)"
+	},
 	"HomeFeedOffset": {
 		"message": "Versatz des Start-Feeds"
 	},
@@ -467,6 +491,9 @@
 	"LargerClassicPost": {
 		"message": "Größere klassische Beitragsansicht"
 	},
+	"Latest": {
+		"message": "Letzte"
+	},
 	"LeftSideVoteButtons": {
 		"message": "Abstimmungsschaltflächen links anzeigen"
 	},
@@ -490,6 +517,9 @@
 	},
 	"MarkAsBrandAffiliate": {
 		"message": "Als Markenpartner markieren"
+	},
+	"MarkReadOnOpenExpandos": {
+		"message": "Markieren sie beiträge als lesen beim öffnen von expandos in kompaktem ansicht"
 	},
 	"MaxImagePostHeight": {
 		"message": "Maximale Bild nach der Höhe"
@@ -645,7 +675,7 @@
 		"message": "Q&a"
 	},
 	"RUI3RedirectInfo": {
-		"message": "Die Umleitungsoption zu „Neuer Neuer UI“ ist nicht mehr erforderlich. Sie können diese Option jedoch verwenden, um Links von (sh|old).reddit.com zu www.reddit.com zu erzwingen."
+		"message": "Die Umleitungsoption zu Letzte UI (Neuer Neuer UI) ist nicht mehr erforderlich. Sie können diese Option jedoch verwenden, um Links von (sh|old|new).reddit.com zu www.reddit.com zu erzwingen."
 	},
 	"Rate": {
 		"message": "Bewerten / Rezension"
@@ -710,6 +740,9 @@
 	"RestoreInfo2": {
 		"message": "Gegenständen. Das Browser-API-Limit beträgt 120 pro Minute. Bitte lassen Sie dieses Fenster/diese Registerkarte noch eine Minute geöffnet."
 	},
+	"RightSidePostThumbnails": {
+		"message": "Beitrag vorschaubilder auf der rechten seite anzeigen"
+	},
 	"Rising": {
 		"message": "Aufsteigend / Rising"
 	},
@@ -754,9 +787,6 @@
 	},
 	"Settings": {
 		"message": "Einstellungen"
-	},
-	"Shadow": {
-		"message": "Schlagschatten"
 	},
 	"ShowPostAuthor": {
 		"message": "Post-Autor anzeigen"
@@ -808,6 +838,9 @@
 	},
 	"SidebarToggleButton": {
 		"message": "Seitenleiste umschalten"
+	},
+	"SnapSidebar": {
+		"message": "Senden sie die seitenleiste zur rechten kante"
 	},
 	"Sort": {
 		"message": "Sortieren"
@@ -922,6 +955,9 @@
 	},
 	"VideoPlayerInfo": {
 		"message": "Schneller, leichter Videoplayer mit Geschwindigkeitssteuerung basierend auf videojs. Versuchen Sie dies, wenn Sie Ladeprobleme mit dem eigenen Player von reddit haben."
+	},
+	"ViewCrossposts": {
+		"message": "Fügen sie link hinzu, um Crossposts in anderen Subreddits anzuzeigen"
 	},
 	"Welcome": {
 		"message": "Willkommen!"

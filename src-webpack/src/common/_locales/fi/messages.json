@@ -80,6 +80,9 @@
 	"Disabled": {
 		"message": "Liikuntarajoitteinen"
 	},
+	"DropShadow": {
+		"message": "Pudottaa varjot"
+	},
 	"EndTime": {
 		"message": "Loppu aika (24)"
 	},
@@ -268,9 +271,6 @@
 	},
 	"Settings": {
 		"message": "Asetukset"
-	},
-	"Shadow": {
-		"message": "Pudottaa varjot"
 	},
 	"Sidebar": {
 		"message": "Sivupalkki"

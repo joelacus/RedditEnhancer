@@ -188,6 +188,9 @@
 	"Drag": {
 		"message": "Sleep"
 	},
+	"DropShadow": {
+		"message": "Slagschaduwen"
+	},
 	"EndTime": {
 		"message": "Eindtijd (24)"
 	},
@@ -606,7 +609,7 @@
 		"message": "Q&a"
 	},
 	"RUI3RedirectInfo": {
-		"message": "De optie Redirect naar 'Nieuwe Nieuwe UI' is niet langer nodig, maar u kunt deze optie gebruiken om links van (sh | old) te forceren .reddit.com naar www.reddit.com"
+		"message": "De optie Redirect naar Laatste UI (Nieuwe Nieuwe UI) is niet langer nodig, maar u kunt deze optie gebruiken om links van (sh|old|new) te forceren .reddit.com naar www.reddit.com"
 	},
 	"Rate": {
 		"message": "Beoordeel / Recensie"
@@ -709,9 +712,6 @@
 	},
 	"Settings": {
 		"message": "Instellingen"
-	},
-	"Shadow": {
-		"message": "Slagschaduwen"
 	},
 	"ShowPostAuthor": {
 		"message": "Toon berichtauteur"

@@ -188,6 +188,9 @@
 	"Drag": {
 		"message": "Arraste"
 	},
+	"DropShadow": {
+		"message": "Sombras Projetadas"
+	},
 	"EndTime": {
 		"message": "Fim do tempo (24)"
 	},
@@ -606,7 +609,7 @@
 		"message": "Q&a"
 	},
 	"RUI3RedirectInfo": {
-		"message": "A opção de redireccionamento para 'Nova Nova UI' já não é necessária, no entanto, pode utilizar esta opção para forçar links de (sh|old).reddit.com para www.reddit.com"
+		"message": "A opção de redireccionamento para Última UI (Nova Nova UI) já não é necessária, no entanto, pode utilizar esta opção para forçar links de (sh|old|new).reddit.com para www.reddit.com"
 	},
 	"Rate": {
 		"message": "Avaliar / Comentário"
@@ -709,9 +712,6 @@
 	},
 	"Settings": {
 		"message": "Configurações"
-	},
-	"Shadow": {
-		"message": "Sombras Projetadas"
 	},
 	"ShowPostAuthor": {
 		"message": "Mostrar autor da postagem"

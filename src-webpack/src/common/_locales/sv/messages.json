@@ -179,6 +179,9 @@
 	"Disabled": {
 		"message": "Inaktiverad"
 	},
+	"DropShadow": {
+		"message": "Droppskuggor"
+	},
 	"EndTime": {
 		"message": "Sluttid (24)"
 	},
@@ -421,9 +424,6 @@
 	},
 	"Settings": {
 		"message": "Inställningar"
-	},
-	"Shadow": {
-		"message": "Droppskuggor"
 	},
 	"ShowPostAuthor": {
 		"message": "Visa inläggsförfattare"

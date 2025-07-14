@@ -11,6 +11,12 @@
 	"Accessibility": {
 		"message": "Accessibilité"
 	},
+	"AddDownloadVideoButton": {
+		"message": "Ajouter le bouton «Télécharger la vidéo» sur les posts vidéo"
+	},
+	"AddDownloadVideoButtonInfo": {
+		"message": "Cela ne prend actuellement en charge que les URL mp4, pas m3u8, donc certains posts vidéo n'auront pas le bouton de téléchargement :/"
+	},
 	"AddNsfwTag": {
 		"message": "Ajouter la balise NSFW"
 	},
@@ -61,6 +67,12 @@
 	},
 	"Best": {
 		"message": "Meilleurs / Best"
+	},
+	"BetterCommentBox": {
+		"message": "Meilleure boîte de commentaires"
+	},
+	"BetterCommentBoxInfo": {
+		"message": "Affichez automatiquement les options de formatage lors des commentaires, ajoutez Ctrl / Cmd + Entrez le raccourci pour soumettre des commentaires et masquez la barre d'outils pour passer à l'éditeur de texte riche lors de la définition du compositeur Markdown par défaut."
 	},
 	"BionicBackgroundColour": {
 		"message": "Couleur de fond bionique"
@@ -203,6 +215,9 @@
 	"Drag": {
 		"message": "Faites glisser"
 	},
+	"DropShadow": {
+		"message": "Ombres portées"
+	},
 	"EditPost": {
 		"message": "Modifier la publication"
 	},
@@ -254,6 +269,9 @@
 	"FullWidthBanner": {
 		"message": "Bannière de subreddit pleine largeur"
 	},
+	"GlobalWidth": {
+		"message": "Global Max. Largeur"
+	},
 	"Grey": {
 		"message": "Gris"
 	},
@@ -277,6 +295,9 @@
 	},
 	"HideAdvertiseButton": {
 		"message": "Masquer le bouton « Annoncer »"
+	},
+	"HideAwards": {
+		"message": "Masquer le bouton « Donner des récompenses »"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Masquer les Publications avec des Mots-Clés Bloqués"
@@ -440,6 +461,9 @@
 	"HideVoteButtons": {
 		"message": "Masquer les boutons de vote"
 	},
+	"HighlightOp": {
+		"message": "Mettre en évidence les commentaires de l'affiche originale (OP)"
+	},
 	"HomeFeedOffset": {
 		"message": "Décalage du fil d'actualité principal"
 	},
@@ -467,6 +491,9 @@
 	"LargerClassicPost": {
 		"message": "Vue de Post classique plus grande"
 	},
+	"Latest": {
+		"message": "Dernier"
+	},
 	"LeftSideVoteButtons": {
 		"message": "Afficher les boutons de vote à gauche"
 	},
@@ -490,6 +517,9 @@
 	},
 	"MarkAsBrandAffiliate": {
 		"message": "Marquez comme affilié de marque"
+	},
+	"MarkReadOnOpenExpandos": {
+		"message": "Marquez les articles lus lors de l'ouverture des expandos en vue compacte"
 	},
 	"MaxImagePostHeight": {
 		"message": "Hauteur de post d'image maximale"
@@ -645,7 +675,7 @@
 		"message": "Q&a"
 	},
 	"RUI3RedirectInfo": {
-		"message": "L'option de redirection vers « Nouvelle Nouvelle UI » n'est plus nécessaire, cependant, vous pouvez utiliser cette option pour forcer les liens de (sh|old).reddit.com vers www.reddit.com"
+		"message": "L'option de redirection vers Dernière UI (Nouvelle Nouvelle UI) n'est plus nécessaire, cependant, vous pouvez utiliser cette option pour forcer les liens de (sh|old|new).reddit.com vers www.reddit.com"
 	},
 	"Rate": {
 		"message": "Noter / Commentaire"
@@ -710,6 +740,9 @@
 	"RestoreInfo2": {
 		"message": "pièces. La limite de l'API du navigateur est de 120 par minute. Veuillez laisser cette fenêtre/onglet ouvert pendant encore une minute."
 	},
+	"RightSidePostThumbnails": {
+		"message": "Afficher les miniatures post du côté droit"
+	},
 	"Rising": {
 		"message": "En hausse / Rising"
 	},
@@ -754,9 +787,6 @@
 	},
 	"Settings": {
 		"message": "Paramètres"
-	},
-	"Shadow": {
-		"message": "Ombres portées"
 	},
 	"ShowPostAuthor": {
 		"message": "Afficher l'auteur du message"
@@ -808,6 +838,9 @@
 	},
 	"SidebarToggleButton": {
 		"message": "Bouton à bascule de barre latérale"
+	},
+	"SnapSidebar": {
+		"message": "Aligner la barre latérale sur le bord droit"
 	},
 	"Sort": {
 		"message": "Trier"
@@ -922,6 +955,9 @@
 	},
 	"VideoPlayerInfo": {
 		"message": "Lecteur vidéo rapide et léger avec des commandes de vitesse basées sur videojs. Essayez ceci si vous rencontrez des problèmes de chargement avec le propre lecteur de Reddit."
+	},
+	"ViewCrossposts": {
+		"message": "Ajouter un lien pour afficher les poteaux croisés dans d'autres subreddits"
 	},
 	"Welcome": {
 		"message": "Bienvenue !"

@@ -188,6 +188,9 @@
 	"Drag": {
 		"message": "Trascina qui il"
 	},
+	"DropShadow": {
+		"message": "Ombre esterne"
+	},
 	"EndTime": {
 		"message": "Tempo Scaduto (24)"
 	},
@@ -606,7 +609,7 @@
 		"message": "Q&a"
 	},
 	"RUI3RedirectInfo": {
-		"message": "L'opzione di reindirizzamento a 'Nuovo Nuovo UI' non è più necessaria, tuttavia, puoi utilizzare questa opzione per forzare i collegamenti da (sh|old).reddit.com a www.reddit.com"
+		"message": "L'opzione di reindirizzamento a Ultima UI (Nuovo Nuovo UI) non è più necessaria, tuttavia, puoi utilizzare questa opzione per forzare i collegamenti da (sh|old|new).reddit.com a www.reddit.com"
 	},
 	"Rate": {
 		"message": "Vota / Recensione"
@@ -709,9 +712,6 @@
 	},
 	"Settings": {
 		"message": "Impostazioni"
-	},
-	"Shadow": {
-		"message": "Ombre esterne"
 	},
 	"ShowPostAuthor": {
 		"message": "Mostra autore del post"
