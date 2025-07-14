@@ -32,14 +32,14 @@ redirect_dropdownMenu.addEventListener('click', function (e) {
 		var version = e.target.parentNode.getAttribute('data-version');
 	}
 	if (version === 'old') {
-		selectFilterShowOldVersion(i18next.t('OldUI.message'));
+		selectFilterShowOldVersion(i18next.t('Old.message'));
 	} else if (version === 'newnew') {
-		selectFilterShowNewNewVersion(i18next.t('NewNewUI.message'));
+		selectFilterShowNewNewVersion(i18next.t('Latest.message'));
 		if (localStorage.getItem('DontShowAgainNewNewUiMessage') === null) {
 			document.querySelector('#new-new-ui-message').style.display = 'grid';
 		}
 	} else if (version === 'off') {
-		selectFilterShowNewNewVersion(i18next.t('NewNewUI.message'));
+		selectFilterShowNewNewVersion(i18next.t('Latest.message'));
 	}
 	document.querySelector('#select-reddit-version .select').querySelector('span').textContent = e.target.textContent;
 	redirect_dropdown.classList.remove('active');

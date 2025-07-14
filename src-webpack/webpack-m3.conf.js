@@ -17,7 +17,7 @@ module.exports = {
 		restore_config: './src/common/restore_config.js',
 	},
 	output: {
-		path: path.resolve(__dirname, 'dist/edge'),
+		path: path.resolve(__dirname, 'dist/chrome'),
 		filename: '[name].js',
 		clean: true,
 	},
@@ -113,7 +113,6 @@ module.exports = {
 		new webpack.DefinePlugin({
 			BROWSER_API: 'chrome',
 			CHECK_LEGACY_FIREFOX: false,
-			CHECK_LEGACY_EDGE: true,
 			IS_CHROME: true,
 		}),
 	],

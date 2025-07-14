@@ -1,6 +1,6 @@
 /* ===== Content First - Initialise ===== */
 
-import { detectEdgeVersion, detectFirefoxVersion } from './functions/detect_browser_version';
+import { detectFirefoxVersion } from './functions/detect_browser_version';
 import { detectRedditVersion } from './functions/detect_reddit_version';
 
 // Waits for page to load the <head> element before starting to load tweaks.
@@ -31,11 +31,6 @@ export function init() {
 	if (CHECK_LEGACY_FIREFOX) {
 		if (detectFirefoxVersion()) {
 			console.log('[Reddit Enhancer] Firefox is outdated. Please update to version 121 or newer.');
-		}
-	}
-	if (CHECK_LEGACY_EDGE) {
-		if (detectEdgeVersion()) {
-			console.log('[Reddit Enhancer] Edge is outdated. Please update to the latest version.');
 		}
 	}
 

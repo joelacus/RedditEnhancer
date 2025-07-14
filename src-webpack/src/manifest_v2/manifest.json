@@ -68,19 +68,14 @@
 				"path": "rules/image_ruleset.json"
 			},
 			{
-				"id": "old_ruleset",
+				"id": "rv1_ruleset",
 				"enabled": false,
-				"path": "rules/old_ruleset.json"
+				"path": "rules/rv1_ruleset.json"
 			},
 			{
-				"id": "new_ruleset",
+				"id": "rv3_ruleset",
 				"enabled": false,
-				"path": "rules/new_ruleset.json"
-			},
-			{
-				"id": "sh_ruleset",
-				"enabled": false,
-				"path": "rules/sh_ruleset.json"
+				"path": "rules/rv3_ruleset.json"
 			}
 		]
 	}

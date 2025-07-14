@@ -251,11 +251,11 @@ function addImageRules() {
 	BROWSER_API.declarativeNetRequest
 		.updateEnabledRulesets(options)
 		.then(() => {
-			console.log('Add image ruleset');
+			console.log(`${timestamp()} - Add image ruleset`);
 			//reload_tabs();
 		})
 		.catch((error) => {
-			console.error('Error updating rules:', error);
+			console.error(`${timestamp()} - Error updating rules:`, error);
 		});
 }
 
@@ -263,7 +263,6 @@ function addImageRules() {
 
 // Load Saved Value
 BROWSER_API.runtime.onStartup.addListener(() => {
-	console.log('Extension started!');
 	BROWSER_API.storage.sync.get(['autoRedirectVersion'], function (result) {
 		updateRedirectRuleset(result.autoRedirectVersion);
 	});
@@ -271,21 +270,21 @@ BROWSER_API.runtime.onStartup.addListener(() => {
 
 // Update Redirect Ruleset
 function updateRedirectRuleset(version) {
-	console.log('Redirect to: ' + version);
 	if (version === 'old') {
-		options = { enableRulesetIds: ['old_ruleset'], disableRulesetIds: ['new_ruleset', 'sh_ruleset'] };
-		console.log('Removed new and sh rulesets. Added old ruleset');
-	} else if (version === 'new') {
-		options = { enableRulesetIds: ['new_ruleset'], disableRulesetIds: ['old_ruleset', 'sh_ruleset'] };
-		console.log('Removed old and sh rulesets. Added new ruleset');
+		options = { enableRulesetIds: ['rv1_ruleset'], disableRulesetIds: ['rv3_ruleset'] };
+		BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
+			console.log(`${timestamp()} - Switching to RV1 (Old) redirect ruleset`);
+		});
 	} else if (version === 'newnew') {
-		options = { enableRulesetIds: ['sh_ruleset'], disableRulesetIds: ['old_ruleset', 'new_ruleset'] };
-		console.log('Removed old and new rulesets. Added sh ruleset');
+		options = { enableRulesetIds: ['rv3_ruleset'], disableRulesetIds: ['rv1_ruleset'] };
+		BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
+			console.log(`${timestamp()} - Switching to RV3 (Latest) redirect ruleset`);
+		});
 	} else {
-		options = { enableRulesetIds: [], disableRulesetIds: ['old_ruleset', 'new_ruleset', 'sh_ruleset'] };
-		console.log('Removed old, new and sh rulesets');
+		options = { enableRulesetIds: [], disableRulesetIds: ['rv1_ruleset', 'rv3_ruleset'] };
+
+		BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
+			console.log(`${timestamp()} - Removed RV1 (Old) and RV3 (Latest) rulesets`);
+		});
 	}
-	BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
-		console.log('Updated enabled rulesets');
-	});
 }
