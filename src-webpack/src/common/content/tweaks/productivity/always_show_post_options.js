@@ -207,19 +207,18 @@ function attachCommentMenu(commentActionRow) {
 	const overflowMenuContainer = commentActionRow.querySelector('shreddit-overflow-menu');
 	if (!overflowMenuContainer) return;
 	overflowMenuContainer.removeAttribute('should-use-bottom-sheet');
+	overflowMenuContainer.setAttribute('slot', 'comment-overflow-menu');
 	const overflowSlot = commentActionRow.shadowRoot?.querySelector('slot[name="overflow"]');
 	const overflowMenu = overflowMenuContainer.shadowRoot?.querySelector('faceplate-dropdown-menu, faceplate-bottom-sheet');
 	if (!overflowSlot || !overflowMenu) return;
 
 	// Initialise the shadow DOM slots for the buttons, appending after the overflow slot
-	['brand-affiliate', 'delete', 'edit', 'follow', 'report', 'save', 'share-as-post', 'share'].forEach(function (action) {
+	['overflow-menu', 'brand-affiliate', 'delete', 'edit', 'follow', 'report', 'save', 'share-as-post', 'share'].forEach(function (action) {
 		const slot = document.createElement('slot');
 		slot.name = `comment-${action}`
 		overflowSlot.insertAdjacentElement('afterend', slot);
 	});
-
-	// Attach the overflow menu outside the shadow DOM
-	commentActionRow.appendChild(overflowMenu);
+	overflowSlot.remove();
 
 	// Move the overflow menu buttons to the action row
 	[
@@ -259,7 +258,7 @@ function attachCommentMenu(commentActionRow) {
 			remove: '.share-comment-as-post-button'
 		}
 	].map(action => {
-		const button = commentActionRow.querySelector(action.selector);
+		const button = overflowMenu.querySelector(action.selector);
 		if (button) {
 			Object.assign(button, {
 				slot: action.slot,
@@ -278,11 +277,22 @@ function attachCommentMenu(commentActionRow) {
 			}
 			button.querySelector('span + span > .h-lg')?.classList.remove('h-lg');
 			commentActionRow.appendChild(button);
-			commentActionRow.querySelector(action.remove)?.remove();
+			overflowMenu.querySelector(action.remove)?.remove();
 		}
 	});
 
-	// Stylise the current options on screen: reply, share, award
+	// If comment-overflow-menu is empty, remove it
+	if (!overflowMenuContainer.querySelector('div[slot="devvit-context-actions"]')) {
+		overflowMenuContainer.remove();
+	} else {
+		const button = overflowMenuContainer.shadowRoot?.querySelector('button');
+		if (button) {
+			button.className = 'button border-md shrink-0 text-12 button-plain-weak inline-flex items-center font-semibold rounded-sm p-2xs';
+			button.setAttribute('style', 'height: initial;');
+		}
+	}
+
+	// Stylise the current options on screen: reply, share, award, insight
 	const commentBtn = commentActionRow.querySelector('faceplate-tracker[noun="reply_comment"] button');
 	if (commentBtn) {
 		commentBtn.setAttribute('style', 'height: initial;');
@@ -318,6 +328,13 @@ function attachCommentMenu(commentActionRow) {
 
 		const icon = awardBtn.querySelector('span > span:has(svg)');
 		if (icon) icon.classList.add('hidden');
+	}
+
+	const insightBtn = commentActionRow.querySelector('a[slot="comment-insight"] button');
+	if (insightBtn) {
+		insightBtn.setAttribute('style', 'height: initial;');
+		insightBtn.classList.replace('px-sm', 'p-2xs');
+		insightBtn.classList.add('font-semibold', 'rounded-sm');
 	}
 
 	commentActionRow.classList.add('re-comment-options-attached');
