@@ -19,7 +19,7 @@ export function loadModerniseOldReddit() {
 /* === Enable/Disable The Feature === */
 export function moderniseOldReddit(value) {
 	const link = window.location.href;
-	if (value === true) {
+	if (value) {
 		loadCustomBackground();
 		styleModerniseOldReddit();
 		document.querySelector('body').classList.add('re-modernise');

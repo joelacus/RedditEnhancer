@@ -4,7 +4,7 @@
  * @name addDownloadVideoButton
  * @description Add a button on video posts to download the video file.
  *
- * Note: Currently only works for mp4 URLs. Additional functionality is required for m3u8 URLs.
+ * Notes: Currently only works for mp4 URLs. Additional functionality is required for m3u8 URLs.
  *
  * Compatibility: RV3 (New New UI) (2023-)
  */

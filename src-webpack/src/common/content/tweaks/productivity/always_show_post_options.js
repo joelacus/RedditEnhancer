@@ -4,28 +4,27 @@
  * @name alwaysShowPostOptions
  * @description Move the post and comment options from the overflow menu to the action bar.
  *
- * Applies to: New New UI (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
-import { showBannerMessage } from "../../banner_message";
+import { showBannerMessage } from '../../banner_message';
 
 let hideNotification = false,
 	buttons = ['save', 'hide', 'report', 'edit', 'delete', 'pinToProfile', 'spoilerTag', 'nsfwTag', 'brandAffiliate'];
 
-const slots = ['share-button', 'save-button', 'hide-button', 'report-button', 'edit-button', 'pinToProfile-button',
-	'delete-button', 'spoilerTag-button', 'nsfwTag-button', 'brandAffiliate-button', 'overflow-menu'];
+const slots = ['share-button', 'save-button', 'hide-button', 'report-button', 'edit-button', 'pinToProfile-button', 'delete-button', 'spoilerTag-button', 'nsfwTag-button', 'brandAffiliate-button', 'overflow-menu'];
 
 export function loadAlwaysShowPostOptions() {
 	BROWSER_API.storage.sync.get(['alwaysShowPostOptions', 'hidePostNotificationOption', 'hidePostSaveOption', 'hidePostHideOption', 'hidePostReportOption', 'hidePostEditOption', 'hidePostDeleteOption', 'hidePostSpoilerOption', 'hidePostNsfwOption', 'hidePostBrandAwarenessOption'], function (result) {
 		if (result.alwaysShowPostOptions) {
 			hideNotification = result.hidePostNotificationOption;
-			if (result.hidePostSaveOption) buttons = buttons.filter(action => action !== 'save');
-			if (result.hidePostHideOption) buttons = buttons.filter(action => action !== 'hide');
-			if (result.hidePostReportOption) buttons = buttons.filter(action => action !== 'report');
-			if (result.hidePostEditOption) buttons = buttons.filter(action => action !== 'edit');
-			if (result.hidePostDeleteOption) buttons = buttons.filter(action => action !== 'delete');
-			if (result.hidePostSpoilerOption) buttons = buttons.filter(action => action !== 'spoilerTag');
-			if (result.hidePostNsfwOption) buttons = buttons.filter(action => action !== 'nsfwTag');
-			if (result.hidePostBrandAwarenessOption) buttons = buttons.filter(action => action !== 'brandAffiliate');
+			if (result.hidePostSaveOption) buttons = buttons.filter((action) => action !== 'save');
+			if (result.hidePostHideOption) buttons = buttons.filter((action) => action !== 'hide');
+			if (result.hidePostReportOption) buttons = buttons.filter((action) => action !== 'report');
+			if (result.hidePostEditOption) buttons = buttons.filter((action) => action !== 'edit');
+			if (result.hidePostDeleteOption) buttons = buttons.filter((action) => action !== 'delete');
+			if (result.hidePostSpoilerOption) buttons = buttons.filter((action) => action !== 'spoilerTag');
+			if (result.hidePostNsfwOption) buttons = buttons.filter((action) => action !== 'nsfwTag');
+			if (result.hidePostBrandAwarenessOption) buttons = buttons.filter((action) => action !== 'brandAffiliate');
 			alwaysShowPostOptions(true);
 		}
 	});
@@ -51,7 +50,7 @@ export function alwaysShowPostOptions(value) {
 	} else {
 		postObserver.disconnect();
 		commentObserver.disconnect();
-		showBannerMessage("info", "[RedditEnhancer] Please refresh the page for the changes to take effect.");
+		showBannerMessage('info', '[RedditEnhancer] Please refresh the page for the changes to take effect.');
 	}
 }
 
@@ -145,7 +144,7 @@ function attachPostMenu(post) {
 			Object.assign(button, {
 				className: 'button flex flex-row justify-center items-center font-semibold relative text-12 button-plain-weak inline-flex items-center p-[6px] mr-2xs bg-transparent hover:bg-secondary-background-hover rounded-sm',
 				slot: `${action}-button`,
-				style: 'height: initial;'
+				style: 'height: initial;',
 			});
 			const icon = button.querySelector('span > span');
 			if (icon) {
@@ -165,7 +164,7 @@ function attachPostMenu(post) {
 
 	// Move the follow/reply notification button to the top of the post, mimic Old New UI
 	if (!hideNotification) {
-		const notificationBtn = overflowMenu.querySelector("#post-overflow-follow > div, #post-overflow-replyNotifs > div");
+		const notificationBtn = overflowMenu.querySelector('#post-overflow-follow > div, #post-overflow-replyNotifs > div');
 		if (notificationBtn) {
 			notificationBtn.classList.remove('px-md', 'py-2xs', 'gap-[0.5rem]'); // Remove excessive padding
 			notificationBtn.removeAttribute('style');
@@ -177,7 +176,7 @@ function attachPostMenu(post) {
 			const text = notificationBtn.querySelector('span > span + span');
 			if (text) text.remove();
 			overflowMenuBtnPlaceholder.appendChild(notificationBtn);
-			if (!overflowMenu.querySelector("#post-overflow-follow > div, #post-overflow-replyNotifs > div")) {
+			if (!overflowMenu.querySelector('#post-overflow-follow > div, #post-overflow-replyNotifs > div')) {
 				overflowMenu.querySelector('#post-overflow-follow, #post-overflow-replyNotifs').remove();
 			}
 		}
@@ -185,8 +184,7 @@ function attachPostMenu(post) {
 
 	if (overflowMenu.tagName === 'FACEPLATE-BOTTOM-SHEET') {
 		const button = overflowMenuContainer.shadowRoot?.querySelector('button');
-		if (button) button.className = 'button flex flex-row justify-center items-center font-semibold relative text-12 button-plain-weak ' +
-			'inline-flex items-center p-[6px] mr-2xs bg-transparent hover:bg-secondary-background-hover rounded-sm';
+		if (button) button.className = 'button flex flex-row justify-center items-center font-semibold relative text-12 button-plain-weak ' + 'inline-flex items-center p-[6px] mr-2xs bg-transparent hover:bg-secondary-background-hover rounded-sm';
 		overflowMenuContainer.setAttribute('slot', 'overflow-menu');
 		post.appendChild(overflowMenuContainer);
 	}
@@ -214,7 +212,7 @@ function attachCommentMenu(commentActionRow) {
 	// Initialise the shadow DOM slots for the buttons, appending after the overflow slot
 	['brand-affiliate', 'delete', 'edit', 'follow', 'report', 'save', 'share-as-post', 'share'].forEach(function (action) {
 		const slot = document.createElement('slot');
-		slot.name = `comment-${action}`
+		slot.name = `comment-${action}`;
 		overflowSlot.insertAdjacentElement('afterend', slot);
 	});
 
@@ -226,45 +224,45 @@ function attachCommentMenu(commentActionRow) {
 		{
 			slot: 'comment-save',
 			selector: '.save-comment-menu-button > div',
-			remove: '.save-comment-menu-button'
+			remove: '.save-comment-menu-button',
 		},
 		{
 			slot: 'comment-follow',
 			selector: '.follow-comment-menu-button > div',
-			remove: '.follow-comment-menu-button'
+			remove: '.follow-comment-menu-button',
 		},
 		{
 			slot: 'comment-report',
 			selector: 'faceplate-tracker[noun="report"] li div',
-			remove: 'faceplate-tracker[noun="report"]'
+			remove: 'faceplate-tracker[noun="report"]',
 		},
 		{
 			slot: 'comment-edit',
 			selector: 'faceplate-tracker[noun="edit"] li div',
-			remove: 'faceplate-tracker[noun="edit"]'
+			remove: 'faceplate-tracker[noun="edit"]',
 		},
 		{
 			slot: 'comment-delete',
 			selector: 'faceplate-tracker[noun="delete"] li div',
-			remove: 'faceplate-tracker[noun="delete"]'
+			remove: 'faceplate-tracker[noun="delete"]',
 		},
 		{
 			slot: 'comment-brand-affiliate',
 			selector: '.brand-affiliate-menu-button > div',
-			remove: '.brand-affiliate-menu-button'
+			remove: '.brand-affiliate-menu-button',
 		},
 		{
 			slot: 'comment-share-as-post',
 			selector: '.share-comment-as-post-button > div',
-			remove: '.share-comment-as-post-button'
-		}
-	].map(action => {
+			remove: '.share-comment-as-post-button',
+		},
+	].map((action) => {
 		const button = commentActionRow.querySelector(action.selector);
 		if (button) {
 			Object.assign(button, {
 				slot: action.slot,
 				className: 'button border-md shrink-0 text-12 button-plain-weak inline-flex items-center font-semibold rounded-sm p-2xs',
-				style: ''
+				style: '',
 			});
 			const icon = button.querySelector('span > span');
 			const text = button.querySelector('span > span + span > span');
@@ -324,29 +322,33 @@ function attachCommentMenu(commentActionRow) {
 }
 
 // Observe feed for new posts and comments
-const postObserver = new MutationObserver(debounce(function (mutations) {
-	mutations.forEach(function (mutation) {
-		mutation.addedNodes.forEach(function (addedNode) {
-			if (['TIME', 'ARTICLE', 'DIV', 'SPAN', 'FACEPLATE-PARTIAL', 'FACEPLATE-LOADER', 'SHREDDIT-COMMENT'].includes(addedNode.nodeName)) {
-				document.querySelectorAll('shreddit-post:not(.re-post-options-attached)').forEach(attachPostMenu);
-				document.querySelectorAll('shreddit-comment-action-row:not(.re-comment-options-attached)').forEach(attachCommentMenu);
-			}
-		});
-	});
-}, 100));
-
-const commentObserver = new ResizeObserver(debounce(function (mutations) {
-	mutations.forEach(function (mutation) {
-		mutation.target.querySelectorAll('shreddit-comment-action-row:not(.re-comment-options-attached)').forEach(attachCommentMenu);
-		mutation.target.querySelectorAll('faceplate-partial[src*="/more-comments/"] button').forEach(function (button) {
-			button.addEventListener('click', function () {
-				setTimeout(function () {
+const postObserver = new MutationObserver(
+	debounce(function (mutations) {
+		mutations.forEach(function (mutation) {
+			mutation.addedNodes.forEach(function (addedNode) {
+				if (['TIME', 'ARTICLE', 'DIV', 'SPAN', 'FACEPLATE-PARTIAL', 'FACEPLATE-LOADER', 'SHREDDIT-COMMENT'].includes(addedNode.nodeName)) {
+					document.querySelectorAll('shreddit-post:not(.re-post-options-attached)').forEach(attachPostMenu);
 					document.querySelectorAll('shreddit-comment-action-row:not(.re-comment-options-attached)').forEach(attachCommentMenu);
-				}, 500);
+				}
 			});
 		});
-	});
-}, 100));
+	}, 100)
+);
+
+const commentObserver = new ResizeObserver(
+	debounce(function (mutations) {
+		mutations.forEach(function (mutation) {
+			mutation.target.querySelectorAll('shreddit-comment-action-row:not(.re-comment-options-attached)').forEach(attachCommentMenu);
+			mutation.target.querySelectorAll('faceplate-partial[src*="/more-comments/"] button').forEach(function (button) {
+				button.addEventListener('click', function () {
+					setTimeout(function () {
+						document.querySelectorAll('shreddit-comment-action-row:not(.re-comment-options-attached)').forEach(attachCommentMenu);
+					}, 500);
+				});
+			});
+		});
+	}, 100)
+);
 
 function debounce(func, wait) {
 	let timeout;

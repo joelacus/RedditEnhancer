@@ -2,7 +2,7 @@
 
 import { restorePopupAccessibilityOptions } from './restore/restore_accessibility';
 import { restorePopupBackgroundOptions } from './restore/restore_background';
-import { restorePopupDarkModeOptions } from './restore/restore_dark_mode';
+//import { restorePopupDarkModeOptions } from './restore/restore_dark_mode';
 import { restorePopupHideElementsOptions } from './restore/restore_hide_elements';
 import { restorePopupProductivityOptions } from './restore/restore_productivity';
 import { restorePopupRedditVersionOptions } from './restore/restore_reddit_version';
@@ -29,7 +29,7 @@ function restoreOptions() {
 	// Tweak Options
 	restorePopupRedditVersionOptions();
 	restorePopupBackgroundOptions();
-	restorePopupDarkModeOptions();
+	//restorePopupDarkModeOptions();
 	restorePopupStyleOptions();
 	restorePopupMediaOptions();
 	restorePopupProductivityOptions();

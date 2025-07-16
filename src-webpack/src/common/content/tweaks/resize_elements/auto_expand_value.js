@@ -1,49 +1,29 @@
-/* ===== Tweaks - Expand Feed/Post - Auto Expand Feed/Post To 100% At Value ===== */
+/**
+ * Tweaks: Resize Feed/Post - Auto Expand Feed/Post To 100% At Value
+ *
+ * @name autoExpandValue
+ * @description Automatically expand the main container to 100% when the window/screen is at certain width.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadAutoExpandValue() {
 	BROWSER_API.storage.sync.get(['autoExpandValue'], function (result) {
 		autoExpandValue(result.autoExpandValue);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function autoExpandValue(widthVariable) {
-	if (redditVersion === 'old' || redditVersion === 'new') {
+	if (redditVersion === 'newnew') {
 		disableAutoExpandValueAll();
-		enableAutoExpandValueNew(widthVariable);
-	} else if (redditVersion === 'newnew') {
-		disableAutoExpandValueAll();
-		enableAutoExpandValueNewNew(widthVariable);
+		enableAutoExpandValueRV3(widthVariable);
 	}
 }
 
-/* === Enable/Disable Functions === */
-
-// Function - Enable Auto Expand Value - New
-function enableAutoExpandValueNew(widthVariable) {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-auto-expand-layout';
-	styleElement.textContent = `@media only screen and (max-width: ${widthVariable}px) {
-									.ListingLayout-backgroundContainer + div > :last-child > :first-child,
-									#re-container {
-										--re-content-width: 100% !important;
-										--re-sub-width: 100% !important;
-										--re-post-width: 100% !important;
-										--re-post-overlay-width: 100% !important;
-										--re-user-profile-width: 100% !important;
-									}
-									.ListingLayout-backgroundContainer + div > :last-child,
-									#re-container {
-										overflow-x: unset !important;
-										transform: none !important;
-									}
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
-}
-
-// Function - Enable Auto Expand Value - New New
-function enableAutoExpandValueNewNew(widthVariable) {
+// Enable Auto Expand Value - RV3
+function enableAutoExpandValueRV3(widthVariable) {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-auto-expand-layout';
 	styleElement.textContent = `@media only screen and (max-width: ${widthVariable}px) {
@@ -67,7 +47,7 @@ function enableAutoExpandValueNewNew(widthVariable) {
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
-// Function - Disable Auto Expand Value - All
+// Disable Auto Expand Value - All
 function disableAutoExpandValueAll() {
 	const dynamicStyleElements1 = document.head.querySelectorAll('style[id="re-auto-expand-layout"]');
 	dynamicStyleElements1.forEach((element) => {

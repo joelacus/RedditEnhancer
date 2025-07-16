@@ -16,12 +16,10 @@ export function loadHideGap() {
 
 /* === Enable/Disable The Feature === */
 export function hideGap(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHideGapRV3();
-		} else if (value === false) {
-			disableHideGapAll();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableHideGapRV3();
+	} else {
+		disableHideGapAll();
 	}
 }
 

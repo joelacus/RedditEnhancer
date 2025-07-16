@@ -1,24 +1,31 @@
-/* ===== Tweaks - Productivity - Side Menu Width ===== */
+/**
+ * Tweaks: Resize Feed/Post - Side Menu Width
+ *
+ * @name sideMenuWidth
+ * @description Change the width of the side menu (left).
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadSideMenuWidth() {
 	BROWSER_API.storage.sync.get(['sideMenuWidth'], function (result) {
 		sideMenuWidth(result.sideMenuWidth);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function sideMenuWidth(value) {
 	if (redditVersion === 'newnew') {
 		if (parseInt(value) === 199) {
 			document.documentElement.style.removeProperty('--re-side-menu-width');
-			disableSideMenuWidth();
+			disableSideMenuWidthAll();
 		} else if (parseInt(value) >= 200) {
 			BROWSER_API.storage.sync.get(['sideMenuIconsOnly'], function (result) {
 				if (!result.sideMenuIconsOnly) {
 					if (!document.querySelector('html').classList.contains('re-hide-side-menu')) {
 						document.documentElement.style.setProperty('--re-side-menu-width', value + 'px');
-						enableSideMenuWidth();
+						enableSideMenuWidthRV3();
 					}
 				}
 			});
@@ -26,8 +33,8 @@ export function sideMenuWidth(value) {
 	}
 }
 
-// Function - Enable Side Menu Width - New New
-function enableSideMenuWidth() {
+// Enable Side Menu Width - RV3
+function enableSideMenuWidthRV3() {
 	if (!document.querySelector('style[id="re-side-menu-width"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-side-menu-width';
@@ -44,8 +51,8 @@ function enableSideMenuWidth() {
 	}
 }
 
-// Function - Disable Side Menu Width - New New
-function disableSideMenuWidth() {
+// Disable Side Menu Width - All
+function disableSideMenuWidthAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-side-menu-width"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);

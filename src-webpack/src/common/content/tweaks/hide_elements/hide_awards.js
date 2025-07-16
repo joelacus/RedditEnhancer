@@ -13,14 +13,14 @@
  */
 import { showBannerMessage } from '../../banner_message';
 
-// Get the feature state from browser sync storage
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHideAwards() {
 	BROWSER_API.storage.sync.get(['hideAwards']).then(function (result) {
 		if (result.hideAwards) hideAwards(true);
 	});
 }
 
-// Activate the feature based on Reddit version
+/* === Enable/Disable The Feature === */
 export function hideAwards(value) {
 	if (value && redditVersion === 'newnew') {
 		// Go nuclear and remove all award dialog handler scripts

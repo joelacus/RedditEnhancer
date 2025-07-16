@@ -55,17 +55,8 @@ export function showPostNumbers(value) {
 }
 
 function getCurrentView() {
-	switch (redditVersion) {
-		case 'new':
-			// Get the current post view. Reddit display the current post view with i.icon.icon-view_card
-			const layoutSwitchIcon = document.querySelector('button#LayoutSwitch--picker > span > i');
-			if (layoutSwitchIcon) {
-				view = layoutSwitchIcon.className.split('_').pop();
-			}
-			break;
-		case 'newnew':
-			view = document.querySelector('shreddit-post')?.getAttribute('view-type');
-			break;
+	if (redditVersion === 'newnew') {
+		view = document.querySelector('shreddit-post')?.getAttribute('view-type');
 	}
 }
 
