@@ -1,4 +1,4 @@
-/* ===== Dark Mode Time Calculate ===== */
+/* ===== Dark Mode Time Calculate ===== 
 
 import { sendMessage } from '../../../popup/send_message';
 
@@ -50,3 +50,4 @@ export function darkModeTimeCalc(i) {
 		sendMessage({ darkMode: value });
 	});
 }
+	*/

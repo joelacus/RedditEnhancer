@@ -31,7 +31,8 @@ import { hideUserProfilePics } from './tweaks/hide_elements/hide_user_profile_pi
 import { imageScroll } from './tweaks/media/scroll_images';
 import { setMaxImagePostHeight, setMaxImageWidth, setMaxVideoWidth, setMaxVideoPostHeight } from './tweaks/media/limit_media_size';
 import { largerClassicPost } from './tweaks/style/larger_classic_post';
-import { layoutCentre, layoutOffset, layoutSubOffset, layoutPostOffset, layoutUserProfileOffset, layoutSearchPageOffset } from './tweaks/resize_elements/layout_centre_and_offset';
+import { layoutOffset, layoutSubOffset, layoutPostOffset, layoutUserProfileOffset, layoutSearchPageOffset } from './tweaks/resize_elements/layout_offset';
+import { layoutCentre } from './tweaks/resize_elements/layout_centre';
 //import { limitInfinityScroll } from './tweaks/productivity/limit_infinity_scroll';
 import { moderniseOldReddit } from './tweaks/style/modernise_old_reddit';
 import { nonStickyHeaderBar } from './tweaks/productivity/non_sticky_header_bar';
@@ -48,10 +49,6 @@ import { showToTopButton } from './tweaks/productivity/scroll_to_top';
 import { stickySort } from './tweaks/productivity/sticky_sort';
 import {
 	themeBlur,
-	themeCreatePostBackgroundColour,
-	themeCreatePostBackgroundColourCSS,
-	themeCreatePostBorderColour,
-	themeCreatePostBorderColourCSS,
 	themeHeaderBackgroundColour,
 	themeHeaderBackgroundColourCSS,
 	themeHeaderTextColour,
@@ -80,8 +77,6 @@ import {
 	themeSearchbarDropdownBgColourCSS,
 	themeSidebarBgColour,
 	themeSidebarBgColourCSS,
-	themeSidebarBorderColour,
-	themeSidebarBorderColourCSS,
 	themeSidebarTextColour,
 	themeSidebarTextColourCSS,
 	themeSidemenuBgColour,
@@ -90,14 +85,6 @@ import {
 	themeSidemenuButtonHoverColourCSS,
 	themeSidemenuTextColour,
 	themeSidemenuTextColourCSS,
-	themeSortBackgroundColour,
-	themeSortBackgroundColourCSS,
-	themeSortBorderColour,
-	themeSortBorderColourCSS,
-	themeSortTextColour,
-	themeSortTextColourCSS,
-	themeSortTextColour2,
-	themeSortTextColour2CSS,
 	themePostUpvoteColourCSS,
 	themePostUpvoteColour,
 	themePostCommentActionRowColour,
@@ -234,14 +221,6 @@ const functionRegistry = {
 	themeHeaderBackgroundColourCSS,
 	themeHeaderTextColour,
 	themeHeaderTextColourCSS,
-	themeSortBackgroundColour,
-	themeSortBackgroundColourCSS,
-	themeSortTextColour,
-	themeSortTextColourCSS,
-	themeSortTextColour2,
-	themeSortTextColour2CSS,
-	themeSortBorderColour,
-	themeSortBorderColourCSS,
 	themePostBackgroundColour,
 	themePostBackgroundColourCSS,
 	themePostVisitedTextColour,
@@ -258,16 +237,10 @@ const functionRegistry = {
 	themePostTextColour2CSS,
 	themePostBorderColour,
 	themePostBorderColourCSS,
-	themeCreatePostBackgroundColour,
-	themeCreatePostBackgroundColourCSS,
-	themeCreatePostBorderColour,
-	themeCreatePostBorderColourCSS,
 	themeSidebarTextColour,
 	themeSidebarTextColourCSS,
 	themeSidebarBgColour,
 	themeSidebarBgColourCSS,
-	themeSidebarBorderColour,
-	themeSidebarBorderColourCSS,
 	themeSidemenuTextColour,
 	themeSidemenuTextColourCSS,
 	themeSidemenuBgColour,

@@ -1,6 +1,12 @@
-/* ===== Tweaks - Accessibility - Font Weight ===== */
+/**
+ * Tweaks: Fonts - Font Weight
+ *
+ * @description Change some of the font weights on the website.
+ *
+ * Compatibility: RV1 (Old UI) (2005-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadPostFontWeight() {
 	BROWSER_API.storage.sync.get(['postTitleFontWeight', 'postContentFontWeight', 'postCommentsFontWeight', 'feedPostTitleFontWeight', 'feedPostContentFontWeight'], function (result) {
 		postTitleFontWeight(result.postTitleFontWeight);
@@ -11,7 +17,7 @@ export function loadPostFontWeight() {
 	});
 }
 
-/* === Main Functions === */
+/* === Enable/Disable The Features === */
 
 // Post Title Font Weight
 export function postTitleFontWeight(value) {
@@ -54,6 +60,6 @@ export function feedPostContentFontWeight(value) {
 	if (typeof value != 'undefined' && value != false && value != '9') {
 		document.documentElement.style.setProperty('--re-feed-post-content-font-weight', value);
 	} else {
-		document.documentElement.style.removeProperty('--re-feed-post-content-font-weight');;
+		document.documentElement.style.removeProperty('--re-feed-post-content-font-weight');
 	}
 }

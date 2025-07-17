@@ -1,17 +1,25 @@
-/* ===== Tweaks - Dark Mode ===== */
+/**
+ * Tweaks: Dark Mode
+ *
+ * @name darkModeAuto
+ * @description Automatically switch between dark and light mode..
+ *
+ *
+ * Notes: Needs rewriting to work with RV3
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-import { darkModeTimeCalc } from './dark_mode_time_calc';
+//import { darkModeTimeCalc } from './dark_mode_time_calc';
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === 
 export function loadDarkModeAuto() {
 	BROWSER_API.storage.sync.get(['darkModeAuto'], function (result) {
 		darkModeAuto(result.darkModeAuto);
 	});
-}
+}*/
 
-/* === Main Functions === */
-
-// Dark Mode Auto
+/* === Enable/Disable The Feature === 
 export function darkModeAuto(value) {
 	if (redditVersion === 'new') {
 		if (value === 'system') {
@@ -31,8 +39,9 @@ export function darkModeAuto(value) {
 			});
 		}
 	}
-}
+}*/
 
+/*
 // Detect System Theme Change
 var colorModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
 var colorMode = colorModeQuery.matches ? 'dark' : 'light';
@@ -151,3 +160,4 @@ export function darkMode(value) {
 		}, 200);
 	}
 }
+*/

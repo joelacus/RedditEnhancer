@@ -16,9 +16,9 @@ export function loadCustomHeaderLogo() {
 
 /* === Enable/Disable The Feature === */
 export function customHeaderLogo(value) {
-	if (redditVersion === 'newnew') {
+	if (redditVersion === 'newnew' && value) {
 		enableCustomHeaderLogoRV3();
-	} else if (redditVersion === 'old') {
+	} else if (redditVersion === 'old' && value) {
 		enableCustomHeaderLogoRV1();
 	} else {
 		disableCustomHeaderLogoAll();

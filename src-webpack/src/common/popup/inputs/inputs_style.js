@@ -126,90 +126,6 @@ document.querySelector('#input-header-text-colour-css').addEventListener('keyup'
 	sendMessage({ themeHeaderTextColourCSS: css });
 });
 
-// Toggle - Sort Background Colour
-document.querySelector('#checkbox-sort-bg-colour').addEventListener('change', function (e) {
-	const themeSortBackgroundColour = document.querySelector('#checkbox-sort-bg-colour').checked;
-	if (themeSortBackgroundColour == true) {
-		BROWSER_API.storage.sync.set({ themeSortBackgroundColour: true });
-		document.querySelector('.icon-sort-bg-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSortBackgroundColour: true });
-	} else if (themeSortBackgroundColour == false) {
-		BROWSER_API.storage.sync.set({ themeSortBackgroundColour: false });
-		document.querySelector('.icon-sort-bg-colour').style.backgroundColor = '';
-		sendMessage({ themeSortBackgroundColour: false });
-	}
-});
-
-// Input - Sort Background Colour CSS
-document.querySelector('#input-sort-bg-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-sort-bg-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeSortBackgroundColourCSS: css });
-	sendMessage({ themeSortBackgroundColourCSS: css });
-});
-
-// Toggle - Sort Text Colour
-document.querySelector('#checkbox-sort-text-colour').addEventListener('change', function (e) {
-	const themeSortTextColour = document.querySelector('#checkbox-sort-text-colour').checked;
-	if (themeSortTextColour == true) {
-		BROWSER_API.storage.sync.set({ themeSortTextColour: true });
-		document.querySelector('.icon-sort-text-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSortTextColour: true });
-	} else if (themeSortTextColour == false) {
-		BROWSER_API.storage.sync.set({ themeSortTextColour: false });
-		document.querySelector('.icon-sort-text-colour').style.backgroundColor = '';
-		sendMessage({ themeSortTextColour: false });
-	}
-});
-
-// Input - Sort Text Colour CSS
-document.querySelector('#input-sort-text-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-sort-text-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeSortTextColourCSS: css });
-	sendMessage({ themeSortTextColourCSS: css });
-});
-
-// Toggle - Sort Text Colour 2
-document.querySelector('#checkbox-sort-text-colour-2').addEventListener('change', function (e) {
-	const themeSortTextColour2 = document.querySelector('#checkbox-sort-text-colour-2').checked;
-	if (themeSortTextColour2 == true) {
-		BROWSER_API.storage.sync.set({ themeSortTextColour2: true });
-		document.querySelector('.icon-sort-text-colour-2').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSortTextColour2: true });
-	} else if (themeSortTextColour2 == false) {
-		BROWSER_API.storage.sync.set({ themeSortTextColour2: false });
-		document.querySelector('.icon-sort-text-colour-2').style.backgroundColor = '';
-		sendMessage({ themeSortTextColour2: false });
-	}
-});
-
-// Input - Sort Text Colour 2 CSS
-document.querySelector('#input-sort-text-colour-2-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-sort-text-colour-2-css').value;
-	BROWSER_API.storage.sync.set({ themeSortTextColour2CSS: css });
-	sendMessage({ themeSortTextColour2CSS: css });
-});
-
-// Toggle - Sort Border Colour
-document.querySelector('#checkbox-sort-border-colour').addEventListener('change', function (e) {
-	const themeSortBorderColour = document.querySelector('#checkbox-sort-border-colour').checked;
-	if (themeSortBorderColour == true) {
-		BROWSER_API.storage.sync.set({ themeSortBorderColour: true });
-		document.querySelector('.icon-sort-border-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSortBorderColour: true });
-	} else if (themeSortBorderColour == false) {
-		BROWSER_API.storage.sync.set({ themeSortBorderColour: false });
-		document.querySelector('.icon-sort-border-colour').style.backgroundColor = '';
-		sendMessage({ themeSortBorderColour: false });
-	}
-});
-
-// Input - Sort Border Colour CSS
-document.querySelector('#input-sort-border-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-sort-border-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeSortBorderColourCSS: css });
-	sendMessage({ themeSortBorderColourCSS: css });
-});
-
 // Toggle - Post Background Colour
 document.querySelector('#checkbox-post-bg-colour').addEventListener('change', function (e) {
 	const themePostBackgroundColour = document.querySelector('#checkbox-post-bg-colour').checked;
@@ -403,48 +319,6 @@ document.querySelector('#input-theme-exceptions').addEventListener('keyup', func
 	BROWSER_API.storage.sync.set({ themeExceptionSubList: value });
 });
 
-// Toggle - Create Post Background Colour
-document.querySelector('#checkbox-create-post-bg-colour').addEventListener('change', function (e) {
-	const themeCreatePostBackgroundColour = document.querySelector('#checkbox-create-post-bg-colour').checked;
-	if (themeCreatePostBackgroundColour == true) {
-		BROWSER_API.storage.sync.set({ themeCreatePostBackgroundColour: true });
-		document.querySelector('.icon-create-post-bg-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeCreatePostBackgroundColour: true });
-	} else if (themeCreatePostBackgroundColour == false) {
-		BROWSER_API.storage.sync.set({ themeCreatePostBackgroundColour: false });
-		document.querySelector('.icon-create-post-bg-colour').style.backgroundColor = '';
-		sendMessage({ themeCreatePostBackgroundColour: false });
-	}
-});
-
-// Input - Create Post Background Colour CSS
-document.querySelector('#input-create-post-bg-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-create-post-bg-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeCreatePostBackgroundColourCSS: css });
-	sendMessage({ themeCreatePostBackgroundColourCSS: css });
-});
-
-// Toggle - Create Post Border Colour
-document.querySelector('#checkbox-create-post-border-colour').addEventListener('change', function (e) {
-	const themeCreatePostBorderColour = document.querySelector('#checkbox-create-post-border-colour').checked;
-	if (themeCreatePostBorderColour == true) {
-		BROWSER_API.storage.sync.set({ themeCreatePostBorderColour: true });
-		document.querySelector('.icon-create-post-border-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeCreatePostBorderColour: true });
-	} else if (themeCreatePostBorderColour == false) {
-		BROWSER_API.storage.sync.set({ themeCreatePostBorderColour: false });
-		document.querySelector('.icon-create-post-border-colour').style.backgroundColor = '';
-		sendMessage({ themeCreatePostBorderColour: false });
-	}
-});
-
-// Input - Create Post Border Colour CSS
-document.querySelector('#input-create-post-border-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-create-post-border-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeCreatePostBorderColourCSS: css });
-	sendMessage({ themeCreatePostBorderColourCSS: css });
-});
-
 // Toggle - Larger Classic Post
 document.querySelector('#checkbox-larger-classic-post').addEventListener('change', function (e) {
 	const largerClassicPost = document.querySelector('#checkbox-larger-classic-post').checked;
@@ -541,27 +415,6 @@ document.querySelector('#input-sidemenu-bg-colour-css').addEventListener('keyup'
 	const css = document.querySelector('#input-sidemenu-bg-colour-css').value;
 	BROWSER_API.storage.sync.set({ themeSidemenuBgColourCSS: css });
 	sendMessage({ themeSidemenuBgColourCSS: css });
-});
-
-// Toggle - Sidebar Border Colour
-document.querySelector('#checkbox-sidebar-border-colour').addEventListener('change', function (e) {
-	const themeSidebarBorderColour = document.querySelector('#checkbox-sidebar-border-colour').checked;
-	if (themeSidebarBorderColour == true) {
-		BROWSER_API.storage.sync.set({ themeSidebarBorderColour: true });
-		document.querySelector('.icon-sidebar-border-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSidebarBorderColour: true });
-	} else if (themeSidebarBorderColour == false) {
-		BROWSER_API.storage.sync.set({ themeSidebarBorderColour: false });
-		document.querySelector('.icon-sidebar-border-colour').style.backgroundColor = '';
-		sendMessage({ themeSidebarBorderColour: false });
-	}
-});
-
-// Input - Sidebar Border Colour CSS
-document.querySelector('#input-sidebar-border-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-sidebar-border-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeSidebarBorderColourCSS: css });
-	sendMessage({ themeSidebarBorderColourCSS: css });
 });
 
 // Toggle - Sidemenu Button Hover Colour

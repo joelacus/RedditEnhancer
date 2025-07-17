@@ -18,7 +18,7 @@ export function loadHideHomeFeed() {
 export function hideHomeFeed(value) {
 	const path = window.location.pathname;
 	const regex = /^\/(r\/(all|popular)\/)?$/;
-	if (value && (redditVersion === 'newnew' || redditVersion === 'old' || (redditVersion === 'new' && regex.test(path)))) {
+	if (value && (redditVersion === 'newnew' || redditVersion === 'old')) {
 		document.documentElement.classList.add('re-hide-home-feed');
 		if (!sessionStorage.getItem('re-hide-home-feed-banner')) {
 			document.documentElement.setAttribute('banner', '');

@@ -1,7 +1,14 @@
-/* ===== Tweaks - Expand Feed/Post - Expand Feed/Post ===== */
+/**
+ * Tweaks: Resize Feed/Post - Expand Feed/Post
+ *
+ * @name expandLayout
+ * @description Resize the width of feeds and posts.
+ *
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
-import { showBannerMessage } from "../../banner_message";
+/* === Run by Tweak Loader when the Page Loads === */
+import { showBannerMessage } from '../../banner_message';
 
 export function loadExpandContent() {
 	BROWSER_API.storage.sync.get(['snapSidebar', 'expandLayout', 'expandLayoutWidth', 'expandSubWidth', 'expandPostWidth', 'expandPostOverlayWidth', 'expandUserProfileWidth', 'expandTopicFeedWidth', 'expandCustomFeedWidth', 'resizeMainContainerWidth'], function (result) {
@@ -20,18 +27,15 @@ export function loadExpandContent() {
 
 let snap = false;
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function expandLayout(value) {
 	if (value) {
 		switch (redditVersion) {
 			case 'old':
-				enableExpandContentOld();
-				break;
-			case 'new':
-				enableExpandContentNew();
+				enableExpandContentRV1();
 				break;
 			case 'newnew':
-				enableExpandContentNewNew();
+				enableExpandContentRV3();
 				break;
 		}
 	} else {
@@ -40,13 +44,11 @@ export function expandLayout(value) {
 }
 
 export function snapSidebar(value) {
-	showBannerMessage('info', "[RedditEnhancer] Changes will take effect after a reload or the next time you load Reddit.");
+	showBannerMessage('info', '[RedditEnhancer] Changes will take effect after a reload or the next time you load Reddit.');
 }
 
-/* === Enable/Disable Functions === */
-
-// Function - Enable Expand Content - Old
-function enableExpandContentOld() {
+// Enable Expand Content - RV1
+function enableExpandContentRV1() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-expand-feed-layout';
 	styleElement.textContent = `div.content {
@@ -157,104 +159,8 @@ function enableExpandContentOld() {
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
-// Function - Enable Expand Content - New
-function enableExpandContentNew() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-expand-feed-layout';
-	styleElement.textContent = `.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="frontpage-sidebar"]) {
-									width: var(--re-content-width) !important;
-								}
-								.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="frontpage-sidebar"]) > :first-child,
-								.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="subreddit-sidebar"]) > :first-child {
-									width: 100%;
-									max-width: 100%;
-								}
-								.ListingLayout-backgroundContainer + div > :last-child:has([data-testid="subreddit-sidebar"]) {
-									width: var(--re-sub-width) !important;
-								}
-								.ListingLayout-backgroundContainer + div:has([data-testid="subreddit-sidebar"]) > :nth-child(2) > div {
-									max-width: var(--re-sub-width) !important;
-									box-sizing: border-box;
-								}
-								.ListingLayout-backgroundContainer + div > div[style^="max-width"] {
-									max-width: 100%;
-								}
-								.ListingLayout-backgroundContainer + div:has(.Post[data-testid="post-container"] [data-test-id="post-content"]) > span a div,
-								.ListingLayout-backgroundContainer + div:has(.Post[data-testid="post-container"] [data-test-id="post-content"]) > :nth-child(2) > div,
-								.ListingLayout-backgroundContainer + div > :last-child:has(.Post[data-testid="post-container"] [data-test-id="post-content"]) {
-									max-width: var(--re-post-width) !important;
-								}
-								.ListingLayout-backgroundContainer + div > :last-child > :first-child:has(.Post[data-testid="post-container"] [data-test-id="post-content"]) {
-									max-width: 100%;
-								}
-								#overlayScrollContainer > div:nth-child(2) > div:first-child {
-									max-width: initial;
-									margin-right: 1.25rem;
-								}
-								#overlayScrollContainer div:has(> div[data-testid="no-edit-description-block"]) > div:first-child {
-									width: 310px;
-								}
-								/* overlayScrollContainer top bar and background */
-								#overlayScrollContainer > :first-child,
-								#SHORTCUT_FOCUSABLE_DIV [class^="subredditvars-r-"] :first-child::after {
-									width: var(--re-post-overlay-width);
-									max-width: 100%;
-								}
-								#overlayScrollContainer > :first-child > div {
-									max-width: 100%;
-								}
-								#overlayScrollContainer > div:has(.Post) {
-									width: var(--re-post-overlay-width);
-									max-width: var(--re-post-overlay-width);
-								}
-								.ListingLayout-backgroundContainer + div:has(span[id^="profile--id-card--"]) > :last-child,
-								.ListingLayout-backgroundContainer + div > div > div:has(a[data-testid^="/user/"]) {
-									width: var(--re-user-profile-width);
-								}
-								.ListingLayout-backgroundContainer + div > div > div:has(a[data-testid^="/user/"]) {
-									margin: 0 auto;
-									
-									& > div {
-										left: initial;
-										right: initial;
-									}
-								}
-								.ListingLayout-backgroundContainer + div:has(span[id^="profile--id-card--"]) > :last-child > :first-child {
-									width: 100%;
-								}
-								.Post [data-test-id="post-content"] > div:has(.RichTextJSON-root) {
-									max-width: 100% !important;
-								}
-								.Comment > :last-child {
-									max-width: 100% !important;
-								}
-								/* Search result pages */
-								.ListingLayout-backgroundContainer + div:has([data-testid="search-results-sidebar"]) > div {
-									width: var(--re-content-width);
-									max-width: 100%;
-								}
-								.ListingLayout-backgroundContainer + div:has([data-testid="search-results-sidebar"]) > div > div {
-									max-width: initial;
-								}
-								.ListingLayout-backgroundContainer + div:has([data-testid="search-results-sidebar"]) > div > div > :nth-child(2) > :first-child {
-									max-width: initial;
-								}
-								/* Custom feed/multireddit */
-								.ListingLayout-backgroundContainer + div:has(button#MULTIREDDIT_TOP_BAR_OVERFLOW) > :last-child {
-									width: var(--re-custom-feed-width);
-								}
-								.ListingLayout-backgroundContainer + div:has(button#MULTIREDDIT_TOP_BAR_OVERFLOW) > :last-child > :first-child {
-									width: 100%;
-								}
-								.ListingLayout-backgroundContainer + div:has(button#MULTIREDDIT_TOP_BAR_OVERFLOW) > :first-child > div {
-									max-width: var(--re-custom-feed-width);
-									padding: 0 1.5rem;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
-}
-
-// Function - Enable Expand Content - New New
-function enableExpandContentNewNew() {
+// Enable Expand Content - RV3
+function enableExpandContentRV3() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-expand-feed-layout';
 	styleElement.textContent = `
@@ -400,6 +306,7 @@ function enableExpandContentNewNew() {
 	document.documentElement.classList.add('re-expand-feed-layout');
 }
 
+// Disable Expand Content - All
 function disableExpandContentAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-expand-feed-layout"]');
 	dynamicStyleElements.forEach((element) => {

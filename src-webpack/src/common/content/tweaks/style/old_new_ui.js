@@ -18,12 +18,10 @@ export function loadFullWidthBanner() {
 
 /* === Enable/Disable The Feature === */
 export function fullWidthBanner(value) {
-	if (redditVersion === 'newnew') {
-		if (value) {
-			enableFullWidthBanner();
-		} else {
-			disableFullWidthBanner();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableFullWidthBanner();
+	} else {
+		disableFullWidthBanner();
 	}
 }
 
@@ -171,7 +169,7 @@ function disableCompactHeaderSideMenu() {
  * @name attachSideMenuHeader
  * @description Bring back Old New UI header style by attaching the side menu to and display user info in the header.
  *
- * Note: similar to Productivity/Show Post Flair, this feature calls Reddit's public JSON APIs to get the logo of the
+ * Notes: similar to Productivity/Show Post Flair, this feature calls Reddit's public JSON APIs to get the logo of the
  * current subreddit and user. All implications of fetching Reddit's APIs with GET requests still apply here.
  *
  * Compatibility: RV3 (New New UI) (2023-)

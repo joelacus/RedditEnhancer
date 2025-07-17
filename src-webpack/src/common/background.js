@@ -1,6 +1,6 @@
 /* ===== Background script ===== */
 
-import { darkModeTimeCalc } from './content/tweaks/dark_mode/dark_mode_time_calc';
+//import { darkModeTimeCalc } from './content/tweaks/dark_mode/dark_mode_time_calc';
 
 // Logging
 function timestamp() {
@@ -14,11 +14,11 @@ console.log(`${timestamp()} - Extension loaded`);
 
 // Listen For Messages
 BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-	if (request.darkModeAutoTime === true) {
+	/*if (request.darkModeAutoTime === true) {
 		checkTime(true);
 	} else if (request.darkModeAutoTime === false) {
 		checkTime(false);
-	} else if (request.importBackupFile === true) {
+	} else */ if (request.importBackupFile === true) {
 		BROWSER_API.storage.sync.get(['language'], function (result) {
 			if (typeof result.language != 'undefined') {
 				BROWSER_API.tabs.create({ url: `restore_config.html?&lang=` + result.language }, function (tab) {});
@@ -87,14 +87,14 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 });
 
 // Dark Mode Time Range Check On Add-On Load
-BROWSER_API.storage.sync.get(['darkModeAuto'], function (result) {
+/*BROWSER_API.storage.sync.get(['darkModeAuto'], function (result) {
 	if (result.darkModeAuto == 'time') {
 		checkTime(true);
 	}
-});
+});*/
 
 // Check Time And Apply Dark Mode If Within Time Range
-let interval = null;
+/*let interval = null;
 function checkTime(i) {
 	if (i === true) {
 		if (interval === null) {
@@ -106,7 +106,7 @@ function checkTime(i) {
 		clearInterval(interval);
 		interval = null;
 	}
-}
+}*/
 
 // Fetch JSON data
 // @see content/tweaks/productivity/show_post_flair.js
