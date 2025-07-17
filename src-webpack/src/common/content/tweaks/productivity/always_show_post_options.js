@@ -256,7 +256,7 @@ function attachCommentMenu(commentActionRow) {
 			remove: '.share-comment-as-post-button',
 		},
 	].map((action) => {
-		const button = commentActionRow.querySelector(action.selector);
+		const button = overflowMenu.querySelector(action.selector);
 		if (button) {
 			Object.assign(button, {
 				slot: action.slot,
