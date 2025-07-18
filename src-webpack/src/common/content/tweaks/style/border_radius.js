@@ -179,10 +179,10 @@ export function addBorderRadiusToShadowRootElements() {
 		subredditHeader?.querySelector('div.header'),
 		subredditHeader?.querySelector('#show-community-guide-btn'),
 		subredditHeader?.querySelector('shreddit-join-button')?.shadowRoot?.querySelector('button'),
-		shredditSubredditHeaderButtons?.querySelector('shreddit-notification-frequency-control')?.shadowRoot?.querySelector('button'),
+		/* shredditSubredditHeaderButtons?.querySelector('shreddit-notification-frequency-control')?.shadowRoot?.querySelector('button'),
 		shredditSubredditHeaderButtons?.querySelector('shreddit-join-button')?.shadowRoot?.querySelector('button'),
 		shredditSubredditHeaderButtons?.querySelector('shreddit-subreddit-overflow-control')?.shadowRoot?.querySelector('button'),
-		shredditSubredditHeaderButtons?.querySelector('a.modtools-btn'),
+		shredditSubredditHeaderButtons?.querySelector('a.modtools-btn'), */
 		shredditSortDropdown?.querySelector('button'),
 		shredditLayoutEventSetterDropdown?.querySelector('button'),
 		composeMessageSenderDropdown?.querySelector('button'),
