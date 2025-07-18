@@ -147,6 +147,9 @@ function enableHidePostDivider() {
 												display: none;
 											}
 										}
+										shreddit-app[pagetype='post_submit'] #right-sidebar-container section {
+											background-color: var(--re-theme-sidebar-bg, var(--color-neutral-background-weak));
+										}
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

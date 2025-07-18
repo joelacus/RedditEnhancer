@@ -417,6 +417,20 @@ async function attachPageTitle() {
 					logo = document.querySelector('.shreddit-subreddit-icon__icon').outerHTML;
 				}
 				break;
+			case 'post_stats':
+				const hovercard = document.querySelector('faceplate-hovercard')
+				if (hovercard) {
+					logo = hovercard.querySelector('.shreddit-subreddit-icon__icon').outerHTML;
+					title = hovercard.querySelector('a').textContent;
+				} else {
+					title = "Post Insights";
+					logo = `<svg rpl="" fill="currentColor" height="20" icon-name="statistics-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M3 16H1.75v-6H3v6Zm5-9H6.75v9H8V7Zm5-3h-1.25v12H13V4Zm5-3h-1.25v15H18V1ZM1.01 17.75V19h17.9v-1.25H1.01Z"></path></svg>`;
+				}
+				break;
+			case 'CommentStats':
+				title = "Comment Insights";
+				logo = `<svg rpl="" fill="currentColor" height="20" icon-name="statistics-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M3 16H1.75v-6H3v6Zm5-9H6.75v9H8V7Zm5-3h-1.25v12H13V4Zm5-3h-1.25v15H18V1ZM1.01 17.75V19h17.9v-1.25H1.01Z"></path></svg>`;
+				break;
 			case 'profile_overview':
 			case 'profile_posts':
 			case 'profile_comments':

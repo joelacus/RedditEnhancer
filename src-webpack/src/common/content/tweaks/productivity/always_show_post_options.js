@@ -9,14 +9,16 @@
 import { showBannerMessage } from '../../banner_message';
 
 let hideNotification = false,
+	leftSideVoteButtons = false,
 	buttons = ['save', 'hide', 'report', 'edit', 'delete', 'pinToProfile', 'spoilerTag', 'nsfwTag', 'brandAffiliate'];
 
 const slots = ['share-button', 'save-button', 'hide-button', 'report-button', 'edit-button', 'pinToProfile-button', 'delete-button', 'spoilerTag-button', 'nsfwTag-button', 'brandAffiliate-button', 'overflow-menu'];
 
 export function loadAlwaysShowPostOptions() {
-	BROWSER_API.storage.sync.get(['alwaysShowPostOptions', 'hidePostNotificationOption', 'hidePostSaveOption', 'hidePostHideOption', 'hidePostReportOption', 'hidePostEditOption', 'hidePostDeleteOption', 'hidePostSpoilerOption', 'hidePostNsfwOption', 'hidePostBrandAwarenessOption'], function (result) {
+	BROWSER_API.storage.sync.get(['alwaysShowPostOptions', 'hidePostNotificationOption', 'hidePostSaveOption', 'hidePostHideOption', 'hidePostReportOption', 'hidePostEditOption', 'hidePostDeleteOption', 'hidePostSpoilerOption', 'hidePostNsfwOption', 'hidePostBrandAwarenessOption', 'leftSideVoteButtons'], function (result) {
 		if (result.alwaysShowPostOptions) {
 			hideNotification = result.hidePostNotificationOption;
+			leftSideVoteButtons = result.leftSideVoteButtons;
 			if (result.hidePostSaveOption) buttons = buttons.filter((action) => action !== 'save');
 			if (result.hidePostHideOption) buttons = buttons.filter((action) => action !== 'hide');
 			if (result.hidePostReportOption) buttons = buttons.filter((action) => action !== 'report');
@@ -87,6 +89,9 @@ function attachPostMenu(post) {
 		btnContainer.classList.remove('h-2xl', 'gap-sm');
 		btnContainer.classList.replace('flex-nowrap', 'flex-wrap');
 		btnContainer.classList.replace('py-xs', 'py-sm');
+		if (leftSideVoteButtons) {
+			btnContainer.classList.add('m-[-6px]');
+		}
 
 		const commentBtn = btnContainer.querySelector('button[data-post-click-location="comments-button"], a');
 		if (commentBtn) {
@@ -211,7 +216,7 @@ function attachCommentMenu(commentActionRow) {
 	if (!overflowSlot || !overflowMenu) return;
 
 	// Initialise the shadow DOM slots for the buttons, appending after the overflow slot
-	['overflow-menu', 'brand-affiliate', 'delete', 'edit', 'follow', 'report', 'save', 'share-as-post', 'share'].forEach(function (action) {
+	['overflow-menu', 'send-replies', 'brand-affiliate', 'delete', 'edit', 'follow', 'report', 'save', 'share-as-post', 'share'].forEach(function (action) {
 		const slot = document.createElement('slot');
 		slot.name = `comment-${action}`;
 		overflowSlot.insertAdjacentElement('afterend', slot);
@@ -255,6 +260,11 @@ function attachCommentMenu(commentActionRow) {
 			selector: '.share-comment-as-post-button > div',
 			remove: '.share-comment-as-post-button',
 		},
+		{
+			slot: 'comment-send-replies',
+			selector: 'faceplate-tracker[noun="overflow_send_replies_disable"] li div',
+			remove: 'faceplate-tracker[noun="overflow_send_replies_disable"]',
+		}
 	].map((action) => {
 		const button = overflowMenu.querySelector(action.selector);
 		if (button) {

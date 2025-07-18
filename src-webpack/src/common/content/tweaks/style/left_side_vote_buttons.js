@@ -143,7 +143,7 @@ function enableLeftSideVoteButtonsRV3() {
             [routename="comment_page"] shreddit-post span.avatar + div > div {
                 display: none;
             }
-            shreddit-post div[slot="credit-bar"] pdp-back-button {
+            div#pdp-credit-bar[slot="credit-bar"] pdp-back-button {
                 position: absolute;
                 left: -5.5rem;
                 top: 0;
