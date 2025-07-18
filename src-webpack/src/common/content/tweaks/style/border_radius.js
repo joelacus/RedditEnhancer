@@ -182,6 +182,7 @@ export function addBorderRadiusToShadowRootElements() {
 		shredditSubredditHeaderButtons?.querySelector('shreddit-notification-frequency-control')?.shadowRoot?.querySelector('button'),
 		shredditSubredditHeaderButtons?.querySelector('shreddit-join-button')?.shadowRoot?.querySelector('button'),
 		shredditSubredditHeaderButtons?.querySelector('shreddit-subreddit-overflow-control')?.shadowRoot?.querySelector('button'),
+		shredditSubredditHeaderButtons?.querySelector('a.modtools-btn'),
 		shredditSortDropdown?.querySelector('button'),
 		shredditLayoutEventSetterDropdown?.querySelector('button'),
 		composeMessageSenderDropdown?.querySelector('button'),
