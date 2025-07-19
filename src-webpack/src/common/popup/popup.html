@@ -94,16 +94,12 @@
 						<a href="#index-1" data-lang="ResizeLayout"></a>
 						<div class="vdivider"></div>
 					</div>
-					<div data-index="8" class="r-old r-new r-newnew">
-						<a href="#index-8" data-lang="Media"></a>
-						<div class="vdivider"></div>
-					</div>
-					<div data-index="0" class="r-new">
-						<a href="#index-0" data-lang="DarkMode"></a>
-						<div class="vdivider"></div>
-					</div>
 					<div data-index="2" class="r-old r-new r-newnew">
 						<a href="#index-2" data-lang="HideElements"></a>
+						<div class="vdivider"></div>
+					</div>
+					<div data-index="8" class="r-old r-new r-newnew">
+						<a href="#index-8" data-lang="Media"></a>
 						<div class="vdivider"></div>
 					</div>
 					<div data-index="3" class="r-old r-new r-newnew">
@@ -134,6 +130,10 @@
 						<a href="#index-10" data-lang="Block"></a>
 						<div class="vdivider"></div>
 					</div>
+					<!--<div data-index="0" class="r-new">
+						<a href="#index-0" data-lang="DarkMode"></a>
+						<div class="vdivider"></div>
+					</div>-->
 					<!--<div data-index="9" class="r-old r-new r-newnew">
 					<a href="#index-9" data-lang="AccountSwitcher"></a>
 					<div class="vdivider"></div>
@@ -2352,6 +2352,36 @@
 				</ul>
 			</li>
 
+			<li id="index-10" data-index="10">
+				<!-- Block -->
+				<div id="block" class="menu-item-link btn-block r-old r-newnew">
+					<div class="menu-item-btn">
+						<span class="menu-item-icon icon-block"></span>
+						<span data-lang="Block" class="menu-item-title"></span>
+						<div class="icon-chevron-down"></div>
+					</div>
+					<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
+				</div>
+				<!-- Block Sub Menu -->
+				<ul class="sub-list menu-block hidden r-old r-newnew">
+					<li class="sub-header sub-search-title">
+						<span data-lang="Block"></span>
+					</li>
+					<li class="container r-old r-newnew">
+						<div class="container-3">
+							<span class="menu-item-icon icon-list-check-solid icon-hide-blocked-keyword-posts"></span>
+							<span data-lang="HideBlockedKeywordsPosts" data-search=""></span>
+							<label class="switch">
+								<input id="checkbox-hide-blocked-keyword-posts-enable" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+							<div></div>
+							<textarea id="input-blocked-keyword-posts" rows="4" cols="auto" placeholder="keyword,keyword"></textarea>
+						</div>
+					</li>
+				</ul>
+			</li>
+
 			<li id="index-0" data-index="0">
 				<!-- Dark Mode 
 				<div id="dark-mode" class="menu-item-link btn-dark-mode r-new">
@@ -2397,36 +2427,6 @@
 						<input type="time" id="dm-time-end" name="time-end" class="time-input" />
 					</li>
 				</ul>-->
-			</li>
-
-			<li id="index-10" data-index="10">
-				<!-- Block -->
-				<div id="block" class="menu-item-link btn-block r-old r-newnew">
-					<div class="menu-item-btn">
-						<span class="menu-item-icon icon-block"></span>
-						<span data-lang="Block" class="menu-item-title"></span>
-						<div class="icon-chevron-down"></div>
-					</div>
-					<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
-				</div>
-				<!-- Block Sub Menu -->
-				<ul class="sub-list menu-block hidden r-old r-newnew">
-					<li class="sub-header sub-search-title">
-						<span data-lang="Block"></span>
-					</li>
-					<li class="container r-old r-newnew">
-						<div class="container-3">
-							<span class="menu-item-icon icon-list-check-solid icon-hide-blocked-keyword-posts"></span>
-							<span data-lang="HideBlockedKeywordsPosts" data-search=""></span>
-							<label class="switch">
-								<input id="checkbox-hide-blocked-keyword-posts-enable" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-							<div></div>
-							<textarea id="input-blocked-keyword-posts" rows="4" cols="auto" placeholder="keyword,keyword"></textarea>
-						</div>
-					</li>
-				</ul>
 			</li>
 
 			<li id="index-9" data-index="9">

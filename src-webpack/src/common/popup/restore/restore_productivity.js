@@ -438,7 +438,7 @@ export function restorePopupProductivityOptions() {
 	});
 
 	// Break Reminder
-	BROWSER_API.storage.sync.get(['breakReminder'], function (result) {
+	/*BROWSER_API.storage.sync.get(['breakReminder'], function (result) {
 		if (result.breakReminder == true) {
 			document.querySelector('.icon-break-reminder').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('productivity-tweaks');
@@ -448,7 +448,7 @@ export function restorePopupProductivityOptions() {
 		}
 		document.querySelector('#checkbox-break-reminder').checked = value;
 		console.log('Break Reminder: ' + value);
-	});
+	});*/
 
 	// Break Reminder Frequency
 	/*BROWSER_API.storage.sync.get(['breakReminderFrequency'], function (result) {
