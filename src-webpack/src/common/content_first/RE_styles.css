@@ -37,15 +37,15 @@ div.re-banner.error {
 		gap: 1px;
 		padding-bottom: 0;
 	}
-	div.mt-xs[slot="post-flair"] {
-		margin: .25rem 0;
+	div.mt-xs[slot='post-flair'] {
+		margin: 0.25rem 0;
 	}
 	comment-body-header > div.items-center {
 		flex-direction: column;
 		align-items: end;
 	}
 	shreddit-comments-sort-dropdown.mt-sm {
-		margin-top: .5rem;
+		margin-top: 0.5rem;
 	}
 	#re-view-crossposts {
 		line-height: 40px;
@@ -56,7 +56,7 @@ div.re-banner.error {
 	}
 	.re-post-link {
 		display: block;
-		margin-top: .75rem;
+		margin-top: 0.75rem;
 		margin-right: 1rem;
 	}
 }
@@ -609,7 +609,7 @@ shreddit-composer::part(md-inner) {
 }
 #wikis-right-rail-container > div {
 	margin-block: 1rem;
-	padding: .75rem;
+	padding: 0.75rem;
 	background-color: var(--re-theme-post-bg, var(--color-neutral-background));
 	border-radius: var(--re-theme-border-radius, 4px);
 }
@@ -619,7 +619,12 @@ shreddit-composer::part(md-inner) {
 	border-radius: var(--re-theme-border-radius, 4px);
 }
 #wikis-right-rail-container > nav > div > div.mb-sm {
-	padding: .75rem;
+	padding: 0.75rem;
 	margin: 0;
 	background-color: var(--color-tone-4);
+}
+
+/* ========== View Crossposts ========== */
+#re-view-crossposts {
+	cursor: pointer;
 }
