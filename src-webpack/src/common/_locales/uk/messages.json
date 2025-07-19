@@ -23,17 +23,11 @@
 	"AutoExpand": {
 		"message": "Розширити до 100%, якщо ширина вікна/екрана менша:"
 	},
-	"AutoExpandComments": {
-		"message": "Автоматично розгортати приховані коментарі"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Це може спричинити сповільнення сторінки та використання великої кількості оперативної пам’яті, особливо якщо є багато коментарів."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Автоматично завантажувати додаткові коментарі"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Автоматично показувати параметри форматування під час коментування"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Це може спричинити сповільнення сторінки та використання великої кількості оперативної пам’яті, особливо якщо є багато коментарів."
 	},
 	"Background": {
 		"message": "Фон"
@@ -115,12 +109,6 @@
 	},
 	"CreatePost": {
 		"message": "Створити публікацію"
-	},
-	"CreatePostBgColour": {
-		"message": "Створити публікацію: Колір фону"
-	},
-	"CreatePostBorderColour": {
-		"message": "Створити публікацію: колір рамки"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Спеціальне фонове посилання"
@@ -440,9 +428,6 @@
 	"PostTitleContentColour": {
 		"message": "Повідомлення: заголовок і колір вмісту тексту"
 	},
-	"PostVisitedTitleColour": {
-		"message": "Відвідана публікація: колір заголовка"
-	},
 	"PostWidth": {
 		"message": "публікації ширина"
 	},
@@ -545,9 +530,6 @@
 	"SidebarBackgroundColour": {
 		"message": "Бічна панель: Фоновий колір"
 	},
-	"SidebarBorderColour": {
-		"message": "Бічна панель: Прикордонний колір"
-	},
 	"SidebarTextColour": {
 		"message": "Бічна панель: Текстовий колір"
 	},
@@ -556,15 +538,6 @@
 	},
 	"SortBar": {
 		"message": "Панель сортування"
-	},
-	"SortBgColour": {
-		"message": "Сортування: Колір фону"
-	},
-	"SortBorderColour": {
-		"message": "Сортування: колір рамки"
-	},
-	"SortTextColour": {
-		"message": "Сортування: колір тексту"
 	},
 	"StartTime": {
 		"message": "Час початку (24)"

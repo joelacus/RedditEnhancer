@@ -23,17 +23,11 @@
 	"AutoExpand": {
 		"message": "Expandera till 100% om fönster/skärmbredd är mindre än:"
 	},
-	"AutoExpandComments": {
-		"message": "Expandera dolda kommentarer automatiskt"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Detta kan göra att sidan saktar ner och använder mycket RAM-minne, särskilt om det finns många kommentarer."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Ladda fler kommentarer automatiskt"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Visa formateringsalternativ automatiskt när du kommenterar"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Detta kan göra att sidan saktar ner och använder mycket RAM-minne, särskilt om det finns många kommentarer."
 	},
 	"Background": {
 		"message": "Bakgrund"
@@ -137,14 +131,8 @@
 	"CreatePost": {
 		"message": "Skapa inlägg"
 	},
-	"CreatePostBgColour": {
-		"message": "Skapa inlägg: Bakgrundsfärg"
-	},
 	"CreatePostBody": {
 		"message": "Skapa inlägg: Kropp"
-	},
-	"CreatePostBorderColour": {
-		"message": "Skapa inlägg: Kantfärg"
 	},
 	"CreatePostTitle": {
 		"message": "Skapa inlägg: Titel"

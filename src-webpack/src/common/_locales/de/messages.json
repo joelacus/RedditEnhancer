@@ -41,17 +41,11 @@
 	"AutoExpand": {
 		"message": "Auf 100% erweitern, wenn die Fenster-/Bildschirmbreite kleiner ist als:"
 	},
-	"AutoExpandComments": {
-		"message": "Versteckte Kommentare automatisch erweitern"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Dies kann dazu führen, dass die Seite langsamer wird und viel RAM beansprucht, insbesondere wenn viele Kommentare vorhanden sind."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Weitere Kommentare automatisch laden"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Formatierungsoptionen beim kommentieren automatisch anzeigen"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Dies kann dazu führen, dass die Seite langsamer wird und viel RAM beansprucht, insbesondere wenn viele Kommentare vorhanden sind."
 	},
 	"Background": {
 		"message": "Hintergrund"
@@ -152,9 +146,6 @@
 	"CompactPostLinkPreview": {
 		"message": "Kompakte Post-Link-Voransichten"
 	},
-	"CompactSubRuleList": {
-		"message": "Kompakte Subreddit-Regelliste"
-	},
 	"Confirm": {
 		"message": "Bestätigen"
 	},
@@ -164,14 +155,8 @@
 	"CreatePost": {
 		"message": "Beitrag Erstellen"
 	},
-	"CreatePostBgColour": {
-		"message": "Beitrag Erstellen: Hintergrundfarbe"
-	},
 	"CreatePostBody": {
 		"message": "Beitrag erstellen: Inhalt"
-	},
-	"CreatePostBorderColour": {
-		"message": "Beitrag Erstellen: Rahmenfarbe"
 	},
 	"CreatePostTitle": {
 		"message": "Beitrag erstellen: Titel"
@@ -662,9 +647,6 @@
 	"PostVisitedTextColour": {
 		"message": "Besuchter Beitrag: Textfarbe"
 	},
-	"PostVisitedTitleColour": {
-		"message": "Besuchter Beitrag: Titelfarbe"
-	},
 	"PostWidth": {
 		"message": "Beitragsbreite"
 	},
@@ -830,9 +812,6 @@
 	"SidebarBackgroundColour": {
 		"message": "Seitenleiste: Hintergrundfarbe"
 	},
-	"SidebarBorderColour": {
-		"message": "Seitenleiste: Grenzfarbe"
-	},
 	"SidebarTextColour": {
 		"message": "Seitenleiste: Textfarbe"
 	},
@@ -847,15 +826,6 @@
 	},
 	"SortBar": {
 		"message": "Sortierleiste"
-	},
-	"SortBgColour": {
-		"message": "Sortieren: Hintergrundfarbe"
-	},
-	"SortBorderColour": {
-		"message": "Sortieren: Rahmenfarbe"
-	},
-	"SortTextColour": {
-		"message": "Sortieren: Textfarbe"
 	},
 	"StartTime": {
 		"message": "Startzeit (24)"

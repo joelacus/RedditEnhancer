@@ -23,17 +23,11 @@
 	"AutoExpand": {
 		"message": "Uitbreiden tot 100% als de venster-/schermbreedte kleiner is dan:"
 	},
-	"AutoExpandComments": {
-		"message": "Vouw verborgen opmerkingen automatisch uit"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Dit kan ervoor zorgen dat de pagina trager wordt en veel RAM-geheugen gebruikt, vooral als er veel reacties zijn."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Laad automatisch meer reacties"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Toon automatisch opmaakopties bij opmerkingen"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Dit kan ervoor zorgen dat de pagina trager wordt en veel RAM-geheugen gebruikt, vooral als er veel reacties zijn."
 	},
 	"Background": {
 		"message": "Achtergrond"
@@ -128,9 +122,6 @@
 	"CompactPostLinkPreview": {
 		"message": "Compact de voorbeeldberichten van de postkoppeling"
 	},
-	"CompactSubRuleList": {
-		"message": "Compact de lijst met subreddit regel"
-	},
 	"Confirm": {
 		"message": "Bevestigen"
 	},
@@ -140,14 +131,8 @@
 	"CreatePost": {
 		"message": "Bericht Maken"
 	},
-	"CreatePostBgColour": {
-		"message": "Bericht Maken: Achtergrondkleur"
-	},
 	"CreatePostBody": {
 		"message": "Maak bericht: Lichaam"
-	},
-	"CreatePostBorderColour": {
-		"message": "Bericht Maken: Randkleur"
 	},
 	"CreatePostTitle": {
 		"message": "Maak bericht: Titel"
@@ -596,9 +581,6 @@
 	"PostVisitedTextColour": {
 		"message": "Bezochte bericht: Tekstkleur"
 	},
-	"PostVisitedTitleColour": {
-		"message": "Bezocht bericht: Titelkleur"
-	},
 	"PostWidth": {
 		"message": "Breedte van de post"
 	},
@@ -755,9 +737,6 @@
 	"SidebarBackgroundColour": {
 		"message": "Zijbalk: Achtergrond kleur"
 	},
-	"SidebarBorderColour": {
-		"message": "Zijbalk: Randkleur"
-	},
 	"SidebarTextColour": {
 		"message": "Zijbalk: Tekstkleur"
 	},
@@ -769,15 +748,6 @@
 	},
 	"SortBar": {
 		"message": "Sorteerbalk"
-	},
-	"SortBgColour": {
-		"message": "Sorteren: Achtergrondkleur"
-	},
-	"SortBorderColour": {
-		"message": "Sorteren: Randkleur"
-	},
-	"SortTextColour": {
-		"message": "Sorteren: Tekstkleur"
 	},
 	"StartTime": {
 		"message": "Starttijd (24)"

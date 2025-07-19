@@ -14,17 +14,11 @@
 	"AutoCollapseAutoModeratorComment": {
 		"message": "Automatisoitu AutoModerator-kommentin pienentäminen"
 	},
-	"AutoExpandComments": {
-		"message": "Laajenna piilotetut kommentit automaattisesti"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Tämä saattaa hidastaa sivua ja käyttää paljon RAM-muistia, varsinkin jos kommentteja on paljon."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Lataa automaattisesti lisää kommentteja"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Näytä muotoiluasetukset automaattisesti kommentoiessasi"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Tämä saattaa hidastaa sivua ja käyttää paljon RAM-muistia, varsinkin jos kommentteja on paljon."
 	},
 	"Background": {
 		"message": "Tausta"

@@ -44,11 +44,11 @@
 	"AutoExpand": {
 		"message": "Expand to 100% if the window/screen width is less than:"
 	},
-	"AutoExpandCommentsInfo": {
-		"message": "This may cause the page to slow down and use a lot of RAM, especially if there are a lot of comments."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Auto Expand & Load More Comments"
+	},
+	"AutoLoadMoreCommentsInfo": {
+		"message": "This may cause the page to slow down and use a lot of RAM, especially if there are a lot of comments."
 	},
 	"Background": {
 		"message": "Background"
@@ -158,14 +158,8 @@
 	"CreatePost": {
 		"message": "Create Post"
 	},
-	"CreatePostBgColour": {
-		"message": "Create Post: Background Colour"
-	},
 	"CreatePostBody": {
 		"message": "Create Post: Body"
-	},
-	"CreatePostBorderColour": {
-		"message": "Create Post: Border Colour"
 	},
 	"CreatePostTitle": {
 		"message": "Create Post: Title"
@@ -821,9 +815,6 @@
 	"SidebarBackgroundColour": {
 		"message": "Sidebar: Background Colour"
 	},
-	"SidebarBorderColour": {
-		"message": "Sidebar: Border Colour"
-	},
 	"SidebarTextColour": {
 		"message": "Sidebar: Text Colour"
 	},
@@ -838,15 +829,6 @@
 	},
 	"SortBar": {
 		"message": "Sort Bar"
-	},
-	"SortBgColour": {
-		"message": "Sort: Background Colour"
-	},
-	"SortBorderColour": {
-		"message": "Sort: Border Colour"
-	},
-	"SortTextColour": {
-		"message": "Sort: Text Colour"
 	},
 	"StartTime": {
 		"message": "Start Time (24)"

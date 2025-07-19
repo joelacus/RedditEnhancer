@@ -41,17 +41,11 @@
 	"AutoExpand": {
 		"message": "Agrandir à 100% si la largeur de la fenêtre/de l'écran est inférieure à:"
 	},
-	"AutoExpandComments": {
-		"message": "Développer automatiquement les commentaires masqués"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Cela peut ralentir la page et utiliser beaucoup de RAM, surtout s'il y a beaucoup de commentaires."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Charger automatiquement plus de commentaire"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Afficher automatiquement les options de formatage lors des commentaires"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Cela peut ralentir la page et utiliser beaucoup de RAM, surtout s'il y a beaucoup de commentaires."
 	},
 	"Background": {
 		"message": "Arrière-plan"
@@ -152,9 +146,6 @@
 	"CompactPostLinkPreview": {
 		"message": "Aperçu du lien de publication compact"
 	},
-	"CompactSubRuleList": {
-		"message": "Liste des règles de subdreddit compacte"
-	},
 	"Confirm": {
 		"message": "Confirmer"
 	},
@@ -164,14 +155,8 @@
 	"CreatePost": {
 		"message": "Créer une Post"
 	},
-	"CreatePostBgColour": {
-		"message": "Créer une Post : Couleur d'arrière-plan"
-	},
 	"CreatePostBody": {
 		"message": "Créer une post: Contenu"
-	},
-	"CreatePostBorderColour": {
-		"message": "Créer une Post : Couleur de la bordure"
 	},
 	"CreatePostTitle": {
 		"message": "Créer une post: Titre"
@@ -662,9 +647,6 @@
 	"PostVisitedTextColour": {
 		"message": "Post visité: Couleur de texte"
 	},
-	"PostVisitedTitleColour": {
-		"message": "Post visité : Couleur du titre"
-	},
 	"PostWidth": {
 		"message": "Largeur du Post"
 	},
@@ -830,9 +812,6 @@
 	"SidebarBackgroundColour": {
 		"message": "Barre latérale : La couleur d'arrière-plan"
 	},
-	"SidebarBorderColour": {
-		"message": "Barre latérale : Couleur de bordure"
-	},
 	"SidebarTextColour": {
 		"message": "Barre latérale : Couleur de texte"
 	},
@@ -847,15 +826,6 @@
 	},
 	"SortBar": {
 		"message": "Barre de tri"
-	},
-	"SortBgColour": {
-		"message": "Trier : Couleur d'arrière-plan"
-	},
-	"SortBorderColour": {
-		"message": "Trier : Couleur de la bordure"
-	},
-	"SortTextColour": {
-		"message": "Trier : Couleur du texte"
 	},
 	"StartTime": {
 		"message": "Heure de Début (24)"

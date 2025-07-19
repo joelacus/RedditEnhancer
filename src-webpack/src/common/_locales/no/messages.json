@@ -23,17 +23,11 @@
 	"AutoExpand": {
 		"message": "Utvid til 100 % hvis vinduet/skjermbredden er mindre enn:"
 	},
-	"AutoExpandComments": {
-		"message": "Utvid automatisk skjulte kommentarer"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Dette kan føre til at siden blir tregere og bruker mye RAM, spesielt hvis det er mange kommentarer."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Last inn flere kommentarer automatisk"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Vis formateringsalternativer automatisk når du kommenterer"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Dette kan føre til at siden blir tregere og bruker mye RAM, spesielt hvis det er mange kommentarer."
 	},
 	"Background": {
 		"message": "Bakgrunn"
@@ -115,12 +109,6 @@
 	},
 	"CreatePost": {
 		"message": "Opprett Innlegg"
-	},
-	"CreatePostBgColour": {
-		"message": "Opprett Innlegg: Bakgrunnsfarge"
-	},
-	"CreatePostBorderColour": {
-		"message": "Opprett Innlegg: Kantfarge"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Tilpasset bakgrunnslenke"
@@ -437,9 +425,6 @@
 	"PostTitleContentColour": {
 		"message": "Innlegg: Tittel og tekstinnholdsfarge"
 	},
-	"PostVisitedTitleColour": {
-		"message": "Besøkte innleggstittelfarge"
-	},
 	"PostWidth": {
 		"message": "Bredde på innlegg"
 	},
@@ -545,9 +530,6 @@
 	"SidebarBackgroundColour": {
 		"message": "Sidefelt: Bakgrunnsfarge"
 	},
-	"SidebarBorderColour": {
-		"message": "Sidefelt: Kantfarge"
-	},
 	"SidebarTextColour": {
 		"message": "Sidefelt: Tekstfarge"
 	},
@@ -556,15 +538,6 @@
 	},
 	"SortBar": {
 		"message": "Sortere"
-	},
-	"SortBgColour": {
-		"message": "Sortere: Bakgrunnsfarge"
-	},
-	"SortBorderColour": {
-		"message": "Sortere: Kantfarge"
-	},
-	"SortTextColour": {
-		"message": "Sortere: Tekstfarge"
 	},
 	"StartTime": {
 		"message": "Starttid (24)"

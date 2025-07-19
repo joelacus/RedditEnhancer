@@ -23,17 +23,11 @@
 	"AutoExpand": {
 		"message": "Rozwiń do 100%, jeśli szerokość okna/ekranu jest mniejsza niż:"
 	},
-	"AutoExpandComments": {
-		"message": "Automatycznie rozwijaj ukryte komentarze"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Może to spowodować spowolnienie strony i zużycie dużej ilości pamięci RAM, zwłaszcza jeśli jest dużo komentarzy."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Automatycznie ładuj więcej komentarzy"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Automatycznie pokazuj opcje formatowania podczas komentowania"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Może to spowodować spowolnienie strony i zużycie dużej ilości pamięci RAM, zwłaszcza jeśli jest dużo komentarzy."
 	},
 	"Background": {
 		"message": "Tło"
@@ -137,14 +131,8 @@
 	"CreatePost": {
 		"message": "Utwórz Post"
 	},
-	"CreatePostBgColour": {
-		"message": "Utwórz Post: Kolor tła"
-	},
 	"CreatePostBody": {
 		"message": "Utwórz post: Ciało"
-	},
-	"CreatePostBorderColour": {
-		"message": "Utwórz Post: Kolor obramowania"
 	},
 	"CreatePostTitle": {
 		"message": "Utwórz post: Tytuł"
@@ -539,9 +527,6 @@
 	"PostTitleContentColour": {
 		"message": "Post: Kolor tytułu i treści tekstowej"
 	},
-	"PostVisitedTitleColour": {
-		"message": "Odwiedzony post: Kolor tytułu"
-	},
 	"PostWidth": {
 		"message": "Szerokość słupka"
 	},
@@ -662,9 +647,6 @@
 	"SidebarBackgroundColour": {
 		"message": "Pasek boczny: Kolor tła"
 	},
-	"SidebarBorderColour": {
-		"message": "Pasek boczny: Kolor graniczny"
-	},
 	"SidebarTextColour": {
 		"message": "Pasek boczny: Kolor tekstu"
 	},
@@ -673,15 +655,6 @@
 	},
 	"SortBar": {
 		"message": "Pasek sortowania"
-	},
-	"SortBgColour": {
-		"message": "Sortuj: Kolor tła"
-	},
-	"SortBorderColour": {
-		"message": "Sortuj: Kolor obramowania"
-	},
-	"SortTextColour": {
-		"message": "Sortuj: Kolor tekstu"
 	},
 	"StartTime": {
 		"message": "Czas Rozpoczęcia (24hr)"

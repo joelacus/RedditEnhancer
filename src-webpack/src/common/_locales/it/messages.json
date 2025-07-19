@@ -23,17 +23,11 @@
 	"AutoExpand": {
 		"message": "Espandi al 100% se la larghezza della finestra/schermo è inferiore a:"
 	},
-	"AutoExpandComments": {
-		"message": "Espandi automaticamente i commenti nascosti"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Ciò potrebbe causare un rallentamento della pagina e un consumo eccessivo di RAM, soprattutto se sono presenti molti commenti."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Carica automaticamente più commenti"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Mostra automaticamente le opzioni di formattazione durante i commenti"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Ciò potrebbe causare un rallentamento della pagina e un consumo eccessivo di RAM, soprattutto se sono presenti molti commenti."
 	},
 	"Background": {
 		"message": "Sfondo"
@@ -128,9 +122,6 @@
 	"CompactPostLinkPreview": {
 		"message": "Anteprime del collegamento post compatto"
 	},
-	"CompactSubRuleList": {
-		"message": "Compatto l'elenco delle regole subreddit"
-	},
 	"Confirm": {
 		"message": "Confermare"
 	},
@@ -140,14 +131,8 @@
 	"CreatePost": {
 		"message": "Crea Post"
 	},
-	"CreatePostBgColour": {
-		"message": "Crea Post: Colore di sfondo"
-	},
 	"CreatePostBody": {
 		"message": "Crea post: corpo"
-	},
-	"CreatePostBorderColour": {
-		"message": "Crea Post: Colore bordo"
 	},
 	"CreatePostTitle": {
 		"message": "Crea post: titolo"
@@ -596,9 +581,6 @@
 	"PostVisitedTextColour": {
 		"message": "Post visitato: Colore del testo"
 	},
-	"PostVisitedTitleColour": {
-		"message": "Post visitato: Colore del titolo"
-	},
 	"PostWidth": {
 		"message": "Larghezza del pubblicazione"
 	},
@@ -755,9 +737,6 @@
 	"SidebarBackgroundColour": {
 		"message": "Barra laterale: Colore di sfondo"
 	},
-	"SidebarBorderColour": {
-		"message": "Barra laterale: Colore del bordo"
-	},
 	"SidebarTextColour": {
 		"message": "Barra laterale: Colore di testo"
 	},
@@ -769,15 +748,6 @@
 	},
 	"SortBar": {
 		"message": "Barra di ordinamento"
-	},
-	"SortBgColour": {
-		"message": "Ordina: Colore di sfondo"
-	},
-	"SortBorderColour": {
-		"message": "Ordina: Colore bordo"
-	},
-	"SortTextColour": {
-		"message": "Ordina: Colore del testo"
 	},
 	"StartTime": {
 		"message": "Ora di Inizio (24)"

@@ -14,17 +14,11 @@
 	"AutoCollapseAutoModeratorComment": {
 		"message": "AutoModerátor megjegyzésének automatikus minimalizálása"
 	},
-	"AutoExpandComments": {
-		"message": "A Rejtett megjegyzések automatikus kibontása"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Ez az oldal lelassulását és sok RAM használatát okozhatja, különösen, ha sok a megjegyzés."
-	},
 	"AutoLoadMoreComments": {
 		"message": "További megjegyzések automatikus betöltése"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "A formázási beállítások automatikus megjelenítése kommenteléskor"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Ez az oldal lelassulását és sok RAM használatát okozhatja, különösen, ha sok a megjegyzés."
 	},
 	"Background": {
 		"message": "Háttér"

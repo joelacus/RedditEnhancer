@@ -23,17 +23,11 @@
 	"AutoExpand": {
 		"message": "Expanda para 100% se a largura da janela/tela for menor que:"
 	},
-	"AutoExpandComments": {
-		"message": "Expandir comentários ocultos automaticamente"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Isso pode fazer com que a página fique lenta e use muita RAM, especialmente se houver muitos comentários."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Carregar automaticamente mais comentários"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Mostrar opções de formatação automaticamente ao comentar"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Isso pode fazer com que a página fique lenta e use muita RAM, especialmente se houver muitos comentários."
 	},
 	"Background": {
 		"message": "Fundo"
@@ -128,9 +122,6 @@
 	"CompactPostLinkPreview": {
 		"message": "Visualizações de links de postagem compactos"
 	},
-	"CompactSubRuleList": {
-		"message": "Compactar a lista de regras do subreddit"
-	},
 	"Confirm": {
 		"message": "Confirm"
 	},
@@ -140,14 +131,8 @@
 	"CreatePost": {
 		"message": "Criar Postagem"
 	},
-	"CreatePostBgColour": {
-		"message": "Criar Postagem: Cor de Fundo"
-	},
 	"CreatePostBody": {
 		"message": "Criar Postagem: Corpo"
-	},
-	"CreatePostBorderColour": {
-		"message": "Criar Postagem: Cor da Borda"
 	},
 	"CreatePostTitle": {
 		"message": "Criar Postagem: Título"
@@ -596,9 +581,6 @@
 	"PostVisitedTextColour": {
 		"message": "Postagem visitada: Cor de texto"
 	},
-	"PostVisitedTitleColour": {
-		"message": "Postagem visitada: Cor do título"
-	},
 	"PostWidth": {
 		"message": "Largura do postagem"
 	},
@@ -755,9 +737,6 @@
 	"SidebarBackgroundColour": {
 		"message": "Barra Lateral: Cor de fundo"
 	},
-	"SidebarBorderColour": {
-		"message": "Barra Lateral: Cor da borda"
-	},
 	"SidebarTextColour": {
 		"message": "Barra Lateral: Cor de texto"
 	},
@@ -769,15 +748,6 @@
 	},
 	"SortBar": {
 		"message": "Barra de classificação"
-	},
-	"SortBgColour": {
-		"message": "Classificar: Cor de Fundo"
-	},
-	"SortBorderColour": {
-		"message": "Classificar: Cor da Borda"
-	},
-	"SortTextColour": {
-		"message": "Classificar: Cor do Texto"
 	},
 	"StartTime": {
 		"message": "Hora de início (24)"
