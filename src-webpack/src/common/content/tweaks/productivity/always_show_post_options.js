@@ -9,14 +9,16 @@
 import { showBannerMessage } from '../../banner_message';
 
 let hideNotification = false,
+	leftSideVoteButtons = false,
 	buttons = ['save', 'hide', 'report', 'edit', 'delete', 'pinToProfile', 'spoilerTag', 'nsfwTag', 'brandAffiliate'];
 
 const slots = ['share-button', 'save-button', 'hide-button', 'report-button', 'edit-button', 'pinToProfile-button', 'delete-button', 'spoilerTag-button', 'nsfwTag-button', 'brandAffiliate-button', 'overflow-menu'];
 
 export function loadAlwaysShowPostOptions() {
-	BROWSER_API.storage.sync.get(['alwaysShowPostOptions', 'hidePostNotificationOption', 'hidePostSaveOption', 'hidePostHideOption', 'hidePostReportOption', 'hidePostEditOption', 'hidePostDeleteOption', 'hidePostSpoilerOption', 'hidePostNsfwOption', 'hidePostBrandAwarenessOption'], function (result) {
+	BROWSER_API.storage.sync.get(['alwaysShowPostOptions', 'hidePostNotificationOption', 'hidePostSaveOption', 'hidePostHideOption', 'hidePostReportOption', 'hidePostEditOption', 'hidePostDeleteOption', 'hidePostSpoilerOption', 'hidePostNsfwOption', 'hidePostBrandAwarenessOption', 'leftSideVoteButtons'], function (result) {
 		if (result.alwaysShowPostOptions) {
 			hideNotification = result.hidePostNotificationOption;
+			leftSideVoteButtons = result.leftSideVoteButtons;
 			if (result.hidePostSaveOption) buttons = buttons.filter((action) => action !== 'save');
 			if (result.hidePostHideOption) buttons = buttons.filter((action) => action !== 'hide');
 			if (result.hidePostReportOption) buttons = buttons.filter((action) => action !== 'report');
@@ -87,6 +89,9 @@ function attachPostMenu(post) {
 		btnContainer.classList.remove('h-2xl', 'gap-sm');
 		btnContainer.classList.replace('flex-nowrap', 'flex-wrap');
 		btnContainer.classList.replace('py-xs', 'py-sm');
+		if (leftSideVoteButtons) {
+			btnContainer.classList.add('m-[-6px]');
+		}
 
 		const commentBtn = btnContainer.querySelector('button[data-post-click-location="comments-button"], a');
 		if (commentBtn) {
@@ -205,19 +210,18 @@ function attachCommentMenu(commentActionRow) {
 	const overflowMenuContainer = commentActionRow.querySelector('shreddit-overflow-menu');
 	if (!overflowMenuContainer) return;
 	overflowMenuContainer.removeAttribute('should-use-bottom-sheet');
+	overflowMenuContainer.setAttribute('slot', 'comment-overflow-menu');
 	const overflowSlot = commentActionRow.shadowRoot?.querySelector('slot[name="overflow"]');
 	const overflowMenu = overflowMenuContainer.shadowRoot?.querySelector('faceplate-dropdown-menu, faceplate-bottom-sheet');
 	if (!overflowSlot || !overflowMenu) return;
 
 	// Initialise the shadow DOM slots for the buttons, appending after the overflow slot
-	['brand-affiliate', 'delete', 'edit', 'follow', 'report', 'save', 'share-as-post', 'share'].forEach(function (action) {
+	['overflow-menu', 'send-replies', 'brand-affiliate', 'delete', 'edit', 'follow', 'report', 'save', 'share-as-post', 'share'].forEach(function (action) {
 		const slot = document.createElement('slot');
 		slot.name = `comment-${action}`;
 		overflowSlot.insertAdjacentElement('afterend', slot);
 	});
-
-	// Attach the overflow menu outside the shadow DOM
-	commentActionRow.appendChild(overflowMenu);
+	overflowSlot.remove();
 
 	// Move the overflow menu buttons to the action row
 	[
@@ -236,11 +240,11 @@ function attachCommentMenu(commentActionRow) {
 			selector: 'faceplate-tracker[noun="report"] li div',
 			remove: 'faceplate-tracker[noun="report"]',
 		},
-		{
-			slot: 'comment-edit',
-			selector: 'faceplate-tracker[noun="edit"] li div',
-			remove: 'faceplate-tracker[noun="edit"]',
-		},
+		// {
+		// 	slot: 'comment-edit',
+		// 	selector: 'faceplate-tracker[noun="edit"] li div',
+		// 	remove: 'faceplate-tracker[noun="edit"]',
+		// },
 		{
 			slot: 'comment-delete',
 			selector: 'faceplate-tracker[noun="delete"] li div',
@@ -256,8 +260,13 @@ function attachCommentMenu(commentActionRow) {
 			selector: '.share-comment-as-post-button > div',
 			remove: '.share-comment-as-post-button',
 		},
+		{
+			slot: 'comment-send-replies',
+			selector: 'faceplate-tracker[noun="overflow_send_replies_disable"] li div',
+			remove: 'faceplate-tracker[noun="overflow_send_replies_disable"]',
+		}
 	].map((action) => {
-		const button = commentActionRow.querySelector(action.selector);
+		const button = overflowMenu.querySelector(action.selector);
 		if (button) {
 			Object.assign(button, {
 				slot: action.slot,
@@ -276,11 +285,22 @@ function attachCommentMenu(commentActionRow) {
 			}
 			button.querySelector('span + span > .h-lg')?.classList.remove('h-lg');
 			commentActionRow.appendChild(button);
-			commentActionRow.querySelector(action.remove)?.remove();
+			overflowMenu.querySelector(action.remove)?.remove();
 		}
 	});
 
-	// Stylise the current options on screen: reply, share, award
+	// If comment-overflow-menu is empty, remove it
+	if (!overflowMenuContainer.querySelector('div[slot="devvit-context-actions"]') && !overflowMenu.querySelector('faceplate-tracker[noun="edit"]')) {
+		overflowMenuContainer.remove();
+	} else {
+		const button = overflowMenuContainer.shadowRoot?.querySelector('button');
+		if (button) {
+			button.className = 'button border-md shrink-0 text-12 button-plain-weak inline-flex items-center font-semibold rounded-sm p-2xs';
+			button.setAttribute('style', 'height: initial;');
+		}
+	}
+
+	// Stylise the current options on screen: reply, share, award, insight
 	const commentBtn = commentActionRow.querySelector('faceplate-tracker[noun="reply_comment"] button');
 	if (commentBtn) {
 		commentBtn.setAttribute('style', 'height: initial;');
@@ -316,6 +336,13 @@ function attachCommentMenu(commentActionRow) {
 
 		const icon = awardBtn.querySelector('span > span:has(svg)');
 		if (icon) icon.classList.add('hidden');
+	}
+
+	const insightBtn = commentActionRow.querySelector('a[slot="comment-insight"] button');
+	if (insightBtn) {
+		insightBtn.setAttribute('style', 'height: initial;');
+		insightBtn.classList.replace('px-sm', 'p-2xs');
+		insightBtn.classList.add('font-semibold', 'rounded-sm');
 	}
 
 	commentActionRow.classList.add('re-comment-options-attached');

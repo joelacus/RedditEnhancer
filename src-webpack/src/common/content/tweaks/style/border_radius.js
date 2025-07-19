@@ -35,16 +35,39 @@ function addBorderRadiusAmountStylesheet() {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-border-radius';
 		styleElement.textContent = `
+			.theme-rpl,
+			.theme-beta,
+			.theme-light,
+			.theme-dark,
+			.theme-light.theme-rpl,
+			.theme-dark.theme-rpl,
 			:root {
 				--radius-sm: var(--re-theme-border-radius) !important;
 				--radius-md: var(--re-theme-border-radius) !important;
 				--radius-lg: var(--re-theme-border-radius) !important;
+				--radius-full: var(--re-theme-border-radius) !important;
+				--rem8: var(--re-theme-border-radius) !important;
 			}
 			/* Community highlight cards */
 			community-highlight-card {
 				--card-border-radius: var(--re-theme-border-radius, 16px);
 				--thumbnail-radius: calc(var(--re-theme-border-radius) / 2);
 			}
+			rpl-modal-card,
+			faceplate-modal {
+				--rem16: var(--re-theme-border-radius);
+			}
+			.rounded-1,
+			.rounded-2,
+			.rounded-4,
+			.rounded-5,
+			.rounded-6,
+			.rounded-8,
+			.rounded-sm,
+			.rounded-md,
+			.rounded-lg,
+			.rounded-full,
+			.button,
 			img.banner.rounded-\\[22px\\],
 			/* r/popular cards */
 			.rounded-\\[16px\\],
@@ -125,6 +148,10 @@ function addBorderRadiusAmountStylesheet() {
 				border: 1px solid var(--color-neutral-border-weak);
 				border-radius: var(--re-theme-border-radius);
 				--font-16-20-regular: initial;
+			}
+			span[avatar] .rounded-full,
+			.re-header-menu .rounded-full {
+				border-radius: 50% !important;
 			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
@@ -132,14 +159,48 @@ function addBorderRadiusAmountStylesheet() {
 
 // Add border radius to elements in shadow DOMs
 export function addBorderRadiusToShadowRootElements() {
+	const searchBar = document.querySelector('reddit-search-large')?.shadowRoot || null;
 	const recentPosts = document.querySelector('recent-posts')?.shadowRoot?.children[0] || null;
 	const pdpCommentSearchInput = document.querySelector('pdp-comment-search-input')?.shadowRoot || null;
 	const subredditHeader = document.querySelector('shreddit-subreddit-header')?.shadowRoot || null;
+	const shredditSubredditHeaderButtons = document.querySelector('shreddit-subreddit-header-buttons')?.shadowRoot || null;
+	const shredditSortDropdown = document.querySelector('shreddit-sort-dropdown[telemetry-source="sort_switch"]')?.shadowRoot || null;
+	const shredditTimeSortDropdown = document.querySelector('shreddit-sort-dropdown[telemetry-source="time_sort_switch"]')?.shadowRoot || null;
+	const shredditLayoutEventSetterDropdown = document.querySelector('shreddit-layout-event-setter shreddit-sort-dropdown')?.shadowRoot || null;
+	const composeMessageSenderDropdown = document.querySelector('compose-message-sender-dropdown')?.shadowRoot || null;
 	const achievementsEntrypoint = document.querySelector('achievements-entrypoint')?.shadowRoot || null;
-	const shadowRootElements = [recentPosts, pdpCommentSearchInput?.querySelector('button'), pdpCommentSearchInput?.querySelector('faceplate-search-input'), pdpCommentSearchInput?.querySelector('button#cancel-pdp-comment-search-button'), pdpCommentSearchInput?.querySelector('faceplate-search-input')?.shadowRoot?.querySelector('div.label-container'), subredditHeader?.querySelector('div.header'), achievementsEntrypoint?.querySelector('div')];
+	const shadowRootElements = [
+		searchBar?.querySelector('div'),
+		searchBar?.querySelector('#search-input-chip'),
+		recentPosts,
+		pdpCommentSearchInput?.querySelector('button'),
+		pdpCommentSearchInput?.querySelector('faceplate-search-input'),
+		pdpCommentSearchInput?.querySelector('button#cancel-pdp-comment-search-button'),
+		pdpCommentSearchInput?.querySelector('faceplate-search-input')?.shadowRoot?.querySelector('div.label-container'),
+		subredditHeader?.querySelector('div.header'),
+		subredditHeader?.querySelector('#show-community-guide-btn'),
+		subredditHeader?.querySelector('shreddit-join-button')?.shadowRoot?.querySelector('button'),
+		/* shredditSubredditHeaderButtons?.querySelector('shreddit-notification-frequency-control')?.shadowRoot?.querySelector('button'),
+		shredditSubredditHeaderButtons?.querySelector('shreddit-join-button')?.shadowRoot?.querySelector('button'),
+		shredditSubredditHeaderButtons?.querySelector('shreddit-subreddit-overflow-control')?.shadowRoot?.querySelector('button'),
+		shredditSubredditHeaderButtons?.querySelector('a.modtools-btn'), */
+		shredditSortDropdown?.querySelector('button'),
+		shredditTimeSortDropdown?.querySelector('button'),
+		shredditLayoutEventSetterDropdown?.querySelector('button'),
+		composeMessageSenderDropdown?.querySelector('button'),
+		achievementsEntrypoint?.querySelector('div'),
+		achievementsEntrypoint?.querySelector('button'),
+	];
 	shadowRootElements.forEach((element) => {
 		if (element) {
 			element.style.borderRadius = 'var(--re-theme-border-radius)';
+			element.classList.forEach(cls => {
+				if (/^rounded-/.test(cls)) {
+					element.classList.replace(cls, 'rounded-none');
+				} else {
+					element.classList.add('rounded-none');
+				}
+			});
 		}
 	});
 	if (recentPosts) {
@@ -155,6 +216,7 @@ export function addBorderRadiusToShadowRootElements() {
 	if (achievementsEntrypoint) {
 		achievementsEntrypoint.querySelector('div:has(.achievements-entrypoint)')?.setAttribute('part', 'achievements-entrypoint');
 		achievementsEntrypoint.querySelector('hr')?.remove();
+		achievementsEntrypoint.querySelector('.achievements-entrypoint-title')?.setAttribute('part', 'achievements-entrypoint-title');
 	}
 }
 

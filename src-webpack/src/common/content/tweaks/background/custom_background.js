@@ -100,7 +100,9 @@ function enableUseCustomBackgroundRV3() {
 								[routename="comments_page"] main.main,
 								[routename="profile_post_page"] main.main,
 								[routename="profile_post_page_comments"] main.main,
-								[routename="post_stats"] main.main {
+								[routename="post_stats"] main.main, 
+								[routename="CommentStats"] main.main,
+								[routename="earn-dashboard"] main.main {
 									margin: 1rem 0;
 									padding: 0 1rem .75rem 1rem;
 									height: min-content;
@@ -129,13 +131,20 @@ function enableUseCustomBackgroundRV3() {
 									shreddit-app[routename="comments_page"] main.main,
 									shreddit-app[routename="profile_post_page"] main.main,
 									shreddit-app[routename="profile_post_page_comments"] main.main,
-									shreddit-app[routename="post_stats"] main.main {
+									shreddit-app[routename="post_stats"] main.main, 
+									shreddit-app[routename="CommentStats"] main.main {
 										margin: 0;
 										padding: 0;
 									}
 								}
-								shreddit-app[routename="post_stats"] main.main > div {
+								shreddit-app[routename="post_stats"] main.main > div,
+								shreddit-app[routename="CommentStats"] main.main > div,
+								shreddit-app[routename="earn-dashboard"] main.main > div {
 									margin-top: 0;
+									
+									& > div.gap-md {
+										margin-top: 1rem;
+									}
 								}
 								shreddit-app[routename="post_page"] div[slot="post-insights-panel"] .p-md,
 								shreddit-app[routename="comments_page"] div[slot="post-insights-panel"] .p-md,
@@ -147,8 +156,12 @@ function enableUseCustomBackgroundRV3() {
 									background-color: var(--color-neutral-background) !important;
 									max-width: unset;
 								}
-								[pagetype^="settings_"], [routename="inbox"], [pagetype="explore"], [routename="community_page"] {
-									background-color: var(--re-theme-post-bg, rgba(0,0,0,0.4));
+								[pagetype^="settings_"],
+								[routename="inbox"],
+								[pagetype="explore"],
+								[routename="community_page"],
+								[pagetype="post_submit"] {
+									background-color: color-mix(in srgb, var(--re-theme-post-bg), transparent 20%);
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }

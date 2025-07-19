@@ -219,10 +219,14 @@ export function themePostBackgroundColour(value) {
 		styleElement.id = 're-theme-post-bg-colour';
 		styleElement.textContent = `:root shreddit-app[routename="post_page"] .grid-container.grid,
 									:root shreddit-app[routename="comments_page"] .grid-container.grid,
-									:root shreddit-app[routename="profile_post_page_comments"] .grid-container.grid {
+									:root shreddit-app[routename="profile_post_page_comments"] .grid-container.grid,
+									r-post-type-select + section {
 										--color-neutral-background: var(--re-theme-post-bg) !important;
 										--shreddit-content-background: transparent;
 										background-color: var(--re-theme-post-bg);
+									}
+									r-post-type-select {
+										margin-left: 0;
 									}
 									article shreddit-post,
 									[routename="post_page"] main.main {
@@ -394,8 +398,11 @@ export function themePostTextColour1(value) {
 		styleElement.textContent = `shreddit-post [id^="post-title"] {
 										--color-neutral-content-strong: var(--re-theme-post-text) !important;
 									}
-									shreddit-post .text-neutral-content {
+									shreddit-post .text-neutral-content,
+									div.md {
 										--color-neutral-content: var(--re-theme-post-text);
+										--color-tone-1: var(--re-theme-post-text);
+										color: var(--re-theme-post-text);
 									}
 									div.md pre,
 									div.md code {
@@ -627,7 +634,9 @@ export function themePostTextColour2CSS(value) {
 export function themePostBorderColour(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themePostBorderColour2CSS'], function (result) {
-			document.documentElement.style.setProperty('--re-theme-post-border', result.themePostBorderColour2CSS);
+			if (typeof result.themePostBorderColour2CSS !== 'undefined' && result.themePostBorderColour2CSS !== 'undefined') {
+				document.documentElement.style.setProperty('--re-theme-post-border', result.themePostBorderColour2CSS);
+			}
 		});
 		if (document.head.querySelector('style[id="re-theme-post-border-colour"]')) return;
 		const styleElement = document.createElement('style');
@@ -664,7 +673,7 @@ export function themeBlur(value) {
 // Sidebar Text Colour
 export function themeSidebarTextColour(value) {
 	if (redditVersion === 'newnew' && value) {
-		BROWSER_API.storage.sync.get(['themePostBorderColour2CSS'], function (result) {
+		BROWSER_API.storage.sync.get(['themeSidebarTextColourCSS'], function (result) {
 			document.documentElement.style.setProperty('--re-theme-sidebar-text', result.themeSidebarTextColourCSS);
 		});
 		if (document.head.querySelector('style[id="re-theme-sidebar-text-colour"]')) return;
@@ -715,7 +724,7 @@ export function themeSidebarBgColour(value) {
 		styleElement.textContent = `#right-sidebar-contents aside,
 									[pagetype="search_results"] #right-sidebar-container > div > div {
 										--color-neutral-background-weak: var(--re-theme-sidebar-bg) !important;
-										--color-neutral-background-hover: rgba(0,0,0,0.6) !important;
+										--color-neutral-background-hover: color-mix(in srgb, var(--re-theme-sidebar-bg), rgba(0,0,0,0.3)) !important;
 										backdrop-filter: blur(var(--re-theme-blur));
 									}
 									.theme-dark #right-sidebar-container .button {
