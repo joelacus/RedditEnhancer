@@ -89,7 +89,7 @@ function enableHidePostDivider() {
 											backdrop-filter: blur(var(--re-theme-blur));
 											margin-bottom: 1rem;
 											border-radius: var(--re-theme-border-radius, 8px);
-											padding: 1rem;
+											padding: .75rem;
 										}
 										shreddit-app[routename='subreddit'] #right-sidebar-container aside,
 										shreddit-app[routename='subreddit_wiki'] #right-sidebar-container aside,
@@ -109,9 +109,18 @@ function enableHidePostDivider() {
 												backdrop-filter: blur(var(--re-theme-blur));
 												margin-bottom: 1rem;
 												border-radius: var(--re-theme-border-radius, 8px);
+												
+												> div:has(> h2) {
+													margin: -.75rem -.75rem .75rem -.75rem;
+													padding: .75rem;
+													padding-bottom: 0;
+													background-color: var(--color-tone-4);
+													border-top-left-radius: var(--re-theme-border-radius, 8px);
+													border-top-right-radius: var(--re-theme-border-radius, 8px);
+												}
 											}
 											::part(header), ::part(achievements-entrypoint), shreddit-subreddit-header ~ div.px-md {
-												padding: 1rem;
+												padding: .75rem;
 											}
 											community-author-flair {
 												margin-bottom: 0;
@@ -119,6 +128,13 @@ function enableHidePostDivider() {
 											hr {
 												display: none;
 											}
+										}
+										::part(achievements-entrypoint-title) {
+											margin: -.75rem -.75rem .75rem -.75rem;
+											padding: .75rem;
+											background-color: var(--color-tone-4);
+											border-top-left-radius: var(--re-theme-border-radius, 8px);
+											border-top-right-radius: var(--re-theme-border-radius, 8px);
 										}
 										shreddit-app[pagetype='custom_feed'] #right-sidebar-container {
 											aside {

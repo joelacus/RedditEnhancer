@@ -74,6 +74,19 @@ function enableLeftSideVoteButtonsRV3() {
 				flex-grow: 1;
 				border: none;
 				min-width: 0;
+				
+				& > span.min-h-\\[32px\\] {
+					min-height: revert;
+					margin-bottom: 8px;
+				}
+				& a.h-xl[data-testid="subreddit-name"] {
+					height: revert;
+				}
+				& span[avatar],
+				& span.h-lg.w-lg {
+					width: 20px;
+					height: 20px;
+				}
 			}
 			shreddit-feed .re-vote-panel {
 			    display: flex;
@@ -109,6 +122,7 @@ function enableLeftSideVoteButtonsRV3() {
                 }
                 shreddit-comment-tree {
                     margin-left: 4px;
+                    margin-top: 8px;
                 }
                 shreddit-post .md,
                 shreddit-comment > .md {
@@ -180,6 +194,15 @@ function enableLeftSideVoteButtonsRV3() {
             [routename="profile_post_page_comments"] shreddit-post h1[slot="title"] {
                 margin-top: 0;
             }
+            
+            shreddit-app[routename='post_page'] shreddit-post span[slot='mod-overflow-menu'],
+			shreddit-app[routename='comments_page'] shreddit-post span[slot='mod-overflow-menu'],
+			shreddit-app[routename='profile_post_page'] shreddit-post span[slot='mod-overflow-menu'] {
+				margin-right: 18px;
+			}
+			shreddit-comment:not([is-highlighted]) > shreddit-comment-action-row > span[slot='mod-overflow-menu'] {
+				margin-right: 11px;
+			}
 			`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

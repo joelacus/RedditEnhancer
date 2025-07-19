@@ -164,7 +164,8 @@ export function addBorderRadiusToShadowRootElements() {
 	const pdpCommentSearchInput = document.querySelector('pdp-comment-search-input')?.shadowRoot || null;
 	const subredditHeader = document.querySelector('shreddit-subreddit-header')?.shadowRoot || null;
 	const shredditSubredditHeaderButtons = document.querySelector('shreddit-subreddit-header-buttons')?.shadowRoot || null;
-	const shredditSortDropdown = document.querySelector('shreddit-sort-dropdown')?.shadowRoot || null;
+	const shredditSortDropdown = document.querySelector('shreddit-sort-dropdown[telemetry-source="sort_switch"]')?.shadowRoot || null;
+	const shredditTimeSortDropdown = document.querySelector('shreddit-sort-dropdown[telemetry-source="time_sort_switch"]')?.shadowRoot || null;
 	const shredditLayoutEventSetterDropdown = document.querySelector('shreddit-layout-event-setter shreddit-sort-dropdown')?.shadowRoot || null;
 	const composeMessageSenderDropdown = document.querySelector('compose-message-sender-dropdown')?.shadowRoot || null;
 	const achievementsEntrypoint = document.querySelector('achievements-entrypoint')?.shadowRoot || null;
@@ -184,6 +185,7 @@ export function addBorderRadiusToShadowRootElements() {
 		shredditSubredditHeaderButtons?.querySelector('shreddit-subreddit-overflow-control')?.shadowRoot?.querySelector('button'),
 		shredditSubredditHeaderButtons?.querySelector('a.modtools-btn'), */
 		shredditSortDropdown?.querySelector('button'),
+		shredditTimeSortDropdown?.querySelector('button'),
 		shredditLayoutEventSetterDropdown?.querySelector('button'),
 		composeMessageSenderDropdown?.querySelector('button'),
 		achievementsEntrypoint?.querySelector('div'),
@@ -214,6 +216,7 @@ export function addBorderRadiusToShadowRootElements() {
 	if (achievementsEntrypoint) {
 		achievementsEntrypoint.querySelector('div:has(.achievements-entrypoint)')?.setAttribute('part', 'achievements-entrypoint');
 		achievementsEntrypoint.querySelector('hr')?.remove();
+		achievementsEntrypoint.querySelector('.achievements-entrypoint-title')?.setAttribute('part', 'achievements-entrypoint-title');
 	}
 }
 

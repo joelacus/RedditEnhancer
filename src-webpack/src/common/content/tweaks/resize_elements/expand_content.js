@@ -182,7 +182,6 @@ function enableExpandContentRV3() {
             	margin: 0 auto;
             }
             /* Align subreddit title with main-content */
-            .masthead,
             .masthead > section {
                 margin: 0 auto;
             }
@@ -213,9 +212,7 @@ function enableExpandContentRV3() {
 					max-width: min(var(--re-content-width), var(--re-main-container-width));
 				}
 				shreddit-app[routename="subreddit"] .main-container,
-				shreddit-app[routename="subreddit"] .masthead,
 				shreddit-app[routename="subreddit_wiki"] .main-container,
-				shreddit-app[routename="subreddit_wiki"] .masthead,
 				shreddit-app[routename="mod_queue"] div[slot="mod-queue-feed"] > div.max-w-\\[756px\\] {
 					max-width: min(var(--re-sub-width), var(--re-main-container-width));
 				}
@@ -239,9 +236,13 @@ function enableExpandContentRV3() {
 				shreddit-app[routename="topic"] .main-container {
 					max-width: min(var(--re-topic-feed-width), var(--re-main-container-width));
 				}
-				shreddit-app[pagetype="custom_feed"] .main-container,
-				shreddit-app[pagetype="custom_feed"] div.masthead {
+				shreddit-app[pagetype="custom_feed"] .main-container {
 					max-width: min(var(--re-custom-feed-width), var(--re-main-container-width));
+				}
+				shreddit-app[pagetype="custom_feed"] div.masthead custom-feed-header {
+					display: block;
+					max-width: min(var(--re-custom-feed-width), var(--re-main-container-width));
+					margin: 0 auto;
 				}
 				main.main#main-content {
 					max-width: 100%;
@@ -290,7 +291,7 @@ function enableExpandContentRV3() {
 				shreddit-app[routename="post_stats"] main.main,
 				shreddit-app[routename="CommentStats"] main.main {
 					max-width: var(--re-post-width);
-					margin: 0 auto;
+					margin: 1rem auto;
 				}
 				shreddit-app[routename="profile_overview"] main.main,
 				shreddit-app[routename="profile_posts"] main.main,
@@ -305,6 +306,10 @@ function enableExpandContentRV3() {
 				shreddit-app[routename="topic"] main.main {
 					max-width: var(--re-topic-feed-width);
 					margin: 0 auto;
+				}
+				shreddit-app[pagetype="custom_feed"] div.masthead {
+					width: calc(100% - 3rem);
+					margin: 0 1.5rem;
 				}
 				shreddit-app[pagetype="custom_feed"] main.main {
 					max-width: var(--re-custom-feed-width);

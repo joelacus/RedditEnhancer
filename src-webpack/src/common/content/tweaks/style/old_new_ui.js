@@ -41,10 +41,11 @@ function enableFullWidthBanner() {
 										width: 100%;
 									}
 									shreddit-app[routename="subreddit"] div.masthead,
-									shreddit-app[routename="subreddit_wiki"] div.masthead {
+									shreddit-app[routename="subreddit_wiki"] div.masthead,
+									shreddit-app[routename="custom_feed"] div.masthead {
 										max-width: revert;
 										padding: revert;
-										background-color: var(--re-theme-post-bg);
+										background-color: var(--re-theme-post-bg, var(--color-neutral-background));
 									}
 									shreddit-app[routename="subreddit"] div.masthead > section,
 									shreddit-app[routename="subreddit_wiki"] div.masthead > section {
@@ -54,6 +55,10 @@ function enableFullWidthBanner() {
 									html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit"] div.main-container,
 									html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit_wiki"] div.main-container {
 										justify-content: center;
+									}
+									#subgrid-container > .mb-xs,
+									#subgrid-container > .my-xs {
+										background-color: var(--re-theme-post-bg, var(--color-neutral-background));
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
@@ -121,6 +126,9 @@ function enableCompactHeaderSideMenu() {
 									}
 									nav.h-header-large > .justify-stretch > div {
 										top: .25rem;
+									}
+									#right-sidebar-container {
+										top: 48px;
 									}
 									
 									/* COMPACT SUBREDDIT RULE LIST */
@@ -349,13 +357,13 @@ async function attachUserInfo() {
 
 	document.querySelector('#re-user-info')?.remove();
 	const user = (await BROWSER_API.runtime.sendMessage({ actions: [{ action: 'fetchData', url: 'https://www.reddit.com/api/me.json' }] }))?.data;
-	if (user && user.name && user.total_karma && document.querySelector('button#expand-user-drawer-button')) {
+	if (user && user.name && user.total_karma && document.querySelector('button#expand-user-drawer-button:not(:has(#re-user-info))')) {
 		const a = Object.assign(document.createElement('div'), {
 			id: 're-user-info',
 			innerHTML: `<div class="font-semibold overflow-hidden text-ellipsis">${user.name}</div><span class="text-neutral-content-weak">${formatNumber(user.total_karma)} karma</span>`,
 			className: 'inline-block ml-2xs text-12 font-normal',
 		});
-		document.querySelector('button#expand-user-drawer-button').appendChild(a);
+		document.querySelector('button#expand-user-drawer-button:not(:has(#re-user-info))')?.appendChild(a);
 		document.documentElement.style.setProperty('--re-username', "'" + user.name + "'");
 	} else {
 		throw new Error('[RedditEnhancer] attachSideMenuHeader: Unable to fetch user data.');
@@ -393,6 +401,7 @@ async function attachPageTitle() {
 				break;
 			case 'subreddit':
 			case 'subreddit_wiki':
+			case 'subreddit_wiki_revisions':
 			case 'post_page':
 			case 'comments_page':
 			case 'community_serp':
@@ -638,5 +647,13 @@ export function subredditDisplayNameBanner(value) {
 			const title = document.querySelector('div.masthead h1');
 			if (title) title.textContent = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
 		}
+	}
+}
+
+export function moveSortDropdown() {
+	const sortDropdown = document.querySelector('main.main > div.flex.mb-xs, div.my-xs.mx-2xs');
+	const mainContainer = document.querySelector('#subgrid-container .main-container');
+	if (sortDropdown && mainContainer && !document.querySelector('#subgrid-container > .mb-xs, #subgrid-container > .my-xs')) {
+		mainContainer.insertAdjacentElement('beforebegin', sortDropdown);
 	}
 }

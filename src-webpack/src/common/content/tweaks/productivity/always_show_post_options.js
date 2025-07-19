@@ -240,11 +240,11 @@ function attachCommentMenu(commentActionRow) {
 			selector: 'faceplate-tracker[noun="report"] li div',
 			remove: 'faceplate-tracker[noun="report"]',
 		},
-		{
-			slot: 'comment-edit',
-			selector: 'faceplate-tracker[noun="edit"] li div',
-			remove: 'faceplate-tracker[noun="edit"]',
-		},
+		// {
+		// 	slot: 'comment-edit',
+		// 	selector: 'faceplate-tracker[noun="edit"] li div',
+		// 	remove: 'faceplate-tracker[noun="edit"]',
+		// },
 		{
 			slot: 'comment-delete',
 			selector: 'faceplate-tracker[noun="delete"] li div',
@@ -290,7 +290,7 @@ function attachCommentMenu(commentActionRow) {
 	});
 
 	// If comment-overflow-menu is empty, remove it
-	if (!overflowMenuContainer.querySelector('div[slot="devvit-context-actions"]')) {
+	if (!overflowMenuContainer.querySelector('div[slot="devvit-context-actions"]') && !overflowMenu.querySelector('faceplate-tracker[noun="edit"]')) {
 		overflowMenuContainer.remove();
 	} else {
 		const button = overflowMenuContainer.shadowRoot?.querySelector('button');

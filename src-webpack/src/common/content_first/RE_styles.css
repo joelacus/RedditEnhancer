@@ -107,12 +107,13 @@ shreddit-app[pagetype='search_results'] main.main {
 .re-feed.re-centre-feed-3 {
 	translate: -136px;
 }
-/* Align the sidebar with main container */
-shreddit-app[routename='frontpage'] #right-sidebar-container,
-shreddit-app[routename='all'] #right-sidebar-container,
-shreddit-app[routename='popular'] #right-sidebar-container,
-shreddit-app[routename='subreddit'] #right-sidebar-container {
-	margin-top: 2rem;
+/* Align the main container */
+shreddit-app[routename='frontpage'] main.main,
+shreddit-app[routename='all'] main.main,
+shreddit-app[routename='popular'] main.main,
+shreddit-app[routename='subreddit'] main.main,
+shreddit-app[routename='custom_feed'] main.main {
+	margin-top: 1rem;
 }
 shreddit-app[routename='subreddit'] #right-sidebar-container aside,
 shreddit-app[routename='subreddit_wiki'] #right-sidebar-container aside,
@@ -123,9 +124,6 @@ shreddit-app[routename='comment_page'] #right-sidebar-container aside {
 }
 shreddit-app[routename='subreddit_wiki'] shreddit-title {
 	display: none;
-}
-shreddit-app[pagetype='custom_feed'] #right-sidebar-container {
-	margin-top: 2.5rem;
 }
 shreddit-app[pagetype='search_results'] main.main {
 	margin-top: 1rem;
@@ -210,6 +208,28 @@ div[data-testid='search-results-sidebar'] {
 }
 .re-invisible {
 	visibility: hidden !important;
+}
+
+/* ========== FULL-WIDTH SORT DROPDOWN ========== */
+#subgrid-container > .mb-xs,
+#subgrid-container > .my-xs {
+	margin: 0;
+	padding: 4px 0;
+
+	@media (min-width: 960px) {
+		> .s\:invisible {
+			display: none;
+		}
+		> shreddit-async-loader {
+			display: block;
+			width: var(--re-main-container-width, 756px);
+			margin: 0 auto;
+			padding: 0 1.5rem;
+		}
+	}
+}
+shreddit-title + div.my-xs {
+	display: none;
 }
 
 /* ========== OLD UI ========== */
@@ -504,19 +524,6 @@ shreddit-composer::part(md-inner) {
 .re-hide-awards award-button {
 	display: none !important;
 }
-#subreddit-wiki-header {
-	gap: 0;
-	margin-bottom: 0;
-}
-#subreddit-wiki-header + div {
-	padding: 1rem;
-}
-shreddit-app[routename='post_page'] shreddit-post span[slot='mod-overflow-menu'],
-shreddit-app[routename='comments_page'] shreddit-post span[slot='mod-overflow-menu'],
-shreddit-app[routename='profile_post_page'] shreddit-post span[slot='mod-overflow-menu'],
-shreddit-comment:not([is-highlighted]) > shreddit-comment-action-row > span[slot='mod-overflow-menu'] {
-	margin-right: 0.75rem;
-}
 
 /* ========== SCROLL TEXT POST ========== */
 .re-text-scroll div[data-click-id='text'][style='max-height: 250px;'],
@@ -575,4 +582,44 @@ shreddit-comment:not([is-highlighted]) > shreddit-comment-action-row > span[slot
 	border: 1px solid var(--re-theme-post-border);
 	border-radius: var(--re-theme-border-radius);
 	background-color: var(--re-theme-post-bg);
+}
+
+/* ========== WIKI (for pilot subreddits such as r/privacy) ========== */
+#subreddit-wiki-header {
+	gap: 0;
+	margin-bottom: 0;
+}
+#subreddit-wiki-header.wiki-pilot-communities {
+	position: revert;
+	padding: 0 1rem;
+	z-index: 0;
+	margin-bottom: 1rem;
+}
+#subreddit-wiki-header + div {
+	padding: 1rem;
+	margin-bottom: 1rem;
+}
+#subreddit-wiki-header ~ .wiki-content.wiki-pilot-communities {
+	padding: 1rem;
+	background-color: var(--re-theme-post-bg, var(--color-neutral-background));
+	border-radius: var(--re-theme-border-radius, 4px);
+}
+#wikis-right-rail-container {
+	padding: 0;
+}
+#wikis-right-rail-container > div {
+	margin-block: 1rem;
+	padding: .75rem;
+	background-color: var(--re-theme-post-bg, var(--color-neutral-background));
+	border-radius: var(--re-theme-border-radius, 4px);
+}
+#wikis-right-rail-container > nav {
+	padding: 0;
+	height: revert;
+	border-radius: var(--re-theme-border-radius, 4px);
+}
+#wikis-right-rail-container > nav > div > div.mb-sm {
+	padding: .75rem;
+	margin: 0;
+	background-color: var(--color-tone-4);
 }

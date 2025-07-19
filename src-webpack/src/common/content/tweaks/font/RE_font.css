@@ -44,7 +44,10 @@ shreddit-post a[slot="text-body"] div:has(>p),
 shreddit-profile-comment [id*="-content"],
 /* x-posts and link posts */
 div[slot="post-media-container"] div.md,
-[routename="post_page"] shreddit-post .re-media-link {
+[routename="post_page"] shreddit-post .re-media-link,
+/* wiki pilot */
+.wiki-content.wiki-pilot-communities .md,
+.wiki-content.wiki-pilot-communities .md p {
 	font-size: var(--re-post-content-font-size, 14px);
 	font-weight: var(--re-post-content-font-weight);
 	line-height: 1.5;
