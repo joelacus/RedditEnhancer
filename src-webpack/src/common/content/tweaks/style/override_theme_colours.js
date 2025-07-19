@@ -633,10 +633,8 @@ export function themePostTextColour2CSS(value) {
 // Post Border Colour
 export function themePostBorderColour(value) {
 	if (redditVersion === 'newnew' && value) {
-		BROWSER_API.storage.sync.get(['themePostBorderColour2CSS'], function (result) {
-			if (typeof result.themePostBorderColour2CSS !== 'undefined' && result.themePostBorderColour2CSS !== 'undefined') {
-				document.documentElement.style.setProperty('--re-theme-post-border', result.themePostBorderColour2CSS);
-			}
+		BROWSER_API.storage.sync.get(['themePostBorderColourCSS'], function (result) {
+			document.documentElement.style.setProperty('--re-theme-post-border', result.themePostBorderColourCSS);
 		});
 		if (document.head.querySelector('style[id="re-theme-post-border-colour"]')) return;
 		const styleElement = document.createElement('style');
