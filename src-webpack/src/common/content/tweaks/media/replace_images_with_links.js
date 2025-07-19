@@ -1,16 +1,20 @@
-/* ===== Tweaks - Media - Replace Post Images With Links ===== */
+/**
+ * Tweaks: Media - Replace Post Images With Links
+ *
+ * @name replacePostImagesWithLinks
+ * @description Hide post images and show links instead on feeds.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-// Hide post images and show links instead on feeds.
-
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadReplacePostImagesWithLinks() {
 	BROWSER_API.storage.sync.get(['replacePostImagesWithLinks'], function (result) {
 		replacePostImagesWithLinks(result.replacePostImagesWithLinks);
 	});
 }
 
-/* === Main Functions === */
-
+/* === Enable/Disable The Feature === */
 export function replacePostImagesWithLinks(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
@@ -25,7 +29,7 @@ export function replacePostImagesWithLinks(value) {
 	}
 }
 
-// Function - Enable Replace Images With Links
+// Enable Replace Images With Links - RV3
 function enableReplacePostImagesWithLinks() {
 	// Append Stylesheet
 	if (!document.head.querySelector('style[id="re-replace-post-images-with-links"]')) {
@@ -83,7 +87,7 @@ function enableReplacePostImagesWithLinks() {
 	}
 }
 
-// Function - Disable Replace Images With Links
+// Disable Replace Images With Links - RV3
 function disableReplacePostImagesWithLinks() {
 	const single = 'shreddit-feed shreddit-post:has(img.preview-img) [slot="post-media-container"]';
 	const gallery = 'shreddit-feed shreddit-post:has(gallery-carousel) [slot="post-media-container"]';
@@ -123,15 +127,3 @@ const observer = new MutationObserver((mutations) => {
 		});
 	});
 });
-
-/*
-const blurred_observer = new MutationObserver((mutations) => {
-	mutations.forEach((mutation) => {
-		mutation.addedNodes.forEach((node) => {
-			console.log(node);
-		});
-	});
-});
-
-blurred_observer.observe(document.querySelector('shreddit-post:has(shreddit-blurred-container)'), { childList: true, subtree: true });
-*/

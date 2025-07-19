@@ -1,8 +1,6 @@
 /* ===== Background script ===== */
 
-import { darkModeTimeCalc } from './content/tweaks/dark_mode/dark_mode_time_calc';
-//const muxjs = require('mux.js');
-let fetchUrl = '';
+//import { darkModeTimeCalc } from './content/tweaks/dark_mode/dark_mode_time_calc';
 
 // Logging
 function timestamp() {
@@ -16,11 +14,11 @@ console.log(`${timestamp()} - Extension loaded`);
 
 // Listen For Messages
 BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-	if (request.darkModeAutoTime === true) {
+	/*if (request.darkModeAutoTime === true) {
 		checkTime(true);
 	} else if (request.darkModeAutoTime === false) {
 		checkTime(false);
-	} else if (request.importBackupFile === true) {
+	} else */ if (request.importBackupFile === true) {
 		BROWSER_API.storage.sync.get(['language'], function (result) {
 			if (typeof result.language != 'undefined') {
 				BROWSER_API.tabs.create({ url: `restore_config.html?&lang=` + result.language }, function (tab) {});
@@ -45,16 +43,32 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 		return true;
 	} else if (request.actions) {
 		for (const action of request.actions) {
-			if (action.action === 'changeFetchUrl') {
-				// Set the new fetch URL based on the action
-				fetchUrl = action.newFetchUrl;
-			} else if (action.action === 'fetchData') {
-				// Fetch data using the current fetch URL
-				fetchData(function (response) {
-					// Send the data back to the caller
-					sendResponse(response);
-				});
+			if (action.action === 'fetchData' && action.url) {
+				console.log('fetchData', action.url);
+				fetchData(action.url, sendResponse);
 				return true;
+			} else if (action.action === 'fetchText' && action.url) {
+				fetchText(action.url, sendResponse);
+				return true;
+			} else if (action.action === 'markVisited' && action.url) {
+				BROWSER_API.history.addUrl({ url: action.url }, function () {
+					console.log(`${timestamp()} - Marking URL as visited: ${action.url}`);
+				});
+			} else if (action.action === 'downloadVideo' && action.filename && action.url) {
+				BROWSER_API.downloads.download(
+					{
+						url: action.url,
+						filename: action.filename.endsWith('.mp4') ? action.filename : `${action.filename}.mp4`,
+						saveAs: true,
+					},
+					(downloadId) => {
+						if (BROWSER_API.runtime.lastError) {
+							console.error(`${timestamp()} - Download failed:, ${BROWSER_API.runtime.lastError}`);
+						} else {
+							console.log(`${timestamp()} - Downloading video: ${action.filename} - ${action.url}`);
+						}
+					}
+				);
 			}
 		}
 	} else if (request.justOpenTheImage === true) {
@@ -69,58 +83,18 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 		console.warn(`${timestamp()} - ${request.message}`);
 	} else if (request.log === 'error') {
 		console.error(`${timestamp()} - ${request.message}`);
-	} /* else if (request.action === 'downloadVideo') {
-		const videoUrl = request.videoUrl;
-		BROWSER_API.downloads.download({
-			url: videoUrl,
-			filename: 'downloaded-video.mp4', // Set the desired file name
-			saveAs: true, // Show the "Save As" dialog
-		});
-	} else if (request.action === 'testQualities') {
-		const videoUrl = request.url;
-		const audioUrl = videoUrl.replace(/DASH_\d+\.mp4$/, 'DASH_AUDIO_128.mp4');
-		const availableQualities = ['96', '220', '270', '360', '480', '720', '1080'];
-		// Iterate over qualities and find the highest available quality
-		async function findHighestQuality() {
-			let highestQuality = '96';
-			let highestQualityUrl = videoUrl;
-			for (const quality of availableQualities) {
-				const testUrl = videoUrl.replace(/_(\d+)\.mp4$/, `_${quality}.mp4`);
-				const isAvailable = await testVideoQuality(testUrl);
-				if (isAvailable) {
-					highestQuality = quality;
-					highestQualityUrl = videoUrl.replace(/_(\d+)\.mp4$/, `_${quality}.mp4`);
-				}
-			}
-			console.log(highestQuality);
-			mergeVideoAndAudio(highestQualityUrl, audioUrl);
-			sendResponse({ highestQuality, highestQualityUrl, audioUrl });
-		}
-		findHighestQuality();
-		return true;
-	}*/
-
-	// Function to test video quality
-	/*async function testVideoQuality(url) {
-		try {
-			const response = await fetch(url, { method: 'HEAD' });
-			return response.ok;
-		} catch (error) {
-			console.error('Error testing video quality:', error);
-			return false;
-		}
-	}*/
-});
-
-// Dark Mode Time Range Check On Add-On Load
-BROWSER_API.storage.sync.get(['darkModeAuto'], function (result) {
-	if (result.darkModeAuto == 'time') {
-		checkTime(true);
 	}
 });
 
+// Dark Mode Time Range Check On Add-On Load
+/*BROWSER_API.storage.sync.get(['darkModeAuto'], function (result) {
+	if (result.darkModeAuto == 'time') {
+		checkTime(true);
+	}
+});*/
+
 // Check Time And Apply Dark Mode If Within Time Range
-let interval = null;
+/*let interval = null;
 function checkTime(i) {
 	if (i === true) {
 		if (interval === null) {
@@ -132,25 +106,59 @@ function checkTime(i) {
 		clearInterval(interval);
 		interval = null;
 	}
-}
+}*/
 
-// Function to fetch data
-function fetchData(sendResponse) {
-	fetch(fetchUrl)
+// Fetch JSON data
+// @see content/tweaks/productivity/show_post_flair.js
+async function fetchData(url, sendResponse) {
+	fetch(url, {
+		method: 'GET',
+		mode: IS_CHROME && (await getActiveTabDomain()) === 'sh.reddit.com' ? 'no-cors' : 'cors',
+	})
 		.then((response) => {
-			if (!response.ok) {
-				throw new Error('Network response was not ok');
-			}
-			return response.text();
+			if (!response.ok) throw response.status;
+			return response.json();
 		})
 		.then((data) => {
 			// Send the data back to the caller
-			sendResponse({ data });
+			sendResponse(data);
 		})
 		.catch((error) => {
-			console.error('Error fetching data:', error);
-			// Send an error back to the caller
-			sendResponse({ action: 'fetchData', error: error.message });
+			console.error('Error fetching data from API: ', JSON.stringify(error, null, 2) || String(error));
+			if (error instanceof TypeError && error.message === 'NetworkError when attempting to fetch resource.') {
+				sendResponse({ error: 'Cannot retrieve data as www.reddit.com is currently unreachable.' });
+			} else if (error === 403) {
+				sendResponse({ error: 'Error retrieving data: you seem to be rate-limited by reddit' });
+			} else {
+				sendResponse({ error: error.message || String(error) });
+			}
+		});
+}
+
+async function getActiveTabDomain() {
+	const tabs = await BROWSER_API.tabs.query({ active: true, currentWindow: true });
+	if (tabs.length > 0 && tabs[0].url) {
+		const url = new URL(tabs[0].url);
+		return url.hostname;
+	}
+	return null;
+}
+
+// Fetch text files
+function fetchText(url, sendResponse) {
+	fetch(url)
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error(`HTTP error! Status: ${response.status}`);
+			}
+			return response.text();
+		})
+		.then((text) => {
+			sendResponse({ success: true, data: text });
+		})
+		.catch((error) => {
+			console.error('Error fetching the text file:', error);
+			sendResponse({ success: false, error: error.message });
 		});
 }
 
@@ -243,11 +251,11 @@ function addImageRules() {
 	BROWSER_API.declarativeNetRequest
 		.updateEnabledRulesets(options)
 		.then(() => {
-			console.log('Add image ruleset');
+			console.log(`${timestamp()} - Add image ruleset`);
 			//reload_tabs();
 		})
 		.catch((error) => {
-			console.error('Error updating rules:', error);
+			console.error(`${timestamp()} - Error updating rules:`, error);
 		});
 }
 
@@ -255,7 +263,6 @@ function addImageRules() {
 
 // Load Saved Value
 BROWSER_API.runtime.onStartup.addListener(() => {
-	console.log('Extension started!');
 	BROWSER_API.storage.sync.get(['autoRedirectVersion'], function (result) {
 		updateRedirectRuleset(result.autoRedirectVersion);
 	});
@@ -263,72 +270,21 @@ BROWSER_API.runtime.onStartup.addListener(() => {
 
 // Update Redirect Ruleset
 function updateRedirectRuleset(version) {
-	console.log('Redirect to: ' + version);
 	if (version === 'old') {
-		options = { enableRulesetIds: ['old_ruleset'], disableRulesetIds: ['new_ruleset', 'sh_ruleset'] };
-		console.log('Removed new and sh rulesets. Added old ruleset');
-	} else if (version === 'new') {
-		options = { enableRulesetIds: ['new_ruleset'], disableRulesetIds: ['old_ruleset', 'sh_ruleset'] };
-		console.log('Removed old and sh rulesets. Added new ruleset');
-	} else if (version === 'newnew') {
-		options = { enableRulesetIds: ['sh_ruleset'], disableRulesetIds: ['old_ruleset', 'new_ruleset'] };
-		console.log('Removed old and new rulesets. Added sh ruleset');
-	} else {
-		options = { enableRulesetIds: [], disableRulesetIds: ['old_ruleset', 'new_ruleset', 'sh_ruleset'] };
-		console.log('Removed old, new and sh rulesets');
-	}
-	BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
-		console.log('Updated enabled rulesets');
-	});
-}
-
-/* ===== Merge Video And Audio ===== (DOESN'T WORK) 
-const appendBuffer = (buffer1, buffer2) => {
-	const tmp = new Uint8Array(buffer1.byteLength + buffer2.byteLength);
-	tmp.set(new Uint8Array(buffer1), 0);
-	tmp.set(new Uint8Array(buffer2), buffer1.byteLength);
-	return tmp.buffer;
-};
-
-const mergeVideoAndAudio = async (videoUrl, audioUrl) => {
-	const videoResponse = await fetch(videoUrl);
-	console.log(videoResponse);
-	const videoBuffer = await videoResponse.arrayBuffer();
-	console.log(videoBuffer);
-
-	const audioResponse = await fetch(audioUrl);
-	const audioBuffer = await audioResponse.arrayBuffer();
-
-	//const transmuxer = new muxjs.mp4.Transmuxer({ remux: true });
-	var transmuxer = new muxjs.mp4.Transmuxer(initOptions);
-	console.log(transmuxer);
-
-	let mergedBuffer = new Uint8Array(0);
-	console.log(mergedBuffer);
-
-	transmuxer.on('data', (segment) => {
-		console.log('got data!');
-		mergedBuffer = appendBuffer(mergedBuffer.buffer, segment.initSegment);
-		mergedBuffer = appendBuffer(mergedBuffer.buffer, segment.data);
-		console.log(mergedBuffer);
-	});
-
-	transmuxer.on('done', () => {
-		const blob = new Blob([mergedBuffer], { type: 'video/mp4' });
-		const url = URL.createObjectURL(blob);
-		browser.downloads.download({
-			url: url,
-			filename: 'merged-video.mp4',
-			saveAs: true,
+		options = { enableRulesetIds: ['rv1_ruleset'], disableRulesetIds: ['rv3_ruleset'] };
+		BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
+			console.log(`${timestamp()} - Switching to RV1 (Old) redirect ruleset`);
 		});
-	});
+	} else if (version === 'newnew') {
+		options = { enableRulesetIds: ['rv3_ruleset'], disableRulesetIds: ['rv1_ruleset'] };
+		BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
+			console.log(`${timestamp()} - Switching to RV3 (Latest) redirect ruleset`);
+		});
+	} else {
+		options = { enableRulesetIds: [], disableRulesetIds: ['rv1_ruleset', 'rv3_ruleset'] };
 
-	console.log('push');
-
-	// Push video and audio data to the transmuxer
-	transmuxer.push(new Uint8Array(videoBuffer));
-	transmuxer.push(new Uint8Array(audioBuffer));
-
-	// Signal that we are done with pushing data
-	transmuxer.flush();
-};*/
+		BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
+			console.log(`${timestamp()} - Removed RV1 (Old) and RV3 (Latest) rulesets`);
+		});
+	}
+}

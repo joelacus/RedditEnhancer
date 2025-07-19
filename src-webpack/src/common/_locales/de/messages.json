@@ -11,6 +11,12 @@
 	"Accessibility": {
 		"message": "Barrierefreiheit"
 	},
+	"AddDownloadVideoButton": {
+		"message": "Fügen Sie Video-Posts \"Video herunterladen\" hinzu"
+	},
+	"AddDownloadVideoButtonInfo": {
+		"message": "Dies unterstützt derzeit nur MP4-URLs, nicht M3U8, sodass einige Video-Posts nicht den Download -Schaltfläche haben :/"
+	},
 	"AddNsfwTag": {
 		"message": "Fügen Sie NSFW-Tag hinzu"
 	},
@@ -35,17 +41,11 @@
 	"AutoExpand": {
 		"message": "Auf 100% erweitern, wenn die Fenster-/Bildschirmbreite kleiner ist als:"
 	},
-	"AutoExpandComments": {
-		"message": "Versteckte Kommentare automatisch erweitern"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Dies kann dazu führen, dass die Seite langsamer wird und viel RAM beansprucht, insbesondere wenn viele Kommentare vorhanden sind."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Weitere Kommentare automatisch laden"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Formatierungsoptionen beim kommentieren automatisch anzeigen"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Dies kann dazu führen, dass die Seite langsamer wird und viel RAM beansprucht, insbesondere wenn viele Kommentare vorhanden sind."
 	},
 	"Background": {
 		"message": "Hintergrund"
@@ -61,6 +61,12 @@
 	},
 	"Best": {
 		"message": "Beste"
+	},
+	"BetterCommentBox": {
+		"message": "Besseres Kommentarbox"
+	},
+	"BetterCommentBoxInfo": {
+		"message": "Zeigen Sie beim Kommentieren automatisch Formatierungsoptionen an, fügen Sie Ctrl/Cmd + hinzu, um Shortcut einzugeben, um Kommentare einzureichen, und verbergen Sie die Symbolleiste zum Wechsel zum Rich-Text-Editor, wenn Sie den Markdown-Komponisten als Standardeinstellung festlegen."
 	},
 	"BionicBackgroundColour": {
 		"message": "Bionische Hintergrundfarbe"
@@ -85,9 +91,6 @@
 	},
 	"Blur": {
 		"message": "Verwischen"
-	},
-	"BlurBackgroundPostOverlay": {
-		"message": "Verwischen Sie den Hintergrund hinter dem Post-Overlay"
 	},
 	"BorderRadiusAmount": {
 		"message": "Themen-Eckenradius"
@@ -143,29 +146,17 @@
 	"CompactPostLinkPreview": {
 		"message": "Kompakte Post-Link-Voransichten"
 	},
-	"CompactSubRuleList": {
-		"message": "Kompakte Subreddit-Regelliste"
-	},
 	"Confirm": {
 		"message": "Bestätigen"
 	},
 	"Controversial": {
 		"message": "Kontrovers / Controversial"
 	},
-	"ControversialSort": {
-		"message": "Zeigen Sie die Sortierschaltfläche „Kontrovers“ an"
-	},
 	"CreatePost": {
 		"message": "Beitrag Erstellen"
 	},
-	"CreatePostBgColour": {
-		"message": "Beitrag Erstellen: Hintergrundfarbe"
-	},
 	"CreatePostBody": {
 		"message": "Beitrag erstellen: Inhalt"
-	},
-	"CreatePostBorderColour": {
-		"message": "Beitrag Erstellen: Rahmenfarbe"
 	},
 	"CreatePostTitle": {
 		"message": "Beitrag erstellen: Titel"
@@ -197,17 +188,8 @@
 	"DefaultHomeFeedSortOption": {
 		"message": "Standard-Home-Feed-Sortieroption"
 	},
-	"DefaultSortFeedOptionGracePeriod": {
-		"message": "Standard-Sortieroption überschreiben"
-	},
-	"DefaultSortFeedOptionOverrideInfo": {
-		"message": "Die Zeit nach der Seite wurde automatisch umgeleitet, in der Sie die Option Standard-Sortieroption überschreiben können."
-	},
 	"Delete": {
 		"message": "Löschen"
-	},
-	"DisableBgFadePostOverlay": {
-		"message": "Deaktivieren Sie den Hintergrund verblassen hinter Post Overlay"
 	},
 	"Disabled": {
 		"message": "Behinderte"
@@ -217,6 +199,9 @@
 	},
 	"Drag": {
 		"message": "Ziehen"
+	},
+	"DropShadow": {
+		"message": "Schlagschatten"
 	},
 	"EditPost": {
 		"message": "Beitrag bearbeiten"
@@ -239,9 +224,6 @@
 	"FeedPostContent": {
 		"message": "Feed-Beitrag: Inhalt"
 	},
-	"FeedPostMaxHeight": {
-		"message": "Beitragslänge"
-	},
 	"FeedPostTitle": {
 		"message": "Feed-Beitrag: Titel"
 	},
@@ -250,9 +232,6 @@
 	},
 	"FilterOptionsFor": {
 		"message": "Filteroptionen für"
-	},
-	"FitImage": {
-		"message": "Große Bilder so skalieren, dass sie in den Post passen"
 	},
 	"FollowPost": {
 		"message": "Beitrag folgen"
@@ -274,6 +253,9 @@
 	},
 	"FullWidthBanner": {
 		"message": "Subreddit-banner in voller breite"
+	},
+	"GlobalWidth": {
+		"message": "Globale Maximalbreite"
 	},
 	"Grey": {
 		"message": "Grau"
@@ -299,6 +281,9 @@
 	"HideAdvertiseButton": {
 		"message": "Ausblenden der „Werbung“ Schaltfläche"
 	},
+	"HideAwards": {
+		"message": "Schaltfläche „Auszeichnungen vergeben“ ausblenden"
+	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Beiträge mit Blockierten Schlüsselwörtern Ausblenden"
 	},
@@ -322,9 +307,6 @@
 	},
 	"HideCompactViewThumbnails": {
 		"message": "Verstecken Sie die Miniaturansichten in kompakter Ansicht"
-	},
-	"HideCreatePost": {
-		"message": "Ausblenden von „Beitrag erstellen“"
 	},
 	"HideCreatePostButton": {
 		"message": "Schaltfläche „Beitrag erstellen“ Ausblenden"
@@ -374,12 +356,6 @@
 	"HideNsfwInSearchResults": {
 		"message": "„NSFW“ in den Suchergebnissen ausblenden"
 	},
-	"HideOriginalScrollToTop": {
-		"message": "Blenden Sie die ursprüngliche Schaltfläche „Nach oben scrollen“ aus"
-	},
-	"HidePopularButton": {
-		"message": "Ausblenden der „Beliebt“ Schaltfläche"
-	},
 	"HidePostBackButton": {
 		"message": "Schaltfläche „Zurück zum Posten“ ausblenden"
 	},
@@ -391,9 +367,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Beitragskarma verbergen"
-	},
-	"HidePostOverlaySidebar": {
-		"message": "Blenden Sie die Beitrags-Overlay-Seitenleiste aus"
 	},
 	"HidePostSidebar": {
 		"message": "Blenden Sie die Seitenleiste des Beitrags aus"
@@ -422,9 +395,6 @@
 	"HideSearchSidebarNsfwUsers": {
 		"message": "NSFW Benutzer in der Seitenleiste der Suchseite ausblenden"
 	},
-	"HideSeeFullImage": {
-		"message": "„Ganzes Bild anzeigen“ Ausblenden"
-	},
 	"HideSideMenu": {
 		"message": "Seitenmenü Ausblenden"
 	},
@@ -449,9 +419,6 @@
 	"HideSideMenuTopicsSection": {
 		"message": "Themenbereich ausblenden"
 	},
-	"HideSidebarPolicy": {
-		"message": "Richtlinienabschnitt Ausblenden"
-	},
 	"HideSubSidebar": {
 		"message": "Subreddit-Seitenleiste Ausblenden"
 	},
@@ -463,9 +430,6 @@
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "„Trending Today“ in der Suchleiste ausblenden"
-	},
-	"HideTurnOnNotificationsPopup": {
-		"message": "Verstecken Sie das Popup „Benachrichtigungen aktivieren“"
 	},
 	"HideUserProfilePics": {
 		"message": "Benutzerprofilbilder in den Kommentaren ausblenden"
@@ -481,6 +445,9 @@
 	},
 	"HideVoteButtons": {
 		"message": "Abstimmungsschaltflächen ausblenden"
+	},
+	"HighlightOp": {
+		"message": "Markieren Sie Kommentare aus dem Originalplakat (OP)"
 	},
 	"HomeFeedOffset": {
 		"message": "Versatz des Start-Feeds"
@@ -509,6 +476,9 @@
 	"LargerClassicPost": {
 		"message": "Größere klassische Beitragsansicht"
 	},
+	"Latest": {
+		"message": "Letzte"
+	},
 	"LeftSideVoteButtons": {
 		"message": "Abstimmungsschaltflächen links anzeigen"
 	},
@@ -533,6 +503,9 @@
 	"MarkAsBrandAffiliate": {
 		"message": "Als Markenpartner markieren"
 	},
+	"MarkReadOnOpenExpandos": {
+		"message": "Markieren sie beiträge als lesen beim öffnen von expandos in kompaktem ansicht"
+	},
 	"MaxImagePostHeight": {
 		"message": "Maximale Bild nach der Höhe"
 	},
@@ -553,9 +526,6 @@
 	},
 	"ModerniseOldRedditInfo": {
 		"message": "Lässt das alte Reddit mehr wie das neue Reddit aussehen."
-	},
-	"MoveFeedToTopInSideMenu": {
-		"message": "Verschieben Sie den Feed-Bereich im Seitenmenü nach oben"
 	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Mehrfarbige Kommentar-Thread-Zeilen"
@@ -586,9 +556,6 @@
 	},
 	"Old": {
 		"message": "Alt / Old"
-	},
-	"OldNewUI": {
-		"message": "Alter Neuer UI"
 	},
 	"OldUI": {
 		"message": "Alter UI"
@@ -680,9 +647,6 @@
 	"PostVisitedTextColour": {
 		"message": "Besuchter Beitrag: Textfarbe"
 	},
-	"PostVisitedTitleColour": {
-		"message": "Besuchter Beitrag: Titelfarbe"
-	},
 	"PostWidth": {
 		"message": "Beitragsbreite"
 	},
@@ -692,11 +656,8 @@
 	"Qa": {
 		"message": "Q&a"
 	},
-	"RUI2RemovalInfo": {
-		"message": "Reddit hat die Website (Alte Neue UI / Version 2) eingestellt. Optionen für „Alte Neue UI“ werden vorerst weiterhin unterstützt, während andere Workarounds, um sie wiederherzustellen, weiterhin funktionieren."
-	},
 	"RUI3RedirectInfo": {
-		"message": "Die Umleitungsoption zu „Neuer Neuer UI“ ist nicht mehr erforderlich. Sie können diese Option jedoch verwenden, um Links von (sh|old).reddit.com zu www.reddit.com zu erzwingen."
+		"message": "Die Umleitungsoption zu Letzte UI (Neuer Neuer UI) ist nicht mehr erforderlich. Sie können diese Option jedoch verwenden, um Links von (sh|old|new).reddit.com zu www.reddit.com zu erzwingen."
 	},
 	"Rate": {
 		"message": "Bewerten / Rezension"
@@ -761,6 +722,9 @@
 	"RestoreInfo2": {
 		"message": "Gegenständen. Das Browser-API-Limit beträgt 120 pro Minute. Bitte lassen Sie dieses Fenster/diese Registerkarte noch eine Minute geöffnet."
 	},
+	"RightSidePostThumbnails": {
+		"message": "Beitrag vorschaubilder auf der rechten seite anzeigen"
+	},
 	"Rising": {
 		"message": "Aufsteigend / Rising"
 	},
@@ -806,12 +770,6 @@
 	"Settings": {
 		"message": "Einstellungen"
 	},
-	"Shadow": {
-		"message": "Schlagschatten"
-	},
-	"ShowAllButton": {
-		"message": "Fügen Sie die Schaltfläche „r/All“ hinzu"
-	},
 	"ShowPostAuthor": {
 		"message": "Post-Autor anzeigen"
 	},
@@ -823,9 +781,6 @@
 	},
 	"ShowProfilePicturesOnComments": {
 		"message": "Profilbilder in Kommentaren anzeigen"
-	},
-	"ShowRising": {
-		"message": "Zeige den Button „Aufsteigend“ immer"
 	},
 	"ShowUpvoteRatio": {
 		"message": "Zeigen Sie den Prozentsatz in der Postansicht an"
@@ -857,29 +812,20 @@
 	"SidebarBackgroundColour": {
 		"message": "Seitenleiste: Hintergrundfarbe"
 	},
-	"SidebarBorderColour": {
-		"message": "Seitenleiste: Grenzfarbe"
-	},
 	"SidebarTextColour": {
 		"message": "Seitenleiste: Textfarbe"
 	},
 	"SidebarToggleButton": {
 		"message": "Seitenleiste umschalten"
 	},
+	"SnapSidebar": {
+		"message": "Senden sie die seitenleiste zur rechten kante"
+	},
 	"Sort": {
 		"message": "Sortieren"
 	},
 	"SortBar": {
 		"message": "Sortierleiste"
-	},
-	"SortBgColour": {
-		"message": "Sortieren: Hintergrundfarbe"
-	},
-	"SortBorderColour": {
-		"message": "Sortieren: Rahmenfarbe"
-	},
-	"SortTextColour": {
-		"message": "Sortieren: Textfarbe"
 	},
 	"StartTime": {
 		"message": "Startzeit (24)"
@@ -916,12 +862,6 @@
 	},
 	"TextPostPreviewMaxHeight": {
 		"message": "Höhe der Textvorschau"
-	},
-	"TextScroll": {
-		"message": "Bildlaufleiste zu langen Textbeiträgen hinzufügen"
-	},
-	"TextScrollInfo": {
-		"message": "Es gibt eine Grenze. Möglicherweise müssen Sie den Beitrag öffnen, wenn er sehr lang ist."
 	},
 	"Theme": {
 		"message": "Farbschema"
@@ -986,8 +926,8 @@
 	"VideoPlayerInfo": {
 		"message": "Schneller, leichter Videoplayer mit Geschwindigkeitssteuerung basierend auf videojs. Versuchen Sie dies, wenn Sie Ladeprobleme mit dem eigenen Player von reddit haben."
 	},
-	"VideoPlayerReplacement": {
-		"message": "Alternativer Videoplayer"
+	"ViewCrossposts": {
+		"message": "Fügen sie link hinzu, um Crossposts in anderen Subreddits anzuzeigen"
 	},
 	"Welcome": {
 		"message": "Willkommen!"

@@ -2,7 +2,7 @@
 
 import { restorePopupAccessibilityOptions } from './restore/restore_accessibility';
 import { restorePopupBackgroundOptions } from './restore/restore_background';
-import { restorePopupDarkModeOptions } from './restore/restore_dark_mode';
+//import { restorePopupDarkModeOptions } from './restore/restore_dark_mode';
 import { restorePopupHideElementsOptions } from './restore/restore_hide_elements';
 import { restorePopupProductivityOptions } from './restore/restore_productivity';
 import { restorePopupRedditVersionOptions } from './restore/restore_reddit_version';
@@ -29,7 +29,7 @@ function restoreOptions() {
 	// Tweak Options
 	restorePopupRedditVersionOptions();
 	restorePopupBackgroundOptions();
-	restorePopupDarkModeOptions();
+	//restorePopupDarkModeOptions();
 	restorePopupStyleOptions();
 	restorePopupMediaOptions();
 	restorePopupProductivityOptions();
@@ -50,8 +50,8 @@ function restoreOptions() {
 
 /* = Check Firefox Version = */
 if (CHECK_LEGACY_FIREFOX) {
-	const useLegacy = detectFirefoxVersion();
-	if (useLegacy) {
+	const firefox_outdated = detectFirefoxVersion();
+	if (firefox_outdated) {
 		console.log('Firefox version is below 121. Please update.');
 		document.querySelector('#firefox-update-message').style.display = 'grid';
 	}

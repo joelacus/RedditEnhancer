@@ -30,42 +30,6 @@ document.querySelector('#checkbox-show-to-top-button').addEventListener('change'
 	}
 });
 
-// Toggle - Always Show Rising Sort Button
-document.querySelector('#checkbox-always-show-rising-button').addEventListener('change', function (e) {
-	var alwaysShowRisingButton = document.querySelector('#checkbox-always-show-rising-button').checked;
-	if (alwaysShowRisingButton == true) {
-		BROWSER_API.storage.sync.set({ alwaysShowRisingButton: true });
-		document.querySelector('.always-show-rising-button').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.always-show-rising-button').classList.remove('icon-rising');
-		document.querySelector('.always-show-rising-button').classList.add('icon-rising-fill');
-		sendMessage({ alwaysShowRisingButton: true });
-	} else if (alwaysShowRisingButton == false) {
-		BROWSER_API.storage.sync.set({ alwaysShowRisingButton: false });
-		document.querySelector('.always-show-rising-button').style.backgroundColor = '';
-		document.querySelector('.always-show-rising-button').classList.add('icon-rising');
-		document.querySelector('.always-show-rising-button').classList.remove('icon-rising-fill');
-		sendMessage({ alwaysShowRisingButton: false });
-	}
-});
-
-// Toggle - Show Controversial Sort Button
-document.querySelector('#checkbox-controversial-sort-button').addEventListener('change', function (e) {
-	var showControversialSortButton = document.querySelector('#checkbox-controversial-sort-button').checked;
-	if (showControversialSortButton == true) {
-		BROWSER_API.storage.sync.set({ showControversialSortButton: true });
-		document.querySelector('.icon-controversial-sort-button').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-controversial-sort-button').classList.remove('icon-sword');
-		document.querySelector('.icon-controversial-sort-button').classList.add('icon-sword-fill');
-		sendMessage({ showControversialSortButton: true });
-	} else if (showControversialSortButton == false) {
-		BROWSER_API.storage.sync.set({ showControversialSortButton: false });
-		document.querySelector('.icon-controversial-sort-button').style.backgroundColor = '';
-		document.querySelector('.icon-controversial-sort-button').classList.add('icon-sword');
-		document.querySelector('.icon-controversial-sort-button').classList.remove('icon-sword-fill');
-		sendMessage({ showControversialSortButton: false });
-	}
-});
-
 // Toggle - Open Sub Links In New Tab
 document.querySelector('#checkbox-open-sub-new-tab').addEventListener('change', function (e) {
 	var openSubInNewTab = document.querySelector('#checkbox-open-sub-new-tab').checked;
@@ -91,34 +55,6 @@ document.querySelector('#checkbox-open-post-new-tab').addEventListener('change',
 		BROWSER_API.storage.sync.set({ openPostInNewTab: false });
 		document.querySelector('.open-post-new-tab').style.backgroundColor = '';
 		sendMessage({ openPostInNewTab: false });
-	}
-});
-
-// Toggle - Show r/All Button
-document.querySelector('#checkbox-show-r-all-button').addEventListener('change', function (e) {
-	var showAllButton = document.querySelector('#checkbox-show-r-all-button').checked;
-	if (showAllButton == true) {
-		BROWSER_API.storage.sync.set({ showAllButton: true });
-		document.querySelector('.icon-show-r-all').style.backgroundColor = 'var(--accent)';
-		sendMessage({ showAllButton: true });
-	} else if (showAllButton == false) {
-		BROWSER_API.storage.sync.set({ showAllButton: false });
-		document.querySelector('.icon-show-r-all').style.backgroundColor = '';
-		sendMessage({ showAllButton: false });
-	}
-});
-
-// Toggle - Move Feed Section In Side Menu To The Top
-document.querySelector('#checkbox-sidemenu-feed-top').addEventListener('change', function (e) {
-	var sidemenuFeedTop = document.querySelector('#checkbox-sidemenu-feed-top').checked;
-	if (sidemenuFeedTop == true) {
-		BROWSER_API.storage.sync.set({ sidemenuFeedTop: true });
-		document.querySelector('.icon-sidemenu-feed-top').style.backgroundColor = 'var(--accent)';
-		sendMessage({ sidemenuFeedTop: true });
-	} else if (sidemenuFeedTop == false) {
-		BROWSER_API.storage.sync.set({ sidemenuFeedTop: false });
-		document.querySelector('.icon-sidemenu-feed-top').style.backgroundColor = '';
-		sendMessage({ sidemenuFeedTop: false });
 	}
 });
 
@@ -325,7 +261,7 @@ document.querySelector('#input-post-comments-limit').addEventListener('mouseup',
 });
 
 // Toggle - Limit Infinity Scroll
-document.querySelector('#checkbox-limit-infinity-scroll').addEventListener('change', function (e) {
+/*document.querySelector('#checkbox-limit-infinity-scroll').addEventListener('change', function (e) {
 	var limitInfinityScroll = document.querySelector('#checkbox-limit-infinity-scroll').checked;
 	if (limitInfinityScroll == true) {
 		BROWSER_API.storage.sync.set({ limitInfinityScroll: true });
@@ -343,7 +279,7 @@ document.querySelector('#checkbox-limit-infinity-scroll').addEventListener('chan
 		document.querySelector('.icon-limit-infinity-scroll').classList.remove('icon-infinity-slash');
 		sendMessage({ limitInfinityScroll: false });
 	}
-});
+});*/
 
 // Toggle - Enable Default Home Feed Sort Option
 document.querySelector('#checkbox-default-home-feed-sort-option').addEventListener('change', function (e) {
@@ -592,44 +528,6 @@ document.querySelector('#checkbox-add-profile-pictures-to-comments').addEventLis
 	}
 });
 
-// Toggle - Post Height
-document.querySelector('#checkbox-post-height').addEventListener('change', function (e) {
-	const postHeight = document.querySelector('#checkbox-post-height').checked;
-	if (postHeight === true) {
-		// enable
-		BROWSER_API.storage.sync.set({ postHeight: true });
-		document.querySelector('.icon-post-height').style.backgroundColor = 'var(--accent)';
-		sendMessage({ postHeight: true });
-	} else if (postHeight === false) {
-		BROWSER_API.storage.sync.set({ postHeight: false });
-		document.querySelector('.icon-post-height').style.backgroundColor = '';
-		sendMessage({ postHeight: false });
-	}
-});
-
-// Slider - Feed Post Height
-document.querySelector('#input-feed-post-max-height').addEventListener('input', function (e) {
-	// set ui
-	if (value != 296) {
-		document.querySelector('#feed-post-max-height-value').innerText = e.target.value + 'px';
-	} else {
-		document.querySelector('#feed-post-max-height-value').innerText = '512px';
-	}
-});
-document.querySelector('#input-feed-post-max-height').addEventListener('mouseup', function (e) {
-	if (e.target.value != 296) {
-		document.querySelector('#feed-post-max-height-value').innerText = e.target.value + 'px';
-		var value = e.target.value;
-	} else {
-		document.querySelector('#feed-post-max-height-value').innerText = '512px';
-		var value = 512;
-	}
-	// apply
-	sendMessage({ postHeightSize: value });
-	// save
-	BROWSER_API.storage.sync.set({ postHeightSize: e.target.value });
-});
-
 // Toggle - Non Sticky Header Bar
 document.querySelector('#checkbox-non-sticky-header-bar').addEventListener('change', function (e) {
 	var nonStickyHeaderBar = document.querySelector('#checkbox-non-sticky-header-bar').checked;
@@ -649,7 +547,7 @@ document.querySelector('#checkbox-non-sticky-header-bar').addEventListener('chan
 });
 
 // Toggle - Break Reminder
-document.querySelector('#checkbox-break-reminder').addEventListener('change', function (e) {
+/*document.querySelector('#checkbox-break-reminder').addEventListener('change', function (e) {
 	var breakReminder = document.querySelector('#checkbox-break-reminder').checked;
 	if (breakReminder == true) {
 		BROWSER_API.storage.sync.set({ breakReminder: true });
@@ -667,28 +565,12 @@ document.querySelector('#checkbox-break-reminder').addEventListener('change', fu
 
 // Slider - Break Reminder Frequency
 document.querySelector('#input-break-reminder-frequency').addEventListener('input', function (e) {
-	// set ui
 	document.querySelector('#break-reminder-frequency-value').innerText = e.target.value;
-	// apply
 	sendMessage({ breakReminderFrequency: e.target.value });
 });
 document.querySelector('#input-break-reminder-frequency').addEventListener('mouseup', function (e) {
 	BROWSER_API.storage.sync.set({ breakReminderFrequency: e.target.value });
-});
-
-// Toggle - Auto Expand Comments
-document.querySelector('#checkbox-auto-expand-comments').addEventListener('change', function (e) {
-	const autoExpandComments = document.querySelector('#checkbox-auto-expand-comments').checked;
-	if (autoExpandComments === true) {
-		BROWSER_API.storage.sync.set({ autoExpandComments: true });
-		document.querySelector('.icon-auto-expand-comments').style.backgroundColor = 'var(--accent)';
-		sendMessage({ autoExpandComments: true });
-	} else if (autoExpandComments === false) {
-		BROWSER_API.storage.sync.set({ autoExpandComments: false });
-		document.querySelector('.icon-auto-expand-comments').style.backgroundColor = '';
-		sendMessage({ autoExpandComments: false });
-	}
-});
+});*/
 
 // Toggle - Auto Collapse AutoModerator Comment
 document.querySelector('#checkbox-auto-collapse-automoderator-comment').addEventListener('change', function (e) {
@@ -718,22 +600,12 @@ document.querySelector('#checkbox-auto-load-more-comments').addEventListener('ch
 	}
 });
 
-// Toggle - Auto Show Comment Formatting Options
-document.querySelector('#checkbox-auto-show-comment-formatting-options').addEventListener('change', function (e) {
-	const autoShowCommentFormattingOptions = document.querySelector('#checkbox-auto-show-comment-formatting-options').checked;
-	if (autoShowCommentFormattingOptions === true) {
-		BROWSER_API.storage.sync.set({ autoShowCommentFormattingOptions: true });
-		document.querySelector('.icon-auto-show-comment-formatting-options').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-auto-show-comment-formatting-options').classList.remove('icon-hide');
-		document.querySelector('.icon-auto-show-comment-formatting-options').classList.add('icon-show');
-		sendMessage({ autoShowCommentFormattingOptions: true });
-	} else if (autoShowCommentFormattingOptions === false) {
-		BROWSER_API.storage.sync.set({ autoShowCommentFormattingOptions: false });
-		document.querySelector('.icon-auto-show-comment-formatting-options').style.backgroundColor = '';
-		document.querySelector('.icon-auto-show-comment-formatting-options').classList.remove('icon-show');
-		document.querySelector('.icon-auto-show-comment-formatting-options').classList.add('icon-hide');
-		sendMessage({ autoShowCommentFormattingOptions: false });
-	}
+// Toggle - Better Comment Box
+document.querySelector('#checkbox-better-comment-box').addEventListener('change', function (e) {
+	const betterCommentBox = document.querySelector('#checkbox-better-comment-box').checked;
+	BROWSER_API.storage.sync.set({ betterCommentBox: betterCommentBox });
+	document.querySelector('.icon-better-comment-box').style.backgroundColor = betterCommentBox ? 'var(--accent)' : '';
+	sendMessage({ betterCommentBox: betterCommentBox });
 });
 
 // Slider - Side Menu Width
@@ -793,30 +665,51 @@ document.querySelector('#checkbox-show-upvote-ratio').addEventListener('change',
 	sendMessage({ showUpvoteRatio: showUpvoteRatio });
 });
 
-// Input - Default Sort Feed Option Grace Period
-['keyup', 'change'].forEach((evt) =>
-	document.querySelector('#input-default-sort-feed-option-grace-period').addEventListener(evt, function (e) {
-		const seconds = document.querySelector('#input-default-sort-feed-option-grace-period').value;
-		console.log(seconds);
-		BROWSER_API.storage.sync.set({ DefaultSortFeedOptionGracePeriod: seconds });
-	})
-);
-document.querySelector('#input-default-sort-feed-option-grace-period').addEventListener('keydown', function (e) {
-	// Allow: backspace, delete, tab, escape, enter and numeric keys
-	if (
-		[46, 8, 9, 27, 13].indexOf(e.keyCode) !== -1 ||
-		// Allow: Ctrl+A, Ctrl+C, Ctrl+V
-		(e.keyCode === 65 && e.ctrlKey === true) ||
-		(e.keyCode === 67 && e.ctrlKey === true) ||
-		(e.keyCode === 86 && e.ctrlKey === true) ||
-		// Allow: home, end, left, right
-		(e.keyCode >= 35 && e.keyCode <= 39)
-	) {
-		// let it happen, don't do anything
-		return;
+// Toggle - View Crossposts
+document.querySelector('#checkbox-view-crossposts').addEventListener('change', function (e) {
+	const viewCrossposts = document.querySelector('#checkbox-view-crossposts').checked;
+	BROWSER_API.storage.sync.set({ viewCrossposts: viewCrossposts });
+	document.querySelector('.icon-view-crossposts').style.backgroundColor = viewCrossposts ? 'var(--accent)' : '';
+	sendMessage({ viewCrossposts: viewCrossposts });
+});
+
+// Toggle - Mark Read On Open Expandos
+document.querySelector('#checkbox-mark-read-on-open-expandos').addEventListener('change', function (e) {
+	const markReadOnOpenExpandos = document.querySelector('#checkbox-mark-read-on-open-expandos').checked;
+	if (markReadOnOpenExpandos) {
+		if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
+			BROWSER_API.permissions
+				.request({ permissions: ['history'] })
+				.then((granted) => {
+					if (granted) {
+						console.debug('markReadOnOpenExpandos: "history" permission granted');
+						enabled(true);
+					} else {
+						console.debug('markReadOnOpenExpandos: "history" permission denied');
+						document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+					}
+				})
+				.catch((e) => {
+					console.error('markReadOnOpenExpandos: Error requesting "history" permission: ', e);
+					document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+				});
+		} else {
+			enabled(true);
+		}
+	} else {
+		enabled(false);
 	}
-	// Ensure that it is a number and stop the keypress
-	if ((e.shiftKey || e.keyCode < 48 || e.keyCode > 57) && (e.keyCode < 96 || e.keyCode > 105)) {
-		e.preventDefault();
+	function enabled(value) {
+		BROWSER_API.storage.sync.set({ markReadOnOpenExpandos: value });
+		document.querySelector('.icon-mark-read-on-open-expandos').style.backgroundColor = value ? 'var(--accent)' : '';
+		sendMessage({ markReadOnOpenExpandos: value });
 	}
+});
+
+// Toggle - Highlight OP
+document.querySelector('#checkbox-highlight-op').addEventListener('change', function (e) {
+	const highlightOp = document.querySelector('#checkbox-highlight-op').checked;
+	BROWSER_API.storage.sync.set({ highlightOp: highlightOp });
+	document.querySelector('.icon-highlight-op').style.backgroundColor = highlightOp ? 'var(--accent)' : '';
+	sendMessage({ highlightOp: highlightOp });
 });

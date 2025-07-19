@@ -20,17 +20,11 @@
 	"AutoCollapseAutoModeratorComment": {
 		"message": "Automatické minimalizování komentáře AutoModerátora"
 	},
-	"AutoExpandComments": {
-		"message": "Automaticky rozbalit skryté komentáře"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "To může způsobit, že se stránka zpomalí a zabere hodně paměti RAM, zvláště pokud je tam hodně komentářů."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Automaticky načíst další komentáře"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Automaticky zobrazit možnosti formátování při komentování"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "To může způsobit, že se stránka zpomalí a zabere hodně paměti RAM, zvláště pokud je tam hodně komentářů."
 	},
 	"Background": {
 		"message": "Pozadí"
@@ -89,9 +83,6 @@
 	"ExtensionSettings": {
 		"message": "Nastavení rozšíření"
 	},
-	"FitImage": {
-		"message": "Měřítko vysokých obrázků, aby se vešly"
-	},
 	"HideAdvertiseButton": {
 		"message": "Skryjte tlačítko „Inzerovat“"
 	},
@@ -104,9 +95,6 @@
 	"HideCompactViewThumbnails": {
 		"message": "Skrýt miniatury v kompaktním pohledu"
 	},
-	"HideCreatePost": {
-		"message": "Skrýt „Vytvořit příspěvek“"
-	},
 	"HideHomeSidebar": {
 		"message": "Skrýt postranní panel domovské stránky"
 	},
@@ -115,9 +103,6 @@
 	},
 	"HideModerationButton": {
 		"message": "Skryjte tlačítko „Moderování“"
-	},
-	"HidePopularButton": {
-		"message": "Skrýt tlačítko „Populární“"
 	},
 	"HideRecommended": {
 		"message": "Skrýt doporučené"
@@ -190,9 +175,6 @@
 	},
 	"Old": {
 		"message": "Starý / Old"
-	},
-	"OldNewUI": {
-		"message": "Starý Nový UI"
 	},
 	"OldUI": {
 		"message": "Starý UI"

@@ -14,17 +14,11 @@
 	"AutoCollapseAutoModeratorComment": {
 		"message": "Automatisoitu AutoModerator-kommentin pienentäminen"
 	},
-	"AutoExpandComments": {
-		"message": "Laajenna piilotetut kommentit automaattisesti"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Tämä saattaa hidastaa sivua ja käyttää paljon RAM-muistia, varsinkin jos kommentteja on paljon."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Lataa automaattisesti lisää kommentteja"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Näytä muotoiluasetukset automaattisesti kommentoiessasi"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Tämä saattaa hidastaa sivua ja käyttää paljon RAM-muistia, varsinkin jos kommentteja on paljon."
 	},
 	"Background": {
 		"message": "Tausta"
@@ -80,6 +74,9 @@
 	"Disabled": {
 		"message": "Liikuntarajoitteinen"
 	},
+	"DropShadow": {
+		"message": "Pudottaa varjot"
+	},
 	"EndTime": {
 		"message": "Loppu aika (24)"
 	},
@@ -88,9 +85,6 @@
 	},
 	"Feed": {
 		"message": "Syöttää"
-	},
-	"FitImage": {
-		"message": "Skaalaa korkeat kuvat, jotka sopivat postille"
 	},
 	"Header": {
 		"message": "Otsikko"
@@ -110,9 +104,6 @@
 	"HideCompactViewThumbnails": {
 		"message": "Piilota pikkukuvat kompaktiin näkymään"
 	},
-	"HideCreatePost": {
-		"message": "Piilota 'Luo viesti'"
-	},
 	"HideGap": {
 		"message": "Piilota käyttöliittymän aukot"
 	},
@@ -127,9 +118,6 @@
 	},
 	"HideModerationButton": {
 		"message": "Piilota 'Maltillisuus-painike'"
-	},
-	"HidePopularButton": {
-		"message": "Piilota 'Suosittu-painike'"
 	},
 	"HideRecommended": {
 		"message": "Piilota Suositeltu"
@@ -209,9 +197,6 @@
 	"Old": {
 		"message": "Vanha / Old"
 	},
-	"OldNewUI": {
-		"message": "Vanha Uusi UI"
-	},
 	"OldUI": {
 		"message": "Vanha UI"
 	},
@@ -280,9 +265,6 @@
 	},
 	"Settings": {
 		"message": "Asetukset"
-	},
-	"Shadow": {
-		"message": "Pudottaa varjot"
 	},
 	"Sidebar": {
 		"message": "Sivupalkki"

@@ -1,39 +1,32 @@
-/* ===== Tweaks - Hide - Compact View Thumbnails ===== */
+/**
+ * Tweaks: Hide Elements - Hide Compact View Thumbnails
+ *
+ * @name hideCompactViewThumbnails
+ * @description Hide the community status next to the r/ handle on posts, sidebar and subreddit pages.
+ *
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHideCompactViewThumbnails() {
 	BROWSER_API.storage.sync.get(['hideCompactViewThumbnails'], function (result) {
 		if (result.hideCompactViewThumbnails) hideCompactViewThumbnails(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function hideCompactViewThumbnails(value) {
-	if (redditVersion === 'old') {
-		if (value === true) {
-			enableHideCompactViewThumbnailsOld();
-		} else if (value === false) {
-			disableHideCompactViewThumbnailsAll();
-		}
-	} else if (redditVersion === 'new') {
-		if (value === true) {
-			enableHideCompactViewThumbnailsNew();
-		} else if (value === false) {
-			disableHideCompactViewThumbnailsAll();
-		}
-	} else if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHideCompactViewThumbnailsNewNew();
-		} else if (value === false) {
-			disableHideCompactViewThumbnailsAll();
-		}
+	if (redditVersion === 'old' && value) {
+		enableHideCompactViewThumbnailsRV1();
+	} else if (redditVersion === 'newnew' && value) {
+		enableHideCompactViewThumbnailsRV3();
+	} else {
+		disableHideCompactViewThumbnailsAll();
 	}
 }
 
-/* === Enable/Disable Functions === */
-
-// Function - Enable Hide Compact View Thumbnails - Old
-function enableHideCompactViewThumbnailsOld() {
+// Enable Hide Compact View Thumbnails - RV1
+function enableHideCompactViewThumbnailsRV1() {
 	if (!document.head.querySelector('style[id="re-hide-compact-view-thumbnail"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-compact-view-thumbnails';
@@ -48,21 +41,8 @@ function enableHideCompactViewThumbnailsOld() {
 	}
 }
 
-// Function - Enable Hide Compact View Thumbnails - New
-function enableHideCompactViewThumbnailsNew() {
-	if (!document.head.querySelector('style[id="re-hide-compact-view-thumbnail"]')) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-compact-view-thumbnails';
-		styleElement.textContent = `.Post.scrollerItem div[data-click-id="background"] > div > div:first-child {
-										display: none;
-										visibility: hidden;
-									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
-}
-
-// Function - Enable Hide Compact View Thumbnails - New New
-function enableHideCompactViewThumbnailsNewNew() {
+// Enable Hide Compact View Thumbnails - RV3
+function enableHideCompactViewThumbnailsRV3() {
 	if (!document.head.querySelector('style[id="re-hide-compact-view-thumbnail"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-compact-view-thumbnails';
@@ -73,7 +53,7 @@ function enableHideCompactViewThumbnailsNewNew() {
 	}
 }
 
-// Function - Disable Hide Compact View Thumbnails - New New
+// Disable Hide Compact View Thumbnails - All
 function disableHideCompactViewThumbnailsAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-compact-view-thumbnails"]');
 	dynamicStyleElements.forEach((element) => {

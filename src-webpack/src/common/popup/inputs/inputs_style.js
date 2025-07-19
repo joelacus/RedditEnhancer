@@ -16,36 +16,27 @@ document.querySelector('#checkbox-hide-gap').addEventListener('change', function
 	}
 });
 
-// Toggle - Dropshadows
-document.querySelector('#checkbox-shadow').addEventListener('change', function (e) {
-	const state = document.querySelector('#checkbox-shadow').checked;
-	if (state == true) {
-		BROWSER_API.storage.sync.set({ shadows: true });
-		document.querySelector('.icon-shadow').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-shadow').classList.add('icon-light-on');
-		document.querySelector('.icon-shadow').classList.remove('icon-light-off');
-		sendMessage({ shadows: true });
-	} else if (state == false) {
-		BROWSER_API.storage.sync.set({ shadows: false });
-		document.querySelector('.icon-shadow').style.backgroundColor = '';
-		document.querySelector('.icon-shadow').classList.remove('icon-light-on');
-		document.querySelector('.icon-shadow').classList.add('icon-light-off');
-		sendMessage({ shadows: false });
+// Toggle - Add Drop Shadow
+document.querySelector('#checkbox-add-drop-shadow').addEventListener('change', function (e) {
+	const addDropShadow = document.querySelector('#checkbox-add-drop-shadow').checked;
+	BROWSER_API.storage.sync.set({ addDropShadow: addDropShadow === true });
+	sendMessage({ addDropShadow: addDropShadow === true });
+	document.querySelector('.icon-add-drop-shadow').style.backgroundColor = addDropShadow === true ? 'var(--accent)' : '';
+	if (addDropShadow) {
+		document.querySelector('.icon-add-drop-shadow').classList.add('icon-light-on');
+		document.querySelector('.icon-add-drop-shadow').classList.remove('icon-light-off');
+	} else {
+		document.querySelector('.icon-add-drop-shadow').classList.remove('icon-light-on');
+		document.querySelector('.icon-add-drop-shadow').classList.add('icon-light-off');
 	}
 });
 
 // Toggle - Drop Shadow CSS Override
 document.querySelector('#checkbox-shadow-override').addEventListener('change', function (e) {
 	const overrideDropShadow = document.querySelector('#checkbox-shadow-override').checked;
-	if (overrideDropShadow == true) {
-		BROWSER_API.storage.sync.set({ overrideDropShadow: true });
-		document.querySelector('.icon-drop-shadow-override').style.backgroundColor = 'var(--accent)';
-		sendMessage({ overrideDropShadow: true });
-	} else if (overrideDropShadow == false) {
-		BROWSER_API.storage.sync.set({ overrideDropShadow: false });
-		document.querySelector('.icon-drop-shadow-override').style.backgroundColor = '';
-		sendMessage({ overrideDropShadow: false });
-	}
+	document.querySelector('.icon-drop-shadow-override').style.backgroundColor = overrideDropShadow === true ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ overrideDropShadow: overrideDropShadow === true });
+	sendMessage({ overrideDropShadow: overrideDropShadow === true });
 });
 
 // Input - Drop Shadow Override CSS
@@ -133,90 +124,6 @@ document.querySelector('#input-header-text-colour-css').addEventListener('keyup'
 	const css = document.querySelector('#input-header-text-colour-css').value;
 	BROWSER_API.storage.sync.set({ themeHeaderTextColourCSS: css });
 	sendMessage({ themeHeaderTextColourCSS: css });
-});
-
-// Toggle - Sort Background Colour
-document.querySelector('#checkbox-sort-bg-colour').addEventListener('change', function (e) {
-	const themeSortBackgroundColour = document.querySelector('#checkbox-sort-bg-colour').checked;
-	if (themeSortBackgroundColour == true) {
-		BROWSER_API.storage.sync.set({ themeSortBackgroundColour: true });
-		document.querySelector('.icon-sort-bg-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSortBackgroundColour: true });
-	} else if (themeSortBackgroundColour == false) {
-		BROWSER_API.storage.sync.set({ themeSortBackgroundColour: false });
-		document.querySelector('.icon-sort-bg-colour').style.backgroundColor = '';
-		sendMessage({ themeSortBackgroundColour: false });
-	}
-});
-
-// Input - Sort Background Colour CSS
-document.querySelector('#input-sort-bg-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-sort-bg-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeSortBackgroundColourCSS: css });
-	sendMessage({ themeSortBackgroundColourCSS: css });
-});
-
-// Toggle - Sort Text Colour
-document.querySelector('#checkbox-sort-text-colour').addEventListener('change', function (e) {
-	const themeSortTextColour = document.querySelector('#checkbox-sort-text-colour').checked;
-	if (themeSortTextColour == true) {
-		BROWSER_API.storage.sync.set({ themeSortTextColour: true });
-		document.querySelector('.icon-sort-text-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSortTextColour: true });
-	} else if (themeSortTextColour == false) {
-		BROWSER_API.storage.sync.set({ themeSortTextColour: false });
-		document.querySelector('.icon-sort-text-colour').style.backgroundColor = '';
-		sendMessage({ themeSortTextColour: false });
-	}
-});
-
-// Input - Sort Text Colour CSS
-document.querySelector('#input-sort-text-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-sort-text-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeSortTextColourCSS: css });
-	sendMessage({ themeSortTextColourCSS: css });
-});
-
-// Toggle - Sort Text Colour 2
-document.querySelector('#checkbox-sort-text-colour-2').addEventListener('change', function (e) {
-	const themeSortTextColour2 = document.querySelector('#checkbox-sort-text-colour-2').checked;
-	if (themeSortTextColour2 == true) {
-		BROWSER_API.storage.sync.set({ themeSortTextColour2: true });
-		document.querySelector('.icon-sort-text-colour-2').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSortTextColour2: true });
-	} else if (themeSortTextColour2 == false) {
-		BROWSER_API.storage.sync.set({ themeSortTextColour2: false });
-		document.querySelector('.icon-sort-text-colour-2').style.backgroundColor = '';
-		sendMessage({ themeSortTextColour2: false });
-	}
-});
-
-// Input - Sort Text Colour 2 CSS
-document.querySelector('#input-sort-text-colour-2-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-sort-text-colour-2-css').value;
-	BROWSER_API.storage.sync.set({ themeSortTextColour2CSS: css });
-	sendMessage({ themeSortTextColour2CSS: css });
-});
-
-// Toggle - Sort Border Colour
-document.querySelector('#checkbox-sort-border-colour').addEventListener('change', function (e) {
-	const themeSortBorderColour = document.querySelector('#checkbox-sort-border-colour').checked;
-	if (themeSortBorderColour == true) {
-		BROWSER_API.storage.sync.set({ themeSortBorderColour: true });
-		document.querySelector('.icon-sort-border-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSortBorderColour: true });
-	} else if (themeSortBorderColour == false) {
-		BROWSER_API.storage.sync.set({ themeSortBorderColour: false });
-		document.querySelector('.icon-sort-border-colour').style.backgroundColor = '';
-		sendMessage({ themeSortBorderColour: false });
-	}
-});
-
-// Input - Sort Border Colour CSS
-document.querySelector('#input-sort-border-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-sort-border-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeSortBorderColourCSS: css });
-	sendMessage({ themeSortBorderColourCSS: css });
 });
 
 // Toggle - Post Background Colour
@@ -412,48 +319,6 @@ document.querySelector('#input-theme-exceptions').addEventListener('keyup', func
 	BROWSER_API.storage.sync.set({ themeExceptionSubList: value });
 });
 
-// Toggle - Create Post Background Colour
-document.querySelector('#checkbox-create-post-bg-colour').addEventListener('change', function (e) {
-	const themeCreatePostBackgroundColour = document.querySelector('#checkbox-create-post-bg-colour').checked;
-	if (themeCreatePostBackgroundColour == true) {
-		BROWSER_API.storage.sync.set({ themeCreatePostBackgroundColour: true });
-		document.querySelector('.icon-create-post-bg-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeCreatePostBackgroundColour: true });
-	} else if (themeCreatePostBackgroundColour == false) {
-		BROWSER_API.storage.sync.set({ themeCreatePostBackgroundColour: false });
-		document.querySelector('.icon-create-post-bg-colour').style.backgroundColor = '';
-		sendMessage({ themeCreatePostBackgroundColour: false });
-	}
-});
-
-// Input - Create Post Background Colour CSS
-document.querySelector('#input-create-post-bg-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-create-post-bg-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeCreatePostBackgroundColourCSS: css });
-	sendMessage({ themeCreatePostBackgroundColourCSS: css });
-});
-
-// Toggle - Create Post Border Colour
-document.querySelector('#checkbox-create-post-border-colour').addEventListener('change', function (e) {
-	const themeCreatePostBorderColour = document.querySelector('#checkbox-create-post-border-colour').checked;
-	if (themeCreatePostBorderColour == true) {
-		BROWSER_API.storage.sync.set({ themeCreatePostBorderColour: true });
-		document.querySelector('.icon-create-post-border-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeCreatePostBorderColour: true });
-	} else if (themeCreatePostBorderColour == false) {
-		BROWSER_API.storage.sync.set({ themeCreatePostBorderColour: false });
-		document.querySelector('.icon-create-post-border-colour').style.backgroundColor = '';
-		sendMessage({ themeCreatePostBorderColour: false });
-	}
-});
-
-// Input - Create Post Border Colour CSS
-document.querySelector('#input-create-post-border-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-create-post-border-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeCreatePostBorderColourCSS: css });
-	sendMessage({ themeCreatePostBorderColourCSS: css });
-});
-
 // Toggle - Larger Classic Post
 document.querySelector('#checkbox-larger-classic-post').addEventListener('change', function (e) {
 	const largerClassicPost = document.querySelector('#checkbox-larger-classic-post').checked;
@@ -550,27 +415,6 @@ document.querySelector('#input-sidemenu-bg-colour-css').addEventListener('keyup'
 	const css = document.querySelector('#input-sidemenu-bg-colour-css').value;
 	BROWSER_API.storage.sync.set({ themeSidemenuBgColourCSS: css });
 	sendMessage({ themeSidemenuBgColourCSS: css });
-});
-
-// Toggle - Sidebar Border Colour
-document.querySelector('#checkbox-sidebar-border-colour').addEventListener('change', function (e) {
-	const themeSidebarBorderColour = document.querySelector('#checkbox-sidebar-border-colour').checked;
-	if (themeSidebarBorderColour == true) {
-		BROWSER_API.storage.sync.set({ themeSidebarBorderColour: true });
-		document.querySelector('.icon-sidebar-border-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSidebarBorderColour: true });
-	} else if (themeSidebarBorderColour == false) {
-		BROWSER_API.storage.sync.set({ themeSidebarBorderColour: false });
-		document.querySelector('.icon-sidebar-border-colour').style.backgroundColor = '';
-		sendMessage({ themeSidebarBorderColour: false });
-	}
-});
-
-// Input - Sidebar Border Colour CSS
-document.querySelector('#input-sidebar-border-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-sidebar-border-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeSidebarBorderColourCSS: css });
-	sendMessage({ themeSidebarBorderColourCSS: css });
 });
 
 // Toggle - Sidemenu Button Hover Colour
@@ -864,5 +708,19 @@ document.querySelector('#checkbox-subreddit-display-name-banner').addEventListen
 		BROWSER_API.storage.sync.set({ subredditDisplayNameBanner: false });
 		document.querySelector('.icon-subreddit-display-name-banner').style.backgroundColor = '';
 		sendMessage({ subredditDisplayNameBanner: false });
+	}
+});
+
+// Toggle - Right Side Post Thumbnails
+document.querySelector('#checkbox-right-side-post-thumbnails').addEventListener('change', function (e) {
+	const rightSidePostThumbnails = document.querySelector('#checkbox-right-side-post-thumbnails').checked;
+	if (rightSidePostThumbnails) {
+		BROWSER_API.storage.sync.set({ rightSidePostThumbnails: true });
+		document.querySelector('.icon-right-side-post-thumbnails').style.backgroundColor = 'var(--accent)';
+		sendMessage({ rightSidePostThumbnails: true });
+	} else {
+		BROWSER_API.storage.sync.set({ rightSidePostThumbnails: false });
+		document.querySelector('.icon-right-side-post-thumbnails').style.backgroundColor = '';
+		sendMessage({ rightSidePostThumbnails: false });
 	}
 });

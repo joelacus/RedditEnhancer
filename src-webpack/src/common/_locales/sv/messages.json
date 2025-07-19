@@ -23,17 +23,11 @@
 	"AutoExpand": {
 		"message": "Expandera till 100% om fönster/skärmbredd är mindre än:"
 	},
-	"AutoExpandComments": {
-		"message": "Expandera dolda kommentarer automatiskt"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Detta kan göra att sidan saktar ner och använder mycket RAM-minne, särskilt om det finns många kommentarer."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Ladda fler kommentarer automatiskt"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Visa formateringsalternativ automatiskt när du kommenterar"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Detta kan göra att sidan saktar ner och använder mycket RAM-minne, särskilt om det finns många kommentarer."
 	},
 	"Background": {
 		"message": "Bakgrund"
@@ -73,9 +67,6 @@
 	},
 	"Blur": {
 		"message": "Fläck"
-	},
-	"BlurBackgroundPostOverlay": {
-		"message": "Oskärpa bakgrund bakom postöverlägget"
 	},
 	"BorderRadiusAmount": {
 		"message": "Temahörnradie"
@@ -137,20 +128,11 @@
 	"Controversial": {
 		"message": "Kontroversiell"
 	},
-	"ControversialSort": {
-		"message": "Visa den \"kontroversiella\" sorteringsknappen"
-	},
 	"CreatePost": {
 		"message": "Skapa inlägg"
 	},
-	"CreatePostBgColour": {
-		"message": "Skapa inlägg: Bakgrundsfärg"
-	},
 	"CreatePostBody": {
 		"message": "Skapa inlägg: Kropp"
-	},
-	"CreatePostBorderColour": {
-		"message": "Skapa inlägg: Kantfärg"
 	},
 	"CreatePostTitle": {
 		"message": "Skapa inlägg: Titel"
@@ -185,6 +167,9 @@
 	"Disabled": {
 		"message": "Inaktiverad"
 	},
+	"DropShadow": {
+		"message": "Droppskuggor"
+	},
 	"EndTime": {
 		"message": "Sluttid (24)"
 	},
@@ -193,9 +178,6 @@
 	},
 	"Feed": {
 		"message": "Ström"
-	},
-	"FitImage": {
-		"message": "Skala höga bilder för att passa inlägg"
 	},
 	"Header": {
 		"message": "Rubrik"
@@ -214,9 +196,6 @@
 	},
 	"HideCompactViewThumbnails": {
 		"message": "Dölj miniatyrbilderna i kompakt vy"
-	},
-	"HideCreatePost": {
-		"message": "Dölj 'Skapa inlägg'"
 	},
 	"HideElements": {
 		"message": "Dölj Element"
@@ -238,9 +217,6 @@
 	},
 	"HideModerationButton": {
 		"message": "Dölj 'Måtta' knappen"
-	},
-	"HidePopularButton": {
-		"message": "Hide den 'Populärap knappen"
 	},
 	"HidePostHiddenMessage": {
 		"message": "Dölj 'Post Hidden' meddelande"
@@ -283,9 +259,6 @@
 	},
 	"HideSideMenuTopicsSection": {
 		"message": "Dölj avsnittet Ämnen"
-	},
-	"HideSidebarPolicy": {
-		"message": "Dölj policyer"
 	},
 	"HideSubSidebar": {
 		"message": "Dölj Sub Reddit sidofältet"
@@ -352,9 +325,6 @@
 	},
 	"Offset": {
 		"message": "Förskjutning"
-	},
-	"OldNewUI": {
-		"message": "Gammal Ny UI"
 	},
 	"OldUI": {
 		"message": "Gammal UI"
@@ -443,17 +413,11 @@
 	"Settings": {
 		"message": "Inställningar"
 	},
-	"Shadow": {
-		"message": "Droppskuggor"
-	},
 	"ShowPostAuthor": {
 		"message": "Visa inläggsförfattare"
 	},
 	"ShowPostFlair": {
 		"message": "Visa inläggskänsla"
-	},
-	"ShowRising": {
-		"message": "Visa alltid den 'Rising' sorteringsknappen"
 	},
 	"Sidebar": {
 		"message": "Sidofält"

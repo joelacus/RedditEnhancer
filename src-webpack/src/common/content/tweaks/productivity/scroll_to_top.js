@@ -1,96 +1,36 @@
-/* ===== Tweaks - Productivity - Show Scroll To Top Bottom ===== */
+/**
+ * Tweaks: Productivity - Show Scroll To Top
+ *
+ * @name showToTopButton
+ * @description Add a button in the top/header bar to scroll the page to the top.
+ *
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadShowToTopButton() {
 	BROWSER_API.storage.sync.get(['showToTopButton'], function (result) {
 		if (result.showToTopButton) showToTopButton(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function showToTopButton(value) {
-	if (redditVersion === 'old' && value === true) {
-		enableShowToTopButtonOld();
-	} else if (redditVersion === 'new' && value === true) {
-		enableShowToTopButtonNew();
-	} else if (redditVersion === 'newnew' && value === true) {
-		enableShowToTopButtonNewNew();
-	} else if (value === false) {
+	if (redditVersion === 'newnew' && value) {
+		enableShowToTopButtonRV3();
+	} else if (redditVersion === 'old' && value) {
+		enableShowToTopButtonRV1();
+	} else {
 		if (document.querySelector('.re-to-top-button')) document.querySelector('.re-to-top-button').remove();
 	}
 }
 
-// Function - Enable Show To Top Button - Old
-function enableShowToTopButtonOld() {
-	if (document.querySelector('.re-to-top-button')) {
-		document.querySelector('.re-to-top-button').remove();
-		enableShowToTopButtonOld();
-	} else {
-		const div = document.createElement('div');
-		div.classList.add('re-to-top-button');
-		const span = document.createElement('span');
-		span.textContent = 'Top';
-		div.appendChild(span);
-		const container = document.querySelector('#header-bottom-right');
-		container.insertBefore(div, container.firstChild);
-		// Scroll To Top button listener
-		div.addEventListener('click', function (e) {
-			window.scrollTo({ top: 0, behavior: 'smooth' });
-		});
-	}
-}
-
-// Function - Enable Show To Top Button - New
-function enableShowToTopButtonNew() {
-	if (document.querySelector('.re-to-top-button')) {
-		document.querySelector('.re-to-top-button').remove();
-		enableShowToTopButtonNew();
-	} else {
-		if (useLegacy) {
-			const styles = document.querySelector('#re-header-buttons [href="/r/popular/"]').classList;
-			const div = document.createElement('div');
-			div.setAttribute('class', styles);
-			div.classList.remove('re-popular-button', 're-hide');
-			div.classList.add('re-to-top-button');
-			div.setAttribute('aria-label', 'To Top');
-			div.setAttribute('title', 'To Top');
-			const i = document.createElement('i');
-			i.setAttribute('class', 'icon icon-up');
-			div.appendChild(i);
-			const container = document.querySelector('#re-header-buttons');
-			container.prepend(div, container.firstChild);
-		} else {
-			const styles = document.querySelector('#change-username-tooltip-id span:has(.icon-add)').classList;
-			const div = document.createElement('div');
-			div.setAttribute('class', styles);
-			div.classList.remove('re-hide');
-			div.classList.add('re-to-top-button');
-			div.setAttribute('aria-label', 'To Top');
-			div.setAttribute('title', 'To Top');
-			const i = document.createElement('i');
-			i.setAttribute('class', 'icon icon-up');
-			div.appendChild(i);
-			const container = document.querySelector('#change-username-tooltip-id');
-			container.prepend(div, container.firstChild);
-		}
-	}
-	// Scroll To Top button listener
-	document.querySelector('.re-to-top-button').addEventListener('click', function (e) {
-		const postOverlay = document.querySelector('#overlayScrollContainer');
-		if (postOverlay) {
-			postOverlay.scrollTo({ top: 0, behavior: 'smooth' });
-		} else {
-			window.scrollTo({ top: 0, behavior: 'smooth' });
-		}
-	});
-}
-
-// Function - Enable Show To Top Button - New New
-function enableShowToTopButtonNewNew() {
+// Enable Show To Top Button - RV3
+function enableShowToTopButtonRV3() {
 	setTimeout(() => {
 		if (document.querySelector('.re-to-top-button')) {
 			document.querySelector('.re-to-top-button').remove();
-			enableShowToTopButtonNewNew();
+			enableShowToTopButtonRV3();
 		} else {
 			let btn;
 			if (document.querySelector('#header-action-item-chat-button')) {
@@ -114,4 +54,24 @@ function enableShowToTopButtonNewNew() {
 			ad_btn.parentElement.prepend(ad_btn, btn);
 		}
 	}, 1000);
+}
+
+// Enable Show To Top Button - RV1
+function enableShowToTopButtonRV1() {
+	if (document.querySelector('.re-to-top-button')) {
+		document.querySelector('.re-to-top-button').remove();
+		enableShowToTopButtonRV1();
+	} else {
+		const div = document.createElement('div');
+		div.classList.add('re-to-top-button');
+		const span = document.createElement('span');
+		span.textContent = 'Top';
+		div.appendChild(span);
+		const container = document.querySelector('#header-bottom-right');
+		container.insertBefore(div, container.firstChild);
+		// Scroll To Top button listener
+		div.addEventListener('click', function (e) {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
+	}
 }

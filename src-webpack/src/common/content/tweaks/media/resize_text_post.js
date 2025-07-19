@@ -1,27 +1,30 @@
-/* ===== Tweaks - Resize Text Post ===== */
+/**
+ * Tweaks: Media - Resize Text Post
+ *
+ * @name resizeTextPostHeight
+ * @description Resize the text preview height of text posts.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadResizeTextPostHeight() {
 	BROWSER_API.storage.sync.get(['textPostPreviewMaxHeight'], function (result) {
 		if (result.textPostPreviewMaxHeight) setTextPostPreviewMaxHeight(result.textPostPreviewMaxHeight);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function resizeTextPostHeight(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableResizeTextPostHeightNewNew();
-		} else if (value === false) {
-			disableResizeTextPostHeightNewNew();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableResizeTextPostHeightRV3();
+	} else {
+		disableResizeTextPostHeightAll();
 	}
 }
 
-/* === Enable/Disable Functions === */
-
-// Function - Enable Resize Text Post Height - New New
-function enableResizeTextPostHeightNewNew() {
+// Enable Resize Text Post Height - RV3
+function enableResizeTextPostHeightRV3() {
 	if (!document.head.querySelector('style[id="re-resize-text-post-height"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-resize-text-post-height';
@@ -106,17 +109,17 @@ function enableResizeTextPostHeightNewNew() {
 	}
 }
 
-// Function - Disable Resize Text Post Height - New New
-function disableResizeTextPostHeightNewNew() {
+// Disable Resize Text Post Height - All
+function disableResizeTextPostHeightAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-resize-text-post-height"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
 }
 
-// Function - Set The Custom Max Height
+// Set The Custom Max Height
 export function setTextPostPreviewMaxHeight(value) {
-	enableResizeTextPostHeightNewNew();
+	enableResizeTextPostHeightRV3();
 	if (value && value > 0) {
 		document.documentElement.style.setProperty('--re-text-post-preview-max-height', value + 'px');
 	} else {

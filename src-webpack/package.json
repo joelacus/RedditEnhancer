@@ -1,11 +1,10 @@
 {
 	"name": "reddit_enhancer_webpack",
-	"version": "1.17.0",
+	"version": "2.0.0",
 	"description": "",
 	"scripts": {
 		"build-m2": "webpack --config ./webpack-m2.conf.js",
-		"build-m3c": "webpack --config ./webpack-m3-chrome.conf.js",
-		"build-m3e": "webpack --config ./webpack-m3-edge.conf.js",
+		"build-m3": "webpack --config ./webpack-m3.conf.js",
 		"lmt": "python3 src/common/_locales/localisation_management_tool.py -p src/common/_locales/"
 	},
 	"keywords": [],
@@ -27,11 +26,8 @@
 		"fuse.js": "^7.0.0",
 		"i18next": "^25.1.3",
 		"i18next-http-backend": "^3.0.1",
-		"mux.js": "^7.1.0",
 		"npm": "^11.0.0",
 		"semver": "^7.6.3",
-		"sortablejs": "^1.15.6",
-		"stream": "^0.0.3",
-		"video.js": "^8.21.0"
+		"sortablejs": "^1.15.6"
 	}
 }

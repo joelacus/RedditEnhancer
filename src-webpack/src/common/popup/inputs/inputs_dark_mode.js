@@ -1,4 +1,4 @@
-/* ===== Inputs / Dark Mode ===== */
+/* ===== Inputs / Dark Mode ===== 
 
 import { darkModeTimeCalc } from '../../content/tweaks/dark_mode/dark_mode_time_calc';
 import { sendMessage } from '../send_message';
@@ -107,3 +107,4 @@ document.querySelector('#dm-time-end').addEventListener('input', function (e) {
 	const time = document.querySelector('#dm-time-end').value;
 	BROWSER_API.storage.sync.set({ darkModeTimeEnd: time });
 });
+*/

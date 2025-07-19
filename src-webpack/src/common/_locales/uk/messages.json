@@ -23,17 +23,11 @@
 	"AutoExpand": {
 		"message": "Розширити до 100%, якщо ширина вікна/екрана менша:"
 	},
-	"AutoExpandComments": {
-		"message": "Автоматично розгортати приховані коментарі"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Це може спричинити сповільнення сторінки та використання великої кількості оперативної пам’яті, особливо якщо є багато коментарів."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Автоматично завантажувати додаткові коментарі"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Автоматично показувати параметри форматування під час коментування"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Це може спричинити сповільнення сторінки та використання великої кількості оперативної пам’яті, особливо якщо є багато коментарів."
 	},
 	"Background": {
 		"message": "Фон"
@@ -113,17 +107,8 @@
 	"Controversial": {
 		"message": "Суперечливий / Controversial"
 	},
-	"ControversialSort": {
-		"message": "Показати кнопку «Суперечливе» сортування"
-	},
 	"CreatePost": {
 		"message": "Створити публікацію"
-	},
-	"CreatePostBgColour": {
-		"message": "Створити публікацію: Колір фону"
-	},
-	"CreatePostBorderColour": {
-		"message": "Створити публікацію: колір рамки"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Спеціальне фонове посилання"
@@ -149,6 +134,9 @@
 	"Drag": {
 		"message": "Перетягніть"
 	},
+	"DropShadow": {
+		"message": "Тіні"
+	},
 	"EndTime": {
 		"message": "Час закінчення (24)"
 	},
@@ -157,12 +145,6 @@
 	},
 	"Feed": {
 		"message": "Стрічка новин"
-	},
-	"FeedPostMaxHeight": {
-		"message": "висота постів"
-	},
-	"FitImage": {
-		"message": "Масштабуйте високі зображення відповідно до публікації"
 	},
 	"Header": {
 		"message": "Заголовок"
@@ -190,9 +172,6 @@
 	},
 	"HideCompactViewThumbnails": {
 		"message": "Сховати мініатюри в компактному вигляді"
-	},
-	"HideCreatePost": {
-		"message": "Сховати «Створити запис»"
 	},
 	"HideCreatePostButton": {
 		"message": "Сховати кнопку «Створити публікацію»"
@@ -230,17 +209,8 @@
 	"HideNotificationButton": {
 		"message": "Сховати кнопку «Сповіщення»"
 	},
-	"HideOriginalScrollToTop": {
-		"message": "Приховати оригінальну кнопку прокрутки до верху"
-	},
-	"HidePopularButton": {
-		"message": "Сховати кнопку «Популярні»"
-	},
 	"HidePostHiddenMessage": {
 		"message": "Сховати повідомлення «Публікація прихована»"
-	},
-	"HidePostOverlaySidebar": {
-		"message": "Приховати бічну панель накладання публікації"
 	},
 	"HidePostSidebar": {
 		"message": "Приховати бічну панель публікації"
@@ -262,9 +232,6 @@
 	},
 	"HideSearchSidebar": {
 		"message": "Приховати бічну панель пошуку"
-	},
-	"HideSeeFullImage": {
-		"message": "Приховати «See Full Image»"
 	},
 	"HideSideMenu": {
 		"message": "Приховати бічне меню"
@@ -290,9 +257,6 @@
 	"HideSideMenuTopicsSection": {
 		"message": "Приховати розділ Теми"
 	},
-	"HideSidebarPolicy": {
-		"message": "Приховати розділ правил"
-	},
 	"HideSubSidebar": {
 		"message": "Приховати бічну панель Sub Reddit"
 	},
@@ -301,9 +265,6 @@
 	},
 	"HideSubSidebarWhitelistInfo": {
 		"message": "Приховувати тільки на цих підреддитах:"
-	},
-	"HideTurnOnNotificationsPopup": {
-		"message": "Сховати спливаюче вікно «Увімкнути сповіщення»"
 	},
 	"HideUserProfilePics": {
 		"message": "Приховати зображення профілю користувача в коментарях"
@@ -374,9 +335,6 @@
 	"ModerniseOldReddit": {
 		"message": "Модернізуйте old.reddit"
 	},
-	"MoveFeedToTopInSideMenu": {
-		"message": "Перемістіть розділ каналу в бічному меню вгору"
-	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Різнокольорові лінії ниток коментарів"
 	},
@@ -400,9 +358,6 @@
 	},
 	"Old": {
 		"message": "Старий / Old"
-	},
-	"OldNewUI": {
-		"message": "Старий Новий UI"
 	},
 	"OldUI": {
 		"message": "Старий UI"
@@ -472,9 +427,6 @@
 	},
 	"PostTitleContentColour": {
 		"message": "Повідомлення: заголовок і колір вмісту тексту"
-	},
-	"PostVisitedTitleColour": {
-		"message": "Відвідана публікація: колір заголовка"
 	},
 	"PostWidth": {
 		"message": "публікації ширина"
@@ -551,12 +503,6 @@
 	"Settings": {
 		"message": "Налаштування"
 	},
-	"Shadow": {
-		"message": "Тіні"
-	},
-	"ShowAllButton": {
-		"message": "Додати кнопку «r/All»"
-	},
 	"ShowPostAuthor": {
 		"message": "Показати автора публікації"
 	},
@@ -565,9 +511,6 @@
 	},
 	"ShowPostNumbers": {
 		"message": "Додайте номери Post"
-	},
-	"ShowRising": {
-		"message": "Завжди показувати кнопку сортування «Rising»"
 	},
 	"SideMenu": {
 		"message": "Бічне меню"
@@ -587,9 +530,6 @@
 	"SidebarBackgroundColour": {
 		"message": "Бічна панель: Фоновий колір"
 	},
-	"SidebarBorderColour": {
-		"message": "Бічна панель: Прикордонний колір"
-	},
 	"SidebarTextColour": {
 		"message": "Бічна панель: Текстовий колір"
 	},
@@ -598,15 +538,6 @@
 	},
 	"SortBar": {
 		"message": "Панель сортування"
-	},
-	"SortBgColour": {
-		"message": "Сортування: Колір фону"
-	},
-	"SortBorderColour": {
-		"message": "Сортування: колір рамки"
-	},
-	"SortTextColour": {
-		"message": "Сортування: колір тексту"
 	},
 	"StartTime": {
 		"message": "Час початку (24)"
@@ -628,12 +559,6 @@
 	},
 	"Text": {
 		"message": "текст"
-	},
-	"TextScroll": {
-		"message": "Додайте смугу прокрутки до довгих текстових повідомлень"
-	},
-	"TextScrollInfo": {
-		"message": "Є обмеження. Можливо, вам доведеться відкрити публікацію, якщо вона дуже довга."
 	},
 	"Theme": {
 		"message": "Тема"
@@ -691,9 +616,6 @@
 	},
 	"VideoPlayerInfo": {
 		"message": "Швидкий, легкий відеоплеєр із керуванням швидкістю на основі videojs. Спробуйте це, якщо у вас виникли проблеми із завантаженням власного програвача reddit."
-	},
-	"VideoPlayerReplacement": {
-		"message": "Альтернативний відеоплеєр"
 	},
 	"Whitelist": {
 		"message": "Білий список"

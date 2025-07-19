@@ -206,6 +206,11 @@ input:disabled {
 	background-color: var(--accent);
 	background-color: color-mix(in srgb, var(--accent) 80%, transparent);
 }
+.slider:disabled::-webkit-slider-thumb,
+.slider:disabled::-moz-range-thumb {
+	background-color: var(--bg-tint-1);
+	cursor: default;
+}
 
 /* Tab Switcher */
 .tab-switcher {

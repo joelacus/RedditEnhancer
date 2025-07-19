@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "1.17.0"
+		"message": "2.0.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -13,6 +13,12 @@
 	},
 	"Accessibility": {
 		"message": "Accessibility"
+	},
+	"AddDownloadVideoButton": {
+		"message": "Add 'Download Video' button to video posts"
+	},
+	"AddDownloadVideoButtonInfo": {
+		"message": "This currently only supports mp4 URLs, not m3u8, so some video posts won't have the download button :/"
 	},
 	"AddNsfwTag": {
 		"message": "Add NSFW tag"
@@ -38,17 +44,11 @@
 	"AutoExpand": {
 		"message": "Expand to 100% if the window/screen width is less than:"
 	},
-	"AutoExpandComments": {
-		"message": "Auto Expand Hidden Comments"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "This may cause the page to slow down and use a lot of RAM, especially if there are a lot of comments."
-	},
 	"AutoLoadMoreComments": {
-		"message": "Auto Load More Comments"
+		"message": "Auto Expand & Load More Comments"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Auto Show Formatting Options When Commenting"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "This may cause the page to slow down and use a lot of RAM, especially if there are a lot of comments."
 	},
 	"Background": {
 		"message": "Background"
@@ -64,6 +64,12 @@
 	},
 	"Best": {
 		"message": "Best"
+	},
+	"BetterCommentBox": {
+		"message": "Better Comment Box"
+	},
+	"BetterCommentBoxInfo": {
+		"message": "Automatically show formatting options when commenting, add Ctrl/Cmd + Enter shortcut to submit comments, and hide the toolbar for switching to rich-text editor when setting Markdown composer as default."
 	},
 	"BionicBackgroundColour": {
 		"message": "Bionic Background Colour"
@@ -88,9 +94,6 @@
 	},
 	"Blur": {
 		"message": "Blur"
-	},
-	"BlurBackgroundPostOverlay": {
-		"message": "Blur background behind post overlay"
 	},
 	"BorderRadiusAmount": {
 		"message": "Theme Corner Radius"
@@ -152,20 +155,11 @@
 	"Controversial": {
 		"message": "Controversial"
 	},
-	"ControversialSort": {
-		"message": "Show the 'Controversial' Sort Button"
-	},
 	"CreatePost": {
 		"message": "Create Post"
 	},
-	"CreatePostBgColour": {
-		"message": "Create Post: Background Colour"
-	},
 	"CreatePostBody": {
 		"message": "Create Post: Body"
-	},
-	"CreatePostBorderColour": {
-		"message": "Create Post: Border Colour"
 	},
 	"CreatePostTitle": {
 		"message": "Create Post: Title"
@@ -197,17 +191,8 @@
 	"DefaultHomeFeedSortOption": {
 		"message": "Default Home Feed Sort Option"
 	},
-	"DefaultSortFeedOptionGracePeriod": {
-		"message": "Override Default Sort Option"
-	},
-	"DefaultSortFeedOptionOverrideInfo": {
-		"message": "The amount of time after the page has been auto redirected in which you can override the default sort option."
-	},
 	"Delete": {
 		"message": "Delete"
-	},
-	"DisableBgFadePostOverlay": {
-		"message": "Disable Background Fade Behind Post Overlay"
 	},
 	"Disabled": {
 		"message": "Disabled"
@@ -217,6 +202,9 @@
 	},
 	"Drag": {
 		"message": "Drag"
+	},
+	"DropShadow": {
+		"message": "Drop Shadow"
 	},
 	"EditPost": {
 		"message": "Edit post"
@@ -239,9 +227,6 @@
 	"FeedPostContent": {
 		"message": "Feed Post: Content"
 	},
-	"FeedPostMaxHeight": {
-		"message": "Post Height"
-	},
 	"FeedPostTitle": {
 		"message": "Feed Post: Title"
 	},
@@ -250,9 +235,6 @@
 	},
 	"FilterOptionsFor": {
 		"message": "Filter Options For"
-	},
-	"FitImage": {
-		"message": "Scale Tall Images to Fit Post"
 	},
 	"FollowPost": {
 		"message": "Follow Post"
@@ -274,6 +256,9 @@
 	},
 	"FullWidthBanner": {
 		"message": "Full Width Subreddit Banner"
+	},
+	"GlobalWidth": {
+		"message": "Global Max. Width"
 	},
 	"Grey": {
 		"message": "Grey"
@@ -299,6 +284,9 @@
 	"HideAdvertiseButton": {
 		"message": "Hide the 'Advertise' Button"
 	},
+	"HideAwards": {
+		"message": "Hide Give Awards button"
+	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Hide Posts with Blocked Keywords"
 	},
@@ -323,9 +311,6 @@
 	"HideCompactViewThumbnails": {
 		"message": "Hide Thumbnails in Compact View"
 	},
-	"HideCreatePost": {
-		"message": "Hide 'Create Post'"
-	},
 	"HideCreatePostButton": {
 		"message": "Hide 'Create Post' Button"
 	},
@@ -348,7 +333,7 @@
 		"message": "Hide the Header Bar"
 	},
 	"HideHeaderSubBar": {
-		"message": "Hide Header subreddit List"
+		"message": "Hide Header Subreddit List"
 	},
 	"HideHomeFeed": {
 		"message": "Hide Home Feed"
@@ -374,26 +359,17 @@
 	"HideNsfwInSearchResults": {
 		"message": "Hide NSFW results in the Searchbar"
 	},
-	"HideOriginalScrollToTop": {
-		"message": "Hide the Original Scroll to Top Button"
-	},
-	"HidePopularButton": {
-		"message": "Hide the 'Popular' Button"
-	},
 	"HidePostBackButton": {
 		"message": "Hide The Post Back Button"
 	},
 	"HidePostDivider": {
-		"message": "Hide Post Separators"
+		"message": "Hide post and sidebar dividers"
 	},
 	"HidePostHiddenMessage": {
 		"message": "Hide 'Post Hidden' Message"
 	},
 	"HidePostKarma": {
 		"message": "Hide Post Karma"
-	},
-	"HidePostOverlaySidebar": {
-		"message": "Hide the Post Overlay Sidebar"
 	},
 	"HidePostSidebar": {
 		"message": "Hide the Post Sidebar"
@@ -422,9 +398,6 @@
 	"HideSearchSidebarNsfwUsers": {
 		"message": "Hide NSFW Users in the Search Sidebar"
 	},
-	"HideSeeFullImage": {
-		"message": "Hide 'See Full Image'"
-	},
 	"HideSideMenu": {
 		"message": "Hide the Side Menu"
 	},
@@ -449,9 +422,6 @@
 	"HideSideMenuTopicsSection": {
 		"message": "Hide the Topics Section"
 	},
-	"HideSidebarPolicy": {
-		"message": "Hide Policies Section"
-	},
 	"HideSubSidebar": {
 		"message": "Hide the Sub Reddit Sidebar"
 	},
@@ -463,9 +433,6 @@
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "Hide 'Trending Today' in the Searchbar"
-	},
-	"HideTurnOnNotificationsPopup": {
-		"message": "Hide 'Get the best of' Popup"
 	},
 	"HideUserProfilePics": {
 		"message": "Hide user profile pictures in the comments"
@@ -481,6 +448,9 @@
 	},
 	"HideVoteButtons": {
 		"message": "Hide Vote Buttons"
+	},
+	"HighlightOp": {
+		"message": "Highlight comments from original poster (OP)"
 	},
 	"HomeFeedOffset": {
 		"message": "Home Feed Offset"
@@ -509,6 +479,9 @@
 	"LargerClassicPost": {
 		"message": "Larger Classic Post View"
 	},
+	"Latest": {
+		"message": "Latest"
+	},
 	"LeftSideVoteButtons": {
 		"message": "Show vote buttons on the left"
 	},
@@ -533,6 +506,9 @@
 	"MarkAsBrandAffiliate": {
 		"message": "Mark as brand affiliate"
 	},
+	"MarkReadOnOpenExpandos": {
+		"message": "Mark posts as read when opening expandos in Compact view"
+	},
 	"MaxImagePostHeight": {
 		"message": "Max Image Post Height"
 	},
@@ -553,9 +529,6 @@
 	},
 	"ModerniseOldRedditInfo": {
 		"message": "Makes old reddit look more like new reddit."
-	},
-	"MoveFeedToTopInSideMenu": {
-		"message": "Move The Feed Section In The Side Menu To The Top"
 	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Multicoloured Comment Thread Lines"
@@ -587,9 +560,6 @@
 	"Old": {
 		"message": "Old"
 	},
-	"OldNewUI": {
-		"message": "Old New UI"
-	},
 	"OldUI": {
 		"message": "Old UI"
 	},
@@ -603,7 +573,7 @@
 		"message": "User Settings > Feed Settings > Open posts in new tab"
 	},
 	"OpenSubInNewTab": {
-		"message": "Open Links to subreddits in a New Tab"
+		"message": "Open Links to Subreddits in a New Tab"
 	},
 	"OptOutAttachSideMenu": {
 		"message": "Don't attach side menu as a dropdown panel"
@@ -689,11 +659,8 @@
 	"Qa": {
 		"message": "Q&a"
 	},
-	"RUI2RemovalInfo": {
-		"message": "Reddit has discontinued (Old New UI / Version 2) of the website. Options for 'Old New UI' will continue to be supported for now while other workarounds to get it back are still working."
-	},
 	"RUI3RedirectInfo": {
-		"message": "The redirect option to 'New New UI' is no longer necessary, however, you can use this option to force links from (sh|old).reddit.com to www.reddit.com"
+		"message": "The redirect option to the Latest UI (New New UI) is no longer necessary, however, you can use this option to force links from (sh|old|new).reddit.com to www.reddit.com"
 	},
 	"Rate": {
 		"message": "Rate / Review"
@@ -758,6 +725,9 @@
 	"RestoreInfo2": {
 		"message": "items. Browser API limit is 120 per minute. Please leave this tab/window open for another minute."
 	},
+	"RightSidePostThumbnails": {
+		"message": "Show Post Thumbnails on the Right Side"
+	},
 	"Rising": {
 		"message": "Rising"
 	},
@@ -803,12 +773,6 @@
 	"Settings": {
 		"message": "Settings"
 	},
-	"Shadow": {
-		"message": "Drop Shadows"
-	},
-	"ShowAllButton": {
-		"message": "Add 'r/All' Button"
-	},
 	"ShowPostAuthor": {
 		"message": "Show Post Author"
 	},
@@ -820,9 +784,6 @@
 	},
 	"ShowProfilePicturesOnComments": {
 		"message": "Show Profile Pictures On Comments"
-	},
-	"ShowRising": {
-		"message": "Always Show the 'Rising' Sort Button"
 	},
 	"ShowUpvoteRatio": {
 		"message": "Show Upvote Percentage in Post View"
@@ -854,29 +815,20 @@
 	"SidebarBackgroundColour": {
 		"message": "Sidebar: Background Colour"
 	},
-	"SidebarBorderColour": {
-		"message": "Sidebar: Border Colour"
-	},
 	"SidebarTextColour": {
 		"message": "Sidebar: Text Colour"
 	},
 	"SidebarToggleButton": {
 		"message": "Sidebar Toggle Button"
 	},
+	"SnapSidebar": {
+		"message": "Snap sidebar to the right edge"
+	},
 	"Sort": {
 		"message": "Sort"
 	},
 	"SortBar": {
 		"message": "Sort Bar"
-	},
-	"SortBgColour": {
-		"message": "Sort: Background Colour"
-	},
-	"SortBorderColour": {
-		"message": "Sort: Border Colour"
-	},
-	"SortTextColour": {
-		"message": "Sort: Text Colour"
 	},
 	"StartTime": {
 		"message": "Start Time (24)"
@@ -913,12 +865,6 @@
 	},
 	"TextPostPreviewMaxHeight": {
 		"message": "Text Preview Height"
-	},
-	"TextScroll": {
-		"message": "Add Scrollbar To Long Text Posts"
-	},
-	"TextScrollInfo": {
-		"message": "There is a limit. You may have to open the post if it is very long."
 	},
 	"Theme": {
 		"message": "Theme"
@@ -983,8 +929,8 @@
 	"VideoPlayerInfo": {
 		"message": "Fast, lightweight video player with speed controls based on videojs. Try this if you have loading issues with reddit's own player."
 	},
-	"VideoPlayerReplacement": {
-		"message": "Alternative Video Player"
+	"ViewCrossposts": {
+		"message": "Add link to view crossposts in other subreddits"
 	},
 	"Welcome": {
 		"message": "Welcome!"

@@ -9,9 +9,6 @@ document.querySelector('#checkbox-image-scroll').addEventListener('change', func
 	const imageScroll = document.querySelector('#checkbox-image-scroll').checked;
 	if (imageScroll) {
 		// disable other image options
-		document.querySelector('#checkbox-fit-image').checked = false;
-		BROWSER_API.storage.sync.set({ fitImage: false });
-		document.querySelector('.icon-fit-image').style.backgroundColor = '';
 		document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
 		BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
 		document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
@@ -32,31 +29,6 @@ document.querySelector('#checkbox-image-scroll').addEventListener('change', func
 	BROWSER_API.storage.sync.set({ imageScroll: imageScroll });
 });
 
-// Toggle - Scale Tall Images To Fit Post
-document.querySelector('#checkbox-fit-image').addEventListener('change', function (e) {
-	const fitImage = document.querySelector('#checkbox-fit-image').checked;
-	if (fitImage) {
-		// disable other image options
-		document.querySelector('#checkbox-image-scroll').checked = false;
-		BROWSER_API.storage.sync.set({ imageScroll: false });
-		document.querySelector('.icon-image-scroll').style.backgroundColor = '';
-		document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
-		BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
-		document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
-		/*document.querySelector('#checkbox-drag-image-to-resize').checked = false;
-		BROWSER_API.storage.sync.set({ dragImageToResize: false });
-		document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = '';
-		document.querySelector('.icon-drag-image-to-resize-initial-size').style.backgroundColor = '';*/
-		const maxImageWidthValue = document.querySelector('#input-max-image-width').value;
-		document.querySelector('.icon-max-image-width').style.backgroundColor = maxImageWidthValue != 9 ? 'var(--accent)' : '';
-	} else {
-		document.querySelector('.icon-max-image-width').style.backgroundColor = '';
-	}
-	document.querySelector('.icon-fit-image').style.backgroundColor = fitImage == true ? 'var(--accent)' : '';
-	sendMessage({ fitImage: fitImage });
-	BROWSER_API.storage.sync.set({ fitImage: fitImage });
-});
-
 // Toggle - Scale Post To Fit Image
 document.querySelector('#checkbox-scale-post-to-fit-image').addEventListener('change', function (e) {
 	const scalePostToFitImage = document.querySelector('#checkbox-scale-post-to-fit-image').checked;
@@ -65,9 +37,6 @@ document.querySelector('#checkbox-scale-post-to-fit-image').addEventListener('ch
 		document.querySelector('#checkbox-image-scroll').checked = false;
 		BROWSER_API.storage.sync.set({ imageScroll: false });
 		document.querySelector('.icon-image-scroll').style.backgroundColor = '';
-		document.querySelector('#checkbox-fit-image').checked = false;
-		BROWSER_API.storage.sync.set({ fitImage: false });
-		document.querySelector('.icon-fit-image').style.backgroundColor = '';
 		//document.querySelector('#checkbox-drag-image-to-resize').checked = false;
 		//BROWSER_API.storage.sync.set({ dragImageToResize: false });
 		//document.querySelector('.icon-drag-image-to-resize').style.backgroundColor = '';
@@ -172,22 +141,6 @@ document.querySelector('#checkbox-just-open-the-image').addEventListener('change
 	}
 });
 
-// Toggle - Hide See Full Image
-document.querySelector('#checkbox-hide-see-full-image').addEventListener('change', function () {
-	const hideSeeFullImage = document.querySelector('#checkbox-hide-see-full-image').checked;
-	if (hideSeeFullImage) {
-		document.querySelector('.icon-hide-see-full-image').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-hide-see-full-image').classList.remove('icon-show');
-		document.querySelector('.icon-hide-see-full-image').classList.add('icon-hide');
-	} else {
-		document.querySelector('.icon-hide-see-full-image').style.backgroundColor = '';
-		document.querySelector('.icon-hide-see-full-image').classList.add('icon-show');
-		document.querySelector('.icon-hide-see-full-image').classList.remove('icon-hide');
-	}
-	BROWSER_API.storage.sync.set({ hideSeeFullImage: hideSeeFullImage });
-	sendMessage({ hideSeeFullImage: hideSeeFullImage });
-});
-
 // Toggle - Drag Image To Resize
 /*document.querySelector('#checkbox-drag-image-to-resize').addEventListener('change', function (e) {
 	const dragImageToResize = document.querySelector('#checkbox-drag-image-to-resize').checked;
@@ -196,9 +149,6 @@ document.querySelector('#checkbox-hide-see-full-image').addEventListener('change
 		document.querySelector('#checkbox-image-scroll').checked = false;
 		BROWSER_API.storage.sync.set({ imageScroll: false });
 		document.querySelector('.icon-image-scroll').style.backgroundColor = '';
-		document.querySelector('#checkbox-fit-image').checked = false;
-		BROWSER_API.storage.sync.set({ fitImage: false });
-		document.querySelector('.icon-fit-image').style.backgroundColor = '';
 		//document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
 		//BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
 		//document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = '';
@@ -300,33 +250,38 @@ document.querySelector('#input-max-video-post-height').addEventListener('mouseup
 	BROWSER_API.storage.sync.set({ maxVideoPostHeight: e.target.value });
 });
 
-// Toggle - New Video Player
-document.querySelector('#checkbox-new-player').addEventListener('change', function (e) {
-	var newPlayer = document.querySelector('#checkbox-new-player').checked;
-	if (newPlayer == true) {
-		BROWSER_API.storage.sync.set({ newPlayer: true });
-		document.querySelector('.icon-new-player').style.backgroundColor = 'var(--accent)';
-		sendMessage({ newPlayer: true });
-	} else if (newPlayer == false) {
-		BROWSER_API.storage.sync.set({ newPlayer: false });
-		document.querySelector('.icon-new-player').style.backgroundColor = '';
-		sendMessage({ newPlayer: false });
+// Toggle - Add Video Download Button
+document.querySelector('#checkbox-add-download-video-button').addEventListener('change', function (e) {
+	const addDownloadVideoButton = document.querySelector('#checkbox-add-download-video-button').checked;
+	if (addDownloadVideoButton) {
+		if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
+			BROWSER_API.permissions
+				.request({ permissions: ['downloads'] })
+				.then((granted) => {
+					if (granted) {
+						console.debug('[RedditEnhancer] addDownloadVideoButton: "downloads" permission granted');
+						enabled(true);
+					} else {
+						console.debug('[RedditEnhancer] addDownloadVideoButton: "downloads" permission denied');
+						document.querySelector('#checkbox-add-download-video-button').checked = false;
+					}
+				})
+				.catch((e) => {
+					console.error('[RedditEnhancer] addDownloadVideoButton: Error requesting "downloads" permission: ', e);
+					document.querySelector('#checkbox-add-download-video-button').checked = false;
+				});
+		} else {
+			enabled(true);
+		}
+	} else {
+		enabled(false);
+	}
+	function enabled(value) {
+		BROWSER_API.storage.sync.set({ addDownloadVideoButton: value });
+		document.querySelector('.icon-add-download-video-button').style.backgroundColor = value ? 'var(--accent)' : '';
+		sendMessage({ addDownloadVideoButton: value });
 	}
 });
-
-// Toggle - Add Video Download Button
-/*document.querySelector('#checkbox-add-download-video-button').addEventListener('change', function (e) {
-	const addDownloadVideoButton = document.querySelector('#checkbox-add-download-video-button').checked;
-	if (addDownloadVideoButton === true) {
-		BROWSER_API.storage.sync.set({ addDownloadVideoButton: true });
-		document.querySelector('.icon-add-download-video-button').style.backgroundColor = 'var(--accent)';
-		sendMessage({ addDownloadVideoButton: true });
-	} else if (addDownloadVideoButton === false) {
-		BROWSER_API.storage.sync.set({ addDownloadVideoButton: false });
-		document.querySelector('.icon-add-download-video-button').style.backgroundColor = '';
-		sendMessage({ addDownloadVideoButton: false });
-	}
-});*/
 
 /* = Text = */
 
@@ -367,20 +322,6 @@ document.querySelector('#input-text-post-preview-fade-height').addEventListener(
 });
 document.querySelector('#input-text-post-preview-fade-height').addEventListener('mouseup', function (e) {
 	BROWSER_API.storage.sync.set({ textPostPreviewFadeHeight: e.target.value });
-});
-
-// Toggle - Add Scroll To Text Post
-document.querySelector('#checkbox-text-scroll-post').addEventListener('change', function (e) {
-	const textPostScroll = document.querySelector('#checkbox-text-scroll-post').checked;
-	if (textPostScroll == true) {
-		BROWSER_API.storage.sync.set({ textPostScroll: true });
-		document.querySelector('.icon-text-scroll-post').style.backgroundColor = 'var(--accent)';
-		sendMessage({ textPostScroll: true });
-	} else if (textPostScroll == false) {
-		BROWSER_API.storage.sync.set({ textPostScroll: false });
-		document.querySelector('.icon-text-scroll-post').style.backgroundColor = '';
-		sendMessage({ textPostScroll: false });
-	}
 });
 
 // Toggle - Replace Post Images With Links

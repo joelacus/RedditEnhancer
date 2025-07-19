@@ -1,25 +1,30 @@
-/* ===== Tweaks - Hide - Get New Reddit ===== */
+/**
+ * Tweaks: Hide Elements - Hide Get New Reddit
+ *
+ * @name hideGetNewReddit
+ * @description Hide the "Get New Reddit" button.
+ *
+ * Compatibility: RV1 (Old UI) (2005-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHideGetNewReddit() {
 	BROWSER_API.storage.sync.get(['hideGetNewReddit'], function (result) {
 		if (result.hideGetNewReddit) hideGetNewReddit(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function hideGetNewReddit(value) {
-	if (value === true) {
-		hideGetNewRedditOld();
-	} else if (value === false) {
-		showGetNewRedditOld();
+	if (value) {
+		enableHideGetNewReddit();
+	} else {
+		disableHideGetNewReddit();
 	}
 }
 
-/* === Enable/Disable Functions === */
-
-// Function - Hide Get New Reddit - Old
-function hideGetNewRedditOld() {
+// Enable Hide Get New Reddit - RV1
+function enableHideGetNewReddit() {
 	if (!document.head.querySelector('style[id="re-hide-get-new-reddit"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-get-new-reddit';
@@ -30,8 +35,8 @@ function hideGetNewRedditOld() {
 	}
 }
 
-// Function - Show Get New Reddit - Old
-function showGetNewRedditOld() {
+// Disable Hide Get New Reddit - RV1
+function disableHideGetNewReddit() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-get-new-reddit"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);

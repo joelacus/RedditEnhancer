@@ -4,8 +4,6 @@
 // Use this loader to apply tweaks before the page has finished loading (CSS tweaks).
 
 import { waitForAddedNode } from './main_observer';
-import { legacyObserversOld } from './legacy_observers';
-
 import { loadAutoCollapseAutoModeratorComment } from '../../../content/tweaks/productivity/auto_collapse_automod_comment';
 import { loadCustomBackground } from '../../../content/tweaks/background/custom_background';
 import { loadCustomTheme } from '../../../content/tweaks/style/override_theme_colours';
@@ -17,7 +15,7 @@ import { loadHidePromotedPosts } from '../../../content/tweaks/hide_elements/hid
 import { loadHideRedditPremium } from '../../../content/tweaks/hide_elements/hide_reddit_premium';
 import { loadHideSideMenuOld } from '../../../content/tweaks/hide_elements/hide_side_menu';
 import { loadHideUsernameAndKarma } from '../../../content/tweaks/hide_elements/hide_username_and_karma';
-import { loadLayoutCentre } from '../../../content/tweaks/resize_elements/layout_centre_and_offset';
+import { loadLayoutCentre } from '../../../content/tweaks/resize_elements/layout_centre';
 import { loadResizeFont } from '../../../content/tweaks/font/resize_font';
 import { loadPostFontWeight } from '../../../content/tweaks/font/font_weight';
 import { loadStickySort } from '../../../content/tweaks/productivity/sticky_sort';
@@ -32,6 +30,8 @@ import { loadHideCompactViewThumbnails } from '../../../content/tweaks/hide_elem
 import { loadClassicOldUI } from '../../../content/tweaks/style/classic_old_ui';
 import { loadHideChatButton, loadHideModerationButton, loadHideNotificationButton } from '../../../content/tweaks/hide_elements/hide_header_buttons';
 import { loadCustomHeaderLogo } from '../../../content/tweaks/style/custom_header_logo';
+import { loadRightSidePostThumbnails } from '../../../content/tweaks/style/right_side_post_thumbnails';
+import { loadHighlightOP } from '../../../content/tweaks/productivity/highlight_op';
 
 export function tweakLoaderOld() {
 	loadExpandContent();
@@ -60,12 +60,9 @@ export function tweakLoaderOld() {
 	loadHideModerationButton();
 	loadHideNotificationButton();
 	loadCustomHeaderLogo();
-
-	if (useLegacy) {
-		legacyObserversOld();
-	} else {
-		loadHideRedditPremium();
-	}
+	loadRightSidePostThumbnails();
+	loadHideRedditPremium();
+	loadHighlightOP();
 
 	// Body
 	waitForAddedNode({

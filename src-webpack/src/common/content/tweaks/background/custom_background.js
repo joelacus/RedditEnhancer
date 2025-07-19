@@ -1,35 +1,36 @@
-/* ===== Tweaks - Background - Use Custom Background ===== */
+/**
+ * Tweaks: Background - Use Custom Background
+ *
+ * @name useCustomBackground
+ * @description Change the web page background to a custom image. Also changes the background image blur.
+ *
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadCustomBackground() {
 	BROWSER_API.storage.sync.get(['useCustomBackground'], function (result) {
 		if (result.useCustomBackground) useCustomBackground(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function useCustomBackground(value) {
 	if (value) {
 		setBackgroundAndBlur();
-		switch (redditVersion) {
-			case 'old':
-				BROWSER_API.storage.sync.get(['forceCustomBgOldUI', 'moderniseOldReddit'], (result) => {
-					if (result.forceCustomBgOldUI || result.moderniseOldReddit) enableUseCustomBackgroundOld();
-				});
-				break;
-			case 'new':
-				enableUseCustomBackgroundNew();
-				break;
-			case 'newnew':
-				enableUseCustomBackgroundNewNew();
-				break;
+		if (redditVersion === 'old') {
+			BROWSER_API.storage.sync.get(['forceCustomBgOldUI', 'moderniseOldReddit'], (result) => {
+				if (result.forceCustomBgOldUI || result.moderniseOldReddit) enableUseCustomBackgroundRV1();
+			});
+		} else if (redditVersion === 'newnew') {
+			enableUseCustomBackgroundRV3();
 		}
 	} else {
 		disableUseCustomBackgroundAll();
 	}
 }
 
-// Function - Set Background and Blur Properties
+// Load Background and Blur Properties
 function setBackgroundAndBlur() {
 	BROWSER_API.storage.sync.get(['customBackground', 'bgBlur'], function (result) {
 		setCustomBackground(result.customBackground);
@@ -40,7 +41,7 @@ function setBackgroundAndBlur() {
 // Set Custom Background Property
 export function setCustomBackground(value) {
 	if (value !== '') {
-		document.documentElement.style.setProperty('--re-background-image', 'url("' + value + '")');
+		document.documentElement.style.setProperty('--re-background-image', 'url("' + value + '") no-repeat center center / cover');
 	}
 }
 
@@ -53,35 +54,20 @@ export function bgBlur(value) {
 	}
 }
 
-// Function - Enable Use Custom Background - Old
-function enableUseCustomBackgroundOld() {
+// Enable Use Custom Background - RV1
+function enableUseCustomBackgroundRV1() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-custom-background';
 	styleElement.textContent = `body {
-									background: var(--re-background-image) no-repeat center center / cover !important;
+									background: var(--re-background-image) !important;
 									backdrop-filter: blur(var(--re-background-blur));
 									background-attachment: fixed !important;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
-// Function - Enable Use Custom Background - New
-function enableUseCustomBackgroundNew() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-custom-background';
-	styleElement.textContent = `.ListingLayout-backgroundContainer {
-									--pseudo-before-background: var(--re-background-image) no-repeat center center / cover !important;
-								}
-								.ListingLayout-backgroundContainer:before {
-									filter: blur(var(--re-background-blur));
-									transform: scale(1.22);
-									overflow: hidden;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
-}
-
-// Function - Enable Use Custom Background - New New
-function enableUseCustomBackgroundNewNew() {
+// Enable Use Custom Background - RV3
+function enableUseCustomBackgroundRV3() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-custom-background';
 	styleElement.textContent = `body {
@@ -90,7 +76,7 @@ function enableUseCustomBackgroundNewNew() {
 								body:before {
 									content: "";
 									position: fixed;
-									background: var(--re-background-image) no-repeat center center / cover;
+									background: var(--re-background-image);
 									width: 100%;
 									height: 100vh; 
 									transform: scale(1);
@@ -101,10 +87,6 @@ function enableUseCustomBackgroundNewNew() {
 								shreddit-app .grid-container,
 								shreddit-app .sidebar-grid {
 									background: none !important;
-								}
-								[routename="subreddit"] div.masthead,
-								[routename="subreddit_wiki"] div.masthead {
-									background-color: var(--re-theme-post-bg);
 								}
 								community-highlight-carousel {
 									background-color: var(--re-theme-post-bg, transparent);
@@ -117,7 +99,10 @@ function enableUseCustomBackgroundNewNew() {
 								[routename="post_page"] main.main,
 								[routename="comments_page"] main.main,
 								[routename="profile_post_page"] main.main,
-								[routename="post_stats"] main.main {
+								[routename="profile_post_page_comments"] main.main,
+								[routename="post_stats"] main.main, 
+								[routename="CommentStats"] main.main,
+								[routename="earn-dashboard"] main.main {
 									margin: 1rem 0;
 									padding: 0 1rem .75rem 1rem;
 									height: min-content;
@@ -141,23 +126,47 @@ function enableUseCustomBackgroundNewNew() {
 										padding-left: .25rem !important;
 									}
 								}
-								shreddit-app[routename="post_stats"] main.main > div {
+								@media (max-width: 768px) {
+									shreddit-app[routename="post_page"] main.main,
+									shreddit-app[routename="comments_page"] main.main,
+									shreddit-app[routename="profile_post_page"] main.main,
+									shreddit-app[routename="profile_post_page_comments"] main.main,
+									shreddit-app[routename="post_stats"] main.main, 
+									shreddit-app[routename="CommentStats"] main.main {
+										margin: 0;
+										padding: 0;
+									}
+								}
+								shreddit-app[routename="post_stats"] main.main > div,
+								shreddit-app[routename="CommentStats"] main.main > div,
+								shreddit-app[routename="earn-dashboard"] main.main > div {
 									margin-top: 0;
+									
+									& > div.gap-md {
+										margin-top: 1rem;
+									}
 								}
 								shreddit-app[routename="post_page"] div[slot="post-insights-panel"] .p-md,
 								shreddit-app[routename="comments_page"] div[slot="post-insights-panel"] .p-md,
-								shreddit-app[routename="profile_post_page"] div[slot="post-insights-panel"] .p-md {
+								shreddit-app[routename="profile_post_page"] div[slot="post-insights-panel"] .p-md
+								shreddit-app[routename="profile_post_page_comments"] div[slot="post-insights-panel"] .p-md {
 									padding: 0;
 								}
 								shreddit-app div.sidebar-grid {
 									background-color: var(--color-neutral-background) !important;
 									max-width: unset;
 								}
-								`;
+								[pagetype^="settings_"],
+								[routename="inbox"],
+								[pagetype="explore"],
+								[routename="community_page"],
+								[pagetype="post_submit"] {
+									background-color: color-mix(in srgb, var(--re-theme-post-bg), transparent 20%);
+								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }
 
-// Function - Disable Use Custom Background - All
+// Disable Use Custom Background - All
 function disableUseCustomBackgroundAll() {
 	document.documentElement.style.setProperty('--re-background-image', '');
 	document.documentElement.style.setProperty('--re-background-blur', '');

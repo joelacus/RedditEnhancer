@@ -1,13 +1,20 @@
-/* ===== Tweaks - Productivity - Break Reminder ===== */
+/**
+ * Tweaks: Productivity - Break Reminder
+ *
+ * @name breakReminder
+ * @description Show a reminder every N posts to take a break.
+ *
+ * Compatibility: Needs rewriting to work with RV3
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === 
 export function loadBreakReminder() {
 	BROWSER_API.storage.sync.get(['breakReminder'], function (result) {
 		if (result.breakReminder) breakReminder(true);
 	});
-}
+}*/
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === 
 export function breakReminder(value) {
 	if (redditVersion === 'new') {
 		if (value === true) {
@@ -136,4 +143,4 @@ function getText(language) {
 		var text2 = ' posts';
 	}
 	return [text1, text2];
-}
+}*/

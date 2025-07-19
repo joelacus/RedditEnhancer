@@ -23,17 +23,11 @@
 	"AutoExpand": {
 		"message": "Uitbreiden tot 100% als de venster-/schermbreedte kleiner is dan:"
 	},
-	"AutoExpandComments": {
-		"message": "Vouw verborgen opmerkingen automatisch uit"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Dit kan ervoor zorgen dat de pagina trager wordt en veel RAM-geheugen gebruikt, vooral als er veel reacties zijn."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Laad automatisch meer reacties"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Toon automatisch opmaakopties bij opmerkingen"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Dit kan ervoor zorgen dat de pagina trager wordt en veel RAM-geheugen gebruikt, vooral als er veel reacties zijn."
 	},
 	"Background": {
 		"message": "Achtergrond"
@@ -73,9 +67,6 @@
 	},
 	"Blur": {
 		"message": "Vervagen"
-	},
-	"BlurBackgroundPostOverlay": {
-		"message": "Vervaging achtergrond achter post-overlay"
 	},
 	"BorderRadiusAmount": {
 		"message": "Thema hoek radius"
@@ -131,29 +122,17 @@
 	"CompactPostLinkPreview": {
 		"message": "Compact de voorbeeldberichten van de postkoppeling"
 	},
-	"CompactSubRuleList": {
-		"message": "Compact de lijst met subreddit regel"
-	},
 	"Confirm": {
 		"message": "Bevestigen"
 	},
 	"Controversial": {
 		"message": "Controverseel"
 	},
-	"ControversialSort": {
-		"message": "Toon de “Controversiële” sorteerknop"
-	},
 	"CreatePost": {
 		"message": "Bericht Maken"
 	},
-	"CreatePostBgColour": {
-		"message": "Bericht Maken: Achtergrondkleur"
-	},
 	"CreatePostBody": {
 		"message": "Maak bericht: Lichaam"
-	},
-	"CreatePostBorderColour": {
-		"message": "Bericht Maken: Randkleur"
 	},
 	"CreatePostTitle": {
 		"message": "Maak bericht: Titel"
@@ -185,15 +164,6 @@
 	"DefaultHomeFeedSortOption": {
 		"message": "Standaard optie voor sorteren thuis feed"
 	},
-	"DefaultSortFeedOptionGracePeriod": {
-		"message": "Verhaal de standaard sorteeroptie"
-	},
-	"DefaultSortFeedOptionOverrideInfo": {
-		"message": "De hoeveelheid tijd nadat de pagina automatisch is omgeleid, waarbij u de standaardsoptie kunt overschrijven."
-	},
-	"DisableBgFadePostOverlay": {
-		"message": "Achtergrondvervaging achter post-overlay uitschakelen"
-	},
 	"Disabled": {
 		"message": "Uitgeschakeld"
 	},
@@ -202,6 +172,9 @@
 	},
 	"Drag": {
 		"message": "Sleep"
+	},
+	"DropShadow": {
+		"message": "Slagschaduwen"
 	},
 	"EndTime": {
 		"message": "Eindtijd (24)"
@@ -221,9 +194,6 @@
 	"FeedPostContent": {
 		"message": "Feed Bericht: Inhoud"
 	},
-	"FeedPostMaxHeight": {
-		"message": "Hoogte van Bericht"
-	},
 	"FeedPostTitle": {
 		"message": "Feed Bericht: Titel"
 	},
@@ -232,9 +202,6 @@
 	},
 	"FilterOptionsFor": {
 		"message": "Filteropties voor"
-	},
-	"FitImage": {
-		"message": "Schaal grote afbeeldingen om op de post te passen"
 	},
 	"Font": {
 		"message": "Lettertype"
@@ -296,9 +263,6 @@
 	"HideCompactViewThumbnails": {
 		"message": "Verberg de miniaturen in compacte weergave"
 	},
-	"HideCreatePost": {
-		"message": "Verberg “Bericht maken”"
-	},
 	"HideCreatePostButton": {
 		"message": "Knop “Bericht maken” Verbergen"
 	},
@@ -347,12 +311,6 @@
 	"HideNsfwInSearchResults": {
 		"message": "Verberg NSFW-resultaten in de zoekbalk"
 	},
-	"HideOriginalScrollToTop": {
-		"message": "Verberg de knop Origineel scrollen naar boven"
-	},
-	"HidePopularButton": {
-		"message": "Verberg de knop “Populair”"
-	},
 	"HidePostBackButton": {
 		"message": "Verberg de knop 'Post terug'"
 	},
@@ -364,9 +322,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Bericht verbergen Karma"
-	},
-	"HidePostOverlaySidebar": {
-		"message": "Verberg de zijbalk van de berichtoverlay"
 	},
 	"HidePostSidebar": {
 		"message": "Verberg de berichtzijbalk"
@@ -395,9 +350,6 @@
 	"HideSearchSidebarNsfwUsers": {
 		"message": "Verberg NSFW-gebruikers in de zijkant van de zoekopdracht"
 	},
-	"HideSeeFullImage": {
-		"message": "Verberg “See Full Image”"
-	},
 	"HideSideMenu": {
 		"message": "Zijmenu Verbergen"
 	},
@@ -422,9 +374,6 @@
 	"HideSideMenuTopicsSection": {
 		"message": "Verberg de sectie Onderwerpen"
 	},
-	"HideSidebarPolicy": {
-		"message": "Sectie Beleid verbergen"
-	},
 	"HideSubSidebar": {
 		"message": "Verberg de zijbalk van Sub Reddit"
 	},
@@ -436,9 +385,6 @@
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "Verberg 'trending vandaag' in de zoekbalk"
-	},
-	"HideTurnOnNotificationsPopup": {
-		"message": "Pop-up “Meldingen inschakelen” verbergen"
 	},
 	"HideUserProfilePics": {
 		"message": "Verberg gebruikersprofielfoto's in de reacties"
@@ -518,9 +464,6 @@
 	"ModerniseOldRedditInfo": {
 		"message": "Zorgt ervoor dat het oude Reddit meer op het nieuwe Reddit lijkt."
 	},
-	"MoveFeedToTopInSideMenu": {
-		"message": "Sposta la sezione Feed nel menu laterale verso l'alto"
-	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Veelkleurige commentaarschroeflijnen"
 	},
@@ -550,9 +493,6 @@
 	},
 	"Old": {
 		"message": "Oud / Old"
-	},
-	"OldNewUI": {
-		"message": "Oude Nieuwe UI"
 	},
 	"OldUI": {
 		"message": "Oude UI"
@@ -641,9 +581,6 @@
 	"PostVisitedTextColour": {
 		"message": "Bezochte bericht: Tekstkleur"
 	},
-	"PostVisitedTitleColour": {
-		"message": "Bezocht bericht: Titelkleur"
-	},
 	"PostWidth": {
 		"message": "Breedte van de post"
 	},
@@ -653,11 +590,8 @@
 	"Qa": {
 		"message": "Q&a"
 	},
-	"RUI2RemovalInfo": {
-		"message": "Reddit is stopgezet (Oude Nieuwe UI / versie 2) van de website. Opties voor 'Oude Nieuwe UI' zullen voorlopig worden ondersteund, terwijl andere oplossingen om het terug te krijgen nog steeds aan het werk zijn."
-	},
 	"RUI3RedirectInfo": {
-		"message": "De optie Redirect naar 'Nieuwe Nieuwe UI' is niet langer nodig, maar u kunt deze optie gebruiken om links van (sh | old) te forceren .reddit.com naar www.reddit.com"
+		"message": "De optie Redirect naar Laatste UI (Nieuwe Nieuwe UI) is niet langer nodig, maar u kunt deze optie gebruiken om links van (sh|old|new) te forceren .reddit.com naar www.reddit.com"
 	},
 	"Rate": {
 		"message": "Beoordeel / Recensie"
@@ -761,12 +695,6 @@
 	"Settings": {
 		"message": "Instellingen"
 	},
-	"Shadow": {
-		"message": "Slagschaduwen"
-	},
-	"ShowAllButton": {
-		"message": "Knop “r/All” toevoegen"
-	},
 	"ShowPostAuthor": {
 		"message": "Toon berichtauteur"
 	},
@@ -778,9 +706,6 @@
 	},
 	"ShowProfilePicturesOnComments": {
 		"message": "Toon profielfoto's op reacties"
-	},
-	"ShowRising": {
-		"message": "Toon altijd de knop “Rising” sorteren"
 	},
 	"ShowUpvoteRatio": {
 		"message": "Toon het upvote percentage op de postpagina"
@@ -812,9 +737,6 @@
 	"SidebarBackgroundColour": {
 		"message": "Zijbalk: Achtergrond kleur"
 	},
-	"SidebarBorderColour": {
-		"message": "Zijbalk: Randkleur"
-	},
 	"SidebarTextColour": {
 		"message": "Zijbalk: Tekstkleur"
 	},
@@ -826,15 +748,6 @@
 	},
 	"SortBar": {
 		"message": "Sorteerbalk"
-	},
-	"SortBgColour": {
-		"message": "Sorteren: Achtergrondkleur"
-	},
-	"SortBorderColour": {
-		"message": "Sorteren: Randkleur"
-	},
-	"SortTextColour": {
-		"message": "Sorteren: Tekstkleur"
 	},
 	"StartTime": {
 		"message": "Starttijd (24)"
@@ -868,12 +781,6 @@
 	},
 	"TextPostPreviewMaxHeight": {
 		"message": "Tekstvoorbeeldhoogte"
-	},
-	"TextScroll": {
-		"message": "Schuifbalk toevoegen aan lange tekstberichten"
-	},
-	"TextScrollInfo": {
-		"message": "Er is een limiet. Misschien moet u de post openen als het erg lang is."
 	},
 	"Theme": {
 		"message": "Thema"
@@ -937,9 +844,6 @@
 	},
 	"VideoPlayerInfo": {
 		"message": "Snelle, lichtgewicht videospeler met snelheidsregeling op basis van videojs. Probeer dit als je laadproblemen hebt met de eigen speler van reddit."
-	},
-	"VideoPlayerReplacement": {
-		"message": "Alternatieve videospeler"
 	},
 	"Welcome": {
 		"message": "Welkom!"

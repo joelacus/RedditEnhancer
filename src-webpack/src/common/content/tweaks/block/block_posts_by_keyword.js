@@ -1,24 +1,30 @@
-/* ===== Tweaks - Hide - Blocked Keyword Posts ===== */
+/**
+ * Tweaks: Block - Blocked Keyword Posts
+ *
+ * @name hideBlockedKeywordPosts
+ * @description Hide all posts containing certain keywords in the title or content.
+ *
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
+ */
 
 import { logToDevConsole } from '../../logging';
-
 let keywordList = [];
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHideBlockedKeywordPosts() {
 	BROWSER_API.storage.sync.get(['hideBlockedKeywordPosts'], function (result) {
 		if (result.hideBlockedKeywordPosts) hideBlockedKeywordPosts(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function hideBlockedKeywordPosts(value) {
 	if (redditVersion === 'old') {
 		if (value) {
 			BROWSER_API.storage.sync.get(['hideBlockedKeywordPostsList'], function (result) {
 				updateKeywordList(result.hideBlockedKeywordPostsList);
 				logToDevConsole('log', `Blocked Keywords List: ${keywordList}`);
-				enableHideBlockedKeywordPostsOld();
+				enableHideBlockedKeywordPostsRV1();
 			});
 		} else {
 			disableHideBlockedKeywordPostsAll();
@@ -49,10 +55,8 @@ function updateKeywordList(list) {
 		.filter((item) => item !== '');
 }
 
-/* === Enable/Disable Functions === */
-
-// Function - Enable Hide Blocked Keyword Posts - Old
-function enableHideBlockedKeywordPostsOld() {
+// Enable Hide Blocked Keyword Posts - RV1
+function enableHideBlockedKeywordPostsRV1() {
 	document.querySelectorAll('#siteTable > .thing').forEach((post) => {
 		const titleAnchor = post.querySelector('a.title');
 		if (!titleAnchor) return;
@@ -64,14 +68,7 @@ function enableHideBlockedKeywordPostsOld() {
 	});
 }
 
-// Function - Disable Hide Blocked Keyword Posts - All
-function disableHideBlockedKeywordPostsAll() {
-	document.querySelectorAll('#sideTable > .thing, article.re-hide').forEach((post) => {
-		post.classList.remove('re-hide');
-	});
-}
-
-// Function - Enable Hide Blocked Keyword Posts - New New
+// Enable Hide Blocked Keyword Posts - RV3
 function filterBlockedKeywordPost(post) {
 	if (post.classList.contains('re-hide')) return;
 
@@ -82,6 +79,13 @@ function filterBlockedKeywordPost(post) {
 	if (keywordList.some((word) => new RegExp(`\\b${word}\\b`, 'i').test(titleText))) {
 		post.classList.add('re-hide');
 	}
+}
+
+// Disable Hide Blocked Keyword Posts - All
+function disableHideBlockedKeywordPostsAll() {
+	document.querySelectorAll('#sideTable > .thing, article.re-hide').forEach((post) => {
+		post.classList.remove('re-hide');
+	});
 }
 
 // Observe feed for new posts

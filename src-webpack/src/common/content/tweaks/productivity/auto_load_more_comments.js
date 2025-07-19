@@ -1,104 +1,76 @@
-/* ===== Tweaks - Productivity - Auto Load More Comments ===== */
+/**
+ * Tweaks: Productivity - Auto Load More Comment
+ *
+ * @name autoLoadMoreComments
+ * @description Automatically load more comments as the user scrolls down the post comments page.
+ *
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
+ */
 
-//import { waitForAddedNode } from '../../../content_first/functions/tweak_loaders/main_observer';
-
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadAutoLoadMoreComments() {
 	BROWSER_API.storage.sync.get(['autoLoadMoreComments'], function (result) {
 		if (result.autoLoadMoreComments) autoLoadMoreComments(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function autoLoadMoreComments(value) {
-	if (redditVersion === 'newnew' && value === true) {
-		setTimeout(() => {
-			window.scrollTo(0, document.body.scrollHeight);
-		}, 2000);
-		setTimeout(() => {
-			document.documentElement.scrollTop = 0;
-		}, 3000);
-		/*function findLoadMoreButtonAndClick() {
-			const btn = document.querySelector('#comment-tree > :last-child:has(button) button');
-			if (btn) {
-				btn.click();
-				setTimeout(findLoadMoreButtonAndClick, 5000);
+	if (value) {
+		if (redditVersion === 'newnew') {
+			const viewMoreCommentBtn = document.querySelector('#top-level-more-comments-partial');
+			if (viewMoreCommentBtn) viewMoreCommentBtn.dispatchEvent(new Event('faceplate-enter', {bubbles: true}));
+			window.addEventListener('scroll', v3);
+
+			const comments = document.querySelector('shreddit-comment-tree');
+			if (comments) {
+				comments.querySelectorAll('shreddit-comment').forEach(expandComments);
+				observer.observe(comments);
+			}
+		} else if (redditVersion === 'old') {
+			window.addEventListener('scroll', v1);
+			const comments = document.querySelector('.commentarea');
+			if (comments) {
+				comments.querySelectorAll('.comment').forEach(expandComments);
+				observer.observe(comments);
 			}
 		}
-		waitForAddedNode(
-			{
-				query: '#comment-tree > :last-child:has(button) button',
-				parent: document.querySelector('body'),
-				recursive: true,
-				done: function (el) {
-					findLoadMoreButtonAndClick();
-				},
-			},
-			false
-		);*/
-		enableAutoLoadMoreCommentsNewNew();
-	} else if (redditVersion === 'new' && value === true) {
-		enableAutoLoadMoreCommentsNew();
-	} else if (redditVersion === 'old' && value === true) {
-		enableAutoLoadMoreCommentsOld();
-	} else if (value === false) {
-		disableAutoLoadMoreCommentsAll();
+	} else {
+		observer.disconnect();
+		window.removeEventListener('scroll', v1);
+		window.removeEventListener('scroll', v3);
 	}
 }
 
-let load_more_comments_button;
-
-// Function - Enable Auto Load More Comments - Old
-function enableAutoLoadMoreCommentsOld() {
-	load_more_comments_button = '.morecomments a';
-	window.addEventListener('scroll', loadMoreComments);
+function v1() {
+	document.querySelectorAll('.morecomments a').forEach(loadMoreComments);
 }
 
-// Function - Enable Auto Load More Comments - New
-function enableAutoLoadMoreCommentsNew() {
-	load_more_comments_button = '[id^="moreComments"] p';
-	window.addEventListener('scroll', loadMoreComments);
+function v3() {
+	document.querySelectorAll('faceplate-partial[src*="/more-comments/"]').forEach(loadMoreComments);
 }
 
-// Function - Enable Auto Load More Comments - New New
-function enableAutoLoadMoreCommentsNewNew() {
-	load_more_comments_button = 'faceplate-partial[src*="/more-comments/"]';
-	window.addEventListener('scroll', loadMoreComments);
+function expandComments(comment) {
+	if (redditVersion === 'old' && comment.classList.contains('collapsed') && comment.getAttribute('data-author') !== 'AutoModerator') {
+		comment.querySelector('a.expand').click();
+		comment.dataset.uncollapsed = 'true';
+		console.debug('[RedditEnhancer] autoLoadMoreComments: Comment uncollapsed:', comment);
+	} else if (redditVersion === 'newnew' && comment.getAttribute('author') !== 'AutoModerator') {
+		comment.removeAttribute('collapsed');
+		comment.setAttribute('re-uncollapsed', '');
+	}
 }
 
-// Function - Disable Auto Load More Comments - All
-function disableAutoLoadMoreCommentsAll() {
-	window.removeEventListener('scroll', loadMoreComments);
+function loadMoreComments(button) {
+	const rect = button.getBoundingClientRect();
+	if (rect.top >= window.innerHeight * -1 && rect.bottom <= window.innerHeight * 2) {
+		button.focus({ preventScroll: true });
+		button.click();
+	}
 }
 
-// Function to check for "load more comments" buttons on scroll
-function loadMoreComments() {
-	// Get the current scroll position
-	var scrollX = window.scrollX || window.pageXOffset;
-	var scrollY = window.scrollY || window.pageYOffset;
-
-	// Get the elements within the current scroll view
-	var elementsInViewport = document.querySelectorAll(load_more_comments_button);
-
-	var visibleElements = [];
-
-	elementsInViewport.forEach(function (element) {
-		var rect = element.getBoundingClientRect();
-		var elementX = rect.left + scrollX;
-		var elementY = rect.top + scrollY;
-
-		if (elementX >= scrollX && elementX <= scrollX + window.innerWidth && elementY >= scrollY && elementY <= scrollY + window.innerHeight) {
-			visibleElements.push(element);
-		}
+const observer = new ResizeObserver(function (mutations) {
+	mutations.forEach(function (mutation) {
+		mutation.target.querySelectorAll('.comment:not([data-uncollapsed]), shreddit-comment:not([re-uncollapsed])').forEach(expandComments);
 	});
-
-	// Load Comments
-	for (let i = 0; i < visibleElements.length; i++) {
-		setTimeout(() => {
-			visibleElements[i].focus({
-				preventScroll: true,
-			});
-			visibleElements[i].click();
-		}, i * 750);
-	}
-}
+});

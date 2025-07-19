@@ -23,17 +23,11 @@
 	"AutoExpand": {
 		"message": "Expanda para 100% se a largura da janela/tela for menor que:"
 	},
-	"AutoExpandComments": {
-		"message": "Expandir comentários ocultos automaticamente"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Isso pode fazer com que a página fique lenta e use muita RAM, especialmente se houver muitos comentários."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Carregar automaticamente mais comentários"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Mostrar opções de formatação automaticamente ao comentar"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Isso pode fazer com que a página fique lenta e use muita RAM, especialmente se houver muitos comentários."
 	},
 	"Background": {
 		"message": "Fundo"
@@ -73,9 +67,6 @@
 	},
 	"Blur": {
 		"message": "Desfocar"
-	},
-	"BlurBackgroundPostOverlay": {
-		"message": "Fundo desfoque atrás da sobreposição de post"
 	},
 	"BorderRadiusAmount": {
 		"message": "Raio do canto do tema"
@@ -131,29 +122,17 @@
 	"CompactPostLinkPreview": {
 		"message": "Visualizações de links de postagem compactos"
 	},
-	"CompactSubRuleList": {
-		"message": "Compactar a lista de regras do subreddit"
-	},
 	"Confirm": {
 		"message": "Confirm"
 	},
 	"Controversial": {
 		"message": "Controverso"
 	},
-	"ControversialSort": {
-		"message": "Mostrar o botão de classificação “Polêmicos”"
-	},
 	"CreatePost": {
 		"message": "Criar Postagem"
 	},
-	"CreatePostBgColour": {
-		"message": "Criar Postagem: Cor de Fundo"
-	},
 	"CreatePostBody": {
 		"message": "Criar Postagem: Corpo"
-	},
-	"CreatePostBorderColour": {
-		"message": "Criar Postagem: Cor da Borda"
 	},
 	"CreatePostTitle": {
 		"message": "Criar Postagem: Título"
@@ -185,15 +164,6 @@
 	"DefaultHomeFeedSortOption": {
 		"message": "Opção de classificação de feed doméstico padrão"
 	},
-	"DefaultSortFeedOptionGracePeriod": {
-		"message": "Substituir a opção de classificação padrão"
-	},
-	"DefaultSortFeedOptionOverrideInfo": {
-		"message": "A quantidade de tempo após a página ter sido redirecionada automaticamente, na qual você pode substituir a opção de classificação padrão."
-	},
-	"DisableBgFadePostOverlay": {
-		"message": "Desativar o fundo desaparecendo atrás da sobreposição de post"
-	},
 	"Disabled": {
 		"message": "Desabilitada"
 	},
@@ -202,6 +172,9 @@
 	},
 	"Drag": {
 		"message": "Arraste"
+	},
+	"DropShadow": {
+		"message": "Sombras Projetadas"
 	},
 	"EndTime": {
 		"message": "Fim do tempo (24)"
@@ -221,9 +194,6 @@
 	"FeedPostContent": {
 		"message": "Postagem de alimentação: Conteúdo"
 	},
-	"FeedPostMaxHeight": {
-		"message": "Altura da Ppostagem"
-	},
 	"FeedPostTitle": {
 		"message": "Postagem de alimentação: Título"
 	},
@@ -232,9 +202,6 @@
 	},
 	"FilterOptionsFor": {
 		"message": "Opções de filtro para"
-	},
-	"FitImage": {
-		"message": "Dimensionar imagens altas para caber no post"
 	},
 	"Font": {
 		"message": "Fonte"
@@ -296,9 +263,6 @@
 	"HideCompactViewThumbnails": {
 		"message": "Esconda as miniaturas em visão compacta"
 	},
-	"HideCreatePost": {
-		"message": "Ocultar “Criar publicação”"
-	},
 	"HideCreatePostButton": {
 		"message": "Ocultar botão “Criar postagem”"
 	},
@@ -347,12 +311,6 @@
 	"HideNsfwInSearchResults": {
 		"message": "Ocultar 'NSFW' nos resultados da pesquisa"
 	},
-	"HideOriginalScrollToTop": {
-		"message": "Ocultar o Botão Original de Rolagem para o Topo"
-	},
-	"HidePopularButton": {
-		"message": "Ocultar botão “Populares”"
-	},
 	"HidePostBackButton": {
 		"message": "Ocultar o botão Publicar Voltar"
 	},
@@ -364,9 +322,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Ocultar pós-carma"
-	},
-	"HidePostOverlaySidebar": {
-		"message": "Ocultar a barra lateral de sobreposição de postagem"
 	},
 	"HidePostSidebar": {
 		"message": "Ocultar a barra lateral do post"
@@ -395,9 +350,6 @@
 	"HideSearchSidebarNsfwUsers": {
 		"message": "Ocultar utilizadores NSFW na barra lateral da página de pesquisa"
 	},
-	"HideSeeFullImage": {
-		"message": "Ocultar “Ver Imagem Completa”"
-	},
 	"HideSideMenu": {
 		"message": "Limitar comentários de postagem"
 	},
@@ -422,9 +374,6 @@
 	"HideSideMenuTopicsSection": {
 		"message": "Ocultar a seção de tópicos"
 	},
-	"HideSidebarPolicy": {
-		"message": "Ocultar seção de políticas"
-	},
 	"HideSubSidebar": {
 		"message": "Ocultar a barra lateral do Sub Reddit"
 	},
@@ -436,9 +385,6 @@
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "Ocultar 'Tendências atuais' na barra de pesquisa"
-	},
-	"HideTurnOnNotificationsPopup": {
-		"message": "Ocultar “Ligue o pop-up de notificações”"
 	},
 	"HideUserProfilePics": {
 		"message": "Ocultar fotos de perfil de usuário nos comentários"
@@ -518,9 +464,6 @@
 	"ModerniseOldRedditInfo": {
 		"message": "Faz com que o reddit antigo se assemelhe mais ao novo reddit."
 	},
-	"MoveFeedToTopInSideMenu": {
-		"message": "Mova a seção de alimentação no menu lateral para o topo"
-	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Linhas de rosca de comentários multicoloridos"
 	},
@@ -550,9 +493,6 @@
 	},
 	"Old": {
 		"message": "Velha / Old"
-	},
-	"OldNewUI": {
-		"message": "Velho Novo UI"
 	},
 	"OldUI": {
 		"message": "Velho UI"
@@ -641,9 +581,6 @@
 	"PostVisitedTextColour": {
 		"message": "Postagem visitada: Cor de texto"
 	},
-	"PostVisitedTitleColour": {
-		"message": "Postagem visitada: Cor do título"
-	},
 	"PostWidth": {
 		"message": "Largura do postagem"
 	},
@@ -653,11 +590,8 @@
 	"Qa": {
 		"message": "Q&a"
 	},
-	"RUI2RemovalInfo": {
-		"message": "O Reddit descontinuou (Velho Novo UI / versão 2) do site. As opções para 'Velho Novo UI' continuarão sendo suportadas por enquanto, enquanto outras soluções alternativas para recuperá -lo ainda estão funcionando."
-	},
 	"RUI3RedirectInfo": {
-		"message": "A opção de redireccionamento para 'Nova Nova UI' já não é necessária, no entanto, pode utilizar esta opção para forçar links de (sh|old).reddit.com para www.reddit.com"
+		"message": "A opção de redireccionamento para Última UI (Nova Nova UI) já não é necessária, no entanto, pode utilizar esta opção para forçar links de (sh|old|new).reddit.com para www.reddit.com"
 	},
 	"Rate": {
 		"message": "Avaliar / Comentário"
@@ -761,12 +695,6 @@
 	"Settings": {
 		"message": "Configurações"
 	},
-	"Shadow": {
-		"message": "Sombras Projetadas"
-	},
-	"ShowAllButton": {
-		"message": "Adicionar botão “r/All”"
-	},
 	"ShowPostAuthor": {
 		"message": "Mostrar autor da postagem"
 	},
@@ -778,9 +706,6 @@
 	},
 	"ShowProfilePicturesOnComments": {
 		"message": "Mostre fotos de perfil em comentários"
-	},
-	"ShowRising": {
-		"message": "Sempre mostrar o botão de classificação “Em ascensão”"
 	},
 	"ShowUpvoteRatio": {
 		"message": "Mostrar porcentagem de votação posterior em pós-visualização"
@@ -812,9 +737,6 @@
 	"SidebarBackgroundColour": {
 		"message": "Barra Lateral: Cor de fundo"
 	},
-	"SidebarBorderColour": {
-		"message": "Barra Lateral: Cor da borda"
-	},
 	"SidebarTextColour": {
 		"message": "Barra Lateral: Cor de texto"
 	},
@@ -826,15 +748,6 @@
 	},
 	"SortBar": {
 		"message": "Barra de classificação"
-	},
-	"SortBgColour": {
-		"message": "Classificar: Cor de Fundo"
-	},
-	"SortBorderColour": {
-		"message": "Classificar: Cor da Borda"
-	},
-	"SortTextColour": {
-		"message": "Classificar: Cor do Texto"
 	},
 	"StartTime": {
 		"message": "Hora de início (24)"
@@ -868,12 +781,6 @@
 	},
 	"TextPostPreviewMaxHeight": {
 		"message": "Altura da visualização de texto"
-	},
-	"TextScroll": {
-		"message": "Adicionar barra de rolagem a postagens de texto longo"
-	},
-	"TextScrollInfo": {
-		"message": "Há um limite. Você pode ter que abrir o post se for muito longo."
 	},
 	"Theme": {
 		"message": "Tema"
@@ -937,9 +844,6 @@
 	},
 	"VideoPlayerInfo": {
 		"message": "Reprodutor de vídeo rápido e leve com controles de velocidade baseados em videojs. Tente fazer isso se você tiver problemas de carregamento com o próprio player do Reddit."
-	},
-	"VideoPlayerReplacement": {
-		"message": "Leitor de vídeo alternativo"
 	},
 	"Welcome": {
 		"message": "Boas-vindas!"

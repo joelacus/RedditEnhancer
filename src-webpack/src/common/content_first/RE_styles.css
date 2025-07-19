@@ -27,6 +27,40 @@ div.re-banner.error {
 	color: var(--color-banner-error-text);
 }
 
+/* ========== MOBILE ========== */
+@media (max-width: 1200px) {
+	shreddit-app.overflow-visible {
+		width: 100vw;
+		overflow: hidden;
+	}
+	.main-container {
+		gap: 1px;
+		padding-bottom: 0;
+	}
+	div.mt-xs[slot='post-flair'] {
+		margin: 0.25rem 0;
+	}
+	comment-body-header > div.items-center {
+		flex-direction: column;
+		align-items: end;
+	}
+	shreddit-comments-sort-dropdown.mt-sm {
+		margin-top: 0.5rem;
+	}
+	#re-view-crossposts {
+		line-height: 40px;
+		margin-top: 0;
+	}
+	#re-crosspost-list {
+		padding-inline: 1rem;
+	}
+	.re-post-link {
+		display: block;
+		margin-top: 0.75rem;
+		margin-right: 1rem;
+	}
+}
+
 /* ========== BACK TO TOP BUTTON IN HEADER ========== */
 .re-to-top-button:hover,
 .re-all-button:hover {
@@ -73,22 +107,23 @@ shreddit-app[pagetype='search_results'] main.main {
 .re-feed.re-centre-feed-3 {
 	translate: -136px;
 }
-/* Align the sidebar with main container */
-shreddit-app[routename='frontpage'] #right-sidebar-container,
-shreddit-app[routename='all'] #right-sidebar-container,
-shreddit-app[routename='popular'] #right-sidebar-container,
-shreddit-app[routename='subreddit'] #right-sidebar-container {
-	margin-top: 2rem;
-}
-shreddit-app[routename='subreddit'] #right-sidebar-container faceplate-partial > aside,
-shreddit-app[routename='subreddit_wiki'] #right-sidebar-container faceplate-partial > aside,
-shreddit-app[routename='post_page'] #right-sidebar-container faceplate-partial > aside,
-shreddit-app[routename='comment_page'] #right-sidebar-container faceplate-partial > aside {
+/* Align the main container */
+shreddit-app[routename='frontpage'] main.main,
+shreddit-app[routename='all'] main.main,
+shreddit-app[routename='popular'] main.main,
+shreddit-app[routename='subreddit'] main.main,
+shreddit-app[routename='custom_feed'] main.main {
 	margin-top: 1rem;
-	padding-top: 0;
 }
-shreddit-app[pagetype='custom_feed'] #right-sidebar-container {
-	margin-top: 3.5rem;
+shreddit-app[routename='subreddit'] #right-sidebar-container aside,
+shreddit-app[routename='subreddit_wiki'] #right-sidebar-container aside,
+shreddit-app[routename='post_page'] #right-sidebar-container aside,
+shreddit-app[routename='comment_page'] #right-sidebar-container aside {
+	margin-top: 1rem;
+	padding-block: 0;
+}
+shreddit-app[routename='subreddit_wiki'] shreddit-title {
+	display: none;
 }
 shreddit-app[pagetype='search_results'] main.main {
 	margin-top: 1rem;
@@ -175,6 +210,28 @@ div[data-testid='search-results-sidebar'] {
 	visibility: hidden !important;
 }
 
+/* ========== FULL-WIDTH SORT DROPDOWN ========== */
+#subgrid-container > .mb-xs,
+#subgrid-container > .my-xs {
+	margin: 0;
+	padding: 4px 0;
+
+	@media (min-width: 960px) {
+		> .s\:invisible {
+			display: none;
+		}
+		> shreddit-async-loader {
+			display: block;
+			width: var(--re-main-container-width, 756px);
+			margin: 0 auto;
+			padding: 0 1.5rem;
+		}
+	}
+}
+shreddit-title + div.my-xs {
+	display: none;
+}
+
 /* ========== OLD UI ========== */
 /* (1) Don't move span.pagename above the tab bar on certain pages, i.e. multireddit pages;
    (2) All feed post thumbnails should have the same size of 70-by-70 pixels and be centered */
@@ -197,21 +254,26 @@ a.thumbnail > img {
 
 /* ========== SHOW POST AUTHORS (New New UI) ========== */
 /* @see ../content/productivity/show_post_author.js */
+.re-post-author-active reddit-header-large {
+	z-index: 10;
+}
 .re-post-author {
 	color: var(--color-neutral-content-weak);
 	z-index: 4;
 }
-:not([post-type='crosspost']) .re-post-author::before,
-.re-post-author-active shreddit-feed :not([post-type='crosspost']) span[slot='authorName']::before {
-	content: 'Posted by\00a0';
-	color: var(--color-neutral-content-weak);
-	align-self: center;
-}
-[post-type='crosspost'] .re-post-author::before,
-.re-post-author-active shreddit-feed [post-type='crosspost'] span[slot='authorName']::before {
-	content: 'Crossposted by\00a0';
-	color: var(--color-neutral-content-weak);
-	align-self: center;
+@media (min-width: 768px) {
+	:not([post-type='crosspost']) .re-post-author::before,
+	.re-post-author-active shreddit-feed :not([post-type='crosspost']) span[slot='authorName']::before {
+		content: 'Posted by\00a0';
+		color: var(--color-neutral-content-weak);
+		align-self: center;
+	}
+	[post-type='crosspost'] .re-post-author::before,
+	.re-post-author-active shreddit-feed [post-type='crosspost'] span[slot='authorName']::before {
+		content: 'Crossposted by\00a0';
+		color: var(--color-neutral-content-weak);
+		align-self: center;
+	}
 }
 .re-post-author a {
 	color: var(--color-neutral-content-weak);
@@ -286,6 +348,7 @@ article:has(> .re-vote-panel) {
 	flex-direction: column;
 	background-color: transparent;
 	color: var(--button-color-text-default);
+	height: revert;
 }
 .re-vote-panel button[upvote],
 .re-vote-panel button[downvote] {
@@ -324,7 +387,13 @@ div[id^='vote-arrows-t3_'] button[data-click-id='upvote'] ~ .re-upvote-ratio {
 	margin-bottom: 6px;
 }
 .re-vote-panel .re-upvote-ratio {
-	font-size: 9px;
+	font-size: 10px;
+}
+:not(.re-vote-panel) ::part(re-upvote-ratio):before {
+	content: '\00a0(';
+}
+:not(.re-vote-panel) ::part(re-upvote-ratio):after {
+	content: ')';
 }
 
 /* ========== BIONIC READER ========== */
@@ -397,9 +466,9 @@ shreddit-feed article:focus-within {
 #overlayScrollContainer .undefined {
 	min-width: 16px;
 }
-[bundlename='comment_body_header'] {
+/* [bundlename='comment_body_header'] {
 	z-index: 9;
-}
+} */
 navigation-indicator {
 	z-index: 999 !important;
 }
@@ -452,6 +521,9 @@ shreddit-composer::part(md-inner) {
 	padding: 0.25rem 1rem;
 	font-family: var(--font-sans);
 }
+.re-hide-awards award-button {
+	display: none !important;
+}
 
 /* ========== SCROLL TEXT POST ========== */
 .re-text-scroll div[data-click-id='text'][style='max-height: 250px;'],
@@ -495,10 +567,64 @@ shreddit-composer::part(md-inner) {
 	--re-theme-searchbar-bg: #f6f7f8;
 	--re-theme-searchbar-dropdown-bg: white;
 	--re-theme-post-bg: white;
-	--re-theme-post-text-2: black;
+	--re-theme-post-text-2: #787c7e;
 	--re-theme-post-border: #ccc;
 	--re-theme-sidebar-text: black;
 	--re-theme-sidebar-bg: white;
 	--re-theme-sidemenu-bg: white;
 	--re-background-image: #dae0e6;
+}
+
+/* Reddit's changes for signed-out users */
+.\@container\/story-cluster div {
+	margin-bottom: var(--re-post-separator-height);
+	padding: 1rem;
+	border: 1px solid var(--re-theme-post-border);
+	border-radius: var(--re-theme-border-radius);
+	background-color: var(--re-theme-post-bg);
+}
+
+/* ========== WIKI (for pilot subreddits such as r/privacy) ========== */
+#subreddit-wiki-header {
+	gap: 0;
+	margin-bottom: 0;
+}
+#subreddit-wiki-header.wiki-pilot-communities {
+	position: revert;
+	padding: 0 1rem;
+	z-index: 0;
+	margin-bottom: 1rem;
+}
+#subreddit-wiki-header + div {
+	padding: 1rem;
+	margin-bottom: 1rem;
+}
+#subreddit-wiki-header ~ .wiki-content.wiki-pilot-communities {
+	padding: 1rem;
+	background-color: var(--re-theme-post-bg, var(--color-neutral-background));
+	border-radius: var(--re-theme-border-radius, 4px);
+}
+#wikis-right-rail-container {
+	padding: 0;
+}
+#wikis-right-rail-container > div {
+	margin-block: 1rem;
+	padding: 0.75rem;
+	background-color: var(--re-theme-post-bg, var(--color-neutral-background));
+	border-radius: var(--re-theme-border-radius, 4px);
+}
+#wikis-right-rail-container > nav {
+	padding: 0;
+	height: revert;
+	border-radius: var(--re-theme-border-radius, 4px);
+}
+#wikis-right-rail-container > nav > div > div.mb-sm {
+	padding: 0.75rem;
+	margin: 0;
+	background-color: var(--color-tone-4);
+}
+
+/* ========== View Crossposts ========== */
+#re-view-crossposts {
+	cursor: pointer;
 }

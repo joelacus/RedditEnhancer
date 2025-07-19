@@ -22,13 +22,15 @@
 [routename='comments_page'] div.crosspost-title a,
 [routename='profile_post_page'] shreddit-post h1[slot='title'],
 [routename='profile_post_page'] div.crosspost-title a,
+[routename='profile_post_page_comments'] shreddit-post h1[slot='title'],
+[routename='profile_post_page_comments'] div.crosspost-title a,
 mod-queue-app shreddit-post h1[slot='title'] > a {
 	font-size: var(--re-post-title-font-size, 1.5rem);
 	font-weight: var(--re-post-title-font-weight, 600);
 	line-height: 1.4;
 }
 shreddit-post h1[slot='title'] {
-	margin: 0.5rem 0;
+	margin: 0.35rem 0 0.5rem;
 }
 
 /* Post text content in detailed post view */
@@ -42,7 +44,10 @@ shreddit-post a[slot="text-body"] div:has(>p),
 shreddit-profile-comment [id*="-content"],
 /* x-posts and link posts */
 div[slot="post-media-container"] div.md,
-[routename="post_page"] shreddit-post .re-media-link {
+[routename="post_page"] shreddit-post .re-media-link,
+/* wiki pilot */
+.wiki-content.wiki-pilot-communities .md,
+.wiki-content.wiki-pilot-communities .md p {
 	font-size: var(--re-post-content-font-size, 14px);
 	font-weight: var(--re-post-content-font-weight);
 	line-height: 1.5;
@@ -108,6 +113,7 @@ div[data-test-id='comment-submission-form-markdown'] textarea {
 shreddit-feed shreddit-post a[slot='title'],
 shreddit-feed shreddit-post h1[slot='title'],
 shreddit-feed div.crosspost-title a,
+shreddit-feed div[slot="post-media-container"] .text-18,
 search-telemetry-tracker a[data-testid='post-title-text'],
 faceplate-tracker[data-testid='search-post'] a[data-testid='post-title-text'],
 faceplate-tracker h2.i18n-search-comment-post-title,

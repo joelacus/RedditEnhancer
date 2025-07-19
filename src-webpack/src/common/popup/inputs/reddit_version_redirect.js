@@ -1,7 +1,7 @@
 /* ===== Inputs / Auto Redirect To Reddit Version ===== */
 
 import i18next from 'i18next';
-import { selectFilterShowNewNewVersion, selectFilterShowNewVersion, selectFilterShowOldVersion } from './filter_version_select';
+import { selectFilterShowNewNewVersion, selectFilterShowOldVersion } from './filter_version_select';
 
 const redirect_dropdown = document.querySelector('#select-reddit-version');
 const redirect_dropdownMenu = document.querySelector('#select-reddit-version-menu');
@@ -32,19 +32,14 @@ redirect_dropdownMenu.addEventListener('click', function (e) {
 		var version = e.target.parentNode.getAttribute('data-version');
 	}
 	if (version === 'old') {
-		selectFilterShowOldVersion(i18next.t('OldUI.message'));
-	} else if (version === 'new') {
-		if (localStorage.getItem('DontShowAgainOldNewUiWarning') === null) {
-			document.querySelector('#old-new-ui-removal-message').style.display = 'grid';
-		}
-		selectFilterShowNewVersion(i18next.t('OldNewUI.message'));
+		selectFilterShowOldVersion(i18next.t('Old.message'));
 	} else if (version === 'newnew') {
-		selectFilterShowNewNewVersion(i18next.t('NewNewUI.message'));
+		selectFilterShowNewNewVersion(i18next.t('Latest.message'));
 		if (localStorage.getItem('DontShowAgainNewNewUiMessage') === null) {
 			document.querySelector('#new-new-ui-message').style.display = 'grid';
 		}
 	} else if (version === 'off') {
-		selectFilterShowNewNewVersion(i18next.t('NewNewUI.message'));
+		selectFilterShowNewNewVersion(i18next.t('Latest.message'));
 	}
 	document.querySelector('#select-reddit-version .select').querySelector('span').textContent = e.target.textContent;
 	redirect_dropdown.classList.remove('active');

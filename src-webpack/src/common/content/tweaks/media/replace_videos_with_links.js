@@ -1,16 +1,20 @@
-/* ===== Tweaks - Media - Replace Post Videos With Links ===== */
+/**
+ * Tweaks: Media - Replace Post Videos With Links
+ *
+ * @name replacePostVideosWithLinks
+ * @description Hide post videos and show links instead on feeds.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-// Hide post videos and show links instead on feeds.
-
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadReplacePostVideosWithLinks() {
 	BROWSER_API.storage.sync.get(['replacePostVideosWithLinks'], function (result) {
 		replacePostVideosWithLinks(result.replacePostVideosWithLinks);
 	});
 }
 
-/* === Main Functions === */
-
+/* === Enable/Disable The Feature === */
 export function replacePostVideosWithLinks(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
@@ -25,7 +29,7 @@ export function replacePostVideosWithLinks(value) {
 	}
 }
 
-// Function - Enable Replace Videos With Links
+// Enable Replace Videos With Links - RV3
 function enableReplacePostVideosWithLinks() {
 	// Append Stylesheet
 	if (!document.head.querySelector('style[id="re-replace-post-videos-with-links"]')) {
@@ -71,7 +75,7 @@ function enableReplacePostVideosWithLinks() {
 	}
 }
 
-// Function - Disable Replace Videos With Links
+// Disable Replace Videos With Links - RV3
 function disableReplacePostVideosWithLinks() {
 	document.querySelectorAll('shreddit-feed shreddit-post:has(shreddit-player-2) [slot="post-media-container"]').forEach((container) => {
 		// Show Videos
@@ -104,15 +108,3 @@ const observer = new MutationObserver((mutations) => {
 		});
 	});
 });
-
-/*
-const blurred_observer = new MutationObserver((mutations) => {
-	mutations.forEach((mutation) => {
-		mutation.addedNodes.forEach((node) => {
-			console.log(node);
-		});
-	});
-});
-
-blurred_observer.observe(document.querySelector('shreddit-post:has(shreddit-blurred-container)'), { childList: true, subtree: true });
-*/

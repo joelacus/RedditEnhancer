@@ -1,6 +1,12 @@
-/* ===== Tweaks - Accessibility - Resize Font ===== */
+/**
+ * Tweaks: Fonts - Resize Fonts
+ *
+ * @description Resize some of the text on the website.
+ *
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadResizeFont() {
 	BROWSER_API.storage.sync.get(['postTitleFontSize', 'postContentFontSize', 'postCommentsFontSize', 'feedPostTitleFontSize', 'feedPostContentFontSize', 'createPostTitleFontSize', 'createPostBodyFontSize'], function (result) {
 		if (result.postTitleFontSize) postTitleFontSize(result.postTitleFontSize);
@@ -13,7 +19,7 @@ export function loadResizeFont() {
 	});
 }
 
-/* === Main Functions === */
+/* === Enable/Disable The Features === */
 
 // Resize "Post Title" Font
 export function postTitleFontSize(value) {

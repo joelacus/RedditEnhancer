@@ -1,63 +1,37 @@
-/* ===== Tweaks - Productivity - Add Scroll Bar To Tall Images ===== */
+/**
+ * Tweaks: Media - Add Scroll Bar To Tall Images
+ *
+ * @name imageScroll
+ * @description Add a scroll bar to tall images so you can see the entire image if it gets cut off.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-import { disableFitImageNew } from '../media/scale_tall_images_to_fit_post';
 import { disableScalePostToFitImageAll } from './scale_post_to_fit_image';
 //import { disableDragImageToResizeAll } from './scale_image_on_drag';
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadImageScroll() {
 	BROWSER_API.storage.sync.get(['imageScroll'], function (result) {
 		if (result.imageScroll) imageScroll(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function imageScroll(value) {
-	if (redditVersion === 'new') {
-		if (value === true) {
-			disableFitImageNew();
-			disableScalePostToFitImageAll();
-			//disableDragImageToResizeAll();
-			enableImageScrollNew();
-		} else if (value === false) {
-			disableImageScrollAll();
-		}
-	} else if (redditVersion === 'newnew') {
+	if (redditVersion === 'newnew') {
 		if (value === true) {
 			disableScalePostToFitImageAll();
 			//disableDragImageToResizeAll();
-			enableImageScrollNewNew();
-		} else if (value === false) {
+			enableImageScrollRV3();
+		} else {
 			disableImageScrollAll();
 		}
 	}
 }
 
-// Function - Enable Image Scroll - New
-function enableImageScrollNew() {
-	const styleElement = document.createElement('style');
-	styleElement.id = 're-image-scroll';
-	styleElement.textContent = `:root {
-									--re-limit-image-width: 100%;
-								}
-								.Post .media-element div:first-child > img,
-								.Post figure > div > img {
-									width: var(--re-limit-image-width) !important;
-  									object-fit: cover;
-  									height: fit-content;
-								}
-								.Post div:has(> img) {
-									overflow: auto;
-								}
-								.Post figure div:first-child {
-									overflow-y: scroll;
-									height: 100%;
-								}`;
-	document.head.insertBefore(styleElement, document.head.firstChild);
-}
-
-// Function - Enable Image Scroll - New New
-function enableImageScrollNewNew() {
+// Enable Image Scroll - RV3
+function enableImageScrollRV3() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-image-scroll';
 	styleElement.textContent = `:root {
@@ -95,7 +69,7 @@ function enableImageScrollNewNew() {
 	}
 }
 
-// Function - Replace <shreddit-aspect-ratio> with <div>
+// Replace <shreddit-aspect-ratio> with <div>
 function replaceTag(tag) {
 	const newDiv = document.createElement('div');
 	Array.from(tag.attributes).forEach((attr) => {
@@ -107,7 +81,7 @@ function replaceTag(tag) {
 	tag.parentNode.replaceChild(newDiv, tag);
 }
 
-// Function - Revert <div> to <shreddit-aspect-ratio>
+// Revert <div> to <shreddit-aspect-ratio>
 function revertTag(tag) {
 	const newSar = document.createElement('shreddit-aspect-ratio');
 	Array.from(tag.attributes).forEach((attr) => {
@@ -135,7 +109,7 @@ const observer = new MutationObserver((mutations) => {
 	});
 });
 
-// Function - Disable Image Scroll - All
+// Disable Image Scroll - All
 export function disableImageScrollAll() {
 	if (redditVersion === 'newnew') {
 		observer.disconnect();

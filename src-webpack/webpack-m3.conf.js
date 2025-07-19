@@ -17,7 +17,7 @@ module.exports = {
 		restore_config: './src/common/restore_config.js',
 	},
 	output: {
-		path: path.resolve(__dirname, 'dist/edge'),
+		path: path.resolve(__dirname, 'dist/chrome'),
 		filename: '[name].js',
 		clean: true,
 	},
@@ -74,21 +74,6 @@ module.exports = {
 					to: 'manifest.json',
 				},
 				{
-					context: path.resolve(__dirname, 'src/common/videojs'),
-					from: 'video.js',
-					to: 'videojs/video.min.js',
-				},
-				{
-					context: path.resolve(__dirname, 'src/common/videojs'),
-					from: 'vtt.js',
-					to: 'videojs',
-				},
-				{
-					context: 'node_modules/video.js/dist/',
-					from: 'video-js.css',
-					to: 'videojs',
-				},
-				{
 					context: path.resolve(__dirname, 'src/common'),
 					from: 'restore_config.html',
 					to: 'restore_config.html',
@@ -122,13 +107,13 @@ module.exports = {
 					context: path.resolve(__dirname, 'src/common'),
 					from: 'content/tweaks/font/RE_font.css',
 					to: 'RE_font.css',
-				}
+				},
 			],
 		}),
 		new webpack.DefinePlugin({
 			BROWSER_API: 'chrome',
 			CHECK_LEGACY_FIREFOX: false,
-			CHECK_LEGACY_EDGE: true,
+			IS_CHROME: true,
 		}),
 	],
 	optimization: {

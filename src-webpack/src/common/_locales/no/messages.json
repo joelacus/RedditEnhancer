@@ -23,17 +23,11 @@
 	"AutoExpand": {
 		"message": "Utvid til 100 % hvis vinduet/skjermbredden er mindre enn:"
 	},
-	"AutoExpandComments": {
-		"message": "Utvid automatisk skjulte kommentarer"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Dette kan føre til at siden blir tregere og bruker mye RAM, spesielt hvis det er mange kommentarer."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Last inn flere kommentarer automatisk"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Vis formateringsalternativer automatisk når du kommenterer"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Dette kan føre til at siden blir tregere og bruker mye RAM, spesielt hvis det er mange kommentarer."
 	},
 	"Background": {
 		"message": "Bakgrunn"
@@ -113,17 +107,8 @@
 	"Controversial": {
 		"message": "Kontroversielt / Controversial"
 	},
-	"ControversialSort": {
-		"message": "Vis den 'kontroversielle' sorteringsknappen"
-	},
 	"CreatePost": {
 		"message": "Opprett Innlegg"
-	},
-	"CreatePostBgColour": {
-		"message": "Opprett Innlegg: Bakgrunnsfarge"
-	},
-	"CreatePostBorderColour": {
-		"message": "Opprett Innlegg: Kantfarge"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Tilpasset bakgrunnslenke"
@@ -149,6 +134,9 @@
 	"Drag": {
 		"message": "Dra"
 	},
+	"DropShadow": {
+		"message": "Slipp skygger"
+	},
 	"EndTime": {
 		"message": "Sluttid (24)"
 	},
@@ -157,12 +145,6 @@
 	},
 	"Feed": {
 		"message": "Strøm"
-	},
-	"FeedPostMaxHeight": {
-		"message": "Innlegg høyde"
-	},
-	"FitImage": {
-		"message": "Skala høye bilder for å passe innlegg"
 	},
 	"Header": {
 		"message": "Overskrift"
@@ -190,9 +172,6 @@
 	},
 	"HideCompactViewThumbnails": {
 		"message": "Skjul miniatyrbildene i kompakt visning"
-	},
-	"HideCreatePost": {
-		"message": "Skjul 'Lag innlegg'"
 	},
 	"HideCreatePostButton": {
 		"message": "Skjul 'Opprett innlegg' knappen"
@@ -230,17 +209,8 @@
 	"HideNotificationButton": {
 		"message": "Skjul 'Varsling' knappen"
 	},
-	"HideOriginalScrollToTop": {
-		"message": "Skjul den opprinnelige rulle til topp-knappen"
-	},
-	"HidePopularButton": {
-		"message": "Skjul den 'Populære' knappen"
-	},
 	"HidePostHiddenMessage": {
 		"message": "Skjul 'Legg inn skjult' melding"
-	},
-	"HidePostOverlaySidebar": {
-		"message": "Skjul sidefeltet for innleggsoverlegg"
 	},
 	"HidePostSidebar": {
 		"message": "Skjul innleggssidefeltet"
@@ -262,9 +232,6 @@
 	},
 	"HideSearchSidebar": {
 		"message": "Skjul søkesidefeltet"
-	},
-	"HideSeeFullImage": {
-		"message": "Skjul 'Se hele bildet'"
 	},
 	"HideSideMenu": {
 		"message": "Skjul sidemenyen"
@@ -290,9 +257,6 @@
 	"HideSideMenuTopicsSection": {
 		"message": "Skjul Emnedelen"
 	},
-	"HideSidebarPolicy": {
-		"message": "Skjul politikk-seksjonen"
-	},
 	"HideSubSidebar": {
 		"message": "Skjul Sub Reddit sidefeltet"
 	},
@@ -301,9 +265,6 @@
 	},
 	"HideSubSidebarWhitelistInfo": {
 		"message": "Skjul deg bare på disse subreddits:"
-	},
-	"HideTurnOnNotificationsPopup": {
-		"message": "Skjul 'Get the best of' popup"
 	},
 	"HideUserProfilePics": {
 		"message": "Skjul brukerprofilbilder i kommentarene"
@@ -374,9 +335,6 @@
 	"ModerniseOldReddit": {
 		"message": "Modernisere old.reddit"
 	},
-	"MoveFeedToTopInSideMenu": {
-		"message": "Flytt 'Feed' delen i sidemenyen til toppen"
-	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Flerfargede kommentartrådelinjer"
 	},
@@ -400,9 +358,6 @@
 	},
 	"Old": {
 		"message": "Gammel / Old"
-	},
-	"OldNewUI": {
-		"message": "Gammel Ny UI"
 	},
 	"OldUI": {
 		"message": "Gammel UI"
@@ -469,9 +424,6 @@
 	},
 	"PostTitleContentColour": {
 		"message": "Innlegg: Tittel og tekstinnholdsfarge"
-	},
-	"PostVisitedTitleColour": {
-		"message": "Besøkte innleggstittelfarge"
 	},
 	"PostWidth": {
 		"message": "Bredde på innlegg"
@@ -551,12 +503,6 @@
 	"Settings": {
 		"message": "Innstillinger"
 	},
-	"Shadow": {
-		"message": "Slipp skygger"
-	},
-	"ShowAllButton": {
-		"message": "Legg til 'r/All' knappen"
-	},
 	"ShowPostAuthor": {
 		"message": "Vis Innleggsforfatter"
 	},
@@ -565,9 +511,6 @@
 	},
 	"ShowPostNumbers": {
 		"message": "Legg til postnummer"
-	},
-	"ShowRising": {
-		"message": "Vis alltid 'Rising-knappen'"
 	},
 	"SideMenu": {
 		"message": "Sidemeny"
@@ -587,9 +530,6 @@
 	"SidebarBackgroundColour": {
 		"message": "Sidefelt: Bakgrunnsfarge"
 	},
-	"SidebarBorderColour": {
-		"message": "Sidefelt: Kantfarge"
-	},
 	"SidebarTextColour": {
 		"message": "Sidefelt: Tekstfarge"
 	},
@@ -598,15 +538,6 @@
 	},
 	"SortBar": {
 		"message": "Sortere"
-	},
-	"SortBgColour": {
-		"message": "Sortere: Bakgrunnsfarge"
-	},
-	"SortBorderColour": {
-		"message": "Sortere: Kantfarge"
-	},
-	"SortTextColour": {
-		"message": "Sortere: Tekstfarge"
 	},
 	"StartTime": {
 		"message": "Starttid (24)"
@@ -628,12 +559,6 @@
 	},
 	"Text": {
 		"message": "Tekst"
-	},
-	"TextScroll": {
-		"message": "Legg til rullefelt i lange tekstinnlegg"
-	},
-	"TextScrollInfo": {
-		"message": "Det er en grense. Du må kanskje åpne innlegget hvis det er veldig langt."
 	},
 	"Theme": {
 		"message": "Tema"
@@ -691,9 +616,6 @@
 	},
 	"VideoPlayerInfo": {
 		"message": "Rask, lett videospiller med hastighetskontroll basert på videojs. Prøv dette hvis du har lastingsproblemer med reddits egen spiller."
-	},
-	"VideoPlayerReplacement": {
-		"message": "Alternativ videospiller"
 	},
 	"Whitelist": {
 		"message": "Hviteliste"

@@ -8,12 +8,6 @@
 	"Centre": {
 		"message": "Center"
 	},
-	"CreatePostBgColour": {
-		"message": "Create Post: Background Color"
-	},
-	"CreatePostBorderColour": {
-		"message": "Create Post: Border Color"
-	},
 	"HeaderBgColour": {
 		"message": "Header Background Color"
 	},
@@ -50,9 +44,6 @@
 	"PostTitleContentColour": {
 		"message": "Post: Title and Text Content Color"
 	},
-	"PostVisitedTitleColour": {
-		"message": "Visited Post Title Color"
-	},
 	"SearchbarBgColour": {
 		"message": "Searchbar: Background Color"
 	},
@@ -71,20 +62,8 @@
 	"SidebarBackgroundColour": {
 		"message": "Sidebar: Background Color"
 	},
-	"SidebarBorderColour": {
-		"message": "Sidebar: Border Color"
-	},
 	"SidebarTextColour": {
 		"message": "Sidebar: Text Color"
-	},
-	"SortBgColour": {
-		"message": "Sort: Background Color"
-	},
-	"SortBorderColour": {
-		"message": "Sort: Border Color"
-	},
-	"SortTextColour": {
-		"message": "Sort: Text Color"
 	},
 	"ThemeBlacklistInfo": {
 		"message": "Use theme colors globally, except for these subreddits:"

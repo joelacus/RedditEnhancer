@@ -1,8 +1,13 @@
-/* ===== Tweaks - Hide - Side Menu Sections ===== */
+/**
+ * Tweaks: Hide Elements - Hide Side Menu Sections
+ *
+ * @description Hide the various sections in the side menu.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHideSideMenuSections() {
-	// Hide Top Section
 	BROWSER_API.storage.sync.get(['hideSideMenuTopSection', 'hideSideMenuModerationSection', 'hideSideMenuRecentSection', 'hideSideMenuCommunitiesSection', 'hideSideMenuCustomFeedsSection', 'hideSideMenuResourcesSection', 'hideSideMenuTopicsSection'], function (result) {
 		if (result.hideSideMenuTopSection) hideSideMenuTopSection(true);
 		if (result.hideSideMenuModerationSection) hideSideMenuModerationSection(true);
@@ -14,88 +19,18 @@ export function loadHideSideMenuSections() {
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Features === */
 
-// Hide Top Section
+/* = Hide Top Section = */
 export function hideSideMenuTopSection(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHideSideMenuTopSection();
-		} else if (value === false) {
-			disableHideSideMenuTopSection();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableHideSideMenuTopSection();
+	} else {
+		disableHideSideMenuTopSection();
 	}
 }
 
-// Hide Moderation Section
-export function hideSideMenuModerationSection(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHideSideMenuModerationSection();
-		} else if (value === false) {
-			disableHideSideMenuModerationSection();
-		}
-	}
-}
-
-// Hide Recent Section
-export function hideSideMenuRecentSection(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHideSideMenuRecentSection();
-		} else if (value === false) {
-			disableHideSideMenuRecentSection();
-		}
-	}
-}
-
-// Hide Custom Feeds Section
-export function hideSideMenuCustomFeedsSection(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHideSideMenuCustomFeedsSection();
-		} else if (value === false) {
-			disableHideSideMenuCustomFeedsSection();
-		}
-	}
-}
-
-// Hide Communities Section
-export function hideSideMenuCommunitiesSection(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHideSideMenuCommunitiesSection();
-		} else if (value === false) {
-			disableHideSideMenuCommunitiesSection();
-		}
-	}
-}
-
-// Hide Resources Section
-export function hideSideMenuResourcesSection(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHideSideMenuResourcesSection();
-		} else if (value === false) {
-			disableHideSideMenuResourcesSection();
-		}
-	}
-}
-
-// Hide Topics Section
-export function hideSideMenuTopicsSection(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableHideSideMenuTopicsSection();
-		} else if (value === false) {
-			disableHideSideMenuTopicsSection();
-		}
-	}
-}
-
-/* === Enable/Disable Functions === */
-
-// Function - Enable Hide the Top Section - New New
+// Enable Hide the Top Section - RV3
 function enableHideSideMenuTopSection() {
 	if (!document.head.querySelector('style[id="re-hide-side-menu-top-section"]')) {
 		const styleElement = document.createElement('style');
@@ -108,7 +43,7 @@ function enableHideSideMenuTopSection() {
 	}
 }
 
-// Function - Disable Hide the Top Section - New New
+// Disable Hide the Top Section - RV3
 function disableHideSideMenuTopSection() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-top-section"]');
 	dynamicStyleElements.forEach((element) => {
@@ -116,7 +51,16 @@ function disableHideSideMenuTopSection() {
 	});
 }
 
-// Function - Enable Hide the Moderation Section - New New
+/* = Hide Moderation Section = */
+export function hideSideMenuModerationSection(value) {
+	if (redditVersion === 'newnew' && value) {
+		enableHideSideMenuModerationSection();
+	} else {
+		disableHideSideMenuModerationSection();
+	}
+}
+
+// Enable Hide the Moderation Section - RV3
 function enableHideSideMenuModerationSection() {
 	if (!document.head.querySelector('style[id="re-hide-side-menu-moderation-section"]')) {
 		const styleElement = document.createElement('style');
@@ -129,7 +73,7 @@ function enableHideSideMenuModerationSection() {
 	}
 }
 
-// Function - Disable Hide the Moderation Section - New New
+// Disable Hide the Moderation Section - RV3
 function disableHideSideMenuModerationSection() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-moderation-section"]');
 	dynamicStyleElements.forEach((element) => {
@@ -137,7 +81,16 @@ function disableHideSideMenuModerationSection() {
 	});
 }
 
-// Function - Enable Hide the Recent Section - New New
+/* = Hide Recent Section = */
+export function hideSideMenuRecentSection(value) {
+	if (redditVersion === 'newnew' && value) {
+		enableHideSideMenuRecentSection();
+	} else {
+		disableHideSideMenuRecentSection();
+	}
+}
+
+// Enable Hide the Recent Section - RV3
 function enableHideSideMenuRecentSection() {
 	if (!document.head.querySelector('style[id="re-hide-side-menu-recent-section"]')) {
 		const styleElement = document.createElement('style');
@@ -152,7 +105,7 @@ function enableHideSideMenuRecentSection() {
 	}
 }
 
-// Function - Disable Hide the Recent Section - New New
+// Disable Hide the Recent Section - RV3
 function disableHideSideMenuRecentSection() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-recent-section"]');
 	dynamicStyleElements.forEach((element) => {
@@ -160,7 +113,16 @@ function disableHideSideMenuRecentSection() {
 	});
 }
 
-// Function - Enable Hide the Custom Feeds Section - New New
+/* = Hide Custom Feeds Section = */
+export function hideSideMenuCustomFeedsSection(value) {
+	if (redditVersion === 'newnew' && value) {
+		enableHideSideMenuCustomFeedsSection();
+	} else {
+		disableHideSideMenuCustomFeedsSection();
+	}
+}
+
+// Enable Hide the Custom Feeds Section - RV3
 function enableHideSideMenuCustomFeedsSection() {
 	if (!document.head.querySelector('style[id="re-hide-side-menu-custom-feeds-section"]')) {
 		const styleElement = document.createElement('style');
@@ -173,7 +135,7 @@ function enableHideSideMenuCustomFeedsSection() {
 	}
 }
 
-// Function - Disable Hide the Custom Feeds Section - New New
+// Disable Hide the Custom Feeds Section - RV3
 function disableHideSideMenuCustomFeedsSection() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-custom-feeds-section"]');
 	dynamicStyleElements.forEach((element) => {
@@ -181,7 +143,16 @@ function disableHideSideMenuCustomFeedsSection() {
 	});
 }
 
-// Function - Enable Hide the Communities Section - New New
+/* = Hide Communities Section = */
+export function hideSideMenuCommunitiesSection(value) {
+	if (redditVersion === 'newnew' && value) {
+		enableHideSideMenuCommunitiesSection();
+	} else {
+		disableHideSideMenuCommunitiesSection();
+	}
+}
+
+// Enable Hide the Communities Section - RV3
 function enableHideSideMenuCommunitiesSection() {
 	if (!document.head.querySelector('style[id="re-hide-side-menu-communities-section"]')) {
 		const styleElement = document.createElement('style');
@@ -194,7 +165,7 @@ function enableHideSideMenuCommunitiesSection() {
 	}
 }
 
-// Function - Disable Hide the Communities Section - New New
+// Disable Hide the Communities Section - RV3
 function disableHideSideMenuCommunitiesSection() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-communities-section"]');
 	dynamicStyleElements.forEach((element) => {
@@ -202,7 +173,16 @@ function disableHideSideMenuCommunitiesSection() {
 	});
 }
 
-// Function - Enable Hide the Resources Section - New New
+/* = Hide Resources Section = */
+export function hideSideMenuResourcesSection(value) {
+	if (redditVersion === 'newnew' && value) {
+		enableHideSideMenuResourcesSection();
+	} else {
+		disableHideSideMenuResourcesSection();
+	}
+}
+
+// Enable Hide the Resources Section - RV3
 function enableHideSideMenuResourcesSection() {
 	if (!document.head.querySelector('style[id="re-hide-side-menu-resources-section"]')) {
 		const styleElement = document.createElement('style');
@@ -215,7 +195,7 @@ function enableHideSideMenuResourcesSection() {
 	}
 }
 
-// Function - Disable Hide the Resources Section - New New
+// Disable Hide the Resources Section - RV3
 function disableHideSideMenuResourcesSection() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-resources-section"]');
 	dynamicStyleElements.forEach((element) => {
@@ -223,7 +203,16 @@ function disableHideSideMenuResourcesSection() {
 	});
 }
 
-// Function - Enable Hide the Topics Section - New New
+/* = Hide Topics Section = */
+export function hideSideMenuTopicsSection(value) {
+	if (redditVersion === 'newnew' && value) {
+		enableHideSideMenuTopicsSection();
+	} else {
+		disableHideSideMenuTopicsSection();
+	}
+}
+
+// Enable Hide the Topics Section - RV3
 function enableHideSideMenuTopicsSection() {
 	if (!document.head.querySelector('style[id="re-hide-side-menu-topics-section"]')) {
 		const styleElement = document.createElement('style');
@@ -235,7 +224,7 @@ function enableHideSideMenuTopicsSection() {
 	}
 }
 
-// Function - Disable Hide the Topics Section - New New
+// Disable Hide the Topics Section - RV3
 function disableHideSideMenuTopicsSection() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-topics-section"]');
 	dynamicStyleElements.forEach((element) => {

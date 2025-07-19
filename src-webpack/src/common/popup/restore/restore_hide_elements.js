@@ -21,22 +21,6 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Reddit Premium: ' + value);
 	});
 
-	// Hide Create Post
-	BROWSER_API.storage.sync.get(['hideCreatePost'], function (result) {
-		if (result.hideCreatePost == true) {
-			document.querySelector('#checkbox-hide-create-post').checked = true;
-			document.querySelector('.icon-hide-create-post').classList.remove('icon-plus');
-			document.querySelector('.icon-hide-create-post').classList.add('icon-plus-slash');
-			document.querySelector('.icon-hide-create-post').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('hide-elements');
-			var value = true;
-		} else if (typeof result.hideCreatePost == 'undefined' || result.hideCreatePost == false) {
-			document.querySelector('#checkbox-hide-create-post').checked = false;
-			var value = false;
-		}
-		console.log('Hide Create Post: ' + value);
-	});
-
 	// Hide Home Sidebar
 	BROWSER_API.storage.sync.get(['hideHomeSidebar'], function (result) {
 		if (result.hideHomeSidebar == true) {
@@ -85,22 +69,6 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Post Sidebar: ' + value);
 	});
 
-	// Hide Post Overlay Sidebar
-	BROWSER_API.storage.sync.get(['hidePostOverlaySidebar'], function (result) {
-		if (result.hidePostOverlaySidebar == true) {
-			document.querySelector('#checkbox-hide-post-overlay-sidebar').checked = true;
-			document.querySelector('.icon-hide-post-overlay-sidebar').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.icon-hide-post-overlay-sidebar').classList.remove('icon-show');
-			document.querySelector('.icon-hide-post-overlay-sidebar').classList.add('icon-hide');
-			highlightMenuIcon('hide-elements');
-			var value = true;
-		} else if (typeof result.hidePostOverlaySidebar == 'undefined' || result.hidePostOverlaySidebar == false) {
-			document.querySelector('#checkbox-hide-post-overlay-sidebar').checked = false;
-			var value = false;
-		}
-		console.log('Hide Post Overlay Sidebar: ' + value);
-	});
-
 	// Hide User Sidebar
 	BROWSER_API.storage.sync.get(['hideUserSidebar'], function (result) {
 		if (result.hideUserSidebar == true) {
@@ -137,22 +105,6 @@ export function restorePopupHideElementsOptions() {
 		document.querySelector('.icon-sidebar-toggle-button').classList.toggle('icon-show', !sidebarToggleButton);
 		document.querySelector('.icon-sidebar-toggle-button').classList.toggle('icon-hide', sidebarToggleButton);
 		console.log('Hide Vote Buttons: ' + sidebarToggleButton);
-	});
-
-	// Hide Sidebar Policy
-	BROWSER_API.storage.sync.get(['hideSidebarPolicy'], function (result) {
-		if (result.hideSidebarPolicy == true) {
-			document.querySelector('#checkbox-hide-sidebar-policy').checked = true;
-			document.querySelector('.hide-sidebar-policy').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.hide-sidebar-policy').classList.remove('icon-show');
-			document.querySelector('.hide-sidebar-policy').classList.add('icon-hide');
-			highlightMenuIcon('hide-elements');
-			var value = true;
-		} else if (typeof result.hideSidebarPolicy == 'undefined' || result.hideSidebarPolicy == false) {
-			document.querySelector('#checkbox-hide-sidebar-policy').checked = false;
-			var value = false;
-		}
-		console.log('Hide Sidebar Policy: ' + value);
 	});
 
 	// Hide Search Sidebar
@@ -201,22 +153,6 @@ export function restorePopupHideElementsOptions() {
 			var value = false;
 		}
 		console.log('Hide Moderation Button: ' + value);
-	});
-
-	// Hide Popular Button
-	BROWSER_API.storage.sync.get(['hidePopularButton'], function (result) {
-		if (result.hidePopularButton == true) {
-			document.querySelector('#checkbox-hide-popular-button').checked = true;
-			document.querySelector('.hide-popular-button').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.hide-popular-button').classList.remove('icon-popular');
-			document.querySelector('.hide-popular-button').classList.add('icon-popular-slash');
-			highlightMenuIcon('hide-elements');
-			var value = true;
-		} else if (typeof result.hidePopularButton == 'undefined' || result.hidePopularButton == false) {
-			document.querySelector('#checkbox-hide-popular-button').checked = false;
-			var value = false;
-		}
-		console.log('Hide Popular Button: ' + value);
 	});
 
 	// Hide Blocked Keyword Posts List
@@ -422,22 +358,6 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Side Menu: ' + value);
 	});
 
-	// Hide "Turn On Notifications" Popup
-	BROWSER_API.storage.sync.get(['hideTurnOnNotificationsPopup'], function (result) {
-		if (result.hideTurnOnNotificationsPopup == true) {
-			document.querySelector('#checkbox-hide-turn-on-notifications').checked = true;
-			document.querySelector('.icon-hide-turn-on-notifications').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.icon-hide-turn-on-notifications').classList.remove('icon-bell');
-			document.querySelector('.icon-hide-turn-on-notifications').classList.add('icon-bell-slash');
-			highlightMenuIcon('hide-elements');
-			var value = true;
-		} else if (typeof result.hideTurnOnNotificationsPopup == 'undefined' || result.hideTurnOnNotificationsPopup == false) {
-			document.querySelector('#checkbox-hide-turn-on-notifications').checked = false;
-			var value = false;
-		}
-		console.log('Hide "Turn On Notifications" Popup: ' + value);
-	});
-
 	// Hide Sub Sidebar Exceptions Enable
 	BROWSER_API.storage.sync.get(['hideSubSidebarExceptionsEnable'], function (result) {
 		if (result.hideSubSidebarExceptionsEnable == true) {
@@ -491,22 +411,6 @@ export function restorePopupHideElementsOptions() {
 			var value = false;
 		}
 		console.log('Hide Header Bar: ' + value);
-	});
-
-	// Hide Original Scroll To Top Button
-	BROWSER_API.storage.sync.get(['hideOriginalScrollToTop'], function (result) {
-		if (result.hideOriginalScrollToTop == true) {
-			document.querySelector('#checkbox-hide-original-scroll-to-top').checked = true;
-			document.querySelector('.icon-hide-original-scroll-to-top').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.icon-hide-original-scroll-to-top').classList.remove('icon-show');
-			document.querySelector('.icon-hide-original-scroll-to-top').classList.add('icon-hide');
-			highlightMenuIcon('hide-elements');
-			var value = true;
-		} else if (typeof result.hideOriginalScrollToTop == 'undefined' || result.hideOriginalScrollToTop == false) {
-			document.querySelector('#checkbox-hide-original-scroll-to-top').checked = false;
-			var value = false;
-		}
-		console.log('Hide Original Scroll To Top Button: ' + value);
 	});
 
 	// Hide Side Menu Top Section
@@ -978,4 +882,15 @@ export function restorePopupHideElementsOptions() {
 		document.querySelector('.icon-hide-community-status').classList.toggle('icon-hide', hideCommunityStatus);
 		console.log('Hide Community Status: ' + hideCommunityStatus);
 	});
+
+	// Hide Awards
+	BROWSER_API.storage.sync.get(['hideAwards'], function (result) {
+		const hideAwards = result.hideAwards === true;
+		if (hideAwards) highlightMenuIcon('hide-elements');
+		document.querySelector('#checkbox-hide-awards').checked = hideAwards;
+		document.querySelector('.icon-hide-awards').style.backgroundColor = hideAwards ? 'var(--accent)' : '';
+		document.querySelector('.icon-hide-awards').classList.toggle('icon-show', !hideAwards);
+		document.querySelector('.icon-hide-awards').classList.toggle('icon-hide', hideAwards);
+		console.log('Hide Awards: ' + hideAwards);
+	})
 }

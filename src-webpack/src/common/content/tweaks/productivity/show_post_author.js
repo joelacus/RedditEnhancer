@@ -1,18 +1,25 @@
-/* ===== Tweaks - Productivity - Show Missing Post Author On Home/Popular/Search Feeds ===== */
+/**
+ * Tweaks: Productivity - Show Post Author
+ *
+ * @name showPostAuthor
+ * @description Show missing post author on Home/Popular/Search feeds.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadShowPostAuthor() {
 	BROWSER_API.storage.sync.get(['showPostAuthor', 'usernameHoverPopupDelay'], function (result) {
 		if (result.showPostAuthor) showPostAuthor(true, result.usernameHoverPopupDelay);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 let hover_delay = 500;
 export function showPostAuthor(value, delay) {
 	if (delay) hover_delay = delay * 1000;
-	const routename = document.querySelector('shreddit-app').getAttribute('routename');
-	const feedRoutes = ['frontpage', 'popular', 'custom_feed'];
+	const routename = document.querySelector('shreddit-app')?.getAttribute('routename');
+	const feedRoutes = ['frontpage', 'popular', 'custom_feed', 'profile_saved'];
 	const searchRoutes = ['global_serp', 'community_serp', 'custom_feed_serp'];
 
 	if (redditVersion === 'newnew' && value === true) {
@@ -21,7 +28,7 @@ export function showPostAuthor(value, delay) {
 			document.querySelectorAll('shreddit-post').forEach((post) => {
 				attachUsername(post);
 			});
-			observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
+			observer.observe(document.querySelector('shreddit-feed'), { childList: true });
 		} else if (searchRoutes.includes(routename)) {
 			document.querySelectorAll('search-telemetry-tracker').forEach((post) => {
 				attachUsername(post);
@@ -76,6 +83,11 @@ export async function attachUsername(post) {
 				clearTimeout(hoverTimer);
 			});
 		}
+		const tag = post.querySelector('shreddit-distinguished-post-tags');
+		if (tag) {
+			tag.remove();
+			a.appendChild(tag);
+		}
 		const selectors = ['[slot="credit-bar"] > span:has(faceplate-timeago)', '[slot="credit-bar"] > div', 'span:has([bundlename="faceplate_hovercard"])'];
 		let container = selectors.map((selector) => post.querySelector(selector)).find((el) => el);
 		container.querySelector('faceplate-timeago').before(a);
@@ -129,19 +141,18 @@ async function fetchUserData(username, url) {
 		const cleanedPath = url.replace(/\/+$/, '');
 		var fetchURL = `${cleanedPath}.json`;
 	}
-
 	return new Promise((resolve, reject) => {
 		BROWSER_API.runtime.sendMessage(
 			{
-				actions: [{ action: 'changeFetchUrl', newFetchUrl: fetchURL }, { action: 'fetchData' }],
+				actions: [
+					{
+						action: 'fetchData',
+						url: fetchURL,
+					},
+				],
 			},
 			function (response) {
-				const data = JSON.parse(response.data);
-				if (data.data) {
-					resolve(data.data);
-				} else {
-					resolve(data);
-				}
+				resolve(response.data);
 			}
 		);
 	});

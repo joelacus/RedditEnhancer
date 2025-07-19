@@ -21,20 +21,20 @@ export function restorePopupStyleOptions() {
 		console.log('Border Radius Amount: ' + value);
 	});
 
-	// Dropshadows
-	BROWSER_API.storage.sync.get(['shadows'], function (result) {
-		if (result.shadows == true) {
-			document.querySelector('#checkbox-shadow').checked = true;
-			document.querySelector('.icon-shadow').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.icon-shadow').classList.add('icon-light-on');
-			document.querySelector('.icon-shadow').classList.remove('icon-light-off');
+	// Add Drop Shadow
+	BROWSER_API.storage.sync.get(['addDropShadow'], function (result) {
+		if (result.addDropShadow == true) {
+			document.querySelector('#checkbox-add-drop-shadow').checked = true;
+			document.querySelector('.icon-add-drop-shadow').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-add-drop-shadow').classList.add('icon-light-on');
+			document.querySelector('.icon-add-drop-shadow').classList.remove('icon-light-off');
 			highlightMenuIcon('style-tweaks');
 			var value = true;
-		} else if (typeof result.shadows == 'undefined' || result.shadows == false) {
-			document.querySelector('#checkbox-shadow').checked = false;
+		} else if (typeof result.addDropShadow == 'undefined' || result.addDropShadow == false) {
+			document.querySelector('#checkbox-add-drop-shadow').checked = false;
 			var value = false;
 		}
-		console.log('Use Drop Shadows: ' + value);
+		console.log('Add Drop Shadows: ' + value);
 	});
 
 	// Override Drop Shadow
@@ -207,32 +207,6 @@ export function restorePopupStyleOptions() {
 		console.log('Side Menu Button Hover Colour CSS: ' + value);
 	});
 
-	// Sidebar Border Colour
-	BROWSER_API.storage.sync.get(['themeSidebarBorderColour'], function (result) {
-		if (result.themeSidebarBorderColour == true) {
-			document.querySelector('.icon-sidebar-border-colour').style.backgroundColor = 'var(--accent)';
-			document.querySelector('#checkbox-sidebar-border-colour').checked = true;
-			highlightMenuIcon('style-tweaks');
-			var value = true;
-		} else if (typeof result.themeSidebarBorderColour == 'undefined' || result.themeSidebarBorderColour == false) {
-			document.querySelector('#checkbox-sidebar-border-colour').checked = false;
-			var value = false;
-		}
-		console.log('Sidebar Border Colour: ' + value);
-	});
-
-	// Sidebar Border Colour CSS
-	BROWSER_API.storage.sync.get(['themeSidebarBorderColourCSS'], function (result) {
-		if (typeof result.themeSidebarBorderColourCSS != 'undefined') {
-			document.querySelector('#input-sidebar-border-colour-css').value = result.themeSidebarBorderColourCSS;
-			var value = result.themeSidebarBorderColourCSS;
-		} else {
-			document.querySelector('#input-sidebar-border-colour-css').value = '';
-			var value = '';
-		}
-		console.log('Sidebar Border Colour CSS: ' + value);
-	});
-
 	// Post Content And Comments Link Colour
 	BROWSER_API.storage.sync.get(['themePostContentAndCommentsLinkColour'], function (result) {
 		if (result.themePostContentAndCommentsLinkColour == true) {
@@ -311,58 +285,6 @@ export function restorePopupStyleOptions() {
 		console.log('Searchbar Focused/Dropdown Background Colour CSS: ' + value);
 	});
 
-	// Theme Create Post Background Colour
-	BROWSER_API.storage.sync.get(['themeCreatePostBackgroundColour'], function (result) {
-		if (result.themeCreatePostBackgroundColour == true) {
-			document.querySelector('.icon-create-post-bg-colour').style.backgroundColor = 'var(--accent)';
-			document.querySelector('#checkbox-create-post-bg-colour').checked = true;
-			highlightMenuIcon('style-tweaks');
-			var value = true;
-		} else if (typeof result.themeCreatePostBackgroundColour == 'undefined' || result.themeCreatePostBackgroundColour == false) {
-			document.querySelector('#checkbox-create-post-bg-colour').checked = false;
-			var value = false;
-		}
-		console.log('Create Post Background Colour: ' + value);
-	});
-
-	// Theme Create Post Background Colour CSS
-	BROWSER_API.storage.sync.get(['themeCreatePostBackgroundColourCSS'], function (result) {
-		if (typeof result.themeCreatePostBackgroundColourCSS != 'undefined') {
-			document.querySelector('#input-create-post-bg-colour-css').value = result.themeCreatePostBackgroundColourCSS;
-			var value = result.themeCreatePostBackgroundColourCSS;
-		} else {
-			document.querySelector('#input-create-post-bg-colour-css').value = '';
-			var value = '';
-		}
-		console.log('Create Post Background Colour CSS: ' + value);
-	});
-
-	// Theme Create Post Border Colour
-	BROWSER_API.storage.sync.get(['themeCreatePostBorderColour'], function (result) {
-		if (result.themeCreatePostBorderColour == true) {
-			document.querySelector('.icon-create-post-border-colour').style.backgroundColor = 'var(--accent)';
-			document.querySelector('#checkbox-create-post-border-colour').checked = true;
-			highlightMenuIcon('style-tweaks');
-			var value = true;
-		} else if (typeof result.themeCreatePostBorderColour == 'undefined' || result.themeCreatePostBorderColour == false) {
-			document.querySelector('#checkbox-create-post-border-colour').checked = false;
-			var value = false;
-		}
-		console.log('Create Post Border Colour: ' + value);
-	});
-
-	// Theme Create Post Border Colour CSS
-	BROWSER_API.storage.sync.get(['themeCreatePostBorderColourCSS'], function (result) {
-		if (typeof result.themeCreatePostBorderColourCSS != 'undefined') {
-			document.querySelector('#input-create-post-border-colour-css').value = result.themeCreatePostBorderColourCSS;
-			var value = result.themeCreatePostBorderColourCSS;
-		} else {
-			document.querySelector('#input-create-post-border-colour-css').value = '';
-			var value = '';
-		}
-		console.log('Create Post Border Colour CSS: ' + value);
-	});
-
 	// Theme Header Background Colour
 	BROWSER_API.storage.sync.get(['themeHeaderBackgroundColour'], function (result) {
 		if (result.themeHeaderBackgroundColour == true) {
@@ -413,110 +335,6 @@ export function restorePopupStyleOptions() {
 			var value = '';
 		}
 		console.log('Header Text Colour CSS: ' + value);
-	});
-
-	// Theme Sort Background Colour
-	BROWSER_API.storage.sync.get(['themeSortBackgroundColour'], function (result) {
-		if (result.themeSortBackgroundColour == true) {
-			document.querySelector('.icon-sort-bg-colour').style.backgroundColor = 'var(--accent)';
-			document.querySelector('#checkbox-sort-bg-colour').checked = true;
-			highlightMenuIcon('style-tweaks');
-			var value = true;
-		} else if (typeof result.themeSortBackgroundColour == 'undefined' || result.themeSortBackgroundColour == false) {
-			document.querySelector('#checkbox-sort-bg-colour').checked = false;
-			var value = false;
-		}
-		console.log('Sort Background Colour: ' + value);
-	});
-
-	// Theme Sort Background Colour CSS
-	BROWSER_API.storage.sync.get(['themeSortBackgroundColourCSS'], function (result) {
-		if (typeof result.themeSortBackgroundColourCSS != 'undefined') {
-			document.querySelector('#input-sort-bg-colour-css').value = result.themeSortBackgroundColourCSS;
-			var value = result.themeSortBackgroundColourCSS;
-		} else {
-			document.querySelector('#input-sort-bg-colour-css').value = '';
-			var value = '';
-		}
-		console.log('Sort Background Colour CSS: ' + value);
-	});
-
-	// Theme Sort Text Colour
-	BROWSER_API.storage.sync.get(['themeSortTextColour'], function (result) {
-		if (result.themeSortTextColour == true) {
-			document.querySelector('.icon-sort-text-colour').style.backgroundColor = 'var(--accent)';
-			document.querySelector('#checkbox-sort-text-colour').checked = true;
-			highlightMenuIcon('style-tweaks');
-			var value = true;
-		} else if (typeof result.themeSortTextColour == 'undefined' || result.themeSortTextColour == false) {
-			document.querySelector('#checkbox-sort-text-colour').checked = false;
-			var value = false;
-		}
-		console.log('Sort Text Colour: ' + value);
-	});
-
-	// Theme Sort Text Colour CSS
-	BROWSER_API.storage.sync.get(['themeSortTextColourCSS'], function (result) {
-		if (typeof result.themeSortTextColourCSS != 'undefined') {
-			document.querySelector('#input-sort-text-colour-css').value = result.themeSortTextColourCSS;
-			var value = result.themeSortTextColourCSS;
-		} else {
-			document.querySelector('#input-sort-text-colour-css').value = '';
-			var value = '';
-		}
-		console.log('Sort Text Colour CSS: ' + value);
-	});
-
-	// Theme Sort Text Colour 2
-	BROWSER_API.storage.sync.get(['themeSortTextColour2'], function (result) {
-		if (result.themeSortTextColour2 == true) {
-			document.querySelector('.icon-sort-text-colour-2').style.backgroundColor = 'var(--accent)';
-			document.querySelector('#checkbox-sort-text-colour-2').checked = true;
-			highlightMenuIcon('style-tweaks');
-			var value = true;
-		} else if (typeof result.themeSortTextColour2 == 'undefined' || result.themeSortTextColour2 == false) {
-			document.querySelector('#checkbox-sort-text-colour-2').checked = false;
-			var value = false;
-		}
-		console.log('Sort Text Colour 2: ' + value);
-	});
-
-	// Theme Sort Text Colour 2 CSS
-	BROWSER_API.storage.sync.get(['themeSortTextColour2CSS'], function (result) {
-		if (typeof result.themeSortTextColour2CSS != 'undefined') {
-			document.querySelector('#input-sort-text-colour-2-css').value = result.themeSortTextColour2CSS;
-			var value = result.themeSortTextColour2CSS;
-		} else {
-			document.querySelector('#input-sort-text-colour-2-css').value = '';
-			var value = '';
-		}
-		console.log('Sort Text Colour 2 CSS: ' + value);
-	});
-
-	// Theme Sort Border Colour
-	BROWSER_API.storage.sync.get(['themeSortBorderColour'], function (result) {
-		if (result.themeSortBorderColour == true) {
-			document.querySelector('.icon-sort-border-colour').style.backgroundColor = 'var(--accent)';
-			document.querySelector('#checkbox-sort-border-colour').checked = true;
-			highlightMenuIcon('style-tweaks');
-			var value = true;
-		} else if (typeof result.themeSortBorderColour == 'undefined' || result.themeSortBorderColour == false) {
-			document.querySelector('#checkbox-sort-border-colour').checked = false;
-			var value = false;
-		}
-		console.log('Sort Border Colour: ' + value);
-	});
-
-	// Theme Sort Border Colour CSS
-	BROWSER_API.storage.sync.get(['themeSortBorderColourCSS'], function (result) {
-		if (typeof result.themeSortBorderColourCSS != 'undefined') {
-			document.querySelector('#input-sort-border-colour-css').value = result.themeSortBorderColourCSS;
-			var value = result.themeSortBorderColourCSS;
-		} else {
-			document.querySelector('#input-sort-border-colour-css').value = '';
-			var value = '';
-		}
-		console.log('Sort Border Colour CSS: ' + value);
 	});
 
 	// Theme Post Background Colour
@@ -966,5 +784,16 @@ export function restorePopupStyleOptions() {
 			highlightMenuIcon('style-tweaks');
 		}
 		console.log('Subreddit Display Name Banner: ' + subredditDisplayNameBanner);
+	});
+
+	// Right Side Post Thumbnails
+	BROWSER_API.storage.sync.get(['rightSidePostThumbnails'], function (result) {
+		const rightSidePostThumbnails = result.rightSidePostThumbnails === true;
+		document.querySelector('.icon-right-side-post-thumbnails').style.backgroundColor = rightSidePostThumbnails ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-right-side-post-thumbnails').checked = rightSidePostThumbnails;
+		if (rightSidePostThumbnails) {
+			highlightMenuIcon('style-tweaks');
+		}
+		console.log('Right Side Post Thumbnails: ' + rightSidePostThumbnails);
 	});
 }

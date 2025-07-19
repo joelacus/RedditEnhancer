@@ -1,6 +1,22 @@
-/* ===== Tweaks - Accessibility - Bionic Reader ===== */
+/**
+ * Tweaks: Accessibility - Bionic Reader
+ *
+ * @name bionicReader
+ * @description Makes the first two letters of a word bold to increase reading efficiency.
+ *              Additionally, can change the font colour and text background colour to increase the contrast for easier reading.
+ *
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
+
+// Load Bionic Reader
+export function loadBionicReader() {
+	BROWSER_API.storage.sync.get(['bionicReaderPosts', 'bionicReaderComments'], function (result) {
+		bionicReaderPosts(result.bionicReaderPosts);
+		bionicReaderComments(result.bionicReaderComments);
+	});
+}
 
 // Load Bionic Reader Colours
 export function loadBionicReaderColours() {
@@ -10,60 +26,23 @@ export function loadBionicReaderColours() {
 	});
 }
 
-// Load Bionic Reader For Posts
-export function loadBionicReaderForPosts() {
-	BROWSER_API.storage.sync.get(['bionicReaderPosts'], function (result) {
-		bionicReaderPosts(result.bionicReaderPosts);
-	});
-}
+/* === Enable/Disable The Feature === */
 
-// Load Bionic Reader For Comments
-export function loadBionicReaderForComments() {
-	BROWSER_API.storage.sync.get(['bionicReaderComments'], function (result) {
-		bionicReaderComments(result.bionicReaderComments);
-	});
-}
-
-/* === Main Function === */
-
-// Posts
+// Bionic Reader For Posts
 export function bionicReaderPosts(value) {
-	if (redditVersion === 'new') {
-		if (value === true) {
-			const nodes = document.querySelectorAll('.Post [data-adclicklocation="media"] p');
-			bionicReader(true, 'posts', nodes);
-			observerPostsNew.observe(document.body, { childList: true, subtree: true });
-		} else if (value === false) {
-			observerPostsNew.disconnect();
-			bionicReader(false, 'posts');
-		}
-	} else if (redditVersion === 'newnew') {
-		if (value === true) {
+	if (redditVersion === 'newnew') {
+		if (value) {
 			const nodes = document.querySelectorAll('shreddit-post [data-post-click-location="text-body"] p');
 			bionicReader(true, 'posts', nodes);
 			observerPostsNewNew.observe(document.body, { childList: true, subtree: true });
-		} else if (value === false) {
+		} else {
 			observerPostsNewNew.disconnect();
 			bionicReader(false, 'posts');
 		}
 	}
 }
 
-// Observe for new comments - New
-const observerPostsNew = new MutationObserver(function (mutations) {
-	mutations.forEach(function (mutation) {
-		mutation.addedNodes.forEach(function (addedNode) {
-			if (addedNode.nodeName === 'DIV') {
-				const nodes = addedNode.querySelectorAll('.Post [data-adclicklocation="media"] p');
-				if (nodes) {
-					bionicReader(true, 'posts', nodes);
-				}
-			}
-		});
-	});
-});
-
-// Observe for new comments - New New
+// Observe for new posts - RV3
 const observerPostsNewNew = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {
 		mutation.addedNodes.forEach(function (addedNode) {
@@ -77,25 +56,16 @@ const observerPostsNewNew = new MutationObserver(function (mutations) {
 	});
 });
 
-// Comments
+// Bionic Reader For Comments
 export function bionicReaderComments(value) {
 	const link = window.location.href;
-	if (redditVersion === 'new') {
-		if (value === true) {
-			const nodes = document.querySelectorAll('[data-testid="comment"] p');
-			bionicReader(true, 'comments', nodes);
-			observerCommentsNew.observe(document.body, { childList: true, subtree: true });
-		} else if (value === false) {
-			observerCommentsNew.disconnect();
-			bionicReader(false, 'comments');
-		}
-	} else if (redditVersion === 'newnew') {
+	if (redditVersion === 'newnew') {
 		if (link.match('https://.*.reddit.com/.*/comments/.*')) {
-			if (value === true) {
+			if (value) {
 				const nodes = document.querySelectorAll('shreddit-comment [slot="comment"] p');
 				bionicReader(true, 'comments', nodes);
 				observerCommentsNewNew.observe(document.body, { childList: true, subtree: true });
-			} else if (value === false) {
+			} else {
 				observerCommentsNewNew.disconnect();
 				bionicReader(false, 'comments');
 			}
@@ -103,21 +73,7 @@ export function bionicReaderComments(value) {
 	}
 }
 
-// Observe for new comments - New
-const observerCommentsNew = new MutationObserver(function (mutations) {
-	mutations.forEach(function (mutation) {
-		mutation.addedNodes.forEach(function (addedNode) {
-			if (addedNode.nodeName === 'DIV') {
-				const nodes = addedNode.querySelectorAll('.Comment [data-testid="comment"] p');
-				if (nodes) {
-					bionicReader(true, 'comments', nodes);
-				}
-			}
-		});
-	});
-});
-
-// Observe for new comments - New New
+// Observe for new comments - RV3
 const observerCommentsNewNew = new MutationObserver(function (mutations) {
 	mutations.forEach(function (mutation) {
 		mutation.addedNodes.forEach(function (addedNode) {
@@ -131,10 +87,10 @@ const observerCommentsNewNew = new MutationObserver(function (mutations) {
 	});
 });
 
-// Bionic Reader - All
+// Main Bionic Reader Logic
 function bionicReader(value, type, paragraphs) {
 	// Bionic Reader Enable
-	if (value === true) {
+	if (value) {
 		// set vars
 		const wordLength = 3;
 
@@ -222,9 +178,7 @@ function bionicReader(value, type, paragraphs) {
 
 				// Add identifiable class and hide the original paragraph
 				paragraph.classList.add('re-bionic-original-' + type);
-				if (redditVersion === 'new') {
-					paragraph.classList.add('re-hide');
-				} else if (redditVersion === 'newnew') {
+				if (redditVersion === 'newnew') {
 					paragraph.setAttribute('style', 'display: none !important;');
 				}
 
@@ -232,7 +186,7 @@ function bionicReader(value, type, paragraphs) {
 				paragraph.parentNode.insertBefore(modifiedParagraph, paragraph.nextSibling);
 			}
 		});
-	} else if (value === false) {
+	} else {
 		// Bionic Reader Disable
 		const m = document.querySelectorAll('.re-bionic-modified-' + type);
 		m.forEach(function (el) {
@@ -248,74 +202,70 @@ function bionicReader(value, type, paragraphs) {
 	}
 }
 
-// Bionic Font Colour
+// Enable/Disable Bionic Font Colour
 export function bionicReaderFontColour(value) {
-	if (redditVersion === 'new' || redditVersion === 'newnew') {
-		if (value === true) {
-			BROWSER_API.storage.sync.get(['bionicReaderFontColourCSS'], function (result) {
-				document.documentElement.style.setProperty('--re-bionic-font-colour', result.bionicReaderFontColourCSS);
-				const styleElement = document.createElement('style');
-				styleElement.id = 're-bionic-reader-font-colour';
-				styleElement.textContent = `.re-bionic-modified-posts,
-											.re-bionic-modified-comments {
-												--re-theme-post-text: var(--re-bionic-font-colour) !important;
-												color: var(--re-bionic-font-colour) !important;
-											}
-											shreddit-comment ol:has(>li>.re-bionic-modified-comments) {
-												color: var(--re-bionic-font-colour) !important;
-											}`;
-				document.head.insertBefore(styleElement, document.head.firstChild);
-			});
-		} else if (value === false) {
-			document.documentElement.style.removeProperty('--re-bionic-font-colour');
-			const dynamicStyleElements = document.querySelectorAll('#re-bionic-reader-font-colour');
-			dynamicStyleElements.forEach((element) => {
-				document.head.removeChild(element);
-			});
-		}
+	if (redditVersion === 'newnew' && value) {
+		BROWSER_API.storage.sync.get(['bionicReaderFontColourCSS'], function (result) {
+			document.documentElement.style.setProperty('--re-bionic-font-colour', result.bionicReaderFontColourCSS);
+			const styleElement = document.createElement('style');
+			styleElement.id = 're-bionic-reader-font-colour';
+			styleElement.textContent = `.re-bionic-modified-posts,
+										.re-bionic-modified-comments {
+											--re-theme-post-text: var(--re-bionic-font-colour) !important;
+											color: var(--re-bionic-font-colour) !important;
+										}
+										shreddit-comment ol:has(>li>.re-bionic-modified-comments) {
+											color: var(--re-bionic-font-colour) !important;
+										}`;
+			document.head.insertBefore(styleElement, document.head.firstChild);
+		});
+	} else {
+		document.documentElement.style.removeProperty('--re-bionic-font-colour');
+		const dynamicStyleElements = document.querySelectorAll('#re-bionic-reader-font-colour');
+		dynamicStyleElements.forEach((element) => {
+			document.head.removeChild(element);
+		});
 	}
 }
 
-// Bionic Font Colour CSS
+// Change Bionic Font Colour CSS
 export function bionicReaderFontColourCSS(value) {
-	if (redditVersion === 'new' || redditVersion === 'newnew') {
+	if (redditVersion === 'newnew') {
 		document.documentElement.style.setProperty('--re-bionic-font-colour', value);
 	}
 }
 
-// Bionic Background Colour
+// Enable/Disable Bionic Background Colour
 export function bionicReaderBgColour(value) {
-	if (redditVersion === 'new' || redditVersion === 'newnew') {
-		if (value === true) {
-			BROWSER_API.storage.sync.get(['bionicReaderBgColourCSS'], function (result) {
-				document.documentElement.style.setProperty('--re-bionic-bg-colour', result.bionicReaderBgColourCSS);
-				const styleElement = document.createElement('style');
-				styleElement.id = 're-bionic-reader-bg-colour';
-				styleElement.textContent = `.re-bionic-modified-posts,
-											div:has(>.re-bionic-modified-comments),
-											div:has(>ol>li>.re-bionic-modified-comments) {
-												background-color: var(--re-bionic-bg-colour) !important;
-												padding: 8px;
-												border-radius: 2px;
-											}
-											.Comment [data-testid="comment"] > div {
-												width: fit-content;
-											}`;
-				document.head.insertBefore(styleElement, document.head.firstChild);
-			});
-		} else if (value === false) {
-			document.documentElement.style.removeProperty('--re-bionic-bg-colour');
-			const dynamicStyleElements = document.querySelectorAll('#re-bionic-reader-bg-colour');
-			dynamicStyleElements.forEach((element) => {
-				document.head.removeChild(element);
-			});
-		}
+	if (redditVersion === 'newnew' && value) {
+		BROWSER_API.storage.sync.get(['bionicReaderBgColourCSS'], function (result) {
+			document.documentElement.style.setProperty('--re-bionic-bg-colour', result.bionicReaderBgColourCSS);
+			const styleElement = document.createElement('style');
+			styleElement.id = 're-bionic-reader-bg-colour';
+			styleElement.textContent = `.re-bionic-modified-posts,
+										div:has(>.re-bionic-modified-comments),
+										div:has(>ol>li>.re-bionic-modified-comments) {
+											background-color: var(--re-bionic-bg-colour) !important;
+											padding: 8px;
+											border-radius: 2px;
+										}
+										.Comment [data-testid="comment"] > div {
+											width: fit-content;
+										}`;
+			document.head.insertBefore(styleElement, document.head.firstChild);
+		});
+	} else {
+		document.documentElement.style.removeProperty('--re-bionic-bg-colour');
+		const dynamicStyleElements = document.querySelectorAll('#re-bionic-reader-bg-colour');
+		dynamicStyleElements.forEach((element) => {
+			document.head.removeChild(element);
+		});
 	}
 }
 
-// Bionic Background Colour CSS
+// Change Bionic Background Colour CSS
 export function bionicReaderBgColourCSS(value) {
-	if (redditVersion === 'new' || redditVersion === 'newnew') {
+	if (redditVersion === 'newnew') {
 		document.documentElement.style.setProperty('--re-bionic-bg-colour', value);
 	}
 }

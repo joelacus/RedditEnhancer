@@ -34,9 +34,8 @@
 				</div>
 				<input type="hidden" name="version" />
 				<ul id="select-version-menu" class="dropdown-menu">
-					<li id="newnew-reddit"><span data-lang="NewNewUI"></span></li>
-					<li id="new-reddit"><span data-lang="OldNewUI"></span></li>
-					<li id="old-reddit"><span data-lang="OldUI"></span></li>
+					<li id="newnew-reddit"><span data-lang="Latest"></span></li>
+					<li id="old-reddit"><span data-lang="Old"></span></li>
 				</ul>
 				<div id="start-page-select-version" class="start-page-info hidden">
 					<div class="icon icon-arrow-up"></div>
@@ -54,9 +53,8 @@
 				<input type="hidden" name="reddit-version" />
 				<ul id="select-reddit-version-menu" class="dropdown-menu">
 					<li id="redirect-off" data-version="off"><span data-lang="Off"></span></li>
-					<li id="redirect-newnew-reddit" data-version="newnew"><span data-lang="NewNewUI"></span></li>
-					<li id="redirect-new-reddit" data-version="new" style="display: none"><span data-lang="OldNewUI"></span></li>
-					<li id="redirect-old-reddit" data-version="old"><span data-lang="OldUI"></span></li>
+					<li id="redirect-newnew-reddit" data-version="newnew"><span data-lang="Latest"></span></li>
+					<li id="redirect-old-reddit" data-version="old"><span data-lang="Old"></span></li>
 				</ul>
 				<div id="start-page-select-redirect" class="start-page-info hidden">
 					<div class="icon icon-arrow-up"></div>
@@ -70,14 +68,6 @@
 			<span data-lang="UpdateFirefox"></span>
 			<div class="message-buttons">
 				<div class="btn close" data-lang="Close"></div>
-			</div>
-		</div>
-		<div id="old-new-ui-removal-message" class="banner-message" style="display: none">
-			<span data-lang="RUI2RemovalInfo"></span>
-			<div class="message-buttons">
-				<a class="btn" href="https://www.reddit.com/r/help/comments/1ehmgmr/next_steps_for_newredditcom/" target="_blank" data-lang="learnMore"></a>
-				<div class="btn close" data-lang="Close"></div>
-				<div class="btn dont-show-again" data-lang="DontShowAgain"></div>
 			</div>
 		</div>
 		<div id="new-new-ui-message" class="banner-message amber" style="display: none">
@@ -104,16 +94,12 @@
 						<a href="#index-1" data-lang="ResizeLayout"></a>
 						<div class="vdivider"></div>
 					</div>
-					<div data-index="8" class="r-old r-new r-newnew">
-						<a href="#index-8" data-lang="Media"></a>
-						<div class="vdivider"></div>
-					</div>
-					<div data-index="0" class="r-new">
-						<a href="#index-0" data-lang="DarkMode"></a>
-						<div class="vdivider"></div>
-					</div>
 					<div data-index="2" class="r-old r-new r-newnew">
 						<a href="#index-2" data-lang="HideElements"></a>
+						<div class="vdivider"></div>
+					</div>
+					<div data-index="8" class="r-old r-new r-newnew">
+						<a href="#index-8" data-lang="Media"></a>
 						<div class="vdivider"></div>
 					</div>
 					<div data-index="3" class="r-old r-new r-newnew">
@@ -144,6 +130,10 @@
 						<a href="#index-10" data-lang="Block"></a>
 						<div class="vdivider"></div>
 					</div>
+					<!--<div data-index="0" class="r-new">
+						<a href="#index-0" data-lang="DarkMode"></a>
+						<div class="vdivider"></div>
+					</div>-->
 					<!--<div data-index="9" class="r-old r-new r-newnew">
 					<a href="#index-9" data-lang="AccountSwitcher"></a>
 					<div class="vdivider"></div>
@@ -178,10 +168,6 @@
 							</div>
 							<div class="r-newnew">
 								<a href="#resize-side-menu" data-lang="SideMenu"></a>
-								<div class="vdivider"></div>
-							</div>
-							<div class="r-newnew">
-								<a href="#resize-main-container" data-lang="MainContainer"></a>
 							</div>
 						</div>
 					</li>
@@ -194,6 +180,14 @@
 							<span data-lang="ResizeLayout" data-search="resize,content"></span>
 							<label class="switch">
 								<input id="checkbox-expand-layout" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<div class="container-3 r-newnew">
+							<span class="menu-item-icon icon-arrow-right icon-snap-sidebar"></span>
+							<span data-lang="SnapSidebar" data-search="snap,sidebar,right"></span>
+							<label class="switch">
+								<input id="checkbox-snap-sidebar" type="checkbox" />
 								<span class="indicator"></span>
 							</label>
 						</div>
@@ -210,6 +204,14 @@
 							<span data-lang="Width"></span>
 						</div>
 						<div class="container r-old r-new r-newnew">
+							<div class="container r-newnew">
+								<div class="container-slider">
+									<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
+									<span data-lang="GlobalWidth" data-search="resize,container,content"></span>
+									<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-resize-main-container-width" />
+									<span id="resize-main-container-width-value" class="input-value"></span>
+								</div>
+							</div>
 							<div class="container r-old r-new r-newnew">
 								<div class="container-slider">
 									<span class="menu-item-icon icon-ruler-horizontal icon-resize-width"></span>
@@ -310,29 +312,6 @@
 						<input type="range" min="199" max="300" value="0" step="1" class="slider" id="input-side-menu-width" />
 						<span id="side-menu-width-value" class="input-value"></span>
 					</li>
-					<li id="resize-main-container" class="sub-header r-newnew">
-						<span data-lang="MainContainer"></span>
-					</li>
-					<li class="container r-newnew">
-						<div class="container-3">
-							<span class="menu-item-icon icon-resize-feed icon-resize-main-container"></span>
-							<span data-lang="ResizeMainContainer" data-search="resize,container,content"></span>
-							<label class="switch">
-								<input id="checkbox-resize-main-container" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-						</div>
-						<div class="divider"></div>
-						<div class="container-slider r-newnew">
-							<span class="menu-item-icon icon-ruler-horizontal icon-resize-main-container-width"></span>
-							<span data-lang="Width" data-search="resize,container,content"></span>
-							<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-resize-main-container-width" />
-							<span id="resize-main-container-width-value" class="input-value"></span>
-							<div style="position: relative; margin-top: 16px; width: 400px">
-								<p class="info" data-lang="ResizeMainContainerInfo"></p>
-							</div>
-						</div>
-					</li>
 				</ul>
 			</li>
 
@@ -383,14 +362,6 @@
 					<li id="hide-main" class="sub-header r-old r-new r-newnew">
 						<span data-lang="Main"></span>
 					</li>
-					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-plus icon-hide-create-post"></span>
-						<span data-lang="HideCreatePost" data-search=""></span>
-						<label class="switch">
-							<input id="checkbox-hide-create-post" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-					</li>
 					<li class="container-3 r-old r-new r-newnew">
 						<span class="menu-item-icon icon-ad icon-hide-promoted"></span>
 						<span data-lang="HidePromoted" data-search="ad,ads,promoted"></span>
@@ -399,7 +370,7 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li class="container r-new r-newnew">
+					<li class="container r-newnew">
 						<div class="container-3">
 							<span class="menu-item-icon icon-hand icon-hide-recommended"></span>
 							<span data-lang="HideRecommended" data-search="suggested,recommended"></span>
@@ -410,7 +381,7 @@
 						</div>
 						<p class="info" data-lang="HideRecommendedInfo"></p>
 					</li>
-					<li class="container-3 r-old r-new r-newnew">
+					<li class="container-3 r-old r-newnew">
 						<span class="menu-item-icon icon-nsfw icon-hide-nsfw"></span>
 						<span data-lang="HideNSFW" data-search="nsfw"></span>
 						<label class="switch">
@@ -442,14 +413,6 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-show icon-hide-original-scroll-to-top"></span>
-						<span data-lang="HideOriginalScrollToTop" data-search=""></span>
-						<label class="switch">
-							<input id="checkbox-hide-original-scroll-to-top" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-					</li>
 					<li class="container-3 r-new r-newnew">
 						<span class="menu-item-icon icon-show icon-hide-post-hidden-message"></span>
 						<span data-lang="HidePostHiddenMessage" data-search=""></span>
@@ -474,14 +437,6 @@
 						<span data-lang="HideKarma" data-search="karma"></span>
 						<label class="switch">
 							<input id="checkbox-hide-karma" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-					</li>
-					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-bell icon-hide-turn-on-notifications"></span>
-						<span data-lang="HideTurnOnNotificationsPopup" data-search="popup,notifications"></span>
-						<label class="switch">
-							<input id="checkbox-hide-turn-on-notifications" type="checkbox" />
 							<span class="indicator"></span>
 						</label>
 					</li>
@@ -529,14 +484,6 @@
 						<span data-lang="HeaderButtons"></span>
 					</li>
 					<li class="container r-old r-new r-newnew">
-						<div class="container-3 r-new">
-							<span class="menu-item-icon icon-popular hide-popular-button"></span>
-							<span data-lang="HidePopularButton" data-search=""></span>
-							<label class="switch">
-								<input id="checkbox-hide-popular-button" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-						</div>
 						<div class="container-3 r-old r-new">
 							<span class="menu-item-icon icon-mod hide-moderation-button"></span>
 							<span data-lang="HideModerationButton" data-search=""></span>
@@ -710,14 +657,6 @@
 								<span class="indicator"></span>
 							</label>
 						</div>
-						<div class="container-3 r-new">
-							<span class="menu-item-icon icon-show hide-sidebar-policy"></span>
-							<span data-lang="HideSidebarPolicy" data-search="sidebar,privacy,policy"></span>
-							<label class="switch">
-								<input id="checkbox-hide-sidebar-policy" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-						</div>
 						<div class="container-3 r-newnew">
 							<span class="menu-item-icon icon-show icon-hide-recent-posts"></span>
 							<span data-lang="HideRecentPosts" data-search="sidebar,recent"></span>
@@ -772,15 +711,6 @@
 							<span data-lang="HidePostSidebar" data-search="sidebar"></span>
 							<label class="switch">
 								<input id="checkbox-hide-post-sidebar" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-						</div>
-						<div class="divider r-new"></div>
-						<div class="container-3 r-new">
-							<span class="menu-item-icon icon-show icon-hide-post-overlay-sidebar"></span>
-							<span data-lang="HidePostOverlaySidebar" data-search="sidebar"></span>
-							<label class="switch">
-								<input id="checkbox-hide-post-overlay-sidebar" type="checkbox" />
 								<span class="indicator"></span>
 							</label>
 						</div>
@@ -845,6 +775,14 @@
 						<span data-lang="HideJoinButtonOnPosts" data-search="join"></span>
 						<label class="switch">
 							<input id="checkbox-hide-join-button-on-posts" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li class="container-3 r-newnew">
+						<span class="menu-item-icon icon-show icon-hide-awards"></span>
+						<span data-lang="HideAwards" data-search="award"></span>
+						<label class="switch">
+							<input id="checkbox-hide-awards" type="checkbox" />
 							<span class="indicator"></span>
 						</label>
 					</li>
@@ -956,14 +894,6 @@
 					<li id="media-images" class="sub-header r-new r-newnew">
 						<span data-lang="Images"></span>
 					</li>
-					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-scale icon-fit-image"></span>
-						<span data-lang="FitImage" data-search="post,tall,image,shrink,scale"></span>
-						<label class="switch">
-							<input id="checkbox-fit-image" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-					</li>
 					<li class="container r-new r-newnew">
 						<div class="container-3 r-new r-newnew">
 							<span class="menu-item-icon icon-mouse-scroll icon-image-scroll"></span>
@@ -1037,14 +967,6 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-hide icon-hide-see-full-image"></span>
-						<span data-lang="HideSeeFullImage" data-search=""></span>
-						<label class="switch">
-							<input id="checkbox-hide-see-full-image" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-					</li>
 					<li class="container r-old r-new r-newnew">
 						<div class="container-3">
 							<span class="menu-item-icon icon-box-arrow icon-just-open-the-image"></span>
@@ -1058,6 +980,17 @@
 					</li>
 					<li id="media-video" class="sub-header r-new r-newnew">
 						<span data-lang="Video"></span>
+					</li>
+					<li class="container r-newnew">
+						<div class="container-3">
+							<span class="menu-item-icon icon-download icon-add-download-video-button"></span>
+							<span data-lang="AddDownloadVideoButton" data-search="download,save,video"></span>
+							<label class="switch">
+								<input id="checkbox-add-download-video-button" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<p class="info" data-lang="AddDownloadVideoButtonInfo"></p>
 					</li>
 					<li class="container r-new r-newnew">
 						<div class="container-3">
@@ -1098,16 +1031,6 @@
 						</div>
 						<p class="info" data-lang="ReplacePostVideosWithLinksInfo"></p>
 					</li>
-					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-play icon-new-player"></span>
-						<span data-lang="VideoPlayerReplacement" data-search="video,player"></span>
-						<label class="switch">
-							<input id="checkbox-new-player" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-						<div></div>
-						<p data-lang="VideoPlayerInfo"></p>
-					</li>
 					<li class="container-3 r-newnew">
 						<span class="menu-item-icon icon-play icon-hide-video-recommendations"></span>
 						<span data-lang="HideVideoRecommendations" data-search="video,post,recommend,suggest,overlay"></span>
@@ -1116,14 +1039,6 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<!--<div class="container-3 r-newnew">
-						<span class="menu-item-icon icon-download icon-add-download-video-button"></span>
-						<span data-lang="AddDownloadVideoButton" data-search="download,save,video"></span>
-						<label class="switch">
-							<input id="checkbox-add-download-video-button" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-					</li>-->
 					<li id="media-text" class="sub-header r-new r-newnew">
 						<span data-lang="Text"></span>
 					</li>
@@ -1162,16 +1077,6 @@
 							<input type="range" min="-1" max="500" value="0" step="1" class="slider" id="input-text-post-preview-fade-height" />
 							<span id="text-post-preview-fade-height" class="input-value"></span>
 						</div>
-					</li>
-					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-mouse-scroll icon-text-scroll-post"></span>
-						<span data-lang="TextScroll" data-search="post"></span>
-						<label class="switch">
-							<input id="checkbox-text-scroll-post" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-						<div></div>
-						<p class="info" data-lang="TextScrollInfo"></p>
 					</li>
 				</ul>
 			</li>
@@ -1226,22 +1131,6 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-rising always-show-rising-button"></span>
-						<span data-lang="ShowRising" data-search=""></span>
-						<label class="switch">
-							<input id="checkbox-always-show-rising-button" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-					</li>
-					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-sword icon-controversial-sort-button"></span>
-						<span data-lang="ControversialSort" data-search=""></span>
-						<label class="switch">
-							<input id="checkbox-controversial-sort-button" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-					</li>
 					<li class="container-3 r-old r-new r-newnew">
 						<span class="menu-item-icon icon-sort icon-default-home-feed-sort-option"></span>
 						<span data-lang="DefaultHomeFeedSortOption" data-search=""></span>
@@ -1293,19 +1182,6 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li class="container r-old r-new r-newnew">
-						<div class="container-3">
-							<div></div>
-							<span data-lang="DefaultSortFeedOptionGracePeriod" data-search="sort"></span>
-							<div></div>
-							<div></div>
-							<div class="css-input-container">
-								<input id="input-default-sort-feed-option-grace-period" type="number" maxlength="3" placeholder="20" />
-								<span data-lang="seconds"></span>
-							</div>
-						</div>
-						<p class="info" data-lang="DefaultSortFeedOptionOverrideInfo"></p>
-					</li>
 					<li id="productivity-header" class="sub-header r-old r-new r-newnew">
 						<span data-lang="Header"></span>
 					</li>
@@ -1314,14 +1190,6 @@
 						<span data-lang="ToTop" data-search="top,scroll"></span>
 						<label class="switch">
 							<input id="checkbox-show-to-top-button" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-					</li>
-					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-all icon-show-r-all"></span>
-						<span data-lang="ShowAllButton" data-search="all"></span>
-						<label class="switch">
-							<input id="checkbox-show-r-all-button" type="checkbox" />
 							<span class="indicator"></span>
 						</label>
 					</li>
@@ -1376,18 +1244,15 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-ruler-vertical icon-post-height"></span>
-						<span data-lang="FeedPostMaxHeight" data-search="post,height,scale,size"></span>
+					<li class="container-3 r-newnew">
+						<span class="menu-item-icon icon-user icon-highlight-op"></span>
+						<span data-lang="HighlightOp" data-search="user,author,highlight"></span>
 						<label class="switch">
-							<input id="checkbox-post-height" type="checkbox" />
+							<input id="checkbox-highlight-op" type="checkbox" />
 							<span class="indicator"></span>
 						</label>
-						<div></div>
-						<input type="range" min="296" max="1000" value="0" step="8" class="slider" id="input-feed-post-max-height" />
-						<span id="feed-post-max-height-value" class="input-value"></span>
 					</li>
-					<li class="container-3 r-new">
+					<li class="container-3 r-newnew">
 						<span class="menu-item-icon icon-arrow-square open-sub-new-tab"></span>
 						<span data-lang="OpenSubInNewTab" data-search="tab"></span>
 						<label class="switch">
@@ -1395,7 +1260,7 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li class="container-3 r-new">
+					<li class="container-3 r-newnew">
 						<span class="menu-item-icon icon-arrow-square open-post-new-tab"></span>
 						<span data-lang="OpenPostInNewTab" data-search="tab"></span>
 						<label class="switch">
@@ -1491,6 +1356,22 @@
 							</label>
 						</div>
 					</li>
+					<li class="container-3 r-newnew">
+						<span class="menu-item-icon icon-comments icon-view-crossposts"></span>
+						<span data-lang="ViewCrossposts" data-search="crosspost,view"></span>
+						<label class="switch">
+							<input id="checkbox-view-crossposts" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
+					<li class="container-3 r-newnew">
+						<span class="menu-item-icon icon-expand-arrows icon-mark-read-on-open-expandos"></span>
+						<span data-lang="MarkReadOnOpenExpandos" data-search="read,expand,preview"></span>
+						<label class="switch">
+							<input id="checkbox-mark-read-on-open-expandos" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
 					<li id="productivity-comments" class="sub-header r-old r-new r-newnew">
 						<span data-lang="Comments"></span>
 					</li>
@@ -1575,17 +1456,6 @@
 					</li>
 					<li class="container r-old r-new r-newnew">
 						<div class="container-3">
-							<span class="menu-item-icon icon-expand-arrows icon-auto-expand-comments"></span>
-							<span data-lang="AutoExpandComments" data-search="pagination"></span>
-							<label class="switch">
-								<input id="checkbox-auto-expand-comments" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-						</div>
-						<p class="info" data-lang="AutoExpandCommentsInfo"></p>
-					</li>
-					<li class="container r-old r-new r-newnew">
-						<div class="container-3">
 							<span class="menu-item-icon icon-comments icon-auto-load-more-comments"></span>
 							<span data-lang="AutoLoadMoreComments" data-search="pagination"></span>
 							<label class="switch">
@@ -1593,28 +1463,23 @@
 								<span class="indicator"></span>
 							</label>
 						</div>
-						<p class="info" data-lang="AutoExpandCommentsInfo"></p>
+						<p class="info" data-lang="AutoLoadMoreCommentsInfo"></p>
 					</li>
-					<li class="container-3 r-newnew">
-						<span class="menu-item-icon icon-hide icon-auto-show-comment-formatting-options"></span>
-						<span data-lang="AutoShowCommentFormattingOptions" data-search="comment,formatting"></span>
-						<label class="switch">
-							<input id="checkbox-auto-show-comment-formatting-options" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
+					<li class="container r-newnew">
+						<div class="container-3">
+							<span class="menu-item-icon icon-comment icon-better-comment-box"></span>
+							<span data-lang="BetterCommentBox" data-search="comment,formatting,enter,ctrl"></span>
+							<label class="switch">
+								<input id="checkbox-better-comment-box" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<p class="info" data-lang="BetterCommentBoxInfo"></p>
 					</li>
-					<li id="productivity-other" class="sub-header r-new">
+					<!--<li id="productivity-other" class="sub-header r-new">
 						<span data-lang="Other"></span>
-					</li>
-					<li class="container-3 r-new">
-						<span class="menu-item-icon icon-turn-up icon-sidemenu-feed-top"></span>
-						<span data-lang="MoveFeedToTopInSideMenu" data-search="feed,sidemenu,top"></span>
-						<label class="switch">
-							<input id="checkbox-sidemenu-feed-top" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
-					</li>
-					<li class="container r-new">
+					</li>-->
+					<!--<li class="container r-new">
 						<div class="container-3">
 							<span class="menu-item-icon icon-pause icon-break-reminder"></span>
 							<span data-lang="BreakReminder" data-search="break,reminder"></span>
@@ -1634,8 +1499,8 @@
 							<input type="range" min="10" max="1000" value="0" step="10" class="slider" id="input-break-reminder-frequency" />
 							<span id="break-reminder-frequency-value" class="input-value"></span>
 						</div>
-					</li>
-					<li class="container-3 r-new">
+					</li>-->
+					<!--<li class="container-3 r-new">
 						<span class="menu-item-icon icon-infinity icon-limit-infinity-scroll"></span>
 						<span data-lang="LimitInfinityScroll" data-search="pagination"></span>
 						<label class="switch">
@@ -1644,7 +1509,7 @@
 						</label>
 						<div></div>
 						<p data-lang="LimitInfinityScrollInfo"></p>
-					</li>
+					</li>-->
 				</ul>
 			</li>
 
@@ -1795,10 +1660,14 @@
 								<a href="#style-header" data-lang="Header"></a>
 								<div class="vdivider"></div>
 							</div>
+							<div class="r-newnew">
+								<a href="#style-drop-shadow" data-lang="DropShadow"></a>
+								<div class="vdivider"></div>
+							</div>
 							<div class="r-new r-newnew"><a href="#style-theme" data-lang="Theme"></a></div>
 						</div>
 					</li>
-					<li class="container-3 r-new r-newnew">
+					<li class="container-3 r-newnew">
 						<span class="menu-item-icon icon-tfl hide-gap"></span>
 						<span data-lang="HideGap" data-search="border,edge,gap,space"></span>
 						<label class="switch">
@@ -1901,15 +1770,15 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li class="sub-header r-new">
-						<span data-lang="Shadow"></span>
+					<li id="style-drop-shadow" class="sub-header r-newnew">
+						<span data-lang="DropShadow"></span>
 					</li>
-					<li class="container r-new">
+					<li class="container r-newnew">
 						<div class="container-3">
-							<span class="menu-item-icon icon-light-off icon-shadow"></span>
-							<span data-lang="Shadow" data-search="shadow"></span>
+							<span class="menu-item-icon icon-light-off icon-add-drop-shadow"></span>
+							<span data-lang="DropShadow" data-search="shadow"></span>
 							<label class="switch">
-								<input id="checkbox-shadow" type="checkbox" />
+								<input id="checkbox-add-drop-shadow" type="checkbox" />
 								<span class="indicator"></span>
 							</label>
 						</div>
@@ -1948,6 +1817,14 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
+					<li class="container-3 r-old">
+						<span class="menu-item-icon icon-spray-can icon-right-side-post-thumbnails"></span>
+						<span data-lang="RightSidePostThumbnails" data-search="right,post,thumbnail"></span>
+						<label class="switch">
+							<input id="checkbox-right-side-post-thumbnails" type="checkbox" />
+							<span class="indicator"></span>
+						</label>
+					</li>
 					<!-- Theme -->
 					<li id="style-theme" class="sub-header r-new r-newnew">
 						<span data-lang="Theme"></span>
@@ -1958,14 +1835,14 @@
 								<a href="#theme-header" data-lang="Header"></a>
 								<div class="vdivider"></div>
 							</div>
-							<div class="r-new">
+							<!--<div class="r-new">
 								<a href="#theme-create-post" data-lang="CreatePost"></a>
 								<div class="vdivider"></div>
 							</div>
 							<div class="r-new">
 								<a href="#theme-sort" data-lang="Sort"></a>
 								<div class="vdivider"></div>
-							</div>
+							</div>-->
 							<div class="r-new r-newnew">
 								<a href="#theme-post" data-lang="Post"></a>
 								<div class="vdivider"></div>
@@ -2062,100 +1939,14 @@
 							</div>
 						</div>
 					</li>
-					<!-- Create Post Style -->
+					<!-- Create Post Style 
 					<li id="theme-create-post" class="sub-header r-new" style="scroll-margin-top: 55px">
 						<span data-lang="CreatePost"></span>
-					</li>
-					<li class="container r-new">
-						<div class="container-3">
-							<span class="menu-item-icon icon-spray-can icon-create-post-bg-colour"></span>
-							<span data-lang="CreatePostBgColour" data-search="theme,colour"></span>
-							<label class="switch">
-								<input id="checkbox-create-post-bg-colour" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-							<div></div>
-							<div class="css-input-container">
-								<span class="text-small">background:</span>
-								<input id="input-create-post-bg-colour-css" type="text" placeholder="rgba(0,0,0,0.5)" />
-							</div>
-						</div>
-						<div class="divider"></div>
-						<div class="container-3">
-							<span class="menu-item-icon icon-spray-can icon-create-post-border-colour"></span>
-							<span data-lang="CreatePostBorderColour" data-search="theme,colour"></span>
-							<label class="switch">
-								<input id="checkbox-create-post-border-colour" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-							<div></div>
-							<div class="css-input-container">
-								<span class="text-small">border-color:</span>
-								<input id="input-create-post-border-colour-css" type="text" placeholder="rgba(0,0,0,0.5)" />
-							</div>
-						</div>
-					</li>
-					<!-- Sort Style -->
+					</li>-->
+					<!-- Sort Style 
 					<li id="theme-sort" class="sub-header r-new" style="scroll-margin-top: 55px">
 						<span data-lang="Sort"></span>
-					</li>
-					<li class="container r-new">
-						<div class="container-3">
-							<span class="menu-item-icon icon-spray-can icon-sort-bg-colour"></span>
-							<span data-lang="SortBgColour" data-search="theme,colour"></span>
-							<label class="switch">
-								<input id="checkbox-sort-bg-colour" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-							<div></div>
-							<div class="css-input-container">
-								<span class="text-small">background:</span>
-								<input id="input-sort-bg-colour-css" type="text" placeholder="rgba(0,0,0,0.5)" />
-							</div>
-						</div>
-						<div class="divider"></div>
-						<div class="container-3">
-							<span class="menu-item-icon icon-spray-can icon-sort-text-colour"></span>
-							<div><span data-lang="SortTextColour" data-search="theme,colour"></span>1</div>
-							<label class="switch">
-								<input id="checkbox-sort-text-colour" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-							<div></div>
-							<div class="css-input-container">
-								<span class="text-small">color:</span>
-								<input id="input-sort-text-colour-css" type="text" placeholder="rgb(250,250,250)" />
-							</div>
-						</div>
-						<div class="divider"></div>
-						<div class="container-3">
-							<span class="menu-item-icon icon-spray-can icon-sort-text-colour-2"></span>
-							<div><span data-lang="SortTextColour" data-search="theme,colour"></span>2</div>
-							<label class="switch">
-								<input id="checkbox-sort-text-colour-2" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-							<div></div>
-							<div class="css-input-container">
-								<span class="text-small">color:</span>
-								<input id="input-sort-text-colour-2-css" type="text" placeholder="rgb(200,200,200)" />
-							</div>
-						</div>
-						<div class="divider"></div>
-						<div class="container-3">
-							<span class="menu-item-icon icon-spray-can icon-sort-border-colour"></span>
-							<span data-lang="SortBorderColour" data-search="theme,colour"></span>
-							<label class="switch">
-								<input id="checkbox-sort-border-colour" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-							<div></div>
-							<div class="css-input-container">
-								<span class="text-small">border-color:</span>
-								<input id="input-sort-border-colour-css" type="text" placeholder="rgb(0,0,0)" />
-							</div>
-						</div>
-					</li>
+					</li>-->
 					<!-- Post Style -->
 					<li id="theme-post" class="sub-header r-new r-newnew" style="scroll-margin-top: 55px">
 						<span data-lang="Post"></span>
@@ -2349,20 +2140,6 @@
 								<input id="input-sidebar-bg-colour-css" type="text" placeholder="#1a1a1b" />
 							</div>
 						</div>
-						<div class="divider r-new"></div>
-						<div class="container-3 r-new">
-							<span class="menu-item-icon icon-spray-can icon-sidebar-border-colour"></span>
-							<span data-lang="SidebarBorderColour" data-search="theme,colour"></span>
-							<label class="switch">
-								<input id="checkbox-sidebar-border-colour" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-							<div></div>
-							<div class="css-input-container">
-								<span class="text-small">border-color:</span>
-								<input id="input-sidebar-border-colour-css" type="text" placeholder="rgba(0,0,0,0.8)" />
-							</div>
-						</div>
 					</li>
 					<!-- Side Menu Style -->
 					<li id="theme-sidemenu" class="sub-header r-new r-newnew" style="scroll-margin-top: 55px">
@@ -2498,24 +2275,6 @@
 						</div>
 						<p class="info" data-lang="ForceCustomBgOldUIInfo"></p>
 					</li>
-					<li class="container r-new">
-						<div class="container-3 r-new">
-							<span class="menu-item-icon icon-fade icon-disable-bg-fade-post-overlay"></span>
-							<span data-lang="DisableBgFadePostOverlay" data-search="transparent,background,post,overlay"></span>
-							<label class="switch">
-								<input id="checkbox-disable-bg-fade-post-overlay" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-						</div>
-						<div class="container-3 r-new">
-							<span class="menu-item-icon icon-blur icon-blur-background-post-overlay"></span>
-							<span data-lang="BlurBackgroundPostOverlay" data-search="blur,background,post,overlay"></span>
-							<label class="switch">
-								<input id="checkbox-blur-background-post-overlay" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-						</div>
-					</li>
 				</ul>
 			</li>
 
@@ -2593,8 +2352,38 @@
 				</ul>
 			</li>
 
+			<li id="index-10" data-index="10">
+				<!-- Block -->
+				<div id="block" class="menu-item-link btn-block r-old r-newnew">
+					<div class="menu-item-btn">
+						<span class="menu-item-icon icon-block"></span>
+						<span data-lang="Block" class="menu-item-title"></span>
+						<div class="icon-chevron-down"></div>
+					</div>
+					<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
+				</div>
+				<!-- Block Sub Menu -->
+				<ul class="sub-list menu-block hidden r-old r-newnew">
+					<li class="sub-header sub-search-title">
+						<span data-lang="Block"></span>
+					</li>
+					<li class="container r-old r-newnew">
+						<div class="container-3">
+							<span class="menu-item-icon icon-list-check-solid icon-hide-blocked-keyword-posts"></span>
+							<span data-lang="HideBlockedKeywordsPosts" data-search=""></span>
+							<label class="switch">
+								<input id="checkbox-hide-blocked-keyword-posts-enable" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+							<div></div>
+							<textarea id="input-blocked-keyword-posts" rows="4" cols="auto" placeholder="keyword,keyword"></textarea>
+						</div>
+					</li>
+				</ul>
+			</li>
+
 			<li id="index-0" data-index="0">
-				<!-- Dark Mode -->
+				<!-- Dark Mode 
 				<div id="dark-mode" class="menu-item-link btn-dark-mode r-new">
 					<div class="menu-item-btn">
 						<span class="menu-item-icon icon-dark-mode"></span>
@@ -2602,8 +2391,8 @@
 						<div class="icon-chevron-down"></div>
 					</div>
 					<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
-				</div>
-				<!-- Dark Mode Sub Menu -->
+				</div>-->
+				<!-- Dark Mode Sub Menu 
 				<ul class="sub-list menu-dark-mode hidden r-new">
 					<li class="sub-header sub-search-title">
 						<span data-lang="DarkMode"></span>
@@ -2637,37 +2426,7 @@
 						<label data-lang="EndTime" for="time-end" data-search="dark,night"></label>
 						<input type="time" id="dm-time-end" name="time-end" class="time-input" />
 					</li>
-				</ul>
-			</li>
-
-			<li id="index-10" data-index="10">
-				<!-- Block -->
-				<div id="block" class="menu-item-link btn-block r-old r-newnew">
-					<div class="menu-item-btn">
-						<span class="menu-item-icon icon-block"></span>
-						<span data-lang="Block" class="menu-item-title"></span>
-						<div class="icon-chevron-down"></div>
-					</div>
-					<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
-				</div>
-				<!-- Block Sub Menu -->
-				<ul class="sub-list menu-block hidden r-old r-newnew">
-					<li class="sub-header sub-search-title">
-						<span data-lang="Block"></span>
-					</li>
-					<li class="container r-old r-newnew">
-						<div class="container-3">
-							<span class="menu-item-icon icon-list-check-solid icon-hide-blocked-keyword-posts"></span>
-							<span data-lang="HideBlockedKeywordsPosts" data-search=""></span>
-							<label class="switch">
-								<input id="checkbox-hide-blocked-keyword-posts-enable" type="checkbox" />
-								<span class="indicator"></span>
-							</label>
-							<div></div>
-							<textarea id="input-blocked-keyword-posts" rows="4" cols="auto" placeholder="keyword,keyword"></textarea>
-						</div>
-					</li>
-				</ul>
+				</ul>-->
 			</li>
 
 			<li id="index-9" data-index="9">

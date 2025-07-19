@@ -19,38 +19,6 @@ export function restorePopupProductivityOptions() {
 		console.log('Show Scroll To Top Button: ' + value);
 	});
 
-	// Always Show Rising Sort Button
-	BROWSER_API.storage.sync.get(['alwaysShowRisingButton'], function (result) {
-		if (result.alwaysShowRisingButton == true) {
-			document.querySelector('#checkbox-always-show-rising-button').checked = true;
-			document.querySelector('.always-show-rising-button').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.always-show-rising-button').classList.remove('icon-rising');
-			document.querySelector('.always-show-rising-button').classList.add('icon-rising-fill');
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.alwaysShowRisingButton == 'undefined' || result.alwaysShowRisingButton == false) {
-			document.querySelector('#checkbox-always-show-rising-button').checked = false;
-			var value = false;
-		}
-		console.log('Always Show Rising Sort Button: ' + value);
-	});
-
-	// Show Controversial Sort Button
-	BROWSER_API.storage.sync.get(['showControversialSortButton'], function (result) {
-		if (result.showControversialSortButton == true) {
-			document.querySelector('#checkbox-controversial-sort-button').checked = true;
-			document.querySelector('.icon-controversial-sort-button').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.icon-controversial-sort-button').classList.remove('icon-sword');
-			document.querySelector('.icon-controversial-sort-button').classList.add('icon-sword-fill');
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.showControversialSortButton == 'undefined' || result.showControversialSortButton == false) {
-			document.querySelector('#checkbox-controversial-sort-button').checked = false;
-			var value = false;
-		}
-		console.log('Show Controversial Sort Button: ' + value);
-	});
-
 	// Open Sub Links In New Tab
 	BROWSER_API.storage.sync.get(['openSubInNewTab'], function (result) {
 		if (result.openSubInNewTab == true) {
@@ -77,49 +45,6 @@ export function restorePopupProductivityOptions() {
 			var value = false;
 		}
 		console.log('Open Post Links In New Tab: ' + value);
-	});
-
-	/*
-// Add Emoji Picker
-BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
-    if (result.addEmojiPicker == true) {
-        document.querySelector("#checkbox-add-emoji-picker").checked = true
-        document.querySelector(".icon-emoji-picker").style.backgroundColor = "var(--accent)"
-        highlightMenuIcon('productivity-tweaks');
-        var value = true
-    } else if ((typeof result.addEmojiPicker == 'undefined')||(result.addEmojiPicker == false)) {
-        document.querySelector("#checkbox-add-emoji-picker").checked = false
-        var value = false
-    }
-    console.log("Add Emoji Picker: "+value)
-})*/
-
-	// Show r/All Button
-	BROWSER_API.storage.sync.get(['showAllButton'], function (result) {
-		if (result.showAllButton == true) {
-			document.querySelector('#checkbox-show-r-all-button').checked = true;
-			document.querySelector('.icon-show-r-all').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.showAllButton == 'undefined' || result.showAllButton == false) {
-			document.querySelector('#checkbox-show-r-all-button').checked = false;
-			var value = false;
-		}
-		console.log('Show r/All Button: ' + value);
-	});
-
-	// Move Feed Section In Side Menu To The Top
-	BROWSER_API.storage.sync.get(['sidemenuFeedTop'], function (result) {
-		if (result.sidemenuFeedTop == true) {
-			document.querySelector('#checkbox-sidemenu-feed-top').checked = true;
-			document.querySelector('.icon-sidemenu-feed-top').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.sidemenuFeedTop == 'undefined' || result.sidemenuFeedTop == false) {
-			document.querySelector('#checkbox-sidemenu-feed-top').checked = false;
-			var value = false;
-		}
-		console.log('Move Feed Section In Side Menu To The Top: ' + value);
 	});
 
 	// Always Show Post Options
@@ -305,7 +230,7 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 	});
 
 	// Limit Infinity Scroll
-	BROWSER_API.storage.sync.get(['limitInfinityScroll'], function (result) {
+	/*BROWSER_API.storage.sync.get(['limitInfinityScroll'], function (result) {
 		if (result.limitInfinityScroll == true) {
 			document.querySelector('#checkbox-limit-infinity-scroll').checked = true;
 			document.querySelector('.icon-limit-infinity-scroll').style.backgroundColor = 'var(--accent)';
@@ -318,7 +243,7 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 			var value = false;
 		}
 		console.log('Limit Infinity Scroll: ' + value);
-	});
+	});*/
 
 	// Enable Default Home Feed Sort Option
 	BROWSER_API.storage.sync.get(['enableDefaultHomeFeedSortOption'], function (result) {
@@ -452,41 +377,6 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		console.log('Show Post Numbers: ' + value);
 	});
 
-	// Post Height
-	BROWSER_API.storage.sync.get(['postHeight'], function (result) {
-		if (result.postHeight === true) {
-			document.querySelector('#checkbox-post-height').checked = true;
-			document.querySelector('.icon-post-height').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.postHeight == 'undefined' || result.postHeight == false) {
-			document.querySelector('#checkbox-post-height').checked = false;
-			var value = false;
-		}
-		console.log('Post Height: ' + value);
-	});
-
-	// Post Height Size
-	BROWSER_API.storage.sync.get(['postHeightSize'], function (result) {
-		if (typeof result.postHeightSize != 'undefined') {
-			if (result.postHeightSize > 304 && result.postHeightSize <= 1000) {
-				highlightMenuIcon('productivity-tweaks');
-				document.querySelector('#input-feed-post-max-height').value = result.postHeightSize;
-				document.querySelector('#feed-post-max-height-value').innerText = result.postHeightSize + 'px';
-				var value = result.postHeightSize + 'px';
-			} else {
-				document.querySelector('#input-feed-post-max-height').value = 296;
-				document.querySelector('#feed-post-max-height-value').innerText = '512px';
-				var value = 'default (512px)';
-			}
-		} else if (typeof result.postHeightSize == 'undefined') {
-			document.querySelector('#input-feed-post-max-height').value = 296;
-			document.querySelector('#feed-post-max-height-value').innerText = '512px';
-			var value = 'default (512px)';
-		}
-		console.log('Post Height Size: ' + value);
-	});
-
 	// Non Sticky Header Bar
 	BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
 		if (result.nonStickyHeaderBar == true) {
@@ -519,8 +409,8 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 
 	// Scroll To Next Root Comment Position X
 	BROWSER_API.storage.sync.get(['scrollToNextRootCommentPosition'], function (result) {
-		const valueX = result.scrollToNextRootCommentPosition.x;
-		if (typeof valueX == 'undefined' || valueX === '-1') {
+		const valueX = result.scrollToNextRootCommentPosition?.x || undefined;
+		if (typeof valueX == 'undefined' || valueX === '-1' || valueX === 'undefined') {
 			document.querySelector('#input-scroll-to-root-comment-position-x').value = -1;
 			document.querySelector('#scroll-to-root-comment-position-x-value').innerText = '48px';
 			console.log('Scroll To Next Root Comment Position: 48px');
@@ -531,12 +421,10 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 			var value = valueX;
 			console.log('Scroll To Next Root Comment Position X: ' + value + '%');
 		}
-	});
 
-	// Scroll To Next Root Comment Position Y
-	BROWSER_API.storage.sync.get(['scrollToNextRootCommentPosition'], function (result) {
-		const valueY = result.scrollToNextRootCommentPosition.y;
-		if (typeof valueY == 'undefined' || valueY === '-1') {
+		// Scroll To Next Root Comment Position Y
+		const valueY = result.scrollToNextRootCommentPosition?.y || undefined;
+		if (typeof valueY == 'undefined' || valueY === '-1' || valueY === 'undefined') {
 			document.querySelector('#input-scroll-to-root-comment-position-y').value = -1;
 			document.querySelector('#scroll-to-root-comment-position-y-value').innerText = '50%';
 			console.log('Scroll To Next Root Comment Position Vertically: 50%');
@@ -550,7 +438,7 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 	});
 
 	// Break Reminder
-	BROWSER_API.storage.sync.get(['breakReminder'], function (result) {
+	/*BROWSER_API.storage.sync.get(['breakReminder'], function (result) {
 		if (result.breakReminder == true) {
 			document.querySelector('.icon-break-reminder').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('productivity-tweaks');
@@ -560,10 +448,10 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		}
 		document.querySelector('#checkbox-break-reminder').checked = value;
 		console.log('Break Reminder: ' + value);
-	});
+	});*/
 
 	// Break Reminder Frequency
-	BROWSER_API.storage.sync.get(['breakReminderFrequency'], function (result) {
+	/*BROWSER_API.storage.sync.get(['breakReminderFrequency'], function (result) {
 		if (typeof result.breakReminderFrequency == 'undefined') {
 			var value = 50;
 		} else if (typeof result.breakReminderFrequency != 'undefined') {
@@ -572,7 +460,7 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		document.querySelector('#input-break-reminder-frequency').value = value;
 		document.querySelector('#break-reminder-frequency-value').innerText = value;
 		console.log('Break Reminder Frequency: ' + value);
-	});
+	});*/
 
 	// Show Post Author
 	BROWSER_API.storage.sync.get(['showPostAuthor'], function (result) {
@@ -616,20 +504,6 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		console.log('Add User Profile Pictures To Comments: ' + value);
 	});
 
-	// Auto Expand Comments
-	BROWSER_API.storage.sync.get(['autoExpandComments'], function (result) {
-		if (result.autoExpandComments == true) {
-			document.querySelector('.icon-auto-expand-comments').style.backgroundColor = 'var(--accent)';
-			document.querySelector('#checkbox-auto-expand-comments').checked = true;
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.autoExpandComments == 'undefined' || result.autoExpandComments == false) {
-			document.querySelector('#checkbox-auto-expand-comments').checked = false;
-			var value = false;
-		}
-		console.log('Auto Expand Comments: ' + value);
-	});
-
 	// Auto Collapse AutoModerator Comment
 	BROWSER_API.storage.sync.get(['autoCollapseAutoModeratorComment'], function (result) {
 		if (result.autoCollapseAutoModeratorComment === true) {
@@ -658,20 +532,18 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		console.log('Auto Load More Comments: ' + value);
 	});
 
-	// Auto Show Comment Formatting Options
-	BROWSER_API.storage.sync.get(['autoShowCommentFormattingOptions'], function (result) {
-		if (result.autoShowCommentFormattingOptions === true) {
-			document.querySelector('.icon-auto-show-comment-formatting-options').style.backgroundColor = 'var(--accent)';
-			document.querySelector('#checkbox-auto-show-comment-formatting-options').checked = true;
+	// Better Comment Box
+	BROWSER_API.storage.sync.get(['betterCommentBox'], function (result) {
+		if (result.betterCommentBox === true) {
+			document.querySelector('.icon-better-comment-box').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-better-comment-box').checked = true;
 			highlightMenuIcon('productivity-tweaks');
-			document.querySelector('.icon-auto-show-comment-formatting-options').classList.remove('icon-hide');
-			document.querySelector('.icon-auto-show-comment-formatting-options').classList.add('icon-show');
 			var value = true;
-		} else if (typeof result.autoShowCommentFormattingOptions == 'undefined' || result.autoShowCommentFormattingOptions === false) {
-			document.querySelector('#checkbox-auto-show-comment-formatting-options').checked = false;
+		} else if (typeof result.betterCommentBox == 'undefined' || result.betterCommentBox === false) {
+			document.querySelector('#checkbox-better-comment-box').checked = false;
 			var value = false;
 		}
-		console.log('Auto Show Comment Formatting Options: ' + value);
+		console.log('Better Comment Box: ' + value);
 	});
 
 	// Sticky Sort
@@ -717,10 +589,67 @@ BROWSER_API.storage.sync.get(['addEmojiPicker'], function(result) {
 		console.log('Show Upvote Ratio: ' + value);
 	});
 
-	// Default Sort Feed Option Grace Period
-	BROWSER_API.storage.sync.get(['DefaultSortFeedOptionGracePeriod'], function (result) {
-		const value = result.DefaultSortFeedOptionGracePeriod || 20;
-		document.querySelector('#input-default-sort-feed-option-grace-period').value = value;
-		console.log('Default Sort Feed Option Grace Period: ' + value);
+	// View Crossposts
+	BROWSER_API.storage.sync.get(['viewCrossposts'], function (result) {
+		if (result.viewCrossposts) {
+			document.querySelector('#checkbox-view-crossposts').checked = true;
+			document.querySelector('.icon-view-crossposts').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else {
+			document.querySelector('#checkbox-view-crossposts').checked = false;
+			var value = false;
+		}
+		console.log('View Crossposts: ' + value);
+	});
+
+	// Mark Read On Open Expandos
+	BROWSER_API.storage.sync.get(['markReadOnOpenExpandos'], function (result) {
+		let value;
+		if (result.markReadOnOpenExpandos === true) {
+			if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
+				BROWSER_API.permissions
+					.contains({ permissions: ['history'] })
+					.then((granted) => {
+						if (granted) {
+							console.debug('markReadOnOpenExpandos: history permission granted');
+							document.querySelector('#checkbox-mark-read-on-open-expandos').checked = true;
+							document.querySelector('.icon-mark-read-on-open-expandos').style.backgroundColor = 'var(--accent)';
+							highlightMenuIcon('productivity-tweaks');
+							value = true;
+						} else {
+							console.debug('markReadOnOpenExpandos: history permission denied');
+							document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+						}
+					})
+					.catch((e) => {
+						console.error('markReadOnOpenExpandos: Error getting history permission: ', e);
+						document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+					});
+			} else {
+				document.querySelector('#checkbox-mark-read-on-open-expandos').checked = true;
+				document.querySelector('.icon-mark-read-on-open-expandos').style.backgroundColor = 'var(--accent)';
+				highlightMenuIcon('productivity-tweaks');
+				value = true;
+			}
+		} else if (typeof result.markReadOnOpenExpandos == 'undefined' || result.markReadOnOpenExpandos === false) {
+			document.querySelector('#checkbox-mark-read-on-open-expandos').checked = false;
+			value = false;
+		}
+		console.log('Mark Read On Open Expandos: ' + value);
+	});
+
+	// Highlight OP
+	BROWSER_API.storage.sync.get(['highlightOp'], function (result) {
+		if (result.highlightOp === true) {
+			document.querySelector('#checkbox-highlight-op').checked = true;
+			document.querySelector('.icon-highlight-op').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else if (typeof result.highlightOp == 'undefined' || result.highlightOp === false) {
+			document.querySelector('#checkbox-highlight-op').checked = false;
+			var value = false;
+		}
+		console.log('Highlight OP: ' + value);
 	});
 }

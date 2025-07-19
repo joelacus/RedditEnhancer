@@ -1,15 +1,22 @@
-/* ===== Tweaks - Hide - Side Menu Icons Only ===== */
+/**
+ * Tweaks: Hide Elements - Side Menu Icons Only
+ *
+ * @name sideMenuIconsOnly
+ * @description Hide the text and only show the icons in the side menu (left).
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadSideMenuIconsOnly() {
 	BROWSER_API.storage.sync.get(['sideMenuIconsOnly'], function (result) {
 		if (result.sideMenuIconsOnly) sideMenuIconsOnly(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function sideMenuIconsOnly(value) {
-	if (redditVersion === 'newnew' && value === true) {
+	if (redditVersion === 'newnew' && value) {
 		// stylesheet 1
 		if (!document.head.querySelector('style[id="re-side-menu-icons-only-1"]')) {
 			const styleElement = document.createElement('style');
@@ -105,7 +112,7 @@ export function sideMenuIconsOnly(value) {
 	}
 }
 
-// Function - Enable Side Menu Icons Only - New New
+// Enable Side Menu Icons Only - RV3
 function enableSideMenuIconsOnly() {
 	// append part attribute to top section items
 	document
@@ -181,7 +188,7 @@ function enableSideMenuIconsOnly() {
 		});
 }
 
-// Function - Disable Side Menu Icons Only - New New
+// Disable Side Menu Icons Only - RV3
 function disableSideMenuIconsOnly() {
 	const styleElement1 = document.head.querySelectorAll('style[id="re-side-menu-icons-only-1"]');
 	styleElement1.forEach((element) => {

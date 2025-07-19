@@ -6,11 +6,15 @@ const semver = require('semver');
 
 // Check For Latest Extension Version
 export async function fetchLatestVersion() {
-	const fetchURL = 'https://raw.githubusercontent.com/joelacus/RedditEnhancer/refs/heads/main/changelog.txt';
 	return new Promise((resolve, reject) => {
 		BROWSER_API.runtime.sendMessage(
 			{
-				actions: [{ action: 'changeFetchUrl', newFetchUrl: fetchURL }, { action: 'fetchData' }],
+				actions: [
+					{
+						action: 'fetchText',
+						url: 'https://raw.githubusercontent.com/joelacus/RedditEnhancer/refs/heads/main/changelog.txt',
+					},
+				],
 			},
 			function (response) {
 				if (response) {
@@ -21,9 +25,9 @@ export async function fetchLatestVersion() {
 						if (semver.gt(latestVersion, installedVersion)) {
 							// Display update notification
 							document.querySelector('#new-update').classList.remove('hidden');
-							const message = document.querySelector('#new-update-message').innerText;
+							const message = document.querySelector('#new-update-message').textContent;
 							const messageWithVersion = message.replace('<version>', latestVersion);
-							document.querySelector('#new-update-message').innerText = messageWithVersion;
+							document.querySelector('#new-update-message').textContent = messageWithVersion;
 							document.querySelector('#new-update-message').classList.remove('hidden');
 							// Generate changelog HTML
 							const html = generateChangelogHTML(response.data);

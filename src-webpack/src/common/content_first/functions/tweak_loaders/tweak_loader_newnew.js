@@ -5,7 +5,6 @@
 
 //import { waitForAddedNode } from './main_observer';
 
-import { loadAutoExpandComments } from '../../../content/tweaks/productivity/auto_expand_comments';
 import { loadAutoExpandValue } from '../../../content/tweaks/resize_elements/auto_expand_value';
 import { loadBionicReaderColours } from '../../../content/tweaks/accessibility/bionic_reader';
 import { loadCustomBackground } from '../../../content/tweaks/background/custom_background';
@@ -22,7 +21,7 @@ import { loadHidePromotedPosts } from '../../../content/tweaks/hide_elements/hid
 import { loadHideSideMenu } from '../../../content/tweaks/hide_elements/hide_side_menu';
 import { loadHideSideMenuSections } from '../../../content/tweaks/hide_elements/hide_side_menu_sections';
 import { loadHideUserProfilePics } from '../../../content/tweaks/hide_elements/hide_user_profile_pics';
-import { loadLayoutOffset } from '../../../content/tweaks/resize_elements/layout_centre_and_offset';
+import { loadLayoutOffset } from '../../../content/tweaks/resize_elements/layout_offset';
 import { loadNonStickyHeaderBar } from '../../../content/tweaks/productivity/non_sticky_header_bar';
 import { loadResizeFont } from '../../../content/tweaks/font/resize_font';
 import { loadPostFontWeight } from '../../../content/tweaks/font/font_weight';
@@ -40,17 +39,18 @@ import { loadFullWidthBanner, loadCompactHeaderSideMenu } from '../../../content
 import { loadTextPostPreviewFade } from '../../../content/tweaks/media/text_preview_fade';
 import { loadHidePostDivider } from '../../../content/tweaks/hide_elements/hide_post_divider';
 import { loadHideBlurredMediaBackground } from '../../../content/tweaks/media/hide_blurred_media_background';
-import { loadResizeMainContainer } from '../../../content/tweaks/resize_elements/resize_main_container';
 import { loadHideCompactViewThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_thumbnails';
 import { loadResizeTextPostHeight } from '../../../content/tweaks/media/resize_text_post';
 import { limitImageSize } from '../../../content/tweaks/media/limit_media_size';
 import { loadCustomHeaderLogo } from '../../../content/tweaks/style/custom_header_logo';
-import { loadHideVideoRecommendations } from "../../../content/tweaks/media/hide_video_recommendations";
-import { loadHideCommunityStatus } from "../../../content/tweaks/hide_elements/hide_community_status";
+import { loadHideVideoRecommendations } from '../../../content/tweaks/media/hide_video_recommendations';
+import { loadHideCommunityStatus } from '../../../content/tweaks/hide_elements/hide_community_status';
+import { loadDropShadow } from '../../../content/tweaks/style/drop_shadow';
 
 export function tweakLoaderNewNew() {
 	loadCustomBackground();
 	loadCustomTheme();
+	loadDropShadow();
 	loadSideMenuWidth();
 	loadHideSideMenu();
 	loadHideHomeSidebar();
@@ -75,7 +75,6 @@ export function tweakLoaderNewNew() {
 	loadResizeFont();
 	loadBionicReaderColours();
 	loadHideUserProfilePics();
-	loadAutoExpandComments();
 	loadNonStickyHeaderBar();
 	loadHidePostHiddenMessage();
 	loadHideJoinButtonOnPosts();
@@ -94,7 +93,6 @@ export function tweakLoaderNewNew() {
 	loadHideBlurredMediaBackground();
 	loadFullWidthBanner();
 	loadCompactHeaderSideMenu();
-	loadResizeMainContainer();
 	loadTextPostPreviewFade();
 	loadResizeTextPostHeight();
 	limitImageSize();

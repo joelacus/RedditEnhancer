@@ -1,24 +1,30 @@
-/* ===== Tweaks - Productivity - Remember Side Menu Section Hidden State ===== */
+/**
+ * Tweaks: Hide Elements - Remember Side Menu Section Hidden State
+ *
+ * @name rememberSideMenuSectionHiddenState
+ * @description Remember the open/hidden states of the sections in the side menu (left).
+ *
+ * Notes: Doesn't seem to work well with side menu auto hide.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
-// doesn't seem to work well with side menu auto hide
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadRememberSideMenuSectionHiddenState() {
 	BROWSER_API.storage.sync.get(['rememberSideMenuSectionHiddenState'], function (result) {
 		if (result.rememberSideMenuSectionHiddenState) rememberSideMenuSectionHiddenState(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function rememberSideMenuSectionHiddenState(value) {
-	if (redditVersion === 'newnew') {
-		if (value === true) {
-			enableRememberSideMenuSectionHiddenState();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableRememberSideMenuSectionHiddenStateRV3();
 	}
 }
 
-// Function - Enable Remember Side Menu Section Hidden State - New New
-function enableRememberSideMenuSectionHiddenState() {
+// Enable Remember Side Menu Section Hidden State - RV3
+function enableRememberSideMenuSectionHiddenStateRV3() {
 	setTimeout(() => {
 		addEventListenersToSideMenuSections();
 		BROWSER_API.storage.sync.get(['rememberSideMenuSectionHiddenStateValues'], function (result) {
@@ -43,7 +49,7 @@ function enableRememberSideMenuSectionHiddenState() {
 	}, 1000);
 }
 
-// Function - Add Event Listeners To Side Menu Sections
+// Add Event Listeners To Side Menu Sections
 let addModerationSectionListener = true;
 let addCustomFeedsSectionListener = true;
 let addRecentSectionListener = true;
@@ -88,7 +94,7 @@ function addEventListenersToSideMenuSections() {
 
 	// Recent Section Event Listener
 	setTimeout(() => {
-		const recentSection = document.querySelector('reddit-recent-pages').shadowRoot.querySelector('faceplate-expandable-section-helper');
+		const recentSection = document.querySelector('reddit-recent-pages')?.shadowRoot?.querySelector('faceplate-expandable-section-helper');
 		if (recentSection && addRecentSectionListener) {
 			recentSection.addEventListener('click', function (e) {
 				const sectionState = e.currentTarget.getAttribute('open');
@@ -143,13 +149,14 @@ function addEventListenersToSideMenuSections() {
 	}
 }
 
-// Function - Set Side Menu Section Hidden States
+// Set Side Menu Section Hidden States
 function setRememberSideMenuSectionHiddenStates(openStates) {
 	// Moderation Section
 	const moderation = openStates.moderation;
 	const moderationSection = document.querySelector('faceplate-expandable-section-helper:has([aria-controls="moderation_section"])');
 	if (moderation === true && moderationSection) {
 		moderationSection.removeAttribute('open');
+		moderationSection.querySelector('details')?.removeAttribute('open');
 	}
 
 	// Custom Feeds Section
@@ -157,14 +164,16 @@ function setRememberSideMenuSectionHiddenStates(openStates) {
 	const customFeedsSection = document.querySelector('faceplate-expandable-section-helper:has([aria-controls="multireddits_section"])');
 	if (customFeeds === true && customFeedsSection) {
 		customFeedsSection.removeAttribute('open');
+		customFeedsSection.querySelector('details')?.removeAttribute('open');
 	}
 
 	// Recent Section
 	setTimeout(() => {
 		const recent = openStates.recent;
-		const recentSection = document.querySelector('reddit-recent-pages').shadowRoot.querySelector('faceplate-expandable-section-helper');
+		const recentSection = document.querySelector('reddit-recent-pages')?.shadowRoot?.querySelector('faceplate-expandable-section-helper');
 		if (recent === true && recentSection) {
 			recentSection.removeAttribute('open');
+			recentSection.querySelector('details')?.removeAttribute('open');
 		}
 	}, 2000);
 
@@ -173,6 +182,7 @@ function setRememberSideMenuSectionHiddenStates(openStates) {
 	const communitiesSection = document.querySelector('faceplate-expandable-section-helper:has([aria-controls="communities_section"])');
 	if (communities === true && communitiesSection) {
 		communitiesSection.removeAttribute('open');
+		communitiesSection.querySelector('details')?.removeAttribute('open');
 	}
 
 	// Resources Section
@@ -180,5 +190,6 @@ function setRememberSideMenuSectionHiddenStates(openStates) {
 	const resourcesSection = document.querySelector('faceplate-expandable-section-helper:has([aria-controls="RESOURCES"])');
 	if (resources === true && resourcesSection) {
 		resourcesSection.removeAttribute('open');
+		resourcesSection.querySelector('details')?.removeAttribute('open');
 	}
 }

@@ -21,20 +21,6 @@ export function restorePopupMediaOptions() {
 		console.log('Scroll Tall Images: ' + value);
 	});
 
-	// Scale Tall Images To Fit Post
-	BROWSER_API.storage.sync.get(['fitImage'], function (result) {
-		if (result.fitImage == true) {
-			document.querySelector('#checkbox-fit-image').checked = true;
-			document.querySelector('.icon-fit-image').style.backgroundColorr = 'var(--accent)';
-			highlightMenuIcon('media-tweaks');
-			var value = true;
-		} else if (typeof result.fitImage == 'undefined' || result.fitImage == false) {
-			document.querySelector('#checkbox-fit-image').checked = false;
-			var value = false;
-		}
-		console.log('Scale Tall Images: ' + value);
-	});
-
 	// Scale Post To Fit Image
 	BROWSER_API.storage.sync.get(['scalePostToFitImage'], function (result) {
 		if (result.scalePostToFitImage == true) {
@@ -141,21 +127,6 @@ export function restorePopupMediaOptions() {
 		}
 	});
 
-	// Hide See Full Image
-	BROWSER_API.storage.sync.get(['hideSeeFullImage'], function (result) {
-		if (result.hideSeeFullImage == true) {
-			document.querySelector('#checkbox-hide-see-full-image').checked = true;
-			document.querySelector('.icon-hide-see-full-image').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.icon-productivity-tweaks').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('media-tweaks');
-			var value = true;
-		} else if (typeof result.hideSeeFullImage == 'undefined' || result.hideSeeFullImage == false) {
-			document.querySelector('#checkbox-hide-see-full-image').checked = false;
-			var value = false;
-		}
-		console.log("Hide 'See Full Image' Button: " + value);
-	});
-
 	// Drag Image to Resize
 	/*BROWSER_API.storage.sync.get(['dragImageToResize'], function (result) {
 		if (result.dragImageToResize == true) {
@@ -259,22 +230,8 @@ export function restorePopupMediaOptions() {
 		console.log('Max Video Post Height: ' + value);
 	});
 
-	// New Player
-	BROWSER_API.storage.sync.get(['newPlayer'], function (result) {
-		if (result.newPlayer == true) {
-			document.querySelector('#checkbox-new-player').checked = true;
-			document.querySelector('.icon-new-player').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('media-tweaks');
-			var value = true;
-		} else if (typeof result.newPlayer == 'undefined' || result.newPlayer == false) {
-			document.querySelector('#checkbox-new-player').checked = false;
-			var value = false;
-		}
-		console.log('Use New Video Player: ' + value);
-	});
-
 	// Add Download Video Button
-	/*BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
+	BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
 		if (result.addDownloadVideoButton === true) {
 			document.querySelector('.icon-add-download-video-button').style.backgroundColor = 'var(--accent)';
 			document.querySelector('#checkbox-add-download-video-button').checked = true;
@@ -285,7 +242,7 @@ export function restorePopupMediaOptions() {
 			var value = false;
 		}
 		console.log('Add Download Video Button: ' + value);
-	});*/
+	});
 
 	/* = Text = */
 
@@ -322,20 +279,6 @@ export function restorePopupMediaOptions() {
 			document.querySelector('.icon-text-post-preview-fade-height').style.backgroundColor = 'var(--accent)';
 		}
 		console.log(`Text Post Preview Fade Height: ${value >= 0 ? value + 'px' : 'default'}`);
-	});
-
-	// Add Scroll To Text Post
-	BROWSER_API.storage.sync.get(['textPostScroll'], function (result) {
-		if (result.textPostScroll == true) {
-			document.querySelector('#checkbox-text-scroll-post').checked = true;
-			document.querySelector('.icon-text-scroll-post').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('media-tweaks');
-			var value = true;
-		} else if (typeof result.textPostScroll == 'undefined' || result.textPostScroll == false) {
-			document.querySelector('#checkbox-text-scroll-post').checked = false;
-			var value = false;
-		}
-		console.log('Add Scroll To Long Text Posts: ' + value);
 	});
 
 	// Replace Post Images With Links

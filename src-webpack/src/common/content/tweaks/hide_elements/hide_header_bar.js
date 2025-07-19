@@ -1,54 +1,30 @@
-/* ===== Tweaks - Hide - Header Bar ===== */
+/**
+ * Tweaks: Hide Elements - Hide Header Bar
+ *
+ * @name hideHeaderBar
+ * @description Hide the top/header bar.
+ *
+ * Compatibility: RV3 (New New UI) (2023-)
+ */
 
-/* === Triggered On Page Load === */
+/* === Run by Tweak Loader when the Page Loads === */
 export function loadHideHeaderBar() {
 	BROWSER_API.storage.sync.get(['hideHeaderBar'], function (result) {
 		if (result.hideHeaderBar) hideHeaderBar(true);
 	});
 }
 
-/* === Main Function === */
+/* === Enable/Disable The Feature === */
 export function hideHeaderBar(value) {
-	if (redditVersion === 'new') {
-		if (value === true) {
-			hideHeaderBarNew();
-		} else if (value === false) {
-			showHeaderBar();
-		}
-	} else if (redditVersion === 'newnew') {
-		if (value === true) {
-			hideHeaderBarNewNew();
-		} else if (value === false) {
-			showHeaderBar();
-		}
+	if (redditVersion === 'newnew' && value) {
+		enableHideHeaderBarRV3();
+	} else {
+		disableHideHeaderBarAll();
 	}
 }
 
-/* === Enable/Disable Functions === */
-
-// Function - Hide Header Bar - New
-function hideHeaderBarNew() {
-	if (!document.head.querySelector('style[id="re-hide-header-bar"]')) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-header-bar';
-		styleElement.textContent = `header {
-										display: none !important;
-									}
-									div#AppRouter-main-content {
-										padding-top: 0 !important;
-									}
-									div:has(> div#overlayScrollContainer) {
-										top: 0 !important;
-									}
-									#SHORTCUT_FOCUSABLE_DIV > div[class*="subredditvars-r"] > div {
-										top: 0;
-									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
-}
-
-// Function - Hide Header Bar - New New
-function hideHeaderBarNewNew() {
+// Enable Hide Header Bar - RV3
+function enableHideHeaderBarRV3() {
 	if (!document.head.querySelector('style[id="re-hide-header-bar"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-header-bar';
@@ -71,8 +47,8 @@ function hideHeaderBarNewNew() {
 	}
 }
 
-// Function - Show Header Bar
-function showHeaderBar() {
+// Disable Hide Header Bar - All
+function disableHideHeaderBarAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-bar"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);

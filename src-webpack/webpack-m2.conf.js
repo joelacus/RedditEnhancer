@@ -75,21 +75,6 @@ module.exports = {
 					to: 'manifest.json',
 				},
 				{
-					context: path.resolve(__dirname, 'src/common/videojs'),
-					from: 'video.js',
-					to: 'videojs/video.min.js',
-				},
-				{
-					context: path.resolve(__dirname, 'src/common/videojs'),
-					from: 'vtt.js',
-					to: 'videojs',
-				},
-				{
-					context: 'node_modules/video.js/dist/',
-					from: 'video-js.css',
-					to: 'videojs',
-				},
-				{
 					context: path.resolve(__dirname, 'src/common'),
 					from: 'restore_config.html',
 					to: 'restore_config.html',
@@ -129,7 +114,7 @@ module.exports = {
 		new webpack.DefinePlugin({
 			BROWSER_API: 'browser',
 			CHECK_LEGACY_FIREFOX: true,
-			CHECK_LEGACY_EDGE: false,
+			IS_CHROME: false,
 		}),
 		/*new ZipPlugin({
 			filename: 'reddit-enhancer.zip',

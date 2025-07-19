@@ -11,8 +11,26 @@
 	"Accessibility": {
 		"message": "Accesibilidad"
 	},
+	"AddDownloadVideoButton": {
+		"message": "Agregar botón 'Descargar video' a publicaciones de video"
+	},
+	"AddDownloadVideoButtonInfo": {
+		"message": "Actualmente, esto solo admite URL mp4, no m3u8, por lo que algunas publicaciones de video no tendrán el botón de descarga :/"
+	},
+	"AddNsfwTag": {
+		"message": "Agregar etiqueta NSFW"
+	},
+	"AddSpoilerTag": {
+		"message": "Agregar etiqueta de spoiler"
+	},
 	"AlwaysShowPostOptions": {
 		"message": "Mostrar siempre opciones de publicación"
+	},
+	"AttachSideMenuHeader": {
+		"message": "Mostrar página e información del usuario en el encabezado"
+	},
+	"AttachSideMenuHeaderInfo": {
+		"message": "Experimental. Podría entrar en conflicto con las funciones del menú lateral oculto."
 	},
 	"Auto": {
 		"message": "Auto"
@@ -23,17 +41,11 @@
 	"AutoExpand": {
 		"message": "Expanda al 100 % si el ancho de la ventana/pantalla es inferior a:"
 	},
-	"AutoExpandComments": {
-		"message": "Expandir automáticamente los comentarios ocultos"
-	},
-	"AutoExpandCommentsInfo": {
-		"message": "Esto puede hacer que la página se ralentice y utilice mucha RAM, especialmente si hay muchos comentarios."
-	},
 	"AutoLoadMoreComments": {
 		"message": "Cargar automáticamente más comentarios"
 	},
-	"AutoShowCommentFormattingOptions": {
-		"message": "Mostrar automáticamente opciones de formato al comentar"
+	"AutoLoadMoreCommentsInfo": {
+		"message": "Esto puede hacer que la página se ralentice y utilice mucha RAM, especialmente si hay muchos comentarios."
 	},
 	"Background": {
 		"message": "Fondo"
@@ -49,6 +61,12 @@
 	},
 	"Best": {
 		"message": "Mejores / Best"
+	},
+	"BetterCommentBox": {
+		"message": "Mejor cuadro de comentarios"
+	},
+	"BetterCommentBoxInfo": {
+		"message": "Muestre automáticamente las opciones de formato al comentar, agregue Ctrl/Cmd + Ingrese el acceso directo para enviar comentarios y ocultar la barra de herramientas para cambiar al editor de texto rico al configurar Markdown Composer como predeterminado"
 	},
 	"BionicBackgroundColour": {
 		"message": "Color de fondo biónico"
@@ -73,9 +91,6 @@
 	},
 	"Blur": {
 		"message": "Desenfoque"
-	},
-	"BlurBackgroundPostOverlay": {
-		"message": "Fondo de desenfoque detrás de la superposición posterior"
 	},
 	"BorderRadiusAmount": {
 		"message": "Radio de la esquina temática"
@@ -131,29 +146,17 @@
 	"CompactPostLinkPreview": {
 		"message": "Vistas previas del enlace de publicación compacta"
 	},
-	"CompactSubRuleList": {
-		"message": "Lista de reglas de subreddit compacto"
-	},
 	"Confirm": {
 		"message": "Confirmar"
 	},
 	"Controversial": {
 		"message": "Más polémicos / Controversial"
 	},
-	"ControversialSort": {
-		"message": "Mostrar o botão de classificação “Más polémicos”"
-	},
 	"CreatePost": {
 		"message": "Crear Publicación"
 	},
-	"CreatePostBgColour": {
-		"message": "Crear Publicación: Color de fondo”"
-	},
 	"CreatePostBody": {
 		"message": "Create Post: Body"
-	},
-	"CreatePostBorderColour": {
-		"message": "Crear Publicación: Color del borde"
 	},
 	"CreatePostTitle": {
 		"message": "Create Post: Title"
@@ -185,14 +188,8 @@
 	"DefaultHomeFeedSortOption": {
 		"message": "Opción de ordenación de publicaciones del feed de inicio predeterminado"
 	},
-	"DefaultSortFeedOptionGracePeriod": {
-		"message": "Anular la opción de clasificación predeterminada"
-	},
-	"DefaultSortFeedOptionOverrideInfo": {
-		"message": "La cantidad de tiempo después de la página se ha redirigido automáticamente en el que puede anular la opción de clasificación predeterminada."
-	},
-	"DisableBgFadePostOverlay": {
-		"message": "Deshabilitar el fondo Fade detrás de la superposición posterior"
+	"Delete": {
+		"message": "Borrar"
 	},
 	"Disabled": {
 		"message": "Desactivado"
@@ -202,6 +199,12 @@
 	},
 	"Drag": {
 		"message": "Arrastre"
+	},
+	"DropShadow": {
+		"message": "Sombras paralelas"
+	},
+	"EditPost": {
+		"message": "Editar publicación"
 	},
 	"EndTime": {
 		"message": "Hora de finalización (24)"
@@ -221,9 +224,6 @@
 	"FeedPostContent": {
 		"message": "Publicación de alimentación: contenido"
 	},
-	"FeedPostMaxHeight": {
-		"message": "Altura Publicación"
-	},
 	"FeedPostTitle": {
 		"message": "Post de alimentación: título"
 	},
@@ -233,8 +233,8 @@
 	"FilterOptionsFor": {
 		"message": "Opciones de filtro para"
 	},
-	"FitImage": {
-		"message": "Escalar imágenes altas para adaptarse a la publicación"
+	"FollowPost": {
+		"message": "Seguir la publicación"
 	},
 	"Font": {
 		"message": "Fuente"
@@ -254,6 +254,9 @@
 	"FullWidthBanner": {
 		"message": "Banner de ancho de ancho completo"
 	},
+	"GlobalWidth": {
+		"message": "Ancho máximo global"
+	},
 	"Grey": {
 		"message": "Gris"
 	},
@@ -272,8 +275,14 @@
 	"Here": {
 		"message": "aquí"
 	},
+	"Hide": {
+		"message": "Esconder"
+	},
 	"HideAdvertiseButton": {
 		"message": "Ocultar el botón “Anunciar”"
+	},
+	"HideAwards": {
+		"message": "Ocultar dar botón de premios"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Ocultar Publicaciones con Palabras Clave Bloqueadas"
@@ -290,14 +299,14 @@
 	"HideCommunityHighlights": {
 		"message": "Ocultar 'Lo más destacado de la comunidad'"
 	},
+	"HideCommunityStatus": {
+		"message": "Ocultar el estado de la comunidad"
+	},
 	"HideCompactViewBlankThumbnails": {
 		"message": "Ocultar miniaturas en blanco en la vista compacta"
 	},
 	"HideCompactViewThumbnails": {
 		"message": "Esconde las miniaturas en vista compacta"
-	},
-	"HideCreatePost": {
-		"message": "Ocultar “Crear publicación”"
 	},
 	"HideCreatePostButton": {
 		"message": "Ocultar el botón “Crear publicación”"
@@ -347,12 +356,6 @@
 	"HideNsfwInSearchResults": {
 		"message": "Ocultar 'NSFW' en los resultados de búsqueda"
 	},
-	"HideOriginalScrollToTop": {
-		"message": "Ocultar el botón de desplazamiento original hacia arriba"
-	},
-	"HidePopularButton": {
-		"message": "Ocultar el botón “Popular”"
-	},
 	"HidePostBackButton": {
 		"message": "Ocultar el botón Atrás de la publicación"
 	},
@@ -364,9 +367,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Ocultar el karma de la publicación"
-	},
-	"HidePostOverlaySidebar": {
-		"message": "Ocultar la barra lateral de superposición de publicaciones"
 	},
 	"HidePostSidebar": {
 		"message": "Ocultar la barra lateral de la publicación"
@@ -395,9 +395,6 @@
 	"HideSearchSidebarNsfwUsers": {
 		"message": "Ocultar usuarios NSFW en la barra lateral de la página de búsqueda"
 	},
-	"HideSeeFullImage": {
-		"message": "Ocultar “Ver Imagen Completa”"
-	},
 	"HideSideMenu": {
 		"message": "Ocultar menú lateral"
 	},
@@ -422,9 +419,6 @@
 	"HideSideMenuTopicsSection": {
 		"message": "Ocultar la sección de Temas"
 	},
-	"HideSidebarPolicy": {
-		"message": "Ocultar sección de políticas"
-	},
 	"HideSubSidebar": {
 		"message": "Ocultar la barra lateral de Sub Reddit"
 	},
@@ -437,9 +431,6 @@
 	"HideTrendingTodayInSearchResults": {
 		"message": "Ocultar 'Tendencias de hoy' en la barra de búsqueda"
 	},
-	"HideTurnOnNotificationsPopup": {
-		"message": "Ocultar ventana emergente de “activar notificaciones”"
-	},
 	"HideUserProfilePics": {
 		"message": "Ocultar imágenes de perfil de usuario en los comentarios"
 	},
@@ -449,8 +440,14 @@
 	"HideUsername": {
 		"message": "Ocultar Nombre de Usuario"
 	},
+	"HideVideoRecommendations": {
+		"message": "Ocultar publicaciones recomendadas cuando termina el video"
+	},
 	"HideVoteButtons": {
 		"message": "Ocultar botones de voto"
+	},
+	"HighlightOp": {
+		"message": "Resaltar comentarios del póster original (OP)"
 	},
 	"HomeFeedOffset": {
 		"message": "Desplazamiento del Feed de inicio"
@@ -479,6 +476,12 @@
 	"LargerClassicPost": {
 		"message": "Vista de publicación clásica más grande"
 	},
+	"Latest": {
+		"message": "El último"
+	},
+	"LeftSideVoteButtons": {
+		"message": "Mostrar botones de voto a la izquierda"
+	},
 	"Light": {
 		"message": "Claro"
 	},
@@ -496,6 +499,12 @@
 	},
 	"MainContainer": {
 		"message": "Contenedor principal"
+	},
+	"MarkAsBrandAffiliate": {
+		"message": "Mark como afiliado de marca"
+	},
+	"MarkReadOnOpenExpandos": {
+		"message": "Marque publicaciones como leída al abrir expandir en vista compacta"
 	},
 	"MaxImagePostHeight": {
 		"message": "Altura de publicación de imagen máxima"
@@ -517,9 +526,6 @@
 	},
 	"ModerniseOldRedditInfo": {
 		"message": "Hace que el antiguo Reddit se parezca más al nuevo Reddit."
-	},
-	"MoveFeedToTopInSideMenu": {
-		"message": "Mover la sección de alimentación en el menú lateral a la parte superior"
 	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Líneas de hilos de comentarios multicolores"
@@ -551,9 +557,6 @@
 	"Old": {
 		"message": "Vieja / Old"
 	},
-	"OldNewUI": {
-		"message": "Viejo Nueva UI"
-	},
 	"OldUI": {
 		"message": "Viejo UI"
 	},
@@ -568,6 +571,9 @@
 	},
 	"OpenSubInNewTab": {
 		"message": "Abrir enlaces a Sub Reddits en una nueva pestaña"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "No adjunte el menú lateral como panel desplegable"
 	},
 	"OptionsPage": {
 		"message": "Página de opciones"
@@ -641,9 +647,6 @@
 	"PostVisitedTextColour": {
 		"message": "Publicación visitada: color de texto"
 	},
-	"PostVisitedTitleColour": {
-		"message": "Publicación visitada: Color del título"
-	},
 	"PostWidth": {
 		"message": "Ancho de publicación"
 	},
@@ -653,11 +656,8 @@
 	"Qa": {
 		"message": "Q&a"
 	},
-	"RUI2RemovalInfo": {
-		"message": "Reddit has discontinued (Old New UI / Version 2) of the website. Options for 'Old New UI' will continue to be supported for now while other workarounds to get it back are still working."
-	},
 	"RUI3RedirectInfo": {
-		"message": "La opción de redirección a 'Nueva Nueva UI' ya no es necesaria, sin embargo, puedes usar esta opción para forzar enlaces de (sh|old).reddit.com a www.reddit.com"
+		"message": "La opción de redirección a El último UI (Nueva Nueva UI) ya no es necesaria, sin embargo, puedes usar esta opción para forzar enlaces de (sh|old|new).reddit.com a www.reddit.com"
 	},
 	"Rate": {
 		"message": "Tasa / Revisar"
@@ -682,6 +682,9 @@
 	},
 	"ReplacePostVideosWithLinksInfo": {
 		"message": "Solo funciona con MP4 y GIF. Los videos M3U8 pueden ser difíciles de jugar en otros jugadores."
+	},
+	"Report": {
+		"message": "Informe"
 	},
 	"ReportIssues": {
 		"message": "Informar problemas"
@@ -719,8 +722,14 @@
 	"RestoreInfo2": {
 		"message": "artículos. El límite de API del navegador es 120 por minuto. Deje esta ventana/pestaña abierta por un minuto más."
 	},
+	"RightSidePostThumbnails": {
+		"message": "Mostrar miniaturas de publicación en el lado derecho"
+	},
 	"Rising": {
 		"message": "En Alza / Rising"
+	},
+	"Save": {
+		"message": "Ahorrar"
 	},
 	"ScalePostToFitImage": {
 		"message": "Escalar la publicación para ajustarla a la imagen"
@@ -761,12 +770,6 @@
 	"Settings": {
 		"message": "Configuración"
 	},
-	"Shadow": {
-		"message": "Sombras paralelas"
-	},
-	"ShowAllButton": {
-		"message": "Agregar botón “r/All”"
-	},
 	"ShowPostAuthor": {
 		"message": "Mostrar autor de la publicación"
 	},
@@ -778,9 +781,6 @@
 	},
 	"ShowProfilePicturesOnComments": {
 		"message": "Mostrar fotos de perfil en los comentarios"
-	},
-	"ShowRising": {
-		"message": "Mostrar siempre el botón “En Alza” de clasificación"
 	},
 	"ShowUpvoteRatio": {
 		"message": "Mostrar porcentaje de votos a la vista posterior"
@@ -812,29 +812,20 @@
 	"SidebarBackgroundColour": {
 		"message": "Barra lateral: Color de fondo"
 	},
-	"SidebarBorderColour": {
-		"message": "Barra lateral: Color de borde"
-	},
 	"SidebarTextColour": {
 		"message": "Barra lateral: Color de texto"
 	},
 	"SidebarToggleButton": {
 		"message": "Botón de alternancia de barra lateral"
 	},
+	"SnapSidebar": {
+		"message": "Aprieta la barra lateral al borde derecho"
+	},
 	"Sort": {
 		"message": "Ordenar"
 	},
 	"SortBar": {
 		"message": "Ordenar barra"
-	},
-	"SortBgColour": {
-		"message": "Ordenar: Color de fondo"
-	},
-	"SortBorderColour": {
-		"message": "Ordenar: Color del borde"
-	},
-	"SortTextColour": {
-		"message": "Ordenar: Color del texto"
 	},
 	"StartTime": {
 		"message": "Hora de inicio (24)"
@@ -857,6 +848,9 @@
 	"Subreddit": {
 		"message": "Subreddit"
 	},
+	"SubredditDisplayNameBanner": {
+		"message": "Mostrar el nombre de la pantalla Subreddit en su banner"
+	},
 	"Text": {
 		"message": "Texto"
 	},
@@ -868,12 +862,6 @@
 	},
 	"TextPostPreviewMaxHeight": {
 		"message": "Altura de vista previa de texto"
-	},
-	"TextScroll": {
-		"message": "Agregar barra de desplazamiento a publicaciones de texto largo"
-	},
-	"TextScrollInfo": {
-		"message": "Hay un límite. Es posible que tenga que abrir la publicación si es muy larga."
 	},
 	"Theme": {
 		"message": "Tema"
@@ -938,8 +926,8 @@
 	"VideoPlayerInfo": {
 		"message": "Reproductor de vídeo rápido, ligero y con controles de velocidad basados en videojs. Pruebe esto si tiene problemas de carga con el reproductor de reddit."
 	},
-	"VideoPlayerReplacement": {
-		"message": "Reproductor de video alternativo"
+	"ViewCrossposts": {
+		"message": "Agregar enlace para ver postes cruzados en otros subreddits"
 	},
 	"Welcome": {
 		"message": "Bienvenida!"
