@@ -567,7 +567,7 @@ shreddit-composer::part(md-inner) {
 	--re-theme-searchbar-bg: #f6f7f8;
 	--re-theme-searchbar-dropdown-bg: white;
 	--re-theme-post-bg: white;
-	--re-theme-post-text-2: black;
+	--re-theme-post-text-2: #787c7e;
 	--re-theme-post-border: #ccc;
 	--re-theme-sidebar-text: black;
 	--re-theme-sidebar-bg: white;
