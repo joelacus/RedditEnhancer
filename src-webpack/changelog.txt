@@ -1,6 +1,5 @@
 version 2.0.1
-v [New New UI]
-  - Bug fixes.
+  - Bug fixes and improvements.
 
 version 2.0.0
 v [General]

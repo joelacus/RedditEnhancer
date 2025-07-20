@@ -43,9 +43,10 @@ export function loadCustomTheme() {
 // Load Theme
 function loadTheme() {
 	BROWSER_API.storage.sync.get(['themeBlur'], function (result) {
-		if (typeof result.themeBlur != 'undefined') {
-			themeBlur(result.themeBlur);
-		} else if (typeof result.themeBlur == 'undefined') {
+		const blur = result.themeBlur ?? '';
+		if (blur) {
+			themeBlur(blur);
+		} else {
 			themeBlur('10px');
 		}
 	});
@@ -229,6 +230,7 @@ export function themePostBackgroundColour(value) {
 										margin-left: 0;
 									}
 									article shreddit-post,
+									shreddit-app[routename="comments_page"] #main-content,
 									[routename="post_page"] main.main,
 									shreddit-app[pagetype="post_submit"] #post-submit-form section {
 										backdrop-filter: blur(var(--re-theme-blur)) !important;
@@ -727,6 +729,9 @@ export function themeSidebarBgColour(value) {
 										--color-neutral-background-weak: var(--re-theme-sidebar-bg) !important;
 										--color-neutral-background-hover: color-mix(in srgb, var(--re-theme-sidebar-bg), rgba(0,0,0,0.3)) !important;
 									}
+									html:not(.re-hide-post-dividers) #right-sidebar-contents > [id^="subreddit-right"] > aside > div,									
+									#right-sidebar-container shreddit-subreddit-header::part(header),
+									#right-sidebar-container achievements-entrypoint::part(achievements-entrypoint),
 									#right-sidebar-contents aside shreddit-subreddit-header,
 									shreddit-app:not([pagetype="popular"]) #right-sidebar-contents aside > div > div,
 									shreddit-app[pagetype="popular"] #right-sidebar-contents aside aside {
