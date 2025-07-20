@@ -328,8 +328,11 @@ shreddit-comment faceplate-hovercard div.-m-xs > .mt-md {
 	margin-top: 0;
 }
 faceplate-hovercard::part(content-container) {
-	padding: .5rem;
+	padding: 0;
 	border-radius: var(--re-theme-border-radius, 1rem);
+}
+faceplate-hovercard div.max-w-\[360px\].-m-\[0\.5rem\] {
+	margin: 0;
 }
 
 /* ========== BREAK REMINDER ========== */
