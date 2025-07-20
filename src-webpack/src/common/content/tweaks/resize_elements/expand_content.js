@@ -167,7 +167,7 @@ function enableExpandContentRV3() {
 		@media (min-width: 960px) {
 			shreddit-app .grid-container:not(.grid-full) .subgrid-container,
 			shreddit-app[routename="compose_message"] .subgrid-container {
-				width: 100%;
+				width: 100vw;
 				max-width: revert;
 				gap: revert;
 				padding: revert;
@@ -177,6 +177,7 @@ function enableExpandContentRV3() {
 			}
 			div.main-container.grid,
 			div.main-container.flex {
+				display: grid;
             	grid-template-columns: 1fr minmax(0,316px);
             	gap: 1.25rem;
             	margin: 0 auto;
@@ -251,7 +252,8 @@ function enableExpandContentRV3() {
 	} else {
 		styleElement.textContent += `
 			@media (min-width: 960px) {
-				div.main-container.grid {
+				div.main-container.grid,
+				div.main-container.flex {
 					max-width: 100%;
 					padding: 0 1.5rem;
 					box-sizing: border-box;
