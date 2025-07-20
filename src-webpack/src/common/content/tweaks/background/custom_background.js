@@ -96,36 +96,6 @@ function enableUseCustomBackgroundRV3() {
 									padding-left: .75rem;
 									padding-block: .125rem;
 								}
-								[routename="post_page"] main.main,
-								[routename="comments_page"] main.main,
-								[routename="profile_post_page"] main.main,
-								[routename="profile_post_page_comments"] main.main,
-								[routename="post_stats"] main.main, 
-								[routename="CommentStats"] main.main,
-								[routename="earn-dashboard"] main.main {
-									margin: 1rem 0;
-									padding: 0 1rem .75rem 1rem;
-									height: min-content;
-									background-color: var(--re-theme-post-bg, var(--color-neutral-background, #000));
-									border-radius: var(--re-theme-border-radius, 0);
-									box-sizing: border-box;
-									
-									& shreddit-post {
-										margin: 0;
-										padding: 0;
-										
-										& > :first-child {
-											padding-top: 0.75rem;
-										}
-									}
-									
-									& div.re-vote-panel {
-										margin-top: 0 !important;
-									}
-									& div.re-vote-panel + shreddit-post {
-										padding-left: .25rem !important;
-									}
-								}
 								@media (max-width: 768px) {
 									shreddit-app[routename="post_page"] main.main,
 									shreddit-app[routename="comments_page"] main.main,

@@ -281,10 +281,11 @@ export function themePostBackgroundColour(value) {
 									shreddit-comments-sort-dropdown {
 										--color-neutral-background: transparent !important;
 									}
-									shreddit-profile-comment{
+									main.main > a,
+									shreddit-profile-comment {
 										background-color: var(--re-theme-post-bg);
 										border-radius: var(--re-theme-border-radius, 1rem);
-										margin-bottom: 8px;
+										margin-bottom: var(--re-post-separator-height, 10px);
 									}
 									shreddit-profile-comment:hover {
 										background-color: transparent;

@@ -252,6 +252,8 @@ export function loadTweaks() {
 	// Run again (make sure it loaded correctly)
 	setTimeout(() => {
 		loadShowToTopButton();
+		loadAttachSideMenuHeader();
+		loadLeftSideVoteButtons();
 	}, 5000);
 }
 loadTweaks();
