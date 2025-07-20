@@ -680,3 +680,10 @@ shreddit-composer::part(md-inner) {
 #re-view-crossposts {
 	cursor: pointer;
 }
+
+/* ========== Always Show Post Options ========== */
+#pdp-credit-bar div:has([icon-name='notification-outline']) {
+	padding: 4px;
+	border-radius: var(--re-theme-border-radius);
+	margin-right: -0.75rem;
+}

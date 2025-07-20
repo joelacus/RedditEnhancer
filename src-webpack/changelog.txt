@@ -1,3 +1,7 @@
+version 2.0.1
+v [New New UI]
+  - Bug fixes.
+
 version 2.0.0
 v [General]
   - New permission required (downloads) for the new feature "Add 'Download Video' button to video posts". This permission is optional for Firefox users.

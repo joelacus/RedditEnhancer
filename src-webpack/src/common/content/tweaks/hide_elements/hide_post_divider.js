@@ -129,6 +129,13 @@ function enableHidePostDivider() {
 												display: none;
 											}
 										}
+										shreddit-app[pagetype="popular"] #right-sidebar-contents aside div:has(>h2) {
+											margin: -.45rem -1rem .75rem -1rem;
+											padding: 0.75rem 0.75rem 0 0.75rem;
+											background-color: var(--color-tone-4);
+											border-top-left-radius: var(--re-theme-border-radius, 8px);
+											border-top-right-radius: var(--re-theme-border-radius, 8px);
+										}
 										::part(achievements-entrypoint-title) {
 											margin: -.75rem -.75rem .75rem -.75rem;
 											padding: .75rem;
