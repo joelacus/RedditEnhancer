@@ -22,7 +22,7 @@ export function loadHideChatButton() {
 	});
 }
 
-// Hide CreatePost Button
+// Hide Create Post Button
 export function loadHideCreatePostButton() {
 	BROWSER_API.storage.sync.get(['hideCreatePostButton'], function (result) {
 		if (result.hideCreatePostButton) hideCreatePostButton(true);
@@ -94,8 +94,7 @@ export function hideCreatePostButton(value) {
 	if (redditVersion === 'newnew' && value) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-header-create-post-button';
-		styleElement.textContent = `header span[data-part="create"],
-		 							create-post-entry-point-wrapper {
+		styleElement.textContent = `header span[data-part="create"] {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);

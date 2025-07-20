@@ -199,7 +199,6 @@ function enableExpandContentRV3() {
 				shreddit-app[routename="frontpage"] .main-container,
 				shreddit-app[routename="all"] .main-container,
 				shreddit-app[routename="popular"] .main-container,
-				shreddit-app[pagetype="popular"] div.masthead,
 				shreddit-app[routename="mod_queue_all"] div[slot="mod-queue-feed"] > div.max-w-\\[756px\\],
 				shreddit-app[pagetype="search_results"] .main-container,
 				shreddit-app[pagetype="search_results"] div.masthead,

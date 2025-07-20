@@ -102,7 +102,8 @@ function addBorderRadiusAmountStylesheet() {
 			faceplate-tracker[noun="load_more_comments"] button,
 			/* Wiki pages */
 			shreddit-app[routename="subreddit_wiki"] main.main > div:last-of-type,
-			div.toc {
+			div.toc,
+			shreddit-app[pagetype="post_submit"] #post-submit-form section {
 				border-radius: var(--re-theme-border-radius) !important;
 			}
 			article > shreddit-post[view-type="compactView"] {
@@ -194,7 +195,7 @@ export function addBorderRadiusToShadowRootElements() {
 	shadowRootElements.forEach((element) => {
 		if (element) {
 			element.style.borderRadius = 'var(--re-theme-border-radius)';
-			element.classList.forEach(cls => {
+			element.classList.forEach((cls) => {
 				if (/^rounded-/.test(cls)) {
 					element.classList.replace(cls, 'rounded-none');
 				} else {
