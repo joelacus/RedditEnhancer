@@ -75,6 +75,8 @@ function addBorderRadiusAmountStylesheet() {
 			/* Comment pages, profile banner */
 			.xs\\:rounded-\\[16px\\],
 			.rounded-t-\\[1rem\\],
+			faceplate-hovercard::part(content-container),
+			faceplate-hovercard div.rounded-t-\\[16px\\],
 			faceplate-tabgroup#profile-feed-tabgroup > a,
 			:where(button), :where(input):where([type="submit"], [type="reset"], [type="button"]),
 			/* Posts in Card view, search results and subreddit sidebar */

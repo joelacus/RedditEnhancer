@@ -310,6 +310,27 @@ shreddit-post:has(.hover-card) {
 .hover-card .button {
 	text-decoration: none;
 }
+/* Mod Notes sidebar and faceplate-hovercard */
+mod-notes-rail-closer {
+	margin-block: 1rem;
+}
+mod-notes-rail-closer > faceplate-partial div.left-xl {
+	left: .75rem;
+}
+mod-notes-rail-closer > faceplate-partial div.pl-\[110px\] {
+	padding-left: 90px;
+}
+mod-notes-rail-closer mod-notes-tabs.pl-md {
+	padding: .75rem;
+}
+mod-notes-rail-closer mod-notes-tabs mod-notes-log > div,
+shreddit-comment faceplate-hovercard div.-m-xs > .mt-md {
+	margin-top: 0;
+}
+faceplate-hovercard::part(content-container) {
+	padding: .5rem;
+	border-radius: var(--re-theme-border-radius, 1rem);
+}
 
 /* ========== BREAK REMINDER ========== */
 .re-break-reminder {
