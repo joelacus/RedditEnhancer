@@ -65,6 +65,9 @@ function enableScalePostToFitImageRV3() {
 										margin-bottom: 0 !important;
 										max-height: var(--re-max-image-post-height) !important;
 									}
+									shreddit-aspect-ratio:has(#post-image) {
+										--max-height: var(--re-max-image-post-height) !important;
+									}
 									/* gallery */
 									shreddit-post gallery-carousel ul,
 									shreddit-post gallery-carousel ul li,

@@ -165,9 +165,13 @@ function enableExpandContentRV3() {
 	styleElement.id = 're-expand-feed-layout';
 	styleElement.textContent = `
 		@media (min-width: 960px) {
+			/* Prevent the outer container from glitching on FF */
+			.grid-container:not(.grid-full) {
+				max-width: 100vw;
+			}
 			shreddit-app .grid-container:not(.grid-full) .subgrid-container,
 			shreddit-app[routename="compose_message"] .subgrid-container {
-				width: 100vw;
+				width: 100%;
 				max-width: revert;
 				gap: revert;
 				padding: revert;
