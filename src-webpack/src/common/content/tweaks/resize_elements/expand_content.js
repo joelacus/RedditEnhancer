@@ -187,6 +187,7 @@ function enableExpandContentRV3() {
             	margin: 0 auto;
             }
             /* Align subreddit title with main-content */
+            .masthead,
             .masthead > section {
                 margin: 0 auto;
             }

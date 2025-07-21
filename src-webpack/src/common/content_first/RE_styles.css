@@ -576,6 +576,14 @@ shreddit-composer::part(md-inner) {
 		padding-left: .25rem !important;
 	}
 }
+div[slot="editor-helper-text"] {
+	font-size: small;
+	font-style: italic;
+}
+div.invisible[slot="editor-helper-text"] {
+	opacity: 0;
+	transition: opacity 1s, visibility 0s 1s;
+}
 
 /* ========== SCROLL TEXT POST ========== */
 .re-text-scroll div[data-click-id='text'][style='max-height: 250px;'],

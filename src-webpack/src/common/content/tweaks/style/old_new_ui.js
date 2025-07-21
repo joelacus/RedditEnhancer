@@ -300,6 +300,9 @@ async function enableAttachSideMenuHeader() {
 				line-height: 1.5;
 				text-align: left;
 			}
+			#re-user-info abbr:not(.text-danger-content) {
+				cursor: pointer;
+			}
 			@media (max-width: 1199px) {
 				.re-header-menu,
 				div#re-user-info {
@@ -351,25 +354,33 @@ function disableAttachSideMenuHeader() {
 
 // Display username and karma within the toggle user drawer button
 async function attachUserInfo() {
-	let username = document.body.getAttribute('name') || null;
-	let karma = document.body.getAttribute('karma') || null;
+	let username = sessionStorage.getItem('current-user');
+	let karma = sessionStorage.getItem('karma');
+	let link_karma = sessionStorage.getItem('link_karma');
+	let comment_karma = sessionStorage.getItem('comment_karma');
+	let is_suspended = sessionStorage.getItem('is_suspended') === 'true';
 
-	if (!username || !karma) {
+	if (!username || !karma || !link_karma || !comment_karma || !is_suspended) {
 		console.debug('[RedditEnhancer] attachUserInfo: no cached user data found, fetching data from Reddit API');
 		const user = (await BROWSER_API.runtime.sendMessage({ actions: [{ action: 'fetchData', url: 'https://www.reddit.com/api/me.json' }] }))?.data;
-		if (user && user.name && user.total_karma && user.subreddit.name) {
+		if (user && user.name && user.total_karma && user.link_karma && user.comment_karma && typeof user.is_suspended === 'boolean') {
 			username = user.name;
 			karma = user.total_karma;
-			document.body.setAttribute('name', user.name);
-			document.body.setAttribute('karma', user.total_karma);
-			document.body.classList.add('loggedin');
+			link_karma = user.link_karma;
+			comment_karma = user.comment_karma;
+			is_suspended = user.is_suspended === 'true';
 			sessionStorage.setItem('current-user', user.name);
+			sessionStorage.setItem('karma', user.total_karma);
+			sessionStorage.setItem('link_karma', user.link_karma);
+			sessionStorage.setItem('comment_karma', user.comment_karma);
+			sessionStorage.setItem('is_suspended', user.is_suspended);
+			document.body.classList.add('loggedin');
 		} else return;
 	}
 
 	const a = Object.assign(document.createElement('div'), {
 		id: 're-user-info',
-		innerHTML: `<div class="font-semibold overflow-hidden text-ellipsis">${username}</div><span class="text-neutral-content-weak">${formatNumber(karma)} karma</span>`,
+		innerHTML: `<abbr class="block font-semibold overflow-hidden text-ellipsis${is_suspended ? ' text-danger-content' : ''}" ${is_suspended ? 'title="Reddit suspended your account (reddit.com/appeal)"' : ''}>${username}</abbr><span class="text-neutral-content-weak">${formatNumber(karma)} karma (${link_karma} &middot; ${comment_karma})</span>`,
 		className: 'inline-block ml-2xs text-12 font-normal',
 	});
 	document.querySelector('button#expand-user-drawer-button:not(:has(#re-user-info))')?.appendChild(a);

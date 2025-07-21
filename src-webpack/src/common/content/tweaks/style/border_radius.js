@@ -85,7 +85,7 @@ function addBorderRadiusAmountStylesheet() {
 			shreddit-post::part(button),
 			#subreddit-wiki-header,
 			#subreddit-wiki-header + div,
-			main.main search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
+			search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
 			div[data-testid="search-crosspost-unit"] div:has(> search-telemetry-tracker),
 			div#right-sidebar-container > *,
 			div#right-sidebar-container aside,
