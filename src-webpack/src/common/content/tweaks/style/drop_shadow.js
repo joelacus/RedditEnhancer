@@ -51,6 +51,9 @@ function enableAddDropShadowRV3() {
 									shreddit-feed > article,
 									[pagetype="post_detail"] #main-content {
 										box-shadow: var(--re-shadow);
+									}
+									shreddit-feed > article {
+										border-radius: 1rem;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

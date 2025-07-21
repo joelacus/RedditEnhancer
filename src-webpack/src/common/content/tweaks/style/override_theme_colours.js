@@ -232,7 +232,10 @@ export function themePostBackgroundColour(value) {
 									article shreddit-post,
 									shreddit-app[routename="comments_page"] #main-content,
 									[routename="post_page"] main.main,
-									shreddit-app[pagetype="post_submit"] #post-submit-form section {
+									shreddit-app[pagetype="post_submit"] #post-submit-form section,
+									community-highlight-carousel,
+									.subgrid-container > .masthead,
+									.subgrid-container > div:has([bundlename="shreddit_sort_dropdown"]) {
 										backdrop-filter: blur(var(--re-theme-blur)) !important;
 									}
 									shreddit-feed article,

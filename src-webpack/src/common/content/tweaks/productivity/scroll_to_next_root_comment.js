@@ -23,13 +23,13 @@ export function scrollToNextRootComment(value) {
 	// Remove existing navigation buttons if any
 	if (isCommentPage && value) {
 		if (document.querySelector('.re-scroll-to-comment-container')) disableScrollToNextRootCommentAll();
-	}
-	if (redditVersion === 'newnew' && value) {
-		enableScrollToNextRootCommentRV3();
-	} else if (redditVersion === 'old' && value) {
-		enableScrollToNextRootCommentRV1();
-	} else {
-		disableScrollToNextRootCommentAll();
+		if (redditVersion === 'newnew' && value) {
+			enableScrollToNextRootCommentRV3();
+		} else if (redditVersion === 'old' && value) {
+			enableScrollToNextRootCommentRV1();
+		} else {
+			disableScrollToNextRootCommentAll();
+		}
 	}
 }
 
