@@ -485,10 +485,9 @@ export function themePostCommentsTextColour1(value) {
 										color: var(--re-theme-post-comments-text) !important;
 										--color-neutral-content-strong: var(--re-theme-post-comments-text) !important;
 									}
-									shreddit-comment [noun="comment_author"] > a {
-										color: var(--re-theme-post-comments-text) !important;
-									}
-									shreddit-comment faceplate-number {
+									shreddit-comment [noun="comment_author"] > a,
+									shreddit-comment faceplate-number,
+									shreddit-composer::part(md-inner) {
 										color: var(--re-theme-post-comments-text) !important;
 									}
 									shreddit-post + [bundlename="comment_body_header"] {
