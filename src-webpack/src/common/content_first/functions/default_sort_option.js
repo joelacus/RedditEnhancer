@@ -44,7 +44,12 @@ export async function defaultSortOption() {
     if (document.readyState === 'complete') {
         if (redditVersion === "newnew") attachSortObserver(url);
     } else {
-        window.addEventListener('load', () => {
+        window.addEventListener('load', function() {
+            if (redditVersion === "newnew") attachSortObserver(url);
+        });
+    }
+    if (IS_CHROME) {
+        window.addEventListener('popstate', function () {
             if (redditVersion === "newnew") attachSortObserver(url);
         });
     }
@@ -53,7 +58,7 @@ export async function defaultSortOption() {
         console.debug("[RedditEnhancer] Skipping defaultSortOption because the current page (submit, wiki, rules) is not sortable");
         const page = url.pathname.match(/\/(submit|wiki|rules|notifications)/)?.[1];
         sessionStorage.setItem('RE.page', page);
-    } else if (url.href.includes('#lightbox') || classify(url) || popstate) {
+    } else if (url.href.includes('#lightbox') || classify(url) || popstate && !IS_CHROME) {
         console.debug("[RedditEnhancer] Skipping defaultSortOption for temporary sort option change, or due to popstate or pageshow event: " + popstate);
         popstate = false;
     } else if (url.pathname.includes('/comments/') || (url.searchParams.get('type') === 'comments' && /\/search\//.test(url.pathname))) {

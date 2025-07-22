@@ -239,7 +239,8 @@ div[data-testid='search-results-sidebar'] {
 shreddit-title + div.my-xs {
 	display: none;
 }
-.masthead {
+.masthead,
+flex-left-nav-container {
 	z-index: 2;
 }
 
