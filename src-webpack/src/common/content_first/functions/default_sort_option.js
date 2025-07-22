@@ -121,7 +121,7 @@ export async function defaultSortOption() {
             console.debug(`[RedditEnhancer] Detected subreddit or multireddit (custom feed) page. Sorting enabled: ${sort}, target sort: ${sortOption}, current sort/name: ${currentSort}`);
             if (sort && sortOption && (!currentSort || currentSort !== sortOption)) {
                 // Replace the pathname, remove currentSort at the end
-                url.pathname = url.pathname.replace(/\/(best|hot|new|top|rising)\/$/, '') + `/${sortOption}`;
+                url.pathname = url.pathname.replace(/\/(best|hot|new|top|rising)?\/?$/, '/') + `${sortOption}`;
                 console.debug("[RedditEnhancer] defaultSortOption: Redirecting to " + url.href);
                 window.location.replace(url.href);
             }
@@ -143,16 +143,6 @@ export function attachSortObserver(url) {
         if (feed) {
             observer.observe(feed, {childList: true});
             console.debug("[RedditEnhancer] defaultSortOption: Attached observer for watching new posts");
-        } else {
-            const retry = setInterval(function () {
-                const feed = document.querySelector('shreddit-feed');
-                if (feed) {
-                    changePostURLToSort();
-                    observer.observe(feed, {childList: true});
-                    console.debug("[RedditEnhancer] defaultSortOption: Attached observer for watching new posts");
-                    clearInterval(retry);
-                }
-            }, 500);
         }
     }
     // Home feed sorting option to Reddit logo
