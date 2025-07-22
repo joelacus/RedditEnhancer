@@ -239,6 +239,9 @@ div[data-testid='search-results-sidebar'] {
 shreddit-title + div.my-xs {
 	display: none;
 }
+.masthead {
+	z-index: 2;
+}
 
 /* ========== OLD UI ========== */
 /* (1) Don't move span.pagename above the tab bar on certain pages, i.e. multireddit pages;
