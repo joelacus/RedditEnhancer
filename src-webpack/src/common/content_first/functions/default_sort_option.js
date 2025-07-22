@@ -48,17 +48,12 @@ export async function defaultSortOption() {
             if (redditVersion === "newnew") attachSortObserver(url);
         });
     }
-    if (IS_CHROME) {
-        window.addEventListener('popstate', function () {
-            if (redditVersion === "newnew") attachSortObserver(url);
-        });
-    }
 
     if (/\/(submit|wiki|rules|notifications)/.test(url.pathname)) {
         console.debug("[RedditEnhancer] Skipping defaultSortOption because the current page (submit, wiki, rules) is not sortable");
         const page = url.pathname.match(/\/(submit|wiki|rules|notifications)/)?.[1];
         sessionStorage.setItem('RE.page', page);
-    } else if (url.href.includes('#lightbox') || classify(url) || popstate && !IS_CHROME) {
+    } else if (url.href.includes('#lightbox') || classify(url) || popstate) {
         console.debug("[RedditEnhancer] Skipping defaultSortOption for temporary sort option change, or due to popstate or pageshow event: " + popstate);
         popstate = false;
     } else if (url.pathname.includes('/comments/') || (url.searchParams.get('type') === 'comments' && /\/search\//.test(url.pathname))) {
@@ -140,7 +135,7 @@ export async function defaultSortOption() {
 // Attach home feed and comment sorting options to the Reddit logo and feed posts
 // on homepage, subreddit listings and custom feeds. A MutationObserver is placed
 // to watch for new posts loaded dynamically using virtual scroll.
-function attachSortObserver(url) {
+export function attachSortObserver(url) {
     // Comment sorting option to posts
     if (/^\/$|^(\/(best|hot|new|top|rising)\/|\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?)$|\/m\//.test(url.pathname) && commentSort && commentSortOption) {
         changePostURLToSort();
@@ -148,6 +143,16 @@ function attachSortObserver(url) {
         if (feed) {
             observer.observe(feed, {childList: true});
             console.debug("[RedditEnhancer] defaultSortOption: Attached observer for watching new posts");
+        } else {
+            const retry = setInterval(function () {
+                const feed = document.querySelector('shreddit-feed');
+                if (feed) {
+                    changePostURLToSort();
+                    observer.observe(feed, {childList: true});
+                    console.debug("[RedditEnhancer] defaultSortOption: Attached observer for watching new posts");
+                    clearInterval(retry);
+                }
+            }, 500);
         }
     }
     // Home feed sorting option to Reddit logo
