@@ -194,7 +194,7 @@ function enableExpandContentRV3() {
             	padding: 0 !important;
 			}
             community-appearance-entrypoint[target="banner"] {
-                margin-bottom: 3rem !important;
+                margin-bottom: 5rem !important;
             }
         }`;
 	if (!snap) {

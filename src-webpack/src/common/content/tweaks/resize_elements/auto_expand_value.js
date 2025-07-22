@@ -29,12 +29,12 @@ function enableAutoExpandValueRV3(widthVariable) {
 	styleElement.textContent = `@media only screen and (max-width: ${widthVariable}px) {
 									.subgrid-container {
 										width: 100% !important;
+										padding-inline: 0 !important;
+										--re-main-container-width: 100% !important;
 									}
 									.main-container {
 										margin: 0 !important;
-									}
-									#main-content,
-									main.main {
+										padding-inline: 1.5rem;
 										max-width: 100% !important;
 										--re-content-width: 100% !important;
 										--re-sub-width: 100% !important;
@@ -42,6 +42,7 @@ function enableAutoExpandValueRV3(widthVariable) {
 										--re-post-overlay-width: 100% !important;
 										--re-user-profile-width: 100% !important;
 										transform: none !important;
+										box-sizing: border-box;
 									}
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
