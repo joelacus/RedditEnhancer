@@ -145,17 +145,11 @@ export function enableHideHomeSidebarRV3() {
 										display: none;
 										visibility: hidden;
 									}
-									shreddit-app[routename="frontpage"] .subgrid-container,
-									shreddit-app[routename="all"] .subgrid-container,
-									shreddit-app[routename="popular"] .subgrid-container,
-									shreddit-app[routename="inbox"] .subgrid-container {
-										width: fit-content;
-									}
-									shreddit-app[routename="frontpage"] .main-container,
-									shreddit-app[routename="all"] .main-container,
-									shreddit-app[routename="popular"] .main-container,
-									shreddit-app[routename="inbox"] .main-container {
-										grid-gap: 0 !important;
+									shreddit-app[routename="frontpage"] div.main-container,
+									shreddit-app[routename="all"] div.main-container,
+									shreddit-app[routename="popular"] div.main-container,
+									shreddit-app[routename="inbox"] div.main-container {
+										grid-template-columns: 1fr;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
@@ -165,7 +159,7 @@ export function enableHideHomeSidebarRV3() {
 
 // Disable Hide Home Sidebar - RV3
 export function disableHideHomeSidebarRV3() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-sub-sidebar"]');
+	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-home-sidebar"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
@@ -190,8 +184,8 @@ export function enableHideSubSidebarRV3() {
 		styleElement.textContent = `#right-sidebar-container:has([router-name="subreddit"]) {
 										display: none !important;
 									}
-									shreddit-app[routename="subreddit"] .main-container {
-										grid-gap: 0 !important;
+									shreddit-app[routename="subreddit"] div.main-container {
+										grid-template-columns: 1fr;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
@@ -226,34 +220,21 @@ function enableHidePostSidebarRV3() {
 		styleElement.textContent = `:root {
 										--re-hide-sidebar-gap-multiplyer: 1;
 									}
-									#right-sidebar-container:has([router-name="post_page"]),
-									[routename="profile_post_page"] #right-sidebar-container,
-									[routename="comments_page"] #right-sidebar-container,
-									[routename="post_stats"] #right-sidebar-container {
+									shreddit-app[routename="post_page"] #right-sidebar-container,
+									shreddit-app[routename="comments_page"] #right-sidebar-container,
+									shreddit-app[routename="profile_post_page"] #right-sidebar-container,
+									shreddit-app[routename="profile_post_page_comments"] #right-sidebar-container,
+									shreddit-app[routename="post_stats"] #right-sidebar-container,
+									shreddit-app[routename="CommentStats"] #right-sidebar-container {
 										display: none !important;
 									}
-									shreddit-app[routename="post_page"] .subgrid-container,
-									shreddit-app[routename="profile_post_page"] .subgrid-container,
-									shreddit-app[routename="comments_page"] .subgrid-container,
-									shreddit-app[routename="post_stats"] .subgrid-container {
-										width: fit-content
-									}
-									shreddit-app[routename="post_page"] #main-content.grid,
-									shreddit-app[routename="profile_post_page"] #main-content.grid,
-									shreddit-app[routename="profile_post_page"] #main-content.col-start-1 {
-										grid-column-end: 19 !important;
-									}
-									shreddit-app[routename="post_page"] main.grid,
-									shreddit-app[routename="profile_post_page"] main.grid,
-									shreddit-app[routename="profile_post_page"] main.col-start-1 {
-										grid-column-end: 19 !important;
-									}
-									/*shreddit-app[routename="post_page"],
-									shreddit-app[routename="profile_post_page"] {
-										margin-right: 1.3rem;
-									}*/
-									shreddit-app[routename="post_page"] .main-container {
-										grid-gap: 0 !important;
+									shreddit-app[routename="post_page"] div.main-container,
+									shreddit-app[routename="comments_page"] div.main-container,
+									shreddit-app[routename="profile_post_page"] div.main-container,
+									shreddit-app[routename="profile_post_page_comments"] div.main-container,
+									shreddit-app[routename="post_stats"] div.main-container,
+									shreddit-app[routename="CommentStats"] div.main-container {
+										grid-template-columns: 1fr;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
@@ -289,18 +270,14 @@ export function enableHideUserSidebarRV3() {
 		styleElement.textContent = `#right-sidebar-container:has([source="profile"]) {
 										display: none !important;
 									}
-									shreddit-app[routename*="profile_"] .subgrid-container {
-										width: fit-content;
-									}
-									shreddit-app[routename="profile_post_page"] .main-container,
-									shreddit-app[routename="profile_overview"] .main-container,
-									shreddit-app[routename="profile_posts"] .main-container,
-									shreddit-app[routename="profile_comments"] .main-container,
-									shreddit-app[routename="profile_saved"] .main-container,
-									shreddit-app[routename="profile_hidden"] .main-container,
-									shreddit-app[routename="profile_upvoted"] .main-container,
-									shreddit-app[routename="profile_downvoted"] .main-container {
-										grid-gap: 0 !important;
+									shreddit-app[routename="profile_overview"] div.main-container,
+									shreddit-app[routename="profile_posts"] div.main-container,
+									shreddit-app[routename="profile_comments"] div.main-container,
+									shreddit-app[routename="profile_saved"] div.main-container,
+									shreddit-app[routename="profile_hidden"] div.main-container,
+									shreddit-app[routename="profile_upvoted"] div.main-container,
+									shreddit-app[routename="profile_downvoted"] div.main-container {
+										grid-template-columns: 1fr;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
@@ -364,11 +341,8 @@ export function enableHideSearchSidebarNewNew() {
 		styleElement.textContent = `[pagetype="search_results"] #right-sidebar-container {
 										display: none !important;
 									}
-									shreddit-app[pagetype="search_results"] .subgrid-container {
-										width: fit-content;
-									}
-									shreddit-app[pagetype="search_results"] .main-container {
-										grid-gap: 0 !important;
+									shreddit-app[pagetype="search_results"] div.main-container {
+										grid-template-columns: 1fr;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
@@ -403,11 +377,8 @@ function enableHideCustomFeedSidebarRV3() {
 										display: none;
 										visibility: hidden;
 									}
-									shreddit-app[routename="custom_feed"] .subgrid-container {
-										width: fit-content;
-									}
 									shreddit-app[routename="custom_feed"] div.main-container {
-										gap: 0;
+										grid-template-columns: 1fr;
 									}
 									:root {
 										--re-custom-feed-sidebar-width: 0 !important;

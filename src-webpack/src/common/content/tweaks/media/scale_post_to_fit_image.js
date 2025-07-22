@@ -71,7 +71,7 @@ function enableScalePostToFitImageRV3() {
 									/* gallery */
 									shreddit-post gallery-carousel ul,
 									shreddit-post gallery-carousel ul li,
-									shreddit-post gallery-carousel ul figure{
+									shreddit-post gallery-carousel ul figure {
 										height: fit-content !important;
 									}
 									shreddit-post gallery-carousel ul {
@@ -84,7 +84,7 @@ function enableScalePostToFitImageRV3() {
 									shreddit-post gallery-carousel ul figure {
 										height: 100% !important;
 									}
-									shreddit-post gallery-carousel ul figure > img {
+									shreddit-post gallery-carousel ul figure img {
 										max-width: var(--re-limit-image-width, fit-content) !important;
 										max-height: var(--re-max-image-post-height) !important;
 										margin: 0 auto !important;

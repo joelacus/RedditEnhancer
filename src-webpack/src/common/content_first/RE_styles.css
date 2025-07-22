@@ -215,6 +215,8 @@ div[data-testid='search-results-sidebar'] {
 #subgrid-container > .my-xs {
 	margin: 0;
 	padding: 4px 0;
+	position: relative;
+	z-index: 1;
 
 	@media (min-width: 960px) {
 		> .s\:invisible {
@@ -222,10 +224,16 @@ div[data-testid='search-results-sidebar'] {
 		}
 		> shreddit-async-loader {
 			display: block;
-			width: var(--re-main-container-width, 756px);
 			margin: 0 auto;
-			padding: 0 1.5rem;
+			width: 1096px;
 		}
+	}
+}
+@media only screen and (min-width: 960px) {
+	.re-expand-feed-layout #subgrid-container > .mb-xs > shreddit-async-loader,
+	.re-expand-feed-layout #subgrid-container > .my-xs > shreddit-async-loader {
+		width: var(--re-main-container-width, 1096px);
+		padding: 0 1.5rem;
 	}
 }
 shreddit-title + div.my-xs {

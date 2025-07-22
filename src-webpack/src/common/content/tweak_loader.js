@@ -201,6 +201,7 @@ export function loadTweaks() {
 					loadHighlightOP();
 					loadHideAwards();
 				}, 500);
+				loadLeftSideVoteButtons();
 			},
 		});
 
@@ -246,7 +247,6 @@ export function loadTweaks() {
 	setTimeout(() => {
 		loadShowToTopButton();
 		loadAttachSideMenuHeader();
-		loadLeftSideVoteButtons();
 	}, 5000);
 }
 loadTweaks();

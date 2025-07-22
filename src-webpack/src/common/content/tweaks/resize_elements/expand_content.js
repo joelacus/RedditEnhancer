@@ -186,10 +186,9 @@ function enableExpandContentRV3() {
             	gap: 1.25rem;
             	margin: 0 auto;
             }
-            /* Align subreddit title with main-content */
-            .masthead,
+            .masthead > div,
             .masthead > section {
-                margin: 0 auto;
+            	margin: 0 auto;
             }
             shreddit-gallery-carousel > li {
             	padding: 0 !important;
@@ -205,9 +204,10 @@ function enableExpandContentRV3() {
 				shreddit-app[routename="frontpage"] .main-container,
 				shreddit-app[routename="all"] .main-container,
 				shreddit-app[routename="popular"] .main-container,
+				shreddit-app[routename="popular"] .masthead > div,
 				shreddit-app[routename="mod_queue_all"] div[slot="mod-queue-feed"] > div.max-w-\\[756px\\],
 				shreddit-app[pagetype="search_results"] .main-container,
-				shreddit-app[pagetype="search_results"] div.masthead,
+				shreddit-app[pagetype="search_results"] .masthead > div,
 				shreddit-app[pagetype="post_submit"] .main-container,
 				shreddit-app[routename="inbox"] .main-container,
 				shreddit-app[routename^="settings-"] .main-container,
@@ -217,8 +217,13 @@ function enableExpandContentRV3() {
 					max-width: min(var(--re-content-width), var(--re-main-container-width));
 				}
 				shreddit-app[routename="subreddit"] .main-container,
+				shreddit-app[routename="subreddit"] .masthead,
 				shreddit-app[routename="subreddit_wiki"] .main-container,
+				shreddit-app[routename="subreddit_wiki"] .masthead,
 				shreddit-app[routename="mod_queue"] div[slot="mod-queue-feed"] > div.max-w-\\[756px\\] {
+					max-width: min(var(--re-sub-width), var(--re-main-container-width));
+				}
+				.re-full-width-banner .masthead > section {
 					max-width: min(var(--re-sub-width), var(--re-main-container-width));
 				}
 				shreddit-app[routename="post_page"] .main-container,

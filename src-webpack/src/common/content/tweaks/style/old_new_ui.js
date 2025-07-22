@@ -39,28 +39,34 @@ function enableFullWidthBanner() {
 										padding: 0 !important;
 										max-width: 100% !important;
 										width: 100%;
+										gap: revert;
 									}
 									shreddit-app[routename="subreddit"] div.masthead,
 									shreddit-app[routename="subreddit_wiki"] div.masthead,
 									shreddit-app[routename="custom_feed"] div.masthead {
 										max-width: revert;
 										padding: revert;
-										background-color: var(--re-theme-post-bg, var(--color-neutral-background));
 									}
-									shreddit-app[routename="subreddit"] div.masthead > section,
-									shreddit-app[routename="subreddit_wiki"] div.masthead > section {
-										max-width: min(var(--re-sub-width), var(--re-main-container-width));
+									.re-expand-feed-layout shreddit-app[routename="popular"] .masthead,
+									.re-expand-feed-layout shreddit-app[routename="subreddit"] div.masthead,
+									.re-expand-feed-layout shreddit-app[routename="subreddit_wiki"] div.masthead,
+									.re-expand-feed-layout shreddit-app[routename="custom_feed"] div.masthead,
+									.re-expand-feed-layout #subgrid-container > .mb-xs,
+									.re-expand-feed-layout #subgrid-container > .my-xs {
+										background-color: var(--re-theme-post-bg, var(--color-neutral-background));
+										backdrop-filter: blur(var(--re-theme-blur, 0px));
+									}
+									.masthead > section {
+										max-width: 1096px;
+										margin: 0 auto;
 										padding: 0 1.5rem;
 									}
 									html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit"] div.main-container,
 									html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit_wiki"] div.main-container {
 										justify-content: center;
-									}
-									#subgrid-container > .mb-xs,
-									#subgrid-container > .my-xs {
-										background-color: var(--re-theme-post-bg, var(--color-neutral-background));
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
+		document.documentElement.classList.add('re-full-width-banner');
 	}
 }
 
@@ -648,7 +654,7 @@ export function subredditDisplayNameBanner(value) {
            										margin-top: initial;
            									}
 											community-appearance-entrypoint[target="banner"] {
-                								margin-bottom: 3rem !important;
+                								margin-bottom: 5rem !important;
             								}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
