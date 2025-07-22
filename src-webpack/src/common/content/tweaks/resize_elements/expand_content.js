@@ -282,18 +282,20 @@ function enableExpandContentRV3() {
 					max-width: var(--re-content-width);
 					margin: 0 auto;
 				}
-				shreddit-app[routename="popular"] .masthead {
-					max-width: calc(100vw - 2rem);
-				}
 				shreddit-app[routename="subreddit"] main.main,
 				shreddit-app[routename="subreddit_wiki"] main.main,
 				shreddit-app[routename="mod_queue"] div[slot="mod-queue-feed"] > div.max-w-\\[756px\\] {
 					max-width: var(--re-sub-width);
 					margin: 0 auto;
 				}
+				shreddit-app[routename="popular"] .masthead,
 				shreddit-app[routename="subreddit"] .masthead,
 				shreddit-app[routename="subreddit_wiki"] .masthead {
 					padding: 0 1.5rem;
+				}
+				shreddit-app[routename="subreddit"] .masthead > section,
+				shreddit-app[routename="subreddit_wiki"] .masthead > section {
+					max-width: revert;
 				}
 				shreddit-app[routename="post_page"] main.main,
 				shreddit-app[routename="comments_page"] main.main,
