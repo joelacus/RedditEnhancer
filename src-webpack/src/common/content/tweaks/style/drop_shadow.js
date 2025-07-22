@@ -44,12 +44,16 @@ function enableAddDropShadowRV3() {
 									}
 									reddit-header-large,
 									#left-sidebar-container,
-									#right-sidebar-container aside > div > div,
-									#right-sidebar-container shreddit-subreddit-header::part(header),
-									#right-sidebar-container achievements-entrypoint::part(achievements-entrypoint),
+									html:not(.re-hide-post-dividers) #right-sidebar-contents > [id^="subreddit-right"],
+									html.re-hide-post-dividers #right-sidebar-container aside > div > div,
+									html.re-hide-post-dividers #right-sidebar-container shreddit-subreddit-header::part(header),
+									html.re-hide-post-dividers #right-sidebar-container achievements-entrypoint::part(achievements-entrypoint),
 									shreddit-feed > article,
 									[pagetype="post_detail"] #main-content {
 										box-shadow: var(--re-shadow);
+									}
+									shreddit-feed > article {
+										border-radius: 1rem;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

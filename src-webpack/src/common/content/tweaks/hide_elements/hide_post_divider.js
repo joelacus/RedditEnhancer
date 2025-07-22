@@ -196,6 +196,7 @@ function enableHidePostDivider() {
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
+	document.documentElement.classList.add('re-hide-post-dividers');
 }
 
 // Disable Hide Post Separators - RV3
@@ -204,6 +205,7 @@ function disableHidePostDivider() {
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});
+	document.documentElement.classList.remove('re-hide-post-dividers');
 }
 
 // Set custom height for post separators

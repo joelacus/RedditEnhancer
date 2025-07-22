@@ -548,15 +548,15 @@ shreddit-composer::part(md-inner) {
 .re-hide-awards award-button {
 	display: none !important;
 }
-[routename="post_page"] main.main,
-[routename="comments_page"] main.main,
-[routename="profile_post_page"] main.main,
-[routename="profile_post_page_comments"] main.main,
-[routename="post_stats"] main.main,
-[routename="CommentStats"] main.main,
-[routename="earn-dashboard"] main.main {
+[routename='post_page'] main.main,
+[routename='comments_page'] main.main,
+[routename='profile_post_page'] main.main,
+[routename='profile_post_page_comments'] main.main,
+[routename='post_stats'] main.main,
+[routename='CommentStats'] main.main,
+[routename='earn-dashboard'] main.main {
 	margin: 1rem 0;
-	padding: 0 1rem .75rem 1rem;
+	padding: 0 1rem 0.75rem 1rem;
 	height: min-content;
 	background-color: var(--re-theme-post-bg, var(--color-neutral-background, #000));
 	border-radius: var(--re-theme-border-radius, 1rem);
@@ -573,7 +573,7 @@ shreddit-composer::part(md-inner) {
 		margin-top: 0 !important;
 	}
 	& div.re-vote-panel + shreddit-post {
-		padding-left: .25rem !important;
+		padding-left: 0.25rem !important;
 	}
 }
 div[slot="editor-helper-text"] {
@@ -693,5 +693,9 @@ div.invisible[slot="editor-helper-text"] {
 #pdp-credit-bar div:has([icon-name='notification-outline']) {
 	padding: 4px;
 	border-radius: var(--re-theme-border-radius);
-	margin-right: -0.75rem;
+}
+shreddit-post [slot='credit-bar'] div:has([icon-name='notification-outline']) {
+	padding: 4px;
+	border-radius: var(--re-theme-border-radius);
+	margin-right: -0.25rem;
 }

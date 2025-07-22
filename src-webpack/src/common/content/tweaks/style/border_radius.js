@@ -105,7 +105,10 @@ function addBorderRadiusAmountStylesheet() {
 			/* Wiki pages */
 			shreddit-app[routename="subreddit_wiki"] main.main > div:last-of-type,
 			div.toc,
-			shreddit-app[pagetype="post_submit"] #post-submit-form section {
+			shreddit-app[pagetype="post_submit"] #post-submit-form section,
+			#right-sidebar-contents > [id^="subreddit-right"],
+			#right-sidebar-contents > [id^="subreddit-right"] > aside > div,
+			shreddit-feed > article {
 				border-radius: var(--re-theme-border-radius) !important;
 			}
 			article > shreddit-post[view-type="compactView"] {

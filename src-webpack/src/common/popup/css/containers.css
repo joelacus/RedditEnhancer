@@ -71,8 +71,13 @@
 .css-input-container {
 	display: flex;
 	align-items: center;
+	justify-content: end;
 	flex-direction: row;
 	grid-gap: 4px;
 	padding-right: 4px;
 	margin-top: 14px;
+}
+.css-input-container input {
+	width: 100%;
+	max-width: 200px;
 }
