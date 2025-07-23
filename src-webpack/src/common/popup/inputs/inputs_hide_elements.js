@@ -33,10 +33,6 @@ document.querySelector('#checkbox-hide-home-sidebar').addEventListener('change',
 			tabs.forEach(function (tab) {
 				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
 					BROWSER_API.tabs.sendMessage(tab.id, { hideHomeSidebar: true });
-					// Reapply Layout Centre
-					BROWSER_API.storage.sync.get(['layoutCentre'], function (result) {
-						BROWSER_API.tabs.sendMessage(tab.id, { layoutCentre: result.layoutCentre });
-					});
 				}
 			});
 		});
@@ -49,10 +45,6 @@ document.querySelector('#checkbox-hide-home-sidebar').addEventListener('change',
 			tabs.forEach(function (tab) {
 				if (tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
 					BROWSER_API.tabs.sendMessage(tab.id, { hideHomeSidebar: false });
-					// Reapply Layout Centre
-					BROWSER_API.storage.sync.get(['layoutCentre'], function (result) {
-						BROWSER_API.tabs.sendMessage(tab.id, { layoutCentre: result.layoutCentre });
-					});
 				}
 			});
 		});
@@ -1075,4 +1067,4 @@ document.querySelector('#checkbox-hide-awards').addEventListener('change', funct
 	}
 	BROWSER_API.storage.sync.set({ hideAwards: hideAwards });
 	sendMessage({ hideAwards: hideAwards });
-})
+});
