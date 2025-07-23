@@ -86,6 +86,10 @@ function enableLeftSideVoteButtonsRV3() {
 				& span.h-lg.w-lg {
 					width: 20px;
 					height: 20px;
+					
+					& img {
+						width: 100% !important;
+					}
 				}
 			}
 			shreddit-feed .re-vote-panel {

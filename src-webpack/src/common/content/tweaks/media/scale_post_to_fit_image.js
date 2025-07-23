@@ -87,7 +87,8 @@ function enableScalePostToFitImageRV3() {
 									shreddit-post gallery-carousel ul figure a {
 										width: 100% !important;
 									}
-									shreddit-post gallery-carousel ul figure img {
+									shreddit-post gallery-carousel ul figure img,
+									.toggle__expando .max-h-\\[768px\\] {
 										max-width: var(--re-limit-image-width, fit-content) !important;
 										max-height: var(--re-max-image-post-height) !important;
 										margin: 0 auto !important;
