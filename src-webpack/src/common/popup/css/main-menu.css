@@ -298,7 +298,7 @@ div.container[style*='none'] + .divider {
 }
 .info {
 	text-align: center;
-	padding: 0 4px 0 4px;
+	padding: 0 8px 0 8px;
 }
 .info-blue,
 .warning {

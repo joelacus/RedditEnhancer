@@ -75,6 +75,8 @@ function addBorderRadiusAmountStylesheet() {
 			/* Comment pages, profile banner */
 			.xs\\:rounded-\\[16px\\],
 			.rounded-t-\\[1rem\\],
+			faceplate-hovercard::part(content-container),
+			faceplate-hovercard div.rounded-t-\\[16px\\],
 			faceplate-tabgroup#profile-feed-tabgroup > a,
 			:where(button), :where(input):where([type="submit"], [type="reset"], [type="button"]),
 			/* Posts in Card view, search results and subreddit sidebar */
@@ -83,7 +85,7 @@ function addBorderRadiusAmountStylesheet() {
 			shreddit-post::part(button),
 			#subreddit-wiki-header,
 			#subreddit-wiki-header + div,
-			main.main search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
+			search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
 			div[data-testid="search-crosspost-unit"] div:has(> search-telemetry-tracker),
 			div#right-sidebar-container > *,
 			div#right-sidebar-container aside,
@@ -102,7 +104,11 @@ function addBorderRadiusAmountStylesheet() {
 			faceplate-tracker[noun="load_more_comments"] button,
 			/* Wiki pages */
 			shreddit-app[routename="subreddit_wiki"] main.main > div:last-of-type,
-			div.toc {
+			div.toc,
+			shreddit-app[pagetype="post_submit"] #post-submit-form section,
+			#right-sidebar-contents > [id^="subreddit-right"],
+			#right-sidebar-contents > [id^="subreddit-right"] > aside > div,
+			shreddit-feed > article {
 				border-radius: var(--re-theme-border-radius) !important;
 			}
 			article > shreddit-post[view-type="compactView"] {
@@ -194,7 +200,7 @@ export function addBorderRadiusToShadowRootElements() {
 	shadowRootElements.forEach((element) => {
 		if (element) {
 			element.style.borderRadius = 'var(--re-theme-border-radius)';
-			element.classList.forEach(cls => {
+			element.classList.forEach((cls) => {
 				if (/^rounded-/.test(cls)) {
 					element.classList.replace(cls, 'rounded-none');
 				} else {

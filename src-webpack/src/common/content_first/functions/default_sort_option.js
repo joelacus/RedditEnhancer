@@ -44,7 +44,7 @@ export async function defaultSortOption() {
     if (document.readyState === 'complete') {
         if (redditVersion === "newnew") attachSortObserver(url);
     } else {
-        window.addEventListener('load', () => {
+        window.addEventListener('load', function() {
             if (redditVersion === "newnew") attachSortObserver(url);
         });
     }
@@ -121,7 +121,7 @@ export async function defaultSortOption() {
             console.debug(`[RedditEnhancer] Detected subreddit or multireddit (custom feed) page. Sorting enabled: ${sort}, target sort: ${sortOption}, current sort/name: ${currentSort}`);
             if (sort && sortOption && (!currentSort || currentSort !== sortOption)) {
                 // Replace the pathname, remove currentSort at the end
-                url.pathname = url.pathname.replace(/\/(best|hot|new|top|rising)\/$/, '') + `/${sortOption}`;
+                url.pathname = url.pathname.replace(/\/(best|hot|new|top|rising)?\/?$/, '/') + `${sortOption}`;
                 console.debug("[RedditEnhancer] defaultSortOption: Redirecting to " + url.href);
                 window.location.replace(url.href);
             }
@@ -135,7 +135,7 @@ export async function defaultSortOption() {
 // Attach home feed and comment sorting options to the Reddit logo and feed posts
 // on homepage, subreddit listings and custom feeds. A MutationObserver is placed
 // to watch for new posts loaded dynamically using virtual scroll.
-function attachSortObserver(url) {
+export function attachSortObserver(url) {
     // Comment sorting option to posts
     if (/^\/$|^(\/(best|hot|new|top|rising)\/|\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?)$|\/m\//.test(url.pathname) && commentSort && commentSortOption) {
         changePostURLToSort();

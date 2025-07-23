@@ -513,7 +513,7 @@
 		"message": "Додайте номери Post"
 	},
 	"SideMenu": {
-		"message": "Бічне меню"
+		"message": "Бічне меню (ліворуч)"
 	},
 	"SideMenuBackgroundColour": {
 		"message": "Бічне меню: Фоновий колір"
@@ -525,7 +525,7 @@
 		"message": "Бічне меню: Текстовий колір"
 	},
 	"Sidebar": {
-		"message": "Бічна панель"
+		"message": "Бічна панель (право)"
 	},
 	"SidebarBackgroundColour": {
 		"message": "Бічна панель: Фоновий колір"

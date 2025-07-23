@@ -16,11 +16,7 @@ export function showBannerMessage(type, message) {
 		innerHTML: message,
 	});
 	e.addEventListener('click', () => e.remove());
+	setTimeout(e.remove, 10000);
 	const a = document.querySelector('shreddit-app div#subgrid-container');
 	a.insertBefore(e, a.firstChild);
-
-	const b = document.querySelector('div.re-banner');
-	setTimeout(() => {
-		b?.remove();
-	}, 10000);
 }

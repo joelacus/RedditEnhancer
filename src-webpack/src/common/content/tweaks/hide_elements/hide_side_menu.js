@@ -62,7 +62,7 @@ export function hideSideMenu(value) {
 
 // Enable Hide Side Menu - RV3
 function enableHideSideMenuNewNew() {
-	document.querySelector('html').classList.add('re-hide-side-menu');
+	document.documentElement.classList.add('re-hide-side-menu');
 	if (!document.head.querySelector('style[id="re-hide-side-menu"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-side-menu';

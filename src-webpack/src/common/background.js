@@ -7,8 +7,7 @@ function timestamp() {
 	const D = new Date();
 	const time = D.toLocaleTimeString();
 	const date = D.toLocaleDateString('en-GB');
-	const timestamp = `${date} ${time}`;
-	return timestamp;
+	return `${date} ${time}`;
 }
 console.log(`${timestamp()} - Extension loaded`);
 
@@ -169,10 +168,8 @@ let options = { enableRulesetIds: [], disableRulesetIds: [] };
 
 // Load Saved Value
 BROWSER_API.storage.sync.get(['justOpenTheImage'], function (result) {
-	if (result.justOpenTheImage === true) {
+	if (result.justOpenTheImage) {
 		enableJustOpenTheImage();
-	} else {
-		disableJustOpenTheImage();
 	}
 });
 
@@ -231,14 +228,6 @@ function removeImageRules() {
 	options.disableRulesetIds.push('image_ruleset');
 	BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
 		console.log('Remove image ruleset');
-		BROWSER_API.tabs
-			.reload()
-			.then(() => {
-				return;
-			})
-			.catch((error) => {
-				console.error('Error updating rules:', error);
-			});
 	});
 }
 

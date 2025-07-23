@@ -786,7 +786,7 @@
 		"message": "Affichez le pourcentage de vote up dans la vue de la publication"
 	},
 	"SideMenu": {
-		"message": "Menu latéral"
+		"message": "Menu latéral (barre de gauche)"
 	},
 	"SideMenuBackgroundColour": {
 		"message": "Menu latéral : La couleur d'arrière-plan"
@@ -807,7 +807,7 @@
 		"message": "Largeur du menu latéral"
 	},
 	"Sidebar": {
-		"message": "Barre Latérale"
+		"message": "Barre Latérale (barre de droite)"
 	},
 	"SidebarBackgroundColour": {
 		"message": "Barre latérale : La couleur d'arrière-plan"

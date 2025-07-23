@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 
 	"name": "__MSG_extensionName__",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "__MSG_extensionDescription__",
 	"author": "github.com/joelacus",
 	"default_locale": "en",
@@ -34,7 +34,7 @@
 
 	"web_accessible_resources": [
 		{
-			"resources": ["_locales/**/*", "videojs/video-js.css", "videojs/video.min.js", "changelog.txt", "RE_styles.css", "RE_font.css"],
+			"resources": ["_locales/**/*", "changelog.txt", "RE_styles.css", "RE_font.css"],
 			"matches": ["<all_urls>"]
 		}
 	],

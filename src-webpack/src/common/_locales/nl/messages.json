@@ -711,7 +711,7 @@
 		"message": "Toon het upvote percentage op de postpagina"
 	},
 	"SideMenu": {
-		"message": "Zijmenu"
+		"message": "Zijmenu (linkerbalk)"
 	},
 	"SideMenuBackgroundColour": {
 		"message": "Zijmenu: Achtergrond kleur"
@@ -732,7 +732,7 @@
 		"message": "Breedte zijmenu"
 	},
 	"Sidebar": {
-		"message": "Zijbalk"
+		"message": "Zijbalk (rechterbalk)"
 	},
 	"SidebarBackgroundColour": {
 		"message": "Zijbalk: Achtergrond kleur"

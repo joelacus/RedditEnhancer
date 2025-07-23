@@ -27,6 +27,7 @@ export function sideMenuToggleButton(value) {
 
 // Enable Side Menu Toggle Button - RV3
 function enableSideMenuToggleButton() {
+	document.documentElement.classList.add('re-hide-side-menu');
 	// create and append close button
 	const chevron = '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path opacity="1" fill="currentColor" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>';
 	let btnClose, btnOpen;
