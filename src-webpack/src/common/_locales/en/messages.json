@@ -789,7 +789,7 @@
 		"message": "Show Upvote Percentage in Post View"
 	},
 	"SideMenu": {
-		"message": "Side Menu"
+		"message": "Side Menu (left bar)"
 	},
 	"SideMenuBackgroundColour": {
 		"message": "Side Menu: Background Colour"
@@ -810,7 +810,7 @@
 		"message": "Side Menu Width"
 	},
 	"Sidebar": {
-		"message": "Sidebar"
+		"message": "Sidebar (right bar)"
 	},
 	"SidebarBackgroundColour": {
 		"message": "Sidebar: Background Colour"
