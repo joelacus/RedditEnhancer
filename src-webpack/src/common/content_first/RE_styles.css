@@ -215,6 +215,8 @@ div[data-testid='search-results-sidebar'] {
 #subgrid-container > .my-xs {
 	margin: 0;
 	padding: 4px 0;
+	position: relative;
+	z-index: 1;
 
 	@media (min-width: 960px) {
 		> .s\:invisible {
@@ -222,14 +224,24 @@ div[data-testid='search-results-sidebar'] {
 		}
 		> shreddit-async-loader {
 			display: block;
-			width: var(--re-main-container-width, 756px);
 			margin: 0 auto;
-			padding: 0 1.5rem;
+			width: 1096px;
 		}
+	}
+}
+@media only screen and (min-width: 960px) {
+	.re-expand-feed-layout #subgrid-container > .mb-xs > shreddit-async-loader,
+	.re-expand-feed-layout #subgrid-container > .my-xs > shreddit-async-loader {
+		width: var(--re-main-container-width, 1096px);
+		padding: 0 1.5rem;
 	}
 }
 shreddit-title + div.my-xs {
 	display: none;
+}
+.masthead,
+flex-left-nav-container {
+	z-index: 2;
 }
 
 /* ========== OLD UI ========== */
@@ -309,6 +321,30 @@ shreddit-post:has(.hover-card) {
 }
 .hover-card .button {
 	text-decoration: none;
+}
+/* Mod Notes sidebar and faceplate-hovercard */
+mod-notes-rail-closer {
+	margin-block: 1rem;
+}
+mod-notes-rail-closer > faceplate-partial div.left-xl {
+	left: .75rem;
+}
+mod-notes-rail-closer > faceplate-partial div.pl-\[110px\] {
+	padding-left: 90px;
+}
+mod-notes-rail-closer mod-notes-tabs.pl-md {
+	padding: .75rem;
+}
+mod-notes-rail-closer mod-notes-tabs mod-notes-log > div,
+shreddit-comment faceplate-hovercard div.-m-xs > .mt-md {
+	margin-top: 0;
+}
+faceplate-hovercard::part(content-container) {
+	padding: 0;
+	border-radius: var(--re-theme-border-radius, 1rem);
+}
+faceplate-hovercard div.max-w-\[360px\].-m-\[0\.5rem\] {
+	margin: 0;
 }
 
 /* ========== BREAK REMINDER ========== */
@@ -551,6 +587,14 @@ shreddit-composer::part(md-inner) {
 	& div.re-vote-panel + shreddit-post {
 		padding-left: 0.25rem !important;
 	}
+}
+div[slot="editor-helper-text"] {
+	font-size: small;
+	font-style: italic;
+}
+div.invisible[slot="editor-helper-text"] {
+	opacity: 0;
+	transition: opacity 1s, visibility 0s 1s;
 }
 
 /* ========== SCROLL TEXT POST ========== */

@@ -82,10 +82,14 @@ function enableLeftSideVoteButtonsRV3() {
 				& a.h-xl[data-testid="subreddit-name"] {
 					height: revert;
 				}
-				& span[avatar],
+				& faceplate-hovercard a span[avatar],
 				& span.h-lg.w-lg {
 					width: 20px;
 					height: 20px;
+					
+					& img {
+						width: 100% !important;
+					}
 				}
 			}
 			shreddit-feed .re-vote-panel {

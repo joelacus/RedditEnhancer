@@ -71,17 +71,10 @@ export function loadTweaks() {
 		loadSubredditDisplayNameBanner();
 		loadOpenPostInNewTab();
 		loadOpenSubInNewTab();
+		loadAttachSideMenuHeader();
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
-
-		waitForAddedNode({
-			query: 'flex-left-nav-container, #left-sidebar-container',
-			parent: document.querySelector('body'),
-			done: () => {
-				loadAttachSideMenuHeader();
-			},
-		});
 
 		waitForAddedNode({
 			query: '#communities_section left-nav-communities-controller',
@@ -186,8 +179,8 @@ export function loadTweaks() {
 					loadImageScroll();
 					loadReplacePostImagesWithLinks();
 					loadReplacePostVideosWithLinks();
-					loadLeftSideVoteButtons();
 				}, 500);
+				loadLeftSideVoteButtons();
 				loadAlwaysShowPostOptions();
 				loadShowUpvoteRatio();
 				loadHideAwards();
@@ -208,6 +201,7 @@ export function loadTweaks() {
 					loadHighlightOP();
 					loadHideAwards();
 				}, 500);
+				loadLeftSideVoteButtons();
 			},
 		});
 
@@ -253,7 +247,6 @@ export function loadTweaks() {
 	setTimeout(() => {
 		loadShowToTopButton();
 		loadAttachSideMenuHeader();
-		loadLeftSideVoteButtons();
 	}, 5000);
 }
 loadTweaks();

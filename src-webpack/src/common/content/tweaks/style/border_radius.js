@@ -75,6 +75,8 @@ function addBorderRadiusAmountStylesheet() {
 			/* Comment pages, profile banner */
 			.xs\\:rounded-\\[16px\\],
 			.rounded-t-\\[1rem\\],
+			faceplate-hovercard::part(content-container),
+			faceplate-hovercard div.rounded-t-\\[16px\\],
 			faceplate-tabgroup#profile-feed-tabgroup > a,
 			:where(button), :where(input):where([type="submit"], [type="reset"], [type="button"]),
 			/* Posts in Card view, search results and subreddit sidebar */
@@ -83,7 +85,7 @@ function addBorderRadiusAmountStylesheet() {
 			shreddit-post::part(button),
 			#subreddit-wiki-header,
 			#subreddit-wiki-header + div,
-			main.main search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
+			search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
 			div[data-testid="search-crosspost-unit"] div:has(> search-telemetry-tracker),
 			div#right-sidebar-container > *,
 			div#right-sidebar-container aside,

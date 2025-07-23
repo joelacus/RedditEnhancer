@@ -234,8 +234,7 @@ export function themePostBackgroundColour(value) {
 									[routename="post_page"] main.main,
 									shreddit-app[pagetype="post_submit"] #post-submit-form section,
 									community-highlight-carousel,
-									.subgrid-container > .masthead,
-									.subgrid-container > div:has([bundlename="shreddit_sort_dropdown"]) {
+									.subgrid-container > .masthead {
 										backdrop-filter: blur(var(--re-theme-blur)) !important;
 									}
 									shreddit-feed article,
@@ -486,10 +485,9 @@ export function themePostCommentsTextColour1(value) {
 										color: var(--re-theme-post-comments-text) !important;
 										--color-neutral-content-strong: var(--re-theme-post-comments-text) !important;
 									}
-									shreddit-comment [noun="comment_author"] > a {
-										color: var(--re-theme-post-comments-text) !important;
-									}
-									shreddit-comment faceplate-number {
+									shreddit-comment [noun="comment_author"] > a,
+									shreddit-comment faceplate-number,
+									shreddit-composer::part(md-inner) {
 										color: var(--re-theme-post-comments-text) !important;
 									}
 									shreddit-post + [bundlename="comment_body_header"] {

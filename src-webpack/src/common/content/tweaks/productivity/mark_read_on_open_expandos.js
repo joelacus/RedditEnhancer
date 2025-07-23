@@ -50,7 +50,9 @@ function enableMarkReadOnOpenExpandos() {
 				// Send a message to background.js, which has the permission to call history.addUrl()
 				BROWSER_API.runtime
 					.sendMessage({ actions: [{ action: 'markVisited', url: url }] })
-					.then(function (response) {})
+					.then(function (response) {
+						console.debug(`[RedditEnhancer] markReadOnOpenExpandos: Marking URL as visited: ${url}`);
+					})
 					.catch(function (error) {
 						console.error(`[RedditEnhancer] markReadOnOpenExpandos: Error marking post as read: ${url}, `, error);
 					});

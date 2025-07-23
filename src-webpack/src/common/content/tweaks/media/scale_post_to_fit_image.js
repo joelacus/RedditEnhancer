@@ -65,10 +65,13 @@ function enableScalePostToFitImageRV3() {
 										margin-bottom: 0 !important;
 										max-height: var(--re-max-image-post-height) !important;
 									}
+									shreddit-aspect-ratio:has(#post-image) {
+										--max-height: var(--re-max-image-post-height) !important;
+									}
 									/* gallery */
 									shreddit-post gallery-carousel ul,
 									shreddit-post gallery-carousel ul li,
-									shreddit-post gallery-carousel ul figure{
+									shreddit-post gallery-carousel ul figure {
 										height: fit-content !important;
 									}
 									shreddit-post gallery-carousel ul {
@@ -81,7 +84,11 @@ function enableScalePostToFitImageRV3() {
 									shreddit-post gallery-carousel ul figure {
 										height: 100% !important;
 									}
-									shreddit-post gallery-carousel ul figure > img {
+									shreddit-post gallery-carousel ul figure a {
+										width: 100% !important;
+									}
+									shreddit-post gallery-carousel ul figure img,
+									.toggle__expando .max-h-\\[768px\\] {
 										max-width: var(--re-limit-image-width, fit-content) !important;
 										max-height: var(--re-max-image-post-height) !important;
 										margin: 0 auto !important;

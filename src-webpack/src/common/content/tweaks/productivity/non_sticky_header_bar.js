@@ -39,6 +39,7 @@ function enableNonStickyHeaderBarRV3() {
 									top: 0 !important;
 								}
 								shreddit-app #right-sidebar-container {
+									height: initial;
 									max-height: initial !important;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
