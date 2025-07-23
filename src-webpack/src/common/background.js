@@ -169,10 +169,8 @@ let options = { enableRulesetIds: [], disableRulesetIds: [] };
 
 // Load Saved Value
 BROWSER_API.storage.sync.get(['justOpenTheImage'], function (result) {
-	if (result.justOpenTheImage === true) {
+	if (result.justOpenTheImage) {
 		enableJustOpenTheImage();
-	} else {
-		disableJustOpenTheImage();
 	}
 });
 
