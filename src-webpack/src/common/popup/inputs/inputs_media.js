@@ -138,6 +138,7 @@ document.querySelector('#checkbox-just-open-the-image').addEventListener('change
 		BROWSER_API.storage.sync.set({ justOpenTheImage: false });
 		document.querySelector('.icon-just-open-the-image').style.backgroundColor = '';
 		BROWSER_API.runtime.sendMessage({ justOpenTheImage: false });
+		if (IS_CHROME) alert("Changes will take effect after a reload or the next time you load Reddit.");
 	}
 });
 
