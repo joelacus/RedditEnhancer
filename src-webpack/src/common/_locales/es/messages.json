@@ -786,7 +786,7 @@
 		"message": "Mostrar porcentaje de votos a la vista posterior"
 	},
 	"SideMenu": {
-		"message": "Menú lateral"
+		"message": "Menú lateral (barra izquierda)"
 	},
 	"SideMenuBackgroundColour": {
 		"message": "Menú lateral: Color de fondo"
@@ -807,7 +807,7 @@
 		"message": "Ancho del menú lateral"
 	},
 	"Sidebar": {
-		"message": "Barra lateral"
+		"message": "Barra lateral (barra derecha)"
 	},
 	"SidebarBackgroundColour": {
 		"message": "Barra lateral: Color de fondo"

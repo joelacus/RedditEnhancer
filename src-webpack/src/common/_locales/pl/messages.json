@@ -624,7 +624,7 @@
 		"message": "Dodaj liczby post"
 	},
 	"SideMenu": {
-		"message": "Menu boczne"
+		"message": "Menu boczne (lewy)"
 	},
 	"SideMenuBackgroundColour": {
 		"message": "Menu boczne: Kolor tła"
@@ -642,7 +642,7 @@
 		"message": "Szerokość menu bocznego"
 	},
 	"Sidebar": {
-		"message": "Pasek boczny"
+		"message": "Pasek boczny (prawidłowy)"
 	},
 	"SidebarBackgroundColour": {
 		"message": "Pasek boczny: Kolor tła"

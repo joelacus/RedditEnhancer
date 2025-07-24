@@ -513,7 +513,7 @@
 		"message": "Legg til postnummer"
 	},
 	"SideMenu": {
-		"message": "Sidemeny"
+		"message": "Sidemeny (igjen)"
 	},
 	"SideMenuBackgroundColour": {
 		"message": "Sidemeny: Bakgrunnsfarge"
@@ -525,7 +525,7 @@
 		"message": "Sidemeny: Tekstfarge"
 	},
 	"Sidebar": {
-		"message": "Sidefelt"
+		"message": "Sidefelt (høyre)"
 	},
 	"SidebarBackgroundColour": {
 		"message": "Sidefelt: Bakgrunnsfarge"

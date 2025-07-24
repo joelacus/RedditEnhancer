@@ -711,7 +711,7 @@
 		"message": "Mostra la percentuale di voti positivi nella visualizzazione del post"
 	},
 	"SideMenu": {
-		"message": "Menù laterale"
+		"message": "Menù laterale (barra sinistra)"
 	},
 	"SideMenuBackgroundColour": {
 		"message": "Menù laterale: Colore di sfondo"
@@ -732,7 +732,7 @@
 		"message": "Larghezza del menu laterale"
 	},
 	"Sidebar": {
-		"message": "Barra laterale"
+		"message": "Barra laterale (barra di destra)"
 	},
 	"SidebarBackgroundColour": {
 		"message": "Barra laterale: Colore di sfondo"

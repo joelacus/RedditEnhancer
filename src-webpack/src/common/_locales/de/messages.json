@@ -786,7 +786,7 @@
 		"message": "Zeigen Sie den Prozentsatz in der Postansicht an"
 	},
 	"SideMenu": {
-		"message": "Seitenmenü"
+		"message": "Seitenmenü (linke leiste)"
 	},
 	"SideMenuBackgroundColour": {
 		"message": "Seitenmenü: Hintergrundfarbe"
@@ -807,7 +807,7 @@
 		"message": "Breite des Seitenmenüs"
 	},
 	"Sidebar": {
-		"message": "Seitenleiste"
+		"message": "Seitenleiste (rechte leiste)"
 	},
 	"SidebarBackgroundColour": {
 		"message": "Seitenleiste: Hintergrundfarbe"
