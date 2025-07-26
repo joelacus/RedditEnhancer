@@ -5,17 +5,56 @@ import { highlightMenuIcon } from '../popup_restore';
 // Restore UI settings for "Block" options.
 
 export function restorePopupBlockOptions() {
-	// Hide Blocked Keyword Posts Enable
-	BROWSER_API.storage.sync.get(['hideBlockedKeywordPosts'], function (result) {
-		if (result.hideBlockedKeywordPosts === true) {
+	restoreHideBlockedKeywordPosts();
+	restoreHideBlockedUserPosts();
+}
+
+// Hide Blocked Keyword Posts Enable
+function restoreHideBlockedKeywordPosts() {
+	BROWSER_API.storage.sync.get(['hideBlockedKeywordPosts', 'hideBlockedKeywordPostsList'], function (result) {
+		if (result.hideBlockedKeywordPosts) {
 			document.querySelector('.icon-hide-blocked-keyword-posts').style.backgroundColor = 'var(--accent)';
 			document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').checked = true;
 			highlightMenuIcon('block');
 			var value = true;
-		} else if (typeof result.hideBlockedKeywordPosts === 'undefined' || result.hideBlockedKeywordPosts === false) {
+		} else {
 			document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').checked = false;
 			var value = false;
 		}
 		console.log('Hide Blocked Keyword Posts Enable: ' + value);
+
+		// Hide Blocked Keyword Posts List
+		if (typeof result.hideBlockedKeywordPostsList != 'undefined') {
+			var value = result.hideBlockedKeywordPostsList;
+			document.querySelector('#input-blocked-keyword-posts').value = value;
+		} else {
+			var value = '';
+		}
+		console.log('Hide Blocked Keyword Posts List: ' + value);
+	});
+}
+
+// Hide Blocked User Posts Enable
+function restoreHideBlockedUserPosts() {
+	BROWSER_API.storage.sync.get(['hideBlockedUserPosts', 'hideBlockedUserPostsList'], function (result) {
+		if (result.hideBlockedUserPosts) {
+			document.querySelector('.icon-hide-blocked-user-posts').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-blocked-user-posts-enable').checked = true;
+			highlightMenuIcon('block');
+			var value = true;
+		} else {
+			document.querySelector('#checkbox-hide-blocked-user-posts-enable').checked = false;
+			var value = false;
+		}
+		console.log('Hide Blocked User Posts Enable: ' + value);
+
+		// Hide Blocked User Posts List
+		if (typeof result.hideBlockedUserPostsList != 'undefined') {
+			var value = result.hideBlockedUserPostsList;
+			document.querySelector('#input-blocked-user-posts').value = value;
+		} else {
+			var value = '';
+		}
+		console.log('Hide Blocked User Posts List: ' + value);
 	});
 }
