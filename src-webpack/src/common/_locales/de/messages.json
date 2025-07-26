@@ -23,8 +23,8 @@
 	"AddSpoilerTag": {
 		"message": "Spoiler-Tag hinzufügen"
 	},
-	"AlwaysShowPostOptions": {
-		"message": "Beitragsoptionen immer anzeigen"
+	"AlwaysShowPostAndCommentOptions": {
+		"message": "Post und Kommentaroptionen immer anzeigen"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Seite und Benutzerinformationen im Header anzeigen"
@@ -370,6 +370,9 @@
 	},
 	"HidePostSidebar": {
 		"message": "Blenden Sie die Seitenleiste des Beitrags aus"
+	},
+	"HidePostsByBlockedUser": {
+		"message": "Beiträge nach blockierten nutzern verbergen"
 	},
 	"HidePromoted": {
 		"message": "Anzeigen/beworbene Links ausblenden"

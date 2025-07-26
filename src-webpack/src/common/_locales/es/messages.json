@@ -23,8 +23,8 @@
 	"AddSpoilerTag": {
 		"message": "Agregar etiqueta de spoiler"
 	},
-	"AlwaysShowPostOptions": {
-		"message": "Mostrar siempre opciones de publicación"
+	"AlwaysShowPostAndCommentOptions": {
+		"message": "Mostrar siempre opciones de publicación y comentarios"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Mostrar página e información del usuario en el encabezado"
@@ -370,6 +370,9 @@
 	},
 	"HidePostSidebar": {
 		"message": "Ocultar la barra lateral de la publicación"
+	},
+	"HidePostsByBlockedUser": {
+		"message": "Ocultar publicaciones de usuarios bloqueados"
 	},
 	"HidePromoted": {
 		"message": "Ocultar anuncios/enlaces patrocinados"
