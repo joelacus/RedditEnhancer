@@ -570,8 +570,6 @@ shreddit-composer::part(md-inner) {
 	margin: 1rem 0;
 	padding: 0 1rem 0.75rem 1rem;
 	height: min-content;
-	background-color: var(--re-theme-post-bg, var(--color-neutral-background, #000));
-	border-radius: var(--re-theme-border-radius, 1rem);
 	box-sizing: border-box;
 	& shreddit-post {
 		margin: 0;

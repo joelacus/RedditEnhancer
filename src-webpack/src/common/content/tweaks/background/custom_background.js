@@ -96,6 +96,16 @@ function enableUseCustomBackgroundRV3() {
 									padding-left: .75rem;
 									padding-block: .125rem;
 								}
+								[routename='post_page'] main.main,
+								[routename='comments_page'] main.main,
+								[routename='profile_post_page'] main.main,
+								[routename='profile_post_page_comments'] main.main,
+								[routename='post_stats'] main.main,
+								[routename='CommentStats'] main.main,
+								[routename='earn-dashboard'] main.main {
+									background-color: var(--re-theme-post-bg, var(--color-neutral-background, transparent));
+									border-radius: var(--re-theme-border-radius, 1rem);
+								}
 								@media (max-width: 768px) {
 									shreddit-app[routename="post_page"] main.main,
 									shreddit-app[routename="comments_page"] main.main,
