@@ -291,6 +291,18 @@ export function themePostBackgroundColour(value) {
 										border-radius: var(--re-theme-border-radius, 1rem);
 										margin-bottom: var(--re-post-separator-height, 10px);
 									}
+									[routename="keyword-management"] post-consume-tracker > div {
+										background-color: var(--re-theme-post-bg);
+										border-radius: 0;
+									}
+									[routename="keyword-management"] faceplate-tracker:first-of-type post-consume-tracker > div {
+										border-top-left-radius: var(--re-theme-border-radius, 1rem);
+										border-top-right-radius: var(--re-theme-border-radius, 1rem);
+									}
+									[routename="keyword-management"] faceplate-tracker:last-of-type post-consume-tracker > div {
+										border-bottom-left-radius: var(--re-theme-border-radius, 1rem);
+										border-bottom-right-radius: var(--re-theme-border-radius, 1rem);
+									}
 									shreddit-profile-comment:hover {
 										background-color: transparent;
 									}
