@@ -165,6 +165,7 @@ async function restoreBackup(json) {
 				'enableDefaultCommentsSortOption',
 				'enableDefaultFeedSortOption',
 				'enableHideBlockedKeywordPosts',
+				'enableHideBlockedUserPosts',
 				'expandCustomFeedWidth',
 				'expandLayout',
 				'expandLayoutWidth',

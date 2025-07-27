@@ -264,7 +264,7 @@ function attachCommentMenu(commentActionRow) {
 			slot: 'comment-send-replies',
 			selector: 'faceplate-tracker[noun="overflow_send_replies_disable"] li div',
 			remove: 'faceplate-tracker[noun="overflow_send_replies_disable"]',
-		}
+		},
 	].map((action) => {
 		const button = overflowMenu.querySelector(action.selector);
 		if (button) {
@@ -277,7 +277,7 @@ function attachCommentMenu(commentActionRow) {
 			const text = button.querySelector('span > span + span > span');
 			if (icon && text) {
 				icon.classList.remove('h-xl', 'w-xl');
-				icon.classList.add('hidden');
+				//icon.classList.add('hidden');
 			}
 			button.querySelector('span > span + span')?.classList.remove('py-[var(--rem6)]');
 			if (text) {
@@ -322,7 +322,7 @@ function attachCommentMenu(commentActionRow) {
 			textSpan.textContent = 'Share';
 			icon.insertAdjacentElement('afterend', textSpan);
 		}
-		if (icon) icon.classList.add('hidden');
+		//if (icon) icon.classList.add('hidden');
 	}
 
 	const awardBtnContainer = commentActionRow.querySelector('award-button');
@@ -335,7 +335,7 @@ function attachCommentMenu(commentActionRow) {
 		awardBtn.classList.add('font-semibold', 'rounded-sm');
 
 		const icon = awardBtn.querySelector('span > span:has(svg)');
-		if (icon) icon.classList.add('hidden');
+		//if (icon) icon.classList.add('hidden');
 	}
 
 	const insightBtn = commentActionRow.querySelector('a[slot="comment-insight"] button');

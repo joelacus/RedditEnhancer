@@ -11,8 +11,26 @@
 	"Accessibility": {
 		"message": "Accessibilità"
 	},
-	"AlwaysShowPostOptions": {
-		"message": "Mostra sempre le opzioni di pubblicazione"
+	"AddDownloadVideoButton": {
+		"message": "Aggiungi il pulsante \"Scarica video\" ai post video"
+	},
+	"AddDownloadVideoButtonInfo": {
+		"message": "Questo attualmente supporta solo URL mp4, non m3u8, quindi alcuni post video non avranno il pulsante di download :/"
+	},
+	"AddNsfwTag": {
+		"message": "Aggiungi tag NSFW"
+	},
+	"AddSpoilerTag": {
+		"message": "Aggiungi tag spoiler"
+	},
+	"AlwaysShowPostAndCommentOptions": {
+		"message": "Mostra sempre le opzioni di post e commento"
+	},
+	"AttachSideMenuHeader": {
+		"message": "Visualizza la pagina e le informazioni dell'utente nell'intestazione"
+	},
+	"AttachSideMenuHeaderInfo": {
+		"message": "Sperimentale. Potrebbe essere in conflitto con le funzioni del menu laterale nascondigli."
 	},
 	"Auto": {
 		"message": "Auto"
@@ -43,6 +61,12 @@
 	},
 	"Best": {
 		"message": "Migliori / Best"
+	},
+	"BetterCommentBox": {
+		"message": "Casella per commenti migliori"
+	},
+	"BetterCommentBoxInfo": {
+		"message": "Mostra automaticamente le opzioni di formattazione durante il commento, aggiungi Ctrl/Cmd + Immettere il collegamento per inviare commenti e nascondere la barra degli strumenti per il passaggio a Rich-Text Editor quando si imposta il compositore Markdown come predefinito"
 	},
 	"BionicBackgroundColour": {
 		"message": "Colore di sfondo bionico"
@@ -164,6 +188,9 @@
 	"DefaultHomeFeedSortOption": {
 		"message": "Opzione di ordinamento del feed di casa predefinito"
 	},
+	"Delete": {
+		"message": "Eliminare"
+	},
 	"Disabled": {
 		"message": "Disabilitato"
 	},
@@ -175,6 +202,9 @@
 	},
 	"DropShadow": {
 		"message": "Ombre esterne"
+	},
+	"EditPost": {
+		"message": "Modifica post"
 	},
 	"EndTime": {
 		"message": "Tempo Scaduto (24)"
@@ -203,6 +233,9 @@
 	"FilterOptionsFor": {
 		"message": "Opzioni di filtro per"
 	},
+	"FollowPost": {
+		"message": "Segui il post"
+	},
 	"Font": {
 		"message": "Font"
 	},
@@ -220,6 +253,9 @@
 	},
 	"FullWidthBanner": {
 		"message": "Banner subreddit a larghezza intera"
+	},
+	"GlobalWidth": {
+		"message": "Larghezza massima globale"
 	},
 	"Grey": {
 		"message": "Grigio"
@@ -239,8 +275,14 @@
 	"Here": {
 		"message": ""
 	},
+	"Hide": {
+		"message": "Nascondere"
+	},
 	"HideAdvertiseButton": {
 		"message": "Nascondi il pulsante “Pubblicità”"
+	},
+	"HideAwards": {
+		"message": "NasNascondi il pulsante “Premi“"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Nascondi Post con Parole Chiave Bloccate"
@@ -256,6 +298,9 @@
 	},
 	"HideCommunityHighlights": {
 		"message": "Nascondi 'Post in evidenza della comunità'"
+	},
+	"HideCommunityStatus": {
+		"message": "Nascondi lo stato della comunità"
 	},
 	"HideCompactViewBlankThumbnails": {
 		"message": "Nascondi miniature vuote nella vista compatta"
@@ -326,6 +371,9 @@
 	"HidePostSidebar": {
 		"message": "Nascondi la barra laterale del post"
 	},
+	"HidePostsByBlockedUser": {
+		"message": "Nascondi i post degli utenti bloccati"
+	},
 	"HidePromoted": {
 		"message": "Nascondi annunci/link promossi"
 	},
@@ -395,8 +443,14 @@
 	"HideUsername": {
 		"message": "Nascondi nome utente"
 	},
+	"HideVideoRecommendations": {
+		"message": "Nascondi i post consigliati quando il video finisce"
+	},
 	"HideVoteButtons": {
 		"message": "Nascondi i pulsanti di voto"
+	},
+	"HighlightOp": {
+		"message": "Evidenzia commenti dal poster originale (OP)"
 	},
 	"HomeFeedOffset": {
 		"message": "Offset del feed principale"
@@ -425,6 +479,12 @@
 	"LargerClassicPost": {
 		"message": "Visualizzazione post classica più grande"
 	},
+	"Latest": {
+		"message": "Ultimo"
+	},
+	"LeftSideVoteButtons": {
+		"message": "Mostra i pulsanti di voto a sinistra"
+	},
 	"Light": {
 		"message": "Chiaro"
 	},
@@ -442,6 +502,12 @@
 	},
 	"MainContainer": {
 		"message": "Contenitore principale"
+	},
+	"MarkAsBrandAffiliate": {
+		"message": "Mark come affiliato del marchio"
+	},
+	"MarkReadOnOpenExpandos": {
+		"message": "Segna i post come letto quando si apri l'espansione in compatta vista"
 	},
 	"MaxImagePostHeight": {
 		"message": "Altezza del post dell'immagine massima"
@@ -508,6 +574,9 @@
 	},
 	"OpenSubInNewTab": {
 		"message": "Apri i link a Sub Reddit in una nuova scheda"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Non allegare il menu laterale come pannello a discesa"
 	},
 	"OptionsPage": {
 		"message": "Pagina delle opzioni"
@@ -617,6 +686,9 @@
 	"ReplacePostVideosWithLinksInfo": {
 		"message": "Funziona solo con MP4 e GIF. I video di M3U8 possono essere difficili da giocare in altri giocatori."
 	},
+	"Report": {
+		"message": "Rapporto"
+	},
 	"ReportIssues": {
 		"message": "Segnala problemi"
 	},
@@ -653,8 +725,14 @@
 	"RestoreInfo2": {
 		"message": "articoli. Il limite dell'API del browser è 120 al minuto. Si prega di lasciare aperta questa finestra/scheda per un altro minuto."
 	},
+	"RightSidePostThumbnails": {
+		"message": "Mostra le miniature dei post sul lato destro"
+	},
 	"Rising": {
 		"message": "In crescita / Rising"
+	},
+	"Save": {
+		"message": "Salva"
 	},
 	"ScalePostToFitImage": {
 		"message": "Ridimensiona il post per adattarlo all'immagine"
@@ -743,6 +821,9 @@
 	"SidebarToggleButton": {
 		"message": "Pulsante a levetta della barra laterale"
 	},
+	"SnapSidebar": {
+		"message": "Attacca la barra laterale al bordo destro"
+	},
 	"Sort": {
 		"message": "Ordina"
 	},
@@ -769,6 +850,9 @@
 	},
 	"Subreddit": {
 		"message": "Subreddit"
+	},
+	"SubredditDisplayNameBanner": {
+		"message": "Mostra il nome visualizzato subreddit nel suo banner"
 	},
 	"Text": {
 		"message": "Testo"
@@ -844,6 +928,9 @@
 	},
 	"VideoPlayerInfo": {
 		"message": "Lettore video veloce e leggero con controlli di velocità basati su videojs. Provalo se riscontri problemi di caricamento con il lettore di Reddit."
+	},
+	"ViewCrossposts": {
+		"message": "Aggiungi collegamento per visualizzare i crossposts in altri subreddit"
 	},
 	"Welcome": {
 		"message": "Benvenuta!"

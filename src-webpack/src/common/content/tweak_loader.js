@@ -45,10 +45,11 @@ import { loadUsernameHoverPopupDelay } from './tweaks/productivity/username_hove
 import { loadShowUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
 import { loadAttachSideMenuHeader, loadSubredditDisplayNameBanner, moveSortDropdown } from './tweaks/style/old_new_ui';
 import { loadLeftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
-import { loadViewCrossposts } from "./tweaks/productivity/view_crossposts";
-import { loadMarkReadOnOpenExpandos } from "./tweaks/productivity/mark_read_on_open_expandos";
-import { loadHideAwards } from "./tweaks/hide_elements/hide_awards";
-import { loadHighlightOP } from "./tweaks/productivity/highlight_op";
+import { loadViewCrossposts } from './tweaks/productivity/view_crossposts';
+import { loadMarkReadOnOpenExpandos } from './tweaks/productivity/mark_read_on_open_expandos';
+import { loadHideAwards } from './tweaks/hide_elements/hide_awards';
+import { loadHighlightOP } from './tweaks/productivity/highlight_op';
+import { loadHideBlockedUserPosts } from './tweaks/block/block_posts_by_user';
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -57,6 +58,7 @@ export function loadTweaks() {
 		loadAddProfilePicturesToComments();
 		loadSidebarToggleButton();
 		loadHideBlockedKeywordPosts();
+		loadHideBlockedUserPosts();
 	} else if (redditVersion === 'newnew') {
 		loadAddDownloadVideoButton();
 		loadBionicReader();
@@ -161,6 +163,7 @@ export function loadTweaks() {
 			done: function () {
 				setTimeout(() => {
 					loadHideBlockedKeywordPosts();
+					loadHideBlockedUserPosts();
 				}, 500);
 				loadShowPostNumbers();
 				loadMarkReadOnOpenExpandos();
@@ -225,7 +228,7 @@ export function loadTweaks() {
 			done: function (el) {
 				loadAlwaysShowPostOptions();
 			},
-		})
+		});
 
 		waitForAddedNode({
 			query: 'shreddit-comment[author="AutoModerator"]',

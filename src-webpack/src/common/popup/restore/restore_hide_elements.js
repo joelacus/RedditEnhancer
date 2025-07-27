@@ -155,17 +155,6 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Moderation Button: ' + value);
 	});
 
-	// Hide Blocked Keyword Posts List
-	BROWSER_API.storage.sync.get(['hideBlockedKeywordPostsList'], function (result) {
-		if (typeof result.hideBlockedKeywordPostsList != 'undefined') {
-			var value = result.hideBlockedKeywordPostsList;
-			document.querySelector('#input-blocked-keyword-posts').value = value;
-		} else {
-			var value = '';
-		}
-		console.log('Hide Blocked Keyword Posts List: ' + value);
-	});
-
 	// Hide Chat Button
 	BROWSER_API.storage.sync.get(['hideChatButton'], function (result) {
 		if (result.hideChatButton == true) {
@@ -892,5 +881,5 @@ export function restorePopupHideElementsOptions() {
 		document.querySelector('.icon-hide-awards').classList.toggle('icon-show', !hideAwards);
 		document.querySelector('.icon-hide-awards').classList.toggle('icon-hide', hideAwards);
 		console.log('Hide Awards: ' + hideAwards);
-	})
+	});
 }

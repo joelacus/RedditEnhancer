@@ -11,8 +11,8 @@
 	"Accessibility": {
 		"message": "Přístupnost"
 	},
-	"AlwaysShowPostOptions": {
-		"message": "Vždy zobrazujte možnosti příspěvku"
+	"AlwaysShowPostAndCommentOptions": {
+		"message": "Vždy zobrazovat možnosti příspěvků a komentářů"
 	},
 	"Auto": {
 		"message": "Automatický"

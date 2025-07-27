@@ -11,8 +11,8 @@
 	"Accessibility": {
 		"message": "Toegankelijkheid"
 	},
-	"AlwaysShowPostOptions": {
-		"message": "Toon Altijd Berichtopties"
+	"AlwaysShowPostAndCommentOptions": {
+		"message": "Toon altijd post en commentaaropties"
 	},
 	"Auto": {
 		"message": "Auto"

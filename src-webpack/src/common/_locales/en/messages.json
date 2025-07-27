@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "2.0.1"
+		"message": "2.1.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -26,8 +26,8 @@
 	"AddSpoilerTag": {
 		"message": "Add spoiler tag"
 	},
-	"AlwaysShowPostOptions": {
-		"message": "Always Show Post Options"
+	"AlwaysShowPostAndCommentOptions": {
+		"message": "Always Show Post and Comment Options"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Display page and user info in header"
@@ -373,6 +373,9 @@
 	},
 	"HidePostSidebar": {
 		"message": "Hide the Post Sidebar"
+	},
+	"HidePostsByBlockedUser": {
+		"message": "Hide Posts by Blocked Users"
 	},
 	"HidePromoted": {
 		"message": "Hide Ads/Promoted Links"
