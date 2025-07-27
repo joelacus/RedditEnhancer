@@ -10,7 +10,7 @@ import { showBannerMessage } from '../../banner_message';
 
 let hideNotification = false,
 	leftSideVoteButtons = false,
-	removeCommentBtnIcons = false,
+	hideCommentBtnIcons = false,
 	buttons = ['save', 'hide', 'report', 'edit', 'delete', 'pinToProfile', 'spoilerTag', 'nsfwTag', 'brandAffiliate'];
 
 const slots = ['share-button', 'save-button', 'hide-button', 'report-button', 'edit-button', 'pinToProfile-button', 'delete-button', 'spoilerTag-button', 'nsfwTag-button', 'brandAffiliate-button', 'overflow-menu'];
@@ -20,7 +20,7 @@ export function loadAlwaysShowPostOptions() {
 		if (result.alwaysShowPostOptions) {
 			hideNotification = result.hidePostNotificationOption;
 			leftSideVoteButtons = result.leftSideVoteButtons;
-			removeCommentBtnIcons = result.removeCommentBtnIcons;
+			hideCommentBtnIcons = result.removeCommentBtnIcons;
 			if (result.hidePostSaveOption) buttons = buttons.filter((action) => action !== 'save');
 			if (result.hidePostHideOption) buttons = buttons.filter((action) => action !== 'hide');
 			if (result.hidePostReportOption) buttons = buttons.filter((action) => action !== 'report');
@@ -279,7 +279,7 @@ function attachCommentMenu(commentActionRow) {
 			const text = button.querySelector('span > span + span > span');
 			if (icon && text) {
 				icon.classList.remove('h-xl', 'w-xl');
-				if (removeCommentBtnIcons) icon.classList.add('hidden');
+				if (hideCommentBtnIcons) icon.classList.add('hidden');
 			}
 			button.querySelector('span > span + span')?.classList.remove('py-[var(--rem6)]');
 			if (text) {
@@ -324,7 +324,7 @@ function attachCommentMenu(commentActionRow) {
 			textSpan.textContent = 'Share';
 			icon.insertAdjacentElement('afterend', textSpan);
 		}
-		if (icon && removeCommentBtnIcons) icon.classList.add('hidden');
+		if (icon && hideCommentBtnIcons) icon.classList.add('hidden');
 	}
 
 	const awardBtnContainer = commentActionRow.querySelector('award-button');
@@ -337,7 +337,7 @@ function attachCommentMenu(commentActionRow) {
 		awardBtn.classList.add('font-semibold', 'rounded-sm');
 
 		const icon = awardBtn.querySelector('span > span:has(svg)');
-		if (icon && removeCommentBtnIcons) icon.classList.add('hidden');
+		if (icon && hideCommentBtnIcons) icon.classList.add('hidden');
 	}
 
 	const insightBtn = commentActionRow.querySelector('a[slot="comment-insight"] button');
