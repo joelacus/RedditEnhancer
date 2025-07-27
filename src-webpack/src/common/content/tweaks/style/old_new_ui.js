@@ -34,22 +34,19 @@ function enableFullWidthBanner() {
 										margin-top: 0;
 										border-radius: 0;
 									}
-									shreddit-app[routename="subreddit"] div.subgrid-container,
-									shreddit-app[routename="subreddit_wiki"] div.subgrid-container {
+									shreddit-app[routename^="subreddit"] div.subgrid-container {
 										padding: 0 !important;
 										max-width: 100% !important;
 										width: 100%;
 										gap: revert;
 									}
-									shreddit-app[routename="subreddit"] div.masthead,
-									shreddit-app[routename="subreddit_wiki"] div.masthead,
+									shreddit-app[routename^="subreddit"] div.masthead,
 									shreddit-app[routename="custom_feed"] div.masthead {
 										max-width: revert;
 										padding: revert;
 									}
 									.re-expand-feed-layout shreddit-app[routename="popular"] .masthead,
-									.re-expand-feed-layout shreddit-app[routename="subreddit"] div.masthead,
-									.re-expand-feed-layout shreddit-app[routename="subreddit_wiki"] div.masthead,
+									.re-expand-feed-layout shreddit-app[routename^="subreddit"] div.masthead,
 									.re-expand-feed-layout shreddit-app[routename="custom_feed"] div.masthead,
 									.re-expand-feed-layout #subgrid-container > .mb-xs,
 									.re-expand-feed-layout #subgrid-container > .my-xs {
@@ -61,7 +58,7 @@ function enableFullWidthBanner() {
 										margin: 0 auto;
 										padding: 0 1.5rem;
 									}
-									html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit"] div.main-container,
+									html:not(.re-expand-feed-layout) shreddit-app[routename^="subreddit"] div.main-container,
 									html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit_wiki"] div.main-container {
 										justify-content: center;
 									}`;
@@ -429,6 +426,7 @@ async function attachPageTitle() {
 			case 'subreddit':
 			case 'subreddit_wiki':
 			case 'subreddit_wiki_revisions':
+			case 'subreddit_mod_application':
 			case 'post_page':
 			case 'comments_page':
 			case 'community_serp':
@@ -659,7 +657,7 @@ export function subredditDisplayNameBanner(value) {
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
 			const route = document.querySelector('shreddit-app')?.getAttribute('routename');
-			if (route === 'subreddit' || route === 'subreddit_wiki') {
+			if (route.startsWith('subreddit')) {
 				const subredditName = document.querySelector('shreddit-subreddit-header')?.getAttribute('display-name');
 				if (subredditName && subredditName.length > 0) {
 					document.querySelector('div.masthead h1').textContent = subredditName;
