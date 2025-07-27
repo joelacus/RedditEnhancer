@@ -680,6 +680,9 @@
 	"RememberSectionHiddenState": {
 		"message": "Remember the hidden states of sections in the side menu"
 	},
+	"RemoveCommentBtnIcons": {
+		"message": "Remove icons from most comment buttons"
+	},
 	"ReplacePostImagesWithLinks": {
 		"message": "Replace Images with Links on Feeds"
 	},
