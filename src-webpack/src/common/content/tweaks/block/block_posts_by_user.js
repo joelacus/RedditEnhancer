@@ -84,7 +84,7 @@ function filterBlockedUserPost(post) {
 
 // Disable Hide Blocked User Posts - All
 function disableHideBlockedUserPostsAll() {
-	document.querySelectorAll('#sideTable > .thing, article.re-hide').forEach((post) => {
+	document.querySelectorAll('#siteTable > .thing, article.re-hide').forEach((post) => {
 		post.classList.remove('re-hide');
 	});
 }
@@ -94,11 +94,7 @@ const observer = new MutationObserver((mutations) => {
 	mutations.forEach((mutation) => {
 		mutation.addedNodes.forEach((node) => {
 			if (!(node instanceof HTMLElement)) return;
-
-			if (node.tagName === 'ARTICLE') {
-				const post = node;
-				if (post) filterBlockedUserPost(post);
-			}
+			if (node) document.querySelectorAll('article:has(>shreddit-post)').forEach(filterBlockedUserPost);
 		});
 	});
 });

@@ -7,6 +7,7 @@ import { highlightMenuIcon } from '../popup_restore';
 export function restorePopupBlockOptions() {
 	restoreHideBlockedKeywordPosts();
 	restoreHideBlockedUserPosts();
+	restoreHideBlockedLinkPosts();
 }
 
 // Hide Blocked Keyword Posts Enable
@@ -56,5 +57,30 @@ function restoreHideBlockedUserPosts() {
 			var value = '';
 		}
 		console.log('Hide Blocked User Posts List: ' + value);
+	});
+}
+
+// Hide Blocked Link Posts Enable
+function restoreHideBlockedLinkPosts() {
+	BROWSER_API.storage.sync.get(['hideBlockedLinkPosts', 'hideBlockedLinkPostsList'], function (result) {
+		if (result.hideBlockedLinkPosts) {
+			document.querySelector('.icon-hide-blocked-link-posts').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-hide-blocked-link-posts-enable').checked = true;
+			highlightMenuIcon('block');
+			var value = true;
+		} else {
+			document.querySelector('#checkbox-hide-blocked-link-posts-enable').checked = false;
+			var value = false;
+		}
+		console.log('Hide Blocked Link Posts Enable: ' + value);
+
+		// Hide Blocked Link Posts List
+		if (typeof result.hideBlockedLinkPostsList != 'undefined') {
+			var value = result.hideBlockedLinkPostsList;
+			document.querySelector('#input-blocked-link-posts').value = value;
+		} else {
+			var value = '';
+		}
+		console.log('Hide Blocked Link Posts List: ' + value);
 	});
 }

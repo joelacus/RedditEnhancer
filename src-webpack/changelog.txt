@@ -1,7 +1,10 @@
 version 2.1.0
-  - Added the option to hide posts by blocked users. (blocked users are managed by the extension).
-  - Enabled icons for comment buttons when "Always Show Post and Comment Options" is enabled.
+  - Added an option to hide posts by blocked users. (blocked users are managed by the extension).
+  - Added an option to hide "Link" posts by keywords in the URL.
   - Bug fixes and improvements.
+* Special thanks to @biminhc1 (Reddit) @bmndc (Github) for all following changes <3
+  - Added an option to show/hide pictographs from the comment action buttons when "Always Show Post and Comment Options" is enabled.
+  - More bug fixes and improvements.
 
 version 2.0.1
   - Bug fixes and improvements.

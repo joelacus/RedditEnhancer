@@ -38,8 +38,8 @@ document.querySelector('#checkbox-hide-blocked-user-posts-enable').addEventListe
 // Textarea - Hide Blocked Users Posts
 let timeout_users;
 document.querySelector('#input-blocked-user-posts').addEventListener('keyup', function (e) {
-	const UserList = e.target.value;
-	BROWSER_API.storage.sync.set({ hideBlockedUserPostsList: UserList });
+	const userList = e.target.value;
+	BROWSER_API.storage.sync.set({ hideBlockedUserPostsList: userList });
 	// apply blocked users after 2 seconds of no input if enabled
 	const hideBlockedUserPostsEnable = document.querySelector('#checkbox-hide-blocked-user-posts-enable').checked;
 	if (hideBlockedUserPostsEnable) {
@@ -48,6 +48,31 @@ document.querySelector('#input-blocked-user-posts').addEventListener('keyup', fu
 			console.log('Refreshing blocked posts...');
 			sendMessage({ hideBlockedUserPosts: false });
 			sendMessage({ hideBlockedUserPosts: true });
+		}, 2000);
+	}
+});
+
+// Toggle - Hide Blocked Link Posts
+document.querySelector('#checkbox-hide-blocked-link-posts-enable').addEventListener('change', function () {
+	const hideBlockedLinkPostsEnable = document.querySelector('#checkbox-hide-blocked-link-posts-enable').checked;
+	document.querySelector('.icon-hide-blocked-link-posts').style.backgroundColor = hideBlockedLinkPostsEnable === true ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ hideBlockedLinkPosts: hideBlockedLinkPostsEnable });
+	sendMessage({ hideBlockedLinkPosts: hideBlockedLinkPostsEnable });
+});
+
+// Textarea - Hide Blocked Link Posts
+let timeout_url;
+document.querySelector('#input-blocked-link-posts').addEventListener('keyup', function (e) {
+	const linkKeywordsList = e.target.value;
+	BROWSER_API.storage.sync.set({ hideBlockedLinkPostsList: linkKeywordsList });
+	// apply blocked links after 2 seconds of no input if enabled
+	const hideBlockedLinkPostsEnable = document.querySelector('#checkbox-hide-blocked-link-posts-enable').checked;
+	if (hideBlockedLinkPostsEnable) {
+		clearTimeout(timeout_url);
+		timeout_url = setTimeout(() => {
+			console.log('Refreshing blocked posts...');
+			sendMessage({ hideBlockedLinkPosts: false });
+			sendMessage({ hideBlockedLinkPosts: true });
 		}, 2000);
 	}
 });

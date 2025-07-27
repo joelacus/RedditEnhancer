@@ -130,6 +130,7 @@ import { showUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
 import { customHeaderLogo, setCustomHeaderLogoUrl } from './tweaks/style/custom_header_logo';
 import { hideBlockedKeywordPosts } from './tweaks/block/block_posts_by_keyword';
 import { hideBlockedUserPosts } from './tweaks/block/block_posts_by_user';
+import { hideBlockedLinkPosts } from './tweaks/block/block_posts_by_url';
 import { hideVideoRecommendations } from './tweaks/media/hide_video_recommendations';
 import { leftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { hideCommunityStatus } from './tweaks/hide_elements/hide_community_status';
@@ -201,6 +202,7 @@ const functionRegistry = {
 	hideAwards,
 	hideBlockedKeywordPosts,
 	hideBlockedUserPosts,
+	hideBlockedLinkPosts,
 	hideBlurredMediaBackground,
 	hideChatButton,
 	hideCommentKarma,
