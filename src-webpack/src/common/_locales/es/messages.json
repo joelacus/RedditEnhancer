@@ -344,6 +344,9 @@
 	"HideKarma": {
 		"message": "Ocultar Karma"
 	},
+	"HideLinkPostsByUrlKeyword": {
+		"message": "Ocultar publicaciones 'Enlace' por palabras clave en la URL"
+	},
 	"HideModerationButton": {
 		"message": "Ocultar el botón “Moderación”"
 	},

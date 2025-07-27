@@ -11,8 +11,26 @@
 	"Accessibility": {
 		"message": "Toegankelijkheid"
 	},
+	"AddDownloadVideoButton": {
+		"message": "Voeg de knop 'Video downloaden' toe aan videoposten"
+	},
+	"AddDownloadVideoButtonInfo": {
+		"message": "Dit ondersteunt momenteel alleen mp4-URL's, geen m3u8, dus sommige videoberichten zullen de downloadknop niet hebben :/"
+	},
+	"AddNsfwTag": {
+		"message": "Voeg NSFW-tag toe"
+	},
+	"AddSpoilerTag": {
+		"message": "Voeg spoiler-tag toe"
+	},
 	"AlwaysShowPostAndCommentOptions": {
 		"message": "Toon altijd post en commentaaropties"
+	},
+	"AttachSideMenuHeader": {
+		"message": "Pagina en gebruikersinformatie weergeven in de header"
+	},
+	"AttachSideMenuHeaderInfo": {
+		"message": "Experimenteel. Misschien conflicteren met het verstoppen van zijmenu-functies."
 	},
 	"Auto": {
 		"message": "Auto"
@@ -43,6 +61,12 @@
 	},
 	"Best": {
 		"message": "Best"
+	},
+	"BetterCommentBox": {
+		"message": "Beter commentaarvak"
+	},
+	"BetterCommentBoxInfo": {
+		"message": "Geef automatisch opmaakopties weer bij het becommentariëren, voeg Ctrl/Cmd + Snelkoppeling toe om opmerkingen in te dienen en verberg de werkbalk voor het overschakelen naar Rich-Text-editor bij het instellen van Markdown Composer als standaard."
 	},
 	"BionicBackgroundColour": {
 		"message": "Bionische achtergrondkleur"
@@ -164,6 +188,9 @@
 	"DefaultHomeFeedSortOption": {
 		"message": "Standaard optie voor sorteren thuis feed"
 	},
+	"Delete": {
+		"message": "Verwijderen"
+	},
 	"Disabled": {
 		"message": "Uitgeschakeld"
 	},
@@ -175,6 +202,9 @@
 	},
 	"DropShadow": {
 		"message": "Slagschaduwen"
+	},
+	"EditPost": {
+		"message": "Post bewerken"
 	},
 	"EndTime": {
 		"message": "Eindtijd (24)"
@@ -203,6 +233,9 @@
 	"FilterOptionsFor": {
 		"message": "Filteropties voor"
 	},
+	"FollowPost": {
+		"message": "Volg Post"
+	},
 	"Font": {
 		"message": "Lettertype"
 	},
@@ -220,6 +253,9 @@
 	},
 	"FullWidthBanner": {
 		"message": "Volledige breedte subreddit banner"
+	},
+	"GlobalWidth": {
+		"message": "Globale maximale breedte"
 	},
 	"Grey": {
 		"message": "Grijs"
@@ -239,8 +275,14 @@
 	"Here": {
 		"message": "hierheen"
 	},
+	"Hide": {
+		"message": "Verbergen"
+	},
 	"HideAdvertiseButton": {
 		"message": "Verberg de knop “Adverteren”"
+	},
+	"HideAwards": {
+		"message": "Verberg de Awards-knop"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Berichten met Geblokkeerde Trefwoorden Verbergen"
@@ -256,6 +298,9 @@
 	},
 	"HideCommunityHighlights": {
 		"message": "Verberg 'community highlights'"
+	},
+	"HideCommunityStatus": {
+		"message": "Verberg de gemeenschapsstatus"
 	},
 	"HideCompactViewBlankThumbnails": {
 		"message": "Verberg lege miniatuur in compacte weergave"
@@ -299,6 +344,9 @@
 	"HideKarma": {
 		"message": "Verberg karma"
 	},
+	"HideLinkPostsByUrlKeyword": {
+		"message": "Verberg 'link'-berichten op trefwoorden in de URL"
+	},
 	"HideModerationButton": {
 		"message": "Verberg de knop “Moderatie”"
 	},
@@ -325,6 +373,9 @@
 	},
 	"HidePostSidebar": {
 		"message": "Verberg de berichtzijbalk"
+	},
+	"HidePostsByBlockedUser": {
+		"message": "Verberg berichten door geblokkeerde gebruikers"
 	},
 	"HidePromoted": {
 		"message": "Advertenties/gesponsorde links verbergen"
@@ -395,8 +446,14 @@
 	"HideUsername": {
 		"message": "Verberg gebruikersnaam"
 	},
+	"HideVideoRecommendations": {
+		"message": "Verberg aanbevolen berichten wanneer video eindigt"
+	},
 	"HideVoteButtons": {
 		"message": "Verberg de stemknoppen"
+	},
+	"HighlightOp": {
+		"message": "Markeer opmerkingen van de oorspronkelijke poster (OP)"
 	},
 	"HomeFeedOffset": {
 		"message": "Verschuiving van de start-feed"
@@ -425,6 +482,12 @@
 	"LargerClassicPost": {
 		"message": "Grotere klassieke berichtweergave"
 	},
+	"Latest": {
+		"message": "Nieuwste"
+	},
+	"LeftSideVoteButtons": {
+		"message": "Toon stemknoppen aan de linkerkant"
+	},
 	"Light": {
 		"message": "Licht"
 	},
@@ -442,6 +505,12 @@
 	},
 	"MainContainer": {
 		"message": "Hoofdcontainer"
+	},
+	"MarkAsBrandAffiliate": {
+		"message": "Markeren als merkpartner"
+	},
+	"MarkReadOnOpenExpandos": {
+		"message": "Berichten markeren als gelezen bij het openen van uitvouwbare berichten in de compacte weergave"
 	},
 	"MaxImagePostHeight": {
 		"message": "Maximale afbeelding Posthoogte"
@@ -508,6 +577,9 @@
 	},
 	"OpenSubInNewTab": {
 		"message": "Links naar Sub Reddit in een nieuw tabblad openen"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Bevestig het zijmenu niet als vervolgkeuze paneel"
 	},
 	"OptionsPage": {
 		"message": "Optiespagina"
@@ -617,6 +689,9 @@
 	"ReplacePostVideosWithLinksInfo": {
 		"message": "Werkt alleen met MP4 en GIF. M3U8-video's kunnen moeilijk zijn om bij andere spelers te spelen."
 	},
+	"Report": {
+		"message": "Rapport"
+	},
 	"ReportIssues": {
 		"message": "Rapporteer problemen"
 	},
@@ -653,8 +728,14 @@
 	"RestoreInfo2": {
 		"message": "items herstellen. Browser API-limiet is 120 per minuut. Laat dit venster/tabblad nog een minuut open."
 	},
+	"RightSidePostThumbnails": {
+		"message": "Laat post miniaturen aan de rechterkant zien"
+	},
 	"Rising": {
 		"message": "Stijgende / Rising"
+	},
+	"Save": {
+		"message": "Redden"
 	},
 	"ScalePostToFitImage": {
 		"message": "Schaal de post zodat deze bij de afbeelding past"
@@ -743,6 +824,9 @@
 	"SidebarToggleButton": {
 		"message": "Zijbalkschakelknop"
 	},
+	"SnapSidebar": {
+		"message": "Bevestig de zijbalk aan de rechterrand"
+	},
 	"Sort": {
 		"message": "Sorteren"
 	},
@@ -769,6 +853,9 @@
 	},
 	"Subreddit": {
 		"message": "Subreddit"
+	},
+	"SubredditDisplayNameBanner": {
+		"message": "Toon de weergavenaam van de subreddit in de banner"
 	},
 	"Text": {
 		"message": "Tekst"
@@ -844,6 +931,9 @@
 	},
 	"VideoPlayerInfo": {
 		"message": "Snelle, lichtgewicht videospeler met snelheidsregeling op basis van videojs. Probeer dit als je laadproblemen hebt met de eigen speler van reddit."
+	},
+	"ViewCrossposts": {
+		"message": "Voeg link toe om kruisposten te bekijken in andere subreddits"
 	},
 	"Welcome": {
 		"message": "Welkom!"

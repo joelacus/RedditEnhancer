@@ -344,6 +344,9 @@
 	"HideKarma": {
 		"message": "Karma Ausblenden"
 	},
+	"HideLinkPostsByUrlKeyword": {
+		"message": "Verstecken Sie „Link“-Beiträge durch Schlüsselwörter in der URL"
+	},
 	"HideModerationButton": {
 		"message": "Ausblenden der „Moderation“ Schaltfläche"
 	},
