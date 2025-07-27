@@ -26,6 +26,9 @@
 	"AlwaysShowPostAndCommentOptions": {
 		"message": "Post und Kommentaroptionen immer anzeigen"
 	},
+	"AlwaysShowPostAndCommentOptionsInfo": {
+		"message": "Verschieben Sie die Schaltflächen aus den Überlaufmenüs für Beiträge und Kommentare jeweils in die Aktionsleisten für Beiträge und Kommentare."
+	},
 	"AttachSideMenuHeader": {
 		"message": "Seite und Benutzerinformationen im Header anzeigen"
 	},
@@ -359,6 +362,9 @@
 	"HideNsfwInSearchResults": {
 		"message": "„NSFW“ in den Suchergebnissen ausblenden"
 	},
+	"HidePostActionBarButtonsInfo": {
+		"message": "Schaltflächen aus der Post-Aktionsleiste ausblenden"
+	},
 	"HidePostBackButton": {
 		"message": "Schaltfläche „Zurück zum Posten“ ausblenden"
 	},
@@ -679,6 +685,9 @@
 	},
 	"RememberSectionHiddenState": {
 		"message": "Merken der ausgeblendeten Zustände von Abschnitten im Seitenmenü"
+	},
+	"RemoveCommentButtonIcons": {
+		"message": "Entfernen Sie Symbole von den meisten Kommentarschaltflächen"
 	},
 	"ReplacePostImagesWithLinks": {
 		"message": "Ersetzen Sie Bilder durch Links auf Feeds"

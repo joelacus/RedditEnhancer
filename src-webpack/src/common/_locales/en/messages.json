@@ -29,6 +29,9 @@
 	"AlwaysShowPostAndCommentOptions": {
 		"message": "Always Show Post and Comment Options"
 	},
+	"AlwaysShowPostAndCommentOptionsInfo": {
+		"message": "Move the buttons from the post and comment overflow menus into the post and comment action bars, respectively."
+	},
 	"AttachSideMenuHeader": {
 		"message": "Display page and user info in header"
 	},
@@ -362,6 +365,9 @@
 	"HideNsfwInSearchResults": {
 		"message": "Hide NSFW results in the Searchbar"
 	},
+	"HidePostActionBarButtonsInfo": {
+		"message": "Hide buttons from post action bar"
+	},
 	"HidePostBackButton": {
 		"message": "Hide The Post Back Button"
 	},
@@ -683,7 +689,7 @@
 	"RememberSectionHiddenState": {
 		"message": "Remember the hidden states of sections in the side menu"
 	},
-	"RemoveCommentBtnIcons": {
+	"RemoveCommentButtonIcons": {
 		"message": "Remove icons from most comment buttons"
 	},
 	"ReplacePostImagesWithLinks": {

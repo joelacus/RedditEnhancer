@@ -26,6 +26,9 @@
 	"AlwaysShowPostAndCommentOptions": {
 		"message": "Toon altijd post en commentaaropties"
 	},
+	"AlwaysShowPostAndCommentOptionsInfo": {
+		"message": "Verplaats de knoppen uit de overloopmenu's van berichten en opmerkingen respectievelijk naar de actiebalken van berichten en opmerkingen."
+	},
 	"AttachSideMenuHeader": {
 		"message": "Pagina en gebruikersinformatie weergeven in de header"
 	},
@@ -359,6 +362,9 @@
 	"HideNsfwInSearchResults": {
 		"message": "Verberg NSFW-resultaten in de zoekbalk"
 	},
+	"HidePostActionBarButtonsInfo": {
+		"message": "Knoppen verbergen in de postactiebalk"
+	},
 	"HidePostBackButton": {
 		"message": "Verberg de knop 'Post terug'"
 	},
@@ -679,6 +685,9 @@
 	},
 	"RememberSectionHiddenState": {
 		"message": "Onthoud de verborgen toestanden van secties in het zijmenu"
+	},
+	"RemoveCommentButtonIcons": {
+		"message": "Verwijder pictogrammen van de meeste commentaarknoppen"
 	},
 	"ReplacePostImagesWithLinks": {
 		"message": "Vervang afbeeldingen door links op feeds"

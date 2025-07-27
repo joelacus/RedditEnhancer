@@ -26,6 +26,9 @@
 	"AlwaysShowPostAndCommentOptions": {
 		"message": "Mostra sempre le opzioni di post e commento"
 	},
+	"AlwaysShowPostAndCommentOptionsInfo": {
+		"message": "Spostare i pulsanti dai menu a discesa dei post e dei commenti rispettivamente nelle barre delle azioni dei post e dei commenti."
+	},
 	"AttachSideMenuHeader": {
 		"message": "Visualizza la pagina e le informazioni dell'utente nell'intestazione"
 	},
@@ -359,6 +362,9 @@
 	"HideNsfwInSearchResults": {
 		"message": "Nascondi 'NSFW' nei risultati della ricerca"
 	},
+	"HidePostActionBarButtonsInfo": {
+		"message": "Nascondi i pulsanti dalla barra delle azioni del post"
+	},
 	"HidePostBackButton": {
 		"message": "Nascondi il pulsante Post Indietro"
 	},
@@ -679,6 +685,9 @@
 	},
 	"RememberSectionHiddenState": {
 		"message": "Ricorda gli stati nascosti delle sezioni nel menu laterale"
+	},
+	"RemoveCommentButtonIcons": {
+		"message": "Rimuovi le icone dalla maggior parte dei pulsanti dei commenti"
 	},
 	"ReplacePostImagesWithLinks": {
 		"message": "Sostituire le immagini con collegamenti sui feed"
