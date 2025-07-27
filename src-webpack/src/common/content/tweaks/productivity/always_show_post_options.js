@@ -16,11 +16,11 @@ let hideNotification = false,
 const slots = ['share-button', 'save-button', 'hide-button', 'report-button', 'edit-button', 'pinToProfile-button', 'delete-button', 'spoilerTag-button', 'nsfwTag-button', 'brandAffiliate-button', 'overflow-menu'];
 
 export function loadAlwaysShowPostOptions() {
-	BROWSER_API.storage.sync.get(['alwaysShowPostOptions', 'hidePostNotificationOption', 'hidePostSaveOption', 'hidePostHideOption', 'hidePostReportOption', 'hidePostEditOption', 'hidePostDeleteOption', 'hidePostSpoilerOption', 'hidePostNsfwOption', 'hidePostBrandAwarenessOption', 'leftSideVoteButtons', 'removeCommentBtnIcons'], function (result) {
+	BROWSER_API.storage.sync.get(['alwaysShowPostOptions', 'hidePostNotificationOption', 'hidePostSaveOption', 'hidePostHideOption', 'hidePostReportOption', 'hidePostEditOption', 'hidePostDeleteOption', 'hidePostSpoilerOption', 'hidePostNsfwOption', 'hidePostBrandAwarenessOption', 'leftSideVoteButtons', 'removeCommentButtonIcons'], function (result) {
 		if (result.alwaysShowPostOptions) {
 			hideNotification = result.hidePostNotificationOption;
 			leftSideVoteButtons = result.leftSideVoteButtons;
-			hideCommentBtnIcons = result.removeCommentBtnIcons;
+			hideCommentBtnIcons = result.removeCommentButtonIcons;
 			if (result.hidePostSaveOption) buttons = buttons.filter((action) => action !== 'save');
 			if (result.hidePostHideOption) buttons = buttons.filter((action) => action !== 'hide');
 			if (result.hidePostReportOption) buttons = buttons.filter((action) => action !== 'report');
@@ -423,6 +423,6 @@ export function hidePostBrandAwarenessOption() {
 	showBannerMessage('info', '[RedditEnhancer] Change requires a page refresh to take effect.');
 }
 
-export function removeCommentBtnIcons() {
+export function removeCommentButtonIcons() {
 	showBannerMessage('info', '[RedditEnhancer] Change requires a page refresh to take effect.');
 }

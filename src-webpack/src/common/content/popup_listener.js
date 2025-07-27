@@ -3,7 +3,7 @@
 // Listens for commands from the settings popup to enable/disable/change tweaks.
 
 import { addDropShadow } from './tweaks/style/drop_shadow';
-import { alwaysShowPostOptions, hidePostBrandAwarenessOption, hidePostDeleteOption, hidePostEditOption, hidePostHideOption, hidePostNotificationOption, hidePostNsfwOption, hidePostReportOption, hidePostSaveOption, hidePostSpoilerOption, removeCommentBtnIcons } from './tweaks/productivity/always_show_post_options';
+import { alwaysShowPostOptions, hidePostBrandAwarenessOption, hidePostDeleteOption, hidePostEditOption, hidePostHideOption, hidePostNotificationOption, hidePostNsfwOption, hidePostReportOption, hidePostSaveOption, hidePostSpoilerOption, removeCommentButtonIcons } from './tweaks/productivity/always_show_post_options';
 import { autoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
 import { autoExpandValue } from './tweaks/resize_elements/auto_expand_value';
 import { autoLoadMoreComments } from './tweaks/productivity/auto_load_more_comments';
@@ -289,7 +289,7 @@ const functionRegistry = {
 	postTitleFontSize,
 	postTitleFontWeight,
 	rememberSideMenuSectionHiddenState,
-	removeCommentBtnIcons,
+	removeCommentButtonIcons,
 	replacePostImagesWithLinks,
 	replacePostVideosWithLinks,
 	resizeMainContainerWidth,

@@ -283,6 +283,7 @@ async function restoreBackup(json) {
 				'redditVersion',
 				'rememberSideMenuSectionHiddenState',
 				'rememberSideMenuSectionHiddenStateValues',
+				'removeCommentButtonIcons',
 				'replacePostImagesWithLinks',
 				'replacePostVideosWithLinks',
 				'resizeMainContainerWidth',
