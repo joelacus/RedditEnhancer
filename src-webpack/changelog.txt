@@ -1,14 +1,16 @@
 version 2.1.0
+v [Latest UI V3]
   - Added an option to hide posts by blocked users. (blocked users are managed by the extension).
   - Added an option to hide "Link" posts by keywords in the URL.
   - Bug fixes and improvements.
 * Special thanks to @biminhc1 (Reddit) @bmndc (Github) for all following changes <3
-  - Added an option to show/hide pictographs from the comment action buttons when "Always Show Post and Comment Options" is enabled.
+v [Latest UI V3]
+  - Added an option to show/hide icons from the comment action buttons when "Always Show Post and Comment Options" is enabled.
   - More bug fixes and improvements.
 
 version 2.0.1
   - Bug fixes and improvements.
-
+  
 version 2.0.0
 v [General]
   - New permission required (downloads) for the new feature "Add 'Download Video' button to video posts". This permission is optional for Firefox users.
@@ -16,7 +18,7 @@ v [General]
   - Removed code and support for the deprecated Reddit version "Old New UI".
   - Cleaned up a lot of code to improve performance and maintainability.
   - Bug fixes and improvements.
-v [New New UI]
+v [Latest UI V3]
   - Added a new option "Add 'Download Video' button to video posts". (This currently only works for mp4 URLs, not m3u8, so some posts won't have the download button).
   - Added support for "Open Post In New Tab".
   - Added support for "Open Subreddit In New Tab".
@@ -27,7 +29,7 @@ v [New New UI]
   - The "Override Default Sort Option" grace period has been removed as it it not longer required. You can now manually change the feed sort option whenever you want without the "Default Feed Sort Option" feature from auto reverting to what is set in the extension.  
   - Fixed "Hide Video Recommendations" not working due to a website update.
 * Special thanks to @biminhc1 (Reddit) @bmndc (Github) for all following changes <3
-v [New New UI]
+v [Latest UI V3]
   - Added a new option "Highlight comments from the original poster (OP)".
   - Added a new option "Hide 'Give Awards' button". This applies to posts and comments.
   - Added a new option "Add link to view crossposts in other subreddits" to view crossposts of a post in post view, bringing back the "View discussions in other communities" link from "Old New UI".
@@ -49,7 +51,7 @@ v [New New UI]
   - Improved the stability of "Remember the hidden states of sections in the side menu" and "Display page and user info in header". Page and user info should now be fetched and inserted concurrently, and load as the side menu appears.
   - Improved the observer reliability, element detection and performance of functions.
   - Cleaned up and improved code maintainability for fetching data from Reddit public APIs and theme colour functions.
-v [Old UI]
+v [Old UI V1]
   - Added a setting to move post thumbnails to the right (kudos to emaag on userstyles.world!)
 
 version 1.17.0
