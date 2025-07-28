@@ -338,13 +338,13 @@ mod-notes-rail-closer {
 	margin-block: 1rem;
 }
 mod-notes-rail-closer > faceplate-partial div.left-xl {
-	left: .75rem;
+	left: 0.75rem;
 }
 mod-notes-rail-closer > faceplate-partial div.pl-\[110px\] {
 	padding-left: 90px;
 }
 mod-notes-rail-closer mod-notes-tabs.pl-md {
-	padding: .75rem;
+	padding: 0.75rem;
 }
 mod-notes-rail-closer mod-notes-tabs mod-notes-log > div,
 shreddit-comment faceplate-hovercard div.-m-xs > .mt-md {
@@ -613,11 +613,11 @@ shreddit-composer::part(md-inner) {
 		margin-bottom: var(--re-theme-post-separator-height, 10px);
 	}
 }
-div[slot="editor-helper-text"] {
+div[slot='editor-helper-text'] {
 	font-size: small;
 	font-style: italic;
 }
-div.invisible[slot="editor-helper-text"] {
+div.invisible[slot='editor-helper-text'] {
 	opacity: 0;
 	transition: opacity 1s, visibility 0s 1s;
 }
@@ -735,4 +735,10 @@ shreddit-post [slot='credit-bar'] div:has([icon-name='notification-outline']) {
 	padding: 4px;
 	border-radius: var(--re-theme-border-radius);
 	margin-right: -0.25rem;
+}
+
+/* Fix default post background colour */
+shreddit-app[routename='post_page'] #main-content,
+shreddit-app[pagetype='single_comment_thread'] #main-content {
+	background: var(--color-neutral-background);
 }
