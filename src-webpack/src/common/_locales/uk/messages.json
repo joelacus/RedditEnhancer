@@ -11,8 +11,8 @@
 	"Accessibility": {
 		"message": "Доступність"
 	},
-	"AlwaysShowPostOptions": {
-		"message": "Завжди показувати параметри публікації"
+	"AlwaysShowPostAndCommentOptions": {
+		"message": "Завжди показувати параметри публікації та коментаря"
 	},
 	"Auto": {
 		"message": "Авто"

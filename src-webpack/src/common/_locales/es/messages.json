@@ -23,8 +23,11 @@
 	"AddSpoilerTag": {
 		"message": "Agregar etiqueta de spoiler"
 	},
-	"AlwaysShowPostOptions": {
-		"message": "Mostrar siempre opciones de publicación"
+	"AlwaysShowPostAndCommentOptions": {
+		"message": "Mostrar siempre opciones de publicación y comentarios"
+	},
+	"AlwaysShowPostAndCommentOptionsInfo": {
+		"message": "Mueva los botones de los menús de desbordamiento de publicaciones y comentarios a las barras de acciones de publicaciones y comentarios, respectivamente."
 	},
 	"AttachSideMenuHeader": {
 		"message": "Mostrar página e información del usuario en el encabezado"
@@ -344,6 +347,9 @@
 	"HideKarma": {
 		"message": "Ocultar Karma"
 	},
+	"HideLinkPostsByUrlKeyword": {
+		"message": "Ocultar publicaciones 'Enlace' por palabras clave en la URL"
+	},
 	"HideModerationButton": {
 		"message": "Ocultar el botón “Moderación”"
 	},
@@ -355,6 +361,9 @@
 	},
 	"HideNsfwInSearchResults": {
 		"message": "Ocultar 'NSFW' en los resultados de búsqueda"
+	},
+	"HidePostActionBarButtonsInfo": {
+		"message": "Ocultar botones de la barra de acciones de la publicación"
 	},
 	"HidePostBackButton": {
 		"message": "Ocultar el botón Atrás de la publicación"
@@ -370,6 +379,9 @@
 	},
 	"HidePostSidebar": {
 		"message": "Ocultar la barra lateral de la publicación"
+	},
+	"HidePostsByBlockedUser": {
+		"message": "Ocultar publicaciones de usuarios bloqueados"
 	},
 	"HidePromoted": {
 		"message": "Ocultar anuncios/enlaces patrocinados"
@@ -673,6 +685,9 @@
 	},
 	"RememberSectionHiddenState": {
 		"message": "Recuerde los estados ocultos de las secciones en el menú lateral"
+	},
+	"RemoveCommentButtonIcons": {
+		"message": "Eliminar íconos de la mayoría de los botones de comentarios"
 	},
 	"ReplacePostImagesWithLinks": {
 		"message": "Reemplazar imágenes con enlaces en feeds"

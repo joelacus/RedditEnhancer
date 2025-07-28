@@ -11,8 +11,8 @@
 	"Accessibility": {
 		"message": "Acessibilidade"
 	},
-	"AlwaysShowPostOptions": {
-		"message": "Sempre mostrar opções de postagem"
+	"AlwaysShowPostAndCommentOptions": {
+		"message": "Mostrar sempre opções de postagem e comentário"
 	},
 	"Auto": {
 		"message": "Auto"

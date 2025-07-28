@@ -23,8 +23,11 @@
 	"AddSpoilerTag": {
 		"message": "Ajouter une balise de spoiler"
 	},
-	"AlwaysShowPostOptions": {
-		"message": "Toujours afficher les options de Post"
+	"AlwaysShowPostAndCommentOptions": {
+		"message": "Toujours afficher les options de post et de commentaire"
+	},
+	"AlwaysShowPostAndCommentOptionsInfo": {
+		"message": "Déplacez les boutons des menus de débordement de publication et de commentaire vers les barres d'action de publication et de commentaire, respectivement."
 	},
 	"AttachSideMenuHeader": {
 		"message": "Page d'affichage et d'informations utilisateur dans l'en-tête"
@@ -344,6 +347,9 @@
 	"HideKarma": {
 		"message": "Masquer le karma"
 	},
+	"HideLinkPostsByUrlKeyword": {
+		"message": "Masquer les publications «lien» par des mots clés dans l'URL"
+	},
 	"HideModerationButton": {
 		"message": "Masquer le bouton « Modération »"
 	},
@@ -355,6 +361,9 @@
 	},
 	"HideNsfwInSearchResults": {
 		"message": "Masquer « NSFW » dans les résultats de recherche"
+	},
+	"HidePostActionBarButtonsInfo": {
+		"message": "Masquer les boutons de la barre d'action de publication"
 	},
 	"HidePostBackButton": {
 		"message": "Masquer le bouton de retour de la post"
@@ -370,6 +379,9 @@
 	},
 	"HidePostSidebar": {
 		"message": "Masquer la barre latérale de la page Post"
+	},
+	"HidePostsByBlockedUser": {
+		"message": "Masquer les publications des utilisateurs bloqués"
 	},
 	"HidePromoted": {
 		"message": "Masquer les publicités/liens sponsorisés"
@@ -673,6 +685,9 @@
 	},
 	"RememberSectionHiddenState": {
 		"message": "Mémoriser les états cachés des sections dans le menu latéral"
+	},
+	"RemoveCommentButtonIcons": {
+		"message": "Supprimer les icônes de la plupart des boutons de commentaires"
 	},
 	"ReplacePostImagesWithLinks": {
 		"message": "Remplacer les images par des liens sur les flux"

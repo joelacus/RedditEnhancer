@@ -175,6 +175,7 @@ export function addBorderRadiusToShadowRootElements() {
 	const shredditLayoutEventSetterDropdown = document.querySelector('shreddit-layout-event-setter shreddit-sort-dropdown')?.shadowRoot || null;
 	const composeMessageSenderDropdown = document.querySelector('compose-message-sender-dropdown')?.shadowRoot || null;
 	const achievementsEntrypoint = document.querySelector('achievements-entrypoint')?.shadowRoot || null;
+	const followedKeywordsMenu = document.querySelector('followed-keywords-menu')?.shadowRoot || null;
 	const shadowRootElements = [
 		searchBar?.querySelector('div'),
 		searchBar?.querySelector('#search-input-chip'),
@@ -196,10 +197,11 @@ export function addBorderRadiusToShadowRootElements() {
 		composeMessageSenderDropdown?.querySelector('button'),
 		achievementsEntrypoint?.querySelector('div'),
 		achievementsEntrypoint?.querySelector('button'),
+		followedKeywordsMenu?.querySelector('add-keywords-modal')?.shadowRoot?.querySelector('faceplate-dialog'),
 	];
 	shadowRootElements.forEach((element) => {
 		if (element) {
-			element.style.borderRadius = 'var(--re-theme-border-radius)';
+			element.style.borderRadius = 'var(--re-theme-border-radius, var(--radius-md))';
 			element.classList.forEach((cls) => {
 				if (/^rounded-/.test(cls)) {
 					element.classList.replace(cls, 'rounded-none');

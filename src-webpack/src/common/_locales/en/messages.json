@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "2.0.1"
+		"message": "2.1.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -26,8 +26,11 @@
 	"AddSpoilerTag": {
 		"message": "Add spoiler tag"
 	},
-	"AlwaysShowPostOptions": {
-		"message": "Always Show Post Options"
+	"AlwaysShowPostAndCommentOptions": {
+		"message": "Always Show Post and Comment Options"
+	},
+	"AlwaysShowPostAndCommentOptionsInfo": {
+		"message": "Move the buttons from the post and comment overflow menus into the post and comment action bars, respectively."
 	},
 	"AttachSideMenuHeader": {
 		"message": "Display page and user info in header"
@@ -347,6 +350,9 @@
 	"HideKarma": {
 		"message": "Hide Karma"
 	},
+	"HideLinkPostsByUrlKeyword": {
+		"message": "Hide 'Link' posts by keywords in the URL"
+	},
 	"HideModerationButton": {
 		"message": "Hide the 'Moderation' Button"
 	},
@@ -358,6 +364,9 @@
 	},
 	"HideNsfwInSearchResults": {
 		"message": "Hide NSFW results in the Searchbar"
+	},
+	"HidePostActionBarButtonsInfo": {
+		"message": "Hide buttons from post action bar"
 	},
 	"HidePostBackButton": {
 		"message": "Hide The Post Back Button"
@@ -373,6 +382,9 @@
 	},
 	"HidePostSidebar": {
 		"message": "Hide the Post Sidebar"
+	},
+	"HidePostsByBlockedUser": {
+		"message": "Hide Posts by Blocked Users"
 	},
 	"HidePromoted": {
 		"message": "Hide Ads/Promoted Links"
@@ -676,6 +688,9 @@
 	},
 	"RememberSectionHiddenState": {
 		"message": "Remember the hidden states of sections in the side menu"
+	},
+	"RemoveCommentButtonIcons": {
+		"message": "Remove icons from most comment buttons"
 	},
 	"ReplacePostImagesWithLinks": {
 		"message": "Replace Images with Links on Feeds"

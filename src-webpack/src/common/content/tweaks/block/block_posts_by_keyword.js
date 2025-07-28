@@ -83,7 +83,7 @@ function filterBlockedKeywordPost(post) {
 
 // Disable Hide Blocked Keyword Posts - All
 function disableHideBlockedKeywordPostsAll() {
-	document.querySelectorAll('#sideTable > .thing, article.re-hide').forEach((post) => {
+	document.querySelectorAll('#siteTable > .thing, article.re-hide').forEach((post) => {
 		post.classList.remove('re-hide');
 	});
 }
@@ -93,11 +93,7 @@ const observer = new MutationObserver((mutations) => {
 	mutations.forEach((mutation) => {
 		mutation.addedNodes.forEach((node) => {
 			if (!(node instanceof HTMLElement)) return;
-
-			if (node.tagName === 'ARTICLE') {
-				const post = node; //.querySelector('shreddit-post');
-				if (post) filterBlockedKeywordPost(post);
-			}
+			if (node) document.querySelectorAll('article:has(>shreddit-post)').forEach(filterBlockedKeywordPost);
 		});
 	});
 });

@@ -10,15 +10,17 @@ import { showBannerMessage } from '../../banner_message';
 
 let hideNotification = false,
 	leftSideVoteButtons = false,
+	hideCommentBtnIcons = false,
 	buttons = ['save', 'hide', 'report', 'edit', 'delete', 'pinToProfile', 'spoilerTag', 'nsfwTag', 'brandAffiliate'];
 
 const slots = ['share-button', 'save-button', 'hide-button', 'report-button', 'edit-button', 'pinToProfile-button', 'delete-button', 'spoilerTag-button', 'nsfwTag-button', 'brandAffiliate-button', 'overflow-menu'];
 
 export function loadAlwaysShowPostOptions() {
-	BROWSER_API.storage.sync.get(['alwaysShowPostOptions', 'hidePostNotificationOption', 'hidePostSaveOption', 'hidePostHideOption', 'hidePostReportOption', 'hidePostEditOption', 'hidePostDeleteOption', 'hidePostSpoilerOption', 'hidePostNsfwOption', 'hidePostBrandAwarenessOption', 'leftSideVoteButtons'], function (result) {
+	BROWSER_API.storage.sync.get(['alwaysShowPostOptions', 'hidePostNotificationOption', 'hidePostSaveOption', 'hidePostHideOption', 'hidePostReportOption', 'hidePostEditOption', 'hidePostDeleteOption', 'hidePostSpoilerOption', 'hidePostNsfwOption', 'hidePostBrandAwarenessOption', 'leftSideVoteButtons', 'removeCommentButtonIcons'], function (result) {
 		if (result.alwaysShowPostOptions) {
 			hideNotification = result.hidePostNotificationOption;
 			leftSideVoteButtons = result.leftSideVoteButtons;
+			hideCommentBtnIcons = result.removeCommentButtonIcons;
 			if (result.hidePostSaveOption) buttons = buttons.filter((action) => action !== 'save');
 			if (result.hidePostHideOption) buttons = buttons.filter((action) => action !== 'hide');
 			if (result.hidePostReportOption) buttons = buttons.filter((action) => action !== 'report');
@@ -264,7 +266,7 @@ function attachCommentMenu(commentActionRow) {
 			slot: 'comment-send-replies',
 			selector: 'faceplate-tracker[noun="overflow_send_replies_disable"] li div',
 			remove: 'faceplate-tracker[noun="overflow_send_replies_disable"]',
-		}
+		},
 	].map((action) => {
 		const button = overflowMenu.querySelector(action.selector);
 		if (button) {
@@ -277,7 +279,7 @@ function attachCommentMenu(commentActionRow) {
 			const text = button.querySelector('span > span + span > span');
 			if (icon && text) {
 				icon.classList.remove('h-xl', 'w-xl');
-				icon.classList.add('hidden');
+				if (hideCommentBtnIcons) icon.classList.add('hidden');
 			}
 			button.querySelector('span > span + span')?.classList.remove('py-[var(--rem6)]');
 			if (text) {
@@ -322,7 +324,7 @@ function attachCommentMenu(commentActionRow) {
 			textSpan.textContent = 'Share';
 			icon.insertAdjacentElement('afterend', textSpan);
 		}
-		if (icon) icon.classList.add('hidden');
+		if (icon && hideCommentBtnIcons) icon.classList.add('hidden');
 	}
 
 	const awardBtnContainer = commentActionRow.querySelector('award-button');
@@ -335,7 +337,7 @@ function attachCommentMenu(commentActionRow) {
 		awardBtn.classList.add('font-semibold', 'rounded-sm');
 
 		const icon = awardBtn.querySelector('span > span:has(svg)');
-		if (icon) icon.classList.add('hidden');
+		if (icon && hideCommentBtnIcons) icon.classList.add('hidden');
 	}
 
 	const insightBtn = commentActionRow.querySelector('a[slot="comment-insight"] button');
@@ -418,5 +420,9 @@ export function hidePostNsfwOption() {
 }
 
 export function hidePostBrandAwarenessOption() {
+	showBannerMessage('info', '[RedditEnhancer] Change requires a page refresh to take effect.');
+}
+
+export function removeCommentButtonIcons() {
 	showBannerMessage('info', '[RedditEnhancer] Change requires a page refresh to take effect.');
 }

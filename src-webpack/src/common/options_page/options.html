@@ -1358,13 +1358,24 @@
 							<li class="container r-new r-newnew">
 								<div class="container-3">
 									<span class="menu-item-icon icon-ellipsis icon-always-show-post-options"></span>
-									<span data-lang="AlwaysShowPostOptions" data-search=""></span>
+									<span data-lang="AlwaysShowPostAndCommentOptions" data-search=""></span>
 									<label class="switch">
 										<input id="checkbox-always-show-post-options" type="checkbox" />
 										<span class="indicator"></span>
 									</label>
 								</div>
+								<p class="info" data-lang="AlwaysShowPostAndCommentOptionsInfo"></p>
 								<div class="divider"></div>
+								<div class="container-3">
+									<span class="menu-item-icon icon-show icon-remove-comment-btn-icons"></span>
+									<span data-lang="RemoveCommentButtonIcons" data-search="icon,comment,button"></span>
+									<label class="switch">
+										<input id="checkbox-remove-comment-btn-icons" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
+								</div>
+								<div class="divider"></div>
+								<p class="info"><span data-lang="HidePostActionBarButtonsInfo"></span>:</p>
 								<div class="container-3">
 									<span class="menu-item-icon icon-notification icon-hide-post-notification-option"></span>
 									<span data-lang="FollowPost" data-search=""></span>
@@ -2443,13 +2454,37 @@
 							<li class="container r-old r-newnew">
 								<div class="container-3">
 									<span class="menu-item-icon icon-list-check-solid icon-hide-blocked-keyword-posts"></span>
-									<span data-lang="HideBlockedKeywordsPosts" data-search=""></span>
+									<span data-lang="HideBlockedKeywordsPosts" data-search="block"></span>
 									<label class="switch">
 										<input id="checkbox-hide-blocked-keyword-posts-enable" type="checkbox" />
 										<span class="indicator"></span>
 									</label>
 									<div></div>
 									<textarea id="input-blocked-keyword-posts" rows="4" cols="auto" placeholder="keyword,keyword"></textarea>
+								</div>
+							</li>
+							<li class="container r-old r-newnew">
+								<div class="container-3">
+									<span class="menu-item-icon icon-list-check-solid icon-hide-blocked-user-posts"></span>
+									<span data-lang="HidePostsByBlockedUser" data-search="block"></span>
+									<label class="switch">
+										<input id="checkbox-hide-blocked-user-posts-enable" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
+									<div></div>
+									<textarea id="input-blocked-user-posts" rows="4" cols="auto" placeholder="user,user"></textarea>
+								</div>
+							</li>
+							<li class="container r-old r-newnew">
+								<div class="container-3">
+									<span class="menu-item-icon icon-list-check-solid icon-hide-blocked-link-posts"></span>
+									<span data-lang="HideLinkPostsByUrlKeyword" data-search="block,link,url"></span>
+									<label class="switch">
+										<input id="checkbox-hide-blocked-link-posts-enable" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
+									<div></div>
+									<textarea id="input-blocked-link-posts" rows="4" cols="auto" placeholder="keyword,keyword"></textarea>
 								</div>
 							</li>
 						</ul>

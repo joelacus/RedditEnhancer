@@ -234,6 +234,21 @@ document.querySelector('#checkbox-hide-post-brand-awareness-option').addEventLis
 	}
 });
 
+// Toggle - Always Show Post Options - Remove Comment Button Icons
+document.querySelector('#checkbox-remove-comment-btn-icons').addEventListener('change', function (e) {
+	const removeCommentButtonIcons = document.querySelector('#checkbox-remove-comment-btn-icons').checked;
+	if (removeCommentButtonIcons) {
+		document.querySelector('.icon-remove-comment-btn-icons').classList.remove('icon-show');
+		document.querySelector('.icon-remove-comment-btn-icons').classList.add('icon-hide');
+	} else {
+		document.querySelector('.icon-remove-comment-btn-icons').classList.remove('icon-hide');
+		document.querySelector('.icon-remove-comment-btn-icons').classList.add('icon-show');
+	}
+	BROWSER_API.storage.sync.set({ removeCommentButtonIcons: removeCommentButtonIcons });
+	document.querySelector('.icon-remove-comment-btn-icons').style.backgroundColor = removeCommentButtonIcons ? 'var(--accent)' : '';
+	sendMessage({ removeCommentButtonIcons: removeCommentButtonIcons });
+});
+
 // Slider - Comments Limit
 document.querySelector('#input-post-comments-limit').addEventListener('input', function (e) {
 	// set ui

@@ -115,6 +115,17 @@ shreddit-app[routename='subreddit'] main.main,
 shreddit-app[routename='custom_feed'] main.main {
 	margin-top: 1rem;
 }
+shreddit-app[routename='keyword-management'] main.main .pb-5xl {
+	padding-bottom: 0;
+}
+shreddit-app[routename='keyword-management'] #right-sidebar-contents {
+	margin-top: 1rem;
+
+	& div.mt-5xl {
+		margin-top: 0;
+		padding: 0;
+	}
+}
 shreddit-app[routename='subreddit'] #right-sidebar-container aside,
 shreddit-app[routename='subreddit_wiki'] #right-sidebar-container aside,
 shreddit-app[routename='post_page'] #right-sidebar-container aside,
@@ -327,13 +338,13 @@ mod-notes-rail-closer {
 	margin-block: 1rem;
 }
 mod-notes-rail-closer > faceplate-partial div.left-xl {
-	left: .75rem;
+	left: 0.75rem;
 }
 mod-notes-rail-closer > faceplate-partial div.pl-\[110px\] {
 	padding-left: 90px;
 }
 mod-notes-rail-closer mod-notes-tabs.pl-md {
-	padding: .75rem;
+	padding: 0.75rem;
 }
 mod-notes-rail-closer mod-notes-tabs mod-notes-log > div,
 shreddit-comment faceplate-hovercard div.-m-xs > .mt-md {
@@ -570,9 +581,8 @@ shreddit-composer::part(md-inner) {
 	margin: 1rem 0;
 	padding: 0 1rem 0.75rem 1rem;
 	height: min-content;
-	background-color: var(--re-theme-post-bg, var(--color-neutral-background, #000));
-	border-radius: var(--re-theme-border-radius, 1rem);
 	box-sizing: border-box;
+
 	& shreddit-post {
 		margin: 0;
 		padding: 0;
@@ -581,18 +591,33 @@ shreddit-composer::part(md-inner) {
 			padding-top: 0.75rem;
 		}
 	}
+
 	& div.re-vote-panel {
 		margin-top: 0 !important;
 	}
+
 	& div.re-vote-panel + shreddit-post {
 		padding-left: 0.25rem !important;
 	}
 }
-div[slot="editor-helper-text"] {
+[routename='keyword-management'] main.main {
+	margin: 1rem 0;
+	padding: 0;
+	height: min-content;
+	box-sizing: border-box;
+
+	& > div.pt-2xl {
+		padding: 1rem;
+		background-color: var(--re-theme-post-bg, var(--color-neutral-background));
+		border-radius: var(--re-theme-border-radius, 4px);
+		margin-bottom: var(--re-theme-post-separator-height, 10px);
+	}
+}
+div[slot='editor-helper-text'] {
 	font-size: small;
 	font-style: italic;
 }
-div.invisible[slot="editor-helper-text"] {
+div.invisible[slot='editor-helper-text'] {
 	opacity: 0;
 	transition: opacity 1s, visibility 0s 1s;
 }
@@ -710,4 +735,10 @@ shreddit-post [slot='credit-bar'] div:has([icon-name='notification-outline']) {
 	padding: 4px;
 	border-radius: var(--re-theme-border-radius);
 	margin-right: -0.25rem;
+}
+
+/* Fix default post background colour */
+shreddit-app[routename='post_page'] #main-content,
+shreddit-app[pagetype='single_comment_thread'] #main-content {
+	background: var(--color-neutral-background);
 }

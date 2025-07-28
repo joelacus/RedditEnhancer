@@ -3,7 +3,7 @@
 // Listens for commands from the settings popup to enable/disable/change tweaks.
 
 import { addDropShadow } from './tweaks/style/drop_shadow';
-import { alwaysShowPostOptions, hidePostBrandAwarenessOption, hidePostDeleteOption, hidePostEditOption, hidePostHideOption, hidePostNotificationOption, hidePostNsfwOption, hidePostReportOption, hidePostSaveOption, hidePostSpoilerOption } from './tweaks/productivity/always_show_post_options';
+import { alwaysShowPostOptions, hidePostBrandAwarenessOption, hidePostDeleteOption, hidePostEditOption, hidePostHideOption, hidePostNotificationOption, hidePostNsfwOption, hidePostReportOption, hidePostSaveOption, hidePostSpoilerOption, removeCommentButtonIcons } from './tweaks/productivity/always_show_post_options';
 import { autoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
 import { autoExpandValue } from './tweaks/resize_elements/auto_expand_value';
 import { autoLoadMoreComments } from './tweaks/productivity/auto_load_more_comments';
@@ -129,6 +129,8 @@ import { usernameHoverPopupDelay } from './tweaks/productivity/username_hover_po
 import { showUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
 import { customHeaderLogo, setCustomHeaderLogoUrl } from './tweaks/style/custom_header_logo';
 import { hideBlockedKeywordPosts } from './tweaks/block/block_posts_by_keyword';
+import { hideBlockedUserPosts } from './tweaks/block/block_posts_by_user';
+import { hideBlockedLinkPosts } from './tweaks/block/block_posts_by_url';
 import { hideVideoRecommendations } from './tweaks/media/hide_video_recommendations';
 import { leftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { hideCommunityStatus } from './tweaks/hide_elements/hide_community_status';
@@ -199,6 +201,8 @@ const functionRegistry = {
 	hideAdvertiseButton,
 	hideAwards,
 	hideBlockedKeywordPosts,
+	hideBlockedUserPosts,
+	hideBlockedLinkPosts,
 	hideBlurredMediaBackground,
 	hideChatButton,
 	hideCommentKarma,
@@ -285,6 +289,7 @@ const functionRegistry = {
 	postTitleFontSize,
 	postTitleFontWeight,
 	rememberSideMenuSectionHiddenState,
+	removeCommentButtonIcons,
 	replacePostImagesWithLinks,
 	replacePostVideosWithLinks,
 	resizeMainContainerWidth,

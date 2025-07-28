@@ -111,8 +111,13 @@ function enableHidePostDivider() {
 												display: none;
 											}
 										}
-										shreddit-app[routename='subreddit'] #right-sidebar-container aside,
-										shreddit-app[routename='subreddit_wiki'] #right-sidebar-container aside,
+										#mod-recruitment-banner {
+											background-color: var(--re-theme-sidebar-bg, var(--color-neutral-background-weak));
+											backdrop-filter: blur(var(--re-theme-blur));
+											border-radius: var(--re-theme-border-radius, 8px);
+											margin: 1rem 0;
+										}
+										shreddit-app[routename^='subreddit'] #right-sidebar-container aside,
 										shreddit-app[routename='post_page'] #right-sidebar-container aside,
 										shreddit-app[routename='comments_page'] #right-sidebar-container aside {
 											background-color: revert;
@@ -147,6 +152,21 @@ function enableHidePostDivider() {
 											}
 											hr {
 												display: none;
+											}
+										}
+										shreddit-app[routename='keyword-management'] #right-sidebar-contents {
+											padding: .75rem;
+											background-color: var(--color-neutral-background-weak);
+											backdrop-filter: blur(var(--re-theme-blur));
+											border-radius: var(--re-theme-border-radius, 8px);
+											margin-bottom: 1rem;
+										
+											h2 {
+												margin: -.75rem -.75rem .75rem -.75rem;
+												padding: .75rem;
+												background-color: var(--color-tone-4);
+												border-top-left-radius: var(--re-theme-border-radius, 8px);
+												border-top-right-radius: var(--re-theme-border-radius, 8px);
 											}
 										}
 										shreddit-app[pagetype="popular"] #right-sidebar-contents aside div:has(>h2) {

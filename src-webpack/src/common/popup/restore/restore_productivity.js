@@ -205,6 +205,22 @@ export function restorePopupProductivityOptions() {
 		console.log('Hide Post "Brand Awareness" Option: ' + value);
 	});
 
+	// Always Show Post Options - Remove Comment Button Icons
+	BROWSER_API.storage.sync.get(['removeCommentButtonIcons'], function (result) {
+		if (result.removeCommentButtonIcons) {
+			document.querySelector('#checkbox-remove-comment-btn-icons').checked = true;
+			document.querySelector('.icon-remove-comment-btn-icons').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-remove-comment-btn-icons').classList.remove('icon-show');
+			document.querySelector('.icon-remove-comment-btn-icons').classList.add('icon-hide');
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else {
+			document.querySelector('#checkbox-remove-comment-btn-icons').checked = false;
+			var value = false;
+		}
+		console.log('Remove Comment Button Icons: ' + value);
+	});
+
 	// Comments Limit
 	BROWSER_API.storage.sync.get(['commentsLimit'], function (result) {
 		if (typeof result.commentsLimit != 'undefined') {

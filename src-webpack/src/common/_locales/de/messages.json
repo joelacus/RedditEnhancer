@@ -23,8 +23,11 @@
 	"AddSpoilerTag": {
 		"message": "Spoiler-Tag hinzufügen"
 	},
-	"AlwaysShowPostOptions": {
-		"message": "Beitragsoptionen immer anzeigen"
+	"AlwaysShowPostAndCommentOptions": {
+		"message": "Post und Kommentaroptionen immer anzeigen"
+	},
+	"AlwaysShowPostAndCommentOptionsInfo": {
+		"message": "Verschieben Sie die Schaltflächen aus den Überlaufmenüs für Beiträge und Kommentare jeweils in die Aktionsleisten für Beiträge und Kommentare."
 	},
 	"AttachSideMenuHeader": {
 		"message": "Seite und Benutzerinformationen im Header anzeigen"
@@ -344,6 +347,9 @@
 	"HideKarma": {
 		"message": "Karma Ausblenden"
 	},
+	"HideLinkPostsByUrlKeyword": {
+		"message": "Verstecken Sie „Link“-Beiträge durch Schlüsselwörter in der URL"
+	},
 	"HideModerationButton": {
 		"message": "Ausblenden der „Moderation“ Schaltfläche"
 	},
@@ -355,6 +361,9 @@
 	},
 	"HideNsfwInSearchResults": {
 		"message": "„NSFW“ in den Suchergebnissen ausblenden"
+	},
+	"HidePostActionBarButtonsInfo": {
+		"message": "Schaltflächen aus der Post-Aktionsleiste ausblenden"
 	},
 	"HidePostBackButton": {
 		"message": "Schaltfläche „Zurück zum Posten“ ausblenden"
@@ -370,6 +379,9 @@
 	},
 	"HidePostSidebar": {
 		"message": "Blenden Sie die Seitenleiste des Beitrags aus"
+	},
+	"HidePostsByBlockedUser": {
+		"message": "Beiträge nach blockierten nutzern verbergen"
 	},
 	"HidePromoted": {
 		"message": "Anzeigen/beworbene Links ausblenden"
@@ -673,6 +685,9 @@
 	},
 	"RememberSectionHiddenState": {
 		"message": "Merken der ausgeblendeten Zustände von Abschnitten im Seitenmenü"
+	},
+	"RemoveCommentButtonIcons": {
+		"message": "Entfernen Sie Symbole von den meisten Kommentarschaltflächen"
 	},
 	"ReplacePostImagesWithLinks": {
 		"message": "Ersetzen Sie Bilder durch Links auf Feeds"

@@ -34,7 +34,9 @@ I welcome any help if you would like to improve or contribute new language trans
 ## Block
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
-|Hide Post with Blocked Keywords|Hide all posts that contain a specified keyword(s).|3<br>1|
+|Hide Post with Blocked Keywords|Hide all posts that contain a certain keyword(s).|3<br>1|
+|Hide Post by Blocked Users|Hide all posts that are created by a certain user(s).|3<br>1|
+|Hide "Link" posts by keywords in the URL|Hide all posts that contain a URL containing certain keyword(s).|3<br>1|
 
 ## Resize Feed and Posts
 |Feature|Description|Reddit Version Support|
@@ -113,7 +115,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Add link to view crossposts in other subreddits|View crossposts of a post on the comments page, bringing back the "View discussions in other communities" link from "Old New UI".|3|
 |Add Post Numbers|Number each post to keep track of how many you have scrolled passed.|3|
 |Add "Scroll To Top" Button|Adds a new button to the header to scroll the page to the top.|3<br>1|
-|Always Show Post Options|Moves the items in the post overflow menu into the header bar for quicker access. You can toggle off any buttons you don't want to see.|3|
+|Always Show Post and Comment Options|Moves the items in the post and comment overflow menus into the action bar of the post and comment, respectively, for quicker access. You can toggle off any buttons you don't want to see.|3|
+|Remove icons from most comment buttons|This will hide any icons from the buttons in the action bar, if "Always Show Post and Comment Options" is enabled.|3|
 |Auto Collapse AutoModerator Comment|Automatically collapses the top comment made by AutoModerator.|3<br>1|
 |Auto Expand and Load More Comments|Automatically load more and expand hidden comments on a post as you scroll down the page.|3<br>1|
 |Better Comment Box|Automatically enables the formatting options when commenting on posts.|3|
@@ -191,16 +194,16 @@ Feel free to add any new languages and/or region differences.
 |[Spanish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/es/messages.json)|100%|
 |[German](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/de/messages.json)|100%|
 |[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|100%|
-|[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|91.2%|
-|[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|91.2%|
-|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|91.2%|
-|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|78.9%|
-|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|66%|
-|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|66%|
-|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|50.3%|
-|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|34%|
-|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|31.8%|
-|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|27.4%|
+|[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|100%|
+|[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|100%|
+|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|89.8%|
+|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|77.7%|
+|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|65%|
+|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|65%|
+|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|49.5%|
+|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|33.4%|
+|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|31.3%|
+|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|26.9%|
 
 # Build
 Clone repo and cd to build directory:
@@ -243,10 +246,10 @@ Required Permissions:
 - Tabs: Necessary for communication with open tabs on reddit.com. This is essential for applying features and tweaks within the reddit.com domain. This permission may appear as "Read your browsing history", when installing the extension, but is limited to the current open tabs.
 - declarativeNetRequest: Required to redirect the user to their preferred UI if enabled. Also required to open an image directly on its own if opened in a new tab.
 
-Optional Permissions (for Firefox, required for Chrome):
+Optional Permissions (for Firefox, required for Chrome (Chrome does not support optional permissions)):
 
-- Browser History: "Mark posts as read when opening expandos in Compact view" requires access to the browser history to add the URL of the posts in question to the history. This is so that the browser would see the post/URL as visited and the `:visited` CSS pseudo-class would be applied to the post link. Reddit Enhancer does *not* read or modify the browser history in any other way, and this can be later disabled in the browser extension settings.
-- Downloads: "Add 'Download Video' button to posts" requires this permission to download post videos to your computer.
+- Browser History: "Mark posts as read when opening expandos in Compact view" requires access to the browser history to add the URL of the posts in question to the history. This is so that the browser would see the post/URL as visited and the `:visited` CSS pseudo-class would be applied to the post link. Reddit Enhancer does *not* read the browser history, nor modify it in any other way. This permission can be revoked in the browser extension settings at any time (Firefox only).
+- Downloads: "Add 'Download Video' button to posts" requires this permission to download post videos to your computer. This permission can be revoked in the browser extension settings at any time (Firefox only).
 
 Third-Party Services:
 
@@ -260,4 +263,4 @@ Changes to This Privacy Policy:
 
 - This privacy policy may be updated to reflect changes in features or legal requirements. Users will be notified of any significant updates via the changelog.
 
-Last Updated: 19/07/2025
+Last Updated: 28/07/2025

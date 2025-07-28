@@ -1,6 +1,5 @@
 /* ===== Inputs / Hide Elements ===== */
 
-import { refreshBlockedPosts } from '../../content/tweaks/block/block_posts_by_keyword';
 import { sendMessage } from '../send_message';
 
 // Toggle - Hide Reddit Premium

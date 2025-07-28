@@ -75,6 +75,8 @@ async function attachRatio(post) {
 
 // Disable Show Upvote Ratio - RV3
 function disableShowUpvoteRatioRV3() {
-	const ratio = document.querySelector('shreddit-post').shadowRoot.querySelector('.re-upvote-ratio');
-	if (ratio) ratio.remove();
+	document.querySelectorAll('shreddit-post').forEach((post) => {
+		const ratio = post.shadowRoot?.querySelector('.re-upvote-ratio');
+		if (ratio) ratio.remove();
+	});
 }

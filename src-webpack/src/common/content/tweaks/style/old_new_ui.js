@@ -34,22 +34,19 @@ function enableFullWidthBanner() {
 										margin-top: 0;
 										border-radius: 0;
 									}
-									shreddit-app[routename="subreddit"] div.subgrid-container,
-									shreddit-app[routename="subreddit_wiki"] div.subgrid-container {
+									shreddit-app[routename^="subreddit"] div.subgrid-container {
 										padding: 0 !important;
 										max-width: 100% !important;
 										width: 100%;
 										gap: revert;
 									}
-									shreddit-app[routename="subreddit"] div.masthead,
-									shreddit-app[routename="subreddit_wiki"] div.masthead,
+									shreddit-app[routename^="subreddit"] div.masthead,
 									shreddit-app[routename="custom_feed"] div.masthead {
 										max-width: revert;
 										padding: revert;
 									}
 									.re-expand-feed-layout shreddit-app[routename="popular"] .masthead,
-									.re-expand-feed-layout shreddit-app[routename="subreddit"] div.masthead,
-									.re-expand-feed-layout shreddit-app[routename="subreddit_wiki"] div.masthead,
+									.re-expand-feed-layout shreddit-app[routename^="subreddit"] div.masthead,
 									.re-expand-feed-layout shreddit-app[routename="custom_feed"] div.masthead,
 									.re-expand-feed-layout #subgrid-container > .mb-xs,
 									.re-expand-feed-layout #subgrid-container > .my-xs {
@@ -61,7 +58,7 @@ function enableFullWidthBanner() {
 										margin: 0 auto;
 										padding: 0 1.5rem;
 									}
-									html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit"] div.main-container,
+									html:not(.re-expand-feed-layout) shreddit-app[routename^="subreddit"] div.main-container,
 									html:not(.re-expand-feed-layout) shreddit-app[routename="subreddit_wiki"] div.main-container {
 										justify-content: center;
 									}`;
@@ -426,9 +423,14 @@ async function attachPageTitle() {
 				title = 'Manage Communities';
 				logo = `<svg rpl="" fill="currentColor" height="20" icon-name="settings-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M10 20c-.401 0-.802-.027-1.2-.079a1.145 1.145 0 0 1-.992-1.137v-1.073a.97.97 0 0 0-.627-.878A.98.98 0 0 0 6.1 17l-.755.753a1.149 1.149 0 0 1-1.521.1 10.16 10.16 0 0 1-1.671-1.671 1.149 1.149 0 0 1 .1-1.523L3 13.906a.97.97 0 0 0 .176-1.069.98.98 0 0 0-.887-.649H1.216A1.145 1.145 0 0 1 .079 11.2a9.1 9.1 0 0 1 0-2.393 1.145 1.145 0 0 1 1.137-.992h1.073a.97.97 0 0 0 .878-.627A.979.979 0 0 0 3 6.1l-.754-.754a1.15 1.15 0 0 1-.1-1.522 10.16 10.16 0 0 1 1.673-1.676 1.155 1.155 0 0 1 1.522.1L6.1 3a.966.966 0 0 0 1.068.176.98.98 0 0 0 .649-.887V1.216A1.145 1.145 0 0 1 8.8.079a9.129 9.129 0 0 1 2.393 0 1.144 1.144 0 0 1 .991 1.137v1.073a.972.972 0 0 0 .628.878A.977.977 0 0 0 13.905 3l.754-.754a1.152 1.152 0 0 1 1.522-.1c.62.49 1.18 1.05 1.671 1.671a1.15 1.15 0 0 1-.1 1.522L17 6.1a.967.967 0 0 0-.176 1.068.98.98 0 0 0 .887.649h1.073a1.145 1.145 0 0 1 1.137.991 9.096 9.096 0 0 1 0 2.392 1.145 1.145 0 0 1-1.137.992h-1.073A1.041 1.041 0 0 0 17 13.905l.753.755a1.149 1.149 0 0 1 .1 1.521c-.49.62-1.05 1.18-1.671 1.671a1.149 1.149 0 0 1-1.522-.1L13.906 17a.97.97 0 0 0-1.069-.176.981.981 0 0 0-.65.887v1.073a1.144 1.144 0 0 1-.99 1.137A9.431 9.431 0 0 1 10 20Zm-.938-1.307a7.638 7.638 0 0 0 1.875 0v-.982a2.292 2.292 0 0 1 3.853-1.6l.693.694a8.796 8.796 0 0 0 1.326-1.326l-.694-.694a2.29 2.29 0 0 1 1.6-3.851h.982a7.746 7.746 0 0 0 0-1.876h-.982a2.213 2.213 0 0 1-2.034-1.4 2.223 2.223 0 0 1 .438-2.451l.694-.693a8.76 8.76 0 0 0-1.327-1.326l-.692.694a2.22 2.22 0 0 1-2.434.445 2.221 2.221 0 0 1-1.419-2.041v-.979a7.638 7.638 0 0 0-1.875 0v.982a2.213 2.213 0 0 1-1.4 2.034 2.23 2.23 0 0 1-2.456-.438l-.693-.694a8.757 8.757 0 0 0-1.326 1.327l.694.692a2.216 2.216 0 0 1 .445 2.434 2.22 2.22 0 0 1-2.041 1.418h-.982a7.746 7.746 0 0 0 0 1.876h.982a2.213 2.213 0 0 1 2.034 1.4 2.223 2.223 0 0 1-.438 2.451l-.694.693c.394.488.838.933 1.326 1.326l.694-.694a2.218 2.218 0 0 1 2.433-.445 2.22 2.22 0 0 1 1.418 2.041v.983ZM10 13.229a3.23 3.23 0 1 1 0-6.458 3.23 3.23 0 0 1 0 6.458Zm0-5.208a1.979 1.979 0 1 0 0 3.958 1.979 1.979 0 0 0 0-3.958Z"></path></svg>`;
 				break;
+			case 'keyword-management':
+				title = 'Keywords';
+				logo = `<svg rpl="" fill="currentColor" height="20" icon-name="keyword-fill" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a)"><path d="m10.01 7.57 1.18 3.07H8.78l1.18-3.07h.05ZM20 10c0 .41-.34.75-.75.75h-1.29c-.36 3.81-3.4 6.86-7.21 7.21v1.29c0 .41-.34.75-.75.75s-.75-.34-.75-.75v-1.29c-3.81-.36-6.86-3.4-7.21-7.21H.75c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h1.29c.36-3.81 3.4-6.86 7.21-7.21V.75c0-.41.34-.75.75-.75s.75.34.75.75v1.29c3.81.36 6.86 3.4 7.21 7.21h1.29c.41 0 .75.34.75.75Zm-6.06 3.66L10.65 5.7h-1.3l-3.29 7.96H7.7l.68-1.73h3.25l.68 1.73h1.64-.01Z"></path></g><defs><clipPath id="a"><path d="M0 0H20V20H0z"></path></clipPath></defs></svg>`
+				break;
 			case 'subreddit':
 			case 'subreddit_wiki':
 			case 'subreddit_wiki_revisions':
+			case 'subreddit_mod_application':
 			case 'post_page':
 			case 'comments_page':
 			case 'community_serp':
@@ -659,7 +661,7 @@ export function subredditDisplayNameBanner(value) {
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
 			const route = document.querySelector('shreddit-app')?.getAttribute('routename');
-			if (route === 'subreddit' || route === 'subreddit_wiki') {
+			if (route.startsWith('subreddit')) {
 				const subredditName = document.querySelector('shreddit-subreddit-header')?.getAttribute('display-name');
 				if (subredditName && subredditName.length > 0) {
 					document.querySelector('div.masthead h1').textContent = subredditName;

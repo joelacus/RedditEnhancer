@@ -11,8 +11,8 @@
 	"Accessibility": {
 		"message": "Tillgänglighet"
 	},
-	"AlwaysShowPostOptions": {
-		"message": "Visa alltid inläggsalternativ"
+	"AlwaysShowPostAndCommentOptions": {
+		"message": "Visa alltid alternativ för inlägg och kommentarer"
 	},
 	"Auto": {
 		"message": "Automatisk"
