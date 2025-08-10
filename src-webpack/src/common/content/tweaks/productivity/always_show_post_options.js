@@ -92,7 +92,7 @@ function attachPostMenu(post) {
 		btnContainer.classList.replace('flex-nowrap', 'flex-wrap');
 		btnContainer.classList.replace('py-xs', 'py-sm');
 		if (leftSideVoteButtons) {
-			btnContainer.classList.add('m-[-6px]');
+			btnContainer.classList.add('-m-[4px]');
 		}
 
 		const commentBtn = btnContainer.querySelector('button[data-post-click-location="comments-button"], a');

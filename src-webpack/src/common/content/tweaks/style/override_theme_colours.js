@@ -249,6 +249,7 @@ export function themePostBackgroundColour(value) {
 										--color-neutral-background: var(--re-theme-post-bg);
 										--color-neutral-background-weak: var(--re-theme-post-bg);
 									}
+									div[data-test-id="pm-archive-conversation"],
 									aside#mod-queue-pdp-panel,
 									#subreddit-wiki-header,
 									#subreddit-wiki-header + div {
