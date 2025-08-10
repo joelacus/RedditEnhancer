@@ -51,6 +51,7 @@ import { loadHideAwards } from './tweaks/hide_elements/hide_awards';
 import { loadHighlightOP } from './tweaks/productivity/highlight_op';
 import { loadHideBlockedUserPosts } from './tweaks/block/block_posts_by_user';
 import { loadHideBlockedLinkPosts } from './tweaks/block/block_posts_by_url';
+import { loadFullWidthExpandos } from "./tweaks/media/full_width_expandos";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -171,6 +172,7 @@ export function loadTweaks() {
 				loadShowPostNumbers();
 				loadMarkReadOnOpenExpandos();
 				moveSortDropdown();
+                loadFullWidthExpandos();
 			},
 		});
 

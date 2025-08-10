@@ -177,6 +177,7 @@ async function restoreBackup(json) {
 				'feedPostTitleFontSize',
 				'feedPostTitleFontWeight',
 				'fullWidthBanner',
+                'fullWidthExpandos',
 				'hideAdvertiseButton',
 				'hideAwards',
 				'hideBlockedKeywordPosts',
