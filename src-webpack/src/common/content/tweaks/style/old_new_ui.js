@@ -163,6 +163,7 @@ function enableCompactHeaderSideMenu() {
 										padding-left: 0.5rem;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
+		document.documentElement.classList.add('re-compact-header-side-menu');
 	}
 }
 

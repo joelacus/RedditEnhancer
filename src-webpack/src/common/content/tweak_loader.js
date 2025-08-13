@@ -254,6 +254,7 @@ export function loadTweaks() {
 	// Run again (make sure it loaded correctly)
 	setTimeout(() => {
 		loadShowToTopButton();
+		loadSideMenuToggleButton();
 		loadAttachSideMenuHeader();
 	}, 5000);
 }
