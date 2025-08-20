@@ -43,7 +43,12 @@ import { loadReplacePostVideosWithLinks } from './tweaks/media/replace_videos_wi
 import { loadCompactPostLinkPreview } from './tweaks/media/compact_post_link_preview';
 import { loadUsernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
 import { loadShowUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
-import { loadAttachSideMenuHeader, loadSubredditDisplayNameBanner, moveSortDropdown } from './tweaks/style/old_new_ui';
+import {
+    attachSideMenuHeader,
+    loadAttachSideMenuHeader,
+    loadSubredditDisplayNameBanner,
+    moveSortDropdown
+} from './tweaks/style/old_new_ui';
 import { loadLeftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { loadViewCrossposts } from './tweaks/productivity/view_crossposts';
 import { loadMarkReadOnOpenExpandos } from './tweaks/productivity/mark_read_on_open_expandos';
@@ -76,10 +81,15 @@ export function loadTweaks() {
 		loadSubredditDisplayNameBanner();
 		loadOpenPostInNewTab();
 		loadOpenSubInNewTab();
-		loadAttachSideMenuHeader();
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
+
+        waitForAddedNode({
+           query: 'reddit-sidebar-nav',
+           parent: document.querySelector('body'),
+           done: attachSideMenuHeader
+        });
 
 		waitForAddedNode({
 			query: '#communities_section left-nav-communities-controller',
