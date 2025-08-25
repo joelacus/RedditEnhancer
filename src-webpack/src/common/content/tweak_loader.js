@@ -81,7 +81,6 @@ export function loadTweaks() {
 		loadSubredditDisplayNameBanner();
 		loadOpenPostInNewTab();
 		loadOpenSubInNewTab();
-        loadAttachSideMenuHeader();
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(function() {
