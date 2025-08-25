@@ -81,15 +81,13 @@ export function loadTweaks() {
 		loadSubredditDisplayNameBanner();
 		loadOpenPostInNewTab();
 		loadOpenSubInNewTab();
+        loadAttachSideMenuHeader();
 
 		// Wait for elements to load on the page before loading tweaks.
-		setTimeout(addBorderRadiusToShadowRootElements, 2000);
-
-        waitForAddedNode({
-           query: 'reddit-sidebar-nav',
-           parent: document.querySelector('body'),
-           done: loadAttachSideMenuHeader,
-        });
+		setTimeout(function() {
+            addBorderRadiusToShadowRootElements();
+            loadAttachSideMenuHeader();
+        }, 2000);
 
 		waitForAddedNode({
 			query: '#communities_section left-nav-communities-controller',

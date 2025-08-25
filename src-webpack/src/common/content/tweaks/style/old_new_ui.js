@@ -481,13 +481,13 @@ async function attachPageTitle() {
 			case 'profile_post_page':
 			case 'profile_post_page_comments':
 			case 'profile_serp':
-				title = 'u/' + window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1];
+				title = 'u/' + window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)?.[1];
 				data = (
 					await BROWSER_API.runtime.sendMessage({
 						actions: [
 							{
 								action: 'fetchData',
-								url: `https://www.reddit.com/user/${window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1]}/about.json`,
+								url: `https://www.reddit.com/user/${title}/about.json`,
 							},
 						],
 					})
@@ -558,7 +558,10 @@ async function attachPageTitle() {
 		logo = '';
 	}
 
-	if (document.querySelector('.re-header-menu')) return;
+	if (!document.querySelector('.re-header-menu reddit-sidebar-nav')) {
+        const oldMenu = document.querySelector('.re-header-menu');
+        if (oldMenu) oldMenu.remove();
+    }
 	const sideMenu = Object.assign(document.createElement('nav'), {
 		innerHTML: `<div class="flex items-center gap-xs px-xs h-full">${logo}<span>${title}</span></div>`,
 		className: 're-header-menu mb-0 h-[40px] mr-md text-neutral-content-strong box-border',
@@ -671,7 +674,7 @@ export function subredditDisplayNameBanner(value) {
 				const subredditName = document.querySelector('shreddit-subreddit-header')?.getAttribute('display-name');
 				if (subredditName && subredditName.length > 0) {
 					document.querySelector('div.masthead h1').textContent = subredditName;
-					document.querySelector('div.masthead div:has(> h1)')?.setAttribute('data-sub-name', 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2]);
+					document.querySelector('div.masthead div:has(> h1)')?.setAttribute('data-sub-name', 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2]);
 				}
 			}
 		} else {
@@ -680,7 +683,7 @@ export function subredditDisplayNameBanner(value) {
 				document.head.removeChild(element);
 			});
 			const title = document.querySelector('div.masthead h1');
-			if (title) title.textContent = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
+			if (title) title.textContent = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2];
 		}
 	}
 }
