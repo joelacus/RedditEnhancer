@@ -83,10 +83,13 @@ export function loadTweaks() {
 		loadOpenSubInNewTab();
 
 		// Wait for elements to load on the page before loading tweaks.
-		setTimeout(function() {
-            addBorderRadiusToShadowRootElements();
-            loadAttachSideMenuHeader();
-        }, 2000);
+		setTimeout(addBorderRadiusToShadowRootElements, 2000);
+
+        waitForAddedNode({
+            query: 'reddit-sidebar-nav',
+            parent: document.querySelector('body'),
+            done: loadAttachSideMenuHeader,
+        });
 
 		waitForAddedNode({
 			query: '#communities_section left-nav-communities-controller',
@@ -262,6 +265,10 @@ export function loadTweaks() {
 	setTimeout(() => {
 		loadShowToTopButton();
 		loadSideMenuToggleButton();
+
+        if (!document.querySelector('.re-header-menu reddit-sidebar-nav')) {
+            loadAttachSideMenuHeader();
+        }
 	}, 5000);
 }
 loadTweaks();
