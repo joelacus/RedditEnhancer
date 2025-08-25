@@ -88,7 +88,7 @@ export function loadTweaks() {
         waitForAddedNode({
            query: 'reddit-sidebar-nav',
            parent: document.querySelector('body'),
-           done: attachSideMenuHeader
+           done: loadAttachSideMenuHeader,
         });
 
 		waitForAddedNode({
@@ -265,7 +265,6 @@ export function loadTweaks() {
 	setTimeout(() => {
 		loadShowToTopButton();
 		loadSideMenuToggleButton();
-		loadAttachSideMenuHeader();
 	}, 5000);
 }
 loadTweaks();

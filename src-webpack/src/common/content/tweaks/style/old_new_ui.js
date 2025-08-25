@@ -325,7 +325,8 @@ async function enableAttachSideMenuHeader() {
 					width: var(--re-side-menu-width, 256px);
 				}
 				flex-left-nav-container#left-sidebar-container {
-					display: none;
+					width: 0;
+					overflow: hidden;
 				}
 				@media (min-width: 1200px) {
 					div.grid-container:not(.grid-full),
