@@ -558,9 +558,9 @@ async function attachPageTitle() {
 		logo = '';
 	}
 
-	if (!document.querySelector('.re-header-menu reddit-sidebar-nav')) {
-        const oldMenu = document.querySelector('.re-header-menu');
-        if (oldMenu) oldMenu.remove();
+    if (document.querySelector('.re-header-menu')) {
+        if (document.querySelector('.re-header-menu reddit-sidebar-nav')) return;
+        else document.querySelector('.re-header-menu').remove();
     }
 	const sideMenu = Object.assign(document.createElement('nav'), {
 		innerHTML: `<div class="flex items-center gap-xs px-xs h-full">${logo}<span>${title}</span></div>`,
