@@ -43,7 +43,12 @@ import { loadReplacePostVideosWithLinks } from './tweaks/media/replace_videos_wi
 import { loadCompactPostLinkPreview } from './tweaks/media/compact_post_link_preview';
 import { loadUsernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
 import { loadShowUpvoteRatio } from './tweaks/productivity/show_upvote_ratio';
-import { loadAttachSideMenuHeader, loadSubredditDisplayNameBanner, moveSortDropdown } from './tweaks/style/old_new_ui';
+import {
+    attachSideMenuHeader,
+    loadAttachSideMenuHeader,
+    loadSubredditDisplayNameBanner,
+    moveSortDropdown
+} from './tweaks/style/old_new_ui';
 import { loadLeftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { loadViewCrossposts } from './tweaks/productivity/view_crossposts';
 import { loadMarkReadOnOpenExpandos } from './tweaks/productivity/mark_read_on_open_expandos';
@@ -51,6 +56,7 @@ import { loadHideAwards } from './tweaks/hide_elements/hide_awards';
 import { loadHighlightOP } from './tweaks/productivity/highlight_op';
 import { loadHideBlockedUserPosts } from './tweaks/block/block_posts_by_user';
 import { loadHideBlockedLinkPosts } from './tweaks/block/block_posts_by_url';
+import { loadFullWidthExpandos } from "./tweaks/media/full_width_expandos";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -75,10 +81,15 @@ export function loadTweaks() {
 		loadSubredditDisplayNameBanner();
 		loadOpenPostInNewTab();
 		loadOpenSubInNewTab();
-		loadAttachSideMenuHeader();
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
+
+        waitForAddedNode({
+            query: 'reddit-sidebar-nav',
+            parent: document.querySelector('body'),
+            done: loadAttachSideMenuHeader,
+        });
 
 		waitForAddedNode({
 			query: '#communities_section left-nav-communities-controller',
@@ -171,6 +182,7 @@ export function loadTweaks() {
 				loadShowPostNumbers();
 				loadMarkReadOnOpenExpandos();
 				moveSortDropdown();
+                loadFullWidthExpandos();
 			},
 		});
 
@@ -252,7 +264,11 @@ export function loadTweaks() {
 	// Run again (make sure it loaded correctly)
 	setTimeout(() => {
 		loadShowToTopButton();
-		loadAttachSideMenuHeader();
+		loadSideMenuToggleButton();
+
+        if (!document.querySelector('.re-header-menu reddit-sidebar-nav')) {
+            loadAttachSideMenuHeader();
+        }
 	}, 5000);
 }
 loadTweaks();

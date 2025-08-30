@@ -141,6 +141,8 @@ import { hideAwards } from './tweaks/hide_elements/hide_awards';
 import { highlightOp } from './tweaks/productivity/highlight_op';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 import { addDownloadVideoButton } from './tweaks/media/add_download_video_button';
+import { fullWidthExpandos } from "./tweaks/media/full_width_expandos";
+import { hideSearchHero } from "./tweaks/hide_elements/hide_search_hero";
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -198,6 +200,7 @@ const functionRegistry = {
 	feedPostTitleFontWeight,
 	forceCustomBgOldUI,
 	fullWidthBanner,
+    fullWidthExpandos,
 	hideAdvertiseButton,
 	hideAwards,
 	hideBlockedKeywordPosts,
@@ -243,6 +246,7 @@ const functionRegistry = {
 	hideRecommended,
 	hideRedditPremium,
 	hideRelatedPostsSection,
+    hideSearchHero,
 	hideSearchSidebar,
 	hideSearchSidebarNsfwUsers,
 	hideSideMenu,

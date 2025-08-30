@@ -326,4 +326,18 @@ export function restorePopupMediaOptions() {
 		}
 		console.log('Compact Post Link Preview: ' + value);
 	});
+
+    // Full Width Expandos
+    BROWSER_API.storage.sync.get(['fullWidthExpandos'], function (result) {
+        if (result.fullWidthExpandos === true) {
+            document.querySelector('#checkbox-full-width-expandos').checked = true;
+            document.querySelector('.icon-full-width-expandos').style.backgroundColor = 'var(--accent)';
+            highlightMenuIcon('media-tweaks');
+            var value = true;
+        } else if (typeof result.fullWidthExpandos === 'undefined' || result.fullWidthExpandos === false) {
+            document.querySelector('#checkbox-full-width-expandos').checked = false;
+            var value = false;
+        }
+        console.log('Full Width Expandos: ' + value);
+    });
 }

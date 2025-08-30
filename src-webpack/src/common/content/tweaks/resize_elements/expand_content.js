@@ -172,6 +172,7 @@ function enableExpandContentRV3() {
 			shreddit-app .grid-container:not(.grid-full) .subgrid-container,
 			shreddit-app[routename="compose_message"] .subgrid-container {
 				width: 100%;
+				min-width: 0;
 				max-width: revert;
 				gap: revert;
 				padding: revert;

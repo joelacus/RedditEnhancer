@@ -1067,3 +1067,19 @@ document.querySelector('#checkbox-hide-awards').addEventListener('change', funct
 	BROWSER_API.storage.sync.set({ hideAwards: hideAwards });
 	sendMessage({ hideAwards: hideAwards });
 });
+
+// Toggle - Hide Search Hero
+document.querySelector('#checkbox-hide-search-hero').addEventListener('change', function () {
+    const hideSearchHero = document.querySelector('#checkbox-hide-search-hero').checked;
+    if (hideSearchHero) {
+        document.querySelector('.icon-hide-search-hero').style.backgroundColor = 'var(--accent)';
+        document.querySelector('.icon-hide-search-hero').classList.remove('icon-show');
+        document.querySelector('.icon-hide-search-hero').classList.add('icon-hide');
+    } else {
+        document.querySelector('.icon-hide-search-hero').style.backgroundColor = '';
+        document.querySelector('.icon-hide-search-hero').classList.remove('icon-hide');
+        document.querySelector('.icon-hide-search-hero').classList.add('icon-show');
+    }
+    BROWSER_API.storage.sync.set({ hideSearchHero: hideSearchHero });
+    sendMessage({ hideSearchHero: hideSearchHero });
+});

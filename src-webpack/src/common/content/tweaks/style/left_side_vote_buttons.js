@@ -77,7 +77,6 @@ function enableLeftSideVoteButtonsRV3() {
 				
 				& > span.min-h-\\[32px\\] {
 					min-height: revert;
-					margin-bottom: 8px;
 				}
 				& a.h-xl[data-testid="subreddit-name"] {
 					height: revert;
@@ -115,6 +114,13 @@ function enableLeftSideVoteButtonsRV3() {
                     display: inline-block;
                     width: calc(100% - 40px);
                     padding-left: .75rem;
+                }
+                & faceplate-hovercard + .ml-\\[6px\\] {
+                     margin-left: 4px;
+                     
+                     & .ml-\\[6px\\] {
+                     	margin-left: 0;
+                     }
                 }
                 comment-body-header {
                     margin-left: 0;
