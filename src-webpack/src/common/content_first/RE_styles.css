@@ -743,3 +743,13 @@ shreddit-app[routename='post_page'] #main-content,
 shreddit-app[pagetype='single_comment_thread'] #main-content {
 	background: var(--color-neutral-background);
 }
+
+/* search hero experiment */
+@media (min-width: 768px) {
+    .grid-container:has(.search-hero) main.main {
+        background-color: revert;
+        border: revert;
+        border-radius: revert;
+        padding-bottom: revert;
+    }
+}
