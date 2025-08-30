@@ -113,7 +113,7 @@ shreddit-app[routename='all'] main.main,
 shreddit-app[routename='popular'] main.main,
 shreddit-app[routename='subreddit'] main.main,
 shreddit-app[routename='custom_feed'] main.main {
-	margin-top: 1rem;
+	margin-top: 1rem !important;
 }
 shreddit-app[routename='keyword-management'] main.main .pb-5xl {
 	padding-bottom: 0;
@@ -228,6 +228,7 @@ div[data-testid='search-results-sidebar'] {
 	padding: 4px 0;
 	position: relative;
 	z-index: 1;
+    width: 100%;
 
 	@media (min-width: 960px) {
 		> .s\:invisible {

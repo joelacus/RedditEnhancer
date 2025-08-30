@@ -882,4 +882,15 @@ export function restorePopupHideElementsOptions() {
 		document.querySelector('.icon-hide-awards').classList.toggle('icon-hide', hideAwards);
 		console.log('Hide Awards: ' + hideAwards);
 	});
+
+    // Hide Search Hero
+    BROWSER_API.storage.sync.get(['hideSearchHero'], function (result) {
+        const hideSearchHero = result.hideSearchHero === true;
+        if (hideSearchHero) highlightMenuIcon('hide-elements');
+        document.querySelector('#checkbox-hide-search-hero').checked = hideSearchHero;
+        document.querySelector('.icon-hide-search-hero').style.backgroundColor = hideSearchHero ? 'var(--accent)' : '';
+        document.querySelector('.icon-hide-search-hero').classList.toggle('icon-show', !hideSearchHero);
+        document.querySelector('.icon-hide-search-hero').classList.toggle('icon-hide', hideSearchHero);
+        console.log('Hide Search Hero: ' + hideSearchHero);
+    });
 }

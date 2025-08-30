@@ -177,6 +177,7 @@ export function addBorderRadiusToShadowRootElements() {
 	const achievementsEntrypoint = document.querySelector('achievements-entrypoint')?.shadowRoot || null;
 	const followedKeywordsMenu = document.querySelector('followed-keywords-menu')?.shadowRoot || null;
 	const shadowRootElements = [
+        searchBar?.querySelector('.reddit-search-bar'),
 		searchBar?.querySelector('div'),
 		searchBar?.querySelector('#search-input-chip'),
 		recentPosts,

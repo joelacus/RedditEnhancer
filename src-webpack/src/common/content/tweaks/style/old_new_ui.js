@@ -558,10 +558,7 @@ async function attachPageTitle() {
 		logo = '';
 	}
 
-    if (document.querySelector('.re-header-menu')) {
-        if (document.querySelector('.re-header-menu reddit-sidebar-nav')) return;
-        else document.querySelector('.re-header-menu').remove();
-    }
+    if (document.querySelector('.re-header-menu')) return;
 	const sideMenu = Object.assign(document.createElement('nav'), {
 		innerHTML: `<div class="flex items-center gap-xs px-xs h-full">${logo}<span>${title}</span></div>`,
 		className: 're-header-menu mb-0 h-[40px] mr-md text-neutral-content-strong box-border',
@@ -580,14 +577,15 @@ function attachSideMenu(sideMenu) {
 	const banner = () => showBannerMessage('warning', "Reddit Enhancer wasn't able to attach the side menu. Please refresh the page. Sorry!");
 	sideMenu.querySelector('div').addEventListener('click', banner);
 
-	const sideMenu2 = document.querySelector('reddit-sidebar-nav');
+	const sideMenu2 = document.querySelector('flex-left-nav-container reddit-sidebar-nav');
 	if (sideMenu2) {
 		sideMenu2.setAttribute('style', '');
 		sideMenu.appendChild(sideMenu2);
 		// Display or hide the side menu when clicking on the header button
 		sideMenu.querySelector('div').addEventListener('click', (e) => {
 			e.stopPropagation();
-			sideMenu2.style.display = getComputedStyle(sideMenu2).display === 'none' ? 'block' : 'none';
+            const menu = document.querySelector('.re-header-menu reddit-sidebar-nav');
+            if (menu) menu.style.display = getComputedStyle(menu).display === 'none' ? 'block' : 'none';
 		});
 		// Hide the side menu when clicking outside of it
 		window.addEventListener('click', (e) => {

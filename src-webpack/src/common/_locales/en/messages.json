@@ -407,6 +407,9 @@
 	"HideRelatedPosts": {
 		"message": "Hide Related Posts"
 	},
+    "HideSearchHero": {
+        "message": "Hide the Search Banner on Home Feed"
+    },
 	"HideSearchSidebar": {
 		"message": "Hide the Search Sidebar"
 	},
