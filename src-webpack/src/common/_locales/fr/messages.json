@@ -257,6 +257,9 @@
 	"FullWidthBanner": {
 		"message": "Bannière de subreddit pleine largeur"
 	},
+	"FullWidthExpandos": {
+		"message": "Développer les aperçus de la post en vue compacte"
+	},
 	"GlobalWidth": {
 		"message": "Global Max. Largeur"
 	},
@@ -400,6 +403,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Masquer les articles associés"
+	},
+	"HideSearchHero": {
+		"message": "Cacher la bannière de recherche sur le flux de la maison"
 	},
 	"HideSearchSidebar": {
 		"message": "Masquer la barre latérale de recherche"
