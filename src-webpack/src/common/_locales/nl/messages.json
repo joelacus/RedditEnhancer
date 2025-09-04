@@ -257,6 +257,9 @@
 	"FullWidthBanner": {
 		"message": "Volledige breedte subreddit banner"
 	},
+	"FullWidthExpandos": {
+		"message": "Vouw post previews uit in compacte weergave"
+	},
 	"GlobalWidth": {
 		"message": "Globale maximale breedte"
 	},
@@ -400,6 +403,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Verberg gerelateerde berichten"
+	},
+	"HideSearchHero": {
+		"message": "Verberg de zoekbanner op Home Feed"
 	},
 	"HideSearchSidebar": {
 		"message": "Verberg de zoekzijbalk"
