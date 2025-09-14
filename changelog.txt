@@ -1,3 +1,21 @@
+version 2.2.1
+v [Latest UI V3]
+  - Bug fixes.
+
+version 2.2.0
+v [Latest UI V3]
+  - Bug fixes.
+* Special thanks to @biminhc1 (Reddit) @bmndc (Github) for all following changes <3
+v [Latest UI V3]
+  - Added an option to expand the post text/media preview of posts in Compact view to the fill width of the posts.
+  - Added an option to hide the new search banner above the Home feed (Reddit's experiments for some accounts).
+  - Modified "Hide Thumbnails in Compact View" and "Hide Blank Thumbnails in Compact View" to fully hide post thumbnails without any spacing when "Expand post previews in Compact view" is on.
+  - Fixed an issue where "Show Side Menu Toggle Button" may fail to add the button to open the side menu and not work.
+  - Fixed an issue where r/popular's subgrid container may be stuck at ~1775px as its minimum width.
+  - Fixed an issue where post pages may not be sorted after redirecting from comment detail pages.
+  - Added styling for the new Private Message Archive page.
+  - Improved the reliability of "Theme Corner Radius" and "Display page and user info in header".
+
 version 2.1.0
 v [Latest UI V3]
   - Added an option to hide posts by blocked users. (blocked users are managed by the extension).

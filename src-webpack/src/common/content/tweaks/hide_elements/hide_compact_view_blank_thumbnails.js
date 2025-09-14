@@ -52,8 +52,10 @@ function enableHideCompactViewBlankThumbnailsRV3() {
 	if (!document.head.querySelector('style[id="re-hide-compact-view-blank-thumbnail"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-compact-view-blank-thumbnails';
-		styleElement.textContent = `shreddit-post div:has([slot="thumbnail"] [icon-name="text-post-outline"]),
+		styleElement.textContent = `shreddit-post[post-type="text"] > div.contents[slot="thumbnail"],
+		                            shreddit-post[post-type="text"]::part(thumbnail),
 									shreddit-post[post-type="poll"] > div.contents[slot="thumbnail"],
+									shreddit-post[post-type="poll"]::part(thumbnail),
 									shreddit-post[post-type="link"] > div.contents[slot="thumbnail"]:has(svg[icon-name="link-outline"]),
 		 							shreddit-post[view-type="compactView"] div:has([slot="thumbnail"] div.thumbnail-shadow) {
 										display: none !important;

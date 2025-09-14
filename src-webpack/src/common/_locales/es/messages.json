@@ -257,6 +257,9 @@
 	"FullWidthBanner": {
 		"message": "Banner de ancho de ancho completo"
 	},
+	"FullWidthExpandos": {
+		"message": "Expandir las vistas previas de la publicación en Vista compacta"
+	},
 	"GlobalWidth": {
 		"message": "Ancho máximo global"
 	},
@@ -400,6 +403,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Ocultar publicaciones Relacionadas"
+	},
+	"HideSearchHero": {
+		"message": "Ocultar el banner de búsqueda en el feed de inicio"
 	},
 	"HideSearchSidebar": {
 		"message": "Ocultar la barra lateral de búsqueda"

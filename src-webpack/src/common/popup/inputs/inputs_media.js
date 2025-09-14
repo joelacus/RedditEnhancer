@@ -368,3 +368,11 @@ document.querySelector('#checkbox-compact-post-link-preview').addEventListener('
 		sendMessage({ compactPostLinkPreview: false });
 	}
 });
+
+// Toggle - Full Width Expandos
+document.querySelector('#checkbox-full-width-expandos').addEventListener('change', function (e) {
+    const fullWidthExpandos = document.querySelector('#checkbox-full-width-expandos').checked;
+    BROWSER_API.storage.sync.set({ fullWidthExpandos: fullWidthExpandos });
+    document.querySelector('.icon-full-width-expandos').style.backgroundColor = fullWidthExpandos ? 'var(--accent)' : '';
+    sendMessage({ fullWidthExpandos: fullWidthExpandos });
+});

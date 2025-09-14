@@ -46,7 +46,8 @@ function enableHideCompactViewThumbnailsRV3() {
 	if (!document.head.querySelector('style[id="re-hide-compact-view-thumbnail"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-compact-view-thumbnails';
-		styleElement.textContent = `shreddit-post [slot="thumbnail"] {
+		styleElement.textContent = `shreddit-post [slot="thumbnail"],
+		                            shreddit-post::part(thumbnail) {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);

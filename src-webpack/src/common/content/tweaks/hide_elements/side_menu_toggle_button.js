@@ -28,48 +28,43 @@ export function sideMenuToggleButton(value) {
 // Enable Side Menu Toggle Button - RV3
 function enableSideMenuToggleButton() {
 	document.documentElement.classList.add('re-hide-side-menu');
-	// create and append close button
 	const chevron = '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path opacity="1" fill="currentColor" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>';
-	let btnClose, btnOpen;
+
+	const app = document.querySelector('shreddit-app');
+	const sideMenu = document.getElementById('flex-left-nav-container');
+	if (!app || !sideMenu) return;
+
 	if (!document.querySelector('.re-side-menu-close')) {
-		btnClose = document.createElement('div');
-		btnClose.classList.add('re-side-menu-close');
-		btnClose.innerHTML = chevron;
-		btnClose.addEventListener('click', function (e) {
-			document.querySelector('shreddit-app').setAttribute('data-re-hide-side-menu', true);
-			btnClose.classList.add('hidden');
-			btnOpen.classList.remove('hidden');
-			BROWSER_API.storage.sync.set({ sideMenuToggleButtonHiddenState: true });
+		const closeBtn = document.createElement('button');
+		closeBtn.innerHTML = chevron;
+		closeBtn.classList.add('re-side-menu-close');
+		closeBtn.addEventListener('click', function (e) {
+			app.setAttribute('data-re-hide-side-menu', 'true');
+			localStorage.setItem('sideMenuHidden', 'true');
 		});
-		const nav = document.querySelector('#left-sidebar-container nav');
-		nav.insertBefore(btnClose, nav.firstChild);
+		sideMenu.insertBefore(closeBtn, sideMenu.firstChild);
 	}
-	// create and append open button
+
 	if (!document.querySelector('.re-side-menu-open')) {
-		btnOpen = document.createElement('div');
-		btnOpen.classList.add('re-side-menu-open', 'hidden');
-		btnOpen.innerHTML = chevron;
-		btnOpen.addEventListener('click', function (e) {
-			document.querySelector('shreddit-app').setAttribute('data-re-hide-side-menu', false);
-			btnClose.classList.remove('hidden');
-			btnOpen.classList.add('hidden');
-			BROWSER_API.storage.sync.set({ sideMenuToggleButtonHiddenState: false });
+		const openBtn = document.createElement('button');
+		openBtn.innerHTML = chevron;
+		openBtn.classList.add('re-side-menu-open');
+		openBtn.addEventListener('click', function (e) {
+			app.setAttribute('data-re-hide-side-menu', 'false');
+			localStorage.setItem('sideMenuHidden', 'false');
 			loadSideMenuWidth();
-		});
-		document.querySelector('body').append(btnOpen);
+		})
+		document.body.appendChild(openBtn);
 	}
-	// set side menu attribute
-	BROWSER_API.storage.sync.get(['sideMenuToggleButtonHiddenState'], function (result) {
-		const state = result.sideMenuToggleButtonHiddenState;
-		if (state) {
-			document.querySelector('shreddit-app').setAttribute('data-re-hide-side-menu', true);
-			btnClose.classList.add('hidden');
-			btnOpen.classList.remove('hidden');
-		} else {
-			document.querySelector('shreddit-app').setAttribute('data-re-hide-side-menu', false);
-			loadSideMenuWidth();
-		}
-	});
+
+	const state = localStorage.getItem('sideMenuHidden');
+	if (state && state === 'true') {
+		app.setAttribute('data-re-hide-side-menu', 'true');
+	} else {
+		app.setAttribute('data-re-hide-side-menu', 'false');
+		loadSideMenuWidth();
+	}
+
 	// add main stylesheet
 	if (!document.head.querySelector('style[id="re-side-menu-toggle-button"]')) {
 		const styleElement = document.createElement('style');
@@ -110,6 +105,7 @@ function enableSideMenuToggleButton() {
 										height: 40px;
 										cursor: pointer;
 										z-index: 9;
+										background: none;
 									}
 									.re-side-menu-close {
 										position: sticky;
@@ -120,6 +116,15 @@ function enableSideMenuToggleButton() {
 										position: fixed;
 										top: 57px;
 										left: 0;
+									}
+									.re-compact-header-side-menu .re-side-menu-open {
+										top: 48px;
+									}
+									shreddit-app[data-re-hide-side-menu="false"] ~ .re-side-menu-open {
+										display: none;
+									}
+									reddit-sidebar-nav > nav {
+										padding-top: 0 !important;
 									}
 									.re-side-menu-close svg,
 									.re-side-menu-open svg {

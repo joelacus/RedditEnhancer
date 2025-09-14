@@ -163,6 +163,7 @@ function enableCompactHeaderSideMenu() {
 										padding-left: 0.5rem;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
+		document.documentElement.classList.add('re-compact-header-side-menu');
 	}
 }
 
@@ -324,7 +325,8 @@ async function enableAttachSideMenuHeader() {
 					width: var(--re-side-menu-width, 256px);
 				}
 				flex-left-nav-container#left-sidebar-container {
-					display: none;
+					width: 0;
+					overflow: hidden;
 				}
 				@media (min-width: 1200px) {
 					div.grid-container:not(.grid-full),
@@ -479,13 +481,13 @@ async function attachPageTitle() {
 			case 'profile_post_page':
 			case 'profile_post_page_comments':
 			case 'profile_serp':
-				title = 'u/' + window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1];
+				title = 'u/' + window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)?.[1];
 				data = (
 					await BROWSER_API.runtime.sendMessage({
 						actions: [
 							{
 								action: 'fetchData',
-								url: `https://www.reddit.com/user/${window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)[1]}/about.json`,
+								url: `https://www.reddit.com/user/${title}/about.json`,
 							},
 						],
 					})
@@ -525,6 +527,10 @@ async function attachPageTitle() {
 				title = 'Answers';
 				logo = `<svg rpl="" fill="currentColor" height="20" icon-name="answers-fill" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M16.11 18.57h.03a4.37 4.37 0 0 0 3.23-4.22c0-2.42-1.96-4.38-4.38-4.38h-.02c-.4 0-1.32.06-2.21.57-1.22.71-2 1.97-2.12 3.35v.02c0 .11-.02.21-.02.32 0 1.33-.46 2.57-1.34 3.6-.29.34-.61.63-.97.88H15c.17 0 .35-.01.51-.03.08 0 .15-.02.23-.03.13-.02.25-.05.37-.08Z"></path><path d="M13.17 2.58s-.02-.02-.02-.03a4.374 4.374 0 0 0-5.27-.69 4.38 4.38 0 0 0-1.6 5.98v.02c.21.35.72 1.11 1.62 1.63 1.23.71 2.71.75 3.96.16 0 0 .01 0 .02-.01.1-.05.19-.09.29-.14 1.16-.67 2.46-.88 3.79-.64.43.08.85.22 1.24.4l-3.34-5.79c-.09-.15-.18-.29-.29-.43-.05-.06-.1-.12-.14-.18-.08-.1-.17-.19-.26-.28Z"></path><path d="M.78 13.18v.03c-.49 1.86.29 3.9 2.04 4.91a4.38 4.38 0 0 0 5.98-1.6v-.02c.21-.35.62-1.17.62-2.2 0-1.41-.7-2.72-1.84-3.51 0 0-.01 0-.02-.01-.09-.06-.17-.12-.27-.18a5.511 5.511 0 0 1-2.73-4.24l-3.34 5.79c-.09.15-.16.31-.23.46-.03.07-.06.14-.08.21l-.12.36H.78Z"></path></svg>`;
 				break;
+			case 'pm-archive-list':
+				title = 'Private Message Archive';
+				logo = `<svg rpl="" fill="currentColor" height="16" icon-name="archived-outline" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M17.875 1H2.125A1.127 1.127 0 0 0 1 2.125v3.75a1.115 1.115 0 0 0 1 1.1v10.84A1.19 1.19 0 0 0 3.192 19h13.616A1.19 1.19 0 0 0 18 17.815V6.975a1.115 1.115 0 0 0 1-1.1v-3.75A1.127 1.127 0 0 0 17.875 1ZM2.25 2.25h15.5v3.5H2.25v-3.5Zm1 15.565V7h13.5l.056 10.75-13.556.065ZM13.35 10v1.25h-6.7V10h6.7Z"></path></svg>`;
+				break;
 			default:
 				if (window.location.pathname.includes('/mod/')) {
 					title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2];
@@ -552,7 +558,7 @@ async function attachPageTitle() {
 		logo = '';
 	}
 
-	if (document.querySelector('.re-header-menu')) return;
+    if (document.querySelector('.re-header-menu')) return;
 	const sideMenu = Object.assign(document.createElement('nav'), {
 		innerHTML: `<div class="flex items-center gap-xs px-xs h-full">${logo}<span>${title}</span></div>`,
 		className: 're-header-menu mb-0 h-[40px] mr-md text-neutral-content-strong box-border',
@@ -571,14 +577,15 @@ function attachSideMenu(sideMenu) {
 	const banner = () => showBannerMessage('warning', "Reddit Enhancer wasn't able to attach the side menu. Please refresh the page. Sorry!");
 	sideMenu.querySelector('div').addEventListener('click', banner);
 
-	const sideMenu2 = document.querySelector('reddit-sidebar-nav');
+	const sideMenu2 = document.querySelector('flex-left-nav-container reddit-sidebar-nav');
 	if (sideMenu2) {
 		sideMenu2.setAttribute('style', '');
 		sideMenu.appendChild(sideMenu2);
 		// Display or hide the side menu when clicking on the header button
 		sideMenu.querySelector('div').addEventListener('click', (e) => {
 			e.stopPropagation();
-			sideMenu2.style.display = getComputedStyle(sideMenu2).display === 'none' ? 'block' : 'none';
+            const menu = document.querySelector('.re-header-menu reddit-sidebar-nav');
+            if (menu) menu.style.display = getComputedStyle(menu).display === 'none' ? 'block' : 'none';
 		});
 		// Hide the side menu when clicking outside of it
 		window.addEventListener('click', (e) => {
@@ -665,7 +672,7 @@ export function subredditDisplayNameBanner(value) {
 				const subredditName = document.querySelector('shreddit-subreddit-header')?.getAttribute('display-name');
 				if (subredditName && subredditName.length > 0) {
 					document.querySelector('div.masthead h1').textContent = subredditName;
-					document.querySelector('div.masthead div:has(> h1)')?.setAttribute('data-sub-name', 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2]);
+					document.querySelector('div.masthead div:has(> h1)')?.setAttribute('data-sub-name', 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2]);
 				}
 			}
 		} else {
@@ -674,7 +681,7 @@ export function subredditDisplayNameBanner(value) {
 				document.head.removeChild(element);
 			});
 			const title = document.querySelector('div.masthead h1');
-			if (title) title.textContent = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)[2];
+			if (title) title.textContent = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2];
 		}
 	}
 }

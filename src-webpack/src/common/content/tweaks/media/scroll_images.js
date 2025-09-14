@@ -58,6 +58,15 @@ function enableImageScrollRV3() {
 									max-height: fit-content;
 									object-fit: cover !important;
 									margin-bottom: 0 !important;
+								}
+								gallery-carousel figure {
+									overflow-y: auto;
+								}
+								gallery-carousel figure img {
+									height: fit-content !important;
+									max-height: fit-content !important;
+									width: var(--re-limit-image-width) !important;
+									margin: 0 auto;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 	// Replace all instances of <shreddit-aspect-ratio> with <div>

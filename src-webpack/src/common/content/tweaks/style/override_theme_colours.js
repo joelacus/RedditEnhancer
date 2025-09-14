@@ -249,6 +249,7 @@ export function themePostBackgroundColour(value) {
 										--color-neutral-background: var(--re-theme-post-bg);
 										--color-neutral-background-weak: var(--re-theme-post-bg);
 									}
+									div[data-test-id="pm-archive-conversation"],
 									aside#mod-queue-pdp-panel,
 									#subreddit-wiki-header,
 									#subreddit-wiki-header + div {
@@ -309,6 +310,9 @@ export function themePostBackgroundColour(value) {
 									shreddit-profile-comment > div:hover {
 										border-radius: var(--re-theme-border-radius, 1rem) !important;
 										background-color: color-mix(in srgb, var(--re-theme-post-bg), #000 10%) !important;
+									}
+									[routename="post_page"] shreddit-post #pdp-credit-bar {
+										background: transparent !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else {

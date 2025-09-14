@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "2.1.0"
+		"message": "2.2.1"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -260,6 +260,9 @@
 	"FullWidthBanner": {
 		"message": "Full Width Subreddit Banner"
 	},
+	"FullWidthExpandos": {
+		"message": "Expand post previews in Compact view"
+	},
 	"GlobalWidth": {
 		"message": "Global Max. Width"
 	},
@@ -403,6 +406,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Hide Related Posts"
+	},
+	"HideSearchHero": {
+		"message": "Hide the Search Banner on Home Feed"
 	},
 	"HideSearchSidebar": {
 		"message": "Hide the Search Sidebar"
