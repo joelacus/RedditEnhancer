@@ -1,7 +1,12 @@
+version 2.2.1
+v [Latest UI V3]
+  - Bug fixes.
+
 version 2.2.0
 v [Latest UI V3]
   - Bug fixes.
 * Special thanks to @biminhc1 (Reddit) @bmndc (Github) for all following changes <3
+v [Latest UI V3]
   - Added an option to expand the post text/media preview of posts in Compact view to the fill width of the posts.
   - Added an option to hide the new search banner above the Home feed (Reddit's experiments for some accounts).
   - Modified "Hide Thumbnails in Compact View" and "Hide Blank Thumbnails in Compact View" to fully hide post thumbnails without any spacing when "Expand post previews in Compact view" is on.
