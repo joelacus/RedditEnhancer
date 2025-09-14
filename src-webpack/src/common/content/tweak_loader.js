@@ -74,7 +74,6 @@ export function loadTweaks() {
 		loadShowPostAuthor();
 		loadShowPostFlair();
 		loadHidePostKarma();
-		loadHideCommentKarma();
 		loadHideVoteButtons();
 		loadSideMenuToggleButton();
 		loadUsernameHoverPopupDelay();
@@ -220,6 +219,7 @@ export function loadTweaks() {
 					loadHideAwards();
 				}, 500);
 				loadLeftSideVoteButtons();
+                loadHideCommentKarma();
 			},
 		});
 
