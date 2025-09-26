@@ -724,6 +724,7 @@ div.invisible[slot='editor-helper-text'] {
 
 /* ========== View Crossposts ========== */
 #re-view-crossposts {
+	margin-left: auto;
 	cursor: pointer;
 }
 
