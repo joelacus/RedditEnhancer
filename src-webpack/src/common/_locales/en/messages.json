@@ -794,6 +794,9 @@
 	"Settings": {
 		"message": "Settings"
 	},
+	"ShowMemberCount": {
+		"message": "Show legacy subreddit member count"
+	},
 	"ShowPostAuthor": {
 		"message": "Show Post Author"
 	},

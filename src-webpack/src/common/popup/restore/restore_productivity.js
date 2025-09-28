@@ -668,4 +668,18 @@ export function restorePopupProductivityOptions() {
 		}
 		console.log('Highlight OP: ' + value);
 	});
+
+	// Show Member Count
+	BROWSER_API.storage.sync.get(['showMemberCount'], function (result) {
+		if (result.showMemberCount === true) {
+			document.querySelector('#checkbox-show-member-count').checked = true;
+			document.querySelector('.icon-show-member-count').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else if (typeof result.showMemberCount == 'undefined' || result.showMemberCount === false) {
+			document.querySelector('#checkbox-show-member-count').checked = false;
+			var value = false;
+		}
+		console.log('Show Member Count: ' + value);
+	});
 }

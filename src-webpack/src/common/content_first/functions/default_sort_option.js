@@ -208,11 +208,15 @@ function getStorage(keys) {
  */
 function classify(url) {
     const previousType = sessionStorage.getItem('RE.page'), previousSub = subreddit;
+    const navigationEntries = performance.getEntriesByType('navigation');
     subreddit = url.pathname.match(/^\/r\/([^\/]+)\//)?.[1];
 
-    if (['/', '/best/', '/hot/', '/new/', '/top/', '/rising/'].includes(url.pathname) && previousType !== 'home') {
+    if (navigationEntries.length > 0 && navigationEntries[0].type !== 'back_forward') {
+        // Page reload
+        return false;
+    } else if (['/', '/best/', '/hot/', '/new/', '/top/', '/rising/'].includes(url.pathname) && previousType !== 'home') {
         sessionStorage.setItem('RE.page', 'home');
-        return !!window.chrome && (!!window.CSS || !!window.webkitRequestFileSystem) && previousType === 'comments';
+        return !!window.chrome && previousType === 'comments';
     } else if (url.pathname.includes('/comments/') && previousType !== 'comments') {
         sessionStorage.setItem('RE.page', 'comments');
         return false;
@@ -220,10 +224,10 @@ function classify(url) {
         // Note: when temporarily changing the comment sort option, `type` may
         // change to `subreddit` for a split second (?!)
         sessionStorage.setItem('RE.page', 'subreddit');
-        return !!window.chrome && (!!window.CSS || !!window.webkitRequestFileSystem) && previousType === 'comments';
+        return !!window.chrome && previousType === 'comments';
     } else if (/\/m\//.test(url.pathname) && previousType !== 'multireddit') {
         sessionStorage.setItem('RE.page', 'multireddit');
-        return !!window.chrome && (!!window.CSS || !!window.webkitRequestFileSystem) && previousType === 'comments';
+        return !!window.chrome && previousType === 'comments';
     } else if (/\/user\/(?!.*\/m\/)/.test(url.pathname) && previousType !== 'user') {
         sessionStorage.setItem('RE.page', 'user');
         return false;

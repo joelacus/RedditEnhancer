@@ -57,6 +57,7 @@ import { loadHighlightOP } from './tweaks/productivity/highlight_op';
 import { loadHideBlockedUserPosts } from './tweaks/block/block_posts_by_user';
 import { loadHideBlockedLinkPosts } from './tweaks/block/block_posts_by_url';
 import { loadFullWidthExpandos } from "./tweaks/media/full_width_expandos";
+import { loadShowMemberCount } from "./tweaks/productivity/show_member_count";
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -67,6 +68,7 @@ export function loadTweaks() {
 		loadHideBlockedKeywordPosts();
 		loadHideBlockedUserPosts();
 		loadHideBlockedLinkPosts();
+		loadShowMemberCount();
 	} else if (redditVersion === 'newnew') {
 		loadAddDownloadVideoButton();
 		loadBionicReader();
@@ -201,6 +203,7 @@ export function loadTweaks() {
 				loadAlwaysShowPostOptions();
 				loadShowUpvoteRatio();
 				loadHideAwards();
+				loadShowMemberCount();
 			},
 		});
 

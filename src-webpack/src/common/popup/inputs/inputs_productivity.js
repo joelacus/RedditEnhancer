@@ -728,3 +728,11 @@ document.querySelector('#checkbox-highlight-op').addEventListener('change', func
 	document.querySelector('.icon-highlight-op').style.backgroundColor = highlightOp ? 'var(--accent)' : '';
 	sendMessage({ highlightOp: highlightOp });
 });
+
+// Toggle - Show Member Count
+document.querySelector('#checkbox-show-member-count').addEventListener('change', function (e) {
+	const showMemberCount = document.querySelector('#checkbox-show-member-count').checked;
+	BROWSER_API.storage.sync.set({ showMemberCount: showMemberCount });
+	document.querySelector('.icon-show-member-count').style.backgroundColor = showMemberCount ? 'var(--accent)' : '';
+	sendMessage({ showMemberCount: showMemberCount });
+});

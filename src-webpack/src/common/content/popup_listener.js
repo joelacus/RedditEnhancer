@@ -143,6 +143,7 @@ import { highlightOp } from './tweaks/productivity/highlight_op';
 import { addDownloadVideoButton } from './tweaks/media/add_download_video_button';
 import { fullWidthExpandos } from "./tweaks/media/full_width_expandos";
 import { hideSearchHero } from "./tweaks/hide_elements/hide_search_hero";
+import { showMemberCount } from "./tweaks/productivity/show_member_count";
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -308,6 +309,7 @@ const functionRegistry = {
 	setMaxImageWidth,
 	setMaxVideoPostHeight,
 	setMaxVideoWidth,
+	showMemberCount,
 	showPostAuthor,
 	showPostFlair,
 	showPostNumbers,
