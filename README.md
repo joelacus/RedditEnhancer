@@ -112,11 +112,11 @@ I welcome any help if you would like to improve or contribute new language trans
 ## Productivity
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
+|Add "Scroll To Top" Button|Adds a new button to the header to scroll the page to the top.|3<br>1|
+|Add a button to each post to mark it as read|Adds a button to each post to mark it as read by adding the post URL to the browser history (requires the history permission). Works with Compact and Card view posts.|3|
 |Add link to view crossposts in other subreddits|View crossposts of a post on the comments page, bringing back the "View discussions in other communities" link from "Old New UI".|3|
 |Add Post Numbers|Number each post to keep track of how many you have scrolled passed.|3|
-|Add "Scroll To Top" Button|Adds a new button to the header to scroll the page to the top.|3<br>1|
 |Always Show Post and Comment Options|Moves the items in the post and comment overflow menus into the action bar of the post and comment, respectively, for quicker access. You can toggle off any buttons you don't want to see.|3|
-|Remove icons from most comment buttons|This will hide any icons from the buttons in the action bar, if "Always Show Post and Comment Options" is enabled.|3|
 |Auto Collapse AutoModerator Comment|Automatically collapses the top comment made by AutoModerator.|3<br>1|
 |Auto Expand and Load More Comments|Automatically load more and expand hidden comments on a post as you scroll down the page.|3<br>1|
 |Better Comment Box|Automatically enables the formatting options when commenting on posts.|3|
@@ -130,6 +130,9 @@ I welcome any help if you would like to improve or contribute new language trans
 |Open Links to Post in a New Tab|Open posts in a new tab.|3|
 |Open Links To Sub Reddit In New Tab|This makes sub reddit links open in a new tab, instead of the current one.|3|
 |Remember Side Menu Section Hidden States|Remember if the sections in the left side menu are open or closed.|3|
+|Remove icons from most comment buttons|This will hide any icons from the buttons in the action bar, if "Always Show Post and Comment Options" is enabled.|3|
+|Show Absolute Timestamps On Comments|Show the full time and date a comment was published next to the relative timestamp.|3<br>1|
+|Show Absolute Timestamps On Posts|Show the full time and date a post was published next to the relative timestamp in the post credit bar.|3<br>1|
 |Show navigation buttons to scroll to the next/previous root comment on a post|Scroll to the next/previous root/first comments on a post.|3<br>1|
 |Show Post Author|Shows the missing post author on the home and other feeds.|3|
 |Show Post Flair|Shows the missing post flair on the home and other feeds.|3|
@@ -196,13 +199,13 @@ Feel free to add any new languages and/or region differences.
 |[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|100%|
 |[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|100%|
 |[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|100%|
-|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|89.2%|
-|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|77.2%|
-|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|64.6%|
-|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|64.6%|
-|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|49.2%|
-|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|31.1%|
-|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|26.8%|
+|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|88.4%|
+|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|76.5%|
+|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|64%|
+|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|64%|
+|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|48.8%|
+|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|32.9%|
+|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|26.5%|
 |[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|26.9%|
 
 # Build
