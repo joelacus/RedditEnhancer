@@ -141,9 +141,11 @@ import { hideAwards } from './tweaks/hide_elements/hide_awards';
 import { highlightOp } from './tweaks/productivity/highlight_op';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 import { addDownloadVideoButton } from './tweaks/media/add_download_video_button';
-import { fullWidthExpandos } from "./tweaks/media/full_width_expandos";
-import { hideSearchHero } from "./tweaks/hide_elements/hide_search_hero";
-import { showMemberCount } from "./tweaks/productivity/show_member_count";
+import { fullWidthExpandos } from './tweaks/media/full_width_expandos';
+import { hideSearchHero } from './tweaks/hide_elements/hide_search_hero';
+import { showCommentAbsoluteTimestamp, showPostAbsoluteTimestamp } from './tweaks/productivity/show_absolute_timestamps';
+import { markPostAsReadButton } from './tweaks/productivity/mark_post_as_read_button';
+import { showMemberCount } from './tweaks/productivity/show_member_count';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -201,7 +203,7 @@ const functionRegistry = {
 	feedPostTitleFontWeight,
 	forceCustomBgOldUI,
 	fullWidthBanner,
-    fullWidthExpandos,
+	fullWidthExpandos,
 	hideAdvertiseButton,
 	hideAwards,
 	hideBlockedKeywordPosts,
@@ -247,7 +249,7 @@ const functionRegistry = {
 	hideRecommended,
 	hideRedditPremium,
 	hideRelatedPostsSection,
-    hideSearchHero,
+	hideSearchHero,
 	hideSearchSidebar,
 	hideSearchSidebarNsfwUsers,
 	hideSideMenu,
@@ -370,6 +372,9 @@ const functionRegistry = {
 	useCustomBackground,
 	usernameHoverPopupDelay,
 	viewCrossposts,
+	showCommentAbsoluteTimestamp,
+	showPostAbsoluteTimestamp,
+	markPostAsReadButton,
 	//breakReminder,
 	//darkMode,
 	//darkModeAutoListener,

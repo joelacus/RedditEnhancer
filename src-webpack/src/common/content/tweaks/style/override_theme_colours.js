@@ -311,7 +311,8 @@ export function themePostBackgroundColour(value) {
 										border-radius: var(--re-theme-border-radius, 1rem) !important;
 										background-color: color-mix(in srgb, var(--re-theme-post-bg), #000 10%) !important;
 									}
-									[routename="post_page"] shreddit-post #pdp-credit-bar {
+									[routename="post_page"] shreddit-post #pdp-credit-bar,
+									[view-context="CommentsPage"] #pdp-credit-bar {
 										background: transparent !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);

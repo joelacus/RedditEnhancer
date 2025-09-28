@@ -43,11 +43,20 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 	} else if (request.actions) {
 		for (const action of request.actions) {
 			if (action.action === 'fetchData' && action.url) {
-				console.log('fetchData', action.url);
+				//console.log('fetchData', action.url);
 				fetchData(action.url, sendResponse);
 				return true;
 			} else if (action.action === 'fetchText' && action.url) {
 				fetchText(action.url, sendResponse);
+				return true;
+			} else if (action.action === 'checkVisited' && action.url) {
+				BROWSER_API.history.search({ text: action.url, maxResults: 1 }, function (data) {
+					if (data.length > 0) {
+						sendResponse({ visited: true, message: 'URL has been visited', url: action.url });
+					} else {
+						sendResponse({ visited: false, message: 'URL has not been visited', url: action.url });
+					}
+				});
 				return true;
 			} else if (action.action === 'markVisited' && action.url) {
 				BROWSER_API.history.addUrl({ url: action.url }, function () {

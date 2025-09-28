@@ -61,6 +61,7 @@ function enableImageScrollRV3() {
 								}
 								gallery-carousel figure {
 									overflow-y: auto;
+									align-items: unset !important;
 								}
 								gallery-carousel figure img {
 									height: fit-content !important;

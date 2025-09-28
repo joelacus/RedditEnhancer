@@ -1,6 +1,11 @@
-version 2.2.1
+version 2.3.0
+v [Latest UI V3, Old UI V1]
+  - Added options to show absolute local timestamps on posts and comments.
 v [Latest UI V3]
-  - Bug fixes.
+  - Added an option to add a button to posts to mark them as read. Works with compact and card view posts.
+  - If "Mark posts as read when opening expandos in Compact view" is enabled, the post expando button will now have an additional double tick icon to show that it will mark the post as read.
+  - Fixed "Add Scrollbars To Images" cutting off part of the image.
+  - Other small bug fixes.
 
 version 2.2.0
 v [Latest UI V3]

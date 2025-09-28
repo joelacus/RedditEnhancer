@@ -10,6 +10,7 @@
  *
  * Compatibility: RV3 (New New UI) (2023-)
  */
+
 import { showBannerMessage } from '../../banner_message';
 
 let flag = false;
@@ -44,21 +45,49 @@ function enableMarkReadOnOpenExpandos() {
 	const posts = document.querySelectorAll('shreddit-post[view-type="compactView"]');
 	for (const post of posts) {
 		const url = window.location.origin + post.getAttribute('permalink');
-		const expando = post.shadowRoot?.querySelector('.toggle__expando-button:not([disabled])');
-		if (expando && expando.getAttribute('re-mark-read-on-open') !== '') {
-			expando.addEventListener('click', () => {
-				// Send a message to background.js, which has the permission to call history.addUrl()
-				BROWSER_API.runtime
-					.sendMessage({ actions: [{ action: 'markVisited', url: url }] })
-					.then(function (response) {
-						console.debug(`[RedditEnhancer] markReadOnOpenExpandos: Marking URL as visited: ${url}`);
-					})
-					.catch(function (error) {
-						console.error(`[RedditEnhancer] markReadOnOpenExpandos: Error marking post as read: ${url}, `, error);
+
+		BROWSER_API.runtime
+			.sendMessage({ actions: [{ action: 'checkVisited', url: url }] })
+			.then(function (response) {
+				if (response.visited) return;
+
+				// Add click event listener to expando button if the URL is not visited
+				const expando = post.shadowRoot?.querySelector('.toggle__expando-button:not([disabled])');
+				if (expando && expando.getAttribute('re-mark-read-on-open') !== '') {
+					expando.addEventListener('click', () => {
+						// Send a message to background.js, which has the permission to call history.addUrl()
+						BROWSER_API.runtime
+							.sendMessage({ actions: [{ action: 'markVisited', url: url }] })
+							.then(function (response) {
+								console.debug(`[RedditEnhancer] markReadOnOpenExpandos: Marking URL as visited: ${url}`);
+								expando.querySelector('.re-icon-double-tick').style.display = 'none';
+							})
+							.catch(function (error) {
+								console.error(`[RedditEnhancer] markReadOnOpenExpandos: Error marking post as read: ${url}, `, error);
+							});
+						// Call the function to process any new posts added to the feed
+						enableMarkReadOnOpenExpandos();
 					});
+					expando.setAttribute('re-mark-read-on-open', '');
+
+					// Add a double tick icon to the expando button to indicate you can mark it as read
+					const icon_container = expando.querySelector('svg').closest('span');
+					icon_container.style.gap = '8px';
+					icon_container.style.alignItems = 'center';
+					const parser = new DOMParser();
+					const double_tick_svg_str = `<svg class="re-icon-double-tick" width="22" height="22" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path id="path2" d="m482.08 125.21c-4.9259 6.1e-4 -9.8528 1.9008-13.652 5.6995l-203.2 203.12a8.58 8.58 0 0 1-12.129 0l-91.761-91.673a8.58 8.58 0 0 1-5e-3 -2e-3c-7.5986-7.5986-19.706-7.5986-27.305 0-7.5987 7.5987-7.5986 19.706 0 27.305l111.44 111.44c7.5987 7.5987 19.706 7.5986 27.305 0l222.87-222.87c7.5986-7.5986 7.5986-19.706 0-27.305a8.58 8.58 0 0 1-0.0455-0.10773c-3.7818-3.7178-8.6466-5.5912-13.52-5.5918z" stop-color="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2256" style="paint-order:fill markers stroke"/><path id="path1" d="m364.42 125.21c-4.9268 0-9.8545 1.9002-13.654 5.6995l-136.58 136.52 27.303 27.277 136.49-136.49c7.5986-7.5987 7.5986-19.706 0-27.305a8.58 8.58 0 0 1-0.0455-0.10773c-3.7824-3.7184-8.6482-5.5918-13.522-5.5918zm-334.4 111.44c-4.9266 0-9.8522 1.9002-13.652 5.6995-7.5987 7.5987-7.5986 19.706 0 27.305l111.44 111.44c7.5986 7.5987 19.706 7.5987 27.305 0l31.308-31.308-27.3-27.303-11.55 11.545a8.58 8.58 0 0 1-12.129 0l-91.761-91.673a8.58 8.58 0 0 1-0.0049-2e-3c-3.7993-3.7993-8.7272-5.6995-13.654-5.6995z" stop-color="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2256"/></svg>`;
+					const double_tick_svg = parser.parseFromString(double_tick_svg_str, 'image/svg+xml')?.activeElement;
+					icon_container.append(double_tick_svg);
+
+					// Hide the "Mark as Read" button if it exists on the post
+					if (post.shadowRoot.querySelector('.re-mark-post-as-read')) {
+						post.shadowRoot.querySelector('.re-mark-post-as-read').style.display = 'none';
+					}
+				}
+			})
+			.catch(function (error) {
+				console.error(`[RedditEnhancer] Error checking if a URL has been visited: ${url}, `, error);
 			});
-			expando.setAttribute('re-mark-read-on-open', '');
-		}
 	}
 
 	flag = false;
