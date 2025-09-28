@@ -17,6 +17,9 @@
 	"AddDownloadVideoButtonInfo": {
 		"message": "Dies unterstützt derzeit nur MP4-URLs, nicht M3U8, sodass einige Video-Posts nicht den Download -Schaltfläche haben :/"
 	},
+	"AddMarkPostAsReadButton": {
+		"message": "Fügen Sie jedem Beitrag eine Schaltfläche hinzu, um sie als Lesen zu markieren"
+	},
 	"AddNsfwTag": {
 		"message": "Fügen Sie NSFW-Tag hinzu"
 	},
@@ -790,6 +793,12 @@
 	},
 	"Settings": {
 		"message": "Einstellungen"
+	},
+	"ShowCommentAbsoluteTimestamp": {
+		"message": "Zeigen Sie absolute Zeitstempel zu Kommentaren"
+	},
+	"ShowPostAbsoluteTimestamp": {
+		"message": "Zeigen Sie absolute Zeitstempel auf Posts"
 	},
 	"ShowPostAuthor": {
 		"message": "Post-Autor anzeigen"

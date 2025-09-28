@@ -17,6 +17,9 @@
 	"AddDownloadVideoButtonInfo": {
 		"message": "Cela ne prend actuellement en charge que les URL mp4, pas m3u8, donc certains posts vidéo n'auront pas le bouton de téléchargement :/"
 	},
+	"AddMarkPostAsReadButton": {
+		"message": "Ajouter un bouton à chaque post pour le marquer comme lu"
+	},
 	"AddNsfwTag": {
 		"message": "Ajouter la balise NSFW"
 	},
@@ -790,6 +793,12 @@
 	},
 	"Settings": {
 		"message": "Paramètres"
+	},
+	"ShowCommentAbsoluteTimestamp": {
+		"message": "Montrer des horodatages absolus sur les commentaires"
+	},
+	"ShowPostAbsoluteTimestamp": {
+		"message": "Afficher les horodatages absolus sur les posts"
 	},
 	"ShowPostAuthor": {
 		"message": "Afficher l'auteur du message"

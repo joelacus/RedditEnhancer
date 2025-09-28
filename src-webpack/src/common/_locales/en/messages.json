@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "2.2.1"
+		"message": "2.3.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -19,6 +19,9 @@
 	},
 	"AddDownloadVideoButtonInfo": {
 		"message": "This currently only supports mp4 URLs, not m3u8, so some video posts won't have the download button :/"
+	},
+	"AddMarkPostAsReadButton": {
+		"message": "Add a button to each post to mark it as read"
 	},
 	"AddNsfwTag": {
 		"message": "Add NSFW tag"
@@ -796,6 +799,12 @@
 	},
 	"ShowMemberCount": {
 		"message": "Show legacy subreddit member count"
+	},
+	"ShowCommentAbsoluteTimestamp": {
+		"message": "Show Absolute Timestamps On Comments"
+	},
+	"ShowPostAbsoluteTimestamp": {
+		"message": "Show Absolute Timestamps On Posts"
 	},
 	"ShowPostAuthor": {
 		"message": "Show Post Author"

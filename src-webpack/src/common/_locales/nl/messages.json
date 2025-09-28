@@ -17,6 +17,9 @@
 	"AddDownloadVideoButtonInfo": {
 		"message": "Dit ondersteunt momenteel alleen mp4-URL's, geen m3u8, dus sommige videoberichten zullen de downloadknop niet hebben :/"
 	},
+	"AddMarkPostAsReadButton": {
+		"message": "Voeg een knop toe aan elk bericht om deze te markeren zoals gelezen"
+	},
 	"AddNsfwTag": {
 		"message": "Voeg NSFW-tag toe"
 	},
@@ -790,6 +793,12 @@
 	},
 	"Settings": {
 		"message": "Instellingen"
+	},
+	"ShowCommentAbsoluteTimestamp": {
+		"message": "Toon absolute tijdstempels over opmerkingen"
+	},
+	"ShowPostAbsoluteTimestamp": {
+		"message": "Toon absolute tijdstempels op berichten"
 	},
 	"ShowPostAuthor": {
 		"message": "Toon berichtauteur"
