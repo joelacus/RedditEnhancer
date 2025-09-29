@@ -418,6 +418,22 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Side Menu Top Section: ' + value);
 	});
 
+	// Hide Side Menu Games Section
+	BROWSER_API.storage.sync.get(['hideSideMenuGamesSection'], function (result) {
+		if (result.hideSideMenuGamesSection == true) {
+			document.querySelector('#checkbox-hide-side-menu-games-section').checked = true;
+			document.querySelector('.icon-hide-side-menu-games-section').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-side-menu-games-section').classList.remove('icon-show');
+			document.querySelector('.icon-hide-side-menu-games-section').classList.add('icon-hide');
+			highlightMenuIcon('hide-elements');
+			var value = true;
+		} else if (typeof result.hideSideMenuGamesSection == 'undefined' || result.hideSideMenuGamesSection == false) {
+			document.querySelector('#checkbox-hide-side-menu-games-section').checked = false;
+			var value = false;
+		}
+		console.log('Hide Side Menu Games Section: ' + value);
+	});
+
 	// Hide Side Menu Moderation Section
 	BROWSER_API.storage.sync.get(['hideSideMenuModerationSection'], function (result) {
 		if (result.hideSideMenuModerationSection == true) {
@@ -883,14 +899,14 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Awards: ' + hideAwards);
 	});
 
-    // Hide Search Hero
-    BROWSER_API.storage.sync.get(['hideSearchHero'], function (result) {
-        const hideSearchHero = result.hideSearchHero === true;
-        if (hideSearchHero) highlightMenuIcon('hide-elements');
-        document.querySelector('#checkbox-hide-search-hero').checked = hideSearchHero;
-        document.querySelector('.icon-hide-search-hero').style.backgroundColor = hideSearchHero ? 'var(--accent)' : '';
-        document.querySelector('.icon-hide-search-hero').classList.toggle('icon-show', !hideSearchHero);
-        document.querySelector('.icon-hide-search-hero').classList.toggle('icon-hide', hideSearchHero);
-        console.log('Hide Search Hero: ' + hideSearchHero);
-    });
+	// Hide Search Hero
+	BROWSER_API.storage.sync.get(['hideSearchHero'], function (result) {
+		const hideSearchHero = result.hideSearchHero === true;
+		if (hideSearchHero) highlightMenuIcon('hide-elements');
+		document.querySelector('#checkbox-hide-search-hero').checked = hideSearchHero;
+		document.querySelector('.icon-hide-search-hero').style.backgroundColor = hideSearchHero ? 'var(--accent)' : '';
+		document.querySelector('.icon-hide-search-hero').classList.toggle('icon-show', !hideSearchHero);
+		document.querySelector('.icon-hide-search-hero').classList.toggle('icon-hide', hideSearchHero);
+		console.log('Hide Search Hero: ' + hideSearchHero);
+	});
 }

@@ -428,6 +428,9 @@
 	"HideSideMenuCustomFeedsSection": {
 		"message": "Hide the Custom Feeds Section"
 	},
+	"HideSideMenuGamesSection": {
+		"message": "Hide the Games Section"
+	},
 	"HideSideMenuModerationSection": {
 		"message": "Hide the Moderation Section"
 	},
@@ -797,11 +800,11 @@
 	"Settings": {
 		"message": "Settings"
 	},
-	"ShowMemberCount": {
-		"message": "Show legacy subreddit member count"
-	},
 	"ShowCommentAbsoluteTimestamp": {
 		"message": "Show Absolute Timestamps On Comments"
+	},
+	"ShowMemberCount": {
+		"message": "Show legacy subreddit member count"
 	},
 	"ShowPostAbsoluteTimestamp": {
 		"message": "Show Absolute Timestamps On Posts"

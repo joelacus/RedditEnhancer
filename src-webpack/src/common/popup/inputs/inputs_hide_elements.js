@@ -526,6 +526,22 @@ document.querySelector('#checkbox-hide-side-menu-top-section').addEventListener(
 	sendMessage({ hideSideMenuTopSection: hideSideMenuTopSection });
 });
 
+// Toggle - Hide Side Menu Games Section
+document.querySelector('#checkbox-hide-side-menu-games-section').addEventListener('change', function () {
+	const hideSideMenuGamesSection = document.querySelector('#checkbox-hide-side-menu-games-section').checked;
+	if (hideSideMenuGamesSection) {
+		document.querySelector('.icon-hide-side-menu-games-section').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-side-menu-games-section').classList.remove('icon-show');
+		document.querySelector('.icon-hide-side-menu-games-section').classList.add('icon-hide');
+	} else {
+		document.querySelector('.icon-hide-side-menu-games-section').style.backgroundColor = '';
+		document.querySelector('.icon-hide-side-menu-games-section').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-side-menu-games-section').classList.add('icon-show');
+	}
+	BROWSER_API.storage.sync.set({ hideSideMenuGamesSection: hideSideMenuGamesSection });
+	sendMessage({ hideSideMenuGamesSection: hideSideMenuGamesSection });
+});
+
 // Toggle - Hide Side Menu Moderation Section
 document.querySelector('#checkbox-hide-side-menu-moderation-section').addEventListener('change', function () {
 	const hideSideMenuModerationSection = document.querySelector('#checkbox-hide-side-menu-moderation-section').checked;
@@ -1070,16 +1086,16 @@ document.querySelector('#checkbox-hide-awards').addEventListener('change', funct
 
 // Toggle - Hide Search Hero
 document.querySelector('#checkbox-hide-search-hero').addEventListener('change', function () {
-    const hideSearchHero = document.querySelector('#checkbox-hide-search-hero').checked;
-    if (hideSearchHero) {
-        document.querySelector('.icon-hide-search-hero').style.backgroundColor = 'var(--accent)';
-        document.querySelector('.icon-hide-search-hero').classList.remove('icon-show');
-        document.querySelector('.icon-hide-search-hero').classList.add('icon-hide');
-    } else {
-        document.querySelector('.icon-hide-search-hero').style.backgroundColor = '';
-        document.querySelector('.icon-hide-search-hero').classList.remove('icon-hide');
-        document.querySelector('.icon-hide-search-hero').classList.add('icon-show');
-    }
-    BROWSER_API.storage.sync.set({ hideSearchHero: hideSearchHero });
-    sendMessage({ hideSearchHero: hideSearchHero });
+	const hideSearchHero = document.querySelector('#checkbox-hide-search-hero').checked;
+	if (hideSearchHero) {
+		document.querySelector('.icon-hide-search-hero').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-hide-search-hero').classList.remove('icon-show');
+		document.querySelector('.icon-hide-search-hero').classList.add('icon-hide');
+	} else {
+		document.querySelector('.icon-hide-search-hero').style.backgroundColor = '';
+		document.querySelector('.icon-hide-search-hero').classList.remove('icon-hide');
+		document.querySelector('.icon-hide-search-hero').classList.add('icon-show');
+	}
+	BROWSER_API.storage.sync.set({ hideSearchHero: hideSearchHero });
+	sendMessage({ hideSearchHero: hideSearchHero });
 });

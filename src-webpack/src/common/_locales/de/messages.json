@@ -425,6 +425,9 @@
 	"HideSideMenuCustomFeedsSection": {
 		"message": "Blenden Sie den Abschnitt „Benutzerdefinierte Feeds“ aus"
 	},
+	"HideSideMenuGamesSection": {
+		"message": "Den Abschnitt „Spiele“ ausblenden"
+	},
 	"HideSideMenuModerationSection": {
 		"message": "Moderationsbereich ausblenden"
 	},
@@ -796,6 +799,9 @@
 	},
 	"ShowCommentAbsoluteTimestamp": {
 		"message": "Zeigen Sie absolute Zeitstempel zu Kommentaren"
+	},
+	"ShowMemberCount": {
+		"message": "Legacy Subreddit Mitglied zählen"
 	},
 	"ShowPostAbsoluteTimestamp": {
 		"message": "Zeigen Sie absolute Zeitstempel auf Posts"

@@ -425,6 +425,9 @@
 	"HideSideMenuCustomFeedsSection": {
 		"message": "Nascondi la sezione 'Feed personalizzati'"
 	},
+	"HideSideMenuGamesSection": {
+		"message": "Nascondi la sezione dei giochi"
+	},
 	"HideSideMenuModerationSection": {
 		"message": "Nascondi la sezione di Moderazione"
 	},
@@ -796,6 +799,9 @@
 	},
 	"ShowCommentAbsoluteTimestamp": {
 		"message": "Mostra timestamp assoluti sui commenti"
+	},
+	"ShowMemberCount": {
+		"message": "Mostra il numero di membri del subreddit legacy"
 	},
 	"ShowPostAbsoluteTimestamp": {
 		"message": "Mostra timestamp assoluti sui post"

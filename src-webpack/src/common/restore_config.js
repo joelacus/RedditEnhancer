@@ -232,6 +232,7 @@ async function restoreBackup(json) {
 				'hideSideMenuCommunitiesSection',
 				'hideSideMenuCustomFeedsSection',
 				'hideSideMenuFavouriteButton',
+				'hideSideMenuGamesSection',
 				'hideSideMenuModerationSection',
 				'hideSideMenuOld',
 				'hideSideMenuRecentSection',

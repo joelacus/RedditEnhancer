@@ -8,8 +8,9 @@
 
 /* === Run by Tweak Loader when the Page Loads === */
 export function loadHideSideMenuSections() {
-	BROWSER_API.storage.sync.get(['hideSideMenuTopSection', 'hideSideMenuModerationSection', 'hideSideMenuRecentSection', 'hideSideMenuCommunitiesSection', 'hideSideMenuCustomFeedsSection', 'hideSideMenuResourcesSection', 'hideSideMenuTopicsSection'], function (result) {
+	BROWSER_API.storage.sync.get(['hideSideMenuTopSection', 'hideSideMenuGamesSection', 'hideSideMenuModerationSection', 'hideSideMenuRecentSection', 'hideSideMenuCommunitiesSection', 'hideSideMenuCustomFeedsSection', 'hideSideMenuResourcesSection', 'hideSideMenuTopicsSection'], function (result) {
 		if (result.hideSideMenuTopSection) hideSideMenuTopSection(true);
+		if (result.hideSideMenuGamesSection) hideSideMenuGamesSection(true);
 		if (result.hideSideMenuModerationSection) hideSideMenuModerationSection(true);
 		if (result.hideSideMenuRecentSection) hideSideMenuRecentSection(true);
 		if (result.hideSideMenuCommunitiesSection) hideSideMenuCommunitiesSection(true);
@@ -46,6 +47,36 @@ function enableHideSideMenuTopSection() {
 // Disable Hide the Top Section - RV3
 function disableHideSideMenuTopSection() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-top-section"]');
+	dynamicStyleElements.forEach((element) => {
+		document.head.removeChild(element);
+	});
+}
+
+/* = Hide Games Section = */
+export function hideSideMenuGamesSection(value) {
+	if (redditVersion === 'newnew' && value) {
+		enableHideSideMenuGamesSection();
+	} else {
+		disableHideSideMenuGamesSection();
+	}
+}
+
+// Enable Hide the Games Section - RV3
+function enableHideSideMenuGamesSection() {
+	if (!document.head.querySelector('style[id="re-hide-side-menu-games-section"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-hide-side-menu-games-section';
+		styleElement.textContent = `shreddit-app reddit-sidebar-nav  faceplate-tracker[noun="games_drawer"],
+									shreddit-app reddit-sidebar-nav  faceplate-tracker[noun="games_drawer"] + hr {
+										display: none !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
+}
+
+// Disable Hide the Games Section - RV3
+function disableHideSideMenuGamesSection() {
+	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-games-section"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);
 	});

@@ -425,6 +425,9 @@
 	"HideSideMenuCustomFeedsSection": {
 		"message": "Verberg het gedeelte 'Aangepaste feeds'"
 	},
+	"HideSideMenuGamesSection": {
+		"message": "Verberg de sectie Games"
+	},
 	"HideSideMenuModerationSection": {
 		"message": "Verberg de sectie Moderatie"
 	},
@@ -796,6 +799,9 @@
 	},
 	"ShowCommentAbsoluteTimestamp": {
 		"message": "Toon absolute tijdstempels over opmerkingen"
+	},
+	"ShowMemberCount": {
+		"message": "Toon het aantal leden van de oude subreddit"
 	},
 	"ShowPostAbsoluteTimestamp": {
 		"message": "Toon absolute tijdstempels op berichten"

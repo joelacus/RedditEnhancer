@@ -25,7 +25,7 @@ import { hidePostHiddenMessage } from './tweaks/hide_elements/hide_post_hidden_m
 import { hidePromoted } from './tweaks/hide_elements/hide_promoted';
 import { hideRedditPremium } from './tweaks/hide_elements/hide_reddit_premium';
 import { hideSideMenuOld, hideSideMenu } from './tweaks/hide_elements/hide_side_menu';
-import { hideSideMenuCommunitiesSection, hideSideMenuCustomFeedsSection, hideSideMenuModerationSection, hideSideMenuRecentSection, hideSideMenuResourcesSection, hideSideMenuTopSection, hideSideMenuTopicsSection } from './tweaks/hide_elements/hide_side_menu_sections';
+import { hideSideMenuCommunitiesSection, hideSideMenuCustomFeedsSection, hideSideMenuGamesSection, hideSideMenuModerationSection, hideSideMenuRecentSection, hideSideMenuResourcesSection, hideSideMenuTopSection, hideSideMenuTopicsSection } from './tweaks/hide_elements/hide_side_menu_sections';
 import { hideUsername, hideKarma } from './tweaks/hide_elements/hide_username_and_karma';
 import { hideUserProfilePics } from './tweaks/hide_elements/hide_user_profile_pics';
 import { imageScroll } from './tweaks/media/scroll_images';
@@ -256,6 +256,7 @@ const functionRegistry = {
 	hideSideMenuCommunitiesSection,
 	hideSideMenuCustomFeedsSection,
 	hideSideMenuFavouriteButton,
+	hideSideMenuGamesSection,
 	hideSideMenuModerationSection,
 	hideSideMenuOld,
 	hideSideMenuRecentSection,

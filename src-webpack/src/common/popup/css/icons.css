@@ -560,3 +560,7 @@
 	mask: url('../../icons/ui/icon-double-tick.svg');
 	-webkit-mask: url('../../icons/ui/icon-double-tick.svg');
 }
+.icon-members {
+	mask: url('../../icons/ui/people-group-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/people-group-solid-full.svg');
+}

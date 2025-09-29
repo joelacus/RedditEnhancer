@@ -1,10 +1,15 @@
 version 2.3.0
 v [Latest UI V3, Old UI V1]
   - Added options to show absolute local timestamps on posts and comments.
+  - Added an option to fetch the subreddit member count from Reddit API and display in the subreddit info sidebar, in place of the new "Weekly visitors" and "Weekly contributions" on v3 UI + restore the "readers" count on v1 UI. [credit: @biminhc1 (Reddit) @bmndc (Github)].
 v [Latest UI V3]
+  - Added an option to hide the "Games" section in the left side menu.
   - Added an option to add a button to posts to mark them as read. Works with compact and card view posts.
   - If "Mark posts as read when opening expandos in Compact view" is enabled, the post expando button will now have an additional double tick icon to show that it will mark the post as read.
-  - Fixed "Add Scrollbars To Images" cutting off part of the image.
+  - Fixed "Add Scrollbars To Images" sometimes cutting off part of the image.
+  - Fixed an issue where default feed sort options may not work after reloading the page. [credit: @biminhc1 (Reddit) @bmndc (Github)].
+  - Fixed an issue where the side menu is no longer attached to the header after navigating to another page when "Display page and user info in header" is on. [credit: @biminhc1 (Reddit) @bmndc (Github)].
+  - Fixed a style issue where the "View discussions on other communities" link is misaligned to the left of the comment box. [credit: @biminhc1 (Reddit) @bmndc (Github)].
   - Other small bug fixes.
 
 version 2.2.0
