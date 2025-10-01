@@ -53,6 +53,18 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Sub Sidebar: ' + value);
 	});
 
+	// Hide Username In Subreddit Sidebar
+	BROWSER_API.storage.sync.get(['hideUsernameInSubSidebar'], function (result) {
+		const hideUsernameInSubSidebar = typeof result.hideUsernameInSubSidebar === 'boolean' ? result.hideUsernameInSubSidebar : false;
+		document.querySelector('#checkbox-hide-username-in-sub-sidebar').checked = hideUsernameInSubSidebar;
+		const icon = document.querySelector('.icon-hide-username-in-sub-sidebar');
+		icon.style.backgroundColor = hideUsernameInSubSidebar ? 'var(--accent)' : '';
+		icon.classList.toggle('icon-show', !hideUsernameInSubSidebar);
+		icon.classList.toggle('icon-hide', hideUsernameInSubSidebar);
+		if (hideUsernameInSubSidebar) highlightMenuIcon('hide-elements');
+		console.log(`Hide Username In Sub Sidebar: ${hideUsernameInSubSidebar}`);
+	});
+
 	// Hide Post Sidebar
 	BROWSER_API.storage.sync.get(['hidePostSidebar'], function (result) {
 		if (result.hidePostSidebar == true) {

@@ -5,6 +5,7 @@ v [Latest UI V3, Old UI V1]
 v [Latest UI V3]
   - Added an option to hide the "Games" section in the left side menu.
   - Added an option to add a button to posts to mark them as read. Works with compact and card view posts.
+  - Added an option to hide the username and profile picture in the flair section of the subreddit side bar.
   - If "Mark posts as read when opening expandos in Compact view" is enabled, the post expando button will now have an additional double tick icon to show that it will mark the post as read.
   - Fixed "Add Scrollbars To Images" sometimes cutting off part of the image.
   - Fixed an issue where default feed sort options may not work after reloading the page. [credit: @biminhc1 (Reddit) @bmndc (Github)].

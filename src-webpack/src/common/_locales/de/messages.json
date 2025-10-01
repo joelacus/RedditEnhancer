@@ -455,6 +455,9 @@
 	"HideTrendingTodayInSearchResults": {
 		"message": "„Trending Today“ in der Suchleiste ausblenden"
 	},
+	"HideUserNameInTheFlairSection": {
+		"message": "Benutzernamen im Flair-Bereich der Subreddit-Seitenleiste verbergen"
+	},
 	"HideUserProfilePics": {
 		"message": "Benutzerprofilbilder in den Kommentaren ausblenden"
 	},

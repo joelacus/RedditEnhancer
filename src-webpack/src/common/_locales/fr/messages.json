@@ -455,6 +455,9 @@
 	"HideTrendingTodayInSearchResults": {
 		"message": "Masquer « Tendance du jour » dans la barre de recherche"
 	},
+	"HideUserNameInTheFlairSection": {
+		"message": "Masquer le nom d'utilisateur dans la section flair de la barre latérale du subreddit"
+	},
 	"HideUserProfilePics": {
 		"message": "Masquer les photos de profil utilisateur dans les commentaires"
 	},

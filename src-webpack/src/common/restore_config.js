@@ -245,6 +245,7 @@ async function restoreBackup(json) {
 				'hideSubSidebarExceptionSubList',
 				'hideTrendingTodayInSearchResults',
 				'hideUsername',
+				'hideUsernameInSubSidebar',
 				'hideUserProfilePics',
 				'hideUserSidebar',
 				'hideVideoRecommendations',

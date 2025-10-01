@@ -146,6 +146,7 @@ import { hideSearchHero } from './tweaks/hide_elements/hide_search_hero';
 import { showCommentAbsoluteTimestamp, showPostAbsoluteTimestamp } from './tweaks/productivity/show_absolute_timestamps';
 import { markPostAsReadButton } from './tweaks/productivity/mark_post_as_read_button';
 import { showMemberCount } from './tweaks/productivity/show_member_count';
+import { hideUsernameInSubSidebar } from './tweaks/hide_elements/hide_username_in_sub_sidebar';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -266,6 +267,7 @@ const functionRegistry = {
 	hideSubSidebar,
 	hideTrendingTodayInSearchResults,
 	hideUsername,
+	hideUsernameInSubSidebar,
 	hideUserProfilePics,
 	hideUserSidebar,
 	hideVideoRecommendations,

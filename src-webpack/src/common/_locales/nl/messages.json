@@ -455,6 +455,9 @@
 	"HideTrendingTodayInSearchResults": {
 		"message": "Verberg 'trending vandaag' in de zoekbalk"
 	},
+	"HideUserNameInTheFlairSection": {
+		"message": "Gebruikersnaam verbergen in de subreddit-zijbalk flair-sectie"
+	},
 	"HideUserProfilePics": {
 		"message": "Verberg gebruikersprofielfoto's in de reacties"
 	},

@@ -447,7 +447,7 @@
 		"message": "Hide the Topics Section"
 	},
 	"HideSubSidebar": {
-		"message": "Hide the Sub Reddit Sidebar"
+		"message": "Hide the Subreddit Sidebar"
 	},
 	"HideSubSidebarBlacklistInfo": {
 		"message": "Hide globally except for on these subreddits:"
@@ -457,6 +457,9 @@
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "Hide 'Trending Today' in the Searchbar"
+	},
+	"HideUserNameInTheFlairSection": {
+		"message": "Hide username in the subreddit sidebar flair section"
 	},
 	"HideUserProfilePics": {
 		"message": "Hide user profile pictures in the comments"

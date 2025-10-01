@@ -88,6 +88,17 @@ document.querySelector('#checkbox-hide-sub-sidebar').addEventListener('change', 
 	}
 });
 
+// Toggle - Hide Username In Sub Sidebar
+document.querySelector('#checkbox-hide-username-in-sub-sidebar').addEventListener('change', function () {
+	const hideUsernameInSubSidebar = this.checked;
+	const icon = document.querySelector('.icon-hide-username-in-sub-sidebar');
+	icon.style.backgroundColor = hideUsernameInSubSidebar ? 'var(--accent)' : '';
+	icon.classList.toggle('icon-show', !hideUsernameInSubSidebar);
+	icon.classList.toggle('icon-hide', hideUsernameInSubSidebar);
+	BROWSER_API.storage.sync.set({ hideUsernameInSubSidebar });
+	sendMessage({ hideUsernameInSubSidebar });
+});
+
 // Toggle - Hide Post Sidebar
 document.querySelector('#checkbox-hide-post-sidebar').addEventListener('change', function () {
 	const hidePostSidebar = document.querySelector('#checkbox-hide-post-sidebar').checked;

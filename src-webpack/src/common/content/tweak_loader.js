@@ -55,6 +55,7 @@ import { loadFullWidthExpandos } from './tweaks/media/full_width_expandos';
 import { loadShowCommentAbsoluteTimestamp, loadShowPostAbsoluteTimestamp } from './tweaks/productivity/show_absolute_timestamps';
 import { loadMarkPostAsReadButton } from './tweaks/productivity/mark_post_as_read_button';
 import { loadShowMemberCount } from './tweaks/productivity/show_member_count';
+import { loadHideUsernameInSubSidebar } from './tweaks/hide_elements/hide_username_in_sub_sidebar';
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -83,6 +84,7 @@ export function loadTweaks() {
 		loadOpenSubInNewTab();
 		loadShowPostAbsoluteTimestamp();
 		loadMarkPostAsReadButton();
+		loadHideUsernameInSubSidebar();
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
