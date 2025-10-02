@@ -75,13 +75,14 @@ I welcome any help if you would like to improve or contribute new language trans
 ## Hide Elements
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
+|Hide "Give Awards" button|Hides the 'Give Awards' button on comments and posts.|3|
+|Hide "Trending Today" in the Search Results|Hide the "Trending Today" section in the search bar.|3|
 |Hide Blank Thumbnails In Compact View|Hides the blank thumbnails on text posts in "compact view" feeds.|3<br>1|
 |Hide Buttons In The Header|This allows you to individually hide the buttons in the header you don't use to clean up the interface.|3|
 |Hide Comment Karma|Hide the karma on comments.|3<br>1|
 |Hide Community Highlights|Hide the "Community Highlights" section at the top of some subreddits.|3|
 |Hide Community Status|Hide the community status icons next to the subreddit name in feeds and the sidebar.|3|
 |Hide Get New Reddit|Hides the "Get New Reddit" button on old reddit.|1|
-|Hide "Give Awards" button|Hides the 'Give Awards' button on comments and posts.|3|
 |Hide Header subreddit List|Hides the sub reddit list in the header on old reddit.|1|
 |Hide Home Feed|Hides the home feed entirely.|3<br>1|
 |Hide NSFW in the Search Results|Hide the type-a-head NSFW search results in the search bar.|3|
@@ -105,8 +106,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide The Sub Reddit Sidebar|Hides the sidebar on sub reddit pages.|3|
 |Hide The User Sidebar|Hides the sidebar on profile/user pages.|3|
 |Hide Thumbnails in Compact View|Hides the thumbnails on posts when viewing a feed in compact view.|3<br>1|
-|Hide "Trending Today" in the Search Results|Hide the "Trending Today" section in the search bar.|3|
 |Hide Username and/or Karma|You can hide your username and/or karma in the top bar.|1|
+|Hide username in the subreddit sidebar flair section|Hides the username and profile picture in the edit flair section of the subreddit sidebar.|3|
 |Hide Vote Buttons|Hide the vote buttons on posts and comments.|3<br>1|
 
 ## Productivity
@@ -199,14 +200,14 @@ Feel free to add any new languages and/or region differences.
 |[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|100%|
 |[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|100%|
 |[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|100%|
-|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|87.9%|
-|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|76.1%|
-|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|63.6%|
-|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|63.6%|
-|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|48.5%|
-|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|32.7%|
-|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|30.6%|
-|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|26.4%|
+|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|87.6%|
+|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|75.8%|
+|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|63.4%|
+|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|63.4%|
+|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|48.3%|
+|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|32.6%|
+|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|30.5%|
+|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|26.3%|
 
 # Build
 Clone repo and cd to build directory:
