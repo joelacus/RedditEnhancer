@@ -1,3 +1,7 @@
+version 2.3.1
+v [Latest UI V3]
+  - Fixed "Always Show Post And Comment Options" not working due to a website update.
+
 version 2.3.0
 v [Latest UI V3, Old UI V1]
   - Added options to show absolute local timestamps on posts and comments.

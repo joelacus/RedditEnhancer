@@ -62,7 +62,7 @@ function attachPostMenu(post) {
 	// Check for all necessary elements
 	const overflowMenuContainer = post.querySelector('shreddit-post-overflow-menu');
 	if (!overflowMenuContainer) return;
-	const overflowMenu = overflowMenuContainer.shadowRoot?.querySelector('faceplate-dropdown-menu, faceplate-bottom-sheet');
+	const overflowMenu = overflowMenuContainer.shadowRoot?.querySelector('faceplate-dropdown-menu, faceplate-bottom-sheet, faceplate-menu');
 	const overflowMenuBtnPlaceholder = post.querySelector('[id^="feed-post-credit-bar-t3_"] + span, span:has(> pdp-back-button) + span');
 	if (!overflowMenu || !overflowMenuBtnPlaceholder) return;
 	const placeholder = post.querySelector('shreddit-async-loader[bundlename="shreddit_post_overflow_menu"]');
