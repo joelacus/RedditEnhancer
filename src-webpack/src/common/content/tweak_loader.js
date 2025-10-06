@@ -249,6 +249,7 @@ export function loadTweaks() {
 			recursive: true,
 			done: function (el) {
 				loadAlwaysShowPostOptions();
+				moveSortDropdown();
 			},
 		});
 

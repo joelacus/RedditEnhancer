@@ -248,7 +248,8 @@ async function enableAttachSideMenuHeader() {
 			.re-header-menu > div > span {
 				font-weight: 600;
 			}
-			.re-header-menu #left-nav-persistent-container {
+			.re-header-menu #left-nav-persistent-container,
+			.re-header-menu #profile-left-nav-persistent-container {
 				display: none;
 			}
 			.re-header-menu reddit-sidebar-nav {
@@ -483,13 +484,14 @@ async function attachPageTitle() {
 			case 'profile_post_page':
 			case 'profile_post_page_comments':
 			case 'profile_serp':
-				title = 'u/' + window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)?.[1];
+				const username = window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)?.[1];
+				title = 'u/' + username;
 				data = (
 					await BROWSER_API.runtime.sendMessage({
 						actions: [
 							{
 								action: 'fetchData',
-								url: `https://www.reddit.com/user/${title}/about.json`,
+								url: `https://www.reddit.com/user/${username}/about.json`,
 							},
 						],
 					})
@@ -579,14 +581,14 @@ function attachSideMenu(sideMenu) {
 	const banner = () => showBannerMessage('warning', "Reddit Enhancer wasn't able to attach the side menu. Please refresh the page. Sorry!");
 	sideMenu.querySelector('div').addEventListener('click', banner);
 
-	const sideMenu2 = document.querySelector('flex-left-nav-container #left-nav-persistent-container');
+	const sideMenu2 = document.querySelector('flex-left-nav-container #left-nav-persistent-container, #profile-left-nav-persistent-container');
 	if (sideMenu2) {
 		sideMenu2.setAttribute('style', '');
 		sideMenu.appendChild(sideMenu2);
 		// Display or hide the side menu when clicking on the header button
 		sideMenu.querySelector('div').addEventListener('click', (e) => {
 			e.stopPropagation();
-            const menu = document.querySelector('.re-header-menu #left-nav-persistent-container');
+            const menu = document.querySelector('.re-header-menu #left-nav-persistent-container, .re-header-menu #profile-left-nav-persistent-container');
             if (menu) menu.style.display = getComputedStyle(menu).display === 'none' ? 'block' : 'none';
 		});
 		// Hide the side menu when clicking outside of it
@@ -689,9 +691,13 @@ export function subredditDisplayNameBanner(value) {
 }
 
 export function moveSortDropdown() {
-	const sortDropdown = document.querySelector('main.main > div.flex.mb-xs, div.my-xs.mx-2xs');
-	const mainContainer = document.querySelector('#subgrid-container .main-container');
-	if (sortDropdown && mainContainer && !document.querySelector('#subgrid-container > .mb-xs, #subgrid-container > .my-xs')) {
-		mainContainer.insertAdjacentElement('beforebegin', sortDropdown);
-	}
+	BROWSER_API.storage.sync.get(['fullWidthBanner'], function (result) {
+		if (result.fullWidthBanner) {
+			const sortDropdown = document.querySelector('main.main > div.flex.mb-xs, div.my-xs.mx-2xs');
+			const mainContainer = document.querySelector('#subgrid-container .main-container');
+			if (sortDropdown && mainContainer && !document.querySelector('#subgrid-container > .mb-xs, #subgrid-container > .my-xs')) {
+				mainContainer.insertAdjacentElement('beforebegin', sortDropdown);
+			}
+		}
+	});
 }

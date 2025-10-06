@@ -189,9 +189,12 @@ function attachPostMenu(post) {
 		}
 	}
 
-	if (overflowMenu.tagName === 'FACEPLATE-BOTTOM-SHEET') {
+	// Move the overflow menu to the post action bar
+	if (overflowMenu.tagName === 'FACEPLATE-BOTTOM-SHEET' || overflowMenu.tagName === 'FACEPLATE-MENU') {
 		const button = overflowMenuContainer.shadowRoot?.querySelector('button');
 		if (button) button.className = 'button flex flex-row justify-center items-center font-semibold relative text-12 button-plain-weak ' + 'inline-flex items-center p-[6px] mr-2xs bg-transparent hover:bg-secondary-background-hover rounded-sm';
+		const popup = overflowMenuContainer.shadowRoot?.querySelector('rpl-dropdown');
+		if (popup) popup.setAttribute('exportparts', 'popper--popup');
 		overflowMenuContainer.setAttribute('slot', 'overflow-menu');
 		post.appendChild(overflowMenuContainer);
 	}
@@ -303,18 +306,20 @@ function attachCommentMenu(commentActionRow) {
 	}
 
 	// Stylise the current options on screen: reply, share, award, insight
-	const commentBtn = commentActionRow.querySelector('faceplate-tracker[noun="reply_comment"] button');
+	const commentBtn = commentActionRow.querySelector('faceplate-tracker[noun="reply_comment"] button, faceplate-tracker[noun="reply"] a');
 	if (commentBtn) {
-		commentBtn.setAttribute('style', 'height: initial;');
+		commentBtn.setAttribute('style', 'height:initial;font-weight:600;');
 		commentBtn.classList.replace('px-sm', 'p-2xs');
 	}
 
 	const shareBtnContainer = commentActionRow.querySelector('shreddit-comment-share-button');
 	shareBtnContainer?.classList.remove('hidden');
 
-	const shareBtn = shareBtnContainer?.querySelector('button');
+	const shareBtn = shareBtnContainer && commentActionRow.getAttribute('telemetry-source') === 'profile'
+		? shareBtnContainer.shadowRoot.querySelector('button')
+		: shareBtnContainer.querySelector('button');
 	if (shareBtn) {
-		shareBtn.setAttribute('style', 'height: initial;');
+		shareBtn.setAttribute('style', 'height:initial;border-radius:var(--re-theme-border-radius,4px);');
 		shareBtn.classList.replace('px-sm', 'p-2xs');
 
 		const icon = shareBtn.querySelector('span > span');
