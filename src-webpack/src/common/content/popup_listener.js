@@ -144,7 +144,7 @@ import { addDownloadVideoButton } from './tweaks/media/add_download_video_button
 import { fullWidthExpandos } from './tweaks/media/full_width_expandos';
 import { hideSearchHero } from './tweaks/hide_elements/hide_search_hero';
 import { showCommentAbsoluteTimestamp, showPostAbsoluteTimestamp } from './tweaks/productivity/show_absolute_timestamps';
-import { markPostAsReadButton } from './tweaks/productivity/mark_post_as_read_button';
+import { markPostAsReadButton } from './tweaks/productivity/mark_read_on_open_expandos';
 import { showMemberCount } from './tweaks/productivity/show_member_count';
 import { hideUsernameInSubSidebar } from './tweaks/hide_elements/hide_username_in_sub_sidebar';
 
