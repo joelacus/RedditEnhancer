@@ -52,6 +52,11 @@ function enableHidePostDivider() {
 									article:has(> shreddit-post[view-type="compactView"]) {
 										margin-bottom: var(--re-post-separator-height, 0) !important;
 									}
+									shreddit-app[routename^='profile_'] a[href="/settings/profile/#visibility"],
+									shreddit-profile-comment {
+										margin-top: 0 !important;
+										margin-bottom: var(--re-post-separator-height, 10px) !important;
+									}
 									main#main-content search-telemetry-tracker > div,
 									main.main search-telemetry-tracker > div,
 									main.main post-consume-tracker > div {
@@ -113,6 +118,7 @@ function enableHidePostDivider() {
 										}
 										#mod-recruitment-banner {
 											background-color: var(--re-theme-sidebar-bg, var(--color-neutral-background-weak));
+											border: 1px solid var(--re-theme-post-border, transparent);
 											backdrop-filter: blur(var(--re-theme-blur));
 											border-radius: var(--re-theme-border-radius, 8px);
 											margin: 1rem 0;
@@ -125,12 +131,12 @@ function enableHidePostDivider() {
 											> .py-md {
 												padding: 0;
 											}
-											shreddit-subreddit-header,
 											::part(header),
 											::part(achievements-entrypoint),
 											shreddit-subreddit-header ~ div.px-md,
 											shreddit-subreddit-header ~ faceplate-expandable-section-helper > details {
 												background-color: var(--color-neutral-background-weak);
+												border: 1px solid var(--re-theme-post-border, transparent);
 												backdrop-filter: blur(var(--re-theme-blur));
 												margin-bottom: 1rem;
 												border-radius: var(--re-theme-border-radius, 8px);
@@ -212,6 +218,27 @@ function enableHidePostDivider() {
 										}
 										shreddit-app[pagetype='post_submit'] #right-sidebar-container section {
 											background-color: var(--re-theme-sidebar-bg, var(--color-neutral-background-weak));
+											border: 1px solid var(--re-theme-post-border, transparent);
+											backdrop-filter: blur(var(--re-theme-blur));
+											border-radius: var(--re-theme-border-radius, 8px);
+											margin: 1rem 0;
+											padding: 0;
+											
+											&:has(> div > h2) h2,
+											&:has(faceplate-tracker[source="rules_widget"], community-author-flair) > div > div:has(> h2) {
+												margin: -.75rem -.75rem .75rem -.75rem;
+												padding: .75rem;
+												padding-bottom: 0;
+												min-height: 28px;
+												background-color: var(--color-tone-4);
+												border-top-left-radius: var(--re-theme-border-radius, 8px);
+												border-top-right-radius: var(--re-theme-border-radius, 8px);
+											}
+											
+											&:has(> div > h2) > div,
+											&:has(faceplate-tracker[source="rules_widget"], community-author-flair) > div {
+												padding: .75rem;
+											}
 										}
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
