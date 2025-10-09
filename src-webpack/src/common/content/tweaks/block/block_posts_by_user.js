@@ -51,7 +51,7 @@ function updateUserList(list) {
 	userList = list
 		.split(',')
 		.map((word) => word.trim())
-		.filter((item) => item !== '');
+		.filter((item) => item !== '' && item !== '*');
 }
 
 // Enable Hide Blocked User Posts - RV1
@@ -60,7 +60,7 @@ function enableHideBlockedUserPostsRV1() {
 		const authorText = post.querySelector('a.author');
 		if (!authorText) return;
 
-		if (userList.some((word) => new RegExp(`\\b${word}\\b`).test(authorText))) {
+		if (userList.some((word) => new RegExp(`\\b${word.replace(/\*/g, '.*')}\\b`, 'i').test(authorText))) {
 			post.classList.add('re-hide');
 		} else {
 			post.classList.remove('re-hide');
@@ -75,7 +75,7 @@ function filterBlockedUserPost(post) {
 	const authorText = post.querySelector('shreddit-post').getAttribute('author');
 	if (!authorText) return;
 
-	if (userList.some((word) => new RegExp(`\\b${word}\\b`).test(authorText))) {
+	if (userList.some((word) => new RegExp(`\\b${word.replace(/\*/g, '.*')}\\b`, 'i').test(authorText))) {
 		post.classList.add('re-hide');
 	} else {
 		post.classList.remove('re-hide');
