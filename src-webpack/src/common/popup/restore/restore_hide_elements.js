@@ -53,6 +53,18 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Sub Sidebar: ' + value);
 	});
 
+	// Hide Username In Subreddit Sidebar
+	BROWSER_API.storage.sync.get(['hideUsernameInSubSidebar'], function (result) {
+		const hideUsernameInSubSidebar = typeof result.hideUsernameInSubSidebar === 'boolean' ? result.hideUsernameInSubSidebar : false;
+		document.querySelector('#checkbox-hide-username-in-sub-sidebar').checked = hideUsernameInSubSidebar;
+		const icon = document.querySelector('.icon-hide-username-in-sub-sidebar');
+		icon.style.backgroundColor = hideUsernameInSubSidebar ? 'var(--accent)' : '';
+		icon.classList.toggle('icon-show', !hideUsernameInSubSidebar);
+		icon.classList.toggle('icon-hide', hideUsernameInSubSidebar);
+		if (hideUsernameInSubSidebar) highlightMenuIcon('hide-elements');
+		console.log(`Hide Username In Sub Sidebar: ${hideUsernameInSubSidebar}`);
+	});
+
 	// Hide Post Sidebar
 	BROWSER_API.storage.sync.get(['hidePostSidebar'], function (result) {
 		if (result.hidePostSidebar == true) {
@@ -416,6 +428,22 @@ export function restorePopupHideElementsOptions() {
 			var value = false;
 		}
 		console.log('Hide Side Menu Top Section: ' + value);
+	});
+
+	// Hide Side Menu Games Section
+	BROWSER_API.storage.sync.get(['hideSideMenuGamesSection'], function (result) {
+		if (result.hideSideMenuGamesSection == true) {
+			document.querySelector('#checkbox-hide-side-menu-games-section').checked = true;
+			document.querySelector('.icon-hide-side-menu-games-section').style.backgroundColor = 'var(--accent)';
+			document.querySelector('.icon-hide-side-menu-games-section').classList.remove('icon-show');
+			document.querySelector('.icon-hide-side-menu-games-section').classList.add('icon-hide');
+			highlightMenuIcon('hide-elements');
+			var value = true;
+		} else if (typeof result.hideSideMenuGamesSection == 'undefined' || result.hideSideMenuGamesSection == false) {
+			document.querySelector('#checkbox-hide-side-menu-games-section').checked = false;
+			var value = false;
+		}
+		console.log('Hide Side Menu Games Section: ' + value);
 	});
 
 	// Hide Side Menu Moderation Section
@@ -883,14 +911,14 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Awards: ' + hideAwards);
 	});
 
-    // Hide Search Hero
-    BROWSER_API.storage.sync.get(['hideSearchHero'], function (result) {
-        const hideSearchHero = result.hideSearchHero === true;
-        if (hideSearchHero) highlightMenuIcon('hide-elements');
-        document.querySelector('#checkbox-hide-search-hero').checked = hideSearchHero;
-        document.querySelector('.icon-hide-search-hero').style.backgroundColor = hideSearchHero ? 'var(--accent)' : '';
-        document.querySelector('.icon-hide-search-hero').classList.toggle('icon-show', !hideSearchHero);
-        document.querySelector('.icon-hide-search-hero').classList.toggle('icon-hide', hideSearchHero);
-        console.log('Hide Search Hero: ' + hideSearchHero);
-    });
+	// Hide Search Hero
+	BROWSER_API.storage.sync.get(['hideSearchHero'], function (result) {
+		const hideSearchHero = result.hideSearchHero === true;
+		if (hideSearchHero) highlightMenuIcon('hide-elements');
+		document.querySelector('#checkbox-hide-search-hero').checked = hideSearchHero;
+		document.querySelector('.icon-hide-search-hero').style.backgroundColor = hideSearchHero ? 'var(--accent)' : '';
+		document.querySelector('.icon-hide-search-hero').classList.toggle('icon-show', !hideSearchHero);
+		document.querySelector('.icon-hide-search-hero').classList.toggle('icon-hide', hideSearchHero);
+		console.log('Hide Search Hero: ' + hideSearchHero);
+	});
 }

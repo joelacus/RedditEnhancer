@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "2.2.1"
+		"message": "2.3.1"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -19,6 +19,9 @@
 	},
 	"AddDownloadVideoButtonInfo": {
 		"message": "This currently only supports mp4 URLs, not m3u8, so some video posts won't have the download button :/"
+	},
+	"AddMarkPostAsReadButton": {
+		"message": "Add a button to each post to mark it as read"
 	},
 	"AddNsfwTag": {
 		"message": "Add NSFW tag"
@@ -425,6 +428,9 @@
 	"HideSideMenuCustomFeedsSection": {
 		"message": "Hide the Custom Feeds Section"
 	},
+	"HideSideMenuGamesSection": {
+		"message": "Hide the Games Section"
+	},
 	"HideSideMenuModerationSection": {
 		"message": "Hide the Moderation Section"
 	},
@@ -441,7 +447,7 @@
 		"message": "Hide the Topics Section"
 	},
 	"HideSubSidebar": {
-		"message": "Hide the Sub Reddit Sidebar"
+		"message": "Hide the Subreddit Sidebar"
 	},
 	"HideSubSidebarBlacklistInfo": {
 		"message": "Hide globally except for on these subreddits:"
@@ -451,6 +457,9 @@
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "Hide 'Trending Today' in the Searchbar"
+	},
+	"HideUserNameInTheFlairSection": {
+		"message": "Hide username in the subreddit sidebar flair section"
 	},
 	"HideUserProfilePics": {
 		"message": "Hide user profile pictures in the comments"
@@ -793,6 +802,15 @@
 	},
 	"Settings": {
 		"message": "Settings"
+	},
+	"ShowCommentAbsoluteTimestamp": {
+		"message": "Show Absolute Timestamps On Comments"
+	},
+	"ShowMemberCount": {
+		"message": "Show legacy subreddit member count"
+	},
+	"ShowPostAbsoluteTimestamp": {
+		"message": "Show Absolute Timestamps On Posts"
 	},
 	"ShowPostAuthor": {
 		"message": "Show Post Author"

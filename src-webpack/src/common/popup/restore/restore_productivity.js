@@ -393,6 +393,30 @@ export function restorePopupProductivityOptions() {
 		console.log('Show Post Numbers: ' + value);
 	});
 
+	// Show Post Absolute Timestamp
+	BROWSER_API.storage.sync.get(['showPostAbsoluteTimestamp'], function (result) {
+		if (result.showPostAbsoluteTimestamp) {
+			document.querySelector('#checkbox-show-post-absolute-timestamp').checked = true;
+			document.querySelector('.icon-show-post-absolute-timestamp').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+		} else {
+			document.querySelector('#checkbox-show-post-absolute-timestamp').checked = false;
+		}
+		console.log(`Show Post Absolute Timestamp: ${result.showPostAbsoluteTimestamp}`);
+	});
+
+	// Show Comment Absolute Timestamp
+	BROWSER_API.storage.sync.get(['showCommentAbsoluteTimestamp'], function (result) {
+		if (result.showCommentAbsoluteTimestamp) {
+			document.querySelector('#checkbox-show-comment-absolute-timestamp').checked = true;
+			document.querySelector('.icon-show-comment-absolute-timestamp').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+		} else {
+			document.querySelector('#checkbox-show-comment-absolute-timestamp').checked = false;
+		}
+		console.log(`Show Comment Absolute Timestamp: ${result.showCommentAbsoluteTimestamp}`);
+	});
+
 	// Non Sticky Header Bar
 	BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
 		if (result.nonStickyHeaderBar == true) {
@@ -655,6 +679,20 @@ export function restorePopupProductivityOptions() {
 		console.log('Mark Read On Open Expandos: ' + value);
 	});
 
+	// Add Mark Post As Read Button
+	BROWSER_API.storage.sync.get(['markPostAsReadButton'], function (result) {
+		if (result.markPostAsReadButton) {
+			document.querySelector('#checkbox-add-mark-post-as-read-button').checked = true;
+			document.querySelector('.icon-add-mark-post-as-read-button').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else {
+			document.querySelector('#checkbox-add-mark-post-as-read-button').checked = false;
+			var value = false;
+		}
+		console.log('Add Mark Post As Read Button: ' + value);
+	});
+
 	// Highlight OP
 	BROWSER_API.storage.sync.get(['highlightOp'], function (result) {
 		if (result.highlightOp === true) {
@@ -667,5 +705,19 @@ export function restorePopupProductivityOptions() {
 			var value = false;
 		}
 		console.log('Highlight OP: ' + value);
+	});
+
+	// Show Member Count
+	BROWSER_API.storage.sync.get(['showMemberCount'], function (result) {
+		if (result.showMemberCount === true) {
+			document.querySelector('#checkbox-show-member-count').checked = true;
+			document.querySelector('.icon-show-member-count').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('productivity-tweaks');
+			var value = true;
+		} else if (typeof result.showMemberCount == 'undefined' || result.showMemberCount === false) {
+			document.querySelector('#checkbox-show-member-count').checked = false;
+			var value = false;
+		}
+		console.log('Show Member Count: ' + value);
 	});
 }

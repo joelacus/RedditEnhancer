@@ -311,7 +311,12 @@ export function themePostBackgroundColour(value) {
 										border-radius: var(--re-theme-border-radius, 1rem) !important;
 										background-color: color-mix(in srgb, var(--re-theme-post-bg), #000 10%) !important;
 									}
-									[routename="post_page"] shreddit-post #pdp-credit-bar {
+									shreddit-app[routename^='profile_'] a[href="/settings/profile/#visibility"] {
+										background-color: var(--re-theme-post-bg) !important;
+										--color-neutral-background-hover: color-mix(in srgb, var(--re-theme-post-bg), #000 10%) !important;
+									}
+									[routename="post_page"] shreddit-post #pdp-credit-bar,
+									[view-context="CommentsPage"] #pdp-credit-bar {
 										background: transparent !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
@@ -662,6 +667,8 @@ export function themePostBorderColour(value) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-post-border-colour';
 		styleElement.textContent = `article > shreddit-post,
+									shreddit-profile-comment,
+									shreddit-app[routename^='profile_'] a[href="/settings/profile/#visibility"],
 									main.main search-telemetry-tracker > div:not([data-testid="search-scope-switcher"]),
 									div[data-testid="search-crosspost-unit"] div:has(> search-telemetry-tracker) {
 										border: solid 1px var(--re-theme-post-border);

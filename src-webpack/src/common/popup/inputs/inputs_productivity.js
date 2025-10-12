@@ -501,6 +501,34 @@ document.querySelector('#checkbox-show-post-numbers').addEventListener('change',
 	}
 });
 
+// Toggle - Show Post Absolute Timestamp
+document.querySelector('#checkbox-show-post-absolute-timestamp').addEventListener('change', function (e) {
+	const showPostAbsoluteTimestamp = document.querySelector('#checkbox-show-post-absolute-timestamp').checked;
+	if (showPostAbsoluteTimestamp) {
+		BROWSER_API.storage.sync.set({ showPostAbsoluteTimestamp: true });
+		document.querySelector('.icon-show-post-absolute-timestamp').style.backgroundColor = 'var(--accent)';
+		sendMessage({ showPostAbsoluteTimestamp: true });
+	} else {
+		BROWSER_API.storage.sync.set({ showPostAbsoluteTimestamp: false });
+		document.querySelector('.icon-show-post-absolute-timestamp').style.backgroundColor = '';
+		sendMessage({ showPostAbsoluteTimestamp: false });
+	}
+});
+
+// Toggle - Show Comment Absolute Timestamp
+document.querySelector('#checkbox-show-comment-absolute-timestamp').addEventListener('change', function (e) {
+	const showCommentAbsoluteTimestamp = document.querySelector('#checkbox-show-comment-absolute-timestamp').checked;
+	if (showCommentAbsoluteTimestamp) {
+		BROWSER_API.storage.sync.set({ showCommentAbsoluteTimestamp: true });
+		document.querySelector('.icon-show-comment-absolute-timestamp').style.backgroundColor = 'var(--accent)';
+		sendMessage({ showCommentAbsoluteTimestamp: true });
+	} else {
+		BROWSER_API.storage.sync.set({ showCommentAbsoluteTimestamp: false });
+		document.querySelector('.icon-show-comment-absolute-timestamp').style.backgroundColor = '';
+		sendMessage({ showCommentAbsoluteTimestamp: false });
+	}
+});
+
 // Toggle - Show Post Author
 document.querySelector('#checkbox-show-post-author').addEventListener('change', function (e) {
 	var showPostAuthor = document.querySelector('#checkbox-show-post-author').checked;
@@ -721,10 +749,26 @@ document.querySelector('#checkbox-mark-read-on-open-expandos').addEventListener(
 	}
 });
 
+// Toggle - Add Mark Post As Read Button
+document.querySelector('#checkbox-add-mark-post-as-read-button').addEventListener('change', function (e) {
+	const markPostAsReadButton = document.querySelector('#checkbox-add-mark-post-as-read-button').checked;
+	BROWSER_API.storage.sync.set({ markPostAsReadButton: markPostAsReadButton });
+	document.querySelector('.icon-add-mark-post-as-read-button').style.backgroundColor = markPostAsReadButton ? 'var(--accent)' : '';
+	sendMessage({ markPostAsReadButton: markPostAsReadButton });
+});
+
 // Toggle - Highlight OP
 document.querySelector('#checkbox-highlight-op').addEventListener('change', function (e) {
 	const highlightOp = document.querySelector('#checkbox-highlight-op').checked;
 	BROWSER_API.storage.sync.set({ highlightOp: highlightOp });
 	document.querySelector('.icon-highlight-op').style.backgroundColor = highlightOp ? 'var(--accent)' : '';
 	sendMessage({ highlightOp: highlightOp });
+});
+
+// Toggle - Show Member Count
+document.querySelector('#checkbox-show-member-count').addEventListener('change', function (e) {
+	const showMemberCount = document.querySelector('#checkbox-show-member-count').checked;
+	BROWSER_API.storage.sync.set({ showMemberCount: showMemberCount });
+	document.querySelector('.icon-show-member-count').style.backgroundColor = showMemberCount ? 'var(--accent)' : '';
+	sendMessage({ showMemberCount: showMemberCount });
 });

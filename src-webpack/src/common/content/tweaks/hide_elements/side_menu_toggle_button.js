@@ -53,7 +53,7 @@ function enableSideMenuToggleButton() {
 			app.setAttribute('data-re-hide-side-menu', 'false');
 			localStorage.setItem('sideMenuHidden', 'false');
 			loadSideMenuWidth();
-		})
+		});
 		document.body.appendChild(openBtn);
 	}
 
@@ -143,9 +143,9 @@ function enableSideMenuToggleButton() {
 //  Disable Side Menu Toggle Button - RV3
 function disableSideMenuToggleButton() {
 	document.querySelector('html').classList.remove('re-hide-side-menu');
-	document.querySelector('shreddit-app').removeAttribute('data-re-hide-side-menu');
-	document.querySelector('.re-side-menu-close').remove();
-	document.querySelector('.re-side-menu-open').remove();
+	document.querySelector('shreddit-app')?.removeAttribute('data-re-hide-side-menu');
+	document.querySelector('.re-side-menu-close')?.remove();
+	document.querySelector('.re-side-menu-open')?.remove();
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-side-menu-toggle-button"]');
 	dynamicStyleElements.forEach((element) => {
 		document.head.removeChild(element);

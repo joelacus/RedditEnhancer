@@ -17,6 +17,9 @@
 	"AddDownloadVideoButtonInfo": {
 		"message": "Cela ne prend actuellement en charge que les URL mp4, pas m3u8, donc certains posts vidéo n'auront pas le bouton de téléchargement :/"
 	},
+	"AddMarkPostAsReadButton": {
+		"message": "Ajouter un bouton à chaque post pour le marquer comme lu"
+	},
 	"AddNsfwTag": {
 		"message": "Ajouter la balise NSFW"
 	},
@@ -422,6 +425,9 @@
 	"HideSideMenuCustomFeedsSection": {
 		"message": "Masquer la section 'Flux personnalisés'"
 	},
+	"HideSideMenuGamesSection": {
+		"message": "Masquer la section Jeux"
+	},
 	"HideSideMenuModerationSection": {
 		"message": "Masquer la section 'Modération'"
 	},
@@ -448,6 +454,9 @@
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "Masquer « Tendance du jour » dans la barre de recherche"
+	},
+	"HideUserNameInTheFlairSection": {
+		"message": "Masquer le nom d'utilisateur dans la section flair de la barre latérale du subreddit"
 	},
 	"HideUserProfilePics": {
 		"message": "Masquer les photos de profil utilisateur dans les commentaires"
@@ -790,6 +799,15 @@
 	},
 	"Settings": {
 		"message": "Paramètres"
+	},
+	"ShowCommentAbsoluteTimestamp": {
+		"message": "Montrer des horodatages absolus sur les commentaires"
+	},
+	"ShowMemberCount": {
+		"message": "Afficher le nombre de membres du subreddit hérité"
+	},
+	"ShowPostAbsoluteTimestamp": {
+		"message": "Afficher les horodatages absolus sur les posts"
 	},
 	"ShowPostAuthor": {
 		"message": "Afficher l'auteur du message"

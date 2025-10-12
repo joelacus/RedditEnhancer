@@ -102,6 +102,8 @@ function addBorderRadiusAmountStylesheet() {
 			/* Comment search results */
 			reddit-feed > faceplate-tracker > div,
 			faceplate-tracker[noun="load_more_comments"] button,
+			/* Profile visibility settings button */
+			shreddit-app[routename^='profile_'] a[href="/settings/profile/#visibility"],
 			/* Wiki pages */
 			shreddit-app[routename="subreddit_wiki"] main.main > div:last-of-type,
 			div.toc,
@@ -176,6 +178,7 @@ export function addBorderRadiusToShadowRootElements() {
 	const composeMessageSenderDropdown = document.querySelector('compose-message-sender-dropdown')?.shadowRoot || null;
 	const achievementsEntrypoint = document.querySelector('achievements-entrypoint')?.shadowRoot || null;
 	const followedKeywordsMenu = document.querySelector('followed-keywords-menu')?.shadowRoot || null;
+	const communityHighlightCarousel = document.querySelector('community-highlight-carousel')?.shadowRoot || null;
 	const shadowRootElements = [
         searchBar?.querySelector('.reddit-search-bar'),
 		searchBar?.querySelector('div'),
@@ -199,6 +202,7 @@ export function addBorderRadiusToShadowRootElements() {
 		achievementsEntrypoint?.querySelector('div'),
 		achievementsEntrypoint?.querySelector('button'),
 		followedKeywordsMenu?.querySelector('add-keywords-modal')?.shadowRoot?.querySelector('faceplate-dialog'),
+		communityHighlightCarousel?.querySelector('button'),
 	];
 	shadowRootElements.forEach((element) => {
 		if (element) {
@@ -210,6 +214,9 @@ export function addBorderRadiusToShadowRootElements() {
 					element.classList.add('rounded-none');
 				}
 			});
+			if (element === recentPosts) {
+				element.setAttribute('part', 'recent-posts');
+			}
 		}
 	});
 	if (recentPosts) {

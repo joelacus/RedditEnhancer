@@ -248,9 +248,6 @@ div[data-testid='search-results-sidebar'] {
 		padding: 0 1.5rem;
 	}
 }
-shreddit-title + div.my-xs {
-	display: none;
-}
 .masthead,
 flex-left-nav-container {
 	z-index: 2;
@@ -724,6 +721,7 @@ div.invisible[slot='editor-helper-text'] {
 
 /* ========== View Crossposts ========== */
 #re-view-crossposts {
+	margin-left: auto;
 	cursor: pointer;
 }
 
@@ -736,6 +734,10 @@ shreddit-post [slot='credit-bar'] div:has([icon-name='notification-outline']) {
 	padding: 4px;
 	border-radius: var(--re-theme-border-radius);
 	margin-right: -0.25rem;
+}
+button[slot="comment-button"] ~ shreddit-post-overflow-menu::part(popper--popup) {
+	top: revert !important;
+	left: revert !important;
 }
 
 /* Fix default post background colour */

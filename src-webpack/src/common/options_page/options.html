@@ -77,7 +77,7 @@
 				<div>
 					<ul>
 						<li data-index="0">
-							<!-- Dark Mode -->
+							<!-- Dark Mode 
 							<div id="dark-mode" class="menu-item-link btn-dark-mode r-new">
 								<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
 								<div class="menu-item-btn">
@@ -85,7 +85,7 @@
 									<span data-lang="DarkMode" class="menu-item-title"></span>
 									<div class="icon-chevron-down"></div>
 								</div>
-							</div>
+							</div>-->
 						</li>
 						<li data-index="1">
 							<!-- Resize Feed/Post -->
@@ -684,6 +684,14 @@
 									</label>
 								</div>
 								<div class="container-3 r-newnew">
+									<span class="menu-item-icon icon-show icon-hide-side-menu-games-section"></span>
+									<span data-lang="HideSideMenuGamesSection" data-search=""></span>
+									<label class="switch">
+										<input id="checkbox-hide-side-menu-games-section" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
+								</div>
+								<div class="container-3 r-newnew">
 									<span class="menu-item-icon icon-show icon-hide-side-menu-moderation-section"></span>
 									<span data-lang="HideSideMenuModerationSection" data-search=""></span>
 									<label class="switch">
@@ -788,6 +796,14 @@
 									</label>
 								</div>
 								<div class="divider"></div>
+								<div class="container-3">
+									<span class="menu-item-icon icon-show icon-hide-username-in-sub-sidebar"></span>
+									<span data-lang="HideUserNameInTheFlairSection" data-search="sidebar,username,flair"></span>
+									<label class="switch">
+										<input id="checkbox-hide-username-in-sub-sidebar" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
+								</div>
 								<div class="container-3">
 									<span class="menu-item-icon icon-list-check-solid icon-hide-sub-sidebar-exceptions"></span>
 									<span data-lang="WhitelistBlacklist" data-search=""></span>
@@ -1206,6 +1222,10 @@
 										<a href="#productivity-header" data-lang="Header"></a>
 										<div class="vdivider"></div>
 									</div>
+									<div class="r-old r-new r-newnew">
+										<a href="#productivity-subreddit" data-lang="Subreddit"></a>
+										<div class="vdivider"></div>
+									</div>
 									<div class="r-new">
 										<a href="#productivity-post" data-lang="Post"></a>
 										<div class="vdivider"></div>
@@ -1301,6 +1321,17 @@
 									<span class="indicator"></span>
 								</label>
 							</li>
+							<li id="productivity-subreddit" class="sub-header r-old r-new r-newnew">
+								<span data-lang="Subreddit"></span>
+							</li>
+							<li class="container-3 r-old r-newnew">
+								<span class="menu-item-icon icon-members icon-show-member-count"></span>
+								<span data-lang="ShowMemberCount" data-search="subreddit,member,count"></span>
+								<label class="switch">
+									<input id="checkbox-show-member-count" type="checkbox" />
+									<span class="indicator"></span>
+								</label>
+							</li>
 							<li id="productivity-post" class="sub-header r-old r-new r-newnew">
 								<span data-lang="Post"></span>
 							</li>
@@ -1331,6 +1362,14 @@
 								<span data-lang="ShowPostNumbers" data-search="numbers"></span>
 								<label class="switch">
 									<input id="checkbox-show-post-numbers" type="checkbox" />
+									<span class="indicator"></span>
+								</label>
+							</li>
+							<li class="container-3 r-newnew">
+								<span class="menu-item-icon icon-clock icon-show-post-absolute-timestamp"></span>
+								<span data-lang="ShowPostAbsoluteTimestamp" data-search="numbers"></span>
+								<label class="switch">
+									<input id="checkbox-show-post-absolute-timestamp" type="checkbox" />
 									<span class="indicator"></span>
 								</label>
 							</li>
@@ -1481,6 +1520,14 @@
 									<span class="indicator"></span>
 								</label>
 							</li>
+							<li class="container-3 r-newnew">
+								<span class="menu-item-icon icon-double-tick icon-add-mark-post-as-read-button"></span>
+								<span data-lang="AddMarkPostAsReadButton" data-search="read"></span>
+								<label class="switch">
+									<input id="checkbox-add-mark-post-as-read-button" type="checkbox" />
+									<span class="indicator"></span>
+								</label>
+							</li>
 							<li id="productivity-comments" class="sub-header r-old r-new r-newnew">
 								<span data-lang="Comments"></span>
 							</li>
@@ -1506,6 +1553,14 @@
 								</div>
 								<label class="switch">
 									<input id="checkbox-default-comments-sort-option" type="checkbox" />
+									<span class="indicator"></span>
+								</label>
+							</li>
+							<li class="container-3 r-old r-newnew">
+								<span class="menu-item-icon icon-clock icon-show-comment-absolute-timestamp"></span>
+								<span data-lang="ShowCommentAbsoluteTimestamp" data-search="numbers"></span>
+								<label class="switch">
+									<input id="checkbox-show-comment-absolute-timestamp" type="checkbox" />
 									<span class="indicator"></span>
 								</label>
 							</li>

@@ -25,7 +25,7 @@ import { hidePostHiddenMessage } from './tweaks/hide_elements/hide_post_hidden_m
 import { hidePromoted } from './tweaks/hide_elements/hide_promoted';
 import { hideRedditPremium } from './tweaks/hide_elements/hide_reddit_premium';
 import { hideSideMenuOld, hideSideMenu } from './tweaks/hide_elements/hide_side_menu';
-import { hideSideMenuCommunitiesSection, hideSideMenuCustomFeedsSection, hideSideMenuModerationSection, hideSideMenuRecentSection, hideSideMenuResourcesSection, hideSideMenuTopSection, hideSideMenuTopicsSection } from './tweaks/hide_elements/hide_side_menu_sections';
+import { hideSideMenuCommunitiesSection, hideSideMenuCustomFeedsSection, hideSideMenuGamesSection, hideSideMenuModerationSection, hideSideMenuRecentSection, hideSideMenuResourcesSection, hideSideMenuTopSection, hideSideMenuTopicsSection } from './tweaks/hide_elements/hide_side_menu_sections';
 import { hideUsername, hideKarma } from './tweaks/hide_elements/hide_username_and_karma';
 import { hideUserProfilePics } from './tweaks/hide_elements/hide_user_profile_pics';
 import { imageScroll } from './tweaks/media/scroll_images';
@@ -141,8 +141,12 @@ import { hideAwards } from './tweaks/hide_elements/hide_awards';
 import { highlightOp } from './tweaks/productivity/highlight_op';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 import { addDownloadVideoButton } from './tweaks/media/add_download_video_button';
-import { fullWidthExpandos } from "./tweaks/media/full_width_expandos";
-import { hideSearchHero } from "./tweaks/hide_elements/hide_search_hero";
+import { fullWidthExpandos } from './tweaks/media/full_width_expandos';
+import { hideSearchHero } from './tweaks/hide_elements/hide_search_hero';
+import { showCommentAbsoluteTimestamp, showPostAbsoluteTimestamp } from './tweaks/productivity/show_absolute_timestamps';
+import { markPostAsReadButton } from './tweaks/productivity/mark_read_on_open_expandos';
+import { showMemberCount } from './tweaks/productivity/show_member_count';
+import { hideUsernameInSubSidebar } from './tweaks/hide_elements/hide_username_in_sub_sidebar';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -200,7 +204,7 @@ const functionRegistry = {
 	feedPostTitleFontWeight,
 	forceCustomBgOldUI,
 	fullWidthBanner,
-    fullWidthExpandos,
+	fullWidthExpandos,
 	hideAdvertiseButton,
 	hideAwards,
 	hideBlockedKeywordPosts,
@@ -246,13 +250,14 @@ const functionRegistry = {
 	hideRecommended,
 	hideRedditPremium,
 	hideRelatedPostsSection,
-    hideSearchHero,
+	hideSearchHero,
 	hideSearchSidebar,
 	hideSearchSidebarNsfwUsers,
 	hideSideMenu,
 	hideSideMenuCommunitiesSection,
 	hideSideMenuCustomFeedsSection,
 	hideSideMenuFavouriteButton,
+	hideSideMenuGamesSection,
 	hideSideMenuModerationSection,
 	hideSideMenuOld,
 	hideSideMenuRecentSection,
@@ -262,6 +267,7 @@ const functionRegistry = {
 	hideSubSidebar,
 	hideTrendingTodayInSearchResults,
 	hideUsername,
+	hideUsernameInSubSidebar,
 	hideUserProfilePics,
 	hideUserSidebar,
 	hideVideoRecommendations,
@@ -308,6 +314,7 @@ const functionRegistry = {
 	setMaxImageWidth,
 	setMaxVideoPostHeight,
 	setMaxVideoWidth,
+	showMemberCount,
 	showPostAuthor,
 	showPostFlair,
 	showPostNumbers,
@@ -368,6 +375,9 @@ const functionRegistry = {
 	useCustomBackground,
 	usernameHoverPopupDelay,
 	viewCrossposts,
+	showCommentAbsoluteTimestamp,
+	showPostAbsoluteTimestamp,
+	markPostAsReadButton,
 	//breakReminder,
 	//darkMode,
 	//darkModeAutoListener,

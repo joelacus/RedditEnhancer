@@ -63,6 +63,10 @@ function enableScalePostToFitVideoRV3() {
 									}
 									shreddit-blurred-container [slot="blurred"] {
 										max-height: var(--re-max-image-post-height) !important;
+									}
+									shreddit-post [slot="expando"] > [class="max-h-[540px]"] {
+										max-height: fit-content !important;
+  										aspect-ratio: unset !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

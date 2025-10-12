@@ -91,10 +91,16 @@ function enableUseCustomBackgroundRV3() {
 								community-highlight-carousel {
 									background-color: var(--re-theme-post-bg, transparent);
 									border-radius: var(--re-theme-border-radius, 1rem);
+									border: 1px solid var(--re-theme-post-border, transparent);
 								}
 								community-highlight-carousel.community-highlight-carousel > h3 {
 									padding-left: .75rem;
 									padding-block: .125rem;
+								}
+								::part(recent-posts),
+								shreddit-app[routename^='profile_'] a[href="/settings/profile/#visibility"],
+								shreddit-profile-comment {
+									border: 1px solid var(--re-theme-post-border, transparent);
 								}
 								[routename='post_page'] main.main,
 								[routename='comments_page'] main.main,
@@ -104,6 +110,7 @@ function enableUseCustomBackgroundRV3() {
 								[routename='CommentStats'] main.main,
 								[routename='earn-dashboard'] main.main {
 									background-color: var(--re-theme-post-bg, var(--color-neutral-background, transparent));
+									border: 1px solid var(--re-theme-post-border, var(--color-neutral-border, transparent));
 									border-radius: var(--re-theme-border-radius, 1rem);
 								}
 								@media (max-width: 768px) {

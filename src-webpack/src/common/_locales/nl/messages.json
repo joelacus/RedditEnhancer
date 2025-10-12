@@ -17,6 +17,9 @@
 	"AddDownloadVideoButtonInfo": {
 		"message": "Dit ondersteunt momenteel alleen mp4-URL's, geen m3u8, dus sommige videoberichten zullen de downloadknop niet hebben :/"
 	},
+	"AddMarkPostAsReadButton": {
+		"message": "Voeg een knop toe aan elk bericht om deze te markeren zoals gelezen"
+	},
 	"AddNsfwTag": {
 		"message": "Voeg NSFW-tag toe"
 	},
@@ -422,6 +425,9 @@
 	"HideSideMenuCustomFeedsSection": {
 		"message": "Verberg het gedeelte 'Aangepaste feeds'"
 	},
+	"HideSideMenuGamesSection": {
+		"message": "Verberg de sectie Games"
+	},
 	"HideSideMenuModerationSection": {
 		"message": "Verberg de sectie Moderatie"
 	},
@@ -448,6 +454,9 @@
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "Verberg 'trending vandaag' in de zoekbalk"
+	},
+	"HideUserNameInTheFlairSection": {
+		"message": "Gebruikersnaam verbergen in de subreddit-zijbalk flair-sectie"
 	},
 	"HideUserProfilePics": {
 		"message": "Verberg gebruikersprofielfoto's in de reacties"
@@ -790,6 +799,15 @@
 	},
 	"Settings": {
 		"message": "Instellingen"
+	},
+	"ShowCommentAbsoluteTimestamp": {
+		"message": "Toon absolute tijdstempels over opmerkingen"
+	},
+	"ShowMemberCount": {
+		"message": "Toon het aantal leden van de oude subreddit"
+	},
+	"ShowPostAbsoluteTimestamp": {
+		"message": "Toon absolute tijdstempels op berichten"
 	},
 	"ShowPostAuthor": {
 		"message": "Toon berichtauteur"

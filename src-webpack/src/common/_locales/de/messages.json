@@ -17,6 +17,9 @@
 	"AddDownloadVideoButtonInfo": {
 		"message": "Dies unterstützt derzeit nur MP4-URLs, nicht M3U8, sodass einige Video-Posts nicht den Download -Schaltfläche haben :/"
 	},
+	"AddMarkPostAsReadButton": {
+		"message": "Fügen Sie jedem Beitrag eine Schaltfläche hinzu, um sie als Lesen zu markieren"
+	},
 	"AddNsfwTag": {
 		"message": "Fügen Sie NSFW-Tag hinzu"
 	},
@@ -422,6 +425,9 @@
 	"HideSideMenuCustomFeedsSection": {
 		"message": "Blenden Sie den Abschnitt „Benutzerdefinierte Feeds“ aus"
 	},
+	"HideSideMenuGamesSection": {
+		"message": "Den Abschnitt „Spiele“ ausblenden"
+	},
 	"HideSideMenuModerationSection": {
 		"message": "Moderationsbereich ausblenden"
 	},
@@ -448,6 +454,9 @@
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "„Trending Today“ in der Suchleiste ausblenden"
+	},
+	"HideUserNameInTheFlairSection": {
+		"message": "Benutzernamen im Flair-Bereich der Subreddit-Seitenleiste verbergen"
 	},
 	"HideUserProfilePics": {
 		"message": "Benutzerprofilbilder in den Kommentaren ausblenden"
@@ -790,6 +799,15 @@
 	},
 	"Settings": {
 		"message": "Einstellungen"
+	},
+	"ShowCommentAbsoluteTimestamp": {
+		"message": "Zeigen Sie absolute Zeitstempel zu Kommentaren"
+	},
+	"ShowMemberCount": {
+		"message": "Legacy Subreddit Mitglied zählen"
+	},
+	"ShowPostAbsoluteTimestamp": {
+		"message": "Zeigen Sie absolute Zeitstempel auf Posts"
 	},
 	"ShowPostAuthor": {
 		"message": "Post-Autor anzeigen"

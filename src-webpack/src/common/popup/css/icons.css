@@ -552,3 +552,15 @@
 	mask: url('../../icons/ui/icon-pen-slash.svg');
 	-webkit-mask: url('../../icons/ui/icon-pen-slash.svg');
 }
+.icon-clock {
+	mask: url('../../icons/ui/clock-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/clock-solid-full.svg');
+}
+.icon-double-tick {
+	mask: url('../../icons/ui/icon-double-tick.svg');
+	-webkit-mask: url('../../icons/ui/icon-double-tick.svg');
+}
+.icon-members {
+	mask: url('../../icons/ui/people-group-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/people-group-solid-full.svg');
+}
