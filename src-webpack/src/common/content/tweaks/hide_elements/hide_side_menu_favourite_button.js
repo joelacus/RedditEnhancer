@@ -22,7 +22,11 @@ export function hideSideMenuFavouriteButton(value) {
 		styleElement.id = 're-hide-side-menu-favourite-button';
 		styleElement.textContent = `left-nav-community-item::part(star),
 									left-nav-multireddit-item::part(star) {
-										display: none !important;
+										display: none;
+									}
+									left-nav-community-item:hover::part(star),
+									left-nav-multireddit-item:hover::part(star) {
+										display: flex;
 									}`;
 		// append stylesheet to first items
 		if (!document.querySelector('left-nav-communities-controller').shadowRoot.querySelector('left-nav-community-item style[id="re-hide-side-menu-favourite-button"]')) {
