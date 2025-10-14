@@ -52,7 +52,7 @@ function updateKeywordList(list) {
 		.toLowerCase()
 		.split(',')
 		.map((word) => word.trim())
-		.filter((item) => item !== '');
+		.filter((item) => item !== '' && item !== '*');
 }
 
 // Enable Hide Blocked Keyword Posts - RV1
@@ -62,7 +62,7 @@ function enableHideBlockedKeywordPostsRV1() {
 		if (!titleAnchor) return;
 
 		const titleText = titleAnchor.textContent.toLowerCase();
-		if (keywordList.some((word) => new RegExp(`\\b${word}\\b`, 'i').test(titleText))) {
+		if (keywordList.some((word) => new RegExp(`\\b${word.replace(/\*/g, '.*')}\\b`, 'i').test(titleText))) {
 			post.classList.add('re-hide');
 		}
 	});
@@ -76,7 +76,7 @@ function filterBlockedKeywordPost(post) {
 	if (!titleAnchor) return;
 
 	const titleText = titleAnchor.textContent.toLowerCase();
-	if (keywordList.some((word) => new RegExp(`\\b${word}\\b`, 'i').test(titleText))) {
+	if (keywordList.some((word) => new RegExp(`\\b${word.replace(/\*/g, '.*')}\\b`, 'i').test(titleText))) {
 		post.classList.add('re-hide');
 	}
 }

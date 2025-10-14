@@ -17,7 +17,7 @@ body {
 	--top-menu-chevron: var(--extension-title);
 	--shade: var(--extension-title);
 
-	--bg: #2e2e2e;
+	--bg: #282828;
 	--bg-shade-1: #101010;
 	--bg-tint-1: #19191a;
 	--bg-tint-2: #242424;
@@ -25,6 +25,7 @@ body {
 	--bg-tint-4: #4c4c4c;
 
 	--btn-fg: var(--text);
+	--btn-secondary-fg: #4d4d4d;
 	--btn-bg: var(--bg-tint-1);
 	--btn-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
 	--btn-hover: color-mix(in srgb, #19191a 80%, #000000);
@@ -57,6 +58,7 @@ body {
 	--bg-tint-4: #b3b3b3;
 
 	--btn-fg: var(--text);
+	--btn-secondary-fg: #999;
 	--btn-bg: var(--bg-tint-1);
 	--btn-border: color-mix(in srgb, var(--btn-bg), #000 5%);
 	--btn-hover: color-mix(in srgb, var(--btn-bg), #000 5%);
@@ -89,6 +91,7 @@ body {
 	--bg-tint-4: #b3b3b3;
 
 	--btn-fg: var(--text);
+	--btn-secondary-fg: #b6b6b6;
 	--btn-bg: var(--bg-tint-1);
 	--btn-border: color-mix(in srgb, var(--btn-bg), #000 5%);
 	--btn-hover: color-mix(in srgb, var(--menu-item), #000 5%);
@@ -121,6 +124,7 @@ body {
 	--bg-tint-4: color-mix(in srgb, var(--bg), #6a6a6a);
 
 	--btn-fg: var(--text);
+	--btn-secondary-fg: #999;
 	--btn-bg: var(--bg-tint-1);
 	--btn-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
 	--btn-hover: color-mix(in srgb, var(--btn-bg), #fff 15%);

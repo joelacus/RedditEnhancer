@@ -52,7 +52,7 @@ function updateLinkList(list) {
 		.toLowerCase()
 		.split(',')
 		.map((word) => word.trim())
-		.filter((item) => item !== '');
+		.filter((item) => item !== '' && item !== '*');
 }
 
 // Enable Hide Blocked Link Posts - RV1
@@ -61,7 +61,7 @@ function enableHideBlockedLinkPostsRV1() {
 		const url = post.querySelector('p.title a')?.href.toLowerCase();
 		if (!url) return;
 
-		if (urlKeywordsList.some((word) => new RegExp(word).test(url))) {
+		if (urlKeywordsList.some((word) => new RegExp(word.replace(/\*/g, '.*'), 'i').test(url))) {
 			post.classList.add('re-hide');
 		} else {
 			post.classList.remove('re-hide');
@@ -76,7 +76,7 @@ function filterBlockedLinkPost(post) {
 	const url = post.querySelector('.post-link')?.href.toLowerCase();
 	if (!url) return;
 
-	if (urlKeywordsList.some((word) => new RegExp(word).test(url))) {
+	if (urlKeywordsList.some((word) => new RegExp(word.replace(/\*/g, '.*'), 'i').test(url))) {
 		post.classList.add('re-hide');
 	} else {
 		post.classList.remove('re-hide');
