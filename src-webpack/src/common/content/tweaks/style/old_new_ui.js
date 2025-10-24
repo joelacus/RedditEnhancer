@@ -430,7 +430,7 @@ async function attachPageTitle() {
 				break;
 			case 'keyword-management':
 				title = 'Keywords';
-				logo = `<svg rpl="" fill="currentColor" height="20" icon-name="keyword-fill" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a)"><path d="m10.01 7.57 1.18 3.07H8.78l1.18-3.07h.05ZM20 10c0 .41-.34.75-.75.75h-1.29c-.36 3.81-3.4 6.86-7.21 7.21v1.29c0 .41-.34.75-.75.75s-.75-.34-.75-.75v-1.29c-3.81-.36-6.86-3.4-7.21-7.21H.75c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h1.29c.36-3.81 3.4-6.86 7.21-7.21V.75c0-.41.34-.75.75-.75s.75.34.75.75v1.29c3.81.36 6.86 3.4 7.21 7.21h1.29c.41 0 .75.34.75.75Zm-6.06 3.66L10.65 5.7h-1.3l-3.29 7.96H7.7l.68-1.73h3.25l.68 1.73h1.64-.01Z"></path></g><defs><clipPath id="a"><path d="M0 0H20V20H0z"></path></clipPath></defs></svg>`
+				logo = `<svg rpl="" fill="currentColor" height="20" icon-name="keyword-fill" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a)"><path d="m10.01 7.57 1.18 3.07H8.78l1.18-3.07h.05ZM20 10c0 .41-.34.75-.75.75h-1.29c-.36 3.81-3.4 6.86-7.21 7.21v1.29c0 .41-.34.75-.75.75s-.75-.34-.75-.75v-1.29c-3.81-.36-6.86-3.4-7.21-7.21H.75c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h1.29c.36-3.81 3.4-6.86 7.21-7.21V.75c0-.41.34-.75.75-.75s.75.34.75.75v1.29c3.81.36 6.86 3.4 7.21 7.21h1.29c.41 0 .75.34.75.75Zm-6.06 3.66L10.65 5.7h-1.3l-3.29 7.96H7.7l.68-1.73h3.25l.68 1.73h1.64-.01Z"></path></g><defs><clipPath id="a"><path d="M0 0H20V20H0z"></path></clipPath></defs></svg>`;
 				break;
 			case 'subreddit':
 			case 'subreddit_wiki':
@@ -461,17 +461,17 @@ async function attachPageTitle() {
 				}
 				break;
 			case 'post_stats':
-				const hovercard = document.querySelector('faceplate-hovercard')
+				const hovercard = document.querySelector('faceplate-hovercard');
 				if (hovercard) {
 					logo = hovercard.querySelector('.shreddit-subreddit-icon__icon').outerHTML;
 					title = hovercard.querySelector('a').textContent;
 				} else {
-					title = "Post Insights";
+					title = 'Post Insights';
 					logo = `<svg rpl="" fill="currentColor" height="20" icon-name="statistics-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M3 16H1.75v-6H3v6Zm5-9H6.75v9H8V7Zm5-3h-1.25v12H13V4Zm5-3h-1.25v15H18V1ZM1.01 17.75V19h17.9v-1.25H1.01Z"></path></svg>`;
 				}
 				break;
 			case 'CommentStats':
-				title = "Comment Insights";
+				title = 'Comment Insights';
 				logo = `<svg rpl="" fill="currentColor" height="20" icon-name="statistics-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M3 16H1.75v-6H3v6Zm5-9H6.75v9H8V7Zm5-3h-1.25v12H13V4Zm5-3h-1.25v15H18V1ZM1.01 17.75V19h17.9v-1.25H1.01Z"></path></svg>`;
 				break;
 			case 'profile_overview':
@@ -562,7 +562,7 @@ async function attachPageTitle() {
 		logo = '';
 	}
 
-    if (document.querySelector('.re-header-menu')) return;
+	if (document.querySelector('.re-header-menu')) return;
 	const sideMenu = Object.assign(document.createElement('nav'), {
 		innerHTML: `<div class="flex items-center gap-xs px-xs h-full">${logo}<span>${title}</span></div>`,
 		className: 're-header-menu mb-0 h-[40px] mr-md text-neutral-content-strong box-border',
@@ -588,8 +588,8 @@ function attachSideMenu(sideMenu) {
 		// Display or hide the side menu when clicking on the header button
 		sideMenu.querySelector('div').addEventListener('click', (e) => {
 			e.stopPropagation();
-            const menu = document.querySelector('.re-header-menu #left-nav-persistent-container, .re-header-menu #profile-left-nav-persistent-container');
-            if (menu) menu.style.display = getComputedStyle(menu).display === 'none' ? 'block' : 'none';
+			const menu = document.querySelector('.re-header-menu #left-nav-persistent-container, .re-header-menu #profile-left-nav-persistent-container');
+			if (menu) menu.style.display = getComputedStyle(menu).display === 'none' ? 'block' : 'none';
 		});
 		// Hide the side menu when clicking outside of it
 		window.addEventListener('click', (e) => {
@@ -605,12 +605,12 @@ function attachSideMenu(sideMenu) {
  * @param num
  * @returns {string|string}
  */
-function formatNumber(num) {
+export function formatNumber(num) {
 	const units = [
-		{ value: 1e18, symbol: 'e' },
+		/*{ value: 1e18, symbol: 'e' },
 		{ value: 1e15, symbol: 'p' },
 		{ value: 1e12, symbol: 't' },
-		{ value: 1e9, symbol: 'g' },
+		{ value: 1e9, symbol: 'g' },*/
 		{ value: 1e6, symbol: 'm' },
 		{ value: 1e3, symbol: 'k' },
 		{ value: 1, symbol: '' },

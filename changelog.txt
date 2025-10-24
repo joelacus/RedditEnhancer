@@ -1,6 +1,16 @@
 version 2.3.1
 v [Latest UI V3]
   - Fixed "Always Show Post And Comment Options" not working due to a website update.
+  - Fixed "Show legacy subreddit member count" not working due to a website update.
+  - Fixed "Scale Post To Fit Video" not working correctly with compact view video posts.
+  - Blocking posts by keywords, users and URLs now support wildcards. Use an asterix (*) in place of a character(s).
+  - Hidden favourite buttons on subreddit links in the Communities section in the side menu will now show when you hover over them.
+  - Applied post borders to Recent Posts, sidebar sections, Community highlights and profile items when "Hide post and sidebar dividers" or "Custom Background" is on. [credit: @biminhc1 (Reddit) @bmndc (Github)].
+  - Fixed an issue where the post overflow menu may not appear when certain items under "Hide buttons from post action bar" are activated, after Reddit's HTML tag name change. [credit: @biminhc1 (Reddit) @bmndc (Github)].
+  - Fixed an issue where the side menu cannot be opened in profile pages with "Display page and user info in header" on. [credit: @biminhc1 (Reddit) @bmndc (Github)].
+  - Fixed an issue where the user avatar cannot be fetched with "Display page and user info in header" on. [credit: @biminhc1 (Reddit) @bmndc (Github)].
+  - Sort and view dropdowns should now only move when "Full Width Subreddit Banner" is on. [credit: @biminhc1 (Reddit) @bmndc (Github)].
+  - Improved the performance of "Add a button to each post to mark it as read". [credit: @biminhc1 (Reddit) @bmndc (Github)].
 
 version 2.3.0
 v [Latest UI V3, Old UI V1]
@@ -16,6 +26,10 @@ v [Latest UI V3]
   - Fixed an issue where the side menu is no longer attached to the header after navigating to another page when "Display page and user info in header" is on. [credit: @biminhc1 (Reddit) @bmndc (Github)].
   - Fixed a style issue where the "View discussions on other communities" link is misaligned to the left of the comment box. [credit: @biminhc1 (Reddit) @bmndc (Github)].
   - Other small bug fixes.
+
+version 2.2.1
+v [Latest UI V3]
+  - Bug fixes.
 
 version 2.2.0
 v [Latest UI V3]
