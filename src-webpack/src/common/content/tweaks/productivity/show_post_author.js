@@ -22,7 +22,7 @@ export function showPostAuthor(value, delay) {
 	const feedRoutes = ['frontpage', 'popular', 'custom_feed', 'profile_saved'];
 	const searchRoutes = ['global_serp', 'community_serp', 'custom_feed_serp'];
 
-	if (redditVersion === 'newnew' && value === true) {
+	if (redditVersion === 'newnew' && value === true && (feedRoutes.includes(routename) || searchRoutes.includes(routename))) {
 		document.documentElement.classList.add('re-post-author-active');
 		document.querySelectorAll('shreddit-post, #main-content > div > search-telemetry-tracker').forEach(attachUsername);
 		observer.observe(document.querySelector('shreddit-feed, #main-content'), { childList: true, subtree: true })
