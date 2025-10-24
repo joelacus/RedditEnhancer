@@ -22,10 +22,12 @@ export function showPostAuthor(value, delay) {
 	const feedRoutes = ['frontpage', 'popular', 'custom_feed', 'profile_saved'];
 	const searchRoutes = ['global_serp', 'community_serp', 'custom_feed_serp'];
 
-	if (redditVersion === 'newnew' && value === true && (feedRoutes.includes(routename) || searchRoutes.includes(routename))) {
+	if (redditVersion === 'newnew' && value === true) {
 		document.documentElement.classList.add('re-post-author-active');
-		document.querySelectorAll('shreddit-post, #main-content > div > search-telemetry-tracker').forEach(attachUsername);
-		observer.observe(document.querySelector('shreddit-feed, #main-content'), { childList: true, subtree: true })
+		if (feedRoutes.includes(routename) || searchRoutes.includes(routename)) {
+			document.querySelectorAll('shreddit-post, #main-content > div > search-telemetry-tracker').forEach(attachUsername);
+			observer.observe(document.querySelector('shreddit-feed, #main-content'), { childList: true, subtree: true });
+		}
 	} else {
 		// Remove all post author names and hovercards.
 		document.documentElement.classList.remove('re-post-author-active');
