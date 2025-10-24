@@ -24,47 +24,38 @@ export function showPostAuthor(value, delay) {
 
 	if (redditVersion === 'newnew' && value === true) {
 		document.documentElement.classList.add('re-post-author-active');
-		if (feedRoutes.includes(routename)) {
-			document.querySelectorAll('shreddit-post').forEach((post) => {
-				attachUsername(post);
-			});
-			observer.observe(document.querySelector('shreddit-feed'), { childList: true });
-		} else if (searchRoutes.includes(routename)) {
-			document.querySelectorAll('search-telemetry-tracker').forEach((post) => {
-				attachUsername(post);
-			});
-			// legacy selector
-			document.querySelectorAll('faceplate-tracker[data-testid="search-post"]').forEach((post) => {
-				attachUsername(post);
-			});
-			observer.observe(document.querySelector('reddit-feed'), { childList: true, subtree: true });
-		}
+		document.querySelectorAll('shreddit-post, #main-content > div > search-telemetry-tracker').forEach(attachUsername);
+		observer.observe(document.querySelector('shreddit-feed, #main-content'), { childList: true, subtree: true })
 	} else {
+		// Remove all post author names and hovercards.
 		document.documentElement.classList.remove('re-post-author-active');
-		if (routes.includes(routename)) {
-			observer.disconnect();
-			removeUsername();
-		}
+		document.querySelectorAll('.re-post-author').forEach(item => item.remove());
+		observer.disconnect();
 	}
-}
-
-// Remove all post author names and hover cards.
-function removeUsername() {
-	document.querySelectorAll('shreddit-post').forEach((post) => {
-		if (post.querySelector('.re-post-author')) {
-			post.querySelector('.re-post-author').remove();
-		}
-	});
 }
 
 // Attach post author to post header.
 export async function attachUsername(post) {
 	let author = post.getAttribute('author');
 	if (!author) {
-		// Fetch Author From URL Lookup
-		const url = post.querySelector('a').href;
-		const userData = await fetchUserData(false, url);
-		author = findAuthorFromPostData(userData);
+		try {
+			// Look up post ID from the URL and query post data Reddit's public API.
+			const url = post.querySelector('a')?.href;
+			if (url) {
+				const postID = "t3_" + url.match(/\/comments\/([a-z0-9]+)(?:\/|$)/i)[1] ?? null;
+				const postData = (await BROWSER_API.runtime.sendMessage({
+					actions: [
+						{
+							action: 'fetchData',
+							url: `https://www.reddit.com/api/info.json?id=${postID}`,
+						},
+					],
+				})).data.children[0].data ?? null;
+				author = postData.author;
+			}
+		} catch (error) {
+			console.error(error);
+		}
 	}
 
 	if (!post.querySelector('.re-post-author')) {
@@ -88,7 +79,7 @@ export async function attachUsername(post) {
 			tag.remove();
 			a.appendChild(tag);
 		}
-		const selectors = ['[slot="credit-bar"] > span:has(faceplate-timeago)', '[slot="credit-bar"] > div', 'span:has([bundlename="faceplate_hovercard"])'];
+		const selectors = ['[slot="credit-bar"] > span:has(faceplate-timeago)', '[slot="credit-bar"] > div', 'span:has([bundlename="faceplate_hovercard"])', '.post-credit-row > span'];
 		let container = selectors.map((selector) => post.querySelector(selector)).find((el) => el);
 		container.querySelector('faceplate-timeago').before(a);
 	}
@@ -117,7 +108,14 @@ async function showHoverCard(post, username) {
 	}
 
 	// Fetch user data
-	const userData = await fetchUserData(username, false);
+	const userData = (await BROWSER_API.runtime.sendMessage({
+		actions: [
+			{
+				action: 'fetchData',
+				url: `https://www.reddit.com/user/${username}/about.json`,
+			},
+		],
+	})).data ?? null;
 
 	// Create the hover card
 	const hoverCard = createHoverCard(userData);
@@ -131,48 +129,6 @@ async function showHoverCard(post, username) {
 	let container = selectors.map((selector) => post.querySelector(selector)).find((el) => el);
 	container.querySelector('faceplate-timeago').before(hoverCard);
 	post.querySelector('.hover-card').style.display = 'block';
-}
-
-// Function to fetch user data from Reddit API
-async function fetchUserData(username, url) {
-	if (username) {
-		var fetchURL = `https://www.reddit.com/user/${username}/about.json`;
-	} else if (url) {
-		const cleanedPath = url.replace(/\/+$/, '');
-		var fetchURL = `${cleanedPath}.json`;
-	}
-	return new Promise((resolve, reject) => {
-		BROWSER_API.runtime.sendMessage(
-			{
-				actions: [
-					{
-						action: 'fetchData',
-						url: fetchURL,
-					},
-				],
-			},
-			function (response) {
-				resolve(response.data);
-			}
-		);
-	});
-}
-
-// Find The Author From Post Data
-function findAuthorFromPostData(data) {
-	// check current object
-	if (data.hasOwnProperty('author')) {
-		return data['author'];
-	}
-	// check nested objects
-	for (const k in data) {
-		if (typeof data[k] === 'object' && data[k] !== null) {
-			const result = findAuthorFromPostData(data[k], 'author');
-			if (result !== undefined) {
-				return result;
-			}
-		}
-	}
 }
 
 // Function to create the hover card
@@ -244,22 +200,22 @@ function createHoverCard(userData) {
 }
 
 // Observe feed for new posts
-const observer = new MutationObserver(function (mutations) {
-	mutations.forEach(function (mutation) {
-		mutation.addedNodes.forEach(function (addedNode) {
-			if (addedNode.nodeName === 'ARTICLE') {
-				setTimeout(() => {
-					const post = addedNode.querySelector('shreddit-post');
-					if (addedNode) {
-						attachUsername(post);
-					}
-				}, 1000);
-			}
-			if (addedNode.nodeName === 'FACEPLATE-TRACKER') {
-				setTimeout(() => {
-					attachUsername(addedNode);
-				}, 1000);
-			}
+const observer = new MutationObserver(
+	debounce(function (mutations) {
+		mutations.forEach(function (mutation) {
+			mutation.addedNodes.forEach(function (addedNode) {
+				if (['TIME', 'ARTICLE', 'DIV', 'SPAN', 'FACEPLATE-TRACKER', 'FACEPLATE-LOADER', 'SEARCH-TELEMETRY-TRACKER', 'HR'].includes(addedNode.nodeName)) {
+					document.querySelectorAll('shreddit-post, #main-content > div > search-telemetry-tracker').forEach(attachUsername);
+				}
+			});
 		});
-	});
-});
+	}, 100)
+);
+
+function debounce(func, wait) {
+	let timeout;
+	return function (...args) {
+		clearTimeout(timeout);
+		timeout = setTimeout(() => func.apply(this, args), wait);
+	};
+}
