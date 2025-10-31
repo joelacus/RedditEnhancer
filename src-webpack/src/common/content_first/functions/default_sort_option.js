@@ -211,8 +211,8 @@ function classify(url) {
     const navigationEntries = performance.getEntriesByType('navigation');
     subreddit = url.pathname.match(/^\/r\/([^\/]+)\//)?.[1];
 
-    if (navigationEntries.length > 0 && navigationEntries[0].type !== 'back_forward') {
-        // Page reload
+    if (navigationEntries.length > 0 && navigationEntries[0].type === 'reload') {
+        // Page reload (#213: only detect "reload" PerformanceNavigationTiming instead of "navigate" or "back_forward")
         return false;
     } else if (['/', '/best/', '/hot/', '/new/', '/top/', '/rising/'].includes(url.pathname) && previousType !== 'home') {
         sessionStorage.setItem('RE.page', 'home');
