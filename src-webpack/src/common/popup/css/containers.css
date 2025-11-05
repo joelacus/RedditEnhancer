@@ -81,3 +81,10 @@
 	width: 100%;
 	max-width: 200px;
 }
+.css-input-container-full {
+	width: 100%;
+}
+.css-input-container-full input {
+	width: 314px !important;
+	margin-left: 54px;
+}

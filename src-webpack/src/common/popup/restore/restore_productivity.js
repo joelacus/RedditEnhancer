@@ -405,6 +405,11 @@ export function restorePopupProductivityOptions() {
 		console.log(`Show Post Absolute Timestamp: ${result.showPostAbsoluteTimestamp}`);
 	});
 
+	// Customise Post Absolute Timestamp Format
+	BROWSER_API.storage.sync.get(['postAbsoluteTimestampFormat'], function (result) {
+		document.querySelector('#input-post-absolute-timestamp-format').value = result.postAbsoluteTimestampFormat ?? '';
+	});
+
 	// Show Comment Absolute Timestamp
 	BROWSER_API.storage.sync.get(['showCommentAbsoluteTimestamp'], function (result) {
 		if (result.showCommentAbsoluteTimestamp) {
@@ -415,6 +420,11 @@ export function restorePopupProductivityOptions() {
 			document.querySelector('#checkbox-show-comment-absolute-timestamp').checked = false;
 		}
 		console.log(`Show Comment Absolute Timestamp: ${result.showCommentAbsoluteTimestamp}`);
+	});
+
+	// Customise Absolute Timestamp Format
+	BROWSER_API.storage.sync.get(['commentAbsoluteTimestampFormat'], function (result) {
+		document.querySelector('#input-comment-absolute-timestamp-format').value = result.commentAbsoluteTimestampFormat ?? '';
 	});
 
 	// Non Sticky Header Bar

@@ -1259,13 +1259,19 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li class="container-3 r-old r-newnew">
-						<span class="menu-item-icon icon-clock icon-show-post-absolute-timestamp"></span>
-						<span data-lang="ShowPostAbsoluteTimestamp" data-search="numbers"></span>
-						<label class="switch">
-							<input id="checkbox-show-post-absolute-timestamp" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
+					<li class="container r-old r-newnew" data-search="time, timestamp, datetime, absolute">
+						<div class="container-3">
+							<span class="menu-item-icon icon-clock icon-show-post-absolute-timestamp"></span>
+							<span data-lang="ShowPostAbsoluteTimestamp"></span>
+							<label class="switch">
+								<input id="checkbox-show-post-absolute-timestamp" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<div class="css-input-container-full">
+							<input id="input-post-absolute-timestamp-format" type="text" placeholder="e.g. dd MMM yyyy | hh:mm" />
+							<a href="https://github.com/joelacus/RedditEnhancer/wiki/User-Guides#custom-timestamp-format" target="_blank" style="margin-left: 20px; font-size: 20px">?</a>
+						</div>
 					</li>
 					<li class="container-3 r-new r-newnew">
 						<span class="menu-item-icon icon-arrow-up icon-show-upvote-ratio"></span>
@@ -1450,13 +1456,19 @@
 							<span class="indicator"></span>
 						</label>
 					</li>
-					<li class="container-3 r-newnew">
-						<span class="menu-item-icon icon-clock icon-show-comment-absolute-timestamp"></span>
-						<span data-lang="ShowCommentAbsoluteTimestamp" data-search="numbers"></span>
-						<label class="switch">
-							<input id="checkbox-show-comment-absolute-timestamp" type="checkbox" />
-							<span class="indicator"></span>
-						</label>
+					<li class="container r-newnew" data-search="time, timestamp, datetime, absolute">
+						<div class="container-3">
+							<span class="menu-item-icon icon-clock icon-show-comment-absolute-timestamp"></span>
+							<span data-lang="ShowCommentAbsoluteTimestamp"></span>
+							<label class="switch">
+								<input id="checkbox-show-comment-absolute-timestamp" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<div class="css-input-container-full">
+							<input id="input-comment-absolute-timestamp-format" type="text" placeholder="e.g. dd MMM yyyy | hh:mm" />
+							<a href="https://github.com/joelacus/RedditEnhancer/wiki/User-Guides#custom-timestamp-format" target="_blank" style="margin-left: 20px; font-size: 20px">?</a>
+						</div>
 					</li>
 					<li class="container-3 r-old">
 						<span class="menu-item-icon icon-user icon-add-profile-pictures-to-comments"></span>
@@ -1741,7 +1753,7 @@
 								<span class="indicator"></span>
 							</label>
 							<div></div>
-							<div class="css-input-container">
+							<div class="css-input-container-full">
 								<input id="input-multicoloured-comment-thread-lines-colour-list" type="text" placeholder="red, #0f0, rgb(0,0,255)" />
 							</div>
 						</div>
@@ -1774,7 +1786,7 @@
 							<span class="indicator"></span>
 						</label>
 						<div></div>
-						<div class="css-input-container" style="margin-bottom: 4px">
+						<div class="css-input-container-full" style="margin-bottom: 4px">
 							<input id="input-custom-header-logo-url" type="text" placeholder="Image URL" />
 						</div>
 					</li>

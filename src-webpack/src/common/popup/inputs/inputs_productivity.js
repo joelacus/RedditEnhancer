@@ -515,6 +515,14 @@ document.querySelector('#checkbox-show-post-absolute-timestamp').addEventListene
 	}
 });
 
+// Input - Customise Absolute Post Timestamp Format
+document.querySelector('#input-post-absolute-timestamp-format').addEventListener('input', function (e) {
+	const postAbsoluteTimestampFormat = this.value;
+	BROWSER_API.storage.sync.set({ postAbsoluteTimestampFormat: postAbsoluteTimestampFormat });
+	const checked = document.querySelector('#checkbox-show-post-absolute-timestamp').checked;
+	if (checked) sendMessage({ updatePostAbsoluteTimestamps: postAbsoluteTimestampFormat });
+});
+
 // Toggle - Show Comment Absolute Timestamp
 document.querySelector('#checkbox-show-comment-absolute-timestamp').addEventListener('change', function (e) {
 	const showCommentAbsoluteTimestamp = document.querySelector('#checkbox-show-comment-absolute-timestamp').checked;
@@ -527,6 +535,14 @@ document.querySelector('#checkbox-show-comment-absolute-timestamp').addEventList
 		document.querySelector('.icon-show-comment-absolute-timestamp').style.backgroundColor = '';
 		sendMessage({ showCommentAbsoluteTimestamp: false });
 	}
+});
+
+// Input - Customise Comment Absolute Timestamp Format
+document.querySelector('#input-comment-absolute-timestamp-format').addEventListener('input', function (e) {
+	const commentAbsoluteTimestampFormat = this.value;
+	BROWSER_API.storage.sync.set({ commentAbsoluteTimestampFormat: commentAbsoluteTimestampFormat });
+	const checked = document.querySelector('#checkbox-show-comment-absolute-timestamp').checked;
+	if (checked) sendMessage({ updateCommentAbsoluteTimestamps: commentAbsoluteTimestampFormat });
 });
 
 // Toggle - Show Post Author
