@@ -485,6 +485,9 @@
 	"Hot": {
 		"message": "Heet / Hot"
 	},
+	"Image": {
+		"message": "Afbeelding"
+	},
 	"ImageScroll": {
 		"message": "Voeg schuifbars toe aan afbeeldingen"
 	},
@@ -860,6 +863,9 @@
 	"SnapSidebar": {
 		"message": "Bevestig de zijbalk aan de rechterrand"
 	},
+	"SolidColour": {
+		"message": "Effen kleur"
+	},
 	"Sort": {
 		"message": "Sorteren"
 	},
@@ -946,9 +952,6 @@
 	},
 	"UpvoteColour": {
 		"message": "Bericht: Upvote Kleur"
-	},
-	"UseCustom": {
-		"message": "Aangepast gebruiken"
 	},
 	"UserProfileOffset": {
 		"message": "Verschuiving van de gebruikersprofiel"

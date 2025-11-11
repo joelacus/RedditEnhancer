@@ -284,6 +284,9 @@
 	"Hot": {
 		"message": "Varm / Hot"
 	},
+	"Image": {
+		"message": "Bilde"
+	},
 	"ImageScroll": {
 		"message": "Legg til rullefelt i bilder"
 	},
@@ -601,9 +604,6 @@
 	},
 	"Upload": {
 		"message": "Laste opp"
-	},
-	"UseCustom": {
-		"message": "Bruk tilpasset"
 	},
 	"UserProfileOffset": {
 		"message": "Forskyvning for brukerprofil"

@@ -488,6 +488,9 @@
 	"Hot": {
 		"message": "Hot"
 	},
+	"Image": {
+		"message": "Image"
+	},
 	"ImageScroll": {
 		"message": "Add Scrollbars To Images"
 	},
@@ -863,6 +866,9 @@
 	"SnapSidebar": {
 		"message": "Snap sidebar to the right edge"
 	},
+	"SolidColour": {
+		"message": "Solid Colour"
+	},
 	"Sort": {
 		"message": "Sort"
 	},
@@ -949,9 +955,6 @@
 	},
 	"UpvoteColour": {
 		"message": "Post: Upvote Colour"
-	},
-	"UseCustom": {
-		"message": "Use Custom"
 	},
 	"UserProfileOffset": {
 		"message": "User Profile Offset"

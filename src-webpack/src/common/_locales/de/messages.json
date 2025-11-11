@@ -485,6 +485,9 @@
 	"Hot": {
 		"message": "Heiß / Hot"
 	},
+	"Image": {
+		"message": "Bild"
+	},
 	"ImageScroll": {
 		"message": "Fügen Sie Bildern Scrollbars hinzu"
 	},
@@ -860,6 +863,9 @@
 	"SnapSidebar": {
 		"message": "Senden sie die seitenleiste zur rechten kante"
 	},
+	"SolidColour": {
+		"message": "Einfarbig"
+	},
 	"Sort": {
 		"message": "Sortieren"
 	},
@@ -946,9 +952,6 @@
 	},
 	"UpvoteColour": {
 		"message": "Beitrag: Upvote Farbe"
-	},
-	"UseCustom": {
-		"message": "Benutzerdefiniert verwenden"
 	},
 	"UserProfileOffset": {
 		"message": "Versatz des Benutzerprofil"

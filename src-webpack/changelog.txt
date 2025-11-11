@@ -1,8 +1,14 @@
 version 2.4.0
+v [Latest UI V3, Old UI V1]
+  - Added an option to set a solid background colour.
+  - Added a new colour picker dialogue to make choosing style colours easy. (Currently only implemented for the new solid background colour option, but will eventually support all other colour inputs).
 v [Latest UI V3]
   - Added options to customise the absolute post and comment timestamp formats.
   - Fixed "Show legacy subreddit member count" sometimes not working.
-  - Bug fixes.
+  - Fixed an issue where comment options may not show when "Always Show Post and Comment Options" is enabled, due to Reddit's custom HTML tag name change. [credit: @biminhc1 (Reddit) @bmndc (Github)].
+  - Fixed an issue where it is not possible to temporarily change feed sort option with "Default Sort Option". [credit: @biminhc1 (Reddit) @bmndc (Github)].
+  - Rewrote parts of "Show Post Authors" to fix an issue where the function may not work on search result pages. [credit: @biminhc1 (Reddit) @bmndc (Github)].
+  - Other bug fixes.
   
 
 version 2.3.1

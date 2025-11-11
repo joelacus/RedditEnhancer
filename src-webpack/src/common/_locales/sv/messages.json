@@ -275,6 +275,9 @@
 	"HomeFeedWidth": {
 		"message": "Bredd på startsidan"
 	},
+	"Image": {
+		"message": "Bild"
+	},
 	"ImageScroll": {
 		"message": "Lägg till Scrollbars till bilder"
 	},
@@ -460,9 +463,6 @@
 	},
 	"UpdateFirefox": {
 		"message": "Uppdatera till Firefox 121 eller senare för att vissa funktioner ska fungera korrekt."
-	},
-	"UseCustom": {
-		"message": "Använd anpassning"
 	},
 	"UserProfileOffset": {
 		"message": "Användarprofilförskjutning"

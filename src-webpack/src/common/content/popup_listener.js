@@ -147,6 +147,7 @@ import { showCommentAbsoluteTimestamp, showPostAbsoluteTimestamp, updateCommentA
 import { markPostAsReadButton } from './tweaks/productivity/mark_read_on_open_expandos';
 import { showMemberCount } from './tweaks/productivity/show_member_count';
 import { hideUsernameInSubSidebar } from './tweaks/hide_elements/hide_username_in_sub_sidebar';
+import { solidColourBackground, solidColourBackgroundCSS } from './tweaks/background/bg_solid_colour';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -380,6 +381,8 @@ const functionRegistry = {
 	markPostAsReadButton,
 	updateCommentAbsoluteTimestamps,
 	updatePostAbsoluteTimestamps,
+	solidColourBackground,
+	solidColourBackgroundCSS,
 	//breakReminder,
 	//darkMode,
 	//darkModeAutoListener,

@@ -5,6 +5,7 @@
 import './functions/accordion';
 import './inputs/extension_theme';
 import './inputs/filter_version_select';
+import './inputs/colour_pickers';
 import './inputs/inputs_accessibility';
 import './inputs/inputs_account_switcher';
 import './inputs/inputs_background';

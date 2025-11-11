@@ -46,9 +46,11 @@ import { loadCustomHeaderLogo } from '../../../content/tweaks/style/custom_heade
 import { loadHideVideoRecommendations } from '../../../content/tweaks/media/hide_video_recommendations';
 import { loadHideCommunityStatus } from '../../../content/tweaks/hide_elements/hide_community_status';
 import { loadDropShadow } from '../../../content/tweaks/style/drop_shadow';
-import {loadHideSearchHero} from "../../../content/tweaks/hide_elements/hide_search_hero";
+import { loadHideSearchHero } from '../../../content/tweaks/hide_elements/hide_search_hero';
+import { loadSolidColourBackground } from '../../../content/tweaks/background/bg_solid_colour';
 
 export function tweakLoaderNewNew() {
+	loadSolidColourBackground();
 	loadCustomBackground();
 	loadCustomTheme();
 	loadDropShadow();
@@ -100,5 +102,5 @@ export function tweakLoaderNewNew() {
 	loadCustomHeaderLogo();
 	loadHideVideoRecommendations();
 	loadHideCommunityStatus();
-    loadHideSearchHero();
+	loadHideSearchHero();
 }

@@ -149,6 +149,9 @@
 	"Hot": {
 		"message": "Kuuma / Hot"
 	},
+	"Image": {
+		"message": "Kuva"
+	},
 	"ImageScroll": {
 		"message": "Lisää vierityspalkkeja kuviin"
 	},
@@ -304,9 +307,6 @@
 	},
 	"UpdateFirefox": {
 		"message": "Päivitä Firefox 121:een tai uudempaan, jotta jotkin ominaisuudet toimivat oikein."
-	},
-	"UseCustom": {
-		"message": "Käytä tapaa"
 	},
 	"UserProfileOffset": {
 		"message": "Käyttäjäprofiilin siirtymä"

@@ -485,6 +485,9 @@
 	"Hot": {
 		"message": "Destacando / Hot"
 	},
+	"Image": {
+		"message": "Imagen"
+	},
 	"ImageScroll": {
 		"message": "Agregar barras de desplazamiento a las imágenes"
 	},
@@ -860,6 +863,9 @@
 	"SnapSidebar": {
 		"message": "Aprieta la barra lateral al borde derecho"
 	},
+	"SolidColour": {
+		"message": "Color sólido"
+	},
 	"Sort": {
 		"message": "Ordenar"
 	},
@@ -946,9 +952,6 @@
 	},
 	"UpvoteColour": {
 		"message": "Publicación: Votar a favor del color"
-	},
-	"UseCustom": {
-		"message": "Usar personalizado"
 	},
 	"UserProfileOffset": {
 		"message": "Desplazamiento del perfil de usuario"

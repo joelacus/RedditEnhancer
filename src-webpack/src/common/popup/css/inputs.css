@@ -376,3 +376,57 @@ input:disabled {
 #select-comments-sort-option .select span {
 	color: var(--text);
 }
+
+/* Colour Picker */
+.color-picker,
+.cp_dialog {
+	--cp-body-bg: var(--bg) !important;
+	--cp-body-color: var(--text) !important;
+	--cp-body-color-rgb: 222, 226, 230 !important;
+	--cp-border-color: var(--btn-border) !important;
+	--cp-hover-color: var(--btn-border) !important;
+	--cp-button-color: var(--btn-bg) !important;
+	--cp-border-radius-sm: var(--border-radius);
+	--cp-border-radius-lg: var(--border-radius);
+}
+.cp_wide.cp_input:hover {
+	background-color: var(--btn-hover) !important;
+}
+.cp_dialog {
+	transition: none !important;
+}
+.cp_dialog input {
+	box-shadow: none !important;
+}
+.cp_dialog.cp_open {
+	transform: none !important;
+	top: calc(50% - 100px) !important;
+	left: calc(50% - 120px) !important;
+	height: fit-content !important;
+}
+.cp_action.cp_submit {
+	color: var(--accent) !important;
+}
+.cp_caret {
+	display: none !important;
+}
+.cp_format {
+	text-align: center;
+}
+#popup:has(.cp_dialog.cp_open) #main-menu {
+	overflow-y: clip !important;
+}
+#colour-picker-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 9;
+}
+#popup:has(.cp_dialog.cp_open) #colour-picker-bg,
+#options-page:has(.cp_dialog.cp_open) #colour-picker-bg {
+	display: block;
+}

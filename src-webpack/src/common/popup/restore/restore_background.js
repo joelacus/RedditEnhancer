@@ -2,22 +2,38 @@
 
 import { highlightMenuIcon } from '../popup_restore';
 import { sendMessage } from '../send_message';
+import ColorPicker from '../colorpicker.js';
 
 // Restore UI settings for "Background" options.
 
 export function restorePopupBackgroundOptions() {
-	// Use Custom Background
+	// Solid Colour Background
+	BROWSER_API.storage.sync.get(['solidColourBackground'], function (result) {
+		const value = result.solidColourBackground === true ? true : false;
+		if (value) {
+			document.querySelector('.icon-bg-solid-colour').style.backgroundColor = 'var(--accent)';
+			highlightMenuIcon('background');
+		}
+		document.querySelector('#checkbox-bg-solid-colour').checked = value;
+		console.log(`Solid Colour Background: ${value}`);
+	});
+
+	BROWSER_API.storage.sync.get(['solidColourBackgroundCSS'], function (result) {
+		const value = result.solidColourBackgroundCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'background')?.picker;
+		get_picker.setColor(value);
+		console.log(`Solid Colour Background CSS: ${value}`);
+	});
+
+	// Custom Image Background
 	BROWSER_API.storage.sync.get(['useCustomBackground'], function (result) {
-		if (result.useCustomBackground == true) {
-			document.querySelector('#checkbox-background').checked = true;
+		const value = result.useCustomBackground === true ? true : false;
+		if (value) {
 			document.querySelector('.icon-bg-image').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('background');
-			var value = true;
-		} else if (typeof result.useCustomBackground == 'undefined' || result.useCustomBackground == false) {
-			document.querySelector('#checkbox-background').checked = false;
-			var value = false;
 		}
-		console.log('Use Custom Background: ' + value);
+		document.querySelector('#checkbox-background').checked = value;
+		console.log(`Use Custom Background: ${value}`);
 	});
 
 	// Load Saved Backgrounds Into Library

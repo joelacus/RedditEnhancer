@@ -485,6 +485,9 @@
 	"Hot": {
 		"message": "Populaires / Hot"
 	},
+	"Image": {
+		"message": "Image"
+	},
 	"ImageScroll": {
 		"message": "Ajouter des barres de défilement aux images"
 	},
@@ -860,6 +863,9 @@
 	"SnapSidebar": {
 		"message": "Aligner la barre latérale sur le bord droit"
 	},
+	"SolidColour": {
+		"message": "Couleur unie"
+	},
 	"Sort": {
 		"message": "Trier"
 	},
@@ -946,9 +952,6 @@
 	},
 	"UpvoteColour": {
 		"message": "Post: Couleur de vote positif"
-	},
-	"UseCustom": {
-		"message": "Utiliser la personnalisation"
 	},
 	"UserProfileOffset": {
 		"message": "Décalage du profil utilisateur"

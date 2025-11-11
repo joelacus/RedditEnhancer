@@ -485,6 +485,9 @@
 	"Hot": {
 		"message": "Di tendenza / Hot"
 	},
+	"Image": {
+		"message": "Immagine"
+	},
 	"ImageScroll": {
 		"message": "Aggiungi le barre di scorrimento alle immagini"
 	},
@@ -860,6 +863,9 @@
 	"SnapSidebar": {
 		"message": "Attacca la barra laterale al bordo destro"
 	},
+	"SolidColour": {
+		"message": "Colore solido"
+	},
 	"Sort": {
 		"message": "Ordina"
 	},
@@ -946,9 +952,6 @@
 	},
 	"UpvoteColour": {
 		"message": "Post: Colore di voto positivo"
-	},
-	"UseCustom": {
-		"message": "Usa Personalizzato"
 	},
 	"UserProfileOffset": {
 		"message": "Offset del profilo utente"

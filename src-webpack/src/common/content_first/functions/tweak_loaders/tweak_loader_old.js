@@ -32,8 +32,10 @@ import { loadHideChatButton, loadHideModerationButton, loadHideNotificationButto
 import { loadCustomHeaderLogo } from '../../../content/tweaks/style/custom_header_logo';
 import { loadRightSidePostThumbnails } from '../../../content/tweaks/style/right_side_post_thumbnails';
 import { loadHighlightOP } from '../../../content/tweaks/productivity/highlight_op';
+import { loadSolidColourBackground } from '../../../content/tweaks/background/bg_solid_colour';
 
 export function tweakLoaderOld() {
+	loadSolidColourBackground();
 	loadExpandContent();
 	loadLayoutCentre();
 	loadHideHomeSidebar();

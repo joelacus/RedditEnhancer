@@ -284,6 +284,9 @@
 	"Hot": {
 		"message": "Гаряче / Hot"
 	},
+	"Image": {
+		"message": "Зображення"
+	},
 	"ImageScroll": {
 		"message": "Додайте скрульні смуги до зображень"
 	},
@@ -601,9 +604,6 @@
 	},
 	"Upload": {
 		"message": "Завантажити"
-	},
-	"UseCustom": {
-		"message": "Використовуйте настроювані"
 	},
 	"UserProfileOffset": {
 		"message": "Зсув профілю користувача"

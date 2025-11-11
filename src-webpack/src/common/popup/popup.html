@@ -139,6 +139,7 @@
 		</div>
 
 		<!-- = Menu = -->
+		<div id="colour-picker-bg"></div>
 		<ul id="main-menu" class="menu">
 			<li id="index-1" data-index="1">
 				<!-- Resize Feed/Post -->
@@ -2293,31 +2294,45 @@
 					<li class="sub-header sub-search-title">
 						<span data-lang="Background"></span>
 					</li>
-					<li class="container r-old r-new r-newnew">
-						<div class="container-3 r-old r-new r-newnew">
+					<li class="container r-old r-newnew">
+						<div class="container-3">
+							<span class="menu-item-icon icon-spray-can icon-bg-solid-colour"></span>
+							<span data-lang="SolidColour" data-search="background"></span>
+							<label class="switch">
+								<input id="checkbox-bg-solid-colour" type="checkbox" />
+								<span class="indicator"></span>
+							</label>
+						</div>
+						<div class="divider"></div>
+						<div class="container-3">
+							<span></span>
+							<input class="colour-picker" data-style-id="background" value="" />
+						</div>
+					</li>
+					<li class="container r-old r-newnew">
+						<div class="container-3 r-old r-newnew">
 							<span class="menu-item-icon icon-background icon-bg-image"></span>
-							<span data-lang="UseCustom" data-search="background,image"></span>
+							<span data-lang="Image" data-search="background,image"></span>
 							<label class="switch">
 								<input id="checkbox-background" type="checkbox" />
 								<span class="indicator"></span>
 							</label>
 						</div>
 						<div class="divider"></div>
-						<div class="container-slider r-old r-new r-newnew">
+						<div class="container-slider r-old r-newnew">
 							<span class="menu-item-icon icon-blur icon-bg-blur"></span>
 							<span data-lang="Blur" data-search="background,image"></span>
 							<input type="range" min="0" max="30" value="0" step="1" class="slider" id="input-bg-blur" />
 							<span id="bg-blur-value" class="input-value"></span>
 						</div>
-					</li>
-					<li class="container r-old r-new r-newnew">
-						<div class="container r-old r-new r-newnew">
+						<div class="divider"></div>
+						<div class="container r-old r-newnew">
 							<form class="custom-input-container" data-search="background,image">
 								<input type="text" id="input-custom-background" name="custom" maxlength="1000" style="margin-left: 4px" />
 								<button class="btn btn-add-custom-background icon icon-plus" type="submit" value="Add Background URL"></button>
 							</form>
 						</div>
-						<div class="container r-old r-new r-newnew">
+						<div class="container r-old r-newnew">
 							<button class="btn-edit-backgrounds btn-icon icon-bin" data-search="background,image" value="Enable Background Edit Mode"></button>
 							<button class="btn-edit-backgrounds-save btn-icon icon-check" style="display: none" value="Disable Background Edit Mode"></button>
 							<div id="backgrounds-container">
