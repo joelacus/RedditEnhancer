@@ -407,6 +407,9 @@
 	"Hot": {
 		"message": "Em destaque / Hot"
 	},
+	"Image": {
+		"message": "Imagem"
+	},
 	"ImageScroll": {
 		"message": "Adicione barras de rolagem às imagens"
 	},
@@ -826,9 +829,6 @@
 	},
 	"UpvoteColour": {
 		"message": "Postagem: Cor do voto positivo"
-	},
-	"UseCustom": {
-		"message": "Usar personalizado"
 	},
 	"UserProfileOffset": {
 		"message": "Deslocamento do perfil do usuário"

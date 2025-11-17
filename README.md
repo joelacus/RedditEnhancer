@@ -51,7 +51,8 @@ I welcome any help if you would like to improve or contribute new language trans
 ## Background
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
-|Custom Background|Add a custom background to the webpage. You can paste and store multiple image links.|3<br>1|
+|Solid Colour|Set a simple solid colour as the page background.|3<br>1|
+|Image|Add a custom background image to the webpage. You can paste and store multiple image links.|3<br>1|
 |Blur Background|Adds a blur filter to the custom background image.|3<br>1|
 
 ## Media
@@ -132,8 +133,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Open Links To Sub Reddit In New Tab|This makes sub reddit links open in a new tab, instead of the current one.|3|
 |Remember Side Menu Section Hidden States|Remember if the sections in the left side menu are open or closed.|3|
 |Remove icons from most comment buttons|This will hide any icons from the buttons in the action bar, if "Always Show Post and Comment Options" is enabled.|3|
-|Show Absolute Timestamps On Comments|Show the full time and date a comment was published next to the relative timestamp.|3<br>1|
-|Show Absolute Timestamps On Posts|Show the full time and date a post was published next to the relative timestamp in the post credit bar.|3<br>1|
+|Show Absolute Timestamps On Comments|Show the full time and date a comment was published next to the relative timestamp. The date and time format can be customised.|3<br>1|
+|Show Absolute Timestamps On Posts|Show the full time and date a post was published next to the relative timestamp in the post credit bar. The date and time format can be customised.|3<br>1|
 |Show navigation buttons to scroll to the next/previous root comment on a post|Scroll to the next/previous root/first comments on a post.|3<br>1|
 |Show Post Author|Shows the missing post author on the home and other feeds.|3|
 |Show Post Flair|Shows the missing post flair on the home and other feeds.|3|
@@ -200,14 +201,14 @@ Feel free to add any new languages and/or region differences.
 |[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|100%|
 |[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|100%|
 |[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|100%|
-|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|87.6%|
-|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|75.8%|
-|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|63.4%|
-|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|63.4%|
-|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|48.3%|
-|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|32.6%|
-|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|30.5%|
-|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|26.3%|
+|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|87.3%|
+|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|75.6%|
+|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|63.3%|
+|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|63.3%|
+|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|48.2%|
+|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|32.5%|
+|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|30.4%|
+|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|26.2%|
 
 # Build
 Clone repo and cd to build directory:

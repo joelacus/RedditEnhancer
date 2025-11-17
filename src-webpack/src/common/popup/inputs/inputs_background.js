@@ -3,24 +3,48 @@
 import i18next from 'i18next';
 import { sendMessage } from '../send_message';
 
-// Toggle - Use Custom Background
-document.querySelector('#checkbox-background').addEventListener('change', function (e) {
-	const state = document.querySelector('#checkbox-background').checked;
-	if (state == true) {
-		BROWSER_API.storage.sync.set({ useCustomBackground: true });
-		const icons = document.querySelectorAll('.icon-background');
-		icons.forEach(function (icon) {
-			icon.style.backgroundColor = 'var(--accent)';
-		});
-		sendMessage({ useCustomBackground: true });
-	} else if (state == false) {
+// Toggle - Background Solid Colour
+document.querySelector('#checkbox-bg-solid-colour').addEventListener('change', function () {
+	// disable background image
+	if (document.querySelector('#checkbox-background').checked) {
+		document.querySelector('#checkbox-background').checked = false;
 		BROWSER_API.storage.sync.set({ useCustomBackground: false });
-		const icons = document.querySelectorAll('.icon-background');
-		icons.forEach(function (icon) {
-			icon.style.backgroundColor = '';
-		});
 		sendMessage({ useCustomBackground: false });
+		document.querySelector('.icon-bg-image').style.backgroundColor = '';
 	}
+
+	// enable solid colour background
+	const checkbox = document.querySelector('#checkbox-bg-solid-colour').checked;
+	const icon = document.querySelector('.icon-bg-solid-colour');
+	if (checkbox) {
+		icon.style.backgroundColor = 'var(--accent)';
+	} else {
+		icon.style.backgroundColor = '';
+	}
+	BROWSER_API.storage.sync.set({ solidColourBackground: checkbox });
+	sendMessage({ solidColourBackground: checkbox });
+});
+
+// Toggle - Background Image
+document.querySelector('#checkbox-background').addEventListener('change', function () {
+	// disable solid colour background
+	if (document.querySelector('#checkbox-bg-solid-colour').checked) {
+		document.querySelector('#checkbox-bg-solid-colour').checked = false;
+		BROWSER_API.storage.sync.set({ solidColourBackground: false });
+		sendMessage({ solidColourBackground: false });
+		document.querySelector('.icon-bg-solid-colour').style.backgroundColor = '';
+	}
+
+	// enable background image
+	const checkbox = document.querySelector('#checkbox-background').checked;
+	const icons = document.querySelectorAll('.icon-background');
+	if (checkbox) {
+		document.querySelector('.icon-bg-image').style.backgroundColor = 'var(--accent)';
+	} else {
+		document.querySelector('.icon-bg-image').style.backgroundColor = '';
+	}
+	BROWSER_API.storage.sync.set({ useCustomBackground: checkbox });
+	sendMessage({ useCustomBackground: checkbox });
 });
 
 // Slider - Background Blur

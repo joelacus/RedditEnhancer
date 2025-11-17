@@ -380,6 +380,9 @@
 	"Hot": {
 		"message": "Gorący / Hot"
 	},
+	"Image": {
+		"message": "Obraz"
+	},
 	"ImageScroll": {
 		"message": "Dodaj paski przewijane do obrazów"
 	},
@@ -718,9 +721,6 @@
 	},
 	"Upload": {
 		"message": "Wgrywać"
-	},
-	"UseCustom": {
-		"message": "Użyj niestandardowego"
 	},
 	"UserProfileOffset": {
 		"message": "Przesunięcie profilu użytkownika"

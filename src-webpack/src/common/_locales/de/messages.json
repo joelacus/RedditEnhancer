@@ -18,7 +18,7 @@
 		"message": "Dies unterstützt derzeit nur MP4-URLs, nicht M3U8, sodass einige Video-Posts nicht den Download -Schaltfläche haben :/"
 	},
 	"AddMarkPostAsReadButton": {
-		"message": "Fügen Sie jedem Beitrag eine Schaltfläche hinzu, um sie als Lesen zu markieren"
+		"message": "Füge in der Kompaktansicht jedem Beitrag eine Schaltfläche hinzu, um ihn als gelesen zu markieren."
 	},
 	"AddNsfwTag": {
 		"message": "Fügen Sie NSFW-Tag hinzu"
@@ -485,6 +485,9 @@
 	"Hot": {
 		"message": "Heiß / Hot"
 	},
+	"Image": {
+		"message": "Bild"
+	},
 	"ImageScroll": {
 		"message": "Fügen Sie Bildern Scrollbars hinzu"
 	},
@@ -860,6 +863,9 @@
 	"SnapSidebar": {
 		"message": "Senden sie die seitenleiste zur rechten kante"
 	},
+	"SolidColour": {
+		"message": "Einfarbig"
+	},
 	"Sort": {
 		"message": "Sortieren"
 	},
@@ -946,9 +952,6 @@
 	},
 	"UpvoteColour": {
 		"message": "Beitrag: Upvote Farbe"
-	},
-	"UseCustom": {
-		"message": "Benutzerdefiniert verwenden"
 	},
 	"UserProfileOffset": {
 		"message": "Versatz des Benutzerprofil"

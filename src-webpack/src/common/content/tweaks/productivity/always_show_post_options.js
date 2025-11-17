@@ -217,7 +217,7 @@ function attachCommentMenu(commentActionRow) {
 	overflowMenuContainer.removeAttribute('should-use-bottom-sheet');
 	overflowMenuContainer.setAttribute('slot', 'comment-overflow-menu');
 	const overflowSlot = commentActionRow.shadowRoot?.querySelector('slot[name="overflow"]');
-	const overflowMenu = overflowMenuContainer.shadowRoot?.querySelector('faceplate-dropdown-menu, faceplate-bottom-sheet');
+	const overflowMenu = overflowMenuContainer.shadowRoot?.querySelector('faceplate-dropdown-menu, faceplate-bottom-sheet, faceplate-menu');
 	if (!overflowSlot || !overflowMenu) return;
 
 	// Initialise the shadow DOM slots for the buttons, appending after the overflow slot

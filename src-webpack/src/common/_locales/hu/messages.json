@@ -101,6 +101,9 @@
 	"HomeFeedWidth": {
 		"message": "Kezdőlap hírfolyam szélessége"
 	},
+	"Image": {
+		"message": "Kép"
+	},
 	"ImageScroll": {
 		"message": "Adjon hozzá görgetősávokat a képekhez"
 	},
@@ -241,9 +244,6 @@
 	},
 	"UpdateFirefox": {
 		"message": "Kérjük, frissítsen a Firefox 121-re vagy újabbra, hogy egyes funkciók megfelelően működjenek."
-	},
-	"UseCustom": {
-		"message": "Egyéni használat"
 	},
 	"UserProfileOffset": {
 		"message": "Felhasználói profil eltolása"

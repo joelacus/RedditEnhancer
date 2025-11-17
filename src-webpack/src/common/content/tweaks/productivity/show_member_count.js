@@ -65,12 +65,14 @@ async function enableShowMemberCountRV1() {
 		return;
 	}
 	// Extract member count from API response
-	const memberCount = data.subscribers || -1;
+	let memberCount = data.subscribers || -1;
 
 	// Create and insert the member count element into the page
 	const text = document.createElement('div');
 	text.classList.add('re-member-count');
-	text.textContent = `${memberCount.toString(10)} readers`;
+	memberCount = memberCount.toString(10);
+	const nfObject = new Intl.NumberFormat('en-GB');
+	text.textContent = `${nfObject.format(memberCount)} readers`;
 	const joinBtn = document.querySelector('.subButtons') ?? document.querySelector('.subscribe-button');
 	if (joinBtn && !document.querySelector('.re-member-count')) {
 		joinBtn.parentNode.insertBefore(text, joinBtn.nextSibling);
@@ -120,16 +122,18 @@ async function enableShowMemberCountRV3() {
 	const memberCount = data.subscribers || -1;
 
 	// Update the subreddit header with the member count
-	const text = header.querySelector('span[slot="weekly-active-users-count"]');
-	if (text) text.textContent = formatNumber(memberCount.toString(10));
+	const member_count_el_slot = header.querySelector('span[slot="weekly-active-users-count"]');
+	if (member_count_el_slot) member_count_el_slot.textContent = formatNumber(memberCount.toString(10));
 
 	const member_count_el = header.querySelector('[noun="insights"] div:last-child > div:first-child > div:first-child span');
 	if (member_count_el) member_count_el.textContent = formatNumber(memberCount.toString(10));
-	const member_name_el = header.querySelector('[noun="insights"] div:last-child > div:first-child > span');
+
+	const member_name_el = header.shadowRoot.querySelector('[data-testid="activity-indicators"] span:not(:has(strong))') ?? header.querySelector('[noun="insights"] div:last-child > div:first-child > span');
 	if (member_name_el) member_name_el.textContent = 'Members';
 
 	if (header.getAttribute('subscribers-text') === '') {
 		header.setAttribute('subscribers-text', 'Members');
 	}
+
 	header.removeAttribute('weekly-contributions');
 }

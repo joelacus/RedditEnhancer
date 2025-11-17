@@ -131,6 +131,9 @@
 	"Hot": {
 		"message": "Horký / Hot"
 	},
+	"Image": {
+		"message": "Obraz"
+	},
 	"ImageScroll": {
 		"message": "Přidejte svitky k obrázkům"
 	},
@@ -283,9 +286,6 @@
 	},
 	"UpdateFirefox": {
 		"message": "Aktualizujte prosím na Firefox 121 nebo vyšší, aby některé funkce fungovaly správně."
-	},
-	"UseCustom": {
-		"message": "Použijte vlastní"
 	},
 	"UserProfileOffset": {
 		"message": "Posun uživatelského profilu"

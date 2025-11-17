@@ -18,7 +18,7 @@
 		"message": "Questo attualmente supporta solo URL mp4, non m3u8, quindi alcuni post video non avranno il pulsante di download :/"
 	},
 	"AddMarkPostAsReadButton": {
-		"message": "Aggiungi un pulsante a ciascun post per contrassegnare come letto"
+		"message": "Aggiungi un pulsante a ogni post nella visualizzazione compatta per contrassegnarlo come letto"
 	},
 	"AddNsfwTag": {
 		"message": "Aggiungi tag NSFW"
@@ -485,6 +485,9 @@
 	"Hot": {
 		"message": "Di tendenza / Hot"
 	},
+	"Image": {
+		"message": "Immagine"
+	},
 	"ImageScroll": {
 		"message": "Aggiungi le barre di scorrimento alle immagini"
 	},
@@ -860,6 +863,9 @@
 	"SnapSidebar": {
 		"message": "Attacca la barra laterale al bordo destro"
 	},
+	"SolidColour": {
+		"message": "Colore solido"
+	},
 	"Sort": {
 		"message": "Ordina"
 	},
@@ -946,9 +952,6 @@
 	},
 	"UpvoteColour": {
 		"message": "Post: Colore di voto positivo"
-	},
-	"UseCustom": {
-		"message": "Usa Personalizzato"
 	},
 	"UserProfileOffset": {
 		"message": "Offset del profilo utente"

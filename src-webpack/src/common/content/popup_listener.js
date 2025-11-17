@@ -10,8 +10,8 @@ import { autoLoadMoreComments } from './tweaks/productivity/auto_load_more_comme
 import { bgBlur } from './tweaks/background/custom_background';
 import { bionicReaderBgColour, bionicReaderBgColourCSS, bionicReaderFontColour, bionicReaderFontColourCSS, bionicReaderPosts } from './tweaks/accessibility/bionic_reader';
 import { bionicReaderComments } from './tweaks/accessibility/bionic_reader';
-import { breakReminder } from './tweaks/productivity/break_reminder';
-import { darkMode, darkModeAutoListener } from './tweaks/dark_mode/dark_mode';
+//import { breakReminder } from './tweaks/productivity/break_reminder';
+//import { darkMode, darkModeAutoListener } from './tweaks/dark_mode/dark_mode';
 import { expandLayout, snapSidebar, expandPostOverlayWidth, expandPostWidth, expandSubWidth, expandLayoutWidth, expandUserProfileWidth, expandTopicFeedWidth, expandCustomFeedWidth, resizeMainContainerWidth } from './tweaks/resize_elements/expand_content';
 import { hideGap } from './tweaks/style/hide_gap';
 import { hideGetNewReddit } from './tweaks/hide_elements/hide_get_new_reddit';
@@ -143,10 +143,11 @@ import { highlightOp } from './tweaks/productivity/highlight_op';
 import { addDownloadVideoButton } from './tweaks/media/add_download_video_button';
 import { fullWidthExpandos } from './tweaks/media/full_width_expandos';
 import { hideSearchHero } from './tweaks/hide_elements/hide_search_hero';
-import { showCommentAbsoluteTimestamp, showPostAbsoluteTimestamp } from './tweaks/productivity/show_absolute_timestamps';
+import { showCommentAbsoluteTimestamp, showPostAbsoluteTimestamp, updateCommentAbsoluteTimestamps, updatePostAbsoluteTimestamps } from './tweaks/productivity/show_absolute_timestamps';
 import { markPostAsReadButton } from './tweaks/productivity/mark_read_on_open_expandos';
 import { showMemberCount } from './tweaks/productivity/show_member_count';
 import { hideUsernameInSubSidebar } from './tweaks/hide_elements/hide_username_in_sub_sidebar';
+import { solidColourBackground, solidColourBackgroundCSS } from './tweaks/background/bg_solid_colour';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -378,6 +379,10 @@ const functionRegistry = {
 	showCommentAbsoluteTimestamp,
 	showPostAbsoluteTimestamp,
 	markPostAsReadButton,
+	updateCommentAbsoluteTimestamps,
+	updatePostAbsoluteTimestamps,
+	solidColourBackground,
+	solidColourBackgroundCSS,
 	//breakReminder,
 	//darkMode,
 	//darkModeAutoListener,

@@ -199,11 +199,20 @@ export function loadTweaks() {
 					loadImageScroll();
 					loadReplacePostImagesWithLinks();
 					loadReplacePostVideosWithLinks();
+					loadShowMemberCount();
 				}, 500);
 				loadLeftSideVoteButtons();
 				loadAlwaysShowPostOptions();
 				loadShowUpvoteRatio();
 				loadHideAwards();
+			},
+		});
+
+		waitForAddedNode({
+			query: '[noun="insights"] div:last-child > div:first-child > div:first-child span',
+			parent: document.querySelector('shreddit-subreddit-header'),
+			recursive: true,
+			done: function () {
 				loadShowMemberCount();
 			},
 		});
