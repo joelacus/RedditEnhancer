@@ -18,7 +18,7 @@
 		"message": "Actualmente, esto solo admite URL mp4, no m3u8, por lo que algunas publicaciones de video no tendrán el botón de descarga :/"
 	},
 	"AddMarkPostAsReadButton": {
-		"message": "Agregue un botón a cada publicación para marcarlo como leído"
+		"message": "Añade un botón a cada publicación en la vista compacta para marcarla como leída."
 	},
 	"AddNsfwTag": {
 		"message": "Agregar etiqueta NSFW"

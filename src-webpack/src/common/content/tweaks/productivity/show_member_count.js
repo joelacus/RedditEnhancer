@@ -65,12 +65,14 @@ async function enableShowMemberCountRV1() {
 		return;
 	}
 	// Extract member count from API response
-	const memberCount = data.subscribers || -1;
+	let memberCount = data.subscribers || -1;
 
 	// Create and insert the member count element into the page
 	const text = document.createElement('div');
 	text.classList.add('re-member-count');
-	text.textContent = `${memberCount.toString(10)} readers`;
+	memberCount = memberCount.toString(10);
+	const nfObject = new Intl.NumberFormat('en-GB');
+	text.textContent = `${nfObject.format(memberCount)} readers`;
 	const joinBtn = document.querySelector('.subButtons') ?? document.querySelector('.subscribe-button');
 	if (joinBtn && !document.querySelector('.re-member-count')) {
 		joinBtn.parentNode.insertBefore(text, joinBtn.nextSibling);

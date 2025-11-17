@@ -36,6 +36,10 @@ function enableSolidBackgroundBackgroundRV3() {
 									background: var(--re-background-colour) !important;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
+
+	BROWSER_API.storage.sync.get(['solidColourBackgroundCSS'], function (result) {
+		document.documentElement.style.setProperty('--re-background-colour', result.solidColourBackgroundCSS);
+	});
 }
 
 // Enable Solid Colour Background - RV1
@@ -61,7 +65,6 @@ function disableSolidColourBackgroundAll() {
 export function solidColourBackgroundCSS(value) {
 	if (redditVersion === 'newnew' || redditVersion === 'old') {
 		BROWSER_API.storage.sync.get(['solidColourBackground'], function (result) {
-			console.log(result.solidColourBackground);
 			if (result.solidColourBackground) document.documentElement.style.setProperty('--re-background-colour', value);
 		});
 	}
