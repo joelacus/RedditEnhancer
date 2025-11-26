@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "2.4.0"
+		"message": "2.4.1"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -658,9 +658,6 @@
 	},
 	"PostOffset": {
 		"message": "Post Offset"
-	},
-	"PostOverlayWidth": {
-		"message": "Post Overlay Width"
 	},
 	"PostSecondaryTextColour": {
 		"message": "Post: Secondary Text Colour"

@@ -158,9 +158,6 @@
 	"PostOffset": {
 		"message": "Bejegyzés eltolása"
 	},
-	"PostOverlayWidth": {
-		"message": "Bejegyzés átfedés szélessége"
-	},
 	"PostTitle": {
 		"message": "Postai cím"
 	},

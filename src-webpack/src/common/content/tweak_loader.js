@@ -81,7 +81,6 @@ export function loadTweaks() {
 		loadSubredditDisplayNameBanner();
 		loadOpenPostInNewTab();
 		loadOpenSubInNewTab();
-		loadShowPostAbsoluteTimestamp();
 		loadHideUsernameInSubSidebar();
 
 		// Wait for elements to load on the page before loading tweaks.
@@ -200,11 +199,12 @@ export function loadTweaks() {
 					loadReplacePostImagesWithLinks();
 					loadReplacePostVideosWithLinks();
 					loadShowMemberCount();
+					loadLeftSideVoteButtons();
+					loadAlwaysShowPostOptions();
+					loadShowUpvoteRatio();
+					loadHideAwards();
+					loadShowPostAbsoluteTimestamp();
 				}, 500);
-				loadLeftSideVoteButtons();
-				loadAlwaysShowPostOptions();
-				loadShowUpvoteRatio();
-				loadHideAwards();
 			},
 		});
 

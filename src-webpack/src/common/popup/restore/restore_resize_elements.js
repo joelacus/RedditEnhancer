@@ -49,21 +49,6 @@ export function restorePopupResizeFeedOptions() {
 		console.log('Expand Home Width: ' + value + '%');
 	});
 
-	// Resize Post Overlay
-	BROWSER_API.storage.sync.get(['expandPostOverlayWidth'], function (result) {
-		if (typeof result.expandPostOverlayWidth != 'undefined') {
-			document.querySelector('#input-expand-post-overlay-width').value = result.expandPostOverlayWidth;
-			document.querySelector('#expand-post-overlay-width').innerText = result.expandPostOverlayWidth + '%';
-			var value = result.expandPostOverlayWidth;
-		}
-		if (typeof result.expandPostOverlayWidth == 'undefined') {
-			document.querySelector('#input-expand-post-overlay-width').value = 80;
-			document.querySelector('#expand-post-overlay-width').innerText = '80%';
-			var value = '80';
-		}
-		console.log('Expand Post Overlay Width: ' + value + '%');
-	});
-
 	// Resize Post
 	BROWSER_API.storage.sync.get(['expandPostWidth'], function (result) {
 		if (typeof result.expandPostWidth != 'undefined') {

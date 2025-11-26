@@ -1,84 +1,82 @@
 /* ===== Inputs / Search Filter ===== */
 
+/*  Filter all the options in the extension when the user types in the search box.
+    It will use the option label text to match against the search input, so will work in the supported languages.
+	Additional query words the user might search for, but may not contained within the option label text, currently only support English.
+	See popup.html/options.html for elements/options with the "data-query-words" attribute.
+*/
+
 const Fuse = require('fuse.js');
 const fuzzyOptions = {
 	includeScore: false,
 	threshold: 0.3,
-	keys: ['combined_item_text_str'],
+	keys: ['option_query_words_str'],
 };
 
 function search_filter() {
 	BROWSER_API.storage.sync.get(['redditVersion'], function (result) {
-		var i, data_search_attributes, search_input, combined_item_text_str;
 		const ul = document.querySelector('#main-menu');
-		const li = ul.querySelectorAll('li');
+		const li = ul.querySelectorAll('.sub-list li');
 
-		if (result.redditVersion != undefined) {
-			const version = 'r-' + result.redditVersion;
+		if (result.redditVersion) {
+			const version = `r-${result.redditVersion}`;
 
-			// iterate through all options
-			for (i = 0; i < li.length; i++) {
-				if (li[i].classList.contains(version) && Array.from(li[i].classList).some((className) => className.startsWith('container'))) {
-					combined_item_text_str = '';
-					data_search_attributes = li[i].querySelectorAll('[data-search]');
-					if (data_search_attributes != undefined) {
-						// create dataset for option to search against
-						data_search_attributes.forEach(function (span) {
-							combined_item_text_str = [combined_item_text_str, span.dataset.search.split(',').join(' '), span.textContent || span.innerText].join(' ').trim().replace(':', '');
-						});
-						const combined_item_text_ary = combined_item_text_str.split(' ').map((word) => ({ combined_item_text_str: word }));
-						// get user search input
-						search_input = document.querySelector('#search').value.toLowerCase().trim();
-						const search_input_words = search_input.split(' ');
-						// fuzzy search
-						const fuse = new Fuse(combined_item_text_ary, fuzzyOptions);
-						const found = search_input_words.every((word) => {
-							const result = fuse.search(word);
-							return result.length > 0;
-						});
-						// set search result if found as an attribute in the option (false will be hidden)
-						if (found) {
-							li[i].setAttribute('data-search-result', true);
-						} else {
-							li[i].setAttribute('data-search-result', false);
+			function performFuzzySearch(element) {
+				// Get the relevant query words from the option attribute.
+				let option_query_words_str = element.dataset?.queryWords?.split(',').join(' ') || '';
+
+				// Get the option label text and add it to the query words.
+				element.querySelectorAll('[data-lang]').forEach((el) => {
+					option_query_words_str = [option_query_words_str, el.textContent || el.innerText].join(' ').trim().replace(':', '');
+				});
+
+				// Turn the string into an array, removing double or more spaces.
+				const option_query_words_ary = option_query_words_str
+					.replace(/ +(?= )/g, '')
+					.split(' ')
+					.map((word) => ({ option_query_words_str: word }));
+
+				// Get the user's search input.
+				const search_input = document.querySelector('#search').value.toLowerCase().trim();
+				const search_input_words = search_input.split(' ');
+				const fuse = new Fuse(option_query_words_ary, fuzzyOptions);
+
+				// Perform fuzzy search of the user's input against the option query words.
+				return search_input_words.every((word) => {
+					const result = fuse.search(word);
+					return result.length > 0;
+				});
+			}
+
+			// Loop through all the options
+			for (let i = 0; i < li.length; i++) {
+				// Initially hide everything. If an option is found, this attribute will be set to "true" and will be shown.
+				li[i].setAttribute('data-search-result', false);
+
+				// If the list item has a "search" attribute containing related query words.
+				if (li[i].dataset.queryWords) {
+					const found = performFuzzySearch(li[i]);
+					if (found && li[i].classList.contains(version)) li[i].setAttribute('data-search-result', true);
+				} else if (li[i].querySelector(':scope > div')) {
+					// If the list item does not have a search attribute and has "div" children (option groups).
+					li[i].querySelectorAll(':scope > div').forEach((div) => {
+						// Skip any "div" items that do not start with "container" in the class name.
+						if (!Array.from(div.classList).some((className) => className.startsWith('container'))) return;
+
+						div.setAttribute('data-search-result', false);
+						const found = performFuzzySearch(div);
+
+						// If an option contains the search query, make it and its parent visible.
+						if (found && div.classList.contains(version)) {
+							div.setAttribute('data-search-result', true);
+							div.parentNode.setAttribute('data-search-result', true);
 						}
-					} else {
-						li[i].setAttribute('data-search-result', false);
-					}
 
-					// if the item is a sub sub menu
-					const items = li[i].querySelectorAll(':scope > div');
-					for (let i = 0; i < items.length; i++) {
-						combined_item_text_str = '';
-						const span = items[i].querySelector('[data-search]');
-						if (span != undefined) {
-							// create dataset for option to search against
-							combined_item_text_str = [span.dataset.search.split(',').join(' '), span.textContent || span.innerText].join(' ').trim().replace(':', '');
-							const combined_item_text_ary = combined_item_text_str.split(' ').map((word) => ({ combined_item_text_str: word }));
-							// get user search input
-							search_input = document.querySelector('#search').value.toLowerCase().trim();
-							const search_input_words = search_input.split(' ');
-							// fuzzy search
-							const fuse = new Fuse(combined_item_text_ary, fuzzyOptions);
-							const found = search_input_words.every((word) => {
-								const result = fuse.search(word);
-								return result.length > 0;
-							});
-							// set search result if found as an attribute in the option (false will be hidden)
-							if (found) {
-								items[i].setAttribute('data-search-result', true);
-							} else {
-								items[i].setAttribute('data-search-result', false);
-								if (items[i].nextElementSibling) {
-									if (items[i].nextElementSibling.classList.contains('divider')) {
-										items[i].nextElementSibling.setAttribute('data-search-result', false);
-									}
-								}
-							}
-						} else if (!items[i].parentElement.querySelector('.dropdown')) {
-							items[i].style.display = 'none';
+						// Hide any divider elements
+						if (div.nextElementSibling?.classList.contains('divider')) {
+							div.nextElementSibling.setAttribute('data-search-result', false);
 						}
-					}
+					});
 				}
 			}
 
@@ -146,7 +144,7 @@ function search_filter() {
 				document.querySelector('#main-menu').classList.remove('search-mode');
 
 				// remove search result attribute from options
-				document.querySelectorAll('[class^="container"]').forEach((item) => {
+				document.querySelectorAll('[data-search-result]').forEach((item) => {
 					item.removeAttribute('data-search-result');
 				});
 

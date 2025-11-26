@@ -563,9 +563,6 @@
 	"PostOffset": {
 		"message": "Deslocamento da postagem"
 	},
-	"PostOverlayWidth": {
-		"message": "Largura da sobreposição de postagem"
-	},
 	"PostSecondaryTextColour": {
 		"message": "Postagem: Cor do Texto Secundário"
 	},

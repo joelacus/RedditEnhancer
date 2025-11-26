@@ -656,9 +656,6 @@
 	"PostOffset": {
 		"message": "Verschuiving van de post"
 	},
-	"PostOverlayWidth": {
-		"message": "Breedte van de post-overlay"
-	},
 	"PostSecondaryTextColour": {
 		"message": "Bericht: Secundaire tekstkleur"
 	},

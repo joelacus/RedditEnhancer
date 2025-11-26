@@ -93,13 +93,9 @@ export function restorePopupStyleOptions() {
 
 	// Sidebar Text Colour CSS
 	BROWSER_API.storage.sync.get(['themeSidebarTextColourCSS'], function (result) {
-		if (typeof result.themeSidebarTextColourCSS != 'undefined') {
-			document.querySelector('#input-sidebar-text-colour-css').value = result.themeSidebarTextColourCSS;
-			var value = result.themeSidebarTextColourCSS;
-		} else {
-			document.querySelector('#input-sidebar-text-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themeSidebarTextColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'sidebar-fg')?.picker;
+		get_picker.setColor(value);
 		console.log('Sidebar Text Colour CSS: ' + value);
 	});
 
@@ -119,13 +115,9 @@ export function restorePopupStyleOptions() {
 
 	// Sidebar Background Colour CSS
 	BROWSER_API.storage.sync.get(['themeSidebarBgColourCSS'], function (result) {
-		if (typeof result.themeSidebarBgColourCSS != 'undefined') {
-			document.querySelector('#input-sidebar-bg-colour-css').value = result.themeSidebarBgColourCSS;
-			var value = result.themeSidebarBgColourCSS;
-		} else {
-			document.querySelector('#input-sidebar-bg-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themeSidebarBgColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'sidebar-bg')?.picker;
+		get_picker.setColor(value);
 		console.log('Sidebar Background Colour CSS: ' + value);
 	});
 
@@ -145,13 +137,9 @@ export function restorePopupStyleOptions() {
 
 	// Side Menu Text Colour CSS
 	BROWSER_API.storage.sync.get(['themeSidemenuTextColourCSS'], function (result) {
-		if (typeof result.themeSidemenuTextColourCSS != 'undefined') {
-			document.querySelector('#input-sidemenu-text-colour-css').value = result.themeSidemenuTextColourCSS;
-			var value = result.themeSidemenuTextColourCSS;
-		} else {
-			document.querySelector('#input-sidemenu-text-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themeSidemenuTextColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'sidemenu-fg')?.picker;
+		get_picker.setColor(value);
 		console.log('Side Menu Text Colour CSS: ' + value);
 	});
 
@@ -171,13 +159,9 @@ export function restorePopupStyleOptions() {
 
 	// Side Menu Background Colour CSS
 	BROWSER_API.storage.sync.get(['themeSidemenuBgColourCSS'], function (result) {
-		if (typeof result.themeSidemenuBgColourCSS != 'undefined') {
-			document.querySelector('#input-sidemenu-bg-colour-css').value = result.themeSidemenuBgColourCSS;
-			var value = result.themeSidemenuBgColourCSS;
-		} else {
-			document.querySelector('#input-sidemenu-bg-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themeSidemenuBgColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'sidemenu-bg')?.picker;
+		get_picker.setColor(value);
 		console.log('Side Menu Background Colour CSS: ' + value);
 	});
 
@@ -197,13 +181,9 @@ export function restorePopupStyleOptions() {
 
 	// Side Menu Button Hover Colour CSS
 	BROWSER_API.storage.sync.get(['themeSidemenuButtonHoverColourCSS'], function (result) {
-		if (typeof result.themeSidemenuButtonHoverColourCSS != 'undefined') {
-			document.querySelector('#input-sidemenu-button-hover-colour-css').value = result.themeSidemenuButtonHoverColourCSS;
-			var value = result.themeSidemenuButtonHoverColourCSS;
-		} else {
-			document.querySelector('#input-sidemenu-button-hover-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themeSidemenuButtonHoverColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'sidemenu-btn-hover')?.picker;
+		get_picker.setColor(value);
 		console.log('Side Menu Button Hover Colour CSS: ' + value);
 	});
 
@@ -223,13 +203,9 @@ export function restorePopupStyleOptions() {
 
 	// Post Content And Comments Link Colour CSS
 	BROWSER_API.storage.sync.get(['themePostContentAndCommentsLinkColourCSS'], function (result) {
-		if (typeof result.themePostContentAndCommentsLinkColourCSS != 'undefined') {
-			document.querySelector('#input-post-content-and-comments-link-colour-css').value = result.themePostContentAndCommentsLinkColourCSS;
-			var value = result.themePostContentAndCommentsLinkColourCSS;
-		} else {
-			document.querySelector('#input-post-content-and-comments-link-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themePostContentAndCommentsLinkColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'post-and-comment-links')?.picker;
+		get_picker.setColor(value);
 		console.log('Post Content And Comments Link Colour CSS: ' + value);
 	});
 
@@ -249,13 +225,9 @@ export function restorePopupStyleOptions() {
 
 	// Searchbar Background Colour CSS
 	BROWSER_API.storage.sync.get(['themeSearchbarBgColourCSS'], function (result) {
-		if (typeof result.themeSearchbarBgColourCSS != 'undefined') {
-			document.querySelector('#input-searchbar-bg-colour-css').value = result.themeSearchbarBgColourCSS;
-			var value = result.themeSearchbarBgColourCSS;
-		} else {
-			document.querySelector('#input-searchbar-bg-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themeSearchbarBgColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'searchbar-bg')?.picker;
+		get_picker.setColor(value);
 		console.log('Searchbar Background Colour CSS: ' + value);
 	});
 
@@ -275,13 +247,9 @@ export function restorePopupStyleOptions() {
 
 	// Searchbar Focused/Dropdown Background Colour CSS
 	BROWSER_API.storage.sync.get(['themeSearchbarDropdownBgColourCSS'], function (result) {
-		if (typeof result.themeSearchbarDropdownBgColourCSS != 'undefined') {
-			document.querySelector('#input-searchbar-dropdown-bg-colour-css').value = result.themeSearchbarDropdownBgColourCSS;
-			var value = result.themeSearchbarDropdownBgColourCSS;
-		} else {
-			document.querySelector('#input-searchbar-dropdown-bg-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themeSearchbarDropdownBgColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'searchbar-dropdown-bg')?.picker;
+		get_picker.setColor(value);
 		console.log('Searchbar Focused/Dropdown Background Colour CSS: ' + value);
 	});
 
@@ -301,13 +269,9 @@ export function restorePopupStyleOptions() {
 
 	// Theme Header Background Colour CSS
 	BROWSER_API.storage.sync.get(['themeHeaderBackgroundColourCSS'], function (result) {
-		if (typeof result.themeHeaderBackgroundColourCSS != 'undefined') {
-			document.querySelector('#input-header-bg-colour-css').value = result.themeHeaderBackgroundColourCSS;
-			var value = result.themeHeaderBackgroundColourCSS;
-		} else {
-			document.querySelector('#input-header-bg-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themeHeaderBackgroundColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'header-bg')?.picker;
+		get_picker.setColor(value);
 		console.log('Header Background Colour CSS: ' + value);
 	});
 
@@ -327,13 +291,9 @@ export function restorePopupStyleOptions() {
 
 	// Theme Header Text Colour CSS
 	BROWSER_API.storage.sync.get(['themeHeaderTextColourCSS'], function (result) {
-		if (typeof result.themeHeaderTextColourCSS != 'undefined') {
-			document.querySelector('#input-header-text-colour-css').value = result.themeHeaderTextColourCSS;
-			var value = result.themeHeaderTextColourCSS;
-		} else {
-			document.querySelector('#input-header-text-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themeHeaderTextColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'header-fg')?.picker;
+		get_picker.setColor(value);
 		console.log('Header Text Colour CSS: ' + value);
 	});
 
@@ -353,13 +313,9 @@ export function restorePopupStyleOptions() {
 
 	// Theme Post Background Colour CSS
 	BROWSER_API.storage.sync.get(['themePostBackgroundColourCSS'], function (result) {
-		if (typeof result.themePostBackgroundColourCSS != 'undefined') {
-			document.querySelector('#input-post-bg-colour-css').value = result.themePostBackgroundColourCSS;
-			var value = result.themePostBackgroundColourCSS;
-		} else {
-			document.querySelector('#input-post-bg-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themePostBackgroundColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'post-bg')?.picker;
+		get_picker.setColor(value);
 		console.log('Post Background Colour CSS: ' + value);
 	});
 
@@ -379,13 +335,9 @@ export function restorePopupStyleOptions() {
 
 	// Theme Post Text Colour CSS
 	BROWSER_API.storage.sync.get(['themePostTextColour1CSS'], function (result) {
-		if (typeof result.themePostTextColour1CSS != 'undefined') {
-			document.querySelector('#input-post-text-colour-css').value = result.themePostTextColour1CSS;
-			var value = result.themePostTextColour1CSS;
-		} else {
-			document.querySelector('#input-post-text-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themePostTextColour1CSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'post-fg')?.picker;
+		get_picker.setColor(value);
 		console.log('Post Text Colour CSS: ' + value);
 	});
 
@@ -405,13 +357,9 @@ export function restorePopupStyleOptions() {
 
 	// Theme Post Comments Text Colour CSS
 	BROWSER_API.storage.sync.get(['themePostCommentsTextColour1CSS'], function (result) {
-		if (typeof result.themePostCommentsTextColour1CSS != 'undefined') {
-			document.querySelector('#input-post-comments-text-colour-css').value = result.themePostCommentsTextColour1CSS;
-			var value = result.themePostCommentsTextColour1CSS;
-		} else {
-			document.querySelector('#input-post-comments-text-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themePostCommentsTextColour1CSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'post-comments-fg')?.picker;
+		get_picker.setColor(value);
 		console.log('Post Comments Text Colour CSS: ' + value);
 	});
 
@@ -431,13 +379,9 @@ export function restorePopupStyleOptions() {
 
 	// Theme Post Comments Secondary Text Colour CSS
 	BROWSER_API.storage.sync.get(['themePostCommentsTextColour2CSS'], function (result) {
-		if (typeof result.themePostCommentsTextColour2CSS != 'undefined') {
-			document.querySelector('#input-post-comments-secondary-text-colour-css').value = result.themePostCommentsTextColour2CSS;
-			var value = result.themePostCommentsTextColour2CSS;
-		} else {
-			document.querySelector('#input-post-comments-secondary-text-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themePostCommentsTextColour2CSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'post-comments-fg-2')?.picker;
+		get_picker.setColor(value);
 		console.log('Post Comments Secondary Text Colour CSS: ' + value);
 	});
 
@@ -457,13 +401,9 @@ export function restorePopupStyleOptions() {
 
 	// Theme Post Comment Action Row Colour CSS
 	BROWSER_API.storage.sync.get(['themePostCommentActionRowColourCSS'], function (result) {
-		if (typeof result.themePostCommentActionRowColourCSS != 'undefined') {
-			document.querySelector('#input-post-comment-action-row-colour-css').value = result.themePostCommentActionRowColourCSS;
-			var value = result.themePostCommentActionRowColourCSS;
-		} else {
-			document.querySelector('#input-post-comment-action-row-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themePostCommentActionRowColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'post-comment-action-row-fg')?.picker;
+		get_picker.setColor(value);
 		console.log('Post Comment Action Row Colour CSS: ' + value);
 	});
 
@@ -483,13 +423,9 @@ export function restorePopupStyleOptions() {
 
 	// Theme Post Visited Text Colour CSS
 	BROWSER_API.storage.sync.get(['themePostVisitedTextColourCSS'], function (result) {
-		if (typeof result.themePostVisitedTextColourCSS != 'undefined') {
-			document.querySelector('#input-post-visited-text-colour-css').value = result.themePostVisitedTextColourCSS;
-			var value = result.themePostVisitedTextColourCSS;
-		} else {
-			document.querySelector('#input-post-visited-text-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themePostVisitedTextColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'post-fg-visited')?.picker;
+		get_picker.setColor(value);
 		console.log('Post Visited Text Colour CSS: ' + value);
 	});
 
@@ -509,13 +445,9 @@ export function restorePopupStyleOptions() {
 
 	// Theme Post Text Colour 2 CSS
 	BROWSER_API.storage.sync.get(['themePostTextColour2CSS'], function (result) {
-		if (typeof result.themePostTextColour2CSS != 'undefined') {
-			document.querySelector('#input-post-text-colour-2-css').value = result.themePostTextColour2CSS;
-			var value = result.themePostTextColour2CSS;
-		} else {
-			document.querySelector('#input-post-text-colour-2-css').value = '';
-			var value = '';
-		}
+		const value = result.themePostTextColour2CSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'post-fg-2')?.picker;
+		get_picker.setColor(value);
 		console.log('Post Text Colour 2 CSS: ' + value);
 	});
 
@@ -535,13 +467,9 @@ export function restorePopupStyleOptions() {
 
 	// Theme Post Border Colour CSS
 	BROWSER_API.storage.sync.get(['themePostBorderColourCSS'], function (result) {
-		if (typeof result.themePostBorderColourCSS != 'undefined') {
-			document.querySelector('#input-post-border-colour-css').value = result.themePostBorderColourCSS;
-			var value = result.themePostBorderColourCSS;
-		} else {
-			document.querySelector('#input-post-border-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themePostBorderColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'post-border')?.picker;
+		get_picker.setColor(value);
 		console.log('Post Border Colour CSS: ' + value);
 	});
 
@@ -561,13 +489,9 @@ export function restorePopupStyleOptions() {
 
 	// Theme Post Upvote Colour CSS
 	BROWSER_API.storage.sync.get(['themePostUpvoteColourCSS'], function (result) {
-		if (typeof result.themePostUpvoteColourCSS != 'undefined') {
-			document.querySelector('#input-post-upvote-colour-css').value = result.themePostUpvoteColourCSS;
-			var value = result.themePostUpvoteColourCSS;
-		} else {
-			document.querySelector('#input-post-upvote-colour-css').value = '';
-			var value = '';
-		}
+		const value = result.themePostUpvoteColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'post-upvote')?.picker;
+		get_picker.setColor(value);
 		console.log('Post Upvote Colour CSS: ' + value);
 	});
 
@@ -688,13 +612,8 @@ export function restorePopupStyleOptions() {
 
 	// Multicoloured Post Page Comment Thread Lines Colour List
 	BROWSER_API.storage.sync.get(['multicolouredThreadLinesColours'], function (result) {
-		if (typeof result.multicolouredThreadLinesColours != 'undefined') {
-			document.querySelector('#input-multicoloured-comment-thread-lines-colour-list').value = result.multicolouredThreadLinesColours;
-			var value = result.multicolouredThreadLinesColours;
-		} else {
-			document.querySelector('#input-multicoloured-comment-thread-lines-colour-list').value = '';
-			var value = '';
-		}
+		const value = result.multicolouredThreadLinesColours ?? '';
+		document.querySelector('#input-multicoloured-comment-thread-lines-colour-list').value = value;
 		console.log('Multicoloured Post Page Comment Thread Lines Colour List: ' + value);
 	});
 
@@ -712,11 +631,9 @@ export function restorePopupStyleOptions() {
 
 	// Code Block Colour CSS
 	BROWSER_API.storage.sync.get(['themeCodeBlockColourCSS'], function (result) {
-		if (typeof result.themeCodeBlockColourCSS != 'undefined') {
-			document.querySelector('#input-code-block-colour-css').value = result.themeCodeBlockColourCSS;
-		} else {
-			document.querySelector('#input-code-block-colour-css').value = '';
-		}
+		const value = result.themeCodeBlockColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'post-code-fg')?.picker;
+		get_picker.setColor(value);
 		console.log('Code Block Colour CSS: ' + result.themeCodeBlockColourCSS);
 	});
 

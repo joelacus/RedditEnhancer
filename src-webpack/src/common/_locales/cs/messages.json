@@ -188,9 +188,6 @@
 	"PostOffset": {
 		"message": "Posun příspěvku"
 	},
-	"PostOverlayWidth": {
-		"message": "Šířka překryvu příspěvku"
-	},
 	"PostTitle": {
 		"message": "Název příspěvku"
 	},

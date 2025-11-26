@@ -518,9 +518,6 @@
 	"PostOffset": {
 		"message": "Przesunięcie posta"
 	},
-	"PostOverlayWidth": {
-		"message": "Szerokość nakładki na post"
-	},
 	"PostSecondaryTextColour": {
 		"message": "Post: dodatkowy kolor tekstu"
 	},

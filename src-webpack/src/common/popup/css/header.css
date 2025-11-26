@@ -28,6 +28,7 @@
 	height: 20px;
 	cursor: pointer;
 	background-color: var(--shade) !important;
+	margin-top: -4px;
 }
 
 /* Top Menu Bar */
@@ -72,9 +73,9 @@
 	font-size: 20px;
 	color: var(--text-grey);
 }
-[data-search-result='true'] {
+/*[data-search-result='true'] {
 	display: grid;
-}
+}*/
 [data-search-result='false'] {
 	display: none;
 }

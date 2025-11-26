@@ -656,9 +656,6 @@
 	"PostOffset": {
 		"message": "Versatz des Posts"
 	},
-	"PostOverlayWidth": {
-		"message": "Breite der Post-Überlagerung"
-	},
 	"PostSecondaryTextColour": {
 		"message": "Beitrag: Sekundäre Textfarbe"
 	},
