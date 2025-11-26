@@ -62,6 +62,13 @@
 	position: absolute;
 	right: 5px;
 }
+.container-input {
+	display: flex;
+	align-items: center;
+	grid-gap: 4px;
+	width: 100%;
+	padding: 0 70px 4px 55px;
+}
 .input-value {
 	text-align: center;
 	line-height: 100%;
@@ -80,11 +87,4 @@
 .css-input-container input {
 	width: 100%;
 	max-width: 200px;
-}
-.css-input-container-full {
-	width: 100%;
-}
-.css-input-container-full input {
-	width: 314px !important;
-	margin-left: 54px;
 }

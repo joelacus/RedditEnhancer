@@ -656,9 +656,6 @@
 	"PostOffset": {
 		"message": "Desplazamiento de la publicación"
 	},
-	"PostOverlayWidth": {
-		"message": "Ancho de la superposición de publicaciones"
-	},
 	"PostSecondaryTextColour": {
 		"message": "Publicación: Color de texto secundario"
 	},

@@ -245,11 +245,11 @@ function attachCommentMenu(commentActionRow) {
 			selector: 'faceplate-tracker[noun="report"] li div',
 			remove: 'faceplate-tracker[noun="report"]',
 		},
-		// {
-		// 	slot: 'comment-edit',
-		// 	selector: 'faceplate-tracker[noun="edit"] li div',
-		// 	remove: 'faceplate-tracker[noun="edit"]',
-		// },
+		{
+			slot: 'comment-edit',
+			selector: 'faceplate-tracker[noun="edit"] li div',
+			remove: 'faceplate-tracker[noun="edit"]',
+		},
 		{
 			slot: 'comment-delete',
 			selector: 'faceplate-tracker[noun="delete"] li div',
@@ -315,9 +315,7 @@ function attachCommentMenu(commentActionRow) {
 	const shareBtnContainer = commentActionRow.querySelector('shreddit-comment-share-button');
 	shareBtnContainer?.classList.remove('hidden');
 
-	const shareBtn = shareBtnContainer && commentActionRow.getAttribute('telemetry-source') === 'profile'
-		? shareBtnContainer.shadowRoot.querySelector('button')
-		: shareBtnContainer.querySelector('button');
+	const shareBtn = shareBtnContainer && commentActionRow.getAttribute('telemetry-source') === 'profile' ? shareBtnContainer.shadowRoot.querySelector('button') : shareBtnContainer.querySelector('button');
 	if (shareBtn) {
 		shareBtn.setAttribute('style', 'height:initial;border-radius:var(--re-theme-border-radius,4px);');
 		shareBtn.classList.replace('px-sm', 'p-2xs');

@@ -40,19 +40,6 @@ document.querySelector('#input-expand-view-width').addEventListener('mouseup', f
 	BROWSER_API.storage.sync.set({ expandLayoutWidth: e.target.value });
 });
 
-// Slider - Resize Post Overlay Width
-document.querySelector('#input-expand-post-overlay-width').addEventListener('input', function (e) {
-	document.querySelector('#expand-post-overlay-width').textContent = e.target.value + '%';
-	BROWSER_API.storage.sync.get(['expandLayout'], function (result) {
-		if (result.expandLayout === true) {
-			sendMessage({ expandPostOverlayWidth: e.target.value });
-		}
-	});
-});
-document.querySelector('#input-expand-post-overlay-width').addEventListener('mouseup', function (e) {
-	BROWSER_API.storage.sync.set({ expandPostOverlayWidth: e.target.value });
-});
-
 // Slider - Resize Post Width
 document.querySelector('#input-expand-post-width').addEventListener('input', function (e) {
 	document.querySelector('#expand-post-width').textContent = e.target.value + '%';

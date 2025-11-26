@@ -11,13 +11,12 @@
 import { showBannerMessage } from '../../banner_message';
 
 export function loadExpandContent() {
-	BROWSER_API.storage.sync.get(['snapSidebar', 'expandLayout', 'expandLayoutWidth', 'expandSubWidth', 'expandPostWidth', 'expandPostOverlayWidth', 'expandUserProfileWidth', 'expandTopicFeedWidth', 'expandCustomFeedWidth', 'resizeMainContainerWidth'], function (result) {
+	BROWSER_API.storage.sync.get(['snapSidebar', 'expandLayout', 'expandLayoutWidth', 'expandSubWidth', 'expandPostWidth', 'expandUserProfileWidth', 'expandTopicFeedWidth', 'expandCustomFeedWidth', 'resizeMainContainerWidth'], function (result) {
 		snap = result.snapSidebar;
 		if (result.expandLayout) expandLayout(true);
 		expandLayoutWidth(result.expandLayoutWidth);
 		expandSubWidth(result.expandSubWidth);
 		expandPostWidth(result.expandPostWidth);
-		expandPostOverlayWidth(result.expandPostOverlayWidth);
 		expandUserProfileWidth(result.expandUserProfileWidth);
 		expandTopicFeedWidth(result.expandTopicFeedWidth);
 		expandCustomFeedWidth(result.expandCustomFeedWidth);
@@ -348,15 +347,6 @@ export function expandLayoutWidth(value) {
 		document.documentElement.style.setProperty('--re-content-width', value + '%');
 	} else {
 		document.documentElement.style.setProperty('--re-content-width', '80%');
-	}
-}
-
-// Page Style Property - Expand Post Overlay Width
-export function expandPostOverlayWidth(value) {
-	if (value) {
-		document.documentElement.style.setProperty('--re-post-overlay-width', value + '%');
-	} else {
-		document.documentElement.style.setProperty('--re-post-overlay-width', '80%');
 	}
 }
 

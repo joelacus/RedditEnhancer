@@ -35,7 +35,7 @@ export function compactPostLinkPreview(value) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-compact-post-link-display';
 				styleElement.textContent = `shreddit-app[routename="post_page"] shreddit-post[post-type="link"] img.preview-img,
-		 							        shreddit-app[routename="comment_page"] shreddit-post[post-type="link"] img.preview-img {
+		 							        shreddit-app[routename="comments_page"] shreddit-post[post-type="link"] img.preview-img {
 									        	width: 144px;
 									        	height: 116px;
 									        	object-fit: cover;
@@ -45,22 +45,22 @@ export function compactPostLinkPreview(value) {
 									        	margin: 0;
 									        }
 									        [routename="post_page"] shreddit-post[post-type="link"] div[slot="post-media-container"]:has(img#post-image),
-									        [routename="comment_page"] shreddit-post[post-type="link"] div[slot="post-media-container"]:has(img#post-image) {
+									        [routename="comments_page"] shreddit-post[post-type="link"] div[slot="post-media-container"]:has(img#post-image) {
 									            margin-top: calc(var(--re-post-media-container-margin) * -1);
 									        	margin-left: auto;
 									        	width: 144px;
 									        	height: 116px;
 									        }
 									        [routename="post_page"] shreddit-post[post-type="link"]:has(img#post-image) h1,
-									        [routename="comment_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 {
+									        [routename="comments_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 {
 									        	margin-right: 152px;
 									        }
 									        [routename="post_page"] shreddit-post[post-type="link"] shreddit-aspect-ratio,
-									        [routename="comment_page"] shreddit-post[post-type="link"] shreddit-aspect-ratio {
+									        [routename="comments_page"] shreddit-post[post-type="link"] shreddit-aspect-ratio {
                                             	--max-height: 116px !important;
                                             }
 									        [routename="post_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 + a,
-									        [routename="comment_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 + a {
+									        [routename="comments_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 + a {
 									        	float: left;
 									        	margin-top: calc(-116px + var(--re-post-media-container-margin));
 									        	max-width: calc(100% - 144px - 1rem);
@@ -76,7 +76,7 @@ export function compactPostLinkPreview(value) {
 			}
 
 			// Get the height of post title, link and flair (if exists)
-			const tagHeight = (post.getAttribute('spoiler') !== null || post.getAttribute('nsfw') !== null) ? 24 : 0;
+			const tagHeight = post.getAttribute('spoiler') !== null || post.getAttribute('nsfw') !== null ? 24 : 0;
 			const titleHeight = post.querySelector('h1').offsetHeight;
 			const flairHeight = post.querySelector('shreddit-post-flair') ? document.querySelector('shreddit-post shreddit-post-flair').offsetHeight + 8 : 0;
 			document.documentElement.style.setProperty('--re-post-media-container-margin', `calc(${tagHeight}px + ${titleHeight}px + ${flairHeight}px)`);

@@ -228,7 +228,7 @@ div[data-testid='search-results-sidebar'] {
 	padding: 4px 0;
 	position: relative;
 	z-index: 1;
-    width: 100%;
+	width: 100%;
 
 	@media (min-width: 960px) {
 		> .s\:invisible {
@@ -735,7 +735,7 @@ shreddit-post [slot='credit-bar'] div:has([icon-name='notification-outline']) {
 	border-radius: var(--re-theme-border-radius);
 	margin-right: -0.25rem;
 }
-button[slot="comment-button"] ~ shreddit-post-overflow-menu::part(popper--popup) {
+button[slot='comment-button'] ~ shreddit-post-overflow-menu::part(popper--popup) {
 	top: revert !important;
 	left: revert !important;
 }
@@ -748,10 +748,22 @@ shreddit-app[pagetype='single_comment_thread'] #main-content {
 
 /* search hero experiment */
 @media (min-width: 768px) {
-    .grid-container:has(.search-hero) main.main {
-        background-color: revert;
-        border: revert;
-        border-radius: revert;
-        padding-bottom: revert;
-    }
+	.grid-container:has(.search-hero) main.main {
+		background-color: revert;
+		border: revert;
+		border-radius: revert;
+		padding-bottom: revert;
+	}
+}
+
+/* Custom Timestamps */
+.re-comment-absolute-timestamp {
+	color: var(--re-theme-post-comments-text-2) !important;
+}
+
+/* Always Show Post Options */
+shreddit-post [slot='credit-bar'] div:has(> span > span > [icon-name='notifications']) {
+	border-radius: var(--re-theme-border-radius);
+	padding: 4px;
+	margin-right: -4px;
 }

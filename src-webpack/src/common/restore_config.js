@@ -168,7 +168,6 @@ async function restoreBackup(json) {
 				'expandCustomFeedWidth',
 				'expandLayout',
 				'expandLayoutWidth',
-				'expandPostOverlayWidth',
 				'expandPostWidth',
 				'expandSubWidth',
 				'expandTopicFeedWidth',

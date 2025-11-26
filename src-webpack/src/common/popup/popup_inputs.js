@@ -51,7 +51,7 @@ if (document.querySelector('body#popup')) {
 		document.querySelector('#btn-shade').style.display = 'none';
 		document.querySelector('#btn-unshade').style.display = 'block';
 		document.querySelector('body').style.height = '25px';
-		document.querySelector('.menu-title-container').style.marginTop = '-7px';
+		document.querySelector('.menu-title-container').style.marginTop = '-4px';
 		document.querySelector('.top-menu-bar').style.display = 'none';
 		document.querySelector('#start-page').style.display = 'none';
 		document.querySelector('#main-menu').style.display = 'none';

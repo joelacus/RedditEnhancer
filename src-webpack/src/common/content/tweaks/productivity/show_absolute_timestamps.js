@@ -22,7 +22,7 @@ export function loadShowPostAbsoluteTimestamp() {
 /* === Enable/Disable The Feature === */
 export function showPostAbsoluteTimestamp(value) {
 	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
-	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed', 'post_page'];
+	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed', 'post_page', 'comments_page'];
 
 	if (value) {
 		if (redditVersion === 'newnew' && feedRoutesv3.includes(routeName)) {
@@ -62,6 +62,7 @@ function displayPostAbsoluteTimestampsRV3() {
 			const datetime_str = timestamp_el.querySelector('time')?.getAttribute('datetime') || '';
 			const relative_str = timestamp_el.querySelector('time')?.textContent || '';
 			if (datetime_str) {
+				console.log(relative_str);
 				const span = document.createElement('span');
 				span.className = 're-post-absolute-timestamp';
 				let localTimestamp;
@@ -69,6 +70,7 @@ function displayPostAbsoluteTimestampsRV3() {
 					localTimestamp = formatDateTime(datetime_str, post_timestamp_format) ?? convertUTCToLocal(datetime_str);
 				} else {
 					localTimestamp = convertUTCToLocal(datetime_str);
+					console.log(localTimestamp);
 				}
 				span.textContent = `(${localTimestamp}) (${relative_str})`;
 				timestamp_el.appendChild(span);
@@ -176,7 +178,7 @@ export function loadShowCommentAbsoluteTimestamp() {
 /* === Enable/Disable The Feature === */
 export function showCommentAbsoluteTimestamp(value) {
 	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
-	const feedRoutesv3 = ['post_page'];
+	const feedRoutesv3 = ['post_page', 'comments_page'];
 
 	if (value) {
 		if (redditVersion === 'newnew' && feedRoutesv3.includes(routeName)) {

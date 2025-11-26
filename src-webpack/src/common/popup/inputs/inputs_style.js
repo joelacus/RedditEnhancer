@@ -98,13 +98,6 @@ document.querySelector('#checkbox-header-bg-colour').addEventListener('change', 
 	}
 });
 
-// Input - Header Background Colour CSS
-document.querySelector('#input-header-bg-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-header-bg-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeHeaderBackgroundColourCSS: css });
-	sendMessage({ themeHeaderBackgroundColourCSS: css });
-});
-
 // Toggle - Header Text Colour
 document.querySelector('#checkbox-header-text-colour').addEventListener('change', function (e) {
 	const themeHeaderTextColour = document.querySelector('#checkbox-header-text-colour').checked;
@@ -117,13 +110,6 @@ document.querySelector('#checkbox-header-text-colour').addEventListener('change'
 		document.querySelector('.icon-header-text-colour').style.backgroundColor = '';
 		sendMessage({ themeHeaderTextColour: false });
 	}
-});
-
-// Input - Header Text Colour CSS
-document.querySelector('#input-header-text-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-header-text-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeHeaderTextColourCSS: css });
-	sendMessage({ themeHeaderTextColourCSS: css });
 });
 
 // Toggle - Post Background Colour
@@ -140,13 +126,6 @@ document.querySelector('#checkbox-post-bg-colour').addEventListener('change', fu
 	}
 });
 
-// Input - Post Background Colour CSS
-document.querySelector('#input-post-bg-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-post-bg-colour-css').value;
-	BROWSER_API.storage.sync.set({ themePostBackgroundColourCSS: css });
-	sendMessage({ themePostBackgroundColourCSS: css });
-});
-
 // Toggle - Post Text Colour
 document.querySelector('#checkbox-post-text-colour').addEventListener('change', function (e) {
 	const themePostTextColour1 = document.querySelector('#checkbox-post-text-colour').checked;
@@ -159,13 +138,6 @@ document.querySelector('#checkbox-post-text-colour').addEventListener('change', 
 		document.querySelector('.icon-post-text-colour').style.backgroundColor = '';
 		sendMessage({ themePostTextColour1: false });
 	}
-});
-
-// Input - Post Text Colour CSS
-document.querySelector('#input-post-text-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-post-text-colour-css').value;
-	BROWSER_API.storage.sync.set({ themePostTextColour1CSS: css });
-	sendMessage({ themePostTextColour1CSS: css });
 });
 
 // Toggle - Post Comments Text Colour
@@ -182,13 +154,6 @@ document.querySelector('#checkbox-post-comments-text-colour').addEventListener('
 	}
 });
 
-// Input - Post Comments Text Colour CSS
-document.querySelector('#input-post-comments-text-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-post-comments-text-colour-css').value;
-	BROWSER_API.storage.sync.set({ themePostCommentsTextColour1CSS: css });
-	sendMessage({ themePostCommentsTextColour1CSS: css });
-});
-
 // Toggle - Post Comments Secondary Text Colour
 document.querySelector('#checkbox-post-comments-secondary-text-colour').addEventListener('change', function (e) {
 	const themePostCommentsTextColour2 = document.querySelector('#checkbox-post-comments-secondary-text-colour').checked;
@@ -203,26 +168,12 @@ document.querySelector('#checkbox-post-comments-secondary-text-colour').addEvent
 	}
 });
 
-// Input - Post Comments Secondary Text Colour CSS
-document.querySelector('#input-post-comments-secondary-text-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-post-comments-secondary-text-colour-css').value;
-	BROWSER_API.storage.sync.set({ themePostCommentsTextColour2CSS: css });
-	sendMessage({ themePostCommentsTextColour2CSS: css });
-});
-
 // Toggle - Post Visited Text Colour
 document.querySelector('#checkbox-post-visited-text-colour').addEventListener('change', function (e) {
 	const themePostVisitedTextColour = document.querySelector('#checkbox-post-visited-text-colour').checked;
 	BROWSER_API.storage.sync.set({ themePostVisitedTextColour: themePostVisitedTextColour });
 	document.querySelector('.icon-post-visited-text-colour').style.backgroundColor = themePostVisitedTextColour ? 'var(--accent)' : '';
 	sendMessage({ themePostVisitedTextColour: themePostVisitedTextColour });
-});
-
-// Input - Post Visited Text Colour CSS
-document.querySelector('#input-post-visited-text-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-post-visited-text-colour-css').value;
-	BROWSER_API.storage.sync.set({ themePostVisitedTextColourCSS: css });
-	sendMessage({ themePostVisitedTextColourCSS: css });
 });
 
 // Toggle - Post Text Secondary Colour
@@ -239,13 +190,6 @@ document.querySelector('#checkbox-post-text-colour-2').addEventListener('change'
 	}
 });
 
-// Input - Post Text Colour 2 CSS
-document.querySelector('#input-post-text-colour-2-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-post-text-colour-2-css').value;
-	BROWSER_API.storage.sync.set({ themePostTextColour2CSS: css });
-	sendMessage({ themePostTextColour2CSS: css });
-});
-
 // Toggle - Post Border Colour
 document.querySelector('#checkbox-post-border-colour').addEventListener('change', function (e) {
 	const themePostBorderColour = document.querySelector('#checkbox-post-border-colour').checked;
@@ -258,13 +202,6 @@ document.querySelector('#checkbox-post-border-colour').addEventListener('change'
 		document.querySelector('.icon-post-border-colour').style.backgroundColor = '';
 		sendMessage({ themePostBorderColour: false });
 	}
-});
-
-// Input - Post Border Colour CSS
-document.querySelector('#input-post-border-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-post-border-colour-css').value;
-	BROWSER_API.storage.sync.set({ themePostBorderColourCSS: css });
-	sendMessage({ themePostBorderColourCSS: css });
 });
 
 // Slider - Theme Blur
@@ -347,13 +284,6 @@ document.querySelector('#checkbox-sidebar-text-colour').addEventListener('change
 	}
 });
 
-// Input - Sidebar Text Colour CSS
-document.querySelector('#input-sidebar-text-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-sidebar-text-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeSidebarTextColourCSS: css });
-	sendMessage({ themeSidebarTextColourCSS: css });
-});
-
 // Toggle - Sidebar Background Colour
 document.querySelector('#checkbox-sidebar-bg-colour').addEventListener('change', function (e) {
 	const themeSidebarBgColour = document.querySelector('#checkbox-sidebar-bg-colour').checked;
@@ -366,13 +296,6 @@ document.querySelector('#checkbox-sidebar-bg-colour').addEventListener('change',
 		document.querySelector('.icon-sidebar-bg-colour').style.backgroundColor = '';
 		sendMessage({ themeSidebarBgColour: false });
 	}
-});
-
-// Input - Sidebar Background Colour CSS
-document.querySelector('#input-sidebar-bg-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-sidebar-bg-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeSidebarBgColourCSS: css });
-	sendMessage({ themeSidebarBgColourCSS: css });
 });
 
 // Toggle - Sidemenu Text Colour
@@ -389,13 +312,6 @@ document.querySelector('#checkbox-sidemenu-text-colour').addEventListener('chang
 	}
 });
 
-// Input - Sidemenu Text Colour CSS
-document.querySelector('#input-sidemenu-text-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-sidemenu-text-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeSidemenuTextColourCSS: css });
-	sendMessage({ themeSidemenuTextColourCSS: css });
-});
-
 // Toggle - Sidemenu Background Colour
 document.querySelector('#checkbox-sidemenu-bg-colour').addEventListener('change', function (e) {
 	const themeSidemenuBgColour = document.querySelector('#checkbox-sidemenu-bg-colour').checked;
@@ -408,13 +324,6 @@ document.querySelector('#checkbox-sidemenu-bg-colour').addEventListener('change'
 		document.querySelector('.icon-sidemenu-bg-colour').style.backgroundColor = '';
 		sendMessage({ themeSidemenuBgColour: false });
 	}
-});
-
-// Input - Sidemenu Background Colour CSS
-document.querySelector('#input-sidemenu-bg-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-sidemenu-bg-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeSidemenuBgColourCSS: css });
-	sendMessage({ themeSidemenuBgColourCSS: css });
 });
 
 // Toggle - Sidemenu Button Hover Colour
@@ -431,13 +340,6 @@ document.querySelector('#checkbox-sidemenu-button-hover-colour').addEventListene
 	}
 });
 
-// Input - Sidemenu Button Hover Colour CSS
-document.querySelector('#input-sidemenu-button-hover-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-sidemenu-button-hover-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeSidemenuButtonHoverColourCSS: css });
-	sendMessage({ themeSidemenuButtonHoverColourCSS: css });
-});
-
 // Toggle - Post Content And Comments Link Colour
 document.querySelector('#checkbox-post-content-and-comments-link-colour').addEventListener('change', function (e) {
 	const themePostContentAndCommentsLinkColour = document.querySelector('#checkbox-post-content-and-comments-link-colour').checked;
@@ -450,13 +352,6 @@ document.querySelector('#checkbox-post-content-and-comments-link-colour').addEve
 		document.querySelector('.icon-post-content-and-comments-link-colour').style.backgroundColor = '';
 		sendMessage({ themePostContentAndCommentsLinkColour: false });
 	}
-});
-
-// Input - Post Content And Comments Link Colour CSS
-document.querySelector('#input-post-content-and-comments-link-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-post-content-and-comments-link-colour-css').value;
-	BROWSER_API.storage.sync.set({ themePostContentAndCommentsLinkColourCSS: css });
-	sendMessage({ themePostContentAndCommentsLinkColourCSS: css });
 });
 
 // Toggle - Searchbar Background Colour
@@ -473,13 +368,6 @@ document.querySelector('#checkbox-searchbar-bg-colour').addEventListener('change
 	}
 });
 
-// Input - Searchbar Background Colour CSS
-document.querySelector('#input-searchbar-bg-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-searchbar-bg-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeSearchbarBgColourCSS: css });
-	sendMessage({ themeSearchbarBgColourCSS: css });
-});
-
 // Toggle - Searchbar Focused/Dropdown Background Colour
 document.querySelector('#checkbox-searchbar-dropdown-bg-colour').addEventListener('change', function (e) {
 	const themeSearchbarDropdownBgColour = document.querySelector('#checkbox-searchbar-dropdown-bg-colour').checked;
@@ -492,13 +380,6 @@ document.querySelector('#checkbox-searchbar-dropdown-bg-colour').addEventListene
 		document.querySelector('.icon-searchbar-dropdown-bg-colour').style.backgroundColor = '';
 		sendMessage({ themeSearchbarDropdownBgColour: false });
 	}
-});
-
-// Input - Searchbar Focused/Dropdown Background Colour CSS
-document.querySelector('#input-searchbar-dropdown-bg-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-searchbar-dropdown-bg-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeSearchbarDropdownBgColourCSS: css });
-	sendMessage({ themeSearchbarDropdownBgColourCSS: css });
 });
 
 // Slider - Theme Border Radius Amount
@@ -525,13 +406,6 @@ document.querySelector('#checkbox-post-upvote-colour').addEventListener('change'
 	}
 });
 
-// Input - Post Upvote Colour CSS
-document.querySelector('#input-post-upvote-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-post-upvote-colour-css').value;
-	BROWSER_API.storage.sync.set({ themePostUpvoteColourCSS: css });
-	sendMessage({ themePostUpvoteColourCSS: css });
-});
-
 // Toggle - Post Comment Action Row Colour
 document.querySelector('#checkbox-post-comment-action-row-colour').addEventListener('change', function (e) {
 	const themePostCommentActionRowColour = document.querySelector('#checkbox-post-comment-action-row-colour').checked;
@@ -544,13 +418,6 @@ document.querySelector('#checkbox-post-comment-action-row-colour').addEventListe
 		document.querySelector('.icon-post-comment-action-row-colour').style.backgroundColor = '';
 		sendMessage({ themePostCommentActionRowColour: false });
 	}
-});
-
-// Input - Post Comment Action Row Colour CSS
-document.querySelector('#input-post-comment-action-row-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-post-comment-action-row-colour-css').value;
-	BROWSER_API.storage.sync.set({ themePostCommentActionRowColourCSS: css });
-	sendMessage({ themePostCommentActionRowColourCSS: css });
 });
 
 // Toggle - Full Width Banner
@@ -621,13 +488,6 @@ document.querySelector('#checkbox-post-table-border-colour').addEventListener('c
 		document.querySelector('.icon-post-table-border-colour').style.backgroundColor = '';
 		sendMessage({ themePostTableBorderColour: false });
 	}
-});
-
-// Input - Code Block Colour CSS
-document.querySelector('#input-code-block-colour-css').addEventListener('keyup', function (e) {
-	const css = document.querySelector('#input-code-block-colour-css').value;
-	BROWSER_API.storage.sync.set({ themeCodeBlockColourCSS: css });
-	sendMessage({ themeCodeBlockColourCSS: css });
 });
 
 // Toggle - Custom Header Logo

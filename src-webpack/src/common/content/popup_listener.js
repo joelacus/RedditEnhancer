@@ -12,7 +12,7 @@ import { bionicReaderBgColour, bionicReaderBgColourCSS, bionicReaderFontColour, 
 import { bionicReaderComments } from './tweaks/accessibility/bionic_reader';
 //import { breakReminder } from './tweaks/productivity/break_reminder';
 //import { darkMode, darkModeAutoListener } from './tweaks/dark_mode/dark_mode';
-import { expandLayout, snapSidebar, expandPostOverlayWidth, expandPostWidth, expandSubWidth, expandLayoutWidth, expandUserProfileWidth, expandTopicFeedWidth, expandCustomFeedWidth, resizeMainContainerWidth } from './tweaks/resize_elements/expand_content';
+import { expandLayout, snapSidebar, expandPostWidth, expandSubWidth, expandLayoutWidth, expandUserProfileWidth, expandTopicFeedWidth, expandCustomFeedWidth, resizeMainContainerWidth } from './tweaks/resize_elements/expand_content';
 import { hideGap } from './tweaks/style/hide_gap';
 import { hideGetNewReddit } from './tweaks/hide_elements/hide_get_new_reddit';
 import { hideHeaderBar } from './tweaks/hide_elements/hide_header_bar';
@@ -194,7 +194,6 @@ const functionRegistry = {
 	expandCustomFeedWidth,
 	expandLayout,
 	expandLayoutWidth,
-	expandPostOverlayWidth,
 	expandPostWidth,
 	expandSubWidth,
 	expandTopicFeedWidth,

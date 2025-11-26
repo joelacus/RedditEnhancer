@@ -209,9 +209,6 @@
 	"PostOffset": {
 		"message": "Viestin siirtymä"
 	},
-	"PostOverlayWidth": {
-		"message": "Viestin päällekkäisen leveys"
-	},
 	"PostTitle": {
 		"message": "Viestin otsikko"
 	},

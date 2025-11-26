@@ -419,9 +419,6 @@
 	"PostOffset": {
 		"message": "Зсув публікації"
 	},
-	"PostOverlayWidth": {
-		"message": "Ширина накладання публікації"
-	},
 	"PostSecondaryTextColour": {
 		"message": "Повідомлення: колір вторинного тексту"
 	},

@@ -184,10 +184,15 @@ export function themeHeaderTextColour(value) {
 		styleElement.textContent = `header * {
 										--button-color-text-default: var(--re-theme-header-text);
 										--color-secondary: var(--re-theme-header-text);
+										--button-color-text-activated: var(--re-theme-header-text) !important;
+										color: var(--re-theme-header-text);
 									}
 									header > nav > :last-child > :nth-child(2) svg {
 										color: var(--re-theme-header-text) !important;
 										fill: var(--re-theme-header-text) !important;
+									}
+									reddit-search-large {
+										--color-neutral-content-strong: var(--re-theme-header-text) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else {
@@ -626,6 +631,11 @@ export function themePostTextColour2(value) {
 									shreddit-post {
 										--color-button-secondary-text: var(--re-theme-post-text-2) !important;
 										--color-button-plain-text: var(--re-theme-post-text-2) !important;
+										--button-color-text-default: var(--re-theme-post-text-2) !important;
+									}
+									shreddit-post .button {
+										--button-color-text-default: var(--re-theme-post-text-2) !important;
+										--button-color-text-hover: var(--re-theme-post-text-2) !important;
 									}
 									@media (hover: hover) and (pointer: fine) {
 										shreddit-post .hover\\:text-secondary:hover {
@@ -982,7 +992,9 @@ export function themeSearchbarDropdownBgColour(value) {
 		if (document.head.querySelector('style[id="re-theme-searchbar-dropdown-bg-colour"]')) return;
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-searchbar-dropdown-bg-colour';
-		styleElement.textContent = `reddit-search-large {
+		styleElement.textContent = `reddit-search-large,
+									html.theme-light reddit-search-large,
+									html.theme-dark reddit-search-large {
 										--color-neutral-background-strong: var(--re-theme-searchbar-dropdown-bg) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
@@ -1047,8 +1059,7 @@ export function themePostCommentActionRowColour(value) {
 		if (document.head.querySelector('style[id="re-theme-post-comment-action-row-colour"]')) return;
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-post-comment-action-row-colour';
-		styleElement.textContent = `shreddit-post,
-									shreddit-comment-action-row {
+		styleElement.textContent = `shreddit-comment-action-row {
 										--color-button-plain-text: var(--re-theme-post-comment-action-row-colour) !important;
 										--color-button-plain-text-weak: var(--re-theme-post-comment-action-row-colour) !important;
 									}`;
