@@ -55,6 +55,9 @@ import { loadFullWidthExpandos } from './tweaks/media/full_width_expandos';
 import { loadShowCommentAbsoluteTimestamp, loadShowPostAbsoluteTimestamp } from './tweaks/productivity/show_absolute_timestamps';
 import { loadShowMemberCount } from './tweaks/productivity/show_member_count';
 import { loadHideUsernameInSubSidebar } from './tweaks/hide_elements/hide_username_in_sub_sidebar';
+import { loadHideAiInSearch } from './tweaks/hide_elements/hide_ai_in_search';
+import { loadShowToTopButtonFloat } from './tweaks/productivity/scroll_to_top_float';
+import { loadScrollToPost } from './tweaks/productivity/scroll_to_post';
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -68,6 +71,8 @@ export function loadTweaks() {
 		loadShowMemberCount();
 		loadShowPostAbsoluteTimestamp();
 		loadShowCommentAbsoluteTimestamp();
+		loadShowToTopButtonFloat();
+		loadScrollToPost();
 	} else if (redditVersion === 'newnew') {
 		loadAddDownloadVideoButton();
 		loadBionicReader();
@@ -82,6 +87,9 @@ export function loadTweaks() {
 		loadOpenPostInNewTab();
 		loadOpenSubInNewTab();
 		loadHideUsernameInSubSidebar();
+		loadHideAiInSearch();
+		loadShowToTopButtonFloat();
+		loadScrollToPost();
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
@@ -166,6 +174,7 @@ export function loadTweaks() {
 				setTimeout(() => {
 					loadHideNsfwInSearchResults();
 					loadHideTrendingTodayInSearchResults();
+					loadHideAiInSearch();
 				}, 1000);
 			},
 		});

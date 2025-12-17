@@ -290,6 +290,9 @@
 	"HideAdvertiseButton": {
 		"message": "Ocultar el botón “Anunciar”"
 	},
+	"HideAiInTheSearchBar": {
+		"message": "Ocultar IA en la barra de búsqueda"
+	},
 	"HideAwards": {
 		"message": "Ocultar dar botón de premios"
 	},
@@ -331,6 +334,9 @@
 	},
 	"HideGap": {
 		"message": "Ocultar espacios vacíos de la interfaz"
+	},
+	"HideGetAppButton": {
+		"message": "Ocultar el botón 'Obtener aplicación'"
 	},
 	"HideGetNewReddit": {
 		"message": "Ocultar “Get New Reddit”"
@@ -767,8 +773,20 @@
 	"ScalePostToFitVideo": {
 		"message": "Publicación de escala para adaptarse al video"
 	},
+	"ScrollToNextPreviousPost": {
+		"message": "Desplácese a la publicación siguiente/anterior presionando (J / Flecha abajo) / (K / Flecha arriba)"
+	},
+	"ScrollToNextPreviousPostInfo": {
+		"message": "El uso de las teclas J/K interfiere con la función 'Atajos' de Reddit si está habilitada, en cuyo caso, use las teclas de flecha."
+	},
 	"ScrollToNextRootComment": {
 		"message": "Mostrar botones para desplazarse al siguiente/comentario de raíz anterior"
+	},
+	"ScrollToTopFloat": {
+		"message": "Agregar el botón flotante 'Desplazarse hacia arriba'"
+	},
+	"ScrollToTopHeader": {
+		"message": "Agregar el botón “Desplazarse hacia arriba”"
 	},
 	"Search": {
 		"message": "Buscar"
@@ -925,9 +943,6 @@
 	},
 	"TimeRange": {
 		"message": "Intervalo de tiempo"
-	},
-	"ToTop": {
-		"message": "Agregar el botón “Desplazarse hacia arriba”"
 	},
 	"Top": {
 		"message": "Más votados / Top"

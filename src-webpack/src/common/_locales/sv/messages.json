@@ -392,6 +392,9 @@
 	"ScalePostToFitVideo": {
 		"message": "Skala inlägg för att passa video"
 	},
+	"ScrollToTopHeader": {
+		"message": "Lägg till 'bläddra till topp' knappen"
+	},
 	"Search": {
 		"message": "Sök"
 	},
@@ -445,9 +448,6 @@
 	},
 	"TimeRange": {
 		"message": "Tidsintervall"
-	},
-	"ToTop": {
-		"message": "Lägg till 'bläddra till topp' knappen"
 	},
 	"TopicFeedWidth": {
 		"message": "Ämnesmatningsbredd"

@@ -479,6 +479,9 @@
 	"ScrollToNextRootComment": {
 		"message": "Vis navigasjonsknapper for neste/forrige rotkommentar"
 	},
+	"ScrollToTopHeader": {
+		"message": "Legg til 'bla til toppen-knappen'"
+	},
 	"Search": {
 		"message": "Søk"
 	},
@@ -580,9 +583,6 @@
 	},
 	"TimeRange": {
 		"message": "Tidsramme"
-	},
-	"ToTop": {
-		"message": "Legg til 'bla til toppen-knappen'"
 	},
 	"Top": {
 		"message": "Topp / Top"

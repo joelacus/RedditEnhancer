@@ -180,7 +180,7 @@ export function addBorderRadiusToShadowRootElements() {
 	const followedKeywordsMenu = document.querySelector('followed-keywords-menu')?.shadowRoot || null;
 	const communityHighlightCarousel = document.querySelector('community-highlight-carousel')?.shadowRoot || null;
 	const shadowRootElements = [
-        searchBar?.querySelector('.reddit-search-bar'),
+		searchBar?.querySelector('.reddit-search-bar'),
 		searchBar?.querySelector('div'),
 		searchBar?.querySelector('#search-input-chip'),
 		recentPosts,

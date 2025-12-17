@@ -290,6 +290,9 @@
 	"HideAdvertiseButton": {
 		"message": "Verberg de knop “Adverteren”"
 	},
+	"HideAiInTheSearchBar": {
+		"message": "Verberg AI in de zoekbalk"
+	},
 	"HideAwards": {
 		"message": "Verberg de Awards-knop"
 	},
@@ -331,6 +334,9 @@
 	},
 	"HideGap": {
 		"message": "Verberg interface-gaten"
+	},
+	"HideGetAppButton": {
+		"message": "Verberg de knop 'App downloaden'"
 	},
 	"HideGetNewReddit": {
 		"message": "Verberg “Get New Reddit”"
@@ -767,8 +773,20 @@
 	"ScalePostToFitVideo": {
 		"message": "Schaalpost voor video"
 	},
+	"ScrollToNextPreviousPost": {
+		"message": "Blader naar het volgende/vorige bericht door op (J / Pijl omlaag) / (K / Pijl omhoog) te drukken"
+	},
+	"ScrollToNextPreviousPostInfo": {
+		"message": "Het gebruik van de J/K-toetsen zal de 'Shortcuts'-functie van Reddit verstoren, indien ingeschakeld. Gebruik in dat geval de pijltjestoetsen. De RE-versie maakt gebruik van soepel scrollen en slaat alle verborgen berichten over."
+	},
 	"ScrollToNextRootComment": {
 		"message": "Toon knoppen om naar de volgende/vorige root opmerking te scrollen"
+	},
+	"ScrollToTopFloat": {
+		"message": "Voeg een zwevende knop 'Scroll naar boven' toe"
+	},
+	"ScrollToTopHeader": {
+		"message": "Knop “Scroll naar boven” toevoegen"
 	},
 	"Search": {
 		"message": "Zoeken"
@@ -925,9 +943,6 @@
 	},
 	"TimeRange": {
 		"message": "Tijdsbestek"
-	},
-	"ToTop": {
-		"message": "Knop “Scroll naar boven” toevoegen"
 	},
 	"Top": {
 		"message": "Bovenkant / Top"

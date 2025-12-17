@@ -62,7 +62,6 @@ function displayPostAbsoluteTimestampsRV3() {
 			const datetime_str = timestamp_el.querySelector('time')?.getAttribute('datetime') || '';
 			const relative_str = timestamp_el.querySelector('time')?.textContent || '';
 			if (datetime_str) {
-				console.log(relative_str);
 				const span = document.createElement('span');
 				span.className = 're-post-absolute-timestamp';
 				let localTimestamp;
@@ -70,7 +69,6 @@ function displayPostAbsoluteTimestampsRV3() {
 					localTimestamp = formatDateTime(datetime_str, post_timestamp_format) ?? convertUTCToLocal(datetime_str);
 				} else {
 					localTimestamp = convertUTCToLocal(datetime_str);
-					console.log(localTimestamp);
 				}
 				span.textContent = `(${localTimestamp}) (${relative_str})`;
 				timestamp_el.appendChild(span);
@@ -217,18 +215,20 @@ function displayCommentAbsoluteTimestampsRV3() {
 			const timestamp_el = element.querySelector('a:has(time)');
 			const datetime_str = timestamp_el.querySelector('time')?.getAttribute('datetime') || '';
 			const relative_str = timestamp_el.querySelector('time')?.textContent || '';
+			const url = timestamp_el.href ?? '';
 			if (datetime_str) {
-				const span = document.createElement('span');
-				span.className = 're-comment-absolute-timestamp';
+				const new_time_el = document.createElement('a');
+				new_time_el.className = 're-comment-absolute-timestamp';
 				let localTimestamp;
 				if (comment_timestamp_format) {
 					localTimestamp = formatDateTime(datetime_str, comment_timestamp_format) ?? convertUTCToLocal(datetime_str);
 				} else {
 					localTimestamp = convertUTCToLocal(datetime_str);
 				}
-				span.textContent = `(${localTimestamp}) (${relative_str})`;
-				timestamp_el.appendChild(span);
-				timestamp_el.insertAdjacentElement('afterend', span);
+				new_time_el.textContent = `${localTimestamp} (${relative_str})`;
+				new_time_el.href = url;
+				timestamp_el.appendChild(new_time_el);
+				timestamp_el.insertAdjacentElement('afterend', new_time_el);
 				timestamp_el.querySelector('time').style.display = 'none';
 			}
 		}
@@ -261,7 +261,7 @@ function displayCommentAbsoluteTimestampsRV1() {
 				} else {
 					localTimestamp = convertUTCToLocal(datetime_str);
 				}
-				span.textContent = `(${localTimestamp}) (${relative_str})`;
+				span.textContent = `${localTimestamp} (${relative_str})`;
 				timestamp_el.insertAdjacentElement('afterend', span);
 				timestamp_el.style.display = 'none';
 			}

@@ -29,6 +29,7 @@ function enableHideNsfwSearchResults() {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-nsfw-section';
 		styleElement.textContent = `#typeahead-results-nsfw-section,
+									#nsfw_typeahead_section,
 									div:has(>[icon-name="rising-outline"]) {
 										display: none !important;
 									}`;
@@ -74,7 +75,9 @@ function enableHideTrendingTodaySearchResults() {
 	if (!document.querySelector('reddit-search-large').shadowRoot.querySelector('style[id="re-hide-trending-today-section"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-trending-today-section';
-		styleElement.textContent = `#reddit-trending-searches-partial-container,
+		styleElement.textContent = `/*#reddit-trending-searches-partial-container,*/
+									[id*="trending_query"],
+									#reddit-trending-searches-partial-container > div > search-telemetry-tracker,
 									div:has(>[icon-name="rising-outline"]) {
 										display: none !important;
 									}

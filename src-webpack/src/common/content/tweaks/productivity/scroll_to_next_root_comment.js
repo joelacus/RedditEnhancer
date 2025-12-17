@@ -75,6 +75,12 @@ function enableScrollToNextRootCommentRV3() {
 	});
 	container.append(prevBtn);
 
+	// Create move handle
+	const handle = document.createElement('div');
+	handle.classList.add('re-root-scroll-handle');
+	container.append(handle);
+	makeDraggable(container, '.re-root-scroll-handle');
+
 	// Create next button
 	const nextBtn = document.createElement('div');
 	nextBtn.setAttribute('id', 're-next-comment');
@@ -146,6 +152,12 @@ function enableScrollToNextRootCommentRV1() {
 	});
 	container.append(prevBtn);
 
+	// Create move handle
+	const handle = document.createElement('div');
+	handle.classList.add('re-root-scroll-handle');
+	container.append(handle);
+	makeDraggable(container, '.re-root-scroll-handle');
+
 	// Create next button
 	const nextBtn = document.createElement('div');
 	nextBtn.setAttribute('id', 're-next-comment');
@@ -191,4 +203,52 @@ export function scrollToNextRootCommentPosition(pos) {
 	if (pos.y !== -1 && pos.y !== '-1' && typeof pos.y !== 'undefined') {
 		document.documentElement.style.setProperty('--re-scroll-to-root-comment-position-v', pos.y + (redditVersion === 'old' ? 'vh' : '%'));
 	}
+}
+
+// Make the container draggable
+function makeDraggable(element, handleSelector) {
+	const handle = element.querySelector(handleSelector);
+	let isDragging = false;
+	let offsetX, offsetY, leftPercent, topPercent;
+
+	handle.addEventListener('mousedown', (e) => {
+		isDragging = true;
+		const rect = element.getBoundingClientRect();
+		offsetX = e.clientX - rect.left;
+		offsetY = e.clientY - rect.top;
+		e.preventDefault();
+	});
+
+	document.addEventListener('mousemove', (e) => {
+		if (!isDragging) return;
+
+		const winWidth = window.innerWidth;
+		const winHeight = window.innerHeight;
+		const elemWidth = element.offsetWidth;
+		const elemHeight = element.offsetHeight;
+
+		let left = e.clientX - offsetX;
+		let top = e.clientY - offsetY;
+
+		left = Math.max(0, Math.min(left, winWidth - elemWidth));
+		top = Math.max(0, Math.min(top, winHeight - elemHeight));
+
+		leftPercent = (left / winWidth) * 100;
+		topPercent = (top / winHeight) * 100;
+
+		element.style.left = `${leftPercent}%`;
+		element.style.top = `${topPercent}%`;
+	});
+
+	document.addEventListener('mouseup', () => {
+		if (isDragging) {
+			isDragging = false;
+			scrollToNextRootCommentPosition({ x: leftPercent, y: topPercent });
+			BROWSER_API.runtime.sendMessage({ SaveScrollToNextRootCommentPosition: { x: leftPercent, y: topPercent } });
+		}
+	});
+}
+
+export function scrollToNextRootCommentRemoveStyle() {
+	document.querySelector('.re-scroll-to-comment-container').removeAttribute('style');
 }

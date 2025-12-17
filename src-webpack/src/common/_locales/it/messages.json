@@ -290,6 +290,9 @@
 	"HideAdvertiseButton": {
 		"message": "Nascondi il pulsante “Pubblicità”"
 	},
+	"HideAiInTheSearchBar": {
+		"message": "Nascondi l'IA nella barra di ricerca"
+	},
 	"HideAwards": {
 		"message": "NasNascondi il pulsante “Premi“"
 	},
@@ -331,6 +334,9 @@
 	},
 	"HideGap": {
 		"message": "Nascondi gli spazi vuoti dell'interfaccia"
+	},
+	"HideGetAppButton": {
+		"message": "Nascondi il pulsante \"Scarica app\""
 	},
 	"HideGetNewReddit": {
 		"message": "Nascondi “Get New Reddit”"
@@ -767,8 +773,20 @@
 	"ScalePostToFitVideo": {
 		"message": "Post in scala per adattarsi al video"
 	},
+	"ScrollToNextPreviousPost": {
+		"message": "Scorri al post successivo/precedente premendo (J / Freccia giù) / (K / Freccia su)"
+	},
+	"ScrollToNextPreviousPostInfo": {
+		"message": "L'uso dei tasti J/K interferirà con la funzione \"Scorciatoie\" di Reddit se abilitata, nel qual caso utilizza i tasti freccia. La versione RE utilizza uno scorrimento fluido e salta tutti i post nascosti."
+	},
 	"ScrollToNextRootComment": {
 		"message": "Mostra pulsanti per scorrere il commento root successivo/precedente"
+	},
+	"ScrollToTopFloat": {
+		"message": "Aggiungi il pulsante mobile \"Scorri verso l'alto\""
+	},
+	"ScrollToTopHeader": {
+		"message": "Aggiungi il pulsante “Scorri verso l'alto”"
 	},
 	"Search": {
 		"message": "Cerca"
@@ -925,9 +943,6 @@
 	},
 	"TimeRange": {
 		"message": "Intervallo di Tempo"
-	},
-	"ToTop": {
-		"message": "Aggiungi il pulsante “Scorri verso l'alto”"
 	},
 	"Top": {
 		"message": "Più votati / Top"

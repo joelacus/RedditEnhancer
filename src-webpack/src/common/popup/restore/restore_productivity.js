@@ -5,18 +5,31 @@ import { highlightMenuIcon } from '../popup_restore';
 // Restore UI settings for "Productivity" options.
 
 export function restorePopupProductivityOptions() {
-	// Scroll To Top
+	// Scroll To Top Button Header
 	BROWSER_API.storage.sync.get(['showToTopButton'], function (result) {
-		if (result.showToTopButton == true) {
-			document.querySelector('#checkbox-show-to-top-button').checked = true;
-			document.querySelector('.icon-scroll-to-top').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.showToTopButton == 'undefined' || result.showToTopButton == false) {
-			document.querySelector('#checkbox-show-to-top-button').checked = false;
-			var value = false;
-		}
-		console.log('Show Scroll To Top Button: ' + value);
+		const value = result.showToTopButton === true;
+		document.querySelector('#checkbox-show-to-top-button').checked = value;
+		document.querySelector('.icon-scroll-to-top').style.backgroundColor = value === true ? 'var(--accent)' : '';
+		if (value) highlightMenuIcon('productivity-tweaks');
+		console.log(`Show Scroll To Top button in the header: ${value}`);
+	});
+
+	// Floating Scroll To Top Button
+	BROWSER_API.storage.sync.get(['showToTopButtonFloat'], function (result) {
+		const value = result.showToTopButtonFloat === true;
+		document.querySelector('#checkbox-show-to-top-button-float').checked = value;
+		document.querySelector('.icon-scroll-to-top-button-float').style.backgroundColor = value === true ? 'var(--accent)' : '';
+		if (value) highlightMenuIcon('productivity-tweaks');
+		console.log(`Show floating Scroll To Top button: ${value}`);
+	});
+
+	// Scroll To Next/Previous Post
+	BROWSER_API.storage.sync.get(['scrollToPost'], function (result) {
+		const value = result.scrollToPost === true;
+		document.querySelector('#checkbox-scroll-to-post').checked = value;
+		document.querySelector('.icon-scroll-to-post').style.backgroundColor = value === true ? 'var(--accent)' : '';
+		if (value) highlightMenuIcon('productivity-tweaks');
+		console.log(`Scroll to next/previous post on keypress: ${value}`);
 	});
 
 	// Open Sub Links In New Tab
@@ -427,22 +440,6 @@ export function restorePopupProductivityOptions() {
 		document.querySelector('#input-comment-absolute-timestamp-format').value = result.commentAbsoluteTimestampFormat ?? '';
 	});
 
-	// Non Sticky Header Bar
-	BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
-		if (result.nonStickyHeaderBar == true) {
-			document.querySelector('#checkbox-non-sticky-header-bar').checked = true;
-			document.querySelector('.icon-non-sticky-header-bar').style.backgroundColor = 'var(--accent)';
-			document.querySelector('.icon-non-sticky-header-bar').classList.remove('icon-sticky-note');
-			document.querySelector('.icon-non-sticky-header-bar').classList.add('icon-sticky-note-slash');
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.nonStickyHeaderBar == 'undefined' || result.nonStickyHeaderBar == false) {
-			document.querySelector('#checkbox-non-sticky-header-bar').checked = false;
-			var value = false;
-		}
-		console.log('Non Sticky Header Bar: ' + value);
-	});
-
 	// Larger Classic Post
 	BROWSER_API.storage.sync.get(['largerClassicPost'], function (result) {
 		if (result.largerClassicPost == true) {
@@ -459,31 +456,31 @@ export function restorePopupProductivityOptions() {
 
 	// Scroll To Next Root Comment Position X
 	BROWSER_API.storage.sync.get(['scrollToNextRootCommentPosition'], function (result) {
-		const valueX = result.scrollToNextRootCommentPosition?.x || undefined;
-		if (typeof valueX == 'undefined' || valueX === '-1' || valueX === 'undefined') {
+		const valueX = result.scrollToNextRootCommentPosition?.x ?? -1;
+		if (valueX === -1) {
 			document.querySelector('#input-scroll-to-root-comment-position-x').value = -1;
 			document.querySelector('#scroll-to-root-comment-position-x-value').innerText = '48px';
 			console.log('Scroll To Next Root Comment Position: 48px');
-		} else if (typeof valueX != 'undefined') {
+		} else {
 			document.querySelector('#input-scroll-to-root-comment-position-x').value = valueX;
-			document.querySelector('#scroll-to-root-comment-position-x-value').innerText = valueX + '%';
+			document.querySelector('#scroll-to-root-comment-position-x-value').innerText = `${Math.round(valueX)}%`;
 			document.querySelector('.icon-scroll-to-root-comment-position-x').style.backgroundColor = 'var(--accent)';
 			var value = valueX;
-			console.log('Scroll To Next Root Comment Position X: ' + value + '%');
+			console.log(`Scroll To Next Root Comment Position X: ${value}%`);
 		}
 
 		// Scroll To Next Root Comment Position Y
-		const valueY = result.scrollToNextRootCommentPosition?.y || undefined;
-		if (typeof valueY == 'undefined' || valueY === '-1' || valueY === 'undefined') {
+		const valueY = result.scrollToNextRootCommentPosition?.y ?? -1;
+		if (valueY === -1) {
 			document.querySelector('#input-scroll-to-root-comment-position-y').value = -1;
 			document.querySelector('#scroll-to-root-comment-position-y-value').innerText = '50%';
 			console.log('Scroll To Next Root Comment Position Vertically: 50%');
-		} else if (typeof valueY != 'undefined') {
+		} else {
 			document.querySelector('#input-scroll-to-root-comment-position-y').value = valueY;
-			document.querySelector('#scroll-to-root-comment-position-y-value').innerText = valueY + '%';
+			document.querySelector('#scroll-to-root-comment-position-y-value').innerText = `${Math.round(valueY)}%`;
 			document.querySelector('.icon-scroll-to-root-comment-position-y').style.backgroundColor = 'var(--accent)';
 			var value = valueY;
-			console.log('Scroll To Next Root Comment Position Y: ' + value + '%');
+			console.log(`Scroll To Next Root Comment Position Y: ${value}%`);
 		}
 	});
 

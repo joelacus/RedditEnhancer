@@ -459,28 +459,74 @@ div[id^='vote-arrows-t3_'] button[data-click-id='upvote'] ~ .re-upvote-ratio {
 	left: var(--re-scroll-to-root-comment-position, 48px);
 	display: flex;
 	flex-direction: column;
-	grid-gap: 8px;
-	width: 30px;
+	align-items: center;
+	grid-gap: 4px;
+	width: 2rem;
+	background-color: rgba(0, 0, 0, 0.4);
+	border-radius: var(--re-theme-border-radius, 4px);
+	overflow: clip;
 	z-index: 9999;
 }
 #re-next-comment,
 #re-prev-comment {
 	cursor: pointer;
 	padding: 4px;
-	border-radius: var(--re-theme-border-radius, 4px);
-	background-color: rgba(0, 0, 0, 0.4);
 	color: #fff;
 	height: 22px;
 }
 #re-next-comment:before {
-	content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 512 512"><path opacity="1" fill="white" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>');
+	content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="1.5rem" width="1.5rem" viewBox="0 0 512 512"><path opacity="1" fill="white" d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>');
 }
 #re-prev-comment:before {
-	content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 512 512"><path opacity="1" fill="white" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>');
+	content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="1.5rem" width="1.5rem" viewBox="0 0 512 512"><path opacity="1" fill="white" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>');
 }
 #re-next-comment:hover,
 #re-prev-comment:hover {
 	background-color: rgba(0, 0, 0, 0.6);
+}
+.re-root-scroll-handle {
+	width: 1.2rem;
+	height: 0.1rem;
+	border-top: solid 0.1rem #fff;
+	border-bottom: solid 0.1rem #fff;
+	opacity: 0.2;
+	cursor: move;
+}
+
+/* ========== FLOATING SCROLL TO TOP ========== */
+.re-scroll-to-top-float-container {
+	position: fixed;
+	top: 90%;
+	left: 90%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	grid-gap: 4px;
+	width: 2rem;
+	background-color: rgba(0, 0, 0, 0.4);
+	border-radius: var(--re-theme-border-radius, 4px);
+	overflow: clip;
+	z-index: 9999;
+}
+#re-scroll-to-top-float {
+	cursor: pointer;
+	padding: 4px;
+	color: #fff;
+}
+#re-scroll-to-top-float:before {
+	content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="1.5rem" width="1.5rem" viewBox="0 0 512 400"><path opacity="1" fill="white" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>');
+}
+#re-scroll-to-top-float:hover {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+.re-scroll-to-top-handle {
+	width: 1.2rem;
+	height: 0.1rem;
+	border-top: solid 0.1rem #fff;
+	border-bottom: solid 0.1rem #fff;
+	opacity: 0.2;
+	cursor: move;
+	margin-bottom: 6px;
 }
 
 /* ========== LOAD MORE ========== */
@@ -759,6 +805,7 @@ shreddit-app[pagetype='single_comment_thread'] #main-content {
 /* Custom Timestamps */
 .re-comment-absolute-timestamp {
 	color: var(--re-theme-post-comments-text-2) !important;
+	text-decoration: none !important;
 }
 
 /* Always Show Post Options */
@@ -766,4 +813,10 @@ shreddit-post [slot='credit-bar'] div:has(> span > span > [icon-name='notificati
 	border-radius: var(--re-theme-border-radius);
 	padding: 4px;
 	margin-right: -4px;
+}
+
+/* Scroll to Post */
+article[data-nav-selected='true'] {
+	outline: 2px solid #ff4500;
+	border-radius: var(--re-theme-border-radius, 1rem);
 }

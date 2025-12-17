@@ -414,6 +414,28 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Header Bar: ' + value);
 	});
 
+	// Hide 'Get App' Button
+	BROWSER_API.storage.sync.get(['hideGetAppButton'], function (result) {
+		const value = result.hideGetAppButton === true ? true : false;
+		document.querySelector('#checkbox-hide-get-app-button').checked = value;
+		console.log(value);
+		document.querySelector('.icon-hide-get-app-button').style.backgroundColor = value === true ? 'var(--accent)' : '';
+		document.querySelector('.icon-hide-get-app-button').classList.replace(value ? 'icon-header' : 'icon-header-slash', value ? 'icon-header-slash' : 'icon-header');
+		highlightMenuIcon('hide-elements');
+		console.log(`Hide 'Get App' Button: (${value})`);
+	});
+
+	// Hide AI In Search
+	BROWSER_API.storage.sync.get(['hideAiInSearch'], function (result) {
+		const value = result.hideAiInSearch === true ? true : false;
+		document.querySelector('#checkbox-hide-ai-in-search').checked = value;
+		console.log(value);
+		document.querySelector('.icon-hide-ai-in-search').style.backgroundColor = value === true ? 'var(--accent)' : '';
+		document.querySelector('.icon-hide-ai-in-search').classList.replace(value ? 'icon-header' : 'icon-header-slash', value ? 'icon-header-slash' : 'icon-header');
+		highlightMenuIcon('hide-elements');
+		console.log(`Hide AI In Search: (${value})`);
+	});
+
 	// Hide Side Menu Top Section
 	BROWSER_API.storage.sync.get(['hideSideMenuTopSection'], function (result) {
 		if (result.hideSideMenuTopSection == true) {

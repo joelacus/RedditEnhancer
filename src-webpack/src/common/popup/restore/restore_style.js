@@ -554,59 +554,46 @@ export function restorePopupStyleOptions() {
 
 	// Hide Gap
 	BROWSER_API.storage.sync.get(['hideGap'], function (result) {
-		if (result.hideGap == true) {
-			document.querySelector('#checkbox-hide-gap').checked = true;
-			document.querySelector('.hide-gap').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('style-tweaks');
-			var value = true;
-		} else if (typeof result.hideGap == 'undefined' || result.hideGap == false) {
-			document.querySelector('#checkbox-hide-gap').checked = false;
-			var value = false;
-		}
-		console.log('Hide Gap: ' + value);
+		const hideGap = result.hideGap;
+		document.querySelector('#checkbox-hide-gap').checked = hideGap;
+		document.querySelector('.hide-gap').style.backgroundColor = hideGap ? 'var(--accent)' : '';
+		if (hideGap) highlightMenuIcon('style-tweaks');
+		console.log('Hide Gap: ' + hideGap);
 	});
 
 	// Full Width Banner
 	BROWSER_API.storage.sync.get(['fullWidthBanner'], function (result) {
 		const fullWidthBanner = result.fullWidthBanner === true;
-		document.querySelector('.icon-full-width-banner').style.backgroundColor = fullWidthBanner ? 'var(--accent)' : '';
 		document.querySelector('#checkbox-full-width-banner').checked = fullWidthBanner;
-		if (fullWidthBanner) {
-			highlightMenuIcon('style-tweaks');
-		}
+		document.querySelector('.icon-full-width-banner').style.backgroundColor = fullWidthBanner ? 'var(--accent)' : '';
+		if (fullWidthBanner) highlightMenuIcon('style-tweaks');
 		console.log('Full Width Banner: ' + fullWidthBanner);
 	});
 
 	// Compact Header Bar & Side Menu
 	BROWSER_API.storage.sync.get(['compactHeaderSideMenu'], function (result) {
 		const compactHeaderSideMenu = result.compactHeaderSideMenu === true;
-		document.querySelector('.icon-compact-header-side-menu').style.backgroundColor = compactHeaderSideMenu ? 'var(--accent)' : '';
 		document.querySelector('#checkbox-compact-header-side-menu').checked = compactHeaderSideMenu;
-		if (compactHeaderSideMenu) {
-			highlightMenuIcon('style-tweaks');
-		}
+		document.querySelector('.icon-compact-header-side-menu').style.backgroundColor = compactHeaderSideMenu ? 'var(--accent)' : '';
+		if (compactHeaderSideMenu) highlightMenuIcon('style-tweaks');
 		console.log('Compact Header Side Menu: ' + compactHeaderSideMenu);
 	});
 
 	// Classic Old UI
 	BROWSER_API.storage.sync.get(['classicOldUI'], function (result) {
 		const classicOldUI = result.classicOldUI === true;
-		document.querySelector('.icon-classic-old-ui').style.backgroundColor = classicOldUI ? 'var(--accent)' : '';
 		document.querySelector('#checkbox-classic-old-ui').checked = classicOldUI;
-		if (classicOldUI) {
-			highlightMenuIcon('style-tweaks');
-		}
+		document.querySelector('.icon-classic-old-ui').style.backgroundColor = classicOldUI ? 'var(--accent)' : '';
+		if (classicOldUI) highlightMenuIcon('style-tweaks');
 		console.log('Classic Old UI: ' + classicOldUI);
 	});
 
 	// Multicoloured Post Page Comment Thread Lines
 	BROWSER_API.storage.sync.get(['multicolouredThreadLines'], function (result) {
 		const multicolouredThreadLines = result.multicolouredThreadLines === true;
-		document.querySelector('.icon-multicoloured-comment-thread-lines').style.backgroundColor = multicolouredThreadLines ? 'var(--accent)' : '';
 		document.querySelector('#checkbox-multicoloured-comment-thread-lines').checked = multicolouredThreadLines;
-		if (multicolouredThreadLines) {
-			highlightMenuIcon('style-tweaks');
-		}
+		document.querySelector('.icon-multicoloured-comment-thread-lines').style.backgroundColor = multicolouredThreadLines ? 'var(--accent)' : '';
+		if (multicolouredThreadLines) highlightMenuIcon('style-tweaks');
 		console.log('Multicoloured Post Page Comment Thread Lines: ' + multicolouredThreadLines);
 	});
 
@@ -619,14 +606,11 @@ export function restorePopupStyleOptions() {
 
 	// Post Table Border Colour
 	BROWSER_API.storage.sync.get(['themePostTableBorderColour'], function (result) {
-		if (result.themePostTableBorderColour === true) {
-			document.querySelector('.icon-post-table-border-colour').style.backgroundColor = 'var(--accent)';
-			document.querySelector('#checkbox-post-table-border-colour').checked = true;
-			highlightMenuIcon('style-tweaks');
-		} else if (typeof result.themePostTableBorderColour === 'undefined' || result.themePostTableBorderColour === false) {
-			document.querySelector('#checkbox-post-table-border-colour').checked = false;
-		}
-		console.log('Post Table Border Colour: ' + result.themePostTableBorderColour);
+		const themePostTableBorderColour = result.themePostTableBorderColour === true;
+		document.querySelector('#checkbox-post-table-border-colour').checked = themePostTableBorderColour;
+		document.querySelector('.icon-post-table-border-colour').style.backgroundColor = themePostTableBorderColour ? 'var(--accent)' : '';
+		if (themePostTableBorderColour) highlightMenuIcon('style-tweaks');
+		console.log('Post Table Border Colour: ' + themePostTableBorderColour);
 	});
 
 	// Code Block Colour CSS
@@ -640,11 +624,11 @@ export function restorePopupStyleOptions() {
 	// Custom Header Logo
 	BROWSER_API.storage.sync.get(['customHeaderLogo'], function (result) {
 		const customHeaderLogo = result.customHeaderLogo === true;
-		document.querySelector('.icon-custom-header-logo').style.backgroundColor = customHeaderLogo ? 'var(--accent)' : '';
 		document.querySelector('#checkbox-custom-header-logo').checked = customHeaderLogo;
-		if (customHeaderLogo) {
-			highlightMenuIcon('style-tweaks');
-		}
+		document.querySelector('.icon-custom-header-logo').style.backgroundColor = customHeaderLogo ? 'var(--accent)' : '';
+
+		if (customHeaderLogo) highlightMenuIcon('style-tweaks');
+
 		console.log('Custom Header Logo: ' + customHeaderLogo);
 	});
 
@@ -658,24 +642,20 @@ export function restorePopupStyleOptions() {
 	// Attach Side Menu Header
 	BROWSER_API.storage.sync.get(['attachSideMenuHeader'], function (result) {
 		const attachSideMenuHeader = result.attachSideMenuHeader === true;
-		document.querySelector('.icon-attach-side-menu-header').style.backgroundColor = attachSideMenuHeader ? 'var(--accent)' : '';
 		document.querySelector('#checkbox-attach-side-menu-header').checked = attachSideMenuHeader;
-		if (attachSideMenuHeader) {
-			highlightMenuIcon('style-tweaks');
-		}
+		document.querySelector('.icon-attach-side-menu-header').style.backgroundColor = attachSideMenuHeader ? 'var(--accent)' : '';
+		if (attachSideMenuHeader) highlightMenuIcon('style-tweaks');
 		console.log('Attach Side Menu Toggle: ' + attachSideMenuHeader);
 	});
 
 	// Opt Out Attach Side Menu
 	BROWSER_API.storage.sync.get(['optOutAttachSideMenu'], function (result) {
 		const optOutAttachSideMenu = result.optOutAttachSideMenu === true;
+		document.querySelector('#checkbox-opt-out-attach-side-menu').checked = optOutAttachSideMenu;
 		document.querySelector('.icon-opt-out-attach-side-menu').style.backgroundColor = optOutAttachSideMenu ? 'var(--accent)' : '';
 		if (optOutAttachSideMenu) {
 			document.querySelector('.icon-opt-out-attach-side-menu').classList.remove('icon-dropdown');
 			document.querySelector('.icon-opt-out-attach-side-menu').classList.add('icon-dropdown-slash');
-		}
-		document.querySelector('#checkbox-opt-out-attach-side-menu').checked = optOutAttachSideMenu;
-		if (optOutAttachSideMenu) {
 			highlightMenuIcon('style-tweaks');
 		}
 		console.log('Opt Out Attach Side Menu: ' + optOutAttachSideMenu);
@@ -684,33 +664,40 @@ export function restorePopupStyleOptions() {
 	// Left Side Vote Buttons
 	BROWSER_API.storage.sync.get(['leftSideVoteButtons'], function (result) {
 		const leftSideVoteButtons = result.leftSideVoteButtons === true;
-		document.querySelector('.icon-left-side-vote-buttons').style.backgroundColor = leftSideVoteButtons ? 'var(--accent)' : '';
 		document.querySelector('#checkbox-left-side-vote-buttons').checked = leftSideVoteButtons;
-		if (leftSideVoteButtons) {
-			highlightMenuIcon('style-tweaks');
-		}
+		document.querySelector('.icon-left-side-vote-buttons').style.backgroundColor = leftSideVoteButtons ? 'var(--accent)' : '';
+		if (leftSideVoteButtons) highlightMenuIcon('style-tweaks');
 		console.log('Left Side Vote Buttons: ' + leftSideVoteButtons);
 	});
 
 	// Subreddit Display Name Banner
 	BROWSER_API.storage.sync.get(['subredditDisplayNameBanner'], function (result) {
 		const subredditDisplayNameBanner = result.subredditDisplayNameBanner === true;
-		document.querySelector('.icon-subreddit-display-name-banner').style.backgroundColor = subredditDisplayNameBanner ? 'var(--accent)' : '';
 		document.querySelector('#checkbox-subreddit-display-name-banner').checked = subredditDisplayNameBanner;
-		if (subredditDisplayNameBanner) {
+		document.querySelector('.icon-subreddit-display-name-banner').style.backgroundColor = subredditDisplayNameBanner ? 'var(--accent)' : '';
+		if (subredditDisplayNameBanner) highlightMenuIcon('style-tweaks');
+		console.log('Subreddit Display Name Banner: ' + subredditDisplayNameBanner);
+	});
+
+	// Non Sticky Header Bar
+	BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
+		const nonStickyHeaderBar = result.nonStickyHeaderBar === true;
+		document.querySelector('#checkbox-non-sticky-header-bar').checked = nonStickyHeaderBar;
+		document.querySelector('.icon-non-sticky-header-bar').style.backgroundColor = nonStickyHeaderBar ? 'var(--accent)' : '';
+		if (nonStickyHeaderBar) {
+			document.querySelector('.icon-non-sticky-header-bar').classList.remove('icon-sticky-note');
+			document.querySelector('.icon-non-sticky-header-bar').classList.add('icon-sticky-note-slash');
 			highlightMenuIcon('style-tweaks');
 		}
-		console.log('Subreddit Display Name Banner: ' + subredditDisplayNameBanner);
+		console.log('Non Sticky Header Bar: ' + nonStickyHeaderBar);
 	});
 
 	// Right Side Post Thumbnails
 	BROWSER_API.storage.sync.get(['rightSidePostThumbnails'], function (result) {
 		const rightSidePostThumbnails = result.rightSidePostThumbnails === true;
-		document.querySelector('.icon-right-side-post-thumbnails').style.backgroundColor = rightSidePostThumbnails ? 'var(--accent)' : '';
 		document.querySelector('#checkbox-right-side-post-thumbnails').checked = rightSidePostThumbnails;
-		if (rightSidePostThumbnails) {
-			highlightMenuIcon('style-tweaks');
-		}
+		document.querySelector('.icon-right-side-post-thumbnails').style.backgroundColor = rightSidePostThumbnails ? 'var(--accent)' : '';
+		if (rightSidePostThumbnails) highlightMenuIcon('style-tweaks');
 		console.log('Right Side Post Thumbnails: ' + rightSidePostThumbnails);
 	});
 }

@@ -453,18 +453,32 @@ document.querySelector('#input-hide-sub-sidebar-exceptions').addEventListener('k
 
 // Toggle - Hide Header Bar
 document.querySelector('#checkbox-hide-header-bar').addEventListener('change', function () {
-	const hideHeaderBar = document.querySelector('#checkbox-hide-header-bar').checked;
-	if (hideHeaderBar) {
-		document.querySelector('.icon-hide-header-bar').classList.remove('icon-header');
-		document.querySelector('.icon-hide-header-bar').classList.add('icon-header-slash');
-		document.querySelector('.icon-hide-header-bar').style.backgroundColor = 'var(--accent)';
-	} else {
-		document.querySelector('.icon-hide-header-bar').classList.remove('icon-header-slash');
-		document.querySelector('.icon-hide-header-bar').classList.add('icon-header');
-		document.querySelector('.icon-hide-header-bar').style.backgroundColor = '';
-	}
-	BROWSER_API.storage.sync.set({ hideHeaderBar: hideHeaderBar });
-	sendMessage({ hideHeaderBar: hideHeaderBar });
+	const value = document.querySelector('#checkbox-hide-header-bar').checked;
+	const icon = document.querySelector('.icon-hide-header-bar');
+	icon.style.backgroundColor = value ? 'var(--accent)' : '';
+	icon.classList.replace(value ? 'icon-header' : 'icon-header-slash', value ? 'icon-header-slash' : 'icon-header');
+	BROWSER_API.storage.sync.set({ hideHeaderBar: value });
+	sendMessage({ hideHeaderBar: value });
+});
+
+// Toggle - Hide 'Get App' Button
+document.querySelector('#checkbox-hide-get-app-button').addEventListener('change', function () {
+	const value = document.querySelector('#checkbox-hide-get-app-button').checked;
+	const icon = document.querySelector('.icon-hide-get-app-button');
+	icon.classList.replace(value ? 'icon-show' : 'icon-hide', value ? 'icon-hide' : 'icon-show');
+	icon.style.backgroundColor = value ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ hideGetAppButton: value });
+	sendMessage({ hideGetAppButton: value });
+});
+
+// Toggle - Hide AI In Search
+document.querySelector('#checkbox-hide-ai-in-search').addEventListener('change', function () {
+	const value = document.querySelector('#checkbox-hide-ai-in-search').checked;
+	const icon = document.querySelector('.icon-hide-ai-in-search');
+	icon.classList.replace(value ? 'icon-show' : 'icon-hide', value ? 'icon-hide' : 'icon-show');
+	icon.style.backgroundColor = value ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ hideAiInSearch: value });
+	sendMessage({ hideAiInSearch: value });
 });
 
 // Toggle - Hide Side Menu

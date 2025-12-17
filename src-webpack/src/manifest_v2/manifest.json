@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 
 	"name": "__MSG_extensionName__",
-	"version": "2.4.1",
+	"version": "2.5.0",
 	"description": "__MSG_extensionDescription__",
 	"author": "github.com/joelacus",
 	"default_locale": "en",
@@ -57,6 +57,9 @@
 	"browser_specific_settings": {
 		"gecko": {
 			"id": "{46abbc04-ce38-475f-9ef8-e0a4a59d0c9f}"
+		},
+		"data_collection_permissions": {
+			"required": ["none"]
 		}
 	},
 
