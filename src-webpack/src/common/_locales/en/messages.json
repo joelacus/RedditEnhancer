@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "2.4.1"
+		"message": "2.5.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -293,8 +293,11 @@
 	"HideAdvertiseButton": {
 		"message": "Hide the 'Advertise' Button"
 	},
+	"HideAiInTheSearchBar": {
+		"message": "Hide AI in the Search Bar"
+	},
 	"HideAwards": {
-		"message": "Hide Give Awards button"
+		"message": "Hide 'Give Awards' Button"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Hide Posts with Blocked Keywords"
@@ -327,13 +330,16 @@
 		"message": "Hide the Custom Feed Sidebar"
 	},
 	"HideElements": {
-		"message": "Hide Elements"
+		"message": "Hide"
 	},
 	"HideFavouriteButtons": {
 		"message": "Hide the Favourite Buttons"
 	},
 	"HideGap": {
 		"message": "Hide Interface Gaps"
+	},
+	"HideGetAppButton": {
+		"message": "Hide 'Get App' Button"
 	},
 	"HideGetNewReddit": {
 		"message": "Hide 'Get New Reddit'"
@@ -369,7 +375,7 @@
 		"message": "Hide 'Notification' Button"
 	},
 	"HideNsfwInSearchResults": {
-		"message": "Hide NSFW results in the Searchbar"
+		"message": "Hide NSFW results in the Search Bar"
 	},
 	"HidePostActionBarButtonsInfo": {
 		"message": "Hide buttons from post action bar"
@@ -456,7 +462,7 @@
 		"message": "Only hide on these subreddits:"
 	},
 	"HideTrendingTodayInSearchResults": {
-		"message": "Hide 'Trending Today' in the Searchbar"
+		"message": "Hide 'Trending Today' in the Search Bar"
 	},
 	"HideUserNameInTheFlairSection": {
 		"message": "Hide username in the subreddit sidebar flair section"
@@ -770,8 +776,20 @@
 	"ScalePostToFitVideo": {
 		"message": "Scale Post To Fit Video"
 	},
+	"ScrollToNextPreviousPost": {
+		"message": "Scroll to the next/previous post by pressing (J / Down Arrow) / (K / Up Arrow)"
+	},
+	"ScrollToNextPreviousPostInfo": {
+		"message": "Using the J/K keys will interfere with Reddit's 'Shortcuts' feature if enabled, in which case, use the arrow keys. The RE version uses smooth scrolling and skips any hidden posts."
+	},
 	"ScrollToNextRootComment": {
 		"message": "Show Navigation Buttons For The Next/Previous Root Comment"
+	},
+	"ScrollToTopFloat": {
+		"message": "Add floating 'Scroll To Top' button"
+	},
+	"ScrollToTopHeader": {
+		"message": "Add 'Scroll To Top' button to the header"
 	},
 	"Search": {
 		"message": "Search"
@@ -780,10 +798,10 @@
 		"message": "Search Page Offset"
 	},
 	"SearchbarBgColour": {
-		"message": "Searchbar: Background Colour"
+		"message": "Search Bar: Background Colour"
 	},
 	"SearchbarDropdownBgColour": {
-		"message": "Searchbar: Focused/Dropdown Background Colour"
+		"message": "Search Bar: Focused/Dropdown Background Colour"
 	},
 	"Select": {
 		"message": "Select"
@@ -928,9 +946,6 @@
 	},
 	"TimeRange": {
 		"message": "Time Range"
-	},
-	"ToTop": {
-		"message": "Add 'Scroll To Top' Button"
 	},
 	"Top": {
 		"message": "Top"

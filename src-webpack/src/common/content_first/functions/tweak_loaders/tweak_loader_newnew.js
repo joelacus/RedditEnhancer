@@ -48,6 +48,7 @@ import { loadHideCommunityStatus } from '../../../content/tweaks/hide_elements/h
 import { loadDropShadow } from '../../../content/tweaks/style/drop_shadow';
 import { loadHideSearchHero } from '../../../content/tweaks/hide_elements/hide_search_hero';
 import { loadSolidColourBackground } from '../../../content/tweaks/background/bg_solid_colour';
+import { loadHideGetAppButton } from '../../../content/tweaks/hide_elements/hide_get_app_button';
 
 export function tweakLoaderNewNew() {
 	loadSolidColourBackground();
@@ -65,6 +66,7 @@ export function tweakLoaderNewNew() {
 	loadHideSearchSidebar();
 	loadHideCustomFeedSidebar();
 	loadHideHeaderBar();
+	loadHideGetAppButton();
 	loadHideNotificationButton();
 	loadHideCreatePostButton();
 	loadHideChatButton();

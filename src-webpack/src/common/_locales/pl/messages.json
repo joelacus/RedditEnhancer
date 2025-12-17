@@ -587,6 +587,9 @@
 	"ScrollToNextRootComment": {
 		"message": "Pokaż przyciski do przewijania do następnego/poprzedniego komentarza root"
 	},
+	"ScrollToTopHeader": {
+		"message": "Dodaj przycisk „Przewiń do góry”"
+	},
 	"Search": {
 		"message": "Szukaj"
 	},
@@ -697,9 +700,6 @@
 	},
 	"TimeRange": {
 		"message": "Zakres Czasu"
-	},
-	"ToTop": {
-		"message": "Dodaj przycisk „Przewiń do góry”"
 	},
 	"Top": {
 		"message": "Szczyt / Top"

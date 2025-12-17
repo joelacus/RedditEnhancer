@@ -92,9 +92,9 @@ export function sideMenuIconsOnly(value) {
 									left-nav-multireddit-item::part(pad-item) > span {
 										gap: 0 !important;
 									}`;
-		document.querySelector('left-nav-communities-controller').shadowRoot.querySelector('left-nav-community-item').append(styleElement2);
-		document.querySelector('left-nav-moderation-controller').shadowRoot.querySelector('left-nav-community-item').append(styleElement2.cloneNode(true));
-		document.querySelector('left-nav-multireddits-controller').shadowRoot.querySelector('left-nav-multireddit-item').append(styleElement2.cloneNode(true));
+		document.querySelector('left-nav-communities-controller').shadowRoot?.querySelector('left-nav-community-item').append(styleElement2);
+		document.querySelector('left-nav-moderation-controller').shadowRoot?.querySelector('left-nav-community-item').append(styleElement2.cloneNode(true));
+		document.querySelector('left-nav-multireddits-controller').shadowRoot?.querySelector('left-nav-multireddit-item').append(styleElement2.cloneNode(true));
 
 		// set side menu width
 		BROWSER_API.storage.sync.get(['hideSideMenuFavouriteButton'], function (result) {

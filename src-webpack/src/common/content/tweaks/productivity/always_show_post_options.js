@@ -34,9 +34,15 @@ export function loadAlwaysShowPostOptions() {
 	});
 }
 
+let borderRadius;
+
 /* === Enable/Disable The Features === */
 export function alwaysShowPostOptions(value) {
 	if (value && redditVersion === 'newnew') {
+		BROWSER_API.storage.sync.get(['borderRadiusAmount'], function (result) {
+			borderRadius = result.borderRadiusAmount ?? '';
+		});
+
 		// Attach menu options to posts and comment action rows already present on the page
 		document.querySelectorAll('shreddit-post').forEach(attachPostMenu);
 		document.querySelectorAll('shreddit-comment-action-row').forEach(attachCommentMenu);
@@ -273,24 +279,38 @@ function attachCommentMenu(commentActionRow) {
 	].map((action) => {
 		const button = overflowMenu.querySelector(action.selector);
 		if (button) {
-			Object.assign(button, {
-				slot: action.slot,
-				className: 'button border-md shrink-0 text-12 button-plain-weak inline-flex items-center font-semibold rounded-sm p-2xs',
-				style: '',
-			});
-			const icon = button.querySelector('span > span');
-			const text = button.querySelector('span > span + span > span');
-			if (icon && text) {
-				icon.classList.remove('h-xl', 'w-xl');
-				if (hideCommentBtnIcons) icon.classList.add('hidden');
+			if (action.slot === 'comment-edit') {
+				const dropdown = commentActionRow.querySelector('shreddit-overflow-menu').shadowRoot.querySelector('rpl-dropdown');
+				dropdown.append(button);
+				dropdown.querySelector('faceplate-tracker').style.display = 'none';
+				button.setAttribute('style', '');
+				button.className = 'button border-md shrink-0 text-12 button-plain-weak inline-flex items-center font-semibold rounded-sm p-2xs';
+				if (borderRadius) button.style.borderRadius = `${borderRadius}px`;
+				const text = button.querySelector('.text-14').textContent;
+				const span = document.createElement('span');
+				span.className = 'text-12';
+				span.textContent = text;
+				button.replaceChildren(span);
+			} else {
+				Object.assign(button, {
+					slot: action.slot,
+					className: 'button border-md shrink-0 text-12 button-plain-weak inline-flex items-center font-semibold rounded-sm p-2xs',
+					style: '',
+				});
+				const icon = button.querySelector('span > span');
+				const text = button.querySelector('span > span + span > span');
+				if (icon && text) {
+					icon.classList.remove('h-xl', 'w-xl');
+					if (hideCommentBtnIcons) icon.classList.add('hidden');
+				}
+				button.querySelector('span > span + span')?.classList.remove('py-[var(--rem6)]');
+				if (text) {
+					text.classList.replace('text-14', 'text-12');
+				}
+				button.querySelector('span + span > .h-lg')?.classList.remove('h-lg');
+				commentActionRow.appendChild(button);
+				//overflowMenu.querySelector(action.remove)?.remove();
 			}
-			button.querySelector('span > span + span')?.classList.remove('py-[var(--rem6)]');
-			if (text) {
-				text.classList.replace('text-14', 'text-12');
-			}
-			button.querySelector('span + span > .h-lg')?.classList.remove('h-lg');
-			commentActionRow.appendChild(button);
-			overflowMenu.querySelector(action.remove)?.remove();
 		}
 	});
 

@@ -1,3 +1,15 @@
+version 2.5.0
+v [Latest UI V3]
+  - Added an option to hide the "Ask" button and the "AI glow" in the search bar.
+  - Added an option to hide the "Get App" button in the header bar.
+  - The "Show Navigations Buttons For the Next/Previous Root Comment" element is now draggable to make it easier to place where you want.
+  - Fixed "Hide NSFW results in the Search Bar" and "Hide 'Trending Today' in the Search Bar" not working due to a website update.
+  - The "Show Absolute Timestamps on Comments" option now restores the comment URL on the timestamp text.
+  - Fixed the "Edit comment" button not working when using "Always Show Post and Comment Options".
+v [Latest UI V3, Old UI V1]
+  - Added an option to scroll to the next post by pressing (J / Down Arrow) and to the previous post with (K / Up Arrow).
+  - Added an option to show a draggable "scroll to top" button on the page.
+
 version 2.4.1
   - Added colour pickers to theme colour options.
   - Rewrote and improved the extension search logic.

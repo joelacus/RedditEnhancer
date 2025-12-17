@@ -564,3 +564,7 @@
 	mask: url('../../icons/ui/people-group-solid-full.svg');
 	-webkit-mask: url('../../icons/ui/people-group-solid-full.svg');
 }
+.icon-up-down {
+	mask: url('../../icons/ui/up-down-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/up-down-solid-full.svg');
+}

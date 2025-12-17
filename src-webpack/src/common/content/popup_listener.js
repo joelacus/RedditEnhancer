@@ -41,7 +41,7 @@ import { openSubInNewTab } from './tweaks/productivity/open_sub_links_in_new_tab
 import { overrideDropShadow, overrideDropShadowCSS } from './tweaks/style/drop_shadow';
 import { postTitleFontSize, postCommentsFontSize, postContentFontSize, feedPostTitleFontSize, feedPostContentFontSize, createPostTitleFontSize, createPostBodyFontSize } from './tweaks/font/resize_font';
 import { feedPostContentFontWeight, feedPostTitleFontWeight, postCommentsFontWeight, postContentFontWeight, postTitleFontWeight } from './tweaks/font/font_weight';
-import { scrollToNextRootComment, scrollToNextRootCommentPosition } from './tweaks/productivity/scroll_to_next_root_comment';
+import { scrollToNextRootComment, scrollToNextRootCommentPosition, scrollToNextRootCommentRemoveStyle } from './tweaks/productivity/scroll_to_next_root_comment';
 import { showPostAuthor } from './tweaks/productivity/show_post_author';
 import { showPostFlair } from './tweaks/productivity/show_post_flair';
 import { showPostNumbers } from './tweaks/productivity/show_post_numbers';
@@ -148,6 +148,10 @@ import { markPostAsReadButton } from './tweaks/productivity/mark_read_on_open_ex
 import { showMemberCount } from './tweaks/productivity/show_member_count';
 import { hideUsernameInSubSidebar } from './tweaks/hide_elements/hide_username_in_sub_sidebar';
 import { solidColourBackground, solidColourBackgroundCSS } from './tweaks/background/bg_solid_colour';
+import { hideGetAppButton } from './tweaks/hide_elements/hide_get_app_button';
+import { hideAiInSearch } from './tweaks/hide_elements/hide_ai_in_search';
+import { showToTopButtonFloat } from './tweaks/productivity/scroll_to_top_float';
+import { scrollToPost } from './tweaks/productivity/scroll_to_post';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -222,6 +226,8 @@ const functionRegistry = {
 	hideGap,
 	hideGetNewReddit,
 	hideHeaderBar,
+	hideGetAppButton,
+	hideAiInSearch,
 	hideHeaderSubBar,
 	hideHomeFeed,
 	hideHomeSidebar,
@@ -308,6 +314,8 @@ const functionRegistry = {
 	scalePostToFitVideo,
 	scrollToNextRootComment,
 	scrollToNextRootCommentPosition,
+	scrollToNextRootCommentRemoveStyle,
+	scrollToPost,
 	setCustomBackground,
 	setCustomHeaderLogoUrl,
 	setMaxImagePostHeight,
@@ -319,6 +327,7 @@ const functionRegistry = {
 	showPostFlair,
 	showPostNumbers,
 	showToTopButton,
+	showToTopButtonFloat,
 	showUpvoteRatio,
 	sidebarToggleButton,
 	sideMenuIconsOnly,

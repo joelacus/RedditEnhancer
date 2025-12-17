@@ -16,18 +16,28 @@ document.querySelector('#checkbox-sticky-sort').addEventListener('change', funct
 	}
 });
 
-// Toggle - Show To Top Button
+// Toggle - Show Scroll To Top Button In The Header
 document.querySelector('#checkbox-show-to-top-button').addEventListener('change', function (e) {
-	var showToTopButton = document.querySelector('#checkbox-show-to-top-button').checked;
-	if (showToTopButton == true) {
-		BROWSER_API.storage.sync.set({ showToTopButton: true });
-		document.querySelector('.icon-scroll-to-top').style.backgroundColor = 'var(--accent)';
-		sendMessage({ showToTopButton: true });
-	} else if (showToTopButton == false) {
-		BROWSER_API.storage.sync.set({ showToTopButton: false });
-		document.querySelector('.icon-scroll-to-top').style.backgroundColor = '';
-		sendMessage({ showToTopButton: false });
-	}
+	const checkbox = document.querySelector('#checkbox-show-to-top-button').checked;
+	BROWSER_API.storage.sync.set({ showToTopButton: checkbox });
+	sendMessage({ showToTopButton: checkbox });
+	document.querySelector('.icon-scroll-to-top').style.backgroundColor = checkbox === true ? 'var(--accent)' : '';
+});
+
+// Toggle - Show Floating Scroll To Top Button
+document.querySelector('#checkbox-show-to-top-button-float').addEventListener('change', function (e) {
+	const checkbox = document.querySelector('#checkbox-show-to-top-button-float').checked;
+	BROWSER_API.storage.sync.set({ showToTopButtonFloat: checkbox });
+	sendMessage({ showToTopButtonFloat: checkbox });
+	document.querySelector('.icon-scroll-to-top-button-float').style.backgroundColor = checkbox === true ? 'var(--accent)' : '';
+});
+
+// Toggle - Scroll To Next/Previous Post
+document.querySelector('#checkbox-scroll-to-post').addEventListener('change', function (e) {
+	const checkbox = document.querySelector('#checkbox-scroll-to-post').checked;
+	BROWSER_API.storage.sync.set({ scrollToPost: checkbox });
+	sendMessage({ scrollToPost: checkbox });
+	document.querySelector('.icon-scroll-to-post').style.backgroundColor = checkbox === true ? 'var(--accent)' : '';
 });
 
 // Toggle - Open Sub Links In New Tab
@@ -439,7 +449,7 @@ document.querySelector('#checkbox-scroll-to-next-root-comment').addEventListener
 	var scrollToNextRootComment = document.querySelector('#checkbox-scroll-to-next-root-comment').checked;
 	if (scrollToNextRootComment == true) {
 		BROWSER_API.storage.sync.set({ scrollToNextRootComment: true });
-		document.querySelector('.icon-hide-turn-on-notifications').style.backgroundColor = 'var(--accent)';
+		document.querySelector('.icon-scroll-to-next-root-comment').style.backgroundColor = 'var(--accent)';
 		sendMessage({ scrollToNextRootComment: true });
 	} else if (scrollToNextRootComment == false) {
 		BROWSER_API.storage.sync.set({ scrollToNextRootComment: false });
@@ -449,9 +459,11 @@ document.querySelector('#checkbox-scroll-to-next-root-comment').addEventListener
 });
 
 // Slider - Scroll To Root Comment Position X
+document.querySelector('#input-scroll-to-root-comment-position-x').addEventListener('mousedown', function () {
+	sendMessage({ scrollToNextRootCommentRemoveStyle: true });
+});
 document.querySelector('#input-scroll-to-root-comment-position-x').addEventListener('input', function (e) {
 	const valueX = e.target.value;
-	console.log(valueX);
 	if (valueX === '-1') {
 		document.querySelector('.icon-scroll-to-root-comment-position-x').style.backgroundColor = '';
 		document.querySelector('#scroll-to-root-comment-position-value-x').innerText = '48px';
@@ -469,6 +481,9 @@ document.querySelector('#input-scroll-to-root-comment-position-x').addEventListe
 });
 
 // Slider - Scroll To Root Comment Position Y
+document.querySelector('#input-scroll-to-root-comment-position-y').addEventListener('mousedown', function () {
+	sendMessage({ scrollToNextRootCommentRemoveStyle: true });
+});
 document.querySelector('#input-scroll-to-root-comment-position-y').addEventListener('input', function (e) {
 	const valueY = e.target.value;
 	if (valueY === '-1') {

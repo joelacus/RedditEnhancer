@@ -25,8 +25,12 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 				BROWSER_API.tabs.create({ url: `restore_config.html` }, function (tab) {});
 			}
 		});
-	} else if (request.openOptionsPage === true) {
-		BROWSER_API.tabs.create({ url: `options.html` }, function (tab) {});
+	} else if (request.SaveScrollToNextRootCommentPosition) {
+		const pos = request.SaveScrollToNextRootCommentPosition;
+		BROWSER_API.storage.sync.set({ scrollToNextRootCommentPosition: { x: pos.x, y: pos.y } });
+	} else if (request.SaveScrollToTopFloatPosition) {
+		const pos = request.SaveScrollToTopFloatPosition;
+		BROWSER_API.storage.sync.set({ scrollToTopFloatPosition: { x: pos.x, y: pos.y } });
 	} else if (request.restore) {
 		const json = Object.values(request)[0];
 		for (const [key, value] of Object.entries(json)) {
@@ -40,6 +44,8 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 				});
 		}
 		return true;
+	} else if (request.openOptionsPage === true) {
+		BROWSER_API.tabs.create({ url: `options.html` }, function (tab) {});
 	} else if (request.actions) {
 		for (const action of request.actions) {
 			if (action.action === 'fetchData' && action.url) {

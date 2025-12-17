@@ -665,6 +665,9 @@
 	"ScrollToNextRootComment": {
 		"message": "Mostre botões para rolar para o próximo/anterior Comentário da raiz anterior"
 	},
+	"ScrollToTopHeader": {
+		"message": "Adicionar botão “Rolar para cima”"
+	},
 	"Search": {
 		"message": "Pesquisar"
 	},
@@ -802,9 +805,6 @@
 	},
 	"TimeRange": {
 		"message": "Intervalo de tempo"
-	},
-	"ToTop": {
-		"message": "Adicionar botão “Rolar para cima”"
 	},
 	"Top": {
 		"message": "Mais votados / Top"

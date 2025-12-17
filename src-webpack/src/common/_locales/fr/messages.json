@@ -290,6 +290,9 @@
 	"HideAdvertiseButton": {
 		"message": "Masquer le bouton « Annoncer »"
 	},
+	"HideAiInTheSearchBar": {
+		"message": "Masquer l'IA dans la barre de recherche"
+	},
 	"HideAwards": {
 		"message": "Masquer le bouton « Donner des récompenses »"
 	},
@@ -331,6 +334,9 @@
 	},
 	"HideGap": {
 		"message": "Masquer les écarts d'interface"
+	},
+	"HideGetAppButton": {
+		"message": "Masquer le bouton « Obtenir l'application »"
 	},
 	"HideGetNewReddit": {
 		"message": "Masquer « Get New Reddit »"
@@ -767,8 +773,20 @@
 	"ScalePostToFitVideo": {
 		"message": "Scale Post pour s'adapter à la vidéo"
 	},
+	"ScrollToNextPreviousPost": {
+		"message": "Faites défiler jusqu'au post suivant/précédent en appuyant sur (J / Flèche vers le bas) / (K / Flèche vers le haut)"
+	},
+	"ScrollToNextPreviousPostInfo": {
+		"message": "L'utilisation des touches J/K interférer avec la fonctionnalité « Raccourcis » de Reddit si elle est activée, auquel cas, utilisez les touches fléchées. La version RE utilise un défilement fluide et ignore les posts cachés."
+	},
 	"ScrollToNextRootComment": {
 		"message": "Afficher les boutons pour faire défiler le commentaire racine suivant / précédent"
+	},
+	"ScrollToTopFloat": {
+		"message": "Ajouter un bouton flottant « Faire défiler vers le haut »"
+	},
+	"ScrollToTopHeader": {
+		"message": "Ajouter le bouton « Défiler vers le haut »"
 	},
 	"Search": {
 		"message": "Rechercher"
@@ -925,9 +943,6 @@
 	},
 	"TimeRange": {
 		"message": "Intervalle de Temps"
-	},
-	"ToTop": {
-		"message": "Ajouter le bouton « Défiler vers le haut »"
 	},
 	"Top": {
 		"message": "Top"

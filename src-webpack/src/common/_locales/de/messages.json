@@ -290,6 +290,9 @@
 	"HideAdvertiseButton": {
 		"message": "Ausblenden der „Werbung“ Schaltfläche"
 	},
+	"HideAiInTheSearchBar": {
+		"message": "AI in der Suchleiste ausblenden"
+	},
 	"HideAwards": {
 		"message": "Schaltfläche „Auszeichnungen vergeben“ ausblenden"
 	},
@@ -331,6 +334,9 @@
 	},
 	"HideGap": {
 		"message": "Lücken in der Benutzeroberfläche Ausblenden"
+	},
+	"HideGetAppButton": {
+		"message": "Schaltfläche „Get App“ ausblenden"
 	},
 	"HideGetNewReddit": {
 		"message": "Verstecke „Get New Reddit“"
@@ -767,8 +773,20 @@
 	"ScalePostToFitVideo": {
 		"message": "Skalieren Sie den Beitrag, um Video anzupassen"
 	},
+	"ScrollToNextPreviousPost": {
+		"message": "Scrollen Sie zum nächsten/vorherigen Beitrag, indem Sie (J / Pfeil nach unten) / (K / Pfeil nach oben) drücken."
+	},
+	"ScrollToNextPreviousPostInfo": {
+		"message": "Die Verwendung der J/K-Tasten stört die „Shortcuts“-Funktion von Reddit, sofern diese aktiviert ist. Verwenden Sie in diesem Fall die Pfeiltasten. Die RE-Version verwendet sanftes Scrollen und überspringt alle ausgeblendeten Beiträge."
+	},
 	"ScrollToNextRootComment": {
 		"message": "Zeigen Sie Schaltflächen an, um zum nächsten/vorherigen Root Kommentar zu scrollen"
+	},
+	"ScrollToTopFloat": {
+		"message": "Fügen Sie die schwebende Schaltfläche „Nach oben scrollen“ hinzu"
+	},
+	"ScrollToTopHeader": {
+		"message": "Fügen Sie die Schaltfläche „Nach oben scrollen“ hinzu"
 	},
 	"Search": {
 		"message": "Suche"
@@ -925,9 +943,6 @@
 	},
 	"TimeRange": {
 		"message": "Zeitspanne"
-	},
-	"ToTop": {
-		"message": "Fügen Sie die Schaltfläche „Nach oben scrollen“ hinzu"
 	},
 	"Top": {
 		"message": "Top"
