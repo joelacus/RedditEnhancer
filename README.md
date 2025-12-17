@@ -106,6 +106,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide The Post Sidebar|Hides the sidebar on post pages.|3|
 |Hide The Sub Reddit Sidebar|Hides the sidebar on sub reddit pages.|3|
 |Hide The User Sidebar|Hides the sidebar on profile/user pages.|3|
+|Hide "Get App" Button|Hides the "Get App" button in the head bar.|3|
+|Hide AI in the Search Bar|Hides the new AI "Ask" button and the orange glow from the search bar, returning it to how it was before.|3|
 |Hide Thumbnails in Compact View|Hides the thumbnails on posts when viewing a feed in compact view.|3<br>1|
 |Hide Username and/or Karma|You can hide your username and/or karma in the top bar.|1|
 |Hide username in the subreddit sidebar flair section|Hides the username and profile picture in the edit flair section of the subreddit sidebar.|3|
@@ -115,6 +117,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
 |Add "Scroll To Top" Button|Adds a new button to the header to scroll the page to the top.|3<br>1|
+|Add floating "Scroll To Top" button|Adds a draggable scroll to top button on the webpage.|3<br>1|
+|Scroll to the next/previous post by pressing (J / Down Arrow) / (K / Up Arrow)|Scroll to the next/previous post in the feed with (J / Down Arrow) and (K / Up Arrow). Differs from Reddit's version by using smooth scroll, and skips over any hidden posts by RE (e.g. hide nsfw posts or blocked posts by keyword etc).|3<br>1|
 |Add a button to each post to mark it as read|Adds a button to each post to mark it as read by adding the post URL to the browser history (requires the history permission). Works with Compact and Card view posts.|3|
 |Add link to view crossposts in other subreddits|View crossposts of a post on the comments page, bringing back the "View discussions in other communities" link from "Old New UI".|3|
 |Add Post Numbers|Number each post to keep track of how many you have scrolled passed.|3|
@@ -201,14 +205,14 @@ Feel free to add any new languages and/or region differences.
 |[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|100%|
 |[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|100%|
 |[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|100%|
-|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|87.3%|
-|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|75.6%|
-|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|63.3%|
-|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|63.3%|
-|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|48.2%|
-|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|32.5%|
-|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|30.4%|
-|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|26.2%|
+|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|86.0%|
+|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|74.4%|
+|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|62.2%|
+|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|62.2%|
+|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|47.3%|
+|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|31.8%|
+|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|29.8%|
+|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|25.6%|
 
 # Build
 Clone repo and cd to build directory:
