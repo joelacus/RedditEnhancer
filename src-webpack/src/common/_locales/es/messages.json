@@ -290,9 +290,6 @@
 	"HideAdvertiseButton": {
 		"message": "Ocultar el botón “Anunciar”"
 	},
-	"HideAiInTheSearchBar": {
-		"message": "Ocultar IA en la barra de búsqueda"
-	},
 	"HideAwards": {
 		"message": "Ocultar dar botón de premios"
 	},
@@ -639,19 +636,19 @@
 		"message": "Publicación: Color del borde"
 	},
 	"PostCommentActionRowColour": {
-		"message": "Publicación: Color de la fila de acción de comentarios"
+		"message": "Color de la fila de acción de comentarios"
 	},
 	"PostComments": {
 		"message": "Comentarios de la Publicación"
 	},
 	"PostCommentsColour": {
-		"message": "Publicación: Comentarios color de texto"
+		"message": "Comentarios color de texto"
 	},
 	"PostCommentsLimit": {
 		"message": "Limitar comentarios de publicación"
 	},
 	"PostCommentsSecondaryColour": {
-		"message": "Publicación: Comentarios color de texto secundario"
+		"message": "Comentarios color de texto secundario"
 	},
 	"PostContent": {
 		"message": "Contenido de la Publicación"
@@ -964,6 +961,9 @@
 	},
 	"UpvoteColour": {
 		"message": "Publicación: Votar a favor del color"
+	},
+	"UseOriginalSearchBar": {
+		"message": "Utilice la barra de búsqueda original"
 	},
 	"UserProfileOffset": {
 		"message": "Desplazamiento del perfil de usuario"

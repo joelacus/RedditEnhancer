@@ -2,14 +2,14 @@
 
 /*  Filter all the options in the extension when the user types in the search box.
     It will use the option label text to match against the search input, so will work in the supported languages.
-	Additional query words the user might search for, but may not contained within the option label text, currently only support English.
+	Additional query words the user might search for, but may not contained within the option label text, currently only supports English.
 	See popup.html/options.html for elements/options with the "data-query-words" attribute.
 */
 
 const Fuse = require('fuse.js');
 const fuzzyOptions = {
 	includeScore: false,
-	threshold: 0.3,
+	threshold: 0.2,
 	keys: ['option_query_words_str'],
 };
 
@@ -28,6 +28,7 @@ function search_filter() {
 				// Get the option label text and add it to the query words.
 				element.querySelectorAll('[data-lang]').forEach((el) => {
 					option_query_words_str = [option_query_words_str, el.textContent || el.innerText].join(' ').trim().replace(':', '');
+					if (el.dataset.lang === 'HideHomeFeed') console.log(option_query_words_str);
 				});
 
 				// Turn the string into an array, removing double or more spaces.
@@ -48,13 +49,13 @@ function search_filter() {
 				});
 			}
 
-			// Loop through all the options
+			// Loop through all the tweak options
 			for (let i = 0; i < li.length; i++) {
 				// Initially hide everything. If an option is found, this attribute will be set to "true" and will be shown.
 				li[i].setAttribute('data-search-result', false);
 
-				// If the list item has a "search" attribute containing related query words.
-				if (li[i].dataset.queryWords) {
+				// If the list item has a "search" attribute containing related query words (data-query-words).
+				if (li[i].hasAttribute('data-query-words')) {
 					const found = performFuzzySearch(li[i]);
 					if (found && li[i].classList.contains(version)) li[i].setAttribute('data-search-result', true);
 				} else if (li[i].querySelector(':scope > div')) {
@@ -73,8 +74,8 @@ function search_filter() {
 						}
 
 						// Hide any divider elements
-						if (div.nextElementSibling?.classList.contains('divider')) {
-							div.nextElementSibling.setAttribute('data-search-result', false);
+						if (div.nextElementSibling) {
+							if (div.nextElementSibling.nodeName === 'HR') div.nextElementSibling.setAttribute('data-search-result', false);
 						}
 					});
 				}
@@ -146,6 +147,11 @@ function search_filter() {
 				// remove search result attribute from options
 				document.querySelectorAll('[data-search-result]').forEach((item) => {
 					item.removeAttribute('data-search-result');
+				});
+
+				// remove active state from main menu buttons
+				document.querySelectorAll('.menu-item-link').forEach((btn) => {
+					btn.classList.remove('active');
 				});
 
 				// hide all sub menu lists

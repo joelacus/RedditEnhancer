@@ -504,13 +504,13 @@
 		"message": "Komentarze do posta"
 	},
 	"PostCommentsColour": {
-		"message": "Post: Komentarze Kolor tekstu"
+		"message": "Komentarze Kolor tekstu"
 	},
 	"PostCommentsLimit": {
 		"message": "Ogranicz komentarze do postów"
 	},
 	"PostCommentsSecondaryColour": {
-		"message": "Post: Komentarze wtórny kolor tekstu"
+		"message": "Komentarze wtórny kolor tekstu"
 	},
 	"PostContent": {
 		"message": "Treść posta"

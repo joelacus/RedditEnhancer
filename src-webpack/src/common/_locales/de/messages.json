@@ -290,9 +290,6 @@
 	"HideAdvertiseButton": {
 		"message": "Ausblenden der „Werbung“ Schaltfläche"
 	},
-	"HideAiInTheSearchBar": {
-		"message": "AI in der Suchleiste ausblenden"
-	},
 	"HideAwards": {
 		"message": "Schaltfläche „Auszeichnungen vergeben“ ausblenden"
 	},
@@ -639,19 +636,19 @@
 		"message": "Beitrag: Rahmenfarbe"
 	},
 	"PostCommentActionRowColour": {
-		"message": "Beitrag: Kommentar Aktion Zeilenfarbe"
+		"message": "Kommentar Aktion Zeilenfarbe"
 	},
 	"PostComments": {
 		"message": "Post-Kommentare"
 	},
 	"PostCommentsColour": {
-		"message": "Beitrag: Kommentare Textfarbe"
+		"message": "Kommentare Textfarbe"
 	},
 	"PostCommentsLimit": {
 		"message": "Post-Kommentare einschränken"
 	},
 	"PostCommentsSecondaryColour": {
-		"message": "Beitrag: Kommentare Sekundärer Textfarbe"
+		"message": "Kommentare Sekundärer Textfarbe"
 	},
 	"PostContent": {
 		"message": "Beitragsinhalt"
@@ -964,6 +961,9 @@
 	},
 	"UpvoteColour": {
 		"message": "Beitrag: Upvote Farbe"
+	},
+	"UseOriginalSearchBar": {
+		"message": "Verwenden Sie die ursprüngliche Suchleiste"
 	},
 	"UserProfileOffset": {
 		"message": "Versatz des Benutzerprofil"

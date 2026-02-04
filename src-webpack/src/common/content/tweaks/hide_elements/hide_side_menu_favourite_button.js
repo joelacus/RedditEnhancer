@@ -17,31 +17,44 @@ export function loadHideSideMenuFavouriteButton() {
 /* === Enable/Disable The Feature === */
 export function hideSideMenuFavouriteButton(value) {
 	if (redditVersion === 'newnew' && value) {
-		// create stylesheet
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-hide-side-menu-favourite-button';
-		styleElement.textContent = `left-nav-community-item::part(star),
-									left-nav-multireddit-item::part(star) {
-										display: none;
-									}
-									left-nav-community-item:hover::part(star),
-									left-nav-multireddit-item:hover::part(star) {
-										display: flex;
-									}`;
-		// append stylesheet to first items
-		if (!document.querySelector('left-nav-communities-controller').shadowRoot.querySelector('left-nav-community-item style[id="re-hide-side-menu-favourite-button"]')) {
-			document.querySelector('left-nav-communities-controller').shadowRoot.querySelector('left-nav-community-item').append(styleElement);
-		}
-		if (!document.querySelector('left-nav-moderation-controller').shadowRoot.querySelector('left-nav-community-item style[id="re-hide-side-menu-favourite-button"]')) {
-			document.querySelector('left-nav-moderation-controller').shadowRoot.querySelector('left-nav-community-item').append(styleElement.cloneNode(true));
-		}
-		if (!document.querySelector('left-nav-multireddits-controller').shadowRoot.querySelector('left-nav-multireddit-item style[id="re-hide-side-menu-favourite-button"]')) {
-			document.querySelector('left-nav-multireddits-controller').shadowRoot.querySelector('left-nav-multireddit-item').append(styleElement.cloneNode(true));
-		}
+		// If the tab is not focused when opened, it doesn't enable the feature correctly, so run again when focused.
+		/*window.onfocus = function () {
+			console.log('Tab is focused');
+			appendStylesheets();
+			enableHideSideMenuFavouriteButton();
+		};*/
+
+		appendStylesheets();
+
 		// append part attribute to items
 		enableHideSideMenuFavouriteButton();
 	} else {
 		disableHideSideMenuFavouriteButton();
+	}
+}
+
+// Append stylesheets - RV3
+function appendStylesheets() {
+	// create stylesheet
+	const styleElement = document.createElement('style');
+	styleElement.id = 're-hide-side-menu-favourite-button';
+	styleElement.textContent = `left-nav-community-item::part(star),
+								left-nav-multireddit-item::part(star) {
+									display: none;
+								}
+								left-nav-community-item:hover::part(star),
+								left-nav-multireddit-item:hover::part(star) {
+									display: flex;
+								}`;
+	// append stylesheet to first items
+	if (!document.querySelector('left-nav-communities-controller').shadowRoot.querySelector('left-nav-community-item style[id="re-hide-side-menu-favourite-button"]')) {
+		document.querySelector('left-nav-communities-controller').shadowRoot.querySelector('left-nav-community-item').append(styleElement);
+	}
+	if (!document.querySelector('left-nav-moderation-controller').shadowRoot.querySelector('left-nav-community-item style[id="re-hide-side-menu-favourite-button"]')) {
+		document.querySelector('left-nav-moderation-controller').shadowRoot.querySelector('left-nav-community-item').append(styleElement.cloneNode(true));
+	}
+	if (!document.querySelector('left-nav-multireddits-controller').shadowRoot.querySelector('left-nav-multireddit-item style[id="re-hide-side-menu-favourite-button"]')) {
+		document.querySelector('left-nav-multireddits-controller').shadowRoot.querySelector('left-nav-multireddit-item').append(styleElement.cloneNode(true));
 	}
 }
 

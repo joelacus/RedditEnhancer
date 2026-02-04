@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -306,7 +306,7 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div id="resize-width" class="sub-header r-old r-newnew">
 									<span data-lang="Width"></span>
 								</div>
@@ -358,7 +358,7 @@
 										<input type="range" min="40" max="100" value="0" step="2" class="slider" id="input-expand-custom-feed-width" />
 										<span id="expand-custom-feed-width" class="input-value"></span>
 									</div>
-									<div class="divider"></div>
+									<hr />
 									<div class="container-3 r-old r-newnew" data-query-words="auto">
 										<span class="menu-item-icon icon-auto icon-auto-resize"></span>
 										<span data-lang="AutoExpand"></span>
@@ -576,11 +576,19 @@
 								</label>
 							</li>
 							<li class="container r-newnew">
-								<div class="container-3 r-newnew" data-query-words="nsfw">
-									<span class="menu-item-icon icon-show icon-hide-nsfw-search-results"></span>
-									<span data-lang="HideNsfwInSearchResults"></span>
+								<div class="container-3 r-newnew" data-query-words="ask,ai,search">
+									<span class="menu-item-icon icon-show icon-hide-ai-in-search"></span>
+									<span data-lang="UseOriginalSearchBar"></span>
 									<label class="switch">
-										<input id="checkbox-hide-nsfw-search-results" type="checkbox" />
+										<input id="checkbox-hide-ai-in-search" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
+								</div>
+								<div class="container-3 r-newnew" data-query-words="logo,icon,search">
+									<span class="menu-item-icon icon-show icon-hide-logo-in-search"></span>
+									<span data-lang="HideLogoInTheSearchBar"></span>
+									<label class="switch">
+										<input id="checkbox-hide-logo-in-search" type="checkbox" />
 										<span class="indicator"></span>
 									</label>
 								</div>
@@ -592,13 +600,24 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="container-3 r-newnew" data-query-words="ask,ai,search">
-									<span class="menu-item-icon icon-show icon-hide-ai-in-search"></span>
-									<span data-lang="HideAiInTheSearchBar"></span>
+								<div class="container-3 r-newnew" data-query-words="nsfw">
+									<span class="menu-item-icon icon-show icon-hide-nsfw-search-results"></span>
+									<span data-lang="HideNsfwInSearchResults"></span>
 									<label class="switch">
-										<input id="checkbox-hide-ai-in-search" type="checkbox" />
+										<input id="checkbox-hide-nsfw-search-results" type="checkbox" />
 										<span class="indicator"></span>
 									</label>
+								</div>
+								<div class="container r-newnew" data-query-words="logo,icon,search">
+									<div class="container-3">
+										<span class="menu-item-icon icon-show icon-replace-search-bar-placeholder"></span>
+										<span data-lang="ReplaceSearchPlaceholder"></span>
+										<label class="switch">
+											<input id="checkbox-replace-search-bar-placeholder" type="checkbox" />
+											<span class="indicator"></span>
+										</label>
+									</div>
+									<p class="info" data-lang="ReplaceSearchPlaceholderInfo"></p>
 								</div>
 							</li>
 							<li id="hide-header-buttons" class="sub-header r-old r-newnew">
@@ -777,7 +796,7 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-3 r-old r-new" data-query-words="sidebar,premium">
 									<span class="menu-item-icon icon-show hide-reddit-premium"></span>
 									<span data-lang="HideRedditPremium"></span>
@@ -812,7 +831,7 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-3 r-newnew" data-query-words="sidebar,username,flair">
 									<span class="menu-item-icon icon-show icon-hide-username-in-sub-sidebar"></span>
 									<span data-lang="HideUserNameInTheFlairSection"></span>
@@ -821,6 +840,7 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
+								<hr />
 								<div class="container-3 r-newnew" data-query-words="">
 									<span class="menu-item-icon icon-list-check-solid icon-hide-sub-sidebar-exceptions"></span>
 									<span data-lang="WhitelistBlacklist"></span>
@@ -932,7 +952,7 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-3 r-old r-newnew">
 									<span class="menu-item-icon icon-show icon-hide-post-karma"></span>
 									<span data-lang="HidePostKarma"></span>
@@ -941,7 +961,7 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-3 r-old r-newnew">
 									<span class="menu-item-icon icon-show icon-hide-comment-karma"></span>
 									<span data-lang="HideCommentKarma"></span>
@@ -960,7 +980,7 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-slider r-newnew">
 									<span class="menu-item-icon icon-ruler-vertical icon-post-separator-height"></span>
 									<span data-lang="PostSeparatorHeight"></span>
@@ -977,7 +997,7 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-3 r-old r-newnew">
 									<span class="menu-item-icon icon-show icon-hide-compact-view-blank-thumbnails"></span>
 									<span data-lang="HideCompactViewBlankThumbnails"></span>
@@ -1040,7 +1060,7 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-3 r-newnew">
 									<span class="menu-item-icon icon-up-down icon-scale-post-to-fit-image"></span>
 									<span data-lang="ScalePostToFitImage"></span>
@@ -1049,14 +1069,14 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-slider r-newnew">
 									<span class="menu-item-icon icon-ruler-horizontal icon-max-image-width"></span>
 									<span data-lang="MaxImageWidth"></span>
 									<input type="range" min="9" max="100" value="9" step="1" class="slider" id="input-max-image-width" />
 									<span id="max-image-width-value" class="input-value"></span>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-slider r-newnew">
 									<span class="menu-item-icon icon-ruler-vertical icon-max-image-post-height"></span>
 									<span data-lang="MaxImagePostHeight"></span>
@@ -1073,7 +1093,7 @@
 								<span class="indicator"></span>
 							</label>
 						</div>
-						<div class="divider"></div>
+						<hr />
 						<div class="container-3" data-query-words="drag">
 							<span class="menu-item-icon icon-ruler-vertical icon-drag-image-to-resize-initial-size"></span>
 							<span data-lang="InitialSize"></span>
@@ -1134,14 +1154,14 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-slider r-newnew">
 									<span class="menu-item-icon icon-ruler-horizontal icon-max-video-width"></span>
 									<span data-lang="MaxVideoWidth"></span>
 									<input type="range" min="9" max="100" value="9" step="1" class="slider" id="input-max-video-width" />
 									<span id="limit-video-width-value" class="input-value"></span>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-slider r-newnew">
 									<span class="menu-item-icon icon-ruler-vertical icon-max-video-post-height"></span>
 									<span data-lang="MaxVideoPostHeight"></span>
@@ -1187,7 +1207,7 @@
 									<span id="text-post-preview-max-height" class="input-value"></span>
 								</div>
 							</li>
-							<li id="set-text-post-fade-height" class="container r-newnew" style="scroll-margin-top: 35px" data-query-words="text,post,fade">
+							<li id="set-text-post-fade-height" class="container r-newnew" data-query-words="text,post,fade">
 								<div class="container-3 r-newnew">
 									<span class="menu-item-icon icon-fade icon-text-post-preview-fade"></span>
 									<span data-lang="TextPostPreviewFade"></span>
@@ -1341,7 +1361,7 @@
 							<li id="productivity-subreddit" class="sub-header r-old r-newnew">
 								<span data-lang="Subreddit"></span>
 							</li>
-							<li class="container-3 r-old r-newnew" data-query-words="subreddit,member,count">
+							<li class="container-3 r-old r-newnew" data-query-words="subreddit,member,count,visitors">
 								<span class="menu-item-icon icon-members icon-show-member-count"></span>
 								<span data-lang="ShowMemberCount"></span>
 								<label class="switch">
@@ -1417,14 +1437,6 @@
 									<span class="indicator"></span>
 								</label>
 							</li>
-							<li class="container-3 r-newnew" data-query-words="user,author,highlight">
-								<span class="menu-item-icon icon-user icon-highlight-op"></span>
-								<span data-lang="HighlightOp"></span>
-								<label class="switch">
-									<input id="checkbox-highlight-op" type="checkbox" />
-									<span class="indicator"></span>
-								</label>
-							</li>
 							<li class="container-3 r-newnew" data-query-words="tab">
 								<span class="menu-item-icon icon-arrow-square open-sub-new-tab"></span>
 								<span data-lang="OpenSubInNewTab"></span>
@@ -1457,7 +1469,7 @@
 									</label>
 								</div>
 								<p class="info" data-lang="AlwaysShowPostAndCommentOptionsInfo"></p>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-3 r-newnew" data-query-words="always,overflow,menu,buttons">
 									<span class="menu-item-icon icon-show icon-remove-comment-btn-icons"></span>
 									<span data-lang="RemoveCommentButtonIcons"></span>
@@ -1466,7 +1478,7 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<p class="info"><span data-lang="HidePostActionBarButtonsInfo"></span>:</p>
 								<div class="container-3 r-newnew" data-query-words="always,overflow,menu,buttons">
 									<span class="menu-item-icon icon-notification icon-hide-post-notification-option"></span>
@@ -1624,14 +1636,14 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-slider">
 									<span class="menu-item-icon icon-arrow-right icon-scroll-to-root-comment-position-x"></span>
 									<span data-lang="PositionHorizontally"></span>
 									<input type="range" min="-1" max="100" value="0" step="1" class="slider" id="input-scroll-to-root-comment-position-x" />
 									<span id="scroll-to-root-comment-position-x-value" class="input-value"></span>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-slider">
 									<span class="menu-item-icon icon-arrow-down icon-scroll-to-root-comment-position-y"></span>
 									<span data-lang="PositionVertically"></span>
@@ -1667,6 +1679,15 @@
 									</label>
 								</div>
 								<p class="info" data-lang="AutoLoadMoreCommentsInfo"></p>
+								<hr />
+								<div class="container-3">
+									<span class="menu-item-icon icon-arrow-down icon-only-load-downvoted-comments"></span>
+									<span data-lang="OnlyExpandNegativeKarmaComments"></span>
+									<label class="switch">
+										<input id="checkbox-only-load-downvoted-comments" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
+								</div>
 							</li>
 							<li class="container r-newnew" data-query-words="comment,formatting,enter,ctrl">
 								<div class="container-3">
@@ -1693,7 +1714,7 @@
 							<div></div>
 							<p data-lang="BreakReminderInfo"></p>
 						</div>
-						<div class="divider"></div>
+						<hr />
 						<div class="container-3">
 							<span></span>
 							<span data-lang="BreakReminderFrequency"></span>
@@ -1957,7 +1978,7 @@
 										<p class="info" data-lang="AttachSideMenuHeaderInfo"></p>
 									</div>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-3">
 									<span class="menu-item-icon icon-dropdown icon-opt-out-attach-side-menu"></span>
 									<span data-lang="OptOutAttachSideMenu"></span>
@@ -1995,7 +2016,7 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-3">
 									<span class="menu-item-icon icon-spray-can icon-drop-shadow-override"></span>
 									<span data-lang="CustomCSS"></span>
@@ -2060,6 +2081,10 @@
 										<div class="vdivider"></div>
 									</div>
 									<div class="r-newnew">
+										<a href="#theme-comments" data-lang="Comments"></a>
+										<div class="vdivider"></div>
+									</div>
+									<div class="r-newnew">
 										<a href="#theme-sidebar" data-lang="Sidebar"></a>
 										<div class="vdivider"></div>
 									</div>
@@ -2086,7 +2111,7 @@
 								<span id="border-radius-amount-value" class="input-value"></span>
 							</li>
 							<!-- Header Style -->
-							<li id="theme-header" class="sub-header r-newnew" style="scroll-margin-top: 55px">
+							<li id="theme-header" class="sub-header r-newnew" style="scroll-margin-top: 70px">
 								<span data-lang="Header"></span>
 							</li>
 							<li class="container">
@@ -2103,7 +2128,7 @@
 										<input class="colour-picker" data-style-id="header-bg" value="" />
 									</div>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container r-newnew" data-query-words="theme,colour,header,text">
 									<div class="container-3">
 										<span class="menu-item-icon icon-spray-can icon-header-text-colour"></span>
@@ -2117,7 +2142,7 @@
 										<input class="colour-picker" data-style-id="header-fg" value="" />
 									</div>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container r-newnew" data-query-words="theme,colour,search,background">
 									<div class="container-3">
 										<span class="menu-item-icon icon-spray-can icon-searchbar-bg-colour"></span>
@@ -2131,7 +2156,21 @@
 										<input class="colour-picker" data-style-id="searchbar-bg" value="" />
 									</div>
 								</div>
-								<div class="divider"></div>
+								<hr />
+								<!--<div class="container r-newnew" data-query-words="theme,colour,search,border">
+							<div class="container-3">
+								<span class="menu-item-icon icon-spray-can icon-searchbar-border-colour"></span>
+								<span data-lang="SearchbarBorderColour"></span>
+								<label class="switch">
+									<input id="checkbox-searchbar-border-colour" type="checkbox" />
+									<span class="indicator"></span>
+								</label>
+							</div>
+							<div class="container">
+								<input class="colour-picker" data-style-id="searchbar-border" value="" />
+							</div>
+						</div>
+						<hr />-->
 								<div class="container r-newnew" data-query-words="theme,colour,search,background">
 									<div class="container-3">
 										<span class="menu-item-icon icon-spray-can icon-searchbar-dropdown-bg-colour"></span>
@@ -2147,7 +2186,7 @@
 								</div>
 							</li>
 							<!-- Post Style -->
-							<li id="theme-post" class="sub-header r-newnew" style="scroll-margin-top: 55px">
+							<li id="theme-post" class="sub-header r-newnew" style="scroll-margin-top: 70px">
 								<span data-lang="Post"></span>
 							</li>
 							<li class="container">
@@ -2164,7 +2203,7 @@
 										<input class="colour-picker" data-style-id="post-bg" value="" />
 									</div>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container r-newnew" data-query-words="theme,colour,post,text">
 									<div class="container-3">
 										<span class="menu-item-icon icon-spray-can icon-post-text-colour"></span>
@@ -2182,30 +2221,7 @@
 										<input class="colour-picker" data-style-id="post-code-fg" value="" />
 									</div>
 								</div>
-								<div class="divider"></div>
-								<div class="container-3 r-newnew" data-query-words="theme,colour,table,border">
-									<span class="menu-item-icon icon-spray-can icon-post-table-border-colour"></span>
-									<span data-lang="PostTableBorderColour"></span>
-									<label class="switch">
-										<input id="checkbox-post-table-border-colour" type="checkbox" />
-										<span class="indicator"></span>
-									</label>
-								</div>
-								<div class="divider"></div>
-								<div class="container r-newnew" data-query-words="theme,colour,post,text">
-									<div class="container-3">
-										<span class="menu-item-icon icon-spray-can icon-post-text-colour-2"></span>
-										<span data-lang="PostSecondaryTextColour"></span>
-										<label class="switch">
-											<input id="checkbox-post-text-colour-2" type="checkbox" />
-											<span class="indicator"></span>
-										</label>
-									</div>
-									<div class="container">
-										<input class="colour-picker" data-style-id="post-fg-2" value="" />
-									</div>
-								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container r-newnew" data-query-words="theme,colour,post,text,visited">
 									<div class="container-3">
 										<span class="menu-item-icon icon-spray-can icon-post-visited-text-colour"></span>
@@ -2219,49 +2235,44 @@
 										<input class="colour-picker" data-style-id="post-fg-visited" value="" />
 									</div>
 								</div>
-								<div class="divider"></div>
-								<div class="container r-newnew" data-query-words="theme,colour,comments,text">
+								<hr />
+								<div class="container r-newnew" data-query-words="theme,colour,post,text,followed">
 									<div class="container-3">
-										<span class="menu-item-icon icon-spray-can icon-post-comments-text-colour"></span>
-										<span data-lang="PostCommentsColour"></span>
+										<span class="menu-item-icon icon-spray-can icon-post-followed-text-colour"></span>
+										<span data-lang="PostFollowedTextColour"></span>
 										<label class="switch">
-											<input id="checkbox-post-comments-text-colour" type="checkbox" />
+											<input id="checkbox-post-followed-text-colour" type="checkbox" />
 											<span class="indicator"></span>
 										</label>
 									</div>
 									<div class="container">
-										<input class="colour-picker" data-style-id="post-comments-fg" value="" />
+										<input class="colour-picker" data-style-id="post-fg-followed" value="" />
 									</div>
 								</div>
-								<div class="divider"></div>
-								<div class="container r-newnew" data-query-words="theme,colourcomments,text">
+								<hr />
+								<div class="container r-newnew" data-query-words="theme,colour,post,text">
 									<div class="container-3">
-										<span class="menu-item-icon icon-spray-can icon-post-comments-secondary-text-colour"></span>
-										<span data-lang="PostCommentsSecondaryColour"></span>
+										<span class="menu-item-icon icon-spray-can icon-post-text-colour-2"></span>
+										<span data-lang="PostSecondaryTextColour"></span>
 										<label class="switch">
-											<input id="checkbox-post-comments-secondary-text-colour" type="checkbox" />
+											<input id="checkbox-post-text-colour-2" type="checkbox" />
 											<span class="indicator"></span>
 										</label>
 									</div>
 									<div class="container">
-										<input class="colour-picker" data-style-id="post-comments-fg-2" value="" />
+										<input class="colour-picker" data-style-id="post-fg-2" value="" />
 									</div>
 								</div>
-								<div class="divider"></div>
-								<div class="container r-newnew" data-query-words="theme,colour,comments,action">
-									<div class="container-3">
-										<span class="menu-item-icon icon-spray-can icon-post-comment-action-row-colour"></span>
-										<span data-lang="PostCommentActionRowColour"></span>
-										<label class="switch">
-											<input id="checkbox-post-comment-action-row-colour" type="checkbox" />
-											<span class="indicator"></span>
-										</label>
-									</div>
-									<div class="container">
-										<input class="colour-picker" data-style-id="post-comment-action-row-fg" value="" />
-									</div>
+								<hr />
+								<div class="container-3 r-newnew" data-query-words="theme,colour,table,border">
+									<span class="menu-item-icon icon-spray-can icon-post-table-border-colour"></span>
+									<span data-lang="PostTableBorderColour"></span>
+									<label class="switch">
+										<input id="checkbox-post-table-border-colour" type="checkbox" />
+										<span class="indicator"></span>
+									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container r-newnew" data-query-words="theme,colour,post,border">
 									<div class="container-3">
 										<span class="menu-item-icon icon-spray-can icon-post-border-colour"></span>
@@ -2275,7 +2286,7 @@
 										<input class="colour-picker" data-style-id="post-border" value="" />
 									</div>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container r-newnew" data-query-words="theme,colour,post,url">
 									<div class="container-3">
 										<span class="menu-item-icon icon-spray-can icon-post-content-and-comments-link-colour"></span>
@@ -2289,7 +2300,7 @@
 										<input class="colour-picker" data-style-id="post-and-comment-links" value="" />
 									</div>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container r-newnew" data-query-words="theme,colour,upvote">
 									<div class="container-3">
 										<span class="menu-item-icon icon-spray-can icon-post-upvote-colour"></span>
@@ -2304,8 +2315,69 @@
 									</div>
 								</div>
 							</li>
+							<!-- Comment Style -->
+							<li id="theme-comments" class="sub-header r-newnew" style="scroll-margin-top: 70px">
+								<span data-lang="Comments"></span>
+							</li>
+							<li class="container">
+								<div class="container r-newnew" data-query-words="theme,colour,comments,text">
+									<div class="container-3">
+										<span class="menu-item-icon icon-spray-can icon-post-comments-text-colour"></span>
+										<span data-lang="PostCommentsColour"></span>
+										<label class="switch">
+											<input id="checkbox-post-comments-text-colour" type="checkbox" />
+											<span class="indicator"></span>
+										</label>
+									</div>
+									<div class="container">
+										<input class="colour-picker" data-style-id="post-comments-fg" value="" />
+									</div>
+								</div>
+								<hr />
+								<div class="container r-newnew" data-query-words="theme,colour,comments,text">
+									<div class="container-3">
+										<span class="menu-item-icon icon-spray-can icon-post-comments-secondary-text-colour"></span>
+										<span data-lang="PostCommentsSecondaryColour"></span>
+										<label class="switch">
+											<input id="checkbox-post-comments-secondary-text-colour" type="checkbox" />
+											<span class="indicator"></span>
+										</label>
+									</div>
+									<div class="container">
+										<input class="colour-picker" data-style-id="post-comments-fg-2" value="" />
+									</div>
+								</div>
+								<hr />
+								<div class="container r-newnew" data-query-words="theme,colour,comments,action">
+									<div class="container-3">
+										<span class="menu-item-icon icon-spray-can icon-post-comment-action-row-colour"></span>
+										<span data-lang="PostCommentActionRowColour"></span>
+										<label class="switch">
+											<input id="checkbox-post-comment-action-row-colour" type="checkbox" />
+											<span class="indicator"></span>
+										</label>
+									</div>
+									<div class="container">
+										<input class="colour-picker" data-style-id="post-comment-action-row-fg" value="" />
+									</div>
+								</div>
+								<hr />
+								<div class="container r-newnew" data-query-words="theme,colour,op,highlight">
+									<div class="container-3">
+										<span class="menu-item-icon icon-spray-can icon-op-comment-highlight-colour"></span>
+										<span data-lang="HighlightOp"></span>
+										<label class="switch">
+											<input id="checkbox-op-comment-highlight-colour" type="checkbox" />
+											<span class="indicator"></span>
+										</label>
+									</div>
+									<div class="container">
+										<input class="colour-picker" data-style-id="op-comment-highlight" value="" />
+									</div>
+								</div>
+							</li>
 							<!-- Sidebar Style -->
-							<li id="theme-sidebar" class="sub-header r-newnew" style="scroll-margin-top: 55px">
+							<li id="theme-sidebar" class="sub-header r-newnew" style="scroll-margin-top: 70px">
 								<span data-lang="Sidebar"></span>
 							</li>
 							<li class="container">
@@ -2322,7 +2394,7 @@
 										<input class="colour-picker" data-style-id="sidebar-fg" value="" />
 									</div>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container r-newnew" data-query-words="theme,colour,sidebar,background">
 									<div class="container-3">
 										<span class="menu-item-icon icon-spray-can icon-sidebar-bg-colour"></span>
@@ -2338,7 +2410,7 @@
 								</div>
 							</li>
 							<!-- Side Menu Style -->
-							<li id="theme-sidemenu" class="sub-header r-newnew" style="scroll-margin-top: 55px">
+							<li id="theme-sidemenu" class="sub-header r-newnew" style="scroll-margin-top: 70px">
 								<span data-lang="SideMenu"></span>
 							</li>
 							<li class="container">
@@ -2355,7 +2427,7 @@
 										<input class="colour-picker" data-style-id="sidemenu-fg" value="" />
 									</div>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container r-newnew" data-query-words="theme,colour,sidemenu,background">
 									<div class="container-3">
 										<span class="menu-item-icon icon-spray-can icon-sidemenu-bg-colour"></span>
@@ -2369,7 +2441,7 @@
 										<input class="colour-picker" data-style-id="sidemenu-bg" value="" />
 									</div>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container r-newnew" data-query-words="theme,colour,sidemenu,hover">
 									<div class="container-3">
 										<span class="menu-item-icon icon-spray-can icon-sidemenu-button-hover-colour"></span>
@@ -2385,7 +2457,7 @@
 								</div>
 							</li>
 							<!-- Theme Whitelist / Blacklist -->
-							<li id="theme-blacklist-whitelist" class="sub-header r-newnew" style="scroll-margin-top: 55px">
+							<li id="theme-blacklist-whitelist" class="sub-header r-newnew" style="scroll-margin-top: 70px">
 								<span data-lang="WhitelistBlacklist"></span>
 							</li>
 							<li class="container-3 r-newnew" data-query-words="whitelist,blacklist">
@@ -2435,7 +2507,7 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container">
 									<input class="colour-picker" data-style-id="background" value="" />
 								</div>
@@ -2449,14 +2521,14 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-slider r-old r-newnew">
 									<span class="menu-item-icon icon-blur icon-bg-blur"></span>
 									<span data-lang="Blur"></span>
 									<input type="range" min="0" max="30" value="0" step="1" class="slider" id="input-bg-blur" />
 									<span id="bg-blur-value" class="input-value"></span>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container r-old r-newnew">
 									<form class="custom-input-container">
 										<input type="text" id="input-custom-background" name="custom" maxlength="1000" style="margin-left: 4px" />
@@ -2528,7 +2600,7 @@
 										<span class="indicator"></span>
 									</label>
 								</div>
-								<div class="divider"></div>
+								<hr />
 								<div class="container-3">
 									<span class="menu-item-icon icon-spray-can icon-bionic-font-colour"></span>
 									<span data-lang="BionicFontColour"></span>

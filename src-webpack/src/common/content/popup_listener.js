@@ -6,7 +6,7 @@ import { addDropShadow } from './tweaks/style/drop_shadow';
 import { alwaysShowPostOptions, hidePostBrandAwarenessOption, hidePostDeleteOption, hidePostEditOption, hidePostHideOption, hidePostNotificationOption, hidePostNsfwOption, hidePostReportOption, hidePostSaveOption, hidePostSpoilerOption, removeCommentButtonIcons } from './tweaks/productivity/always_show_post_options';
 import { autoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
 import { autoExpandValue } from './tweaks/resize_elements/auto_expand_value';
-import { autoLoadMoreComments } from './tweaks/productivity/auto_load_more_comments';
+import { autoLoadMoreComments, autoLoadMoreCommentsDownvotedOnly } from './tweaks/productivity/auto_load_more_comments';
 import { bgBlur } from './tweaks/background/custom_background';
 import { bionicReaderBgColour, bionicReaderBgColourCSS, bionicReaderFontColour, bionicReaderFontColourCSS, bionicReaderPosts } from './tweaks/accessibility/bionic_reader';
 import { bionicReaderComments } from './tweaks/accessibility/bionic_reader';
@@ -69,6 +69,8 @@ import {
 	themeCodeBlockColourCSS,
 	themePostTextColour2,
 	themePostTextColour2CSS,
+	themePostFollowedTextColour,
+	themePostFollowedTextColourCSS,
 	themePostVisitedTextColour,
 	themePostVisitedTextColourCSS,
 	themeSearchbarBgColour,
@@ -89,6 +91,8 @@ import {
 	themePostUpvoteColour,
 	themePostCommentActionRowColour,
 	themePostCommentActionRowColourCSS,
+	themeOpCommentHighlightColour,
+	themeOpCommentHighlightColourCSS,
 } from './tweaks/style/override_theme_colours';
 import { useCustomBackground, setCustomBackground } from './tweaks/background/custom_background';
 import { underlineLinks } from './tweaks/accessibility/underline_links';
@@ -138,7 +142,6 @@ import { rightSidePostThumbnails } from './tweaks/style/right_side_post_thumbnai
 import { viewCrossposts } from './tweaks/productivity/view_crossposts';
 import { markReadOnOpenExpandos } from './tweaks/productivity/mark_read_on_open_expandos';
 import { hideAwards } from './tweaks/hide_elements/hide_awards';
-import { highlightOp } from './tweaks/productivity/highlight_op';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 import { addDownloadVideoButton } from './tweaks/media/add_download_video_button';
 import { fullWidthExpandos } from './tweaks/media/full_width_expandos';
@@ -152,6 +155,8 @@ import { hideGetAppButton } from './tweaks/hide_elements/hide_get_app_button';
 import { hideAiInSearch } from './tweaks/hide_elements/hide_ai_in_search';
 import { showToTopButtonFloat } from './tweaks/productivity/scroll_to_top_float';
 import { scrollToPost } from './tweaks/productivity/scroll_to_post';
+import { hideLogoInSearch } from './tweaks/hide_elements/hide_logo_in_search';
+import { replaceSearchPlaceholderText } from './tweaks/hide_elements/replace_search_placeholder';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -179,6 +184,7 @@ const functionRegistry = {
 	autoCollapseAutoModeratorComment,
 	autoExpandValue,
 	autoLoadMoreComments,
+	autoLoadMoreCommentsDownvotedOnly,
 	betterCommentBox,
 	bgBlur,
 	bionicReaderBgColour,
@@ -228,6 +234,8 @@ const functionRegistry = {
 	hideHeaderBar,
 	hideGetAppButton,
 	hideAiInSearch,
+	hideLogoInSearch,
+	replaceSearchPlaceholderText,
 	hideHeaderSubBar,
 	hideHomeFeed,
 	hideHomeSidebar,
@@ -278,7 +286,6 @@ const functionRegistry = {
 	hideUserSidebar,
 	hideVideoRecommendations,
 	hideVoteButtons,
-	highlightOp,
 	imageScroll,
 	largerClassicPost,
 	layoutCentre,
@@ -364,10 +371,14 @@ const functionRegistry = {
 	themePostTextColour2CSS,
 	themePostUpvoteColour,
 	themePostUpvoteColourCSS,
+	themePostFollowedTextColour,
+	themePostFollowedTextColourCSS,
 	themePostVisitedTextColour,
 	themePostVisitedTextColourCSS,
 	themeSearchbarBgColour,
 	themeSearchbarBgColourCSS,
+	/*themeSearchbarBorderColour,
+	themeSearchbarBorderColourCSS,*/
 	themeSearchbarDropdownBgColour,
 	themeSearchbarDropdownBgColourCSS,
 	themeSidebarBgColour,
@@ -391,6 +402,8 @@ const functionRegistry = {
 	updatePostAbsoluteTimestamps,
 	solidColourBackground,
 	solidColourBackgroundCSS,
+	themeOpCommentHighlightColour,
+	themeOpCommentHighlightColourCSS,
 	//breakReminder,
 	//darkMode,
 	//darkModeAutoListener,

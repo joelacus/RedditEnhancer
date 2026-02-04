@@ -14,7 +14,9 @@ div.re-banner {
 	top: var(--re-non-sticky-header-bar, var(--shreddit-header-height));
 	animation: hideBanner 0.5s forwards;
 	animation-delay: 7s;
-	transition: max-height 0.5s, padding 0.5s;
+	transition:
+		max-height 0.5s,
+		padding 0.5s;
 	background-color: var(--color-banner-plain);
 	color: var(--color-banner-plain-text);
 }
@@ -663,7 +665,9 @@ div[slot='editor-helper-text'] {
 }
 div.invisible[slot='editor-helper-text'] {
 	opacity: 0;
-	transition: opacity 1s, visibility 0s 1s;
+	transition:
+		opacity 1s,
+		visibility 0s 1s;
 }
 
 /* ========== SCROLL TEXT POST ========== */
@@ -809,7 +813,8 @@ shreddit-app[pagetype='single_comment_thread'] #main-content {
 }
 
 /* Always Show Post Options */
-shreddit-post [slot='credit-bar'] div:has(> span > span > [icon-name='notifications']) {
+shreddit-post [slot='credit-bar'] div:has(> span > span > [icon-name='notifications']),
+shreddit-post [slot='credit-bar'] div:has(> span > span > [icon-name='notifications-fill']) {
 	border-radius: var(--re-theme-border-radius);
 	padding: 4px;
 	margin-right: -4px;
@@ -819,4 +824,18 @@ shreddit-post [slot='credit-bar'] div:has(> span > span > [icon-name='notificati
 article[data-nav-selected='true'] {
 	outline: 2px solid #ff4500;
 	border-radius: var(--re-theme-border-radius, 1rem);
+}
+
+/* Fix User Hover Card Background */
+.theme-light shreddit-comment [slot='commentMeta'] {
+	--color-neutral-background: oklch(from var(--re-theme-post-bg, #ffffff) l c h / 100%);
+}
+.theme-dark shreddit-comment [slot='commentMeta'] {
+	--color-neutral-background: oklch(from var(--re-theme-post-bg, #0b1416) l c h / 100%);
+}
+.theme-light shreddit-comment rpl-hovercard {
+	--rpl-hovercard-background-color: oklch(from var(--re-theme-post-bg, #ffffff) l c h / 100%);
+}
+.theme-dark shreddit-comment rpl-hovercard {
+	--rpl-hovercard-background-color: oklch(from var(--re-theme-post-bg, #0b1416) l c h / 100%);
 }

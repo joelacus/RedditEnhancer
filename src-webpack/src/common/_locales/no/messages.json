@@ -405,13 +405,13 @@
 		"message": "Legg inn kommentarer"
 	},
 	"PostCommentsColour": {
-		"message": "Innlegg: Kommentarer Tekstfarge"
+		"message": "Kommentarer Tekstfarge"
 	},
 	"PostCommentsLimit": {
 		"message": "Begrens innlegg kommentarer"
 	},
 	"PostCommentsSecondaryColour": {
-		"message": "Innlegg: Kommentarer Sekundær tekstfarge"
+		"message": "Kommentarer Sekundær tekstfarge"
 	},
 	"PostContent": {
 		"message": "Innlegg Innhold"

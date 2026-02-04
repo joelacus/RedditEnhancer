@@ -49,6 +49,10 @@ document.querySelectorAll('.colour-picker').forEach((input) => {
 				BROWSER_API.storage.sync.set({ themeSearchbarBgColourCSS: rgba });
 				sendMessage({ themeSearchbarBgColourCSS: rgba });
 				break;
+			/*case 'searchbar-border':
+				BROWSER_API.storage.sync.set({ themeSearchbarBorderColourCSS: rgba });
+				sendMessage({ themeSearchbarBorderColourCSS: rgba });
+				break;*/
 			case 'searchbar-dropdown-bg':
 				BROWSER_API.storage.sync.set({ themeSearchbarDropdownBgColourCSS: rgba });
 				sendMessage({ themeSearchbarDropdownBgColourCSS: rgba });
@@ -72,6 +76,10 @@ document.querySelectorAll('.colour-picker').forEach((input) => {
 			case 'post-fg-visited':
 				BROWSER_API.storage.sync.set({ themePostVisitedTextColourCSS: hex });
 				sendMessage({ themePostVisitedTextColourCSS: hex });
+				break;
+			case 'post-fg-followed':
+				BROWSER_API.storage.sync.set({ themePostFollowedTextColourCSS: hex });
+				sendMessage({ themePostFollowedTextColourCSS: hex });
 				break;
 			case 'post-comments-fg':
 				BROWSER_API.storage.sync.set({ themePostCommentsTextColour1CSS: hex });
@@ -116,6 +124,10 @@ document.querySelectorAll('.colour-picker').forEach((input) => {
 			case 'sidemenu-btn-hover':
 				BROWSER_API.storage.sync.set({ themeSidemenuButtonHoverColourCSS: rgba });
 				sendMessage({ themeSidemenuButtonHoverColourCSS: rgba });
+				break;
+			case 'op-comment-highlight':
+				BROWSER_API.storage.sync.set({ themeOpCommentHighlightColourCSS: rgba });
+				sendMessage({ themeOpCommentHighlightColourCSS: rgba });
 				break;
 			default:
 				break;

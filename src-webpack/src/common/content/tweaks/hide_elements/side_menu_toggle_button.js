@@ -134,6 +134,11 @@ function enableSideMenuToggleButton() {
 									}
 									.re-side-menu-open svg {
 										transform: rotate(90deg);
+									}
+									#left-sidebar-container #flex-left-nav-contents {
+										position: absolute;
+										top: 0;
+										width: 100%;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 		document.cookie = 'hui_flex_nav_expanded_state=1; path=/';

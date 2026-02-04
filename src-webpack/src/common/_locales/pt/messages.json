@@ -540,19 +540,19 @@
 		"message": "Postagem: Cor da Borda"
 	},
 	"PostCommentActionRowColour": {
-		"message": "Postagem: Comentário Ação da cor da linha"
+		"message": "Comentário Ação da cor da linha"
 	},
 	"PostComments": {
 		"message": "Comentários da Postagem"
 	},
 	"PostCommentsColour": {
-		"message": "Postagem: Comentários cor de texto"
+		"message": "Comentários cor de texto"
 	},
 	"PostCommentsLimit": {
 		"message": "Ogranicz komentarze do postów"
 	},
 	"PostCommentsSecondaryColour": {
-		"message": "Postagem: Comentários cor de texto secundário"
+		"message": "Comentários cor de texto secundário"
 	},
 	"PostContent": {
 		"message": "Conteúdo da Postagem"

@@ -579,6 +579,15 @@ export function restorePopupProductivityOptions() {
 		console.log('Auto Load More Comments: ' + value);
 	});
 
+	// Only Load Downvoted Comments
+	BROWSER_API.storage.sync.get(['autoLoadMoreComments'], function (result) {
+		const value = result.autoLoadMoreComments === true;
+		document.querySelector('#checkbox-only-load-downvoted-comments').checked = value;
+		document.querySelector('.icon-only-load-downvoted-comments').style.backgroundColor = value === true ? 'var(--accent)' : '';
+		if (value) highlightMenuIcon('productivity-tweaks');
+		console.log('Only Load Downvoted Comments: ' + value);
+	});
+
 	// Better Comment Box
 	BROWSER_API.storage.sync.get(['betterCommentBox'], function (result) {
 		if (result.betterCommentBox === true) {
@@ -698,20 +707,6 @@ export function restorePopupProductivityOptions() {
 			var value = false;
 		}
 		console.log('Add Mark Post As Read Button: ' + value);
-	});
-
-	// Highlight OP
-	BROWSER_API.storage.sync.get(['highlightOp'], function (result) {
-		if (result.highlightOp === true) {
-			document.querySelector('#checkbox-highlight-op').checked = true;
-			document.querySelector('.icon-highlight-op').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('productivity-tweaks');
-			var value = true;
-		} else if (typeof result.highlightOp == 'undefined' || result.highlightOp === false) {
-			document.querySelector('#checkbox-highlight-op').checked = false;
-			var value = false;
-		}
-		console.log('Highlight OP: ' + value);
 	});
 
 	// Show Member Count
