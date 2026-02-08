@@ -215,14 +215,10 @@ export function restorePopupFontOptions() {
 
 	// Custom Fonts
 	BROWSER_API.storage.sync.get(['customFonts'], function (result) {
-		if (result.customFonts) {
-			document.querySelector('#checkbox-custom-fonts').checked = true;
-			document.querySelector('.icon-custom-fonts').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('font');
-			console.log('Custom Fonts: true');
-		} else {
-			document.querySelector('#checkbox-custom-fonts').checked = false;
-			console.log('Custom Fonts: false');
-		}
+		const value = result.customFonts === true;
+		document.querySelector('#checkbox-custom-fonts').checked = value;
+		document.querySelector('.icon-custom-fonts').style.backgroundColor = value ? 'var(--accent)' : '';
+		if (value) highlightMenuIcon('font');
+		console.log('Custom Fonts: ' + value);
 	});
 }

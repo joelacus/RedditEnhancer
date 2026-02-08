@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "2.5.0"
+		"message": "2.6.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -293,9 +293,6 @@
 	"HideAdvertiseButton": {
 		"message": "Hide the 'Advertise' Button"
 	},
-	"HideAiInTheSearchBar": {
-		"message": "Hide AI in the Search Bar"
-	},
 	"HideAwards": {
 		"message": "Hide 'Give Awards' Button"
 	},
@@ -364,6 +361,9 @@
 	},
 	"HideLinkPostsByUrlKeyword": {
 		"message": "Hide 'Link' posts by keywords in the URL"
+	},
+	"HideLogoInTheSearchBar": {
+		"message": "Hide the Reddit logo in the Search Bar"
 	},
 	"HideModerationButton": {
 		"message": "Hide the 'Moderation' Button"
@@ -456,10 +456,10 @@
 		"message": "Hide the Subreddit Sidebar"
 	},
 	"HideSubSidebarBlacklistInfo": {
-		"message": "Hide globally except for on these subreddits:"
+		"message": "Hide the sidebar globally except for on these subreddits:"
 	},
 	"HideSubSidebarWhitelistInfo": {
-		"message": "Only hide on these subreddits:"
+		"message": "Only hide the sidebar on these subreddits:"
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "Hide 'Trending Today' in the Search Bar"
@@ -599,6 +599,9 @@
 	"OldUI": {
 		"message": "Old UI"
 	},
+	"OnlyExpandNegativeKarmaComments": {
+		"message": "Only expand negative karma comments"
+	},
 	"OpenPostInNewTab": {
 		"message": "Open Posts in New Tab"
 	},
@@ -642,25 +645,28 @@
 		"message": "Post: Border Colour"
 	},
 	"PostCommentActionRowColour": {
-		"message": "Post: Comment Action Row Colour"
+		"message": "Comment Action Row Colour"
 	},
 	"PostComments": {
 		"message": "Post: Comments"
 	},
 	"PostCommentsColour": {
-		"message": "Post: Comments Text Colour"
+		"message": "Comments Text Colour"
 	},
 	"PostCommentsLimit": {
 		"message": "Limit Post Comments"
 	},
 	"PostCommentsSecondaryColour": {
-		"message": "Post: Comments Secondary Text Colour"
+		"message": "Comments Secondary Text Colour"
 	},
 	"PostContent": {
 		"message": "Post: Content"
 	},
 	"PostContentAndCommentsLinkColour": {
 		"message": "Post: Content And Comments Link Colour"
+	},
+	"PostFollowedTextColour": {
+		"message": "Followed Post: Text Colour"
 	},
 	"PostOffset": {
 		"message": "Post Offset"
@@ -721,6 +727,12 @@
 	},
 	"ReplacePostVideosWithLinksInfo": {
 		"message": "Only works with mp4 and gif. m3u8 videos may be difficult to play in other players."
+	},
+	"ReplaceSearchPlaceholder": {
+		"message": "Replace the Search Bar Placeholder"
+	},
+	"ReplaceSearchPlaceholderInfo": {
+		"message": "Replace \"Find anything\" with \"Search Reddit\"."
 	},
 	"Report": {
 		"message": "Report"
@@ -967,6 +979,9 @@
 	},
 	"UpvoteColour": {
 		"message": "Post: Upvote Colour"
+	},
+	"UseOriginalSearchBar": {
+		"message": "Use the Original Search Bar"
 	},
 	"UserProfileOffset": {
 		"message": "User Profile Offset"

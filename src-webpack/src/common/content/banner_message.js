@@ -9,14 +9,18 @@
  */
 
 export function showBannerMessage(type, message) {
+	const banner = document.querySelector('.re-banner');
+	const bannerText = banner?.textContent;
+	if (banner && bannerText === message) return;
+
 	// Create a div block for showing the message
-	const e = Object.assign(document.createElement('div'), {
-		// className: `re-banner ${type} flex items-center sticky px-lg h-xl z-[4] overflow-hidden`,
-		className: `re-banner ${type} block sticky m-0 px-lg py-2xs max-h-2xl z-[4] overflow-hidden`,
-		innerHTML: message,
-	});
-	e.addEventListener('click', () => e.remove());
-	setTimeout(e.remove, 10000);
+	const el = document.createElement('div');
+	el.className = `re-banner ${type} block sticky m-0 px-lg py-2xs max-h-2xl z-[4] overflow-hidden`;
+	el.textContent = message;
+	el.addEventListener('click', () => el.remove());
 	const a = document.querySelector('shreddit-app div#subgrid-container');
-	a.insertBefore(e, a.firstChild);
+	a.insertBefore(el, a.firstChild);
+	setTimeout(() => {
+		el.remove();
+	}, 10000);
 }

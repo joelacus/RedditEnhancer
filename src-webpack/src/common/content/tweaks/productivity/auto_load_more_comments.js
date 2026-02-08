@@ -8,9 +8,11 @@
  */
 
 /* === Run by Tweak Loader when the Page Loads === */
+let downvoteOnly;
 export function loadAutoLoadMoreComments() {
-	BROWSER_API.storage.sync.get(['autoLoadMoreComments'], function (result) {
+	BROWSER_API.storage.sync.get(['autoLoadMoreComments', 'autoLoadMoreCommentsDownvotedOnly'], function (result) {
 		if (result.autoLoadMoreComments) autoLoadMoreComments(true);
+		downvoteOnly = result.autoLoadMoreCommentsDownvotedOnly === true;
 	});
 }
 
@@ -19,7 +21,7 @@ export function autoLoadMoreComments(value) {
 	if (value) {
 		if (redditVersion === 'newnew') {
 			const viewMoreCommentBtn = document.querySelector('#top-level-more-comments-partial');
-			if (viewMoreCommentBtn) viewMoreCommentBtn.dispatchEvent(new Event('faceplate-enter', {bubbles: true}));
+			if (viewMoreCommentBtn) viewMoreCommentBtn.dispatchEvent(new Event('faceplate-enter', { bubbles: true }));
 			window.addEventListener('scroll', v3);
 
 			const comments = document.querySelector('shreddit-comment-tree');
@@ -42,6 +44,10 @@ export function autoLoadMoreComments(value) {
 	}
 }
 
+export function autoLoadMoreCommentsDownvotedOnly(value) {
+	downvoteOnly = value;
+}
+
 function v1() {
 	document.querySelectorAll('.morecomments a').forEach(loadMoreComments);
 }
@@ -51,6 +57,14 @@ function v3() {
 }
 
 function expandComments(comment) {
+	let isNegative;
+	if (redditVersion === 'old') {
+		isNegative = false; // old Reddit doesn't seem to collapse/hide negative karma comments.
+	} else if (redditVersion === 'newnew') {
+		isNegative = comment.querySelector('shreddit-comment-action-row')?.shadowRoot?.querySelector('faceplate-number')?.number < 0 ?? false;
+	}
+
+	if (downvoteOnly && !isNegative) return;
 	if (redditVersion === 'old' && comment.classList.contains('collapsed') && comment.getAttribute('data-author') !== 'AutoModerator') {
 		comment.querySelector('a.expand').click();
 		comment.dataset.uncollapsed = 'true';
@@ -62,6 +76,7 @@ function expandComments(comment) {
 }
 
 function loadMoreComments(button) {
+	if (downvoteOnly) return;
 	const rect = button.getBoundingClientRect();
 	if (rect.top >= window.innerHeight * -1 && rect.bottom <= window.innerHeight * 2) {
 		button.focus({ preventScroll: true });

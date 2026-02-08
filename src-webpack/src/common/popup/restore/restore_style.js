@@ -223,6 +223,15 @@ export function restorePopupStyleOptions() {
 		console.log('Searchbar Background Colour: ' + value);
 	});
 
+	// Searchbar Border Colour
+	/*BROWSER_API.storage.sync.get(['themeSearchbarBorderColour'], function (result) {
+		const value = result.themeSearchbarBorderColour === true;
+		document.querySelector('.icon-searchbar-border-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-searchbar-border-colour').checked = value;
+		if (value) highlightMenuIcon('style-tweaks');
+		console.log('Searchbar Border Colour: ' + value);
+	});*/
+
 	// Searchbar Background Colour CSS
 	BROWSER_API.storage.sync.get(['themeSearchbarBgColourCSS'], function (result) {
 		const value = result.themeSearchbarBgColourCSS ?? '';
@@ -407,6 +416,28 @@ export function restorePopupStyleOptions() {
 		console.log('Post Comment Action Row Colour CSS: ' + value);
 	});
 
+	// Theme Post Followed Text Colour
+	BROWSER_API.storage.sync.get(['themePostFollowedTextColour'], function (result) {
+		if (result.themePostFollowedTextColour === true) {
+			document.querySelector('.icon-post-followed-text-colour').style.backgroundColor = 'var(--accent)';
+			document.querySelector('#checkbox-post-followed-text-colour').checked = true;
+			highlightMenuIcon('style-tweaks');
+			var value = true;
+		} else if (typeof result.themePostFollowedTextColour == 'undefined' || result.themePostFollowedTextColour === false) {
+			document.querySelector('#checkbox-post-followed-text-colour').checked = false;
+			var value = false;
+		}
+		console.log('Post Followed Text Colour: ' + value);
+	});
+
+	// Theme Post Followed Text Colour CSS
+	BROWSER_API.storage.sync.get(['themePostFollowedTextColourCSS'], function (result) {
+		const value = result.themePostFollowedTextColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'post-fg-followed')?.picker;
+		get_picker.setColor(value);
+		console.log('Post Followed Text Colour CSS: ' + value);
+	});
+
 	// Theme Post Visited Text Colour
 	BROWSER_API.storage.sync.get(['themePostVisitedTextColour'], function (result) {
 		if (result.themePostVisitedTextColour === true) {
@@ -493,6 +524,23 @@ export function restorePopupStyleOptions() {
 		const get_picker = colour_pickers.find((item) => item.id === 'post-upvote')?.picker;
 		get_picker.setColor(value);
 		console.log('Post Upvote Colour CSS: ' + value);
+	});
+
+	// Theme OP Comment Highlight Colour
+	BROWSER_API.storage.sync.get(['themeOpCommentHighlightColour', 'highlightOp'], function (result) {
+		const checked = result.themeOpCommentHighlightColour ?? result.highlightOp ?? false;
+		document.querySelector('.icon-op-comment-highlight-colour').style.backgroundColor = checked === true ? 'var(--accent)' : '';
+		document.querySelector('#checkbox-op-comment-highlight-colour').checked = checked;
+		if (checked) highlightMenuIcon('style-tweaks');
+		console.log('OP Comment Highlight Colour: ' + checked);
+	});
+
+	// Theme OP Comment Highlight Colour
+	BROWSER_API.storage.sync.get(['themeOpCommentHighlightColourCSS'], function (result) {
+		const value = result.themeOpCommentHighlightColourCSS ?? '';
+		const get_picker = colour_pickers.find((item) => item.id === 'op-comment-highlight')?.picker;
+		get_picker.setColor(value);
+		console.log('OP Comment Highlight Colour CSS: ' + value);
 	});
 
 	// Theme Blur

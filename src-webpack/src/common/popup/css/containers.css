@@ -34,6 +34,7 @@
 .container-3 {
 	display: grid;
 	grid-template-columns: 50px auto 60px;
+	grid-gap: 4px;
 }
 .container-3 .switch {
 	margin-left: -3px;

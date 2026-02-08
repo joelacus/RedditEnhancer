@@ -135,7 +135,7 @@ function enableSideMenuIconsOnly() {
 		.querySelector('#moderation_section left-nav-moderation-controller')
 		.shadowRoot.querySelectorAll('left-nav-community-item')
 		.forEach((item) => {
-			item.shadowRoot.querySelector('span:has(>.text-14)').setAttribute('part', 'item');
+			item.shadowRoot.querySelector('span:has(>.text-14)')?.setAttribute('part', 'item');
 		});
 	document.querySelectorAll('#moderation_section a').forEach((item) => {
 		item.setAttribute('part', 'pad-item');
@@ -157,7 +157,7 @@ function enableSideMenuIconsOnly() {
 		.querySelector('left-nav-multireddits-controller')
 		.shadowRoot.querySelectorAll('left-nav-multireddit-item')
 		.forEach((item) => {
-			item.shadowRoot.querySelector('span:has(>.text-14)').setAttribute('part', 'item');
+			item.shadowRoot.querySelector('span:has(>.text-14)')?.setAttribute('part', 'item');
 		});
 	// append part attribute to recent items
 	document.querySelector('reddit-recent-pages').shadowRoot.querySelector('summary').setAttribute('part', 'item');
@@ -178,7 +178,7 @@ function enableSideMenuIconsOnly() {
 		.querySelector('left-nav-communities-controller')
 		.shadowRoot.querySelectorAll('left-nav-community-item')
 		.forEach((item) => {
-			item.shadowRoot.querySelector('span:has(>.text-14)').setAttribute('part', 'item');
+			item.shadowRoot.querySelector('span:has(>.text-14)')?.setAttribute('part', 'item');
 		});
 	document
 		.querySelector('left-nav-communities-controller')

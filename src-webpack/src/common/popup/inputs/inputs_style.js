@@ -3,237 +3,159 @@
 import { sendMessage } from '../send_message';
 
 // Toggle - Mind The Gap
-document.querySelector('#checkbox-hide-gap').addEventListener('change', function (e) {
-	const hideGap = document.querySelector('#checkbox-hide-gap').checked;
-	if (hideGap == true) {
-		BROWSER_API.storage.sync.set({ hideGap: true });
-		document.querySelector('.hide-gap').style.backgroundColor = 'var(--accent)';
-		sendMessage({ hideGap: true });
-	} else if (hideGap == false) {
-		BROWSER_API.storage.sync.set({ hideGap: false });
-		document.querySelector('.hide-gap').style.backgroundColor = '';
-		sendMessage({ hideGap: false });
-	}
+document.querySelector('#checkbox-hide-gap').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-hide-gap').checked;
+	BROWSER_API.storage.sync.set({ hideGap: value });
+	document.querySelector('.hide-gap').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ hideGap: value });
 });
 
 // Toggle - Add Drop Shadow
-document.querySelector('#checkbox-add-drop-shadow').addEventListener('change', function (e) {
-	const addDropShadow = document.querySelector('#checkbox-add-drop-shadow').checked;
-	BROWSER_API.storage.sync.set({ addDropShadow: addDropShadow === true });
-	sendMessage({ addDropShadow: addDropShadow === true });
-	document.querySelector('.icon-add-drop-shadow').style.backgroundColor = addDropShadow === true ? 'var(--accent)' : '';
-	if (addDropShadow) {
-		document.querySelector('.icon-add-drop-shadow').classList.add('icon-light-on');
-		document.querySelector('.icon-add-drop-shadow').classList.remove('icon-light-off');
-	} else {
-		document.querySelector('.icon-add-drop-shadow').classList.remove('icon-light-on');
-		document.querySelector('.icon-add-drop-shadow').classList.add('icon-light-off');
-	}
+document.querySelector('#checkbox-add-drop-shadow').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-add-drop-shadow').checked;
+	BROWSER_API.storage.sync.set({ addDropShadow: value });
+	sendMessage({ addDropShadow: value });
+	const icon = document.querySelector('.icon-add-drop-shadow');
+	icon.style.backgroundColor = value === true ? 'var(--accent)' : '';
+	icon.classList.replace(value ? 'icon-light-off' : 'icon-light-on', value ? 'icon-light-on' : 'icon-light-off');
 });
 
 // Toggle - Drop Shadow CSS Override
-document.querySelector('#checkbox-shadow-override').addEventListener('change', function (e) {
-	const overrideDropShadow = document.querySelector('#checkbox-shadow-override').checked;
-	document.querySelector('.icon-drop-shadow-override').style.backgroundColor = overrideDropShadow === true ? 'var(--accent)' : '';
-	BROWSER_API.storage.sync.set({ overrideDropShadow: overrideDropShadow === true });
-	sendMessage({ overrideDropShadow: overrideDropShadow === true });
+document.querySelector('#checkbox-shadow-override').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-shadow-override').checked;
+	document.querySelector('.icon-drop-shadow-override').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ overrideDropShadow: value });
+	sendMessage({ overrideDropShadow: value });
 });
 
 // Input - Drop Shadow Override CSS
-document.querySelector('#input-shadow-override-css').addEventListener('keyup', function (e) {
+document.querySelector('#input-shadow-override-css').addEventListener('keyup', () => {
 	const css = document.querySelector('#input-shadow-override-css').value;
 	BROWSER_API.storage.sync.set({ overrideDropShadowCSS: css });
 	sendMessage({ overrideDropShadowCSS: css });
 });
 
 // Toggle - Modernise Old Reddit
-document.querySelector('#checkbox-modern-old-reddit').addEventListener('change', function (e) {
-	const moderniseOldReddit = document.querySelector('#checkbox-modern-old-reddit').checked;
-	if (moderniseOldReddit == true) {
-		BROWSER_API.storage.sync.set({ moderniseOldReddit: true });
-		BROWSER_API.storage.sync.set({ hideHeaderSubBar: true });
-		BROWSER_API.storage.sync.set({ hideSideMenuOld: true });
-		BROWSER_API.storage.sync.set({ largerClassicPost: true });
-		document.querySelector('.icon-modern-old-reddit').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-hide-header-sub-bar').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-hide-side-menu-old').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-larger-classic-post').style.backgroundColor = 'var(--accent)';
-		sendMessage({ moderniseOldReddit: true });
-		sendMessage({ hideHeaderSubBar: true });
-		sendMessage({ hideSideMenuOld: true });
-		sendMessage({ largerClassicPost: true });
-		document.querySelector('#checkbox-hide-header-sub-bar').checked = true;
-		document.querySelector('#checkbox-hide-side-menu-old').checked = true;
-		document.querySelector('#checkbox-larger-classic-post').checked = true;
-	} else if (moderniseOldReddit == false) {
-		BROWSER_API.storage.sync.set({ moderniseOldReddit: false });
-		BROWSER_API.storage.sync.set({ hideHeaderSubBar: false });
-		BROWSER_API.storage.sync.set({ hideSideMenuOld: false });
-		BROWSER_API.storage.sync.set({ largerClassicPost: false });
-		document.querySelector('.icon-modern-old-reddit').style.backgroundColor = '';
-		document.querySelector('.icon-hide-header-sub-bar').style.backgroundColor = '';
-		document.querySelector('.icon-hide-side-menu-old').style.backgroundColor = '';
-		document.querySelector('.icon-larger-classic-post').style.backgroundColor = '';
-		sendMessage({ moderniseOldReddit: false });
-		sendMessage({ hideHeaderSubBar: false });
-		sendMessage({ hideSideMenuOld: false });
-		sendMessage({ largerClassicPost: false });
-		document.querySelector('#checkbox-hide-header-sub-bar').checked = false;
-		document.querySelector('#checkbox-hide-side-menu-old').checked = false;
-		document.querySelector('#checkbox-larger-classic-post').checked = false;
-	}
+document.querySelector('#checkbox-modern-old-reddit').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-modern-old-reddit').checked;
+	BROWSER_API.storage.sync.set({ moderniseOldReddit: value });
+	BROWSER_API.storage.sync.set({ hideHeaderSubBar: value });
+	BROWSER_API.storage.sync.set({ hideSideMenuOld: value });
+	BROWSER_API.storage.sync.set({ largerClassicPost: value });
+	document.querySelector('.icon-modern-old-reddit').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	document.querySelector('.icon-hide-header-sub-bar').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	document.querySelector('.icon-hide-side-menu-old').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	document.querySelector('.icon-larger-classic-post').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ moderniseOldReddit: value });
+	sendMessage({ hideHeaderSubBar: value });
+	sendMessage({ hideSideMenuOld: value });
+	sendMessage({ largerClassicPost: value });
+	document.querySelector('#checkbox-hide-header-sub-bar').checked = value;
+	document.querySelector('#checkbox-hide-side-menu-old').checked = value;
+	document.querySelector('#checkbox-larger-classic-post').checked = value;
 });
 
 // Toggle - Header Background Colour
-document.querySelector('#checkbox-header-bg-colour').addEventListener('change', function (e) {
-	const themeHeaderBackgroundColour = document.querySelector('#checkbox-header-bg-colour').checked;
-	if (themeHeaderBackgroundColour == true) {
-		BROWSER_API.storage.sync.set({ themeHeaderBackgroundColour: true });
-		document.querySelector('.icon-header-bg-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeHeaderBackgroundColour: true });
-	} else if (themeHeaderBackgroundColour == false) {
-		BROWSER_API.storage.sync.set({ themeHeaderBackgroundColour: false });
-		document.querySelector('.icon-header-bg-colour').style.backgroundColor = '';
-		sendMessage({ themeHeaderBackgroundColour: false });
-	}
+document.querySelector('#checkbox-header-bg-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-header-bg-colour').checked;
+	BROWSER_API.storage.sync.set({ themeHeaderBackgroundColour: value });
+	document.querySelector('.icon-header-bg-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themeHeaderBackgroundColour: value });
 });
 
 // Toggle - Header Text Colour
-document.querySelector('#checkbox-header-text-colour').addEventListener('change', function (e) {
-	const themeHeaderTextColour = document.querySelector('#checkbox-header-text-colour').checked;
-	if (themeHeaderTextColour == true) {
-		BROWSER_API.storage.sync.set({ themeHeaderTextColour: true });
-		document.querySelector('.icon-header-text-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeHeaderTextColour: true });
-	} else if (themeHeaderTextColour == false) {
-		BROWSER_API.storage.sync.set({ themeHeaderTextColour: false });
-		document.querySelector('.icon-header-text-colour').style.backgroundColor = '';
-		sendMessage({ themeHeaderTextColour: false });
-	}
+document.querySelector('#checkbox-header-text-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-header-text-colour').checked;
+	BROWSER_API.storage.sync.set({ themeHeaderTextColour: value });
+	document.querySelector('.icon-header-text-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themeHeaderTextColour: value });
 });
 
 // Toggle - Post Background Colour
-document.querySelector('#checkbox-post-bg-colour').addEventListener('change', function (e) {
-	const themePostBackgroundColour = document.querySelector('#checkbox-post-bg-colour').checked;
-	if (themePostBackgroundColour == true) {
-		BROWSER_API.storage.sync.set({ themePostBackgroundColour: true });
-		document.querySelector('.icon-post-bg-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themePostBackgroundColour: true });
-	} else if (themePostBackgroundColour == false) {
-		BROWSER_API.storage.sync.set({ themePostBackgroundColour: false });
-		document.querySelector('.icon-post-bg-colour').style.backgroundColor = '';
-		sendMessage({ themePostBackgroundColour: false });
-	}
+document.querySelector('#checkbox-post-bg-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-post-bg-colour').checked;
+	BROWSER_API.storage.sync.set({ themePostBackgroundColour: value });
+	document.querySelector('.icon-post-bg-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themePostBackgroundColour: value });
 });
 
 // Toggle - Post Text Colour
-document.querySelector('#checkbox-post-text-colour').addEventListener('change', function (e) {
-	const themePostTextColour1 = document.querySelector('#checkbox-post-text-colour').checked;
-	if (themePostTextColour1 == true) {
-		BROWSER_API.storage.sync.set({ themePostTextColour1: true });
-		document.querySelector('.icon-post-text-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themePostTextColour1: true });
-	} else if (themePostTextColour1 == false) {
-		BROWSER_API.storage.sync.set({ themePostTextColour1: false });
-		document.querySelector('.icon-post-text-colour').style.backgroundColor = '';
-		sendMessage({ themePostTextColour1: false });
-	}
+document.querySelector('#checkbox-post-text-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-post-text-colour').checked;
+	BROWSER_API.storage.sync.set({ themePostTextColour1: value });
+	document.querySelector('.icon-post-text-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themePostTextColour1: value });
 });
 
 // Toggle - Post Comments Text Colour
-document.querySelector('#checkbox-post-comments-text-colour').addEventListener('change', function (e) {
-	const themePostCommentsTextColour1 = document.querySelector('#checkbox-post-comments-text-colour').checked;
-	if (themePostCommentsTextColour1 == true) {
-		BROWSER_API.storage.sync.set({ themePostCommentsTextColour1: true });
-		document.querySelector('.icon-post-comments-text-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themePostCommentsTextColour1: true });
-	} else if (themePostCommentsTextColour1 == false) {
-		BROWSER_API.storage.sync.set({ themePostCommentsTextColour1: false });
-		document.querySelector('.icon-post-comments-text-colour').style.backgroundColor = '';
-		sendMessage({ themePostCommentsTextColour1: false });
-	}
+document.querySelector('#checkbox-post-comments-text-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-post-comments-text-colour').checked;
+	BROWSER_API.storage.sync.set({ themePostCommentsTextColour1: value });
+	document.querySelector('.icon-post-comments-text-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themePostCommentsTextColour1: value });
 });
 
 // Toggle - Post Comments Secondary Text Colour
-document.querySelector('#checkbox-post-comments-secondary-text-colour').addEventListener('change', function (e) {
-	const themePostCommentsTextColour2 = document.querySelector('#checkbox-post-comments-secondary-text-colour').checked;
-	if (themePostCommentsTextColour2 == true) {
-		BROWSER_API.storage.sync.set({ themePostCommentsTextColour2: true });
-		document.querySelector('.icon-post-comments-secondary-text-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themePostCommentsTextColour2: true });
-	} else if (themePostCommentsTextColour2 == false) {
-		BROWSER_API.storage.sync.set({ themePostCommentsTextColour2: false });
-		document.querySelector('.icon-post-comments-secondary-text-colour').style.backgroundColor = '';
-		sendMessage({ themePostCommentsTextColour2: false });
-	}
+document.querySelector('#checkbox-post-comments-secondary-text-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-post-comments-secondary-text-colour').checked;
+	BROWSER_API.storage.sync.set({ themePostCommentsTextColour2: value });
+	document.querySelector('.icon-post-comments-secondary-text-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themePostCommentsTextColour2: value });
+});
+
+// Toggle - Post Followed Text Colour
+document.querySelector('#checkbox-post-followed-text-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-post-followed-text-colour').checked;
+	BROWSER_API.storage.sync.set({ themePostFollowedTextColour: value });
+	document.querySelector('.icon-post-followed-text-colour').style.backgroundColor = value ? 'var(--accent)' : '';
+	sendMessage({ themePostFollowedTextColour: value });
 });
 
 // Toggle - Post Visited Text Colour
-document.querySelector('#checkbox-post-visited-text-colour').addEventListener('change', function (e) {
-	const themePostVisitedTextColour = document.querySelector('#checkbox-post-visited-text-colour').checked;
-	BROWSER_API.storage.sync.set({ themePostVisitedTextColour: themePostVisitedTextColour });
-	document.querySelector('.icon-post-visited-text-colour').style.backgroundColor = themePostVisitedTextColour ? 'var(--accent)' : '';
-	sendMessage({ themePostVisitedTextColour: themePostVisitedTextColour });
+document.querySelector('#checkbox-post-visited-text-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-post-visited-text-colour').checked;
+	BROWSER_API.storage.sync.set({ themePostVisitedTextColour: value });
+	document.querySelector('.icon-post-visited-text-colour').style.backgroundColor = value ? 'var(--accent)' : '';
+	sendMessage({ themePostVisitedTextColour: value });
 });
 
 // Toggle - Post Text Secondary Colour
-document.querySelector('#checkbox-post-text-colour-2').addEventListener('change', function (e) {
-	const themePostTextColour2 = document.querySelector('#checkbox-post-text-colour-2').checked;
-	if (themePostTextColour2 == true) {
-		BROWSER_API.storage.sync.set({ themePostTextColour2: true });
-		document.querySelector('.icon-post-text-colour-2').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themePostTextColour2: true });
-	} else if (themePostTextColour2 == false) {
-		BROWSER_API.storage.sync.set({ themePostTextColour2: false });
-		document.querySelector('.icon-post-text-colour-2').style.backgroundColor = '';
-		sendMessage({ themePostTextColour2: false });
-	}
+document.querySelector('#checkbox-post-text-colour-2').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-post-text-colour-2').checked;
+	BROWSER_API.storage.sync.set({ themePostTextColour2: value });
+	document.querySelector('.icon-post-text-colour-2').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themePostTextColour2: value });
 });
 
 // Toggle - Post Border Colour
-document.querySelector('#checkbox-post-border-colour').addEventListener('change', function (e) {
-	const themePostBorderColour = document.querySelector('#checkbox-post-border-colour').checked;
-	if (themePostBorderColour == true) {
-		BROWSER_API.storage.sync.set({ themePostBorderColour: true });
-		document.querySelector('.icon-post-border-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themePostBorderColour: true });
-	} else if (themePostBorderColour == false) {
-		BROWSER_API.storage.sync.set({ themePostBorderColour: false });
-		document.querySelector('.icon-post-border-colour').style.backgroundColor = '';
-		sendMessage({ themePostBorderColour: false });
-	}
+document.querySelector('#checkbox-post-border-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-post-border-colour').checked;
+	BROWSER_API.storage.sync.set({ themePostBorderColour: value });
+	document.querySelector('.icon-post-border-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themePostBorderColour: value });
 });
 
 // Slider - Theme Blur
-document.querySelector('#input-theme-blur').addEventListener('input', function (e) {
-	// set ui
-	if (e.target.value != 0) {
-		document.querySelector('.icon-theme-blur').style.backgroundColor = 'var(--accent)';
-	} else {
-		document.querySelector('.icon-theme-blur').style.backgroundColor = '';
-	}
-	document.querySelector('#theme-blur-value').innerText = e.target.value + 'px';
-	// apply
-	sendMessage({ themeBlur: e.target.value });
+document.querySelector('#input-theme-blur').addEventListener('input', (e) => {
+	const value = e.target.value;
+	document.querySelector('.icon-theme-blur').style.backgroundColor = value !== 0 ? 'var(--accent)' : '';
+	document.querySelector('#theme-blur-value').innerText = `${value}px`;
+	sendMessage({ themeBlur: value });
 });
-document.querySelector('#input-theme-blur').addEventListener('mouseup', function (e) {
+document.querySelector('#input-theme-blur').addEventListener('mouseup', (e) => {
+	// save value on mouseup to significantly reduce api writes.
 	BROWSER_API.storage.sync.set({ themeBlur: e.target.value });
 });
 
 // Toggle - Theme Exceptions
-document.querySelector('#checkbox-theme-exceptions-enable').addEventListener('change', function (e) {
-	const themeExceptionsEnable = document.querySelector('#checkbox-theme-exceptions-enable').checked;
-	if (themeExceptionsEnable == true) {
-		BROWSER_API.storage.sync.set({ themeExceptionsEnable: true });
-		document.querySelector('.icon-theme-exceptions').style.backgroundColor = 'var(--accent)';
-	} else if (themeExceptionsEnable == false) {
-		BROWSER_API.storage.sync.set({ themeExceptionsEnable: false });
-		document.querySelector('.icon-theme-exceptions').style.backgroundColor = '';
-	}
+document.querySelector('#checkbox-theme-exceptions-enable').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-theme-exceptions-enable').checked;
+	BROWSER_API.storage.sync.set({ themeExceptionsEnable: value });
+	document.querySelector('.icon-theme-exceptions').style.backgroundColor = value === true ? 'var(--accent)' : '';
 });
 
 // Button - Theme Whitelist
-document.querySelector('#btn-theme-whitelist').addEventListener('click', function (e) {
+document.querySelector('#btn-theme-whitelist').addEventListener('click', () => {
 	e.currentTarget.classList.add('tab-active');
 	document.querySelector('#btn-theme-whitelist').nextElementSibling.classList.remove('tab-active');
 	document.querySelector('[data-lang="ThemeWhitelistInfo"]').classList.remove('hidden');
@@ -242,7 +164,7 @@ document.querySelector('#btn-theme-whitelist').addEventListener('click', functio
 });
 
 // Button - Theme Blacklist
-document.querySelector('#btn-theme-blacklist').addEventListener('click', function (e) {
+document.querySelector('#btn-theme-blacklist').addEventListener('click', () => {
 	e.currentTarget.classList.add('tab-active');
 	document.querySelector('#btn-theme-blacklist').previousElementSibling.classList.remove('tab-active');
 	document.querySelector('[data-lang="ThemeBlacklistInfo"]').classList.remove('hidden');
@@ -251,336 +173,226 @@ document.querySelector('#btn-theme-blacklist').addEventListener('click', functio
 });
 
 // Textarea - Theme Exceptions
-document.querySelector('#input-theme-exceptions').addEventListener('keyup', function (e) {
-	const value = e.target.value;
-	BROWSER_API.storage.sync.set({ themeExceptionSubList: value });
+document.querySelector('#input-theme-exceptions').addEventListener('keyup', (e) => {
+	BROWSER_API.storage.sync.set({ themeExceptionSubList: e.target.value });
 });
 
 // Toggle - Larger Classic Post
-document.querySelector('#checkbox-larger-classic-post').addEventListener('change', function (e) {
-	const largerClassicPost = document.querySelector('#checkbox-larger-classic-post').checked;
-	if (largerClassicPost == true) {
-		BROWSER_API.storage.sync.set({ largerClassicPost: true });
-		document.querySelector('.icon-larger-classic-post').style.backgroundColor = 'var(--accent)';
-		sendMessage({ largerClassicPost: true });
-	} else if (largerClassicPost == false) {
-		BROWSER_API.storage.sync.set({ largerClassicPost: false });
-		document.querySelector('.icon-larger-classic-post').style.backgroundColor = '';
-		sendMessage({ largerClassicPost: false });
-	}
+document.querySelector('#checkbox-larger-classic-post').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-larger-classic-post').checked;
+	BROWSER_API.storage.sync.set({ largerClassicPost: value });
+	document.querySelector('.icon-larger-classic-post').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ largerClassicPost: value });
 });
 
 // Toggle - Sidebar Text Colour
-document.querySelector('#checkbox-sidebar-text-colour').addEventListener('change', function (e) {
-	const themeSidebarTextColour = document.querySelector('#checkbox-sidebar-text-colour').checked;
-	if (themeSidebarTextColour == true) {
-		BROWSER_API.storage.sync.set({ themeSidebarTextColour: true });
-		document.querySelector('.icon-sidebar-text-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSidebarTextColour: true });
-	} else if (themeSidebarTextColour == false) {
-		BROWSER_API.storage.sync.set({ themeSidebarTextColour: false });
-		document.querySelector('.icon-sidebar-text-colour').style.backgroundColor = '';
-		sendMessage({ themeSidebarTextColour: false });
-	}
+document.querySelector('#checkbox-sidebar-text-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-sidebar-text-colour').checked;
+	BROWSER_API.storage.sync.set({ themeSidebarTextColour: value });
+	document.querySelector('.icon-sidebar-text-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themeSidebarTextColour: value });
 });
 
 // Toggle - Sidebar Background Colour
-document.querySelector('#checkbox-sidebar-bg-colour').addEventListener('change', function (e) {
-	const themeSidebarBgColour = document.querySelector('#checkbox-sidebar-bg-colour').checked;
-	if (themeSidebarBgColour == true) {
-		BROWSER_API.storage.sync.set({ themeSidebarBgColour: true });
-		document.querySelector('.icon-sidebar-bg-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSidebarBgColour: true });
-	} else if (themeSidebarBgColour == false) {
-		BROWSER_API.storage.sync.set({ themeSidebarBgColour: false });
-		document.querySelector('.icon-sidebar-bg-colour').style.backgroundColor = '';
-		sendMessage({ themeSidebarBgColour: false });
-	}
+document.querySelector('#checkbox-sidebar-bg-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-sidebar-bg-colour').checked;
+	BROWSER_API.storage.sync.set({ themeSidebarBgColour: value });
+	document.querySelector('.icon-sidebar-bg-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themeSidebarBgColour: value });
 });
 
-// Toggle - Sidemenu Text Colour
-document.querySelector('#checkbox-sidemenu-text-colour').addEventListener('change', function (e) {
-	const themeSidemenuTextColour = document.querySelector('#checkbox-sidemenu-text-colour').checked;
-	if (themeSidemenuTextColour == true) {
-		BROWSER_API.storage.sync.set({ themeSidemenuTextColour: true });
-		document.querySelector('.icon-sidemenu-text-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSidemenuTextColour: true });
-	} else if (themeSidemenuTextColour == false) {
-		BROWSER_API.storage.sync.set({ themeSidemenuTextColour: false });
-		document.querySelector('.icon-sidemenu-text-colour').style.backgroundColor = '';
-		sendMessage({ themeSidemenuTextColour: false });
-	}
+// Toggle - Side Menu Text Colour
+document.querySelector('#checkbox-sidemenu-text-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-sidemenu-text-colour').checked;
+	BROWSER_API.storage.sync.set({ themeSidemenuTextColour: value });
+	document.querySelector('.icon-sidemenu-text-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themeSidemenuTextColour: value });
 });
 
-// Toggle - Sidemenu Background Colour
-document.querySelector('#checkbox-sidemenu-bg-colour').addEventListener('change', function (e) {
-	const themeSidemenuBgColour = document.querySelector('#checkbox-sidemenu-bg-colour').checked;
-	if (themeSidemenuBgColour == true) {
-		BROWSER_API.storage.sync.set({ themeSidemenuBgColour: true });
-		document.querySelector('.icon-sidemenu-bg-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSidemenuBgColour: true });
-	} else if (themeSidemenuBgColour == false) {
-		BROWSER_API.storage.sync.set({ themeSidemenuBgColour: false });
-		document.querySelector('.icon-sidemenu-bg-colour').style.backgroundColor = '';
-		sendMessage({ themeSidemenuBgColour: false });
-	}
+// Toggle - Side Menu Background Colour
+document.querySelector('#checkbox-sidemenu-bg-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-sidemenu-bg-colour').checked;
+	BROWSER_API.storage.sync.set({ themeSidemenuBgColour: value });
+	document.querySelector('.icon-sidemenu-bg-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themeSidemenuBgColour: value });
 });
 
-// Toggle - Sidemenu Button Hover Colour
-document.querySelector('#checkbox-sidemenu-button-hover-colour').addEventListener('change', function (e) {
-	const themeSidemenuButtonHoverColour = document.querySelector('#checkbox-sidemenu-button-hover-colour').checked;
-	if (themeSidemenuButtonHoverColour == true) {
-		BROWSER_API.storage.sync.set({ themeSidemenuButtonHoverColour: true });
-		document.querySelector('.icon-sidemenu-button-hover-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSidemenuButtonHoverColour: true });
-	} else if (themeSidemenuButtonHoverColour == false) {
-		BROWSER_API.storage.sync.set({ themeSidemenuButtonHoverColour: false });
-		document.querySelector('.icon-sidemenu-button-hover-colour').style.backgroundColor = '';
-		sendMessage({ themeSidemenuButtonHoverColour: false });
-	}
+// Toggle - Side Menu Button Hover Colour
+document.querySelector('#checkbox-sidemenu-button-hover-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-sidemenu-button-hover-colour').checked;
+	BROWSER_API.storage.sync.set({ themeSidemenuButtonHoverColour: value });
+	document.querySelector('.icon-sidemenu-button-hover-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themeSidemenuButtonHoverColour: value });
 });
 
 // Toggle - Post Content And Comments Link Colour
-document.querySelector('#checkbox-post-content-and-comments-link-colour').addEventListener('change', function (e) {
-	const themePostContentAndCommentsLinkColour = document.querySelector('#checkbox-post-content-and-comments-link-colour').checked;
-	if (themePostContentAndCommentsLinkColour == true) {
-		BROWSER_API.storage.sync.set({ themePostContentAndCommentsLinkColour: true });
-		document.querySelector('.icon-post-content-and-comments-link-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themePostContentAndCommentsLinkColour: true });
-	} else if (themePostContentAndCommentsLinkColour == false) {
-		BROWSER_API.storage.sync.set({ themePostContentAndCommentsLinkColour: false });
-		document.querySelector('.icon-post-content-and-comments-link-colour').style.backgroundColor = '';
-		sendMessage({ themePostContentAndCommentsLinkColour: false });
-	}
+document.querySelector('#checkbox-post-content-and-comments-link-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-post-content-and-comments-link-colour').checked;
+	BROWSER_API.storage.sync.set({ themePostContentAndCommentsLinkColour: value });
+	document.querySelector('.icon-post-content-and-comments-link-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themePostContentAndCommentsLinkColour: value });
 });
 
 // Toggle - Searchbar Background Colour
-document.querySelector('#checkbox-searchbar-bg-colour').addEventListener('change', function (e) {
-	const themeSearchbarBgColour = document.querySelector('#checkbox-searchbar-bg-colour').checked;
-	if (themeSearchbarBgColour == true) {
-		BROWSER_API.storage.sync.set({ themeSearchbarBgColour: true });
-		document.querySelector('.icon-searchbar-bg-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSearchbarBgColour: true });
-	} else if (themeSearchbarBgColour == false) {
-		BROWSER_API.storage.sync.set({ themeSearchbarBgColour: false });
-		document.querySelector('.icon-searchbar-bg-colour').style.backgroundColor = '';
-		sendMessage({ themeSearchbarBgColour: false });
-	}
+document.querySelector('#checkbox-searchbar-bg-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-searchbar-bg-colour').checked;
+	BROWSER_API.storage.sync.set({ themeSearchbarBgColour: value });
+	document.querySelector('.icon-searchbar-bg-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themeSearchbarBgColour: value });
 });
 
+// Toggle - Searchbar Border Colour
+/*document.querySelector('#checkbox-searchbar-border-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-searchbar-border-colour').checked;
+	BROWSER_API.storage.sync.set({ themeSearchbarBorderColour: value });
+	document.querySelector('.icon-searchbar-border-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themeSearchbarBorderColour: value });
+});*/
+
 // Toggle - Searchbar Focused/Dropdown Background Colour
-document.querySelector('#checkbox-searchbar-dropdown-bg-colour').addEventListener('change', function (e) {
-	const themeSearchbarDropdownBgColour = document.querySelector('#checkbox-searchbar-dropdown-bg-colour').checked;
-	if (themeSearchbarDropdownBgColour == true) {
-		BROWSER_API.storage.sync.set({ themeSearchbarDropdownBgColour: true });
-		document.querySelector('.icon-searchbar-dropdown-bg-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themeSearchbarDropdownBgColour: true });
-	} else if (themeSearchbarDropdownBgColour == false) {
-		BROWSER_API.storage.sync.set({ themeSearchbarDropdownBgColour: false });
-		document.querySelector('.icon-searchbar-dropdown-bg-colour').style.backgroundColor = '';
-		sendMessage({ themeSearchbarDropdownBgColour: false });
-	}
+document.querySelector('#checkbox-searchbar-dropdown-bg-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-searchbar-dropdown-bg-colour').checked;
+	BROWSER_API.storage.sync.set({ themeSearchbarDropdownBgColour: value });
+	document.querySelector('.icon-searchbar-dropdown-bg-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themeSearchbarDropdownBgColour: value });
 });
 
 // Slider - Theme Border Radius Amount
-document.querySelector('#input-border-radius-amount').addEventListener('input', function (e) {
+document.querySelector('#input-border-radius-amount').addEventListener('input', (e) => {
 	document.querySelector('#border-radius-amount-value').textContent = e.target.value != -1 ? e.target.value + 'px' : '';
 	document.querySelector('.icon-border-radius-amount').style.backgroundColor = e.target.value != -1 ? 'var(--accent)' : '';
 	sendMessage({ borderRadiusAmount: e.target.value });
 });
-document.querySelector('#input-border-radius-amount').addEventListener('mouseup', function (e) {
+document.querySelector('#input-border-radius-amount').addEventListener('mouseup', (e) => {
+	// save value on mouseup to significantly reduce api writes.
 	BROWSER_API.storage.sync.set({ borderRadiusAmount: e.target.value });
 });
 
 // Toggle - Post Upvote Colour
-document.querySelector('#checkbox-post-upvote-colour').addEventListener('change', function (e) {
-	const themePostUpvoteColour = document.querySelector('#checkbox-post-upvote-colour').checked;
-	if (themePostUpvoteColour == true) {
-		BROWSER_API.storage.sync.set({ themePostUpvoteColour: true });
-		document.querySelector('.icon-post-upvote-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themePostUpvoteColour: true });
-	} else if (themePostUpvoteColour == false) {
-		BROWSER_API.storage.sync.set({ themePostUpvoteColour: false });
-		document.querySelector('.icon-post-upvote-colour').style.backgroundColor = '';
-		sendMessage({ themePostUpvoteColour: false });
-	}
+document.querySelector('#checkbox-post-upvote-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-post-upvote-colour').checked;
+	BROWSER_API.storage.sync.set({ themePostUpvoteColour: value });
+	document.querySelector('.icon-post-upvote-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themePostUpvoteColour: value });
+});
+
+// Toggle - OP Comment Highlight Colour
+document.querySelector('#checkbox-op-comment-highlight-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-op-comment-highlight-colour').checked;
+	BROWSER_API.storage.sync.set({ themeOpCommentHighlightColour: value });
+	document.querySelector('.icon-op-comment-highlight-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themeOpCommentHighlightColour: value });
 });
 
 // Toggle - Post Comment Action Row Colour
-document.querySelector('#checkbox-post-comment-action-row-colour').addEventListener('change', function (e) {
-	const themePostCommentActionRowColour = document.querySelector('#checkbox-post-comment-action-row-colour').checked;
-	if (themePostCommentActionRowColour == true) {
-		BROWSER_API.storage.sync.set({ themePostCommentActionRowColour: true });
-		document.querySelector('.icon-post-comment-action-row-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themePostCommentActionRowColour: true });
-	} else if (themePostCommentActionRowColour == false) {
-		BROWSER_API.storage.sync.set({ themePostCommentActionRowColour: false });
-		document.querySelector('.icon-post-comment-action-row-colour').style.backgroundColor = '';
-		sendMessage({ themePostCommentActionRowColour: false });
-	}
+document.querySelector('#checkbox-post-comment-action-row-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-post-comment-action-row-colour').checked;
+	BROWSER_API.storage.sync.set({ themePostCommentActionRowColour: value });
+	document.querySelector('.icon-post-comment-action-row-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themePostCommentActionRowColour: value });
 });
 
 // Toggle - Full Width Banner
-document.querySelector('#checkbox-full-width-banner').addEventListener('change', function (e) {
-	const fullWidthBanner = document.querySelector('#checkbox-full-width-banner').checked;
-	if (fullWidthBanner) {
-		document.querySelector('.icon-full-width-banner').style.backgroundColor = 'var(--accent)';
-	} else {
-		document.querySelector('.icon-full-width-banner').style.backgroundColor = '';
-	}
-	BROWSER_API.storage.sync.set({ fullWidthBanner: fullWidthBanner });
-	sendMessage({ fullWidthBanner: fullWidthBanner });
+document.querySelector('#checkbox-full-width-banner').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-full-width-banner').checked;
+	BROWSER_API.storage.sync.set({ fullWidthBanner: value });
+	document.querySelector('.icon-full-width-banner').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ fullWidthBanner: value });
 });
 
 // Toggle - Compact Header Bar & Side Menu
-document.querySelector('#checkbox-compact-header-side-menu').addEventListener('change', function (e) {
-	const compactHeaderSideMenu = document.querySelector('#checkbox-compact-header-side-menu').checked;
-	if (compactHeaderSideMenu) {
-		document.querySelector('.icon-compact-header-side-menu').style.backgroundColor = 'var(--accent)';
-	} else {
-		document.querySelector('.icon-compact-header-side-menu').style.backgroundColor = '';
-	}
-	BROWSER_API.storage.sync.set({ compactHeaderSideMenu: compactHeaderSideMenu });
-	sendMessage({ compactHeaderSideMenu: compactHeaderSideMenu });
+document.querySelector('#checkbox-compact-header-side-menu').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-compact-header-side-menu').checked;
+	BROWSER_API.storage.sync.set({ compactHeaderSideMenu: value });
+	document.querySelector('.icon-compact-header-side-menu').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ compactHeaderSideMenu: value });
 });
 
 // Toggle - Classic Old Header
-document.querySelector('#checkbox-classic-old-ui').addEventListener('change', function (e) {
-	const classicOldUI = document.querySelector('#checkbox-classic-old-ui').checked;
-	if (classicOldUI) {
-		document.querySelector('.icon-classic-old-ui').style.backgroundColor = 'var(--accent)';
-	} else {
-		document.querySelector('.icon-classic-old-ui').style.backgroundColor = '';
-	}
-	BROWSER_API.storage.sync.set({ classicOldUI: classicOldUI });
-	sendMessage({ classicOldUI: classicOldUI });
+document.querySelector('#checkbox-classic-old-ui').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-classic-old-ui').checked;
+	BROWSER_API.storage.sync.set({ classicOldUI: value });
+	document.querySelector('.icon-classic-old-ui').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ classicOldUI: value });
 });
 
 // Toggle - Multicoloured Post Page Comment Thread Lines
-document.querySelector('#checkbox-multicoloured-comment-thread-lines').addEventListener('change', function (e) {
-	const multicolouredThreadLines = document.querySelector('#checkbox-multicoloured-comment-thread-lines').checked;
-	if (multicolouredThreadLines) {
-		document.querySelector('.icon-multicoloured-comment-thread-lines').style.backgroundColor = 'var(--accent)';
-	} else {
-		document.querySelector('.icon-multicoloured-comment-thread-lines').style.backgroundColor = '';
-	}
-	BROWSER_API.storage.sync.set({ multicolouredThreadLines: multicolouredThreadLines });
-	sendMessage({ multicolouredThreadLines: multicolouredThreadLines });
+document.querySelector('#checkbox-multicoloured-comment-thread-lines').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-multicoloured-comment-thread-lines').checked;
+	BROWSER_API.storage.sync.set({ multicolouredThreadLines: value });
+	document.querySelector('.icon-multicoloured-comment-thread-lines').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ multicolouredThreadLines: value });
 });
 
 // Input - Multicoloured Post Page Comment Thread Lines Colour List
-document.querySelector('#input-multicoloured-comment-thread-lines-colour-list').addEventListener('input', function (e) {
-	const multicolouredThreadLines = document.querySelector('#checkbox-multicoloured-comment-thread-lines').checked;
+document.querySelector('#input-multicoloured-comment-thread-lines-colour-list').addEventListener('input', () => {
+	const value = document.querySelector('#checkbox-multicoloured-comment-thread-lines').checked;
 	const list_value = document.querySelector('#input-multicoloured-comment-thread-lines-colour-list').value;
 	BROWSER_API.storage.sync.set({ multicolouredThreadLinesColours: list_value });
-	sendMessage({ multicolouredThreadLines: { multicolouredThreadLines, list_value } });
+	sendMessage({ multicolouredThreadLines: { value, list_value } });
 });
 
 // Toggle - Post Table Border Colour
-document.querySelector('#checkbox-post-table-border-colour').addEventListener('change', function (e) {
-	const themePostTableBorderColour = document.querySelector('#checkbox-post-table-border-colour').checked;
-	if (themePostTableBorderColour) {
-		BROWSER_API.storage.sync.set({ themePostTableBorderColour: true });
-		document.querySelector('.icon-post-table-border-colour').style.backgroundColor = 'var(--accent)';
-		sendMessage({ themePostTableBorderColour: true });
-	} else {
-		BROWSER_API.storage.sync.set({ themePostTableBorderColour: false });
-		document.querySelector('.icon-post-table-border-colour').style.backgroundColor = '';
-		sendMessage({ themePostTableBorderColour: false });
-	}
+document.querySelector('#checkbox-post-table-border-colour').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-post-table-border-colour').checked;
+	BROWSER_API.storage.sync.set({ themePostTableBorderColour: value });
+	document.querySelector('.icon-post-table-border-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ themePostTableBorderColour: value });
 });
 
 // Toggle - Custom Header Logo
-document.querySelector('#checkbox-custom-header-logo').addEventListener('change', function (e) {
-	const customHeaderLogo = document.querySelector('#checkbox-custom-header-logo').checked;
-	if (customHeaderLogo) {
-		BROWSER_API.storage.sync.set({ customHeaderLogo: true });
-		document.querySelector('.icon-custom-header-logo').style.backgroundColor = 'var(--accent)';
-		sendMessage({ customHeaderLogo: true });
-	} else {
-		BROWSER_API.storage.sync.set({ customHeaderLogo: false });
-		document.querySelector('.icon-custom-header-logo').style.backgroundColor = '';
-		sendMessage({ customHeaderLogo: false });
-	}
+document.querySelector('#checkbox-custom-header-logo').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-custom-header-logo').checked;
+	BROWSER_API.storage.sync.set({ customHeaderLogo: value });
+	document.querySelector('.icon-custom-header-logo').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ customHeaderLogo: value });
 });
 
 // Input - Custom Header Logo URL
-document.querySelector('#input-custom-header-logo-url').addEventListener('keyup', function (e) {
+document.querySelector('#input-custom-header-logo-url').addEventListener('keyup', () => {
 	const url = document.querySelector('#input-custom-header-logo-url').value;
 	BROWSER_API.storage.sync.set({ customHeaderLogoUrl: url });
 	sendMessage({ setCustomHeaderLogoUrl: url });
 });
 
 // Toggle - Attach Side Menu Header
-document.querySelector('#checkbox-attach-side-menu-header').addEventListener('change', function (e) {
-	const attachSideMenuHeader = document.querySelector('#checkbox-attach-side-menu-header').checked;
-	if (attachSideMenuHeader) {
-		BROWSER_API.storage.sync.set({ attachSideMenuHeader: true });
-		document.querySelector('.icon-attach-side-menu-header').style.backgroundColor = 'var(--accent)';
-		sendMessage({ attachSideMenuHeader: true });
-	} else {
-		BROWSER_API.storage.sync.set({ attachSideMenuHeader: false });
-		document.querySelector('.icon-attach-side-menu-header').style.backgroundColor = '';
-		sendMessage({ attachSideMenuHeader: false });
-	}
+document.querySelector('#checkbox-attach-side-menu-header').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-attach-side-menu-header').checked;
+	BROWSER_API.storage.sync.set({ attachSideMenuHeader: value });
+	document.querySelector('.icon-attach-side-menu-header').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ attachSideMenuHeader: value });
 });
 
 // Toggle - Opt Out Attach Side Menu
-document.querySelector('#checkbox-opt-out-attach-side-menu').addEventListener('change', function (e) {
-	const optOutAttachSideMenu = document.querySelector('#checkbox-opt-out-attach-side-menu').checked;
-	if (optOutAttachSideMenu) {
-		BROWSER_API.storage.sync.set({ optOutAttachSideMenu: true });
-		document.querySelector('.icon-opt-out-attach-side-menu').style.backgroundColor = 'var(--accent)';
-		document.querySelector('.icon-opt-out-attach-side-menu').classList.remove('icon-dropdown');
-		document.querySelector('.icon-opt-out-attach-side-menu').classList.add('icon-dropdown-slash');
-		sendMessage({ optOutAttachSideMenu: true });
-	} else {
-		BROWSER_API.storage.sync.set({ optOutAttachSideMenu: false });
-		document.querySelector('.icon-opt-out-attach-side-menu').style.backgroundColor = '';
-		document.querySelector('.icon-opt-out-attach-side-menu').classList.remove('icon-dropdown-slash');
-		document.querySelector('.icon-opt-out-attach-side-menu').classList.add('icon-dropdown');
-		sendMessage({ optOutAttachSideMenu: false });
-	}
+document.querySelector('#checkbox-opt-out-attach-side-menu').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-opt-out-attach-side-menu').checked;
+	BROWSER_API.storage.sync.set({ optOutAttachSideMenu: value });
+	const icon = document.querySelector('.icon-opt-out-attach-side-menu');
+	icon.style.backgroundColor = value === true ? 'var(--accent)' : '';
+	icon.classList.replace(value ? 'icon-dropdown' : 'icon-dropdown-slash', value ? 'icon-dropdown-slash' : 'icon-dropdown');
+	sendMessage({ optOutAttachSideMenu: value });
 });
 
 // Toggle - Left Side Vote Buttons
-document.querySelector('#checkbox-left-side-vote-buttons').addEventListener('change', function (e) {
-	const leftSideVoteButtons = document.querySelector('#checkbox-left-side-vote-buttons').checked;
-	if (leftSideVoteButtons) {
-		BROWSER_API.storage.sync.set({ leftSideVoteButtons: true });
-		document.querySelector('.icon-left-side-vote-buttons').style.backgroundColor = 'var(--accent)';
-		sendMessage({ leftSideVoteButtons: true });
-	} else {
-		BROWSER_API.storage.sync.set({ leftSideVoteButtons: false });
-		document.querySelector('.icon-left-side-vote-buttons').style.backgroundColor = '';
-		sendMessage({ leftSideVoteButtons: false });
-	}
+document.querySelector('#checkbox-left-side-vote-buttons').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-left-side-vote-buttons').checked;
+	BROWSER_API.storage.sync.set({ leftSideVoteButtons: value });
+	document.querySelector('.icon-left-side-vote-buttons').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ leftSideVoteButtons: value });
 });
 
 // Toggle - Subreddit Display Name Banner
-document.querySelector('#checkbox-subreddit-display-name-banner').addEventListener('change', function (e) {
-	const subredditDisplayNameBanner = document.querySelector('#checkbox-subreddit-display-name-banner').checked;
-	if (subredditDisplayNameBanner) {
-		BROWSER_API.storage.sync.set({ subredditDisplayNameBanner: true });
-		document.querySelector('.icon-subreddit-display-name-banner').style.backgroundColor = 'var(--accent)';
-		sendMessage({ subredditDisplayNameBanner: true });
-	} else {
-		BROWSER_API.storage.sync.set({ subredditDisplayNameBanner: false });
-		document.querySelector('.icon-subreddit-display-name-banner').style.backgroundColor = '';
-		sendMessage({ subredditDisplayNameBanner: false });
-	}
+document.querySelector('#checkbox-subreddit-display-name-banner').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-subreddit-display-name-banner').checked;
+	BROWSER_API.storage.sync.set({ subredditDisplayNameBanner: value });
+	document.querySelector('.icon-subreddit-display-name-banner').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ subredditDisplayNameBanner: value });
 });
 
 // Toggle - Right Side Post Thumbnails
-document.querySelector('#checkbox-right-side-post-thumbnails').addEventListener('change', function (e) {
-	const rightSidePostThumbnails = document.querySelector('#checkbox-right-side-post-thumbnails').checked;
-	if (rightSidePostThumbnails) {
-		BROWSER_API.storage.sync.set({ rightSidePostThumbnails: true });
-		document.querySelector('.icon-right-side-post-thumbnails').style.backgroundColor = 'var(--accent)';
-		sendMessage({ rightSidePostThumbnails: true });
-	} else {
-		BROWSER_API.storage.sync.set({ rightSidePostThumbnails: false });
-		document.querySelector('.icon-right-side-post-thumbnails').style.backgroundColor = '';
-		sendMessage({ rightSidePostThumbnails: false });
-	}
+document.querySelector('#checkbox-right-side-post-thumbnails').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-right-side-post-thumbnails').checked;
+	BROWSER_API.storage.sync.set({ rightSidePostThumbnails: value });
+	document.querySelector('.icon-right-side-post-thumbnails').style.backgroundColor = value === true ? 'var(--accent)' : '';
+	sendMessage({ rightSidePostThumbnails: value });
 });

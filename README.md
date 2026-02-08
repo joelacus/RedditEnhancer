@@ -12,10 +12,37 @@ Some features may stop working due to website updates. Please let me know if you
 I welcome any help if you would like to improve or contribute new language translations. [Completion List](#localisation)
 
 # Download
-|Firefox|Chrome|Edge|Opera|Vivaldi|
-|---|---|---|---|---|
-|<p align="center"><a href="https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/" ><img src="/icons/firefox_64x64.png"></a></p>|<p align="center"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/chrome_64x64.png"></a></p>|<p align="center"><a href="https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk"><img src="/icons/edge_64x64.png"></a></p>|<p align="center"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa" ><img src="/icons/opera_64x64.png"></a></p>|<p align="center"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa" ><img src="/icons/vivaldi_64x64.png"></a></p>|
-|[Download](https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/)|[Download](https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa)|[Download](https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk)|[Download](https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa)|[Download](https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa)|
+
+<table class="download">
+    <thead>
+        <tr>
+            <th class="cell"></th>
+            <th class="cell" colspan="5" style="text-align:center;">Chromium Based</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="cell">Firefox</td>
+            <td class="cell">Chrome</td>
+            <td class="cell">Edge</td>
+            <td class="cell">Brave</td>
+            <td class="cell">Opera</td>
+            <td class="cell">Vivaldi</td>
+        </tr>
+        <tr>
+            <td class="cell"><a href="https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/"><img src="/icons/firefox_64x64.png"></a></td>
+            <td class="cell"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/chrome_64x64.png"></a></td>
+            <td class="cell"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/edge_64x64.png"></a></td>
+            <td class="cell"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/brave_64x64.png"></a></td>
+            <td class="cell"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/opera_64x64.png"></a></td>
+            <td class="cell"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/vivaldi_64x64.png"></a></td>
+        </tr>
+        <tr>
+            <td class="cell"><a href="https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/">Download</a></td>
+            <td class="cell" colspan="5" style="text-align:center;"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa">Download</a></td>
+        </tr>
+    </tbody>
+</table>
 
 # Features
 [Redirect](#redirect) |[Block](#block) | [Resize Feed](#resize-feed-and-posts) | [Background](#background) | [Hide Elements](#hide-elements) | [Productivity](#productivity) | [Font](#font) | [Style](#style) | [Accessibility](#accessibility) | [Other](#other)
@@ -107,7 +134,9 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide The Sub Reddit Sidebar|Hides the sidebar on sub reddit pages.|3|
 |Hide The User Sidebar|Hides the sidebar on profile/user pages.|3|
 |Hide "Get App" Button|Hides the "Get App" button in the head bar.|3|
-|Hide AI in the Search Bar|Hides the new AI "Ask" button and the orange glow from the search bar, returning it to how it was before.|3|
+|Use the Original Search Bar|Hides the new AI "Ask" button and the orange glow from the search bar, returning it to how it was before.|3|
+|Hide Logo in the Search Bar|Hides the Reddit logo in the search bar.|3|
+|Replace Search Bar Placeholder|Change the "Find Anything" placeholder text in the search bar back to "Search Reddit".|3|
 |Hide Thumbnails in Compact View|Hides the thumbnails on posts when viewing a feed in compact view.|3<br>1|
 |Hide Username and/or Karma|You can hide your username and/or karma in the top bar.|1|
 |Hide username in the subreddit sidebar flair section|Hides the username and profile picture in the edit flair section of the subreddit sidebar.|3|
@@ -124,7 +153,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Add Post Numbers|Number each post to keep track of how many you have scrolled passed.|3|
 |Always Show Post and Comment Options|Moves the items in the post and comment overflow menus into the action bar of the post and comment, respectively, for quicker access. You can toggle off any buttons you don't want to see.|3|
 |Auto Collapse AutoModerator Comment|Automatically collapses the top comment made by AutoModerator.|3<br>1|
-|Auto Expand and Load More Comments|Automatically load more and expand hidden comments on a post as you scroll down the page.|3<br>1|
+|Auto Expand & Load More Comments|Automatically load more and expand hidden comments on a post as you scroll down the page. This optionally can just be applied to negative karma comments that are collapsed by default.|3<br>1|
 |Better Comment Box|Automatically enables the formatting options when commenting on posts.|3|
 |Default Comments Sort Option|Set how you want the comments to be sorted automatically when the page loads.|3<br>1|
 |Default Feed Sort Option|Set how you want the feed to be sorted automatically when the page loads.|3<br>1|
@@ -200,19 +229,19 @@ Feel free to add any new languages and/or region differences.
 |Language|Completion|
 |---|---|
 |[English](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/en/messages.json)|100%|
-|[Spanish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/es/messages.json)|100%|
-|[German](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/de/messages.json)|100%|
-|[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|100%|
-|[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|100%|
-|[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|100%|
-|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|86.0%|
-|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|74.4%|
-|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|62.2%|
-|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|62.2%|
-|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|47.3%|
-|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|31.8%|
-|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|29.8%|
-|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|25.6%|
+|[Spanish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/es/messages.json)|98.5%|
+|[German](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/de/messages.json)|98.5%|
+|[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|98.5%|
+|[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|98.5%|
+|[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|98.5%|
+|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|84.8%|
+|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|73.3%|
+|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|61.3%|
+|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|61.3%|
+|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|46.6%|
+|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|31.4%|
+|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|29.3%|
+|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|25.2%|
 
 # Build
 Clone repo and cd to build directory:

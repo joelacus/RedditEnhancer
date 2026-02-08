@@ -6,8 +6,8 @@ import { sendMessage } from '../send_message';
 
 // Toggle - Add Scrollbar To Tall Images
 document.querySelector('#checkbox-image-scroll').addEventListener('change', function (e) {
-	const imageScroll = document.querySelector('#checkbox-image-scroll').checked;
-	if (imageScroll) {
+	const value = e.target.checked;
+	if (value) {
 		// disable other image options
 		document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
 		BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
@@ -24,15 +24,15 @@ document.querySelector('#checkbox-image-scroll').addEventListener('change', func
 		document.querySelector('.icon-max-image-width').style.backgroundColor = '';
 		document.querySelector('.icon-max-image-post-height').style.backgroundColor = '';
 	}
-	document.querySelector('.icon-image-scroll').style.backgroundColor = imageScroll == true ? 'var(--accent)' : '';
-	sendMessage({ imageScroll: imageScroll });
-	BROWSER_API.storage.sync.set({ imageScroll: imageScroll });
+	document.querySelector('.icon-image-scroll').style.backgroundColor = value ? 'var(--accent)' : '';
+	sendMessage({ imageScroll: value });
+	BROWSER_API.storage.sync.set({ imageScroll: value });
 });
 
 // Toggle - Scale Post To Fit Image
 document.querySelector('#checkbox-scale-post-to-fit-image').addEventListener('change', function (e) {
-	const scalePostToFitImage = document.querySelector('#checkbox-scale-post-to-fit-image').checked;
-	if (scalePostToFitImage) {
+	const value = e.target.checked;
+	if (value) {
 		// disable other image options
 		document.querySelector('#checkbox-image-scroll').checked = false;
 		BROWSER_API.storage.sync.set({ imageScroll: false });
@@ -49,9 +49,9 @@ document.querySelector('#checkbox-scale-post-to-fit-image').addEventListener('ch
 		document.querySelector('.icon-max-image-width').style.backgroundColor = '';
 		document.querySelector('.icon-max-image-post-height').style.backgroundColor = '';
 	}
-	document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = scalePostToFitImage == true ? 'var(--accent)' : '';
-	sendMessage({ scalePostToFitImage: scalePostToFitImage });
-	BROWSER_API.storage.sync.set({ scalePostToFitImage: scalePostToFitImage });
+	document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = value ? 'var(--accent)' : '';
+	sendMessage({ scalePostToFitImage: value });
+	BROWSER_API.storage.sync.set({ scalePostToFitImage: value });
 });
 
 // Slider - Max Image Width ("Add Scrollbar To Tall Images" or "Scale Post To Fit Image" must be enabled)
@@ -138,7 +138,7 @@ document.querySelector('#checkbox-just-open-the-image').addEventListener('change
 		BROWSER_API.storage.sync.set({ justOpenTheImage: false });
 		document.querySelector('.icon-just-open-the-image').style.backgroundColor = '';
 		BROWSER_API.runtime.sendMessage({ justOpenTheImage: false });
-		if (IS_CHROME) alert("Changes will take effect after a reload or the next time you load Reddit.");
+		if (IS_CHROME) alert('Changes will take effect after a reload or the next time you load Reddit.');
 	}
 });
 
@@ -371,8 +371,8 @@ document.querySelector('#checkbox-compact-post-link-preview').addEventListener('
 
 // Toggle - Full Width Expandos
 document.querySelector('#checkbox-full-width-expandos').addEventListener('change', function (e) {
-    const fullWidthExpandos = document.querySelector('#checkbox-full-width-expandos').checked;
-    BROWSER_API.storage.sync.set({ fullWidthExpandos: fullWidthExpandos });
-    document.querySelector('.icon-full-width-expandos').style.backgroundColor = fullWidthExpandos ? 'var(--accent)' : '';
-    sendMessage({ fullWidthExpandos: fullWidthExpandos });
+	const fullWidthExpandos = document.querySelector('#checkbox-full-width-expandos').checked;
+	BROWSER_API.storage.sync.set({ fullWidthExpandos: fullWidthExpandos });
+	document.querySelector('.icon-full-width-expandos').style.backgroundColor = fullWidthExpandos ? 'var(--accent)' : '';
+	sendMessage({ fullWidthExpandos: fullWidthExpandos });
 });

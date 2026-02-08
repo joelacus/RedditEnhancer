@@ -405,13 +405,13 @@
 		"message": "коментарі публікації"
 	},
 	"PostCommentsColour": {
-		"message": "Повідомлення: Коментарі Текстовий колір"
+		"message": "Коментарі Текстовий колір"
 	},
 	"PostCommentsLimit": {
 		"message": "Обмеження публікації коментарів"
 	},
 	"PostCommentsSecondaryColour": {
-		"message": "Повідомлення: Коментарі Вторинний колір тексту"
+		"message": "Коментарі Вторинний колір тексту"
 	},
 	"PostContent": {
 		"message": "вміст публікації"

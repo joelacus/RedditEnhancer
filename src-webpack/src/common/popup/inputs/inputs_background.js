@@ -4,60 +4,52 @@ import i18next from 'i18next';
 import { sendMessage } from '../send_message';
 
 // Toggle - Background Solid Colour
-document.querySelector('#checkbox-bg-solid-colour').addEventListener('change', function () {
+document.querySelector('#checkbox-bg-solid-colour').addEventListener('change', () => {
+	const bg_solid_value = document.querySelector('#checkbox-bg-solid-colour').checked;
+	const bg_image_value = document.querySelector('#checkbox-background').checked;
+
 	// disable background image
-	if (document.querySelector('#checkbox-background').checked) {
-		document.querySelector('#checkbox-background').checked = false;
+	if (bg_image_value) {
+		bg_image_value.checked = false;
+		document.querySelector('.icon-bg-image').style.backgroundColor = '';
 		BROWSER_API.storage.sync.set({ useCustomBackground: false });
 		sendMessage({ useCustomBackground: false });
-		document.querySelector('.icon-bg-image').style.backgroundColor = '';
 	}
 
 	// enable solid colour background
-	const checkbox = document.querySelector('#checkbox-bg-solid-colour').checked;
-	const icon = document.querySelector('.icon-bg-solid-colour');
-	if (checkbox) {
-		icon.style.backgroundColor = 'var(--accent)';
-	} else {
-		icon.style.backgroundColor = '';
-	}
-	BROWSER_API.storage.sync.set({ solidColourBackground: checkbox });
-	sendMessage({ solidColourBackground: checkbox });
+	document.querySelector('.icon-bg-solid-colour').style.backgroundColor = bg_solid_value === true ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ solidColourBackground: bg_solid_value });
+	sendMessage({ solidColourBackground: bg_solid_value });
 });
 
 // Toggle - Background Image
-document.querySelector('#checkbox-background').addEventListener('change', function () {
+document.querySelector('#checkbox-background').addEventListener('change', () => {
+	const bg_solid_value = document.querySelector('#checkbox-bg-solid-colour').checked;
+	const bg_image_value = document.querySelector('#checkbox-background').checked;
+
 	// disable solid colour background
-	if (document.querySelector('#checkbox-bg-solid-colour').checked) {
-		document.querySelector('#checkbox-bg-solid-colour').checked = false;
+	if (bg_solid_value) {
+		bg_solid_value.checked = false;
+		document.querySelector('.icon-bg-solid-colour').style.backgroundColor = '';
 		BROWSER_API.storage.sync.set({ solidColourBackground: false });
 		sendMessage({ solidColourBackground: false });
-		document.querySelector('.icon-bg-solid-colour').style.backgroundColor = '';
 	}
 
 	// enable background image
-	const checkbox = document.querySelector('#checkbox-background').checked;
-	const icons = document.querySelectorAll('.icon-background');
-	if (checkbox) {
-		document.querySelector('.icon-bg-image').style.backgroundColor = 'var(--accent)';
-	} else {
-		document.querySelector('.icon-bg-image').style.backgroundColor = '';
-	}
-	BROWSER_API.storage.sync.set({ useCustomBackground: checkbox });
-	sendMessage({ useCustomBackground: checkbox });
+	document.querySelector('.icon-bg-image').style.backgroundColor = bg_image_value === true ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ useCustomBackground: bg_image_value });
+	sendMessage({ useCustomBackground: bg_image_value });
 });
 
 // Slider - Background Blur
-document.querySelector('#input-bg-blur').addEventListener('input', function (e) {
-	if (e.target.value != 0) {
-		document.querySelector('.icon-bg-blur').style.backgroundColor = 'var(--accent)';
-	} else {
-		document.querySelector('.icon-bg-blur').style.backgroundColor = '';
-	}
-	document.querySelector('#bg-blur-value').innerText = e.target.value + 'px';
+document.querySelector('#input-bg-blur').addEventListener('input', (e) => {
+	const value = e.target.value;
+	document.querySelector('.icon-bg-blur').style.backgroundColor = value != 0 ? 'var(--accent)' : '';
+	document.querySelector('#bg-blur-value').innerText = `${value}px`;
 	sendMessage({ bgBlur: e.target.value });
 });
-document.querySelector('#input-bg-blur').addEventListener('mouseup', function (e) {
+document.querySelector('#input-bg-blur').addEventListener('mouseup', (e) => {
+	// save value on mouseup to significantly reduce api writes.
 	BROWSER_API.storage.sync.set({ bgBlur: e.target.value });
 });
 
@@ -77,11 +69,11 @@ function addCustomBg(e) {
 			var timeout = 5000;
 			var timer,
 				img = new Image();
-			img.onerror = img.onabort = function () {
+			img.onerror = img.onabort = () => {
 				clearTimeout(timer);
 				reject('error');
 			};
-			img.onload = function () {
+			img.onload = () => {
 				clearTimeout(timer);
 				resolve('success');
 				BROWSER_API.storage.sync.get('customBackgrounds', function (result) {
@@ -118,14 +110,14 @@ function addCustomBg(e) {
 // Function - Add Background Thumbnail to Popup Background Library
 function addCustomBgNode(imageURL) {
 	// create background element container
-	var node = document.createElement('div');
+	const node = document.createElement('div');
 	node.setAttribute('class', 'background');
 	// add image node
-	var background_img = document.createElement('div');
+	const background_img = document.createElement('div');
 	background_img.classList.add('background-img');
 	background_img.setAttribute('style', 'background-image: url(' + imageURL + ');');
-	background_img.addEventListener('click', function (e) {
-		var url = e.target.style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
+	background_img.addEventListener('click', (e) => {
+		const url = e.target.style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
 		BROWSER_API.storage.sync.set({ customBackground: url });
 		// remove existing highlight
 		const backgrounds = document.querySelectorAll('.background-img');
@@ -149,7 +141,7 @@ function addCustomBgNode(imageURL) {
 }
 
 // Button - Edit Backgrounds
-document.querySelector('.btn-edit-backgrounds').addEventListener('click', function (e) {
+document.querySelector('.btn-edit-backgrounds').addEventListener('click', () => {
 	const btnEdit = document.querySelector('.btn-edit-backgrounds');
 	btnEdit.style.display = 'none';
 	const btnSave = document.querySelector('.btn-edit-backgrounds-save');
@@ -170,7 +162,7 @@ document.querySelector('.btn-edit-backgrounds').addEventListener('click', functi
 });
 
 // Button - Save Backgrounds
-document.querySelector('.btn-edit-backgrounds-save').addEventListener('click', function (e) {
+document.querySelector('.btn-edit-backgrounds-save').addEventListener('click', () => {
 	const btnEdit = document.querySelector('.btn-edit-backgrounds');
 	btnEdit.style.display = 'block';
 	const btnSave = document.querySelector('.btn-edit-backgrounds-save');
@@ -185,7 +177,6 @@ document.querySelector('.btn-edit-backgrounds-save').addEventListener('click', f
 	}
 	// if no custom backgrounds
 	const container = document.querySelector('#backgrounds-container');
-	console.log(container.childElementCount);
 	if (container.childElementCount === 0) {
 		const container = document.querySelector('#backgrounds-container');
 		const span = document.createElement('span');
@@ -199,7 +190,7 @@ document.querySelector('.btn-edit-backgrounds-save').addEventListener('click', f
 function addBackgroundDeleteListeners() {
 	const delete_buttons_bg = document.querySelectorAll('.btn-delete-background');
 	delete_buttons_bg.forEach(function (btn) {
-		btn.addEventListener('click', function (e) {
+		btn.addEventListener('click', (e) => {
 			// delete link from save
 			const url = e.currentTarget.previousSibling.style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
 			BROWSER_API.storage.sync.get('customBackgrounds', function (result) {
@@ -222,9 +213,9 @@ function addBackgroundDeleteListeners() {
 }
 
 // Toggle - Force Custom Background On Old UI
-document.querySelector('#checkbox-force-custom-bg-old-ui').addEventListener('change', function (e) {
-	const forceCustomBgOldUI = document.querySelector('#checkbox-force-custom-bg-old-ui').checked;
-	document.querySelector('.icon-force-custom-bg-old-ui').style.backgroundColor = forceCustomBgOldUI ? 'var(--accent)' : '';
-	BROWSER_API.storage.sync.set({ forceCustomBgOldUI: forceCustomBgOldUI });
-	sendMessage({ forceCustomBgOldUI: forceCustomBgOldUI });
+document.querySelector('#checkbox-force-custom-bg-old-ui').addEventListener('change', () => {
+	const value = document.querySelector('#checkbox-force-custom-bg-old-ui').checked;
+	BROWSER_API.storage.sync.set({ forceCustomBgOldUI: value });
+	document.querySelector('.icon-force-custom-bg-old-ui').style.backgroundColor = value ? 'var(--accent)' : '';
+	sendMessage({ forceCustomBgOldUI: value });
 });

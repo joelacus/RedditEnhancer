@@ -14,7 +14,9 @@ div.re-banner {
 	top: var(--re-non-sticky-header-bar, var(--shreddit-header-height));
 	animation: hideBanner 0.5s forwards;
 	animation-delay: 7s;
-	transition: max-height 0.5s, padding 0.5s;
+	transition:
+		max-height 0.5s,
+		padding 0.5s;
 	background-color: var(--color-banner-plain);
 	color: var(--color-banner-plain-text);
 }
@@ -97,16 +99,6 @@ shreddit-app[routename='profile_overview'] main.main {
 shreddit-app[pagetype='search_results'] main.main {
 	transform: translateX(var(--re-layout-search-page-offset));
 }
-/* DEPRECATED */
-.re-feed.re-centre-feed-1 {
-	translate: 168px;
-}
-.re-feed.re-centre-feed-2 {
-	translate: 34px;
-}
-.re-feed.re-centre-feed-3 {
-	translate: -136px;
-}
 /* Align the main container */
 shreddit-app[routename='frontpage'] main.main,
 shreddit-app[routename='all'] main.main,
@@ -151,8 +143,6 @@ div[data-testid='search-results-sidebar'] {
     :not(.multi-page): not targeting custom feeds => home, all, popular, topic
 */
 .re-hide-home-feed .listing-page.with-listing-chooser:not(.multi-page) div.content[role="main"],
-/* Old New UI */
-.re-hide-home-feed .ListingLayout-backgroundContainer + div > :last-child > :first-child,
 /* New New UI */
 .re-hide-home-feed shreddit-app[routename="frontpage"] main.main,
 .re-hide-home-feed shreddit-app[routename="all"] main.main,
@@ -160,14 +150,12 @@ div[data-testid='search-results-sidebar'] {
 .re-hide-home-feed shreddit-app[routename="topic"] main.main {
 	visibility: hidden;
 }
-/* Old New UI */
-.re-hide-home-feed .ListingLayout-backgroundContainer + div > :last-child > :first-child > *,
 /* New New UI */
-.re-hide-home-feed shreddit-app[routename="frontpage"] shreddit-feed,
-.re-hide-home-feed shreddit-app[routename="all"] shreddit-feed,
-.re-hide-home-feed shreddit-app[routename="popular"] shreddit-gallery-carousel,
-.re-hide-home-feed shreddit-app[routename="popular"] shreddit-feed,
-.re-hide-home-feed shreddit-app[routename="topic"] shreddit-feed {
+.re-hide-home-feed shreddit-app[routename='frontpage'] shreddit-feed,
+.re-hide-home-feed shreddit-app[routename='all'] shreddit-feed,
+.re-hide-home-feed shreddit-app[routename='popular'] shreddit-gallery-carousel,
+.re-hide-home-feed shreddit-app[routename='popular'] shreddit-feed,
+.re-hide-home-feed shreddit-app[routename='topic'] shreddit-feed {
 	display: none;
 }
 /* Old UI */
@@ -176,20 +164,6 @@ div[data-testid='search-results-sidebar'] {
 	visibility: visible;
 	content: "Hide Home Feed is on. Disable this feature in Reddit Enhancer's settings. (refresh to dismiss)";
 	opacity: 0.4;
-}
-/* Old New UI */
-.re-hide-home-feed .ListingLayout-backgroundContainer + div > :last-child > :first-child::before {
-	display: block;
-	visibility: visible;
-	content: "Hide Home Feed is on. Disable this feature in Reddit Enhancer's settings.";
-	font-family: 'Noto Sans', Arial, sans-serif;
-	font-size: 0.75rem;
-	text-align: center;
-	opacity: 0.4;
-	/* padding: .75rem;
-    background-color: var(--newRedditTheme-post);
-    border: 1px solid var(--newRedditTheme-widgetColors-sidebarWidgetBorderColor);
-    border-radius: 4px; */
 }
 /* New New UI */
 .re-hide-home-feed[banner] shreddit-app[routename='frontpage'] main.main::before,
@@ -554,12 +528,6 @@ shreddit-feed article:focus-within {
 .re-sidebar-sub {
 	width: 312px !important;
 }
-#overlayScrollContainer .undefined {
-	min-width: 16px;
-}
-/* [bundlename='comment_body_header'] {
-	z-index: 9;
-} */
 navigation-indicator {
 	z-index: 999 !important;
 }
@@ -588,18 +556,6 @@ div[slot='post-insights-panel'] .bg-neutral-background-container {
 aside#mod-queue-pdp-panel shreddit-post {
 	margin: 1rem 0;
 	padding: 0;
-}
-/* Vote buttons in overlayScrollContainer header on Old New UI */
-#overlayScrollContainer > :first-child div[id*='vote-arrows-'] {
-	margin-left: 7px;
-	margin-right: 1rem;
-}
-#overlayScrollContainer > :first-child div[id*='vote-arrows-']:before,
-#overlayScrollContainer > :first-child div[id*='vote-arrows-']:after {
-	display: none;
-}
-#overlayScrollContainer > :first-child div[id*='vote-arrows-'] button.voteButton ~ div {
-	padding: 0 0.4rem;
 }
 /* Multicoloured Comment Thread Lines: reset --color-tone-4 for children of shreddit-comment */
 .theme-light shreddit-comment .bg-tone-4 {
@@ -663,7 +619,9 @@ div[slot='editor-helper-text'] {
 }
 div.invisible[slot='editor-helper-text'] {
 	opacity: 0;
-	transition: opacity 1s, visibility 0s 1s;
+	transition:
+		opacity 1s,
+		visibility 0s 1s;
 }
 
 /* ========== SCROLL TEXT POST ========== */
@@ -809,7 +767,8 @@ shreddit-app[pagetype='single_comment_thread'] #main-content {
 }
 
 /* Always Show Post Options */
-shreddit-post [slot='credit-bar'] div:has(> span > span > [icon-name='notifications']) {
+shreddit-post [slot='credit-bar'] div:has(> span > span > [icon-name='notifications']),
+shreddit-post [slot='credit-bar'] div:has(> span > span > [icon-name='notifications-fill']) {
 	border-radius: var(--re-theme-border-radius);
 	padding: 4px;
 	margin-right: -4px;
@@ -819,4 +778,18 @@ shreddit-post [slot='credit-bar'] div:has(> span > span > [icon-name='notificati
 article[data-nav-selected='true'] {
 	outline: 2px solid #ff4500;
 	border-radius: var(--re-theme-border-radius, 1rem);
+}
+
+/* Fix User Hover Card Background */
+.theme-light shreddit-comment [slot='commentMeta'] {
+	--color-neutral-background: oklch(from var(--re-theme-post-bg, #ffffff) l c h / 100%);
+}
+.theme-dark shreddit-comment [slot='commentMeta'] {
+	--color-neutral-background: oklch(from var(--re-theme-post-bg, #0b1416) l c h / 100%);
+}
+.theme-light shreddit-comment rpl-hovercard {
+	--rpl-hovercard-background-color: oklch(from var(--re-theme-post-bg, #ffffff) l c h / 100%);
+}
+.theme-dark shreddit-comment rpl-hovercard {
+	--rpl-hovercard-background-color: oklch(from var(--re-theme-post-bg, #0b1416) l c h / 100%);
 }

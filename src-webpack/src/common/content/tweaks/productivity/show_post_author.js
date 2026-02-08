@@ -31,7 +31,7 @@ export function showPostAuthor(value, delay) {
 	} else {
 		// Remove all post author names and hovercards.
 		document.documentElement.classList.remove('re-post-author-active');
-		document.querySelectorAll('.re-post-author').forEach(item => item.remove());
+		document.querySelectorAll('.re-post-author').forEach((item) => item.remove());
 		observer.disconnect();
 	}
 }
@@ -44,15 +44,19 @@ export async function attachUsername(post) {
 			// Look up post ID from the URL and query post data Reddit's public API.
 			const url = post.querySelector('a')?.href;
 			if (url) {
-				const postID = "t3_" + url.match(/\/comments\/([a-z0-9]+)(?:\/|$)/i)[1] ?? null;
-				const postData = (await BROWSER_API.runtime.sendMessage({
-					actions: [
-						{
-							action: 'fetchData',
-							url: `https://www.reddit.com/api/info.json?id=${postID}`,
-						},
-					],
-				})).data.children[0].data ?? null;
+				const postID = url.match(/\/comments\/([a-z0-9]+)(?:\/|$)/i);
+				if (!postID) return;
+				const postData =
+					(
+						await BROWSER_API.runtime.sendMessage({
+							actions: [
+								{
+									action: 'fetchData',
+									url: `https://www.reddit.com/api/info.json?id=t3_${postID[1]}`,
+								},
+							],
+						})
+					).data.children[0].data ?? null;
 				author = postData.author;
 			}
 		} catch (error) {
@@ -83,7 +87,7 @@ export async function attachUsername(post) {
 		}
 		const selectors = ['[slot="credit-bar"] > span:has(faceplate-timeago)', '[slot="credit-bar"] > div', 'span:has([bundlename="faceplate_hovercard"])', '.post-credit-row > span'];
 		let container = selectors.map((selector) => post.querySelector(selector)).find((el) => el);
-		container.querySelector('faceplate-timeago').before(a);
+		if (container) container.querySelector('faceplate-timeago')?.before(a);
 	}
 }
 
@@ -110,14 +114,17 @@ async function showHoverCard(post, username) {
 	}
 
 	// Fetch user data
-	const userData = (await BROWSER_API.runtime.sendMessage({
-		actions: [
-			{
-				action: 'fetchData',
-				url: `https://www.reddit.com/user/${username}/about.json`,
-			},
-		],
-	})).data ?? null;
+	const userData =
+		(
+			await BROWSER_API.runtime.sendMessage({
+				actions: [
+					{
+						action: 'fetchData',
+						url: `https://www.reddit.com/user/${username}/about.json`,
+					},
+				],
+			})
+		).data ?? null;
 
 	// Create the hover card
 	const hoverCard = createHoverCard(userData);
@@ -129,7 +136,7 @@ async function showHoverCard(post, username) {
 	// Append the hover card to the body
 	const selectors = ['[slot="credit-bar"] > span:has(faceplate-timeago)', '[slot="credit-bar"] > div', 'span:has([bundlename="faceplate_hovercard"])'];
 	let container = selectors.map((selector) => post.querySelector(selector)).find((el) => el);
-	container.querySelector('faceplate-timeago').before(hoverCard);
+	if (container) container.querySelector('faceplate-timeago')?.before(hoverCard);
 	post.querySelector('.hover-card').style.display = 'block';
 }
 
@@ -211,7 +218,7 @@ const observer = new MutationObserver(
 				}
 			});
 		});
-	}, 100)
+	}, 100),
 );
 
 function debounce(func, wait) {

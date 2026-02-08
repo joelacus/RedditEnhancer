@@ -25,10 +25,10 @@ export function hideAiInSearch(value) {
 
 // Enable Hide AI In Search - RV3
 function enableHideAiInSearchRV3() {
-	document.querySelector('reddit-search-large').removeAttribute('show-ask-button', 'show-snoo-loading-icon');
+	document.querySelector('reddit-search-large')?.removeAttribute('show-ask-button');
 }
 
 // Disable Hide AI In Search - All
 function disableHideAiInSearchAll() {
-	document.querySelector('reddit-search-large').setAttribute('show-ask-button', 'show-snoo-loading-icon');
+	document.querySelector('reddit-search-large')?.setAttribute('show-ask-button', '');
 }

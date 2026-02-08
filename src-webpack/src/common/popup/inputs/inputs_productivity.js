@@ -3,7 +3,7 @@
 import { sendMessage } from '../send_message';
 
 // Toggle - Sticky Sort
-document.querySelector('#checkbox-sticky-sort').addEventListener('change', function (e) {
+document.querySelector('#checkbox-sticky-sort').addEventListener('change', () => {
 	var stickySort = document.querySelector('#checkbox-sticky-sort').checked;
 	if (stickySort === true) {
 		BROWSER_API.storage.sync.set({ stickySort: true });
@@ -17,7 +17,7 @@ document.querySelector('#checkbox-sticky-sort').addEventListener('change', funct
 });
 
 // Toggle - Show Scroll To Top Button In The Header
-document.querySelector('#checkbox-show-to-top-button').addEventListener('change', function (e) {
+document.querySelector('#checkbox-show-to-top-button').addEventListener('change', () => {
 	const checkbox = document.querySelector('#checkbox-show-to-top-button').checked;
 	BROWSER_API.storage.sync.set({ showToTopButton: checkbox });
 	sendMessage({ showToTopButton: checkbox });
@@ -25,7 +25,7 @@ document.querySelector('#checkbox-show-to-top-button').addEventListener('change'
 });
 
 // Toggle - Show Floating Scroll To Top Button
-document.querySelector('#checkbox-show-to-top-button-float').addEventListener('change', function (e) {
+document.querySelector('#checkbox-show-to-top-button-float').addEventListener('change', () => {
 	const checkbox = document.querySelector('#checkbox-show-to-top-button-float').checked;
 	BROWSER_API.storage.sync.set({ showToTopButtonFloat: checkbox });
 	sendMessage({ showToTopButtonFloat: checkbox });
@@ -33,7 +33,7 @@ document.querySelector('#checkbox-show-to-top-button-float').addEventListener('c
 });
 
 // Toggle - Scroll To Next/Previous Post
-document.querySelector('#checkbox-scroll-to-post').addEventListener('change', function (e) {
+document.querySelector('#checkbox-scroll-to-post').addEventListener('change', () => {
 	const checkbox = document.querySelector('#checkbox-scroll-to-post').checked;
 	BROWSER_API.storage.sync.set({ scrollToPost: checkbox });
 	sendMessage({ scrollToPost: checkbox });
@@ -41,7 +41,7 @@ document.querySelector('#checkbox-scroll-to-post').addEventListener('change', fu
 });
 
 // Toggle - Open Sub Links In New Tab
-document.querySelector('#checkbox-open-sub-new-tab').addEventListener('change', function (e) {
+document.querySelector('#checkbox-open-sub-new-tab').addEventListener('change', () => {
 	var openSubInNewTab = document.querySelector('#checkbox-open-sub-new-tab').checked;
 	if (openSubInNewTab == true) {
 		BROWSER_API.storage.sync.set({ openSubInNewTab: true });
@@ -662,24 +662,26 @@ document.querySelector('#checkbox-auto-collapse-automoderator-comment').addEvent
 
 // Toggle - Auto Load More Comments
 document.querySelector('#checkbox-auto-load-more-comments').addEventListener('change', function (e) {
-	const autoLoadMoreComments = document.querySelector('#checkbox-auto-load-more-comments').checked;
-	if (autoLoadMoreComments === true) {
-		BROWSER_API.storage.sync.set({ autoLoadMoreComments: true });
-		document.querySelector('.icon-auto-load-more-comments').style.backgroundColor = 'var(--accent)';
-		sendMessage({ autoLoadMoreComments: true });
-	} else if (autoLoadMoreComments === false) {
-		BROWSER_API.storage.sync.set({ autoLoadMoreComments: false });
-		document.querySelector('.icon-auto-load-more-comments').style.backgroundColor = '';
-		sendMessage({ autoLoadMoreComments: false });
-	}
+	const value = document.querySelector('#checkbox-auto-load-more-comments').checked;
+	BROWSER_API.storage.sync.set({ autoLoadMoreComments: value });
+	sendMessage({ autoLoadMoreComments: value });
+	document.querySelector('.icon-auto-load-more-comments').style.backgroundColor = value === true ? 'var(--accent)' : '';
+});
+
+// Toggle - Only Load Downvoted Comments
+document.querySelector('#checkbox-only-load-downvoted-comments').addEventListener('change', function (e) {
+	const value = document.querySelector('#checkbox-only-load-downvoted-comments').checked;
+	BROWSER_API.storage.sync.set({ autoLoadMoreCommentsDownvotedOnly: value });
+	sendMessage({ autoLoadMoreCommentsDownvotedOnly: value });
+	document.querySelector('.icon-only-load-downvoted-comments').style.backgroundColor = value === true ? 'var(--accent)' : '';
 });
 
 // Toggle - Better Comment Box
 document.querySelector('#checkbox-better-comment-box').addEventListener('change', function (e) {
-	const betterCommentBox = document.querySelector('#checkbox-better-comment-box').checked;
-	BROWSER_API.storage.sync.set({ betterCommentBox: betterCommentBox });
-	document.querySelector('.icon-better-comment-box').style.backgroundColor = betterCommentBox ? 'var(--accent)' : '';
-	sendMessage({ betterCommentBox: betterCommentBox });
+	const value = document.querySelector('#checkbox-better-comment-box').checked;
+	BROWSER_API.storage.sync.set({ betterCommentBox: value });
+	sendMessage({ betterCommentBox: value });
+	document.querySelector('.icon-better-comment-box').style.backgroundColor = value ? 'var(--accent)' : '';
 });
 
 // Slider - Side Menu Width
@@ -786,14 +788,6 @@ document.querySelector('#checkbox-add-mark-post-as-read-button').addEventListene
 	BROWSER_API.storage.sync.set({ markPostAsReadButton: markPostAsReadButton });
 	document.querySelector('.icon-add-mark-post-as-read-button').style.backgroundColor = markPostAsReadButton ? 'var(--accent)' : '';
 	sendMessage({ markPostAsReadButton: markPostAsReadButton });
-});
-
-// Toggle - Highlight OP
-document.querySelector('#checkbox-highlight-op').addEventListener('change', function (e) {
-	const highlightOp = document.querySelector('#checkbox-highlight-op').checked;
-	BROWSER_API.storage.sync.set({ highlightOp: highlightOp });
-	document.querySelector('.icon-highlight-op').style.backgroundColor = highlightOp ? 'var(--accent)' : '';
-	sendMessage({ highlightOp: highlightOp });
 });
 
 // Toggle - Show Member Count

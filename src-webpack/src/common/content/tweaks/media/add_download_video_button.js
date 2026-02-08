@@ -76,7 +76,7 @@ function enableAddVideoDownloadButtonRV3(post) {
 		container.appendChild(btn);
 	} else {
 		console.log(post.querySelector('shreddit-player-2')?.shadowRoot?.querySelector('video'));
-		console.log(`[Reddit Enhancer] Above video is not an mp4 video. Not adding download button.`);
+		console.log(`[RedditEnhancer] Above video is not an mp4 video. Not adding download button.`);
 	}
 }
 

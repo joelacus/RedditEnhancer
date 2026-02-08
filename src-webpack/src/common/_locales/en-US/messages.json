@@ -27,13 +27,13 @@
 		"message": "Post: Border Color"
 	},
 	"PostCommentActionRowColour": {
-		"message": "Post: Comment Action Row Color"
+		"message": "Comment Action Row Color"
 	},
 	"PostCommentsColour": {
-		"message": "Post: Comments Text Color"
+		"message": "Comments Text Color"
 	},
 	"PostCommentsSecondaryColour": {
-		"message": "Post: Comments Secondary Text Color"
+		"message": "Comments Secondary Text Color"
 	},
 	"PostContentAndCommentsLinkColour": {
 		"message": "Post: Content And Comments Link Color"
@@ -43,6 +43,9 @@
 	},
 	"PostTitleContentColour": {
 		"message": "Post: Title and Text Content Color"
+	},
+	"PostVisitedTextColour": {
+		"message": "Visited Post: Text Color"
 	},
 	"SearchbarBgColour": {
 		"message": "Searchbar: Background Color"
@@ -64,6 +67,9 @@
 	},
 	"SidebarTextColour": {
 		"message": "Sidebar: Text Color"
+	},
+	"SolidColour": {
+		"message": "Solid Color"
 	},
 	"ThemeBlacklistInfo": {
 		"message": "Use theme colors globally, except for these subreddits:"

@@ -30,7 +30,7 @@ export function init() {
 	// Detect outdated web browser versions. Some features require the :has() selector and may not work correctly.
 	if (CHECK_LEGACY_FIREFOX) {
 		if (detectFirefoxVersion()) {
-			console.log('[Reddit Enhancer] Firefox is outdated. Please update to version 121 or newer.');
+			console.log('[RedditEnhancer] Firefox is outdated. Please update to version 121 or newer.');
 		}
 	}
 

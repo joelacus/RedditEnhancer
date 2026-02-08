@@ -2,7 +2,7 @@
  * Tweaks: Productivity - Scroll to the next/previous post on keypress
  *
  * @name scrollToPost
- * @description Scroll to the next/previous post on a feed with a keypress (J, K).
+ * @description Scroll to the next/previous post on a feed with a keypress (J, K, Up Arrow, Down Arrow).
  *
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
@@ -111,27 +111,25 @@ function createKeyboardNavigator(containerSelector, elementSelector, RedditVersi
 		const elements = getElements();
 		if (elements.length === 0) return;
 
-		if (e.key === 'j' || e.key === 'J' || e.key === 'ArrowDown') {
-			e.preventDefault();
-
-			const current = findCurrentIndex(elements);
-			if (current === -1) {
-				const firstValid = findNextValidIndex(elements, 0, 1);
-				if (firstValid !== -1) scrollToElement(elements, firstValid);
-			} else {
-				const nextValid = findNextValidIndex(elements, current + 1, 1);
-				if (nextValid !== -1) scrollToElement(elements, nextValid);
-			}
-		} else if (e.key === 'k' || e.key === 'K' || e.key === 'ArrowUp') {
-			e.preventDefault();
-
-			const current = findCurrentIndex(elements);
-			if (current === -1) {
-				const firstValid = findNextValidIndex(elements, 0, 1);
-				if (firstValid !== -1) scrollToElement(elements, firstValid);
-			} else {
-				const prevValid = findNextValidIndex(elements, current - 1, -1);
-				if (prevValid !== -1) scrollToElement(elements, prevValid);
+		if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'REDDIT-SEARCH-LARGE') {
+			if (e.key === 'j' || e.key === 'J' || e.key === 'ArrowDown') {
+				const current = findCurrentIndex(elements);
+				if (current === -1) {
+					const firstValid = findNextValidIndex(elements, 0, 1);
+					if (firstValid !== -1) scrollToElement(elements, firstValid);
+				} else {
+					const nextValid = findNextValidIndex(elements, current + 1, 1);
+					if (nextValid !== -1) scrollToElement(elements, nextValid);
+				}
+			} else if (e.key === 'k' || e.key === 'K' || e.key === 'ArrowUp') {
+				const current = findCurrentIndex(elements);
+				if (current === -1) {
+					const firstValid = findNextValidIndex(elements, 0, 1);
+					if (firstValid !== -1) scrollToElement(elements, firstValid);
+				} else {
+					const prevValid = findNextValidIndex(elements, current - 1, -1);
+					if (prevValid !== -1) scrollToElement(elements, prevValid);
+				}
 			}
 		}
 	}

@@ -290,9 +290,6 @@
 	"HideAdvertiseButton": {
 		"message": "Verberg de knop “Adverteren”"
 	},
-	"HideAiInTheSearchBar": {
-		"message": "Verberg AI in de zoekbalk"
-	},
 	"HideAwards": {
 		"message": "Verberg de Awards-knop"
 	},
@@ -639,19 +636,19 @@
 		"message": "Bericht: Randkleur"
 	},
 	"PostCommentActionRowColour": {
-		"message": "Bericht: Commentaaractie rij kleur"
+		"message": "Commentaaractie rij kleur"
 	},
 	"PostComments": {
 		"message": "Berichtreacties"
 	},
 	"PostCommentsColour": {
-		"message": "Bericht: Opmerkingen Tekstkleur"
+		"message": "Opmerkingen Tekstkleur"
 	},
 	"PostCommentsLimit": {
 		"message": "Beperk reacties op berichten"
 	},
 	"PostCommentsSecondaryColour": {
-		"message": "Bericht: Opmerkingen Secundaire tekstkleur"
+		"message": "Opmerkingen Secundaire tekstkleur"
 	},
 	"PostContent": {
 		"message": "Berichtinhoud"
@@ -964,6 +961,9 @@
 	},
 	"UpvoteColour": {
 		"message": "Bericht: Upvote Kleur"
+	},
+	"UseOriginalSearchBar": {
+		"message": "Gebruik de originele zoekbalk"
 	},
 	"UserProfileOffset": {
 		"message": "Verschuiving van de gebruikersprofiel"

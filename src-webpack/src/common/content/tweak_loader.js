@@ -33,7 +33,7 @@ import { loadSidebarToggleButton } from './tweaks/hide_elements/sidebar_toggle_b
 import { loadScalePostToFitImage } from './tweaks/media/scale_post_to_fit_image';
 import { loadImageScroll } from './tweaks/media/scroll_images';
 import { loadScalePostToFitVideo } from './tweaks/media/scale_post_to_fit_video';
-import { loadFixThreadlinesForTranslucentPosts } from './tweaks/style/override_theme_colours';
+import { loadFixThreadlinesForTranslucentPosts, loadThemeAfterPageLoad } from './tweaks/style/override_theme_colours';
 import { loadMulticolouredThreadLines } from './tweaks/style/multicoloured_threadlines';
 import { loadBetterCommentBox } from './tweaks/productivity/better_comment_box';
 import { addBorderRadiusToShadowRootElements } from './tweaks/style/border_radius';
@@ -48,7 +48,6 @@ import { loadLeftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { loadViewCrossposts } from './tweaks/productivity/view_crossposts';
 import { loadMarkReadOnOpenExpandos } from './tweaks/productivity/mark_read_on_open_expandos';
 import { loadHideAwards } from './tweaks/hide_elements/hide_awards';
-import { loadHighlightOP } from './tweaks/productivity/highlight_op';
 import { loadHideBlockedUserPosts } from './tweaks/block/block_posts_by_user';
 import { loadHideBlockedLinkPosts } from './tweaks/block/block_posts_by_url';
 import { loadFullWidthExpandos } from './tweaks/media/full_width_expandos';
@@ -58,6 +57,8 @@ import { loadHideUsernameInSubSidebar } from './tweaks/hide_elements/hide_userna
 import { loadHideAiInSearch } from './tweaks/hide_elements/hide_ai_in_search';
 import { loadShowToTopButtonFloat } from './tweaks/productivity/scroll_to_top_float';
 import { loadScrollToPost } from './tweaks/productivity/scroll_to_post';
+import { loadHideLogoInSearch } from './tweaks/hide_elements/hide_logo_in_search';
+import { loadReplaceSearchPlaceholderText } from './tweaks/hide_elements/replace_search_placeholder';
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -88,6 +89,8 @@ export function loadTweaks() {
 		loadOpenSubInNewTab();
 		loadHideUsernameInSubSidebar();
 		loadHideAiInSearch();
+		loadHideLogoInSearch();
+		loadReplaceSearchPlaceholderText();
 		loadShowToTopButtonFloat();
 		loadScrollToPost();
 
@@ -175,6 +178,8 @@ export function loadTweaks() {
 					loadHideNsfwInSearchResults();
 					loadHideTrendingTodayInSearchResults();
 					loadHideAiInSearch();
+					loadHideLogoInSearch();
+					loadReplaceSearchPlaceholderText();
 				}, 1000);
 			},
 		});
@@ -237,9 +242,9 @@ export function loadTweaks() {
 					loadViewCrossposts();
 					addBorderRadiusToShadowRootElements();
 					loadAlwaysShowPostOptions();
-					loadHighlightOP();
 					loadHideAwards();
 					loadShowCommentAbsoluteTimestamp();
+					loadThemeAfterPageLoad();
 				}, 500);
 				loadLeftSideVoteButtons();
 				loadHideCommentKarma();
@@ -296,3 +301,17 @@ export function loadTweaks() {
 	}, 5000);
 }
 loadTweaks();
+
+/* 
+   Some tweaks don't run correctly until the page has fully loaded or been focused.
+   This can happen when using "open link in new tab", so load the tweaks again when
+   the tab is focused to ensure they are working.
+*/
+let focused_once = false;
+window.onfocus = function () {
+	if (!focused_once) {
+		console.log('[RedditEnhancer] Tab focused, loading tweaks again.');
+		loadTweaks();
+		focused_once = true;
+	}
+};

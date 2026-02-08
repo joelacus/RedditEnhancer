@@ -4,26 +4,19 @@ import { sendMessage } from '../send_message';
 
 // Toggle - Resize Layout
 document.querySelector('#checkbox-expand-layout').addEventListener('change', function (e) {
-	const expandLayout = document.querySelector('#checkbox-expand-layout').checked;
-	if (expandLayout === true) {
-		BROWSER_API.storage.sync.set({ expandLayout: true });
-		const icons = document.querySelectorAll('.icon-resize-elements, .icon-expand-layout, .icon-resize-width, .icon-resize-offset');
-		icons.forEach(function (icon) {
-			icon.style.backgroundColor = 'var(--accent)';
-		});
-		sendMessage({ expandLayout: true });
-	} else if (expandLayout === false) {
-		BROWSER_API.storage.sync.set({ expandLayout: false });
-		const icons = document.querySelectorAll('.icon-resize-elements, .icon-expand-layout, .icon-resize-width, .icon-resize-offset');
-		icons.forEach(function (icon) {
-			icon.style.backgroundColor = '';
-		});
+	const value = e.target.checked;
+	BROWSER_API.storage.sync.set({ expandLayout: value });
+	const icons = document.querySelectorAll('.icon-resize-elements, .icon-expand-layout, .icon-resize-width, .icon-resize-offset');
+	icons.forEach(function (icon) {
+		icon.style.backgroundColor = value ? 'var(--accent)' : '';
+	});
+	if (!value) {
+		document.querySelector('#checkbox-layout-centre').checked = false;
 		BROWSER_API.storage.sync.set({ layoutCentre: false });
 		document.querySelector('.icon-centre').style.backgroundColor = '';
-		document.querySelector('#checkbox-layout-centre').checked = false;
-		sendMessage({ expandLayout: false });
 		sendMessage({ layoutCentre: false });
 	}
+	sendMessage({ expandLayout: value });
 });
 
 // Slider - Resize Home Width
@@ -195,10 +188,10 @@ document.querySelector('#checkbox-snap-sidebar').addEventListener('change', func
 // Slider - Resize Main Container Width
 document.querySelector('#input-resize-main-container-width').addEventListener('input', function (e) {
 	document.querySelector('#resize-main-container-width-value').textContent = e.target.value + '%';
-	console.log(`Resizing main container width to ${e.target.value}%`);
+	//console.log(`[RedditEnhancer]Resizing main container width to ${e.target.value}%`);
 	sendMessage({ resizeMainContainerWidth: e.target.value });
 });
 document.querySelector('#input-resize-main-container-width').addEventListener('mouseup', function (e) {
-	console.log(`Setting main container width to ${e.target.value}%`);
+	//console.log(`[RedditEnhancer]Setting main container width to ${e.target.value}%`);
 	BROWSER_API.storage.sync.set({ resizeMainContainerWidth: e.target.value });
 });
