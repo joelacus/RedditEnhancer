@@ -13,14 +13,11 @@ I welcome any help if you would like to improve or contribute new language trans
 
 # Download
 
-<style type="text/css">
-    .download .cell{text-align:center;}
-</style>
 <table class="download">
     <thead>
         <tr>
-            <th class="cell" style="border-top-color:transparent;border-left-color:transparent;"></th>
-            <th class="cell" colspan="5">Chromium Based</th>
+            <th class="cell"></th>
+            <th class="cell" colspan="5" style="text-align:center;">Chromium Based</th>
         </tr>
     </thead>
     <tbody>
@@ -42,7 +39,7 @@ I welcome any help if you would like to improve or contribute new language trans
         </tr>
         <tr>
             <td class="cell"><a href="https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/">Download</a></td>
-            <td class="cell" colspan="5"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa">Download</a></td>
+            <td class="cell" colspan="5" style="text-align:center;"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa">Download</a></td>
         </tr>
     </tbody>
 </table>
