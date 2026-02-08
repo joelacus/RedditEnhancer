@@ -11,6 +11,7 @@ v [Latest UI V3]
   - Fixed user info hover cards having a transparent background.
   - Tweaks load again when the tab is focused for the first time to ensure they are all running. Some tweaks (notably, "Hide the favourite buttons in the side menu") fail to load correctly when using "open link in new tab".
   - Fixed a bug with the search filter not showing some search results.
+  - Fixed an issue where using the J and K keys to scroll to the next/previous post would conflict with typing those letters into the search bar.
   - Refactored some code regarding the extension popup (slightly reduced file size and improved code quality and maintainability).
 
 version 2.5.0

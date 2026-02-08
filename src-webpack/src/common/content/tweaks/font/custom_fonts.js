@@ -4,12 +4,11 @@
  * @name customFonts
  * @description Set custom fonts for Reddit interfaces. Defaults for each interface:
  *              - Old UI (2005–): Verdana, Arial, Helvetica, sans-serif;
- *              - Old New UI (2018–2024): Noto Sans for post content and comments, IBM Plex Sans for everything else;
- *              - New New UI (2023–): whatever system UI uses (Segoe UI for Windows, San Fransisco for iOS/macOS, Roboto for Android etc.)
+ *              - New New UI (2023–): whatever system UI uses (Segoe UI for Windows, San Francisco for iOS/macOS, Roboto for Android etc.)
  *
  * Notes: Currently, this function only sets sans-serif as UI font on Old UI. Other UIs may be considered later.
  *
- * Compatibility: RV1 (Old UI) (2005-)
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
 /* === Run by Tweak Loader when the Page Loads === */

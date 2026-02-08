@@ -7,13 +7,6 @@
 	font-weight: var(--re-post-title-font-weight, normal);
 	line-height: 1.4;
 }
-/* Old New UI */
-.Post [data-adclicklocation='title'] h1,
-.Post:not(.scrollerItem) [data-adclicklocation='title'] div[style*='--posttitletextcolor'] {
-	font-size: var(--re-post-title-font-size, 16px);
-	font-weight: var(--re-post-title-font-weight, 500);
-	line-height: 1.4;
-}
 /* New New UI */
 [routename='post_page'] shreddit-post a[slot='title'],
 [routename='post_page'] shreddit-post h1[slot='title'],
@@ -36,8 +29,6 @@ shreddit-post h1[slot='title'] {
 /* Post text content in detailed post view */
 /* Old UI */
 .comments-page .thing[data-type="link"] .usertext div.md,
-/* Old New UI */
-.Post [data-click-id="text"] p,
 /* New New UI */
 shreddit-post div[slot="text-body"] div.md,
 shreddit-post a[slot="text-body"] div:has(>p),
@@ -64,11 +55,6 @@ shreddit-post div[slot='text-body'] div.md h1 {
 /* Comment text content */
 /* Old UI */
 .commentarea .thing[data-type="comment"] .usertext p,
-/* Old New UI */
-.Comment [data-testid="comment"] > div,
-.Comment [data-testid="comment"] > div code,
-div[data-test-id="comment-submission-form-richtext"] div.public-DraftEditor-content[contenteditable],
-div[data-test-id="comment-submission-form-markdown"] textarea,
 /* New New UI */
 shreddit-comment div.md[slot="comment"],
 shreddit-profile-comment div.md,
@@ -79,11 +65,8 @@ shreddit-composer::part(md-inner) {
 	line-height: 1.5;
 }
 /* h1 in comments */
-/* Old New UI */
-.Comment [data-testid="comment"] > div > div,
-div[data-test-id="comment-submission-form-richtext"] div.public-DraftEditor-content[contenteditable] h1,
 /* New New UI */
-shreddit-comment div.md[slot="comment"] h1,
+shreddit-comment div.md[slot='comment'] h1,
 shreddit-profile-comment div.md h1,
 shreddit-composer div[contenteditable] h1 {
 	font-size: 1.5em;
@@ -103,12 +86,6 @@ div[data-test-id='comment-submission-form-markdown'] textarea {
 /* Post title in feed view */
 /* Old UI */
 .listing-page .thing p.title > a,
-/* Old New UI */
-.Post [data-adclicklocation="title"] h3 {
-	font-size: var(--re-feed-post-title-font-size, 16px);
-	font-weight: var(--re-feed-post-title-font-weight);
-	line-height: 1.4;
-}
 /* New New UI */
 shreddit-feed shreddit-post a[slot='title'],
 shreddit-feed shreddit-post h1[slot='title'],
@@ -155,12 +132,6 @@ shreddit-feed shreddit-post [data-post-click-location='text-body'] h1 {
 #title-field textarea {
 	font-size: var(--re-create-post-title-font-size, 18px);
 }
-/* Old New UI */
-div#AppRouter-main-content textarea[placeholder='Title'] {
-	font-size: var(--re-create-post-title-font-size, 14px);
-	line-height: 1.4;
-	height: unset !important;
-}
 /* New New UI */
 shreddit-app[pagetype='post_submit'] faceplate-textarea-input::part(title) {
 	font-size: var(--re-create-post-title-font-size, 16px) !important;
@@ -171,22 +142,6 @@ shreddit-app[pagetype='post_submit'] faceplate-textarea-input::part(title) {
 /* Old UI */
 #text-field textarea {
 	font-size: var(--re-create-post-body-font-size, 14px);
-}
-/* Old New UI */
-div:has(> div > textarea[placeholder='Title']) + div div.public-DraftEditor-content[contenteditable],
-div:has(> div > textarea[placeholder='Title']) + div textarea[placeholder='Url'],
-div#AppRouter-main-content div[data-testid='poll-creator'] input {
-	font-size: var(--re-create-post-body-font-size, 14px);
-	line-height: 1.4;
-}
-div:has(> div > textarea[placeholder='Title']) + div div.public-DraftEditor-content[contenteditable] h1 {
-	font-size: 1.5em;
-	line-height: inherit;
-}
-div:has(> div > textarea[placeholder='Title']) + div div.public-DraftEditor-content[contenteditable] h1 > div,
-div:has(> div > textarea[placeholder='Title']) + div div.public-DraftEditor-content[contenteditable] div:has(> code) {
-	font-size: inherit;
-	line-height: inherit;
 }
 /* New New UI */
 shreddit-app[pagetype='post_submit'] shreddit-composer p > span {

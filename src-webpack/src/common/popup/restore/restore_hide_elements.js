@@ -90,7 +90,7 @@ export function restorePopupHideElementsOptions() {
 		icon.style.backgroundColor = value ? 'var(--accent)' : '';
 		icon.classList.replace(value ? 'icon-show' : 'icon-hide', value ? 'icon-hide' : 'icon-show');
 		if (value) highlightMenuIcon('hide-elements');
-		console.log('Hide Vote Buttons: ' + sidebarToggleButton);
+		console.log('Hide Vote Buttons: ' + value);
 	});
 
 	// Hide Search Sidebar
@@ -125,18 +125,17 @@ export function restorePopupHideElementsOptions() {
 		if (value) highlightMenuIcon('hide-elements');
 		console.log('Hide Moderation Button: ' + value);
 	});
-	-(
-		// Hide Chat Button
-		BROWSER_API.storage.sync.get(['hideChatButton'], function (result) {
-			const value = result.hideChatButton === true;
-			document.querySelector('#checkbox-hide-chat-button').checked = value;
-			const icon = document.querySelector('.hide-chat-button');
-			icon.style.backgroundColor = value ? 'var(--accent)' : '';
-			icon.classList.replace(value ? 'icon-chat' : 'icon-chat-slash', value ? 'icon-chat-slash' : 'icon-chat');
-			if (value) highlightMenuIcon('hide-elements');
-			console.log('Hide Chat Button: ' + value);
-		})
-	);
+
+	// Hide Chat Button
+	BROWSER_API.storage.sync.get(['hideChatButton'], function (result) {
+		const value = result.hideChatButton === true;
+		document.querySelector('#checkbox-hide-chat-button').checked = value;
+		const icon = document.querySelector('.hide-chat-button');
+		icon.style.backgroundColor = value ? 'var(--accent)' : '';
+		icon.classList.replace(value ? 'icon-chat' : 'icon-chat-slash', value ? 'icon-chat-slash' : 'icon-chat');
+		if (value) highlightMenuIcon('hide-elements');
+		console.log('Hide Chat Button: ' + value);
+	});
 
 	// Hide Notification Button
 	BROWSER_API.storage.sync.get(['hideNotificationButton'], function (result) {
@@ -164,7 +163,6 @@ export function restorePopupHideElementsOptions() {
 	BROWSER_API.storage.sync.get(['hideUsername'], function (result) {
 		const value = result.hideUsername === true;
 		document.querySelector('#checkbox-hide-username').checked = value;
-		highlightMenuIcon('hide-elements');
 		const icon = document.querySelector('.hide-username');
 		icon.style.backgroundColor = value ? 'var(--accent)' : '';
 		icon.classList.replace(value ? 'icon-user' : 'icon-user-slash', value ? 'icon-user-slash' : 'icon-user');
