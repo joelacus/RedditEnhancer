@@ -12,10 +12,40 @@ Some features may stop working due to website updates. Please let me know if you
 I welcome any help if you would like to improve or contribute new language translations. [Completion List](#localisation)
 
 # Download
-|Firefox|Chrome|Edge|Opera|Vivaldi|
-|---|---|---|---|---|
-|<p align="center"><a href="https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/" ><img src="/icons/firefox_64x64.png"></a></p>|<p align="center"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/chrome_64x64.png"></a></p>|<p align="center"><a href="https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk"><img src="/icons/edge_64x64.png"></a></p>|<p align="center"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa" ><img src="/icons/opera_64x64.png"></a></p>|<p align="center"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa" ><img src="/icons/vivaldi_64x64.png"></a></p>|
-|[Download](https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/)|[Download](https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa)|[Download](https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk)|[Download](https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa)|[Download](https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa)|
+
+<style type="text/css">
+    .download .cell{text-align:center;}
+</style>
+<table class="download">
+    <thead>
+        <tr>
+            <th class="cell" style="border-top-color:transparent;border-left-color:transparent;"></th>
+            <th class="cell" colspan="5">Chromium Based</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="cell">Firefox</td>
+            <td class="cell">Chrome</td>
+            <td class="cell">Edge</td>
+            <td class="cell">Brave</td>
+            <td class="cell">Opera</td>
+            <td class="cell">Vivaldi</td>
+        </tr>
+        <tr>
+            <td class="cell"><a href="https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/"><img src="/icons/firefox_64x64.png"></a></td>
+            <td class="cell"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/chrome_64x64.png"></a></td>
+            <td class="cell"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/edge_64x64.png"></a></td>
+            <td class="cell"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/brave_64x64.png"></a></td>
+            <td class="cell"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/opera_64x64.png"></a></td>
+            <td class="cell"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/vivaldi_64x64.png"></a></td>
+        </tr>
+        <tr>
+            <td class="cell"><a href="https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/">Download</a></td>
+            <td class="cell" colspan="5"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa">Download</a></td>
+        </tr>
+    </tbody>
+</table>
 
 # Features
 [Redirect](#redirect) |[Block](#block) | [Resize Feed](#resize-feed-and-posts) | [Background](#background) | [Hide Elements](#hide-elements) | [Productivity](#productivity) | [Font](#font) | [Style](#style) | [Accessibility](#accessibility) | [Other](#other)
