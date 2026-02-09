@@ -17,29 +17,30 @@ I welcome any help if you would like to improve or contribute new language trans
     <thead>
         <tr>
             <th class="cell"></th>
-            <th class="cell" colspan="5" style="text-align:center;">Chromium Based</th>
+            <th class="cell" colspan="5">Chromium Based</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td class="cell">Firefox</td>
-            <td class="cell">Chrome</td>
             <td class="cell">Edge</td>
+            <td class="cell">Chrome</td>
             <td class="cell">Brave</td>
             <td class="cell">Opera</td>
             <td class="cell">Vivaldi</td>
         </tr>
         <tr>
             <td class="cell"><a href="https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/"><img src="/icons/firefox_64x64.png"></a></td>
+            <td class="cell"><a href="https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk"><img src="/icons/edge_64x64.png"></a></td>
             <td class="cell"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/chrome_64x64.png"></a></td>
-            <td class="cell"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/edge_64x64.png"></a></td>
             <td class="cell"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/brave_64x64.png"></a></td>
             <td class="cell"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/opera_64x64.png"></a></td>
             <td class="cell"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa"><img src="/icons/vivaldi_64x64.png"></a></td>
         </tr>
         <tr>
             <td class="cell"><a href="https://addons.mozilla.org/en-GB/firefox/addon/reddit-enhancer/">Download</a></td>
-            <td class="cell" colspan="5" style="text-align:center;"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa">Download</a></td>
+            <td class="cell"><a href="https://microsoftedge.microsoft.com/addons/detail/reddit-enhancer/cghbjpnahcbdbjokkcfibagpjdjhpdlk">Download</a></td>
+            <td class="cell" colspan="5"><a href="https://chrome.google.com/webstore/detail/reddit-enhancer/onglbklimdjicpdadjieknodkkmjldoa">Download</a></td>
         </tr>
     </tbody>
 </table>
