@@ -12,14 +12,14 @@ export function restorePopupFontOptions() {
 		let value = parseInt(result.postTitleFontSize);
 		if (value >= 10 && value <= 40) {
 			document.querySelector('#input-post-title-font-size').value = value;
-			document.querySelector('#post-title-font-size-value').innerText = value + 'px';
+			document.querySelector('#post-title-font-size-value').innerText = `${value}px`;
 			document.querySelector('.icon-post-title-font-size').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('font');
-			value = value + 'px';
+			value = `${value}px`;
 		} else {
 			document.querySelector('#input-post-title-font-size').value = 9;
 			document.querySelector('#post-title-font-size-value').innerText = '';
-			value = 'false';
+			value = 'default';
 		}
 		console.log('"Post Title" Font Size: ' + value);
 	});
@@ -29,14 +29,14 @@ export function restorePopupFontOptions() {
 		let value = parseInt(result.postContentFontSize);
 		if (value >= 10 && value <= 40) {
 			document.querySelector('#input-post-content-font-size').value = value;
-			document.querySelector('#post-content-font-size-value').innerText = value + 'px';
+			document.querySelector('#post-content-font-size-value').innerText = `${value}px`;
 			document.querySelector('.icon-post-content-font-size').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('font');
-			value = value + 'px';
+			value = `${value}px`;
 		} else {
 			document.querySelector('#input-post-content-font-size').value = 9;
 			document.querySelector('#post-content-font-size-value').innerText = '';
-			value = 'false';
+			value = 'default';
 		}
 		console.log('"Post Content" Font Size: ' + value);
 	});
@@ -46,14 +46,14 @@ export function restorePopupFontOptions() {
 		let value = parseInt(result.postCommentsFontSize);
 		if (value >= 10 && value <= 40) {
 			document.querySelector('#input-post-comments-font-size').value = value;
-			document.querySelector('#post-comments-font-size-value').innerText = value + 'px';
+			document.querySelector('#post-comments-font-size-value').innerText = `${value}px`;
 			document.querySelector('.icon-post-comments-font-size').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('font');
-			value = value + 'px';
+			value = `${value}px`;
 		} else {
 			document.querySelector('#input-post-comments-font-size').value = 9;
 			document.querySelector('#post-comments-font-size-value').innerText = '';
-			value = 'false';
+			value = 'default';
 		}
 		console.log('"Post Comments" Font Size: ' + value);
 	});
@@ -63,14 +63,14 @@ export function restorePopupFontOptions() {
 		let value = parseInt(result.feedPostTitleFontSize);
 		if (value >= 10 && value <= 40) {
 			document.querySelector('#input-feed-post-title-font-size').value = value;
-			document.querySelector('#feed-post-title-font-size-value').innerText = value + 'px';
+			document.querySelector('#feed-post-title-font-size-value').innerText = `${value}px`;
 			document.querySelector('.icon-feed-post-title-font-size').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('font');
-			value = value + 'px';
+			value = `${value}px`;
 		} else {
 			document.querySelector('#input-feed-post-title-font-size').value = 9;
 			document.querySelector('#feed-post-title-font-size-value').innerText = '';
-			value = 'false';
+			value = 'default';
 		}
 		console.log('"Feed Post Title" Font Size: ' + value);
 	});
@@ -80,14 +80,14 @@ export function restorePopupFontOptions() {
 		let value = parseInt(result.feedPostContentFontSize);
 		if (value >= 10 && value <= 40) {
 			document.querySelector('#input-feed-post-content-font-size').value = value;
-			document.querySelector('#feed-post-content-font-size-value').innerText = value + 'px';
+			document.querySelector('#feed-post-content-font-size-value').innerText = `${value}px`;
 			document.querySelector('.icon-feed-post-content-font-size').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('font');
-			value = value + 'px';
+			value = `${value}px`;
 		} else {
 			document.querySelector('#input-feed-post-content-font-size').value = 9;
 			document.querySelector('#feed-post-content-font-size-value').innerText = '';
-			value = 'false';
+			value = 'default';
 		}
 		console.log('"Feed Post Content" Font Size: ' + value);
 	});
@@ -97,14 +97,14 @@ export function restorePopupFontOptions() {
 		let value = parseInt(result.createPostTitleFontSize);
 		if (value >= 10 && value <= 40) {
 			document.querySelector('#input-create-post-title-font-size').value = value;
-			document.querySelector('#create-post-title-font-size-value').innerText = value + 'px';
+			document.querySelector('#create-post-title-font-size-value').innerText = `${value}px`;
 			document.querySelector('.icon-create-post-title-font-size').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('font');
-			value = value + 'px';
+			value = `${value}px`;
 		} else {
 			document.querySelector('#input-create-post-title-font-size').value = 9;
 			document.querySelector('#create-post-title-font-size-value').innerText = '';
-			value = 'false';
+			value = 'default';
 		}
 		console.log('"Create Post: Title" Font Size: ' + value);
 	});
@@ -114,14 +114,14 @@ export function restorePopupFontOptions() {
 		let value = parseInt(result.createPostBodyFontSize);
 		if (value >= 10 && value <= 40) {
 			document.querySelector('#input-create-post-body-font-size').value = value;
-			document.querySelector('#create-post-body-font-size-value').innerText = value + 'px';
+			document.querySelector('#create-post-body-font-size-value').innerText = `${value}px`;
 			document.querySelector('.icon-create-post-body-font-size').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('font');
-			value = value + 'px';
+			value = `${value}px`;
 		} else {
 			document.querySelector('#input-create-post-body-font-size').value = 9;
 			document.querySelector('#create-post-body-font-size-value').innerText = '';
-			value = 'false';
+			value = 'default';
 		}
 		console.log('"Create Post: Body" Font Size: ' + value);
 	});
@@ -131,16 +131,15 @@ export function restorePopupFontOptions() {
 	// "Post Title" Font Weight
 	BROWSER_API.storage.sync.get(['postTitleFontWeight'], function (result) {
 		let value = parseInt(result.postTitleFontWeight);
-		if (value >= 10 && value <= 40) {
+		if (value >= 100 && value <= 900) {
 			document.querySelector('#input-post-title-font-weight').value = value;
 			document.querySelector('#post-title-font-weight-value').innerText = value;
 			document.querySelector('.icon-post-title-font-weight').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('font');
-			value = value + 'px';
 		} else {
 			document.querySelector('#input-post-title-font-weight').value = 0;
 			document.querySelector('#post-title-font-weight-value').innerText = '';
-			value = 'false';
+			value = 'default';
 		}
 		console.log('"Post Title" Font Weight: ' + value);
 	});
@@ -148,16 +147,15 @@ export function restorePopupFontOptions() {
 	// "Post Content" Font Weight
 	BROWSER_API.storage.sync.get(['postContentFontWeight'], function (result) {
 		let value = parseInt(result.postContentFontWeight);
-		if (value >= 10 && value <= 40) {
+		if (value >= 100 && value <= 900) {
 			document.querySelector('#input-post-content-font-weight').value = value;
 			document.querySelector('#post-content-font-weight-value').innerText = value;
 			document.querySelector('.icon-post-content-font-weight').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('font');
-			value = value + 'px';
 		} else {
 			document.querySelector('#input-post-content-font-weight').value = 0;
 			document.querySelector('#post-content-font-weight-value').innerText = '';
-			value = 'false';
+			value = 'default';
 		}
 		console.log('"Post Content" Font Weight: ' + value);
 	});
@@ -165,16 +163,15 @@ export function restorePopupFontOptions() {
 	// "Post Comments" Font Weight
 	BROWSER_API.storage.sync.get(['postCommentsFontWeight'], function (result) {
 		let value = parseInt(result.postCommentsFontWeight);
-		if (value >= 10 && value <= 40) {
+		if (value >= 100 && value <= 900) {
 			document.querySelector('#input-post-comments-font-weight').value = value;
 			document.querySelector('#post-comments-font-weight-value').innerText = value;
 			document.querySelector('.icon-post-comments-font-weight').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('font');
-			value = value + 'px';
 		} else {
 			document.querySelector('#input-post-comments-font-weight').value = 0;
 			document.querySelector('#post-comments-font-weight-value').innerText = '';
-			value = 'false';
+			value = 'default';
 		}
 		console.log('"Post Comments" Font Weight: ' + value);
 	});
@@ -182,16 +179,15 @@ export function restorePopupFontOptions() {
 	// "Feed Post Title" Font Weight
 	BROWSER_API.storage.sync.get(['feedPostTitleFontWeight'], function (result) {
 		let value = parseInt(result.feedPostTitleFontWeight);
-		if (value >= 10 && value <= 40) {
+		if (value >= 100 && value <= 900) {
 			document.querySelector('#input-feed-post-title-font-weight').value = value;
 			document.querySelector('#feed-post-title-font-weight-value').innerText = value;
 			document.querySelector('.icon-feed-post-title-font-weight').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('font');
-			value = value + 'px';
 		} else {
 			document.querySelector('#input-feed-post-title-font-weight').value = 0;
 			document.querySelector('#feed-post-title-font-weight-value').innerText = '';
-			value = 'false';
+			value = 'default';
 		}
 		console.log('"Feed Post Title" Font Weight: ' + value);
 	});
@@ -199,16 +195,15 @@ export function restorePopupFontOptions() {
 	// "Feed Post Content" Font Weight
 	BROWSER_API.storage.sync.get(['feedPostContentFontWeight'], function (result) {
 		let value = result.feedPostContentFontWeight;
-		if (value >= 10 && value <= 40) {
+		if (value >= 100 && value <= 900) {
 			document.querySelector('#input-feed-post-content-font-weight').value = value;
 			document.querySelector('#feed-post-content-font-weight-value').innerText = value;
 			document.querySelector('.icon-feed-post-content-font-weight').style.backgroundColor = 'var(--accent)';
 			highlightMenuIcon('font');
-			value = value + 'px';
 		} else {
 			document.querySelector('#input-feed-post-content-font-weight').value = 0;
 			document.querySelector('#feed-post-content-font-weight-value').innerText = '';
-			value = 'false';
+			value = 'default';
 		}
 		console.log('"Feed Post Content" Font Weight: ' + value);
 	});

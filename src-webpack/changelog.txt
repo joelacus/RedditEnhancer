@@ -1,18 +1,21 @@
+version 2.6.1
+  - Minor fixes regarding font weight.
+
 version 2.6.0
+  - Refactored some code regarding the extension popup (slightly reduced file size and improved code quality and maintainability).
+  - Fixed the solid colour background option not restoring from a backup.
+  - Fixed a bug with the search filter not showing some search results.
+  - Moved theme options regarding the comments from "Style > Theme > Post" to "Style > Theme > Comments".
+  - Moved "Highlight comments from OP" to "Style > Theme > Comments".
 v [Latest UI V3]
   - Added an option to hide the Reddit logo in the search bar.
   - Added an option to change the "Find Anything" placeholder text in the search bar back to "Search Reddit".
   - Added an option to change the post title colour for followed posts in feeds.
   - Added an option for "Auto Expand & Load More Comments" to only expand downvoted/negative karma comments.
   - Added an option to change the OP comment highlight colour.
-  - Moved theme options regarding the comments from "Style > Theme > Post" to "Style > Theme > Comments".
-  - Moved "Highlight comments from OP" to "Style > Theme > Comments".
-  - Fixed the solid colour background option not restoring from a backup.
   - Fixed user info hover cards having a transparent background.
   - Tweaks load again when the tab is focused for the first time to ensure they are all running. Some tweaks (notably, "Hide the favourite buttons in the side menu") fail to load correctly when using "open link in new tab".
-  - Fixed a bug with the search filter not showing some search results.
   - Fixed an issue where using the J and K keys to scroll to the next/previous post would conflict with typing those letters into the search bar.
-  - Refactored some code regarding the extension popup (slightly reduced file size and improved code quality and maintainability).
 
 version 2.5.0
 v [Latest UI V3]

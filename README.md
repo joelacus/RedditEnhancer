@@ -17,7 +17,6 @@ I welcome any help if you would like to improve or contribute new language trans
     <thead>
         <tr>
             <th class="cell"></th>
-            <th class="cell"></th>
             <th class="cell" colspan="5">Chromium Based</th>
         </tr>
     </thead>

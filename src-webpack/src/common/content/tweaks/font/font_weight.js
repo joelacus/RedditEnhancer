@@ -21,7 +21,7 @@ export function loadPostFontWeight() {
 
 // Post Title Font Weight
 export function postTitleFontWeight(value) {
-	if (typeof value != 'undefined' && value != false && value != '9') {
+	if (typeof value !== 'undefined' && parseInt(value) !== '0') {
 		document.documentElement.style.setProperty('--re-post-title-font-weight', value);
 	} else {
 		document.documentElement.style.removeProperty('--re-post-title-font-weight');
@@ -30,7 +30,7 @@ export function postTitleFontWeight(value) {
 
 // Post Content Font Weight
 export function postContentFontWeight(value) {
-	if (typeof value != 'undefined' && value != false && value != '9') {
+	if (typeof value !== 'undefined' && parseInt(value) !== '0') {
 		document.documentElement.style.setProperty('--re-post-content-font-weight', value);
 	} else {
 		document.documentElement.style.removeProperty('--re-post-content-font-weight');
@@ -39,7 +39,7 @@ export function postContentFontWeight(value) {
 
 // Post Comments Font Weight
 export function postCommentsFontWeight(value) {
-	if (typeof value != 'undefined' && value != false && value != '9') {
+	if (typeof value !== 'undefined' && parseInt(value) !== '0') {
 		document.documentElement.style.setProperty('--re-post-comments-font-weight', value);
 	} else {
 		document.documentElement.style.removeProperty('--re-post-comments-font-weight');
@@ -48,7 +48,7 @@ export function postCommentsFontWeight(value) {
 
 // Feed Post Title Font Weight
 export function feedPostTitleFontWeight(value) {
-	if (typeof value != 'undefined' && value != false && value != '9') {
+	if (typeof value !== 'undefined' && parseInt(value) !== '0') {
 		document.documentElement.style.setProperty('--re-feed-post-title-font-weight', value);
 	} else {
 		document.documentElement.style.removeProperty('--re-feed-post-title-font-weight');
@@ -57,7 +57,7 @@ export function feedPostTitleFontWeight(value) {
 
 // Feed Post Content Font Weight
 export function feedPostContentFontWeight(value) {
-	if (typeof value != 'undefined' && value != false && value != '9') {
+	if (typeof value !== 'undefined' && parseInt(value) !== '0') {
 		document.documentElement.style.setProperty('--re-feed-post-content-font-weight', value);
 	} else {
 		document.documentElement.style.removeProperty('--re-feed-post-content-font-weight');
