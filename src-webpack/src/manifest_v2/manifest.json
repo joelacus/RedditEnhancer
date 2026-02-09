@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 
 	"name": "__MSG_extensionName__",
-	"version": "2.6.0",
+	"version": "2.6.1",
 	"description": "__MSG_extensionDescription__",
 	"author": "github.com/joelacus",
 	"default_locale": "en",
