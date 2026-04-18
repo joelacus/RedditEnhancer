@@ -62,9 +62,9 @@ I welcome any help if you would like to improve or contribute new language trans
 ## Block
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
-|Hide Post with Blocked Keywords|Hide all posts that contain a certain keyword(s).|3<br>1|
-|Hide Post by Blocked Users|Hide all posts that are created by a certain user(s).|3<br>1|
-|Hide "Link" posts by keywords in the URL|Hide all posts that contain a URL containing certain keyword(s).|3<br>1|
+|Hide Post with Blocked Keywords|Hide all posts that contain a certain keyword(s), supports regex (regular expressions).|3<br>1|
+|Hide Post by Blocked Users|Hide all posts that are created by a certain user(s), supports regex (regular expressions).|3<br>1|
+|Hide "Link" posts by keywords in the URL|Hide all posts that contain a URL containing certain keyword(s), supports regex (regular expressions).|3<br>1|
 
 ## Resize Feed and Posts
 |Feature|Description|Reddit Version Support|
@@ -124,6 +124,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide Recent Posts|Hide the recent posts section in the sidebar.|3|
 |Hide Recommended Posts|Hides recommended/suggested posts, as well as recommended sub reddits in the sidebar.|3|
 |Hide Reddit Premium|Hides the reddit premium section in the sidebar.|1|
+|Hide Related Communities|Hide the 'Related Communities' section on subreddit pages.|3|
 |Hide Side Menu|This hides the side menu on the old reddit feed.|3<br>1|
 |Hide The "Post Hidden" Message|Hides the "Post Hidden" message when you hide a post|3|
 |Hide the Favourite Buttons|Hide the favourite buttons (star icons) on subreddits in the side menu.|3|
@@ -152,10 +153,12 @@ I welcome any help if you would like to improve or contribute new language trans
 |Add a button to each post to mark it as read|Adds a button to each post to mark it as read by adding the post URL to the browser history (requires the history permission). Works with Compact and Card view posts.|3|
 |Add link to view crossposts in other subreddits|View crossposts of a post on the comments page, bringing back the "View discussions in other communities" link from "Old New UI".|3|
 |Add Post Numbers|Number each post to keep track of how many you have scrolled passed.|3|
-|Always Show Post and Comment Options|Moves the items in the post and comment overflow menus into the action bar of the post and comment, respectively, for quicker access. You can toggle off any buttons you don't want to see.|3|
+|Always Show Post Options|Moves the items in the post overflow menu into the post action bar for quicker access. You can toggle off any buttons you don't want to see.|3|
+|Always Show Comment Options|Moves the items in the comment overflow menu into the comment action bar for quicker access. You can toggle off any buttons you don't want to see.|3|
 |Auto Collapse AutoModerator Comment|Automatically collapses the top comment made by AutoModerator.|3<br>1|
 |Auto Expand & Load More Comments|Automatically load more and expand hidden comments on a post as you scroll down the page. This optionally can just be applied to negative karma comments that are collapsed by default.|3<br>1|
 |Better Comment Box|Automatically enables the formatting options when commenting on posts.|3|
+|Canned Messages|Create a list of frequently used messages/comments and copy them to the clipboard from the right click menu.|3<br>1|
 |Default Comments Sort Option|Set how you want the comments to be sorted automatically when the page loads.|3<br>1|
 |Default Feed Sort Option|Set how you want the feed to be sorted automatically when the page loads.|3<br>1|
 |Highlight comments from the original poster (OP)|On a post comment page, highlight any comments made by the original poster.|3|
@@ -197,6 +200,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Custom Header Logo|Set a custom image URL to replace the Reddit header logo.|3 <br />1|
 |Display page and user info in the header|Show username and karma in the top right of the header, and add the side menu as a dropdown menu in the header.|3|
 |Drop Shadows|This adds a drop shadow around the feed, post and other elements so that they stand out more if you use a background image, or light mode. You can also use custom CSS.|3|
+|Force Reddit Dark Mode|Force Reddit to use dark mode by replacing the theme-light class with theme-dark.|3|
 |Full Width Subreddit Banner|Stretch the subreddit banners to take the entire width of browser window.|3|
 |Hide recommended posts when video ends|Hide the end card of recommended posts when a video ends.|3|
 |Multicoloured Comment Thread Lines|Change the colours of the comment thread lines on the post page. You can set custom colours.|3|
@@ -230,19 +234,19 @@ Feel free to add any new languages and/or region differences.
 |Language|Completion|
 |---|---|
 |[English](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/en/messages.json)|100%|
-|[Spanish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/es/messages.json)|98.5%|
-|[German](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/de/messages.json)|98.5%|
-|[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|98.5%|
-|[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|98.5%|
-|[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|98.5%|
-|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|84.8%|
-|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|73.3%|
-|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|61.3%|
-|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|61.3%|
-|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|46.6%|
-|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|31.4%|
-|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|29.3%|
-|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|25.2%|
+|[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|98.3%|
+|[Spanish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/es/messages.json)|94.6%|
+|[German](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/de/messages.json)|94.6%|
+|[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|94.6%|
+|[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|94.6%|
+|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|80.5%|
+|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|69.5%|
+|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|57.96%|
+|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|57.9%|
+|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|43.8%|
+|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|29.4%|
+|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|27.1%|
+|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|23.4%|
 
 # Build
 Clone repo and cd to build directory:
@@ -254,13 +258,12 @@ Install dependencies:
 npm i
 ```
 Build for Firefox:
-```
-npm run build-m2
-```
+- development: `npm run build-dev-m2`
+- production: `npm run build-m2`
+
 Build for Chromium based browsers:
-```
-npm run build-m3
-```
+- development: `npm run build-dev-m3`
+- production: `npm run build-m3`
 
 # Privacy Policy
 Reddit Enhancer is a browser extension that provides tweaks and features for reddit.com. It is in no way officially endorsed or affiliated with Reddit in any way. 
@@ -284,8 +287,9 @@ Required Permissions:
 - Storage: Required for saving and restoring user settings. Reddit Enhancer does not have access to external storage or personal data.
 - Tabs: Necessary for communication with open tabs on reddit.com. This is essential for applying features and tweaks within the reddit.com domain. This permission may appear as "Read your browsing history", when installing the extension, but is limited to the current open tabs.
 - declarativeNetRequest: Required to redirect the user to their preferred UI if enabled. Also required to open an image directly on its own if opened in a new tab.
+- contextMenus: Required for the "Canned Messages" feature. This feature creates a submenu with frequently used messages, added by the user, to quickly copy them to the clipboard. This permission cannot be optional, but is considered a "safe" permission.
 
-Optional Permissions (for Firefox, required for Chrome (Chrome does not support optional permissions)):
+Optional Permissions:
 
 - Browser History: "Mark posts as read when opening expandos in Compact view" requires access to the browser history to add the URL of the posts in question to the history. This is so that the browser would see the post/URL as visited and the `:visited` CSS pseudo-class would be applied to the post link. Reddit Enhancer does *not* read the browser history, nor modify it in any other way. This permission can be revoked in the browser extension settings at any time (Firefox only).
 - Downloads: "Add 'Download Video' button to posts" requires this permission to download post videos to your computer. This permission can be revoked in the browser extension settings at any time (Firefox only).
@@ -302,4 +306,4 @@ Changes to This Privacy Policy:
 
 - This privacy policy may be updated to reflect changes in features or legal requirements. Users will be notified of any significant updates via the changelog.
 
-Last Updated: 28/07/2025
+Last Updated: 08/04/2026
