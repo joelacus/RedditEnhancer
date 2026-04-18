@@ -568,3 +568,19 @@
 	mask: url('../../icons/ui/up-down-solid-full.svg');
 	-webkit-mask: url('../../icons/ui/up-down-solid-full.svg');
 }
+.icon-award {
+	mask: url('../../icons/ui/icon-award.svg');
+	-webkit-mask: url('../../icons/ui/icon-award.svg');
+}
+.icon-award-slash {
+	mask: url('../../icons/ui/icon-award-slash.svg');
+	-webkit-mask: url('../../icons/ui/icon-award-slash.svg');
+}
+.icon-share {
+	mask: url('../../icons/ui/icon-share.svg');
+	-webkit-mask: url('../../icons/ui/icon-share.svg');
+}
+.icon-share-slash {
+	mask: url('../../icons/ui/icon-share-slash.svg');
+	-webkit-mask: url('../../icons/ui/icon-share-slash.svg');
+}

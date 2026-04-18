@@ -10,14 +10,16 @@
 import { showBannerMessage } from '../../banner_message';
 import { formatNumber } from '../style/old_new_ui';
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadShowMemberCount() {
 	BROWSER_API.storage.sync.get(['showMemberCount']).then((result) => {
 		if (result.showMemberCount) showMemberCount(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function showMemberCount(value) {
 	if (value) {
 		if (redditVersion === 'old') {

@@ -7,16 +7,19 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
+import { parseHtmlString } from '../../../utilities/parse_html_string';
 import { showBannerMessage } from '../../banner_message';
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadFullWidthBanner() {
 	BROWSER_API.storage.sync.get(['fullWidthBanner'], function (result) {
-		if (result.fullWidthBanner) fullWidthBanner(true);
+		if (result.fullWidthBanner === true) fullWidthBanner(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function fullWidthBanner(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableFullWidthBanner();
@@ -25,7 +28,7 @@ export function fullWidthBanner(value) {
 	}
 }
 
-// Enable Full Width BAnner - RV3
+// Enable Full Width Banner - RV3
 function enableFullWidthBanner() {
 	if (!document.head.querySelector('style[id="re-full-width-banner"]')) {
 		const styleElement = document.createElement('style');
@@ -54,7 +57,8 @@ function enableFullWidthBanner() {
 										backdrop-filter: blur(var(--re-theme-blur, 0px));
 									}
 									.masthead > section {
-										max-width: 1096px;
+										/*max-width: 1096px;*/
+										max-width: 100%;
 										margin: 0 auto;
 										padding: 0 1.5rem;
 									}
@@ -67,11 +71,11 @@ function enableFullWidthBanner() {
 	}
 }
 
-// Disable Full Width BAnner - RV3
+// Disable Full Width Banner - RV3
 function disableFullWidthBanner() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-full-width-banner"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 
@@ -84,14 +88,16 @@ function disableFullWidthBanner() {
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadCompactHeaderSideMenu() {
 	BROWSER_API.storage.sync.get(['compactHeaderSideMenu'], function (result) {
-		if (result.compactHeaderSideMenu) compactHeaderSideMenu(true);
+		if (result.compactHeaderSideMenu === true) compactHeaderSideMenu(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function compactHeaderSideMenu(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
@@ -171,7 +177,7 @@ function enableCompactHeaderSideMenu() {
 function disableCompactHeaderSideMenu() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-compact-header-side-menu"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 
@@ -191,15 +197,17 @@ function disableCompactHeaderSideMenu() {
 
 let optOutAttach;
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadAttachSideMenuHeader() {
 	BROWSER_API.storage.sync.get(['attachSideMenuHeader', 'optOutAttachSideMenu'], function (result) {
-		optOutAttachSideMenu(result.optOutAttachSideMenu);
-		attachSideMenuHeader(result.attachSideMenuHeader);
+		if (result.optOutAttachSideMenu === true) optOutAttachSideMenu(true);
+		if (result.optOutAttachSideMenu === true) attachSideMenuHeader(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function attachSideMenuHeader(value) {
 	if (redditVersion === 'newnew') {
 		value ? enableAttachSideMenuHeader() : disableAttachSideMenuHeader();
@@ -354,7 +362,7 @@ async function enableAttachSideMenuHeader() {
 function disableAttachSideMenuHeader() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-attach-side-menu-header"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	if (document.querySelector('.re-header-menu')) document.querySelector('.re-header-menu').remove();
 	if (document.querySelector('#re-user-info')) document.querySelector('#re-user-info').remove();
@@ -386,11 +394,11 @@ async function attachUserInfo() {
 		} else return;
 	}
 
-	const a = Object.assign(document.createElement('div'), {
-		id: 're-user-info',
-		innerHTML: `<abbr class="block font-semibold overflow-hidden text-ellipsis${is_suspended ? ' text-danger-content' : ''}" ${is_suspended ? 'title="Reddit suspended your account (reddit.com/appeal)"' : ''}>${username}</abbr><span class="text-neutral-content-weak">${formatNumber(karma)} karma (${link_karma} &middot; ${comment_karma})</span>`,
-		className: 'inline-block ml-2xs text-12 font-normal',
-	});
+	const a = document.createElement('div');
+	a.id = 're-user-info';
+	a.className = 'inline-block ml-2xs text-12 font-normal';
+	a.append(parseHtmlString(`<abbr class="block font-semibold overflow-hidden text-ellipsis${is_suspended ? ' text-danger-content' : ''}" ${is_suspended ? 'title="Reddit suspended your account (reddit.com/appeal)"' : ''}>${username}</abbr><span class="text-neutral-content-weak">${formatNumber(karma)} karma (${link_karma} &middot; ${comment_karma})</span>`));
+
 	document.querySelector('button#expand-user-drawer-button:not(:has(#re-user-info))')?.appendChild(a);
 	document.documentElement.style.setProperty('--re-username', "'" + username + "'");
 }
@@ -563,10 +571,9 @@ async function attachPageTitle() {
 	}
 
 	if (document.querySelector('.re-header-menu')) return;
-	const sideMenu = Object.assign(document.createElement('nav'), {
-		innerHTML: `<div class="flex items-center gap-xs px-xs h-full">${logo}<span>${title}</span></div>`,
-		className: 're-header-menu mb-0 h-[40px] mr-md text-neutral-content-strong box-border',
-	});
+	const sideMenu = document.createElement('nav');
+	sideMenu.className = 're-header-menu mb-0 h-[40px] mr-md text-neutral-content-strong box-border';
+	sideMenu.append(parseHtmlString(`<div class="flex items-center gap-xs px-xs h-full">${logo}<span>${title}</span></div>`));
 
 	// Attach the side menu to the header
 	if (!optOutAttach) attachSideMenu(sideMenu);
@@ -628,14 +635,16 @@ export function formatNumber(num) {
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadSubredditDisplayNameBanner() {
 	BROWSER_API.storage.sync.get(['subredditDisplayNameBanner'], function (result) {
-		if (result.subredditDisplayNameBanner) subredditDisplayNameBanner(true);
+		if (result.subredditDisplayNameBanner === true) subredditDisplayNameBanner(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function subredditDisplayNameBanner(value) {
 	if (redditVersion === 'newnew') {
 		if (value && window.innerWidth >= 960) {
@@ -682,7 +691,7 @@ export function subredditDisplayNameBanner(value) {
 		} else {
 			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-subreddit-display-name-banner"]');
 			dynamicStyleElements.forEach((element) => {
-				document.head.removeChild(element);
+				element.remove();
 			});
 			const title = document.querySelector('div.masthead h1');
 			if (title) title.textContent = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2];
@@ -692,7 +701,7 @@ export function subredditDisplayNameBanner(value) {
 
 export function moveSortDropdown() {
 	BROWSER_API.storage.sync.get(['fullWidthBanner'], function (result) {
-		if (result.fullWidthBanner) {
+		if (result.fullWidthBanner === true) {
 			const sortDropdown = document.querySelector('main.main > div.flex.mb-xs, div.my-xs.mx-2xs');
 			const mainContainer = document.querySelector('#subgrid-container .main-container');
 			if (sortDropdown && mainContainer && !document.querySelector('#subgrid-container > .mb-xs, #subgrid-container > .my-xs')) {

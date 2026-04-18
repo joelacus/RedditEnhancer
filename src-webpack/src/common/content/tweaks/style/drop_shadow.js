@@ -7,15 +7,17 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadDropShadow() {
 	BROWSER_API.storage.sync.get(['addDropShadow', 'overrideDropShadow'], function (result) {
-		if (result.addDropShadow) addDropShadow(true);
-		if (result.overrideDropShadow) overrideDropShadow(true);
+		if (result.addDropShadow === true) addDropShadow(true);
+		if (result.overrideDropShadow === true) overrideDropShadow(true);
 	});
 }
 
-/* === Enable/Disable The Features === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function addDropShadow(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableAddDropShadowRV3();
@@ -27,7 +29,7 @@ export function addDropShadow(value) {
 export function overrideDropShadow(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['overrideDropShadowCSS'], function (result) {
-			document.documentElement.style.setProperty('--re-shadow', result.overrideDropShadowCSS);
+			document.documentElement.style.setProperty('--re-shadow', result.overrideDropShadowCSS ?? '');
 		});
 	} else {
 		document.documentElement.style.removeProperty('--re-shadow');
@@ -63,7 +65,7 @@ function enableAddDropShadowRV3() {
 function disableAddDropShadowAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-drop-shadow"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 
@@ -71,7 +73,7 @@ function disableAddDropShadowAll() {
 export function overrideDropShadowCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['overrideDropShadow'], function (result) {
-			if (result.overrideDropShadow) {
+			if (result.overrideDropShadow === true) {
 				document.documentElement.style.setProperty('--re-shadow', value);
 			}
 		});

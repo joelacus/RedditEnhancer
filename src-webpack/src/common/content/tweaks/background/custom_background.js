@@ -7,20 +7,24 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+import { validateInt } from '../../../popup/restore/validation';
+
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadCustomBackground() {
 	BROWSER_API.storage.sync.get(['useCustomBackground'], function (result) {
-		if (result.useCustomBackground) useCustomBackground(true);
+		if (result.useCustomBackground === true) useCustomBackground(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function useCustomBackground(value) {
 	if (value) {
 		setBackgroundAndBlur();
 		if (redditVersion === 'old') {
 			BROWSER_API.storage.sync.get(['forceCustomBgOldUI', 'moderniseOldReddit'], (result) => {
-				if (result.forceCustomBgOldUI || result.moderniseOldReddit) enableUseCustomBackgroundRV1();
+				if (result.forceCustomBgOldUI === true || result.moderniseOldReddit === true) enableUseCustomBackgroundRV1();
 			});
 		} else if (redditVersion === 'newnew') {
 			enableUseCustomBackgroundRV3();
@@ -41,17 +45,13 @@ function setBackgroundAndBlur() {
 // Set Custom Background Property
 export function setCustomBackground(value) {
 	if (value !== '') {
-		document.documentElement.style.setProperty('--re-background-image', 'url("' + value + '") no-repeat center center / cover');
+		document.documentElement.style.setProperty('--re-background-image', `url("${value}") no-repeat center center / cover`);
 	}
 }
 
 // Set Background Blur Property
 export function bgBlur(value) {
-	if (value != undefined) {
-		document.documentElement.style.setProperty('--re-background-blur', value + 'px');
-	} else {
-		document.documentElement.style.setProperty('--re-background-blur', '0px');
-	}
+	document.documentElement.style.setProperty('--re-background-blur', `${validateInt(parseInt(value), 0, 30, 0)}px`);
 }
 
 // Enable Use Custom Background - RV1
@@ -160,6 +160,6 @@ function disableUseCustomBackgroundAll() {
 
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-custom-background"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

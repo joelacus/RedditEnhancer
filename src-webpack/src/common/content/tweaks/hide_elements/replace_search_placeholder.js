@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadReplaceSearchPlaceholderText() {
 	BROWSER_API.storage.sync.get(['replaceSearchPlaceholderText'], function (result) {
 		if (result.replaceSearchPlaceholderText) replaceSearchPlaceholderText(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function replaceSearchPlaceholderText(value) {
 	const routename = document.querySelector('shreddit-app')?.getAttribute('routename');
 	const feedRoutes = ['frontpage', 'popular'];
@@ -28,7 +30,7 @@ export function replaceSearchPlaceholderText(value) {
 
 // Enable Replace Search Bar Placeholder Text - RV3
 function enableReplaceSearchPlaceholderTextRV3() {
-	const input = document.querySelector('reddit-search-large').shadowRoot.querySelector('faceplate-search-input').shadowRoot.querySelector('input');
+	const input = document.querySelector('reddit-search-large')?.shadowRoot?.querySelector('faceplate-search-input')?.shadowRoot?.querySelector('input');
 	if (input) input.placeholder = 'Search Reddit';
 }
 

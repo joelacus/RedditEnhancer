@@ -1,8 +1,10 @@
-/* ===== Restore Popup UI / Background ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Restore / Background
+// ────────────────────────────────────────────────────────────────────────────
 
 import { highlightMenuIcon } from '../popup_restore';
-import { sendMessage } from '../send_message';
-import ColorPicker from '../colorpicker.js';
+import { sendMessage } from '../../utilities/send_message';
+import { validateColour, validateInt } from './validation';
 
 // Restore UI settings for "Background" options.
 
@@ -18,7 +20,8 @@ export function restorePopupBackgroundOptions() {
 
 	// Colour Picker - Solid Colour Background
 	BROWSER_API.storage.sync.get(['solidColourBackgroundCSS'], function (result) {
-		const value = result.solidColourBackgroundCSS ?? '';
+		const raw = result.solidColourBackgroundCSS ?? '';
+		const value = validateColour(raw);
 		const get_picker = colour_pickers.find((item) => item.id === 'background')?.picker;
 		get_picker.setColor(value);
 		console.log(`Solid Colour Background CSS: ${value}`);
@@ -77,16 +80,10 @@ export function restorePopupBackgroundOptions() {
 
 	// Background Blur
 	BROWSER_API.storage.sync.get(['bgBlur'], function (result) {
-		if (typeof result.bgBlur != 'undefined') {
-			document.querySelector('#input-bg-blur').value = result.bgBlur;
-			document.querySelector('#bg-blur-value').innerText = `${result.bgBlur}px`;
-			if (result.bgBlur != 0) document.querySelector('.icon-bg-blur').style.backgroundColor = 'var(--accent)';
-			var value = result.bgBlur;
-		} else {
-			document.querySelector('#input-bg-blur').value = 0;
-			document.querySelector('#bg-blur-value').innerText = '0px';
-			var value = 0;
-		}
+		const value = validateInt(parseInt(result.bgBlur), 0, 30, 0);
+		document.querySelector('#input-bg-blur').value = value;
+		document.querySelector('#bg-blur-value').innerText = `${value}px`;
+		document.querySelector('.icon-bg-blur').style.backgroundColor = value !== 0 ? 'var(--accent)' : '';
 		console.log(`Background Blur: ${value}px`);
 	});
 

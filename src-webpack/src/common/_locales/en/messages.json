@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "2.6.1"
+		"message": "3.0.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -18,7 +18,7 @@
 		"message": "Add 'Download Video' button to video posts"
 	},
 	"AddDownloadVideoButtonInfo": {
-		"message": "This currently only supports mp4 URLs, not m3u8, so some video posts won't have the download button :/"
+		"message": "May not work for all videos."
 	},
 	"AddMarkPostAsReadButton": {
 		"message": "Add a button to each post in Compact view to mark it as read"
@@ -29,11 +29,17 @@
 	"AddSpoilerTag": {
 		"message": "Add spoiler tag"
 	},
-	"AlwaysShowPostAndCommentOptions": {
-		"message": "Always Show Post and Comment Options"
+	"AlwaysShowCommentOptions": {
+		"message": "Always Show Comment Options"
 	},
-	"AlwaysShowPostAndCommentOptionsInfo": {
-		"message": "Move the buttons from the post and comment overflow menus into the post and comment action bars, respectively."
+	"AlwaysShowCommentOptionsInfo": {
+		"message": "Move the buttons from the comment overflow menu into the comment action bar."
+	},
+	"AlwaysShowPostOptions": {
+		"message": "Always Show Post Options"
+	},
+	"AlwaysShowPostOptionsInfo": {
+		"message": "Move the buttons from the post overflow menu into the post action bar."
 	},
 	"AttachSideMenuHeader": {
 		"message": "Display page and user info in header"
@@ -56,11 +62,17 @@
 	"AutoLoadMoreCommentsInfo": {
 		"message": "This may cause the page to slow down and use a lot of RAM, especially if there are a lot of comments."
 	},
+	"Award": {
+		"message": "Award"
+	},
 	"Background": {
 		"message": "Background"
 	},
 	"Backup": {
 		"message": "Backup"
+	},
+	"BackupFailed": {
+		"message": "Something went wrong. Check the dev console (F12) for the error."
 	},
 	"BackupRestoreConfig": {
 		"message": "Backup/Restore Config"
@@ -98,6 +110,9 @@
 	"Block": {
 		"message": "Block"
 	},
+	"BlockInfo": {
+		"message": "Supports exact keyword match, or regular expressions."
+	},
 	"Blur": {
 		"message": "Blur"
 	},
@@ -118,6 +133,12 @@
 	},
 	"BuyMeACoffee": {
 		"message": "Buy Me A Coffee"
+	},
+	"CannedMessages": {
+		"message": "Canned Messages"
+	},
+	"CannedMessagesInfo": {
+		"message": "Add a new message per returned line. Right click anywhere on a Reddit page to select canned messages from the context menu and copy it to the clipboard."
 	},
 	"Centre": {
 		"message": "Centre"
@@ -212,6 +233,9 @@
 	"DropShadow": {
 		"message": "Drop Shadow"
 	},
+	"Edit": {
+		"message": "Edit"
+	},
 	"EditPost": {
 		"message": "Edit post"
 	},
@@ -242,6 +266,9 @@
 	"FilterOptionsFor": {
 		"message": "Filter Options For"
 	},
+	"FollowComment": {
+		"message": "Follow Comment"
+	},
 	"FollowPost": {
 		"message": "Follow Post"
 	},
@@ -259,6 +286,9 @@
 	},
 	"ForceCustomBgOldUIInfo": {
 		"message": "Custom Background only works on Old UI with Modernise Old Reddit enabled. Toggle this on will force Custom Background on the UI (not recommended)."
+	},
+	"ForceDarkMode": {
+		"message": "Force Reddit Dark Mode"
 	},
 	"FullWidthBanner": {
 		"message": "Full Width Subreddit Banner"
@@ -304,6 +334,9 @@
 	},
 	"HideChatButton": {
 		"message": "Hide the 'Chat' Button"
+	},
+	"HideCommentActionBarButtonsInfo": {
+		"message": "Hide buttons from comment action bar"
 	},
 	"HideCommentKarma": {
 		"message": "Hide Comment Karma"
@@ -413,6 +446,9 @@
 	"HideRedditPremium": {
 		"message": "Hide 'Reddit Premium'"
 	},
+	"HideRelatedCommunities": {
+		"message": "Hide Related Communities"
+	},
 	"HideRelatedPosts": {
 		"message": "Hide Related Posts"
 	},
@@ -484,6 +520,9 @@
 	},
 	"HighlightOp": {
 		"message": "Highlight comments from original poster (OP)"
+	},
+	"HomeFeed": {
+		"message": "Home Feed"
 	},
 	"HomeFeedOffset": {
 		"message": "Home Feed Offset"
@@ -626,9 +665,6 @@
 	"Other": {
 		"message": "Other"
 	},
-	"PleaseWait": {
-		"message": "Please Wait"
-	},
 	"PositionHorizontally": {
 		"message": "Position Horizontally"
 	},
@@ -726,13 +762,16 @@
 		"message": "Replace Videos with Links on Feeds"
 	},
 	"ReplacePostVideosWithLinksInfo": {
-		"message": "Only works with mp4 and gif. m3u8 videos may be difficult to play in other players."
+		"message": "May not work for all videos."
 	},
 	"ReplaceSearchPlaceholder": {
 		"message": "Replace the Search Bar Placeholder"
 	},
 	"ReplaceSearchPlaceholderInfo": {
 		"message": "Replace \"Find anything\" with \"Search Reddit\"."
+	},
+	"ReplyNotifications": {
+		"message": "Reply Notifications"
 	},
 	"Report": {
 		"message": "Report"
@@ -766,12 +805,6 @@
 	},
 	"RestoreConfigTitle": {
 		"message": "Restore Reddit Enhancer Backup Config"
-	},
-	"RestoreInfo1": {
-		"message": "Restoring"
-	},
-	"RestoreInfo2": {
-		"message": "items. Browser API limit is 120 per minute. Please leave this tab/window open for another minute."
 	},
 	"RightSidePostThumbnails": {
 		"message": "Show Post Thumbnails on the Right Side"
@@ -832,6 +865,9 @@
 	},
 	"Settings": {
 		"message": "Settings"
+	},
+	"Share": {
+		"message": "Share"
 	},
 	"ShowCommentAbsoluteTimestamp": {
 		"message": "Show Absolute Timestamps On Comments"
@@ -919,6 +955,9 @@
 	},
 	"SubFeedWidth": {
 		"message": "Sub Feed Width"
+	},
+	"SubHeaderBgColour": {
+		"message": "Sub Header Background Colour"
 	},
 	"Subreddit": {
 		"message": "Subreddit"

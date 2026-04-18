@@ -12,14 +12,16 @@
 
 import { showBannerMessage } from '../../banner_message';
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadBetterCommentBox() {
 	BROWSER_API.storage.sync.get(['betterCommentBox'], function (result) {
 		if (result.betterCommentBox) betterCommentBox(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function betterCommentBox(value) {
 	if (redditVersion !== 'newnew' || !value || !window.location.pathname.includes('/comments/')) return;
 

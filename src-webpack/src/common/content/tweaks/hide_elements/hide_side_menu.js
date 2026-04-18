@@ -9,7 +9,8 @@
 
 import { loadSideMenuWidth } from '../resize_elements/side_menu_width';
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideSideMenuOld() {
 	BROWSER_API.storage.sync.get(['hideSideMenuOld'], function (result) {
 		if (result.hideSideMenuOld) hideSideMenuOld(true);
@@ -22,7 +23,7 @@ export function loadHideSideMenu() {
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 /* = Hide Side Menu - RV1 = */
 export function hideSideMenuOld(value) {
@@ -47,7 +48,7 @@ function enableHideSideMenuRV1() {
 function disableHideSideMenuRV1() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-side-menu-old"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 
@@ -96,7 +97,7 @@ function disableHideSideMenuNewNew() {
 	document.querySelector('html').classList.remove('re-hide-side-menu');
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	document.documentElement.style.removeProperty('--re-side-menu-width');
 	loadSideMenuWidth();

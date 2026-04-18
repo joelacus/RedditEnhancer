@@ -1,4 +1,6 @@
-/* ===== Popup / Functions / Init Top Category Menu ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Functions / Init Top Category Menu
+// ────────────────────────────────────────────────────────────────────────────
 
 import { initTopCategoryMenuAccordion } from './accordion';
 
@@ -36,7 +38,7 @@ export function initTopCategoryMenu() {
 				const item = menuItems[i];
 				if (!item.classList.contains('hidden')) {
 					const vdivider = item.querySelector('.vdivider');
-					vdivider.remove();
+					if (vdivider) vdivider.remove();
 					break;
 				}
 			}

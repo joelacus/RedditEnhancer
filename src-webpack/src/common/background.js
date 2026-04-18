@@ -1,4 +1,6 @@
-/* ===== Background script ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Background script
+// ────────────────────────────────────────────────────────────────────────────
 
 //import { darkModeTimeCalc } from './content/tweaks/dark_mode/dark_mode_time_calc';
 
@@ -33,16 +35,14 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 		BROWSER_API.storage.sync.set({ scrollToTopFloatPosition: { x: pos.x, y: pos.y } });
 	} else if (request.restore) {
 		const json = Object.values(request)[0];
-		for (const [key, value] of Object.entries(json)) {
-			BROWSER_API.storage.sync
-				.set({ [key]: value })
-				.then(() => {
-					sendResponse({ success: true, message: 'Data stored successfully' });
-				})
-				.catch((error) => {
-					sendResponse({ success: false, message: 'Error storing data' });
-				});
-		}
+		BROWSER_API.storage.sync
+			.set(json)
+			.then(() => {
+				sendResponse({ success: true, message: 'All data stored successfully' });
+			})
+			.catch((error) => {
+				sendResponse({ success: false, message: 'Error storing data', error: error.message });
+			});
 		return true;
 	} else if (request.openOptionsPage === true) {
 		BROWSER_API.tabs.create({ url: `options.html` }, function (tab) {});
@@ -81,7 +81,7 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 						} else {
 							console.log(`${timestamp()} - Downloading video: ${action.filename} - ${action.url}`);
 						}
-					}
+					},
 				);
 			}
 		}
@@ -163,7 +163,16 @@ function fetchText(url, sendResponse) {
 	fetch(url)
 		.then((response) => {
 			if (!response.ok) {
-				throw new Error(`HTTP error! Status: ${response.status}`);
+				// Handle specific HTTP error codes with user-friendly messages
+				if (response.status === 403) {
+					throw new Error('Access forbidden: You seem to be rate-limited by the server.');
+				} else if (response.status === 404) {
+					throw new Error('The requested resource was not found (404).');
+				} else if (response.status >= 500) {
+					throw new Error(`Server error (${response.status}). Please try again later.`);
+				} else {
+					throw new Error(`HTTP error! Status: ${response.status}`);
+				}
 			}
 			return response.text();
 		})
@@ -172,12 +181,48 @@ function fetchText(url, sendResponse) {
 		})
 		.catch((error) => {
 			console.error('Error fetching the text file:', error);
-			sendResponse({ success: false, error: error.message });
+
+			let userMessage;
+			// Check for network/CORS errors (TypeError)
+			if (error instanceof TypeError) {
+				// Chrome-specific network error message
+				if (error.message === 'NetworkError when attempting to fetch resource.') {
+					userMessage = 'Cannot retrieve data. The server appears to be unreachable.';
+				} else {
+					// Generic network/CORS error
+					userMessage = 'Cannot retrieve data due to a network error or CORS restriction.';
+				}
+			} else {
+				// Use the error message from thrown errors (HTTP errors) or the error's message
+				userMessage = error.message || String(error);
+			}
+
+			sendResponse({ success: false, error: userMessage });
 		});
 }
 
 /* ===== Rules ===== */
-let options = { enableRulesetIds: [], disableRulesetIds: [] };
+
+// ===== Race Condition Prevention =====
+// A global promise queue that serializes all ruleset updates.
+// Without this, concurrent calls to addImageRules(), removeImageRules(), and
+// updateRedirectRuleset() could interleave and corrupt the ruleset state due to
+// the read-modify-write pattern when accessing storage.
+// Each queued operation completes fully before the next one begins, ensuring
+// atomicity and preventing lost updates.
+let rulesetQueue = Promise.resolve();
+
+/**
+ * Queues a ruleset update operation to run serially.
+ * @param {Function} updateFn - An async function that performs the update
+ * @returns {Promise} The promise for the queued operation
+ */
+function queueRulesetUpdate(updateFn) {
+	rulesetQueue = rulesetQueue.then(updateFn).catch((error) => {
+		console.error(`${timestamp()} - Ruleset update error:`, error);
+	});
+	return rulesetQueue;
+}
 
 /* ===== Just Open The Image ===== */
 
@@ -190,24 +235,7 @@ BROWSER_API.storage.sync.get(['justOpenTheImage'], function (result) {
 
 // Enable
 function enableJustOpenTheImage() {
-	if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
-		BROWSER_API.permissions.contains(
-			{
-				permissions: ['webRequest', 'webRequestBlocking'],
-				origins: ['*://*.redd.it/*'],
-			},
-			(result) => {
-				if (result) {
-					BROWSER_API.webRequest.onBeforeRequest.addListener(redirectToImageUrl, { urls: ['*://www.reddit.com/media*'], types: ['main_frame'] }, ['blocking']);
-					BROWSER_API.webRequest.onBeforeSendHeaders.addListener(modifyHeader, { urls: ['*://*.redd.it/*'] }, ['blocking', 'requestHeaders']);
-				} else {
-					console.log('Optional permissions not granted');
-				}
-			}
-		);
-	} else if (BROWSER_API.runtime.getManifest().manifest_version === 3) {
-		addImageRules();
-	}
+	addImageRules();
 }
 
 // Disable
@@ -224,7 +252,21 @@ function disableJustOpenTheImage() {
 function redirectToImageUrl(details) {
 	const url = new URL(details.url);
 	const imageURL = url.searchParams.get('url');
-	if (imageURL) return { redirectUrl: imageURL };
+	if (imageURL) {
+		// Security: Validate that the redirect target is a trusted Reddit domain
+		try {
+			const targetUrl = new URL(imageURL);
+			const hostname = targetUrl.hostname;
+			// Only allow redirects to *.redd.it domains
+			if (hostname === 'redd.it' || hostname.endsWith('.redd.it')) {
+				return { redirectUrl: imageURL };
+			}
+			// Invalid target - do not redirect
+			console.warn(`${timestamp()} - Blocked redirect to untrusted domain: ${hostname}`);
+		} catch (e) {
+			console.error(`${timestamp()} - Invalid URL in redirect: ${imageURL}`);
+		}
+	}
 }
 function modifyHeader(details) {
 	const acceptHeaderIndex = details.requestHeaders.findIndex((header) => header.name.toLowerCase() === 'accept');
@@ -235,32 +277,50 @@ function modifyHeader(details) {
 }
 
 // Manifest V3
+/**
+ * Disables the image_ruleset.
+ * Uses the queue to ensure atomic read-modify-write and prevent race conditions.
+ */
 function removeImageRules() {
-	const rule = options.enableRulesetIds.indexOf('image_ruleset');
-	if (rule > -1) {
-		options.enableRulesetIds.splice(rule, 1);
-	}
-	options.disableRulesetIds.push('image_ruleset');
-	BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
+	return queueRulesetUpdate(async () => {
+		// Read current state from storage (source of truth)
+		const { enableRulesetIds: enable = [], disableRulesetIds: disable = [] } = await BROWSER_API.storage.sync.get(['enableRulesetIds', 'disableRulesetIds']);
+
+		// Compute new state: remove from enable, add to disable (avoiding duplicates)
+		const newEnable = enable.filter((id) => id !== 'image_ruleset');
+		const newDisable = [...new Set([...disable, 'image_ruleset'])];
+
+		// Persist new state and update DNR
+		await BROWSER_API.storage.sync.set({ enableRulesetIds: newEnable, disableRulesetIds: newDisable });
+		await BROWSER_API.declarativeNetRequest.updateEnabledRulesets({
+			enableRulesetIds: newEnable,
+			disableRulesetIds: newDisable,
+		});
 		console.log('Remove image ruleset');
 	});
 }
 
+/**
+ * Enables the image_ruleset.
+ * Uses the queue to ensure atomic read-modify-write and prevent race conditions.
+ */
 function addImageRules() {
-	const rule = options.disableRulesetIds.indexOf('image_ruleset');
-	if (rule > -1) {
-		options.disableRulesetIds.splice(rule, 1);
-	}
-	options.enableRulesetIds.push('image_ruleset');
-	BROWSER_API.declarativeNetRequest
-		.updateEnabledRulesets(options)
-		.then(() => {
-			console.log(`${timestamp()} - Add image ruleset`);
-			//reload_tabs();
-		})
-		.catch((error) => {
-			console.error(`${timestamp()} - Error updating rules:`, error);
+	return queueRulesetUpdate(async () => {
+		// Read current state from storage (source of truth)
+		const { enableRulesetIds: enable = [], disableRulesetIds: disable = [] } = await BROWSER_API.storage.sync.get(['enableRulesetIds', 'disableRulesetIds']);
+
+		// Compute new state: add to enable, remove from disable (avoiding duplicates)
+		const newDisable = disable.filter((id) => id !== 'image_ruleset');
+		const newEnable = [...new Set([...enable, 'image_ruleset'])];
+
+		// Persist new state and update DNR
+		await BROWSER_API.storage.sync.set({ enableRulesetIds: newEnable, disableRulesetIds: newDisable });
+		await BROWSER_API.declarativeNetRequest.updateEnabledRulesets({
+			enableRulesetIds: newEnable,
+			disableRulesetIds: newDisable,
 		});
+		console.log(`${timestamp()} - Add image ruleset`);
+	});
 }
 
 /* ===== Redirect To Preferred UI ===== */
@@ -272,23 +332,168 @@ BROWSER_API.runtime.onStartup.addListener(() => {
 	});
 });
 
-// Update Redirect Ruleset
+/**
+ * Updates the redirect ruleset based on user preference (old/newnew/disabled).
+ * Uses the queue to ensure atomic read-modify-write and prevent race conditions.
+ * Preserves the image_ruleset state if it was previously enabled/disabled.
+ * @param {string} version - 'old', 'newnew', or any other value to disable redirects
+ */
 function updateRedirectRuleset(version) {
-	if (version === 'old') {
-		options = { enableRulesetIds: ['rv1_ruleset'], disableRulesetIds: ['rv3_ruleset'] };
-		BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
-			console.log(`${timestamp()} - Switching to RV1 (Old) redirect ruleset`);
-		});
-	} else if (version === 'newnew') {
-		options = { enableRulesetIds: ['rv3_ruleset'], disableRulesetIds: ['rv1_ruleset'] };
-		BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
-			console.log(`${timestamp()} - Switching to RV3 (Latest) redirect ruleset`);
-		});
-	} else {
-		options = { enableRulesetIds: [], disableRulesetIds: ['rv1_ruleset', 'rv3_ruleset'] };
+	return queueRulesetUpdate(async () => {
+		// Read current state from storage (source of truth)
+		const { enableRulesetIds: currentEnable = [], disableRulesetIds: currentDisable = [] } = await BROWSER_API.storage.sync.get(['enableRulesetIds', 'disableRulesetIds']);
 
-		BROWSER_API.declarativeNetRequest.updateEnabledRulesets(options).then(() => {
+		// Determine the new redirect ruleset configuration
+		let newEnable, newDisable;
+
+		if (version === 'old') {
+			newEnable = ['rv1_ruleset'];
+			newDisable = ['rv3_ruleset'];
+		} else if (version === 'newnew') {
+			newEnable = ['rv3_ruleset'];
+			newDisable = ['rv1_ruleset'];
+		} else {
+			// Disable both redirect rulesets
+			newEnable = [];
+			newDisable = ['rv1_ruleset', 'rv3_ruleset'];
+		}
+
+		// Preserve image_ruleset if it was previously enabled/disabled
+		// This ensures the "Just Open The Image" feature isn't affected by redirect changes
+		if (currentEnable.includes('image_ruleset') && !newEnable.includes('image_ruleset')) {
+			newEnable.push('image_ruleset');
+		}
+		if (currentDisable.includes('image_ruleset') && !newDisable.includes('image_ruleset')) {
+			newDisable.push('image_ruleset');
+		}
+
+		// Persist new state and update DNR
+		await BROWSER_API.storage.sync.set({ enableRulesetIds: newEnable, disableRulesetIds: newDisable });
+		await BROWSER_API.declarativeNetRequest.updateEnabledRulesets({
+			enableRulesetIds: newEnable,
+			disableRulesetIds: newDisable,
+		});
+
+		// Log the action
+		if (version === 'old') {
+			console.log(`${timestamp()} - Switching to RV1 (Old) redirect ruleset`);
+		} else if (version === 'newnew') {
+			console.log(`${timestamp()} - Switching to RV3 (Latest) redirect ruleset`);
+		} else {
 			console.log(`${timestamp()} - Removed RV1 (Old) and RV3 (Latest) rulesets`);
+		}
+	});
+}
+
+/* ===== Canned Messages Context Menu ===== */
+
+// Create context menu items for canned messages
+function createCannedMessagesMenu() {
+	console.log(`${timestamp()} - Creating canned messages context menu`);
+	// Check if feature is enabled first
+	BROWSER_API.storage.sync.get(['cannedMessages'], function (result) {
+		if (!result.cannedMessages) {
+			console.log(`${timestamp()} - Canned messages feature disabled, skipping context menu creation`);
+			// Remove any existing menu items
+			BROWSER_API.contextMenus.removeAll(() => {});
+			return;
+		}
+
+		// Remove existing menu items first
+		BROWSER_API.contextMenus.removeAll(() => {
+			// Get canned messages from storage
+			BROWSER_API.storage.sync.get(['cannedMessagesList'], function (result) {
+				const messages = result.cannedMessagesList ?? '';
+				const messageArray = messages.split('\n').filter((msg) => msg.trim() !== '');
+
+				if (messageArray.length === 0) {
+					// Create a disabled placeholder if no messages
+					BROWSER_API.contextMenus.create({
+						id: 'canned-messages-empty',
+						title: 'Canned Messages (none defined)',
+						contexts: ['all'],
+						enabled: false,
+					});
+					console.log(`${timestamp()} - Created empty canned messages menu placeholder`);
+					return;
+				}
+
+				// Create parent menu
+				BROWSER_API.contextMenus.create({
+					id: 'canned-messages-parent',
+					title: 'Canned Messages',
+					contexts: ['all'],
+				});
+
+				// Create child items for each message
+				messageArray.forEach((message, index) => {
+					const title = message.length > 60 ? message.substring(0, 60) + '...' : message;
+					BROWSER_API.contextMenus.create({
+						id: `canned-message-${index}`,
+						parentId: 'canned-messages-parent',
+						title: title,
+						contexts: ['all'],
+					});
+				});
+				console.log(`${timestamp()} - Created canned messages menu with ${messageArray.length} items`);
+			});
+		});
+	});
+}
+
+// Update context menu when canned messages list changes
+function updateCannedMessagesMenu() {
+	console.log(`${timestamp()} - Updating canned messages context menu`);
+	createCannedMessagesMenu();
+}
+
+// Remove context menu items
+function removeCannedMessagesMenu() {
+	BROWSER_API.contextMenus.removeAll();
+}
+
+// Listen for context menu clicks
+BROWSER_API.contextMenus.onClicked.addListener((info, tab) => {
+	console.log(`${timestamp()} - Context menu clicked:`, info.menuItemId);
+	if (info.menuItemId.startsWith('canned-message-')) {
+		const index = parseInt(info.menuItemId.replace('canned-message-', ''), 10);
+
+		BROWSER_API.storage.sync.get(['cannedMessagesList'], function (result) {
+			const messages = result.cannedMessagesList ?? '';
+			const messageArray = messages.split('\n').filter((msg) => msg.trim() !== '');
+			const message = messageArray[index];
+
+			if (message && tab?.id) {
+				// Send message to content script to copy and show notification
+				BROWSER_API.tabs
+					.sendMessage(tab.id, {
+						action: 'copyCannedMessage',
+						message: message,
+					})
+					.catch((err) => {
+						console.error(`${timestamp()} - Failed to send message to content script:`, err);
+					});
+			}
 		});
 	}
-}
+});
+
+// Initialise context menu immediately (service worker may not trigger onStartup on reload)
+createCannedMessagesMenu();
+
+// Also create menu on install/update
+BROWSER_API.runtime.onInstalled.addListener(() => {
+	createCannedMessagesMenu();
+});
+
+// Create menu when extension starts
+BROWSER_API.runtime.onStartup.addListener(() => {
+	createCannedMessagesMenu();
+});
+
+// Listen for changes to cannedMessagesList or cannedMessages to update the menu
+BROWSER_API.storage.onChanged.addListener((changes, namespace) => {
+	if (changes.cannedMessagesList || changes.cannedMessages) {
+		updateCannedMessagesMenu();
+	}
+});

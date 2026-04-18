@@ -6,7 +6,7 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
 // Theme Exception
 export function loadCustomTheme() {
@@ -52,7 +52,7 @@ function loadTheme() {
 	});
 
 	// Add theme styles while the page is still loading.
-	BROWSER_API.storage.sync.get(['themeHeaderBackgroundColour', 'themeHeaderTextColour', 'themePostBackgroundColour', 'themePostBorderColour', 'themePostCommentsTextColour1', 'themePostCommentsTextColour2', 'themePostContentAndCommentsLinkColour', 'themePostTextColour1', 'themePostTextColour1CSS', 'themeCodeBlockColourCSS', 'themePostTextColour2', 'themePostFollowedTextColour', 'themePostVisitedTextColour', 'themeSearchbarBgColour', 'themeSearchbarBorderColour', 'themeSearchbarDropdownBgColour', 'themeSidebarBgColour', 'themeSidebarTextColour', 'themeSidemenuBgColour', 'themeSidemenuButtonHoverColour', 'themeSidemenuTextColour', 'themePostUpvoteColour', 'themePostCommentActionRowColour', 'themePostCommentActionRowColourCSS', 'themePostTableBorderColour'], function (result) {
+	BROWSER_API.storage.sync.get(['themeHeaderBackgroundColour', 'themeHeaderTextColour', 'themePostBackgroundColour', 'themePostBorderColour', 'themePostCommentsTextColour1', 'themePostCommentsTextColour2', 'themePostContentAndCommentsLinkColour', 'themePostTextColour1', 'themePostTextColour1CSS', 'themeCodeBlockColourCSS', 'themePostTextColour2', 'themePostFollowedTextColour', 'themePostVisitedTextColour', 'themeSearchbarBgColour', 'themeSearchbarBorderColour', 'themeSearchbarDropdownBgColour', 'themeSidebarBgColour', 'themeSidebarTextColour', 'themeSidemenuBgColour', 'themeSidemenuButtonHoverColour', 'themeSidemenuTextColour', 'themePostUpvoteColour', 'themePostCommentActionRowColour', 'themePostCommentActionRowColourCSS', 'themePostTableBorderColour', 'themeSubHeaderBackgroundColour'], function (result) {
 		themeHeaderBackgroundColour(result.themeHeaderBackgroundColour);
 		themeHeaderTextColour(result.themeHeaderTextColour);
 		themePostBackgroundColour(result.themePostBackgroundColour);
@@ -78,6 +78,7 @@ function loadTheme() {
 		themePostUpvoteColour(result.themePostUpvoteColour);
 		themePostCommentActionRowColour(result.themePostCommentActionRowColour);
 		themePostCommentActionRowColourCSS(result.themePostCommentActionRowColourCSS);
+		themeSubHeaderBackgroundColour(result.themeSubHeaderBackgroundColour);
 	});
 }
 
@@ -103,6 +104,7 @@ function removeTheme() {
 	document.documentElement.style.removeProperty('--re-theme-post-visited-text');
 	document.documentElement.style.removeProperty('--re-theme-post-text-2');
 	document.documentElement.style.removeProperty('--re-theme-post-border');
+	document.documentElement.style.removeProperty('--re-theme-sub-header-bg');
 	// remove stylesheets
 	const dynamicStyleElements = document.querySelectorAll(
 		`style[id="re-theme-header-bg-colour"],
@@ -115,14 +117,15 @@ function removeTheme() {
 		style[id="re-theme-post-text-colour"],
 		style[id="re-theme-post-visited-text-colour"],
 		style[id="re-theme-post-text-colour-2"],
-		style[id="re-theme-post-border-colour"]`,
+		style[id="re-theme-post-border-colour"],
+		style[id="re-theme-sub-header-bg-colour"]`,
 	);
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 
-/* === Enable/Disable The Features === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 // Header Background Colour
 export function themeHeaderBackgroundColour(value) {
@@ -173,7 +176,7 @@ export function themeHeaderBackgroundColour(value) {
 		document.documentElement.style.removeProperty('--re-theme-header-bg');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-header-bg-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -215,7 +218,7 @@ export function themeHeaderTextColour(value) {
 		document.documentElement.style.removeProperty('--re-theme-header-text');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-header-text-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -225,6 +228,53 @@ export function themeHeaderTextColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themeHeaderTextColour'], function (result) {
 			if (result.themeHeaderTextColour) document.documentElement.style.setProperty('--re-theme-header-text', value);
+		});
+	}
+}
+
+// Sub Header Background Colour
+export function themeSubHeaderBackgroundColour(value) {
+	if (redditVersion === 'newnew' && value) {
+		BROWSER_API.storage.sync.get(['themeSubHeaderBackgroundColourCSS'], function (result) {
+			if (typeof result.themeSubHeaderBackgroundColourCSS !== 'undefined' && result.themeSubHeaderBackgroundColourCSS !== 'undefined') {
+				document.documentElement.style.setProperty('--re-theme-sub-header-bg', result.themeSubHeaderBackgroundColourCSS);
+			}
+		});
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-theme-sub-header-bg-colour';
+		styleElement.textContent = `.re-full-width-banner .masthead {
+										background: none !important;
+									}
+									.masthead section,
+									#subreddit-banner-img,
+									div:has(>[bundlename="shreddit_sort_dropdown"]) {
+										background-color: var(--re-theme-sub-header-bg) !important;
+									}
+									div.masthead:has(#subreddit-banner-img[class*="image:var"]) section{
+										padding-top: 8px !important;
+									}
+									div.masthead:not(:has(#subreddit-banner-img[class*="image:var"])) section{
+										margin-top: 0 !important;
+									}
+									div.masthead:not(:has(#subreddit-banner-img[class*="image:var"])) #subreddit-banner-img {
+										border-bottom-left-radius: 0 !important;
+										border-bottom-right-radius: 0 !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	} else {
+		document.documentElement.style.removeProperty('--re-theme-sub-header-bg');
+		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-sub-header-bg-colour"]');
+		dynamicStyleElements.forEach((element) => {
+			element.remove();
+		});
+	}
+}
+
+// Sub Header Background Colour CSS
+export function themeSubHeaderBackgroundColourCSS(value) {
+	if (redditVersion === 'newnew') {
+		BROWSER_API.storage.sync.get(['themeSubHeaderBackgroundColour'], function (result) {
+			if (result.themeSubHeaderBackgroundColour) document.documentElement.style.setProperty('--re-theme-sub-header-bg', value);
 		});
 	}
 }
@@ -255,7 +305,8 @@ export function themePostBackgroundColour(value) {
 									[routename="post_page"] main.main,
 									shreddit-app[pagetype="post_submit"] #post-submit-form section,
 									community-highlight-carousel,
-									.subgrid-container > .masthead {
+									.subgrid-container > .masthead,
+									shreddit-profile-comment {
 										backdrop-filter: blur(var(--re-theme-blur)) !important;
 									}
 									shreddit-feed article,
@@ -335,17 +386,21 @@ export function themePostBackgroundColour(value) {
 									shreddit-app[routename^='profile_'] a[href="/settings/profile/#visibility"] {
 										background-color: var(--re-theme-post-bg) !important;
 										--color-neutral-background-hover: color-mix(in srgb, var(--re-theme-post-bg), #000 10%) !important;
+										backdrop-filter: blur(var(--re-theme-blur)) !important
 									}
 									[routename="post_page"] shreddit-post #pdp-credit-bar,
 									[view-context="CommentsPage"] #pdp-credit-bar {
 										background: transparent !important;
+									}
+									community-recommendation {
+										background: var(--re-theme-post-bg);
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else {
 		document.documentElement.style.removeProperty('--re-theme-post-bg');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-post-bg-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -422,7 +477,7 @@ function fixThreadlinesForTranslucentPosts() {
 function undoFixThreadlinesForTranslucentPosts() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-fix-comment-threadline"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	document.querySelectorAll('shreddit-comment').forEach((comment) => {
 		const main_thread = comment.shadowRoot.querySelector('[data-testid="main-thread-line"]');
@@ -464,7 +519,7 @@ export function themePostTextColour1(value) {
 		document.documentElement.style.removeProperty('--re-theme-post-text');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-post-text-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -507,7 +562,7 @@ export function themePostTableBorderColour(on) {
 	} else {
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-post-table-border-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -548,7 +603,7 @@ export function themePostCommentsTextColour1(value) {
 		document.documentElement.style.removeProperty('--re-theme-post-comments-text');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-post-comments-text-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -585,7 +640,7 @@ export function themePostCommentsTextColour2(value) {
 		document.documentElement.style.removeProperty('--re-theme-post-comments-text-2');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-post-comments-text-2-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -616,7 +671,7 @@ export function themePostFollowedTextColour(value) {
 	} else {
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-post-followed-text-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 		document.documentElement.style.removeProperty('--re-theme-post-followed-text');
 	}
@@ -650,7 +705,7 @@ export function themePostVisitedTextColour(value) {
 	} else {
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-post-visited-text-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 		document.documentElement.style.removeProperty('--re-theme-post-visited-text');
 	}
@@ -702,7 +757,7 @@ export function themePostTextColour2(value) {
 		document.documentElement.style.removeProperty('--re-theme-post-text-2');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-post-text-colour-2"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -738,7 +793,7 @@ export function themePostBorderColour(value) {
 		document.documentElement.style.removeProperty('--re-theme-post-border');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-post-border-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -785,7 +840,7 @@ export function themeSidebarTextColour(value) {
 		document.documentElement.style.removeProperty('--re-theme-sidebar-text');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-sidebar-text-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -818,7 +873,8 @@ export function themeSidebarBgColour(value) {
 									#right-sidebar-container achievements-entrypoint::part(achievements-entrypoint),
 									#right-sidebar-contents aside shreddit-subreddit-header,
 									shreddit-app:not([pagetype="popular"]) #right-sidebar-contents aside > div > div,
-									shreddit-app[pagetype="popular"] #right-sidebar-contents aside aside {
+									shreddit-app[pagetype="popular"] #right-sidebar-contents aside aside,
+									#right-sidebar-contents aside {
 										backdrop-filter: blur(var(--re-theme-blur));
 									}
 									.theme-dark #right-sidebar-container .button {
@@ -839,7 +895,7 @@ export function themeSidebarBgColour(value) {
 		document.documentElement.style.removeProperty('--re-theme-sidebar-bg');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-sidebar-bg-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -873,7 +929,7 @@ export function themeSidemenuTextColour(value) {
 		document.documentElement.style.removeProperty('--re-theme-sidemenu-text');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-sidemenu-text-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -908,7 +964,7 @@ export function themeSidemenuBgColour(value) {
 		document.documentElement.style.removeProperty('--re-theme-sidemenu-bg');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-sidemenu-bg-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -948,7 +1004,7 @@ export function themeSidemenuButtonHoverColour(value) {
 		document.documentElement.style.removeProperty('--re-theme-sidemenu-bg');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-sidemenu-btn-hover-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -983,7 +1039,7 @@ export function themePostContentAndCommentsLinkColour(value) {
 		document.documentElement.style.removeProperty('--re-theme-post-content-and-comments-link');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-post-content-and-comments-link-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -1019,7 +1075,7 @@ export function themeSearchbarBgColour(value) {
 		document.documentElement.style.removeProperty('--re-theme-searchbar-bg');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-searchbar-bg-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -1050,7 +1106,7 @@ export function themeSearchbarBgColourCSS(value) {
 		document.documentElement.style.removeProperty('--re-theme-searchbar-border');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-searchbar-border-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -1083,7 +1139,7 @@ export function themeSearchbarDropdownBgColour(value) {
 		document.documentElement.style.removeProperty('--re-theme-searchbar-dropdown-bg');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-searchbar-dropdown-bg-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -1115,7 +1171,7 @@ export function themePostUpvoteColour(value) {
 		document.documentElement.style.removeProperty('--re-theme-post-upvote-colour');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-post-upvote-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -1149,7 +1205,7 @@ export function themePostCommentActionRowColour(value) {
 		document.documentElement.style.removeProperty('--re-theme-post-comment-action-row-colour');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-post-comment-action-row-colour"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }

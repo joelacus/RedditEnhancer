@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadSideMenuIconsOnly() {
 	BROWSER_API.storage.sync.get(['sideMenuIconsOnly'], function (result) {
 		if (result.sideMenuIconsOnly) sideMenuIconsOnly(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function sideMenuIconsOnly(value) {
 	if (redditVersion === 'newnew' && value) {
 		// stylesheet 1
@@ -192,7 +194,7 @@ function enableSideMenuIconsOnly() {
 function disableSideMenuIconsOnly() {
 	const styleElement1 = document.head.querySelectorAll('style[id="re-side-menu-icons-only-1"]');
 	styleElement1.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	const styleElement2Parent = document.querySelector('left-nav-communities-controller').shadowRoot.querySelector('left-nav-community-item');
 	styleElement2Parent.querySelectorAll('style[id="re-side-menu-icons-only-2"]').forEach((element) => {

@@ -7,14 +7,16 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideNSFW() {
 	BROWSER_API.storage.sync.get(['hideNSFW'], function (result) {
 		if (result.hideNSFW) hideNSFW(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideNSFW(value) {
 	if (redditVersion === 'old' && value) {
 		enableHideNsfwPostsRV1();
@@ -54,6 +56,6 @@ function enableHideNsfwPostsRV3() {
 function disableHideNsfwPostsAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-nsfw-posts"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

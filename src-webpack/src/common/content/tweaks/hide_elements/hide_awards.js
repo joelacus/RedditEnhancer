@@ -12,15 +12,22 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 import { showBannerMessage } from '../../banner_message';
+import { registerMutationCallback, unregisterMutationCallback } from '../../observer_manager';
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideAwards() {
 	BROWSER_API.storage.sync.get(['hideAwards']).then(function (result) {
 		if (result.hideAwards) hideAwards(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup functions for the observers
+let postObserverCleanup = null;
+let commentObserverCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideAwards(value) {
 	if (value && redditVersion === 'newnew') {
 		// Go nuclear and remove all award dialog handler scripts
@@ -36,19 +43,56 @@ export function hideAwards(value) {
 
 		// Observe the feed for new posts and remove their award buttons
 		const feed = document.querySelector('shreddit-feed');
-		if (feed) postObserver.observe(feed, { childList: true });
+		if (feed) {
+			postObserverCleanup = registerMutationCallback(
+				feed,
+				(mutations) => {
+					mutations.forEach((mutation) => {
+						mutation.addedNodes.forEach((addedNode) => {
+							if (['TIME', 'ARTICLE', 'DIV', 'SPAN', 'FACEPLATE-PARTIAL', 'FACEPLATE-LOADER', 'SHREDDIT-COMMENT'].includes(addedNode.nodeName)) {
+								setTimeout(() => {
+									document.querySelectorAll('shreddit-post').forEach(removeAwardBtn);
+								}, 1000);
+							}
+						});
+					});
+				},
+				{ childList: true },
+				'hideAwards',
+			);
+		}
 
 		// Observe comments for award highlights and remove them
 		const commentTree = document.querySelector('shreddit-comment-tree');
 		if (commentTree) {
-			postObserver.observe(commentTree, { childList: true });
-			commentObserver.observe(commentTree);
+			commentObserverCleanup = registerMutationCallback(
+				commentTree,
+				(mutations) => {
+					mutations.forEach((mutation) => {
+						mutation.addedNodes.forEach((addedNode) => {
+							if (['TIME', 'ARTICLE', 'DIV', 'SPAN', 'FACEPLATE-PARTIAL', 'FACEPLATE-LOADER', 'SHREDDIT-COMMENT'].includes(addedNode.nodeName)) {
+								setTimeout(() => {
+									commentTree.querySelectorAll('shreddit-comment[award-count]').forEach(removeCommentAwardHighlight);
+								}, 1000);
+							}
+						});
+					});
+				},
+				{ childList: true },
+				'hideAwards',
+			);
 		}
 	} else {
 		// Remove the CSS class that hides award buttons and disconnect the observer
 		document.documentElement.classList.remove('re-hide-awards');
-		postObserver.disconnect();
-		commentObserver.disconnect();
+		if (postObserverCleanup) {
+			postObserverCleanup();
+			postObserverCleanup = null;
+		}
+		if (commentObserverCleanup) {
+			commentObserverCleanup();
+			commentObserverCleanup = null;
+		}
 		showBannerMessage('info', '[RedditEnhancer] Please refresh the page for the changes to take effect.');
 	}
 }
@@ -64,33 +108,4 @@ function removeAwardBtn(post) {
 
 function removeCommentAwardHighlight(comment) {
 	comment.removeAttribute('award-count');
-}
-
-// Observe feed for new posts
-const postObserver = new MutationObserver(
-	debounce(function (mutations) {
-		mutations.forEach(function (mutation) {
-			mutation.addedNodes.forEach(function (addedNode) {
-				if (['TIME', 'ARTICLE', 'DIV', 'SPAN', 'FACEPLATE-PARTIAL', 'FACEPLATE-LOADER', 'SHREDDIT-COMMENT'].includes(addedNode.nodeName)) {
-					document.querySelectorAll('shreddit-post').forEach(removeAwardBtn);
-				}
-			});
-		});
-	}, 100)
-);
-
-const commentObserver = new ResizeObserver(
-	debounce(function (mutations) {
-		mutations.forEach(function (mutation) {
-			mutation.target.querySelectorAll('shreddit-comment[award-count]').forEach(removeCommentAwardHighlight);
-		});
-	}, 100)
-);
-
-function debounce(func, wait) {
-	let timeout;
-	return function (...args) {
-		clearTimeout(timeout);
-		timeout = setTimeout(() => func.apply(this, args), wait);
-	};
 }

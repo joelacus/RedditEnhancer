@@ -1,10 +1,12 @@
-/* ===== Inputs / Search Filter ===== */
-
-/*  Filter all the options in the extension when the user types in the search box.
-    It will use the option label text to match against the search input, so will work in the supported languages.
-	Additional query words the user might search for, but may not contained within the option label text, currently only supports English.
-	See popup.html/options.html for elements/options with the "data-query-words" attribute.
-*/
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Inputs / Search Filter
+//
+// Filter all the options in the extension when the user types in the search box.
+// It will use the option label text to match against the search input, so will work in the supported languages.
+// Additional query words the user might search for, but may not contained within the option label text, currently only supports English.
+// See popup.html/options.html for elements/options with the "data-query-words" attribute.
+//
+// ────────────────────────────────────────────────────────────────────────────
 
 const Fuse = require('fuse.js');
 const fuzzyOptions = {
@@ -28,7 +30,6 @@ function search_filter() {
 				// Get the option label text and add it to the query words.
 				element.querySelectorAll('[data-lang]').forEach((el) => {
 					option_query_words_str = [option_query_words_str, el.textContent || el.innerText].join(' ').trim().replace(':', '');
-					if (el.dataset.lang === 'HideHomeFeed') console.log(option_query_words_str);
 				});
 
 				// Turn the string into an array, removing double or more spaces.

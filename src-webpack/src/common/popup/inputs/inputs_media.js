@@ -1,13 +1,14 @@
-/* ===== Inputs / Media Tweaks ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Inputs / Media Tweaks
+// ────────────────────────────────────────────────────────────────────────────
 
-import { sendMessage } from '../send_message';
+import { sendMessage } from '../../utilities/send_message';
 
-/* = Images = */
+// ─── Images ─────────────────────────────────────────────────────────────────
 
 // Toggle - Add Scrollbar To Tall Images
-document.querySelector('#checkbox-image-scroll').addEventListener('change', function (e) {
-	const value = e.target.checked;
-	if (value) {
+document.querySelector('#checkbox-image-scroll').addEventListener('change', function () {
+	if (this.checked) {
 		// disable other image options
 		document.querySelector('#checkbox-scale-post-to-fit-image').checked = false;
 		BROWSER_API.storage.sync.set({ scalePostToFitImage: false });
@@ -24,15 +25,14 @@ document.querySelector('#checkbox-image-scroll').addEventListener('change', func
 		document.querySelector('.icon-max-image-width').style.backgroundColor = '';
 		document.querySelector('.icon-max-image-post-height').style.backgroundColor = '';
 	}
-	document.querySelector('.icon-image-scroll').style.backgroundColor = value ? 'var(--accent)' : '';
-	sendMessage({ imageScroll: value });
-	BROWSER_API.storage.sync.set({ imageScroll: value });
+	BROWSER_API.storage.sync.set({ imageScroll: this.checked });
+	sendMessage({ imageScroll: this.checked });
+	document.querySelector('.icon-image-scroll').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });
 
 // Toggle - Scale Post To Fit Image
-document.querySelector('#checkbox-scale-post-to-fit-image').addEventListener('change', function (e) {
-	const value = e.target.checked;
-	if (value) {
+document.querySelector('#checkbox-scale-post-to-fit-image').addEventListener('change', function () {
+	if (this.checked) {
 		// disable other image options
 		document.querySelector('#checkbox-image-scroll').checked = false;
 		BROWSER_API.storage.sync.set({ imageScroll: false });
@@ -49,51 +49,47 @@ document.querySelector('#checkbox-scale-post-to-fit-image').addEventListener('ch
 		document.querySelector('.icon-max-image-width').style.backgroundColor = '';
 		document.querySelector('.icon-max-image-post-height').style.backgroundColor = '';
 	}
-	document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = value ? 'var(--accent)' : '';
-	sendMessage({ scalePostToFitImage: value });
-	BROWSER_API.storage.sync.set({ scalePostToFitImage: value });
+	BROWSER_API.storage.sync.set({ scalePostToFitImage: this.checked });
+	sendMessage({ scalePostToFitImage: this.checked });
+	document.querySelector('.icon-scale-post-to-fit-image').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });
 
 // Slider - Max Image Width ("Add Scrollbar To Tall Images" or "Scale Post To Fit Image" must be enabled)
-document.querySelector('#input-max-image-width').addEventListener('input', function (e) {
-	const value = e.target.value;
+document.querySelector('#input-max-image-width').addEventListener('input', function () {
 	const imageScrollValue = document.querySelector('#checkbox-image-scroll').checked;
 	const scalePostToFitImageValue = document.querySelector('#checkbox-scale-post-to-fit-image').checked;
-	const maxImageWidth = document.querySelector('#max-image-width-value');
 	if (imageScrollValue || scalePostToFitImageValue) {
-		document.querySelector('.icon-max-image-width').style.backgroundColor = value != 9 ? 'var(--accent)' : '';
+		document.querySelector('.icon-max-image-width').style.backgroundColor = this.value != 9 ? 'var(--accent)' : '';
 	}
-	maxImageWidth.textContent = value != 9 ? `${value}%` : '100%';
-	sendMessage({ setMaxImageWidth: value });
+	sendMessage({ setMaxImageWidth: this.value });
+	document.querySelector('#max-image-width-value').textContent = this.value != 9 ? `${this.value}%` : '100%';
 });
-document.querySelector('#input-max-image-width').addEventListener('mouseup', function (e) {
-	const value = e.target.value;
-	document.querySelector('#max-image-width-value').textContent = value != 9 ? value + '%' : '100%';
-	BROWSER_API.storage.sync.set({ maxImageWidth: e.target.value });
+document.querySelector('#input-max-image-width').addEventListener('mouseup', function () {
+	BROWSER_API.storage.sync.set({ maxImageWidth: this.value });
+	document.querySelector('#max-image-width-value').textContent = this.value != 9 ? `${this.value}%` : '100%';
 });
 
 // Slider - Max Image Post Height ("Add Scrollbar To Tall Images" or "Scale Post To Fit Image" must be enabled)
-document.querySelector('#input-max-image-post-height').addEventListener('input', function (e) {
-	const value = e.target.value;
+document.querySelector('#input-max-image-post-height').addEventListener('input', function () {
 	const imageScrollValue = document.querySelector('#checkbox-image-scroll').checked;
 	const scalePostToFitImageValue = document.querySelector('#checkbox-scale-post-to-fit-image').checked;
 	const maxImagePostHeight = document.querySelector('#max-image-post-height-value');
 	if (imageScrollValue || scalePostToFitImageValue) {
-		document.querySelector('.icon-max-image-post-height').style.backgroundColor = value != 98 ? 'var(--accent)' : '';
+		document.querySelector('.icon-max-image-post-height').style.backgroundColor = this.value != 98 ? 'var(--accent)' : '';
 	}
-	maxImagePostHeight.textContent = value != 98 ? `${value}px` : '∞';
-	sendMessage({ setMaxImagePostHeight: value });
+	maxImagePostHeight.textContent = this.value != 98 ? `${this.value}px` : '∞';
+	sendMessage({ setMaxImagePostHeight: this.value });
 });
-document.querySelector('#input-max-image-post-height').addEventListener('mouseup', function (e) {
-	const value = e.target.value;
-	document.querySelector('#max-image-post-height-value').textContent = value != 98 ? value + 'px' : '∞';
-	BROWSER_API.storage.sync.set({ maxImagePostHeight: e.target.value });
+document.querySelector('#input-max-image-post-height').addEventListener('mouseup', function () {
+	BROWSER_API.storage.sync.set({ maxImagePostHeight: this.value });
+	document.querySelector('#max-image-post-height-value').textContent = this.value != 98 ? `${this.value}px` : '∞';
 });
 
 // Toggle - Hide Blurred Media Background
 document.querySelector('#checkbox-hide-blurred-media-background').addEventListener('change', function () {
-	const hideBlurredMediaBackground = document.querySelector('#checkbox-hide-blurred-media-background').checked;
-	if (hideBlurredMediaBackground) {
+	BROWSER_API.storage.sync.set({ hideBlurredMediaBackground: this.checked });
+	sendMessage({ hideBlurredMediaBackground: this.checked });
+	if (this.checked) {
 		document.querySelector('.icon-hide-blurred-media-background').classList.remove('icon-show');
 		document.querySelector('.icon-hide-blurred-media-background').classList.add('icon-hide');
 		document.querySelector('.icon-hide-blurred-media-background').style.backgroundColor = 'var(--accent)';
@@ -102,14 +98,11 @@ document.querySelector('#checkbox-hide-blurred-media-background').addEventListen
 		document.querySelector('.icon-hide-blurred-media-background').classList.add('icon-show');
 		document.querySelector('.icon-hide-blurred-media-background').style.backgroundColor = '';
 	}
-	BROWSER_API.storage.sync.set({ hideBlurredMediaBackground: hideBlurredMediaBackground });
-	sendMessage({ hideBlurredMediaBackground: hideBlurredMediaBackground });
 });
 
 // Toggle - Just Open The Image
-document.querySelector('#checkbox-just-open-the-image').addEventListener('change', function (e) {
-	const justOpenTheImage = document.querySelector('#checkbox-just-open-the-image').checked;
-	if (justOpenTheImage === true) {
+document.querySelector('#checkbox-just-open-the-image').addEventListener('change', function () {
+	if (this.checked) {
 		// Detect addon manifest version
 		if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
 			// Request the optional permissions for Firefox
@@ -134,7 +127,7 @@ document.querySelector('#checkbox-just-open-the-image').addEventListener('change
 			document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
 			BROWSER_API.runtime.sendMessage({ justOpenTheImage: true });
 		}
-	} else if (justOpenTheImage === false) {
+	} else if (!this.checked) {
 		BROWSER_API.storage.sync.set({ justOpenTheImage: false });
 		document.querySelector('.icon-just-open-the-image').style.backgroundColor = '';
 		BROWSER_API.runtime.sendMessage({ justOpenTheImage: false });
@@ -198,17 +191,16 @@ document.querySelector('#input-drag-image-to-resize-initial-size').addEventListe
 	BROWSER_API.storage.sync.set({ dragImageToResizeInitialSize: e.target.value });
 });*/
 
-/* = Video = */
+// ─── Video ──────────────────────────────────────────────────────────────────
 
 // Toggle - Scale Post To Fit Video
-document.querySelector('#checkbox-scale-post-to-fit-video').addEventListener('change', function (e) {
-	const scalePostToFitVideoValue = document.querySelector('#checkbox-scale-post-to-fit-video').checked;
+document.querySelector('#checkbox-scale-post-to-fit-video').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ scalePostToFitVideo: this.checked });
+	sendMessage({ scalePostToFitVideo: this.checked });
 	const maxVideoWidthValue = document.querySelector('#input-max-video-width').value;
 	const maxVideoPostHeightValue = document.querySelector('#input-max-video-post-height').value;
-	document.querySelector('.icon-scale-post-to-fit-video').style.backgroundColor = scalePostToFitVideoValue == true ? 'var(--accent)' : '';
-	BROWSER_API.storage.sync.set({ scalePostToFitVideo: scalePostToFitVideoValue });
-	sendMessage({ scalePostToFitVideo: scalePostToFitVideoValue });
-	if (scalePostToFitVideoValue) {
+	document.querySelector('.icon-scale-post-to-fit-video').style.backgroundColor = this.checked == true ? 'var(--accent)' : '';
+	if (this.checked) {
 		document.querySelector('.icon-max-video-width').style.backgroundColor = maxVideoWidthValue != 9 ? 'var(--accent)' : '';
 		document.querySelector('.icon-max-video-post-height').style.backgroundColor = maxVideoPostHeightValue != 98 ? 'var(--accent)' : '';
 	} else {
@@ -218,161 +210,147 @@ document.querySelector('#checkbox-scale-post-to-fit-video').addEventListener('ch
 });
 
 // Slider - Max Video Width (Scale Post To Fit Video must be enabled)
-document.querySelector('#input-max-video-width').addEventListener('input', function (e) {
-	const value = e.target.value;
-	const scalePostToFitVideo = document.querySelector('#checkbox-scale-post-to-fit-video').checked;
-	const maxVideoWidthValue = document.querySelector('#limit-video-width-value');
-	if (scalePostToFitVideo) {
-		document.querySelector('.icon-max-video-width').style.backgroundColor = value != 9 ? 'var(--accent)' : '';
+document.querySelector('#input-max-video-width').addEventListener('input', function () {
+	if (this.checked) {
+		document.querySelector('.icon-max-video-width').style.backgroundColor = this.value != 9 ? 'var(--accent)' : '';
 	}
-	maxVideoWidthValue.textContent = value != 9 ? `${value}%` : '100%';
-	sendMessage({ setMaxVideoWidth: value });
+	sendMessage({ setMaxVideoWidth: this.value });
+	document.querySelector('#limit-video-width-value').textContent = this.value != 9 ? `${this.value}%` : '100%';
 });
-document.querySelector('#input-max-video-width').addEventListener('mouseup', function (e) {
-	const value = e.target.value;
-	document.querySelector('#limit-video-width-value').textContent = value != 9 ? value + '%' : '100%';
-	BROWSER_API.storage.sync.set({ maxVideoWidth: e.target.value });
+document.querySelector('#input-max-video-width').addEventListener('mouseup', function () {
+	document.querySelector('#limit-video-width-value').textContent = this.value != 9 ? `${this.value}%` : '100%';
+	BROWSER_API.storage.sync.set({ maxVideoWidth: this.value });
 });
 
 // Slider - Max Video Post Height ("Scale Post To Fit Video" must be enabled)
-document.querySelector('#input-max-video-post-height').addEventListener('input', function (e) {
-	const value = e.target.value;
-	const scalePostToFitVideo = document.querySelector('#checkbox-scale-post-to-fit-video').checked;
-	const maxVideoPostHeightValue = document.querySelector('#max-video-post-height-value');
-	if (scalePostToFitVideo) {
-		document.querySelector('.icon-max-video-post-height').style.backgroundColor = value != 98 ? 'var(--accent)' : '';
+document.querySelector('#input-max-video-post-height').addEventListener('input', function () {
+	if (document.querySelector('#checkbox-scale-post-to-fit-video').checked) {
+		document.querySelector('.icon-max-video-post-height').style.backgroundColor = this.value != 98 ? 'var(--accent)' : '';
 	}
-	maxVideoPostHeightValue.textContent = value != 98 ? `${value}px` : '∞';
-	sendMessage({ setMaxVideoPostHeight: value });
+	sendMessage({ setMaxVideoPostHeight: this.value });
+	document.querySelector('#max-video-post-height-value').textContent = this.value != 98 ? `${this.value}px` : '∞';
 });
-document.querySelector('#input-max-video-post-height').addEventListener('mouseup', function (e) {
-	const value = e.target.value;
-	document.querySelector('#max-video-post-height-value').textContent = value != 98 ? value + 'px' : '∞';
-	BROWSER_API.storage.sync.set({ maxVideoPostHeight: e.target.value });
+document.querySelector('#input-max-video-post-height').addEventListener('mouseup', function () {
+	document.querySelector('#max-video-post-height-value').textContent = this.value != 98 ? this.value + 'px' : '∞';
+	BROWSER_API.storage.sync.set({ maxVideoPostHeight: this.value });
 });
 
 // Toggle - Add Video Download Button
-document.querySelector('#checkbox-add-download-video-button').addEventListener('change', function (e) {
-	const addDownloadVideoButton = document.querySelector('#checkbox-add-download-video-button').checked;
-	if (addDownloadVideoButton) {
-		if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
-			BROWSER_API.permissions
-				.request({ permissions: ['downloads'] })
-				.then((granted) => {
-					if (granted) {
-						console.debug('[RedditEnhancer] addDownloadVideoButton: "downloads" permission granted');
-						enabled(true);
-					} else {
-						console.debug('[RedditEnhancer] addDownloadVideoButton: "downloads" permission denied');
-						document.querySelector('#checkbox-add-download-video-button').checked = false;
-					}
-				})
-				.catch((e) => {
-					console.error('[RedditEnhancer] addDownloadVideoButton: Error requesting "downloads" permission: ', e);
+document.querySelector('#checkbox-add-download-video-button').addEventListener('change', function () {
+	if (this.checked) {
+		BROWSER_API.permissions
+			.request({ permissions: ['downloads'] })
+			.then((granted) => {
+				if (granted) {
+					console.debug('[RedditEnhancer] addDownloadVideoButton: "downloads" permission granted');
+					enabled(true);
+				} else {
+					console.debug('[RedditEnhancer] addDownloadVideoButton: "downloads" permission denied');
 					document.querySelector('#checkbox-add-download-video-button').checked = false;
-				});
-		} else {
-			enabled(true);
-		}
+				}
+			})
+			.catch((e) => {
+				console.error('[RedditEnhancer] addDownloadVideoButton: Error requesting "downloads" permission: ', e);
+				document.querySelector('#checkbox-add-download-video-button').checked = false;
+			});
 	} else {
 		enabled(false);
 	}
 	function enabled(value) {
 		BROWSER_API.storage.sync.set({ addDownloadVideoButton: value });
-		document.querySelector('.icon-add-download-video-button').style.backgroundColor = value ? 'var(--accent)' : '';
 		sendMessage({ addDownloadVideoButton: value });
+		document.querySelector('.icon-add-download-video-button').style.backgroundColor = value ? 'var(--accent)' : '';
 	}
 });
 
-/* = Text = */
+// ─── Text ───────────────────────────────────────────────────────────────────
 
 // Slider - Text Post Preview Max Height
-document.querySelector('#input-text-post-preview-max-height').addEventListener('input', function (e) {
-	document.querySelector('#text-post-preview-max-height').textContent = e.target.value != -1 ? e.target.value + 'px' : '';
-	document.querySelector('.icon-text-post-preview-height').style.backgroundColor = e.target.value != -1 ? 'var(--accent)' : '';
-	sendMessage({ textPostPreviewMaxHeight: e.target.value });
+document.querySelector('#input-text-post-preview-max-height').addEventListener('input', function () {
+	sendMessage({ textPostPreviewMaxHeight: this.value });
+	document.querySelector('#text-post-preview-max-height').textContent = this.value != -1 ? `${this.value}px` : '';
+	document.querySelector('.icon-text-post-preview-height').style.backgroundColor = this.value != -1 ? 'var(--accent)' : '';
 });
-document.querySelector('#input-text-post-preview-max-height').addEventListener('mouseup', function (e) {
-	BROWSER_API.storage.sync.set({ textPostPreviewMaxHeight: e.target.value });
+document.querySelector('#input-text-post-preview-max-height').addEventListener('mouseup', function () {
+	BROWSER_API.storage.sync.set({ textPostPreviewMaxHeight: this.value });
 });
 
 // Toggle - Text Post Preview Fade
-document.querySelector('#checkbox-text-post-preview-fade').addEventListener('change', function (e) {
-	const textPostPreviewFade = document.querySelector('#checkbox-text-post-preview-fade').checked;
-	if (textPostPreviewFade) {
-		document.querySelectorAll('.icon-text-post-preview-fade').forEach((icon) => {
-			icon.classList.add('active');
-		});
-	} else {
-		document.querySelectorAll('.icon-text-post-preview-fade').forEach((icon) => {
-			icon.classList.remove('active');
-		});
-	}
-	BROWSER_API.storage.sync.set({ textPostPreviewFade: textPostPreviewFade });
-	sendMessage({ textPostPreviewFade: textPostPreviewFade });
+document.querySelector('#checkbox-text-post-preview-fade').addEventListener('change', function () {
+	document.querySelectorAll('.icon-text-post-preview-fade').forEach((icon) => {
+		this.checked ? icon.classList.add('active') : icon.classList.remove('active');
+	});
+	BROWSER_API.storage.sync.set({ textPostPreviewFade: this.checked });
+	sendMessage({ textPostPreviewFade: this.checked });
 });
 
 // Slider - Text Post Preview Fade Height
-document.querySelector('#input-text-post-preview-fade-height').addEventListener('input', function (e) {
-	const textPostPreviewFade = document.querySelector('#checkbox-text-post-preview-fade').checked;
-	if (textPostPreviewFade) {
-		document.querySelector('.icon-text-post-preview-fade-height').style.backgroundColor = e.target.value != -1 ? 'var(--accent)' : '';
+document.querySelector('#input-text-post-preview-fade-height').addEventListener('input', function () {
+	if (this.value) {
+		document.querySelector('.icon-text-post-preview-fade-height').style.backgroundColor = this.value != -1 ? 'var(--accent)' : '';
 	}
-	document.querySelector('#text-post-preview-fade-height').textContent = e.target.value != -1 ? e.target.value + 'px' : '';
-	sendMessage({ textPostPreviewFadeHeight: e.target.value });
+	sendMessage({ textPostPreviewFadeHeight: this.value });
+	document.querySelector('#text-post-preview-fade-height').textContent = this.value != -1 ? `${this.value}px` : '';
 });
-document.querySelector('#input-text-post-preview-fade-height').addEventListener('mouseup', function (e) {
-	BROWSER_API.storage.sync.set({ textPostPreviewFadeHeight: e.target.value });
+document.querySelector('#input-text-post-preview-fade-height').addEventListener('mouseup', function () {
+	BROWSER_API.storage.sync.set({ textPostPreviewFadeHeight: this.value });
 });
 
 // Toggle - Replace Post Images With Links
-document.querySelector('#checkbox-replace-post-images-with-links').addEventListener('change', function (e) {
-	const replacePostImagesWithLinks = document.querySelector('#checkbox-replace-post-images-with-links').checked;
-	BROWSER_API.storage.sync.set({ replacePostImagesWithLinks: replacePostImagesWithLinks });
-	sendMessage({ replacePostImagesWithLinks: replacePostImagesWithLinks });
-	if (replacePostImagesWithLinks) {
-		document.querySelector('.icon-replace-post-images-with-links').classList.remove('icon-images');
-		document.querySelector('.icon-replace-post-images-with-links').classList.add('icon-link');
-	} else {
-		document.querySelector('.icon-replace-post-images-with-links').classList.remove('icon-link');
-		document.querySelector('.icon-replace-post-images-with-links').classList.add('icon-images');
-	}
-	document.querySelector('.icon-replace-post-images-with-links').style.backgroundColor = replacePostImagesWithLinks ? 'var(--accent)' : '';
+document.querySelector('#checkbox-replace-post-images-with-links').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ replacePostImagesWithLinks: this.checked });
+	sendMessage({ replacePostImagesWithLinks: this.checked });
+	const icon = document.querySelector('.icon-replace-post-images-with-links');
+	this.checked ? icon.classList.remove('icon-images') : icon.classList.add('icon-images');
+	this.checked ? icon.classList.add('icon-link') : icon.classList.remove('icon-link');
+	document.querySelector('.icon-replace-post-images-with-links').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+
+	const homeEnabled = document.querySelector('#checkbox-replace-post-images-with-links-home').checked;
+	document.querySelector('.icon-replace-post-images-with-links-home').style.backgroundColor = homeEnabled ? 'var(--accent)' : '';
+	const subsEnabled = document.querySelector('#checkbox-replace-post-images-with-links-subs').checked;
+	document.querySelector('.icon-replace-post-images-with-links-subs').style.backgroundColor = subsEnabled ? 'var(--accent)' : '';
+});
+
+// Toggle - Replace Post Images With Links (Home)
+document.querySelector('#checkbox-replace-post-images-with-links-home').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ replacePostImagesWithLinksHome: this.checked });
+	sendMessage({ replacePostImagesWithLinksHome: this.checked });
+	const icon = document.querySelector('.icon-replace-post-images-with-links-home');
+	this.checked ? icon.classList.remove('icon-images') : icon.classList.add('icon-images');
+	this.checked ? icon.classList.add('icon-link') : icon.classList.remove('icon-link');
+	document.querySelector('.icon-replace-post-images-with-links-home').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});
+
+// Toggle - Replace Post Images With Links (Subreddits)
+document.querySelector('#checkbox-replace-post-images-with-links-subs').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ replacePostImagesWithLinksSubreddits: this.checked });
+	sendMessage({ replacePostImagesWithLinksSubreddits: this.checked });
+	const icon = document.querySelector('.icon-replace-post-images-with-links-subs');
+	this.checked ? icon.classList.remove('icon-images') : icon.classList.add('icon-images');
+	this.checked ? icon.classList.add('icon-link') : icon.classList.remove('icon-link');
+	document.querySelector('.icon-replace-post-images-with-links-subs').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });
 
 // Toggle - Replace Post Videos With Links
-document.querySelector('#checkbox-replace-post-videos-with-links').addEventListener('change', function (e) {
-	const replacePostVideosWithLinks = document.querySelector('#checkbox-replace-post-videos-with-links').checked;
-	BROWSER_API.storage.sync.set({ replacePostVideosWithLinks: replacePostVideosWithLinks });
-	sendMessage({ replacePostVideosWithLinks: replacePostVideosWithLinks });
-	if (replacePostVideosWithLinks) {
-		document.querySelector('.icon-replace-post-videos-with-links').classList.remove('icon-film');
-		document.querySelector('.icon-replace-post-videos-with-links').classList.add('icon-link');
-	} else {
-		document.querySelector('.icon-replace-post-videos-with-links').classList.remove('icon-link');
-		document.querySelector('.icon-replace-post-videos-with-links').classList.add('icon-film');
-	}
-	document.querySelector('.icon-replace-post-videos-with-links').style.backgroundColor = replacePostVideosWithLinks ? 'var(--accent)' : '';
+document.querySelector('#checkbox-replace-post-videos-with-links').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ replacePostVideosWithLinks: this.checked });
+	sendMessage({ replacePostVideosWithLinks: this.checked });
+	const icon = document.querySelector('.icon-replace-post-videos-with-links');
+	this.checked ? icon.classList.remove('icon-film') : icon.classList.add('icon-film');
+	this.checked ? icon.classList.add('icon-link') : icon.classList.remove('icon-link');
+	document.querySelector('.icon-replace-post-videos-with-links').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });
 
 // Toggle - Compact Post Link Preview
-document.querySelector('#checkbox-compact-post-link-preview').addEventListener('change', function (e) {
-	const compactPostLinkPreview = document.querySelector('#checkbox-compact-post-link-preview').checked;
-	if (compactPostLinkPreview) {
-		BROWSER_API.storage.sync.set({ compactPostLinkPreview: true });
-		document.querySelector('.icon-compact-post-link-preview').style.backgroundColor = 'var(--accent)';
-		sendMessage({ compactPostLinkPreview: true });
-	} else {
-		BROWSER_API.storage.sync.set({ compactPostLinkPreview: false });
-		document.querySelector('.icon-compact-post-link-preview').style.backgroundColor = '';
-		sendMessage({ compactPostLinkPreview: false });
-	}
+document.querySelector('#checkbox-compact-post-link-preview').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ compactPostLinkPreview: this.checked });
+	sendMessage({ compactPostLinkPreview: this.checked });
+	document.querySelector('.icon-compact-post-link-preview').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });
 
 // Toggle - Full Width Expandos
-document.querySelector('#checkbox-full-width-expandos').addEventListener('change', function (e) {
-	const fullWidthExpandos = document.querySelector('#checkbox-full-width-expandos').checked;
-	BROWSER_API.storage.sync.set({ fullWidthExpandos: fullWidthExpandos });
-	document.querySelector('.icon-full-width-expandos').style.backgroundColor = fullWidthExpandos ? 'var(--accent)' : '';
-	sendMessage({ fullWidthExpandos: fullWidthExpandos });
+document.querySelector('#checkbox-full-width-expandos').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ fullWidthExpandos: this.checked });
+	sendMessage({ fullWidthExpandos: this.checked });
+	document.querySelector('.icon-full-width-expandos').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });

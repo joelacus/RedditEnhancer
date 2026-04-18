@@ -7,14 +7,22 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+import { parseHtmlString } from '../../../utilities/parse_html_string';
+import { registerMutationCallback } from '../../observer_manager';
+
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadShowPostAuthor() {
 	BROWSER_API.storage.sync.get(['showPostAuthor', 'usernameHoverPopupDelay'], function (result) {
 		if (result.showPostAuthor) showPostAuthor(true, result.usernameHoverPopupDelay);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup function for the observer
+let observerCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 let hover_delay = 500;
 export function showPostAuthor(value, delay) {
 	if (delay) hover_delay = delay * 1000;
@@ -25,14 +33,42 @@ export function showPostAuthor(value, delay) {
 	if (redditVersion === 'newnew' && value === true) {
 		document.documentElement.classList.add('re-post-author-active');
 		if (feedRoutes.includes(routename) || searchRoutes.includes(routename)) {
+			// Initial pass
 			document.querySelectorAll('shreddit-post, #main-content > div > search-telemetry-tracker').forEach(attachUsername);
-			observer.observe(document.querySelector('shreddit-feed, #main-content'), { childList: true, subtree: true });
+			// Register with centralised observer manager
+			// Clean up any existing observer first
+			if (observerCleanup) {
+				observerCleanup();
+			}
+			const feed = document.querySelector('shreddit-feed');
+			if (feed) {
+				observerCleanup = registerMutationCallback(
+					feed,
+					(mutations) => {
+						mutations.forEach((mutation) => {
+							mutation.addedNodes.forEach((addedNode) => {
+								if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+									setTimeout(() => {
+										document.querySelectorAll('shreddit-post, #main-content > div > search-telemetry-tracker').forEach(attachUsername);
+									}, 1000);
+								}
+							});
+						});
+					},
+					{ childList: true, subtree: true },
+					'showPostAuthor',
+				);
+			}
 		}
 	} else {
+		// Cleanup observer
+		if (observerCleanup) {
+			observerCleanup();
+			observerCleanup = null;
+		}
 		// Remove all post author names and hovercards.
 		document.documentElement.classList.remove('re-post-author-active');
 		document.querySelectorAll('.re-post-author').forEach((item) => item.remove());
-		observer.disconnect();
 	}
 }
 
@@ -67,7 +103,7 @@ export async function attachUsername(post) {
 	if (!post.querySelector('.re-post-author')) {
 		const a = document.createElement('span');
 		a.classList.add('re-post-author');
-		a.innerHTML = `<a href="/user/${author}">u/${author}</a>`;
+		a.append(parseHtmlString(`<a href="/user/${author}">u/${author}</a>`));
 
 		let hoverTimer;
 		if (author !== '[deleted]') {
@@ -160,7 +196,7 @@ function createHoverCard(userData) {
 	} else {
 		userCommentKarama = userData.comment_karma.toLocaleString();
 	}
-	hoverCard.innerHTML = `
+	const hoverCardHtmlString = `
 		<div class="flex flex-row justify-items-start items-center">
 			<div class="mr-sm">
 				<img class="mb-0" src="${userData.snoovatar_img ? userData.snoovatar_img : userData.icon_img}" alt="User Avatar">
@@ -205,26 +241,6 @@ function createHoverCard(userData) {
 			</span>
 		</a>
 	`;
+	hoverCard.append(parseHtmlString(hoverCardHtmlString));
 	return hoverCard;
-}
-
-// Observe feed for new posts
-const observer = new MutationObserver(
-	debounce(function (mutations) {
-		mutations.forEach(function (mutation) {
-			mutation.addedNodes.forEach(function (addedNode) {
-				if (['TIME', 'ARTICLE', 'DIV', 'SPAN', 'FACEPLATE-TRACKER', 'FACEPLATE-LOADER', 'SEARCH-TELEMETRY-TRACKER', 'HR'].includes(addedNode.nodeName)) {
-					document.querySelectorAll('shreddit-post, #main-content > div > search-telemetry-tracker').forEach(attachUsername);
-				}
-			});
-		});
-	}, 100),
-);
-
-function debounce(func, wait) {
-	let timeout;
-	return function (...args) {
-		clearTimeout(timeout);
-		timeout = setTimeout(() => func.apply(this, args), wait);
-	};
 }

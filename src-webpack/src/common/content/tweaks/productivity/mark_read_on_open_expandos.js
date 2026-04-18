@@ -12,11 +12,13 @@
  */
 
 import { showBannerMessage } from '../../banner_message';
+import { registerMutationCallback } from '../../observer_manager';
 
 let flag = false,
 	markReadBtn = false;
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadMarkReadOnOpenExpandos() {
 	BROWSER_API.storage.sync.get(['markReadOnOpenExpandos', 'markPostAsReadButton'], function (result) {
 		if (result.markReadOnOpenExpandos) markReadOnOpenExpandos(true);
@@ -26,17 +28,44 @@ export function loadMarkReadOnOpenExpandos() {
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup function for the observer
+let observerCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function markReadOnOpenExpandos(value) {
 	if (value && redditVersion === 'newnew') {
 		enableMarkReadOnOpenExpandos();
-		const feedElement = document.querySelector('shreddit-feed');
-		if (feedElement) {
-			observer.observe(feedElement, { childList: true });
-			console.debug('[RedditEnhancer] markReadOnOpenExpandos: Attached observer to watch for new posts');
+		// Register with centralised observer manager
+		// Clean up any existing observer first
+		if (observerCleanup) {
+			observerCleanup();
+		}
+		const feed = document.querySelector('shreddit-feed');
+		if (feed) {
+			observerCleanup = registerMutationCallback(
+				feed,
+				(mutations) => {
+					mutations.forEach((mutation) => {
+						mutation.addedNodes.forEach((addedNode) => {
+							if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+								setTimeout(() => {
+									enableMarkReadOnOpenExpandos();
+								}, 1000);
+							}
+						});
+					});
+				},
+				{ childList: true, subtree: true },
+				'markReadOnOpenExpandos',
+			);
 		}
 	} else {
-		observer.disconnect();
+		// Cleanup observer
+		if (observerCleanup) {
+			observerCleanup();
+			observerCleanup = null;
+		}
 		showBannerMessage('info', '[RedditEnhancer] Please refresh the page for the change to take full effect.');
 	}
 }
@@ -63,7 +92,7 @@ function enableMarkReadOnOpenExpandos() {
 	for (const post of posts) {
 		const url = window.location.origin + post.getAttribute('permalink');
 		const expando = post.shadowRoot?.querySelector('.toggle__expando-button');
-		if (expando && expando.getAttribute('re-mark-read-on-open') !== '') {
+		if (expando && !expando.hasAttribute('re-mark-read-on-open')) {
 			if (!expando.disabled) {
 				expando.addEventListener('click', () => {
 					// Send a message to background.js, which has the permission to call history.addUrl()
@@ -117,32 +146,11 @@ function enableMarkReadOnOpenExpandos() {
 							console.error(`[RedditEnhancer] markPostAsRead: Error marking post as read: ${url}, `, error);
 						});
 				});
-				const upvote_el = post.shadowRoot.querySelector('span:has(> span > [class*="text-action-upvote"])');
+				const upvote_el = post.shadowRoot.querySelector('span:has([data-post-click-location])');
 				upvote_el?.parentNode.insertBefore(button, upvote_el);
 			}
 		}
 	}
 
 	flag = false;
-}
-
-// Observer for watching new posts in feed
-const observer = new MutationObserver(
-	debounce((mutations) => {
-		mutations.forEach(function (mutation) {
-			mutation.addedNodes.forEach((addedNode) => {
-				if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
-					enableMarkReadOnOpenExpandos();
-				}
-			});
-		});
-	}, 100)
-);
-
-function debounce(func, wait) {
-	let timeout;
-	return function (...args) {
-		clearTimeout(timeout);
-		timeout = setTimeout(() => func.apply(this, args), wait);
-	};
 }

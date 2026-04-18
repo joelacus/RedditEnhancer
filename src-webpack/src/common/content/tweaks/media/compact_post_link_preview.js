@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadCompactPostLinkPreview() {
 	BROWSER_API.storage.sync.get(['compactPostLinkPreview'], function (result) {
-		compactPostLinkPreview(result.compactPostLinkPreview);
+		if (result.compactPostLinkPreview === true) compactPostLinkPreview(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function compactPostLinkPreview(value) {
 	if (redditVersion === 'newnew') {
 		const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
@@ -71,7 +73,7 @@ export function compactPostLinkPreview(value) {
 			if (post.querySelector('div[slot="text-body"]') || window.innerWidth < 768) {
 				const dynamicStyleElements = document.head.querySelectorAll('style[id="re-compact-post-link-display"]');
 				dynamicStyleElements.forEach((element) => {
-					document.head.removeChild(element);
+					element.remove();
 				});
 			}
 
@@ -95,11 +97,11 @@ export function compactPostLinkPreview(value) {
 		} else {
 			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-compact-post-link-display"]');
 			dynamicStyleElements.forEach((element) => {
-				document.head.removeChild(element);
+				element.remove();
 			});
 
 			// Remove the new post link
-			document.querySelector('shreddit-post .re-post-link').remove();
+			document.querySelector('shreddit-post .re-post-link')?.remove();
 		}
 	}
 }

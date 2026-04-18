@@ -7,17 +7,23 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-import { logToDevConsole } from '../../logging';
+import { logToDevConsole } from '../../../utilities/logging';
+import { registerMutationCallback } from '../../observer_manager';
 let userList = [];
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideBlockedUserPosts() {
 	BROWSER_API.storage.sync.get(['hideBlockedUserPosts'], function (result) {
-		if (result.hideBlockedUserPosts) hideBlockedUserPosts(true);
+		if (result.hideBlockedUserPosts === true) hideBlockedUserPosts(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup function for the observer
+let observerCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideBlockedUserPosts(value) {
 	if (redditVersion === 'old') {
 		if (value) {
@@ -38,12 +44,69 @@ export function hideBlockedUserPosts(value) {
 				setTimeout(() => {
 					document.querySelectorAll('article:has(>shreddit-post)').forEach(filterBlockedUserPost);
 				}, 3000);
-				observer.observe(document.querySelector('.main-container'), { childList: true, subtree: true });
+				// Register with centralised observer manager
+				// Clean up any existing observer first
+				if (observerCleanup) {
+					observerCleanup();
+				}
+				const feed = document.querySelector('shreddit-feed');
+				if (feed) {
+					observerCleanup = registerMutationCallback(
+						feed,
+						(mutations) => {
+							mutations.forEach((mutation) => {
+								mutation.addedNodes.forEach((addedNode) => {
+									if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+										setTimeout(() => {
+											if (addedNode) {
+												filterBlockedUserPost(addedNode);
+											}
+										}, 1000);
+									}
+								});
+							});
+						},
+						{ childList: true, subtree: true },
+						'hideBlockedUserPosts',
+					);
+				}
 			});
 		} else {
-			observer.disconnect();
+			// Cleanup observer
+			if (observerCleanup) {
+				observerCleanup();
+				observerCleanup = null;
+			}
 			disableHideBlockedUserPostsAll();
 		}
+	}
+}
+
+function escapeRegExp(string) {
+	// Escape regex metacharacters to prevent ReDoS
+	return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function matchesPattern(text, patternStr) {
+	if (!text) return false;
+	// Check if pattern is regex format: /pattern/flags
+	const regexMatch = patternStr.match(/^\/(.+?)\/([a-z]*)$/i);
+	if (regexMatch) {
+		const pattern = regexMatch[1];
+		const flags = regexMatch[2] || 'i';
+		try {
+			const regex = new RegExp(pattern, flags);
+			return regex.test(text);
+		} catch (e) {
+			console.warn('Invalid regex pattern:', patternStr, e);
+			return false;
+		}
+	} else {
+		// Plain pattern with wildcard support
+		const escaped = escapeRegExp(patternStr);
+		const regexPattern = escaped.replace(/\\\*/g, '.*');
+		const regex = new RegExp(`\\b${regexPattern}\\b`, 'i');
+		return regex.test(text);
 	}
 }
 
@@ -57,10 +120,11 @@ function updateUserList(list) {
 // Enable Hide Blocked User Posts - RV1
 function enableHideBlockedUserPostsRV1() {
 	document.querySelectorAll('#siteTable > .thing').forEach((post) => {
-		const authorText = post.querySelector('a.author');
-		if (!authorText) return;
+		const authorElement = post.querySelector('a.author');
+		if (!authorElement) return;
+		const authorText = authorElement.textContent;
 
-		if (userList.some((word) => new RegExp(`\\b${word.replace(/\*/g, '.*')}\\b`, 'i').test(authorText))) {
+		if (userList.some((word) => matchesPattern(authorText, word))) {
 			post.classList.add('re-hide');
 		} else {
 			post.classList.remove('re-hide');
@@ -72,10 +136,10 @@ function enableHideBlockedUserPostsRV1() {
 function filterBlockedUserPost(post) {
 	if (post.classList.contains('re-hide')) return;
 
-	const authorText = post.querySelector('shreddit-post').getAttribute('author');
+	const authorText = post.querySelector('shreddit-post')?.getAttribute('author');
 	if (!authorText) return;
 
-	if (userList.some((word) => new RegExp(`\\b${word.replace(/\*/g, '.*')}\\b`, 'i').test(authorText))) {
+	if (userList.some((word) => matchesPattern(authorText, word))) {
 		post.classList.add('re-hide');
 	} else {
 		post.classList.remove('re-hide');
@@ -88,13 +152,3 @@ function disableHideBlockedUserPostsAll() {
 		post.classList.remove('re-hide');
 	});
 }
-
-// Observe feed for new posts
-const observer = new MutationObserver((mutations) => {
-	mutations.forEach((mutation) => {
-		mutation.addedNodes.forEach((node) => {
-			if (!(node instanceof HTMLElement)) return;
-			if (node) document.querySelectorAll('article:has(>shreddit-post)').forEach(filterBlockedUserPost);
-		});
-	});
-});

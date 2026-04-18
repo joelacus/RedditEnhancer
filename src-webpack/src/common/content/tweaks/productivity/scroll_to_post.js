@@ -9,7 +9,8 @@
 
 import { showBannerMessage } from '../../banner_message';
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 let hideNSFW = false;
 export function loadScrollToPost() {
 	BROWSER_API.storage.sync.get(['scrollToPost', 'hideNSFW'], function (result) {
@@ -18,7 +19,8 @@ export function loadScrollToPost() {
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function scrollToPost(value) {
 	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
 	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed', 'post_page', 'comments_page'];
@@ -89,7 +91,7 @@ function createKeyboardNavigator(containerSelector, elementSelector, RedditVersi
 		return -1;
 	}
 
-	function scrollToElement(elements, index) {
+	function scrollToElement(elements, index, offset = 0) {
 		if (index < 0 || index >= elements.length) return;
 
 		// Remove attribute from all elements
@@ -102,7 +104,7 @@ function createKeyboardNavigator(containerSelector, elementSelector, RedditVersi
 
 		// Scroll to element top minus 100px
 		const elementTop = elements[index].getBoundingClientRect().top + window.scrollY;
-		window.scrollTo({ top: elementTop - 100, behavior: 'smooth' });
+		window.scrollTo({ top: elementTop - (150 - offset), behavior: 'smooth' });
 
 		currentIndex = index;
 	}
@@ -125,10 +127,10 @@ function createKeyboardNavigator(containerSelector, elementSelector, RedditVersi
 				const current = findCurrentIndex(elements);
 				if (current === -1) {
 					const firstValid = findNextValidIndex(elements, 0, 1);
-					if (firstValid !== -1) scrollToElement(elements, firstValid);
+					if (firstValid !== -1) scrollToElement(elements, firstValid, 150);
 				} else {
 					const prevValid = findNextValidIndex(elements, current - 1, -1);
-					if (prevValid !== -1) scrollToElement(elements, prevValid);
+					if (prevValid !== -1) scrollToElement(elements, prevValid, 120);
 				}
 			}
 		}

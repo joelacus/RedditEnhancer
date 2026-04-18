@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideSearchSidebarNsfwUsers() {
 	BROWSER_API.storage.sync.get(['hideSearchSidebarNsfwUsers'], function (result) {
 		if (result.hideSearchSidebarNsfwUsers) hideSearchSidebarNsfwUsers(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideSearchSidebarNsfwUsers(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableHideSearchSidebarNsfwUsersRV3();
@@ -74,7 +76,7 @@ async function hasKeyWithTrueValue(url, keyName) {
 function disableHideSearchSidebarNsfwUsersAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-search-page-sidebar-nsfw-users"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 
 	/*document.querySelectorAll('#right-sidebar-contents search-telemetry-tracker:has([data-testid="search-author"])').forEach((item) => {

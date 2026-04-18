@@ -1,56 +1,58 @@
-/* ===== Inputs / Background Tweaks ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Inputs / Background Tweaks
+// ────────────────────────────────────────────────────────────────────────────
 
 import i18next from 'i18next';
-import { sendMessage } from '../send_message';
+import { debounce } from '../../utilities/debounce';
+import { sendMessage } from '../../utilities/send_message';
 
 // Toggle - Background Solid Colour
-document.querySelector('#checkbox-bg-solid-colour').addEventListener('change', () => {
-	const bg_solid_value = document.querySelector('#checkbox-bg-solid-colour').checked;
-	const bg_image_value = document.querySelector('#checkbox-background').checked;
+document.querySelector('#checkbox-bg-solid-colour').addEventListener('change', function () {
+	const bgImageCheckbox = document.querySelector('#checkbox-background');
 
-	// disable background image
-	if (bg_image_value) {
-		bg_image_value.checked = false;
+	// disable background image if solid colour is enabled
+	if (bgImageCheckbox.checked) {
+		bgImageCheckbox.checked = false;
 		document.querySelector('.icon-bg-image').style.backgroundColor = '';
 		BROWSER_API.storage.sync.set({ useCustomBackground: false });
 		sendMessage({ useCustomBackground: false });
 	}
 
 	// enable solid colour background
-	document.querySelector('.icon-bg-solid-colour').style.backgroundColor = bg_solid_value === true ? 'var(--accent)' : '';
-	BROWSER_API.storage.sync.set({ solidColourBackground: bg_solid_value });
-	sendMessage({ solidColourBackground: bg_solid_value });
+	document.querySelector('.icon-bg-solid-colour').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ solidColourBackground: this.checked });
+	sendMessage({ solidColourBackground: this.checked });
 });
 
 // Toggle - Background Image
-document.querySelector('#checkbox-background').addEventListener('change', () => {
-	const bg_solid_value = document.querySelector('#checkbox-bg-solid-colour').checked;
-	const bg_image_value = document.querySelector('#checkbox-background').checked;
+document.querySelector('#checkbox-background').addEventListener('change', function () {
+	const bgSolidCheckbox = document.querySelector('#checkbox-bg-solid-colour');
 
-	// disable solid colour background
-	if (bg_solid_value) {
-		bg_solid_value.checked = false;
+	// disable solid colour background if image is enabled
+	if (bgSolidCheckbox.checked) {
+		bgSolidCheckbox.checked = false;
 		document.querySelector('.icon-bg-solid-colour').style.backgroundColor = '';
 		BROWSER_API.storage.sync.set({ solidColourBackground: false });
 		sendMessage({ solidColourBackground: false });
 	}
 
 	// enable background image
-	document.querySelector('.icon-bg-image').style.backgroundColor = bg_image_value === true ? 'var(--accent)' : '';
-	BROWSER_API.storage.sync.set({ useCustomBackground: bg_image_value });
-	sendMessage({ useCustomBackground: bg_image_value });
+	document.querySelector('.icon-bg-image').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ useCustomBackground: this.checked });
+	sendMessage({ useCustomBackground: this.checked });
 });
 
 // Slider - Background Blur
-document.querySelector('#input-bg-blur').addEventListener('input', (e) => {
-	const value = e.target.value;
-	document.querySelector('.icon-bg-blur').style.backgroundColor = value != 0 ? 'var(--accent)' : '';
-	document.querySelector('#bg-blur-value').innerText = `${value}px`;
-	sendMessage({ bgBlur: e.target.value });
-});
-document.querySelector('#input-bg-blur').addEventListener('mouseup', (e) => {
-	// save value on mouseup to significantly reduce api writes.
-	BROWSER_API.storage.sync.set({ bgBlur: e.target.value });
+const saveBgBlur = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ bgBlur: value });
+}, 500);
+document.querySelector('#input-bg-blur').addEventListener('input', function () {
+	const icon = document.querySelector('.icon-bg-blur');
+	const display = document.querySelector('#bg-blur-value');
+	icon.style.backgroundColor = this.value != 0 ? 'var(--accent)' : '';
+	display.innerText = `${this.value}px`;
+	sendMessage({ bgBlur: this.value });
+	saveBgBlur(this.value);
 });
 
 // Button - Add New Background Image
@@ -213,8 +215,8 @@ function addBackgroundDeleteListeners() {
 }
 
 // Toggle - Force Custom Background On Old UI
-document.querySelector('#checkbox-force-custom-bg-old-ui').addEventListener('change', () => {
-	const value = document.querySelector('#checkbox-force-custom-bg-old-ui').checked;
+document.querySelector('#checkbox-force-custom-bg-old-ui').addEventListener('change', function () {
+	const value = this.checked;
 	BROWSER_API.storage.sync.set({ forceCustomBgOldUI: value });
 	document.querySelector('.icon-force-custom-bg-old-ui').style.backgroundColor = value ? 'var(--accent)' : '';
 	sendMessage({ forceCustomBgOldUI: value });

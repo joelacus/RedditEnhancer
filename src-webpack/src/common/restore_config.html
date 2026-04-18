@@ -1,17 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Reddit Enhancer Restore Backup Config</title>
 		<link rel="stylesheet" href="restore_config.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-			integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body>
 		<div class="container">
@@ -40,19 +34,14 @@
 					<span data-lang="RestoreBackup"></span>
 				</button>
 			</div>
-			<div class="restoring">
-				<span class="loader"></span>
-				<h2><span data-lang="PleaseWait"></span>&nbsp;<span id="timer"></span></h2>
-				<p>
-					<span data-lang="RestoreInfo1"></span>
-					&nbsp;<span id="item-count"></span>&nbsp;
-					<span data-lang="RestoreInfo2"></span>
-				</p>
-			</div>
-			<div class="done">
+			<div class="complete">
 				<i class="fa-solid fa-check"></i>
 				<h2 data-lang="BackupRestored"></h2>
 				<p data-lang="CloseTab"></p>
+			</div>
+			<div class="failed">
+				<i class="fa-solid fa-triangle-exclamation"></i>
+				<h2 data-lang="BackupFailed"></h2>
 			</div>
 		</div>
 	</body>

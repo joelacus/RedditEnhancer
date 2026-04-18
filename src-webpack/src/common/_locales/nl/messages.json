@@ -15,7 +15,7 @@
 		"message": "Voeg de knop 'Video downloaden' toe aan videoposten"
 	},
 	"AddDownloadVideoButtonInfo": {
-		"message": "Dit ondersteunt momenteel alleen mp4-URL's, geen m3u8, dus sommige videoberichten zullen de downloadknop niet hebben :/"
+		"message": "Werkt mogelijk niet voor alle video's."
 	},
 	"AddMarkPostAsReadButton": {
 		"message": "Voeg in de compacte weergave een knop toe aan elk bericht om het als gelezen te markeren"
@@ -26,11 +26,14 @@
 	"AddSpoilerTag": {
 		"message": "Voeg spoiler-tag toe"
 	},
-	"AlwaysShowPostAndCommentOptions": {
-		"message": "Toon altijd post en commentaaropties"
+	"AlwaysShowCommentOptionsInfo": {
+		"message": "Verplaats de knoppen uit het overloopmenu voor reacties naar de actiebalk voor reacties."
 	},
-	"AlwaysShowPostAndCommentOptionsInfo": {
-		"message": "Verplaats de knoppen uit de overloopmenu's van berichten en opmerkingen respectievelijk naar de actiebalken van berichten en opmerkingen."
+	"AlwaysShowPostOptions": {
+		"message": "Altijd berichtopties weergeven"
+	},
+	"AlwaysShowPostOptionsInfo": {
+		"message": "Verplaats de knoppen van het overloopmenu van het bericht naar de actiebalk van het bericht."
 	},
 	"AttachSideMenuHeader": {
 		"message": "Pagina en gebruikersinformatie weergeven in de header"
@@ -301,6 +304,9 @@
 	},
 	"HideChatButton": {
 		"message": "Verberg de “Chat” knop"
+	},
+	"HideCommentActionBarButtonsInfo": {
+		"message": "Verberg knoppen in de actiebalk voor reacties"
 	},
 	"HideCommentKarma": {
 		"message": "Verbergen commentaar karma"
@@ -617,9 +623,6 @@
 	"Other": {
 		"message": "Ander"
 	},
-	"PleaseWait": {
-		"message": "Even geduld aub"
-	},
 	"PositionHorizontally": {
 		"message": "Horizontaal positioneren"
 	},
@@ -714,7 +717,7 @@
 		"message": "Vervang video's door links op feeds"
 	},
 	"ReplacePostVideosWithLinksInfo": {
-		"message": "Werkt alleen met MP4 en GIF. M3U8-video's kunnen moeilijk zijn om bij andere spelers te spelen."
+		"message": "Werkt mogelijk niet voor alle video's."
 	},
 	"Report": {
 		"message": "Rapport"
@@ -748,12 +751,6 @@
 	},
 	"RestoreConfigTitle": {
 		"message": "Herstel Reddit Enhancer Backup Config"
-	},
-	"RestoreInfo1": {
-		"message": ""
-	},
-	"RestoreInfo2": {
-		"message": "items herstellen. Browser API-limiet is 120 per minuut. Laat dit venster/tabblad nog een minuut open."
 	},
 	"RightSidePostThumbnails": {
 		"message": "Laat post miniaturen aan de rechterkant zien"

@@ -15,7 +15,7 @@
 		"message": "Agregar botón 'Descargar video' a publicaciones de video"
 	},
 	"AddDownloadVideoButtonInfo": {
-		"message": "Actualmente, esto solo admite URL mp4, no m3u8, por lo que algunas publicaciones de video no tendrán el botón de descarga :/"
+		"message": "Puede que no funcione con todos los vídeos."
 	},
 	"AddMarkPostAsReadButton": {
 		"message": "Añade un botón a cada publicación en la vista compacta para marcarla como leída."
@@ -26,11 +26,14 @@
 	"AddSpoilerTag": {
 		"message": "Agregar etiqueta de spoiler"
 	},
-	"AlwaysShowPostAndCommentOptions": {
-		"message": "Mostrar siempre opciones de publicación y comentarios"
+	"AlwaysShowCommentOptionsInfo": {
+		"message": "Mueva los botones del menú desplegable de comentarios a la barra de acciones de comentarios."
 	},
-	"AlwaysShowPostAndCommentOptionsInfo": {
-		"message": "Mueva los botones de los menús de desbordamiento de publicaciones y comentarios a las barras de acciones de publicaciones y comentarios, respectivamente."
+	"AlwaysShowPostOptions": {
+		"message": "Mostrar siempre las opciones de publicación"
+	},
+	"AlwaysShowPostOptionsInfo": {
+		"message": "Mueva los botones del menú desplegable de la publicación a la barra de acciones de la publicación."
 	},
 	"AttachSideMenuHeader": {
 		"message": "Mostrar página e información del usuario en el encabezado"
@@ -301,6 +304,9 @@
 	},
 	"HideChatButton": {
 		"message": "Ocultar el botón “Chat”"
+	},
+	"HideCommentActionBarButtonsInfo": {
+		"message": "Ocultar botones de la barra de acciones de comentarios"
 	},
 	"HideCommentKarma": {
 		"message": "Ocultar comentario karma"
@@ -617,9 +623,6 @@
 	"Other": {
 		"message": "Otro"
 	},
-	"PleaseWait": {
-		"message": "Espere por favor"
-	},
 	"PositionHorizontally": {
 		"message": "Posición horizontal"
 	},
@@ -714,7 +717,7 @@
 		"message": "Reemplazar videos con enlaces en feeds"
 	},
 	"ReplacePostVideosWithLinksInfo": {
-		"message": "Solo funciona con MP4 y GIF. Los videos M3U8 pueden ser difíciles de jugar en otros jugadores."
+		"message": "Puede que no funcione con todos los vídeos."
 	},
 	"Report": {
 		"message": "Informe"
@@ -748,12 +751,6 @@
 	},
 	"RestoreConfigTitle": {
 		"message": "Restaurar configuración de copia de seguridad de Reddit Enhancer"
-	},
-	"RestoreInfo1": {
-		"message": "Restaurando"
-	},
-	"RestoreInfo2": {
-		"message": "artículos. El límite de API del navegador es 120 por minuto. Deje esta ventana/pestaña abierta por un minuto más."
 	},
 	"RightSidePostThumbnails": {
 		"message": "Mostrar miniaturas de publicación en el lado derecho"

@@ -7,14 +7,16 @@
  * Compatibility: RV1 (Old UI) (2005-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadStickySort() {
 	BROWSER_API.storage.sync.get(['stickySort'], function (result) {
 		if (result.stickySort) stickySort(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function stickySort(value) {
 	if (redditVersion === 'old') {
 		if (value) {
@@ -44,7 +46,7 @@ function enableStickySortRV1() {
 function disableStickySortRV1() {
 	const dynamicStyleElements = document.querySelectorAll('#re-sticky-sort');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	if (document.querySelector('.tabmenu')) {
 		document.querySelector('.tabmenu').classList.remove('re-sticky-sort');

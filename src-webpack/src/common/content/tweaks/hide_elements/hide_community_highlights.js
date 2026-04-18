@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideCommunityHighlights() {
 	BROWSER_API.storage.sync.get(['hideCommunityHighlights'], function (result) {
 		if (result.hideCommunityHighlights) hideCommunityHighlights(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideCommunityHighlights(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
@@ -41,6 +43,6 @@ function enableHideCommunityHighlightsRV3() {
 function disableHideCommunityHighlights() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-community-highlights"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

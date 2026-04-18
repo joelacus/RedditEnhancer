@@ -1,14 +1,16 @@
+const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 const path = require('path');
 const HtmlMinimizerPlugin = require('html-minimizer-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 
 module.exports = {
-	mode: 'production',
-	//devtool: 'source-map',
+	mode: mode,
+	devtool: mode === 'development' ? 'source-map' : false,
 	entry: {
 		background: './src/common/background.js',
 		content: './src/common/content_index.js',
@@ -23,7 +25,13 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			{ test: /\.html$/i, type: 'asset/resource' },
+			{
+				test: /\.hbs$/i,
+				loader: 'handlebars-loader',
+				options: {
+					partialDirs: [path.resolve(__dirname, 'src/common/templates/partials')],
+				},
+			},
 			{
 				test: /\.css$/i,
 				use: [MiniCssExtractPlugin.loader, 'css-loader'],
@@ -64,11 +72,6 @@ module.exports = {
 					to: 'icons',
 				},
 				{
-					context: path.resolve(__dirname, 'src/common/popup'),
-					from: '*.html',
-					to: 'popup',
-				},
-				{
 					context: path.resolve(__dirname, 'src/manifest_v3'),
 					from: 'manifest.json',
 					to: 'manifest.json',
@@ -82,11 +85,6 @@ module.exports = {
 					context: path.resolve(__dirname, 'src/common'),
 					from: 'restore_config.css',
 					to: 'restore_config.css',
-				},
-				{
-					context: path.resolve(__dirname, 'src/common'),
-					from: 'options_page/options.html',
-					to: 'options.html',
 				},
 				{
 					context: path.resolve(__dirname, 'src/common'),
@@ -110,6 +108,18 @@ module.exports = {
 				},
 			],
 		}),
+		new HtmlWebpackPlugin({
+			filename: 'popup/popup.html',
+			template: './src/common/popup/popup.hbs',
+			chunks: ['popup/popup'],
+			minify: false,
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'options.html',
+			template: './src/common/options_page/options.hbs',
+			chunks: [],
+			minify: false,
+		}),
 		new webpack.DefinePlugin({
 			BROWSER_API: 'chrome',
 			CHECK_LEGACY_FIREFOX: false,
@@ -117,7 +127,7 @@ module.exports = {
 		}),
 	],
 	optimization: {
-		minimize: true,
+		minimize: mode === 'production' ? true : false,
 		minimizer: [
 			new HtmlMinimizerPlugin(),
 			new CssMinimizerPlugin(),

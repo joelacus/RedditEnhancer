@@ -7,17 +7,19 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadTextPostPreviewFade() {
 	BROWSER_API.storage.sync.get(['textPostPreviewFade', 'textPostPreviewFadeHeight'], function (result) {
-		if (result.textPostPreviewFade) {
+		if (result.textPostPreviewFade === true) {
 			textPostPreviewFade(true);
 			setTextPostPreviewFadeHeight(result.textPostPreviewFadeHeight);
 		}
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function textPostPreviewFade(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableTextPostPreviewFade();
@@ -42,7 +44,7 @@ function enableTextPostPreviewFade() {
 function disableTextPostPreviewFade() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-text-post-preview-fade"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 

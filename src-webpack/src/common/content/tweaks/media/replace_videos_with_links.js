@@ -7,23 +7,78 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+import { debounce } from '../../../utilities/debounce';
+import { registerMutationCallback } from '../../observer_manager';
+import { getBestQualityMp4Url } from './add_download_video_button';
+
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadReplacePostVideosWithLinks() {
 	BROWSER_API.storage.sync.get(['replacePostVideosWithLinks'], function (result) {
-		replacePostVideosWithLinks(result.replacePostVideosWithLinks);
+		if (result.replacePostVideosWithLinks === true) replacePostVideosWithLinks(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup functions for the observer and scroll event
+let observerCleanup = null;
+let scrollCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function replacePostVideosWithLinks(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
 			enableReplacePostVideosWithLinks();
+			// Register with centralised observer manager
+			// Clean up any existing observer first
+			if (observerCleanup) {
+				observerCleanup();
+			}
+			const feed = document.querySelector('shreddit-feed');
+			if (feed) {
+				observerCleanup = registerMutationCallback(
+					feed,
+					(mutations) => {
+						mutations.forEach((mutation) => {
+							mutation.addedNodes.forEach((addedNode) => {
+								if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+									setTimeout(() => {
+										enableReplacePostVideosWithLinks();
+									}, 1000);
+								}
+							});
+						});
+					},
+					{ childList: true, subtree: true },
+					'replacePostVideosWithLinks',
+				);
+			}
+
+			// === Run again on page scroll ===
+			// Add scroll event listener with debounce to make sure no posts have been missed
 			if (document.querySelector('shreddit-feed')) {
-				observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
+				const debouncedScrollHandler = debounce(() => {
+					enableReplacePostVideosWithLinks();
+				}, 200);
+
+				window.addEventListener('scroll', debouncedScrollHandler);
+				scrollCleanup = () => {
+					window.removeEventListener('scroll', debouncedScrollHandler);
+				};
 			}
 		} else {
-			observer.disconnect();
+			// Cleanup observer
+			if (observerCleanup) {
+				observerCleanup();
+				observerCleanup = null;
+			}
+
+			// Cleanup scroll event listener
+			if (scrollCleanup) {
+				scrollCleanup();
+				scrollCleanup = null;
+			}
+
 			disableReplacePostVideosWithLinks();
 		}
 	}
@@ -45,17 +100,14 @@ function enableReplacePostVideosWithLinks() {
 	}
 
 	// Initial Video Posts
-	document.querySelectorAll('shreddit-feed shreddit-post:has(shreddit-player-2)').forEach((post) => {
+	document.querySelectorAll('shreddit-feed shreddit-post:not([data-re-link]):has(shreddit-player)').forEach((post) => {
 		if (post.querySelector('shreddit-blurred-container')) return;
-		try {
-			if (post.getAttribute('data-re-link') === 'true') return;
-			const url = post.querySelector('shreddit-player-2')?.shadowRoot?.querySelector('video')?.src || post.querySelector('shreddit-player-2 source')?.src;
-			if (url.includes('.mp4') || url.includes('.gif')) {
-				appendLink(post, url);
-				post.setAttribute('data-re-link', 'true');
-				post.querySelector('[slot="post-media-container"]').style.display = 'none';
-			}
-		} catch (e) {}
+		const packagedMediaJson = post.querySelector('[packaged-media-json]')?.getAttribute('packaged-media-json');
+		if (!packagedMediaJson) return;
+		const video_url = getBestQualityMp4Url(packagedMediaJson);
+		post.querySelector('[slot="post-media-container"]').style.display = 'none';
+		appendLink(post, video_url);
+		post.setAttribute('data-re-link', 'true');
 	});
 
 	// Create and Append Link
@@ -77,7 +129,7 @@ function enableReplacePostVideosWithLinks() {
 
 // Disable Replace Videos With Links - RV3
 function disableReplacePostVideosWithLinks() {
-	document.querySelectorAll('shreddit-feed shreddit-post:has(shreddit-player-2) [slot="post-media-container"]').forEach((container) => {
+	document.querySelectorAll('shreddit-feed shreddit-post[data-re-link] [slot="post-media-container"]').forEach((container) => {
 		// Show Videos
 		container.removeAttribute('style');
 
@@ -96,15 +148,6 @@ function disableReplacePostVideosWithLinks() {
 	// Remove Stylesheet
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="replace-post-videos-with-links"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
-
-// Observe feed for new posts
-const observer = new MutationObserver((mutations) => {
-	mutations.forEach((mutation) => {
-		mutation.addedNodes.forEach((addedNode) => {
-			enableReplacePostVideosWithLinks();
-		});
-	});
-});

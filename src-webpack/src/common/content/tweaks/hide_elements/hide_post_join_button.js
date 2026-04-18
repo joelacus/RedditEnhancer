@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideJoinButtonOnPosts() {
 	BROWSER_API.storage.sync.get(['hideJoinButtonOnPosts'], function (result) {
 		if (result.hideJoinButtonOnPosts) hideJoinButtonOnPosts(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideJoinButtonOnPosts(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableHideJoinButtonOnPostsRV3();
@@ -41,6 +43,6 @@ function enableHideJoinButtonOnPostsRV3() {
 function disableHideJoinButtonOnPostsAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-join-button-on-posts"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

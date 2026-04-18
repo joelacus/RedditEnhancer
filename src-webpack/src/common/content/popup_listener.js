@@ -1,9 +1,12 @@
-/* ===== Content / Settings Listener ===== */
-
+// ────────────────────────────────────────────────────────────────────────────
+// Content / Popup Listener
+//
 // Listens for commands from the settings popup to enable/disable/change tweaks.
+//
+// ────────────────────────────────────────────────────────────────────────────
 
 import { addDropShadow } from './tweaks/style/drop_shadow';
-import { alwaysShowPostOptions, hidePostBrandAwarenessOption, hidePostDeleteOption, hidePostEditOption, hidePostHideOption, hidePostNotificationOption, hidePostNsfwOption, hidePostReportOption, hidePostSaveOption, hidePostSpoilerOption, removeCommentButtonIcons } from './tweaks/productivity/always_show_post_options';
+import { alwaysShowPostOptions, hidePostBrandAwarenessOption, hidePostDeleteOption, hidePostEditOption, hidePostHideOption, hidePostNotificationOption, hidePostNsfwOption, hidePostReportOption, hidePostSaveOption, hidePostSpoilerOption } from './tweaks/productivity/always_show_post_options';
 import { autoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
 import { autoExpandValue } from './tweaks/resize_elements/auto_expand_value';
 import { autoLoadMoreComments, autoLoadMoreCommentsDownvotedOnly } from './tweaks/productivity/auto_load_more_comments';
@@ -93,6 +96,8 @@ import {
 	themePostCommentActionRowColourCSS,
 	themeOpCommentHighlightColour,
 	themeOpCommentHighlightColourCSS,
+	themeSubHeaderBackgroundColour,
+	themeSubHeaderBackgroundColourCSS,
 } from './tweaks/style/override_theme_colours';
 import { useCustomBackground, setCustomBackground } from './tweaks/background/custom_background';
 import { underlineLinks } from './tweaks/accessibility/underline_links';
@@ -126,7 +131,7 @@ import { customFonts } from './tweaks/font/custom_fonts';
 import { scalePostToFitVideo } from './tweaks/media/scale_post_to_fit_video';
 import { classicOldUI } from './tweaks/style/classic_old_ui';
 import { multicolouredThreadLines } from './tweaks/style/multicoloured_threadlines';
-import { replacePostImagesWithLinks } from './tweaks/media/replace_images_with_links';
+import { replacePostImagesWithLinks, replacePostImagesWithLinksHome, replacePostImagesWithLinksSubreddits } from './tweaks/media/replace_images_with_links';
 import { replacePostVideosWithLinks } from './tweaks/media/replace_videos_with_links';
 import { compactPostLinkPreview } from './tweaks/media/compact_post_link_preview';
 import { usernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
@@ -139,6 +144,7 @@ import { hideVideoRecommendations } from './tweaks/media/hide_video_recommendati
 import { leftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { hideCommunityStatus } from './tweaks/hide_elements/hide_community_status';
 import { rightSidePostThumbnails } from './tweaks/style/right_side_post_thumbnails';
+import { forceDarkMode } from './tweaks/style/force_dark_mode';
 import { viewCrossposts } from './tweaks/productivity/view_crossposts';
 import { markReadOnOpenExpandos } from './tweaks/productivity/mark_read_on_open_expandos';
 import { hideAwards } from './tweaks/hide_elements/hide_awards';
@@ -157,6 +163,8 @@ import { showToTopButtonFloat } from './tweaks/productivity/scroll_to_top_float'
 import { scrollToPost } from './tweaks/productivity/scroll_to_post';
 import { hideLogoInSearch } from './tweaks/hide_elements/hide_logo_in_search';
 import { replaceSearchPlaceholderText } from './tweaks/hide_elements/replace_search_placeholder';
+import { hideRelatedCommunities } from './tweaks/hide_elements/hide_related_communities';
+import { alwaysShowCommentOptions, hideCommentAwardOption, hideCommentBrandAffiliateOption, hideCommentDeleteOption, hideCommentEditOption, hideCommentFollowOption, hideCommentReplyNotificationsOption, hideCommentReportOption, hideCommentSaveOption, hideCommentShareOption, removeCommentButtonIcons } from './tweaks/productivity/always_show_comment_options';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -213,6 +221,7 @@ const functionRegistry = {
 	feedPostTitleFontSize,
 	feedPostTitleFontWeight,
 	forceCustomBgOldUI,
+	forceDarkMode,
 	fullWidthBanner,
 	fullWidthExpandos,
 	hideAdvertiseButton,
@@ -263,6 +272,7 @@ const functionRegistry = {
 	hideRecentPosts,
 	hideRecommended,
 	hideRedditPremium,
+	hideRelatedCommunities,
 	hideRelatedPostsSection,
 	hideSearchHero,
 	hideSearchSidebar,
@@ -314,6 +324,8 @@ const functionRegistry = {
 	rememberSideMenuSectionHiddenState,
 	removeCommentButtonIcons,
 	replacePostImagesWithLinks,
+	replacePostImagesWithLinksHome,
+	replacePostImagesWithLinksSubreddits,
 	replacePostVideosWithLinks,
 	resizeMainContainerWidth,
 	rightSidePostThumbnails,
@@ -377,8 +389,6 @@ const functionRegistry = {
 	themePostVisitedTextColourCSS,
 	themeSearchbarBgColour,
 	themeSearchbarBgColourCSS,
-	/*themeSearchbarBorderColour,
-	themeSearchbarBorderColourCSS,*/
 	themeSearchbarDropdownBgColour,
 	themeSearchbarDropdownBgColourCSS,
 	themeSidebarBgColour,
@@ -391,6 +401,8 @@ const functionRegistry = {
 	themeSidemenuButtonHoverColourCSS,
 	themeSidemenuTextColour,
 	themeSidemenuTextColourCSS,
+	themeSubHeaderBackgroundColour,
+	themeSubHeaderBackgroundColourCSS,
 	underlineLinks,
 	useCustomBackground,
 	usernameHoverPopupDelay,
@@ -404,6 +416,18 @@ const functionRegistry = {
 	solidColourBackgroundCSS,
 	themeOpCommentHighlightColour,
 	themeOpCommentHighlightColourCSS,
+	alwaysShowCommentOptions,
+	hideCommentAwardOption,
+	hideCommentFollowOption,
+	hideCommentReportOption,
+	hideCommentSaveOption,
+	hideCommentShareOption,
+	hideCommentEditOption,
+	hideCommentDeleteOption,
+	hideCommentReplyNotificationsOption,
+	hideCommentBrandAffiliateOption,
+	// themeSearchbarBorderColour,
+	// themeSearchbarBorderColourCSS,
 	//breakReminder,
 	//darkMode,
 	//darkModeAutoListener,

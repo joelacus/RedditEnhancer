@@ -1,6 +1,9 @@
-/* ===== Restore Popup UI / Media ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Restore / Media
+// ────────────────────────────────────────────────────────────────────────────
 
 import { highlightMenuIcon } from '../popup_restore';
+import { validateInt, validatePercentage } from './validation';
 
 // Restore UI settings for "Media" options.
 
@@ -27,56 +30,42 @@ export function restorePopupMediaOptions() {
 
 	// Max Image Width
 	BROWSER_API.storage.sync.get(['maxImageWidth', 'imageScroll', 'scalePostToFitImage'], function (result) {
-		const value = result.maxImageWidth ?? 9;
-		if (value > 9 && value <= 100) {
-			if (result.imageScroll === true || result.scalePostToFitImage === true) {
-				document.querySelector('.icon-max-image-width').style.backgroundColor = 'var(--accent)';
-			}
-			highlightMenuIcon('media-tweaks');
-		}
+		const value = validatePercentage(parseInt(result.maxImageWidth), 9);
+		const displayValue = value === 9 ? '100%' : `${value}%`;
+		const hasAccent = value > 9 && (result.imageScroll === true || result.scalePostToFitImage === true);
 		document.querySelector('#input-max-image-width').value = value;
-		document.querySelector('#max-image-width-value').innerText = `${value}%`;
-		console.log('Max Image Width: ' + value === 9 ? 'default (100%)' : `${value}%`);
+		document.querySelector('#max-image-width-value').innerText = displayValue;
+		document.querySelector('.icon-max-image-width').style.backgroundColor = hasAccent ? 'var(--accent)' : '';
+		if (value !== 9) highlightMenuIcon('media-tweaks');
+		console.log('Max Image Width: ' + (value === 9 ? 'default (100%)' : `${value}%`));
 	});
 
 	// Max Image Post Height
 	BROWSER_API.storage.sync.get(['maxImagePostHeight', 'imageScroll', 'scalePostToFitImage'], function (result) {
-		if (typeof result.maxImagePostHeight != 'undefined') {
-			if (result.maxImagePostHeight > 98 && result.maxImagePostHeight <= 1000) {
-				highlightMenuIcon('media-tweaks');
-				if (result.imageScroll == true || result.scalePostToFitImage == true) {
-					document.querySelector('.icon-max-image-post-height').style.backgroundColor = 'var(--accent)';
-				}
-				document.querySelector('#input-max-image-post-height').value = result.maxImagePostHeight;
-				document.querySelector('#max-image-post-height-value').innerText = result.maxImagePostHeight + 'px';
-				var value = result.maxImagePostHeight + 'px';
-			} else {
-				document.querySelector('#input-max-image-post-height').value = 98;
-				document.querySelector('#max-image-post-height-value').innerText = '∞';
-				var value = 'default (∞)';
-			}
-		} else if (typeof result.maxImagePostHeight == 'undefined') {
-			document.querySelector('#input-max-image-post-height').value = 98;
-			document.querySelector('#max-image-post-height-value').innerText = '∞';
-			var value = 'default (∞)';
-		}
-		console.log('Max Image Post Height: ' + value);
+		const value = validateInt(parseInt(result.maxImagePostHeight), 98, 1000, 98);
+		const displayValue = value === 98 ? '∞' : `${value}px`;
+		const hasAccent = value > 98 && (result.imageScroll === true || result.scalePostToFitImage === true);
+		document.querySelector('#input-max-image-post-height').value = value;
+		document.querySelector('#max-image-post-height-value').innerText = displayValue;
+		document.querySelector('.icon-max-image-post-height').style.backgroundColor = hasAccent ? 'var(--accent)' : '';
+		if (value !== 98) highlightMenuIcon('media-tweaks');
+		console.log('Max Image Post Height: ' + (value === 98 ? 'default (∞)' : `${value}px`));
 	});
 
 	// Hide Blurred Media Background
 	BROWSER_API.storage.sync.get(['hideBlurredMediaBackground'], function (result) {
-		const hideBlurredMediaBackground = result.hideBlurredMediaBackground === true;
-		if (hideBlurredMediaBackground) highlightMenuIcon('media-tweaks');
-		document.querySelector('#checkbox-hide-blurred-media-background').checked = hideBlurredMediaBackground;
-		document.querySelector('.icon-hide-blurred-media-background').style.backgroundColor = hideBlurredMediaBackground ? 'var(--accent)' : '';
-		document.querySelector('.icon-hide-blurred-media-background').classList.toggle('icon-show', !hideBlurredMediaBackground);
-		document.querySelector('.icon-hide-blurred-media-background').classList.toggle('icon-hide', hideBlurredMediaBackground);
-		console.log('Hide Blurred Media Background: ' + hideBlurredMediaBackground);
+		const checked = result.hideBlurredMediaBackground === true;
+		if (checked) highlightMenuIcon('media-tweaks');
+		document.querySelector('#checkbox-hide-blurred-media-background').checked = checked;
+		document.querySelector('.icon-hide-blurred-media-background').style.backgroundColor = checked ? 'var(--accent)' : '';
+		document.querySelector('.icon-hide-blurred-media-background').classList.toggle('icon-show', !checked);
+		document.querySelector('.icon-hide-blurred-media-background').classList.toggle('icon-hide', checked);
+		console.log('Hide Blurred Media Background: ' + checked);
 	});
 
 	// Just Open The Image
 	BROWSER_API.storage.sync.get(['justOpenTheImage'], function (result) {
-		if (result.justOpenTheImage == true) {
+		if (result.justOpenTheImage === true) {
 			if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
 				BROWSER_API.permissions.contains(
 					{
@@ -88,11 +77,10 @@ export function restorePopupMediaOptions() {
 							document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
 							document.querySelector('#checkbox-just-open-the-image').checked = true;
 							highlightMenuIcon('media-tweaks');
-							var value = true;
+							console.log('Just Open The Image: true');
 						} else {
-							var value = 'false. Optional permissions not granted';
+							console.log('Just Open The Image: false. Optional permissions not granted');
 						}
-						console.log('Just Open The Image: ' + value);
 					},
 				);
 			} else if (BROWSER_API.runtime.getManifest().manifest_version === 3) {
@@ -101,9 +89,9 @@ export function restorePopupMediaOptions() {
 				highlightMenuIcon('media-tweaks');
 				console.log('Just Open The Image: (true)');
 			}
-		} else if (typeof result.justOpenTheImage == 'undefined' || result.justOpenTheImage == false) {
+		} else {
 			document.querySelector('#checkbox-just-open-the-image').checked = false;
-			console.log('Just Open The Image: (false)');
+			console.log('Just Open The Image: false');
 		}
 	});
 
@@ -150,87 +138,66 @@ export function restorePopupMediaOptions() {
 
 	// Scale Post To Fit Video
 	BROWSER_API.storage.sync.get(['scalePostToFitVideo'], function (result) {
-		if (result.scalePostToFitVideo == true) {
-			document.querySelector('.icon-scale-post-to-fit-video').style.backgroundColor = 'var(--accent)';
-			document.querySelector('#checkbox-scale-post-to-fit-video').checked = true;
-			highlightMenuIcon('media-tweaks');
-			var value = true;
-		} else if (typeof result.scalePostToFitVideo == 'undefined' || result.scalePostToFitVideo == false) {
-			document.querySelector('#checkbox-scale-post-to-fit-video').checked = false;
-			var value = false;
-		}
-		console.log('Scale Post To Fit Video: ' + value);
+		const checked = result.scalePostToFitVideo === true;
+		document.querySelector('#checkbox-scale-post-to-fit-video').checked = checked;
+		document.querySelector('.icon-scale-post-to-fit-video').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('media-tweaks');
+		console.log('Scale Post To Fit Video: ' + checked);
 	});
 
 	// Max Video Width
 	BROWSER_API.storage.sync.get(['maxVideoWidth', 'scalePostToFitVideo'], function (result) {
-		if (typeof result.maxVideoWidth != 'undefined') {
-			if (result.maxVideoWidth > 9 && result.maxVideoWidth <= 100) {
-				highlightMenuIcon('media-tweaks');
-				if (result.scalePostToFitVideo == true) {
-					document.querySelector('.icon-max-video-width').style.backgroundColor = 'var(--accent)';
-				}
-				document.querySelector('#input-max-video-width').value = result.maxVideoWidth;
-				document.querySelector('#limit-video-width-value').innerText = result.maxVideoWidth + '%';
-				var value = result.maxVideoWidth + 'px';
-			} else {
-				document.querySelector('#input-max-video-width').value = 9;
-				document.querySelector('#limit-video-width-value').innerText = '100%';
-				var value = 'default (100%)';
-			}
-		} else if (typeof result.maxVideoWidth == 'undefined') {
-			document.querySelector('#input-max-video-width').value = 9;
-			document.querySelector('#limit-video-width-value').innerText = '100%';
-			var value = 'default (100%)';
-		}
-		console.log('Max Video Width: ' + value);
+		const value = validatePercentage(parseInt(result.maxVideoWidth), 9);
+		const displayValue = value === 9 ? '100%' : `${value}%`;
+		const hasAccent = value > 9 && result.scalePostToFitVideo === true;
+		document.querySelector('#input-max-video-width').value = value;
+		document.querySelector('#limit-video-width-value').innerText = displayValue;
+		document.querySelector('.icon-max-video-width').style.backgroundColor = hasAccent ? 'var(--accent)' : '';
+		if (value !== 9) highlightMenuIcon('media-tweaks');
+		console.log('Max Video Width: ' + (value === 9 ? 'default (100%)' : `${value}%`));
 	});
 
 	// Max Video Post Height
 	BROWSER_API.storage.sync.get(['maxVideoPostHeight', 'scalePostToFitVideo'], function (result) {
-		if (typeof result.maxVideoPostHeight != 'undefined') {
-			if (result.maxVideoPostHeight > 98 && result.maxVideoPostHeight <= 1000) {
-				highlightMenuIcon('media-tweaks');
-				if (result.scalePostToFitVideo == true) {
-					document.querySelector('.icon-max-video-post-height').style.backgroundColor = 'var(--accent)';
-				}
-				document.querySelector('#input-max-video-post-height').value = result.maxVideoPostHeight;
-				document.querySelector('#max-video-post-height-value').innerText = result.maxVideoPostHeight + 'px';
-				var value = result.maxVideoPostHeight + 'px';
-			} else {
-				document.querySelector('#input-max-video-post-height').value = 98;
-				document.querySelector('#max-video-post-height-value').innerText = '∞';
-				var value = 'default (∞)';
-			}
-		} else if (typeof result.maxVideoPostHeight == 'undefined') {
-			document.querySelector('#input-max-video-post-height').value = 98;
-			document.querySelector('#max-video-post-height-value').innerText = '∞';
-			var value = 'default (∞)';
-		}
-		console.log('Max Video Post Height: ' + value);
+		const value = validateInt(parseInt(result.maxVideoPostHeight), 98, 1000, 98);
+		const displayValue = value === 98 ? '∞' : `${value}px`;
+		const hasAccent = value > 98 && result.scalePostToFitVideo === true;
+		document.querySelector('#input-max-video-post-height').value = value;
+		document.querySelector('#max-video-post-height-value').innerText = displayValue;
+		document.querySelector('.icon-max-video-post-height').style.backgroundColor = hasAccent ? 'var(--accent)' : '';
+		if (value !== 98) highlightMenuIcon('media-tweaks');
+		console.log('Max Video Post Height: ' + (value === 98 ? 'default (∞)' : `${value}px`));
 	});
 
 	// Add Download Video Button
 	BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
-		if (result.addDownloadVideoButton === true) {
-			document.querySelector('.icon-add-download-video-button').style.backgroundColor = 'var(--accent)';
-			document.querySelector('#checkbox-add-download-video-button').checked = true;
-			highlightMenuIcon('media-tweaks');
-			var value = true;
-		} else if (typeof result.addDownloadVideoButton == 'undefined' || result.addDownloadVideoButton == false) {
+		let value = false;
+		if (result.addDownloadVideoButton) {
+			BROWSER_API.permissions.contains({ permissions: ['downloads'] }, (granted) => {
+				if (granted) {
+					console.debug('[RedditEnhancer] addDownloadVideoButton: "downloads" permission granted');
+					document.querySelector('.icon-add-download-video-button').style.backgroundColor = 'var(--accent)';
+					highlightMenuIcon('media-tweaks');
+					value = true;
+				} else {
+					console.debug('[RedditEnhancer] addDownloadVideoButton: "downloads" permission not granted');
+				}
+				document.querySelector('#checkbox-add-download-video-button').checked = value;
+				console.log('Add Download Video Button: ' + value);
+			});
+		} else {
 			document.querySelector('#checkbox-add-download-video-button').checked = false;
-			var value = false;
+			console.log('Add Download Video Button: false');
 		}
-		console.log('Add Download Video Button: ' + value);
 	});
 
 	/* = Text = */
 
 	// Text Post Preview Max Height
 	BROWSER_API.storage.sync.get(['textPostPreviewMaxHeight'], function (result) {
-		const value = result.textPostPreviewMaxHeight || -1;
+		const value = validateInt(parseInt(result.textPostPreviewMaxHeight), -1, 500, -1);
 		document.querySelector('#input-text-post-preview-max-height').value = value;
-		document.querySelector('#text-post-preview-max-height').innerText = value >= 0 ? value + 'px' : '';
+		document.querySelector('#text-post-preview-max-height').innerText = value >= 0 ? `${value}px` : '';
 		if (value > -1) {
 			document.querySelector('.icon-text-post-preview-height').style.backgroundColor = 'var(--accent)';
 		}
@@ -239,22 +206,22 @@ export function restorePopupMediaOptions() {
 
 	// Text Post Preview Fade
 	BROWSER_API.storage.sync.get(['textPostPreviewFade'], function (result) {
-		const textPostPreviewFade = result.textPostPreviewFade === true;
-		document.querySelector('#checkbox-text-post-preview-fade').checked = textPostPreviewFade;
-		if (textPostPreviewFade) {
+		const checked = result.textPostPreviewFade === true;
+		document.querySelector('#checkbox-text-post-preview-fade').checked = checked;
+		if (checked) {
 			highlightMenuIcon('media-tweaks');
 			document.querySelectorAll('.icon-text-post-preview-fade').forEach((icon) => {
 				icon.classList.add('active');
 			});
 		}
-		console.log('Text Post Preview Fade: ' + textPostPreviewFade);
+		console.log('Text Post Preview Fade: ' + checked);
 	});
 
 	// Text Post Preview Fade Height
 	BROWSER_API.storage.sync.get(['textPostPreviewFade', 'textPostPreviewFadeHeight'], function (result) {
-		const value = result.textPostPreviewFadeHeight || -1;
+		const value = validateInt(parseInt(result.textPostPreviewFadeHeight), -1, 500, -1);
 		document.querySelector('#input-text-post-preview-fade-height').value = value;
-		document.querySelector('#text-post-preview-fade-height').innerText = value >= 0 ? value + 'px' : '';
+		document.querySelector('#text-post-preview-fade-height').innerText = value >= 0 ? `${value}px` : '';
 		if (result.textPostPreviewFade === true && value > -1) {
 			document.querySelector('.icon-text-post-preview-fade-height').style.backgroundColor = 'var(--accent)';
 		}
@@ -263,61 +230,63 @@ export function restorePopupMediaOptions() {
 
 	// Replace Post Images With Links
 	BROWSER_API.storage.sync.get(['replacePostImagesWithLinks'], function (result) {
-		if (result.replacePostImagesWithLinks === true) {
-			document.querySelector('#checkbox-replace-post-images-with-links').checked = true;
-			document.querySelector('.icon-replace-post-images-with-links').classList.remove('icon-images');
-			document.querySelector('.icon-replace-post-images-with-links').classList.add('icon-link');
-			document.querySelector('.icon-replace-post-images-with-links').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('media-tweaks');
-			var value = true;
-		} else if (typeof result.replacePostImagesWithLinks == 'undefined' || result.replacePostImagesWithLinks === false) {
-			document.querySelector('#checkbox-replace-post-images-with-links').checked = false;
-			var value = false;
-		}
-		console.log('Replace Post Images With Links: ' + value);
+		const checked = result.replacePostImagesWithLinks === true;
+		const icon = document.querySelector('.icon-replace-post-images-with-links');
+		icon.classList.replace(checked ? 'icon-images' : 'icon-link', checked ? 'icon-link' : 'icon-images');
+		if (checked) highlightMenuIcon('media-tweaks');
+		document.querySelector('#checkbox-replace-post-images-with-links').checked = checked;
+		icon.style.backgroundColor = checked ? 'var(--accent)' : '';
+		console.log('Replace Post Images With Links: ' + checked);
+	});
+
+	// Replace Post Images With Links (Home)
+	BROWSER_API.storage.sync.get(['replacePostImagesWithLinks', 'replacePostImagesWithLinksHome'], function (result) {
+		const enabled = result.replacePostImagesWithLinks === true;
+		const checked = result.replacePostImagesWithLinksHome !== false;
+		const icon = document.querySelector('.icon-replace-post-images-with-links-home');
+		icon.classList.replace(checked ? 'icon-images' : 'icon-link', checked ? 'icon-link' : 'icon-images');
+		document.querySelector('#checkbox-replace-post-images-with-links-home').checked = checked;
+		icon.style.backgroundColor = enabled && checked ? 'var(--accent)' : '';
+		console.log('Replace Post Images With Links on the Home Feed: ' + checked);
+	});
+
+	// Replace Post Images With Links (Subreddits)
+	BROWSER_API.storage.sync.get(['replacePostImagesWithLinks', 'replacePostImagesWithLinksSubreddits'], function (result) {
+		const enabled = result.replacePostImagesWithLinks === true;
+		const checked = result.replacePostImagesWithLinksSubreddits !== false;
+		const icon = document.querySelector('.icon-replace-post-images-with-links-subs');
+		icon.classList.replace(checked ? 'icon-images' : 'icon-link', checked ? 'icon-link' : 'icon-images');
+		document.querySelector('#checkbox-replace-post-images-with-links-subs').checked = checked;
+		icon.style.backgroundColor = enabled && checked ? 'var(--accent)' : '';
+		console.log('Replace Post Images With Links on Subreddit Feed: ' + checked);
 	});
 
 	// Replace Post Videos With Links
 	BROWSER_API.storage.sync.get(['replacePostVideosWithLinks'], function (result) {
-		if (result.replacePostVideosWithLinks === true) {
-			document.querySelector('#checkbox-replace-post-videos-with-links').checked = true;
-			document.querySelector('.icon-replace-post-videos-with-links').classList.remove('icon-film');
-			document.querySelector('.icon-replace-post-videos-with-links').classList.add('icon-link');
-			document.querySelector('.icon-replace-post-videos-with-links').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('media-tweaks');
-			var value = true;
-		} else if (typeof result.replacePostVideosWithLinks == 'undefined' || result.replacePostVideosWithLinks === false) {
-			document.querySelector('#checkbox-replace-post-videos-with-links').checked = false;
-			var value = false;
-		}
-		console.log('Replace Post Videos With Links: ' + value);
+		const checked = result.replacePostVideosWithLinks === true;
+		const icon = document.querySelector('.icon-replace-post-videos-with-links');
+		icon.classList.replace(checked ? 'icon-film' : 'icon-link', checked ? 'icon-link' : 'icon-film');
+		if (checked) highlightMenuIcon('media-tweaks');
+		document.querySelector('#checkbox-replace-post-videos-with-links').checked = checked;
+		icon.style.backgroundColor = checked ? 'var(--accent)' : '';
+		console.log('Replace Post Videos With Links: ' + checked);
 	});
 
 	// Compact Post Link Preview
 	BROWSER_API.storage.sync.get(['compactPostLinkPreview'], function (result) {
-		if (result.compactPostLinkPreview === true) {
-			document.querySelector('#checkbox-compact-post-link-preview').checked = true;
-			document.querySelector('.icon-compact-post-link-preview').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('media-tweaks');
-			var value = true;
-		} else if (typeof result.compactPostLinkPreview === 'undefined' || result.compactPostLinkPreview === false) {
-			document.querySelector('#checkbox-compact-post-link-preview').checked = false;
-			var value = false;
-		}
-		console.log('Compact Post Link Preview: ' + value);
+		const checked = result.compactPostLinkPreview === true;
+		document.querySelector('#checkbox-compact-post-link-preview').checked = checked;
+		document.querySelector('.icon-compact-post-link-preview').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('media-tweaks');
+		console.log('Compact Post Link Preview: ' + checked);
 	});
 
 	// Full Width Expandos
 	BROWSER_API.storage.sync.get(['fullWidthExpandos'], function (result) {
-		if (result.fullWidthExpandos === true) {
-			document.querySelector('#checkbox-full-width-expandos').checked = true;
-			document.querySelector('.icon-full-width-expandos').style.backgroundColor = 'var(--accent)';
-			highlightMenuIcon('media-tweaks');
-			var value = true;
-		} else if (typeof result.fullWidthExpandos === 'undefined' || result.fullWidthExpandos === false) {
-			document.querySelector('#checkbox-full-width-expandos').checked = false;
-			var value = false;
-		}
-		console.log('Full Width Expandos: ' + value);
+		const checked = result.fullWidthExpandos === true;
+		document.querySelector('#checkbox-full-width-expandos').checked = checked;
+		document.querySelector('.icon-full-width-expandos').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('media-tweaks');
+		console.log('Full Width Expandos: ' + checked);
 	});
 }

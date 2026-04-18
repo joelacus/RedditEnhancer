@@ -1,7 +1,12 @@
-/* ===== Content First - Tweak Loader - New New Reddit (V3) ===== */
-
+// ────────────────────────────────────────────────────────────────────────────
+// Content First - Tweak Loader
+//
+// Version: Latest Reddit (V3)
+//
 // Start observers to wait for elements to load before tweaking, or load the tweak directly if an observer is not needed.
 // Use this loader to apply tweaks before the page has finished loading (CSS tweaks).
+//
+// ────────────────────────────────────────────────────────────────────────────
 
 //import { waitForAddedNode } from './main_observer';
 
@@ -49,8 +54,10 @@ import { loadDropShadow } from '../../../content/tweaks/style/drop_shadow';
 import { loadHideSearchHero } from '../../../content/tweaks/hide_elements/hide_search_hero';
 import { loadSolidColourBackground } from '../../../content/tweaks/background/bg_solid_colour';
 import { loadHideGetAppButton } from '../../../content/tweaks/hide_elements/hide_get_app_button';
+import { loadForceDarkMode } from '../../../content/tweaks/style/force_dark_mode';
 
 export function tweakLoaderNewNew() {
+	loadForceDarkMode();
 	loadSolidColourBackground();
 	loadCustomBackground();
 	loadCustomTheme();

@@ -1,7 +1,12 @@
-/* ===== Content First - Tweak Loader - Old Reddit (V1) ===== */
-
+// ────────────────────────────────────────────────────────────────────────────
+// Content First - Tweak Loader
+//
+// Version: Old Reddit (V1)
+//
 // Start observers to wait for elements to load before tweaking, or load the tweak directly if an observer is not needed.
 // Use this loader to apply tweaks before the page has finished loading (CSS tweaks).
+//
+// ────────────────────────────────────────────────────────────────────────────
 
 import { waitForAddedNode } from './main_observer';
 import { loadAutoCollapseAutoModeratorComment } from '../../../content/tweaks/productivity/auto_collapse_automod_comment';

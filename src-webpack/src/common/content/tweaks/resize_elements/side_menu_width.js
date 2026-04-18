@@ -7,20 +7,22 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+import { validateInt } from '../../../popup/restore/validation';
+
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadSideMenuWidth() {
 	BROWSER_API.storage.sync.get(['sideMenuWidth'], function (result) {
-		sideMenuWidth(result.sideMenuWidth);
+		sideMenuWidth(validateInt(parseInt(result.sideMenuWidth), 199, 300, 199));
 	});
 }
 
-/* === Enable/Disable The Feature === */
 export function sideMenuWidth(value) {
 	if (redditVersion === 'newnew') {
-		if (parseInt(value) === 199) {
+		if (value === 199) {
 			document.documentElement.style.removeProperty('--re-side-menu-width');
 			disableSideMenuWidthAll();
-		} else if (parseInt(value) >= 200) {
+		} else if (value >= 200) {
 			BROWSER_API.storage.sync.get(['sideMenuIconsOnly'], function (result) {
 				if (!result.sideMenuIconsOnly) {
 					if (!document.querySelector('html').classList.contains('re-hide-side-menu')) {
@@ -55,6 +57,6 @@ function enableSideMenuWidthRV3() {
 function disableSideMenuWidthAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-side-menu-width"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

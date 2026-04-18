@@ -6,7 +6,7 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
 // Hide Advertise Button
 export function loadHideAdvertiseButton() {
@@ -43,7 +43,7 @@ export function loadHideNotificationButton() {
 	});
 }
 
-/* === Enable/Disable The Features === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 // Hide Advertise Button
 export function hideAdvertiseButton(value) {
@@ -57,7 +57,7 @@ export function hideAdvertiseButton(value) {
 	} else {
 		const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-advertise-button"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -84,7 +84,7 @@ export function hideChatButton(value) {
 	} else {
 		const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-chat-button"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -101,7 +101,7 @@ export function hideCreatePostButton(value) {
 	} else {
 		const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-create-post-button"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -118,7 +118,7 @@ export function hideModerationButton(value) {
 	} else {
 		const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-mod-button"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -151,7 +151,7 @@ export function hideNotificationButton(value) {
 	} else {
 		const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-notification-button"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }

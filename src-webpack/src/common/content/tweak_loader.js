@@ -1,6 +1,9 @@
-/* ===== Content / Tweak Loader ===== */
-
+// ────────────────────────────────────────────────────────────────────────────
+// Content / Tweak Loader
+//
 // Applies certain tweaks after the page has loaded.
+//
+// ────────────────────────────────────────────────────────────────────────────
 
 import { loadAddDownloadVideoButton } from './tweaks/media/add_download_video_button';
 import { loadAutoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
@@ -59,6 +62,9 @@ import { loadShowToTopButtonFloat } from './tweaks/productivity/scroll_to_top_fl
 import { loadScrollToPost } from './tweaks/productivity/scroll_to_post';
 import { loadHideLogoInSearch } from './tweaks/hide_elements/hide_logo_in_search';
 import { loadReplaceSearchPlaceholderText } from './tweaks/hide_elements/replace_search_placeholder';
+import { loadHideRelatedCommunities } from './tweaks/hide_elements/hide_related_communities';
+import './tweaks/productivity/canned_messages';
+import { loadAlwaysShowCommentOptions } from './tweaks/productivity/always_show_comment_options';
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -91,6 +97,7 @@ export function loadTweaks() {
 		loadHideAiInSearch();
 		loadHideLogoInSearch();
 		loadReplaceSearchPlaceholderText();
+		loadHideRelatedCommunities();
 		loadShowToTopButtonFloat();
 		loadScrollToPost();
 
@@ -241,7 +248,7 @@ export function loadTweaks() {
 					loadCompactPostLinkPreview();
 					loadViewCrossposts();
 					addBorderRadiusToShadowRootElements();
-					loadAlwaysShowPostOptions();
+					loadAlwaysShowCommentOptions();
 					loadHideAwards();
 					loadShowCommentAbsoluteTimestamp();
 					loadThemeAfterPageLoad();

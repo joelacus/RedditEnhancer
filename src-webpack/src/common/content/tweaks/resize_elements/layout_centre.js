@@ -7,14 +7,16 @@
  * Compatibility: RV1 (Old UI) (2005-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadLayoutCentre() {
 	BROWSER_API.storage.sync.get(['layoutCentre'], function (result) {
-		if (result.layoutCentre) layoutCentre(true);
+		if (result.layoutCentre === true) layoutCentre(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function layoutCentre(value) {
 	if (redditVersion === 'old') {
 		if (value) {
@@ -55,6 +57,6 @@ function enableLayoutCentreRV1() {
 function disableLayoutCentreRV1() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-centre-container-old"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

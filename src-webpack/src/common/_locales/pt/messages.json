@@ -11,9 +11,6 @@
 	"Accessibility": {
 		"message": "Acessibilidade"
 	},
-	"AlwaysShowPostAndCommentOptions": {
-		"message": "Mostrar sempre opções de postagem e comentário"
-	},
 	"Auto": {
 		"message": "Auto"
 	},
@@ -521,9 +518,6 @@
 	"Other": {
 		"message": "Outro"
 	},
-	"PleaseWait": {
-		"message": "Por favor, aguarde"
-	},
 	"PositionHorizontally": {
 		"message": "Posicionar horizontalmente"
 	},
@@ -615,7 +609,7 @@
 		"message": "Substitua os vídeos por links em feeds"
 	},
 	"ReplacePostVideosWithLinksInfo": {
-		"message": "Funciona apenas com MP4 e GIF. Os vídeos M3U8 podem ser difíceis de jogar em outros jogadores."
+		"message": "Pode não funcionar para todos os vídeos."
 	},
 	"ReportIssues": {
 		"message": "Relatar problemas"
@@ -646,12 +640,6 @@
 	},
 	"RestoreConfigTitle": {
 		"message": "Restaurar configuração de backup do Reddit Enhancer"
-	},
-	"RestoreInfo1": {
-		"message": "Restaurando"
-	},
-	"RestoreInfo2": {
-		"message": "itens. O limite da API do navegador é de 120 por minuto. Por favor, deixe esta janela/aba aberta por mais um minuto."
 	},
 	"Rising": {
 		"message": "Em ascensão / Rising"

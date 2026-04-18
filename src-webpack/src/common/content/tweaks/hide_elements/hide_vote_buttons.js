@@ -7,14 +7,23 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+import { debounce } from '../../../utilities/debounce';
+import { registerMutationCallback } from '../../observer_manager';
+
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideVoteButtons() {
 	BROWSER_API.storage.sync.get(['hideVoteButtons']).then((result) => {
 		if (result.hideVoteButtons) hideVoteButtons(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup functions for the observer and scroll event
+let observerCleanup = null;
+let scrollCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideVoteButtons(value) {
 	if (redditVersion === 'old') {
 		if (value) {
@@ -36,7 +45,7 @@ export function hideVoteButtons(value) {
 		} else {
 			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-vote-buttons"]');
 			dynamicStyleElements.forEach((element) => {
-				document.head.removeChild(element);
+				element.remove();
 			});
 		}
 	} else if (redditVersion === 'newnew') {
@@ -47,20 +56,64 @@ export function hideVoteButtons(value) {
 				styleElement.textContent = `.re-vote-panel span,
                                             shreddit-post::part(vote),
                                             shreddit-comment-action-row::part(vote) {
-                                                display: none;
                                                 visibility: hidden;
                                             }`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
 			attachPartObserver();
-			observer.observe(document.querySelector('.main-container'), { childList: true, subtree: true });
+			// Register with centralised observer manager
+			// Clean up any existing observer first
+			if (observerCleanup) {
+				observerCleanup();
+			}
+			const feed = document.querySelector('shreddit-feed');
+			if (feed) {
+				observerCleanup = registerMutationCallback(
+					feed,
+					(mutations) => {
+						mutations.forEach((mutation) => {
+							mutation.addedNodes.forEach((addedNode) => {
+								if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+									setTimeout(() => {
+										attachPartObserver();
+									}, 1000);
+								}
+							});
+						});
+					},
+					{ childList: true, subtree: true },
+					'hideVoteButtons',
+				);
+			}
+
+			// Add scroll event listener for post_detail pages with debounce
+			if (document.querySelector('shreddit-app[pagetype="post_detail"]')) {
+				const debouncedScrollHandler = debounce(() => {
+					attachPartObserver();
+				}, 100);
+
+				window.addEventListener('scroll', debouncedScrollHandler);
+				scrollCleanup = () => {
+					window.removeEventListener('scroll', debouncedScrollHandler);
+				};
+			}
 		} else {
-			observer.disconnect();
+			// Cleanup observer
+			if (observerCleanup) {
+				observerCleanup();
+				observerCleanup = null;
+			}
 			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-vote-buttons"]');
 			dynamicStyleElements.forEach((element) => {
-				document.head.removeChild(element);
+				element.remove();
 			});
 			detachPartObserver();
+
+			// Cleanup scroll event listener
+			if (scrollCleanup) {
+				scrollCleanup();
+				scrollCleanup = null;
+			}
 		}
 	}
 }
@@ -68,36 +121,15 @@ export function hideVoteButtons(value) {
 // Attach part attribute to element inside shadow DOM (shreddit-post, shreddit-comment-action-row)
 function attachPartObserver() {
 	document.querySelectorAll('shreddit-post, shreddit-comment-action-row').forEach((element) => {
-		if (element.shadowRoot.querySelector('span:has(>button[upvote])')) {
-			if (element.tagName === 'SHREDDIT-POST') {
-				element.shadowRoot.querySelector('span:has(>span[data-post-click-location="vote"])').setAttribute('part', 'vote');
-			} else {
-				element.shadowRoot.querySelector('span:has(>button[upvote])').setAttribute('part', 'vote');
-			}
-		}
+		element.shadowRoot?.querySelector('button[upvote')?.setAttribute('part', 'vote');
+		element.shadowRoot?.querySelector('button[downvote')?.setAttribute('part', 'vote');
 	});
 }
 
 // Detach part attribute from element inside shadow DOM (shreddit-post, shreddit-comment-action-row)
 function detachPartObserver() {
 	document.querySelectorAll('shreddit-post, shreddit-comment-action-row').forEach((element) => {
-		if (element.shadowRoot.querySelector('span:has(>button[upvote])')) {
-			if (element.tagName === 'SHREDDIT-POST') {
-				element.shadowRoot.querySelector('span:has(>span[data-post-click-location="vote"])').removeAttribute('part');
-			} else {
-				element.shadowRoot.querySelector('span:has(>button[upvote])').removeAttribute('part');
-			}
-		}
+		element.shadowRoot?.querySelector('button[upvote')?.removeAttribute('part', 'vote');
+		element.shadowRoot?.querySelector('button[downvote')?.removeAttribute('part', 'vote');
 	});
 }
-
-// Observer for dynamically added elements
-const observer = new MutationObserver((mutations) => {
-	mutations.forEach((mutation) => {
-		mutation.addedNodes.forEach((addedNode) => {
-			if (addedNode.nodeName === 'DIV' || addedNode.nodeName === 'SHREDDIT-COMMENT') {
-				setTimeout(attachPartObserver, 0);
-			}
-		});
-	});
-});

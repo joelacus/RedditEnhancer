@@ -1,4 +1,6 @@
-/* ===== Popup / Restore ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Restore
+// ────────────────────────────────────────────────────────────────────────────
 
 import { restorePopupAccessibilityOptions } from './restore/restore_accessibility';
 import { restorePopupBackgroundOptions } from './restore/restore_background';
@@ -19,6 +21,11 @@ import { restorePopupBlockOptions } from './restore/restore_block';
 window.onload = function () {
 	restoreOptions();
 	fetchLatestVersion();
+
+	// Pre-Select Search Input
+	setTimeout(() => {
+		document.querySelector('#search').focus();
+	}, 500);
 };
 
 /* = Restore Settings Function = */
@@ -43,9 +50,6 @@ function restoreOptions() {
 	/*BROWSER_API.storage.local.get(['accounts'], function (result) {
 		console.log(result.accounts);
 	});*/
-
-	// Pre-Select Search Input
-	document.querySelector('#search').focus();
 }
 
 /* = Check Firefox Version = */

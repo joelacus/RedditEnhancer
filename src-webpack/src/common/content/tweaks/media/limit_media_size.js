@@ -9,7 +9,8 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function limitImageSize() {
 	BROWSER_API.storage.sync.get(['maxImageWidth', 'maxImagePostHeight', 'maxVideoWidth', 'maxVideoPostHeight'], function (result) {
 		setMaxImageWidth(result.maxImageWidth);
@@ -19,7 +20,7 @@ export function limitImageSize() {
 	});
 }
 
-/* === Set Properties === */
+// ─── Set Properties ─────────────────────────────────────────────────────────
 
 // Set Limit Image Width
 export function setMaxImageWidth(value) {

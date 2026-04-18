@@ -7,16 +7,19 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
+import { parseHtmlString } from '../../../utilities/parse_html_string';
 import { loadSideMenuWidth } from '../resize_elements/side_menu_width';
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadSideMenuToggleButton() {
 	BROWSER_API.storage.sync.get(['sideMenuToggleButton'], function (result) {
 		if (result.sideMenuToggleButton) sideMenuToggleButton(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function sideMenuToggleButton(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableSideMenuToggleButton();
@@ -28,7 +31,7 @@ export function sideMenuToggleButton(value) {
 // Enable Side Menu Toggle Button - RV3
 function enableSideMenuToggleButton() {
 	document.documentElement.classList.add('re-hide-side-menu');
-	const chevron = '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path opacity="1" fill="currentColor" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>';
+	const chevronHtmlString = '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path opacity="1" fill="currentColor" d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>';
 
 	const app = document.querySelector('shreddit-app');
 	const sideMenu = document.getElementById('flex-left-nav-container');
@@ -36,8 +39,8 @@ function enableSideMenuToggleButton() {
 
 	if (!document.querySelector('.re-side-menu-close')) {
 		const closeBtn = document.createElement('button');
-		closeBtn.innerHTML = chevron;
 		closeBtn.classList.add('re-side-menu-close');
+		closeBtn.append(parseHtmlString(chevronHtmlString));
 		closeBtn.addEventListener('click', function (e) {
 			app.setAttribute('data-re-hide-side-menu', 'true');
 			localStorage.setItem('sideMenuHidden', 'true');
@@ -47,8 +50,8 @@ function enableSideMenuToggleButton() {
 
 	if (!document.querySelector('.re-side-menu-open')) {
 		const openBtn = document.createElement('button');
-		openBtn.innerHTML = chevron;
 		openBtn.classList.add('re-side-menu-open');
+		openBtn.append(parseHtmlString(chevronHtmlString));
 		openBtn.addEventListener('click', function (e) {
 			app.setAttribute('data-re-hide-side-menu', 'false');
 			localStorage.setItem('sideMenuHidden', 'false');
@@ -153,7 +156,7 @@ function disableSideMenuToggleButton() {
 	document.querySelector('.re-side-menu-open')?.remove();
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-side-menu-toggle-button"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	loadSideMenuWidth();
 }

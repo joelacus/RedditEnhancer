@@ -1,155 +1,149 @@
-/* ===== Inputs / Font Tweaks ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Inputs / Font Tweaks
+// ────────────────────────────────────────────────────────────────────────────
 
-import { sendMessage } from '../send_message';
+import { debounce } from '../../utilities/debounce';
+import { sendMessage } from '../../utilities/send_message';
 
-/* === Font Size === */
+// ─── Font Size ──────────────────────────────────────────────────────────────
 
 // Slider - Post Title Font Size
-document.querySelector('#input-post-title-font-size').addEventListener('input', (e) => {
-	const value = e.target.value;
-	document.querySelector('.icon-post-title-font-size').style.backgroundColor = value != 9 ? 'var(--accent)' : '';
-	document.querySelector('#post-title-font-size-value').innerText = value != 9 ? `${e.target.value}px` : '';
-	sendMessage({ postTitleFontSize: value });
-});
-document.querySelector('#input-post-title-font-size').addEventListener('mouseup', (e) => {
-	// save value on mouseup to significantly reduce api writes.
-	const value = e.target.value !== 9 ? e.target.value : false;
-	BROWSER_API.storage.sync.set({ postTitleFontSize: value });
+const savePostTitleFontSize = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ postTitleFontSize: value != 9 ? value : false });
+}, 500);
+document.querySelector('#input-post-title-font-size').addEventListener('input', function () {
+	document.querySelector('.icon-post-title-font-size').style.backgroundColor = this.value != 9 ? 'var(--accent)' : '';
+	document.querySelector('#post-title-font-size-value').innerText = this.value != 9 ? `${this.value}px` : '';
+	sendMessage({ postTitleFontSize: this.value });
+	savePostTitleFontSize(this.value);
 });
 
 // Slider - Post Content Font Size
-document.querySelector('#input-post-content-font-size').addEventListener('input', (e) => {
-	const value = e.target.value;
-	document.querySelector('.icon-post-content-font-size').style.backgroundColor = value != 9 ? 'var(--accent)' : '';
-	document.querySelector('#post-content-font-size-value').innerText = value != 9 ? `${e.target.value}px` : '';
-	sendMessage({ postContentFontSize: value });
-});
-document.querySelector('#input-post-content-font-size').addEventListener('mouseup', (e) => {
-	const value = e.target.value !== 9 ? e.target.value : false;
-	BROWSER_API.storage.sync.set({ postContentFontSize: value });
+const savePostContentFontSize = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ postContentFontSize: value != 9 ? value : false });
+}, 500);
+document.querySelector('#input-post-content-font-size').addEventListener('input', function () {
+	document.querySelector('.icon-post-content-font-size').style.backgroundColor = this.value != 9 ? 'var(--accent)' : '';
+	document.querySelector('#post-content-font-size-value').innerText = this.value != 9 ? `${this.value}px` : '';
+	sendMessage({ postContentFontSize: this.value });
+	savePostContentFontSize(this.value);
 });
 
 // Slider - Feed Post Title Font Size
-document.querySelector('#input-feed-post-title-font-size').addEventListener('input', (e) => {
-	const value = e.target.value;
-	document.querySelector('.icon-feed-post-title-font-size').style.backgroundColor = value != 9 ? 'var(--accent)' : '';
-	document.querySelector('#feed-post-title-font-size-value').innerText = value != 9 ? `${e.target.value}px` : '';
-	sendMessage({ feedPostTitleFontSize: value });
-});
-document.querySelector('#input-feed-post-title-font-size').addEventListener('mouseup', (e) => {
-	const value = e.target.value !== 9 ? e.target.value : false;
-	BROWSER_API.storage.sync.set({ feedPostTitleFontSize: value });
+const saveFeedPostTitleFontSize = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ feedPostTitleFontSize: value != 9 ? value : false });
+}, 500);
+document.querySelector('#input-feed-post-title-font-size').addEventListener('input', function () {
+	document.querySelector('.icon-feed-post-title-font-size').style.backgroundColor = this.value != 9 ? 'var(--accent)' : '';
+	document.querySelector('#feed-post-title-font-size-value').innerText = this.value != 9 ? `${this.value}px` : '';
+	sendMessage({ feedPostTitleFontSize: this.value });
+	saveFeedPostTitleFontSize(this.value);
 });
 
 // Slider - Feed Post Content Font Size
-document.querySelector('#input-feed-post-content-font-size').addEventListener('input', (e) => {
-	const value = e.target.value;
-	document.querySelector('.icon-feed-post-content-font-size').style.backgroundColor = value != 9 ? 'var(--accent)' : '';
-	document.querySelector('#feed-post-content-font-size-value').innerText = value != 9 ? `${e.target.value}px` : '';
-	sendMessage({ feedPostContentFontSize: value });
-});
-document.querySelector('#input-feed-post-content-font-size').addEventListener('mouseup', (e) => {
-	const value = e.target.value !== 9 ? e.target.value : false;
-	BROWSER_API.storage.sync.set({ feedPostContentFontSize: value });
+const saveFeedPostContentFontSize = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ feedPostContentFontSize: value != 9 ? value : false });
+}, 500);
+document.querySelector('#input-feed-post-content-font-size').addEventListener('input', function () {
+	document.querySelector('.icon-feed-post-content-font-size').style.backgroundColor = this.value != 9 ? 'var(--accent)' : '';
+	document.querySelector('#feed-post-content-font-size-value').innerText = this.value != 9 ? `${this.value}px` : '';
+	sendMessage({ feedPostContentFontSize: this.value });
+	saveFeedPostContentFontSize(this.value);
 });
 
 // Slider - Post Comments Font Size
-document.querySelector('#input-post-comments-font-size').addEventListener('input', (e) => {
-	const value = e.target.value;
-	document.querySelector('.icon-post-comments-font-size').style.backgroundColor = value != 9 ? 'var(--accent)' : '';
-	document.querySelector('#post-comments-font-size-value').innerText = value != 9 ? `${e.target.value}px` : '';
-	sendMessage({ postCommentsFontSize: value });
-});
-document.querySelector('#input-post-comments-font-size').addEventListener('mouseup', (e) => {
-	const value = e.target.value !== 9 ? e.target.value : false;
-	BROWSER_API.storage.sync.set({ postCommentsFontSize: value });
+const savePostCommentsFontSize = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ postCommentsFontSize: value != 9 ? value : false });
+}, 500);
+document.querySelector('#input-post-comments-font-size').addEventListener('input', function () {
+	document.querySelector('.icon-post-comments-font-size').style.backgroundColor = this.value != 9 ? 'var(--accent)' : '';
+	document.querySelector('#post-comments-font-size-value').innerText = this.value != 9 ? `${this.value}px` : '';
+	sendMessage({ postCommentsFontSize: this.value });
+	savePostCommentsFontSize(this.value);
 });
 
 // Slider - "Create Post: Title" Font Size
-document.querySelector('#input-create-post-title-font-size').addEventListener('input', (e) => {
-	const value = e.target.value;
-	document.querySelector('.icon-create-post-title-font-size').style.backgroundColor = value != 9 ? 'var(--accent)' : '';
-	document.querySelector('#create-post-title-font-size-value').innerText = value != 9 ? `${e.target.value}px` : '';
-	sendMessage({ createPostTitleFontSize: value });
-});
-document.querySelector('#input-create-post-title-font-size').addEventListener('mouseup', (e) => {
-	const value = e.target.value !== 9 ? e.target.value : false;
-	BROWSER_API.storage.sync.set({ createPostTitleFontSize: value });
+const saveCreatePostTitleFontSize = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ createPostTitleFontSize: value != 9 ? value : false });
+}, 500);
+document.querySelector('#input-create-post-title-font-size').addEventListener('input', function () {
+	document.querySelector('.icon-create-post-title-font-size').style.backgroundColor = this.value != 9 ? 'var(--accent)' : '';
+	document.querySelector('#create-post-title-font-size-value').innerText = this.value != 9 ? `${this.value}px` : '';
+	sendMessage({ createPostTitleFontSize: this.value });
+	saveCreatePostTitleFontSize(this.value);
 });
 
 // Slider - "Create Post: Body" Font Size
-document.querySelector('#input-create-post-body-font-size').addEventListener('input', (e) => {
-	const value = e.target.value;
-	document.querySelector('.icon-create-post-body-font-size').style.backgroundColor = value != 9 ? 'var(--accent)' : '';
-	document.querySelector('#create-post-body-font-size-value').innerText = value != 9 ? `${e.target.value}px` : '';
-	sendMessage({ createPostBodyFontSize: value });
-});
-document.querySelector('#input-create-post-body-font-size').addEventListener('mouseup', (e) => {
-	const value = e.target.value !== 9 ? e.target.value : false;
-	BROWSER_API.storage.sync.set({ createPostBodyFontSize: value });
+const saveCreatePostBodyFontSize = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ createPostBodyFontSize: value != 9 ? value : false });
+}, 500);
+document.querySelector('#input-create-post-body-font-size').addEventListener('input', function () {
+	document.querySelector('.icon-create-post-body-font-size').style.backgroundColor = this.value != 9 ? 'var(--accent)' : '';
+	document.querySelector('#create-post-body-font-size-value').innerText = this.value != 9 ? `${this.value}px` : '';
+	sendMessage({ createPostBodyFontSize: this.value });
+	saveCreatePostBodyFontSize(this.value);
 });
 
-/* === Font Weight === */
+// ─── Font Weight ────────────────────────────────────────────────────────────
 
 // Slider - Post Title Font Weight
-document.querySelector('#input-post-title-font-weight').addEventListener('input', (e) => {
-	const value = e.target.value;
-	document.querySelector('.icon-post-title-font-weight').style.backgroundColor = value != 0 ? 'var(--accent)' : '';
-	document.querySelector('#post-title-font-weight-value').innerText = value != 0 ? e.target.value : '';
-	sendMessage({ postTitleFontWeight: value });
-});
-document.querySelector('#input-post-title-font-weight').addEventListener('mouseup', (e) => {
-	BROWSER_API.storage.sync.set({ postTitleFontWeight: e.target.value });
+const savePostTitleFontWeight = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ postTitleFontWeight: value });
+}, 500);
+document.querySelector('#input-post-title-font-weight').addEventListener('input', function () {
+	document.querySelector('.icon-post-title-font-weight').style.backgroundColor = this.value != 0 ? 'var(--accent)' : '';
+	document.querySelector('#post-title-font-weight-value').innerText = this.value != 0 ? this.value : '';
+	sendMessage({ postTitleFontWeight: this.value });
+	savePostTitleFontWeight(this.value);
 });
 
 // Slider - Post Content Font Weight
-document.querySelector('#input-post-content-font-weight').addEventListener('input', (e) => {
-	const value = e.target.value;
-	document.querySelector('.icon-post-content-font-weight').style.backgroundColor = value != 0 ? 'var(--accent)' : '';
-	document.querySelector('#post-content-font-weight-value').innerText = value != 0 ? e.target.value : '';
-	sendMessage({ postContentFontWeight: value });
-});
-document.querySelector('#input-post-content-font-weight').addEventListener('mouseup', (e) => {
-	BROWSER_API.storage.sync.set({ postContentFontWeight: e.target.value });
+const savePostContentFontWeight = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ postContentFontWeight: value });
+}, 500);
+document.querySelector('#input-post-content-font-weight').addEventListener('input', function () {
+	document.querySelector('.icon-post-content-font-weight').style.backgroundColor = this.value != 0 ? 'var(--accent)' : '';
+	document.querySelector('#post-content-font-weight-value').innerText = this.value != 0 ? this.value : '';
+	sendMessage({ postContentFontWeight: this.value });
+	savePostContentFontWeight(this.value);
 });
 
 // Slider - Feed Post Title Font Weight
-document.querySelector('#input-feed-post-title-font-weight').addEventListener('input', (e) => {
-	const value = e.target.value;
-	document.querySelector('.icon-feed-post-title-font-weight').style.backgroundColor = value != 0 ? 'var(--accent)' : '';
-	document.querySelector('#feed-post-title-font-weight-value').innerText = value != 0 ? e.target.value : '';
-	sendMessage({ feedPostTitleFontWeight: value });
-});
-document.querySelector('#input-feed-post-title-font-weight').addEventListener('mouseup', (e) => {
-	BROWSER_API.storage.sync.set({ feedPostTitleFontWeight: e.target.value });
+const saveFeedPostTitleFontWeight = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ feedPostTitleFontWeight: value });
+}, 500);
+document.querySelector('#input-feed-post-title-font-weight').addEventListener('input', function () {
+	document.querySelector('.icon-feed-post-title-font-weight').style.backgroundColor = this.value != 0 ? 'var(--accent)' : '';
+	document.querySelector('#feed-post-title-font-weight-value').innerText = this.value != 0 ? this.value : '';
+	sendMessage({ feedPostTitleFontWeight: this.value });
+	saveFeedPostTitleFontWeight(this.value);
 });
 
 // Slider - Feed Post Content Font Weight
-document.querySelector('#input-feed-post-content-font-weight').addEventListener('input', (e) => {
-	const value = e.target.value;
-	document.querySelector('.icon-feed-post-content-font-weight').style.backgroundColor = value != 0 ? 'var(--accent)' : '';
-	document.querySelector('#feed-post-content-font-weight-value').innerText = value != 0 ? e.target.value : '';
-	sendMessage({ feedPostContentFontWeight: value });
-});
-document.querySelector('#input-feed-post-content-font-weight').addEventListener('mouseup', (e) => {
-	BROWSER_API.storage.sync.set({ feedPostContentFontWeight: e.target.value });
+const saveFeedPostContentFontWeight = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ feedPostContentFontWeight: value });
+}, 500);
+document.querySelector('#input-feed-post-content-font-weight').addEventListener('input', function () {
+	document.querySelector('.icon-feed-post-content-font-weight').style.backgroundColor = this.value != 0 ? 'var(--accent)' : '';
+	document.querySelector('#feed-post-content-font-weight-value').innerText = this.value != 0 ? this.value : '';
+	sendMessage({ feedPostContentFontWeight: this.value });
+	saveFeedPostContentFontWeight(this.value);
 });
 
 // Slider - Post Comments Font Weight
-document.querySelector('#input-post-comments-font-weight').addEventListener('input', (e) => {
-	const value = e.target.value;
-	document.querySelector('.icon-post-comments-font-weight').style.backgroundColor = value != 0 ? 'var(--accent)' : '';
-	document.querySelector('#post-comments-font-weight-value').innerText = value != 0 ? e.target.value : '';
-	sendMessage({ postCommentsFontWeight: value });
-});
-document.querySelector('#input-post-comments-font-weight').addEventListener('mouseup', (e) => {
-	BROWSER_API.storage.sync.set({ postCommentsFontWeight: e.target.value });
+const savePostCommentsFontWeight = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ postCommentsFontWeight: value });
+}, 500);
+document.querySelector('#input-post-comments-font-weight').addEventListener('input', function () {
+	document.querySelector('.icon-post-comments-font-weight').style.backgroundColor = this.value != 0 ? 'var(--accent)' : '';
+	document.querySelector('#post-comments-font-weight-value').innerText = this.value != 0 ? this.value : '';
+	sendMessage({ postCommentsFontWeight: this.value });
+	savePostCommentsFontWeight(this.value);
 });
 
 // Toggle - Custom Fonts
-document.querySelector('#checkbox-custom-fonts').addEventListener('change', (e) => {
-	const value = e.target.checked;
-	BROWSER_API.storage.sync.set({ customFonts: value });
-	document.querySelector('.icon-custom-fonts').style.backgroundColor = value === true ? 'var(--accent)' : '';
-	sendMessage({ customFonts: value });
+document.querySelector('#checkbox-custom-fonts').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ customFonts: this.checked });
+	sendMessage({ customFonts: this.checked });
+	document.querySelector('.icon-custom-fonts').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });

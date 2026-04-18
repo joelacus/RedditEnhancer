@@ -1,4 +1,6 @@
-/* ===== Popup / Inputs ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Inputs
+// ────────────────────────────────────────────────────────────────────────────
 
 // Event listeners for the popup and options page.
 
@@ -26,7 +28,7 @@ import { restorePopupTheme } from './restore/restore_extension_theme';
 import { showChangelog } from './functions/show_changelog';
 import { initTopCategoryMenu } from './functions/init_top_category_menu';
 
-/* = Banner Message = */
+// ─── Banner Message ─────────────────────────────────────────────────────────
 
 // Close
 document.querySelector('#firefox-update-message .close').addEventListener('click', function (e) {
@@ -42,7 +44,7 @@ document.querySelector('#new-new-ui-message .dont-show-again').addEventListener(
 	localStorage.setItem('DontShowAgainNewNewUiMessage', true);
 });
 
-/* = Header = */
+// ─── Header ─────────────────────────────────────────────────────────────────
 
 // Shade
 if (document.querySelector('body#popup')) {
@@ -78,7 +80,7 @@ if (document.querySelector('body#popup')) {
 	initTopCategoryMenu();
 }
 
-/* = Footer = */
+// ─── Footer ─────────────────────────────────────────────────────────────────
 
 // Button - Extension Settings
 document.querySelector('#btn-settings').addEventListener('click', function () {
@@ -152,7 +154,7 @@ function getBrowserType() {
 	}
 }
 
-/* = Extension Settings = */
+// ─── Extension Settings ─────────────────────────────────────────────────────
 
 // Button - Reset Settings
 document.querySelector('#btn-reset-settings').addEventListener('click', function () {

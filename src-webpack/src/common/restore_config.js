@@ -79,13 +79,13 @@ function checkFile(event) {
 	let json = JSON.parse(str);
 	const file = json.file;
 	if (file === 'RedditEnhancer_backup') {
-		console.log('backup file ok');
+		console.log('[RedditEnhancer] Backup file loaded');
 		document.querySelector('.form-container').classList.remove('red');
 		document.querySelector('.form-container').classList.add('green');
 		document.querySelector('#restore-backup').removeAttribute('disabled');
 		window.jsonData = json;
 	} else {
-		console.log('bad file');
+		console.log('[RedditEnhancer] Invalid backup file');
 		document.querySelector('.form-container').classList.remove('green');
 		document.querySelector('.form-container').classList.add('red');
 		document.querySelector('#restore-backup').setAttribute('disabled', 'disabled');
@@ -97,7 +97,7 @@ function checkDroppedFile(event) {
 	let json = JSON.parse(str);
 	const file = json.file;
 	if (file === 'RedditEnhancer_backup') {
-		console.log('backup file ok');
+		console.log('[RedditEnhancer] Backup file loaded');
 		if (typeof inputFile != 'undefined') {
 			const name = inputFile.name;
 			document.querySelector('#dropped-file-name').textContent = name;
@@ -108,7 +108,7 @@ function checkDroppedFile(event) {
 		}
 		document.querySelector('#restore-backup').removeAttribute('disabled');
 	} else {
-		console.log('bad file');
+		console.log('[RedditEnhancer] Invalid backup file');
 		document.querySelector('#dropped-file-name').textContent = 'Invalid File';
 		document.querySelector('#drop-area').classList.remove('highlight');
 		document.querySelector('#drop-area').classList.remove('green');
@@ -132,6 +132,7 @@ async function restoreBackup(json) {
 				'addDropShadow',
 				'addonTheme',
 				'addProfilePicturesToComments',
+				'alwaysShowCommentOptions',
 				'alwaysShowPostOptions',
 				'attachSideMenuHeader',
 				'autoCollapseAutoModeratorComment',
@@ -148,6 +149,8 @@ async function restoreBackup(json) {
 				'bionicReaderFontColourCSS',
 				'bionicReaderPosts',
 				'borderRadiusAmount',
+				'cannedMessages',
+				'cannedMessagesList',
 				'classicOldUI',
 				'commentAbsoluteTimestampFormat',
 				'commentsLimit',
@@ -177,20 +180,25 @@ async function restoreBackup(json) {
 				'feedPostContentFontWeight',
 				'feedPostTitleFontSize',
 				'feedPostTitleFontWeight',
+				'forceDarkMode',
 				'fullWidthBanner',
 				'fullWidthExpandos',
 				'hideAdvertiseButton',
 				'hideAiInSearch',
-				'hideLogoInSearch',
 				'hideAwards',
 				'hideBlockedKeywordPosts',
 				'hideBlockedKeywordPostsList',
-				'hideBlockedUserPosts',
-				'hideBlockedUserPostsList',
 				'hideBlockedLinkPosts',
 				'hideBlockedLinkPostsList',
+				'hideBlockedUserPosts',
+				'hideBlockedUserPostsList',
 				'hideBlurredMediaBackground',
 				'hideChatButton',
+				'hideCommentAwardOption',
+				'hideCommentFollowOption',
+				'hideCommentReportOption',
+				'hideCommentSaveOption',
+				'hideCommentShareOption',
 				'hideCommunityHighlights',
 				'hideCommunityStatus',
 				'hideCompactViewBlankThumbnails',
@@ -198,14 +206,15 @@ async function restoreBackup(json) {
 				'hideCreatePostButton',
 				'hideCustomFeedSidebar',
 				'hideGap',
-				'hideGetNewReddit',
 				'hideGetAppButton',
+				'hideGetNewReddit',
 				'hideHeaderBar',
 				'hideHeaderSubBar',
 				'hideHomeFeed',
 				'hideHomeSidebar',
 				'hideJoinButtonOnPosts',
 				'hideKarma',
+				'hideLogoInSearch',
 				'hideModerationButton',
 				'hideNotificationButton',
 				'hideNSFW',
@@ -228,6 +237,7 @@ async function restoreBackup(json) {
 				'hideRecentPosts',
 				'hideRecommended',
 				'hideRedditPremium',
+				'hideRelatedCommunities',
 				'hideRelatedPostsSection',
 				'hideSearchHero',
 				'hideSearchSidebar',
@@ -265,8 +275,8 @@ async function restoreBackup(json) {
 				'layoutSubOffset',
 				'layoutUserProfileOffset',
 				'leftSideVoteButtons',
-				'markReadOnOpenExpandos',
 				'markPostAsReadButton',
+				'markReadOnOpenExpandos',
 				'maxImagePostHeight',
 				'maxImageWidth',
 				'maxVideoPostHeight',
@@ -295,6 +305,8 @@ async function restoreBackup(json) {
 				'rememberSideMenuSectionHiddenStateValues',
 				'removeCommentButtonIcons',
 				'replacePostImagesWithLinks',
+				'replacePostImagesWithLinksHome',
+				'replacePostImagesWithLinksSubreddits',
 				'replacePostVideosWithLinks',
 				'replaceSearchPlaceholderText',
 				'resizeMainContainerWidth',
@@ -343,6 +355,8 @@ async function restoreBackup(json) {
 				'themePostCommentsTextColour1CSS',
 				'themePostCommentsTextColour2',
 				'themePostCommentsTextColour2CSS',
+				'themePostFollowedTextColour',
+				'themePostFollowedTextColourCSS',
 				'themePostTextColour1',
 				'themePostTextColour1CSS',
 				'themePostTextColour2',
@@ -351,12 +365,8 @@ async function restoreBackup(json) {
 				'themePostUpvoteColourCSS',
 				'themePostVisitedTextColour',
 				'themePostVisitedTextColourCSS',
-				'themePostFollowedTextColour',
-				'themePostFollowedTextColourCSS',
 				'themeSearchbarBgColour',
 				'themeSearchbarBgColourCSS',
-				/*'themeSearchbarBorderColour',
-				'themeSearchbarBorderColourCSS',*/
 				'themeSearchbarDropdownBgColour',
 				'themeSearchbarDropdownBgColourCSS',
 				'themeSidebarBgColour',
@@ -369,10 +379,14 @@ async function restoreBackup(json) {
 				'themeSidemenuButtonHoverColourCSS',
 				'themeSidemenuTextColour',
 				'themeSidemenuTextColourCSS',
+				'themeSubHeaderBackgroundColour',
+				'themeSubHeaderBackgroundColourCSS',
 				'underlineLinks',
 				'useCustomBackground',
 				'usernameHoverPopupDelay',
 				'viewCrossposts',
+				//'themeSearchbarBorderColour',
+				//'themeSearchbarBorderColourCSS',
 				//'breakReminder',
 				//'breakReminderFrequency',
 				//'darkMode',
@@ -390,86 +404,26 @@ async function restoreBackup(json) {
 	// Keep only valid keys
 	Object.keys(json).forEach((key) => validKeys.includes(key) || delete json[key]);
 
-	// Chunkify json
-	function splitObjectIntoChunks(obj, chunkSize) {
-		const keys = Object.keys(obj);
-		const numChunks = Math.ceil(keys.length / chunkSize);
-		const result = [];
-		for (let i = 0; i < numChunks; i++) {
-			const start = i * chunkSize;
-			const end = start + chunkSize;
-			const chunkKeys = keys.slice(start, end);
-			const chunk = {};
-			chunkKeys.forEach((key) => {
-				chunk[key] = obj[key];
-			});
-			result.push(chunk);
-		}
-		return result;
-	}
 	// Send json data to background.js to save to storage.sync
-	if (Object.keys(json).length > 120) {
-		document.querySelector('.main').style.display = 'none';
-		document.querySelector('.restoring').style.display = 'flex';
-		const count = Object.keys(json).length;
-		document.querySelector('#item-count').textContent = count;
-		console.log('config items (' + count + ') exceeds 120. config will be chunkified');
-		const result = splitObjectIntoChunks(json, 120);
-		// restore first chunk
-		function restoreChunk1() {
-			BROWSER_API.runtime.sendMessage({ restore: result[0] }).then((response) => {
-				if (response.success === true) {
-					restoreChunk2();
-				} else {
-					console.error('Error:', response);
-					setTimeout(() => {
-						restoreChunk1();
-					}, 60000);
-				}
-			});
+	BROWSER_API.runtime.sendMessage({ restore: json }).then((response) => {
+		if (response.success) {
+			restoreComplete();
+		} else {
+			restoreFailed();
+			console.error('Error:', response);
 		}
-		restoreChunk1();
-		// restore second chunk
-		function restoreChunk2() {
-			setTimeout(() => {
-				console.log('please wait 60 seconds');
-			}, 1000);
-			// update countdown timer
-			let seconds = 60;
-			const timerElement = document.querySelector('#timer');
-			function updateTimer() {
-				seconds--;
-				timerElement.textContent = seconds;
-				if (seconds === 0) {
-					clearInterval(timerInterval);
-				}
-			}
-			const timerInterval = setInterval(updateTimer, 1000);
+	});
 
-			setTimeout(() => {
-				BROWSER_API.runtime.sendMessage({ restore: result[1] }).then((response) => {
-					if (response.success === true) {
-						backupFinished();
-					} else {
-						console.error('Error:', response);
-						setTimeout(() => {
-							restoreChunk2();
-						}, 60000);
-					}
-				});
-			}, 60000);
-		}
-	} else {
-		BROWSER_API.runtime.sendMessage({ restore: json });
-		backupFinished();
+	function restoreComplete() {
+		document.querySelector('.main').style.display = 'none';
+		document.querySelector('.complete').style.display = 'flex';
+		console.log('[RedditEnhancer] Restore complete!');
 	}
 
-	// Hide file inputs and show 'done'
-	function backupFinished() {
+	function restoreFailed() {
 		document.querySelector('.main').style.display = 'none';
-		document.querySelector('.restoring').style.display = 'none';
-		document.querySelector('.done').style.display = 'flex';
-		console.log('done');
+		document.querySelector('.failed').style.display = 'flex';
+		console.error('[RedditEnhancer] Restore failed!');
 	}
 }
 
@@ -489,6 +443,7 @@ function init_i18n(lang) {
 			backend: {
 				loadPath: '/_locales/{{lng}}/messages.json',
 			},
+			showSupportNotice: false,
 		})
 		.then(() => {
 			translate();

@@ -7,14 +7,16 @@
  * Compatibility: RV1 (Old UI) (2005-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadAddProfilePicturesToComments() {
 	BROWSER_API.storage.sync.get(['addProfilePicturesToComments'], function (result) {
 		if (result.addProfilePicturesToComments) addProfilePicturesToComments(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function addProfilePicturesToComments(value) {
 	const comments_page = document.querySelector('body').classList.contains('comments-page');
 	if (redditVersion === 'old' && value && comments_page === true) {
@@ -68,7 +70,7 @@ async function fetchUserData(user) {
 			},
 			function (response) {
 				resolve(response.data);
-			}
+			},
 		);
 	});
 }

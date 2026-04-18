@@ -7,18 +7,22 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+import { validateInt } from '../../../popup/restore/validation';
+
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadLayoutOffset() {
 	BROWSER_API.storage.sync.get(['layoutOffset', 'layoutSubOffset', 'layoutPostOffset', 'layoutUserProfileOffset', 'layoutSearchPageOffset'], function (result) {
-		if (result.layoutOffset) layoutOffset(result.layoutOffset);
-		if (result.layoutSubOffset) layoutSubOffset(result.layoutSubOffset);
-		if (result.layoutPostOffset) layoutPostOffset(result.layoutPostOffset);
-		if (result.layoutUserProfileOffset) layoutUserProfileOffset(result.layoutUserProfileOffset);
-		if (result.layoutSearchPageOffset) layoutSearchPageOffset(result.layoutSearchPageOffset);
+		layoutOffset(validateInt(parseInt(result.layoutOffset), -100, 100, 0));
+		layoutSubOffset(validateInt(parseInt(result.layoutSubOffset), -100, 100, 0));
+		layoutPostOffset(validateInt(parseInt(result.layoutPostOffset), -100, 100, 0));
+		layoutUserProfileOffset(validateInt(parseInt(result.layoutUserProfileOffset), -100, 100, 0));
+		layoutSearchPageOffset(validateInt(parseInt(result.layoutSearchPageOffset), -100, 100, 0));
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function layoutOffset(value) {
 	if (redditVersion === 'newnew') {
 		document.documentElement.style.setProperty('--re-layout-offset', value + '%');

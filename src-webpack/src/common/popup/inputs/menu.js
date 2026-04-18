@@ -1,246 +1,39 @@
-/* ===== Inputs / Menu ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Inputs / Menu
+// ────────────────────────────────────────────────────────────────────────────
 
 import Sortable from 'sortablejs';
 
-// Event listeners for the menu category buttons.
+// ─── Event listeners for the menu category buttons ──────────────────────────
 
-// Menu Button - Dark Mode
-document.querySelectorAll('.btn-dark-mode .menu-item-btn').forEach((btn) => {
-	btn.addEventListener('click', function (e) {
-		optionsPageFunctions();
-		const menu = document.querySelector('.menu-dark-mode');
-		if (menu.classList.contains('hidden')) {
-			menu.classList.remove('hidden');
-			document.querySelectorAll('.btn-dark-mode').forEach((btn) => {
-				btn.classList.add('active');
-			});
-			scrollIntoView('.btn-dark-mode');
-		} else {
-			menu.classList.add('hidden');
-			document.querySelectorAll('.btn-dark-mode').forEach((btn) => {
-				btn.classList.remove('active');
-			});
-		}
-	});
-});
+const menuConfigs = [
+	{ btn: '.btn-accessibility', menu: '.menu-accessibility', scroll: '.btn-accessibility' },
+	//{ btn: '.btn-account-switcher', menu: '.menu-account-switcher', scroll: '.btn-account-switcher' },
+	{ btn: '.btn-background', menu: '.menu-background', scroll: '.btn-background' },
+	{ btn: '.btn-block', menu: '.menu-block', scroll: '.btn-block' },
+	{ btn: '.btn-dark-mode', menu: '.menu-dark-mode', scroll: '.btn-dark-mode' },
+	{ btn: '.btn-font', menu: '.menu-font', scroll: '.btn-font' },
+	{ btn: '.btn-hide-elements', menu: '.menu-hide-elements', scroll: '.btn-hide-elements' },
+	{ btn: '.btn-media-tweaks', menu: '.menu-media-tweaks', scroll: '.btn-media-tweaks' },
+	{ btn: '.btn-productivity-tweaks', menu: '.menu-productivity-tweaks', scroll: '.btn-productivity-tweaks' },
+	{ btn: '.btn-resize-elements', menu: '.menu-resize-elements', scroll: '.btn-resize-elements' },
+	{ btn: '.btn-style-tweaks', menu: '.menu-style-tweaks', scroll: '.btn-style-tweaks' },
+];
 
-// Menu Button - Resize Feed/Post
-document.querySelectorAll('.btn-resize-elements .menu-item-btn').forEach((btn) => {
-	btn.addEventListener('click', function (e) {
-		optionsPageFunctions();
-		const menu = document.querySelector('.menu-resize-elements');
-		if (menu.classList.contains('hidden') === true) {
-			menu.classList.remove('hidden');
-			document.querySelectorAll('.btn-resize-elements').forEach((btn) => {
-				btn.classList.add('active');
-			});
-			scrollIntoView('#main-menu .btn-resize-elements');
-		} else {
-			menu.classList.add('hidden');
-			document.querySelectorAll('.btn-resize-elements').forEach((btn) => {
-				btn.classList.remove('active');
-			});
-		}
-	});
-});
-
-// Menu Button - Hide Elements
-document.querySelectorAll('.btn-hide-elements .menu-item-btn').forEach((btn) => {
-	btn.addEventListener('click', function (e) {
-		optionsPageFunctions();
-		const menu = document.querySelector('.menu-hide-elements');
-		if (menu.classList.contains('hidden')) {
-			menu.classList.remove('hidden');
-			document.querySelectorAll('.btn-hide-elements').forEach((btn) => {
-				btn.classList.add('active');
-			});
-			scrollIntoView('.btn-hide-elements');
-		} else {
-			menu.classList.add('hidden');
-			document.querySelectorAll('.btn-hide-elements').forEach((btn) => {
-				btn.classList.remove('active');
-			});
-		}
-	});
-});
-
-// Menu Button - Productivity Tweaks
-document.querySelectorAll('.btn-productivity-tweaks .menu-item-btn').forEach((btn) => {
-	btn.addEventListener('click', function (e) {
-		optionsPageFunctions();
-		const menu = document.querySelector('.menu-productivity-tweaks');
-		if (menu.classList.contains('hidden')) {
-			menu.classList.remove('hidden');
-			document.querySelectorAll('.btn-productivity-tweaks').forEach((btn) => {
-				btn.classList.add('active');
-			});
-			scrollIntoView('.btn-productivity-tweaks');
-		} else {
-			menu.classList.add('hidden');
-			document.querySelectorAll('.btn-productivity-tweaks').forEach((btn) => {
-				btn.classList.remove('active');
-			});
-		}
-	});
-});
-
-// Menu Button - Style Tweaks
-document.querySelectorAll('.btn-style-tweaks .menu-item-btn').forEach((btn) => {
-	btn.addEventListener('click', function (e) {
-		optionsPageFunctions();
-		const menu = document.querySelector('.menu-style-tweaks');
-		if (menu.classList.contains('hidden')) {
-			menu.classList.remove('hidden');
-			document.querySelectorAll('.btn-style-tweaks').forEach((btn) => {
-				btn.classList.add('active');
-			});
-			scrollIntoView('.btn-style-tweaks');
-		} else {
-			menu.classList.add('hidden');
-			document.querySelectorAll('.btn-style-tweaks').forEach((btn) => {
-				btn.classList.remove('active');
-			});
-		}
-	});
-});
-
-// Menu Button - Background
-document.querySelectorAll('.btn-background .menu-item-btn').forEach((btn) => {
-	btn.addEventListener('click', function (e) {
-		optionsPageFunctions();
-		const menu = document.querySelector('.menu-background');
-		if (menu.classList.contains('hidden')) {
-			menu.classList.remove('hidden');
-			document.querySelectorAll('.btn-background').forEach((btn) => {
-				btn.classList.add('active');
-			});
-			scrollIntoView('.btn-background');
-		} else {
-			menu.classList.add('hidden');
-			document.querySelectorAll('.btn-background').forEach((btn) => {
-				btn.classList.remove('active');
-			});
-		}
-	});
-});
-
-// Menu Button - Accessibility
-document.querySelectorAll('.btn-accessibility .menu-item-btn').forEach((btn) => {
-	btn.addEventListener('click', function (e) {
-		optionsPageFunctions();
-		const menu = document.querySelector('.menu-accessibility');
-		if (menu.classList.contains('hidden')) {
-			menu.classList.remove('hidden');
-			document.querySelectorAll('.btn-accessibility').forEach((btn) => {
-				btn.classList.add('active');
-			});
-			scrollIntoView('.btn-accessibility');
-		} else {
-			menu.classList.add('hidden');
-			document.querySelectorAll('.btn-accessibility').forEach((btn) => {
-				btn.classList.remove('active');
-			});
-		}
-	});
-});
-
-// Menu Button - Font
-document.querySelectorAll('.btn-font .menu-item-btn').forEach((btn) => {
-	btn.addEventListener('click', function (e) {
-		optionsPageFunctions();
-		const menu = document.querySelector('.menu-font');
-		if (menu.classList.contains('hidden')) {
-			menu.classList.remove('hidden');
-			document.querySelectorAll('.btn-font').forEach((btn) => {
-				btn.classList.add('active');
-			});
-			scrollIntoView('.btn-font');
-		} else {
-			menu.classList.add('hidden');
-			document.querySelectorAll('.btn-font').forEach((btn) => {
-				btn.classList.remove('active');
-			});
-		}
-	});
-});
-
-// Menu Button - Media
-document.querySelectorAll('.btn-media-tweaks .menu-item-btn').forEach((btn) => {
-	btn.addEventListener('click', function (e) {
-		optionsPageFunctions();
-		const menu = document.querySelector('.menu-media-tweaks');
-		if (menu.classList.contains('hidden')) {
-			menu.classList.remove('hidden');
-			document.querySelectorAll('.btn-media-tweaks').forEach((btn) => {
-				btn.classList.add('active');
-			});
-			scrollIntoView('.btn-media-tweaks');
-		} else {
-			menu.classList.add('hidden');
-			document.querySelectorAll('.btn-media-tweaks').forEach((btn) => {
-				btn.classList.remove('active');
-			});
-		}
-	});
-});
-
-// Menu Button - Block
-document.querySelectorAll('.btn-block .menu-item-btn').forEach((btn) => {
-	btn.addEventListener('click', function (e) {
-		optionsPageFunctions();
-		const menu = document.querySelector('.menu-block');
-		if (menu.classList.contains('hidden')) {
-			menu.classList.remove('hidden');
-			document.querySelectorAll('.btn-block').forEach((btn) => {
-				btn.classList.add('active');
-			});
-			scrollIntoView('.btn-block');
-		} else {
-			menu.classList.add('hidden');
-			document.querySelectorAll('.btn-block').forEach((btn) => {
-				btn.classList.remove('active');
-			});
-		}
-	});
-});
-
-// Menu Button - Account Switcher
-/*document.querySelectorAll('.btn-account-switcher .menu-item-btn').forEach((btn) => {
-	btn.addEventListener('click', function (e) {
-		const menu = document.querySelector('.menu-account-switcher');
-		if (menu.classList.contains('hidden')) {
-			menu.classList.remove('hidden');
-			document.querySelectorAll('.btn-account-switcher').forEach((btn) => {
-				btn.classList.ad('active');
-			});
-			scrollIntoView('.btn-account-switcher');
-		} else {
-			menu.classList.add('hidden');
-			document.querySelectorAll('.btn-account-switcher').forEach((btn) => {
-				btn.classList.remove('active');
-			});
-		}
-	});
-});*/
-
-function scrollIntoView(btn) {
-	if (document.querySelector('body#popup')) {
-		document.querySelector(btn).scrollIntoView();
-	}
-}
-
-function optionsPageFunctions() {
-	if (document.querySelector('body#options-page') && window.innerWidth >= 1000) {
-		document.querySelectorAll('.menu-item-link').forEach((item) => {
-			item.classList.remove('active');
+menuConfigs.forEach(({ btn, menu, scroll }) => {
+	document.querySelectorAll(`${btn} .menu-item-btn`).forEach((button) => {
+		button.addEventListener('click', () => {
+			optionsPageFunctions();
+			const menuEl = document.querySelector(menu);
+			const isHidden = menuEl.classList.contains('hidden');
+			menuEl.classList.toggle('hidden');
+			document.querySelectorAll(btn).forEach((b) => b.classList.toggle('active', isHidden));
+			if (isHidden) scrollIntoView(scroll);
 		});
-		document.querySelectorAll('.sub-list').forEach((sub) => {
-			sub.classList.add('hidden');
-		});
-		document.querySelector('#settings').classList.add('hidden');
-		document.querySelector('#changelog').classList.add('hidden');
-	}
-}
+	});
+});
+
+// ─── Sortable ───────────────────────────────────────────────────────────────
 
 // Detect Popup/Options Page
 let menus;
@@ -250,7 +43,7 @@ if (document.querySelector('body#popup')) {
 	menus = document.querySelectorAll('.side-menu ul, #main-menu');
 }
 
-// Init Sortable
+// Init
 menus.forEach((menu) => {
 	new Sortable(menu, {
 		handle: '.menu-item-handle',
@@ -290,3 +83,24 @@ menus.forEach((menu) => {
 		});
 	}
 });
+
+// ─── Helpers ────────────────────────────────────────────────────────────────
+
+function scrollIntoView(btn) {
+	if (document.querySelector('body#popup')) {
+		document.querySelector(btn).scrollIntoView();
+	}
+}
+
+function optionsPageFunctions() {
+	if (document.querySelector('body#options-page') && window.innerWidth >= 1000) {
+		document.querySelectorAll('.menu-item-link').forEach((item) => {
+			item.classList.remove('active');
+		});
+		document.querySelectorAll('.sub-list').forEach((sub) => {
+			sub.classList.add('hidden');
+		});
+		document.querySelector('#settings').classList.add('hidden');
+		document.querySelector('#changelog').classList.add('hidden');
+	}
+}

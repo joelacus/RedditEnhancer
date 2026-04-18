@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadCustomHeaderLogo() {
 	BROWSER_API.storage.sync.get(['customHeaderLogo', 'setCustomHeaderLogoUrl'], function (result) {
-		if (result.customHeaderLogo) customHeaderLogo(true);
+		if (result.customHeaderLogo === true) customHeaderLogo(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function customHeaderLogo(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableCustomHeaderLogoRV3();
@@ -71,7 +73,7 @@ export function enableCustomHeaderLogoRV1() {
 export function disableCustomHeaderLogoAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-custom-logo"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	document.documentElement.style.removeProperty('--re-custom-logo');
 }

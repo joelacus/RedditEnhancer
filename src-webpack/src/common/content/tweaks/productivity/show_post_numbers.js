@@ -17,7 +17,10 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+import { registerMutationCallback } from '../../observer_manager';
+
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadShowPostNumbers() {
 	BROWSER_API.storage.sync.get(['showPostNumbers'], function (result) {
 		if (result.showPostNumbers) showPostNumbers(true);
@@ -26,10 +29,15 @@ export function loadShowPostNumbers() {
 
 // Flag to prevent showPostNumbers from occasionally running when attachPostCount is still running => resetting counter
 let isAttaching = false;
+
 // Global variables to keep track of current view
 let postNumber, view;
 
-/* === Enable/Disable The Feature === */
+// Store cleanup function for the observer
+let observerCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function showPostNumbers(value) {
 	// Do not run post numbers on post and settings pages
 	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
@@ -40,12 +48,44 @@ export function showPostNumbers(value) {
 		if (!document.querySelector('.re-post-number')) postNumber = 1;
 		getCurrentView();
 		if (redditVersion === 'newnew' && feedRoutesv3.includes(routeName)) {
+			// Initial pass
 			attachPostCountRV3();
-			observer.observe(document.querySelector('shreddit-feed'), { childList: true });
+			// Register with centralised observer manager
+			// Clean up any existing observer first
+			if (observerCleanup) {
+				observerCleanup();
+			}
+			const feed = document.querySelector('shreddit-feed');
+			if (feed) {
+				observerCleanup = registerMutationCallback(
+					feed,
+					(mutations) => {
+						mutations.forEach((mutation) => {
+							mutation.addedNodes.forEach((addedNode) => {
+								if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+									setTimeout(() => {
+										let previousView = view;
+										getCurrentView();
+										if (view !== previousView) {
+											postNumber = 1;
+										}
+										attachPostCountRV3();
+									}, 1000);
+								}
+							});
+						});
+					},
+					{ childList: true, subtree: true },
+					'showPostNumbers',
+				);
+			}
 		}
 	} else {
-		// Disconnect the observer, reset the counter and remove all post numbers
-		observer.disconnect();
+		// Cleanup observer
+		if (observerCleanup) {
+			observerCleanup();
+			observerCleanup = null;
+		}
 		const numbers = document.querySelectorAll('.re-post-number');
 		numbers.forEach((el) => {
 			el.remove();
@@ -68,54 +108,27 @@ function attachPostCountRV3() {
 	const posts = document.querySelectorAll('shreddit-post');
 	let postArray = [...posts];
 
-	postArray.forEach((element) => {
-		if (!element.querySelector('.re-post-number')) {
+	postArray.forEach((post) => {
+		if (!post.querySelector('.re-post-number')) {
 			let el, span;
 
 			switch (view) {
 				case 'cardView':
-					el = element.querySelector('span[id*="feed-post-credit-bar-t3_"]');
+					el = post.querySelector('span[id*="feed-post-credit-bar-t3_"]');
 					break;
 				case 'compactView':
-					el = element.querySelector('div[id*="feed-post-credit-bar-t3_"]');
+					el = post.querySelector('div[id*="feed-post-credit-bar-t3_"]');
 					break;
 			}
 
-			span = Object.assign(document.createElement('span'), {
-				className: 're-post-number',
-				innerHTML: `${postNumber++} &bull;`,
-			});
+			span = document.createElement('span');
+			span.className = 're-post-number';
+			span.textContent = `${postNumber++} •`;
+
 			el.insertBefore(span, el.firstChild);
 		}
 	});
 
 	// Done attaching post numbers. Let's reset the flag
 	isAttaching = false;
-}
-
-// Observer for watching new posts in feed
-const observer = new MutationObserver(
-	debounce(function (mutations) {
-		mutations.forEach(function (mutation) {
-			mutation.addedNodes.forEach(function (addedNode) {
-				if (['TIME', 'ARTICLE', 'DIV'].includes(addedNode.nodeName) && redditVersion === 'newnew') {
-					let previousView = view;
-					getCurrentView();
-					if (view !== previousView) {
-						postNumber = 1;
-					}
-					attachPostCountRV3();
-				}
-			});
-		});
-	}, 100)
-);
-
-// Allowing some timeout between post number attachment to prevent performance issues
-function debounce(func, wait) {
-	let timeout;
-	return function (...args) {
-		clearTimeout(timeout);
-		timeout = setTimeout(() => func.apply(this, args), wait);
-	};
 }

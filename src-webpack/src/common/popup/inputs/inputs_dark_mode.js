@@ -1,7 +1,10 @@
-/* ===== Inputs / Dark Mode ===== 
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Inputs / Dark Mode
+// ────────────────────────────────────────────────────────────────────────────
 
+/*
 import { darkModeTimeCalc } from '../../content/tweaks/dark_mode/dark_mode_time_calc';
-import { sendMessage } from '../send_message';
+import { sendMessage } from '../../send_message';
 
 // Toggle - Dark Mode
 document.querySelector('#checkbox-dark-mode').addEventListener('change', function (e) {

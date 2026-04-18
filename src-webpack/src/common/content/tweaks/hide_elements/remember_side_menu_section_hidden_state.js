@@ -9,14 +9,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadRememberSideMenuSectionHiddenState() {
 	BROWSER_API.storage.sync.get(['rememberSideMenuSectionHiddenState'], function (result) {
 		if (result.rememberSideMenuSectionHiddenState) rememberSideMenuSectionHiddenState(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function rememberSideMenuSectionHiddenState(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableRememberSideMenuSectionHiddenStateRV3();

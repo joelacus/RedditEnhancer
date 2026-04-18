@@ -7,7 +7,8 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHidePostDivider() {
 	BROWSER_API.storage.sync.get(['hidePostDivider', 'postSeparatorHeight']).then((result) => {
 		if (result.hidePostDivider) {
@@ -17,7 +18,8 @@ export function loadHidePostDivider() {
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hidePostDivider(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableHidePostDivider();
@@ -53,9 +55,13 @@ function enableHidePostDivider() {
 										margin-bottom: var(--re-post-separator-height, 0) !important;
 									}
 									shreddit-app[routename^='profile_'] a[href="/settings/profile/#visibility"],
-									shreddit-profile-comment {
+									shreddit-app[pagetype="profile_overview"] article,
+									shreddit-app[pagetype="profile_overview"] shreddit-profile-comment {
 										margin-top: 0 !important;
 										margin-bottom: var(--re-post-separator-height, 10px) !important;
+									}
+									shreddit-app[pagetype="profile_overview"] shreddit-profile-comment {
+										margin-bottom: 0 !important;
 									}
 									main#main-content search-telemetry-tracker > div,
 									main.main search-telemetry-tracker > div,
@@ -69,6 +75,9 @@ function enableHidePostDivider() {
 										& > feed-announcement {
 											margin: 0;
 										}
+									}
+									shreddit-app[pagetype="profile_overview"] shreddit-feed > article {
+										margin-bottom: var(--re-post-separator-height, 10px);
 									}
 									/* Add padding to posts, Card and Compact view */
 									article > shreddit-post[view-type="cardView"] {
@@ -250,7 +259,7 @@ function enableHidePostDivider() {
 function disableHidePostDivider() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-post-divider"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	document.documentElement.classList.remove('re-hide-post-dividers');
 }

@@ -7,14 +7,16 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadAutoCollapseAutoModeratorComment() {
 	BROWSER_API.storage.sync.get(['autoCollapseAutoModeratorComment'], function (result) {
 		if (result.autoCollapseAutoModeratorComment) autoCollapseAutoModeratorComment(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function autoCollapseAutoModeratorComment(value) {
 	if (redditVersion === 'newnew' && value) {
 		autoCollapseAutoModeratorCommentRV3();

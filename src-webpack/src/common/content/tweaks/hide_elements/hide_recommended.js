@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideRecommendedPosts() {
 	BROWSER_API.storage.sync.get(['hideRecommended'], function (result) {
 		if (result.hideRecommended) hideRecommended(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideRecommended(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableHideRecommendedPostsRV3();
@@ -43,6 +45,6 @@ function enableHideRecommendedPostsRV3() {
 function disableHideRecommendedPostsAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-recommended-posts"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

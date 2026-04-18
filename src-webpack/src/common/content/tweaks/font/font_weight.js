@@ -6,22 +6,27 @@
  * Compatibility: RV1 (Old UI) (2005-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+import { validateEnum } from '../../../popup/restore/validation';
+
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
+const FONT_WEIGHTS = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+
 export function loadPostFontWeight() {
 	BROWSER_API.storage.sync.get(['postTitleFontWeight', 'postContentFontWeight', 'postCommentsFontWeight', 'feedPostTitleFontWeight', 'feedPostContentFontWeight'], function (result) {
-		postTitleFontWeight(result.postTitleFontWeight);
-		postContentFontWeight(result.postContentFontWeight);
-		postCommentsFontWeight(result.postCommentsFontWeight);
-		feedPostTitleFontWeight(result.feedPostTitleFontWeight);
-		feedPostContentFontWeight(result.feedPostContentFontWeight);
+		postTitleFontWeight(validateEnum(parseInt(result.postTitleFontWeight), FONT_WEIGHTS, 0));
+		postContentFontWeight(validateEnum(parseInt(result.postContentFontWeight), FONT_WEIGHTS, 0));
+		postCommentsFontWeight(validateEnum(parseInt(result.postCommentsFontWeight), FONT_WEIGHTS, 0));
+		feedPostTitleFontWeight(validateEnum(parseInt(result.feedPostTitleFontWeight), FONT_WEIGHTS, 0));
+		feedPostContentFontWeight(validateEnum(parseInt(result.feedPostContentFontWeight), FONT_WEIGHTS, 0));
 	});
 }
 
-/* === Enable/Disable The Features === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 // Post Title Font Weight
 export function postTitleFontWeight(value) {
-	if (typeof value !== 'undefined' && parseInt(value) !== '0') {
+	if (typeof value !== 'undefined' && parseInt(value) !== 0) {
 		document.documentElement.style.setProperty('--re-post-title-font-weight', value);
 	} else {
 		document.documentElement.style.removeProperty('--re-post-title-font-weight');
@@ -30,7 +35,7 @@ export function postTitleFontWeight(value) {
 
 // Post Content Font Weight
 export function postContentFontWeight(value) {
-	if (typeof value !== 'undefined' && parseInt(value) !== '0') {
+	if (typeof value !== 'undefined' && parseInt(value) !== 0) {
 		document.documentElement.style.setProperty('--re-post-content-font-weight', value);
 	} else {
 		document.documentElement.style.removeProperty('--re-post-content-font-weight');
@@ -39,7 +44,7 @@ export function postContentFontWeight(value) {
 
 // Post Comments Font Weight
 export function postCommentsFontWeight(value) {
-	if (typeof value !== 'undefined' && parseInt(value) !== '0') {
+	if (typeof value !== 'undefined' && parseInt(value) !== 0) {
 		document.documentElement.style.setProperty('--re-post-comments-font-weight', value);
 	} else {
 		document.documentElement.style.removeProperty('--re-post-comments-font-weight');
@@ -48,7 +53,7 @@ export function postCommentsFontWeight(value) {
 
 // Feed Post Title Font Weight
 export function feedPostTitleFontWeight(value) {
-	if (typeof value !== 'undefined' && parseInt(value) !== '0') {
+	if (typeof value !== 'undefined' && parseInt(value) !== 0) {
 		document.documentElement.style.setProperty('--re-feed-post-title-font-weight', value);
 	} else {
 		document.documentElement.style.removeProperty('--re-feed-post-title-font-weight');
@@ -57,7 +62,7 @@ export function feedPostTitleFontWeight(value) {
 
 // Feed Post Content Font Weight
 export function feedPostContentFontWeight(value) {
-	if (typeof value !== 'undefined' && parseInt(value) !== '0') {
+	if (typeof value !== 'undefined' && parseInt(value) !== 0) {
 		document.documentElement.style.setProperty('--re-feed-post-content-font-weight', value);
 	} else {
 		document.documentElement.style.removeProperty('--re-feed-post-content-font-weight');

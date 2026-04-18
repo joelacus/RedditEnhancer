@@ -1,7 +1,9 @@
-/* ===== Inputs / Colour Pickers ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Inputs / Colour Pickers
+// ────────────────────────────────────────────────────────────────────────────
 
-import ColorPicker from '../colorpicker.js';
-import { sendMessage } from '../send_message.js';
+import ColorPicker from '../libs/colorpicker.js';
+import { sendMessage } from '../../utilities/send_message.js';
 
 // Create global colour picker element array for restoring colour values.
 window.colour_pickers = [];
@@ -18,7 +20,7 @@ document.querySelectorAll('.colour-picker').forEach((input) => {
 		enableAlpha: hasAlpha,
 		formats: ['hex', 'rgb', 'hsv', 'hsl'],
 		defaultFormat: 'rgb',
-		submitMode: 'confirm', // 'instant' | 'confirm'
+		submitMode: 'instant',
 		showClearButton: true,
 		dismissOnOutsideClick: true,
 		staticPlacement: 'center center',
@@ -128,6 +130,10 @@ document.querySelectorAll('.colour-picker').forEach((input) => {
 			case 'op-comment-highlight':
 				BROWSER_API.storage.sync.set({ themeOpCommentHighlightColourCSS: rgba });
 				sendMessage({ themeOpCommentHighlightColourCSS: rgba });
+				break;
+			case 'sub-header-bg':
+				BROWSER_API.storage.sync.set({ themeSubHeaderBackgroundColourCSS: rgba });
+				sendMessage({ themeSubHeaderBackgroundColourCSS: rgba });
 				break;
 			default:
 				break;

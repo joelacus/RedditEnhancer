@@ -14,24 +14,53 @@
  */
 
 import { showBannerMessage } from '../../banner_message';
+import { registerMutationCallback } from '../../observer_manager';
 
 let isAttaching = false;
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadLeftSideVoteButtons() {
 	BROWSER_API.storage.sync.get(['leftSideVoteButtons'], function (result) {
-		if (result.leftSideVoteButtons) leftSideVoteButtons(true);
+		if (result.leftSideVoteButtons === true) leftSideVoteButtons(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup function for the observer
+let observerCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function leftSideVoteButtons(value) {
 	if (redditVersion === 'newnew') {
 		if (value && !document.querySelector('shreddit-app').getAttribute('routename').includes('mod_queue')) {
-			enableLeftSideVoteButtonsRV3();
+			attachStylesheet();
 			attachVoteButtons();
-			if (document.querySelector('shreddit-feed')) {
-				observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
+			// Register with centralised observer manager
+			// Clean up any existing observer first
+			if (observerCleanup) {
+				observerCleanup();
+			}
+			const feed = document.querySelector('shreddit-feed');
+			if (feed) {
+				observerCleanup = registerMutationCallback(
+					feed,
+					(mutations) => {
+						mutations.forEach((mutation) => {
+							mutation.addedNodes.forEach((addedNode) => {
+								if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+									setTimeout(() => {
+										if (addedNode) {
+											attachVoteButtons();
+										}
+									}, 1000);
+								}
+							});
+						});
+					},
+					{ childList: true, subtree: true },
+					'leftSideVoteButtons',
+				);
 			}
 			if (document.querySelector('shreddit-post[view-context="CommentsPage"]')) {
 				const crosspost = document.querySelector('shreddit-post').getAttribute('post-type');
@@ -49,14 +78,18 @@ export function leftSideVoteButtons(value) {
 				}
 			}
 		} else {
+			// Cleanup observer
+			if (observerCleanup) {
+				observerCleanup();
+				observerCleanup = null;
+			}
 			disableLeftSideVoteButtonsRV3();
-			observer.disconnect();
 		}
 	}
 }
 
 // Enable Left Side Vote Buttons - RV3
-function enableLeftSideVoteButtonsRV3() {
+function attachStylesheet() {
 	if (!document.head.querySelector('style[id="re-left-side-vote-buttons"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-left-side-vote-buttons';
@@ -97,6 +130,16 @@ function enableLeftSideVoteButtonsRV3() {
                 align-items: center;
                 flex: 0 0 40px;
             }
+			shreddit-feed .re-vote-panel shreddit-vote-animations > span {
+				flex-direction: column;
+				height: fit-content;
+				margin-top: 4px;
+			}
+			shreddit-app[routename="post_page"] .re-vote-panel shreddit-vote-animations > span {
+				flex-direction: column;
+				height: fit-content;
+				margin-left: 4px;
+			}
 			shreddit-app[routename="post_page"] main.main,
 			shreddit-app[routename="comments_page"] main.main,
 			shreddit-app[routename="profile_post_page"] main.main,
@@ -222,7 +265,7 @@ function enableLeftSideVoteButtonsRV3() {
 function disableLeftSideVoteButtonsRV3() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-left-side-vote-buttons"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	showBannerMessage('info', '[RedditEnhancer] Please refresh the page for the change to take full effect.');
 }
@@ -249,26 +292,4 @@ async function attachVoteButtons() {
 	}
 
 	isAttaching = false;
-}
-
-// Observer for watching new posts in feed
-const observer = new MutationObserver(
-	debounce((mutations) => {
-		mutations.forEach(function (mutation) {
-			mutation.addedNodes.forEach((addedNode) => {
-				if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
-					attachVoteButtons();
-				}
-			});
-		});
-	}, 100)
-);
-
-// Allowing some timeout between attachment to prevent performance issues
-function debounce(func, wait) {
-	let timeout;
-	return function (...args) {
-		clearTimeout(timeout);
-		timeout = setTimeout(() => func.apply(this, args), wait);
-	};
 }

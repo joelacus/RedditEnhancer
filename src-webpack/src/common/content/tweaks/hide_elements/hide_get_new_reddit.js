@@ -7,14 +7,16 @@
  * Compatibility: RV1 (Old UI) (2005-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideGetNewReddit() {
 	BROWSER_API.storage.sync.get(['hideGetNewReddit'], function (result) {
 		if (result.hideGetNewReddit) hideGetNewReddit(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideGetNewReddit(value) {
 	if (value) {
 		enableHideGetNewReddit();
@@ -39,6 +41,6 @@ function enableHideGetNewReddit() {
 function disableHideGetNewReddit() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-get-new-reddit"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 
 	"name": "__MSG_extensionName__",
-	"version": "2.6.1",
+	"version": "3.0.0",
 	"description": "__MSG_extensionDescription__",
 	"author": "github.com/joelacus",
 	"default_locale": "en",
@@ -15,7 +15,9 @@
 		"256": "icons/icon-256.png"
 	},
 
-	"permissions": ["storage", "tabs", "declarativeNetRequest", "history", "downloads"],
+	"permissions": ["storage", "tabs", "declarativeNetRequest", "contextMenus"],
+
+	"optional_permissions": ["downloads", "history"],
 
 	"host_permissions": ["*://*.reddit.com/*", "*://*.redd.it/*"],
 

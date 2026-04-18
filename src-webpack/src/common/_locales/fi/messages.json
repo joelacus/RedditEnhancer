@@ -203,9 +203,6 @@
 	"OldUI": {
 		"message": "Vanha UI"
 	},
-	"PleaseWait": {
-		"message": "Odota"
-	},
 	"PostOffset": {
 		"message": "Viestin siirtymä"
 	},
@@ -235,12 +232,6 @@
 	},
 	"ResizeLayout": {
 		"message": "Muuttaa Syöte / Viesti Kokoa"
-	},
-	"RestoreInfo1": {
-		"message": "Palautetaan"
-	},
-	"RestoreInfo2": {
-		"message": "kohdetta. Selaimen API-raja on 120 minuutissa. Jätä tämä ikkuna/välilehti auki vielä minuutiksi."
 	},
 	"Rising": {
 		"message": "Nousemassa / Rising"

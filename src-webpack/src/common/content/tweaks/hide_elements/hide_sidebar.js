@@ -6,7 +6,7 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
 // Hide Home Sidebar
 export function loadHideHomeSidebar() {
@@ -92,7 +92,7 @@ export function loadHideRelatedPostsSection() {
 	});
 }
 
-/* === Enable/Disable The Features === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 /* = Hide Home Sidebar = */
 export function hideHomeSidebar(value) {
@@ -129,7 +129,7 @@ function enableHideHomeSidebarOld() {
 function disableHideHomeSidebarOld() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-home-sidebar"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 
@@ -161,7 +161,7 @@ export function enableHideHomeSidebarRV3() {
 export function disableHideHomeSidebarRV3() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-home-sidebar"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	document.querySelector('html').classList.remove('re-hide-home-sidebar');
 	document.documentElement.style.removeProperty('--re-home-sidebar-width');
@@ -197,7 +197,7 @@ export function enableHideSubSidebarRV3() {
 export function disableHideSubSidebarRV3() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-sub-sidebar"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	document.querySelector('html').classList.remove('re-hide-sub-sidebar');
 	document.documentElement.style.removeProperty('--re-sub-sidebar-width');
@@ -246,7 +246,7 @@ function enableHidePostSidebarRV3() {
 function disableHidePostSidebarRV3() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-post-sidebar"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	document.querySelector('html').classList.remove('re-hide-post-sidebar');
 	document.documentElement.style.removeProperty('--re-post-sidebar-width');
@@ -288,7 +288,7 @@ export function enableHideUserSidebarRV3() {
 export function disableHideUserSidebarAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-user-sidebar"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	document.querySelector('html').classList.remove('re-hide-profile-sidebar');
 	document.documentElement.style.removeProperty('--re-user-profile-sidebar-width');
@@ -319,7 +319,7 @@ export function enableHideRelatedPostsSectionRV3() {
 export function disableHideRelatedPostsSectionAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-related-posts-section"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 
@@ -353,7 +353,7 @@ export function enableHideSearchSidebarNewNew() {
 export function disableHideSearchSidebarAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-search-sidebar"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	document.querySelector('html').classList.remove('re-hide-search-sidebar');
 	document.documentElement.style.removeProperty('--re-search-sidebar-width');
@@ -391,6 +391,6 @@ function enableHideCustomFeedSidebarRV3() {
 function disableHideCustomFeedSidebarAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-custom-feed-sidebar"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

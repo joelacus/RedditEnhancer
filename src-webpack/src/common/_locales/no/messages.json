@@ -11,9 +11,6 @@
 	"Accessibility": {
 		"message": "Tilgjengelighet"
 	},
-	"AlwaysShowPostAndCommentOptions": {
-		"message": "Vis alltid alternativer for innlegg og kommentarer"
-	},
 	"Auto": {
 		"message": "Automatisk"
 	},
@@ -383,9 +380,6 @@
 	"Other": {
 		"message": "Annen"
 	},
-	"PleaseWait": {
-		"message": "Vennligst vent"
-	},
 	"PositionHorizontally": {
 		"message": "Plasser Horisontalt"
 	},
@@ -460,12 +454,6 @@
 	},
 	"RestoreConfigTitle": {
 		"message": "Gjenopprett Reddit Enhancer Sikkerhetskopiering"
-	},
-	"RestoreInfo1": {
-		"message": "Gjenoppretter"
-	},
-	"RestoreInfo2": {
-		"message": "elementer. Nettleser-API-grensen er 120 per minutt. Vennligst la dette vinduet/fanen være åpen i et minutt til."
 	},
 	"Rising": {
 		"message": "Rising"

@@ -4,56 +4,104 @@
  * @name addDownloadVideoButton
  * @description Add a button on video posts to download the video file.
  *
- * Notes: Currently only works for mp4 URLs. Additional functionality is required for m3u8 URLs.
+ * Notes: Now supports both direct MP4 and m3u8 (HLS) streams by extracting MP4 URLs
+ * from the packaged-media-json attribute.
  *
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
 import { showBannerMessage } from '../../banner_message';
-import { logToDevConsole } from '../../logging';
+import { registerMutationCallback } from '../../observer_manager';
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadAddDownloadVideoButton() {
 	BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
-		if (result.addDownloadVideoButton) addDownloadVideoButton(true);
+		if (result.addDownloadVideoButton === true) addDownloadVideoButton(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup function for the observer
+let observerCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function addDownloadVideoButton(value) {
 	if (redditVersion === 'newnew' && value) {
 		document.querySelectorAll('shreddit-post').forEach((post) => {
-			if (post.querySelector(':has(shreddit-player-2)')) {
+			if (post.querySelector(':has(shreddit-player)') || post.querySelector(':has(shreddit-player-2)')) {
 				enableAddVideoDownloadButtonRV3(post);
 			}
 		});
-		observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
+		// Register with centralised observer manager
+		// Clean up any existing observer first
+		if (observerCleanup) {
+			observerCleanup();
+		}
+		const feed = document.querySelector('shreddit-feed');
+		if (feed) {
+			observerCleanup = registerMutationCallback(
+				feed,
+				(mutations) => {
+					mutations.forEach((mutation) => {
+						mutation.addedNodes.forEach((addedNode) => {
+							if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+								setTimeout(() => {
+									const post = addedNode.querySelector('shreddit-post');
+									if (addedNode) {
+										enableAddVideoDownloadButtonRV3(post);
+									}
+								}, 1000);
+							}
+						});
+					});
+				},
+				{ childList: true, subtree: true },
+				'addDownloadVideoButton',
+			);
+		}
 	} else {
-		observer.disconnect();
+		// Cleanup observer
+		if (observerCleanup) {
+			observerCleanup();
+			observerCleanup = null;
+		}
 		disableAddVideoDownloadButtonAll();
 	}
 }
 
 // Enable Add Download Video Button - RV3
 function enableAddVideoDownloadButtonRV3(post) {
-	const container = post.shadowRoot?.querySelector('div:has([name="comments-action-button"])');
-	if (!post && !container) return;
-	const valid_source = post.querySelector('shreddit-player-2')?.shadowRoot?.querySelector('video')?.src;
-	if (valid_source && !container.querySelector('.re-video-download-btn')) {
-		const btn = document.createElement('div');
-		btn.classList.add('re-video-download-btn');
-		btn.setAttribute('style', 'cursor: pointer;text-decoration: underline;z-index: 99;');
-		btn.textContent = 'Download Video';
-		btn.addEventListener('click', async function (e) {
-			e.stopPropagation();
-			const post = e.currentTarget.getRootNode().host;
-			const post_title = post
+	let container = post;
+	const routename = document.querySelector('shreddit-app').getAttribute('routename');
+	if (routename === 'post_page') {
+		setTimeout(() => {
+			container = post.shadowRoot?.querySelector('[part="actionBar"]');
+			addDownloadButton();
+		}, 5000);
+	} else {
+		addDownloadButton();
+	}
+
+	function addDownloadButton() {
+		const packagedMediaJson = post?.querySelector('[packaged-media-json]')?.getAttribute('packaged-media-json');
+		if (!packagedMediaJson) return;
+		const video_url = getBestQualityMp4Url(packagedMediaJson);
+		const post_title =
+			post
 				.getAttribute('post-title')
-				.replaceAll(/[^a-zA-Z ]/g, '')
-				.trim()
-				.replaceAll(' ', '_');
-			const video_url = post.querySelector('shreddit-player-2').shadowRoot.querySelector('video').src;
-			if (video_url && video_url.includes('.mp4') && post_title) {
+				?.replaceAll(/[^a-zA-Z ]/g, '')
+				?.trim()
+				?.replaceAll(' ', '_') ?? 'video';
+
+		if (video_url && !container.querySelector('.re-video-download-btn')) {
+			const btn = document.createElement('div');
+			btn.classList.add('re-video-download-btn');
+			if (routename === 'post_page') btn.setAttribute('style', 'cursor: pointer;text-decoration: underline;z-index: 99;');
+			if (routename !== 'post_page') btn.setAttribute('style', 'position: absolute;bottom: 0.75rem;right: 1rem;cursor: pointer;text-decoration: underline;z-index: 99;');
+			btn.textContent = 'Download Video';
+			btn.addEventListener('click', async function (e) {
+				e.stopPropagation();
 				try {
 					await BROWSER_API.runtime.sendMessage({
 						actions: [
@@ -65,18 +113,12 @@ function enableAddVideoDownloadButtonRV3(post) {
 						],
 					});
 				} catch (error) {
-					console.log(error);
+					console.error(error);
 					showBannerMessage('error', error.error || error);
 				}
-			} else {
-				logToDevConsole('error', `Missing video filename and/or video URL - ${post_title} - ${video_url}`);
-				showBannerMessage('error', 'Missing video filename and/or video URL');
-			}
-		});
-		container.appendChild(btn);
-	} else {
-		console.log(post.querySelector('shreddit-player-2')?.shadowRoot?.querySelector('video'));
-		console.log(`[RedditEnhancer] Above video is not an mp4 video. Not adding download button.`);
+			});
+			container.appendChild(btn);
+		}
 	}
 }
 
@@ -89,18 +131,28 @@ function disableAddVideoDownloadButtonAll() {
 	});
 }
 
-// Observe feed for new posts
-const observer = new MutationObserver(function (mutations) {
-	mutations.forEach(function (mutation) {
-		mutation.addedNodes.forEach(function (addedNode) {
-			if (addedNode.nodeName === 'ARTICLE') {
-				setTimeout(() => {
-					const post = addedNode.querySelector('shreddit-post');
-					if (addedNode) {
-						enableAddVideoDownloadButtonRV3(post);
-					}
-				}, 1000);
-			}
+// Extract the highest quality MP4 URL from packaged-media-json attribute
+export function getBestQualityMp4Url(packagedMediaJson) {
+	try {
+		// Unescape HTML entities and parse JSON
+		const jsonString = packagedMediaJson.replace(/&quot;/g, '"');
+		const data = JSON.parse(jsonString);
+
+		// Get permutations array with MP4 URLs
+		const permutations = data?.playbackMp4s?.permutations;
+		if (!Array.isArray(permutations) || permutations.length === 0) return null;
+
+		// Sort by resolution (width × height) descending to get highest quality
+		const sorted = permutations.sort((a, b) => {
+			const areaA = (a.source.dimensions?.width || 0) * (a.source.dimensions?.height || 0);
+			const areaB = (b.source.dimensions?.width || 0) * (b.source.dimensions?.height || 0);
+			return areaB - areaA;
 		});
-	});
-});
+
+		// Return the URL of the highest quality MP4
+		return sorted[0]?.source?.url || null;
+	} catch (error) {
+		console.error('Failed to parse packaged-media-json:', error);
+		return null;
+	}
+}

@@ -1,6 +1,7 @@
-/* ===== Detect Firefox For Legacy Support ===== */
-
+// ────────────────────────────────────────────────────────────────────────────
 // Detect Firefox Version
+// ────────────────────────────────────────────────────────────────────────────
+
 export function detectFirefoxVersion() {
 	const userAgent = navigator.userAgent;
 	const match = userAgent.match(/Firefox\/(\d+)/);

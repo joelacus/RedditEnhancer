@@ -6,7 +6,8 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideSideMenuSections() {
 	BROWSER_API.storage.sync.get(['hideSideMenuTopSection', 'hideSideMenuGamesSection', 'hideSideMenuModerationSection', 'hideSideMenuRecentSection', 'hideSideMenuCommunitiesSection', 'hideSideMenuCustomFeedsSection', 'hideSideMenuResourcesSection', 'hideSideMenuTopicsSection'], function (result) {
 		if (result.hideSideMenuTopSection) hideSideMenuTopSection(true);
@@ -20,7 +21,7 @@ export function loadHideSideMenuSections() {
 	});
 }
 
-/* === Enable/Disable The Features === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 /* = Hide Top Section = */
 export function hideSideMenuTopSection(value) {
@@ -48,7 +49,7 @@ function enableHideSideMenuTopSection() {
 function disableHideSideMenuTopSection() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-top-section"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 
@@ -78,7 +79,7 @@ function enableHideSideMenuGamesSection() {
 function disableHideSideMenuGamesSection() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-games-section"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 
@@ -108,7 +109,7 @@ function enableHideSideMenuModerationSection() {
 function disableHideSideMenuModerationSection() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-moderation-section"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 
@@ -129,7 +130,8 @@ function enableHideSideMenuRecentSection() {
 		styleElement.textContent = `shreddit-app reddit-sidebar-nav reddit-recent-pages,
 									shreddit-app reddit-sidebar-nav reddit-recent-pages + hr,
 									shreddit-app reddit-sidebar-nav faceplate-loader[name*="LeftNavRecentCommunities_"],
-									shreddit-app reddit-sidebar-nav left-nav-recent-communities {
+									shreddit-app reddit-sidebar-nav left-nav-recent-communities,
+									#recent-communities-section {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
@@ -140,7 +142,7 @@ function enableHideSideMenuRecentSection() {
 function disableHideSideMenuRecentSection() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-recent-section"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 
@@ -170,7 +172,7 @@ function enableHideSideMenuCustomFeedsSection() {
 function disableHideSideMenuCustomFeedsSection() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-custom-feeds-section"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 
@@ -200,7 +202,7 @@ function enableHideSideMenuCommunitiesSection() {
 function disableHideSideMenuCommunitiesSection() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-communities-section"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 
@@ -230,7 +232,7 @@ function enableHideSideMenuResourcesSection() {
 function disableHideSideMenuResourcesSection() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-resources-section"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 
@@ -259,6 +261,6 @@ function enableHideSideMenuTopicsSection() {
 function disableHideSideMenuTopicsSection() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-side-menu-topics-section"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

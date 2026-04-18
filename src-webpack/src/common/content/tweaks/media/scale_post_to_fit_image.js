@@ -9,17 +9,21 @@
 
 import { disableImageScrollAll } from './scroll_images';
 //import { disableDragImageToResizeAll } from './scale_image_on_drag';
+import { registerMutationCallback } from '../../observer_manager';
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadScalePostToFitImage() {
 	BROWSER_API.storage.sync.get(['scalePostToFitImage'], function (result) {
-		if (result.scalePostToFitImage) {
-			scalePostToFitImage(true);
-		}
+		if (result.scalePostToFitImage === true) scalePostToFitImage(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup function for the observer
+let observerCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function scalePostToFitImage(value) {
 	if (redditVersion === 'newnew' && value) {
 		disableImageScrollAll();
@@ -135,7 +139,31 @@ function enableScalePostToFitImageRV3() {
 	}, 50);
 	// Start observer
 	if (document.querySelector('shreddit-feed')) {
-		observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
+		// Clean up any existing observer first
+		if (observerCleanup) {
+			observerCleanup();
+		}
+		observerCleanup = registerMutationCallback(
+			document.querySelector('shreddit-feed'),
+			(mutations) => {
+				mutations.forEach((mutation) => {
+					mutation.addedNodes.forEach((addedNode) => {
+						if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+							setTimeout(() => {
+								document.querySelectorAll('shreddit-post shreddit-aspect-ratio:has(img.preview-img)').forEach((image) => {
+									replaceTag(image);
+								});
+								document.querySelectorAll('shreddit-post gallery-carousel').forEach((gallery) => {
+									appendPart(gallery);
+								});
+							}, 1000);
+						}
+					});
+				});
+			},
+			{ childList: true, subtree: true },
+			'scalePostToFitImage',
+		);
 	}
 }
 
@@ -168,30 +196,16 @@ function appendPart(gallery) {
 	gallery.shadowRoot?.querySelector('faceplate-carousel')?.setAttribute('part', 'gallery');
 }
 
-// Observe feed for new posts
-const observer = new MutationObserver((mutations) => {
-	mutations.forEach((mutation) => {
-		mutation.addedNodes.forEach((addedNode) => {
-			if (addedNode.nodeName === 'ARTICLE') {
-				setTimeout(() => {
-					document.querySelectorAll('shreddit-post shreddit-aspect-ratio:has(img.preview-img)').forEach((image) => {
-						replaceTag(image);
-					});
-					document.querySelectorAll('shreddit-post gallery-carousel').forEach((gallery) => {
-						appendPart(gallery);
-					});
-				}, 1000);
-			}
-		});
-	});
-});
-
 // Disable Scale Post To Fit Image - All
 export function disableScalePostToFitImageAll() {
-	observer.disconnect();
+	// Cleanup observer
+	if (observerCleanup) {
+		observerCleanup();
+		observerCleanup = null;
+	}
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-scale-post-to-fit-image"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	document.querySelectorAll('div[id*="aspect-ratio"]:has(img.preview-img)').forEach(function (tag) {
 		revertTag(tag);

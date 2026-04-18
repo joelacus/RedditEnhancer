@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideHeaderBar() {
 	BROWSER_API.storage.sync.get(['hideHeaderBar'], function (result) {
 		if (result.hideHeaderBar) hideHeaderBar(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideHeaderBar(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableHideHeaderBarRV3();
@@ -51,6 +53,6 @@ function enableHideHeaderBarRV3() {
 function disableHideHeaderBarAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-bar"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

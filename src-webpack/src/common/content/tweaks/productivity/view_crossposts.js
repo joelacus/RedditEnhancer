@@ -7,16 +7,20 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
+import { parseHtmlString } from '../../../utilities/parse_html_string';
+
 let running = false;
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadViewCrossposts() {
 	BROWSER_API.storage.sync.get(['viewCrossposts'], function (result) {
 		if (result.viewCrossposts) viewCrossposts(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function viewCrossposts(value) {
 	if (redditVersion === 'newnew') {
 		if (window.location.pathname.includes('/comments/') && !window.location.hash.includes('lightbox')) {
@@ -69,27 +73,27 @@ async function enableViewCrossposts() {
 				className: 'block mb-xs hover:no-underline',
 			});
 			// TITLE [NSFW SPOILER] [FLAIR]
-			const title = Object.assign(document.createElement('span'), {
-				innerHTML: `${item.data.title}
-                            ${item.data.over_18 ? ' <span class="text-category-nsfw" aria-label="NSFW">NSFW</span>' : ''}
-                            ${item.data.spoiler ? ' <span style="color:#888;" aria-label="Spoiler">SPOILER</span>' : ''}`,
-				className: 'text-tone-1 font-semibold hover:underline',
-			});
+			const title = document.createElement('span');
+			title.className = 'text-tone-1 font-semibold hover:underline';
+			title.append(
+				parseHtmlString(`${item.data.title} 
+									${item.data.over_18 ? ' <span class="text-category-nsfw" aria-label="NSFW">NSFW</span>' : ''}
+									${item.data.spoiler ? ' <span style="color:#888;" aria-label="Spoiler">SPOILER</span>' : ''}`),
+			);
 			// SUBREDDIT Posted by u/AUTHOR RELATIVE TIME SCORE COMMENTS [ARCHIVED LOCKED]
-			const tagline = Object.assign(document.createElement('span'), {
-				innerHTML: `${item.data.subreddit_name_prefixed} &middot; Posted by u/${item.data.author} ${getRelativeTime(item.data.created_utc * 1000)}
-                            &middot; ${item.data.score} points &middot; ${item.data.num_comments} comments
-                            ${item.data.archived ? '&#x1F5C4;' : ''}${item.data.locked ? ' &#x1F512;' : ''}`,
-				className: 'block text-secondary-weak',
-			});
+			const tagline = document.createElement('span');
+			tagline.className = 'block text-secondary-weak';
+			tagline.append(
+				parseHtmlString(`${item.data.subreddit_name_prefixed} &middot; Posted by u/${item.data.author} ${getRelativeTime(item.data.created_utc * 1000)}
+                            		&middot; ${item.data.score} points &middot; ${item.data.num_comments} comments
+                            		${item.data.archived ? '&#x1F5C4;' : ''}${item.data.locked ? ' &#x1F512;' : ''}`),
+			);
 			link.appendChild(title);
 			// Add post flair if exists
 			if (item.data.link_flair_richtext.length > 0 || (item.data.link_flair_text && item.data.link_flair_text.trim() !== '')) {
-				const flair = Object.assign(document.createElement('span'), {
-					style: `background-color: ${item.data.link_flair_background_color}; color: ${item.data.link_flair_text_color === 'dark' ? '#000' : '#fff'};`,
-					innerHTML: item.data.link_flair_richtext.map((f) => f.t).join(' ') || item.data.link_flair_text,
-					className: 're-post-flair inline-block truncate max-w-full text-12 font-normal align-text-bottom box-border px-[6px] rounded-[20px] leading-4 text-secondary relative py-0 ml-xs',
-				});
+				const flair = document.createElement('span');
+				flair.className = 're-post-flair inline-block truncate max-w-full text-12 font-normal align-text-bottom box-border px-[6px] rounded-[20px] leading-4 text-secondary relative py-0 ml-xs';
+				flair.textContent = item.data.link_flair_richtext.map((f) => f.t).join(' ') || item.data.link_flair_text;
 				link.appendChild(flair);
 			}
 			link.appendChild(tagline);
