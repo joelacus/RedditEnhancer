@@ -101,10 +101,12 @@ function getCurrentView() {
 }
 
 function attachPostCountRV3() {
-	if (isAttaching) return;
+	const isCommentPage = window.location.href.match('https://.*.reddit.com/r/.*/comments/.*');
+	if (isAttaching || isCommentPage) return;
 	isAttaching = true;
 
 	// Get a NodeList of currently displaying posts and convert it to an array
+
 	const posts = document.querySelectorAll('shreddit-post');
 	let postArray = [...posts];
 

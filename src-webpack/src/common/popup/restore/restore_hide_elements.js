@@ -3,6 +3,7 @@
 // ────────────────────────────────────────────────────────────────────────────
 
 import { highlightMenuIcon } from '../popup_restore';
+import { validateInt } from './validation';
 
 // Restore UI settings for "Hide Elements" options.
 
@@ -650,12 +651,12 @@ export function restorePopupHideElementsOptions() {
 
 	// Post Separator Height
 	BROWSER_API.storage.sync.get(['postSeparatorHeight', 'hidePostDivider'], function (result) {
-		const checked = result.postSeparatorHeight || -1;
-		const hidePostDivider = result.hidePostDivider === true;
-		if (hidePostDivider) document.querySelector('.icon-post-separator-height').style.backgroundColor = checked != -1 ? 'var(--accent)' : '';
-		document.querySelector('#input-post-separator-height').checked = checked;
-		document.querySelector('#post-separator-height-checked').innerText = checked >= 0 ? checked + 'px' : '';
-		console.log(`Post Separator Length: ${checked >= 0 ? checked + 'px' : 'default'}`);
+		const value = validateInt(result.postSeparatorHeight, -1, 32, -1);
+		const enabled = result.hidePostDivider === true;
+		if (enabled) document.querySelector('.icon-post-separator-height').style.backgroundColor = value != -1 ? 'var(--accent)' : '';
+		document.querySelector('#input-post-separator-height').value = value;
+		document.querySelector('#post-separator-height-value').textContent = value >= 0 ? value + 'px' : '';
+		console.log(`Post Separator Length: ${value >= 0 ? value + 'px' : 'default'}`);
 	});
 
 	// Hide Vote Buttons
