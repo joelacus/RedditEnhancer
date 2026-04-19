@@ -15,7 +15,7 @@
 		"message": "Ajouter le bouton «Télécharger la vidéo» sur les posts vidéo"
 	},
 	"AddDownloadVideoButtonInfo": {
-		"message": "Cela ne prend actuellement en charge que les URL mp4, pas m3u8, donc certains posts vidéo n'auront pas le bouton de téléchargement :/"
+		"message": "Peut ne pas fonctionner pour toutes les vidéos."
 	},
 	"AddMarkPostAsReadButton": {
 		"message": "Ajoutez un bouton à chaque article en mode compact pour le marquer comme lu."
@@ -26,11 +26,14 @@
 	"AddSpoilerTag": {
 		"message": "Ajouter une balise de spoiler"
 	},
-	"AlwaysShowPostAndCommentOptions": {
-		"message": "Toujours afficher les options de post et de commentaire"
+	"AlwaysShowCommentOptionsInfo": {
+		"message": "Déplacez les boutons du menu contextuel des commentaires vers la barre d'actions des commentaires."
 	},
-	"AlwaysShowPostAndCommentOptionsInfo": {
-		"message": "Déplacez les boutons des menus de débordement de publication et de commentaire vers les barres d'action de publication et de commentaire, respectivement."
+	"AlwaysShowPostOptions": {
+		"message": "Afficher systématiquement les options de publication"
+	},
+	"AlwaysShowPostOptionsInfo": {
+		"message": "Déplacez les boutons du menu contextuel de l'article vers la barre d'actions de l'article."
 	},
 	"AttachSideMenuHeader": {
 		"message": "Page d'affichage et d'informations utilisateur dans l'en-tête"
@@ -58,6 +61,9 @@
 	},
 	"Backup": {
 		"message": "Sauvegarde"
+	},
+	"BackupFailed": {
+		"message": "Quelque chose s'est mal passé. Vérifiez la console de développement (F12) pour l'erreur."
 	},
 	"BackupRestoreConfig": {
 		"message": "Sauvegarder/Restaurer la Configuration"
@@ -95,6 +101,9 @@
 	"Block": {
 		"message": "Bloc"
 	},
+	"BlockInfo": {
+		"message": "Prend en charge la correspondance exacte des mots clés ou les expressions régulières."
+	},
 	"Blur": {
 		"message": "Flou"
 	},
@@ -115,6 +124,12 @@
 	},
 	"BuyMeACoffee": {
 		"message": "Achetez-moi un café"
+	},
+	"CannedMessages": {
+		"message": "Messages prédéfinis"
+	},
+	"CannedMessagesInfo": {
+		"message": "Ajouter un nouveau message par ligne renvoyée. Faites un clic droit n'importe où sur une page Reddit pour sélectionner les messages prédéfinis dans le menu contextuel."
 	},
 	"Centre": {
 		"message": "Centre"
@@ -257,6 +272,9 @@
 	"ForceCustomBgOldUIInfo": {
 		"message": "L'arrière-plan personnalisé fonctionne uniquement sur l'ancienne interface utilisateur avec modernisation Old Reddit activé. Basculer ceci obligera un fond personnalisé sur l'interface utilisateur (non recommandé)."
 	},
+	"ForceDarkMode": {
+		"message": "Forcer le mode sombre de Reddit"
+	},
 	"FullWidthBanner": {
 		"message": "Bannière de subreddit pleine largeur"
 	},
@@ -301,6 +319,9 @@
 	},
 	"HideChatButton": {
 		"message": "Masquer le bouton « Chat »"
+	},
+	"HideCommentActionBarButtonsInfo": {
+		"message": "Masquer les boutons de la barre d'actions des commentaires"
 	},
 	"HideCommentKarma": {
 		"message": "Masquer le commentaire Karma"
@@ -359,6 +380,9 @@
 	"HideLinkPostsByUrlKeyword": {
 		"message": "Masquer les publications «lien» par des mots clés dans l'URL"
 	},
+	"HideLogoInTheSearchBar": {
+		"message": "Masquer le logo Reddit dans la barre de recherche"
+	},
 	"HideModerationButton": {
 		"message": "Masquer le bouton « Modération »"
 	},
@@ -406,6 +430,9 @@
 	},
 	"HideRedditPremium": {
 		"message": "Masquer « Reddit Premium »"
+	},
+	"HideRelatedCommunities": {
+		"message": "Masquer les communautés associées"
 	},
 	"HideRelatedPosts": {
 		"message": "Masquer les articles associés"
@@ -478,6 +505,9 @@
 	},
 	"HighlightOp": {
 		"message": "Mettre en évidence les commentaires de l'affiche originale (OP)"
+	},
+	"HomeFeed": {
+		"message": "Flux d'accueil"
 	},
 	"HomeFeedOffset": {
 		"message": "Décalage du fil d'actualité principal"
@@ -593,6 +623,9 @@
 	"OldUI": {
 		"message": "Vieux UI"
 	},
+	"OnlyExpandNegativeKarmaComments": {
+		"message": "Ne développez que les commentaires à karma négatif"
+	},
 	"OpenPostInNewTab": {
 		"message": "Ouvrir les liens vers les Posts dans un nouvel onglet"
 	},
@@ -616,9 +649,6 @@
 	},
 	"Other": {
 		"message": "Autre"
-	},
-	"PleaseWait": {
-		"message": "S'il vous plaît, attendez"
 	},
 	"PositionHorizontally": {
 		"message": "Positionner horizontalement"
@@ -655,6 +685,9 @@
 	},
 	"PostContentAndCommentsLinkColour": {
 		"message": "Post: Couleur du lien vers le contenu et les commentaires"
+	},
+	"PostFollowedTextColour": {
+		"message": "Post suivi : Couleur du texte"
 	},
 	"PostOffset": {
 		"message": "Décalage de la Post"
@@ -714,7 +747,13 @@
 		"message": "Remplacez les vidéos par des liens sur les flux"
 	},
 	"ReplacePostVideosWithLinksInfo": {
-		"message": "Fonctionne uniquement avec MP4 et GIF. Les vidéos M3U8 peuvent être difficiles à jouer chez d'autres joueurs."
+		"message": "Peut ne pas fonctionner pour toutes les vidéos."
+	},
+	"ReplaceSearchPlaceholder": {
+		"message": "Remplacer l'espace réservé de la barre de recherche"
+	},
+	"ReplaceSearchPlaceholderInfo": {
+		"message": "Remplacez « Find Anything » par « Search Reddit »."
 	},
 	"Report": {
 		"message": "Rapport"
@@ -748,12 +787,6 @@
 	},
 	"RestoreConfigTitle": {
 		"message": "Restaurer la configuration de sauvegarde de Reddit Enhancer"
-	},
-	"RestoreInfo1": {
-		"message": "Restauration de"
-	},
-	"RestoreInfo2": {
-		"message": "pièces. La limite de l'API du navigateur est de 120 par minute. Veuillez laisser cette fenêtre/onglet ouvert pendant encore une minute."
 	},
 	"RightSidePostThumbnails": {
 		"message": "Afficher les miniatures post du côté droit"
@@ -901,6 +934,9 @@
 	},
 	"SubFeedWidth": {
 		"message": "Largeur du sous-feed"
+	},
+	"SubHeaderBgColour": {
+		"message": "Couleur d'arrière-plan du sous-en-tête"
 	},
 	"Subreddit": {
 		"message": "Subreddit"

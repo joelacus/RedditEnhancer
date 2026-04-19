@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideUserProfilePics() {
 	BROWSER_API.storage.sync.get(['hideUserProfilePics'], function (result) {
 		if (result.hideUserProfilePics) hideUserProfilePics(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideUserProfilePics(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableUserProfilePicsRV3();
@@ -39,6 +41,6 @@ function enableUserProfilePicsRV3() {
 function disableUserProfilePicsAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-user-profile-pics"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

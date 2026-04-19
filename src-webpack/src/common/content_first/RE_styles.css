@@ -373,14 +373,6 @@ article:has(> .re-vote-panel) {
 .re-vote-panel button[downvote] {
 	color: var(--button-color-text-default);
 }
-.re-vote-panel button[upvote][aria-pressed='true'] svg,
-.re-vote-panel span.bg-action-upvote faceplate-number {
-	color: var(--color-action-upvote);
-}
-.re-vote-panel button[downvote][aria-pressed='true'] svg,
-.re-vote-panel span.bg-action-downvote faceplate-number {
-	color: var(--color-action-downvote);
-}
 .re-vote-panel button:hover {
 	background-color: var(--button-color-background-hover);
 }
@@ -792,4 +784,50 @@ article[data-nav-selected='true'] {
 }
 .theme-dark shreddit-comment rpl-hovercard {
 	--rpl-hovercard-background-color: oklch(from var(--re-theme-post-bg, #0b1416) l c h / 100%);
+}
+
+/* ========== CANNED MESSAGES DROPDOWN ========== */
+#re-canned-messages-container {
+	margin: 12px 0;
+	padding: 8px 0;
+	border-top: 1px solid var(--color-border-secondary, #ccc);
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+#re-canned-messages-container label {
+	font-weight: 600;
+	margin-right: 8px;
+	color: var(--color-neutral-content-strong, #1c1c1c);
+}
+
+#re-canned-messages-select {
+	border: 1px solid var(--color-border-secondary, #ccc);
+	background: var(--color-neutral-background, #fff);
+	color: var(--color-neutral-content, #1c1c1c);
+	font-size: 14px;
+	cursor: pointer;
+	min-width: 200px;
+	max-width: 400px;
+	margin: 0;
+}
+
+#re-canned-messages-select:hover {
+	border-color: var(--color-border-hover, #999);
+}
+
+#re-canned-messages-select:focus {
+	outline: 2px solid var(--color-accent, #0079d3);
+	outline-offset: 2px;
+}
+
+#re-canned-messages-select option {
+	padding: 4px;
+	font-size: 13px;
+}
+
+/* ========== ALWAYS SHOW POST AND COMMENT OPTIONS ========== */
+.re-post-options-attached::part(actionBar) {
+	grid-gap: 0.5rem;
 }

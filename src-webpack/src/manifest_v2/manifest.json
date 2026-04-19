@@ -1,8 +1,8 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 3,
 
 	"name": "__MSG_extensionName__",
-	"version": "2.6.1",
+	"version": "3.0.0",
 	"description": "__MSG_extensionDescription__",
 	"author": "github.com/joelacus",
 	"default_locale": "en",
@@ -15,9 +15,11 @@
 		"256": "icons/icon-256.png"
 	},
 
-	"permissions": ["storage", "tabs", "*://*.reddit.com/*", "declarativeNetRequest"],
+	"permissions": ["storage", "tabs", "declarativeNetRequest", "contextMenus"],
 
-	"optional_permissions": ["webRequest", "webRequestBlocking", "*://*.redd.it/*", "history", "downloads"],
+	"optional_permissions": ["downloads", "history"],
+
+	"host_permissions": ["*://*.reddit.com/*", "*://*.redd.it/*"],
 
 	"content_scripts": [
 		{
@@ -32,14 +34,18 @@
 		}
 	],
 
-	"web_accessible_resources": ["_locales/**/*", "backup.html", "changelog.txt", "RE_styles.css", "RE_font.css"],
+	"web_accessible_resources": [
+		{
+			"resources": ["_locales/**/*", "changelog.txt", "RE_styles.css", "RE_font.css"],
+			"matches": ["<all_urls>"]
+		}
+	],
 
 	"background": {
 		"scripts": ["background.js"]
 	},
 
-	"browser_action": {
-		"browser_style": true,
+	"action": {
 		"default_popup": "popup/popup.html",
 		"default_icon": {
 			"32": "icons/icon-32.png",
@@ -49,10 +55,7 @@
 		}
 	},
 
-	"options_ui": {
-		"page": "options.html",
-		"open_in_tab": true
-	},
+	"options_page": "options.html",
 
 	"browser_specific_settings": {
 		"gecko": {

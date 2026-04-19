@@ -9,14 +9,16 @@
 
 import { loadCustomBackground } from '../background/custom_background';
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadModerniseOldReddit() {
 	BROWSER_API.storage.sync.get(['moderniseOldReddit'], function (result) {
-		if (result.moderniseOldReddit) moderniseOldReddit(true);
+		if (result.moderniseOldReddit === true) moderniseOldReddit(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function moderniseOldReddit(value) {
 	const link = window.location.href;
 	if (value) {

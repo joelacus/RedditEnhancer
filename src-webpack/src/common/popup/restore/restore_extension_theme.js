@@ -1,4 +1,6 @@
-/* ===== Restore Popup UI / Extension Theme ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Restore / Extension Theme
+// ────────────────────────────────────────────────────────────────────────────
 
 import { disableExistingTheme } from '../inputs/extension_theme';
 

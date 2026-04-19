@@ -1,4 +1,6 @@
-/* ===== Detect Page Title Change ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Detect Page Title Change
+// ────────────────────────────────────────────────────────────────────────────
 
 // Detect page changes (search, user profile etc) and reapply tweaks.
 
@@ -13,6 +15,8 @@ const observer = new MutationObserver((mutations) => {
 	mutations.forEach(() => {
 		if (oldHref !== document.location.href) {
 			oldHref = document.location.href;
+
+			console.log('[RedditEnhancer] Detected page change. Reloading tweaks.');
 
 			if (document.querySelector('.re-scroll-to-comment-container')) {
 				document.querySelector('.re-scroll-to-comment-container').remove();

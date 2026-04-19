@@ -1,4 +1,6 @@
-/* ===== Inputs / Reddit Version Select ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Inputs / Reddit Version Select
+// ────────────────────────────────────────────────────────────────────────────
 
 // Filter the list of options based on the selected Reddit version.
 

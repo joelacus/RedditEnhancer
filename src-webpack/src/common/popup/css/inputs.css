@@ -430,3 +430,13 @@ input:disabled {
 #options-page:has(.cp_dialog.cp_open) #colour-picker-bg {
 	display: block;
 }
+
+/* Invalid regex indicator */
+textarea.invalid-regex,
+input.invalid-regex {
+	border-color: #e53e3e !important;
+	background-color: rgba(229, 57, 53, 0.1);
+}
+.info.invalid-regex {
+	color: #ff0000;
+}

@@ -11,9 +11,6 @@
 	"Accessibility": {
 		"message": "Доступність"
 	},
-	"AlwaysShowPostAndCommentOptions": {
-		"message": "Завжди показувати параметри публікації та коментаря"
-	},
 	"Auto": {
 		"message": "Авто"
 	},
@@ -383,9 +380,6 @@
 	"Other": {
 		"message": "додатковий"
 	},
-	"PleaseWait": {
-		"message": "Будь ласка, зачекайте"
-	},
 	"PositionHorizontally": {
 		"message": "Горизонтальне положення"
 	},
@@ -463,12 +457,6 @@
 	},
 	"RestoreConfigTitle": {
 		"message": "Відновити конфігурацію резервної копії Reddit Enhancer"
-	},
-	"RestoreInfo1": {
-		"message": "Реставрація"
-	},
-	"RestoreInfo2": {
-		"message": "предметів. Обмеження API браузера становить 120 за хвилину. Будь ласка, залиште це вікно/вкладку відкритою ще на хвилину."
 	},
 	"Rising": {
 		"message": "Підйом / Rising"

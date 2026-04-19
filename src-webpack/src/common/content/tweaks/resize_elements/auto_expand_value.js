@@ -7,14 +7,19 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+import { validateInt } from '../../../popup/restore/validation';
+
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadAutoExpandValue() {
 	BROWSER_API.storage.sync.get(['autoExpandValue'], function (result) {
-		autoExpandValue(result.autoExpandValue);
+		const value = validateInt(parseInt(result.autoExpandValue), 0, 9999, 1000);
+		autoExpandValue(value);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function autoExpandValue(widthVariable) {
 	if (redditVersion === 'newnew') {
 		disableAutoExpandValueAll();
@@ -52,6 +57,6 @@ function enableAutoExpandValueRV3(widthVariable) {
 function disableAutoExpandValueAll() {
 	const dynamicStyleElements1 = document.head.querySelectorAll('style[id="re-auto-expand-layout"]');
 	dynamicStyleElements1.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

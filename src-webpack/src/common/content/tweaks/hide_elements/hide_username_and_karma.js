@@ -7,7 +7,8 @@
  * Compatibility: RV1 (Old UI) (2005-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideUsernameAndKarma() {
 	BROWSER_API.storage.sync.get(['hideUsername', 'hideKarma'], function (result) {
 		if (result.hideUsername) hideUsername(true);
@@ -15,7 +16,7 @@ export function loadHideUsernameAndKarma() {
 	});
 }
 
-/* === Enable/Disable The Features === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 /* = Hide Username = */
 export function hideUsername(value) {
@@ -42,7 +43,7 @@ function enableHideUsernameRV1() {
 function disableHideUsernameAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-username"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 
@@ -71,6 +72,6 @@ function enableHideKarmaRV1() {
 function disableHideKarmaAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-karma"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

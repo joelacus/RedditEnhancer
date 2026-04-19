@@ -1,4 +1,6 @@
-/* ===== Inputs / Extension Theme ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Inputs / Extension Theme
+// ────────────────────────────────────────────────────────────────────────────
 
 // Theme Buttons
 document.querySelectorAll('[id^="btn-extension-theme"]').forEach((btn) => {

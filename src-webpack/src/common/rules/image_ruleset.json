@@ -13,7 +13,7 @@
 			]
 		},
 		"condition": {
-			"regexFilter": "^https://(www\\.reddit\\.com/media\\?|((external-)?preview|i)\\.redd\\.it)",
+			"regexFilter": "^https://(www\\.reddit\\.com/media\\?|((external-|cf\\.)?preview|i)\\.redd\\.it)",
 			"resourceTypes": ["main_frame"]
 		}
 	}

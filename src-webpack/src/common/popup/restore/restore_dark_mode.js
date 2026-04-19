@@ -1,5 +1,8 @@
-/* ===== Restore Popup UI / Dark Mode ===== 
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Restore / Dark Mode
+// ────────────────────────────────────────────────────────────────────────────
 
+/*
 import { tabDmSystem } from '../inputs/inputs_dark_mode';
 import { tabDmTime } from '../inputs/inputs_dark_mode';
 import { highlightMenuIcon } from '../popup_restore';

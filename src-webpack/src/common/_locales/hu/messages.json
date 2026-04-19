@@ -146,9 +146,6 @@
 	"OldUI": {
 		"message": "Régi UI"
 	},
-	"PleaseWait": {
-		"message": "Kérlek várj"
-	},
 	"PostComments": {
 		"message": "Post Comments"
 	},
@@ -178,12 +175,6 @@
 	},
 	"ResizeLayout": {
 		"message": "Feed / Bejegyzés átméretezése"
-	},
-	"RestoreInfo1": {
-		"message": ""
-	},
-	"RestoreInfo2": {
-		"message": "elem visszaállítása. A böngésző API-korlátja 120 percenként. Kérjük, hagyja nyitva ezt az ablakot/lapot még egy percig."
 	},
 	"ScalePostToFitVideo": {
 		"message": "Skála hozzászólás a videó illesztéséhez"

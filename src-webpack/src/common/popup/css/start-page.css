@@ -31,6 +31,8 @@
 
 #start-page-set-language {
 	bottom: 96px;
+	left: 4px;
+	align-items: start;
 }
 
 #start-page-select-version .icon,

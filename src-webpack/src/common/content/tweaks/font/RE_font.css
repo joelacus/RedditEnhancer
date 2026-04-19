@@ -95,8 +95,8 @@ search-telemetry-tracker a[data-testid='post-title-text'],
 faceplate-tracker[data-testid='search-post'] a[data-testid='post-title-text'],
 faceplate-tracker h2.i18n-search-comment-post-title,
 mod-queue-app shreddit-post a[slot='title'] {
-	font-size: var(--re-feed-post-title-font-size, 18px);
-	font-weight: var(--re-feed-post-title-font-weight, 600);
+	font-size: var(--re-feed-post-title-font-size);
+	font-weight: var(--re-feed-post-title-font-weight);
 	line-height: 1.4;
 }
 shreddit-feed shreddit-post[view-type='compactView'] a[slot='title'] {

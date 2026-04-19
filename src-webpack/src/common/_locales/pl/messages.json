@@ -11,9 +11,6 @@
 	"Accessibility": {
 		"message": "Dostępność"
 	},
-	"AlwaysShowPostAndCommentOptions": {
-		"message": "Zawsze pokazuj opcje postów i komentarzy"
-	},
 	"Auto": {
 		"message": "Auto"
 	},
@@ -482,9 +479,6 @@
 	"Other": {
 		"message": "Inny"
 	},
-	"PleaseWait": {
-		"message": "Proszę czekać"
-	},
 	"PositionHorizontally": {
 		"message": "Ustaw poziomo"
 	},
@@ -568,12 +562,6 @@
 	},
 	"RestoreConfigTitle": {
 		"message": "Przywróć konfigurację kopii zapasowej Reddit Enhancer"
-	},
-	"RestoreInfo1": {
-		"message": "Przywracanie"
-	},
-	"RestoreInfo2": {
-		"message": "elementów. Limit API przeglądarki wynosi 120 na minutę. Proszę pozostawić to okno/kartę otwarte na kolejną minutę."
 	},
 	"Rising": {
 		"message": "Rosnący / Rising"

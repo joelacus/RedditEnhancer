@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideVideoRecommendations() {
 	BROWSER_API.storage.sync.get(['hideVideoRecommendations']).then((result) => {
-		if (result.hideVideoRecommendations) hideVideoRecommendations(true);
+		if (result.hideVideoRecommendations === true) hideVideoRecommendations(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideVideoRecommendations(value) {
 	if (redditVersion === 'newnew') {
 		value ? enableHideVideoRecommendations() : disableHideVideoRecommendations();
@@ -38,6 +40,6 @@ function enableHideVideoRecommendations() {
 function disableHideVideoRecommendations() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-video-recommendations"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

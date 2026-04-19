@@ -7,16 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideBlurredMediaBackground() {
 	BROWSER_API.storage.sync.get(['hideBlurredMediaBackground']).then((result) => {
-		if (result.hideBlurredMediaBackground) {
-			hideBlurredMediaBackground(true);
-		}
+		if (result.hideBlurredMediaBackground === true) hideBlurredMediaBackground(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideBlurredMediaBackground(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableHideBlurredMediaBackground();
@@ -57,6 +57,6 @@ function enableHideBlurredMediaBackground() {
 function disableHideBlurredMediaBackground() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-blurred-media-background"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

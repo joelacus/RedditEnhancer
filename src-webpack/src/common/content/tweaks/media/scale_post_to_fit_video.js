@@ -7,16 +7,21 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+import { registerMutationCallback } from '../../observer_manager';
+
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadScalePostToFitVideo() {
 	BROWSER_API.storage.sync.get(['scalePostToFitVideo'], function (result) {
-		if (result.scalePostToFitVideo) {
-			scalePostToFitVideo(true);
-		}
+		if (result.scalePostToFitVideo === true) scalePostToFitVideo(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup function for the observer
+let observerCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function scalePostToFitVideo(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableScalePostToFitVideoRV3();
@@ -66,7 +71,7 @@ function enableScalePostToFitVideoRV3() {
 									}
 									shreddit-post [slot="expando"] > [class="max-h-[540px]"] {
 										max-height: fit-content !important;
-  										aspect-ratio: unset !important;
+   										aspect-ratio: unset !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
@@ -75,7 +80,28 @@ function enableScalePostToFitVideoRV3() {
 		replaceTag(tag);
 	});
 	if (document.querySelector('shreddit-feed')) {
-		observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
+		// Clean up any existing observer first
+		if (observerCleanup) {
+			observerCleanup();
+		}
+		observerCleanup = registerMutationCallback(
+			document.querySelector('shreddit-feed'),
+			(mutations) => {
+				mutations.forEach((mutation) => {
+					mutation.addedNodes.forEach((addedNode) => {
+						if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+							setTimeout(() => {
+								document.querySelectorAll('shreddit-aspect-ratio:has(shreddit-player-2)').forEach((tag) => {
+									replaceTag(tag);
+								});
+							}, 1000);
+						}
+					});
+				});
+			},
+			{ childList: true, subtree: true },
+			'scalePostToFitVideo',
+		);
 	}
 }
 
@@ -107,27 +133,16 @@ function revertTag(tag) {
 	tag.parentNode.replaceChild(newSar, tag);
 }
 
-// Observe feed for new posts
-const observer = new MutationObserver((mutations) => {
-	mutations.forEach((mutation) => {
-		mutation.addedNodes.forEach((addedNode) => {
-			if (addedNode.nodeName === 'ARTICLE') {
-				setTimeout(() => {
-					document.querySelectorAll('shreddit-aspect-ratio:has(shreddit-player-2)').forEach((tag) => {
-						replaceTag(tag);
-					});
-				}, 1000);
-			}
-		});
-	});
-});
-
 // Disable Scale Post To Fit Video - All
 export function disableScalePostToFitVideoAll() {
-	observer.disconnect();
+	// Cleanup observer
+	if (observerCleanup) {
+		observerCleanup();
+		observerCleanup = null;
+	}
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-scale-post-to-fit-video"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	document.querySelectorAll('div[id*="aspect-ratio"]:has(shreddit-player-2)').forEach(function (tag) {
 		revertTag(tag);

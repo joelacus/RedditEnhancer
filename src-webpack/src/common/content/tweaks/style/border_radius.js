@@ -7,22 +7,26 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+import { validateInt } from '../../../popup/restore/validation';
+
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 export function loadBorderRadiusAmount() {
 	BROWSER_API.storage.sync.get(['borderRadiusAmount'], function (result) {
-		if (result.borderRadiusAmount) borderRadiusAmount(result.borderRadiusAmount);
+		const value = validateInt(result.borderRadiusAmount, -1, 40, -1);
+		borderRadiusAmount(value);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function borderRadiusAmount(value) {
 	if (redditVersion === 'newnew') {
-		if (parseInt(value) >= 0) {
-			document.documentElement.style.setProperty('--re-theme-border-radius', value + 'px');
+		if (value >= 0) {
+			document.documentElement.style.setProperty('--re-theme-border-radius', `${value}px`);
 			if (!document.querySelector('style[id="re-theme-border-radius"]')) {
 				addBorderRadiusAmountStylesheet();
 			}
-		} else if (parseInt(value) === -1 || value === undefined) {
+		} else {
 			document.documentElement.style.removeProperty('--re-theme-border-radius');
 			removeBorderRadiusAmountStylesheet();
 		}
@@ -240,6 +244,6 @@ export function addBorderRadiusToShadowRootElements() {
 function removeBorderRadiusAmountStylesheet() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-theme-border-radius"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

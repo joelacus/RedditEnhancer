@@ -7,15 +7,17 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadSolidColourBackground() {
 	BROWSER_API.storage.sync.get(['solidColourBackground', 'solidColourBackgroundCSS'], function (result) {
-		if (result.solidColourBackground) solidColourBackground(true);
+		if (result.solidColourBackground === true) solidColourBackground(true);
 		solidColourBackgroundCSS(result.solidColourBackgroundCSS);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function solidColourBackground(value) {
 	if (value) {
 		if (redditVersion === 'newnew') {
@@ -38,6 +40,7 @@ function enableSolidBackgroundBackgroundRV3() {
 	document.head.insertBefore(styleElement, document.head.firstChild);
 
 	BROWSER_API.storage.sync.get(['solidColourBackgroundCSS'], function (result) {
+		if (!result.solidColourBackgroundCSS) return;
 		document.documentElement.style.setProperty('--re-background-colour', result.solidColourBackgroundCSS);
 	});
 }
@@ -57,7 +60,7 @@ function enableSolidBackgroundBackgroundRV1() {
 function disableSolidColourBackgroundAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-solid-colour-background"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 
@@ -65,7 +68,8 @@ function disableSolidColourBackgroundAll() {
 export function solidColourBackgroundCSS(value) {
 	if (redditVersion === 'newnew' || redditVersion === 'old') {
 		BROWSER_API.storage.sync.get(['solidColourBackground'], function (result) {
-			if (result.solidColourBackground) document.documentElement.style.setProperty('--re-background-colour', value);
+			if (result.solidColourBackground !== true) return;
+			document.documentElement.style.setProperty('--re-background-colour', value);
 		});
 	}
 }

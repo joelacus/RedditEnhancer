@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHidePostBackButton() {
 	BROWSER_API.storage.sync.get(['hidePostBackButton'], function (result) {
 		if (result.hidePostBackButton) hidePostBackButton(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hidePostBackButton(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableHideBackButtonRV3();
@@ -39,6 +41,6 @@ function enableHideBackButtonRV3() {
 function disableHideBackButton() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-post-back-button"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

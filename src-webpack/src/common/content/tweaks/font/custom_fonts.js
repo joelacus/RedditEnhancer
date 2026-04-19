@@ -11,14 +11,16 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadCustomFonts() {
 	BROWSER_API.storage.sync.get(['customFonts']).then((result) => {
-		if (result.customFonts) customFonts(true);
+		if (result.customFonts === true) customFonts(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function customFonts(value) {
 	if (redditVersion === 'old' && value) {
 		if (!document.head.querySelector('style[id="re-custom-fonts"]')) {
@@ -93,7 +95,7 @@ export function customFonts(value) {
 	} else {
 		const dynamicStyleElements = document.head.querySelectorAll('style[id="re-custom-fonts"]');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }

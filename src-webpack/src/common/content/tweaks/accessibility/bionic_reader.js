@@ -8,25 +8,32 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+import { debounce } from '../../../utilities/debounce';
+import { registerMutationCallback } from '../../observer_manager';
+
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
 // Load Bionic Reader
 export function loadBionicReader() {
 	BROWSER_API.storage.sync.get(['bionicReaderPosts', 'bionicReaderComments'], function (result) {
-		bionicReaderPosts(result.bionicReaderPosts);
-		bionicReaderComments(result.bionicReaderComments);
+		if (result.bionicReaderPosts === true) bionicReaderPosts(true);
+		if (result.bionicReaderComments === true) bionicReaderComments(true);
 	});
 }
 
 // Load Bionic Reader Colours
 export function loadBionicReaderColours() {
 	BROWSER_API.storage.sync.get(['bionicReaderFontColour', 'bionicReaderBgColour'], function (result) {
-		bionicReaderFontColour(result.bionicReaderFontColour);
-		bionicReaderBgColour(result.bionicReaderBgColour);
+		if (result.bionicReaderFontColour === true) bionicReaderFontColour(true);
+		if (result.bionicReaderBgColour === true) bionicReaderBgColour(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup functions for the observer and scroll event
+let postObserverCleanup = null;
+let commentsScrollCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 // Bionic Reader For Posts
 export function bionicReaderPosts(value) {
@@ -34,27 +41,43 @@ export function bionicReaderPosts(value) {
 		if (value) {
 			const nodes = document.querySelectorAll('shreddit-post [data-post-click-location="text-body"] p');
 			bionicReader(true, 'posts', nodes);
-			observerPostsNewNew.observe(document.body, { childList: true, subtree: true });
+			// Register with centralised observer manager
+			// Clean up any existing observer first
+			if (postObserverCleanup) {
+				postObserverCleanup();
+			}
+			const feed = document.querySelector('shreddit-feed');
+			if (feed) {
+				postObserverCleanup = registerMutationCallback(
+					feed,
+					(mutations) => {
+						mutations.forEach((mutation) => {
+							mutation.addedNodes.forEach((addedNode) => {
+								if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+									setTimeout(() => {
+										const nodes = document.querySelectorAll('shreddit-post [data-post-click-location="text-body"] p');
+										if (addedNode) {
+											bionicReader(true, 'posts', nodes);
+										}
+									}, 1000);
+								}
+							});
+						});
+					},
+					{ childList: true, subtree: true },
+					'bionicReaderPosts',
+				);
+			}
 		} else {
-			observerPostsNewNew.disconnect();
+			// Cleanup observer
+			if (postObserverCleanup) {
+				postObserverCleanup();
+				postObserverCleanup = null;
+			}
 			bionicReader(false, 'posts');
 		}
 	}
 }
-
-// Observe for new posts - RV3
-const observerPostsNewNew = new MutationObserver(function (mutations) {
-	mutations.forEach(function (mutation) {
-		mutation.addedNodes.forEach(function (addedNode) {
-			if (addedNode.nodeName === 'DIV') {
-				const nodes = document.querySelectorAll('shreddit-post [data-post-click-location="text-body"] p');
-				if (nodes) {
-					bionicReader(true, 'posts', nodes);
-				}
-			}
-		});
-	});
-});
 
 // Bionic Reader For Comments
 export function bionicReaderComments(value) {
@@ -64,28 +87,30 @@ export function bionicReaderComments(value) {
 			if (value) {
 				const nodes = document.querySelectorAll('shreddit-comment [slot="comment"] p');
 				bionicReader(true, 'comments', nodes);
-				observerCommentsNewNew.observe(document.body, { childList: true, subtree: true });
+
+				// Add scroll event listener for post_detail pages with debounce
+				if (document.querySelector('shreddit-app[pagetype="post_detail"]')) {
+					const debouncedScrollHandler = debounce(() => {
+						const nodes = document.querySelectorAll('shreddit-comment [slot="comment"] p:not(.re-bionic-modified-comments,.re-bionic-original-comments)');
+						bionicReader(true, 'comments', nodes);
+					}, 100);
+
+					window.addEventListener('scroll', debouncedScrollHandler);
+					commentsScrollCleanup = () => {
+						window.removeEventListener('scroll', debouncedScrollHandler);
+					};
+				}
 			} else {
-				observerCommentsNewNew.disconnect();
+				// Cleanup scroll event listener
+				if (commentsScrollCleanup) {
+					commentsScrollCleanup();
+					commentsScrollCleanup = null;
+				}
 				bionicReader(false, 'comments');
 			}
 		}
 	}
 }
-
-// Observe for new comments - RV3
-const observerCommentsNewNew = new MutationObserver(function (mutations) {
-	mutations.forEach(function (mutation) {
-		mutation.addedNodes.forEach(function (addedNode) {
-			if (addedNode.nodeName === 'DIV') {
-				const nodes = addedNode.querySelectorAll('[slot="comment"] p');
-				if (nodes) {
-					bionicReader(true, 'comments', nodes);
-				}
-			}
-		});
-	});
-});
 
 // Main Bionic Reader Logic
 function bionicReader(value, type, paragraphs) {
@@ -223,7 +248,7 @@ export function bionicReaderFontColour(value) {
 		document.documentElement.style.removeProperty('--re-bionic-font-colour');
 		const dynamicStyleElements = document.querySelectorAll('#re-bionic-reader-font-colour');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }
@@ -258,7 +283,7 @@ export function bionicReaderBgColour(value) {
 		document.documentElement.style.removeProperty('--re-bionic-bg-colour');
 		const dynamicStyleElements = document.querySelectorAll('#re-bionic-reader-bg-colour');
 		dynamicStyleElements.forEach((element) => {
-			document.head.removeChild(element);
+			element.remove();
 		});
 	}
 }

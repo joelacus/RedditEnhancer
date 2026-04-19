@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideSideMenuFavouriteButton() {
 	BROWSER_API.storage.sync.get(['hideSideMenuFavouriteButton'], function (result) {
 		if (result.hideSideMenuFavouriteButton) hideSideMenuFavouriteButton(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideSideMenuFavouriteButton(value) {
 	if (redditVersion === 'newnew' && value) {
 		// If the tab is not focused when opened, it doesn't enable the feature correctly, so run again when focused.

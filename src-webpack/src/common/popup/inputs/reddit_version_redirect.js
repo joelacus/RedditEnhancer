@@ -1,4 +1,6 @@
-/* ===== Inputs / Auto Redirect To Reddit Version ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Inputs / Auto Redirect To Reddit Version
+// ────────────────────────────────────────────────────────────────────────────
 
 import i18next from 'i18next';
 import { selectFilterShowNewNewVersion, selectFilterShowOldVersion } from './filter_version_select';

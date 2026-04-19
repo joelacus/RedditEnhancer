@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideLogoInSearch() {
 	BROWSER_API.storage.sync.get(['hideLogoInSearch'], function (result) {
 		if (result.hideLogoInSearch) hideLogoInSearch(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideLogoInSearch(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableHideLogoInSearchRV3();

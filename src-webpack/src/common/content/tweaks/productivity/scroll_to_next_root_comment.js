@@ -7,7 +7,8 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadScrollToNextRootComment() {
 	BROWSER_API.storage.sync.get(['scrollToNextRootComment', 'scrollToNextRootCommentPosition'], function (result) {
 		if (result.scrollToNextRootComment) {
@@ -17,7 +18,8 @@ export function loadScrollToNextRootComment() {
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function scrollToNextRootComment(value) {
 	const isCommentPage = window.location.href.match('https://.*.reddit.com/r/.*/comments/.*');
 	// Remove existing navigation buttons if any
@@ -55,7 +57,8 @@ function enableScrollToNextRootCommentRV3() {
 	// on click
 	prevBtn.addEventListener('click', function () {
 		// get all the elements of type "shreddit-comment"
-		const reRootComments = Array.from(document.querySelectorAll('#comment-tree > shreddit-comment'));
+		let reRootComments = Array.from(document.querySelectorAll('#comment-tree > shreddit-comment'));
+		reRootComments = reRootComments.length === 0 ? Array.from(document.querySelectorAll('shreddit-comment-tree section > shreddit-comment')) : reRootComments;
 		// get current postion
 		const currentScrollPosition = Math.floor(window.scrollY);
 		let previousComment = null;
@@ -87,7 +90,8 @@ function enableScrollToNextRootCommentRV3() {
 	// on click
 	nextBtn.addEventListener('click', function () {
 		// get all the elements of type "shreddit-comment"
-		const reRootComments = Array.from(document.querySelectorAll('#comment-tree > shreddit-comment'));
+		let reRootComments = Array.from(document.querySelectorAll('#comment-tree > shreddit-comment'));
+		reRootComments = reRootComments.length === 0 ? Array.from(document.querySelectorAll('shreddit-comment-tree section > shreddit-comment')) : reRootComments;
 		// get current postion
 		const currentScrollPosition = Math.floor(window.scrollY);
 		let nextComment = null;
@@ -250,5 +254,5 @@ function makeDraggable(element, handleSelector) {
 }
 
 export function scrollToNextRootCommentRemoveStyle() {
-	document.querySelector('.re-scroll-to-comment-container').removeAttribute('style');
+	document.querySelector('.re-scroll-to-comment-container')?.removeAttribute('style');
 }

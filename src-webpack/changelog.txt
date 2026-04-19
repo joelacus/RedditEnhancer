@@ -1,3 +1,30 @@
+version 3.0.0
+  - The "downloads" and "history" permissions are now optional for Chromium based browsers since manifest v3 has added support for optional permissions.
+  - The Firefox addon now uses manifest v3. (Support was added to Firefox in version 109).
+  - Colour pickers now apply the colour instantly, instead of you having to click confirm.
+  - Refactored a lot of code to improve performance, reliability, and overall code quality.
+  - Restoring a backup config file no longer needs a 1 minute cool down if it has more than 120 items.
+  - Bug fixes and improvements.
+  - Updated dependencies.
+v [Latest UI V3]
+  - Added an option to force Reddit dark mode.
+  - Added an option to hide related communities on subreddit pages.
+  - Added an option to change the subreddit header background colour.
+  - "Replace Images With Links on Feeds" can now be enabled for home and subreddit feeds independently, or for both.
+  - Split "Always Show Post and Comment Options" so you can enable it for posts and/or comments. You can also choose to hide individual comment options.
+  - Fixed the "Recent" section in the side menu not hiding due to a website update.
+  - Fixed the "Mark as read" button not being added to the post due to a website update.
+  - Fixed "Hide Vote Buttons" not working due to a website update.
+  - Fixed "Scroll to next/previous root comment" not working due to website update.
+  - Fixed "Add Video Download Button" not working correctly.
+v [Latest UI V3 & Old UI V1]
+  - Add support for regex when filtering/blocking posts by keywords/users/links.
+  - Added an option to have canned messages. You can save a list a commonly used messages/comments, and quickly input them into a textarea from the right click menu.
+  - The "Just Open The Image" feature can now directly open "cf.preview.redd.it" image links.
+v [Old UI V1]
+  - "Show Absolute Timestamps On Posts" now plays nice with the RES "Never Ending Reddit" feature.
+  - Fixed the "Show Absolute Timestamps On Comments" option not showing when filtering the options for "Old" Reddit.
+
 version 2.6.1
   - Minor fixes regarding font weight.
 

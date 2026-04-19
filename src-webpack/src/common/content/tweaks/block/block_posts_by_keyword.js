@@ -7,17 +7,23 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-import { logToDevConsole } from '../../logging';
+import { logToDevConsole } from '../../../utilities/logging';
+import { registerMutationCallback } from '../../observer_manager';
 let keywordList = [];
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideBlockedKeywordPosts() {
 	BROWSER_API.storage.sync.get(['hideBlockedKeywordPosts'], function (result) {
-		if (result.hideBlockedKeywordPosts) hideBlockedKeywordPosts(true);
+		if (result.hideBlockedKeywordPosts === true) hideBlockedKeywordPosts(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup function for the observer
+let observerCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideBlockedKeywordPosts(value) {
 	if (redditVersion === 'old') {
 		if (value) {
@@ -38,18 +44,74 @@ export function hideBlockedKeywordPosts(value) {
 				setTimeout(() => {
 					document.querySelectorAll('article:has(>shreddit-post)').forEach(filterBlockedKeywordPost);
 				}, 3000);
-				observer.observe(document.querySelector('.main-container'), { childList: true, subtree: true });
+				// Register with centralised observer manager
+				// Clean up any existing observer first
+				if (observerCleanup) {
+					observerCleanup();
+				}
+				const feed = document.querySelector('shreddit-feed');
+				if (feed) {
+					observerCleanup = registerMutationCallback(
+						feed,
+						(mutations) => {
+							mutations.forEach((mutation) => {
+								mutation.addedNodes.forEach((addedNode) => {
+									if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+										setTimeout(() => {
+											if (addedNode) {
+												filterBlockedKeywordPost(addedNode);
+											}
+										}, 1000);
+									}
+								});
+							});
+						},
+						{ childList: true, subtree: true },
+						'hideBlockedKeywordPosts',
+					);
+				}
 			});
 		} else {
-			observer.disconnect();
+			// Cleanup observer
+			if (observerCleanup) {
+				observerCleanup();
+				observerCleanup = null;
+			}
 			disableHideBlockedKeywordPostsAll();
 		}
 	}
 }
 
+function escapeRegExp(string) {
+	// Escape regex metacharacters to prevent ReDoS
+	return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function matchesPattern(text, patternStr) {
+	if (!text) return false;
+	// Check if pattern is regex format: /pattern/flags
+	const regexMatch = patternStr.match(/^\/(.+?)\/([a-z]*)$/i);
+	if (regexMatch) {
+		const pattern = regexMatch[1];
+		const flags = regexMatch[2] || 'i';
+		try {
+			const regex = new RegExp(pattern, flags);
+			return regex.test(text);
+		} catch (e) {
+			console.warn('Invalid regex pattern:', patternStr, e);
+			return false;
+		}
+	} else {
+		// Plain pattern with wildcard support
+		const escaped = escapeRegExp(patternStr);
+		const regexPattern = escaped.replace(/\\\*/g, '.*');
+		const regex = new RegExp(`\\b${regexPattern}\\b`, 'i');
+		return regex.test(text);
+	}
+}
+
 function updateKeywordList(list) {
 	keywordList = list
-		.toLowerCase()
 		.split(',')
 		.map((word) => word.trim())
 		.filter((item) => item !== '' && item !== '*');
@@ -61,8 +123,8 @@ function enableHideBlockedKeywordPostsRV1() {
 		const titleAnchor = post.querySelector('a.title');
 		if (!titleAnchor) return;
 
-		const titleText = titleAnchor.textContent.toLowerCase();
-		if (keywordList.some((word) => new RegExp(`\\b${word.replace(/\*/g, '.*')}\\b`, 'i').test(titleText))) {
+		const titleText = titleAnchor.textContent;
+		if (keywordList.some((word) => matchesPattern(titleText, word))) {
 			post.classList.add('re-hide');
 		}
 	});
@@ -75,8 +137,8 @@ function filterBlockedKeywordPost(post) {
 	const titleAnchor = post.querySelector('a[id^="post-title-"]');
 	if (!titleAnchor) return;
 
-	const titleText = titleAnchor.textContent.toLowerCase();
-	if (keywordList.some((word) => new RegExp(`\\b${word.replace(/\*/g, '.*')}\\b`, 'i').test(titleText))) {
+	const titleText = titleAnchor.textContent;
+	if (keywordList.some((word) => matchesPattern(titleText, word))) {
 		post.classList.add('re-hide');
 	}
 }
@@ -87,13 +149,3 @@ function disableHideBlockedKeywordPostsAll() {
 		post.classList.remove('re-hide');
 	});
 }
-
-// Observe feed for new posts
-const observer = new MutationObserver((mutations) => {
-	mutations.forEach((mutation) => {
-		mutation.addedNodes.forEach((node) => {
-			if (!(node instanceof HTMLElement)) return;
-			if (node) document.querySelectorAll('article:has(>shreddit-post)').forEach(filterBlockedKeywordPost);
-		});
-	});
-});

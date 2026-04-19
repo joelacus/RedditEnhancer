@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideHomeFeed() {
 	BROWSER_API.storage.sync.get(['hideHomeFeed'], function (result) {
 		if (result.hideHomeFeed) hideHomeFeed(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideHomeFeed(value) {
 	const path = window.location.pathname;
 	const regex = /^\/(r\/(all|popular)\/)?$/;

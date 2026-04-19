@@ -15,7 +15,7 @@
 		"message": "Fügen Sie Video-Posts \"Video herunterladen\" hinzu"
 	},
 	"AddDownloadVideoButtonInfo": {
-		"message": "Dies unterstützt derzeit nur MP4-URLs, nicht M3U8, sodass einige Video-Posts nicht den Download -Schaltfläche haben :/"
+		"message": "Funktioniert möglicherweise nicht mit allen Videos."
 	},
 	"AddMarkPostAsReadButton": {
 		"message": "Füge in der Kompaktansicht jedem Beitrag eine Schaltfläche hinzu, um ihn als gelesen zu markieren."
@@ -26,11 +26,14 @@
 	"AddSpoilerTag": {
 		"message": "Spoiler-Tag hinzufügen"
 	},
-	"AlwaysShowPostAndCommentOptions": {
-		"message": "Post und Kommentaroptionen immer anzeigen"
+	"AlwaysShowCommentOptionsInfo": {
+		"message": "Verschieben Sie die Schaltflächen aus dem Kommentar-Überlaufmenü in die Kommentar-Aktionsleiste."
 	},
-	"AlwaysShowPostAndCommentOptionsInfo": {
-		"message": "Verschieben Sie die Schaltflächen aus den Überlaufmenüs für Beiträge und Kommentare jeweils in die Aktionsleisten für Beiträge und Kommentare."
+	"AlwaysShowPostOptions": {
+		"message": "Beitragsoptionen immer anzeigen"
+	},
+	"AlwaysShowPostOptionsInfo": {
+		"message": "Verschieben Sie die Schaltflächen aus dem Beitrags-Überlaufmenü in die Beitrags-Aktionsleiste."
 	},
 	"AttachSideMenuHeader": {
 		"message": "Seite und Benutzerinformationen im Header anzeigen"
@@ -301,6 +304,9 @@
 	},
 	"HideChatButton": {
 		"message": "Ausblenden der „Chat“ Schaltfläche"
+	},
+	"HideCommentActionBarButtonsInfo": {
+		"message": "Schaltflächen aus der Kommentarleiste ausblenden"
 	},
 	"HideCommentKarma": {
 		"message": "Kommentar ausblenden Karma"
@@ -617,9 +623,6 @@
 	"Other": {
 		"message": "Weiter"
 	},
-	"PleaseWait": {
-		"message": "Bitte warten"
-	},
 	"PositionHorizontally": {
 		"message": "Horizontal positionieren"
 	},
@@ -714,7 +717,7 @@
 		"message": "Ersetzen Sie Videos durch Links auf Feeds"
 	},
 	"ReplacePostVideosWithLinksInfo": {
-		"message": "Funktioniert nur mit MP4 und GIF. M3U8-Videos sind möglicherweise schwer bei anderen Spielern zu spielen."
+		"message": "Funktioniert möglicherweise nicht mit allen Videos."
 	},
 	"Report": {
 		"message": "Bericht"
@@ -748,12 +751,6 @@
 	},
 	"RestoreConfigTitle": {
 		"message": "Reddit Enhancer Backup-Konfiguration Wiederherstellen"
-	},
-	"RestoreInfo1": {
-		"message": "Wiederherstellung von"
-	},
-	"RestoreInfo2": {
-		"message": "Gegenständen. Das Browser-API-Limit beträgt 120 pro Minute. Bitte lassen Sie dieses Fenster/diese Registerkarte noch eine Minute geöffnet."
 	},
 	"RightSidePostThumbnails": {
 		"message": "Beitrag vorschaubilder auf der rechten seite anzeigen"

@@ -1,4 +1,6 @@
-/* === Accordion Logic === */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Functions / Accordion Logic
+// ────────────────────────────────────────────────────────────────────────────
 
 // Top Category Menu
 export function initTopCategoryMenuAccordion() {

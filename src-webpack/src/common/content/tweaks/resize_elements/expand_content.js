@@ -7,26 +7,29 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 import { showBannerMessage } from '../../banner_message';
+import { validatePercentage } from '../../../popup/restore/validation';
 
 export function loadExpandContent() {
 	BROWSER_API.storage.sync.get(['snapSidebar', 'expandLayout', 'expandLayoutWidth', 'expandSubWidth', 'expandPostWidth', 'expandUserProfileWidth', 'expandTopicFeedWidth', 'expandCustomFeedWidth', 'resizeMainContainerWidth'], function (result) {
 		snap = result.snapSidebar;
 		if (result.expandLayout) expandLayout(true);
-		expandLayoutWidth(result.expandLayoutWidth);
-		expandSubWidth(result.expandSubWidth);
-		expandPostWidth(result.expandPostWidth);
-		expandUserProfileWidth(result.expandUserProfileWidth);
-		expandTopicFeedWidth(result.expandTopicFeedWidth);
-		expandCustomFeedWidth(result.expandCustomFeedWidth);
-		resizeMainContainerWidth(result.resizeMainContainerWidth);
+		expandLayoutWidth(validatePercentage(parseInt(result.expandLayoutWidth), 80));
+		expandSubWidth(validatePercentage(parseInt(result.expandSubWidth), 80));
+		expandPostWidth(validatePercentage(parseInt(result.expandPostWidth), 80));
+		expandUserProfileWidth(validatePercentage(parseInt(result.expandUserProfileWidth), 80));
+		expandTopicFeedWidth(validatePercentage(parseInt(result.expandTopicFeedWidth), 80));
+		expandCustomFeedWidth(validatePercentage(parseInt(result.expandCustomFeedWidth), 80));
+		resizeMainContainerWidth(validatePercentage(parseInt(result.resizeMainContainerWidth), 80));
 	});
 }
 
 let snap = false;
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function expandLayout(value) {
 	if (value) {
 		switch (redditVersion) {
@@ -186,6 +189,9 @@ function enableExpandContentRV3() {
             	gap: 1.25rem;
             	margin: 0 auto;
             }
+			.masthead {
+				align-self: center;
+			}
             .masthead > div,
             .masthead > section {
             	margin: 0 auto;
@@ -221,9 +227,9 @@ function enableExpandContentRV3() {
 				shreddit-app[routename="mod_queue"] div[slot="mod-queue-feed"] > div.max-w-\\[756px\\] {
 					max-width: min(var(--re-sub-width), var(--re-main-container-width));
 				}
-				.re-full-width-banner .masthead > section {
+				/*.re-full-width-banner .masthead > section {
 					max-width: min(var(--re-sub-width), var(--re-main-container-width));
-				}
+				}*/
 				shreddit-app[routename="post_page"] .main-container,
 				shreddit-app[routename="comments_page"] .main-container,
 				shreddit-app[routename="profile_post_page"] .main-container,
@@ -336,7 +342,7 @@ function enableExpandContentRV3() {
 function disableExpandContentAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-expand-feed-layout"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	document.documentElement.classList.remove('re-expand-feed-layout');
 }

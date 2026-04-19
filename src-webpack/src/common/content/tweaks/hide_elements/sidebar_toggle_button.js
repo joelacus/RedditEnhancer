@@ -9,7 +9,8 @@
  * Compatibility: RV1 (Old UI) (2005-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadSidebarToggleButton() {
 	BROWSER_API.storage.sync.get(['sidebarToggleButton']).then((result) => {
 		if (result.sidebarToggleButton) sidebarToggleButton(true);
@@ -28,7 +29,8 @@ if (sidebar) {
 	initialWidth = sidebar.offsetWidth;
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function sidebarToggleButton(value) {
 	if (redditVersion === 'old') {
 		if (value) {
@@ -93,13 +95,13 @@ function show(mainButton) {
 }
 
 function setButtonToShow(mainButton) {
-	mainButton.innerHTML = '<<';
+	mainButton.textContent = '<<';
 	mainButton.classList.remove(CLASS_HIDE);
 	mainButton.classList.add(CLASS_SHOW);
 }
 
 function setButtonToHide(mainButton) {
-	mainButton.innerHTML = '>>';
+	mainButton.textContent = '>>';
 	mainButton.classList.remove(CLASS_SHOW);
 	mainButton.classList.add(CLASS_HIDE);
 }

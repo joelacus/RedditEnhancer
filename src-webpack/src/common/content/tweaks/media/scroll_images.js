@@ -9,15 +9,21 @@
 
 import { disableScalePostToFitImageAll } from './scale_post_to_fit_image';
 //import { disableDragImageToResizeAll } from './scale_image_on_drag';
+import { registerMutationCallback } from '../../observer_manager';
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadImageScroll() {
 	BROWSER_API.storage.sync.get(['imageScroll'], function (result) {
-		if (result.imageScroll) imageScroll(true);
+		if (result.imageScroll === true) imageScroll(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup function for the observer
+let observerCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function imageScroll(value) {
 	if (redditVersion === 'newnew') {
 		if (value === true) {
@@ -75,7 +81,29 @@ function enableImageScrollRV3() {
 		replaceTag(tag);
 	});
 	if (document.querySelector('shreddit-feed')) {
-		observer.observe(document.querySelector('shreddit-feed'), { childList: true, subtree: true });
+		// Clean up any existing observer first
+		if (observerCleanup) {
+			observerCleanup();
+		}
+		observerCleanup = registerMutationCallback(
+			document.querySelector('shreddit-feed'),
+			(mutations) => {
+				mutations.forEach((mutation) => {
+					mutation.addedNodes.forEach((addedNode) => {
+						if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+							setTimeout(() => {
+								const tag = addedNode.querySelector('shreddit-aspect-ratio:has(img.preview-img)');
+								if (tag) {
+									replaceTag(tag);
+								}
+							}, 1000);
+						}
+					});
+				});
+			},
+			{ childList: true, subtree: true },
+			'imageScroll',
+		);
 	}
 }
 
@@ -103,30 +131,16 @@ function revertTag(tag) {
 	tag.parentNode.replaceChild(newSar, tag);
 }
 
-// Observe feed for new posts
-const observer = new MutationObserver((mutations) => {
-	mutations.forEach((mutation) => {
-		mutation.addedNodes.forEach((addedNode) => {
-			if (addedNode.nodeName === 'ARTICLE') {
-				setTimeout(() => {
-					const tag = addedNode.querySelector('shreddit-aspect-ratio:has(img.preview-img)');
-					if (tag) {
-						replaceTag(tag);
-					}
-				}, 1000);
-			}
-		});
-	});
-});
-
 // Disable Image Scroll - All
 export function disableImageScrollAll() {
-	if (redditVersion === 'newnew') {
-		observer.disconnect();
+	// Cleanup observer
+	if (observerCleanup) {
+		observerCleanup();
+		observerCleanup = null;
 	}
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-image-scroll"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 	document.querySelectorAll('div[id*="aspect-ratio"]:has(img.preview-img)').forEach(function (tag) {
 		revertTag(tag);

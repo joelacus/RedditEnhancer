@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadMulticolouredThreadLines() {
 	BROWSER_API.storage.sync.get(['multicolouredThreadLines'], function (result) {
-		if (result.multicolouredThreadLines) multicolouredThreadLines(true);
+		if (result.multicolouredThreadLines === true) multicolouredThreadLines(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function multicolouredThreadLines(value, colours) {
 	if (redditVersion === 'newnew' && value) {
 		enableMulticolouredThreadLinesRV3(colours);

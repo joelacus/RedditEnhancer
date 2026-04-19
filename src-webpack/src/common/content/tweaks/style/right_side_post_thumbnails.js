@@ -7,14 +7,16 @@
  * Compatibility: RV1 (Old UI) (2005-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadRightSidePostThumbnails() {
 	BROWSER_API.storage.sync.get(['rightSidePostThumbnails'], function (result) {
-		if (result.rightSidePostThumbnails) rightSidePostThumbnails(true);
+		if (result.rightSidePostThumbnails === true) rightSidePostThumbnails(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function rightSidePostThumbnails(value) {
 	if (redditVersion === 'old') {
 		if (value) {
@@ -39,7 +41,7 @@ export function rightSidePostThumbnails(value) {
 		} else {
 			const dynamicStyleElements = document.querySelectorAll('style[id="re-right-side-post-thumbnails"]');
 			dynamicStyleElements.forEach((element) => {
-				document.head.removeChild(element);
+				element.remove();
 			});
 		}
 	}

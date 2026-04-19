@@ -7,14 +7,16 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadShowToTopButtonFloat() {
 	BROWSER_API.storage.sync.get(['showToTopButtonFloat', 'scrollToTopFloatPosition'], function (result) {
 		if (result.showToTopButtonFloat) showToTopButtonFloat(true, result.scrollToTopFloatPosition);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function showToTopButtonFloat(value, pos) {
 	if (value) {
 		enableShowToTopButtonFloatAll(pos);

@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideGetAppButton() {
 	BROWSER_API.storage.sync.get(['hideGetAppButton'], function (result) {
 		if (result.hideGetAppButton) hideGetAppButton(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideGetAppButton(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableHideGetAppButtonRV3();
@@ -40,6 +42,6 @@ function enableHideGetAppButtonRV3() {
 function disableHideGetAppButtonAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-get-app-button"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideNsfwInSearchResults() {
 	BROWSER_API.storage.sync.get(['hideNsfwInSearchResults'], function (result) {
 		if (result.hideNsfwInSearchResults) hideNsfwInSearchResults(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideNsfwInSearchResults(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableHideNsfwSearchResults();
@@ -54,14 +56,16 @@ function disableHideNsfwSearchResults() {
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideTrendingTodayInSearchResults() {
 	BROWSER_API.storage.sync.get(['hideTrendingTodayInSearchResults'], function (result) {
 		if (result.hideTrendingTodayInSearchResults) hideTrendingTodayInSearchResults(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideTrendingTodayInSearchResults(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableHideTrendingTodaySearchResults();

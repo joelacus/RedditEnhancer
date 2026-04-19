@@ -7,17 +7,23 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-import { logToDevConsole } from '../../logging';
+import { logToDevConsole } from '../../../utilities/logging';
+import { registerMutationCallback } from '../../observer_manager';
 let urlKeywordsList = [];
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideBlockedLinkPosts() {
 	BROWSER_API.storage.sync.get(['hideBlockedLinkPosts'], function (result) {
-		if (result.hideBlockedLinkPosts) hideBlockedLinkPosts(true);
+		if (result.hideBlockedLinkPosts === true) hideBlockedLinkPosts(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup function for the observer
+let observerCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideBlockedLinkPosts(value) {
 	if (redditVersion === 'old') {
 		if (value) {
@@ -38,18 +44,74 @@ export function hideBlockedLinkPosts(value) {
 				setTimeout(() => {
 					document.querySelectorAll('article:has(>shreddit-post)').forEach(filterBlockedLinkPost);
 				}, 3000);
-				observer.observe(document.querySelector('.main-container'), { childList: true, subtree: true });
+				// Register with centralised observer manager
+				// Clean up any existing observer first
+				if (observerCleanup) {
+					observerCleanup();
+				}
+				const feed = document.querySelector('shreddit-feed');
+				if (feed) {
+					observerCleanup = registerMutationCallback(
+						feed,
+						(mutations) => {
+							mutations.forEach((mutation) => {
+								mutation.addedNodes.forEach((addedNode) => {
+									if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+										setTimeout(() => {
+											if (addedNode) {
+												filterBlockedLinkPost(addedNode);
+											}
+										}, 1000);
+									}
+								});
+							});
+						},
+						{ childList: true, subtree: true },
+						'hideBlockedLinkPosts',
+					);
+				}
 			});
 		} else {
-			observer.disconnect();
+			// Cleanup observer
+			if (observerCleanup) {
+				observerCleanup();
+				observerCleanup = null;
+			}
 			disableHideBlockedLinkPostsAll();
 		}
 	}
 }
 
+function escapeRegExp(string) {
+	// Escape regex metacharacters to prevent ReDoS
+	return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function matchesPattern(text, patternStr) {
+	if (!text) return false;
+	// Check if pattern is regex format: /pattern/flags
+	const regexMatch = patternStr.match(/^\/(.+?)\/([a-z]*)$/i);
+	if (regexMatch) {
+		const pattern = regexMatch[1];
+		const flags = regexMatch[2] || 'i';
+		try {
+			const regex = new RegExp(pattern, flags);
+			return regex.test(text);
+		} catch (e) {
+			console.warn('Invalid regex pattern:', patternStr, e);
+			return false;
+		}
+	} else {
+		// Plain pattern with wildcard support
+		const escaped = escapeRegExp(patternStr);
+		const regexPattern = escaped.replace(/\\\*/g, '.*');
+		const regex = new RegExp(`\\b${regexPattern}\\b`, 'i');
+		return regex.test(text);
+	}
+}
+
 function updateLinkList(list) {
 	urlKeywordsList = list
-		.toLowerCase()
 		.split(',')
 		.map((word) => word.trim())
 		.filter((item) => item !== '' && item !== '*');
@@ -58,10 +120,10 @@ function updateLinkList(list) {
 // Enable Hide Blocked Link Posts - RV1
 function enableHideBlockedLinkPostsRV1() {
 	document.querySelectorAll('#siteTable > .thing').forEach((post) => {
-		const url = post.querySelector('p.title a')?.href.toLowerCase();
+		const url = post.querySelector('p.title a')?.href;
 		if (!url) return;
 
-		if (urlKeywordsList.some((word) => new RegExp(word.replace(/\*/g, '.*'), 'i').test(url))) {
+		if (urlKeywordsList.some((word) => matchesPattern(url, word))) {
 			post.classList.add('re-hide');
 		} else {
 			post.classList.remove('re-hide');
@@ -73,10 +135,10 @@ function enableHideBlockedLinkPostsRV1() {
 function filterBlockedLinkPost(post) {
 	if (post.classList.contains('re-hide')) return;
 
-	const url = post.querySelector('.post-link')?.href.toLowerCase();
+	const url = post.querySelector('.post-link')?.href;
 	if (!url) return;
 
-	if (urlKeywordsList.some((word) => new RegExp(word.replace(/\*/g, '.*'), 'i').test(url))) {
+	if (urlKeywordsList.some((word) => matchesPattern(url, word))) {
 		post.classList.add('re-hide');
 	} else {
 		post.classList.remove('re-hide');
@@ -89,13 +151,3 @@ function disableHideBlockedLinkPostsAll() {
 		post.classList.remove('re-hide');
 	});
 }
-
-// Observe feed for new posts
-const observer = new MutationObserver((mutations) => {
-	mutations.forEach((mutation) => {
-		mutation.addedNodes.forEach((node) => {
-			if (!(node instanceof HTMLElement)) return;
-			if (node) document.querySelectorAll('article:has(>shreddit-post)').forEach(filterBlockedLinkPost);
-		});
-	});
-});

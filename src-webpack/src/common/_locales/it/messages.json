@@ -15,7 +15,7 @@
 		"message": "Aggiungi il pulsante \"Scarica video\" ai post video"
 	},
 	"AddDownloadVideoButtonInfo": {
-		"message": "Questo attualmente supporta solo URL mp4, non m3u8, quindi alcuni post video non avranno il pulsante di download :/"
+		"message": "Potrebbe non funzionare con tutti i video."
 	},
 	"AddMarkPostAsReadButton": {
 		"message": "Aggiungi un pulsante a ogni post nella visualizzazione compatta per contrassegnarlo come letto"
@@ -26,11 +26,14 @@
 	"AddSpoilerTag": {
 		"message": "Aggiungi tag spoiler"
 	},
-	"AlwaysShowPostAndCommentOptions": {
-		"message": "Mostra sempre le opzioni di post e commento"
+	"AlwaysShowCommentOptionsInfo": {
+		"message": "Sposta i pulsanti dal menu a discesa dei commenti alla barra delle azioni dei commenti."
 	},
-	"AlwaysShowPostAndCommentOptionsInfo": {
-		"message": "Spostare i pulsanti dai menu a discesa dei post e dei commenti rispettivamente nelle barre delle azioni dei post e dei commenti."
+	"AlwaysShowPostOptions": {
+		"message": "Opzioni di visualizzazione dei post"
+	},
+	"AlwaysShowPostOptionsInfo": {
+		"message": "Sposta i pulsanti dal menu a discesa del post alla barra delle azioni del post."
 	},
 	"AttachSideMenuHeader": {
 		"message": "Visualizza la pagina e le informazioni dell'utente nell'intestazione"
@@ -301,6 +304,9 @@
 	},
 	"HideChatButton": {
 		"message": "Nascondi il pulsante “Chat”"
+	},
+	"HideCommentActionBarButtonsInfo": {
+		"message": "Nascondi i pulsanti dalla barra delle azioni dei commenti"
 	},
 	"HideCommentKarma": {
 		"message": "Nascondi commento karma"
@@ -617,9 +623,6 @@
 	"Other": {
 		"message": "Altro"
 	},
-	"PleaseWait": {
-		"message": "Attendere prego"
-	},
 	"PositionHorizontally": {
 		"message": "Posiziona orizzontalmente"
 	},
@@ -714,7 +717,7 @@
 		"message": "Sostituisci i video con collegamenti sui feed"
 	},
 	"ReplacePostVideosWithLinksInfo": {
-		"message": "Funziona solo con MP4 e GIF. I video di M3U8 possono essere difficili da giocare in altri giocatori."
+		"message": "Potrebbe non funzionare con tutti i video."
 	},
 	"Report": {
 		"message": "Rapporto"
@@ -748,12 +751,6 @@
 	},
 	"RestoreConfigTitle": {
 		"message": "Ripristina la configurazione di backup di Reddit Enhancer"
-	},
-	"RestoreInfo1": {
-		"message": "Ripristino di"
-	},
-	"RestoreInfo2": {
-		"message": "articoli. Il limite dell'API del browser è 120 al minuto. Si prega di lasciare aperta questa finestra/scheda per un altro minuto."
 	},
 	"RightSidePostThumbnails": {
 		"message": "Mostra le miniature dei post sul lato destro"

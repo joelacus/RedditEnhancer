@@ -1,4 +1,6 @@
-/* ===== Popup / Functions / Check For Updates ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Functions / Check For Updates
+// ────────────────────────────────────────────────────────────────────────────
 
 import i18next from 'i18next';
 import { generateChangelogHTML } from './show_changelog';
@@ -17,11 +19,11 @@ export async function fetchLatestVersion() {
 				],
 			},
 			function (response) {
-				if (response) {
+				if (response && response.success && response.data) {
 					setTimeout(() => {
 						const latestVersion = response.data.split('\n')[0].split(' ')[1];
 						const installedVersion = i18next.t('extensionVersion.message');
-						console.log('Installed Version: ' + installedVersion + ' Latest Version: ' + latestVersion);
+						console.log(`Installed Version: ${installedVersion} | Latest Version: ${latestVersion}`);
 						if (semver.gt(latestVersion, installedVersion)) {
 							// Display update notification
 							document.querySelector('#new-update').classList.remove('hidden');
@@ -38,8 +40,12 @@ export async function fetchLatestVersion() {
 							document.querySelector('#changelog .log').append(html);
 						}
 					}, 3000);
+				} else if (response && response.error) {
+					console.error('Failed to fetch changelog:', response.error);
+				} else {
+					console.error('Failed to fetch changelog: No response or invalid response format');
 				}
-			}
+			},
 		);
 	});
 }

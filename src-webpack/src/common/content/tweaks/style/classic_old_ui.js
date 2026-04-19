@@ -14,14 +14,16 @@
  * Compatibility: RV1 (Old UI) (2005-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadClassicOldUI() {
 	BROWSER_API.storage.sync.get(['classicOldUI']).then((result) => {
-		if (result.classicOldUI) classicOldUI(true);
+		if (result.classicOldUI === true) classicOldUI(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function classicOldUI(value) {
 	if (redditVersion === 'old') {
 		if (value) {
@@ -232,7 +234,7 @@ export function classicOldUI(value) {
 		if (!value) {
 			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-classic-old-ui"]');
 			dynamicStyleElements.forEach((element) => {
-				document.head.removeChild(element);
+				element.remove();
 			});
 		}
 	}

@@ -9,14 +9,16 @@
 
 import { showBannerMessage } from '../../banner_message';
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadShowUpvoteRatio() {
 	BROWSER_API.storage.sync.get(['showUpvoteRatio'], function (result) {
 		if (result.showUpvoteRatio) showUpvoteRatio(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function showUpvoteRatio(value) {
 	if (redditVersion === 'newnew') {
 		const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');

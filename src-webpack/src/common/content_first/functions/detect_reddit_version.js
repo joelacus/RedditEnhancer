@@ -1,10 +1,14 @@
-/* ===== Detect Reddit Version ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Detect Reddit Version
+//
+// Detect the Reddit version and load the tweaks accordingly.
+//
+// ────────────────────────────────────────────────────────────────────────────
 
 import { waitForAddedNode } from './tweak_loaders/main_observer';
 import { tweakLoaderOld } from './tweak_loaders/tweak_loader_old';
 import { tweakLoaderNewNew } from './tweak_loaders/tweak_loader_newnew';
 
-// Detect the Reddit version and load the tweaks accordingly
 export function detectRedditVersion() {
 	// Do not reload tweaks if already loaded. Most of these are CSS injection tweaks and should only be loaded once.
 	// If it is very necessary to reload the tweak, consider putting it in tweak_loader.js.

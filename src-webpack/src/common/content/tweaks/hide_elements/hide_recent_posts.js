@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideRecentPosts() {
 	BROWSER_API.storage.sync.get(['hideRecentPosts'], function (result) {
 		if (result.hideRecentPosts) hideRecentPosts(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideRecentPosts(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableHideRecentPostsRV3();
@@ -39,6 +41,6 @@ function enableHideRecentPostsRV3() {
 function disableHideRecentPostsAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-recent-posts"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

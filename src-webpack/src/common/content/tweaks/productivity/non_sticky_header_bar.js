@@ -6,14 +6,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadNonStickyHeaderBar() {
 	BROWSER_API.storage.sync.get(['nonStickyHeaderBar'], function (result) {
 		if (result.nonStickyHeaderBar) nonStickyHeaderBar(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function nonStickyHeaderBar(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableNonStickyHeaderBarRV3();
@@ -49,6 +51,6 @@ function enableNonStickyHeaderBarRV3() {
 function disableNonStickyHeaderBarAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-non-sticky-header-bar"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

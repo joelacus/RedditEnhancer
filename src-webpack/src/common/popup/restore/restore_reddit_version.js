@@ -1,4 +1,6 @@
-/* ===== Restore Popup UI / Reddit Version ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Restore / Reddit Version
+// ────────────────────────────────────────────────────────────────────────────
 
 import i18next from 'i18next';
 import { filterShowOldVersion, initFilter } from '../inputs/filter_version_select';

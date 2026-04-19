@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideAiInSearch() {
 	BROWSER_API.storage.sync.get(['hideAiInSearch'], function (result) {
 		if (result.hideAiInSearch) hideAiInSearch(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideAiInSearch(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableHideAiInSearchRV3();

@@ -7,11 +7,15 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* ===== Posts ===== */
+import { debounce } from '../../../utilities/debounce';
+import { registerMutationCallback } from '../../observer_manager';
+
+// ─── Posts ──────────────────────────────────────────────────────────────────
 
 let post_timestamp_format;
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadShowPostAbsoluteTimestamp() {
 	BROWSER_API.storage.sync.get(['showPostAbsoluteTimestamp', 'postAbsoluteTimestampFormat'], function (result) {
 		if (result.postAbsoluteTimestampFormat) post_timestamp_format = result.postAbsoluteTimestampFormat ?? '';
@@ -19,26 +23,96 @@ export function loadShowPostAbsoluteTimestamp() {
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup functions for the observers
+let observerRV3Cleanup = null;
+let observerRV1Cleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function showPostAbsoluteTimestamp(value) {
 	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
 	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed', 'post_page', 'comments_page'];
 
-	if (value) {
-		if (redditVersion === 'newnew' && feedRoutesv3.includes(routeName)) {
-			displayPostAbsoluteTimestampsRV3();
-			if (document.querySelector('shreddit-feed')) postObserver.observe(document.querySelector('shreddit-feed'), { childList: true });
-		} else if (redditVersion === 'old') {
-			displayPostAbsoluteTimestampsRV1();
+	if (redditVersion === 'newnew' && feedRoutesv3.includes(routeName) && value) {
+		// Initial pass
+		displayPostAbsoluteTimestampsRV3();
+		// Register with centralised observer manager
+		// Clean up any existing observer first
+		if (observerRV3Cleanup) {
+			observerRV3Cleanup();
 		}
-	} else {
-		// Disconnect the observer
-		postObserver.disconnect();
+		const feed = document.querySelector('shreddit-feed');
+		if (feed) {
+			observerRV3Cleanup = registerMutationCallback(
+				feed,
+				(mutations) => {
+					mutations.forEach((mutation) => {
+						mutation.addedNodes.forEach((addedNode) => {
+							if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+								setTimeout(() => {
+									displayPostAbsoluteTimestampsRV3();
+								}, 1000);
+							}
+						});
+					});
+				},
+				{ childList: true, subtree: true },
+				'showPostAbsoluteTimestamp',
+			);
+		}
+	} else if (redditVersion === 'old' && value) {
+		// Initial pass
+		displayPostAbsoluteTimestampsRV1();
+		// Register with centralised observer manager
+		// Clean up any existing observer first
+		if (observerRV1Cleanup) {
+			observerRV1Cleanup();
+		}
+		const feed = document.querySelector('#siteTable');
+		if (feed) {
+			observerRV1Cleanup = registerMutationCallback(
+				feed,
+				(mutations) => {
+					mutations.forEach((mutation) => {
+						mutation.addedNodes.forEach((addedNode) => {
+							if (addedNode.classList?.contains('sitetable')) {
+								setTimeout(() => {
+									displayPostAbsoluteTimestampsRV1();
+								}, 250);
+							}
+						});
+					});
+				},
+				{ childList: true, subtree: true },
+				'showPostAbsoluteTimestamp',
+			);
+		}
+	} else if (redditVersion === 'newnew' && !value) {
+		// Cleanup observer
+		if (observerRV3Cleanup) {
+			observerRV3Cleanup();
+			observerRV3Cleanup = null;
+		}
+
 		// Remove all added absolute timestamps and restore relative timestamps
 		document.querySelectorAll('.re-post-absolute-timestamp').forEach((el) => {
 			el.remove();
 		});
 		document.querySelectorAll('shreddit-post faceplate-timeago time').forEach((time) => {
+			time.style.display = '';
+		});
+	} else if (redditVersion === 'old' && !value) {
+		// Cleanup observer
+		if (observerRV1Cleanup) {
+			observerRV1Cleanup();
+			observerRV1Cleanup = null;
+		}
+
+		// Remove all added absolute timestamps and restore relative timestamps
+		document.querySelectorAll('.re-post-absolute-timestamp').forEach((el) => {
+			el.remove();
+		});
+		document.querySelectorAll('.sitetable > .thing .live-timestamp').forEach((time) => {
 			time.style.display = '';
 		});
 	}
@@ -56,9 +130,9 @@ function displayPostAbsoluteTimestampsRV3() {
 	let postArray = [...posts];
 
 	// Loop through each post and attach absolute timestamp if not already attached
-	postArray.forEach((element) => {
-		if (!element.querySelector('.re-post-absolute-timestamp')) {
-			const timestamp_el = element.querySelector('faceplate-timeago');
+	postArray.forEach((post) => {
+		if (!post.querySelector('.re-post-absolute-timestamp')) {
+			const timestamp_el = post.querySelector('faceplate-timeago') || post.querySelector('#pdp-credit-bar time').parentElement;
 			const datetime_str = timestamp_el.querySelector('time')?.getAttribute('datetime') || '';
 			const relative_str = timestamp_el.querySelector('time')?.textContent || '';
 			if (datetime_str) {
@@ -86,7 +160,7 @@ function displayPostAbsoluteTimestampsRV1() {
 	isAttaching = true;
 
 	// Get a NodeList of currently displaying posts and convert it to an array
-	const posts = document.querySelectorAll('#siteTable > .thing');
+	const posts = document.querySelectorAll('.sitetable > .thing[data-context="listing"]');
 	let postArray = [...posts];
 
 	// Loop through each post and attach absolute timestamp if not already attached
@@ -114,28 +188,6 @@ function displayPostAbsoluteTimestampsRV1() {
 	isAttaching = false;
 }
 
-// Observer for watching new posts in feed
-const postObserver = new MutationObserver(
-	debounce(function (mutations) {
-		mutations.forEach(function (mutation) {
-			mutation.addedNodes.forEach(function (addedNode) {
-				if (['TIME', 'ARTICLE', 'DIV'].includes(addedNode.nodeName) && redditVersion === 'newnew') {
-					displayPostAbsoluteTimestampsRV3();
-				}
-			});
-		});
-	}, 100)
-);
-
-// Allowing some timeout between post number attachment to prevent performance issues
-function debounce(func, wait) {
-	let timeout;
-	return function (...args) {
-		clearTimeout(timeout);
-		timeout = setTimeout(() => func.apply(this, args), wait);
-	};
-}
-
 // Update Post Absolute Timestamps
 export function updatePostAbsoluteTimestamps(format) {
 	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
@@ -161,11 +213,12 @@ export function updatePostAbsoluteTimestamps(format) {
 	}
 }
 
-/* ===== Comments ===== */
+// ─── Comments ───────────────────────────────────────────────────────────────
 
 let comment_timestamp_format;
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadShowCommentAbsoluteTimestamp() {
 	BROWSER_API.storage.sync.get(['showCommentAbsoluteTimestamp', 'commentAbsoluteTimestampFormat'], function (result) {
 		if (result.commentAbsoluteTimestampFormat) comment_timestamp_format = result.commentAbsoluteTimestampFormat ?? '';
@@ -173,26 +226,82 @@ export function loadShowCommentAbsoluteTimestamp() {
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup functions for the scroll events
+let commentsScrollRV3Cleanup = null;
+let commentsScrollRV1Cleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function showCommentAbsoluteTimestamp(value) {
 	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
 	const feedRoutesv3 = ['post_page', 'comments_page'];
 
-	if (value) {
-		if (redditVersion === 'newnew' && feedRoutesv3.includes(routeName)) {
-			displayCommentAbsoluteTimestampsRV3();
-			if (document.querySelector('shreddit-comment-tree')) commentObserver.observe(document.querySelector('shreddit-comment-tree'), { childList: true });
-		} else if (redditVersion === 'old') {
-			displayCommentAbsoluteTimestampsRV1();
+	if (redditVersion === 'newnew' && feedRoutesv3.includes(routeName) && value) {
+		// Initial pass
+		displayCommentAbsoluteTimestampsRV3();
+
+		// Clean up any existing scroll events first
+		if (commentsScrollRV3Cleanup) {
+			commentsScrollRV3Cleanup();
 		}
-	} else {
-		// Disconnect the observer
-		commentObserver.disconnect();
+
+		// Add scroll event listener for post_detail pages with debounce
+		if (document.querySelector('shreddit-app[pagetype="post_detail"]')) {
+			const debouncedScrollHandler = debounce(() => {
+				displayCommentAbsoluteTimestampsRV3();
+			}, 100);
+
+			window.addEventListener('scroll', debouncedScrollHandler);
+			commentsScrollRV3Cleanup = () => {
+				window.removeEventListener('scroll', debouncedScrollHandler);
+			};
+		}
+	} else if (redditVersion === 'old' && value) {
+		// Initial pass
+		displayCommentAbsoluteTimestampsRV1();
+
+		// Clean up any existing scroll events first
+		if (commentsScrollRV1Cleanup) {
+			commentsScrollRV1Cleanup();
+		}
+
+		// Add scroll event listener for post_detail pages with debounce
+		if (document.querySelector('body.comments-page')) {
+			const debouncedScrollHandler = debounce(() => {
+				displayCommentAbsoluteTimestampsRV1();
+			}, 100);
+
+			window.addEventListener('scroll', debouncedScrollHandler);
+			commentsScrollRV1Cleanup = () => {
+				window.removeEventListener('scroll', debouncedScrollHandler);
+			};
+		}
+	} else if (redditVersion === 'newnew' && !value) {
+		// Cleanup scroll event listener
+		if (commentsScrollRV3Cleanup) {
+			commentsScrollRV3Cleanup();
+			commentsScrollRV3Cleanup = null;
+		}
+
 		// Remove all added absolute timestamps and restore relative timestamps
 		document.querySelectorAll('.re-comment-absolute-timestamp').forEach((el) => {
 			el.remove();
 		});
 		document.querySelectorAll('shreddit-comment a > time').forEach((time) => {
+			time.style.display = '';
+		});
+	} else if (redditVersion === 'old' && !value) {
+		// Cleanup scroll event listener
+		if (commentsScrollRV1Cleanup) {
+			commentsScrollRV1Cleanup();
+			commentsScrollRV1Cleanup = null;
+		}
+
+		// Remove all added absolute timestamps and restore relative timestamps
+		document.querySelectorAll('.re-comment-absolute-timestamp').forEach((el) => {
+			el.remove();
+		});
+		document.querySelectorAll('.thing.comment .live-timestamp').forEach((time) => {
 			time.style.display = '';
 		});
 	}
@@ -298,15 +407,6 @@ export function updateCommentAbsoluteTimestamps(format) {
 		displayCommentAbsoluteTimestampsRV1();
 	}
 }
-
-// Observe the comment tree for dynamic changes
-const commentObserver = new ResizeObserver(
-	debounce(function (mutations) {
-		mutations.forEach(function (mutation) {
-			displayCommentAbsoluteTimestampsRV3();
-		});
-	}, 100)
-);
 
 // Convert UTC datetime string to local datetime string
 function convertUTCToLocal(datetime_str) {

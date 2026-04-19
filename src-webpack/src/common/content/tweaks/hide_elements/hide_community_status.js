@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideCommunityStatus() {
 	BROWSER_API.storage.sync.get(['hideCommunityStatus']).then((result) => {
 		if (result.hideCommunityStatus) hideCommunityStatus(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideCommunityStatus(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
@@ -31,7 +33,7 @@ export function hideCommunityStatus(value) {
 		} else {
 			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-community-status"]');
 			dynamicStyleElements.forEach((element) => {
-				document.head.removeChild(element);
+				element.remove();
 			});
 		}
 	}

@@ -11,9 +11,6 @@
 	"Accessibility": {
 		"message": "Přístupnost"
 	},
-	"AlwaysShowPostAndCommentOptions": {
-		"message": "Vždy zobrazovat možnosti příspěvků a komentářů"
-	},
 	"Auto": {
 		"message": "Automatický"
 	},
@@ -182,9 +179,6 @@
 	"OldUI": {
 		"message": "Starý UI"
 	},
-	"PleaseWait": {
-		"message": "Prosím, čekejte"
-	},
 	"PostOffset": {
 		"message": "Posun příspěvku"
 	},
@@ -211,12 +205,6 @@
 	},
 	"ResizeLayout": {
 		"message": "Změnit Velikost Zdroje / Příspěvku"
-	},
-	"RestoreInfo1": {
-		"message": "Obnovuje se"
-	},
-	"RestoreInfo2": {
-		"message": "položek. Limit rozhraní API prohlížeče je 120 za minutu. Ponechte toto okno/záložku otevřenou další minutu."
 	},
 	"Rising": {
 		"message": "Povstání / Rising"

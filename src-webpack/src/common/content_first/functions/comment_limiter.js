@@ -1,6 +1,9 @@
-/* ===== Comment Limiter ===== */
-
+// ────────────────────────────────────────────────────────────────────────────
+// Comment Limiter
+//
 // Limits the number of comments on a post when opened in its own tab/window.
+//
+// ────────────────────────────────────────────────────────────────────────────
 
 BROWSER_API.storage.sync.get(['commentsLimit'], function (result) {
 	if (result.commentsLimit != null && result.commentsLimit != -10) {

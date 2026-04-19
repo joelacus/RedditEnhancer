@@ -1,61 +1,65 @@
-/* ===== Inputs / Accessibility Tweaks ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Inputs / Accessibility Tweaks
+// ────────────────────────────────────────────────────────────────────────────
 
-import { sendMessage } from '../send_message';
+import { debounce } from '../../utilities/debounce';
+import { sendMessage } from '../../utilities/send_message';
 
 // Toggle - Underline Links
-document.querySelector('#checkbox-underline-links').addEventListener('change', () => {
-	const value = document.querySelector('#checkbox-underline-links').checked;
-	BROWSER_API.storage.sync.set({ underlineLinks: value });
-	document.querySelector('.icon-underline-links').style.backgroundColor = value === true ? 'var(--accent)' : '';
-	sendMessage({ underlineLinks: value });
+document.querySelector('#checkbox-underline-links').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ underlineLinks: this.checked });
+	sendMessage({ underlineLinks: this.checked });
+	document.querySelector('.icon-underline-links').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });
 
 // Toggle - Bionic Reader - Posts
-document.querySelector('#checkbox-bionic-reader-posts').addEventListener('change', () => {
-	const value = document.querySelector('#checkbox-bionic-reader-posts').checked;
-	BROWSER_API.storage.sync.set({ bionicReaderPosts: value });
+document.querySelector('#checkbox-bionic-reader-posts').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ bionicReaderPosts: this.checked });
+	sendMessage({ bionicReaderPosts: this.checked });
 	const icon = document.querySelector('.icon-bionic-reader-posts');
-	icon.style.backgroundColor = value === true ? 'var(--accent)' : '';
-	icon.classList.replace(value ? 'icon-book' : 'icon-book-open', value ? 'icon-book-open' : 'icon-book');
-	sendMessage({ bionicReaderPosts: value });
+	icon.style.backgroundColor = this.checked ? 'var(--accent)' : '';
+	icon.classList.replace(this.checked ? 'icon-book' : 'icon-book-open', this.checked ? 'icon-book-open' : 'icon-book');
 });
 
 // Toggle - Bionic Reader - Comments
-document.querySelector('#checkbox-bionic-reader-comments').addEventListener('change', () => {
-	const value = document.querySelector('#checkbox-bionic-reader-comments').checked;
-	BROWSER_API.storage.sync.set({ bionicReaderComments: value });
+document.querySelector('#checkbox-bionic-reader-comments').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ bionicReaderComments: this.checked });
+	sendMessage({ bionicReaderComments: this.checked });
 	const icon = document.querySelector('.icon-bionic-reader-comments');
-	icon.style.backgroundColor = value === true ? 'var(--accent)' : '';
-	icon.classList.replace(value ? 'icon-book' : 'icon-book-open', value ? 'icon-book-open' : 'icon-book');
-	sendMessage({ bionicReaderComments: value });
+	icon.style.backgroundColor = this.checked ? 'var(--accent)' : '';
+	icon.classList.replace(this.checked ? 'icon-book' : 'icon-book-open', this.checked ? 'icon-book-open' : 'icon-book');
 });
 
 // Toggle - Bionic Font Colour
-document.querySelector('#checkbox-bionic-font-colour').addEventListener('change', () => {
-	const value = document.querySelector('#checkbox-bionic-font-colour').checked;
-	BROWSER_API.storage.sync.set({ bionicReaderFontColour: value });
-	document.querySelector('.icon-bionic-font-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
-	sendMessage({ bionicReaderFontColour: value });
+document.querySelector('#checkbox-bionic-font-colour').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ bionicReaderFontColour: this.checked });
+	sendMessage({ bionicReaderFontColour: this.checked });
+	document.querySelector('.icon-bionic-font-colour').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });
 
 // Input - Bionic Font Colour CSS
-document.querySelector('#input-bionic-font-colour-css').addEventListener('keyup', (e) => {
-	const css = e.currentTarget.value;
-	BROWSER_API.storage.sync.set({ bionicReaderFontColourCSS: css });
-	sendMessage({ bionicReaderFontColourCSS: css });
+const saveBionicFontColour = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ bionicReaderFontColourCSS: value });
+}, 500);
+document.querySelector('#input-bionic-font-colour-css').addEventListener('input', function () {
+	const value = this.value;
+	sendMessage({ bionicReaderFontColourCSS: value });
+	saveBionicFontColour(value);
 });
 
 // Toggle - Bionic Background Colour
-document.querySelector('#checkbox-bionic-bg-colour').addEventListener('change', () => {
-	const value = document.querySelector('#checkbox-bionic-bg-colour').checked;
-	BROWSER_API.storage.sync.set({ bionicReaderBgColour: value });
-	document.querySelector('.icon-bionic-bg-colour').style.backgroundColor = value === true ? 'var(--accent)' : '';
-	sendMessage({ bionicReaderBgColour: value });
+document.querySelector('#checkbox-bionic-bg-colour').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ bionicReaderBgColour: this.checked });
+	sendMessage({ bionicReaderBgColour: this.checked });
+	document.querySelector('.icon-bionic-bg-colour').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });
 
 // Input - Bionic Background Colour CSS
-document.querySelector('#input-bionic-bg-colour-css').addEventListener('keyup', (e) => {
-	const css = e.currentTarget.value;
-	BROWSER_API.storage.sync.set({ bionicReaderBgColourCSS: css });
-	sendMessage({ bionicReaderBgColourCSS: css });
+const saveBionicBgColour = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ bionicReaderBgColourCSS: value });
+}, 500);
+document.querySelector('#input-bionic-bg-colour-css').addEventListener('input', function () {
+	const value = this.value;
+	sendMessage({ bionicReaderBgColourCSS: value });
+	saveBionicBgColour(value);
 });

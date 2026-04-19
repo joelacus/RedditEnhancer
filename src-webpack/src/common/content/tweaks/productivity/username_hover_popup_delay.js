@@ -7,7 +7,10 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+import { registerMutationCallback } from '../../observer_manager';
+
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadUsernameHoverPopupDelay() {
 	BROWSER_API.storage.sync.get(['usernameHoverPopupDelay'], function (result) {
 		if (result.usernameHoverPopupDelay >= 0) {
@@ -16,7 +19,11 @@ export function loadUsernameHoverPopupDelay() {
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup function for the observer
+let observerCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function usernameHoverPopupDelay(value) {
 	if (redditVersion === 'newnew' && value >= 0) {
 		enableUsernameHoverPopupDelayRV3;
@@ -25,25 +32,46 @@ export function usernameHoverPopupDelay(value) {
 	}
 }
 
-let observer_active = false;
+// let observer_active = false;
 let target_delay = 500;
 
 // Enable Username Hover Popup Delay - RV3
 function enableUsernameHoverPopupDelayRV3(value) {
 	target_delay = value * 1000;
 	setDelay();
-	if (observer_active) return;
-	observer_active = true;
-	let feed = document.querySelector('reddit-feed');
+	// Register with centralised observer manager
+	// Clean up any existing observer first
+	if (observerCleanup) {
+		observerCleanup();
+	}
+	const feed = document.querySelector('shreddit-feed');
 	if (feed) {
-		observer.observe(feed, { childList: true, subtree: true });
+		observerCleanup = registerMutationCallback(
+			feed,
+			(mutations) => {
+				mutations.forEach((mutation) => {
+					mutation.addedNodes.forEach((addedNode) => {
+						if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+							setTimeout(() => {
+								setDelay();
+							}, 1000);
+						}
+					});
+				});
+			},
+			{ childList: true, subtree: true },
+			'usernameHoverPopupDelay',
+		);
 	}
 }
 
 // Disable Username Hover Popup Delay - All
 function disableUsernameHoverPopupDelayAll() {
-	observer.disconnect();
-	observer_active = false;
+	// Cleanup observer
+	if (observerCleanup) {
+		observerCleanup();
+		observerCleanup = null;
+	}
 	document.querySelectorAll('faceplate-hovercard[enter-delay]').forEach((card) => {
 		card.setAttribute('enter-delay', '500');
 	});
@@ -58,14 +86,3 @@ function setDelay() {
 		}
 	});
 }
-
-// Observe feed for new nodes
-const observer = new MutationObserver(function (mutations) {
-	mutations.forEach(function (mutation) {
-		mutation.addedNodes.forEach(function (addedNode) {
-			setTimeout(() => {
-				setDelay();
-			}, 1000);
-		});
-	});
-});

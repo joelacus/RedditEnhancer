@@ -11,9 +11,6 @@
 	"Accessibility": {
 		"message": "Tillgänglighet"
 	},
-	"AlwaysShowPostAndCommentOptions": {
-		"message": "Visa alltid alternativ för inlägg och kommentarer"
-	},
 	"Auto": {
 		"message": "Automatisk"
 	},
@@ -335,9 +332,6 @@
 	"OpenSubInNewTab": {
 		"message": "Öppna länkar till subreddits i en ny flik"
 	},
-	"PleaseWait": {
-		"message": "Vänta"
-	},
 	"PositionHorizontally": {
 		"message": "Placera Horisontellt"
 	},
@@ -379,12 +373,6 @@
 	},
 	"ResizeLayout": {
 		"message": "Ändra Storlek på Feed / Inlägg"
-	},
-	"RestoreInfo1": {
-		"message": "Återställer"
-	},
-	"RestoreInfo2": {
-		"message": "objekt. Webbläsarens API-gräns är 120 per minut. Lämna det här fönstret/fliken öppen i ytterligare en minut."
 	},
 	"ScalePostToFitImage": {
 		"message": "Skala inlägg för att passa bild"

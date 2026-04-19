@@ -7,14 +7,16 @@
  * Compatibility: RV1 (Old UI) (2005-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideHeaderSubBar() {
 	BROWSER_API.storage.sync.get(['hideHeaderSubBar'], function (result) {
 		if (result.hideHeaderSubBar) hideHeaderSubBar(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideHeaderSubBar(value) {
 	if (value) {
 		enableHideHeaderSubBarRV1();
@@ -42,6 +44,6 @@ function enableHideHeaderSubBarRV1() {
 function disableHideHeaderSubBarRV1() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-header-sub-bar"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

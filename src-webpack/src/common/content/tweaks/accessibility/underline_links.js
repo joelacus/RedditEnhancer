@@ -7,15 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
 export function loadUnderlineLinks() {
 	BROWSER_API.storage.sync.get(['underlineLinks'], function (result) {
-		underlineLinks(result.underlineLinks);
+		if (result.underlineLinks === true) underlineLinks(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function underlineLinks(value) {
 	if (redditVersion === 'newnew') {
 		if (value) {
@@ -41,6 +42,6 @@ function underlineLinksRV3() {
 function disableUnderlineLinksAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-underlink-links"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

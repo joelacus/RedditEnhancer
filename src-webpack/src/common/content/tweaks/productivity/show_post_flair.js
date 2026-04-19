@@ -19,18 +19,23 @@
  */
 
 import { showBannerMessage } from '../../banner_message';
+import { registerMutationCallback } from '../../observer_manager';
 
 // Flag to halt the process and prevent multiple error messages when an error occur
 let e = false;
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadShowPostFlair() {
 	BROWSER_API.storage.sync.get(['showPostFlair'], function (result) {
 		if (result.showPostFlair) showPostFlair(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// Store cleanup function for the observer
+let observerCleanup = null;
+
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
 // NOTE: adding flairs to search results leads to 429s, so restrain from doing that for now
 export function showPostFlair(value) {
 	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
@@ -38,10 +43,37 @@ export function showPostFlair(value) {
 
 	if (redditVersion === 'newnew' && value && feedRoutes.includes(routeName)) {
 		document.querySelectorAll('shreddit-post').forEach(attachFlair);
-		observer.observe(document.querySelector('shreddit-feed'), { childList: true });
+		// Register with centralised observer manager
+		// Clean up any existing observer first
+		if (observerCleanup) {
+			observerCleanup();
+		}
+		const feed = document.querySelector('shreddit-feed');
+		if (feed) {
+			observerCleanup = registerMutationCallback(
+				feed,
+				(mutations) => {
+					mutations.forEach((mutation) => {
+						mutation.addedNodes.forEach((addedNode) => {
+							if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+								setTimeout(() => {
+									const post = addedNode.querySelector('shreddit-post');
+									if (post) attachFlair(post);
+								}, 1000);
+							}
+						});
+					});
+				},
+				{ childList: true, subtree: true },
+				'showPostFlair',
+			);
+		}
 	} else {
-		// Disconnect the observer and remove all added post flairs
-		observer.disconnect();
+		// Cleanup observer
+		if (observerCleanup) {
+			observerCleanup();
+			observerCleanup = null;
+		}
 		document.querySelectorAll('shreddit-post .re-post-flair').forEach((flair) => flair.remove());
 	}
 }
@@ -146,19 +178,3 @@ async function attachFlair(post) {
 		return faceplate_img;
 	}
 }
-
-// Observe feed for new posts
-const observer = new MutationObserver((mutations) => {
-	mutations.forEach((mutation) => {
-		mutation.addedNodes.forEach((addedNode) => {
-			if (addedNode.nodeName === 'ARTICLE') {
-				setTimeout(() => {
-					const post = addedNode.querySelector('shreddit-post');
-					if (post) {
-						attachFlair(post);
-					}
-				}, 1000);
-			}
-		});
-	});
-});

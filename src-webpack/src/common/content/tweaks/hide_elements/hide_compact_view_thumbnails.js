@@ -7,14 +7,16 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideCompactViewThumbnails() {
 	BROWSER_API.storage.sync.get(['hideCompactViewThumbnails'], function (result) {
 		if (result.hideCompactViewThumbnails) hideCompactViewThumbnails(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideCompactViewThumbnails(value) {
 	if (redditVersion === 'old' && value) {
 		enableHideCompactViewThumbnailsRV1();
@@ -58,6 +60,6 @@ function enableHideCompactViewThumbnailsRV3() {
 function disableHideCompactViewThumbnailsAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-compact-view-thumbnails"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

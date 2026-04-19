@@ -6,20 +6,23 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
+import { validateInt } from '../../../popup/restore/validation';
+
 export function loadResizeFont() {
 	BROWSER_API.storage.sync.get(['postTitleFontSize', 'postContentFontSize', 'postCommentsFontSize', 'feedPostTitleFontSize', 'feedPostContentFontSize', 'createPostTitleFontSize', 'createPostBodyFontSize'], function (result) {
-		if (result.postTitleFontSize) postTitleFontSize(result.postTitleFontSize);
-		if (result.postContentFontSize) postContentFontSize(result.postContentFontSize);
-		if (result.postCommentsFontSize) postCommentsFontSize(result.postCommentsFontSize);
-		if (result.feedPostTitleFontSize) feedPostTitleFontSize(result.feedPostTitleFontSize);
-		if (result.feedPostContentFontSize) feedPostContentFontSize(result.feedPostContentFontSize);
-		if (result.createPostTitleFontSize) createPostTitleFontSize(result.createPostTitleFontSize);
-		if (result.createPostBodyFontSize) createPostBodyFontSize(result.createPostBodyFontSize);
+		postTitleFontSize(validateInt(parseInt(result.postTitleFontSize), 9, 40, 9));
+		postContentFontSize(validateInt(parseInt(result.postContentFontSize), 9, 40, 9));
+		postCommentsFontSize(validateInt(parseInt(result.postCommentsFontSize), 9, 40, 9));
+		feedPostTitleFontSize(validateInt(parseInt(result.feedPostTitleFontSize), 9, 40, 9));
+		feedPostContentFontSize(validateInt(parseInt(result.feedPostContentFontSize), 9, 40, 9));
+		createPostTitleFontSize(validateInt(parseInt(result.createPostTitleFontSize), 9, 40, 9));
+		createPostBodyFontSize(validateInt(parseInt(result.createPostBodyFontSize), 9, 40, 9));
 	});
 }
 
-/* === Enable/Disable The Features === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 // Resize "Post Title" Font
 export function postTitleFontSize(value) {

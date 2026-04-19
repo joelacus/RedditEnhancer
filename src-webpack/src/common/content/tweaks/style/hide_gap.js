@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideGap() {
 	BROWSER_API.storage.sync.get(['hideGap'], function (result) {
-		if (result.hideGap) hideGap(true);
+		if (result.hideGap === true) hideGap(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideGap(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableHideGapRV3();
@@ -113,6 +115,6 @@ function enableHideGapRV3() {
 function disableHideGapAll() {
 	const dynamicStyleElements = document.querySelectorAll('style[id="re-hide-ui-gap"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

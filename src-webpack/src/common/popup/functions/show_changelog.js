@@ -1,4 +1,6 @@
-/* ===== Popup / Functions / Changelog ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Popup / Functions / Changelog
+// ────────────────────────────────────────────────────────────────────────────
 
 // Show/Hide Elements + Init Changelog
 export function showChangelog() {

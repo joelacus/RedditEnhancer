@@ -7,14 +7,16 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHidePromotedPosts() {
 	BROWSER_API.storage.sync.get(['hidePromoted'], function (result) {
 		if (result.hidePromoted) hidePromoted(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hidePromoted(value) {
 	if (redditVersion === 'old' && value) {
 		enableHidePromotedPostsRV1();
@@ -57,6 +59,6 @@ function enableHidePromotedPostsRV3() {
 function disableHidePromotedPostsAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-hide-promoted-posts"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }

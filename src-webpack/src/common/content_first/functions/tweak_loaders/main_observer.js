@@ -1,4 +1,6 @@
-/* ===== Main Observer ===== */
+// ────────────────────────────────────────────────────────────────────────────
+// Main Observer
+// ────────────────────────────────────────────────────────────────────────────
 
 export function waitForAddedNode(params, timeout) {
 	// If element already exists

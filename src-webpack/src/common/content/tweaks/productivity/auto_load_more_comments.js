@@ -7,7 +7,8 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 let downvoteOnly;
 export function loadAutoLoadMoreComments() {
 	BROWSER_API.storage.sync.get(['autoLoadMoreComments', 'autoLoadMoreCommentsDownvotedOnly'], function (result) {
@@ -16,7 +17,8 @@ export function loadAutoLoadMoreComments() {
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function autoLoadMoreComments(value) {
 	if (value) {
 		if (redditVersion === 'newnew') {

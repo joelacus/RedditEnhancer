@@ -7,14 +7,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadResizeTextPostHeight() {
 	BROWSER_API.storage.sync.get(['textPostPreviewMaxHeight'], function (result) {
 		if (result.textPostPreviewMaxHeight) setTextPostPreviewMaxHeight(result.textPostPreviewMaxHeight);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function resizeTextPostHeight(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableResizeTextPostHeightRV3();
@@ -113,7 +115,7 @@ function enableResizeTextPostHeightRV3() {
 function disableResizeTextPostHeightAll() {
 	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-resize-text-post-height"]');
 	dynamicStyleElements.forEach((element) => {
-		document.head.removeChild(element);
+		element.remove();
 	});
 }
 

@@ -6,14 +6,16 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-/* === Run by Tweak Loader when the Page Loads === */
+// ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
+
 export function loadHideUsernameInSubSidebar() {
 	BROWSER_API.storage.sync.get(['hideUsernameInSubSidebar']).then((result) => {
 		if (result.hideUsernameInSubSidebar) hideUsernameInSubSidebar(true);
 	});
 }
 
-/* === Enable/Disable The Feature === */
+// ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
 export function hideUsernameInSubSidebar(value) {
 	if (redditVersion === 'newnew' && value) {
 		enableHideUsernameInSubSidebar();
