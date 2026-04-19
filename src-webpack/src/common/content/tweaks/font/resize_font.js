@@ -26,7 +26,7 @@ export function loadResizeFont() {
 
 // Resize "Post Title" Font
 export function postTitleFontSize(value) {
-	if (typeof value != 'undefined' && value != false && value != '9') {
+	if (value != 9) {
 		document.documentElement.style.setProperty('--re-post-title-font-size', value + 'px');
 	} else {
 		document.documentElement.style.removeProperty('--re-post-title-font-size');
@@ -35,7 +35,7 @@ export function postTitleFontSize(value) {
 
 // Resize "Post Content" Font
 export function postContentFontSize(value) {
-	if (value != '9' && value != false) {
+	if (value != 9) {
 		document.documentElement.style.setProperty('--re-post-content-font-size', value + 'px');
 	} else {
 		document.documentElement.style.removeProperty('--re-post-content-font-size');
@@ -44,7 +44,7 @@ export function postContentFontSize(value) {
 
 // Resize "Post Comments" Font
 export function postCommentsFontSize(value) {
-	if (value !== '9' && value !== false) {
+	if (value !== 9) {
 		document.documentElement.style.setProperty('--re-post-comments-font-size', value + 'px');
 	} else {
 		document.documentElement.style.removeProperty('--re-post-comments-font-size');
@@ -53,7 +53,7 @@ export function postCommentsFontSize(value) {
 
 // Resize "Feed Post Title" Font
 export function feedPostTitleFontSize(value) {
-	if (typeof value != 'undefined' && value != false && value != '9') {
+	if (value != 9) {
 		document.documentElement.style.setProperty('--re-feed-post-title-font-size', value + 'px');
 	} else {
 		document.documentElement.style.removeProperty('--re-feed-post-title-font-size');
@@ -62,7 +62,7 @@ export function feedPostTitleFontSize(value) {
 
 // Resize "Feed Post Content" Font
 export function feedPostContentFontSize(value) {
-	if (value != '9' && value != false) {
+	if (value != 9) {
 		document.documentElement.style.setProperty('--re-feed-post-content-font-size', value + 'px');
 	} else {
 		document.documentElement.style.removeProperty('--re-feed-post-content-font-size');
@@ -71,7 +71,7 @@ export function feedPostContentFontSize(value) {
 
 // Resize "Create Post: Title" Font
 export function createPostTitleFontSize(value) {
-	if (value != '9' && value != false) {
+	if (value != 9) {
 		if (redditVersion === 'newnew') {
 			if (document.querySelector('shreddit-app[pagetype="post_submit"] faceplate-textarea-input')) {
 				document.querySelector('shreddit-app[pagetype="post_submit"] faceplate-textarea-input').shadowRoot.querySelector('#innerTextArea').setAttribute('part', 'title');
@@ -85,7 +85,7 @@ export function createPostTitleFontSize(value) {
 
 // Resize "Create Post: Body" Font
 export function createPostBodyFontSize(value) {
-	if (value != '9' && value != false) {
+	if (value != 9) {
 		document.documentElement.style.setProperty('--re-create-post-body-font-size', value + 'px');
 	} else {
 		document.documentElement.style.removeProperty('--re-create-post-body-font-size');
