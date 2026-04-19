@@ -1,3 +1,6 @@
+version 3.0.1
+  - Small fixes.
+  
 version 3.0.0
   - The "downloads" and "history" permissions are now optional for Chromium based browsers since manifest v3 has added support for optional permissions.
   - The Firefox addon now uses manifest v3. (Support was added to Firefox in version 109).

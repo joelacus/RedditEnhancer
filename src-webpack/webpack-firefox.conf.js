@@ -72,7 +72,7 @@ module.exports = {
 					to: 'icons',
 				},
 				{
-					context: path.resolve(__dirname, 'src/manifest_v2'),
+					context: path.resolve(__dirname, 'src/manifest_firefox'),
 					from: 'manifest.json',
 					to: 'manifest.json',
 				},

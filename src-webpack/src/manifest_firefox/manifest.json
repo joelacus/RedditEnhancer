@@ -59,10 +59,10 @@
 
 	"browser_specific_settings": {
 		"gecko": {
-			"id": "{46abbc04-ce38-475f-9ef8-e0a4a59d0c9f}"
-		},
-		"data_collection_permissions": {
-			"required": ["none"]
+			"id": "{46abbc04-ce38-475f-9ef8-e0a4a59d0c9f}",
+			"data_collection_permissions": {
+				"required": ["none"]
+			}
 		}
 	},
 
