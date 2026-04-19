@@ -3,10 +3,10 @@
 	"version": "3.0.1",
 	"description": "",
 	"scripts": {
-		"build-f": "NODE_ENV=production webpack --config ./webpack-chrome.conf.js",
-		"build-c": "NODE_ENV=production webpack --config ./webpack-firefox.conf.js",
-		"build-dev-f": "NODE_ENV=development webpack --config ./webpack-chrome.conf.js",
-		"build-dev-c": "NODE_ENV=development webpack --config ./webpack-firefox.conf.js",
+		"build-c": "NODE_ENV=production webpack --config ./webpack-chrome.conf.js",
+		"build-f": "NODE_ENV=production webpack --config ./webpack-firefox.conf.js",
+		"build-dev-c": "NODE_ENV=development webpack --config ./webpack-chrome.conf.js",
+		"build-dev-f": "NODE_ENV=development webpack --config ./webpack-firefox.conf.js",
 		"lmt": "python3 src/common/_locales/localisation_management_tool.py -p src/common/_locales/"
 	},
 	"keywords": [],
