@@ -7,6 +7,7 @@
 import { init } from '../content_first/init';
 import { loadTweaks } from './tweak_loader';
 import { defaultSortOption } from '../content_first/functions/default_sort_option';
+import { i18nReady } from './i18n';
 
 // Detect mutation in page url
 let oldHref = document.location.href;
@@ -24,7 +25,11 @@ const observer = new MutationObserver((mutations) => {
 
 			defaultSortOption();
 			init();
-			loadTweaks();
+			// Wait for i18next to be ready before loading tweaks to avoid
+			// translation errors in clean_link, canned_messages, etc.
+			i18nReady.then(() => {
+				loadTweaks();
+			});
 		}
 	});
 });

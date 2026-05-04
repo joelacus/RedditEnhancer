@@ -29,14 +29,12 @@ export function hideRecommended(value) {
 function enableHideRecommendedPostsRV3() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-hide-recommended-posts';
-	styleElement.textContent = `article:has(shreddit-post[recommendation-subreddit-name]),
-								article:has(shreddit-post[recommendation-source]){
-									display: none !important;
-								}
+	styleElement.textContent = `shreddit-app:not([pagetype="popular"]) article:has(shreddit-post[recommendation-subreddit-name]),
+								shreddit-app:not([pagetype="popular"]) article:has(shreddit-post[recommendation-source]),
 								chat-feed-element-wrapper,
 								chat-channel-recommendations-wrapper,
 								chat-channel-recommendations-wrapper + div {
-									display: none;
+									display: none !important;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);
 }

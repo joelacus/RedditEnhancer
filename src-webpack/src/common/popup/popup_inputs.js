@@ -87,7 +87,7 @@ document.querySelector('#btn-settings').addEventListener('click', function () {
 	if (document.querySelector('body#popup')) {
 		document.querySelector('#changelog').style.display = 'none';
 		const settingsPage = document.querySelector('#settings');
-		if (settingsPage.style.display === 'none') {
+		if (settingsPage.style.display === 'none' || settingsPage.style.display === '') {
 			settingsPage.style.display = 'flex';
 		} else {
 			settingsPage.style.display = 'none';

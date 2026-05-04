@@ -14,6 +14,9 @@
 	overflow-y: hidden;
 	z-index: 999;
 }
+#popup #settings {
+	display: none;
+}
 #settings .container {
 	width: 100%;
 	background: none !important;

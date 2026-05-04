@@ -2,7 +2,7 @@
 // Popup / Restore / Extension Theme
 // ────────────────────────────────────────────────────────────────────────────
 
-import { disableExistingTheme } from '../inputs/extension_theme';
+import { disableExistingTheme, enableAutoTheme, showPageBody } from '../inputs/extension_theme';
 
 // Restore the extension colour theme.
 export function restorePopupTheme() {
@@ -12,9 +12,18 @@ export function restorePopupTheme() {
 			theme = result.addonTheme;
 		}
 		disableExistingTheme();
-		document.querySelector('body').classList.add(`theme-${theme}`);
-		document.querySelector('body').removeAttribute('style', '');
-		document.querySelector(`#btn-extension-theme-${theme}`).classList.add('active');
+
+		if (theme === 'auto') {
+			enableAutoTheme();
+			document.querySelector('#btn-extension-theme-auto').classList.add('active');
+			// Page visibility handled by enableAutoTheme based on storage availability
+		} else {
+			document.querySelector('body').classList.add(`theme-${theme}`);
+			if (theme !== 'dark') document.querySelector('html').removeAttribute('style');
+			document.querySelector(`#btn-extension-theme-${theme}`).classList.add('active');
+			showPageBody();
+		}
+
 		console.log(`Extension Theme: ${theme}`);
 	});
 }

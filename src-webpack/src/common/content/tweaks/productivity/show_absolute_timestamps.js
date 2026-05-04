@@ -31,7 +31,7 @@ let observerRV1Cleanup = null;
 
 export function showPostAbsoluteTimestamp(value) {
 	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
-	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed', 'post_page', 'comments_page'];
+	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed', 'post_page', 'comments_page', 'global_serp'];
 
 	if (redditVersion === 'newnew' && feedRoutesv3.includes(routeName) && value) {
 		// Initial pass
@@ -41,14 +41,14 @@ export function showPostAbsoluteTimestamp(value) {
 		if (observerRV3Cleanup) {
 			observerRV3Cleanup();
 		}
-		const feed = document.querySelector('shreddit-feed');
+		const feed = routeName === 'global_serp' ? document.querySelector('#main-content') : document.querySelector('shreddit-feed');
 		if (feed) {
 			observerRV3Cleanup = registerMutationCallback(
 				feed,
 				(mutations) => {
 					mutations.forEach((mutation) => {
 						mutation.addedNodes.forEach((addedNode) => {
-							if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+							if (['TIME', 'ARTICLE', 'DIV', 'SPAN', 'SEARCH-TELEMETRY-TRACKER'].includes(addedNode.nodeName)) {
 								setTimeout(() => {
 									displayPostAbsoluteTimestampsRV3();
 								}, 1000);
@@ -126,14 +126,14 @@ function displayPostAbsoluteTimestampsRV3() {
 	isAttaching = true;
 
 	// Get a NodeList of currently displaying posts and convert it to an array
-	const posts = document.querySelectorAll('shreddit-post');
+	const posts = document.querySelectorAll('shreddit-post, search-telemetry-tracker:has(.post-credit-row)');
 	let postArray = [...posts];
 
 	// Loop through each post and attach absolute timestamp if not already attached
 	postArray.forEach((post) => {
 		if (!post.querySelector('.re-post-absolute-timestamp')) {
 			const timestamp_el = post.querySelector('faceplate-timeago') || post.querySelector('#pdp-credit-bar time').parentElement;
-			const datetime_str = timestamp_el.querySelector('time')?.getAttribute('datetime') || '';
+			const datetime_str = timestamp_el.getAttribute('ts') || timestamp_el.querySelector('time')?.getAttribute('datetime') || '';
 			const relative_str = timestamp_el.querySelector('time')?.textContent || '';
 			if (datetime_str) {
 				const span = document.createElement('span');
@@ -144,9 +144,9 @@ function displayPostAbsoluteTimestampsRV3() {
 				} else {
 					localTimestamp = convertUTCToLocal(datetime_str);
 				}
-				span.textContent = `(${localTimestamp}) (${relative_str})`;
+				span.textContent = `· (${localTimestamp}) ${relative_str !== '' ? '(' + relative_str + ')' : ''}`;
 				timestamp_el.appendChild(span);
-				timestamp_el.querySelector('time').style.display = 'none';
+				if (timestamp_el.querySelector('time')) timestamp_el.querySelector('time').style.display = 'none';
 			}
 		}
 	});
@@ -160,7 +160,7 @@ function displayPostAbsoluteTimestampsRV1() {
 	isAttaching = true;
 
 	// Get a NodeList of currently displaying posts and convert it to an array
-	const posts = document.querySelectorAll('.sitetable > .thing[data-context="listing"]');
+	const posts = document.querySelectorAll('.sitetable > .thing[data-context="listing"], .sitetable > .thing[data-context="comments"]');
 	let postArray = [...posts];
 
 	// Loop through each post and attach absolute timestamp if not already attached

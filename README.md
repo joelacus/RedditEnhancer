@@ -159,8 +159,10 @@ I welcome any help if you would like to improve or contribute new language trans
 |Auto Expand & Load More Comments|Automatically load more and expand hidden comments on a post as you scroll down the page. This optionally can just be applied to negative karma comments that are collapsed by default.|3<br>1|
 |Better Comment Box|Automatically enables the formatting options when commenting on posts.|3|
 |Canned Messages|Create a list of frequently used messages/comments and copy them to the clipboard from the right click menu.|3<br>1|
+|Clean Link|Add a share option to copy post/comment links without tracking parameters. Optionally shorten to redd.it format.|3<br>1|
 |Default Comments Sort Option|Set how you want the comments to be sorted automatically when the page loads.|3<br>1|
 |Default Feed Sort Option|Set how you want the feed to be sorted automatically when the page loads.|3<br>1|
+|Filter Communities List|Adds a filter input at the top of the communities list in the side menu to quickly filter subreddits.|3|
 |Highlight comments from the original poster (OP)|On a post comment page, highlight any comments made by the original poster.|3|
 |Limit Image Width|Limit the width of the image/video relative to the post when used with "Add Scrollbar To Tall Images" or "Scale Post To Fit Image"|3|
 |Limit Post Comments|Limit the number of comments on a post, when opened in a dedicated tab/window.|1|
@@ -234,19 +236,19 @@ Feel free to add any new languages and/or region differences.
 |Language|Completion|
 |---|---|
 |[English](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/en/messages.json)|100%|
-|[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|98.3%|
-|[Spanish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/es/messages.json)|94.6%|
-|[German](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/de/messages.json)|94.6%|
-|[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|94.6%|
-|[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|94.6%|
-|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|80.5%|
-|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|69.5%|
-|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|57.96%|
-|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|57.9%|
-|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|43.8%|
-|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|29.4%|
-|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|27.1%|
-|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|23.4%|
+|[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|100%|
+|[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|95.1%|
+|[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|91.5%|
+|[German](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/de/messages.json)|91.5%|
+|[Spanish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/es/messages.json)|91.5%|
+|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|77.9%|
+|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|67.2%|
+|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|56%|
+|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|56%|
+|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|42.3%|
+|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|28.4%|
+|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|26.2%|
+|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|22.7%|
 
 # Build
 Clone repo and cd to build directory:

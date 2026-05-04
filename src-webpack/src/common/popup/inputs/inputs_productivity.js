@@ -616,3 +616,24 @@ document.querySelector('#input-canned-messages').addEventListener(
 		BROWSER_API.storage.sync.set({ cannedMessagesList: keywordList });
 	}, 1000),
 );
+
+// Toggle - Clean Link
+document.querySelector('#checkbox-clean-link').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ cleanLink: this.checked });
+	sendMessage({ cleanLink: this.checked });
+	document.querySelector('.icon-clean-link').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});
+
+// Toggle - Shorten Clean Link
+document.querySelector('#checkbox-shorten-clean-link').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ shortenCleanLink: this.checked });
+	sendMessage({ shortenCleanLink: this.checked });
+	document.querySelector('.icon-shorten-clean-link').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});
+
+// Toggle - Show Communities Filter
+document.querySelector('#checkbox-show-communities-filter').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ showCommunitiesFilter: this.checked });
+	sendMessage({ showCommunitiesFilter: this.checked });
+	document.querySelector('.icon-show-communities-filter').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});

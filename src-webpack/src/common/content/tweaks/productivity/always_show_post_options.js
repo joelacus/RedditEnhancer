@@ -86,6 +86,7 @@ function attachPostMenu(post) {
 	// Check for all necessary elements
 	const overflowMenuContainer = post.querySelector('shreddit-post-overflow-menu');
 	if (!overflowMenuContainer) return;
+	overflowMenuContainer.style.zIndex = '999';
 	const overflowMenu = overflowMenuContainer.shadowRoot?.querySelector('faceplate-dropdown-menu, faceplate-bottom-sheet, faceplate-menu');
 	const overflowMenuBtnPlaceholder = post.querySelector('[id^="feed-post-credit-bar-t3_"] + span, span:has(> pdp-back-button) + span');
 	if (!overflowMenu || !overflowMenuBtnPlaceholder) return;
@@ -113,7 +114,7 @@ function attachPostMenu(post) {
 	// Stylise the current options on screen: comment, award, share
 	const btnContainer = post.shadowRoot?.querySelector('.shreddit-post-container');
 	if (btnContainer) {
-		btnContainer.classList.remove('h-2xl', 'gap-sm');
+		btnContainer.classList.remove('gap-sm');
 		btnContainer.classList.replace('flex-nowrap', 'flex-wrap');
 		btnContainer.classList.replace('py-xs', 'py-sm');
 		if (leftSideVoteButtons) {

@@ -37,7 +37,7 @@ import { largerClassicPost } from './tweaks/style/larger_classic_post';
 import { layoutOffset, layoutSubOffset, layoutPostOffset, layoutUserProfileOffset, layoutSearchPageOffset } from './tweaks/resize_elements/layout_offset';
 import { layoutCentre } from './tweaks/resize_elements/layout_centre';
 //import { limitInfinityScroll } from './tweaks/productivity/limit_infinity_scroll';
-import { moderniseOldReddit } from './tweaks/style/modernise_old_reddit';
+import { moderniseOldReddit, moderniseOldRedditLight } from './tweaks/style/modernise_old_reddit';
 import { nonStickyHeaderBar } from './tweaks/productivity/non_sticky_header_bar';
 import { openPostInNewTab } from './tweaks/productivity/open_post_links_in_new_tab';
 import { openSubInNewTab } from './tweaks/productivity/open_sub_links_in_new_tab';
@@ -165,12 +165,17 @@ import { hideLogoInSearch } from './tweaks/hide_elements/hide_logo_in_search';
 import { replaceSearchPlaceholderText } from './tweaks/hide_elements/replace_search_placeholder';
 import { hideRelatedCommunities } from './tweaks/hide_elements/hide_related_communities';
 import { alwaysShowCommentOptions, hideCommentAwardOption, hideCommentBrandAffiliateOption, hideCommentDeleteOption, hideCommentEditOption, hideCommentFollowOption, hideCommentReplyNotificationsOption, hideCommentReportOption, hideCommentSaveOption, hideCommentShareOption, removeCommentButtonIcons } from './tweaks/productivity/always_show_comment_options';
+import { cleanLink, shortenCleanLink } from './tweaks/productivity/clean_link';
+import { showCommunitiesFilter } from './tweaks/productivity/community_filter';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 	const key = Object.keys(msg)[0];
 	const value = Object.values(msg)[0];
 	//console.log(key, value);
+
+	// Ignore
+	if (value === 'copyCannedMessage') return;
 
 	// Find the function in the registry matching the same name as the key.
 	if (typeof functionRegistry[key] === 'function') {
@@ -203,6 +208,7 @@ const functionRegistry = {
 	bionicReaderPosts,
 	borderRadiusAmount,
 	classicOldUI,
+	cleanLink,
 	compactHeaderSideMenu,
 	compactPostLinkPreview,
 	createPostBodyFontSize,
@@ -307,6 +313,7 @@ const functionRegistry = {
 	leftSideVoteButtons,
 	markReadOnOpenExpandos,
 	moderniseOldReddit,
+	moderniseOldRedditLight,
 	multicolouredThreadLines,
 	nonStickyHeaderBar,
 	openPostInNewTab,
@@ -335,12 +342,14 @@ const functionRegistry = {
 	scrollToNextRootCommentPosition,
 	scrollToNextRootCommentRemoveStyle,
 	scrollToPost,
+	shortenCleanLink,
 	setCustomBackground,
 	setCustomHeaderLogoUrl,
 	setMaxImagePostHeight,
 	setMaxImageWidth,
 	setMaxVideoPostHeight,
 	setMaxVideoWidth,
+	showCommunitiesFilter,
 	showMemberCount,
 	showPostAuthor,
 	showPostFlair,

@@ -1,5 +1,22 @@
+version 3.1.0
+  - Added an "Auto" extension theme option to automatically use your preferred system theme mode (dark/light).
+  - Bug fixes and improvements.
+v [Latest UI V3]
+  - Added "Filter Communities List". This adds a filter input at the top of the side menu communities list to quickly filter subreddits.
+  - Fixed "Scroll To Post" sometimes not going to the next/previous post.
+  - Fixed posts not loading on r/Popular when "Hide Recommended/Suggested" is enabled.
+  - Fixed "Explore" not showing communities when "Hide Related Communities" is enabled.
+  - Fixed the post overflow menu sometimes not clickable when "Always Show Post Options" is enabled.
+  - Fixed "Show Absolute Timestamps On Posts" not working on the search results page.
+  - Fixed "Show Post Author" not working properly on the search results page.
+v [Latest UI V3 & Old UI V1]
+  - Added "Clean Link". This adds a share option to copy post/comment links without tracking parameters, with an optional shorten-to-redd.it mode.
+v [Old UI V1]
+  - Added an option to enable "Light Mode" for the "Modernise old.reddit" feature.
+  - Fixed "Show Absolute Timestamps On Posts" not working on comment pages.
+
 version 3.0.1
-  - Small fixes.
+  - Minor fixes.
   
 version 3.0.0
   - The "downloads" and "history" permissions are now optional for Chromium based browsers since manifest v3 has added support for optional permissions.

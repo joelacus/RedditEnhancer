@@ -36,7 +36,6 @@ export function restorePopupMediaOptions() {
 		document.querySelector('#input-max-image-width').value = value;
 		document.querySelector('#max-image-width-value').innerText = displayValue;
 		document.querySelector('.icon-max-image-width').style.backgroundColor = hasAccent ? 'var(--accent)' : '';
-		if (value !== 9) highlightMenuIcon('media-tweaks');
 		console.log('Max Image Width: ' + (value === 9 ? 'default (100%)' : `${value}%`));
 	});
 
@@ -48,7 +47,6 @@ export function restorePopupMediaOptions() {
 		document.querySelector('#input-max-image-post-height').value = value;
 		document.querySelector('#max-image-post-height-value').innerText = displayValue;
 		document.querySelector('.icon-max-image-post-height').style.backgroundColor = hasAccent ? 'var(--accent)' : '';
-		if (value !== 98) highlightMenuIcon('media-tweaks');
 		console.log('Max Image Post Height: ' + (value === 98 ? 'default (∞)' : `${value}px`));
 	});
 
@@ -61,6 +59,39 @@ export function restorePopupMediaOptions() {
 		document.querySelector('.icon-hide-blurred-media-background').classList.toggle('icon-show', !checked);
 		document.querySelector('.icon-hide-blurred-media-background').classList.toggle('icon-hide', checked);
 		console.log('Hide Blurred Media Background: ' + checked);
+	});
+
+	// Replace Post Images With Links
+	BROWSER_API.storage.sync.get(['replacePostImagesWithLinks'], function (result) {
+		const checked = result.replacePostImagesWithLinks === true;
+		const icon = document.querySelector('.icon-replace-post-images-with-links');
+		icon.classList.replace(checked ? 'icon-images' : 'icon-link', checked ? 'icon-link' : 'icon-images');
+		if (checked) highlightMenuIcon('media-tweaks');
+		document.querySelector('#checkbox-replace-post-images-with-links').checked = checked;
+		icon.style.backgroundColor = checked ? 'var(--accent)' : '';
+		console.log('Replace Post Images With Links: ' + checked);
+	});
+
+	// Replace Post Images With Links (Home)
+	BROWSER_API.storage.sync.get(['replacePostImagesWithLinks', 'replacePostImagesWithLinksHome'], function (result) {
+		const enabled = result.replacePostImagesWithLinks === true;
+		const checked = result.replacePostImagesWithLinksHome !== false;
+		const icon = document.querySelector('.icon-replace-post-images-with-links-home');
+		icon.classList.replace(checked ? 'icon-images' : 'icon-link', checked ? 'icon-link' : 'icon-images');
+		document.querySelector('#checkbox-replace-post-images-with-links-home').checked = checked;
+		icon.style.backgroundColor = enabled && checked ? 'var(--accent)' : '';
+		console.log('Replace Post Images With Links on the Home Feed: ' + checked);
+	});
+
+	// Replace Post Images With Links (Subreddits)
+	BROWSER_API.storage.sync.get(['replacePostImagesWithLinks', 'replacePostImagesWithLinksSubreddits'], function (result) {
+		const enabled = result.replacePostImagesWithLinks === true;
+		const checked = result.replacePostImagesWithLinksSubreddits !== false;
+		const icon = document.querySelector('.icon-replace-post-images-with-links-subs');
+		icon.classList.replace(checked ? 'icon-images' : 'icon-link', checked ? 'icon-link' : 'icon-images');
+		document.querySelector('#checkbox-replace-post-images-with-links-subs').checked = checked;
+		icon.style.backgroundColor = enabled && checked ? 'var(--accent)' : '';
+		console.log('Replace Post Images With Links on Subreddit Feed: ' + checked);
 	});
 
 	// Just Open The Image
@@ -153,7 +184,6 @@ export function restorePopupMediaOptions() {
 		document.querySelector('#input-max-video-width').value = value;
 		document.querySelector('#limit-video-width-value').innerText = displayValue;
 		document.querySelector('.icon-max-video-width').style.backgroundColor = hasAccent ? 'var(--accent)' : '';
-		if (value !== 9) highlightMenuIcon('media-tweaks');
 		console.log('Max Video Width: ' + (value === 9 ? 'default (100%)' : `${value}%`));
 	});
 
@@ -165,7 +195,6 @@ export function restorePopupMediaOptions() {
 		document.querySelector('#input-max-video-post-height').value = value;
 		document.querySelector('#max-video-post-height-value').innerText = displayValue;
 		document.querySelector('.icon-max-video-post-height').style.backgroundColor = hasAccent ? 'var(--accent)' : '';
-		if (value !== 98) highlightMenuIcon('media-tweaks');
 		console.log('Max Video Post Height: ' + (value === 98 ? 'default (∞)' : `${value}px`));
 	});
 
@@ -189,6 +218,17 @@ export function restorePopupMediaOptions() {
 			document.querySelector('#checkbox-add-download-video-button').checked = false;
 			console.log('Add Download Video Button: false');
 		}
+	});
+
+	// Replace Post Videos With Links
+	BROWSER_API.storage.sync.get(['replacePostVideosWithLinks'], function (result) {
+		const checked = result.replacePostVideosWithLinks === true;
+		const icon = document.querySelector('.icon-replace-post-videos-with-links');
+		icon.classList.replace(checked ? 'icon-film' : 'icon-link', checked ? 'icon-link' : 'icon-film');
+		if (checked) highlightMenuIcon('media-tweaks');
+		document.querySelector('#checkbox-replace-post-videos-with-links').checked = checked;
+		icon.style.backgroundColor = checked ? 'var(--accent)' : '';
+		console.log('Replace Post Videos With Links: ' + checked);
 	});
 
 	/* = Text = */
@@ -226,50 +266,6 @@ export function restorePopupMediaOptions() {
 			document.querySelector('.icon-text-post-preview-fade-height').style.backgroundColor = 'var(--accent)';
 		}
 		console.log(`Text Post Preview Fade Height: ${value >= 0 ? value + 'px' : 'default'}`);
-	});
-
-	// Replace Post Images With Links
-	BROWSER_API.storage.sync.get(['replacePostImagesWithLinks'], function (result) {
-		const checked = result.replacePostImagesWithLinks === true;
-		const icon = document.querySelector('.icon-replace-post-images-with-links');
-		icon.classList.replace(checked ? 'icon-images' : 'icon-link', checked ? 'icon-link' : 'icon-images');
-		if (checked) highlightMenuIcon('media-tweaks');
-		document.querySelector('#checkbox-replace-post-images-with-links').checked = checked;
-		icon.style.backgroundColor = checked ? 'var(--accent)' : '';
-		console.log('Replace Post Images With Links: ' + checked);
-	});
-
-	// Replace Post Images With Links (Home)
-	BROWSER_API.storage.sync.get(['replacePostImagesWithLinks', 'replacePostImagesWithLinksHome'], function (result) {
-		const enabled = result.replacePostImagesWithLinks === true;
-		const checked = result.replacePostImagesWithLinksHome !== false;
-		const icon = document.querySelector('.icon-replace-post-images-with-links-home');
-		icon.classList.replace(checked ? 'icon-images' : 'icon-link', checked ? 'icon-link' : 'icon-images');
-		document.querySelector('#checkbox-replace-post-images-with-links-home').checked = checked;
-		icon.style.backgroundColor = enabled && checked ? 'var(--accent)' : '';
-		console.log('Replace Post Images With Links on the Home Feed: ' + checked);
-	});
-
-	// Replace Post Images With Links (Subreddits)
-	BROWSER_API.storage.sync.get(['replacePostImagesWithLinks', 'replacePostImagesWithLinksSubreddits'], function (result) {
-		const enabled = result.replacePostImagesWithLinks === true;
-		const checked = result.replacePostImagesWithLinksSubreddits !== false;
-		const icon = document.querySelector('.icon-replace-post-images-with-links-subs');
-		icon.classList.replace(checked ? 'icon-images' : 'icon-link', checked ? 'icon-link' : 'icon-images');
-		document.querySelector('#checkbox-replace-post-images-with-links-subs').checked = checked;
-		icon.style.backgroundColor = enabled && checked ? 'var(--accent)' : '';
-		console.log('Replace Post Images With Links on Subreddit Feed: ' + checked);
-	});
-
-	// Replace Post Videos With Links
-	BROWSER_API.storage.sync.get(['replacePostVideosWithLinks'], function (result) {
-		const checked = result.replacePostVideosWithLinks === true;
-		const icon = document.querySelector('.icon-replace-post-videos-with-links');
-		icon.classList.replace(checked ? 'icon-film' : 'icon-link', checked ? 'icon-link' : 'icon-film');
-		if (checked) highlightMenuIcon('media-tweaks');
-		document.querySelector('#checkbox-replace-post-videos-with-links').checked = checked;
-		icon.style.backgroundColor = checked ? 'var(--accent)' : '';
-		console.log('Replace Post Videos With Links: ' + checked);
 	});
 
 	// Compact Post Link Preview

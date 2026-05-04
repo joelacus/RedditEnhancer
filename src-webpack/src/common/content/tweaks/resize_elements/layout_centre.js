@@ -18,12 +18,10 @@ export function loadLayoutCentre() {
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 export function layoutCentre(value) {
-	if (redditVersion === 'old') {
-		if (value) {
-			enableLayoutCentreRV1();
-		} else {
-			disableLayoutCentreRV1;
-		}
+	if (redditVersion === 'old' && value) {
+		enableLayoutCentreRV1();
+	} else if (redditVersion === 'old') {
+		disableLayoutCentreRV1();
 	}
 }
 

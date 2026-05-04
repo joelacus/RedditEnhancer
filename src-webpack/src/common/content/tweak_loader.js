@@ -5,6 +5,8 @@
 //
 // ────────────────────────────────────────────────────────────────────────────
 
+import { i18nReady } from './i18n';
+
 import { loadAddDownloadVideoButton } from './tweaks/media/add_download_video_button';
 import { loadAutoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
 import { loadAutoExpandValue } from './tweaks/resize_elements/auto_expand_value';
@@ -65,6 +67,8 @@ import { loadReplaceSearchPlaceholderText } from './tweaks/hide_elements/replace
 import { loadHideRelatedCommunities } from './tweaks/hide_elements/hide_related_communities';
 import './tweaks/productivity/canned_messages';
 import { loadAlwaysShowCommentOptions } from './tweaks/productivity/always_show_comment_options';
+import { loadCleanLink } from './tweaks/productivity/clean_link';
+import { loadShowCommunitiesFilter } from './tweaks/productivity/community_filter';
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -80,6 +84,7 @@ export function loadTweaks() {
 		loadShowCommentAbsoluteTimestamp();
 		loadShowToTopButtonFloat();
 		loadScrollToPost();
+		loadCleanLink();
 	} else if (redditVersion === 'newnew') {
 		loadAddDownloadVideoButton();
 		loadBionicReader();
@@ -100,9 +105,16 @@ export function loadTweaks() {
 		loadHideRelatedCommunities();
 		loadShowToTopButtonFloat();
 		loadScrollToPost();
+		loadCleanLink();
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
+
+		waitForAddedNode({
+			query: '#communities_section',
+			parent: document.querySelector('body'),
+			done: loadShowCommunitiesFilter,
+		});
 
 		waitForAddedNode({
 			query: 'reddit-sidebar-nav',
@@ -230,6 +242,17 @@ export function loadTweaks() {
 		});
 
 		waitForAddedNode({
+			query: 'search-telemetry-tracker:has(.post-credit-row)',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function () {
+				setTimeout(() => {
+					loadShowPostAbsoluteTimestamp();
+				}, 500);
+			},
+		});
+
+		waitForAddedNode({
 			query: '[noun="insights"] div:last-child > div:first-child > div:first-child span',
 			parent: document.querySelector('shreddit-subreddit-header'),
 			recursive: true,
@@ -307,13 +330,17 @@ export function loadTweaks() {
 		}
 	}, 5000);
 }
-loadTweaks();
+
+// Wait for i18n to be ready before loading tweaks initially
+i18nReady.then(() => {
+	loadTweaks();
+});
 
 /* 
    Some tweaks don't run correctly until the page has fully loaded or been focused.
    This can happen when using "open link in new tab", so load the tweaks again when
    the tab is focused to ensure they are working.
-*/
+ */
 let focused_once = false;
 window.onfocus = function () {
 	if (!focused_once) {

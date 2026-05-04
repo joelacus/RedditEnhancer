@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "3.0.1"
+		"message": "3.1.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -137,6 +137,15 @@
 	"CannedMessages": {
 		"message": "Canned Messages"
 	},
+	"CleanLink": {
+		"message": "Clean Link"
+	},
+	"ShowCommunitiesFilter": {
+		"message": "Filter Communities List"
+	},
+	"ShortenCleanLink": {
+		"message": "Shorten Clean Link"
+	},
 	"CannedMessagesInfo": {
 		"message": "Add a new message per returned line. Right click anywhere on a Reddit page to select canned messages from the context menu and copy it to the clipboard."
 	},
@@ -262,6 +271,9 @@
 	},
 	"FeedWidth": {
 		"message": "Feed Width"
+	},
+	"FilterCommunities": {
+		"message": "Filter communities..."
 	},
 	"FilterOptionsFor": {
 		"message": "Filter Options For"
@@ -563,6 +575,9 @@
 	"Light": {
 		"message": "Light"
 	},
+	"LightMode": {
+		"message": "Light mode"
+	},
 	"LimitCommentsInfo": {
 		"message": "Only works for posts opened in a new tab/window."
 	},
@@ -836,6 +851,9 @@
 	"ScrollToTopHeader": {
 		"message": "Add 'Scroll To Top' button to the header"
 	},
+	"ScrollToTopInfo": {
+		"message": "Scroll to the top of the page"
+	},
 	"Search": {
 		"message": "Search"
 	},
@@ -992,6 +1010,9 @@
 	"ThemeColours": {
 		"message": "Theme Colours"
 	},
+	"ThemeDoesNotWorkWithCustomThemes": {
+		"message": "Does not currently work with custom community themes. Please disable this option in your reddit preferences:"
+	},
 	"ThemeWhitelistInfo": {
 		"message": "Only use the theme colours for these subreddits:"
 	},
@@ -1063,5 +1084,20 @@
 	},
 	"seconds": {
 		"message": "seconds"
+	},
+	"CopyCleanLink": {
+		"message": "Copy clean link"
+	},
+	"CopyCleanLinkShort": {
+		"message": "Copy clean link (short)"
+	},
+	"CopiedCleanLink": {
+		"message": "Copied clean link!"
+	},
+	"CopiedCleanLinkShort": {
+		"message": "Copied clean link (short)!"
+	},
+	"CopiedMessage": {
+		"message": "Copied Message!"
 	}
 }

@@ -18,10 +18,10 @@ export function loadReplaceSearchPlaceholderText() {
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 export function replaceSearchPlaceholderText(value) {
-	const routename = document.querySelector('shreddit-app')?.getAttribute('routename');
+	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
 	const feedRoutes = ['frontpage', 'popular'];
 
-	if (redditVersion === 'newnew' && value && feedRoutes.includes(routename)) {
+	if (redditVersion === 'newnew' && value && feedRoutes.includes(routeName)) {
 		enableReplaceSearchPlaceholderTextRV3();
 	} else {
 		disableReplaceSearchPlaceholderTextAll();

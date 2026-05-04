@@ -56,6 +56,15 @@ document.querySelector('#checkbox-modern-old-reddit').addEventListener('change',
 	document.querySelector('#checkbox-larger-classic-post').checked = this.checked;
 });
 
+// Toggle - Modernise Old Reddit - Light Mode
+document.querySelector('#checkbox-modern-old-reddit-light').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ moderniseOldRedditLight: this.checked });
+	sendMessage({ moderniseOldRedditLight: this.checked });
+	const icon = document.querySelector('.icon-modern-old-reddit-light');
+	icon.style.backgroundColor = this.checked ? 'var(--accent)' : '';
+	icon.classList.replace(this.checked ? 'icon-sun' : 'icon-sun-fill', this.checked ? 'icon-sun-fill' : 'icon-sun');
+});
+
 // Toggle - Header Background Colour
 document.querySelector('#checkbox-header-bg-colour').addEventListener('change', function () {
 	BROWSER_API.storage.sync.set({ themeHeaderBackgroundColour: this.checked });

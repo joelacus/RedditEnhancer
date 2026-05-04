@@ -32,8 +32,10 @@ let observerCleanup = null;
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 export function leftSideVoteButtons(value) {
+	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
+	const feedRoutes = ['mod_queue'];
 	if (redditVersion === 'newnew') {
-		if (value && !document.querySelector('shreddit-app').getAttribute('routename').includes('mod_queue')) {
+		if (value && !feedRoutes.includes(routeName)) {
 			attachStylesheet();
 			attachVoteButtons();
 			// Register with centralised observer manager
@@ -135,7 +137,8 @@ function attachStylesheet() {
 				height: fit-content;
 				margin-top: 4px;
 			}
-			shreddit-app[routename="post_page"] .re-vote-panel shreddit-vote-animations > span {
+			shreddit-app[routename="post_page"] .re-vote-panel shreddit-vote-animations > span,
+			shreddit-app[routename="comments_page"] .re-vote-panel shreddit-vote-animations > span {
 				flex-direction: column;
 				height: fit-content;
 				margin-left: 4px;
