@@ -17,6 +17,7 @@ module.exports = {
 		content_first: './src/common/content_first_index.js',
 		'popup/popup': './src/common/popup/popup_index.js',
 		restore_config: './src/common/restore_config.js',
+		system_theme_detector: './src/common/content/system_theme_detector.js',
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist/firefox'),
@@ -100,11 +101,6 @@ module.exports = {
 					context: path.resolve(__dirname, 'src/common'),
 					from: 'content_first/RE_styles.css',
 					to: 'RE_styles.css',
-				},
-				{
-					context: path.resolve(__dirname, 'src/common'),
-					from: 'content/tweaks/font/RE_font.css',
-					to: 'RE_font.css',
 				},
 			],
 		}),

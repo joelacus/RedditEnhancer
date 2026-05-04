@@ -584,3 +584,15 @@
 	mask: url('../../icons/ui/icon-share-slash.svg');
 	-webkit-mask: url('../../icons/ui/icon-share-slash.svg');
 }
+.icon-can-sparkles {
+	mask: url('../../icons/ui/spray-can-sparkles-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/spray-can-sparkles-solid-full.svg');
+}
+.icon-sun {
+	mask: url('../../icons/ui/sun-regular-full.svg');
+	-webkit-mask: url('../../icons/ui/sun-regular-full.svg');
+}
+.icon-sun-fill {
+	mask: url('../../icons/ui/sun-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/sun-solid-full.svg');
+}

@@ -523,8 +523,8 @@ export function restorePopupProductivityOptions() {
 	});
 
 	// Only Load Downvoted Comments
-	BROWSER_API.storage.sync.get(['autoLoadMoreComments'], function (result) {
-		const checked = result.autoLoadMoreComments === true;
+	BROWSER_API.storage.sync.get(['autoLoadMoreCommentsDownvotedOnly'], function (result) {
+		const checked = result.autoLoadMoreCommentsDownvotedOnly === true;
 		document.querySelector('#checkbox-only-load-downvoted-comments').checked = checked;
 		document.querySelector('.icon-only-load-downvoted-comments').style.backgroundColor = checked === true ? 'var(--accent)' : '';
 		if (checked) highlightMenuIcon('productivity-tweaks');
@@ -632,5 +632,32 @@ export function restorePopupProductivityOptions() {
 		textarea.value = list;
 
 		console.log('Canned Messages List: ' + list);
+	});
+
+	// Clean Link
+	BROWSER_API.storage.sync.get(['cleanLink'], function (result) {
+		const checked = result.cleanLink === true;
+		document.querySelector('#checkbox-clean-link').checked = checked;
+		document.querySelector('.icon-clean-link').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('productivity-tweaks');
+		console.log('Clean Link: ' + checked);
+	});
+
+	// Shorten Clean Link
+	BROWSER_API.storage.sync.get(['shortenCleanLink'], function (result) {
+		const checked = result.shortenCleanLink === true;
+		document.querySelector('#checkbox-shorten-clean-link').checked = checked;
+		document.querySelector('.icon-shorten-clean-link').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('productivity-tweaks');
+		console.log('Shorten Clean Link: ' + checked);
+	});
+
+	// Show Communities Filter
+	BROWSER_API.storage.sync.get(['showCommunitiesFilter'], function (result) {
+		const checked = result.showCommunitiesFilter === true;
+		document.querySelector('#checkbox-show-communities-filter').checked = checked;
+		document.querySelector('.icon-show-communities-filter').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('productivity-tweaks');
+		console.log('Show Communities Filter: ' + checked);
 	});
 }

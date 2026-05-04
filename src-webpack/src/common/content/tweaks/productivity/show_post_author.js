@@ -26,13 +26,13 @@ let observerCleanup = null;
 let hover_delay = 500;
 export function showPostAuthor(value, delay) {
 	if (delay) hover_delay = delay * 1000;
-	const routename = document.querySelector('shreddit-app')?.getAttribute('routename');
+	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
 	const feedRoutes = ['frontpage', 'popular', 'custom_feed', 'profile_saved'];
 	const searchRoutes = ['global_serp', 'community_serp', 'custom_feed_serp'];
 
 	if (redditVersion === 'newnew' && value === true) {
 		document.documentElement.classList.add('re-post-author-active');
-		if (feedRoutes.includes(routename) || searchRoutes.includes(routename)) {
+		if (feedRoutes.includes(routeName) || searchRoutes.includes(routeName)) {
 			// Initial pass
 			document.querySelectorAll('shreddit-post, #main-content > div > search-telemetry-tracker').forEach(attachUsername);
 			// Register with centralised observer manager
@@ -40,7 +40,7 @@ export function showPostAuthor(value, delay) {
 			if (observerCleanup) {
 				observerCleanup();
 			}
-			const feed = document.querySelector('shreddit-feed');
+			const feed = routeName === 'global_serp' ? document.querySelector('#main-content') : document.querySelector('shreddit-feed');
 			if (feed) {
 				observerCleanup = registerMutationCallback(
 					feed,

@@ -101,11 +101,6 @@ module.exports = {
 					from: 'content_first/RE_styles.css',
 					to: 'RE_styles.css',
 				},
-				{
-					context: path.resolve(__dirname, 'src/common'),
-					from: 'content/tweaks/font/RE_font.css',
-					to: 'RE_font.css',
-				},
 			],
 		}),
 		new HtmlWebpackPlugin({

@@ -36,7 +36,7 @@ export function restorePopupMediaOptions() {
 		document.querySelector('#input-max-image-width').value = value;
 		document.querySelector('#max-image-width-value').innerText = displayValue;
 		document.querySelector('.icon-max-image-width').style.backgroundColor = hasAccent ? 'var(--accent)' : '';
-		if (value !== 9) highlightMenuIcon('media-tweaks');
+		if (value <= 9) highlightMenuIcon('media-tweaks');
 		console.log('Max Image Width: ' + (value === 9 ? 'default (100%)' : `${value}%`));
 	});
 
@@ -48,7 +48,7 @@ export function restorePopupMediaOptions() {
 		document.querySelector('#input-max-image-post-height').value = value;
 		document.querySelector('#max-image-post-height-value').innerText = displayValue;
 		document.querySelector('.icon-max-image-post-height').style.backgroundColor = hasAccent ? 'var(--accent)' : '';
-		if (value !== 98) highlightMenuIcon('media-tweaks');
+		if (value <= 98) highlightMenuIcon('media-tweaks');
 		console.log('Max Image Post Height: ' + (value === 98 ? 'default (∞)' : `${value}px`));
 	});
 
@@ -153,7 +153,7 @@ export function restorePopupMediaOptions() {
 		document.querySelector('#input-max-video-width').value = value;
 		document.querySelector('#limit-video-width-value').innerText = displayValue;
 		document.querySelector('.icon-max-video-width').style.backgroundColor = hasAccent ? 'var(--accent)' : '';
-		if (value !== 9) highlightMenuIcon('media-tweaks');
+		if (value <= 9) highlightMenuIcon('media-tweaks');
 		console.log('Max Video Width: ' + (value === 9 ? 'default (100%)' : `${value}%`));
 	});
 
@@ -165,7 +165,7 @@ export function restorePopupMediaOptions() {
 		document.querySelector('#input-max-video-post-height').value = value;
 		document.querySelector('#max-video-post-height-value').innerText = displayValue;
 		document.querySelector('.icon-max-video-post-height').style.backgroundColor = hasAccent ? 'var(--accent)' : '';
-		if (value !== 98) highlightMenuIcon('media-tweaks');
+		if (value <= 98) highlightMenuIcon('media-tweaks');
 		console.log('Max Video Post Height: ' + (value === 98 ? 'default (∞)' : `${value}px`));
 	});
 

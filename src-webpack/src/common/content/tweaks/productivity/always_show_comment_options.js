@@ -42,7 +42,9 @@ let commentsScrollCleanup = null;
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 export function alwaysShowCommentOptions(value) {
-	if (value && redditVersion === 'newnew') {
+	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
+	const feedRoutes = ['post_page', 'comments_page'];
+	if (redditVersion === 'newnew' && value && feedRoutes.includes(routeName)) {
 		// Attach menu options to posts and comment action rows already present on the page
 		document.querySelectorAll('shreddit-comment-action-row').forEach(attachCommentMenu);
 
@@ -91,7 +93,7 @@ function attachCommentMenu(commentActionRow) {
 		slot.name = `comment-${action}`;
 		overflowSlot.insertAdjacentElement('afterend', slot);
 	});
-	overflowSlot.remove();
+	//overflowSlot.remove();
 
 	// Move the overflow menu buttons to the action row
 	[
@@ -196,7 +198,7 @@ function attachCommentMenu(commentActionRow) {
 	});
 
 	// If comment-overflow-menu is empty, remove it
-	if (!overflowMenuContainer.querySelector('div[slot="devvit-context-actions"]') && !overflowMenu.querySelector('faceplate-tracker[noun="edit"]')) {
+	/*if (!overflowMenuContainer.querySelector('div[slot="devvit-context-actions"]') && !overflowMenu.querySelector('faceplate-tracker[noun="edit"]')) {
 		overflowMenuContainer.remove();
 	} else {
 		const button = overflowMenuContainer.shadowRoot?.querySelector('button');
@@ -204,7 +206,7 @@ function attachCommentMenu(commentActionRow) {
 			button.className = 'button border-md relative text-caption-1 button-plain-weak inline-flex items-center p-2xs font-semibold rounded-sm';
 			button.setAttribute('style', 'height: initial;');
 		}
-	}
+	}*/
 
 	// Stylise the current options on screen: reply, share, award, insight
 	const commentBtn = commentActionRow.querySelector('faceplate-tracker[noun="reply_comment"] button, faceplate-tracker[noun="reply"] a');

@@ -61,20 +61,20 @@ function enableExpandContentRV1() {
 								.wiki-page div.content[role="main"],
 								.submit-page div.content[role="main"],
 								.moderator div.content[role="main"] {
-									width: var(--re-content-width);
+									width: var(--re-content-width) !important;
 									max-width: calc(100% - 15px);
 								}
 								.comments-page div.content[role="main"],
 								.other-discussions-page div.content[role="main"] {
-									width: var(--re-post-width);
+									width: var(--re-post-width) !important;
 									margin: .5rem 8px;
 									max-width: calc(100% - 2rem);
 								}
 								.profile-page div.content[role="main"] {
-									width: var(--re-user-profile-width);
+									width: var(--re-user-profile-width) !important;
 								}
 								.listing-page.multi-page div.content[role="main"] {
-									width: var(--re-custom-feed-width);
+									width: var(--re-custom-feed-width) !important;
 									max-width: calc(100% - 15px);
 								}
 								/* Expand the post content, comments and wiki page content */

@@ -8,7 +8,7 @@
  *
  * Notes: Currently, this function only sets sans-serif as UI font on Old UI. Other UIs may be considered later.
  *
- * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
+ * Compatibility: RV1 (Old UI) (2005-)
  */
 
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────

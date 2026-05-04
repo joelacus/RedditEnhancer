@@ -7,6 +7,10 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
+// Module state
+let observer = null;
+let currentColours = [];
+
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
 export function loadMulticolouredThreadLines() {
@@ -18,7 +22,9 @@ export function loadMulticolouredThreadLines() {
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 export function multicolouredThreadLines(value, colours) {
-	if (redditVersion === 'newnew' && value) {
+	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
+	const feedRoutes = ['post_page', 'comments_page'];
+	if (redditVersion === 'newnew' && value && feedRoutes.includes(routeName)) {
 		enableMulticolouredThreadLinesRV3(colours);
 	} else {
 		disableMulticolouredThreadLinesRV3();
@@ -28,8 +34,11 @@ export function multicolouredThreadLines(value, colours) {
 // Enable Multicoloured Thread Lines - RV3
 function enableMulticolouredThreadLinesRV3() {
 	BROWSER_API.storage.sync.get(['multicolouredThreadLinesColours'], function (result) {
+		console.log('RUN');
 		// Get Colours, or set default
-		const default_colours = ['#e40303', '#ff8c00', '#ffed00', '#388e3c', '#0070ff', '#7e49db', '#f44ae2', '#03e4cf', '#028ed3', '#744f95'];
+		const default_colours = ['#3D8AB4', '#813AB4', '#789B36', '#DF8A35', '#C7433C', '#C73D7B', '#51DBA6'];
+		//['#e40303', '#ff8c00', '#ffed00', '#388e3c', '#0070ff', '#7e49db', '#f44ae2', '#03e4cf', '#028ed3', '#744f95'];
+
 		let colours = default_colours;
 		colours.push.apply(colours, default_colours);
 		if (result.multicolouredThreadLinesColours) {
@@ -37,8 +46,13 @@ function enableMulticolouredThreadLinesRV3() {
 			colours.push.apply(colours, default_colours);
 		}
 
+		// Store current colours for mutation observer
+		currentColours = colours;
+
 		// Reset Thread Lines
-		disableMulticolouredThreadLinesRV3();
+		document.querySelectorAll('shreddit-comment').forEach((comment) => {
+			comment.style.removeProperty('--color-tone-4');
+		});
 
 		// Select all root comments
 		const elements = document.querySelectorAll('shreddit-comment-tree > shreddit-comment');
@@ -61,6 +75,24 @@ function enableMulticolouredThreadLinesRV3() {
 				}
 			});
 		}
+
+		// Setup MutationObserver to handle dynamically added comments
+		observer = new MutationObserver((mutations) => {
+			mutations.forEach((mutation) => {
+				mutation.addedNodes.forEach((addedNode) => {
+					if (addedNode.nodeType !== Node.ELEMENT_NODE) return;
+					if (addedNode.matches('shreddit-comment')) {
+						processNewComment(addedNode);
+					}
+					addedNode.querySelectorAll('shreddit-comment').forEach(processNewComment);
+				});
+			});
+		});
+
+		// Observe all comment trees
+		document.querySelectorAll('shreddit-comment-tree').forEach((tree) => {
+			observer.observe(tree, { childList: true, subtree: true });
+		});
 	});
 }
 
@@ -69,4 +101,43 @@ function disableMulticolouredThreadLinesRV3() {
 	document.querySelectorAll('shreddit-comment').forEach((comment) => {
 		comment.style.removeProperty('--color-tone-4');
 	});
+	if (observer) {
+		observer.disconnect();
+		observer = null;
+	}
+}
+
+// ─── Helper Functions ───────────────────────────────────────────────────────
+
+function getCommentDepth(comment) {
+	let depth = 0;
+	let parent = comment.parentElement;
+	while (parent) {
+		if (parent.tagName === 'SHREDDIT-COMMENT') {
+			depth++;
+		} else if (parent.tagName === 'SHREDDIT-COMMENT-TREE') {
+			break;
+		}
+		parent = parent.parentElement;
+	}
+	return depth;
+}
+
+function processNewComment(comment) {
+	// Skip if already processed
+	if (comment.style.getPropertyValue('--color-tone-4')) return;
+
+	const depth = getCommentDepth(comment);
+	comment.style.setProperty('--color-tone-4', currentColours[depth] || currentColours[currentColours.length - 1]);
+
+	// Recursively process any existing sub-comments
+	(function recurse(commentElement, currentDepth) {
+		const subComments = commentElement.querySelectorAll('shreddit-comment');
+		subComments.forEach((sub) => {
+			if (!sub.style.getPropertyValue('--color-tone-4')) {
+				sub.style.setProperty('--color-tone-4', currentColours[currentDepth] || currentColours[currentColours.length - 1]);
+				recurse(sub, currentDepth + 1);
+			}
+		});
+	})(comment, depth + 1);
 }

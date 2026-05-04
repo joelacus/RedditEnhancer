@@ -11,11 +11,11 @@ import { showBannerMessage } from '../../banner_message';
 
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
-let hideNSFW = false;
+let showNsfw = true;
 export function loadScrollToPost() {
 	BROWSER_API.storage.sync.get(['scrollToPost', 'hideNSFW'], function (result) {
 		if (result.scrollToPost) scrollToPost(true);
-		hideNSFW = result.hideNSFW ?? false;
+		showNsfw = result.hideNSFW ?? true;
 	});
 }
 
@@ -38,7 +38,7 @@ let navigationCleanup = null;
 // Enable Scroll To Post - RV3
 function enableScrollToPostRV3() {
 	if (!navigationCleanup) {
-		navigationCleanup = createKeyboardNavigator('shreddit-feed', 'article', 'RV3');
+		navigationCleanup = createKeyboardNavigator('shreddit-feed', 'article:has(shreddit-post)', 'RV3');
 	}
 }
 
@@ -71,20 +71,22 @@ function createKeyboardNavigator(containerSelector, elementSelector, RedditVersi
 		let index = startIndex;
 
 		while (index >= 0 && index < elements.length) {
-			if (hideNSFW && RedditVersion === 'RV3') {
-				if (!elements[index].classList.contains('re-hide') && !elements[index].querySelector('shreddit-blurred-container[reason="nsfw"]') && !elements[index].querySelector('shreddit-post[nsfw]')) {
+			const notHidden = !elements[index].classList.contains('re-hide');
+			if (RedditVersion === 'RV3') {
+				const isNsfw = elements[index].querySelector('shreddit-blurred-container[reason="nsfw"]') ?? elements[index].querySelector('shreddit-post[nsfw]') ?? false;
+				const showNsfwPost = isNsfw ? showNsfw : true;
+				const notDisplayNone = window.getComputedStyle(elements[index]).display === 'none' ? false : true;
+				if (showNsfwPost && notHidden && notDisplayNone) {
 					return index;
 				}
-			} else if (hideNSFW && RedditVersion === 'RV1') {
-				if (!elements[index].classList.contains('re-hide') && !elements[index].classList.contains('promoted') && !elements[index].querySelector('.nsfw-stamp')) {
-					return index;
-				}
-			} else {
-				if (!elements[index].classList.contains('re-hide') && !elements[index].classList.contains('promoted')) {
+			} else if (RedditVersion === 'RV1') {
+				const isNsfw = elements[index].querySelector('.nsfw-stamp') ?? false;
+				const showNsfwPost = isNsfw ? showNsfw : true;
+				const notDisplayNone = !window.getComputedStyle(elements[index]).display === 'none';
+				if (showNsfwPost && notHidden && !elements[index].classList.contains('promoted')) {
 					return index;
 				}
 			}
-
 			index += direction;
 		}
 
@@ -102,9 +104,9 @@ function createKeyboardNavigator(containerSelector, elementSelector, RedditVersi
 		// Add attribute to current element
 		elements[index].setAttribute('data-nav-selected', 'true');
 
-		// Scroll to element top minus 100px
+		// Scroll to element top minus offset
 		const elementTop = elements[index].getBoundingClientRect().top + window.scrollY;
-		window.scrollTo({ top: elementTop - (150 - offset), behavior: 'smooth' });
+		window.scrollTo({ top: elementTop - (100 - offset), behavior: 'smooth' });
 
 		currentIndex = index;
 	}
@@ -115,22 +117,24 @@ function createKeyboardNavigator(containerSelector, elementSelector, RedditVersi
 
 		if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'REDDIT-SEARCH-LARGE') {
 			if (e.key === 'j' || e.key === 'J' || e.key === 'ArrowDown') {
+				if (e.key === 'ArrowDown') e.preventDefault();
 				const current = findCurrentIndex(elements);
 				if (current === -1) {
 					const firstValid = findNextValidIndex(elements, 0, 1);
-					if (firstValid !== -1) scrollToElement(elements, firstValid);
+					if (firstValid !== -1) scrollToElement(elements, firstValid, 0);
 				} else {
 					const nextValid = findNextValidIndex(elements, current + 1, 1);
-					if (nextValid !== -1) scrollToElement(elements, nextValid);
+					if (nextValid !== -1) scrollToElement(elements, nextValid, 0);
 				}
 			} else if (e.key === 'k' || e.key === 'K' || e.key === 'ArrowUp') {
+				if (e.key === 'ArrowUp') e.preventDefault();
 				const current = findCurrentIndex(elements);
 				if (current === -1) {
 					const firstValid = findNextValidIndex(elements, 0, 1);
-					if (firstValid !== -1) scrollToElement(elements, firstValid, 150);
+					if (firstValid !== -1) scrollToElement(elements, firstValid, 0);
 				} else {
 					const prevValid = findNextValidIndex(elements, current - 1, -1);
-					if (prevValid !== -1) scrollToElement(elements, prevValid, 120);
+					if (prevValid !== -1) scrollToElement(elements, prevValid, 0);
 				}
 			}
 		}

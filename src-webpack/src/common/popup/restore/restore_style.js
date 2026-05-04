@@ -64,6 +64,17 @@ export function restorePopupStyleOptions() {
 		console.log('Modernise Old Reddit: ' + checked);
 	});
 
+	// Modernise Old Reddit - Light Mode
+	BROWSER_API.storage.sync.get(['moderniseOldRedditLight'], function (result) {
+		const checked = result.moderniseOldRedditLight === true;
+		document.querySelector('#checkbox-modern-old-reddit-light').checked = checked;
+		const icon = document.querySelector('.icon-modern-old-reddit-light');
+		icon.style.backgroundColor = checked ? 'var(--accent)' : '';
+		icon.classList.replace(checked ? 'icon-sun' : 'icon-sun-fill', checked ? 'icon-sun-fill' : 'icon-sun');
+		if (checked) highlightMenuIcon('style-tweaks');
+		console.log('Modernise Old Reddit (Light Mode): ' + checked);
+	});
+
 	// Sidebar Text Colour
 	BROWSER_API.storage.sync.get(['themeSidebarTextColour'], function (result) {
 		const checked = result.themeSidebarTextColour === true;

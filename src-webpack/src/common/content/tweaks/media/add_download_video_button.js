@@ -73,8 +73,8 @@ export function addDownloadVideoButton(value) {
 // Enable Add Download Video Button - RV3
 function enableAddVideoDownloadButtonRV3(post) {
 	let container = post;
-	const routename = document.querySelector('shreddit-app').getAttribute('routename');
-	if (routename === 'post_page') {
+	const routeName = document.querySelector('shreddit-app').getAttribute('routename');
+	if (routeName === 'post_page') {
 		setTimeout(() => {
 			container = post.shadowRoot?.querySelector('[part="actionBar"]');
 			addDownloadButton();
@@ -97,8 +97,8 @@ function enableAddVideoDownloadButtonRV3(post) {
 		if (video_url && !container.querySelector('.re-video-download-btn')) {
 			const btn = document.createElement('div');
 			btn.classList.add('re-video-download-btn');
-			if (routename === 'post_page') btn.setAttribute('style', 'cursor: pointer;text-decoration: underline;z-index: 99;');
-			if (routename !== 'post_page') btn.setAttribute('style', 'position: absolute;bottom: 0.75rem;right: 1rem;cursor: pointer;text-decoration: underline;z-index: 99;');
+			if (routeName === 'post_page') btn.setAttribute('style', 'cursor: pointer;text-decoration: underline;z-index: 99;');
+			if (routeName !== 'post_page') btn.setAttribute('style', 'position: absolute;bottom: 0.75rem;right: 1rem;cursor: pointer;text-decoration: underline;z-index: 99;');
 			btn.textContent = 'Download Video';
 			btn.addEventListener('click', async function (e) {
 				e.stopPropagation();
