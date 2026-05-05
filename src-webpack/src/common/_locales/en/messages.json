@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "3.1.0"
+		"message": "3.1.1"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -137,15 +137,6 @@
 	"CannedMessages": {
 		"message": "Canned Messages"
 	},
-	"CleanLink": {
-		"message": "Clean Link"
-	},
-	"ShowCommunitiesFilter": {
-		"message": "Filter Communities List"
-	},
-	"ShortenCleanLink": {
-		"message": "Shorten Clean Link"
-	},
 	"CannedMessagesInfo": {
 		"message": "Add a new message per returned line. Right click anywhere on a Reddit page to select canned messages from the context menu and copy it to the clipboard."
 	},
@@ -163,6 +154,9 @@
 	},
 	"ClassicOldUI": {
 		"message": "Classic Old UI"
+	},
+	"CleanLink": {
+		"message": "Add post/comment share option without tracking (Clean Link)"
 	},
 	"Cleared": {
 		"message": "Cleared"
@@ -190,6 +184,21 @@
 	},
 	"Controversial": {
 		"message": "Controversial"
+	},
+	"CopiedCleanLink": {
+		"message": "Copied clean link!"
+	},
+	"CopiedCleanLinkShort": {
+		"message": "Copied clean link (short)!"
+	},
+	"CopiedMessage": {
+		"message": "Copied Message!"
+	},
+	"CopyCleanLink": {
+		"message": "Copy clean link"
+	},
+	"CopyCleanLinkShort": {
+		"message": "Copy clean link (short)"
 	},
 	"CreatePost": {
 		"message": "Create Post"
@@ -887,8 +896,14 @@
 	"Share": {
 		"message": "Share"
 	},
+	"ShortenCleanLink": {
+		"message": "Shorten Clean Link"
+	},
 	"ShowCommentAbsoluteTimestamp": {
 		"message": "Show Absolute Timestamps On Comments"
+	},
+	"ShowCommunitiesFilter": {
+		"message": "Filter Communities List"
 	},
 	"ShowMemberCount": {
 		"message": "Show legacy subreddit member count"
@@ -1084,20 +1099,5 @@
 	},
 	"seconds": {
 		"message": "seconds"
-	},
-	"CopyCleanLink": {
-		"message": "Copy clean link"
-	},
-	"CopyCleanLinkShort": {
-		"message": "Copy clean link (short)"
-	},
-	"CopiedCleanLink": {
-		"message": "Copied clean link!"
-	},
-	"CopiedCleanLinkShort": {
-		"message": "Copied clean link (short)!"
-	},
-	"CopiedMessage": {
-		"message": "Copied Message!"
 	}
 }

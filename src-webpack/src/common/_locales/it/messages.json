@@ -153,7 +153,7 @@
 		"message": "Interfaccia utente vecchia classica"
 	},
 	"CleanLink": {
-		"message": "Link pulito"
+		"message": "Aggiungi l'opzione di condivisione del post/commento senza tracciamento (URL pulito)"
 	},
 	"Cleared": {
 		"message": "Cancellato"
@@ -192,7 +192,7 @@
 		"message": "Messaggio copiato!"
 	},
 	"CopyCleanLink": {
-		"message": "Copia link pulito"
+		"message": "Copia URL pulito"
 	},
 	"CopyCleanLinkShort": {
 		"message": "Copia link pulito (breve)"
@@ -262,9 +262,6 @@
 	},
 	"ExtensionSettings": {
 		"message": "Impostazioni estensione"
-	},
-	"extensionVersionText": {
-		"message": "Versione dell'estensione"
 	},
 	"Feed": {
 		"message": "Feed"
@@ -422,11 +419,11 @@
 	"HideModerationButton": {
 		"message": "Nascondi il pulsante \"Moderazione\""
 	},
-	"HideNotificationButton": {
-		"message": "Nascondi pulsante \"Notifica\""
-	},
 	"HideNSFW": {
 		"message": "Nascondi post NSFW/L"
+	},
+	"HideNotificationButton": {
+		"message": "Nascondi pulsante \"Notifica\""
 	},
 	"HideNsfwInSearchResults": {
 		"message": "Nascondi i risultati NSFW nella barra di ricerca"
@@ -446,11 +443,11 @@
 	"HidePostKarma": {
 		"message": "Nascondi il karma del post"
 	},
-	"HidePostsByBlockedUser": {
-		"message": "Nascondi i post degli utenti bloccati"
-	},
 	"HidePostSidebar": {
 		"message": "Nascondi la barra laterale del post"
+	},
+	"HidePostsByBlockedUser": {
+		"message": "Nascondi i post degli utenti bloccati"
 	},
 	"HidePromoted": {
 		"message": "Nascondi annunci/link promossi"
@@ -503,11 +500,11 @@
 	"HideSideMenuResourcesSection": {
 		"message": "Nascondi la sezione Risorse"
 	},
-	"HideSideMenuTopicsSection": {
-		"message": "Nascondi la sezione Argomenti"
-	},
 	"HideSideMenuTopSection": {
 		"message": "Nascondi la sezione superiore"
+	},
+	"HideSideMenuTopicsSection": {
+		"message": "Nascondi la sezione Argomenti"
 	},
 	"HideSubSidebar": {
 		"message": "Nascondi la barra laterale di Subreddit"
@@ -521,9 +518,6 @@
 	"HideTrendingTodayInSearchResults": {
 		"message": "Nascondi 'Tendenza di oggi' nella barra di ricerca"
 	},
-	"HideUsername": {
-		"message": "Nascondi nome utente"
-	},
 	"HideUserNameInTheFlairSection": {
 		"message": "Nascondi il nome utente nella sezione flair della barra laterale del subreddit"
 	},
@@ -532,6 +526,9 @@
 	},
 	"HideUserSidebar": {
 		"message": "Nascondi la barra laterale utente"
+	},
+	"HideUsername": {
+		"message": "Nascondi nome utente"
 	},
 	"HideVideoRecommendations": {
 		"message": "Nascondi i post consigliati quando il video termina"
@@ -557,11 +554,11 @@
 	"Image": {
 		"message": "Immagine"
 	},
-	"Images": {
-		"message": "Immagini"
-	},
 	"ImageScroll": {
 		"message": "Aggiungi le barre di scorrimento alle immagini"
+	},
+	"Images": {
+		"message": "Immagini"
 	},
 	"JustOpenTheImage": {
 		"message": "Apri semplicemente l'immagine"
@@ -577,9 +574,6 @@
 	},
 	"Latest": {
 		"message": "Ultimo"
-	},
-	"learnMore": {
-		"message": "Scopri di più"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Mostra i pulsanti di voto a sinistra"
@@ -647,11 +641,11 @@
 	"NewUpdateAvailable": {
 		"message": "La versione <version> è ora disponibile. Il tuo browser dovrebbe aggiornare questa estensione automaticamente tra poco, se hai abilitato gli aggiornamenti automatici; altrimenti, dovrai cercare manualmente gli aggiornamenti nel gestore estensioni del browser."
 	},
-	"NonStickyHeaderBar": {
-		"message": "Barra di intestazione non adesiva"
-	},
 	"NoSavedBackgrounds": {
 		"message": "Nessuno sfondo salvato"
+	},
+	"NonStickyHeaderBar": {
+		"message": "Barra di intestazione non adesiva"
 	},
 	"Off": {
 		"message": "Spento"
@@ -680,11 +674,11 @@
 	"OpenSubInNewTab": {
 		"message": "Apri i link ai subreddit in una nuova scheda"
 	},
-	"OptionsPage": {
-		"message": "Pagina opzioni"
-	},
 	"OptOutAttachSideMenu": {
 		"message": "Non allegare il menu laterale come pannello a discesa"
+	},
+	"OptionsPage": {
+		"message": "Pagina opzioni"
 	},
 	"Or": {
 		"message": "o"
@@ -761,6 +755,9 @@
 	"Qa": {
 		"message": "Q&A"
 	},
+	"RUI3RedirectInfo": {
+		"message": "L'opzione di reindirizzamento a Ultima UI (Nuovo Nuovo UI) non è più necessaria, tuttavia, puoi utilizzare questa opzione per forzare i collegamenti da (sh|old|new).reddit.com a www.reddit.com"
+	},
 	"Rate": {
 		"message": "Vota / Recensione"
 	},
@@ -809,9 +806,6 @@
 	"ResizeFont": {
 		"message": "Ridimensiona carattere"
 	},
-	"resizeHomeAlsoAffects": {
-		"message": "Crea post, risultati di ricerca e pagine wiki"
-	},
 	"ResizeLayout": {
 		"message": "Ridimensiona Feed / Post"
 	},
@@ -838,9 +832,6 @@
 	},
 	"Rising": {
 		"message": "In crescita / Rising"
-	},
-	"RUI3RedirectInfo": {
-		"message": "L'opzione di reindirizzamento a Ultima UI (Nuovo Nuovo UI) non è più necessaria, tuttavia, puoi utilizzare questa opzione per forzare i collegamenti da (sh|old|new).reddit.com a www.reddit.com"
 	},
 	"Save": {
 		"message": "Salva"
@@ -872,17 +863,14 @@
 	"Search": {
 		"message": "Ricerca"
 	},
+	"SearchPageOffset": {
+		"message": "Offset di pagina di ricerca"
+	},
 	"SearchbarBgColour": {
 		"message": "Barra di ricerca: Colore dello sfondo"
 	},
 	"SearchbarDropdownBgColour": {
 		"message": "Barra di ricerca: Colore di sfondo al focus/elenco a discesa"
-	},
-	"SearchPageOffset": {
-		"message": "Offset di pagina di ricerca"
-	},
-	"seconds": {
-		"message": "Secondi"
 	},
 	"Select": {
 		"message": "Selezionare"
@@ -935,18 +923,6 @@
 	"ShowUpvoteRatio": {
 		"message": "Visualizza la percentuale di voti positivi nella vista del post"
 	},
-	"Sidebar": {
-		"message": "Barra laterale (barra di destra)"
-	},
-	"SidebarBackgroundColour": {
-		"message": "Barra laterale: Colore di sfondo"
-	},
-	"SidebarTextColour": {
-		"message": "Barra laterale: Colore del testo"
-	},
-	"SidebarToggleButton": {
-		"message": "Pulsante per attivare/disattivare la barra laterale"
-	},
 	"SideMenu": {
 		"message": "Menu laterale (barra sinistra)"
 	},
@@ -967,6 +943,18 @@
 	},
 	"SideMenuWidth": {
 		"message": "Larghezza del menu laterale"
+	},
+	"Sidebar": {
+		"message": "Barra laterale (barra di destra)"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Barra laterale: Colore di sfondo"
+	},
+	"SidebarTextColour": {
+		"message": "Barra laterale: Colore del testo"
+	},
+	"SidebarToggleButton": {
+		"message": "Pulsante per attivare/disattivare la barra laterale"
 	},
 	"SnapSidebar": {
 		"message": "Attacca la barra laterale al bordo destro"
@@ -1067,14 +1055,14 @@
 	"UseOriginalSearchBar": {
 		"message": "Utilizza la barra di ricerca originale"
 	},
-	"UsernameHoverPopupDelay": {
-		"message": "Ritardo del popup al passaggio del mouse sul nome utente per aprire le informazioni"
-	},
 	"UserProfileOffset": {
 		"message": "Offset del profilo utente"
 	},
 	"UserProfileWidth": {
 		"message": "Larghezza del profilo utente"
+	},
+	"UsernameHoverPopupDelay": {
+		"message": "Ritardo del popup al passaggio del mouse sul nome utente per aprire le informazioni"
 	},
 	"Video": {
 		"message": "Video"
@@ -1096,5 +1084,17 @@
 	},
 	"Width": {
 		"message": "Larghezza"
+	},
+	"extensionVersionText": {
+		"message": "Versione dell'estensione"
+	},
+	"learnMore": {
+		"message": "Scopri di più"
+	},
+	"resizeHomeAlsoAffects": {
+		"message": "Crea post, risultati di ricerca e pagine wiki"
+	},
+	"seconds": {
+		"message": "Secondi"
 	}
 }

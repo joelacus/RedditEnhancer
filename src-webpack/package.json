@@ -1,6 +1,6 @@
 {
 	"name": "reddit_enhancer_webpack",
-	"version": "3.1.0",
+	"version": "3.1.1",
 	"description": "",
 	"scripts": {
 		"build-c": "NODE_ENV=production webpack --config ./webpack-chrome.conf.js",
@@ -29,7 +29,7 @@
 	"dependencies": {
 		"fuse.js": "^7.0.0",
 		"i18next": "^26.0.1",
-		"i18next-http-backend": "^3.0.1",
+		"i18next-http-backend": "^4.0.0",
 		"npm": "^11.0.0",
 		"semver": "^7.6.3",
 		"sortablejs": "^1.15.6"

@@ -1,3 +1,6 @@
+version 3.1.1
+  - Fixed "Hide Related Communities".
+
 version 3.1.0
   - Added an "Auto" extension theme option to automatically use your preferred system theme mode (dark/light).
   - Bug fixes and improvements.
