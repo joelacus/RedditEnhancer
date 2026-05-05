@@ -30,7 +30,7 @@ function enableHideRelatedCommunitiesRV3() {
 	if (!document.head.querySelector('style[id="re-hide-related-communities"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-related-communities';
-		styleElement.textContent = `shreddit-app:not([pagetype="explore"])in-feed-community-recommendations {
+		styleElement.textContent = `shreddit-app:not([pagetype="explore"]) in-feed-community-recommendations {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
