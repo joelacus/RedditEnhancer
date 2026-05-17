@@ -129,6 +129,9 @@ function addCleanLinkOption(menu) {
 	if (menu.querySelector('.re-clean-link-option')) return;
 
 	const copyLi = menu.querySelector('li.share-menu-copy-link-option');
+	let permaLink = copyLi.closest('[permalink]')?.getAttribute('permalink') ?? '';
+	if (permaLink) permaLink = 'https://www.reddit.com' + permaLink;
+	const isComment = menu.closest('shreddit-comment-share-button') ?? false;
 	if (!copyLi) return;
 
 	// Clone the original li
@@ -139,16 +142,16 @@ function addCleanLinkOption(menu) {
 	// Update label text
 	const labelSpan = newLi.querySelector('.text-14, .text-body-2 span');
 	if (labelSpan) {
-		labelSpan.textContent = shortenCleanLinkEnabled ? i18next.t('CopyCleanLinkShort.message') : i18next.t('CopyCleanLink.message');
+		labelSpan.textContent = shortenCleanLinkEnabled && !isComment ? i18next.t('CopyCleanLinkShort.message') : i18next.t('CopyCleanLink.message');
 	}
 
 	// Attach click handler to copy cleaned URL
 	const clickTarget = newLi.querySelector('[role="menuitem"]') || newLi;
 	clickTarget.addEventListener('click', () => {
-		const rawUrl = window.location.href;
-		const cleaned = cleanUrl(rawUrl, shortenCleanLinkEnabled);
+		const rawUrl = permaLink ?? window.location.href;
+		const cleaned = cleanUrl(rawUrl, shortenCleanLinkEnabled && !isComment);
 		copyToClipboard(cleaned);
-		showToast('success', shortenCleanLinkEnabled ? i18next.t('CopiedCleanLinkShort.message') : i18next.t('CopiedCleanLink.message'));
+		showToast('success', shortenCleanLinkEnabled && !isComment ? i18next.t('CopiedCleanLinkShort.message') : i18next.t('CopiedCleanLink.message'));
 	});
 
 	// Insert as first item in the menu
