@@ -1,3 +1,7 @@
+version 3.1.2
+  - Minor fixes for "Add post/comment share option without tracking (Clean Link)".
+  - Fixed localisation not initialising for content scripts on Chromium based browsers.
+
 version 3.1.1
   - Fixed "Hide Related Communities".
 

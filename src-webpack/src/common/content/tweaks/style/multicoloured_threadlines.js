@@ -34,10 +34,8 @@ export function multicolouredThreadLines(value, colours) {
 // Enable Multicoloured Thread Lines - RV3
 function enableMulticolouredThreadLinesRV3() {
 	BROWSER_API.storage.sync.get(['multicolouredThreadLinesColours'], function (result) {
-		console.log('RUN');
 		// Get Colours, or set default
 		const default_colours = ['#3D8AB4', '#813AB4', '#789B36', '#DF8A35', '#C7433C', '#C73D7B', '#51DBA6'];
-		//['#e40303', '#ff8c00', '#ffed00', '#388e3c', '#0070ff', '#7e49db', '#f44ae2', '#03e4cf', '#028ed3', '#744f95'];
 
 		let colours = default_colours;
 		colours.push.apply(colours, default_colours);
