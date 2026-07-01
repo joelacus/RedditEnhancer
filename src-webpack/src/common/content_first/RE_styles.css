@@ -194,6 +194,21 @@ div[data-testid='search-results-sidebar'] {
 .re-invisible {
 	visibility: hidden !important;
 }
+.re-hide-comment p {
+	display: none !important;
+}
+shreddit-comment .re-hide-comment::before {
+	content: 'Hidden';
+	margin: 1rem;
+	padding-left: 0.5rem;
+	opacity: 0.5;
+}
+.thing .re-hide-comment::before {
+	content: 'Hidden';
+	position: absolute;
+	margin: 0.1rem 0.25rem;
+	opacity: 0.5;
+}
 
 /* ========== FULL-WIDTH SORT DROPDOWN ========== */
 #subgrid-container > .mb-xs,
@@ -353,58 +368,6 @@ faceplate-hovercard div.max-w-\[360px\].-m-\[0\.5rem\] {
 	margin-left: 0.5rem;
 	min-width: 2rem;
 	text-align: right;
-}
-
-/* === VOTE PANEL, POST UPVOTE & UPVOTE RATIO === */
-/* ========== Vote panel ========== */
-article:has(> .re-vote-panel) {
-	border-radius: var(--re-theme-border-radius, 1rem);
-}
-.re-vote-panel > span {
-	padding: 0.25rem;
-}
-.re-vote-panel > span > span {
-	flex-direction: column;
-	background-color: transparent;
-	color: var(--button-color-text-default);
-	height: revert;
-}
-.re-vote-panel button[upvote],
-.re-vote-panel button[downvote] {
-	color: var(--button-color-text-default);
-}
-.re-vote-panel button:hover {
-	background-color: var(--button-color-background-hover);
-}
-.re-vote-panel faceplate-number {
-	display: flex;
-	flex-direction: column;
-}
-
-/* Fade the display of post upvote percentage, and align the vote button div with post content in Compact view on v2 UI */
-shreddit-post::part(re-upvote-ratio),
-.re-vote-panel .re-upvote-ratio {
-	opacity: 0.75;
-}
-div:has(> div[id*='vote-arrows-']) {
-	align-self: center;
-
-	& > div {
-		margin-top: 0;
-	}
-}
-div[id^='vote-arrows-t3_'] button[data-click-id='upvote'] ~ .re-upvote-ratio {
-	font-size: 9px;
-	margin-bottom: 6px;
-}
-.re-vote-panel .re-upvote-ratio {
-	font-size: 10px;
-}
-:not(.re-vote-panel) ::part(re-upvote-ratio):before {
-	content: '\00a0(';
-}
-:not(.re-vote-panel) ::part(re-upvote-ratio):after {
-	content: ')';
 }
 
 /* ========== BIONIC READER ========== */
@@ -742,16 +705,6 @@ shreddit-app[pagetype='single_comment_thread'] #main-content {
 	background: var(--color-neutral-background);
 }
 
-/* search hero experiment */
-@media (min-width: 768px) {
-	.grid-container:has(.search-hero) main.main {
-		background-color: revert;
-		border: revert;
-		border-radius: revert;
-		padding-bottom: revert;
-	}
-}
-
 /* Custom Timestamps */
 .re-comment-absolute-timestamp {
 	color: var(--re-theme-post-comments-text-2) !important;
@@ -830,4 +783,59 @@ article[data-nav-selected='true'] {
 /* ========== ALWAYS SHOW POST AND COMMENT OPTIONS ========== */
 .re-post-options-attached::part(actionBar) {
 	grid-gap: 0.5rem;
+}
+
+/* ========== NUMBERED POST IMAGES ========== */
+/* RV3 */
+.re-gallery-number {
+	position: absolute;
+	left: 1rem;
+	font-size: 1.5rem;
+	color: #ccc;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 0.5rem 0.75rem;
+	border-radius: 0.5rem;
+}
+.re-gallery-number > span {
+	font-size: 0.8rem;
+}
+
+/* RV1 */
+.media-preview-content.gallery-tile-content {
+	position: relative;
+}
+.media-preview-content .re-gallery-number {
+	top: 0.25rem;
+	left: 0.25rem;
+	font-size: 1rem;
+}
+.media-preview-content .re-gallery-number > span {
+	font-size: 0.5rem;
+}
+.gallery-preview .media-preview-content .re-gallery-number {
+	top: 1.75rem;
+}
+
+/* ========== SCROLL TO POST ========== */
+#siteTable .thing[data-nav-selected='true'] {
+	outline: solid 1px #ff4500;
+}
+
+/* ========== FIX COMMENT CONTEXT MENU BG ========== */
+.theme-light rpl-menu {
+	background: var(--re-theme-post-bg-opaque, #dedfe0);
+}
+.theme-dark rpl-menu {
+	background: var(--re-theme-post-bg-opaque, #2c3033);
+}
+
+/* ========== UPVOTE RATIO ========== */
+shreddit-post::part(re-upvote-ratio) {
+	margin-left: 0.5rem;
+}
+shreddit-post::part(re-upvote-ratio):before {
+	content: '(';
+}
+shreddit-post::part(re-upvote-ratio):after {
+	content: ')';
 }

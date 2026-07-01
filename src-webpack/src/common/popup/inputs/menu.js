@@ -82,6 +82,8 @@ menus.forEach((menu) => {
 			}
 		});
 	}
+
+	underlineSubHeaderItem();
 });
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
@@ -103,4 +105,29 @@ function optionsPageFunctions() {
 		document.querySelector('#settings').classList.add('hidden');
 		document.querySelector('#changelog').classList.add('hidden');
 	}
+}
+
+// Underline menu item when the user scrolls over it
+let lastId = '';
+function underlineSubHeaderItem() {
+	const mainMenu = document.querySelector('#main-menu');
+	const subHeaderItems = document.querySelectorAll('.sub-header-menu a');
+	const scrollItems = document.querySelectorAll('#main-menu .container[id], #main-menu .sub-header[id]');
+	mainMenu.addEventListener('scroll', function () {
+		const fromTop = mainMenu.scrollTop;
+		let cur = Array.from(scrollItems).filter((item) => {
+			// Calculate the item's position relative to the scrollable container
+			return item.offsetTop < fromTop + mainMenu.clientHeight && item.offsetTop + item.clientHeight > fromTop;
+		});
+		const id = cur.length ? cur[cur.length - 1].id : '';
+		if (lastId !== id) {
+			lastId = id;
+			subHeaderItems.forEach((item) => {
+				item.classList.remove('underline');
+				if (item.getAttribute('href') === `#${id}`) {
+					item.classList.add('underline');
+				}
+			});
+		}
+	});
 }

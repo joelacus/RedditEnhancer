@@ -227,9 +227,6 @@
 	"HeaderBgColour": {
 		"message": "Nagłówek: Kolor tła"
 	},
-	"HeaderButtons": {
-		"message": "Przyciski nagłówka"
-	},
 	"HeaderTextColour": {
 		"message": "Nagłówek: Kolor tekstu"
 	},
@@ -409,9 +406,6 @@
 	},
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Niekoniecznie zmniejszy to wykorzystanie przepustowości, ale zamiast tego powinno pomóc zapobiec spowolnieniu strony, uniemożliwiając Redditowi dodawanie nowych postów, dopóki nie klikniesz „Wczytaj więcej” u dołu kanału. Kliknięcie przycisku „Załaduj więcej” spowoduje wyczyszczenie pierwszych 25 postów i wyświetlenie kolejnych 25."
-	},
-	"Main": {
-		"message": "Główny"
 	},
 	"MaxImagePostHeight": {
 		"message": "Maksymalna wysokość po obrazie"

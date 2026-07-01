@@ -227,9 +227,6 @@
 	"HeaderBgColour": {
 		"message": "Cabeçalho: Cor de Fundo"
 	},
-	"HeaderButtons": {
-		"message": "Botões do cabeçalho"
-	},
 	"HeaderTextColour": {
 		"message": "Cabeçalho: Cor do Texto"
 	},
@@ -437,9 +434,6 @@
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Isso não reduzirá necessariamente o uso da largura de banda, mas deverá ajudar a evitar que a página fique lenta, impedindo o reddit de adicionar novas postagens até você clicar em 'Carregue mais' na parte inferior do feed. Quando você clica em 'Carregue mais', as primeiras 25 postagens serão limpas e as próximas 25 serão exibidas."
 	},
-	"Main": {
-		"message": "Principal"
-	},
 	"MainContainer": {
 		"message": "Contêiner principal"
 	},
@@ -622,15 +616,6 @@
 	},
 	"ResizeLayout": {
 		"message": "Redimensionar Feed / Postagem"
-	},
-	"ResizeMainContainer": {
-		"message": "Redimensione o contêiner principal (experimental)"
-	},
-	"ResizeMainContainerInfo": {
-		"message": "Para obter os melhores resultados, defina todos os valores de largura \"Redimensionar Feed / Postagem\" como 100%."
-	},
-	"ResizeMainContainerWidth": {
-		"message": "Largura principal do contêiner"
 	},
 	"Restore": {
 		"message": "Restaurar"

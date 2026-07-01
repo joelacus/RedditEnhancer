@@ -227,6 +227,15 @@
 	"Feed": {
 		"message": "Feed"
 	},
+	"FeedKeyboardNavigation": {
+		"message": "Navigazione da tastiera del feed"
+	},
+	"FeedKeyboardNavigationInfo1": {
+		"message": "Publicación siguiente: (J / Flecha abajo). Publicación anterior: (K / Flecha arriba). Alternar publicación compacta: (Espacio)."
+	},
+	"FeedKeyboardNavigationInfo2": {
+		"message": "El uso de las teclas J/K interfiere con la función 'Atajos' de Reddit si está habilitada, en cuyo caso, use las teclas de flecha."
+	},
 	"FeedOffset": {
 		"message": "Compensación de alimentación"
 	},
@@ -277,9 +286,6 @@
 	},
 	"HeaderBgColour": {
 		"message": "Encabezado: Color de fondo"
-	},
-	"HeaderButtons": {
-		"message": "Botones de encabezado"
 	},
 	"HeaderTextColour": {
 		"message": "Encabezado: Color del texto"
@@ -416,9 +422,6 @@
 	"HideRelatedPosts": {
 		"message": "Ocultar publicaciones Relacionadas"
 	},
-	"HideSearchHero": {
-		"message": "Ocultar el banner de búsqueda en el feed de inicio"
-	},
 	"HideSearchSidebar": {
 		"message": "Ocultar la barra lateral de búsqueda"
 	},
@@ -532,9 +535,6 @@
 	},
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Esto no necesariamente reducirá el uso de ancho de banda, pero debería ayudar a evitar que la página se vuelva lenta al evitar que Reddit agregue nuevas publicaciones hasta que hagas clic en “Carga más” en la parte inferior del feed. Al hacer clic en “Carga más”, se borrarán las primeras 25 publicaciones y se mostrarán las siguientes 25."
-	},
-	"Main": {
-		"message": "Principal"
 	},
 	"MainContainer": {
 		"message": "Contenedor principal"
@@ -734,15 +734,6 @@
 	"ResizeLayout": {
 		"message": "Cambiar el Tamaño del Feed / Publicación"
 	},
-	"ResizeMainContainer": {
-		"message": "Cambiar el tamaño del contenedor principal"
-	},
-	"ResizeMainContainerInfo": {
-		"message": "Para obtener los mejores resultados, configure todos los valores de ancho de \"Cambiar tamaño de feed/publicación\" al 100 %."
-	},
-	"ResizeMainContainerWidth": {
-		"message": "Ancho del contenedor principal"
-	},
 	"Restore": {
 		"message": "Copia de Seguridad"
 	},
@@ -766,12 +757,6 @@
 	},
 	"ScalePostToFitVideo": {
 		"message": "Publicación de escala para adaptarse al video"
-	},
-	"ScrollToNextPreviousPost": {
-		"message": "Desplácese a la publicación siguiente/anterior presionando (J / Flecha abajo) / (K / Flecha arriba)"
-	},
-	"ScrollToNextPreviousPostInfo": {
-		"message": "El uso de las teclas J/K interfiere con la función 'Atajos' de Reddit si está habilitada, en cuyo caso, use las teclas de flecha."
 	},
 	"ScrollToNextRootComment": {
 		"message": "Mostrar botones para desplazarse al siguiente/comentario de raíz anterior"

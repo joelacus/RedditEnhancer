@@ -140,6 +140,7 @@ import { customHeaderLogo, setCustomHeaderLogoUrl } from './tweaks/style/custom_
 import { hideBlockedKeywordPosts } from './tweaks/block/block_posts_by_keyword';
 import { hideBlockedUserPosts } from './tweaks/block/block_posts_by_user';
 import { hideBlockedLinkPosts } from './tweaks/block/block_posts_by_url';
+import { hideBlockedSubredditPosts } from './tweaks/block/block_posts_by_subreddit';
 import { hideVideoRecommendations } from './tweaks/media/hide_video_recommendations';
 import { leftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { hideCommunityStatus } from './tweaks/hide_elements/hide_community_status';
@@ -151,7 +152,6 @@ import { hideAwards } from './tweaks/hide_elements/hide_awards';
 //import { dragImageToResize, dragImageToResizeInitialSize } from './functions/productivity/scale_image_on_drag';
 import { addDownloadVideoButton } from './tweaks/media/add_download_video_button';
 import { fullWidthExpandos } from './tweaks/media/full_width_expandos';
-import { hideSearchHero } from './tweaks/hide_elements/hide_search_hero';
 import { showCommentAbsoluteTimestamp, showPostAbsoluteTimestamp, updateCommentAbsoluteTimestamps, updatePostAbsoluteTimestamps } from './tweaks/productivity/show_absolute_timestamps';
 import { markPostAsReadButton } from './tweaks/productivity/mark_read_on_open_expandos';
 import { showMemberCount } from './tweaks/productivity/show_member_count';
@@ -167,6 +167,18 @@ import { hideRelatedCommunities } from './tweaks/hide_elements/hide_related_comm
 import { alwaysShowCommentOptions, hideCommentAwardOption, hideCommentBrandAffiliateOption, hideCommentDeleteOption, hideCommentEditOption, hideCommentFollowOption, hideCommentReplyNotificationsOption, hideCommentReportOption, hideCommentSaveOption, hideCommentShareOption, removeCommentButtonIcons } from './tweaks/productivity/always_show_comment_options';
 import { cleanLink, shortenCleanLink } from './tweaks/productivity/clean_link';
 import { showCommunitiesFilter } from './tweaks/productivity/community_filter';
+import { hidePageFooter } from './tweaks/hide_elements/hide_page_footer';
+import { hidePostComments } from './tweaks/hide_elements/hide_post_comments';
+import { hideBlockedKeywordComments } from './tweaks/block/block_comments_by_keyword';
+import { numberedPostImages } from './tweaks/media/numbered_post_images';
+import { autoplayVideos } from './tweaks/media/autoplay_videos';
+import { autoplayGifs } from './tweaks/media/autoplay_gifs';
+import { autoplayCommentGifs } from './tweaks/media/autoplay_comment_gifs';
+import { galleryKeyboardNavigation } from './tweaks/media/gallery_keyboard_navigation';
+import { hideAnnouncementNotifications } from './tweaks/hide_elements/hide_announcement_notifications';
+import { hideJoinConversation } from './tweaks/hide_elements/hide_join_conversation';
+import { hideGamificationNotifications } from './tweaks/hide_elements/hide_gamification_notifications';
+import { forceShowVoteButtons } from './tweaks/productivity/force_show_vote_buttons';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -235,6 +247,7 @@ const functionRegistry = {
 	hideBlockedKeywordPosts,
 	hideBlockedUserPosts,
 	hideBlockedLinkPosts,
+	hideBlockedSubredditPosts,
 	hideBlurredMediaBackground,
 	hideChatButton,
 	hideCommentKarma,
@@ -280,7 +293,6 @@ const functionRegistry = {
 	hideRedditPremium,
 	hideRelatedCommunities,
 	hideRelatedPostsSection,
-	hideSearchHero,
 	hideSearchSidebar,
 	hideSearchSidebarNsfwUsers,
 	hideSideMenu,
@@ -435,6 +447,18 @@ const functionRegistry = {
 	hideCommentDeleteOption,
 	hideCommentReplyNotificationsOption,
 	hideCommentBrandAffiliateOption,
+	hidePageFooter,
+	hidePostComments,
+	hideBlockedKeywordComments,
+	numberedPostImages,
+	autoplayVideos,
+	autoplayGifs,
+	autoplayCommentGifs,
+	galleryKeyboardNavigation,
+	hideAnnouncementNotifications,
+	hideJoinConversation,
+	hideGamificationNotifications,
+	forceShowVoteButtons,
 	// themeSearchbarBorderColour,
 	// themeSearchbarBorderColourCSS,
 	//breakReminder,

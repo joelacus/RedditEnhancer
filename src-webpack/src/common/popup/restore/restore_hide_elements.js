@@ -703,17 +703,6 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Awards: ' + checked);
 	});
 
-	// Hide Search Hero
-	BROWSER_API.storage.sync.get(['hideSearchHero'], function (result) {
-		const checked = result.hideSearchHero === true;
-		document.querySelector('#checkbox-hide-search-hero').checked = checked;
-		const icon = document.querySelector('.icon-hide-search-hero');
-		icon.style.backgroundColor = checked === true ? 'var(--accent)' : '';
-		icon.classList.replace(checked ? 'icon-show' : 'icon-hide', checked ? 'icon-hide' : 'icon-show');
-		if (checked) highlightMenuIcon('hide-elements');
-		console.log('Hide Search Hero: ' + checked);
-	});
-
 	// Hide Related Communities
 	BROWSER_API.storage.sync.get(['hideRelatedCommunities'], function (result) {
 		const checked = result.hideRelatedCommunities === true;
@@ -723,5 +712,60 @@ export function restorePopupHideElementsOptions() {
 		icon.classList.replace(checked ? 'icon-show' : 'icon-hide', checked ? 'icon-hide' : 'icon-show');
 		if (checked) highlightMenuIcon('hide-elements');
 		console.log('Hide Related Communities: ' + checked);
+	});
+
+	// Hide Page Footer Text
+	BROWSER_API.storage.sync.get(['hidePageFooter'], function (result) {
+		const checked = result.hidePageFooter === true;
+		document.querySelector('#checkbox-hide-page-footer').checked = checked;
+		const icon = document.querySelector('.icon-hide-page-footer');
+		icon.style.backgroundColor = checked === true ? 'var(--accent)' : '';
+		icon.classList.replace(checked ? 'icon-show' : 'icon-hide', checked ? 'icon-hide' : 'icon-show');
+		if (checked) highlightMenuIcon('hide-elements');
+		console.log('Hide Page Footer Text: ' + checked);
+	});
+
+	// Hide Post Comments
+	BROWSER_API.storage.sync.get(['hidePostComments'], function (result) {
+		const checked = result.hidePostComments === true;
+		document.querySelector('#checkbox-hide-post-comments').checked = checked;
+		const icon = document.querySelector('.icon-hide-post-comments');
+		icon.style.backgroundColor = checked === true ? 'var(--accent)' : '';
+		icon.classList.replace(checked ? 'icon-show' : 'icon-hide', checked ? 'icon-hide' : 'icon-show');
+		if (checked) highlightMenuIcon('hide-elements');
+		console.log('Hide Post Comments: ' + checked);
+	});
+
+	// Hide Reddit Announcement Notifications
+	BROWSER_API.storage.sync.get(['hideAnnouncementNotifications'], function (result) {
+		const checked = result.hideAnnouncementNotifications === true;
+		document.querySelector('#checkbox-hide-announcement-notifications').checked = checked;
+		const icon = document.querySelector('.icon-hide-announcement-notifications');
+		icon.style.backgroundColor = checked === true ? 'var(--accent)' : '';
+		icon.classList.replace(checked ? 'icon-show' : 'icon-hide', checked ? 'icon-hide' : 'icon-show');
+		if (checked) highlightMenuIcon('hide-elements');
+		console.log('Hide Reddit Announcement Notifications: ' + checked);
+	});
+
+	// Hide Reddit Gamification Notifications
+	BROWSER_API.storage.sync.get(['hideGamificationNotifications'], function (result) {
+		const checked = result.hideGamificationNotifications === true;
+		document.querySelector('#checkbox-hide-gamification-notifications').checked = checked;
+		const icon = document.querySelector('.icon-hide-gamification-notifications');
+		icon.style.backgroundColor = checked === true ? 'var(--accent)' : '';
+		icon.classList.replace(checked ? 'icon-show' : 'icon-hide', checked ? 'icon-hide' : 'icon-show');
+		if (checked) highlightMenuIcon('hide-elements');
+		console.log('Hide Reddit Gamification Notifications: ' + checked);
+	});
+
+	// Hide Join Conversation Input
+	BROWSER_API.storage.sync.get(['hideJoinConversation'], function (result) {
+		const checked = result.hideJoinConversation === true;
+		document.querySelector('#checkbox-hide-join-conversation').checked = checked;
+		const icon = document.querySelector('.icon-hide-join-conversation');
+		icon.style.backgroundColor = checked === true ? 'var(--accent)' : '';
+		icon.classList.replace(checked ? 'icon-show' : 'icon-hide', checked ? 'icon-hide' : 'icon-show');
+		if (checked) highlightMenuIcon('hide-elements');
+		console.log('Hide Join Conversation Input: ' + checked);
 	});
 }

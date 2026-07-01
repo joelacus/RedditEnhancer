@@ -164,6 +164,9 @@ function addBorderRadiusAmountStylesheet() {
 			span[avatar] .rounded-full,
 			.re-header-menu .rounded-full {
 				border-radius: 50% !important;
+			}
+			rpl-menu {
+				border-radius: var(--re-theme-border-radius) !important;;
 			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

@@ -4,16 +4,12 @@
  * @name leftSideVoteButtons
  * @description Move the vote buttons to the left side of the post.
  *
- * On v3 UI, post content in feed are nested under two HTML elements, an <article> and a custom semantic <shreddit-post>,
- * the latter of which is grid-based. To place the vote buttons on the left side of the posts, because moving the
- * grid layout takes a lot of shadow DOM effort, within the <article> I have to shrink the <shreddit-post> and align it
- * to the right, leaving enough space on the left for the buttons. This means that the vote buttons are part of <article>
- * rather than <shreddit-post>.
+ * Note: Physically moving the DOM elements seems to break the voting buttons in new Reddit builds,
+ *       so the buttons are now moved using pure CSS.
  *
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-import { showBannerMessage } from '../../banner_message';
 import { registerMutationCallback } from '../../observer_manager';
 
 let isAttaching = false;
@@ -96,168 +92,36 @@ function attachStylesheet() {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-left-side-vote-buttons';
 		styleElement.textContent = `
-			shreddit-feed > article:has(> shreddit-post),
-			shreddit-feed faceplate-batch > article:has(> shreddit-post) {
+			shreddit-post.re-votes-left {
+				padding-left: 3rem !important;
+			}
+			shreddit-app[routename="post_page"] shreddit-post.re-votes-left {
+				padding-left: 2rem !important;
+			}
+			shreddit-app shreddit-post.re-votes-left.re-has-upvote-ratio {
+				padding-left: 3rem !important;
+			}
+			shreddit-post::part(re-vote-container) {
+				position: absolute !important;
+				top: 0 !important;;
+				left: 0 !important;
+			}
+			shreddit-post::part(re-vote-group) {
 				display: flex;
-				background-color: color-mix(in srgb, var(--color-neutral-background), transparent 25%);
-				backdrop-filter: blur(var(--re-theme-blur));
-				border: 1px solid var(--re-theme-post-border);
-				border-radius: var(--re-theme-border-radius);
-			}
-			shreddit-feed > article > shreddit-post,
-			shreddit-feed faceplate-batch > article > shreddit-post {
-				flex-grow: 1;
-				border: none;
-				min-width: 0;
-				
-				& > span.min-h-\\[32px\\] {
-					min-height: revert;
-				}
-				& a.h-xl[data-testid="subreddit-name"] {
-					height: revert;
-				}
-				& faceplate-hovercard a span[avatar],
-				& span.h-lg.w-lg {
-					width: 20px;
-					height: 20px;
-					
-					& img {
-						width: 100% !important;
-					}
-				}
-			}
-			shreddit-feed .re-vote-panel {
-			    display: flex;
-                flex-direction: column;
-                align-items: center;
-                flex: 0 0 40px;
-            }
-			shreddit-feed .re-vote-panel shreddit-vote-animations > span {
 				flex-direction: column;
 				height: fit-content;
-				margin-top: 4px;
+				width: fit-content;
+				margin: 0.5rem;
+				border-radius: var(--re-theme-border-radius, 0.75rem);
 			}
-			shreddit-app[routename="post_page"] .re-vote-panel shreddit-vote-animations > span,
-			shreddit-app[routename="comments_page"] .re-vote-panel shreddit-vote-animations > span {
+			shreddit-post::part(re-vote-number) {
+				display: flex;
 				flex-direction: column;
-				height: fit-content;
-				margin-left: 4px;
 			}
-			shreddit-app[routename="post_page"] main.main,
-			shreddit-app[routename="comments_page"] main.main,
-			shreddit-app[routename="profile_post_page"] main.main,
-			shreddit-app[routename="profile_post_page_comments"] main.main {
-			    padding-left: 0;
-			    
-			    & .re-vote-panel {
-			        display: inline-block;
-			        width: 40px;
-			        vertical-align: top;
-			        padding: .25rem 0;
-			        margin-top: .75rem;
-			    }
-			    & .re-vote-panel + shreddit-post {
-                    display: inline-block;
-                    width: calc(100% - 40px);
-                    padding-left: .75rem;
-                }
-                & faceplate-hovercard + .ml-\\[6px\\] {
-                     margin-left: 4px;
-                     
-                     & .ml-\\[6px\\] {
-                     	margin-left: 0;
-                     }
-                }
-                comment-body-header {
-                    margin-left: 0;
-                    padding-left: 44px;
-                    padding-right: 1rem;
-                }
-                shreddit-comments-page-tools {
-                    padding-left: 28px;
-                }
-                shreddit-comment-tree {
-                    margin-left: 4px;
-                    margin-top: 8px;
-                }
-                shreddit-post .md,
-                shreddit-comment > .md {
-                    padding-right: 1rem;
-                }
-			}
-			span[id^="comment-tree-content-anchor-"] > div {
-			    padding: 1rem 3rem;
-                width: calc(100% - 4.5rem);
-            }
-            div[slot="commentAvatar"] a span,
-            div[slot="commentAvatar"] a svg {
-                width: 1.75rem;
-                height: 1.75rem;
-            }
-            div[slot="commentAvatar"] a > span {
-                margin: 0 0.125rem;
-            }
-            div[slot="credit-bar"] span.avatar,
-            div[slot="credit-bar"] span.avatar * {
-                width: 20px !important;
-                height: 20px;
-                margin: initial;
-                font-size: initial;
-                line-height: normal;
-            }
-            shreddit-post > div.flex.relative.pt-md[slot="credit-bar"] {
-                padding-top: .5rem;
-                height: 24px;
-            }
-            [routename="post_page"] shreddit-post span.avatar + div > div,
-            [routename="comment_page"] shreddit-post span.avatar + div > div {
-                display: none;
-            }
-            div#pdp-credit-bar[slot="credit-bar"] pdp-back-button {
-                position: absolute;
-                left: -5.5rem;
-                top: 0;
-            }
-            shreddit-app[routename="post_page"] shreddit-post[post-type="link"]:has(img#post-image) h1,
-            shreddit-app[routename="comment_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 {
-                margin-right: calc(144px + 2rem);
-            }
-            #re-crosspost-list {
-                margin-left: 40px;
-            }
-            
-            [routename="profile_post_page"] #pdp-credit-bar > span.truncate > span,
-            [routename="profile_post_page"] #pdp-credit-bar > span.truncate > div .subreddit-name,
-            [routename="profile_post_page"] #pdp-credit-bar > span.truncate > div #time-ago-separator,
-            [routename="profile_post_page_comments"] #pdp-credit-bar > span.truncate > span,
-            [routename="profile_post_page_comments"] #pdp-credit-bar > span.truncate > div .subreddit-name,
-            [routename="profile_post_page_comments"] #pdp-credit-bar > span.truncate > div #time-ago-separator {
-                display: none;
-            }
-            [routename="profile_post_page"] #pdp-credit-bar > span.truncate,
-            [routename="profile_post_page_comments"] #pdp-credit-bar > span.truncate {
-                align-items: start;
-            }
-            [routename="profile_post_page"] #pdp-credit-bar > span.truncate > div,
-            [routename="profile_post_page_comments"] #pdp-credit-bar > span.truncate > div {
-                flex-direction: row-reverse;
-            }
-            [routename="profile_post_page"] #pdp-credit-bar .author-name:before,
-            [routename="profile_post_page_comments"] #pdp-credit-bar .author-name:before {
-                content: "Posted by u/";
-            }
-            [routename="profile_post_page"] shreddit-post h1[slot="title"],
-            [routename="profile_post_page_comments"] shreddit-post h1[slot="title"] {
-                margin-top: 0;
-            }
-            
-            shreddit-app[routename='post_page'] shreddit-post span[slot='mod-overflow-menu'],
-			shreddit-app[routename='comments_page'] shreddit-post span[slot='mod-overflow-menu'],
-			shreddit-app[routename='profile_post_page'] shreddit-post span[slot='mod-overflow-menu'] {
-				margin-right: 18px;
-			}
-			shreddit-comment:not([is-highlighted]) > shreddit-comment-action-row > span[slot='mod-overflow-menu'] {
-				margin-right: 11px;
+			shreddit-post::part(re-upvote-ratio) {
+				width: 3rem;
+				margin-left: 0 !important;
+				margin-top: 0.25rem;
 			}
 			`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
@@ -266,11 +130,19 @@ function attachStylesheet() {
 
 // Disable Left Side Vote Buttons - RV3
 function disableLeftSideVoteButtonsRV3() {
-	const dynamicStyleElements = document.head.querySelectorAll('style[id="re-left-side-vote-buttons"]');
+	document.querySelectorAll('shreddit-post').forEach((post) => {
+		const group = post.shadowRoot.querySelector('.rpl-vote-button-group');
+		const container = group.closest('shreddit-vote-animations').parentElement;
+		const number = post.shadowRoot.querySelector('.rpl-vote-button-group faceplate-number');
+		container.removeAttribute('part');
+		group.removeAttribute('part');
+		number.removeAttribute('part');
+		post.classList.remove('re-votes-left');
+	});
+	const dynamicStyleElements = document.head.querySelectorAll('#re-left-side-vote-buttons');
 	dynamicStyleElements.forEach((element) => {
 		element.remove();
 	});
-	showBannerMessage('info', '[RedditEnhancer] Please refresh the page for the change to take full effect.');
 }
 
 async function attachVoteButtons() {
@@ -282,15 +154,16 @@ async function attachVoteButtons() {
 	let postArray = [...posts];
 
 	for (const post of postArray) {
-		if (!post.parentNode.querySelector('.re-vote-panel')) {
-			const votePanel = Object.assign(document.createElement('div'), {
-				className: 're-vote-panel',
-			});
-			const voteButtons = post.shadowRoot?.querySelector('span[data-post-click-location="vote"]')?.parentNode;
-			if (voteButtons) {
-				votePanel.appendChild(voteButtons);
-				post.parentNode.insertBefore(votePanel, post);
-			}
+		if (!post.classList.contains('re-votes-left')) {
+			post.classList.add('re-votes-left');
+
+			const group = post.shadowRoot.querySelector('.rpl-vote-button-group');
+			const container = group.closest('shreddit-vote-animations').parentElement;
+			const number = post.shadowRoot.querySelector('.rpl-vote-button-group faceplate-number');
+
+			container.setAttribute('part', 're-vote-container');
+			group.setAttribute('part', 're-vote-group');
+			number.setAttribute('part', 're-vote-number');
 		}
 	}
 

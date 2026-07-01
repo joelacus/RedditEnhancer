@@ -54,8 +54,16 @@ function enableScrollToNextRootCommentRV3() {
 	// Create previous button
 	const prevBtn = document.createElement('div');
 	prevBtn.setAttribute('id', 're-prev-comment');
-	// on click
+
+	// Add click event listener
 	prevBtn.addEventListener('click', function () {
+		goToPreviousComment();
+	});
+
+	container.append(prevBtn);
+
+	// Go to previous comment
+	function goToPreviousComment() {
 		// get all the elements of type "shreddit-comment"
 		let reRootComments = Array.from(document.querySelectorAll('#comment-tree > shreddit-comment'));
 		reRootComments = reRootComments.length === 0 ? Array.from(document.querySelectorAll('shreddit-comment-tree section > shreddit-comment')) : reRootComments;
@@ -75,8 +83,7 @@ function enableScrollToNextRootCommentRV3() {
 			const scrollToPosition = Math.floor(previousComment.getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
 		}
-	});
-	container.append(prevBtn);
+	}
 
 	// Create move handle
 	const handle = document.createElement('div');
@@ -87,8 +94,16 @@ function enableScrollToNextRootCommentRV3() {
 	// Create next button
 	const nextBtn = document.createElement('div');
 	nextBtn.setAttribute('id', 're-next-comment');
-	// on click
+
+	// Add click event listener
 	nextBtn.addEventListener('click', function () {
+		goToNextComment();
+	});
+
+	container.append(nextBtn);
+
+	// Go to next comment
+	function goToNextComment() {
 		// get all the elements of type "shreddit-comment"
 		let reRootComments = Array.from(document.querySelectorAll('#comment-tree > shreddit-comment'));
 		reRootComments = reRootComments.length === 0 ? Array.from(document.querySelectorAll('shreddit-comment-tree section > shreddit-comment')) : reRootComments;
@@ -108,11 +123,25 @@ function enableScrollToNextRootCommentRV3() {
 			const scrollToPosition = Math.floor(nextComment.getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
 		}
-	});
-	container.append(nextBtn);
+	}
 
 	// Append container to body
 	document.querySelector('body').appendChild(container);
+
+	// Add key press event listener
+	document.addEventListener('keydown', handleKeyPress);
+
+	function handleKeyPress(e) {
+		if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'REDDIT-SEARCH-LARGE') {
+			if (e.key === 'j' || e.key === 'J' || e.key === 'ArrowDown') {
+				if (e.key === 'ArrowDown') e.preventDefault();
+				goToNextComment();
+			} else if (e.key === 'k' || e.key === 'K' || e.key === 'ArrowUp') {
+				if (e.key === 'ArrowUp') e.preventDefault();
+				goToPreviousComment();
+			}
+		}
+	}
 }
 
 // Enable Scroll To Next Root Comment - RV1
@@ -133,8 +162,15 @@ function enableScrollToNextRootCommentRV1() {
 	// Create previous button
 	const prevBtn = document.createElement('div');
 	prevBtn.setAttribute('id', 're-prev-comment');
-	// on click
+
+	// Add click event listener
 	prevBtn.addEventListener('click', function () {
+		goToPreviousComment();
+	});
+	container.append(prevBtn);
+
+	// Go to previous comment
+	function goToPreviousComment() {
 		// get all the elements of type ".thing"
 		const reRootComments = Array.from(document.querySelectorAll('.commentarea > div[id^="siteTable"] > .thing'));
 		// get current postion
@@ -153,8 +189,7 @@ function enableScrollToNextRootCommentRV1() {
 			const scrollToPosition = Math.floor(previousComment.getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
 		}
-	});
-	container.append(prevBtn);
+	}
 
 	// Create move handle
 	const handle = document.createElement('div');
@@ -165,8 +200,15 @@ function enableScrollToNextRootCommentRV1() {
 	// Create next button
 	const nextBtn = document.createElement('div');
 	nextBtn.setAttribute('id', 're-next-comment');
-	// on click
+
+	// Add click event listener
 	nextBtn.addEventListener('click', function () {
+		goToNextComment();
+	});
+	container.append(nextBtn);
+
+	// Go to next comment
+	function goToNextComment() {
 		// get all the elements of type ".thing"
 		const reRootComments = Array.from(document.querySelectorAll('.commentarea > div[id^="siteTable"] > .thing'));
 		// get current postion
@@ -185,11 +227,25 @@ function enableScrollToNextRootCommentRV1() {
 			const scrollToPosition = Math.floor(nextComment.getBoundingClientRect().top + currentScrollPosition - headerHeight);
 			window.scrollTo({ top: scrollToPosition, behavior: 'smooth' });
 		}
-	});
-	container.append(nextBtn);
+	}
 
 	// Append container to body
 	document.querySelector('html').append(container);
+
+	// Add key press event listener
+	document.addEventListener('keydown', handleKeyPress);
+
+	function handleKeyPress(e) {
+		if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'REDDIT-SEARCH-LARGE') {
+			if (e.key === 'j' || e.key === 'J' || e.key === 'ArrowDown') {
+				if (e.key === 'ArrowDown') e.preventDefault();
+				goToNextComment();
+			} else if (e.key === 'k' || e.key === 'K' || e.key === 'ArrowUp') {
+				if (e.key === 'ArrowUp') e.preventDefault();
+				goToPreviousComment();
+			}
+		}
+	}
 }
 
 // Disable Scroll To Next Root Comment - All

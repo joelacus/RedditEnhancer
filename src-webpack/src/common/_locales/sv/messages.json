@@ -179,9 +179,6 @@
 	"Header": {
 		"message": "Rubrik"
 	},
-	"HeaderButtons": {
-		"message": "Rubrikknappar"
-	},
 	"HideAdvertiseButton": {
 		"message": "Dölj 'Annonsera' knappen"
 	},
@@ -292,9 +289,6 @@
 	},
 	"Light": {
 		"message": "Ljus"
-	},
-	"Main": {
-		"message": "Huvudsaklig"
 	},
 	"MaxImagePostHeight": {
 		"message": "Maximal bild efter höjd"

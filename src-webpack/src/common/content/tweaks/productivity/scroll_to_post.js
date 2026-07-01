@@ -24,8 +24,8 @@ export function loadScrollToPost() {
 export function scrollToPost(value) {
 	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
 	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed', 'post_page', 'comments_page'];
-	if (redditVersion === 'newnew' && feedRoutesv3.includes(routeName) && value) {
-		enableScrollToPostRV3();
+	if (redditVersion === 'newnew' && value) {
+		if (feedRoutesv3.includes(routeName)) enableScrollToPostRV3();
 	} else if (redditVersion === 'old' && value) {
 		enableScrollToPostRV1();
 	} else {
@@ -136,6 +136,13 @@ function createKeyboardNavigator(containerSelector, elementSelector, RedditVersi
 					const prevValid = findNextValidIndex(elements, current - 1, -1);
 					if (prevValid !== -1) scrollToElement(elements, prevValid, 0);
 				}
+			} else if (e.key === ' ') {
+				e.preventDefault();
+				const current = findCurrentIndex(elements);
+				// RV3
+				elements[current]?.querySelector('shreddit-post')?.shadowRoot?.querySelector('.toggle__expando-button')?.click();
+				// RV1
+				elements[current]?.querySelector('.expando-button')?.click();
 			}
 		}
 	}

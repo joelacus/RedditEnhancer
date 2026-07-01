@@ -37,14 +37,16 @@ export function loadCleanLink() {
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 export function cleanLink(value) {
+	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
+	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed', 'post_page', 'comments_page'];
 	if (value) {
 		if (redditVersion === 'newnew') {
-			enableNewnew();
+			if (feedRoutesv3.includes(routeName)) enableCleanLinkRV3();
 		} else if (redditVersion === 'old') {
-			enableOld();
+			enableCleanLinkRV1();
 		}
 	} else {
-		disableAll();
+		disableCleanLinkAll();
 	}
 }
 
@@ -94,7 +96,7 @@ function cleanUrl(url, shorten) {
 
 // ─── New New UI Implementation ──────────────────────────────────────────────
 
-function enableNewnew() {
+function enableCleanLinkRV3() {
 	if (observerCleanupNewnew) return;
 
 	observerCleanupNewnew = registerMutationCallback(
@@ -160,7 +162,7 @@ function addCleanLinkOption(menu) {
 
 // ─── Old UI Implementation ──────────────────────────────────────────────────
 
-function enableOld() {
+function enableCleanLinkRV1() {
 	if (observerCleanupOld) return;
 
 	observerCleanupOld = registerMutationCallback(
@@ -197,7 +199,7 @@ function modifyOldSharing(sharingEl) {
 
 // ─── Disable Feature ────────────────────────────────────────────────────────
 
-function disableAll() {
+function disableCleanLinkAll() {
 	if (observerCleanupNewnew) {
 		observerCleanupNewnew();
 		observerCleanupNewnew = null;

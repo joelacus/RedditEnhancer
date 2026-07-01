@@ -596,3 +596,11 @@
 	mask: url('../../icons/ui/sun-solid-full.svg');
 	-webkit-mask: url('../../icons/ui/sun-solid-full.svg');
 }
+.icon-arrow-up-down {
+	mask: url('../../icons/ui/icon-arrow-up-down.svg');
+	-webkit-mask: url('../../icons/ui/icon-arrow-up-down.svg');
+}
+.icon-keyboard {
+	mask: url('../../icons/ui/keyboard-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/keyboard-solid-full.svg');
+}

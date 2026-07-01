@@ -169,7 +169,7 @@ export function themeHeaderBackgroundColour(value) {
 									}
 									reddit-header-large button:hover,
 									reddit-header-large a.button-plain:hover {
-										--button-color-background: var(--re-theme-header-bg) !important;;
+										--button-color-background: oklch(from var(--re-theme-header-bg) clamp(0.20, calc(l + 0.05), 0.92) c h) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else {
@@ -285,6 +285,7 @@ export function themePostBackgroundColour(value) {
 		BROWSER_API.storage.sync.get(['themePostBackgroundColourCSS'], function (result) {
 			if (typeof result.themePostBackgroundColourCSS !== 'undefined' && result.themePostBackgroundColourCSS !== 'undefined') {
 				document.documentElement.style.setProperty('--re-theme-post-bg', result.themePostBackgroundColourCSS);
+				document.documentElement.style.setProperty('--re-theme-post-bg-opaque', 'oklch(from var(--re-theme-post-bg) l c h / 100%)');
 			}
 		});
 		const styleElement = document.createElement('style');
@@ -394,6 +395,17 @@ export function themePostBackgroundColour(value) {
 									}
 									community-recommendation {
 										background: var(--re-theme-post-bg);
+									}
+									rpl-menu {
+										background: var(--re-theme-post-bg-opaque);
+									}
+									rpl-menu-item:hover {
+										cursor: pointer;
+										background: oklch(from var(--re-theme-post-bg-opaque) clamp(0.20, calc(l + 0.05), 0.92) c h);
+									}
+									shreddit-overflow-menu {
+										--color-neutral-background-strong: var(--re-theme-post-bg-opaque);
+										--color-neutral-background-hover: oklch(from var(--re-theme-post-bg-opaque) clamp(0.20, calc(l + 0.05), 0.92) c h);
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else {
@@ -462,8 +474,8 @@ function fixThreadlinesForTranslucentPosts() {
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
 	document.querySelectorAll('shreddit-comment').forEach((comment) => {
-		const main_thread = comment.shadowRoot.querySelector('[data-testid="main-thread-line"]');
-		const last_thread = comment.shadowRoot.querySelector('#comment-children .threadline:last-of-type');
+		const main_thread = comment?.shadowRoot?.querySelector('[data-testid="main-thread-line"]');
+		const last_thread = comment?.shadowRoot?.querySelector('#comment-children .threadline:last-of-type');
 		if (main_thread && last_thread) {
 			const last_thread_height = last_thread.offsetHeight;
 			main_thread.style.position = 'absolute';
@@ -664,7 +676,7 @@ export function themePostFollowedTextColour(value) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-post-followed-text-colour';
 		styleElement.textContent = `shreddit-post:has([slot='credit-bar'] [icon-name='notifications-fill']) a[id^="post-title"],
-									shreddit-feed shreddit-post[view-type="compactView"] a[slot="title"] {
+									shreddit-post:has(unpacking-overflow-menu[is-receiving-post-replies]) a[id^="post-title"] {
 										color: var(--re-theme-post-followed-text) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
@@ -696,10 +708,10 @@ export function themePostVisitedTextColour(value) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-post-visited-text-colour';
 		styleElement.textContent = `shreddit-feed article a[id^="post-title"]:visited {
-										color: var(--re-theme-post-visited-text) !important;
+										color: var(--re-theme-post-visited-text, #CF5FFF);
 									}
 									shreddit-feed article a.visited\\:text-neutral-content-weak:visited {
-										--color-neutral-content-weak: var(--re-theme-post-visited-text) !important;
+										--color-neutral-content-weak: var(--re-theme-post-visited-text, #CF5FFF);
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else {

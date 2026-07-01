@@ -24,12 +24,14 @@ const observer = new MutationObserver((mutations) => {
 			}
 
 			defaultSortOption();
-			init();
-			// Wait for i18next to be ready before loading tweaks to avoid
-			// translation errors in clean_link, canned_messages, etc.
-			i18nReady.then(() => {
-				loadTweaks();
-			});
+			setTimeout(() => {
+				init();
+				// Wait for i18next to be ready before loading tweaks to avoid
+				// translation errors in clean_link, canned_messages, etc.
+				i18nReady.then(() => {
+					loadTweaks();
+				});
+			}, 200);
 		}
 	});
 });

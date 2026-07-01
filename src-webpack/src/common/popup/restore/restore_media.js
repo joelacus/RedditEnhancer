@@ -285,4 +285,49 @@ export function restorePopupMediaOptions() {
 		if (checked) highlightMenuIcon('media-tweaks');
 		console.log('Full Width Expandos: ' + checked);
 	});
+
+	// Append Numbers To Post Images
+	BROWSER_API.storage.sync.get(['numberedPostImages'], function (result) {
+		const checked = result.numberedPostImages === true;
+		document.querySelector('#checkbox-numbered-post-images').checked = checked;
+		document.querySelector('.icon-numbered-post-images').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('media-tweaks');
+		console.log('Numbered Post Images: ' + checked);
+	});
+
+	// Autoplay Videos
+	BROWSER_API.storage.sync.get(['autoplayVideos'], function (result) {
+		const checked = result.autoplayVideos === true;
+		document.querySelector('#checkbox-autoplay-videos').checked = checked;
+		document.querySelector('.icon-autoplay-videos').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('media-tweaks');
+		console.log('Autoplay Videos: ' + checked);
+	});
+
+	// Autoplay GIFs
+	BROWSER_API.storage.sync.get(['autoplayGifs'], function (result) {
+		const checked = result.autoplayGifs === true;
+		document.querySelector('#checkbox-autoplay-gifs').checked = checked;
+		document.querySelector('.icon-autoplay-gifs').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('media-tweaks');
+		console.log('Autoplay Gifs: ' + checked);
+	});
+
+	// Autoplay Comment GIFs
+	BROWSER_API.storage.sync.get(['autoplayCommentGifs'], function (result) {
+		const checked = result.autoplayCommentGifs === true;
+		document.querySelector('#checkbox-autoplay-comment-gifs').checked = checked;
+		document.querySelector('.icon-autoplay-comment-gifs').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('media-tweaks');
+		console.log('Autoplay Comment GIFs: ' + checked);
+	});
+
+	// Gallery Keyboard Navigation
+	BROWSER_API.storage.sync.get(['galleryKeyboardNavigation'], function (result) {
+		const checked = result.galleryKeyboardNavigation === true;
+		document.querySelector('#checkbox-gallery-keyboard-navigation').checked = checked;
+		document.querySelector('.icon-gallery-keyboard-navigation').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('media-tweaks');
+		console.log('Gallery Keyboard Navigation: ' + checked);
+	});
 }

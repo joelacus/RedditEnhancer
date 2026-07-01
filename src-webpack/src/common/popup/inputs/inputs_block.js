@@ -158,3 +158,70 @@ document.querySelector('#input-blocked-link-posts').addEventListener(
 		}
 	}, 1000),
 );
+
+// ─── Subreddits ─────────────────────────────────────────────────────────────
+
+// Toggle - Hide Blocked Subreddit Posts
+document.querySelector('#checkbox-hide-blocked-subreddit-posts-enable').addEventListener('change', function () {
+	document.querySelector('.icon-hide-blocked-subreddit-posts').style.backgroundColor = this.checked === true ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ hideBlockedSubredditPosts: this.checked });
+	sendMessage({ hideBlockedSubredditPosts: this.checked });
+});
+
+// Textarea - Hide Blocked Subreddit Posts
+document.querySelector('#input-blocked-subreddit-posts').addEventListener(
+	'input',
+	debounce(function () {
+		const subredditList = this.value;
+		// Validate regex patterns and show error message
+		const invalidEl = this.closest('li').querySelector('.info.invalid-regex');
+		if (validateRegexList(subredditList)) {
+			this.classList.remove('invalid-regex');
+			if (invalidEl) invalidEl.textContent = '';
+		} else {
+			this.classList.add('invalid-regex');
+			if (invalidEl) invalidEl.textContent = 'Invalid regex: ' + getInvalidRegexPatterns(subredditList).join(', ');
+		}
+		BROWSER_API.storage.sync.set({ hideBlockedSubredditPostsList: subredditList });
+		const enabled = document.querySelector('#checkbox-hide-blocked-subreddit-posts-enable').checked;
+		if (enabled) {
+			console.log('Refreshing blocked posts...');
+			sendMessage({ hideBlockedSubredditPosts: false });
+			sendMessage({ hideBlockedSubredditPosts: true });
+		}
+	}, 1000),
+);
+
+// ─── Comments ───────────────────────────────────────────────────────────────
+
+// Toggle - Hide Blocked Keyword Comments
+document.querySelector('#checkbox-hide-blocked-keyword-comments-enable').addEventListener('change', function () {
+	document.querySelector('.icon-hide-blocked-keyword-comments').style.backgroundColor = this.checked === true ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ hideBlockedKeywordComments: this.checked });
+	sendMessage({ hideBlockedKeywordComments: this.checked });
+});
+
+// Textarea - Hide Blocked Keyword Comments
+document.querySelector('#input-blocked-keyword-comments').addEventListener(
+	'input',
+	debounce(function () {
+		console.log(this.value);
+		const keywordsList = this.value;
+		// Validate regex patterns and show error message
+		const invalidEl = this.closest('li').querySelector('.info.invalid-regex');
+		if (validateRegexList(keywordsList)) {
+			this.classList.remove('invalid-regex');
+			if (invalidEl) invalidEl.textContent = '';
+		} else {
+			this.classList.add('invalid-regex');
+			if (invalidEl) invalidEl.textContent = 'Invalid regex: ' + getInvalidRegexPatterns(keywordsList).join(', ');
+		}
+		BROWSER_API.storage.sync.set({ hideBlockedKeywordCommentsList: keywordsList });
+		const enabled = document.querySelector('#checkbox-hide-blocked-keyword-comments-enable').checked;
+		if (enabled) {
+			console.log('Refreshing blocked posts...');
+			sendMessage({ hideBlockedKeywordComments: false });
+			sendMessage({ hideBlockedKeywordComments: true });
+		}
+	}, 1000),
+);

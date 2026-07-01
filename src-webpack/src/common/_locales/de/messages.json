@@ -227,6 +227,15 @@
 	"Feed": {
 		"message": "Feed"
 	},
+	"FeedKeyboardNavigation": {
+		"message": "Feed-Tastaturnavigation"
+	},
+	"FeedKeyboardNavigationInfo1": {
+		"message": "Nächsten Beitrag: (J / Pfeil nach unten). Vorherigen Beitrag: (K / Pfeil nach oben). Kompakte Beitragsansicht umschalten: (Leertaste)."
+	},
+	"FeedKeyboardNavigationInfo2": {
+		"message": "Die Verwendung der J/K-Tasten stört die „Shortcuts“-Funktion von Reddit, sofern diese aktiviert ist. Verwenden Sie in diesem Fall die Pfeiltasten. Die RE-Version verwendet sanftes Scrollen und überspringt alle ausgeblendeten Beiträge."
+	},
 	"FeedOffset": {
 		"message": "Vorschubversatz"
 	},
@@ -277,9 +286,6 @@
 	},
 	"HeaderBgColour": {
 		"message": "Kopfzeile: Hintergrundfarbe"
-	},
-	"HeaderButtons": {
-		"message": "Kopfzeilen-Schaltflächen"
 	},
 	"HeaderTextColour": {
 		"message": "Kopfzeile: Textfarbe"
@@ -416,9 +422,6 @@
 	"HideRelatedPosts": {
 		"message": "Verwandte Beiträge ausblenden"
 	},
-	"HideSearchHero": {
-		"message": "Verstecken Sie das Suchbanner im Heimfutter"
-	},
 	"HideSearchSidebar": {
 		"message": "Die Suchseitenleiste Ausblenden"
 	},
@@ -532,9 +535,6 @@
 	},
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Dadurch wird die Bandbreitennutzung nicht zwangsläufig reduziert, sondern es soll vielmehr dazu beitragen, eine Verlangsamung der Seite zu verhindern, indem reddit daran gehindert wird, neue Beiträge hinzuzufügen, bis Sie unten im Feed auf „Mehr laden“ klicken. Wenn Sie auf „Mehr laden“ klicken, werden die ersten 25 Beiträge gelöscht und die nächsten 25 angezeigt."
-	},
-	"Main": {
-		"message": "Hauptbereich"
 	},
 	"MainContainer": {
 		"message": "Hauptcontainer"
@@ -734,15 +734,6 @@
 	"ResizeLayout": {
 		"message": "Größe des Feeds/Beitrags ändern"
 	},
-	"ResizeMainContainer": {
-		"message": "Größe des Hauptcontainers ändern (experimentell)"
-	},
-	"ResizeMainContainerInfo": {
-		"message": "Um optimale Ergebnisse zu erzielen, setzen Sie bitte alle werte für die Größe des Feeds/Beitrags ändern auf 100 %."
-	},
-	"ResizeMainContainerWidth": {
-		"message": "Breite des Hauptcontainers"
-	},
 	"Restore": {
 		"message": "Wiederherstellen"
 	},
@@ -766,12 +757,6 @@
 	},
 	"ScalePostToFitVideo": {
 		"message": "Skalieren Sie den Beitrag, um Video anzupassen"
-	},
-	"ScrollToNextPreviousPost": {
-		"message": "Scrollen Sie zum nächsten/vorherigen Beitrag, indem Sie (J / Pfeil nach unten) / (K / Pfeil nach oben) drücken."
-	},
-	"ScrollToNextPreviousPostInfo": {
-		"message": "Die Verwendung der J/K-Tasten stört die „Shortcuts“-Funktion von Reddit, sofern diese aktiviert ist. Verwenden Sie in diesem Fall die Pfeiltasten. Die RE-Version verwendet sanftes Scrollen und überspringt alle ausgeblendeten Beiträge."
 	},
 	"ScrollToNextRootComment": {
 		"message": "Zeigen Sie Schaltflächen an, um zum nächsten/vorherigen Root Kommentar zu scrollen"

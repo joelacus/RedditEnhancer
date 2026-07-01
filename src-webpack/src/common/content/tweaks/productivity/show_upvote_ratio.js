@@ -67,10 +67,9 @@ async function attachRatio(post) {
 	});
 
 	if (redditVersion === 'newnew') {
-		if (document.querySelector('.re-vote-panel') && !document.querySelector('.re-upvote-ratio')) {
-			document.querySelector('.re-vote-panel faceplate-number').append(ratio);
-		} else if (!post.shadowRoot?.querySelector('.re-upvote-ratio')) {
-			document.querySelector('shreddit-post')?.shadowRoot?.querySelector('span[data-post-click-location="vote"] faceplate-number')?.append(ratio);
+		if (!post.classList.contains('re-has-upvote-ratio')) {
+			post.classList.add('re-has-upvote-ratio');
+			post?.shadowRoot?.querySelector('span[data-post-click-location="vote"] faceplate-number')?.append(ratio);
 		}
 	}
 }
@@ -79,6 +78,9 @@ async function attachRatio(post) {
 function disableShowUpvoteRatioRV3() {
 	document.querySelectorAll('shreddit-post').forEach((post) => {
 		const ratio = post.shadowRoot?.querySelector('.re-upvote-ratio');
-		if (ratio) ratio.remove();
+		if (ratio) {
+			post.classList.remove('re-has-upvote-ratio');
+			ratio.remove();
+		}
 	});
 }
