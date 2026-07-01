@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "3.1.2"
+		"message": "3.2.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -41,6 +41,9 @@
 	"AlwaysShowPostOptionsInfo": {
 		"message": "Move the buttons from the post overflow menu into the post action bar."
 	},
+	"AppendNumbersToPostImages": {
+		"message": "Numbered Post Images"
+	},
 	"AttachSideMenuHeader": {
 		"message": "Display page and user info in header"
 	},
@@ -61,6 +64,18 @@
 	},
 	"AutoLoadMoreCommentsInfo": {
 		"message": "This may cause the page to slow down and use a lot of RAM, especially if there are a lot of comments."
+	},
+	"AutoplayCommentGifs": {
+		"message": "Autoplay GIFs in comments"
+	},
+	"AutoplayGifs": {
+		"message": "Autoplay GIFs"
+	},
+	"AutoplayMediaInfo": {
+		"message": "For these options to work correctly, please disable \"Autoplay media\" in the Reddit User Settings > Preferences."
+	},
+	"AutoplayVideos": {
+		"message": "Autoplay Videos"
 	},
 	"Award": {
 		"message": "Award"
@@ -112,6 +127,9 @@
 	},
 	"BlockInfo": {
 		"message": "Supports exact keyword match, or regular expressions."
+	},
+	"BlocksCommentsByKeyword": {
+		"message": "Blocks Comments by Keyword"
 	},
 	"Blur": {
 		"message": "Blur"
@@ -170,8 +188,14 @@
 	"Comments": {
 		"message": "Comments"
 	},
+	"CommentsBlockInfo": {
+		"message": "List individual keywords/regex, separated by a comma."
+	},
 	"CommentsCount": {
 		"message": "Comments count"
+	},
+	"CommentsHidden": {
+		"message": "Comments Hidden"
 	},
 	"CompactHeaderSideMenu": {
 		"message": "Compact the Header Bar & Side Menu"
@@ -269,6 +293,15 @@
 	"Feed": {
 		"message": "Feed"
 	},
+	"FeedKeyboardNavigation": {
+		"message": "Feed Keyboard Navigation"
+	},
+	"FeedKeyboardNavigationInfo1": {
+		"message": "Next Post: (J / Down Arrow). Previous Post: (K / Up Arrow). Toggle Compact Post: (Space)."
+	},
+	"FeedKeyboardNavigationInfo2": {
+		"message": "Using the J/K keys will interfere with Reddit's \"Shortcuts\" feature if enabled, in which case, use the arrow keys. The RE version uses smooth scrolling and skips any hidden posts."
+	},
 	"FeedOffset": {
 		"message": "Feed Offset"
 	},
@@ -311,11 +344,20 @@
 	"ForceDarkMode": {
 		"message": "Force Reddit Dark Mode"
 	},
+	"ForceShowVoteButtons": {
+		"message": "Force Show Vote Buttons"
+	},
 	"FullWidthBanner": {
 		"message": "Full Width Subreddit Banner"
 	},
 	"FullWidthExpandos": {
 		"message": "Expand post previews in Compact view"
+	},
+	"GalleryKeyboardNavigation": {
+		"message": "Gallery Keyboard Navigation"
+	},
+	"GalleryKeyboardNavigationInfo": {
+		"message": "Use the left and right arrow keys to navigate post image galleries."
 	},
 	"GlobalWidth": {
 		"message": "Global Max. Width"
@@ -329,9 +371,6 @@
 	"HeaderBgColour": {
 		"message": "Header: Background Colour"
 	},
-	"HeaderButtons": {
-		"message": "Header Buttons"
-	},
 	"HeaderTextColour": {
 		"message": "Header: Text Colour"
 	},
@@ -342,10 +381,13 @@
 		"message": "Hide"
 	},
 	"HideAdvertiseButton": {
-		"message": "Hide the 'Advertise' Button"
+		"message": "Hide the \"Advertise\" Button"
+	},
+	"HideAnnouncementNotifications": {
+		"message": "Hide Reddit Announcement Notifications (u/reddit)"
 	},
 	"HideAwards": {
-		"message": "Hide 'Give Awards' Button"
+		"message": "Hide \"Give Awards\" Button"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Hide Posts with Blocked Keywords"
@@ -363,7 +405,7 @@
 		"message": "Hide Comment Karma"
 	},
 	"HideCommunityHighlights": {
-		"message": "Hide 'Community Highlights'"
+		"message": "Hide \"Community Highlights\""
 	},
 	"HideCommunityStatus": {
 		"message": "Hide Community Status"
@@ -375,7 +417,7 @@
 		"message": "Hide Thumbnails in Compact View"
 	},
 	"HideCreatePostButton": {
-		"message": "Hide 'Create Post' Button"
+		"message": "Hide \"Create Post\" Button"
 	},
 	"HideCustomFeedSidebar": {
 		"message": "Hide the Custom Feed Sidebar"
@@ -386,11 +428,14 @@
 	"HideFavouriteButtons": {
 		"message": "Hide the Favourite Buttons"
 	},
+	"HideGamificationNotifications": {
+		"message": "Hide Reddit Gamification Notifications"
+	},
 	"HideGap": {
 		"message": "Hide Interface Gaps"
 	},
 	"HideGetAppButton": {
-		"message": "Hide 'Get App' Button"
+		"message": "Hide \"Get App\" Button"
 	},
 	"HideGetNewReddit": {
 		"message": "Hide 'Get New Reddit'"
@@ -402,34 +447,40 @@
 		"message": "Hide Header Subreddit List"
 	},
 	"HideHomeFeed": {
-		"message": "Hide Home Feed"
+		"message": "Hide the Home Feed"
 	},
 	"HideHomeSidebar": {
 		"message": "Hide the Home Page Sidebar"
 	},
 	"HideJoinButtonOnPosts": {
-		"message": "Hide the 'Join' Button On Posts"
+		"message": "Hide the \"Join\" Button On Posts"
+	},
+	"HideJoinConversation": {
+		"message": "Hide \"Join the conversation\""
 	},
 	"HideKarma": {
 		"message": "Hide Karma"
 	},
 	"HideLinkPostsByUrlKeyword": {
-		"message": "Hide 'Link' posts by keywords in the URL"
+		"message": "Hide \"Link\" posts by keywords in the URL"
 	},
 	"HideLogoInTheSearchBar": {
 		"message": "Hide the Reddit logo in the Search Bar"
 	},
 	"HideModerationButton": {
-		"message": "Hide the 'Moderation' Button"
+		"message": "Hide the \"Moderation\" Button"
 	},
 	"HideNSFW": {
 		"message": "Hide NSFW/L Posts"
 	},
 	"HideNotificationButton": {
-		"message": "Hide 'Notification' Button"
+		"message": "Hide \"Notification\" Button"
 	},
 	"HideNsfwInSearchResults": {
 		"message": "Hide NSFW results in the Search Bar"
+	},
+	"HidePageFooter": {
+		"message": "Hide the page footer text"
 	},
 	"HidePostActionBarButtonsInfo": {
 		"message": "Hide buttons from post action bar"
@@ -437,11 +488,14 @@
 	"HidePostBackButton": {
 		"message": "Hide The Post Back Button"
 	},
+	"HidePostComments": {
+		"message": "Hide all the comments under a post"
+	},
 	"HidePostDivider": {
 		"message": "Hide post and sidebar dividers"
 	},
 	"HidePostHiddenMessage": {
-		"message": "Hide 'Post Hidden' Message"
+		"message": "Hide \"Post Hidden\" Message"
 	},
 	"HidePostKarma": {
 		"message": "Hide Post Karma"
@@ -451,6 +505,9 @@
 	},
 	"HidePostsByBlockedUser": {
 		"message": "Hide Posts by Blocked Users"
+	},
+	"HidePostsBySubreddit": {
+		"message": "Hide Posts by Subreddit"
 	},
 	"HidePromoted": {
 		"message": "Hide Ads/Promoted Links"
@@ -465,16 +522,13 @@
 		"message": "Hiding recommended posts can also be set officially in the reddit user settings."
 	},
 	"HideRedditPremium": {
-		"message": "Hide 'Reddit Premium'"
+		"message": "Hide \"Reddit Premium\""
 	},
 	"HideRelatedCommunities": {
 		"message": "Hide Related Communities"
 	},
 	"HideRelatedPosts": {
 		"message": "Hide Related Posts"
-	},
-	"HideSearchHero": {
-		"message": "Hide the Search Banner on Home Feed"
 	},
 	"HideSearchSidebar": {
 		"message": "Hide the Search Sidebar"
@@ -569,6 +623,12 @@
 	"JustOpenTheImageInfo": {
 		"message": "When opening images in a new tab, open them directly without embedding them on a Reddit page."
 	},
+	"Keywords": {
+		"message": "Keywords"
+	},
+	"KeywordsBlockInfo": {
+		"message": "Blocks posts based on the title, not the content. List individual keywords/regex, separated by a comma."
+	},
 	"Language": {
 		"message": "Language"
 	},
@@ -596,8 +656,8 @@
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. This won't necessarily reduce bandwidth usage, but should instead help prevent the page from becoming slow by stopping reddit from adding new posts until you click 'Load More' at the bottom of the feed. When you click 'Load More' it will clear the first 25 posts, and show the next 25."
 	},
-	"Main": {
-		"message": "Main"
+	"Link": {
+		"message": "Link"
 	},
 	"MainContainer": {
 		"message": "Main Container"
@@ -752,6 +812,9 @@
 	"PostWidth": {
 		"message": "Post Width"
 	},
+	"Posts": {
+		"message": "Posts"
+	},
 	"Productivity": {
 		"message": "Productivity"
 	},
@@ -812,15 +875,6 @@
 	"ResizeLayout": {
 		"message": "Resize Feed / Post"
 	},
-	"ResizeMainContainer": {
-		"message": "Resize Main Container (experimental)"
-	},
-	"ResizeMainContainerInfo": {
-		"message": "For the best results, please set all Resize Feed / Post width values to 100%."
-	},
-	"ResizeMainContainerWidth": {
-		"message": "Main Container Width"
-	},
 	"Restore": {
 		"message": "Restore"
 	},
@@ -845,14 +899,11 @@
 	"ScalePostToFitVideo": {
 		"message": "Scale Post To Fit Video"
 	},
-	"ScrollToNextPreviousPost": {
-		"message": "Scroll to the next/previous post by pressing (J / Down Arrow) / (K / Up Arrow)"
-	},
-	"ScrollToNextPreviousPostInfo": {
-		"message": "Using the J/K keys will interfere with Reddit's 'Shortcuts' feature if enabled, in which case, use the arrow keys. The RE version uses smooth scrolling and skips any hidden posts."
-	},
 	"ScrollToNextRootComment": {
 		"message": "Show Navigation Buttons For The Next/Previous Root Comment"
+	},
+	"ScrollToNextRootCommentInfo": {
+		"message": "Optional keyboard navigation. Next root comment: (J / Down Arrow). Previous root comment: (K / Up Arrow)."
 	},
 	"ScrollToTopFloat": {
 		"message": "Add floating 'Scroll To Top' button"
@@ -901,6 +952,9 @@
 	},
 	"ShowCommentAbsoluteTimestamp": {
 		"message": "Show Absolute Timestamps On Comments"
+	},
+	"ShowComments": {
+		"message": "Show Comments"
 	},
 	"ShowCommunitiesFilter": {
 		"message": "Filter Communities List"
@@ -990,10 +1044,13 @@
 		"message": "Sub Feed Width"
 	},
 	"SubHeaderBgColour": {
-		"message": "Sub Header Background Colour"
+		"message": "Subreddit Header Background Colour"
 	},
 	"Subreddit": {
 		"message": "Subreddit"
+	},
+	"SubredditBlockInfo": {
+		"message": "Hides all posts from the listed subreddits on feeds, except subreddit feeds."
 	},
 	"SubredditDisplayNameBanner": {
 		"message": "Show the subreddit display name in its banner"
@@ -1066,6 +1123,9 @@
 	},
 	"UsernameHoverPopupDelay": {
 		"message": "Username Hover Popup Delay"
+	},
+	"Users": {
+		"message": "Users"
 	},
 	"Video": {
 		"message": "Video"

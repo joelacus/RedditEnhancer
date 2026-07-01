@@ -239,6 +239,15 @@
 	"Feed": {
 		"message": "Fil d'actualité"
 	},
+	"FeedKeyboardNavigation": {
+		"message": "Navigation au clavier dans le flux"
+	},
+	"FeedKeyboardNavigationInfo1": {
+		"message": "Post suivant: (J / Flèche vers le bas). Post précédent: (K / Flèche vers le haut). Basculer vers l'affichage compact : (Espace)."
+	},
+	"FeedKeyboardNavigationInfo2": {
+		"message": "L'utilisation des touches J/K interférer avec la fonctionnalité « Raccourcis » de Reddit si elle est activée, auquel cas, utilisez les touches fléchées. La version RE utilise un défilement fluide et ignore les posts cachés."
+	},
 	"FeedOffset": {
 		"message": "Compensation de flux"
 	},
@@ -292,9 +301,6 @@
 	},
 	"HeaderBgColour": {
 		"message": "En-tête : Couleur d’arrière-plan"
-	},
-	"HeaderButtons": {
-		"message": "Boutons d'en-tête"
 	},
 	"HeaderTextColour": {
 		"message": "En-tête : Couleur du texte"
@@ -437,9 +443,6 @@
 	"HideRelatedPosts": {
 		"message": "Masquer les articles associés"
 	},
-	"HideSearchHero": {
-		"message": "Cacher la bannière de recherche sur le flux de la maison"
-	},
 	"HideSearchSidebar": {
 		"message": "Masquer la barre latérale de recherche"
 	},
@@ -556,9 +559,6 @@
 	},
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Cela ne réduira pas nécessairement l'utilisation de la bande passante, mais devrait plutôt empêcher la page de devenir lente en empêchant Reddit d'ajouter de nouvelles Posts jusqu'à ce que vous cliquiez sur « Charger plus » au bas du flux. Lorsque vous cliquez sur « Charger plus », les 25 premiers messages seront effacés et les 25 suivants seront affichés."
-	},
-	"Main": {
-		"message": "Principal"
 	},
 	"MainContainer": {
 		"message": "Conteneur principal"
@@ -770,15 +770,6 @@
 	"ResizeLayout": {
 		"message": "Redimensionner le Flux / la Post"
 	},
-	"ResizeMainContainer": {
-		"message": "Redimensionner le conteneur principal (expérimental)"
-	},
-	"ResizeMainContainerInfo": {
-		"message": "Pour de meilleurs résultats, veuillez définir toutes les valeurs de Redimensionner le Flux / la Post largeur sur 100 %."
-	},
-	"ResizeMainContainerWidth": {
-		"message": "Largeur du conteneur principal"
-	},
 	"Restore": {
 		"message": "Restaurer"
 	},
@@ -802,12 +793,6 @@
 	},
 	"ScalePostToFitVideo": {
 		"message": "Scale Post pour s'adapter à la vidéo"
-	},
-	"ScrollToNextPreviousPost": {
-		"message": "Faites défiler jusqu'au post suivant/précédent en appuyant sur (J / Flèche vers le bas) / (K / Flèche vers le haut)"
-	},
-	"ScrollToNextPreviousPostInfo": {
-		"message": "L'utilisation des touches J/K interférer avec la fonctionnalité « Raccourcis » de Reddit si elle est activée, auquel cas, utilisez les touches fléchées. La version RE utilise un défilement fluide et ignore les posts cachés."
 	},
 	"ScrollToNextRootComment": {
 		"message": "Afficher les boutons pour faire défiler le commentaire racine suivant / précédent"
@@ -936,7 +921,7 @@
 		"message": "Largeur du sous-feed"
 	},
 	"SubHeaderBgColour": {
-		"message": "Couleur d'arrière-plan du sous-en-tête"
+		"message": "Couleur d'arrière-plan de l'en-tête du subreddit"
 	},
 	"Subreddit": {
 		"message": "Subreddit"

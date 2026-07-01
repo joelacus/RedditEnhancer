@@ -62,9 +62,10 @@ I welcome any help if you would like to improve or contribute new language trans
 ## Block
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
-|Hide Post with Blocked Keywords|Hide all posts that contain a certain keyword(s), supports regex (regular expressions).|3<br>1|
-|Hide Post by Blocked Users|Hide all posts that are created by a certain user(s), supports regex (regular expressions).|3<br>1|
+|Hide Posts with Blocked Keywords|Hide all posts that contain a certain keyword(s), supports regex (regular expressions).|3<br>1|
+|Hide Posts by Blocked Users|Hide all posts that are created by a certain user(s), supports regex (regular expressions).|3<br>1|
 |Hide "Link" posts by keywords in the URL|Hide all posts that contain a URL containing certain keyword(s), supports regex (regular expressions).|3<br>1|
+|Hide Posts by Subreddit|Hide all posts from a certain subreddit(s), supports regex (regular expressions). Not enabled for subreddit feeds.|3<br>1|
 
 ## Resize Feed and Posts
 |Feature|Description|Reddit Version Support|
@@ -86,6 +87,10 @@ I welcome any help if you would like to improve or contribute new language trans
 ## Media
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
+|Autoplay Videos|Autoplay videos on feeds (not GIFs)|3|
+|Autoplay GIFs|Autoplay GIFs on feeds (not videos)|3|
+|Autoplay Comment GIFs|Autoplay GIFs in comments on post pages.|3|
+|Numbered Post Images|Add numbers to images in image galleries.|3<br>1|
 |Add "Download Video" Button|This adds a button to video posts to download the video. It currently only supports mp4 URLs, not m3u8, so some posts won't have the download button.|3|
 |Add fade effect to text post previews|Adds a fade effect to the bottom of long text posts.|3|
 |Add Scrollbars To Images|Add a scrollbar to tall images so you can see the full width of the image, but scroll on the image to see more.|3|
@@ -96,6 +101,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Max Image Width|Limits the maximum post image content width relative to the post.|3|
 |Max Video Post Height|Sets the maximum height of the post content. Note: This may set the video width to less than the "Limit Video Width" value to keep the correct aspect ratio if "Scale Post To Fit Video" is enabled.|3|
 |Max Video Width|Limits the maximum post video content width relative to the post.|3|
+|Numbered Post Images|Append numbers to each image in a post gallery.|3|
+|Gallery Keyboard Navigation|Use the left and right arrow keys to navigate post image galleries.|3|
 |Replace Images with Links on Feeds|Hide post images and show text links instead on feeds. (Currently doesn't work with NSFW images).|3|
 |Replace Videos with Links on Feeds|Hide post videos and show text links instead on feeds. (Only works with .mp4 and .gif videos, .m3u8 links may be unplayable in other players).|3|
 |Scale Post To Fit Image|Dynamically scale the post vertically to fit the maximum height of the image.|3|
@@ -119,6 +126,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide NSFW/L Posts|Hide any posts marked as NSFW/L.|3<br>1|
 |Hide post and sidebar dividers|Hides the line between posts in feeds, also hides the dividers in the subreddit and post sidebars, separating sections into their own boxes.|3|
 |Hide Post Karma|Hides the karma on posts.|3<br>1|
+|Hide Announcement Notifications|Hide Reddit announcement notifications from your notifications list.|3|
 |Hide profile pictures in the comments|Simply hides the user profile pictures in the comments of a post.|3|
 |Hide Promoted Links|Hides the promoted links/posts in the main feed.|3<br>1|
 |Hide Recent Posts|Hide the recent posts section in the sidebar.|3|
@@ -135,14 +143,17 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide The Post Sidebar|Hides the sidebar on post pages.|3|
 |Hide The Sub Reddit Sidebar|Hides the sidebar on sub reddit pages.|3|
 |Hide The User Sidebar|Hides the sidebar on profile/user pages.|3|
+|Hide the page footer text|Hide the text at the bottom of the sidebars.|3|
 |Hide "Get App" Button|Hides the "Get App" button in the head bar.|3|
 |Use the Original Search Bar|Hides the new AI "Ask" button and the orange glow from the search bar, returning it to how it was before.|3|
 |Hide Logo in the Search Bar|Hides the Reddit logo in the search bar.|3|
 |Replace Search Bar Placeholder|Change the "Find Anything" placeholder text in the search bar back to "Search Reddit".|3|
+|Hide all the comments under a post|Completely hide all the comments under a post, as well as the create new comment input.|3<br>1|
 |Hide Thumbnails in Compact View|Hides the thumbnails on posts when viewing a feed in compact view.|3<br>1|
 |Hide Username and/or Karma|You can hide your username and/or karma in the top bar.|1|
 |Hide username in the subreddit sidebar flair section|Hides the username and profile picture in the edit flair section of the subreddit sidebar.|3|
 |Hide Vote Buttons|Hide the vote buttons on posts and comments.|3<br>1|
+
 
 ## Productivity
 |Feature|Description|Reddit Version Support|
@@ -163,6 +174,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Default Comments Sort Option|Set how you want the comments to be sorted automatically when the page loads.|3<br>1|
 |Default Feed Sort Option|Set how you want the feed to be sorted automatically when the page loads.|3<br>1|
 |Filter Communities List|Adds a filter input at the top of the communities list in the side menu to quickly filter subreddits.|3|
+|Force Show Vote Buttons|Show the upvote and downvote buttons on old Reddit, even when certain subreddits choose to hide them.|1|
 |Highlight comments from the original poster (OP)|On a post comment page, highlight any comments made by the original poster.|3|
 |Limit Image Width|Limit the width of the image/video relative to the post when used with "Add Scrollbar To Tall Images" or "Scale Post To Fit Image"|3|
 |Limit Post Comments|Limit the number of comments on a post, when opened in a dedicated tab/window.|1|
@@ -236,19 +248,19 @@ Feel free to add any new languages and/or region differences.
 |Language|Completion|
 |---|---|
 |[English](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/en/messages.json)|100%|
-|[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|100%|
-|[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|95.1%|
-|[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|91.5%|
-|[German](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/de/messages.json)|91.5%|
-|[Spanish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/es/messages.json)|91.5%|
-|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|77.9%|
-|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|67.2%|
-|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|56%|
-|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|56%|
-|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|42.3%|
-|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|28.4%|
-|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|26.2%|
-|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|22.7%|
+|[Italian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/it/messages.json)|93.5%|
+|[French](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fr/messages.json)|88.9%|
+|[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|85.5%|
+|[German](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/de/messages.json)|85.5%|
+|[Spanish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/es/messages.json)|85.5%|
+|[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|72.5%|
+|[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|63.2%|
+|[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|52.6%|
+|[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|52.6%|
+|[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|39.6%|
+|[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|26.4%|
+|[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|24.9%|
+|[Hungarian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/hu/messages.json)|21.5%|
 
 # Build
 Clone repo and cd to build directory:

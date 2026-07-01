@@ -149,9 +149,6 @@
 	"HeaderBgColour": {
 		"message": "Overskrift: Bakgrunnsfarge"
 	},
-	"HeaderButtons": {
-		"message": "Topptoner"
-	},
 	"HeaderTextColour": {
 		"message": "Overskrift: Tekstfarge"
 	},
@@ -313,9 +310,6 @@
 	},
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Dette vil ikke nødvendigvis redusere båndbreddebruken, men bør i stedet bidra til å forhindre at siden blir treg ved å stoppe reddit fra å legge til nye innlegg til du klikker på «Last inn mer» nederst i feeden. Når du klikker 'Last inn mer' vil det fjerne de første 25 innleggene, og vise de neste 25."
-	},
-	"Main": {
-		"message": "Hoved"
 	},
 	"MaxImagePostHeight": {
 		"message": "Maksimal bilde etter høyde"

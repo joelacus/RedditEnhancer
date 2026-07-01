@@ -660,4 +660,13 @@ export function restorePopupProductivityOptions() {
 		if (checked) highlightMenuIcon('productivity-tweaks');
 		console.log('Show Communities Filter: ' + checked);
 	});
+
+	// Force Show Vote Buttons
+	BROWSER_API.storage.sync.get(['forceShowVoteButtons'], function (result) {
+		const checked = result.forceShowVoteButtons === true;
+		document.querySelector('#checkbox-force-show-vote-buttons').checked = checked;
+		document.querySelector('.icon-force-show-vote-buttons').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('productivity-tweaks');
+		console.log('Force Show Vote Buttons: ' + checked);
+	});
 }

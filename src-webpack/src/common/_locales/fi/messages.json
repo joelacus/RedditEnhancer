@@ -89,9 +89,6 @@
 	"Header": {
 		"message": "Otsikko"
 	},
-	"HeaderButtons": {
-		"message": "Otsikkopainikkeet"
-	},
 	"HideAdvertiseButton": {
 		"message": "Piilota 'Mainosta-painike'"
 	},
@@ -163,9 +160,6 @@
 	},
 	"Light": {
 		"message": "Vaalea"
-	},
-	"Main": {
-		"message": "Pää"
 	},
 	"MaxImagePostHeight": {
 		"message": "Suurin kuvan jälkeinen korkeus"

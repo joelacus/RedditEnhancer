@@ -227,6 +227,15 @@
 	"Feed": {
 		"message": "Feed"
 	},
+	"FeedKeyboardNavigation": {
+		"message": "Toetsenbordnavigatie voor de feed"
+	},
+	"FeedKeyboardNavigationInfo1": {
+		"message": "Volgende bericht: (J / Pijl omlaag). Vorige bericht: (K / Pijl omhoog). Compact bericht in-/uitschakelen: (Spatie)."
+	},
+	"FeedKeyboardNavigationInfo2": {
+		"message": "Het gebruik van de J/K-toetsen zal de 'Shortcuts'-functie van Reddit verstoren, indien ingeschakeld. Gebruik in dat geval de pijltjestoetsen. De RE-versie maakt gebruik van soepel scrollen en slaat alle verborgen berichten over."
+	},
 	"FeedOffset": {
 		"message": "Feed Offset"
 	},
@@ -277,9 +286,6 @@
 	},
 	"HeaderBgColour": {
 		"message": "Koptekst: Achtergrondkleur"
-	},
-	"HeaderButtons": {
-		"message": "Koptekst Knoppen"
 	},
 	"HeaderTextColour": {
 		"message": "Koptekst: Tekstkleur"
@@ -416,9 +422,6 @@
 	"HideRelatedPosts": {
 		"message": "Verberg gerelateerde berichten"
 	},
-	"HideSearchHero": {
-		"message": "Verberg de zoekbanner op Home Feed"
-	},
 	"HideSearchSidebar": {
 		"message": "Verberg de zoekzijbalk"
 	},
@@ -532,9 +535,6 @@
 	},
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Dit zal niet noodzakelijkerwijs het bandbreedtegebruik verminderen, maar zou in plaats daarvan moeten helpen voorkomen dat de pagina traag wordt door te voorkomen dat Reddit nieuwe berichten toevoegt totdat je op 'Meer laden' onderaan de feed klikt. Wanneer u op 'Meer laden' klikt, worden de eerste 25 berichten gewist en worden de volgende 25 weergegeven."
-	},
-	"Main": {
-		"message": "Hoofd"
 	},
 	"MainContainer": {
 		"message": "Hoofdcontainer"
@@ -734,15 +734,6 @@
 	"ResizeLayout": {
 		"message": "Formaat van Feed / Post wijzigen"
 	},
-	"ResizeMainContainer": {
-		"message": "Wijzig de wijze van de hoofdcontainer (experimenteel)"
-	},
-	"ResizeMainContainerInfo": {
-		"message": "Stel voor de beste resultaten alle wijzigingen in de grootte van de \"Formaat van Feed / Post wijzigen\" in op 100%."
-	},
-	"ResizeMainContainerWidth": {
-		"message": "Hoofdcontainerbreedte"
-	},
 	"Restore": {
 		"message": "Herstellen"
 	},
@@ -766,12 +757,6 @@
 	},
 	"ScalePostToFitVideo": {
 		"message": "Schaalpost voor video"
-	},
-	"ScrollToNextPreviousPost": {
-		"message": "Blader naar het volgende/vorige bericht door op (J / Pijl omlaag) / (K / Pijl omhoog) te drukken"
-	},
-	"ScrollToNextPreviousPostInfo": {
-		"message": "Het gebruik van de J/K-toetsen zal de 'Shortcuts'-functie van Reddit verstoren, indien ingeschakeld. Gebruik in dat geval de pijltjestoetsen. De RE-versie maakt gebruik van soepel scrollen en slaat alle verborgen berichten over."
 	},
 	"ScrollToNextRootComment": {
 		"message": "Toon knoppen om naar de volgende/vorige root opmerking te scrollen"

@@ -651,11 +651,47 @@ document.querySelector('#checkbox-hide-awards').addEventListener('change', funct
 	icon.classList.replace(this.checked ? 'icon-show' : 'icon-hide', this.checked ? 'icon-hide' : 'icon-show');
 });
 
-// Toggle - Hide Search Hero
-document.querySelector('#checkbox-hide-search-hero').addEventListener('change', function () {
-	BROWSER_API.storage.sync.set({ hideSearchHero: this.checked });
-	sendMessage({ hideSearchHero: this.checked });
-	const icon = document.querySelector('.icon-hide-search-hero');
+// Toggle - Hide Page Footer Text
+document.querySelector('#checkbox-hide-page-footer').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ hidePageFooter: this.checked });
+	sendMessage({ hidePageFooter: this.checked });
+	const icon = document.querySelector('.icon-hide-page-footer');
+	icon.style.backgroundColor = this.checked ? 'var(--accent)' : '';
+	icon.classList.replace(this.checked ? 'icon-show' : 'icon-hide', this.checked ? 'icon-hide' : 'icon-show');
+});
+
+// Toggle - Hide Post Comments
+document.querySelector('#checkbox-hide-post-comments').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ hidePostComments: this.checked });
+	sendMessage({ hidePostComments: this.checked });
+	const icon = document.querySelector('.icon-hide-post-comments');
+	icon.style.backgroundColor = this.checked ? 'var(--accent)' : '';
+	icon.classList.replace(this.checked ? 'icon-show' : 'icon-hide', this.checked ? 'icon-hide' : 'icon-show');
+});
+
+// Toggle - Reddit Announcement Notifications
+document.querySelector('#checkbox-hide-announcement-notifications').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ hideAnnouncementNotifications: this.checked });
+	sendMessage({ hideAnnouncementNotifications: this.checked });
+	const icon = document.querySelector('.icon-hide-announcement-notifications');
+	icon.style.backgroundColor = this.checked ? 'var(--accent)' : '';
+	icon.classList.replace(this.checked ? 'icon-show' : 'icon-hide', this.checked ? 'icon-hide' : 'icon-show');
+});
+
+// Toggle - Reddit Gamification Notifications
+document.querySelector('#checkbox-hide-gamification-notifications').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ hideGamificationNotifications: this.checked });
+	sendMessage({ hideGamificationNotifications: this.checked });
+	const icon = document.querySelector('.icon-hide-gamification-notifications');
+	icon.style.backgroundColor = this.checked ? 'var(--accent)' : '';
+	icon.classList.replace(this.checked ? 'icon-show' : 'icon-hide', this.checked ? 'icon-hide' : 'icon-show');
+});
+
+// Toggle - Join Conversation Input
+document.querySelector('#checkbox-hide-join-conversation').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ hideJoinConversation: this.checked });
+	sendMessage({ hideJoinConversation: this.checked });
+	const icon = document.querySelector('.icon-hide-join-conversation');
 	icon.style.backgroundColor = this.checked ? 'var(--accent)' : '';
 	icon.classList.replace(this.checked ? 'icon-show' : 'icon-hide', this.checked ? 'icon-hide' : 'icon-show');
 });

@@ -45,7 +45,7 @@ export async function defaultSortOption() {
 	}
 
 	if (/\/(submit|wiki|rules|notifications)/.test(url.pathname)) {
-		console.debug('[RedditEnhancer] Skipping defaultSortOption because the current page (submit, wiki, rules) is not sortable');
+		console.debug('[RedditEnhancer] Skipping defaultSortOption because the current page (submit, wiki, rules, notifications) is not sortable');
 		const page = url.pathname.match(/\/(submit|wiki|rules|notifications)/)?.[1] || '';
 		sessionStorage.setItem('RE.page', page);
 	} else if (url.pathname.includes('/comments/') && url.pathname.split('/').filter((item) => item !== '').length > 5) {

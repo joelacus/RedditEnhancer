@@ -164,7 +164,6 @@ document.querySelector('#checkbox-just-open-the-image').addEventListener('change
 	// set ui
 	const value = e.target.value;
 	const dragImageToResize = document.querySelector('#checkbox-drag-image-to-resize').checked;
-	console.log(value);
 	console.log(dragImageToResize);
 	if (dragImageToResize === true) {
 		if (value != 99) {
@@ -353,4 +352,39 @@ document.querySelector('#checkbox-full-width-expandos').addEventListener('change
 	BROWSER_API.storage.sync.set({ fullWidthExpandos: this.checked });
 	sendMessage({ fullWidthExpandos: this.checked });
 	document.querySelector('.icon-full-width-expandos').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});
+
+// Toggle - Append Numbers To Post Images
+document.querySelector('#checkbox-numbered-post-images').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ numberedPostImages: this.checked });
+	sendMessage({ numberedPostImages: this.checked });
+	document.querySelector('.icon-numbered-post-images').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});
+
+// Toggle - Autoplay Videos
+document.querySelector('#checkbox-autoplay-videos').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ autoplayVideos: this.checked });
+	sendMessage({ autoplayVideos: this.checked });
+	document.querySelector('.icon-autoplay-videos').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});
+
+// Toggle - Autoplay GIFs
+document.querySelector('#checkbox-autoplay-gifs').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ autoplayGifs: this.checked });
+	sendMessage({ autoplayGifs: this.checked });
+	document.querySelector('.icon-autoplay-gifs').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});
+
+// Toggle - Autoplay Comment GIFs
+document.querySelector('#checkbox-autoplay-comment-gifs').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ autoplayCommentGifs: this.checked });
+	sendMessage({ autoplayCommentGifs: this.checked });
+	document.querySelector('.icon-autoplay-comment-gifs').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});
+
+// Toggle - Gallery Keyboard Navigation
+document.querySelector('#checkbox-gallery-keyboard-navigation').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ galleryKeyboardNavigation: this.checked });
+	sendMessage({ galleryKeyboardNavigation: this.checked });
+	document.querySelector('.icon-gallery-keyboard-navigation').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });

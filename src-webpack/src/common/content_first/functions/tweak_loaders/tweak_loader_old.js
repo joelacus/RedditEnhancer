@@ -10,33 +10,34 @@
 
 import { waitForAddedNode } from './main_observer';
 import { loadAutoCollapseAutoModeratorComment } from '../../../content/tweaks/productivity/auto_collapse_automod_comment';
+import { loadClassicOldUI } from '../../../content/tweaks/style/classic_old_ui';
 import { loadCustomBackground } from '../../../content/tweaks/background/custom_background';
+import { loadCustomFonts } from '../../../content/tweaks/font/custom_fonts';
+import { loadCustomHeaderLogo } from '../../../content/tweaks/style/custom_header_logo';
 import { loadCustomTheme } from '../../../content/tweaks/style/override_theme_colours';
 import { loadExpandContent } from '../../../content/tweaks/resize_elements/expand_content';
+import { loadForceShowVoteButtons } from '../../../content/tweaks/productivity/force_show_vote_buttons';
+import { loadHideChatButton, loadHideModerationButton, loadHideNotificationButton } from '../../../content/tweaks/hide_elements/hide_header_buttons';
+import { loadHideCommentKarma, loadHidePostKarma } from '../../../content/tweaks/hide_elements/hide_post_comment_karma';
+import { loadHideCompactViewBlankThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_blank_thumbnails';
+import { loadHideCompactViewThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_thumbnails';
 import { loadHideGetNewReddit } from '../../../content/tweaks/hide_elements/hide_get_new_reddit';
 import { loadHideHeaderSubBar } from '../../../content/tweaks/hide_elements/hide_header_sub_bar';
+import { loadHideHomeFeed } from '../../../content/tweaks/hide_elements/hide_home_feed';
 import { loadHideHomeSidebar } from '../../../content/tweaks/hide_elements/hide_sidebar';
 import { loadHidePromotedPosts } from '../../../content/tweaks/hide_elements/hide_promoted';
 import { loadHideRedditPremium } from '../../../content/tweaks/hide_elements/hide_reddit_premium';
 import { loadHideSideMenuOld } from '../../../content/tweaks/hide_elements/hide_side_menu';
 import { loadHideUsernameAndKarma } from '../../../content/tweaks/hide_elements/hide_username_and_karma';
+import { loadHideVoteButtons } from '../../../content/tweaks/hide_elements/hide_vote_buttons';
 import { loadLayoutCentre } from '../../../content/tweaks/resize_elements/layout_centre';
-import { loadResizeFont } from '../../../content/tweaks/font/resize_font';
 import { loadPostFontWeight } from '../../../content/tweaks/font/font_weight';
+import { loadResizeFont } from '../../../content/tweaks/font/resize_font';
+import { loadRightSidePostThumbnails } from '../../../content/tweaks/style/right_side_post_thumbnails';
+import { loadScrollToNextRootComment } from '../../../content/tweaks/productivity/scroll_to_next_root_comment';
+import { loadSolidColourBackground } from '../../../content/tweaks/background/bg_solid_colour';
 import { loadStickySort } from '../../../content/tweaks/productivity/sticky_sort';
 import { moderniseOldReddit } from '../../../content/tweaks/style/modernise_old_reddit';
-import { loadHideHomeFeed } from '../../../content/tweaks/hide_elements/hide_home_feed';
-import { loadScrollToNextRootComment } from '../../../content/tweaks/productivity/scroll_to_next_root_comment';
-import { loadCustomFonts } from '../../../content/tweaks/font/custom_fonts';
-import { loadHideCommentKarma, loadHidePostKarma } from '../../../content/tweaks/hide_elements/hide_post_comment_karma';
-import { loadHideVoteButtons } from '../../../content/tweaks/hide_elements/hide_vote_buttons';
-import { loadHideCompactViewBlankThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_blank_thumbnails';
-import { loadHideCompactViewThumbnails } from '../../../content/tweaks/hide_elements/hide_compact_view_thumbnails';
-import { loadClassicOldUI } from '../../../content/tweaks/style/classic_old_ui';
-import { loadHideChatButton, loadHideModerationButton, loadHideNotificationButton } from '../../../content/tweaks/hide_elements/hide_header_buttons';
-import { loadCustomHeaderLogo } from '../../../content/tweaks/style/custom_header_logo';
-import { loadRightSidePostThumbnails } from '../../../content/tweaks/style/right_side_post_thumbnails';
-import { loadSolidColourBackground } from '../../../content/tweaks/background/bg_solid_colour';
 
 export function tweakLoaderOld() {
 	loadSolidColourBackground();
@@ -68,6 +69,7 @@ export function tweakLoaderOld() {
 	loadCustomHeaderLogo();
 	loadRightSidePostThumbnails();
 	loadHideRedditPremium();
+	loadForceShowVoteButtons();
 
 	// Body
 	waitForAddedNode({

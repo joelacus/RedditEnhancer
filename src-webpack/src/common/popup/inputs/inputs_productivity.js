@@ -637,3 +637,10 @@ document.querySelector('#checkbox-show-communities-filter').addEventListener('ch
 	sendMessage({ showCommunitiesFilter: this.checked });
 	document.querySelector('.icon-show-communities-filter').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });
+
+// Toggle - Force Show Vote Buttons
+document.querySelector('#checkbox-force-show-vote-buttons').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ forceShowVoteButtons: this.checked });
+	sendMessage({ forceShowVoteButtons: this.checked });
+	document.querySelector('.icon-force-show-vote-buttons').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});

@@ -266,6 +266,15 @@
 	"Feed": {
 		"message": "Feed"
 	},
+	"FeedKeyboardNavigation": {
+		"message": "Navigazione da tastiera del feed"
+	},
+	"FeedKeyboardNavigationInfo1": {
+		"message": "Post successivo: (J / Freccia giù). Post precedente: (K / Freccia su). Attiva/disattiva post compatto: (Spazio)."
+	},
+	"FeedKeyboardNavigationInfo2": {
+		"message": "L'uso dei tasti J/K interferirà con la funzione \"Scorciatoie\" di Reddit se abilitata; in tal caso, è consigliabile utilizzare i tasti freccia. La versione RE utilizza lo scorrimento fluido e salta tutti i post nascosti."
+	},
 	"FeedOffset": {
 		"message": "Offset di alimentazione"
 	},
@@ -325,9 +334,6 @@
 	},
 	"HeaderBgColour": {
 		"message": "Intestazione: Colore di sfondo"
-	},
-	"HeaderButtons": {
-		"message": "Pulsanti dell'intestazione"
 	},
 	"HeaderTextColour": {
 		"message": "Intestazione: Colore del testo"
@@ -470,9 +476,6 @@
 	"HideRelatedPosts": {
 		"message": "Nascondi post correlati"
 	},
-	"HideSearchHero": {
-		"message": "Nascondi il banner di ricerca nel feed principale"
-	},
 	"HideSearchSidebar": {
 		"message": "Nascondi la barra laterale di ricerca"
 	},
@@ -592,9 +595,6 @@
 	},
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Questo non ridurrà necessariamente l'utilizzo della larghezza di banda, ma dovrebbe invece aiutare a prevenire che la pagina diventi lenta impedendo a Reddit di aggiungere nuovi post fino a quando non fai clic su \"Carica altro\" nella parte inferiore del feed. Quando fai clic su \"Carica altro\", verranno cancellati i primi 25 post e verranno visualizzati i successivi 25."
-	},
-	"Main": {
-		"message": "Principale"
 	},
 	"MainContainer": {
 		"message": "Contenitore principale"
@@ -809,15 +809,6 @@
 	"ResizeLayout": {
 		"message": "Ridimensiona Feed / Post"
 	},
-	"ResizeMainContainer": {
-		"message": "Ridimensiona contenitore principale (sperimentale)"
-	},
-	"ResizeMainContainerInfo": {
-		"message": "Per ottenere i migliori risultati, imposta tutti i valori di larghezza \"Ridimensiona feed/post\" al 100%."
-	},
-	"ResizeMainContainerWidth": {
-		"message": "Larghezza principale del contenitore"
-	},
 	"Restore": {
 		"message": "Ripristinare"
 	},
@@ -841,12 +832,6 @@
 	},
 	"ScalePostToFitVideo": {
 		"message": "Adatta il post al video"
-	},
-	"ScrollToNextPreviousPost": {
-		"message": "Scorri al post successivo/precedente premendo (J / Freccia giù) / (K / Freccia su)"
-	},
-	"ScrollToNextPreviousPostInfo": {
-		"message": "L'uso dei tasti J/K interferirà con la funzione \"Scorciatoie\" di Reddit se abilitata; in tal caso, è consigliabile utilizzare i tasti freccia. La versione RE utilizza lo scorrimento fluido e salta tutti i post nascosti."
 	},
 	"ScrollToNextRootComment": {
 		"message": "Mostra pulsanti per scorrere al commento root successivo/precedente"
@@ -987,7 +972,7 @@
 		"message": "Larghezza del sotto-feed"
 	},
 	"SubHeaderBgColour": {
-		"message": "Colore sfondo sottosezione"
+		"message": "Colore di sfondo dell'intestazione del subreddit"
 	},
 	"Subreddit": {
 		"message": "Subreddit"

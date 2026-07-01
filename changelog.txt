@@ -1,3 +1,24 @@
+version 3.2.0
+  - Slightly tweaked the popup menus and reordered some options.
+v [Latest UI V3]
+  - Added options to autoplay videos and GIFs on feeds independently, as well as GIFs in comments, since Reddit treats them as the same. You must first disable "Autoplay media" in the Reddit User Settings > Preferences.
+  - Added an option to use the right and left arrow keys to navigate to the next/previous image in post galleries.
+  - Added an option to hide the footer text at the bottom of the sidebars.
+  - Added an option to hide the Reddit announcement (u/reddit) notifications from your notifications list.
+  - Added an option to hide the Reddit gamification (achievements, streaks) notifications from your notifications list.
+  - Fixed "Show vote buttons on the left" not working due to a website update.
+  - Fixed "Post Followed Text Colour" incorrectly being applied as the normal post title colour when using "Compact View".
+  - Removed "Hide the Search Banner on Home Feed" as this seemed to have been a failed Reddit experiment and is now obsolete, afaik.
+v [Latest UI V3 & Old UI V1]
+  - Added an option to add numbers to images in post galleries.
+  - Added an option to hide all posts on a feed from certain subreddits (excludes subreddit feeds).
+  - Added an option to hide comments with certain keywords.
+  - Added an option to completely hide the comment section.
+  - You can now press "J/K/Up Arrow/Down Arrow" to scroll to the next/previous root comment on a post page if you have "Show Navigation Buttons For The Next/Previous Root Comment" enabled.
+  - You can now press "Space" to open/close a comment in "Compact View" when using the "Feed Keyboard Navigation" feature.
+v [Old UI V1]
+  - Added an option to force show the post vote buttons on subreddits that choose to hide them.
+
 version 3.1.2
   - Minor fixes for "Add post/comment share option without tracking (Clean Link)".
   - Fixed localisation not initialising for content scripts on Chromium based browsers.

@@ -11,6 +11,8 @@ export function restorePopupBlockOptions() {
 	restoreHideBlockedKeywordPosts();
 	restoreHideBlockedUserPosts();
 	restoreHideBlockedLinkPosts();
+	restoreHideBlockedSubredditPosts();
+	restoreHideBlockedKeywordComments();
 }
 
 // Hide Blocked Keyword Posts Enable
@@ -88,5 +90,57 @@ function restoreHideBlockedLinkPosts() {
 			if (invalidEl) invalidEl.textContent = 'Invalid regex: ' + getInvalidRegexPatterns(list).join(', ');
 		}
 		console.log('Hide Blocked Link Posts List: ' + list);
+	});
+}
+
+// Hide Blocked Subreddit Posts Enable
+function restoreHideBlockedSubredditPosts() {
+	BROWSER_API.storage.sync.get(['hideBlockedSubredditPosts', 'hideBlockedSubredditPostsList'], function (result) {
+		const checked = result.hideBlockedSubredditPosts === true;
+		document.querySelector('#checkbox-hide-blocked-subreddit-posts-enable').checked = checked;
+		document.querySelector('.icon-hide-blocked-subreddit-posts').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('block');
+		console.log('Hide Blocked Subreddit Posts Enable: ' + checked);
+
+		// Hide Blocked Link Posts List
+		const list = result.hideBlockedSubredditPostsList ?? '';
+		const textarea = document.querySelector('#input-blocked-subreddit-posts');
+		textarea.value = list;
+		// Validate regex patterns and show error message
+		const invalidEl = textarea.closest('li').querySelector('.info.invalid-regex');
+		if (validateRegexList(list)) {
+			textarea.classList.remove('invalid-regex');
+			if (invalidEl) invalidEl.textContent = '';
+		} else {
+			textarea.classList.add('invalid-regex');
+			if (invalidEl) invalidEl.textContent = 'Invalid regex: ' + getInvalidRegexPatterns(list).join(', ');
+		}
+		console.log('Hide Blocked Subreddit Posts List: ' + list);
+	});
+}
+
+// Hide Blocked Keyword Comments Enable
+function restoreHideBlockedKeywordComments() {
+	BROWSER_API.storage.sync.get(['hideBlockedKeywordComments', 'hideBlockedKeywordCommentsList'], function (result) {
+		const checked = result.hideBlockedKeywordComments === true;
+		document.querySelector('#checkbox-hide-blocked-keyword-comments-enable').checked = checked;
+		document.querySelector('.icon-hide-blocked-keyword-comments').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('block');
+		console.log('Hide Blocked Keyword Comments Enable: ' + checked);
+
+		// Hide Blocked Link Posts List
+		const list = result.hideBlockedKeywordCommentsList ?? '';
+		const textarea = document.querySelector('#input-blocked-keyword-comments');
+		textarea.value = list;
+		// Validate regex patterns and show error message
+		const invalidEl = textarea.closest('li').querySelector('.info.invalid-regex');
+		if (validateRegexList(list)) {
+			textarea.classList.remove('invalid-regex');
+			if (invalidEl) invalidEl.textContent = '';
+		} else {
+			textarea.classList.add('invalid-regex');
+			if (invalidEl) invalidEl.textContent = 'Invalid regex: ' + getInvalidRegexPatterns(list).join(', ');
+		}
+		console.log('Hide Blocked Keyword Comments List: ' + list);
 	});
 }

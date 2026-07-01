@@ -81,12 +81,12 @@ function enableHidePostDivider() {
 									}
 									/* Add padding to posts, Card and Compact view */
 									article > shreddit-post[view-type="cardView"] {
-										margin: 0 !important;
-										padding: .5rem !important;
+										margin: 0;
+										padding: .5rem;
 									}
 									article > shreddit-post[view-type="compactView"] {
-										padding: .25rem .5rem !important;
-										margin: 0 !important;
+										padding: .25rem .5rem;
+										margin: 0;
 									}
 									/* Allow spaces for post selection checkboxes in mod queue */
 									shreddit-app[routename="mod_queue"] article > shreddit-post,
