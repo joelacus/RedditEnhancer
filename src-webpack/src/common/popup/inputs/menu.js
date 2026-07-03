@@ -83,7 +83,7 @@ menus.forEach((menu) => {
 		});
 	}
 
-	underlineSubHeaderItem();
+	//underlineSubHeaderItem();
 });
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
@@ -108,7 +108,7 @@ function optionsPageFunctions() {
 }
 
 // Underline menu item when the user scrolls over it
-let lastId = '';
+/*let lastId = '';
 function underlineSubHeaderItem() {
 	const mainMenu = document.querySelector('#main-menu');
 	const subHeaderItems = document.querySelectorAll('.sub-header-menu a');
@@ -130,4 +130,4 @@ function underlineSubHeaderItem() {
 			});
 		}
 	});
-}
+}*/

@@ -130,7 +130,7 @@ async function enableShowMemberCountRV3() {
 	const member_count_el = header.querySelector('[noun="insights"] div:last-child > div:first-child > div:first-child span');
 	if (member_count_el) member_count_el.textContent = formatNumber(memberCount.toString(10));
 
-	const member_name_el = header.shadowRoot.querySelector('[data-testid="activity-indicators"] span:not(:has(strong))') ?? header.querySelector('[noun="insights"] div:last-child > div:first-child > span');
+	const member_name_el = header.shadowRoot?.querySelector('[data-testid="activity-indicators"] span:not(:has(strong))') ?? header.querySelector('[noun="insights"] div:last-child > div:first-child > span');
 	if (member_name_el) member_name_el.textContent = 'Members';
 
 	if (header.getAttribute('subscribers-text') === '') {

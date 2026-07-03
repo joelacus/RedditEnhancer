@@ -117,7 +117,6 @@ export function loadTweaks() {
 		loadShowToTopButtonFloat();
 		loadScrollToPost();
 		loadCleanLink();
-		loadHidePostComments();
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
@@ -302,6 +301,7 @@ export function loadTweaks() {
 					loadHideAwards();
 					loadShowCommentAbsoluteTimestamp();
 					loadThemeAfterPageLoad();
+					loadHidePostComments();
 				}, 500);
 				loadHideCommentKarma();
 			},

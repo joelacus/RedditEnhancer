@@ -113,12 +113,12 @@ document.querySelector('#checkbox-just-open-the-image').addEventListener('change
 				})
 				.then((granted) => {
 					if (granted) {
-						console.log('Optional permissions granted');
+						console.log('[RedditEnhancer] justOpenTheImage: "webRequest" and "webRequestBlocking" permissions granted');
 						BROWSER_API.storage.sync.set({ justOpenTheImage: true });
 						document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
 						BROWSER_API.runtime.sendMessage({ justOpenTheImage: true });
 					} else {
-						console.log('Optional permissions not granted');
+						console.log('[RedditEnhancer] justOpenTheImage: "webRequest" and "webRequestBlocking" permissions not granted');
 						document.querySelector('#checkbox-just-open-the-image').checked = false;
 					}
 				});
@@ -361,26 +361,52 @@ document.querySelector('#checkbox-numbered-post-images').addEventListener('chang
 	document.querySelector('.icon-numbered-post-images').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });
 
-// Toggle - Autoplay Videos
+// Toggle - Autoplay Videos/GIFs/GIFs in comments
 document.querySelector('#checkbox-autoplay-videos').addEventListener('change', function () {
-	BROWSER_API.storage.sync.set({ autoplayVideos: this.checked });
-	sendMessage({ autoplayVideos: this.checked });
-	document.querySelector('.icon-autoplay-videos').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+	requestAutoplayScriptingPermission(this, 'autoplay-videos', 'autoplayVideos', 'autoplayVideos');
 });
 
-// Toggle - Autoplay GIFs
 document.querySelector('#checkbox-autoplay-gifs').addEventListener('change', function () {
-	BROWSER_API.storage.sync.set({ autoplayGifs: this.checked });
-	sendMessage({ autoplayGifs: this.checked });
-	document.querySelector('.icon-autoplay-gifs').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+	requestAutoplayScriptingPermission(this, 'autoplay-gifs', 'autoplayGifs', 'autoplayGifs');
 });
 
-// Toggle - Autoplay Comment GIFs
 document.querySelector('#checkbox-autoplay-comment-gifs').addEventListener('change', function () {
-	BROWSER_API.storage.sync.set({ autoplayCommentGifs: this.checked });
-	sendMessage({ autoplayCommentGifs: this.checked });
-	document.querySelector('.icon-autoplay-comment-gifs').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+	requestAutoplayScriptingPermission(this, 'autoplay-comment-gifs', 'autoplayCommentGifs', 'autoplayCommentGifs');
 });
+
+function requestAutoplayScriptingPermission(checkbox, iconClass, storageKey, messageKey) {
+	if (checkbox.checked) {
+		BROWSER_API.permissions
+			.request({ permissions: ['scripting'] })
+			.then((granted) => {
+				if (granted) {
+					console.log('[RedditEnhancer] autoplay: "scripting" permission granted');
+					enableAutoplay(checkbox, iconClass, storageKey, messageKey);
+				} else {
+					checkbox.checked = false;
+					console.debug('[RedditEnhancer] autoplay: "scripting" permission denied');
+				}
+			})
+			.catch((e) => {
+				console.error('[RedditEnhancer] autoplay: Error requesting "scripting" permission: ', e);
+				checkbox.checked = false;
+			});
+	} else {
+		disableAutoplay(checkbox, iconClass, storageKey, messageKey);
+	}
+}
+
+function enableAutoplay(checkbox, iconClass, storageKey, messageKey) {
+	BROWSER_API.storage.sync.set({ [storageKey]: true });
+	sendMessage({ [messageKey]: true });
+	document.querySelector(`.icon-${iconClass}`).style.backgroundColor = 'var(--accent)';
+}
+
+function disableAutoplay(checkbox, iconClass, storageKey, messageKey) {
+	BROWSER_API.storage.sync.set({ [storageKey]: false });
+	sendMessage({ [messageKey]: false });
+	document.querySelector(`.icon-${iconClass}`).style.backgroundColor = '';
+}
 
 // Toggle - Gallery Keyboard Navigation
 document.querySelector('#checkbox-gallery-keyboard-navigation').addEventListener('change', function () {

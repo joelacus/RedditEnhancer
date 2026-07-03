@@ -97,6 +97,15 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 		console.warn(`${timestamp()} - ${request.message}`);
 	} else if (request.log === 'error') {
 		console.error(`${timestamp()} - ${request.message}`);
+	} else if (request.action === 'runAutoplayGifs') {
+		handleRunAutoplayGifs(sender, sendResponse);
+		return true;
+	} else if (request.action === 'runAutoplayVideos') {
+		handleRunAutoplayVideos(sender, sendResponse);
+		return true;
+	} else if (request.action === 'runAutoplayCommentGifs') {
+		handleRunAutoplayCommentGifs(sender, sendResponse);
+		return true;
 	}
 });
 
@@ -121,6 +130,108 @@ function checkTime(i) {
 		interval = null;
 	}
 }*/
+
+/* ===== Autoplay Helpers ===== */
+
+function handleRunAutoplayGifs(sender, sendResponse) {
+	function runAutoplayGifsInMain() {
+		const posts = document.querySelectorAll('shreddit-post[post-type="gif"]');
+		posts.forEach((post) => {
+			const player = post.querySelector('shreddit-player');
+			if (!player) return;
+			const rect = player.getBoundingClientRect();
+			const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+			if (rect.top < viewportHeight && rect.bottom > 0) {
+				try {
+					player.play();
+				} catch (e) {}
+			}
+		});
+	}
+
+	const tabId = sender.tab?.id;
+	if (!tabId) {
+		sendResponse({ success: false });
+		return;
+	}
+	BROWSER_API.scripting
+		.executeScript({
+			target: { tabId },
+			world: 'MAIN',
+			func: runAutoplayGifsInMain,
+		})
+		.then(() => sendResponse({ success: true }))
+		.catch((e) => {
+			console.error('runAutoplayGifs failed:', e);
+			sendResponse({ success: false });
+		});
+}
+
+function handleRunAutoplayVideos(sender, sendResponse) {
+	function runAutoplayVideosInMain() {
+		const posts = document.querySelectorAll('shreddit-post[post-type="video"]');
+		posts.forEach((post) => {
+			const player = post.querySelector('shreddit-player');
+			if (!player) return;
+			const rect = player.getBoundingClientRect();
+			const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+			if (rect.top < viewportHeight && rect.bottom > 0) {
+				try {
+					player.play();
+				} catch (e) {}
+			}
+		});
+	}
+
+	const tabId = sender.tab?.id;
+	if (!tabId) {
+		sendResponse({ success: false });
+		return;
+	}
+	BROWSER_API.scripting
+		.executeScript({
+			target: { tabId },
+			world: 'MAIN',
+			func: runAutoplayVideosInMain,
+		})
+		.then(() => sendResponse({ success: true }))
+		.catch((e) => {
+			console.error('runAutoplayVideos failed:', e);
+			sendResponse({ success: false });
+		});
+}
+
+function handleRunAutoplayCommentGifs(sender, sendResponse) {
+	function runAutoplayCommentGifsInMain() {
+		const gifs = document.querySelectorAll('shreddit-comment shreddit-player');
+		gifs.forEach((gif) => {
+			const rect = gif.getBoundingClientRect();
+			const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+			if (rect.top < viewportHeight && rect.bottom > 0) {
+				try {
+					gif.play();
+				} catch (e) {}
+			}
+		});
+	}
+
+	const tabId = sender.tab?.id;
+	if (!tabId) {
+		sendResponse({ success: false });
+		return;
+	}
+	BROWSER_API.scripting
+		.executeScript({
+			target: { tabId },
+			world: 'MAIN',
+			func: runAutoplayCommentGifsInMain,
+		})
+		.then(() => sendResponse({ success: true }))
+		.catch((e) => {
+			console.error('runAutoplayCommentGifs failed:', e);
+			sendResponse({ success: false });
+		});
+}
 
 // Fetch JSON data
 // @see content/tweaks/productivity/show_post_flair.js

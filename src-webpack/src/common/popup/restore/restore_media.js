@@ -110,7 +110,7 @@ export function restorePopupMediaOptions() {
 							highlightMenuIcon('media-tweaks');
 							console.log('Just Open The Image: true');
 						} else {
-							console.log('Just Open The Image: false. Optional permissions not granted');
+							console.log('[RedditEnhancer] autoplayVideos: "webRequest" and "webRequestBlocking" permissions not granted');
 						}
 					},
 				);
@@ -295,33 +295,6 @@ export function restorePopupMediaOptions() {
 		console.log('Numbered Post Images: ' + checked);
 	});
 
-	// Autoplay Videos
-	BROWSER_API.storage.sync.get(['autoplayVideos'], function (result) {
-		const checked = result.autoplayVideos === true;
-		document.querySelector('#checkbox-autoplay-videos').checked = checked;
-		document.querySelector('.icon-autoplay-videos').style.backgroundColor = checked ? 'var(--accent)' : '';
-		if (checked) highlightMenuIcon('media-tweaks');
-		console.log('Autoplay Videos: ' + checked);
-	});
-
-	// Autoplay GIFs
-	BROWSER_API.storage.sync.get(['autoplayGifs'], function (result) {
-		const checked = result.autoplayGifs === true;
-		document.querySelector('#checkbox-autoplay-gifs').checked = checked;
-		document.querySelector('.icon-autoplay-gifs').style.backgroundColor = checked ? 'var(--accent)' : '';
-		if (checked) highlightMenuIcon('media-tweaks');
-		console.log('Autoplay Gifs: ' + checked);
-	});
-
-	// Autoplay Comment GIFs
-	BROWSER_API.storage.sync.get(['autoplayCommentGifs'], function (result) {
-		const checked = result.autoplayCommentGifs === true;
-		document.querySelector('#checkbox-autoplay-comment-gifs').checked = checked;
-		document.querySelector('.icon-autoplay-comment-gifs').style.backgroundColor = checked ? 'var(--accent)' : '';
-		if (checked) highlightMenuIcon('media-tweaks');
-		console.log('Autoplay Comment GIFs: ' + checked);
-	});
-
 	// Gallery Keyboard Navigation
 	BROWSER_API.storage.sync.get(['galleryKeyboardNavigation'], function (result) {
 		const checked = result.galleryKeyboardNavigation === true;
@@ -329,5 +302,71 @@ export function restorePopupMediaOptions() {
 		document.querySelector('.icon-gallery-keyboard-navigation').style.backgroundColor = checked ? 'var(--accent)' : '';
 		if (checked) highlightMenuIcon('media-tweaks');
 		console.log('Gallery Keyboard Navigation: ' + checked);
+	});
+
+	// Autoplay Videos
+	BROWSER_API.storage.sync.get(['autoplayVideos'], function (result) {
+		let checked = false;
+		if (result.autoplayVideos === true) {
+			BROWSER_API.permissions.contains({ permissions: ['scripting'] }, (granted) => {
+				if (granted) {
+					console.debug('[RedditEnhancer] autoplayVideos: "scripting" permission granted');
+					checked = true;
+				} else {
+					console.debug('[RedditEnhancer] autoplayVideos: "scripting" permission not granted');
+				}
+				document.querySelector('#checkbox-autoplay-videos').checked = checked;
+				document.querySelector('.icon-autoplay-videos').style.backgroundColor = checked ? 'var(--accent)' : '';
+				if (checked) highlightMenuIcon('media-tweaks');
+				console.log('Autoplay Videos: ' + checked);
+			});
+		} else {
+			document.querySelector('#checkbox-autoplay-videos').checked = false;
+			console.log('Autoplay Videos: false');
+		}
+	});
+
+	// Autoplay GIFs
+	BROWSER_API.storage.sync.get(['autoplayGifs'], function (result) {
+		let checked = false;
+		if (result.autoplayGifs === true) {
+			BROWSER_API.permissions.contains({ permissions: ['scripting'] }, (granted) => {
+				if (granted) {
+					console.debug('[RedditEnhancer] autoplayGifs: "scripting" permission granted');
+					checked = true;
+				} else {
+					console.debug('[RedditEnhancer] autoplayGifs: "scripting" permission not granted');
+				}
+				document.querySelector('#checkbox-autoplay-gifs').checked = checked;
+				document.querySelector('.icon-autoplay-gifs').style.backgroundColor = checked ? 'var(--accent)' : '';
+				if (checked) highlightMenuIcon('media-tweaks');
+				console.log('Autoplay Gifs: ' + checked);
+			});
+		} else {
+			document.querySelector('#checkbox-autoplay-gifs').checked = false;
+			console.log('Autoplay Gifs: false');
+		}
+	});
+
+	// Autoplay Comment GIFs
+	BROWSER_API.storage.sync.get(['autoplayCommentGifs'], function (result) {
+		let checked = false;
+		if (result.autoplayCommentGifs === true) {
+			BROWSER_API.permissions.contains({ permissions: ['scripting'] }, (granted) => {
+				if (granted) {
+					console.debug('[RedditEnhancer] autoplayCommentGifs: "scripting" permission granted');
+					checked = true;
+				} else {
+					console.debug('[RedditEnhancer] autoplayCommentGifs: "scripting" permission not granted');
+				}
+				document.querySelector('#checkbox-autoplay-comment-gifs').checked = checked;
+				document.querySelector('.icon-autoplay-comment-gifs').style.backgroundColor = checked ? 'var(--accent)' : '';
+				if (checked) highlightMenuIcon('media-tweaks');
+				console.log('Autoplay Comment GIFs: ' + checked);
+			});
+		} else {
+			document.querySelector('#checkbox-autoplay-comment-gifs').checked = false;
+			console.log('Autoplay Comment GIFs: false');
+		}
 	});
 }

@@ -23,7 +23,6 @@ export function loadAutoplayVideos() {
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 export function autoplayVideos(value) {
-	if (scrollCleanup) return;
 	if (redditVersion === 'newnew' && value) {
 		enableAutoplayVideos();
 
@@ -50,23 +49,8 @@ export function autoplayVideos(value) {
 
 // Enable Autoplay Videos - RV3
 function enableAutoplayVideos() {
-	const script = document.createElement('script');
-	script.textContent = `
-	(function() {
-		const posts = document.querySelectorAll('shreddit-post[post-type="video"]');
-		posts.forEach((post) => {
-			const player = post.querySelector('shreddit-player');
-			if (!player) return;
-
-			const rect = player.getBoundingClientRect();
-			const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-			if (rect.top < viewportHeight && rect.bottom > 0) {
-				try {
-					player.play();
-				} catch(e) {}
-			}
-		});
-	})();`;
-	document.documentElement.appendChild(script);
-	script.remove();
+	// MV3 isolated world - use scripting API to reach the main world
+	BROWSER_API.runtime.sendMessage({ action: 'runAutoplayVideos' }).catch((e) => {
+		console.error('Autoplay Videos failed:', e);
+	});
 }

@@ -1,3 +1,7 @@
+version 3.2.2
+  - Bug fixes and improvements.
+  - Optional "scripting" permission required for autoplay videos and GIFs to work on Chromium based browsers.
+
 version 3.2.0
   - Slightly tweaked the popup menus and reordered some options.
 v [Latest UI V3]

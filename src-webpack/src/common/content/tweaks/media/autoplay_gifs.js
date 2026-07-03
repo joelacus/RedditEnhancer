@@ -23,7 +23,6 @@ export function loadAutoplayGifs() {
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 export function autoplayGifs(value) {
-	if (scrollCleanup) return;
 	if (redditVersion === 'newnew' && value) {
 		enableAutoplayGifs();
 
@@ -49,24 +48,9 @@ export function autoplayGifs(value) {
 }
 
 // Enable Autoplay GIFs - RV3
-function enableAutoplayGifs() {
-	const script = document.createElement('script');
-	script.textContent = `
-	(function() {
-		const posts = document.querySelectorAll('shreddit-post[post-type="gif"]');
-		posts.forEach((post) => {
-			const player = post.querySelector('shreddit-player');
-			if (!player) return;
-
-			const rect = player.getBoundingClientRect();
-			const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-			if (rect.top < viewportHeight && rect.bottom > 0) {
-		  		try {
-		   			player.play();
-		  		} catch(e) {}
-			}
-	  	});
-	})();`;
-	document.documentElement.appendChild(script);
-	script.remove();
+async function enableAutoplayGifs() {
+	// MV3 isolated world - use scripting API to reach the main world
+	BROWSER_API.runtime.sendMessage({ action: 'runAutoplayGifs' }).catch((e) => {
+		console.error('Autoplay GIFs failed:', e);
+	});
 }

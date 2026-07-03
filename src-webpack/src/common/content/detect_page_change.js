@@ -24,17 +24,70 @@ const observer = new MutationObserver((mutations) => {
 			}
 
 			defaultSortOption();
-			setTimeout(() => {
+
+			waitForPageLoaded().then(() => {
 				init();
 				// Wait for i18next to be ready before loading tweaks to avoid
 				// translation errors in clean_link, canned_messages, etc.
 				i18nReady.then(() => {
 					loadTweaks();
 				});
-			}, 200);
+			});
 		}
 	});
 });
+
+function waitForPageLoaded(timeoutMs = 3000) {
+	return new Promise((resolve) => {
+		const indicator = document.querySelector('navigation-indicator');
+
+		if (!indicator?.shadowRoot) {
+			setTimeout(resolve, 3000);
+			return;
+		}
+
+		const root = indicator.shadowRoot;
+		const selector = '.bg-global-orangered.transition-transform.animating-in';
+		let finished = false;
+		let timeoutId;
+		let observer;
+
+		const cleanup = () => {
+			clearTimeout(timeoutId);
+			if (observer) observer.disconnect();
+		};
+
+		const finish = () => {
+			if (!finished) {
+				finished = true;
+				cleanup();
+				setTimeout(resolve, 0);
+			}
+		};
+
+		timeoutId = setTimeout(finish, timeoutMs);
+
+		const waitForRemoval = () => {
+			observer = new MutationObserver(() => {
+				if (!root.querySelector(selector)) finish();
+			});
+			observer.observe(root, { childList: true, subtree: true });
+			if (!root.querySelector(selector)) finish();
+		};
+
+		if (root.querySelector(selector)) {
+			waitForRemoval();
+		} else {
+			observer = new MutationObserver(() => {
+				if (root.querySelector(selector)) {
+					observer.disconnect();
+					waitForRemoval();
+				}
+			});
+			observer.observe(root, { childList: true, subtree: true });
+		}
+	});
+}
 
 // Start observer
 observer.observe(body, { childList: true, subtree: true });

@@ -85,7 +85,7 @@ function loadTheme() {
 // Load theme tweaks that require the page to be fully loaded first.
 export function loadThemeAfterPageLoad() {
 	BROWSER_API.storage.sync.get(['themeOpCommentHighlightColour', 'highlightOp', 'themeOpCommentHighlightColourCSS'], function (result) {
-		themeOpCommentHighlightColour(result.themeOpCommentHighlightColour ?? result.highlightOp);
+		themeOpCommentHighlightColour(result.themeOpCommentHighlightColour === true);
 		themeOpCommentHighlightColourCSS(result.themeOpCommentHighlightColourCSS);
 	});
 }
@@ -492,8 +492,8 @@ function undoFixThreadlinesForTranslucentPosts() {
 		element.remove();
 	});
 	document.querySelectorAll('shreddit-comment').forEach((comment) => {
-		const main_thread = comment.shadowRoot.querySelector('[data-testid="main-thread-line"]');
-		const last_thread = comment.shadowRoot.querySelector('#comment-children .threadline:last-of-type');
+		const main_thread = comment.shadowRoot?.querySelector('[data-testid="main-thread-line"]');
+		const last_thread = comment.shadowRoot?.querySelector('#comment-children .threadline:last-of-type');
 		if (main_thread && last_thread) {
 			main_thread.removeAttribute('style');
 			last_thread.removeAttribute('style');
@@ -1174,8 +1174,7 @@ export function themePostUpvoteColour(value) {
 		if (document.head.querySelector('style[id="re-theme-post-upvote-colour"]')) return;
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-post-upvote-colour';
-		styleElement.textContent = `shreddit-post,
-									.re-vote-panel {
+		styleElement.textContent = `shreddit-post {
 										--color-action-upvote: var(--re-theme-post-upvote-colour) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
@@ -1247,9 +1246,10 @@ export function themeOpCommentHighlightColour(value) {
 
 		document.querySelectorAll('shreddit-comment').forEach((comment) => {
 			comment.removeAttribute('is-highlighted');
-			const dynamicStyleElements = comment.shadowRoot.querySelectorAll('style[id="re-theme-op-comment-highlight-colour"]');
+			const dynamicStyleElements = comment.shadowRoot?.querySelectorAll('style[id="re-theme-op-comment-highlight-colour"]');
+			if (!dynamicStyleElements) return;
 			dynamicStyleElements.forEach((element) => {
-				comment.shadowRoot.removeChild(element);
+				comment.shadowRoot?.removeChild(element);
 			});
 		});
 	}
@@ -1259,14 +1259,14 @@ function highlightComment(comment) {
 	const tag = comment.querySelector(':scope > div[slot="commentMeta"] shreddit-comment-author-modifier-icon');
 	if (tag && tag.getAttribute('op') === '') {
 		comment.setAttribute('is-highlighted', '');
-		if (comment.shadowRoot.querySelector('style[id="re-theme-op-comment-highlight-colour"]')) return;
+		if (comment.shadowRoot?.querySelector('style[id="re-theme-op-comment-highlight-colour"]')) return;
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-op-comment-highlight-colour';
 		styleElement.textContent = `.bg-orangered-500,
 									.bg-neutral-background-highlighted-strong {
 										background-color: var(--re-theme-op-comment-highlight-colour, rgba(217, 57, 0, 0.07)) !important;
 									}`;
-		comment.shadowRoot.insertBefore(styleElement, comment.shadowRoot.firstChild);
+		comment.shadowRoot?.insertBefore(styleElement, comment.shadowRoot.firstChild);
 	}
 }
 

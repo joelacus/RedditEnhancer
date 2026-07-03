@@ -132,7 +132,8 @@ function displayPostAbsoluteTimestampsRV3() {
 	// Loop through each post and attach absolute timestamp if not already attached
 	postArray.forEach((post) => {
 		if (!post.querySelector('.re-post-absolute-timestamp')) {
-			const timestamp_el = post.querySelector('faceplate-timeago') || post.querySelector('#pdp-credit-bar time').parentElement;
+			const timestamp_el = post.querySelector('faceplate-timeago') || post.querySelector('#pdp-credit-bar time')?.parentElement;
+			if (!timestamp_el) return;
 			const datetime_str = timestamp_el.getAttribute('ts') || timestamp_el.querySelector('time')?.getAttribute('datetime') || '';
 			const relative_str = timestamp_el.querySelector('time')?.textContent || '';
 			if (datetime_str) {
