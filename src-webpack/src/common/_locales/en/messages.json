@@ -15,10 +15,13 @@
 		"message": "Accessibility"
 	},
 	"AddDownloadVideoButton": {
-		"message": "Add 'Download Video' button to video posts"
+		"message": "Add \"Download Video\" button to video posts"
 	},
 	"AddDownloadVideoButtonInfo": {
 		"message": "May not work for all videos."
+	},
+	"AddDownloadVideoButtonPermission": {
+		"message": "The \"downloads\" browser permission is required. Please re-enable \"Add 'Download Video' button to video posts\" in the extension settings, and accept the popup request."
 	},
 	"AddMarkPostAsReadButton": {
 		"message": "Add a button to each post in Compact view to mark it as read"
@@ -667,6 +670,9 @@
 	},
 	"MarkReadOnOpenExpandos": {
 		"message": "Mark posts as read when opening expandos in Compact view"
+	},
+	"MarkReadOnOpenExpandosHistoryPermission": {
+		"message": "The \"history\" browser permission is required. Please re-enable \"Mark posts as read when opening expandos in Compact view\" in the extension settings, and accept the popup request."
 	},
 	"MaxImagePostHeight": {
 		"message": "Max Image Post Height"

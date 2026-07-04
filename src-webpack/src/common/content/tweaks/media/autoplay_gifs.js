@@ -16,7 +16,7 @@ let scrollCleanup = null;
 
 export function loadAutoplayGifs() {
 	BROWSER_API.storage.sync.get(['autoplayGifs']).then((result) => {
-		if (result.autoplayGifs) autoplayGifs(true);
+		if (result.autoplayGifs === true) autoplayGifs(true);
 	});
 }
 

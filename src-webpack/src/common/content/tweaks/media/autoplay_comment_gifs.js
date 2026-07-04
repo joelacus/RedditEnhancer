@@ -16,7 +16,7 @@ let scrollCleanup = null;
 
 export function loadAutoplayCommentGifs() {
 	BROWSER_API.storage.sync.get(['autoplayCommentGifs']).then((result) => {
-		if (result.autoplayCommentGifs) autoplayCommentGifs(true);
+		if (result.autoplayCommentGifs === true) autoplayCommentGifs(true);
 	});
 }
 

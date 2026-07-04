@@ -16,7 +16,7 @@ let scrollCleanup = null;
 
 export function loadAutoplayVideos() {
 	BROWSER_API.storage.sync.get(['autoplayVideos']).then((result) => {
-		if (result.autoplayVideos) autoplayVideos(true);
+		if (result.autoplayVideos === true) autoplayVideos(true);
 	});
 }
 

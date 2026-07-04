@@ -11,6 +11,8 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
+import i18next from 'i18next';
+import { showToast, removeToast } from '../../../utilities/toast_notification';
 import { showBannerMessage } from '../../banner_message';
 import { registerMutationCallback } from '../../observer_manager';
 
@@ -106,8 +108,23 @@ function enableMarkReadOnOpenExpandos() {
 							],
 						})
 						.then(function (response) {
-							console.debug(`[RedditEnhancer] markReadOnOpenExpandos: Marking URL as visited: ${url}`);
-							expando.querySelector('.re-icon-double-tick').style.display = 'none';
+							if (response && response.success) {
+								console.debug(`[RedditEnhancer] markReadOnOpenExpandos: Marking URL as visited: ${url}`);
+								expando.querySelector('.re-icon-double-tick').style.display = 'none';
+							} else if (response && response.missingPermission === 'history') {
+								showMissingPermissionToast(() => {
+									BROWSER_API.runtime
+										.sendMessage({
+											actions: [{ action: 'markVisited', url }],
+										})
+										.then((res) => {
+											if (res && res.success) {
+												expando.querySelector('.re-icon-double-tick').style.display = 'none';
+											}
+										})
+										.catch(() => {});
+								});
+							}
 						})
 						.catch(function (error) {
 							console.error(`[RedditEnhancer] markReadOnOpenExpandos: Error marking post as read: ${url}, `, error);
@@ -135,12 +152,26 @@ function enableMarkReadOnOpenExpandos() {
 				button.append(double_tick_svg);
 
 				button.addEventListener('click', () => {
-					// Send a message to background.js, which has the permission to call history.addUrl()
 					BROWSER_API.runtime
-						.sendMessage({ actions: [{ action: 'markVisited', url: url }] })
+						.sendMessage({ actions: [{ action: 'markVisited', url }] })
 						.then(function (response) {
-							console.debug(`[RedditEnhancer] markPostAsRead: Marking URL as visited: ${url}`);
-							button.style.display = 'none';
+							if (response && response.success) {
+								console.debug(`[RedditEnhancer] markPostAsRead: Marking URL as visited: ${url}`);
+								button.style.display = 'none';
+							} else if (response && response.missingPermission === 'history') {
+								showMissingPermissionToast(() => {
+									BROWSER_API.runtime
+										.sendMessage({
+											actions: [{ action: 'markVisited', url }],
+										})
+										.then((res) => {
+											if (res && res.success) {
+												button.style.display = 'none';
+											}
+										})
+										.catch(() => {});
+								});
+							}
 						})
 						.catch(function (error) {
 							console.error(`[RedditEnhancer] markPostAsRead: Error marking post as read: ${url}, `, error);
@@ -153,4 +184,14 @@ function enableMarkReadOnOpenExpandos() {
 	}
 
 	flag = false;
+}
+
+function showMissingPermissionToast(onGranted) {
+	console.warn(`[RedditEnhancer] markPostAsRead: "history" permission required"`);
+	const grantToast = showToast('warn', `${i18next.t('MarkReadOnOpenExpandosHistoryPermission.message')}`, {
+		buttonText: 'Close',
+		onButtonClick: () => {
+			removeToast(grantToast);
+		},
+	});
 }

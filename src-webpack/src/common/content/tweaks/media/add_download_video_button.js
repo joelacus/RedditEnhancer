@@ -10,6 +10,8 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
+import i18next from 'i18next';
+import { showToast, removeToast } from '../../../utilities/toast_notification';
 import { showBannerMessage } from '../../banner_message';
 import { registerMutationCallback } from '../../observer_manager';
 
@@ -100,10 +102,10 @@ function enableAddVideoDownloadButtonRV3(post) {
 			if (routeName === 'post_page') btn.setAttribute('style', 'cursor: pointer;text-decoration: underline;z-index: 99;');
 			if (routeName !== 'post_page') btn.setAttribute('style', 'position: absolute;bottom: 0.75rem;right: 1rem;cursor: pointer;text-decoration: underline;z-index: 99;');
 			btn.textContent = 'Download Video';
-			btn.addEventListener('click', async function (e) {
+			btn.addEventListener('click', function (e) {
 				e.stopPropagation();
-				try {
-					await BROWSER_API.runtime.sendMessage({
+				BROWSER_API.runtime
+					.sendMessage({
 						actions: [
 							{
 								action: 'downloadVideo',
@@ -111,11 +113,23 @@ function enableAddVideoDownloadButtonRV3(post) {
 								url: video_url,
 							},
 						],
+					})
+					.then(function (response) {
+						if (response && response.success) {
+							console.debug(`[RedditEnhancer] downloadVideo: Downloading video: ${post_title} - ${video_url}`);
+						} else if (response && response.missingPermission === 'downloads') {
+							console.warn(`[RedditEnhancer] downloadVideo: "downloads" permission required"`);
+							const toast = showToast('warn', `${i18next.t('AddDownloadVideoButtonPermission.message')}`, {
+								buttonText: 'Close',
+								onButtonClick: function () {
+									removeToast(toast);
+								},
+							});
+						}
+					})
+					.catch(function (error) {
+						console.error(`[RedditEnhancer] downloadVideo: Error: ${error}`);
 					});
-				} catch (error) {
-					console.error(error);
-					showBannerMessage('error', error.error || error);
-				}
 			});
 			container.appendChild(btn);
 		}

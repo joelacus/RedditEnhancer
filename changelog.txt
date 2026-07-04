@@ -1,6 +1,8 @@
 version 3.2.2
   - Bug fixes and improvements.
-  - Optional "scripting" permission required for autoplay videos and GIFs to work on Chromium based browsers.
+  - Keyboard shortcuts will now be ignored when a text input is focused.
+  - Added a popup warning if a feature tries to use an optional browser permission that has been revoked.
+  - Optional "scripting" permission is required for the autoplay videos and GIFs features to work on Chromium based browsers.
 
 version 3.2.0
   - Slightly tweaked the popup menus and reordered some options.
