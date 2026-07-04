@@ -546,14 +546,6 @@ shreddit-composer::part(md-inner) {
 			padding-top: 0.75rem;
 		}
 	}
-
-	& div.re-vote-panel {
-		margin-top: 0 !important;
-	}
-
-	& div.re-vote-panel + shreddit-post {
-		padding-left: 0.25rem !important;
-	}
 }
 [routename='keyword-management'] main.main {
 	margin: 1rem 0;

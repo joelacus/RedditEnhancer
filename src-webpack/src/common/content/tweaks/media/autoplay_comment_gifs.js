@@ -16,15 +16,16 @@ let scrollCleanup = null;
 
 export function loadAutoplayCommentGifs() {
 	BROWSER_API.storage.sync.get(['autoplayCommentGifs']).then((result) => {
-		if (result.autoplayCommentGifs) autoplayCommentGifs(true);
+		if (result.autoplayCommentGifs === true) autoplayCommentGifs(true);
 	});
 }
 
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 export function autoplayCommentGifs(value) {
-	if (scrollCleanup) return;
-	if (redditVersion === 'newnew' && value) {
+	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
+	const feedRoutes = ['post_page', 'comments_page'];
+	if (redditVersion === 'newnew' && value && feedRoutes.includes(routeName)) {
 		enableAutoplayCommentGifs();
 
 		// === Run again on page scroll ===
@@ -50,20 +51,8 @@ export function autoplayCommentGifs(value) {
 
 // Enable Autoplay Comment GIFs - RV3
 function enableAutoplayCommentGifs() {
-	const script = document.createElement('script');
-	script.textContent = `
-	(function() {
-		const gifs = document.querySelectorAll('shreddit-comment shreddit-player');
-		gifs.forEach((gif) => {
-			const rect = gif.getBoundingClientRect();
-			const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-			if (rect.top < viewportHeight && rect.bottom > 0) {
-				try {
-					gif.play();
-				} catch(e) {}
-			}
-		});
-	})();`;
-	document.documentElement.appendChild(script);
-	script.remove();
+	// MV3 isolated world - use scripting API to reach the main world
+	BROWSER_API.runtime.sendMessage({ action: 'runAutoplayCommentGifs' }).catch((e) => {
+		console.error('Autoplay Comment GIFs failed:', e);
+	});
 }

@@ -120,7 +120,7 @@ function enableHideBlockedKeywordCommentsRV1() {
 function filterBlockedKeywordPost(comment) {
 	if (comment.classList.contains('re-hide-comment')) return;
 
-	const content = comment.querySelector('p').parentElement;
+	const content = comment.querySelector('p')?.parentElement;
 	if (!content) return;
 
 	if (keywordList.some((word) => matchesPattern(content.textContent, word))) {

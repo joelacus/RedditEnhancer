@@ -82,13 +82,22 @@ function enableGalleryKeyboardNavigation() {
 		button?.click();
 	}
 
+	const isInputFocused = () => {
+		const active = document.activeElement;
+		return active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable);
+	};
+
 	const handler = (event) => {
 		if (event.key === 'ArrowRight') {
-			event.preventDefault();
-			navigate('right');
+			if (!isInputFocused()) {
+				event.preventDefault();
+				navigate('right');
+			}
 		} else if (event.key === 'ArrowLeft') {
-			event.preventDefault();
-			navigate('left');
+			if (!isInputFocused()) {
+				event.preventDefault();
+				navigate('left');
+			}
 		}
 	};
 

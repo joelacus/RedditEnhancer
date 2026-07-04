@@ -31,15 +31,15 @@ export function hideVoteButtons(value) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-hide-vote-buttons';
 				styleElement.textContent = `/* Post vote buttons */
-                                            .thing div.midcol,
-                                            /* Comment vote buttons */
-                                            .comment div.midcol {
-                                                display: none;
-                                                visibility: hidden;
-                                            }
-                                            a.thumbnail {
-                                                margin-left: .5rem;
-                                            }`;
+											.thing div.midcol,
+											/* Comment vote buttons */
+											.comment div.midcol {
+												display: none;
+												visibility: hidden;
+											}
+											a.thumbnail {
+												margin-left: .5rem;
+											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
 		} else {
@@ -53,11 +53,10 @@ export function hideVoteButtons(value) {
 			if (!document.head.querySelector('style[id="re-hide-vote-buttons"]')) {
 				const styleElement = document.createElement('style');
 				styleElement.id = 're-hide-vote-buttons';
-				styleElement.textContent = `.re-vote-panel span,
-                                            shreddit-post::part(vote),
-                                            shreddit-comment-action-row::part(vote) {
-                                                visibility: hidden;
-                                            }`;
+				styleElement.textContent = `shreddit-post::part(vote),
+											shreddit-comment-action-row::part(vote) {
+												visibility: hidden;
+											}`;
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
 			attachPartObserver();

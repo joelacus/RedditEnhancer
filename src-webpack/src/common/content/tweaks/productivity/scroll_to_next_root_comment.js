@@ -131,14 +131,23 @@ function enableScrollToNextRootCommentRV3() {
 	// Add key press event listener
 	document.addEventListener('keydown', handleKeyPress);
 
+	const isInputFocused = () => {
+		const active = document.activeElement;
+		return active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable);
+	};
+
 	function handleKeyPress(e) {
 		if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'REDDIT-SEARCH-LARGE') {
 			if (e.key === 'j' || e.key === 'J' || e.key === 'ArrowDown') {
-				if (e.key === 'ArrowDown') e.preventDefault();
-				goToNextComment();
+				if (!isInputFocused()) {
+					e.preventDefault();
+					goToNextComment();
+				}
 			} else if (e.key === 'k' || e.key === 'K' || e.key === 'ArrowUp') {
-				if (e.key === 'ArrowUp') e.preventDefault();
-				goToPreviousComment();
+				if (!isInputFocused()) {
+					e.preventDefault();
+					goToPreviousComment();
+				}
 			}
 		}
 	}

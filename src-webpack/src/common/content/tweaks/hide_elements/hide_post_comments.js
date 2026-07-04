@@ -48,6 +48,7 @@ function enableHidePostCommentsRV3() {
 	if (label) {
 		if (!document.querySelector('#re-show-comments')) {
 			const tree = document.querySelector('[id^="comment-tree-content-anchor"]');
+			if (!tree) return;
 
 			const container = document.createElement('div');
 			container.id = 're-show-comments';
@@ -92,6 +93,7 @@ function enableHidePostCommentsRV1() {
 	if (label) {
 		if (!document.querySelector('#re-show-comments')) {
 			const tree = document.querySelector('.commentarea');
+			if (!tree) return;
 
 			const container = document.createElement('div');
 			container.id = 're-show-comments';

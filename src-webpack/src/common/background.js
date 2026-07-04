@@ -65,24 +65,48 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 				});
 				return true;
 			} else if (action.action === 'markVisited' && action.url) {
-				BROWSER_API.history.addUrl({ url: action.url }, function () {
-					console.log(`${timestamp()} - Marking URL as visited: ${action.url}`);
+				if (!sender.tab) {
+					sendResponse({ success: false, missingPermission: 'history' });
+					return true;
+				}
+				BROWSER_API.permissions.contains({ permissions: ['history'] }, (granted) => {
+					if (!granted) {
+						sendResponse({ success: false, missingPermission: 'history' });
+						return;
+					}
+					BROWSER_API.history.addUrl({ url: action.url }, function () {
+						console.log(`${timestamp()} - Marking URL as visited: ${action.url}`);
+					});
+					sendResponse({ success: true });
 				});
+				return true;
 			} else if (action.action === 'downloadVideo' && action.filename && action.url) {
-				BROWSER_API.downloads.download(
-					{
-						url: action.url,
-						filename: action.filename.endsWith('.mp4') ? action.filename : `${action.filename}.mp4`,
-						saveAs: true,
-					},
-					(downloadId) => {
-						if (BROWSER_API.runtime.lastError) {
-							console.error(`${timestamp()} - Download failed:, ${BROWSER_API.runtime.lastError}`);
-						} else {
-							console.log(`${timestamp()} - Downloading video: ${action.filename} - ${action.url}`);
-						}
-					},
-				);
+				if (!sender.tab) {
+					sendResponse({ success: false, missingPermission: 'downloads' });
+					return true;
+				}
+				BROWSER_API.permissions.contains({ permissions: ['downloads'] }, function (granted) {
+					if (!granted) {
+						sendResponse({ success: false, missingPermission: 'downloads' });
+						return;
+					}
+					BROWSER_API.downloads.download(
+						{
+							url: action.url,
+							filename: action.filename.endsWith('.mp4') ? action.filename : action.filename + '.mp4',
+							saveAs: true,
+						},
+						function (downloadId) {
+							if (BROWSER_API.runtime.lastError) {
+								console.error(timestamp() + ' - Download failed: ' + BROWSER_API.runtime.lastError.message);
+							} else {
+								console.log(timestamp() + ' - Downloading video: ' + action.filename + ' - ' + action.url);
+							}
+						},
+					);
+					sendResponse({ success: true });
+				});
+				return true;
 			}
 		}
 	} else if (request.justOpenTheImage === true) {
@@ -97,6 +121,15 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 		console.warn(`${timestamp()} - ${request.message}`);
 	} else if (request.log === 'error') {
 		console.error(`${timestamp()} - ${request.message}`);
+	} else if (request.action === 'runAutoplayGifs') {
+		handleRunAutoplayGifs(sender, sendResponse);
+		return true;
+	} else if (request.action === 'runAutoplayVideos') {
+		handleRunAutoplayVideos(sender, sendResponse);
+		return true;
+	} else if (request.action === 'runAutoplayCommentGifs') {
+		handleRunAutoplayCommentGifs(sender, sendResponse);
+		return true;
 	}
 });
 
@@ -121,6 +154,123 @@ function checkTime(i) {
 		interval = null;
 	}
 }*/
+
+/* ===== Autoplay Helpers ===== */
+
+function handleRunAutoplayGifs(sender, sendResponse) {
+	function runAutoplayGifsInMain() {
+		const posts = document.querySelectorAll('shreddit-post[post-type="gif"]');
+		posts.forEach((post) => {
+			const player = post.querySelector('shreddit-player');
+			if (!player) return;
+			const rect = player.getBoundingClientRect();
+			const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+			if (rect.top < viewportHeight && rect.bottom > 0) {
+				try {
+					player.play();
+				} catch (e) {}
+			}
+		});
+	}
+
+	const tabId = sender.tab?.id;
+	if (!tabId) {
+		sendResponse({ success: false });
+		return;
+	}
+	if (!BROWSER_API.scripting) {
+		console.warn('runAutoplayGifs failed: scripting API unavailable');
+		sendResponse({ success: false });
+		return;
+	}
+	BROWSER_API.scripting
+		.executeScript({
+			target: { tabId },
+			world: 'MAIN',
+			func: runAutoplayGifsInMain,
+		})
+		.then(() => sendResponse({ success: true }))
+		.catch((e) => {
+			console.error('runAutoplayGifs failed:', e);
+			sendResponse({ success: false });
+		});
+}
+
+function handleRunAutoplayVideos(sender, sendResponse) {
+	function runAutoplayVideosInMain() {
+		const posts = document.querySelectorAll('shreddit-post[post-type="video"]');
+		posts.forEach((post) => {
+			const player = post.querySelector('shreddit-player');
+			if (!player) return;
+			const rect = player.getBoundingClientRect();
+			const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+			if (rect.top < viewportHeight && rect.bottom > 0) {
+				try {
+					player.play();
+				} catch (e) {}
+			}
+		});
+	}
+
+	const tabId = sender.tab?.id;
+	if (!tabId) {
+		sendResponse({ success: false });
+		return;
+	}
+	if (!BROWSER_API.scripting) {
+		console.warn('runAutoplayVideos failed: scripting API unavailable');
+		sendResponse({ success: false });
+		return;
+	}
+	BROWSER_API.scripting
+		.executeScript({
+			target: { tabId },
+			world: 'MAIN',
+			func: runAutoplayVideosInMain,
+		})
+		.then(() => sendResponse({ success: true }))
+		.catch((e) => {
+			console.error('runAutoplayVideos failed:', e);
+			sendResponse({ success: false });
+		});
+}
+
+function handleRunAutoplayCommentGifs(sender, sendResponse) {
+	function runAutoplayCommentGifsInMain() {
+		const gifs = document.querySelectorAll('shreddit-comment shreddit-player');
+		gifs.forEach((gif) => {
+			const rect = gif.getBoundingClientRect();
+			const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+			if (rect.top < viewportHeight && rect.bottom > 0) {
+				try {
+					gif.play();
+				} catch (e) {}
+			}
+		});
+	}
+
+	const tabId = sender.tab?.id;
+	if (!tabId) {
+		sendResponse({ success: false });
+		return;
+	}
+	if (!BROWSER_API.scripting) {
+		console.warn('runAutoplayCommentGifs failed: scripting API unavailable');
+		sendResponse({ success: false });
+		return;
+	}
+	BROWSER_API.scripting
+		.executeScript({
+			target: { tabId },
+			world: 'MAIN',
+			func: runAutoplayCommentGifsInMain,
+		})
+		.then(() => sendResponse({ success: true }))
+		.catch((e) => {
+			console.error('runAutoplayCommentGifs failed:', e);
+			sendResponse({ success: false });
+		});
+}
 
 // Fetch JSON data
 // @see content/tweaks/productivity/show_post_flair.js

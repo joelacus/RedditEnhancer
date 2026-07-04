@@ -28,7 +28,6 @@ export function hideBlockedSubredditPosts(value) {
 	if (redditVersion === 'old') {
 		if (value) {
 			BROWSER_API.storage.sync.get(['hideBlockedSubredditPostsList'], function (result) {
-				console.log(result.hideBlockedSubredditPostsList);
 				updateSubredditList(result.hideBlockedSubredditPostsList);
 				logToDevConsole('log', `Blocked Subreddits List: ${subredditList}`);
 				enableHideBlockedSubredditPostsRV1();
