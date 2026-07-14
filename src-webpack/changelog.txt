@@ -1,3 +1,11 @@
+version 3.3.0
+  - Added an option to upload images from your computer to use as the site background. Limited to local storage, will not sync to other devices. You can change the uploaded image quality in Settings to reduce space and store more images.
+  - Fixed "Multicoloured Comment Thread Lines" not working due to a website update.
+  - Fixed "Highlight comments from original poster (OP)" not working due to a website update.
+  - Added a "Reset" button to reset the default colour for "Highlight comments from original poster (OP)".
+  - Added progress bars on the Settings page to show how much local and sync storage has been used. 10MiB local, 100KiB sync.
+  - Updated all locales to 100% (Translations mostly done by AI, so there may be some mistakes. Any help is very welcome to improve translation quality).
+
 version 3.2.2
   - Bug fixes and improvements.
   - Keyboard shortcuts will now be ignored when a text input is focused.

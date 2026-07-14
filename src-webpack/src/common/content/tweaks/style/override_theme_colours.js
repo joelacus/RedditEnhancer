@@ -1238,53 +1238,22 @@ export function themeOpCommentHighlightColour(value) {
 			themeOpCommentHighlightColourCSS(value);
 		});
 
-		document.querySelectorAll('shreddit-comment').forEach(highlightComment);
-		observer_op_comment.observe(document.querySelector('shreddit-comment-tree'));
-	} else {
-		observer_op_comment.disconnect();
-		document.documentElement.style.removeProperty('--re-theme-op-comment-highlight-colour');
-
-		document.querySelectorAll('shreddit-comment').forEach((comment) => {
-			comment.removeAttribute('is-highlighted');
-			const dynamicStyleElements = comment.shadowRoot?.querySelectorAll('style[id="re-theme-op-comment-highlight-colour"]');
-			if (!dynamicStyleElements) return;
-			dynamicStyleElements.forEach((element) => {
-				comment.shadowRoot?.removeChild(element);
-			});
-		});
-	}
-}
-
-function highlightComment(comment) {
-	const tag = comment.querySelector(':scope > div[slot="commentMeta"] shreddit-comment-author-modifier-icon');
-	if (tag && tag.getAttribute('op') === '') {
-		comment.setAttribute('is-highlighted', '');
-		if (comment.shadowRoot?.querySelector('style[id="re-theme-op-comment-highlight-colour"]')) return;
+		if (document.head.querySelector('style[id="re-theme-op-comment-highlight-colour"]')) return;
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-op-comment-highlight-colour';
-		styleElement.textContent = `.bg-orangered-500,
-									.bg-neutral-background-highlighted-strong {
-										background-color: var(--re-theme-op-comment-highlight-colour, rgba(217, 57, 0, 0.07)) !important;
+		styleElement.textContent = `shreddit-comment[is-op] > details > summary > div[slot="commentMeta"],
+									shreddit-comment[is-op] > details > div > div:nth-child(3),
+									shreddit-comment[is-op] > details > div > div:nth-child(4){
+										background-color: var(--re-theme-op-comment-highlight-colour, rgba(217, 57, 0, 0.07));
 									}`;
-		comment.shadowRoot?.insertBefore(styleElement, comment.shadowRoot.firstChild);
-	}
-}
-
-// Observe the comment tree for dynamic changes
-const observer_op_comment = new ResizeObserver(
-	debounce(function (mutations) {
-		mutations.forEach(function (mutation) {
-			mutation.target.querySelectorAll('shreddit-comment').forEach(highlightComment);
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	} else {
+		document.documentElement.style.removeProperty('--re-theme-op-comment-highlight-colour');
+		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-op-comment-highlight-colour"]');
+		dynamicStyleElements.forEach((element) => {
+			element.remove();
 		});
-	}, 100),
-);
-
-function debounce(func, wait) {
-	let timeout;
-	return function (...args) {
-		clearTimeout(timeout);
-		timeout = setTimeout(() => func.apply(this, args), wait);
-	};
+	}
 }
 
 // OP Comment Highlight Colour CSS

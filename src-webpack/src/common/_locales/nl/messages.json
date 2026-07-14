@@ -17,6 +17,9 @@
 	"AddDownloadVideoButtonInfo": {
 		"message": "Werkt mogelijk niet voor alle video's."
 	},
+	"AddDownloadVideoButtonPermission": {
+		"message": "De browservergunning \"downloads\" is vereist. Gelieve de optie \"Voeg knop 'Video downloaden' toe aan videoposts\" opnieuw te activeren in de extensie-instellingen en de pop-upaanvraag te accepteren."
+	},
 	"AddMarkPostAsReadButton": {
 		"message": "Voeg in de compacte weergave een knop toe aan elk bericht om het als gelezen te markeren"
 	},
@@ -26,6 +29,9 @@
 	"AddSpoilerTag": {
 		"message": "Voeg spoiler-tag toe"
 	},
+	"AlwaysShowCommentOptions": {
+		"message": "Reactieopties altijd weergeven"
+	},
 	"AlwaysShowCommentOptionsInfo": {
 		"message": "Verplaats de knoppen uit het overloopmenu voor reacties naar de actiebalk voor reacties."
 	},
@@ -34,6 +40,9 @@
 	},
 	"AlwaysShowPostOptionsInfo": {
 		"message": "Verplaats de knoppen van het overloopmenu van het bericht naar de actiebalk van het bericht."
+	},
+	"AppendNumbersToPostImages": {
+		"message": "Genummerde bericht afbeeldingen"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Pagina en gebruikersinformatie weergeven in de header"
@@ -56,11 +65,38 @@
 	"AutoLoadMoreCommentsInfo": {
 		"message": "Dit kan ervoor zorgen dat de pagina trager wordt en veel RAM-geheugen gebruikt, vooral als er veel reacties zijn."
 	},
+	"AutoplayCommentGifs": {
+		"message": "Automatisch afspelen van GIFs in reacties"
+	},
+	"AutoplayGifs": {
+		"message": "Automatisch afspelen van GIF's"
+	},
+	"AutoplayMediaInfo": {
+		"message": "Om ervoor te zorgen dat deze opties correct te werken, schakelt u de functie \"Autoplay media\" uit in de Reddit Gebruikersinstellingen > Voorkeuren."
+	},
+	"AutoplayVideos": {
+		"message": "Automatische afspeelvideo's"
+	},
+	"Award": {
+		"message": "Prijs"
+	},
 	"Background": {
 		"message": "Achtergrond"
 	},
+	"BackgroundUploadInfo": {
+		"message": "Afbeeldingsbestanden kunnen alleen via de optiepagina worden geüpload."
+	},
+	"BackgroundUploadInfo2": {
+		"message": "Lagere resoluties nemen minder opslagruimte in beslag, waardoor er meer afbeeldingen binnen de limiet passen. Geüploade afbeeldingen worden lokaal opgeslagen."
+	},
+	"BackgroundUploadResolution": {
+		"message": "Resolutie voor uploaden op de achtergrond"
+	},
 	"Backup": {
 		"message": "Backup"
+	},
+	"BackupFailed": {
+		"message": "Er is iets misgegaan. Controleer de ontwikkelaarsconsole (F12) op fouten."
 	},
 	"BackupRestoreConfig": {
 		"message": "Backup/Herstel Configuratie"
@@ -98,6 +134,12 @@
 	"Block": {
 		"message": "Blok"
 	},
+	"BlockInfo": {
+		"message": "Ondersteunt exacte trefwoordmatch of reguliere expressies"
+	},
+	"BlocksCommentsByKeyword": {
+		"message": "Commentaar blokkeren op basis van trefwoord"
+	},
 	"Blur": {
 		"message": "Vervagen"
 	},
@@ -119,6 +161,12 @@
 	"BuyMeACoffee": {
 		"message": "Koop me een koffie"
 	},
+	"CannedMessages": {
+		"message": "Voorgeprogrammeerde berichten"
+	},
+	"CannedMessagesInfo": {
+		"message": "Voeg een nieuw bericht toe per geretourneerde regel. Klik met de rechtermuisknop op een willekeurige plek op een Reddit-pagina om kant-en-klare berichten te selecteren uit het contextmenu en deze te kopiëren naar het klembord."
+	},
 	"Centre": {
 		"message": "Centrum"
 	},
@@ -134,6 +182,9 @@
 	"ClassicOldUI": {
 		"message": "Klassieke oude gebruikersinterface"
 	},
+	"CleanLink": {
+		"message": "Optie toevoegen om bericht/commentaar te delen zonder tracking (Schone link)"
+	},
 	"Cleared": {
 		"message": "Gewist"
 	},
@@ -146,8 +197,14 @@
 	"Comments": {
 		"message": "Opmerkingen"
 	},
+	"CommentsBlockInfo": {
+		"message": "Noem individuele trefwoorden/regex, gescheiden door een komma."
+	},
 	"CommentsCount": {
 		"message": "Reacties tellen"
+	},
+	"CommentsHidden": {
+		"message": "Opmerkingen verborgen"
 	},
 	"CompactHeaderSideMenu": {
 		"message": "Compact de headerbalk en het zijmenu"
@@ -159,7 +216,22 @@
 		"message": "Bevestigen"
 	},
 	"Controversial": {
-		"message": "Controverseel"
+		"message": "Controverseel / Controversial"
+	},
+	"CopiedCleanLink": {
+		"message": "Link gekopieerd!"
+	},
+	"CopiedCleanLinkShort": {
+		"message": "Schone link gekopieerd (kort)!"
+	},
+	"CopiedMessage": {
+		"message": "Bericht gekopieerd!"
+	},
+	"CopyCleanLink": {
+		"message": "Kopieer de schone link"
+	},
+	"CopyCleanLinkShort": {
+		"message": "Schone link kopiëren (kort)"
 	},
 	"CreatePost": {
 		"message": "Bericht Maken"
@@ -212,6 +284,9 @@
 	"DropShadow": {
 		"message": "Slagschaduwen"
 	},
+	"Edit": {
+		"message": "Bewerken"
+	},
 	"EditPost": {
 		"message": "Post bewerken"
 	},
@@ -248,8 +323,14 @@
 	"FeedWidth": {
 		"message": "Feed Breedte"
 	},
+	"FilterCommunities": {
+		"message": "Gemeenschappen filteren..."
+	},
 	"FilterOptionsFor": {
 		"message": "Filteropties voor"
+	},
+	"FollowComment": {
+		"message": "Volg commentaar"
 	},
 	"FollowPost": {
 		"message": "Volg Post"
@@ -269,11 +350,23 @@
 	"ForceCustomBgOldUIInfo": {
 		"message": "Aangepaste achtergrond werkt alleen op oude gebruikersinterface met modernisering van oude Reddit ingeschakeld. Schakel dit in zal de aangepaste achtergrond op de gebruikersinterface forceren (niet aanbevolen)."
 	},
+	"ForceDarkMode": {
+		"message": "Dwing Reddit Donkere Modus af"
+	},
+	"ForceShowVoteButtons": {
+		"message": "Forceer weergeven van stemknoppen"
+	},
 	"FullWidthBanner": {
 		"message": "Volledige breedte subreddit banner"
 	},
 	"FullWidthExpandos": {
 		"message": "Vouw post previews uit in compacte weergave"
+	},
+	"GalleryKeyboardNavigation": {
+		"message": "Galerijtoetsenbordnavigatie"
+	},
+	"GalleryKeyboardNavigationInfo": {
+		"message": "Gebruik de pijltoetsen links en rechts om door de afbeeldingengalerijen van berichten te navigeren."
 	},
 	"GlobalWidth": {
 		"message": "Globale maximale breedte"
@@ -298,6 +391,9 @@
 	},
 	"HideAdvertiseButton": {
 		"message": "Verberg de knop “Adverteren”"
+	},
+	"HideAnnouncementNotifications": {
+		"message": "Verberg Reddit aankondigingenmeldingen"
 	},
 	"HideAwards": {
 		"message": "Verberg de Awards-knop"
@@ -336,10 +432,13 @@
 		"message": "Verberg de aangepaste voedingsbalk"
 	},
 	"HideElements": {
-		"message": "Elementen Verbergen"
+		"message": "Verbergen"
 	},
 	"HideFavouriteButtons": {
 		"message": "Verberg de Favorietenknoppen"
+	},
+	"HideGamificationNotifications": {
+		"message": "Verberg Reddit gamificatienotificaties"
 	},
 	"HideGap": {
 		"message": "Verberg interface-gaten"
@@ -365,11 +464,17 @@
 	"HideJoinButtonOnPosts": {
 		"message": "Verberg de knop 'Deelnemen' op berichten"
 	},
+	"HideJoinConversation": {
+		"message": "Verberg \"Word deel van het gesprek\""
+	},
 	"HideKarma": {
 		"message": "Verberg karma"
 	},
 	"HideLinkPostsByUrlKeyword": {
 		"message": "Verberg 'link'-berichten op trefwoorden in de URL"
+	},
+	"HideLogoInTheSearchBar": {
+		"message": "Verberg het Reddit-logo in de zoekbalk"
 	},
 	"HideModerationButton": {
 		"message": "Verberg de knop “Moderatie”"
@@ -383,11 +488,17 @@
 	"HideNsfwInSearchResults": {
 		"message": "Verberg NSFW-resultaten in de zoekbalk"
 	},
+	"HidePageFooter": {
+		"message": "Verberg de voetteksttekst"
+	},
 	"HidePostActionBarButtonsInfo": {
 		"message": "Knoppen verbergen in de postactiebalk"
 	},
 	"HidePostBackButton": {
 		"message": "Verberg de knop 'Post terug'"
+	},
+	"HidePostComments": {
+		"message": "Verberg alle reacties onder een bericht"
 	},
 	"HidePostDivider": {
 		"message": "Verberg Bericht Afscheiders"
@@ -404,6 +515,9 @@
 	"HidePostsByBlockedUser": {
 		"message": "Verberg berichten door geblokkeerde gebruikers"
 	},
+	"HidePostsBySubreddit": {
+		"message": "Berichten over het subreddit verbergen"
+	},
 	"HidePromoted": {
 		"message": "Advertenties/gesponsorde links verbergen"
 	},
@@ -418,6 +532,9 @@
 	},
 	"HideRedditPremium": {
 		"message": "Verberg “Reddit Premium”"
+	},
+	"HideRelatedCommunities": {
+		"message": "Verberg gerelateerde gemeenschappen"
 	},
 	"HideRelatedPosts": {
 		"message": "Verberg gerelateerde berichten"
@@ -488,6 +605,9 @@
 	"HighlightOp": {
 		"message": "Markeer opmerkingen van de oorspronkelijke poster (OP)"
 	},
+	"HomeFeed": {
+		"message": "Startpagina"
+	},
 	"HomeFeedOffset": {
 		"message": "Verschuiving van de start-feed"
 	},
@@ -512,6 +632,12 @@
 	"JustOpenTheImageInfo": {
 		"message": "Bij het openen van afbeeldingen op een nieuw tabblad, open ze rechtstreeks zonder ze op een Reddit-pagina in te bedden."
 	},
+	"Keywords": {
+		"message": "Trefwoorden"
+	},
+	"KeywordsBlockInfo": {
+		"message": "Blokkeer berichten op basis van de titel, niet op de inhoud. Noem individuele trefwoorden/regexen op, gescheiden door een komma."
+	},
 	"Language": {
 		"message": "Taal"
 	},
@@ -527,6 +653,9 @@
 	"Light": {
 		"message": "Licht"
 	},
+	"LightMode": {
+		"message": "Lichte modus"
+	},
 	"LimitCommentsInfo": {
 		"message": "Werkt alleen voor berichten die in een nieuw tabblad/venster zijn geopend."
 	},
@@ -536,6 +665,12 @@
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Dit zal niet noodzakelijkerwijs het bandbreedtegebruik verminderen, maar zou in plaats daarvan moeten helpen voorkomen dat de pagina traag wordt door te voorkomen dat Reddit nieuwe berichten toevoegt totdat je op 'Meer laden' onderaan de feed klikt. Wanneer u op 'Meer laden' klikt, worden de eerste 25 berichten gewist en worden de volgende 25 weergegeven."
 	},
+	"Link": {
+		"message": "Link"
+	},
+	"LocalStorage": {
+		"message": "Lokale opslag"
+	},
 	"MainContainer": {
 		"message": "Hoofdcontainer"
 	},
@@ -544,6 +679,9 @@
 	},
 	"MarkReadOnOpenExpandos": {
 		"message": "Berichten markeren als gelezen bij het openen van uitvouwbare berichten in de compacte weergave"
+	},
+	"MarkReadOnOpenExpandosHistoryPermission": {
+		"message": "De browservergunning \"geschiedenis\" is vereist. Activeer alstublieft \"Mark berichten als gelezen bij het openen van expandos in compacte weergave\" opnieuw in de extensie-instellingen en accepteer het pop-upverzoek."
 	},
 	"MaxImagePostHeight": {
 		"message": "Maximale afbeelding Posthoogte"
@@ -598,6 +736,9 @@
 	},
 	"OldUI": {
 		"message": "Oude UI"
+	},
+	"OnlyExpandNegativeKarmaComments": {
+		"message": "Alleen commentaren met negatief karma uitbreiden"
 	},
 	"OpenPostInNewTab": {
 		"message": "Links openen om op een nieuw tabblad te posten"
@@ -659,6 +800,9 @@
 	"PostContentAndCommentsLinkColour": {
 		"message": "Bericht: Inhouds-en opmerkingen link kleur"
 	},
+	"PostFollowedTextColour": {
+		"message": "Volgende bericht: Tekstkleur"
+	},
 	"PostOffset": {
 		"message": "Verschuiving van de post"
 	},
@@ -682,6 +826,9 @@
 	},
 	"PostWidth": {
 		"message": "Breedte van de post"
+	},
+	"Posts": {
+		"message": "Berichten"
 	},
 	"Productivity": {
 		"message": "productiviteit"
@@ -718,6 +865,15 @@
 	},
 	"ReplacePostVideosWithLinksInfo": {
 		"message": "Werkt mogelijk niet voor alle video's."
+	},
+	"ReplaceSearchPlaceholder": {
+		"message": "Vervang de zoekbalkplaceholder"
+	},
+	"ReplaceSearchPlaceholderInfo": {
+		"message": "Vervang \"Find anything\" door \"Search Reddit\"."
+	},
+	"ReplyNotifications": {
+		"message": "Antwoordmeldingen"
 	},
 	"Report": {
 		"message": "Rapport"
@@ -761,11 +917,17 @@
 	"ScrollToNextRootComment": {
 		"message": "Toon knoppen om naar de volgende/vorige root opmerking te scrollen"
 	},
+	"ScrollToNextRootCommentInfo": {
+		"message": "Optionele toetsenbordnavigatie. Volgende hoofdcommentaar: (J / Pijl naar beneden). Vorgaand hoofdcommentaar: (K / Pijl omhoog)."
+	},
 	"ScrollToTopFloat": {
 		"message": "Voeg een zwevende knop 'Scroll naar boven' toe"
 	},
 	"ScrollToTopHeader": {
 		"message": "Knop “Scroll naar boven” toevoegen"
+	},
+	"ScrollToTopInfo": {
+		"message": "Scroll naar boven"
 	},
 	"Search": {
 		"message": "Zoeken"
@@ -797,8 +959,20 @@
 	"Settings": {
 		"message": "Instellingen"
 	},
+	"Share": {
+		"message": "Delen"
+	},
+	"ShortenCleanLink": {
+		"message": "Korten van een schone link"
+	},
 	"ShowCommentAbsoluteTimestamp": {
 		"message": "Toon absolute tijdstempels over opmerkingen"
+	},
+	"ShowComments": {
+		"message": "Toon reacties"
+	},
+	"ShowCommunitiesFilter": {
+		"message": "Communitylijst filteren"
 	},
 	"ShowMemberCount": {
 		"message": "Toon het aantal leden van de oude subreddit"
@@ -872,6 +1046,9 @@
 	"StickySort": {
 		"message": "Vastgezette sortering"
 	},
+	"StorageUsage": {
+		"message": "Opslaggebruik"
+	},
 	"StyleOptions": {
 		"message": "Stijlopties"
 	},
@@ -884,11 +1061,20 @@
 	"SubFeedWidth": {
 		"message": "Breedte van de sub-feed"
 	},
+	"SubHeaderBgColour": {
+		"message": "Kleur van de subreddit-kopachtergrond"
+	},
 	"Subreddit": {
 		"message": "Subreddit"
 	},
+	"SubredditBlockInfo": {
+		"message": "Verbergt alle berichten van de genoemde subreddits in de feeds, behalve de subreddit-feeds."
+	},
 	"SubredditDisplayNameBanner": {
 		"message": "Toon de weergavenaam van de subreddit in de banner"
+	},
+	"SyncStorage": {
+		"message": "Synchronisatieopslag"
 	},
 	"Text": {
 		"message": "Tekst"
@@ -917,6 +1103,9 @@
 	"ThemeColours": {
 		"message": "Thema Kleuren"
 	},
+	"ThemeDoesNotWorkWithCustomThemes": {
+		"message": "Werkt momenteel niet met aangepaste community-thema's. Gelieve deze optie in uw Reddit-voorkeuren uit te schakelen."
+	},
 	"ThemeWhitelistInfo": {
 		"message": "Gebruik alleen de themakleuren voor deze subreddits:"
 	},
@@ -941,6 +1130,9 @@
 	"Upload": {
 		"message": "Uploaden"
 	},
+	"UploadedImage": {
+		"message": "Geüploade afbeelding"
+	},
 	"UpvoteColour": {
 		"message": "Bericht: Upvote Kleur"
 	},
@@ -956,11 +1148,11 @@
 	"UsernameHoverPopupDelay": {
 		"message": "Vertraging bij zwevende gebruikersnaam-popup"
 	},
+	"Users": {
+		"message": "Gebruikers"
+	},
 	"Video": {
 		"message": "Video"
-	},
-	"VideoPlayerInfo": {
-		"message": "Snelle, lichtgewicht videospeler met snelheidsregeling op basis van videojs. Probeer dit als je laadproblemen hebt met de eigen speler van reddit."
 	},
 	"ViewCrossposts": {
 		"message": "Voeg link toe om kruisposten te bekijken in andere subreddits"

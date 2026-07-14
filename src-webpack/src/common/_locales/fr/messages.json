@@ -17,6 +17,9 @@
 	"AddDownloadVideoButtonInfo": {
 		"message": "Peut ne pas fonctionner pour toutes les vidéos."
 	},
+	"AddDownloadVideoButtonPermission": {
+		"message": "L'autorisation de navigateur « téléchargements » est requise. Veuillez rétablir l'option « Ajouter le bouton ‘Télécharger la vidéo’ aux publications vidéo » dans les paramètres de l'extension et accepter la demande de fenêtre contextuelle."
+	},
 	"AddMarkPostAsReadButton": {
 		"message": "Ajoutez un bouton à chaque article en mode compact pour le marquer comme lu."
 	},
@@ -26,6 +29,9 @@
 	"AddSpoilerTag": {
 		"message": "Ajouter une balise de spoiler"
 	},
+	"AlwaysShowCommentOptions": {
+		"message": "Afficher toujours les options de commentaire"
+	},
 	"AlwaysShowCommentOptionsInfo": {
 		"message": "Déplacez les boutons du menu contextuel des commentaires vers la barre d'actions des commentaires."
 	},
@@ -34,6 +40,9 @@
 	},
 	"AlwaysShowPostOptionsInfo": {
 		"message": "Déplacez les boutons du menu contextuel de l'article vers la barre d'actions de l'article."
+	},
+	"AppendNumbersToPostImages": {
+		"message": "Images de publications numérotées"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Page d'affichage et d'informations utilisateur dans l'en-tête"
@@ -56,8 +65,32 @@
 	"AutoLoadMoreCommentsInfo": {
 		"message": "Cela peut ralentir la page et utiliser beaucoup de RAM, surtout s'il y a beaucoup de commentaires."
 	},
+	"AutoplayCommentGifs": {
+		"message": "Lecture automatique des GIFs dans les commentaires"
+	},
+	"AutoplayGifs": {
+		"message": "Lecture automatique des GIFs"
+	},
+	"AutoplayMediaInfo": {
+		"message": "Pour que ces options fonctionnent correctement, veuillez désactiver « Lecture automatique des médias » dans les paramètres utilisateur Reddit > Préférences."
+	},
+	"AutoplayVideos": {
+		"message": "Lecture automatique des vidéos"
+	},
+	"Award": {
+		"message": "Prix"
+	},
 	"Background": {
 		"message": "Arrière-plan"
+	},
+	"BackgroundUploadInfo": {
+		"message": "Les fichiers image ne peuvent être téléchargés qu'à partir de la page des options."
+	},
+	"BackgroundUploadInfo2": {
+		"message": "Les résolutions inférieures occupent moins d'espace de stockage, ce qui permet d'inclure davantage d'images dans la limite autorisée. Les images téléchargées sont stockées localement."
+	},
+	"BackgroundUploadResolution": {
+		"message": "Résolution de téléchargement en arrière-plan"
 	},
 	"Backup": {
 		"message": "Sauvegarde"
@@ -104,6 +137,9 @@
 	"BlockInfo": {
 		"message": "Prend en charge la correspondance exacte des mots clés ou les expressions régulières."
 	},
+	"BlocksCommentsByKeyword": {
+		"message": "Bloquer les commentaires par mot-clé"
+	},
 	"Blur": {
 		"message": "Flou"
 	},
@@ -146,6 +182,9 @@
 	"ClassicOldUI": {
 		"message": "Interface utilisateur classique ancienne"
 	},
+	"CleanLink": {
+		"message": "Ajouter une option de partage de publication/commentaire sans suivi (Lien propre)"
+	},
 	"Cleared": {
 		"message": "Effacée"
 	},
@@ -158,8 +197,14 @@
 	"Comments": {
 		"message": "Commentaires"
 	},
+	"CommentsBlockInfo": {
+		"message": "Énumérez les mots-clés/expressions régulières individuels, séparés par une virgule."
+	},
 	"CommentsCount": {
 		"message": "Les commentaires comptent"
+	},
+	"CommentsHidden": {
+		"message": "Commentaires masqués"
 	},
 	"CompactHeaderSideMenu": {
 		"message": "Menu de tête et côté compacte"
@@ -171,7 +216,22 @@
 		"message": "Confirmer"
 	},
 	"Controversial": {
-		"message": "Controversés"
+		"message": "Controversés / Controversial"
+	},
+	"CopiedCleanLink": {
+		"message": "Lien copié avec succès!"
+	},
+	"CopiedCleanLinkShort": {
+		"message": "Lien propre copié (court)!"
+	},
+	"CopiedMessage": {
+		"message": "Message copié!"
+	},
+	"CopyCleanLink": {
+		"message": "Copier le lien propre"
+	},
+	"CopyCleanLinkShort": {
+		"message": "Copier le lien propre (court)"
 	},
 	"CreatePost": {
 		"message": "Créer une Post"
@@ -224,6 +284,9 @@
 	"DropShadow": {
 		"message": "Ombres portées"
 	},
+	"Edit": {
+		"message": "Modifier"
+	},
 	"EditPost": {
 		"message": "Modifier la publication"
 	},
@@ -260,8 +323,14 @@
 	"FeedWidth": {
 		"message": "Largeur d'alimentation"
 	},
+	"FilterCommunities": {
+		"message": "Filtrer les communautés..."
+	},
 	"FilterOptionsFor": {
 		"message": "Options de filtrage pour"
+	},
+	"FollowComment": {
+		"message": "Suivre le commentaire"
 	},
 	"FollowPost": {
 		"message": "Suivre"
@@ -284,11 +353,20 @@
 	"ForceDarkMode": {
 		"message": "Forcer le mode sombre de Reddit"
 	},
+	"ForceShowVoteButtons": {
+		"message": "Forcer l'affichage des boutons de vote"
+	},
 	"FullWidthBanner": {
 		"message": "Bannière de subreddit pleine largeur"
 	},
 	"FullWidthExpandos": {
 		"message": "Développer les aperçus de la post en vue compacte"
+	},
+	"GalleryKeyboardNavigation": {
+		"message": "Navigation du clavier de la galerie"
+	},
+	"GalleryKeyboardNavigationInfo": {
+		"message": "Utilisez les flèches gauche et droite pour naviguer dans les galeries d'images de publication."
 	},
 	"GlobalWidth": {
 		"message": "Global Max. Largeur"
@@ -314,8 +392,11 @@
 	"HideAdvertiseButton": {
 		"message": "Masquer le bouton « Annoncer »"
 	},
+	"HideAnnouncementNotifications": {
+		"message": "Masquer les notifications d'annonces Reddit (u/reddit)"
+	},
 	"HideAwards": {
-		"message": "Masquer le bouton « Donner des récompenses »"
+		"message": "Masquer le bouton « Donner des récompenses »"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Masquer les Publications avec des Mots-Clés Bloqués"
@@ -351,16 +432,19 @@
 		"message": "Masquer la barre latérale du flux personnalisé"
 	},
 	"HideElements": {
-		"message": "Masquer les éléments"
+		"message": "Masquer"
 	},
 	"HideFavouriteButtons": {
 		"message": "Masquer les boutons favoris"
+	},
+	"HideGamificationNotifications": {
+		"message": "Masquer les notifications de gamification de Reddit"
 	},
 	"HideGap": {
 		"message": "Masquer les écarts d'interface"
 	},
 	"HideGetAppButton": {
-		"message": "Masquer le bouton « Obtenir l'application »"
+		"message": "Masquer le bouton « Obtenir l'application »"
 	},
 	"HideGetNewReddit": {
 		"message": "Masquer « Get New Reddit »"
@@ -379,6 +463,9 @@
 	},
 	"HideJoinButtonOnPosts": {
 		"message": "Masquer le bouton 'Rejoindre' sur les postes"
+	},
+	"HideJoinConversation": {
+		"message": "Masquer « Rejoindre la conversation»"
 	},
 	"HideKarma": {
 		"message": "Masquer le karma"
@@ -401,11 +488,17 @@
 	"HideNsfwInSearchResults": {
 		"message": "Masquer « NSFW » dans les résultats de recherche"
 	},
+	"HidePageFooter": {
+		"message": "Masquer le texte du pied de page"
+	},
 	"HidePostActionBarButtonsInfo": {
 		"message": "Masquer les boutons de la barre d'action de publication"
 	},
 	"HidePostBackButton": {
 		"message": "Masquer le bouton de retour de la post"
+	},
+	"HidePostComments": {
+		"message": "Masquer tous les commentaires sous un article"
 	},
 	"HidePostDivider": {
 		"message": "Masquer les séparateurs de post"
@@ -421,6 +514,9 @@
 	},
 	"HidePostsByBlockedUser": {
 		"message": "Masquer les publications des utilisateurs bloqués"
+	},
+	"HidePostsBySubreddit": {
+		"message": "Masquer les publications par subreddit"
 	},
 	"HidePromoted": {
 		"message": "Masquer les publicités/liens sponsorisés"
@@ -536,6 +632,12 @@
 	"JustOpenTheImageInfo": {
 		"message": "Lorsque vous ouvrez des images dans un nouvel onglet, ouvrez-les directement sans les intégrer sur une page Reddit."
 	},
+	"Keywords": {
+		"message": "Mots-clés"
+	},
+	"KeywordsBlockInfo": {
+		"message": "Bloque les publications en fonction du titre, pas du contenu. Lister des mots-clés/expressions régulières individuels, séparés par une virgule."
+	},
 	"Language": {
 		"message": "Langue"
 	},
@@ -551,6 +653,9 @@
 	"Light": {
 		"message": "Clair"
 	},
+	"LightMode": {
+		"message": "Mode clair"
+	},
 	"LimitCommentsInfo": {
 		"message": "Fonctionne uniquement pour les Posts ouvertes dans un nouvel onglet/fenêtre."
 	},
@@ -560,6 +665,12 @@
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Cela ne réduira pas nécessairement l'utilisation de la bande passante, mais devrait plutôt empêcher la page de devenir lente en empêchant Reddit d'ajouter de nouvelles Posts jusqu'à ce que vous cliquiez sur « Charger plus » au bas du flux. Lorsque vous cliquez sur « Charger plus », les 25 premiers messages seront effacés et les 25 suivants seront affichés."
 	},
+	"Link": {
+		"message": "Lien"
+	},
+	"LocalStorage": {
+		"message": "Stockage local"
+	},
 	"MainContainer": {
 		"message": "Conteneur principal"
 	},
@@ -568,6 +679,9 @@
 	},
 	"MarkReadOnOpenExpandos": {
 		"message": "Marquez les articles lus lors de l'ouverture des expandos en vue compacte"
+	},
+	"MarkReadOnOpenExpandosHistoryPermission": {
+		"message": "L'autorisation de navigateur « historique » est requise. Veuillez réactiver « Marquer les messages comme lus lors de l'ouverture d'expandos dans l'affichage Compact » dans les paramètres de l'extension, et accepter la demande de popup."
 	},
 	"MaxImagePostHeight": {
 		"message": "Hauteur de post d'image maximale"
@@ -687,7 +801,7 @@
 		"message": "Post: Couleur du lien vers le contenu et les commentaires"
 	},
 	"PostFollowedTextColour": {
-		"message": "Post suivi : Couleur du texte"
+		"message": "Post suivi : Couleur du texte"
 	},
 	"PostOffset": {
 		"message": "Décalage de la Post"
@@ -712,6 +826,9 @@
 	},
 	"PostWidth": {
 		"message": "Largeur du Post"
+	},
+	"Posts": {
+		"message": "Publications"
 	},
 	"Productivity": {
 		"message": "Productivité"
@@ -753,7 +870,10 @@
 		"message": "Remplacer l'espace réservé de la barre de recherche"
 	},
 	"ReplaceSearchPlaceholderInfo": {
-		"message": "Remplacez « Find Anything » par « Search Reddit »."
+		"message": "Remplacez « Find Anything » par « Search Reddit »."
+	},
+	"ReplyNotifications": {
+		"message": "Notifications de réponse"
 	},
 	"Report": {
 		"message": "Rapport"
@@ -797,14 +917,20 @@
 	"ScrollToNextRootComment": {
 		"message": "Afficher les boutons pour faire défiler le commentaire racine suivant / précédent"
 	},
+	"ScrollToNextRootCommentInfo": {
+		"message": "Navigation clavier optionnelle. Commentaire racine suivant : (J / Flèche Bas). Commentaire racine précédent : (K / Flèche Haut)."
+	},
 	"ScrollToTopFloat": {
 		"message": "Ajouter un bouton flottant « Faire défiler vers le haut »"
 	},
 	"ScrollToTopHeader": {
 		"message": "Ajouter le bouton « Défiler vers le haut »"
 	},
+	"ScrollToTopInfo": {
+		"message": "Remonter au début de la page"
+	},
 	"Search": {
-		"message": "Rechercher"
+		"message": "Recherche"
 	},
 	"SearchPageOffset": {
 		"message": "Décalage de la page de recherche"
@@ -825,7 +951,7 @@
 		"message": "Réorienter"
 	},
 	"SetLanguageAndTheme": {
-		"message": "Paramètres pleine page / Définir la langue et le thème"
+		"message": "Paramètres de page complète / Définir la langue et le thème"
 	},
 	"SetSansSerifAsFont": {
 		"message": "Définir \"Sans-Serif\" comme police d'interface utilisateur"
@@ -833,8 +959,20 @@
 	"Settings": {
 		"message": "Paramètres"
 	},
+	"Share": {
+		"message": "Partager"
+	},
+	"ShortenCleanLink": {
+		"message": "Raccourcir un lien propre"
+	},
 	"ShowCommentAbsoluteTimestamp": {
 		"message": "Montrer des horodatages absolus sur les commentaires"
+	},
+	"ShowComments": {
+		"message": "Afficher les commentaires"
+	},
+	"ShowCommunitiesFilter": {
+		"message": "Filtrer la liste des communautés"
 	},
 	"ShowMemberCount": {
 		"message": "Afficher le nombre de membres du subreddit hérité"
@@ -908,6 +1046,9 @@
 	"StickySort": {
 		"message": "Tri épinglé"
 	},
+	"StorageUsage": {
+		"message": "Utilisation du stockage"
+	},
 	"StyleOptions": {
 		"message": "Options de style"
 	},
@@ -926,8 +1067,14 @@
 	"Subreddit": {
 		"message": "Subreddit"
 	},
+	"SubredditBlockInfo": {
+		"message": "Masque tous les posts des subreddits listés sur les fils d'actualité, sauf les fils d'actualité des subreddits."
+	},
 	"SubredditDisplayNameBanner": {
 		"message": "Afficher le nom d'affichage subreddit  dans sa bannière"
+	},
+	"SyncStorage": {
+		"message": "Stockage de synchronisation"
 	},
 	"Text": {
 		"message": "Texte"
@@ -956,6 +1103,9 @@
 	"ThemeColours": {
 		"message": "Couleurs du thème"
 	},
+	"ThemeDoesNotWorkWithCustomThemes": {
+		"message": "Ne fonctionne pas actuellement avec les thèmes communautaires personnalisés. Veuillez désactiver cette option dans vos préférences Reddit."
+	},
 	"ThemeWhitelistInfo": {
 		"message": "Utilisez uniquement les couleurs de thème pour ces subreddits:"
 	},
@@ -980,6 +1130,9 @@
 	"Upload": {
 		"message": "Télécharger"
 	},
+	"UploadedImage": {
+		"message": "Image téléchargée"
+	},
 	"UpvoteColour": {
 		"message": "Post: Couleur de vote positif"
 	},
@@ -995,11 +1148,11 @@
 	"UsernameHoverPopupDelay": {
 		"message": "Délai lors du survol du nom d'utilisateur pour ouvrir les informations contextuelles"
 	},
+	"Users": {
+		"message": "Utilisateurs"
+	},
 	"Video": {
 		"message": "Vidéo"
-	},
-	"VideoPlayerInfo": {
-		"message": "Lecteur vidéo rapide et léger avec des commandes de vitesse basées sur videojs. Essayez ceci si vous rencontrez des problèmes de chargement avec le propre lecteur de Reddit."
 	},
 	"ViewCrossposts": {
 		"message": "Ajouter un lien pour afficher les poteaux croisés dans d'autres subreddits"

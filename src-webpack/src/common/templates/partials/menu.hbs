@@ -1232,9 +1232,10 @@
 						<span class='indicator'></span>
 					</label>
 				</div>
-				<div class='container-input'>
+				<div class='container-3'>
+					<div></div>
 					<input id='input-post-absolute-timestamp-format' type='text' placeholder='e.g. dd MMM yyyy | hh:mm' />
-					<a href='https://github.com/joelacus/RedditEnhancer/wiki/User-Guides#custom-timestamp-format' target='_blank' style='margin-left: 20px; font-size: 20px' title='Help'>?</a>
+					<a class='btn' href='https://github.com/joelacus/RedditEnhancer/wiki/User-Guides#custom-timestamp-format' target='_blank' style='font-size: 20px' title='Help'>?</a>
 				</div>
 			</li>
 			<li class='container-3 r-newnew' data-query-words='upvote,vote,ratio,percentage'>
@@ -1513,9 +1514,10 @@
 						<span class='indicator'></span>
 					</label>
 				</div>
-				<div class='container-input'>
+				<div class='container-3'>
+					<div></div>
 					<input id='input-comment-absolute-timestamp-format' type='text' placeholder='e.g. dd MMM yyyy | hh:mm' />
-					<a href='https://github.com/joelacus/RedditEnhancer/wiki/User-Guides#custom-timestamp-format' target='_blank' style='margin-left: 20px; font-size: 20px' title='Help'>?</a>
+					<a class='btn' href='https://github.com/joelacus/RedditEnhancer/wiki/User-Guides#custom-timestamp-format' target='_blank' style='font-size: 20px' title='Help'>?</a>
 				</div>
 			</li>
 			<li class='container-3 r-old' data-query-words='user,profile,picture,icon,comment'>
@@ -2418,8 +2420,12 @@
 							<span class='indicator'></span>
 						</label>
 					</div>
-					<div class='container'>
+					<div class='container-3'>
+						<div></div>
 						<input class='colour-picker' data-style-id='op-comment-highlight' value='' />
+						<button id='btn-reset-op-comment-highlight-colour' class='btn' title='Reset'>
+							<div class='icon icon-rotate-left'></div>
+						</button>
 					</div>
 				</div>
 			</li>
@@ -2577,17 +2583,33 @@
 				</div>
 				<hr />
 				<div class='container r-old r-newnew'>
-					<form class='custom-input-container'>
-						<input type='text' id='input-custom-background' name='custom' maxlength='1000' style='margin-left: 4px' />
-						<button class='btn btn-add-custom-background icon icon-plus' type='submit' value='Add Background URL'></button>
-					</form>
+					<div class='bg-input-container'>
+						<div style='display: flex;justify-content: center;'>
+							<button id='btn-edit-backgrounds' class='btn' value='Enable Background Edit Mode' title='Edit mode'>
+								<div class='icon icon-edit'></div>
+							</button>
+							<button id='btn-edit-backgrounds-save' class='btn' value='Disable Background Edit Mode' title='Exit edit mode' style='display: none'>
+								<div class='icon icon-check'></div>
+							</button>
+						</div>
+						<input type='text' id='input-custom-background' name='custom' maxlength='1000' />
+						<button id='btn-add-custom-background' class='btn' type='submit' value='Add Background URL' title='Add'>
+							<div class='icon icon-plus'></div>
+						</button>
+						<button id='btn-upload-background-image' class='btn' value='Upload image' title='Upload'>
+							<div class='icon icon-upload-file'></div>
+						</button>
+					</div>
 				</div>
+				<div id='upload-background-image-info' class='banner-message blue' data-lang='BackgroundUploadInfo' style='display: none;'></div>
 				<div class='container r-old r-newnew'>
-					<button class='btn-edit-backgrounds btn-icon icon-bin' value='Enable Background Edit Mode' title='Edit'></button>
-					<button class='btn-edit-backgrounds-save btn-icon icon-check' style='display: none' value='Disable Background Edit Mode' title='Save'></button>
 					<div id='backgrounds-container'>
 						<span id='no-saved-backgrounds-message' data-lang='NoSavedBackgrounds'></span>
 					</div>
+				</div>
+				<div id='uploaded-background-image-info'>
+					<div></div>
+					<span class='info' data-lang='UploadedImage'></span>
 				</div>
 			</li>
 			<li class='container r-old' data-query-words='force,background,old'>

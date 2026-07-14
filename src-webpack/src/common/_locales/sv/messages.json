@@ -11,6 +11,45 @@
 	"Accessibility": {
 		"message": "Tillgänglighet"
 	},
+	"AddDownloadVideoButton": {
+		"message": "Lägg till knappen \"Ladda ner video\" på videoposter"
+	},
+	"AddDownloadVideoButtonInfo": {
+		"message": "Kan inte fungera för alla videor"
+	},
+	"AddDownloadVideoButtonPermission": {
+		"message": "Webbläsartillåtelsen \"nedladdningar\" krävs. Vänligen aktivera \"Lägg till knappen 'Ladda ner video' i videoposts\" i tilläggsinställningarna igen och godkänn popup-begäran."
+	},
+	"AddMarkPostAsReadButton": {
+		"message": "Lägg till en knapp till varje inlägg i kompendievyn för att markera det som läst"
+	},
+	"AddNsfwTag": {
+		"message": "Lägg till NSFW-tagg"
+	},
+	"AddSpoilerTag": {
+		"message": "Lägg till spoiler-tagg"
+	},
+	"AlwaysShowCommentOptions": {
+		"message": "Visa alltid kommenteralternativen"
+	},
+	"AlwaysShowCommentOptionsInfo": {
+		"message": "Flytta knapparna från kommentarsöverskottmenyn till kommentarsåtgärdsfältet."
+	},
+	"AlwaysShowPostOptions": {
+		"message": "Visa alltid inläggsalternativ"
+	},
+	"AlwaysShowPostOptionsInfo": {
+		"message": "Flytta knapparna från inläggsöverflödesmenyn till inläggets aktionsfält"
+	},
+	"AppendNumbersToPostImages": {
+		"message": "Numrerade inläggsbilder"
+	},
+	"AttachSideMenuHeader": {
+		"message": "Visa sidan och användarinformation i rubriken"
+	},
+	"AttachSideMenuHeaderInfo": {
+		"message": "Experimentellt. Kan potentiellt komma i konflikt med att dölja sidomenyfuktioner."
+	},
 	"Auto": {
 		"message": "Automatisk"
 	},
@@ -26,11 +65,38 @@
 	"AutoLoadMoreCommentsInfo": {
 		"message": "Detta kan göra att sidan saktar ner och använder mycket RAM-minne, särskilt om det finns många kommentarer."
 	},
+	"AutoplayCommentGifs": {
+		"message": "Autoplay av GIF-er i kommentarer"
+	},
+	"AutoplayGifs": {
+		"message": "Autoplay GIF:er"
+	},
+	"AutoplayMediaInfo": {
+		"message": "För att dessa alternativ ska fungera korrekt, vänligen inaktivera \"Autoplay media\" i Reddits användareinställningar > Preferenser."
+	},
+	"AutoplayVideos": {
+		"message": "Autoplay-videor"
+	},
+	"Award": {
+		"message": "utmärkelse"
+	},
 	"Background": {
 		"message": "Bakgrund"
 	},
+	"BackgroundUploadInfo": {
+		"message": "Bildfiler kan endast laddas upp från sidan Alternativ"
+	},
+	"BackgroundUploadInfo2": {
+		"message": "Lägre upplösningar använder mindre lagringsutrymme, vilket gör att fler bilder får plats inom gränsen. Uppladdade bilder lagras lokalt."
+	},
+	"BackgroundUploadResolution": {
+		"message": "Upplösning för bakgrundsuppladdning"
+	},
 	"Backup": {
 		"message": "Säkerhetskopiering"
+	},
+	"BackupFailed": {
+		"message": "Något gick fel. Kontrollera utvecklingskonsolen (F12) för felet."
 	},
 	"BackupRestoreConfig": {
 		"message": "Säkerhetskopia/Återställ konfigurationg"
@@ -39,7 +105,13 @@
 		"message": "Säkerhetskopiering återställd!"
 	},
 	"Best": {
-		"message": "Bäst"
+		"message": "Bäst / Best"
+	},
+	"BetterCommentBox": {
+		"message": "Bättre kommentarsfält"
+	},
+	"BetterCommentBoxInfo": {
+		"message": "Visa automatiskt formateringsalternativ när du kommenterar, lägg till genvägen Ctrl/Cmd + Enter för att skicka in kommentarer och dölj verktygsfältet för att växla till en rikt textredigerare när du ställer in Markdown-kompositorn som standard."
 	},
 	"BionicBackgroundColour": {
 		"message": "Bionisk bakgrundsfärg"
@@ -62,6 +134,12 @@
 	"Block": {
 		"message": "Blockera"
 	},
+	"BlockInfo": {
+		"message": "Stöder exakt matchning av sökord eller reguljära uttryck"
+	},
+	"BlocksCommentsByKeyword": {
+		"message": "Blockera kommentarer efter nyckelord"
+	},
 	"Blur": {
 		"message": "Fläck"
 	},
@@ -83,6 +161,12 @@
 	"BuyMeACoffee": {
 		"message": "Köp mig en kaffe"
 	},
+	"CannedMessages": {
+		"message": "Förinspelade meddelanden"
+	},
+	"CannedMessagesInfo": {
+		"message": "Lägg till ett nytt meddelande per återgiven rad. Högerklicka var som helst på en Reddit-sida för att välja fördefinierade meddelanden från kontextmenyn och kopiera dem till urklipp."
+	},
 	"Centre": {
 		"message": "Centrum"
 	},
@@ -98,6 +182,9 @@
 	"ClassicOldUI": {
 		"message": "Klassiskt gammalt användargränssnitt"
 	},
+	"CleanLink": {
+		"message": "Lägg till alternativ för att dela inlägg/kommentar utan spårning (Ren länk)"
+	},
 	"Cleared": {
 		"message": "Rensad"
 	},
@@ -110,8 +197,14 @@
 	"Comments": {
 		"message": "Kommentarer"
 	},
+	"CommentsBlockInfo": {
+		"message": "Lista enskilda nyckelord/regex, separerade med ett komma"
+	},
 	"CommentsCount": {
 		"message": "Kommentarer räknas"
+	},
+	"CommentsHidden": {
+		"message": "Kommentarer dolda"
 	},
 	"CompactHeaderSideMenu": {
 		"message": "Kompakt rubrikstången och sidemenyn"
@@ -123,7 +216,22 @@
 		"message": "Bekräfta"
 	},
 	"Controversial": {
-		"message": "Kontroversiell"
+		"message": "Kontroversiell / Controversial"
+	},
+	"CopiedCleanLink": {
+		"message": "Länk kopierad!"
+	},
+	"CopiedCleanLinkShort": {
+		"message": "Kopierad ren länk (kort)!"
+	},
+	"CopiedMessage": {
+		"message": "Meddelande kopierat!"
+	},
+	"CopyCleanLink": {
+		"message": "Kopiera den rena länken"
+	},
+	"CopyCleanLinkShort": {
+		"message": "Kopiera länken (kort)"
 	},
 	"CreatePost": {
 		"message": "Skapa inlägg"
@@ -161,14 +269,32 @@
 	"DefaultHomeFeedSortOption": {
 		"message": "Standardalternativ för hemmatning"
 	},
+	"Delete": {
+		"message": "Ta bort"
+	},
 	"Disabled": {
 		"message": "Inaktiverad"
+	},
+	"DontShowAgain": {
+		"message": "Visa inte igen"
+	},
+	"Drag": {
+		"message": "Dra"
 	},
 	"DropShadow": {
 		"message": "Droppskuggor"
 	},
+	"Edit": {
+		"message": "Redigera"
+	},
+	"EditPost": {
+		"message": "Redigera inlägg"
+	},
 	"EndTime": {
 		"message": "Sluttid (24)"
+	},
+	"Error": {
+		"message": "Fel"
 	},
 	"ExtensionSettings": {
 		"message": "Inställningar för tillägg"
@@ -176,29 +302,161 @@
 	"Feed": {
 		"message": "Ström"
 	},
+	"FeedKeyboardNavigation": {
+		"message": "Tangentbordsnavigering för flödet"
+	},
+	"FeedKeyboardNavigationInfo1": {
+		"message": "Nästa inlägg: (J / Nedåt pil). Föregående inlägg: (K / Uppåt pil). Växla till kompakt inlägg: (Mellanslag)."
+	},
+	"FeedKeyboardNavigationInfo2": {
+		"message": "Att använda J/K-tangenterna stör Reddits funktionalitet \"Genvägar\" om den är aktiverad; i så fall, använd piltangenterna. RE-versionen använder smidig scrollning och hoppar över alla dolda inlägg."
+	},
+	"FeedOffset": {
+		"message": "Matningsförskjutning"
+	},
+	"FeedPostContent": {
+		"message": "Flödesinlägg: Innehåll"
+	},
+	"FeedPostTitle": {
+		"message": "Flödesinlägg: Titel"
+	},
+	"FeedWidth": {
+		"message": "Foderbredd"
+	},
+	"FilterCommunities": {
+		"message": "Filtrera gemenskaper"
+	},
+	"FilterOptionsFor": {
+		"message": "Filteralternativ för"
+	},
+	"FollowComment": {
+		"message": "Följ kommentaren"
+	},
+	"FollowPost": {
+		"message": "Följ inlägg"
+	},
+	"Font": {
+		"message": "typsnitt"
+	},
+	"FontWeight": {
+		"message": "Typsnittsvikt"
+	},
+	"FontWeightInfo": {
+		"message": "Inte alla typsnitt stöder alla vikter"
+	},
+	"ForceCustomBgOldUI": {
+		"message": "Tvinga in anpassad bakgrund i gammalt gränssnitt"
+	},
+	"ForceCustomBgOldUIInfo": {
+		"message": "Anpassad bakgrund fungerar bara i det gamla användargränssnittet med Modernisera gamla Reddit aktiverat. Om du aktiverar detta tvingas anpassad bakgrund fram på användargränssnittet (rekommenderas inte)."
+	},
+	"ForceDarkMode": {
+		"message": "Tvinga Reddit att använda mörkt läge"
+	},
+	"ForceShowVoteButtons": {
+		"message": "Tvinga visning av röstknappar"
+	},
+	"FullWidthBanner": {
+		"message": "Subreddit-banner i full bredd"
+	},
+	"FullWidthExpandos": {
+		"message": "Expandera förhandsvisningar av inlägg i kompakt vy"
+	},
+	"GalleryKeyboardNavigation": {
+		"message": "Navigera med galleribords tangentbord"
+	},
+	"GalleryKeyboardNavigationInfo": {
+		"message": "Använd vänster och högerpiltangenterna för att bläddra i bildgallerierna i inlägget"
+	},
+	"GlobalWidth": {
+		"message": "Global max. bredd"
+	},
+	"Grey": {
+		"message": "Grå"
+	},
 	"Header": {
 		"message": "Rubrik"
+	},
+	"HeaderBgColour": {
+		"message": "Rubrik: Bakgrundsfärg"
+	},
+	"HeaderTextColour": {
+		"message": "Rubrik: Textfärg"
+	},
+	"Here": {
+		"message": "här"
+	},
+	"Hide": {
+		"message": "Dölja"
 	},
 	"HideAdvertiseButton": {
 		"message": "Dölj 'Annonsera' knappen"
 	},
+	"HideAnnouncementNotifications": {
+		"message": "Dölja Reddit-annonseringsaviseringar"
+	},
+	"HideAwards": {
+		"message": "Dölj knappen ”Ge ut utmärkelser“"
+	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Dölj Inlägg med Blockerade Nyckelord"
+	},
+	"HideBlurredMediaBackground": {
+		"message": "Dölj bakgrundsblur bakom bildförhandsvisningar"
 	},
 	"HideChatButton": {
 		"message": "Dölj 'Chatt' knappen"
 	},
+	"HideCommentActionBarButtonsInfo": {
+		"message": "Dölj knappar från kommentarfältets åtgärdsfält"
+	},
+	"HideCommentKarma": {
+		"message": "Dölj kommentarkarma"
+	},
+	"HideCommunityHighlights": {
+		"message": "Dölja \"Community Highlights\""
+	},
+	"HideCommunityStatus": {
+		"message": "Dölja communitystatus"
+	},
+	"HideCompactViewBlankThumbnails": {
+		"message": "Dölja tomma miniatyrbilder i kompakt vy"
+	},
 	"HideCompactViewThumbnails": {
 		"message": "Dölj miniatyrbilderna i kompakt vy"
 	},
+	"HideCreatePostButton": {
+		"message": "Dölj knappen ”Skapa inlägg“"
+	},
+	"HideCustomFeedSidebar": {
+		"message": "Dölja sidopanelen för anpassat flöde"
+	},
 	"HideElements": {
-		"message": "Dölj Element"
+		"message": "Dölja"
+	},
+	"HideFavouriteButtons": {
+		"message": "Dölja favoritknappar"
+	},
+	"HideGamificationNotifications": {
+		"message": "Dölja Reddit-gamifieringsaviseringar"
 	},
 	"HideGap": {
 		"message": "Dölj gränssnittsgap"
 	},
+	"HideGetAppButton": {
+		"message": "Dölj knappen \"Hämta app\""
+	},
 	"HideGetNewReddit": {
 		"message": "Dölj 'få ny reddit'"
+	},
+	"HideHeaderBar": {
+		"message": "Dölja rubrikfältet"
+	},
+	"HideHeaderSubBar": {
+		"message": "Dölja subreddit-listan i rubriken"
+	},
+	"HideHomeFeed": {
+		"message": "Dölj startsidan"
 	},
 	"HideHomeSidebar": {
 		"message": "Dölj hemsidan sidofältet"
@@ -206,17 +464,65 @@
 	"HideJoinButtonOnPosts": {
 		"message": "Göm 'Gå med'-knappen på inlägg"
 	},
+	"HideJoinConversation": {
+		"message": "Dölj Okej, hoppa in i konversationen"
+	},
 	"HideKarma": {
 		"message": "Dölj karma"
+	},
+	"HideLinkPostsByUrlKeyword": {
+		"message": "Dölja inlägg med ”Länk” efter nyckelord i URL"
+	},
+	"HideLogoInTheSearchBar": {
+		"message": "Dölja Reddit-logotypen i sökfältet"
 	},
 	"HideModerationButton": {
 		"message": "Dölj 'Måtta' knappen"
 	},
+	"HideNSFW": {
+		"message": "Dölj NSFW/L-inlägg"
+	},
+	"HideNotificationButton": {
+		"message": "Dölja knappen \"Notification\""
+	},
+	"HideNsfwInSearchResults": {
+		"message": "Dölj NSFW-resultat i sökfältet"
+	},
+	"HidePageFooter": {
+		"message": "Dölja sidfotsrutan"
+	},
+	"HidePostActionBarButtonsInfo": {
+		"message": "Dölja knappar från inläggsaktionsfältet"
+	},
+	"HidePostBackButton": {
+		"message": "Dölja knappen 'Tillbaka till inlägget'"
+	},
+	"HidePostComments": {
+		"message": "Dölja alla kommentarer under ett inlägg"
+	},
+	"HidePostDivider": {
+		"message": "Dölja inläggs- och sidspaltavdelare"
+	},
 	"HidePostHiddenMessage": {
 		"message": "Dölj 'Post Hidden' meddelande"
 	},
+	"HidePostKarma": {
+		"message": "Dölja inläggskarma"
+	},
+	"HidePostSidebar": {
+		"message": "Dölja inläggsidofältet"
+	},
+	"HidePostsByBlockedUser": {
+		"message": "Dölj inlägg från blockerade användare"
+	},
+	"HidePostsBySubreddit": {
+		"message": "Dölja inlägg efter subreddit"
+	},
 	"HidePromoted": {
 		"message": "Dölj annonser/befordrade länkar"
+	},
+	"HideRecentPosts": {
+		"message": "Dölj nyliga inlägg"
 	},
 	"HideRecommended": {
 		"message": "Dölj rekommenderas"
@@ -227,17 +533,29 @@
 	"HideRedditPremium": {
 		"message": "Dölj 'Reddit Premium'"
 	},
+	"HideRelatedCommunities": {
+		"message": "Dölj relaterade gemenskaper"
+	},
 	"HideRelatedPosts": {
 		"message": "Dölj relaterade inlägg"
 	},
 	"HideSearchSidebar": {
 		"message": "Dölj sidofältet Sök"
 	},
+	"HideSearchSidebarNsfwUsers": {
+		"message": "Dölja NSFW-användare i sökfältets sidopanel"
+	},
+	"HideSideMenu": {
+		"message": "Dölj sidomenyn"
+	},
 	"HideSideMenuCommunitiesSection": {
 		"message": "Dölj Gemenskap Sektionen"
 	},
 	"HideSideMenuCustomFeedsSection": {
 		"message": "Dölj avsnittet 'Anpassade flöden'"
+	},
+	"HideSideMenuGamesSection": {
+		"message": "Dölja spelavsnittet"
 	},
 	"HideSideMenuModerationSection": {
 		"message": "Göm Moderering Sektionen"
@@ -257,11 +575,38 @@
 	"HideSubSidebar": {
 		"message": "Dölj Sub Reddit sidofältet"
 	},
+	"HideSubSidebarBlacklistInfo": {
+		"message": "Dölj sidomenyn globalt förutom på dessa subreddits:"
+	},
+	"HideSubSidebarWhitelistInfo": {
+		"message": "Dölja sidopanelen endast på dessa subreddits:"
+	},
+	"HideTrendingTodayInSearchResults": {
+		"message": "Dölja 'Trending today' i sökfältet"
+	},
+	"HideUserNameInTheFlairSection": {
+		"message": "Dölja användarnamn i flair-avsnittet i subreddits sidofält"
+	},
 	"HideUserProfilePics": {
 		"message": "Hide user profile pictures in the comments"
 	},
+	"HideUserSidebar": {
+		"message": "Dölj användarsidomenyn"
+	},
 	"HideUsername": {
 		"message": "Dölj användarnamn"
+	},
+	"HideVideoRecommendations": {
+		"message": "Dölja rekommenderade inlägg när videon är slut"
+	},
+	"HideVoteButtons": {
+		"message": "Dölja röstknappar"
+	},
+	"HighlightOp": {
+		"message": "Markera kommentarer från originalinlägget (OP)"
+	},
+	"HomeFeed": {
+		"message": "Hemflöde"
 	},
 	"HomeFeedOffset": {
 		"message": "Hemflödesförskjutning"
@@ -269,11 +614,17 @@
 	"HomeFeedWidth": {
 		"message": "Bredd på startsidan"
 	},
+	"Hot": {
+		"message": "Varm / Hot"
+	},
 	"Image": {
 		"message": "Bild"
 	},
 	"ImageScroll": {
 		"message": "Lägg till Scrollbars till bilder"
+	},
+	"Images": {
+		"message": "Bilder"
 	},
 	"JustOpenTheImage": {
 		"message": "Öppna bara bilden"
@@ -281,14 +632,56 @@
 	"JustOpenTheImageInfo": {
 		"message": "När du öppnar bilder i en ny flik öppnar du dem direkt utan att bädda in dem på en Reddit-sida."
 	},
+	"Keywords": {
+		"message": "Nyckelord"
+	},
+	"KeywordsBlockInfo": {
+		"message": "Blockerar inlägg baserat på titeln, inte innehållet. Lista individuella nyckelord/regex, separerade med ett komma"
+	},
 	"Language": {
 		"message": "Språk"
 	},
 	"LargerClassicPost": {
 		"message": "Större klassisk inläggsvy"
 	},
+	"Latest": {
+		"message": "Senaste"
+	},
+	"LeftSideVoteButtons": {
+		"message": "Visa röstknappar till vänster"
+	},
 	"Light": {
 		"message": "Ljus"
+	},
+	"LightMode": {
+		"message": "Ljusläge"
+	},
+	"LimitCommentsInfo": {
+		"message": "Fungerar endast för inlägg som öppnas i ett nytt flik/fönster"
+	},
+	"LimitInfinityScroll": {
+		"message": "Begränsa oändlig scroll"
+	},
+	"LimitInfinityScrollInfo": {
+		"message": "Beta. Detta kommer inte nödvändigtvis att minska bandbreddsanvändningen, men ska istället hjälpa till att förhindra att sidan blir långsam genom att stoppa reddit från att lägga till nya inlägg tills du klickar på 'Ladda mer' längst ner i flödet. När du klickar på 'Ladda mer' rensas de första 25 inläggen och de nästkommande 25 visas."
+	},
+	"Link": {
+		"message": "Länk"
+	},
+	"LocalStorage": {
+		"message": "Lokal lagring"
+	},
+	"MainContainer": {
+		"message": "Huvudbehållare"
+	},
+	"MarkAsBrandAffiliate": {
+		"message": "Markera som varumärkesaffiliat"
+	},
+	"MarkReadOnOpenExpandos": {
+		"message": "Markera inlägg som läst vid öppnande av expandos i kompakt vy"
+	},
+	"MarkReadOnOpenExpandosHistoryPermission": {
+		"message": "Tillåtelse för webbhistorik krävs. Vänligen återaktivera \"Markera inlägg som lästa när du öppnar expandos i kompakt vy\" i tilläggens inställningar och acceptera popup-begäran."
 	},
 	"MaxImagePostHeight": {
 		"message": "Maximal bild efter höjd"
@@ -305,14 +698,32 @@
 	"Media": {
 		"message": "Media"
 	},
+	"ModerniseOldReddit": {
+		"message": "Modernisera old.reddit"
+	},
+	"ModerniseOldRedditInfo": {
+		"message": "Får gammalt reddit att se mer ut som nytt reddit"
+	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Flerfärgade kommentartrådslinjer"
 	},
 	"MulticolouredCommentThreadLinesInfo": {
 		"message": "Frivillig. Lista anpassade färger, separerade av ett komma. Dessa färger kommer att förbereda standardfärgerna och kommer att användas i ordning."
 	},
+	"New": {
+		"message": "Ny / New"
+	},
 	"NewNewUI": {
 		"message": "Ny Ny UI"
+	},
+	"NewUpdateAvailable": {
+		"message": "Version <version> är nu tillgänglig. Din webbläsare bör automatiskt uppdatera detta tillägg snart om du har aktiverat automatiska uppdateringar; annars måste du manuellt kontrollera uppdateringar i webbläsartilläggshanteraren."
+	},
+	"NoSavedBackgrounds": {
+		"message": "Inga sparade bakgrunder"
+	},
+	"NonStickyHeaderBar": {
+		"message": "Icke-fast sidhuvudfält"
 	},
 	"Off": {
 		"message": "Av"
@@ -320,11 +731,38 @@
 	"Offset": {
 		"message": "Förskjutning"
 	},
+	"Old": {
+		"message": "Gammal / Old"
+	},
 	"OldUI": {
 		"message": "Gammal UI"
 	},
+	"OnlyExpandNegativeKarmaComments": {
+		"message": "Utöka endast kommentarer med negativt karma"
+	},
+	"OpenPostInNewTab": {
+		"message": "Öppna inlägg i ny flik"
+	},
+	"OpenPostInNewTabInfo": {
+		"message": "Du kan nu aktivera detta officiellt på Reddit"
+	},
+	"OpenPostInNewTabInfoLink": {
+		"message": "Användarinställningar > Flödesinställningar > Öppna inlägg i ny flik"
+	},
 	"OpenSubInNewTab": {
 		"message": "Öppna länkar till subreddits i en ny flik"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Fäst inte sidomenyn som en rullgardinsmeny"
+	},
+	"OptionsPage": {
+		"message": "Inställningssida"
+	},
+	"Or": {
+		"message": "eller"
+	},
+	"Other": {
+		"message": "annan"
 	},
 	"PositionHorizontally": {
 		"message": "Placera Horisontellt"
@@ -332,26 +770,80 @@
 	"PositionVertically": {
 		"message": "Placera Vertikalt"
 	},
+	"Post": {
+		"message": "inlägg"
+	},
+	"PostBgColour": {
+		"message": "Inlägg: Bakgrundsfärg"
+	},
+	"PostBorderColour": {
+		"message": "Inlägg: Ramfärg"
+	},
+	"PostCommentActionRowColour": {
+		"message": "Färgen på kommentarfältets aktionsrad"
+	},
 	"PostComments": {
 		"message": "Post Comments"
+	},
+	"PostCommentsColour": {
+		"message": "Kommentars textfärg"
+	},
+	"PostCommentsLimit": {
+		"message": "Begränsa kommentarer på inlägg"
+	},
+	"PostCommentsSecondaryColour": {
+		"message": "Kommentars sekundära textfärg"
 	},
 	"PostContent": {
 		"message": "Post Content"
 	},
+	"PostContentAndCommentsLinkColour": {
+		"message": "Inlägg: Färgen på länken till innehåll och kommentarer"
+	},
+	"PostFollowedTextColour": {
+		"message": "Följande inlägg: Textfärg"
+	},
 	"PostOffset": {
 		"message": "Inläggsförskjutning"
+	},
+	"PostSecondaryTextColour": {
+		"message": "Inlägg: Sekundär textfärg"
+	},
+	"PostSeparatorHeight": {
+		"message": "Inlägggap"
+	},
+	"PostTableBorderColour": {
+		"message": "Lägg till ram till tabeller i inlägg"
 	},
 	"PostTitle": {
 		"message": "Post titel"
 	},
+	"PostTitleContentColour": {
+		"message": "Inlägg: Titel och textinnehållsfärg"
+	},
+	"PostVisitedTextColour": {
+		"message": "Besökt inlägg: Textfärg"
+	},
 	"PostWidth": {
 		"message": "Inläggsbredd"
+	},
+	"Posts": {
+		"message": "inlägg"
 	},
 	"Productivity": {
 		"message": "Produktivitet"
 	},
+	"Qa": {
+		"message": "Q&a"
+	},
+	"RUI3RedirectInfo": {
+		"message": "Omdirigeringsalternativet till den senaste UI:n (Ny Ny UI) är inte längre nödvändigt, men du kan använda detta alternativ för att tvinga länkar från (sh|old|new).reddit.com till www.reddit.com."
+	},
 	"Rate": {
 		"message": "Betygsätt / Recensera"
+	},
+	"Redirect": {
+		"message": "Omdirigera"
 	},
 	"Relevance": {
 		"message": "Relevans"
@@ -359,8 +851,38 @@
 	"ReloadPage": {
 		"message": "Ladda om sidan"
 	},
+	"RememberSectionHiddenState": {
+		"message": "Kom ihåg de dolda tillstånden för sektionerna i sidomenyn"
+	},
+	"RemoveCommentButtonIcons": {
+		"message": "Ta bort ikoner från de flesta kommentarsknapparna"
+	},
+	"ReplacePostImagesWithLinks": {
+		"message": "Ersätt bilder med länkar i flöden"
+	},
+	"ReplacePostVideosWithLinks": {
+		"message": "Ersätt videor med länkar i flöden"
+	},
+	"ReplacePostVideosWithLinksInfo": {
+		"message": "Kan inte fungera för alla videor"
+	},
+	"ReplaceSearchPlaceholder": {
+		"message": "Ersätt placeholder i sökfältet"
+	},
+	"ReplaceSearchPlaceholderInfo": {
+		"message": "Ersätt \"Find anything\" med \"Search Reddit\"."
+	},
+	"ReplyNotifications": {
+		"message": "Svaraviseringar"
+	},
+	"Report": {
+		"message": "Rapport"
+	},
 	"ReportIssues": {
 		"message": "Rapportera problem"
+	},
+	"ResetAllSettings": {
+		"message": "Återställ alla inställningar"
 	},
 	"ResizeFont": {
 		"message": "Ändra storlek på teckensnitt"
@@ -368,17 +890,50 @@
 	"ResizeLayout": {
 		"message": "Ändra Storlek på Feed / Inlägg"
 	},
+	"Restore": {
+		"message": "Återställa"
+	},
+	"RestoreBackup": {
+		"message": "Återställ säkerhetskopia"
+	},
+	"RestoreConfigTitle": {
+		"message": "Återställ Reddit Enhancer backupkonfiguration"
+	},
+	"RightSidePostThumbnails": {
+		"message": "Visa miniatyrer för inlägg på höger sida"
+	},
+	"Rising": {
+		"message": "Stigande / Rising"
+	},
+	"Save": {
+		"message": "Spara"
+	},
 	"ScalePostToFitImage": {
 		"message": "Skala inlägg för att passa bild"
 	},
 	"ScalePostToFitVideo": {
 		"message": "Skala inlägg för att passa video"
 	},
+	"ScrollToNextRootComment": {
+		"message": "Visa navigationsknappar för nästa/föregående huvudkommentar"
+	},
+	"ScrollToNextRootCommentInfo": {
+		"message": "Valfri navigering med tangentbord. Nästa rotkommentar: (J / Nedåtpil). Föregående rotkommentar: (K / Uppåtpil)."
+	},
+	"ScrollToTopFloat": {
+		"message": "Lägg till flytande knapp 'Till toppen'"
+	},
 	"ScrollToTopHeader": {
 		"message": "Lägg till 'bläddra till topp' knappen"
 	},
+	"ScrollToTopInfo": {
+		"message": "Scrolla till toppen av sidan"
+	},
 	"Search": {
 		"message": "Sök"
+	},
+	"SearchPageOffset": {
+		"message": "Sidoffset för sökning"
 	},
 	"SearchbarBgColour": {
 		"message": "Sökruta: Bakgrundsfärg"
@@ -392,11 +947,38 @@
 	"SelectRedditVersion": {
 		"message": "Välj Reddit-version"
 	},
+	"SelectRedirect": {
+		"message": "Omdirigera"
+	},
+	"SetLanguageAndTheme": {
+		"message": "Inställningar för hela sidan / Ställ in språk och tema"
+	},
 	"SetSansSerifAsFont": {
 		"message": "Ställ in \"sans-serif\" som ui-teckensnitt"
 	},
 	"Settings": {
 		"message": "Inställningar"
+	},
+	"Share": {
+		"message": "Dela"
+	},
+	"ShortenCleanLink": {
+		"message": "Förkorta ren länk"
+	},
+	"ShowCommentAbsoluteTimestamp": {
+		"message": "Visa absoluta tidsstämplar på kommentarer"
+	},
+	"ShowComments": {
+		"message": "Visa kommentarer"
+	},
+	"ShowCommunitiesFilter": {
+		"message": "Filtrera communitylista"
+	},
+	"ShowMemberCount": {
+		"message": "Visa antalet medlemmar i det gamla subredditet"
+	},
+	"ShowPostAbsoluteTimestamp": {
+		"message": "Visa absoluta tidsstämplar på inlägg"
 	},
 	"ShowPostAuthor": {
 		"message": "Visa inläggsförfattare"
@@ -404,14 +986,71 @@
 	"ShowPostFlair": {
 		"message": "Visa inläggskänsla"
 	},
+	"ShowPostNumbers": {
+		"message": "Lägg till postnummer"
+	},
+	"ShowProfilePicturesOnComments": {
+		"message": "Visa profilbilder i kommentarer"
+	},
+	"ShowUpvoteRatio": {
+		"message": "Visa uppröstningsprocenten i inläggsvyn"
+	},
+	"SideMenu": {
+		"message": "Sidomeny (vänster meny)"
+	},
+	"SideMenuBackgroundColour": {
+		"message": "Sidomeny: Bakgrundsfärg"
+	},
+	"SideMenuButtonHoverColour": {
+		"message": "Sidomeny: Färg vid hover över knapp"
+	},
+	"SideMenuIconsOnly": {
+		"message": "Endast sidomenyikoner"
+	},
+	"SideMenuTextColour": {
+		"message": "Sidomeny: Textfärg"
+	},
+	"SideMenuToggleButton": {
+		"message": "Visa menyknapp för att växla sidomeny"
+	},
+	"SideMenuWidth": {
+		"message": "Sidomenybredd"
+	},
 	"Sidebar": {
 		"message": "Sidofält"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Sidopanel: Bakgrundsfärg"
+	},
+	"SidebarTextColour": {
+		"message": "Sidfält: Textfärg"
+	},
+	"SidebarToggleButton": {
+		"message": "Sidomenycke växlingsknapp"
+	},
+	"SnapSidebar": {
+		"message": "Fäst sidopanelen mot högra kanten"
+	},
+	"SolidColour": {
+		"message": "Solid färg"
+	},
+	"Sort": {
+		"message": "Sortera"
+	},
+	"SortBar": {
+		"message": "Sorteringsfält"
 	},
 	"StartTime": {
 		"message": "Starttid (24)"
 	},
 	"StickySort": {
 		"message": "Klibbstång"
+	},
+	"StorageUsage": {
+		"message": "Lagringsanvändning"
+	},
+	"StyleOptions": {
+		"message": "Stilalternativ"
 	},
 	"StyleTweaks": {
 		"message": "Stil"
@@ -422,14 +1061,59 @@
 	"SubFeedWidth": {
 		"message": "Underströmsbredd"
 	},
+	"SubHeaderBgColour": {
+		"message": "Bakgrundsfärg för subreddit-rubriken"
+	},
 	"Subreddit": {
 		"message": "Subreddit"
+	},
+	"SubredditBlockInfo": {
+		"message": "Döljer alla inlägg från de listade subredditsen i flöden, utom subredditsflöden"
+	},
+	"SubredditDisplayNameBanner": {
+		"message": "Visa subreddits visningsnamn i dess banderoll"
+	},
+	"SyncStorage": {
+		"message": "Synkroniseringslagring"
+	},
+	"Text": {
+		"message": "Text"
+	},
+	"TextPostPreviewFade": {
+		"message": "Lägg till tonningseffekt till förhandsgranskningar av textinlägg (experimentellt)"
+	},
+	"TextPostPreviewFadeHeight": {
+		"message": "Fadehöjd"
+	},
+	"TextPostPreviewMaxHeight": {
+		"message": "Höjd på textförhandsgranskning"
 	},
 	"Theme": {
 		"message": "Tema"
 	},
+	"ThemeBlacklistInfo": {
+		"message": "Använd temafärger globalt, förutom dessa subreddits:"
+	},
+	"ThemeBlur": {
+		"message": "Tematoskärpa"
+	},
+	"ThemeBlurInfo": {
+		"message": "Använd genomskinliga färger 'rgba(0,0,0,0.5)' för att se oskärfeffekten."
+	},
+	"ThemeColours": {
+		"message": "Temafärger"
+	},
+	"ThemeDoesNotWorkWithCustomThemes": {
+		"message": "Fungerar för närvarande inte med anpassade community-teman. Vänligen inaktivera det här alternativet i dina Reddit-inställningar."
+	},
+	"ThemeWhitelistInfo": {
+		"message": "Använd endast tematfärger för dessa subreddits"
+	},
 	"TimeRange": {
 		"message": "Tidsintervall"
+	},
+	"Top": {
+		"message": "Topp / Top"
 	},
 	"TopicFeedWidth": {
 		"message": "Ämnesmatningsbredd"
@@ -443,17 +1127,56 @@
 	"UpdateFirefox": {
 		"message": "Uppdatera till Firefox 121 eller senare för att vissa funktioner ska fungera korrekt."
 	},
+	"Upload": {
+		"message": "Ladda upp"
+	},
+	"UploadedImage": {
+		"message": "Uppladdad bild"
+	},
+	"UpvoteColour": {
+		"message": "Inlägg: Rösta på färg"
+	},
+	"UseOriginalSearchBar": {
+		"message": "Använd det ursprungliga sökfältet"
+	},
 	"UserProfileOffset": {
 		"message": "Användarprofilförskjutning"
 	},
 	"UserProfileWidth": {
 		"message": "Användarprofilbredd"
 	},
+	"UsernameHoverPopupDelay": {
+		"message": "Fördröjning vid hovring över användarnamn-popup"
+	},
+	"Users": {
+		"message": "användare"
+	},
 	"Video": {
 		"message": "Video"
 	},
+	"ViewCrossposts": {
+		"message": "Lägg till länk för att se korsinlägg i andra subreddits"
+	},
+	"Welcome": {
+		"message": "Välkommen!"
+	},
+	"Whitelist": {
+		"message": "Vitlista"
+	},
+	"WhitelistBlacklist": {
+		"message": "Vitlist / Svartlista"
+	},
 	"Width": {
 		"message": "Bredd"
+	},
+	"extensionVersionText": {
+		"message": "Tilläggsversion"
+	},
+	"learnMore": {
+		"message": "Läs mer"
+	},
+	"resizeHomeAlsoAffects": {
+		"message": "r/all, r/popular, Skapa inlägg, Sökresultat och Wiki-sidor"
 	},
 	"seconds": {
 		"message": "sekunder"

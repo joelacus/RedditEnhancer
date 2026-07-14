@@ -15,6 +15,10 @@
 	border-radius: var(--border-radius);
 	padding: 5px;
 }
+.container-3 > .colour-picker {
+	width: 250px;
+	justify-self: center;
+}
 .container {
 	padding: 5px 0;
 }
@@ -35,6 +39,17 @@
 	display: grid;
 	grid-template-columns: 50px auto 60px;
 	grid-gap: 4px;
+}
+.container-3 > .cp_wide {
+	width: 250px;
+	justify-self: center;
+}
+.container-3 > .btn,
+.bg-input-container .btn {
+	height: 35px;
+	aspect-ratio: 1;
+	padding: 0;
+	justify-self: center;
 }
 .container-3 .switch {
 	margin-left: -3px;

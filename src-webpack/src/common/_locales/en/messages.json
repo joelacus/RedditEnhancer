@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "3.2.2"
+		"message": "3.3.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -85,6 +85,15 @@
 	},
 	"Background": {
 		"message": "Background"
+	},
+	"BackgroundUploadInfo": {
+		"message": "Image files can only be uploaded from the Options Page."
+	},
+	"BackgroundUploadInfo2": {
+		"message": "Smaller resolutions use less storage space, allowing more images to fit within the limit. Uploaded images are stored locally."
+	},
+	"BackgroundUploadResolution": {
+		"message": "Background Upload Resolution"
 	},
 	"Backup": {
 		"message": "Backup"
@@ -662,6 +671,9 @@
 	"Link": {
 		"message": "Link"
 	},
+	"LocalStorage": {
+		"message": "Local Storage"
+	},
 	"MainContainer": {
 		"message": "Main Container"
 	},
@@ -1037,6 +1049,9 @@
 	"StickySort": {
 		"message": "Sticky Sort"
 	},
+	"StorageUsage": {
+		"message": "Storage Usage"
+	},
 	"StyleOptions": {
 		"message": "Style Options"
 	},
@@ -1060,6 +1075,9 @@
 	},
 	"SubredditDisplayNameBanner": {
 		"message": "Show the subreddit display name in its banner"
+	},
+	"SyncStorage": {
+		"message": "Sync Storage"
 	},
 	"Text": {
 		"message": "Text"
@@ -1114,6 +1132,9 @@
 	},
 	"Upload": {
 		"message": "Upload"
+	},
+	"UploadedImage": {
+		"message": "Uploaded image"
 	},
 	"UpvoteColour": {
 		"message": "Post: Upvote Colour"

@@ -11,11 +11,53 @@
 	"Accessibility": {
 		"message": "Přístupnost"
 	},
+	"AddDownloadVideoButton": {
+		"message": "Přidat tlačítko „Stáhnout video“ k videopříspěvkům"
+	},
+	"AddDownloadVideoButtonInfo": {
+		"message": "Není možné, že by to fungovalo pro všechna videa."
+	},
+	"AddDownloadVideoButtonPermission": {
+		"message": "Vyžadováno oprávnění prohlížeče pro „stahování“. Prosím, znovu povolte „Přidat tlačítko ‚Stáhnout video‘ k videopříspěvkům“ v nastavení rozšíření a přijměte požadavek vyskakovacího oknečka."
+	},
+	"AddMarkPostAsReadButton": {
+		"message": "Přidat tlačítko k každému příspěvku ve vyhledávací pohledu, abyste ho označili jako přečtený"
+	},
+	"AddNsfwTag": {
+		"message": "Přidat tag NSFW"
+	},
+	"AddSpoilerTag": {
+		"message": "Přidat spoiler tag"
+	},
+	"AlwaysShowCommentOptions": {
+		"message": "Vždy zobrazit možnosti komentáře"
+	},
+	"AlwaysShowCommentOptionsInfo": {
+		"message": "Přemístěte tlačítka z rozbalovací nabídky komentářů do lišty akcí komentářů."
+	},
+	"AlwaysShowPostOptions": {
+		"message": "Vždy zobrazit možnosti příspěvku"
+	},
+	"AlwaysShowPostOptionsInfo": {
+		"message": "Přemístěte tlačítka z vyskakovací nabídky příspěvku do lišty akcí příspěvku."
+	},
+	"AppendNumbersToPostImages": {
+		"message": "Obrázky s číslem příspěvku"
+	},
+	"AttachSideMenuHeader": {
+		"message": "Zobrazit stránku a informace o uživateli v záhlaví"
+	},
+	"AttachSideMenuHeaderInfo": {
+		"message": "Experimentální. Mohlo by dojít ke konfliktu s funkcemi skrytého bočního menu."
+	},
 	"Auto": {
 		"message": "Automatický"
 	},
 	"AutoCollapseAutoModeratorComment": {
 		"message": "Automatické minimalizování komentáře AutoModerátora"
+	},
+	"AutoExpand": {
+		"message": "Rozbalit na 100 %, pokud šířka okna/obrazovky je menší než:"
 	},
 	"AutoLoadMoreComments": {
 		"message": "Automaticky načíst další komentáře"
@@ -23,20 +65,95 @@
 	"AutoLoadMoreCommentsInfo": {
 		"message": "To může způsobit, že se stránka zpomalí a zabere hodně paměti RAM, zvláště pokud je tam hodně komentářů."
 	},
+	"AutoplayCommentGifs": {
+		"message": "Automatické přehrávání GIFů v komentářích"
+	},
+	"AutoplayGifs": {
+		"message": "Automatické přehrávání GIFů"
+	},
+	"AutoplayMediaInfo": {
+		"message": "Aby tyto možnosti fungovaly správně, napište si prosím vypnout „Automatické přehrávání médií“ v nastavení uživatele Reddit > Preferenční nastavení."
+	},
+	"AutoplayVideos": {
+		"message": "Automatická videa s přehráváním"
+	},
+	"Award": {
+		"message": "Cena"
+	},
 	"Background": {
 		"message": "Pozadí"
+	},
+	"BackgroundUploadInfo": {
+		"message": "Soubory obrázků lze nahrát pouze ze stránky Možnosti"
+	},
+	"BackgroundUploadInfo2": {
+		"message": "Menší rozlišení zabírají méně úložného prostoru, takže se do limitu vejde více obrázků. Nahrané obrázky se ukládají lokálně."
+	},
+	"BackgroundUploadResolution": {
+		"message": "Rozlišení nahrávání na pozadí"
+	},
+	"Backup": {
+		"message": "Záloha"
+	},
+	"BackupFailed": {
+		"message": "Došlo k chybě. Zkontrolujte konzoli pro vývojáře (F12) pro chybu."
 	},
 	"BackupRestoreConfig": {
 		"message": "Zálohování/Obnovení konfigurace"
 	},
+	"BackupRestored": {
+		"message": "Záloha obnovena!"
+	},
 	"Best": {
 		"message": "Nejlepší / Best"
+	},
+	"BetterCommentBox": {
+		"message": "Lepší pole pro komentáře"
+	},
+	"BetterCommentBoxInfo": {
+		"message": "Automaticky zobrazit možnosti formátování při komentování, přidat zkratku Ctrl/Cmd + Enter pro odeslání komentářů a skrýt lištu nástrojů pro přepnutí do editoru pro zobrazení bohatého textu při nastavení kompozitoru Markdown jako výchozí."
+	},
+	"BionicBackgroundColour": {
+		"message": "Bionický barevný fond"
+	},
+	"BionicFontColour": {
+		"message": "bionická barva písma"
+	},
+	"BionicReader": {
+		"message": "Bionický čtečka"
+	},
+	"BionicReaderComments": {
+		"message": "Bionický čtec pro komentáře"
+	},
+	"BionicReaderPosts": {
+		"message": "Bionický čtečka pro příspěvky"
+	},
+	"Blacklist": {
+		"message": "černá lista"
 	},
 	"Block": {
 		"message": "Blok"
 	},
+	"BlockInfo": {
+		"message": "Podporuje přesné shoda klíčových slov nebo regulární výrazy."
+	},
+	"BlocksCommentsByKeyword": {
+		"message": "Blokování komentářů podle klíčového slova"
+	},
 	"Blur": {
 		"message": "Rozmazat"
+	},
+	"BorderRadiusAmount": {
+		"message": "Políčko radius tématu"
+	},
+	"BreakReminder": {
+		"message": "Nápomínka k přestávce"
+	},
+	"BreakReminderFrequency": {
+		"message": "Frekvence připomenutí"
+	},
+	"BreakReminderInfo": {
+		"message": "Beta. Zobrazuje připomenutí, aby se každých zadaných počtu příspěvků dělála přestávka."
 	},
 	"BrowserTheme": {
 		"message": "Téma prohlížeče"
@@ -44,8 +161,20 @@
 	"BuyMeACoffee": {
 		"message": "Kup mi kávu"
 	},
+	"CannedMessages": {
+		"message": "Uložené zprávy"
+	},
+	"CannedMessagesInfo": {
+		"message": "Přidejte novou zprávu pro každou vrácenou řádek. Klikněte pravým tlačítkem na libovolném místě na stránce Reddit, abyste vybrali připravené zprávy z kontextového menu a скопировали je do schránky."
+	},
 	"Centre": {
 		"message": "Centrum"
+	},
+	"Changelog": {
+		"message": "Seznam změn"
+	},
+	"ChooseBackupFile": {
+		"message": "Vybrat záložní soubor"
 	},
 	"ClassicLight": {
 		"message": "Klasický Světlý"
@@ -53,17 +182,77 @@
 	"ClassicOldUI": {
 		"message": "Klasické staré ui"
 	},
+	"CleanLink": {
+		"message": "Přidat možnost sdílet příspěvek/komentář bez sledování (Čistý odkaz)"
+	},
+	"Cleared": {
+		"message": "Vymazáno"
+	},
+	"Close": {
+		"message": "Zavřít"
+	},
+	"CloseTab": {
+		"message": "Nyní můžete tuto záložku/okno zavřít."
+	},
 	"Comments": {
 		"message": "Komentáře"
+	},
+	"CommentsBlockInfo": {
+		"message": "Seznam jednotlivých klíčových slov/regex, oddělených čárkou"
 	},
 	"CommentsCount": {
 		"message": "Počet komentářů"
 	},
+	"CommentsHidden": {
+		"message": "Komentáře skryté"
+	},
+	"CompactHeaderSideMenu": {
+		"message": "Zmenšit horní lištu a boční menu"
+	},
+	"CompactPostLinkPreview": {
+		"message": "Miniaturní náhledy odkazů na příspěvek"
+	},
+	"Confirm": {
+		"message": "Potvrdit"
+	},
 	"Controversial": {
 		"message": "Kontroverzní / Controversial"
 	},
+	"CopiedCleanLink": {
+		"message": "Odkopírovaný odkaz!"
+	},
+	"CopiedCleanLinkShort": {
+		"message": "Kopírován čistý odkaz (zkrátný)!"
+	},
+	"CopiedMessage": {
+		"message": "Zpráva zkopírována!"
+	},
+	"CopyCleanLink": {
+		"message": "Kopírovat čistý odkaz"
+	},
+	"CopyCleanLinkShort": {
+		"message": "Kopírovat čistý odkaz"
+	},
+	"CreatePost": {
+		"message": "Vytvořit příspěvek"
+	},
+	"CreatePostBody": {
+		"message": "Vytvořit příspěvek: Tělo"
+	},
+	"CreatePostTitle": {
+		"message": "Vytvořit příspěvek: Název"
+	},
 	"CustomBgInputPlaceholder": {
 		"message": "Vlastní odkaz na pozadí"
+	},
+	"CustomCSS": {
+		"message": "Vlastní CSS"
+	},
+	"CustomFeedWidth": {
+		"message": "Přizpůsobená šířka feedu"
+	},
+	"CustomHeaderLogo": {
+		"message": "Vlastní logo hlavičky"
 	},
 	"Dark": {
 		"message": "Temný"
@@ -71,26 +260,203 @@
 	"DarkMode": {
 		"message": "Tmavý režim"
 	},
+	"DefaultCommentsSortOption": {
+		"message": "Výchozí možnost třídění komentářů"
+	},
+	"DefaultFeedSortOption": {
+		"message": "Výchozí možnost seřazení feedu"
+	},
+	"DefaultHomeFeedSortOption": {
+		"message": "Výchozí možnost seřazení domovského feedu"
+	},
+	"Delete": {
+		"message": "Odstranit"
+	},
 	"Disabled": {
 		"message": "Deaktivované"
+	},
+	"DontShowAgain": {
+		"message": "Nezobrazovat znovu"
+	},
+	"Drag": {
+		"message": "Přetáhnout"
+	},
+	"DropShadow": {
+		"message": "Stínový efekt"
+	},
+	"Edit": {
+		"message": "Upravit"
+	},
+	"EditPost": {
+		"message": "Upravit příspěvek"
 	},
 	"EndTime": {
 		"message": "Ukončený čas (24)"
 	},
+	"Error": {
+		"message": "Chyba"
+	},
 	"ExtensionSettings": {
 		"message": "Nastavení rozšíření"
+	},
+	"Feed": {
+		"message": "Feed"
+	},
+	"FeedKeyboardNavigation": {
+		"message": "Klávesová navigace v feedu"
+	},
+	"FeedKeyboardNavigationInfo1": {
+		"message": "Další příspěvek: (J / Šipka dolů). Předchozí příspěvek: (K / Šipka nahoru). Přepnout kompaktní zobrazení příspěvku: (Mezerník)."
+	},
+	"FeedKeyboardNavigationInfo2": {
+		"message": "Používání kláves J/K zakáží funkci „Shortcuts“ Reddita, pokud je povoleno; v takovém případě použijte šipkové klávesy. Verze RE používá plynulé posouvání a přeskočí všechny skryté příspěvky."
+	},
+	"FeedOffset": {
+		"message": "posunný offset"
+	},
+	"FeedPostContent": {
+		"message": "Příspěvek do feedu: Obsah"
+	},
+	"FeedPostTitle": {
+		"message": "Název příspěvku do síťové ленty"
+	},
+	"FeedWidth": {
+		"message": "Šířka krmivky"
+	},
+	"FilterCommunities": {
+		"message": "Filtrovat komunity..."
+	},
+	"FilterOptionsFor": {
+		"message": "Filtrační možnosti pro"
+	},
+	"FollowComment": {
+		"message": "Sledovat komentář"
+	},
+	"FollowPost": {
+		"message": "Sledovat příspěvek"
+	},
+	"Font": {
+		"message": "Písmo"
+	},
+	"FontWeight": {
+		"message": "Těžkost písma"
+	},
+	"FontWeightInfo": {
+		"message": "Ne všechny písma podporují všechny tloušťky."
+	},
+	"ForceCustomBgOldUI": {
+		"message": "Nucížit vlastní pozadí na starém rozhraní"
+	},
+	"ForceCustomBgOldUIInfo": {
+		"message": "Vlastní pozadí funguje pouze v přepracovaném starém rozhraní s aktivovanou modernizací starého Redditu. Zapnutím tohoto přepínače vynutí vlastní pozadí v rozhraní (není doporučeno)."
+	},
+	"ForceDarkMode": {
+		"message": "Nucížit tmavý režim Redditu"
+	},
+	"ForceShowVoteButtons": {
+		"message": "Způsobit vynucené zobrazení tlačítek pro hlasování"
+	},
+	"FullWidthBanner": {
+		"message": "Název baneru subreddita plné šířky"
+	},
+	"FullWidthExpandos": {
+		"message": "Rozbalit náhledy příspěvků v kompaktním pohledu"
+	},
+	"GalleryKeyboardNavigation": {
+		"message": "Navigace pomocí klávesury galerie"
+	},
+	"GalleryKeyboardNavigationInfo": {
+		"message": "Použijte levé a pravé šipky k procházení galerie obrázků příspěvku."
+	},
+	"GlobalWidth": {
+		"message": "Globální maximální šířka"
+	},
+	"Grey": {
+		"message": "šedý"
+	},
+	"Header": {
+		"message": "Nadpis"
+	},
+	"HeaderBgColour": {
+		"message": "Nadpis: Barva pozadí"
+	},
+	"HeaderTextColour": {
+		"message": "Nadpis: Barva textu"
+	},
+	"Here": {
+		"message": "zde"
+	},
+	"Hide": {
+		"message": "Skrýt"
 	},
 	"HideAdvertiseButton": {
 		"message": "Skryjte tlačítko „Inzerovat“"
 	},
+	"HideAnnouncementNotifications": {
+		"message": "Skrýt oznámení o Ankunciích Reddit (u/reddit)"
+	},
+	"HideAwards": {
+		"message": "Skryjte tlačítko „Udělovat ceny“"
+	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Skrýt Příspěvky s Blokovanými Klíčovými Slovy"
+	},
+	"HideBlurredMediaBackground": {
+		"message": "Skrýt rozmazání pozadí za náhledy obrázků"
 	},
 	"HideChatButton": {
 		"message": "Skryjte tlačítko „Chat“"
 	},
+	"HideCommentActionBarButtonsInfo": {
+		"message": "Skrýt tlačítka z lišty akcí komentáře"
+	},
+	"HideCommentKarma": {
+		"message": "Skrýt karma komentáře"
+	},
+	"HideCommunityHighlights": {
+		"message": "Skrýt „Zvýraznění komunity“"
+	},
+	"HideCommunityStatus": {
+		"message": "Skrýt stav komunity"
+	},
+	"HideCompactViewBlankThumbnails": {
+		"message": "Skrýt prázdné náhledy v kompaktním pohledu"
+	},
 	"HideCompactViewThumbnails": {
 		"message": "Skrýt miniatury v kompaktním pohledu"
+	},
+	"HideCreatePostButton": {
+		"message": "Skryto tlačítko „Vytvořit příspěvek“"
+	},
+	"HideCustomFeedSidebar": {
+		"message": "Skrýt panelické feedu"
+	},
+	"HideElements": {
+		"message": "Skrýt"
+	},
+	"HideFavouriteButtons": {
+		"message": "Skryjte tlačítka oblíbených"
+	},
+	"HideGamificationNotifications": {
+		"message": "Skrýt notifikace gamifikace Redditu"
+	},
+	"HideGap": {
+		"message": "Skrýt mezery rozhraní"
+	},
+	"HideGetAppButton": {
+		"message": "Skryto tlačítko „Get App“"
+	},
+	"HideGetNewReddit": {
+		"message": "Skrýt „Get New Reddit“"
+	},
+	"HideHeaderBar": {
+		"message": "Skrýt lištu hlavičky"
+	},
+	"HideHeaderSubBar": {
+		"message": "Skrýt seznam subredditů v záhlaví"
+	},
+	"HideHomeFeed": {
+		"message": "Skrýt přehled domov"
 	},
 	"HideHomeSidebar": {
 		"message": "Skrýt postranní panel domovské stránky"
@@ -98,8 +464,65 @@
 	"HideJoinButtonOnPosts": {
 		"message": "Skryjte u příspěvků tlačítko „Připojit se“"
 	},
+	"HideJoinConversation": {
+		"message": "Skrýt „Přєднати do konverzace“"
+	},
+	"HideKarma": {
+		"message": "Skrýt karmu"
+	},
+	"HideLinkPostsByUrlKeyword": {
+		"message": "Skrýt příspěvky „Link“ pomocí klíčových slov v URL"
+	},
+	"HideLogoInTheSearchBar": {
+		"message": "Skryjte logo Reddit v vyhledávací liště"
+	},
 	"HideModerationButton": {
 		"message": "Skryjte tlačítko „Moderování“"
+	},
+	"HideNSFW": {
+		"message": "Skrýt NSFW/L příspěvky"
+	},
+	"HideNotificationButton": {
+		"message": "Skrýt tlačítko „Upozornění“"
+	},
+	"HideNsfwInSearchResults": {
+		"message": "Skrýt výsledky NSFW v vyhledávacích výsledcích"
+	},
+	"HidePageFooter": {
+		"message": "Skryjte text v patičce stránky"
+	},
+	"HidePostActionBarButtonsInfo": {
+		"message": "Skrýt tlačítka z lišty akcí příspěvku"
+	},
+	"HidePostBackButton": {
+		"message": "Skryté tlačítko pro návrat k příspěvku"
+	},
+	"HidePostComments": {
+		"message": "Skryjet všechny komentáře pod příspěvkem"
+	},
+	"HidePostDivider": {
+		"message": "Skrýt oddělovače příspěvků a bočního panelu"
+	},
+	"HidePostHiddenMessage": {
+		"message": "Skrýt zprávu „Opublikováno skryto“"
+	},
+	"HidePostKarma": {
+		"message": "Skrýt karma z příspěvku"
+	},
+	"HidePostSidebar": {
+		"message": "Skrýt boční panel příspěvku"
+	},
+	"HidePostsByBlockedUser": {
+		"message": "Skrýt příspěvky z zablokovaných uživatelů"
+	},
+	"HidePostsBySubreddit": {
+		"message": "Skrýt příspěvky podle subreddit"
+	},
+	"HidePromoted": {
+		"message": "Skrýt reklamy/propadající odkazy"
+	},
+	"HideRecentPosts": {
+		"message": "Skrýt recente příspěvky"
 	},
 	"HideRecommended": {
 		"message": "Skrýt doporučené"
@@ -110,14 +533,80 @@
 	"HideRedditPremium": {
 		"message": "Skrýt „Reddit Premium“"
 	},
+	"HideRelatedCommunities": {
+		"message": "Skrýt související komunity"
+	},
+	"HideRelatedPosts": {
+		"message": "Skrýt související příspěvky"
+	},
 	"HideSearchSidebar": {
 		"message": "Skryjte postranní panel vyhledávání"
+	},
+	"HideSearchSidebarNsfwUsers": {
+		"message": "Skrýt uživatele NSFW v bočním panelu vyhledávání"
+	},
+	"HideSideMenu": {
+		"message": "Skrýt boční menu"
+	},
+	"HideSideMenuCommunitiesSection": {
+		"message": "Skryjte sekci Komunity"
 	},
 	"HideSideMenuCustomFeedsSection": {
 		"message": "Skryjte sekci 'Vlastní zdroje'"
 	},
+	"HideSideMenuGamesSection": {
+		"message": "Skryt sekci hrami"
+	},
+	"HideSideMenuModerationSection": {
+		"message": "Skrýt sekci moderování"
+	},
+	"HideSideMenuRecentSection": {
+		"message": "Skrýt sekci nedávných subredditů"
+	},
+	"HideSideMenuResourcesSection": {
+		"message": "Skrýt sekci zdroje"
+	},
+	"HideSideMenuTopSection": {
+		"message": "Skrýt horní sekci"
+	},
+	"HideSideMenuTopicsSection": {
+		"message": "Skrýt sekci s tématy"
+	},
 	"HideSubSidebar": {
 		"message": "Skryjte postranní panel Subreddit"
+	},
+	"HideSubSidebarBlacklistInfo": {
+		"message": "Skryjte panel po straně globalně, okrem těchto subredditu:"
+	},
+	"HideSubSidebarWhitelistInfo": {
+		"message": "Skryjte panel na straně pouze na těchto subredditech"
+	},
+	"HideTrendingTodayInSearchResults": {
+		"message": "Skryjte „Trendy dnes“ v liště vyhledávání"
+	},
+	"HideUserNameInTheFlairSection": {
+		"message": "Skrýt uživatelské jméno v sekci pro flair v boční liště subreddit"
+	},
+	"HideUserProfilePics": {
+		"message": "Skrýt obrázky profilu uživatele v komentářích"
+	},
+	"HideUserSidebar": {
+		"message": "Skrýt panel uživatele"
+	},
+	"HideUsername": {
+		"message": "Skrýt uživatelské jméno"
+	},
+	"HideVideoRecommendations": {
+		"message": "Skryjte doporučené příspěvky, když video skončí"
+	},
+	"HideVoteButtons": {
+		"message": "Skrýt tlačítka prohlasování"
+	},
+	"HighlightOp": {
+		"message": "Zvýraznit komentáře od původního příspěvku (OP)"
+	},
+	"HomeFeed": {
+		"message": "Domovský feed"
 	},
 	"HomeFeedOffset": {
 		"message": "Posun domovského zobrazení"
@@ -134,14 +623,65 @@
 	"ImageScroll": {
 		"message": "Přidejte svitky k obrázkům"
 	},
+	"Images": {
+		"message": "Obrázky"
+	},
+	"JustOpenTheImage": {
+		"message": "Stačí jen otevřít obrázek"
+	},
 	"JustOpenTheImageInfo": {
 		"message": "Při otevírání obrázků na nové kartě je otevřete přímo bez jejich vložení na stránku Reddit."
+	},
+	"Keywords": {
+		"message": "Klíčová slova"
+	},
+	"KeywordsBlockInfo": {
+		"message": "Blokují příspěvky na základě titulku, ne obsahu. Seznamte jednotlivá klíčová slova/vyrazy s výraznými vzory oddělené čárkou."
 	},
 	"Language": {
 		"message": "Jazyk"
 	},
+	"LargerClassicPost": {
+		"message": "Larger Classic Post View"
+	},
+	"Latest": {
+		"message": "Nejnovější"
+	},
+	"LeftSideVoteButtons": {
+		"message": "Zobrazit tlačítka pro hlasování na levé straně"
+	},
 	"Light": {
 		"message": "Světlý"
+	},
+	"LightMode": {
+		"message": "Světelný režim"
+	},
+	"LimitCommentsInfo": {
+		"message": "Funkční pouze pro příspěvky otevřené v nové záložce/okně."
+	},
+	"LimitInfinityScroll": {
+		"message": "Omezit nekonečné posuv"
+	},
+	"LimitInfinityScrollInfo": {
+		"message": "Beta. To to neznamená, že sníží využití propustnosti, ale spíše by mělo pomoci zabránit zpomalení stránky tím, že zdrží Reddita od přidávání nových příspěvků, dokud nekliknete na „Načíst více“ v dolní části feedu. Když kliknete na „Načíst více“, vyčistí se prvních 25 příspěvků a zobrazí se následujících 25."
+	},
+	"Link": {
+		"message": "Odkaz"
+	},
+	"LocalStorage": {
+		"message": "Lokální úložiště"
+	},
+	"MainContainer": {
+		"message": "Hlavní kontejner"
+	},
+	"MarkAsBrandAffiliate": {
+		"message": "Označit jako afiliát značky"
+	},
+	"MarkReadOnOpenExpandos": {
+		"message": "Označit příspěvky jako přečtené při otevírání expandů v kompaktním pohledu"
+	},
+	"MarkReadOnOpenExpandosHistoryPermission": {
+		"message": "Je nutné oprávnění prohlížeče „historie“. Pořádněte „Označit příspěvky jako přečtené při otevření expandos v kompaktním pohledu“ v nastavení rozšíření a přijměte požadavek na vyskakovací okno."
 	},
 	"MaxImagePostHeight": {
 		"message": "Maximální výška obrázku"
@@ -158,6 +698,12 @@
 	"Media": {
 		"message": "Média"
 	},
+	"ModerniseOldReddit": {
+		"message": "Modernizovat old.reddit"
+	},
+	"ModerniseOldRedditInfo": {
+		"message": "Dělá, aby starý Reddit vypadal jako nový Reddit."
+	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Vícebarevné řádky vlákna komentáře"
 	},
@@ -170,6 +716,18 @@
 	"NewNewUI": {
 		"message": "Nový Nový UI"
 	},
+	"NewUpdateAvailable": {
+		"message": "Verze nová verze <version> je nyní k dispozici. Váš prohlížeč by měl tuto rozšíření brzy automaticky aktualizovat, pokud máte povoleno automatické aktualizace. Pokud ne, musíte ručně ověřit aktualizace v spravci rozšíření prohlížeče."
+	},
+	"NoSavedBackgrounds": {
+		"message": "Žádné uložené pozadí"
+	},
+	"NonStickyHeaderBar": {
+		"message": "Nepřilepitá lišta hlavičky"
+	},
+	"Off": {
+		"message": "Vypnutý"
+	},
 	"Offset": {
 		"message": "Posunutí"
 	},
@@ -179,26 +737,152 @@
 	"OldUI": {
 		"message": "Starý UI"
 	},
+	"OnlyExpandNegativeKarmaComments": {
+		"message": "Rozšiřit pouze komentáře s negativním karmou"
+	},
+	"OpenPostInNewTab": {
+		"message": "Otevírat odkazy na příspěvky v nové záložce"
+	},
+	"OpenPostInNewTabInfo": {
+		"message": "Nyní můžete toto oficiálně aktivovat v Redditu."
+	},
+	"OpenPostInNewTabInfoLink": {
+		"message": "Nastavení uživatele > Nastavení feedu > Otevírat příspěvky v nové záložce"
+	},
+	"OpenSubInNewTab": {
+		"message": "Otevírat odkazy na subreddity v nové záložce"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Nepřiložte boční menu jako rozbalovací panel"
+	},
+	"OptionsPage": {
+		"message": "Stránka sjištění"
+	},
+	"Or": {
+		"message": "nebo"
+	},
+	"Other": {
+		"message": "jiný"
+	},
+	"PositionHorizontally": {
+		"message": "Horizontální umístění pozice"
+	},
+	"PositionVertically": {
+		"message": "Vyрівnat vertikálně"
+	},
+	"Post": {
+		"message": "příspěvek"
+	},
+	"PostBgColour": {
+		"message": "Příspěvek: Barva pozadí"
+	},
+	"PostBorderColour": {
+		"message": "Příspěvek: Barva okraje"
+	},
+	"PostCommentActionRowColour": {
+		"message": "Barva řádku akce komentáře"
+	},
+	"PostComments": {
+		"message": "Záznam: Komentáře"
+	},
+	"PostCommentsColour": {
+		"message": "Barva textu komentáře"
+	},
+	"PostCommentsLimit": {
+		"message": "Omezit komentáře k příspěvku"
+	},
+	"PostCommentsSecondaryColour": {
+		"message": "Barva sekundárního textu v komentářích"
+	},
+	"PostContent": {
+		"message": "Příspěvek: Obsah"
+	},
+	"PostContentAndCommentsLinkColour": {
+		"message": "Poznámka: Barva odkazu pro obsah a komentáře"
+	},
+	"PostFollowedTextColour": {
+		"message": "Následující příspěvek: Barva textu"
+	},
 	"PostOffset": {
 		"message": "Posun příspěvku"
+	},
+	"PostSecondaryTextColour": {
+		"message": "Příspěvek: Barva sekvenčního textu"
+	},
+	"PostSeparatorHeight": {
+		"message": "Mezerový mezera"
+	},
+	"PostTableBorderColour": {
+		"message": "Přidat okraj do tabulek v příspěvkách"
 	},
 	"PostTitle": {
 		"message": "Název příspěvku"
 	},
+	"PostTitleContentColour": {
+		"message": "Příspěvek: Název a barva obsahu textu"
+	},
+	"PostVisitedTextColour": {
+		"message": "Prohlížený příspěvek: barva textu"
+	},
 	"PostWidth": {
 		"message": "Šířka příspěvku"
+	},
+	"Posts": {
+		"message": "Příspěvky"
+	},
+	"Productivity": {
+		"message": "Produktivita"
 	},
 	"Qa": {
 		"message": "Q&a"
 	},
+	"RUI3RedirectInfo": {
+		"message": "Možnost přesměrování na nejnovější UI (Nový Nový UI) již není nutná, ale můžete tuto možnost použít k vynucení odkazů ze (sh|old|new).reddit.com na www.reddit.com."
+	},
 	"Rate": {
 		"message": "Ohodnoťte / Recenze"
+	},
+	"Redirect": {
+		"message": "Přesměrovat"
 	},
 	"Relevance": {
 		"message": "Relevance"
 	},
+	"ReloadPage": {
+		"message": "Opětovně načíst stránku"
+	},
+	"RememberSectionHiddenState": {
+		"message": "Zapamatujte skryté stavy sekcí v bočním menu"
+	},
+	"RemoveCommentButtonIcons": {
+		"message": "Odstranit ikony z většiny tlačítek pro komentáře"
+	},
+	"ReplacePostImagesWithLinks": {
+		"message": "Nahrazovat obrázky odkazy na straumách"
+	},
+	"ReplacePostVideosWithLinks": {
+		"message": "Nahrazovat videa odkazy v feedech"
+	},
+	"ReplacePostVideosWithLinksInfo": {
+		"message": "Není nutné pro všechna videa."
+	},
+	"ReplaceSearchPlaceholder": {
+		"message": "Nahraďte placeholder v vyhledávací liště"
+	},
+	"ReplaceSearchPlaceholderInfo": {
+		"message": "Nahraďte „Find anything“ na „Search Reddit“."
+	},
+	"ReplyNotifications": {
+		"message": "Upozornění na odpověď"
+	},
+	"Report": {
+		"message": "zpráva"
+	},
 	"ReportIssues": {
 		"message": "Nahlásit problémy"
+	},
+	"ResetAllSettings": {
+		"message": "Resetovat všechna nastavení"
 	},
 	"ResizeFont": {
 		"message": "Změnit velikost písma"
@@ -206,14 +890,50 @@
 	"ResizeLayout": {
 		"message": "Změnit Velikost Zdroje / Příspěvku"
 	},
+	"Restore": {
+		"message": "Obnovit"
+	},
+	"RestoreBackup": {
+		"message": "Obnovit zálohu"
+	},
+	"RestoreConfigTitle": {
+		"message": "Obnovit konfigurační soubor zálohy Reddit Enhancer"
+	},
+	"RightSidePostThumbnails": {
+		"message": "Zobrazit náhledy příspěvků na pravé straně"
+	},
 	"Rising": {
 		"message": "Povstání / Rising"
+	},
+	"Save": {
+		"message": "Uložit"
+	},
+	"ScalePostToFitImage": {
+		"message": "Upravit příspěvek tak, aby odpovídal obrázku"
 	},
 	"ScalePostToFitVideo": {
 		"message": "Měřítko příspěvku do videa"
 	},
+	"ScrollToNextRootComment": {
+		"message": "Zobrazit tlačítka pro přeskakování na další/předchozí kořenový komentář"
+	},
+	"ScrollToNextRootCommentInfo": {
+		"message": "Volitelné navigování pomocí klávesnice. Další kořenový komentář: (J / Šipka dolů). Předchozí kořenový komentář: (K / Šipka nahoru)."
+	},
+	"ScrollToTopFloat": {
+		"message": "Přidat plovoucí tlačítko „Návrat na začátek“"
+	},
+	"ScrollToTopHeader": {
+		"message": "Přidat tlačítko „Návrat na horní část“ do hlavičky"
+	},
+	"ScrollToTopInfo": {
+		"message": "Přejít na horní část stránky"
+	},
 	"Search": {
 		"message": "Vyhledávání"
+	},
+	"SearchPageOffset": {
+		"message": "Přesun stránky vyhledávání"
 	},
 	"SearchbarBgColour": {
 		"message": "Vyhledávací panel: Barva pozadí"
@@ -227,6 +947,9 @@
 	"SelectRedditVersion": {
 		"message": "Vyberte verzi Reddit"
 	},
+	"SelectRedirect": {
+		"message": "Omvrátit"
+	},
 	"SetLanguageAndTheme": {
 		"message": "Nastavení celé stránky / Nastavení jazyka a motivu"
 	},
@@ -236,8 +959,98 @@
 	"Settings": {
 		"message": "Nastavení"
 	},
+	"Share": {
+		"message": "Sdílet"
+	},
+	"ShortenCleanLink": {
+		"message": "Zkraтить čistý odkaz"
+	},
+	"ShowCommentAbsoluteTimestamp": {
+		"message": "Zobrazit absolutní časové razítka v komentářích"
+	},
+	"ShowComments": {
+		"message": "Zobrazit komentáře"
+	},
+	"ShowCommunitiesFilter": {
+		"message": "Filtrovat seznam komunit"
+	},
+	"ShowMemberCount": {
+		"message": "Zobrazit počet členů zkopírovaného subreddit"
+	},
+	"ShowPostAbsoluteTimestamp": {
+		"message": "Zobrazit absolutní časové razítka na příspěvcích"
+	},
+	"ShowPostAuthor": {
+		"message": "Zobrazit autora příspěvku"
+	},
+	"ShowPostFlair": {
+		"message": "Zobrazit odznak postu"
+	},
+	"ShowPostNumbers": {
+		"message": "Přidat čísla příspěvků"
+	},
+	"ShowProfilePicturesOnComments": {
+		"message": "Zobrazit profilové fotografie v komentářích"
+	},
+	"ShowUpvoteRatio": {
+		"message": "Zobrazit procento upvote v pohledu na příspěvek"
+	},
+	"SideMenu": {
+		"message": "Boční menu (levní lišta)"
+	},
+	"SideMenuBackgroundColour": {
+		"message": "Boční menu: Barva pozadí"
+	},
+	"SideMenuButtonHoverColour": {
+		"message": "Boční menu: Barva při nachведении tlačítka"
+	},
+	"SideMenuIconsOnly": {
+		"message": "Pouze ikony bočního menu"
+	},
+	"SideMenuTextColour": {
+		"message": "Boční menu: Barva textu"
+	},
+	"SideMenuToggleButton": {
+		"message": "Zobrazit přepínací tlačítko bočního menu"
+	},
+	"SideMenuWidth": {
+		"message": "Šířka bočního menu"
+	},
+	"Sidebar": {
+		"message": "Boční panel (pravá lišta)"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Boční panel: Barva pozadí"
+	},
+	"SidebarTextColour": {
+		"message": "Boční panel: Barva textu"
+	},
+	"SidebarToggleButton": {
+		"message": "Tlačítko přepínání bočního panelu"
+	},
+	"SnapSidebar": {
+		"message": "Připevnit panel na pravý okraj"
+	},
+	"SolidColour": {
+		"message": "Jednobarevný"
+	},
+	"Sort": {
+		"message": "Seřadit"
+	},
+	"SortBar": {
+		"message": "Pasek třídění"
+	},
 	"StartTime": {
 		"message": "Doba spuštění (24)"
+	},
+	"StickySort": {
+		"message": "Připevňované třídění"
+	},
+	"StorageUsage": {
+		"message": "Využití úložiště"
+	},
+	"StyleOptions": {
+		"message": "Možnosti stylu"
 	},
 	"StyleTweaks": {
 		"message": "Styl"
@@ -248,11 +1061,53 @@
 	"SubFeedWidth": {
 		"message": "Šířka podřízeného zobrazení"
 	},
+	"SubHeaderBgColour": {
+		"message": "Barva pozadí hlavičky subredditu"
+	},
 	"Subreddit": {
 		"message": "Subreddit"
 	},
+	"SubredditBlockInfo": {
+		"message": "Skrývá všechny příspěvky z uvedených subredditu na feedech, kromě feedů subredditů."
+	},
+	"SubredditDisplayNameBanner": {
+		"message": "Zobrazit zobrazené jméno subreddita v jeho banneru"
+	},
+	"SyncStorage": {
+		"message": "Synchronizační úložiště"
+	},
+	"Text": {
+		"message": "Text"
+	},
+	"TextPostPreviewFade": {
+		"message": "Přidat efekt blednutí do náhledů textových příspěvků (experimentální)"
+	},
+	"TextPostPreviewFadeHeight": {
+		"message": "Výšková útlum"
+	},
+	"TextPostPreviewMaxHeight": {
+		"message": "Výška náhledu textu"
+	},
 	"Theme": {
 		"message": "Téma"
+	},
+	"ThemeBlacklistInfo": {
+		"message": "Používejte barvy tématu globálně, s výjimkou těchto subredditu"
+	},
+	"ThemeBlur": {
+		"message": "Rozmazání tématu"
+	},
+	"ThemeBlurInfo": {
+		"message": "Použijte průhledné barvy 'rgba(0,0,0,0.5)', abyste viděli efekt rozmazání."
+	},
+	"ThemeColours": {
+		"message": "Barvy tématu"
+	},
+	"ThemeDoesNotWorkWithCustomThemes": {
+		"message": "V současné době nefunguje s vlastními komunickými tématy. Prosím, vypněte tuto možnost ve vašich preferencích Reddit:"
+	},
+	"ThemeWhitelistInfo": {
+		"message": "Použijte pouze barvy témat pro tyto subreddit:"
 	},
 	"TimeRange": {
 		"message": "Časový rozsah"
@@ -272,17 +1127,56 @@
 	"UpdateFirefox": {
 		"message": "Aktualizujte prosím na Firefox 121 nebo vyšší, aby některé funkce fungovaly správně."
 	},
+	"Upload": {
+		"message": "Nahraj"
+	},
+	"UploadedImage": {
+		"message": "Nahraný obrázek"
+	},
+	"UpvoteColour": {
+		"message": "Příspěvek: Upvote barevnost"
+	},
+	"UseOriginalSearchBar": {
+		"message": "Použijte původní vyhledávací lištu"
+	},
 	"UserProfileOffset": {
 		"message": "Posun uživatelského profilu"
 	},
 	"UserProfileWidth": {
 		"message": "Šířka uživatelského profilu"
 	},
+	"UsernameHoverPopupDelay": {
+		"message": "Zpoždění vyskakovacího okna uživatelského jména při přejezdu"
+	},
+	"Users": {
+		"message": "Uživatelé"
+	},
 	"Video": {
 		"message": "Video"
 	},
+	"ViewCrossposts": {
+		"message": "Přidat odkaz k zobrazení křížových příspěvků v jiných subredditech"
+	},
+	"Welcome": {
+		"message": "Vítejte"
+	},
+	"Whitelist": {
+		"message": "Bílá seznam"
+	},
+	"WhitelistBlacklist": {
+		"message": "Bílá lista / Černá lista"
+	},
 	"Width": {
 		"message": "Šířka"
+	},
+	"extensionVersionText": {
+		"message": "Verzní verze"
+	},
+	"learnMore": {
+		"message": "Zjistit více"
+	},
+	"resizeHomeAlsoAffects": {
+		"message": "& r/all, r/popular, Vytvořit příspěvek, Výsledky vyhledávání a stránky wiki"
 	},
 	"seconds": {
 		"message": "sekundy"

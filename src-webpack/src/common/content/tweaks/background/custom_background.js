@@ -36,9 +36,19 @@ export function useCustomBackground(value) {
 
 // Load Background and Blur Properties
 function setBackgroundAndBlur() {
-	BROWSER_API.storage.sync.get(['customBackground', 'bgBlur'], function (result) {
-		setCustomBackground(result.customBackground);
-		bgBlur(result.bgBlur);
+	BROWSER_API.storage.local.get('customBackground', function (localResult) {
+		const localBg = localResult.customBackground;
+		if (localBg) {
+			setCustomBackground(localBg);
+			BROWSER_API.storage.sync.get('bgBlur', function (syncResult) {
+				bgBlur(syncResult.bgBlur);
+			});
+		} else {
+			BROWSER_API.storage.sync.get(['customBackground', 'bgBlur'], function (syncResult) {
+				setCustomBackground(syncResult.customBackground);
+				bgBlur(syncResult.bgBlur);
+			});
+		}
 	});
 }
 

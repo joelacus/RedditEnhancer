@@ -17,6 +17,9 @@
 	"AddDownloadVideoButtonInfo": {
 		"message": "Potrebbe non funzionare con tutti i video."
 	},
+	"AddDownloadVideoButtonPermission": {
+		"message": "È richiesto il permesso del browser \"download\". Si prega di riabilitare l'opzione \"Aggiungi pulsante 'Scarica video' ai post video\" nelle impostazioni dell'estensione e accettare la richiesta pop-up."
+	},
 	"AddMarkPostAsReadButton": {
 		"message": "Aggiungi un pulsante ad ogni post nella visualizzazione compatta per contrassegnarlo come letto"
 	},
@@ -37,6 +40,9 @@
 	},
 	"AlwaysShowPostOptionsInfo": {
 		"message": "Sposta i pulsanti dal menu a comparsa del post alla barra delle azioni del post."
+	},
+	"AppendNumbersToPostImages": {
+		"message": "Immagini di post numerate"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Visualizzare la pagina e le informazioni utente nell'intestazione"
@@ -59,11 +65,32 @@
 	"AutoLoadMoreCommentsInfo": {
 		"message": "Questo potrebbe causare un rallentamento della pagina e un elevato consumo di RAM, soprattutto se sono presenti molti commenti."
 	},
+	"AutoplayCommentGifs": {
+		"message": "Riproduzione automatica di GIF nei commenti"
+	},
+	"AutoplayGifs": {
+		"message": "Riproduzione automatica dei GIF"
+	},
+	"AutoplayMediaInfo": {
+		"message": "Affinché queste opzioni funzionino correttamente, si prega di disattivare \"Riproduzione automatica dei contenuti\" nelle impostazioni utente di Reddit > Preferenze."
+	},
+	"AutoplayVideos": {
+		"message": "Riproduzione automatica dei video"
+	},
 	"Award": {
 		"message": "Premio"
 	},
 	"Background": {
 		"message": "Sfondo"
+	},
+	"BackgroundUploadInfo": {
+		"message": "I file di immagine possono essere caricati solo dalla pagina delle opzioni."
+	},
+	"BackgroundUploadInfo2": {
+		"message": "Le risoluzioni più basse occupano meno spazio di archiviazione, consentendo di includere più immagini entro il limite. Le immagini caricate vengono memorizzate localmente."
+	},
+	"BackgroundUploadResolution": {
+		"message": "Risoluzione caricamento in background"
 	},
 	"Backup": {
 		"message": "Backup"
@@ -110,6 +137,9 @@
 	"BlockInfo": {
 		"message": "Supporta la corrispondenza esatta di parole chiave o le espressioni regolari"
 	},
+	"BlocksCommentsByKeyword": {
+		"message": "Blocca commenti per parola chiave"
+	},
 	"Blur": {
 		"message": "Sfocare"
 	},
@@ -153,7 +183,7 @@
 		"message": "Interfaccia utente vecchia classica"
 	},
 	"CleanLink": {
-		"message": "Aggiungi l'opzione di condivisione del post/commento senza tracciamento (URL pulito)"
+		"message": "Aggiungi l'opzione di condivisione del post/commento senza tracciamento (Link pulito)"
 	},
 	"Cleared": {
 		"message": "Cancellato"
@@ -167,8 +197,14 @@
 	"Comments": {
 		"message": "Commenti"
 	},
+	"CommentsBlockInfo": {
+		"message": "Elenca singole parole chiave/espressioni regolari, separate da una virgola"
+	},
 	"CommentsCount": {
 		"message": "I commenti contano"
+	},
+	"CommentsHidden": {
+		"message": "Commenti nascosti"
 	},
 	"CompactHeaderSideMenu": {
 		"message": "Compatta la barra di intestazione e il menu laterale"
@@ -180,7 +216,7 @@
 		"message": "Confermare"
 	},
 	"Controversial": {
-		"message": "Controverso"
+		"message": "Controverso / Controversial"
 	},
 	"CopiedCleanLink": {
 		"message": "Link copiato con successo!"
@@ -192,7 +228,7 @@
 		"message": "Messaggio copiato!"
 	},
 	"CopyCleanLink": {
-		"message": "Copia URL pulito"
+		"message": "Copia link pulito"
 	},
 	"CopyCleanLinkShort": {
 		"message": "Copia link pulito (breve)"
@@ -249,7 +285,7 @@
 		"message": "Ombra esterna"
 	},
 	"Edit": {
-		"message": "Modifica"
+		"message": "Modificare"
 	},
 	"EditPost": {
 		"message": "Modifica post"
@@ -288,7 +324,7 @@
 		"message": "Larghezza del feed"
 	},
 	"FilterCommunities": {
-		"message": "Filtra le comunità..."
+		"message": "Filtra comunità..."
 	},
 	"FilterOptionsFor": {
 		"message": "Opzioni di filtro per"
@@ -315,13 +351,22 @@
 		"message": "Lo sfondo personalizzato funziona solo su un'interfaccia utente vecchia con 'Modernizza Vecchio Reddit' attivato. Attivarlo forzerà lo sfondo personalizzato sull'interfaccia utente (non consigliato)."
 	},
 	"ForceDarkMode": {
-		"message": "Attiva la modalità scura di Reddit"
+		"message": "Forza la modalità scura di Reddit"
+	},
+	"ForceShowVoteButtons": {
+		"message": "Visualizza forzatamente i pulsanti di voto"
 	},
 	"FullWidthBanner": {
 		"message": "Banner del subreddit a larghezza intera"
 	},
 	"FullWidthExpandos": {
 		"message": "Espandi le anteprime dei post in vista compatta"
+	},
+	"GalleryKeyboardNavigation": {
+		"message": "Navigazione della tastiera della galleria"
+	},
+	"GalleryKeyboardNavigationInfo": {
+		"message": "Usa le frecce sinistra e destra per navigare nelle gallerie di immagini dei post."
 	},
 	"GlobalWidth": {
 		"message": "Larghezza massima globale"
@@ -346,6 +391,9 @@
 	},
 	"HideAdvertiseButton": {
 		"message": "Nascondi il pulsante \"Pubblicità\""
+	},
+	"HideAnnouncementNotifications": {
+		"message": "Nascondi le notifiche di annunci di Reddit"
 	},
 	"HideAwards": {
 		"message": "Nascondi il pulsante \"Assegna premi\""
@@ -384,10 +432,13 @@
 		"message": "Nascondi la barra laterale del feed personalizzato"
 	},
 	"HideElements": {
-		"message": "Nascondi Elementi"
+		"message": "Nascondere"
 	},
 	"HideFavouriteButtons": {
 		"message": "Nascondi i pulsanti preferiti"
+	},
+	"HideGamificationNotifications": {
+		"message": "Nascondi le notifiche di gamificazione di Reddit"
 	},
 	"HideGap": {
 		"message": "Nascondi gli spazi vuoti dell'interfaccia"
@@ -413,6 +464,9 @@
 	"HideJoinButtonOnPosts": {
 		"message": "Nascondi il pulsante \"Partecipa\" dai post"
 	},
+	"HideJoinConversation": {
+		"message": "Nascondi \"Partecipa alla conversazione\""
+	},
 	"HideKarma": {
 		"message": "Nascondi Karma"
 	},
@@ -434,11 +488,17 @@
 	"HideNsfwInSearchResults": {
 		"message": "Nascondi i risultati NSFW nella barra di ricerca"
 	},
+	"HidePageFooter": {
+		"message": "Nascondi il testo del piè di pagina"
+	},
 	"HidePostActionBarButtonsInfo": {
 		"message": "Nascondi i pulsanti dalla barra delle azioni del post"
 	},
 	"HidePostBackButton": {
 		"message": "Nascondi il pulsante Indietro del post"
+	},
+	"HidePostComments": {
+		"message": "Nascondi tutti i commenti di un post"
 	},
 	"HidePostDivider": {
 		"message": "Nascondi i divisori tra post e sidebar"
@@ -454,6 +514,9 @@
 	},
 	"HidePostsByBlockedUser": {
 		"message": "Nascondi i post degli utenti bloccati"
+	},
+	"HidePostsBySubreddit": {
+		"message": "Nascondi post per subreddit"
 	},
 	"HidePromoted": {
 		"message": "Nascondi annunci/link promossi"
@@ -552,7 +615,7 @@
 		"message": "Larghezza del feed iniziale"
 	},
 	"Hot": {
-		"message": "Hot"
+		"message": "Calda / Hot"
 	},
 	"Image": {
 		"message": "Immagine"
@@ -568,6 +631,12 @@
 	},
 	"JustOpenTheImageInfo": {
 		"message": "Quando apri le immagini in una nuova scheda, aprila direttamente senza incorporarle su una pagina Reddit."
+	},
+	"Keywords": {
+		"message": "Parole chiave"
+	},
+	"KeywordsBlockInfo": {
+		"message": "Blocca i post in base al titolo, non al contenuto. Elenca singole parole chiave/espressioni regolari, separate da una virgola."
 	},
 	"Language": {
 		"message": "Lingua"
@@ -596,6 +665,12 @@
 	"LimitInfinityScrollInfo": {
 		"message": "Beta. Questo non ridurrà necessariamente l'utilizzo della larghezza di banda, ma dovrebbe invece aiutare a prevenire che la pagina diventi lenta impedendo a Reddit di aggiungere nuovi post fino a quando non fai clic su \"Carica altro\" nella parte inferiore del feed. Quando fai clic su \"Carica altro\", verranno cancellati i primi 25 post e verranno visualizzati i successivi 25."
 	},
+	"Link": {
+		"message": "Link"
+	},
+	"LocalStorage": {
+		"message": "Archiviazione locale"
+	},
 	"MainContainer": {
 		"message": "Contenitore principale"
 	},
@@ -604,6 +679,9 @@
 	},
 	"MarkReadOnOpenExpandos": {
 		"message": "Segna i post come letti quando si apre l'espansione in vista compatta"
+	},
+	"MarkReadOnOpenExpandosHistoryPermission": {
+		"message": "È richiesto il permesso del browser \"cronologia\". Per favore, riattiva \"Marca i post come letti aprendo expandos in vista Compatta\" nelle impostazioni dell'estensione e accetta la richiesta popup."
 	},
 	"MaxImagePostHeight": {
 		"message": "Altezza massima del post dell'immagine"
@@ -633,7 +711,7 @@
 		"message": "Opzionale. Elenca i colori personalizzati, separati da una virgola. Questi colori vengono anteposti ai colori predefiniti e vengono utilizzati in ordine."
 	},
 	"New": {
-		"message": "Nuovo"
+		"message": "Nuovo / New"
 	},
 	"NewNewUI": {
 		"message": "Nuovo Nuovo UI"
@@ -654,7 +732,7 @@
 		"message": "Offset"
 	},
 	"Old": {
-		"message": "Vecchio"
+		"message": "Vecchio / Old"
 	},
 	"OldUI": {
 		"message": "UI vecchio"
@@ -749,6 +827,9 @@
 	"PostWidth": {
 		"message": "Larghezza del post"
 	},
+	"Posts": {
+		"message": "Post"
+	},
 	"Productivity": {
 		"message": "Produttività"
 	},
@@ -786,7 +867,7 @@
 		"message": "Potrebbe non funzionare con tutti i video."
 	},
 	"ReplaceSearchPlaceholder": {
-		"message": "Sostituire il testo segnaposto della barra di ricerca"
+		"message": "Sostituire il segnaposto della barra di ricerca"
 	},
 	"ReplaceSearchPlaceholderInfo": {
 		"message": "Sostituisci \"Find anything\" con \"Search Reddit\""
@@ -836,6 +917,9 @@
 	"ScrollToNextRootComment": {
 		"message": "Mostra pulsanti per scorrere al commento root successivo/precedente"
 	},
+	"ScrollToNextRootCommentInfo": {
+		"message": "Navigazione da tastiera opzionale. Commento principale successivo: (J / Freccia giù). Commento principale precedente: (K / Freccia su)."
+	},
 	"ScrollToTopFloat": {
 		"message": "Aggiungi il pulsante fluttuante 'Torna all'inizio'"
 	},
@@ -884,8 +968,11 @@
 	"ShowCommentAbsoluteTimestamp": {
 		"message": "Mostra timestamp assoluti sui commenti"
 	},
+	"ShowComments": {
+		"message": "Mostra commenti"
+	},
 	"ShowCommunitiesFilter": {
-		"message": "Filtra elenco comunità"
+		"message": "Filtra lista comunità"
 	},
 	"ShowMemberCount": {
 		"message": "Mostra il conteggio dei membri del subreddit legacy"
@@ -959,6 +1046,9 @@
 	"StickySort": {
 		"message": "Ordinamento fisso"
 	},
+	"StorageUsage": {
+		"message": "Utilizzo dello spazio di archiviazione"
+	},
 	"StyleOptions": {
 		"message": "Opzioni di stile"
 	},
@@ -977,8 +1067,14 @@
 	"Subreddit": {
 		"message": "Subreddit"
 	},
+	"SubredditBlockInfo": {
+		"message": "Nascondi tutti i post dei subreddit elencati nei feed, ad eccezione dei feed dei subreddit."
+	},
 	"SubredditDisplayNameBanner": {
 		"message": "Mostra il nome del subreddit visualizzato nel banner"
+	},
+	"SyncStorage": {
+		"message": "Archiviazione di sincronizzazione"
 	},
 	"Text": {
 		"message": "Testo"
@@ -1034,6 +1130,9 @@
 	"Upload": {
 		"message": "Caricare"
 	},
+	"UploadedImage": {
+		"message": "Immagine caricata"
+	},
 	"UpvoteColour": {
 		"message": "Post: Colore di voto positivo"
 	},
@@ -1049,11 +1148,11 @@
 	"UsernameHoverPopupDelay": {
 		"message": "Ritardo del popup al passaggio del mouse sul nome utente per aprire le informazioni"
 	},
+	"Users": {
+		"message": "Utenti"
+	},
 	"Video": {
 		"message": "Video"
-	},
-	"VideoPlayerInfo": {
-		"message": "Lettore video veloce e leggero con controlli di velocità basati su videojs. Provalo se riscontri problemi di caricamento con il lettore di Reddit."
 	},
 	"ViewCrossposts": {
 		"message": "Aggiungi link per visualizzare i crosspost in altri subreddit"
@@ -1077,7 +1176,7 @@
 		"message": "Scopri di più"
 	},
 	"resizeHomeAlsoAffects": {
-		"message": "Crea post, risultati di ricerca e pagine wiki"
+		"message": "r/all, r/popolari, Crea post, Risultati di ricerca e pagine wiki"
 	},
 	"seconds": {
 		"message": "Secondi"

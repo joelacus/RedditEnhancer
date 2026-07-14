@@ -53,7 +53,7 @@ function enableMulticolouredThreadLinesRV3() {
 		});
 
 		// Select all root comments
-		const elements = document.querySelectorAll('shreddit-comment-tree > shreddit-comment');
+		const elements = document.querySelectorAll('shreddit-comment-tree > section > shreddit-comment');
 
 		// Iterate over all root comments and search for sub comments
 		elements.forEach((element) => {

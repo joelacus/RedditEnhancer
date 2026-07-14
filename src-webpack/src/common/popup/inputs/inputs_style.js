@@ -273,6 +273,15 @@ document.querySelector('#checkbox-op-comment-highlight-colour').addEventListener
 	document.querySelector('.icon-op-comment-highlight-colour').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });
 
+// Button - Reset OP Comment Highlight Colour
+document.querySelector('#btn-reset-op-comment-highlight-colour').addEventListener('click', function () {
+	const default_colour = 'rgba(217,57,0,.07)';
+	BROWSER_API.storage.sync.set({ themeOpCommentHighlightColourCSS: default_colour });
+	sendMessage({ themeOpCommentHighlightColourCSS: default_colour });
+	const get_picker = colour_pickers.find((item) => item.id === 'op-comment-highlight')?.picker;
+	if (get_picker) get_picker.setColor(default_colour);
+});
+
 // Toggle - Post Comment Action Row Colour
 document.querySelector('#checkbox-post-comment-action-row-colour').addEventListener('change', function () {
 	BROWSER_API.storage.sync.set({ themePostCommentActionRowColour: this.checked });

@@ -59,7 +59,12 @@ input:disabled {
 	color: var(--btn-fg);
 	transition: background-color 0.1s ease-in-out;
 	padding: 0 8px;
-	max-height: 35px;
+	max-height: 36px;
+}
+.btn > .icon {
+	height: 20px;
+	width: 20px;
+	background-color: var(--btn-fg);
 }
 .btn-icon {
 	display: grid;

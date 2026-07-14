@@ -12,19 +12,25 @@
 		"message": "Accesibilidad"
 	},
 	"AddDownloadVideoButton": {
-		"message": "Agregar botón 'Descargar video' a publicaciones de video"
+		"message": "Añadir botón «Descargar vídeo» a publicaciones de vídeo"
 	},
 	"AddDownloadVideoButtonInfo": {
 		"message": "Puede que no funcione con todos los vídeos."
 	},
+	"AddDownloadVideoButtonPermission": {
+		"message": "Se requiere el permiso de navegador «descargas». Por favor, vuelve a habilitar «Añadir el botón \"Descargar vídeo\" a las publicaciones de víde» en la configuración de la extensión y acepta la solicitud emergente."
+	},
 	"AddMarkPostAsReadButton": {
-		"message": "Añade un botón a cada publicación en la vista compacta para marcarla como leída."
+		"message": "Añade un botón a cada publicación en la vista compacta para marcarla como leída"
 	},
 	"AddNsfwTag": {
-		"message": "Agregar etiqueta NSFW"
+		"message": "Añadir etiqueta NSFW"
 	},
 	"AddSpoilerTag": {
-		"message": "Agregar etiqueta de spoiler"
+		"message": "Añadir etiqueta de spoiler"
+	},
+	"AlwaysShowCommentOptions": {
+		"message": "Mostrar siempre las opciones de comentario"
 	},
 	"AlwaysShowCommentOptionsInfo": {
 		"message": "Mueva los botones del menú desplegable de comentarios a la barra de acciones de comentarios."
@@ -35,38 +41,68 @@
 	"AlwaysShowPostOptionsInfo": {
 		"message": "Mueva los botones del menú desplegable de la publicación a la barra de acciones de la publicación."
 	},
+	"AppendNumbersToPostImages": {
+		"message": "Imágenes de publicaciones numeradas"
+	},
 	"AttachSideMenuHeader": {
-		"message": "Mostrar página e información del usuario en el encabezado"
+		"message": "Mostrar la página y la información del usuario en el encabezado"
 	},
 	"AttachSideMenuHeaderInfo": {
 		"message": "Experimental. Podría entrar en conflicto con las funciones del menú lateral oculto."
 	},
 	"Auto": {
-		"message": "Auto"
+		"message": "Automático"
 	},
 	"AutoCollapseAutoModeratorComment": {
-		"message": "Minimizar automáticamente el comentario del AutoModerador"
+		"message": "Minimizar automáticamente el comentario de AutoModerator"
 	},
 	"AutoExpand": {
-		"message": "Expanda al 100 % si el ancho de la ventana/pantalla es inferior a:"
+		"message": "Expandir al 100 % si el ancho de la ventana/pantalla es inferior a:"
 	},
 	"AutoLoadMoreComments": {
-		"message": "Cargar automáticamente más comentarios"
+		"message": "Cargar comentarios adicionales automáticamente"
 	},
 	"AutoLoadMoreCommentsInfo": {
 		"message": "Esto puede hacer que la página se ralentice y utilice mucha RAM, especialmente si hay muchos comentarios."
 	},
+	"AutoplayCommentGifs": {
+		"message": "Reproducción automática de GIFs en los comentarios"
+	},
+	"AutoplayGifs": {
+		"message": "Reproducción automática de GIFs"
+	},
+	"AutoplayMediaInfo": {
+		"message": "Para que estas opciones funcionen correctamente, por favor desactiva «Reproducción automática de contenido» en Configuración de usuario de Reddit > Preferencias."
+	},
+	"AutoplayVideos": {
+		"message": "Reproducción automática de videos"
+	},
+	"Award": {
+		"message": "Premio"
+	},
 	"Background": {
 		"message": "Fondo"
 	},
+	"BackgroundUploadInfo": {
+		"message": "Los archivos de imagen solo se pueden cargar desde la página de opciones."
+	},
+	"BackgroundUploadInfo2": {
+		"message": "Las resoluciones más bajas ocupan menos espacio de almacenamiento, lo que permite incluir más imágenes dentro del límite. Las imágenes cargadas se almacenan localmente."
+	},
+	"BackgroundUploadResolution": {
+		"message": "Resolución de carga en segundo plano"
+	},
 	"Backup": {
-		"message": "Respaldo"
+		"message": "copia de seguridad"
+	},
+	"BackupFailed": {
+		"message": "Algo salió mal. Revisa la consola de desarrollo (F12) para ver el error."
 	},
 	"BackupRestoreConfig": {
-		"message": "Copia de Seguridad/Restaurar Configuración"
+		"message": "Copia de seguridad/Restaurar configuración"
 	},
 	"BackupRestored": {
-		"message": "Copia de seguridad restaurada!"
+		"message": "¡Copia de seguridad restaurada!"
 	},
 	"Best": {
 		"message": "Mejores / Best"
@@ -75,7 +111,7 @@
 		"message": "Mejor cuadro de comentarios"
 	},
 	"BetterCommentBoxInfo": {
-		"message": "Muestre automáticamente las opciones de formato al comentar, agregue Ctrl/Cmd + Ingrese el acceso directo para enviar comentarios y ocultar la barra de herramientas para cambiar al editor de texto rico al configurar Markdown Composer como predeterminado"
+		"message": "Muestre automáticamente las opciones de formato al comentar, agregue la combinación Ctrl/Cmd + Intro para enviar comentarios y oculte la barra de herramientas para cambiar al editor de texto enriquecido al configurar el compositor de Markdown como predeterminado."
 	},
 	"BionicBackgroundColour": {
 		"message": "Color de fondo biónico"
@@ -84,19 +120,25 @@
 		"message": "Color de fuente biónica"
 	},
 	"BionicReader": {
-		"message": "Lector bionica"
+		"message": "Lector biónico"
 	},
 	"BionicReaderComments": {
-		"message": "Lector bionica para comentarios"
+		"message": "Lector biónico para comentarios"
 	},
 	"BionicReaderPosts": {
-		"message": "Lector bionica para publicaciones"
+		"message": "Lector biónico para publicaciones"
 	},
 	"Blacklist": {
 		"message": "Lista negra"
 	},
 	"Block": {
-		"message": "Bloquear"
+		"message": "Bloque"
+	},
+	"BlockInfo": {
+		"message": "Soporta la coincidencia exacta de palabras clave o expresiones regulares."
+	},
+	"BlocksCommentsByKeyword": {
+		"message": "Bloquear comentarios por palabra clave"
 	},
 	"Blur": {
 		"message": "Desenfoque"
@@ -111,13 +153,19 @@
 		"message": "Frecuencia de recordatorio"
 	},
 	"BreakReminderInfo": {
-		"message": "Beta. Muestra un recordatorio para tomar un descanso cada número determinado de publicaciones."
+		"message": "Beta. Muestra un recordatorio para hacer una pausa después de cada número establecido de publicaciones."
 	},
 	"BrowserTheme": {
 		"message": "Tema del navegador"
 	},
 	"BuyMeACoffee": {
 		"message": "Cómprame un café"
+	},
+	"CannedMessages": {
+		"message": "Mensajes guardados"
+	},
+	"CannedMessagesInfo": {
+		"message": "Añade un nuevo mensaje por línea devuelta. Haz clic derecho en cualquier parte de una página de Reddit para seleccionar mensajes predefinidos del menú contextual y copiarlo al portapapeles."
 	},
 	"Centre": {
 		"message": "Centro"
@@ -132,28 +180,37 @@
 		"message": "Claro Clásico"
 	},
 	"ClassicOldUI": {
-		"message": "Ui antiguo clásico"
+		"message": "Interfaz de usuario antigua clásica"
+	},
+	"CleanLink": {
+		"message": "Añadir opción de compartir publicación/comentario sin seguimiento (Enlace limpio)"
 	},
 	"Cleared": {
-		"message": "Aclarada"
+		"message": "Borrado"
 	},
 	"Close": {
-		"message": "Cerca"
+		"message": "Cerrar"
 	},
 	"CloseTab": {
 		"message": "Ahora puede cerrar esta pestaña/ventana."
 	},
 	"Comments": {
-		"message": "Comentario"
+		"message": "Comentarios"
+	},
+	"CommentsBlockInfo": {
+		"message": "Lista de palabras clave/expresiones regulares individuales, separadas por una coma."
 	},
 	"CommentsCount": {
 		"message": "Los comentarios cuentan"
 	},
+	"CommentsHidden": {
+		"message": "Comentarios ocultos"
+	},
 	"CompactHeaderSideMenu": {
-		"message": "Compacte la barra de encabezado y el menú lateral"
+		"message": "Colapsar la barra de encabezado y el menú lateral"
 	},
 	"CompactPostLinkPreview": {
-		"message": "Vistas previas del enlace de publicación compacta"
+		"message": "Vistas previas del enlace de publicación compacto"
 	},
 	"Confirm": {
 		"message": "Confirmar"
@@ -161,20 +218,35 @@
 	"Controversial": {
 		"message": "Más polémicos / Controversial"
 	},
+	"CopiedCleanLink": {
+		"message": "¡Enlace copiado con éxito!"
+	},
+	"CopiedCleanLinkShort": {
+		"message": "¡Enlace limpio copiado! (corto)"
+	},
+	"CopiedMessage": {
+		"message": "¡Mensaje copiado!"
+	},
+	"CopyCleanLink": {
+		"message": "Copiar enlace limpio"
+	},
+	"CopyCleanLinkShort": {
+		"message": "Copiar enlace limpio (corto)"
+	},
 	"CreatePost": {
-		"message": "Crear Publicación"
+		"message": "Crear publicación"
 	},
 	"CreatePostBody": {
-		"message": "Create Post: Body"
+		"message": "Crear publicación: Contenido"
 	},
 	"CreatePostTitle": {
-		"message": "Create Post: Title"
+		"message": "Crear publicación: Título"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Enlace de fondo personalizado"
 	},
 	"CustomCSS": {
-		"message": "CSS Personalizado"
+		"message": "CSS personalizado"
 	},
 	"CustomFeedWidth": {
 		"message": "Ancho de feed personalizado"
@@ -186,16 +258,16 @@
 		"message": "Oscuro"
 	},
 	"DarkMode": {
-		"message": "Modo Oscuro"
+		"message": "Modo oscuro"
 	},
 	"DefaultCommentsSortOption": {
 		"message": "Opción de clasificación de comentarios predeterminada"
 	},
 	"DefaultFeedSortOption": {
-		"message": "Opción de clasificación de feed predeterminada"
+		"message": "Opción predeterminada de clasificación del feed"
 	},
 	"DefaultHomeFeedSortOption": {
-		"message": "Opción de ordenación de publicaciones del feed de inicio predeterminado"
+		"message": "Opción de ordenación predeterminada del feed de inicio"
 	},
 	"Delete": {
 		"message": "Borrar"
@@ -210,7 +282,10 @@
 		"message": "Arrastre"
 	},
 	"DropShadow": {
-		"message": "Sombras paralelas"
+		"message": "Sombra proyectada"
+	},
+	"Edit": {
+		"message": "Editar"
 	},
 	"EditPost": {
 		"message": "Editar publicación"
@@ -228,52 +303,70 @@
 		"message": "Feed"
 	},
 	"FeedKeyboardNavigation": {
-		"message": "Navigazione da tastiera del feed"
+		"message": "Navegación por teclado del feed"
 	},
 	"FeedKeyboardNavigationInfo1": {
 		"message": "Publicación siguiente: (J / Flecha abajo). Publicación anterior: (K / Flecha arriba). Alternar publicación compacta: (Espacio)."
 	},
 	"FeedKeyboardNavigationInfo2": {
-		"message": "El uso de las teclas J/K interfiere con la función 'Atajos' de Reddit si está habilitada, en cuyo caso, use las teclas de flecha."
+		"message": "El uso de las teclas J/K interfiere con la función 'Atajos' de Reddit si está habilitada; en ese caso, utilice las teclas de flecha. La versión RE utiliza el desplazamiento suave y salta todas las publicaciones ocultas."
 	},
 	"FeedOffset": {
-		"message": "Compensación de alimentación"
+		"message": "Desplazamiento de alimentación"
 	},
 	"FeedPostContent": {
-		"message": "Publicación de alimentación: contenido"
+		"message": "Publicación de feed: Contenido"
 	},
 	"FeedPostTitle": {
-		"message": "Post de alimentación: título"
+		"message": "Entrada del feed: Título"
 	},
 	"FeedWidth": {
 		"message": "Ancho de alimentación"
 	},
+	"FilterCommunities": {
+		"message": "Filtrar comunidades..."
+	},
 	"FilterOptionsFor": {
 		"message": "Opciones de filtro para"
 	},
+	"FollowComment": {
+		"message": "Seguir comentario"
+	},
 	"FollowPost": {
-		"message": "Seguir la publicación"
+		"message": "Seguir publicación"
 	},
 	"Font": {
 		"message": "Fuente"
 	},
 	"FontWeight": {
-		"message": "Peso de la fuente"
+		"message": "Grosor de la fuente"
 	},
 	"FontWeightInfo": {
-		"message": "No todas las fuentes admiten todos los pesos."
+		"message": "No todas las fuentes admiten todos los grosores."
 	},
 	"ForceCustomBgOldUI": {
-		"message": "Forzar antecedentes personalizados en la ui antigua"
+		"message": "Forzar fondo personalizado en la interfaz de usuario antigua"
 	},
 	"ForceCustomBgOldUIInfo": {
-		"message": "Los antecedentes personalizados solo funciona en la UI antigua con modernizar antiguo Reddit habilitado. Alternar esto forzará los antecedentes personalizados en la interfaz de usuario (no recomendado)."
+		"message": "El fondo personalizado solo funciona en la interfaz de usuario antigua con Modernizar Reddit antiguo activado. Activar esto forzará el fondo personalizado en la interfaz de usuario (no recomendado)."
+	},
+	"ForceDarkMode": {
+		"message": "Activar el modo oscuro de Reddit"
+	},
+	"ForceShowVoteButtons": {
+		"message": "Forzar la visualización de los botones de voto"
 	},
 	"FullWidthBanner": {
-		"message": "Banner de ancho de ancho completo"
+		"message": "Banner de subreddit de ancho completo"
 	},
 	"FullWidthExpandos": {
-		"message": "Expandir las vistas previas de la publicación en Vista compacta"
+		"message": "Expandir las vistas previas de las publicaciones en vista compacta"
+	},
+	"GalleryKeyboardNavigation": {
+		"message": "Navegación del teclado de la galería"
+	},
+	"GalleryKeyboardNavigationInfo": {
+		"message": "Usa las flechas izquierda y derecha para navegar por las galerías de imágenes de publicaciones."
 	},
 	"GlobalWidth": {
 		"message": "Ancho máximo global"
@@ -294,19 +387,22 @@
 		"message": "aquí"
 	},
 	"Hide": {
-		"message": "Esconder"
+		"message": "Ocultar"
 	},
 	"HideAdvertiseButton": {
-		"message": "Ocultar el botón “Anunciar”"
+		"message": "Ocultar el botón «Anunciar»"
+	},
+	"HideAnnouncementNotifications": {
+		"message": "Ocultar las notificaciones de anuncios de Reddit (u/reddit)"
 	},
 	"HideAwards": {
-		"message": "Ocultar dar botón de premios"
+		"message": "Ocultar botón «Otorgar premios»"
 	},
 	"HideBlockedKeywordsPosts": {
-		"message": "Ocultar Publicaciones con Palabras Clave Bloqueadas"
+		"message": "Ocultar publicaciones con palabras clave bloqueadas"
 	},
 	"HideBlurredMediaBackground": {
-		"message": "Ocultar el desenfoque de fondo detrás de las vistas previas de la imagen"
+		"message": "Ocultar el desenfoque de fondo detrás de las vistas previas de las imágenes"
 	},
 	"HideChatButton": {
 		"message": "Ocultar el botón “Chat”"
@@ -315,46 +411,49 @@
 		"message": "Ocultar botones de la barra de acciones de comentarios"
 	},
 	"HideCommentKarma": {
-		"message": "Ocultar comentario karma"
+		"message": "Ocultar comentario de karma"
 	},
 	"HideCommunityHighlights": {
 		"message": "Ocultar 'Lo más destacado de la comunidad'"
 	},
 	"HideCommunityStatus": {
-		"message": "Ocultar el estado de la comunidad"
+		"message": "Ocultar estado de la comunidad"
 	},
 	"HideCompactViewBlankThumbnails": {
 		"message": "Ocultar miniaturas en blanco en la vista compacta"
 	},
 	"HideCompactViewThumbnails": {
-		"message": "Esconde las miniaturas en vista compacta"
+		"message": "Ocultar miniaturas en vista compacta"
 	},
 	"HideCreatePostButton": {
-		"message": "Ocultar el botón “Crear publicación”"
+		"message": "Ocultar botón \"Crear publicación\""
 	},
 	"HideCustomFeedSidebar": {
 		"message": "Ocultar la barra lateral de alimentación personalizada"
 	},
 	"HideElements": {
-		"message": "Ocultar Elementos"
+		"message": "Esconder"
 	},
 	"HideFavouriteButtons": {
 		"message": "Ocultar los botones favoritos"
 	},
+	"HideGamificationNotifications": {
+		"message": "Ocultar notificaciones de gamificación de Reddit"
+	},
 	"HideGap": {
-		"message": "Ocultar espacios vacíos de la interfaz"
+		"message": "Ocultar huecos de la interfaz"
 	},
 	"HideGetAppButton": {
 		"message": "Ocultar el botón 'Obtener aplicación'"
 	},
 	"HideGetNewReddit": {
-		"message": "Ocultar “Get New Reddit”"
+		"message": "Ocultar «Obtener nuevo Reddit»"
 	},
 	"HideHeaderBar": {
 		"message": "Ocultar la barra de encabezado"
 	},
 	"HideHeaderSubBar": {
-		"message": "Ocultar lista de subreddit de encabezado"
+		"message": "Ocultar lista de subreddits del encabezado"
 	},
 	"HideHomeFeed": {
 		"message": "Ocultar el feed de inicio"
@@ -365,35 +464,47 @@
 	"HideJoinButtonOnPosts": {
 		"message": "Ocultar el botón 'Unirse' en las publicaciones"
 	},
+	"HideJoinConversation": {
+		"message": "Ocultar \"Unirse a la conversación\""
+	},
 	"HideKarma": {
-		"message": "Ocultar Karma"
+		"message": "Ocultar karma"
 	},
 	"HideLinkPostsByUrlKeyword": {
 		"message": "Ocultar publicaciones 'Enlace' por palabras clave en la URL"
 	},
+	"HideLogoInTheSearchBar": {
+		"message": "Ocultar el logotipo de Reddit en la barra de búsqueda"
+	},
 	"HideModerationButton": {
-		"message": "Ocultar el botón “Moderación”"
+		"message": "Ocultar el botón «Moderación»"
 	},
 	"HideNSFW": {
 		"message": "Ocultar publicaciones NSFW/L"
 	},
 	"HideNotificationButton": {
-		"message": "Ocultar botón de “Notificación”"
+		"message": "Ocultar botón de «Notificación»"
 	},
 	"HideNsfwInSearchResults": {
 		"message": "Ocultar 'NSFW' en los resultados de búsqueda"
+	},
+	"HidePageFooter": {
+		"message": "Ocultar el texto del pie de página"
 	},
 	"HidePostActionBarButtonsInfo": {
 		"message": "Ocultar botones de la barra de acciones de la publicación"
 	},
 	"HidePostBackButton": {
-		"message": "Ocultar el botón Atrás de la publicación"
+		"message": "Ocultar el botón de retroceso de la publicación"
+	},
+	"HidePostComments": {
+		"message": "Ocultar todos los comentarios de una publicación"
 	},
 	"HidePostDivider": {
-		"message": "Ocultar a los separadores de publicaciones"
+		"message": "Ocultar separadores de publicaciones"
 	},
 	"HidePostHiddenMessage": {
-		"message": "Ocultar el mensaje 'Publicar oculto'"
+		"message": "Ocultar mensaje: «Publicación oculta»"
 	},
 	"HidePostKarma": {
 		"message": "Ocultar el karma de la publicación"
@@ -404,6 +515,9 @@
 	"HidePostsByBlockedUser": {
 		"message": "Ocultar publicaciones de usuarios bloqueados"
 	},
+	"HidePostsBySubreddit": {
+		"message": "Ocultar publicaciones por subreddit"
+	},
 	"HidePromoted": {
 		"message": "Ocultar anuncios/enlaces patrocinados"
 	},
@@ -411,16 +525,19 @@
 		"message": "Ocultar publicaciones recientes"
 	},
 	"HideRecommended": {
-		"message": "Ocultar Recomendada"
+		"message": "Ocultar lo recomendado"
 	},
 	"HideRecommendedInfo": {
-		"message": "Ocultar publicaciones recomendadas se puede configurar oficialmente en la configuración de usuario de Reddit."
+		"message": "Ocultar publicaciones recomendadas también se puede configurar oficialmente en la configuración de usuario de Reddit."
 	},
 	"HideRedditPremium": {
-		"message": "Ocultar “Reddit Premium”"
+		"message": "Ocultar «Reddit Premium»"
+	},
+	"HideRelatedCommunities": {
+		"message": "Ocultar comunidades relacionadas"
 	},
 	"HideRelatedPosts": {
-		"message": "Ocultar publicaciones Relacionadas"
+		"message": "Ocultar publicaciones relacionadas"
 	},
 	"HideSearchSidebar": {
 		"message": "Ocultar la barra lateral de búsqueda"
@@ -441,76 +558,85 @@
 		"message": "Ocultar la sección de juegos"
 	},
 	"HideSideMenuModerationSection": {
-		"message": "Ocultar la sección de Moderación"
+		"message": "Ocultar la sección de moderación"
 	},
 	"HideSideMenuRecentSection": {
-		"message": "Ocultar la sección de subreddit Reciente"
+		"message": "Ocultar la sección de subreddits recientes"
 	},
 	"HideSideMenuResourcesSection": {
 		"message": "Ocultar la sección de Recursos"
 	},
 	"HideSideMenuTopSection": {
-		"message": "Ocultar la sección Superior"
+		"message": "Ocultar la sección superior"
 	},
 	"HideSideMenuTopicsSection": {
 		"message": "Ocultar la sección de Temas"
 	},
 	"HideSubSidebar": {
-		"message": "Ocultar la barra lateral de Sub Reddit"
+		"message": "Ocultar la barra lateral de Subreddits"
 	},
 	"HideSubSidebarBlacklistInfo": {
-		"message": "Ocultar globalmente excepto en estos subreddits:"
+		"message": "Ocultar globalmente, excepto en estos subreddits:"
 	},
 	"HideSubSidebarWhitelistInfo": {
-		"message": "Esconderse solo en estos subreddits:"
+		"message": "Esconderse solo en estos subreddits"
 	},
 	"HideTrendingTodayInSearchResults": {
 		"message": "Ocultar 'Tendencias de hoy' en la barra de búsqueda"
 	},
 	"HideUserNameInTheFlairSection": {
-		"message": "Ocultar el nombre de usuario en la sección Subreddit Sidebar Flair"
+		"message": "Ocultar nombre de usuario en la sección Flair de la barra lateral del subreddit"
 	},
 	"HideUserProfilePics": {
-		"message": "Ocultar imágenes de perfil de usuario en los comentarios"
+		"message": "Ocultar fotos de perfil de usuario en los comentarios"
 	},
 	"HideUserSidebar": {
-		"message": "Ocultar la barra lateral del usuario"
+		"message": "Ocultar la barra lateral de usuario"
 	},
 	"HideUsername": {
-		"message": "Ocultar Nombre de Usuario"
+		"message": "Ocultar nombre de usuario"
 	},
 	"HideVideoRecommendations": {
 		"message": "Ocultar publicaciones recomendadas cuando termina el video"
 	},
 	"HideVoteButtons": {
-		"message": "Ocultar botones de voto"
+		"message": "Ocultar botones de votación"
 	},
 	"HighlightOp": {
 		"message": "Resaltar comentarios del póster original (OP)"
 	},
+	"HomeFeed": {
+		"message": "Feed de inicio"
+	},
 	"HomeFeedOffset": {
-		"message": "Desplazamiento del Feed de inicio"
+		"message": "Desplazamiento del feed de inicio"
 	},
 	"HomeFeedWidth": {
 		"message": "Ancho del feed de inicio"
 	},
 	"Hot": {
-		"message": "Destacando / Hot"
+		"message": "Popular / Hot"
 	},
 	"Image": {
 		"message": "Imagen"
 	},
 	"ImageScroll": {
-		"message": "Agregar barras de desplazamiento a las imágenes"
+		"message": "Añadir barras de desplazamiento a las imágenes"
 	},
 	"Images": {
 		"message": "Imágenes"
 	},
 	"JustOpenTheImage": {
-		"message": "Simplemente abre la imagen"
+		"message": "Simplemente abra la imagen"
 	},
 	"JustOpenTheImageInfo": {
 		"message": "Al abrir imágenes en una nueva pestaña, ábralas directamente sin incrustarlas en una página de Reddit."
+	},
+	"Keywords": {
+		"message": "Palabras clave"
+	},
+	"KeywordsBlockInfo": {
+		"message": "Bloquea publicaciones en función del título, no del contenido. Enumera palabras clave/expresiones regulares individuales, separadas por una coma."
 	},
 	"Language": {
 		"message": "Idioma"
@@ -519,7 +645,7 @@
 		"message": "Vista de publicación clásica más grande"
 	},
 	"Latest": {
-		"message": "El último"
+		"message": "Último"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Mostrar botones de voto a la izquierda"
@@ -527,32 +653,44 @@
 	"Light": {
 		"message": "Claro"
 	},
+	"LightMode": {
+		"message": "Modo claro"
+	},
 	"LimitCommentsInfo": {
 		"message": "Solo funciona para publicaciones abiertas en una nueva pestaña/ventana."
 	},
 	"LimitInfinityScroll": {
-		"message": "Límite de desplazamiento infinito"
+		"message": "Limitar el desplazamiento infinito"
 	},
 	"LimitInfinityScrollInfo": {
-		"message": "Beta. Esto no necesariamente reducirá el uso de ancho de banda, pero debería ayudar a evitar que la página se vuelva lenta al evitar que Reddit agregue nuevas publicaciones hasta que hagas clic en “Carga más” en la parte inferior del feed. Al hacer clic en “Carga más”, se borrarán las primeras 25 publicaciones y se mostrarán las siguientes 25."
+		"message": "Beta. Esto no reducirá necesariamente el uso del ancho de banda, sino que debería ayudar, más bien, a prevenir que la página se ralentice al evitar que Reddit añada nuevas publicaciones hasta que hagas clic en «Cargar más» en la parte inferior del feed. Al hacer clic en «Cargar más», se borrarán las primeras 25 publicaciones y se mostrarán las siguientes 25."
+	},
+	"Link": {
+		"message": "Enlace"
+	},
+	"LocalStorage": {
+		"message": "Almacenamiento local"
 	},
 	"MainContainer": {
 		"message": "Contenedor principal"
 	},
 	"MarkAsBrandAffiliate": {
-		"message": "Mark como afiliado de marca"
+		"message": "Marcar como afiliado de marca"
 	},
 	"MarkReadOnOpenExpandos": {
-		"message": "Marque publicaciones como leída al abrir expandir en vista compacta"
+		"message": "Marcar las publicaciones como leídas al abrir expandos en vista compacta"
+	},
+	"MarkReadOnOpenExpandosHistoryPermission": {
+		"message": "Se requiere el permiso de navegador «historial». Por favor, vuelve a habilitar «Marcar las publicaciones como leídas al abrir expandos en la vista Compacta» en la configuración de la extensión y acepta la solicitud de ventana emergente."
 	},
 	"MaxImagePostHeight": {
-		"message": "Altura de publicación de imagen máxima"
+		"message": "Altura máxima de la publicación de imagen"
 	},
 	"MaxImageWidth": {
-		"message": "Ancho de imagen máximo"
+		"message": "Ancho máximo de la imagen"
 	},
 	"MaxVideoPostHeight": {
-		"message": "Altura máxima de la publicación de video"
+		"message": "Altura máxima de la publicación de vídeo"
 	},
 	"MaxVideoWidth": {
 		"message": "Ancho máximo de video"
@@ -570,34 +708,37 @@
 		"message": "Líneas de hilos de comentarios multicolores"
 	},
 	"MulticolouredCommentThreadLinesInfo": {
-		"message": "Opcional. Lista de colores personalizados, separados por una coma. Estos colores prepararán los colores predeterminados y se utilizarán en orden."
+		"message": "Opcional. Enumere los colores personalizados, separados por una coma. Estos colores prepararán los colores predeterminados y se utilizarán en orden."
 	},
 	"New": {
-		"message": "Más nuevos / New"
+		"message": "Nuevo / New"
 	},
 	"NewNewUI": {
-		"message": "Nueva Nueva UI"
+		"message": "Nuevo Nuevo UI"
 	},
 	"NewUpdateAvailable": {
 		"message": "La versión <version> ya está disponible. Tu navegador debería actualizar esta extensión automáticamente pronto si tienes habilitadas las actualizaciones automáticas. De lo contrario, tendrás que buscar actualizaciones manualmente en el administrador de extensiones del navegador."
 	},
 	"NoSavedBackgrounds": {
-		"message": "No hay fondos guardados"
+		"message": "Sin fondos guardados"
 	},
 	"NonStickyHeaderBar": {
-		"message": "Barra de encabezado no pegajosa"
+		"message": "Barra de encabezado no adhesiva"
 	},
 	"Off": {
 		"message": "Apagado"
 	},
 	"Offset": {
-		"message": "Desplazamiento"
+		"message": "desplazamiento"
 	},
 	"Old": {
 		"message": "Vieja / Old"
 	},
 	"OldUI": {
-		"message": "Viejo UI"
+		"message": "UI antiguo"
+	},
+	"OnlyExpandNegativeKarmaComments": {
+		"message": "Solo expandir comentarios con karma negativo"
 	},
 	"OpenPostInNewTab": {
 		"message": "Abrir enlaces a publicaciones en una nueva pestaña"
@@ -606,58 +747,61 @@
 		"message": "Ahora puede habilitar esto oficialmente dentro de Reddit."
 	},
 	"OpenPostInNewTabInfoLink": {
-		"message": "Ajustes de usuario > Ajustes de feed > Abrir publicaciones en una pestaña nueva"
+		"message": "Ajustes de usuario > Ajustes del feed > Abrir publicaciones en una nueva pestaña"
 	},
 	"OpenSubInNewTab": {
-		"message": "Abrir enlaces a Sub Reddits en una nueva pestaña"
+		"message": "Abrir enlaces a Subreddits en una nueva pestaña"
 	},
 	"OptOutAttachSideMenu": {
-		"message": "No adjunte el menú lateral como panel desplegable"
+		"message": "¿No adjuntar el menú lateral como panel desplegable?"
 	},
 	"OptionsPage": {
 		"message": "Página de opciones"
 	},
 	"Or": {
-		"message": "O"
+		"message": "o"
 	},
 	"Other": {
 		"message": "Otro"
 	},
 	"PositionHorizontally": {
-		"message": "Posición horizontal"
+		"message": "Posicionamiento horizontal"
 	},
 	"PositionVertically": {
-		"message": "Posición vertical"
+		"message": "Posicionar verticalmente"
 	},
 	"Post": {
-		"message": "Publicación"
+		"message": "publicación"
 	},
 	"PostBgColour": {
 		"message": "Publicación: Color de fondo"
 	},
 	"PostBorderColour": {
-		"message": "Publicación: Color del borde"
+		"message": "Artículo: color del marco"
 	},
 	"PostCommentActionRowColour": {
-		"message": "Color de la fila de acción de comentarios"
+		"message": "Color de la fila de acción del comentario"
 	},
 	"PostComments": {
-		"message": "Comentarios de la Publicación"
+		"message": "Comentarios de la publicación"
 	},
 	"PostCommentsColour": {
-		"message": "Comentarios color de texto"
+		"message": "Color del texto del comentario"
 	},
 	"PostCommentsLimit": {
-		"message": "Limitar comentarios de publicación"
+		"message": "Limitar los comentarios de las publicaciones"
 	},
 	"PostCommentsSecondaryColour": {
-		"message": "Comentarios color de texto secundario"
+		"message": "Color del texto secundario de los comentarios"
 	},
 	"PostContent": {
-		"message": "Contenido de la Publicación"
+		"message": "Contenido de la publicación"
 	},
 	"PostContentAndCommentsLinkColour": {
-		"message": "Publicación: Color de enlace de contenido y comentarios"
+		"message": "Artículo: Color de enlace para el contenido y los comentarios"
+	},
+	"PostFollowedTextColour": {
+		"message": "Publicación posterior: Color del texto"
 	},
 	"PostOffset": {
 		"message": "Desplazamiento de la publicación"
@@ -672,16 +816,19 @@
 		"message": "Agregar borde a tablas en publicaciones"
 	},
 	"PostTitle": {
-		"message": "Título de la Publicación"
+		"message": "Título de la publicación"
 	},
 	"PostTitleContentColour": {
-		"message": "Publicación: Título y color del contenido del texto"
+		"message": "Publicación: Color del título y color del contenido del texto"
 	},
 	"PostVisitedTextColour": {
 		"message": "Publicación visitada: color de texto"
 	},
 	"PostWidth": {
-		"message": "Ancho de publicación"
+		"message": "Ancho de la publicación"
+	},
+	"Posts": {
+		"message": "Publicaciones"
 	},
 	"Productivity": {
 		"message": "Productividad"
@@ -690,34 +837,43 @@
 		"message": "Q&a"
 	},
 	"RUI3RedirectInfo": {
-		"message": "La opción de redirección a El último UI (Nueva Nueva UI) ya no es necesaria, sin embargo, puedes usar esta opción para forzar enlaces de (sh|old|new).reddit.com a www.reddit.com"
+		"message": "La opción de redirección a la última interfaz de usuario (última última UI) ya no es necesaria. Sin embargo, puedes usar esta opción para forzar enlaces de (sh|old|new).reddit.com a www.reddit.com."
 	},
 	"Rate": {
-		"message": "Tasa / Revisar"
+		"message": "Valoración / Reseña"
 	},
 	"Redirect": {
 		"message": "Redirigir"
 	},
 	"Relevance": {
-		"message": "Pertinencia"
+		"message": "Relevancia"
 	},
 	"ReloadPage": {
 		"message": "Recargar página"
 	},
 	"RememberSectionHiddenState": {
-		"message": "Recuerde los estados ocultos de las secciones en el menú lateral"
+		"message": "Recordar los estados ocultos de las secciones en el menú lateral"
 	},
 	"RemoveCommentButtonIcons": {
 		"message": "Eliminar íconos de la mayoría de los botones de comentarios"
 	},
 	"ReplacePostImagesWithLinks": {
-		"message": "Reemplazar imágenes con enlaces en feeds"
+		"message": "Reemplazar imágenes por enlaces en los feeds"
 	},
 	"ReplacePostVideosWithLinks": {
 		"message": "Reemplazar videos con enlaces en feeds"
 	},
 	"ReplacePostVideosWithLinksInfo": {
 		"message": "Puede que no funcione con todos los vídeos."
+	},
+	"ReplaceSearchPlaceholder": {
+		"message": "Reemplazar el marcador de posición de la barra de búsqueda"
+	},
+	"ReplaceSearchPlaceholderInfo": {
+		"message": "Reemplazar «Find anything» por «Search Reddit»"
+	},
+	"ReplyNotifications": {
+		"message": "Notificaciones de respuesta"
 	},
 	"Report": {
 		"message": "Informe"
@@ -732,49 +888,55 @@
 		"message": "Cambiar el tamaño de la fuente"
 	},
 	"ResizeLayout": {
-		"message": "Cambiar el Tamaño del Feed / Publicación"
+		"message": "Cambiar el tamaño del feed / de la publicación"
 	},
 	"Restore": {
-		"message": "Copia de Seguridad"
+		"message": "Restaurar"
 	},
 	"RestoreBackup": {
 		"message": "Restaurar copia de seguridad"
 	},
 	"RestoreConfigTitle": {
-		"message": "Restaurar configuración de copia de seguridad de Reddit Enhancer"
+		"message": "Restaurar la configuración de copia de seguridad de Reddit Enhancer"
 	},
 	"RightSidePostThumbnails": {
-		"message": "Mostrar miniaturas de publicación en el lado derecho"
+		"message": "Mostrar miniaturas de publicaciones en el lado derecho"
 	},
 	"Rising": {
-		"message": "En Alza / Rising"
+		"message": "en ascenso"
 	},
 	"Save": {
-		"message": "Ahorrar"
+		"message": "Guardar"
 	},
 	"ScalePostToFitImage": {
-		"message": "Escalar la publicación para ajustarla a la imagen"
+		"message": "Escalar la publicación para adaptarla a la imagen"
 	},
 	"ScalePostToFitVideo": {
-		"message": "Publicación de escala para adaptarse al video"
+		"message": "Escalar la publicación para que se ajuste al video"
 	},
 	"ScrollToNextRootComment": {
-		"message": "Mostrar botones para desplazarse al siguiente/comentario de raíz anterior"
+		"message": "Mostrar botones para desplazarse al comentario principal siguiente/anterior"
+	},
+	"ScrollToNextRootCommentInfo": {
+		"message": "Navegación por teclado opcional. Comentario raíz siguiente: (J / Flecha abajo). Comentario raíz anterior: (K / Flecha arriba)."
 	},
 	"ScrollToTopFloat": {
-		"message": "Agregar el botón flotante 'Desplazarse hacia arriba'"
+		"message": "Añadir el botón flotante «Volver arriba»"
 	},
 	"ScrollToTopHeader": {
-		"message": "Agregar el botón “Desplazarse hacia arriba”"
+		"message": "Añadir el botón «Volver arriba» a la cabecera"
+	},
+	"ScrollToTopInfo": {
+		"message": "Desplazarse a la parte superior de la página"
 	},
 	"Search": {
-		"message": "Buscar"
+		"message": "Búsqueda"
 	},
 	"SearchPageOffset": {
-		"message": "Desplazamiento de la página de búsqueda"
+		"message": "desplazamiento de la página de búsqueda"
 	},
 	"SearchbarBgColour": {
-		"message": "Barra de búsqueda: Color de fondo"
+		"message": "Panel de búsqueda: Color de fondo"
 	},
 	"SearchbarDropdownBgColour": {
 		"message": "Barra de búsqueda: Color de fondo enfocado/desplegable"
@@ -789,19 +951,31 @@
 		"message": "Redirigir"
 	},
 	"SetLanguageAndTheme": {
-		"message": "Configuración de página completa / Establecer idioma y tema"
+		"message": "Configuración completa de la página / Establecer idioma y tema"
 	},
 	"SetSansSerifAsFont": {
-		"message": "Establecer \"sans-serif\" como fuente de ui"
+		"message": "Establecer \"sans-serif\" como fuente de la interfaz de usuario"
 	},
 	"Settings": {
 		"message": "Configuración"
 	},
+	"Share": {
+		"message": "Compartir"
+	},
+	"ShortenCleanLink": {
+		"message": "Acortar enlace limpio"
+	},
 	"ShowCommentAbsoluteTimestamp": {
 		"message": "Mostrar marcas de tiempo absolutas en los comentarios"
 	},
+	"ShowComments": {
+		"message": "Mostrar comentarios"
+	},
+	"ShowCommunitiesFilter": {
+		"message": "Filtrar lista de comunidades"
+	},
 	"ShowMemberCount": {
-		"message": "Mostrar el recuento de miembros de subreddit de los subreddit"
+		"message": "Mostrar el recuento de miembros del subreddit heredado"
 	},
 	"ShowPostAbsoluteTimestamp": {
 		"message": "Mostrar marcas de tiempo absolutas en las publicaciones"
@@ -810,25 +984,25 @@
 		"message": "Mostrar autor de la publicación"
 	},
 	"ShowPostFlair": {
-		"message": "Mostrar 'Post Flair'"
+		"message": "Mostrar el «Post Flair»"
 	},
 	"ShowPostNumbers": {
-		"message": "Agregar números de publicación"
+		"message": "Añadir números de publicación"
 	},
 	"ShowProfilePicturesOnComments": {
 		"message": "Mostrar fotos de perfil en los comentarios"
 	},
 	"ShowUpvoteRatio": {
-		"message": "Mostrar porcentaje de votos a la vista posterior"
+		"message": "Mostrar el porcentaje de votos en la vista de la publicación"
 	},
 	"SideMenu": {
 		"message": "Menú lateral (barra izquierda)"
 	},
 	"SideMenuBackgroundColour": {
-		"message": "Menú lateral: Color de fondo"
+		"message": "Menú lateral: color de fondo"
 	},
 	"SideMenuButtonHoverColour": {
-		"message": "Menú lateral: Color del botón al pasar el cursor"
+		"message": "Menú lateral: Color de fondo al pasar el cursor por el botón"
 	},
 	"SideMenuIconsOnly": {
 		"message": "Solo iconos del menú lateral"
@@ -837,7 +1011,7 @@
 		"message": "Menú lateral: Color de texto"
 	},
 	"SideMenuToggleButton": {
-		"message": "Mostrar botón de alternancia del menú lateral"
+		"message": "Mostrar botón para alternar el menú lateral"
 	},
 	"SideMenuWidth": {
 		"message": "Ancho del menú lateral"
@@ -849,13 +1023,13 @@
 		"message": "Barra lateral: Color de fondo"
 	},
 	"SidebarTextColour": {
-		"message": "Barra lateral: Color de texto"
+		"message": "Barra lateral: Color del texto"
 	},
 	"SidebarToggleButton": {
-		"message": "Botón de alternancia de barra lateral"
+		"message": "Alternar barra lateral"
 	},
 	"SnapSidebar": {
-		"message": "Aprieta la barra lateral al borde derecho"
+		"message": "Alinea la barra lateral en el borde derecho"
 	},
 	"SolidColour": {
 		"message": "Color sólido"
@@ -864,13 +1038,16 @@
 		"message": "Ordenar"
 	},
 	"SortBar": {
-		"message": "Ordenar barra"
+		"message": "Barra de ordenar"
 	},
 	"StartTime": {
 		"message": "Hora de inicio (24)"
 	},
 	"StickySort": {
-		"message": "Ordenamiento Fijo"
+		"message": "Ordenación fija"
+	},
+	"StorageUsage": {
+		"message": "Uso de almacenamiento"
 	},
 	"StyleOptions": {
 		"message": "Opciones de estilo"
@@ -879,22 +1056,31 @@
 		"message": "Estilo"
 	},
 	"SubFeedOffset": {
-		"message": "Desplazamiento del Subfeed"
+		"message": "Desplazamiento del subfeed"
 	},
 	"SubFeedWidth": {
-		"message": "Ancho del Subfeed"
+		"message": "Ancho del subfeed"
+	},
+	"SubHeaderBgColour": {
+		"message": "Color de fondo del encabezado del subreddit"
 	},
 	"Subreddit": {
 		"message": "Subreddit"
 	},
+	"SubredditBlockInfo": {
+		"message": "Oculta todas las publicaciones de los subreddits enumerados de los feeds, excepto los feeds de los subreddits."
+	},
 	"SubredditDisplayNameBanner": {
-		"message": "Mostrar el nombre de la pantalla Subreddit en su banner"
+		"message": "Mostrar el nombre de visualización del subredict en su banner"
+	},
+	"SyncStorage": {
+		"message": "Almacenamiento de sincronización"
 	},
 	"Text": {
 		"message": "Texto"
 	},
 	"TextPostPreviewFade": {
-		"message": "Agregar efecto de desvanecimiento a las vistas previas de la publicación de texto (experimental)"
+		"message": "Añadir efecto de desvanecimiento a las vistas previas de las publicaciones de texto (experimental)"
 	},
 	"TextPostPreviewFadeHeight": {
 		"message": "Altura de desvanecimiento"
@@ -906,19 +1092,22 @@
 		"message": "Tema"
 	},
 	"ThemeBlacklistInfo": {
-		"message": "Use los colores del tema globalmente, excepto para estos subreddits:"
+		"message": "Utilice los colores del tema globalmente, excepto para estos subreddits:"
 	},
 	"ThemeBlur": {
 		"message": "Desenfoque de tema"
 	},
 	"ThemeBlurInfo": {
-		"message": "Use colores translúcidos 'rgba (0,0,0,0.5)' para ver el efecto de desenfoque."
+		"message": "Utilice colores translúcidos «rgba(0,0,0,0.5)» para ver el efecto de desenfoque."
 	},
 	"ThemeColours": {
 		"message": "Colores del tema"
 	},
+	"ThemeDoesNotWorkWithCustomThemes": {
+		"message": "Actualmente no funciona con temas comunitarios personalizados. Por favor, deshabilita esta opción en las preferencias de Reddit:"
+	},
 	"ThemeWhitelistInfo": {
-		"message": "Usa sólo los colores del tema para estos subreddits:"
+		"message": "Utiliza solo los colores del tema para estos subreddits"
 	},
 	"TimeRange": {
 		"message": "Intervalo de tiempo"
@@ -933,13 +1122,16 @@
 		"message": "Ayuda con la traducción"
 	},
 	"UnderlineLinks": {
-		"message": "Enlaces subrayados"
+		"message": "Subrayar enlaces"
 	},
 	"UpdateFirefox": {
 		"message": "Actualice a Firefox 121 o superior para que algunas funciones funcionen correctamente."
 	},
 	"Upload": {
 		"message": "Subir"
+	},
+	"UploadedImage": {
+		"message": "Imagen subida"
 	},
 	"UpvoteColour": {
 		"message": "Publicación: Votar a favor del color"
@@ -954,19 +1146,19 @@
 		"message": "Ancho del perfil de usuario"
 	},
 	"UsernameHoverPopupDelay": {
-		"message": "Retraso al pasar el cursor sobre el nombre de usuario para abrir la información emergente"
+		"message": "Retraso de la ventana emergente al pasar el cursor sobre el nombre de usuario"
+	},
+	"Users": {
+		"message": "Usuarios"
 	},
 	"Video": {
 		"message": "Video"
 	},
-	"VideoPlayerInfo": {
-		"message": "Reproductor de vídeo rápido, ligero y con controles de velocidad basados en videojs. Pruebe esto si tiene problemas de carga con el reproductor de reddit."
-	},
 	"ViewCrossposts": {
-		"message": "Agregar enlace para ver postes cruzados en otros subreddits"
+		"message": "Añade un enlace para ver publicaciones cruzadas en otros subreddits"
 	},
 	"Welcome": {
-		"message": "Bienvenida!"
+		"message": "¡Bienvenido!"
 	},
 	"Whitelist": {
 		"message": "Lista blanca"
