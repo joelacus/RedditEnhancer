@@ -6,7 +6,49 @@
 		"message": "Különféle változtatások a Reddit élmény testreszabásához. Támogatja a Reddit összes verzióját."
 	},
 	"About": {
-		"message": "Ról ről"
+		"message": "Ról"
+	},
+	"Accessibility": {
+		"message": "Hozzáférés"
+	},
+	"AddDownloadVideoButton": {
+		"message": "Adjon hozzá \"Videó letöltése\" gombot a videóbejegyzésekhez"
+	},
+	"AddDownloadVideoButtonInfo": {
+		"message": "Az összes videóre nem alkalmazható."
+	},
+	"AddDownloadVideoButtonPermission": {
+		"message": "A „letöltések” böngésző engedélye szükséges. Kérem, emelje újra az „Adjon hozzá a „Videó letöltése” gombot a videóbejegyzésekhez” opciót az bővítők beállításain, és fogadja el a pop-up kérést."
+	},
+	"AddMarkPostAsReadButton": {
+		"message": "Adjon hozzá egy gombot minden poszthoz a kompakta nézetben, hogy elolvastalt legyen jelölhető."
+	},
+	"AddNsfwTag": {
+		"message": "Hozzáadni NSFW címkét"
+	},
+	"AddSpoilerTag": {
+		"message": "Spoiler-tag hozzáadása"
+	},
+	"AlwaysShowCommentOptions": {
+		"message": "Állandó megjelenítés a hozzászólási opciók"
+	},
+	"AlwaysShowCommentOptionsInfo": {
+		"message": "Mozassa át a képmegosztás menüjéből a hozzászólás műveletláncához."
+	},
+	"AlwaysShowPostOptions": {
+		"message": "Mindig megjeleníteni a bejegyzés opcióit"
+	},
+	"AlwaysShowPostOptionsInfo": {
+		"message": "Mozza ki a gombokat a poszt kiürítési menüjéből a poszt műveletláncba."
+	},
+	"AppendNumbersToPostImages": {
+		"message": "Számozott bejegyzésképek"
+	},
+	"AttachSideMenuHeader": {
+		"message": "Kijelölés a lap és a felhasználói adatok az üstmenüben"
+	},
+	"AttachSideMenuHeaderInfo": {
+		"message": "Kísérleti. Konfliktot okozhat a s oldalmenü funkciók elrejtésével."
 	},
 	"Auto": {
 		"message": "Automatikus"
@@ -14,23 +56,104 @@
 	"AutoCollapseAutoModeratorComment": {
 		"message": "AutoModerátor megjegyzésének automatikus minimalizálása"
 	},
+	"AutoExpand": {
+		"message": "Teljesítse ki a 100%-ra, ha a ablak/képer szélessége kevesebb, mint:"
+	},
 	"AutoLoadMoreComments": {
 		"message": "További megjegyzések automatikus betöltése"
 	},
 	"AutoLoadMoreCommentsInfo": {
-		"message": "Ez az oldal lelassulását és sok RAM használatát okozhatja, különösen, ha sok a megjegyzés."
+		"message": "Ez az oldal lelassulását és sok RAM használatát okozhatja, különösen, ha sok megjegyzés van."
+	},
+	"AutoplayCommentGifs": {
+		"message": "Autoplay GIF-ek a kommentekben"
+	},
+	"AutoplayGifs": {
+		"message": "GIF-ek automatikus lejátszása"
+	},
+	"AutoplayMediaInfo": {
+		"message": "Az érteksten szereplő opciók helyesen működéséhez kérjük, kapcsolja ki a „média automatikus lejátszását” a Reddit felhasználói beállítások > Preferenciák alatt."
+	},
+	"AutoplayVideos": {
+		"message": "Autoplay videó"
+	},
+	"Award": {
+		"message": "díj"
 	},
 	"Background": {
 		"message": "Háttér"
 	},
+	"BackgroundUploadInfo": {
+		"message": "Képfájlokat csak a Beállítások oldalról lehet feltölteni."
+	},
+	"BackgroundUploadInfo2": {
+		"message": "A kisebb felbontások kevesebb tárhelyet foglalnak, így több kép fér el a korláton belül. A feltöltött képeket a rendszer helyben tárolja."
+	},
+	"BackgroundUploadResolution": {
+		"message": "Háttérfeltöltés felbontása"
+	},
+	"Backup": {
+		"message": "Adatvazár"
+	},
+	"BackupFailed": {
+		"message": "Valami hiba történt. Nézze meg a fejlesztői konzolt (F12) a hiba után."
+	},
 	"BackupRestoreConfig": {
 		"message": "Konfiguráció mentése/Visszaállítása"
+	},
+	"BackupRestored": {
+		"message": "A biztonsági másolat visszaállítva!"
+	},
+	"Best": {
+		"message": "Legjobb / Best"
+	},
+	"BetterCommentBox": {
+		"message": "Jobb kommentekozó"
+	},
+	"BetterCommentBoxInfo": {
+		"message": "Automagától jelení meg a formázási opciók kommenteléskor, hozzáad egy Ctrl/Cmd + Enter gyorsbillentyűzőt a kommentek küldéséhez, és elrejti az eszközsávot a rich-text szerkesztőre való váltáshoz, ha a Markdown komponenset alapértelmezettként állítja be."
+	},
+	"BionicBackgroundColour": {
+		"message": "Bionikus háttérszín"
+	},
+	"BionicFontColour": {
+		"message": "Bionikus betűszín"
+	},
+	"BionicReader": {
+		"message": "Bionikus olvasó"
+	},
+	"BionicReaderComments": {
+		"message": "Bionikus olvasó kommentekhez"
+	},
+	"BionicReaderPosts": {
+		"message": "Bionikus olvasó bejegyzésekhez"
+	},
+	"Blacklist": {
+		"message": "feletlistáz"
 	},
 	"Block": {
 		"message": "Tömb"
 	},
+	"BlockInfo": {
+		"message": "Támogatja az exakt kulcsszó-lehjat vagy reguláris kifejezéseket."
+	},
+	"BlocksCommentsByKeyword": {
+		"message": "Hozzászólások blokkolása kulcsszó alapján"
+	},
 	"Blur": {
 		"message": "Elhomályosít"
+	},
+	"BorderRadiusAmount": {
+		"message": "Tematergóc sugarрадиusa"
+	},
+	"BreakReminder": {
+		"message": "Szünetek emlékeztetője"
+	},
+	"BreakReminderFrequency": {
+		"message": "Emlékeztető gyakoriság"
+	},
+	"BreakReminderInfo": {
+		"message": "Beta. Megjeleníti emlékeztetőt arról, hogy menetrendileg pihenni kell minden meghatározott poszt után."
 	},
 	"BrowserTheme": {
 		"message": "Böngésző témája"
@@ -38,23 +161,98 @@
 	"BuyMeACoffee": {
 		"message": "Vegyél nekem egy kávét"
 	},
+	"CannedMessages": {
+		"message": "Előre elkészített üzenetek"
+	},
+	"CannedMessagesInfo": {
+		"message": "Egy új üzenetet ad hozzá minden visszaadott sorhoz. Kattintson jobb gombbal bárhol egy Reddit oldalon, hogy kiválassza a szövegdobozból az előre definiált üzeneteket, és másolja a vágólapra."
+	},
 	"Centre": {
 		"message": "Központ"
+	},
+	"Changelog": {
+		"message": "változatadatlap"
+	},
+	"ChooseBackupFile": {
+		"message": "Válassza ki a biztonsági másolatot"
 	},
 	"ClassicLight": {
 		"message": "Klasszikus Világos"
 	},
 	"ClassicOldUI": {
-		"message": "Klasszikus régi felhasználói felület"
+		"message": "Klasszikus régi felület"
+	},
+	"CleanLink": {
+		"message": "Bejegyzés/kommentár megosztási opció hozzáadása nyomon követés nélkül (Tisztított link)"
+	},
+	"Cleared": {
+		"message": "Törölve"
+	},
+	"Close": {
+		"message": "Bezárni"
+	},
+	"CloseTab": {
+		"message": "Most bezeli zárni ezt az ablakot/lapot."
 	},
 	"Comments": {
 		"message": "Megjegyzések"
 	},
+	"CommentsBlockInfo": {
+		"message": "Lista individual kulcsszó/regex, a vesszővel elválasztva"
+	},
 	"CommentsCount": {
 		"message": "A megjegyzések számítanak"
 	},
+	"CommentsHidden": {
+		"message": "Hozzászólások elrejtve"
+	},
+	"CompactHeaderSideMenu": {
+		"message": "Kompaktálja a fejléc- és oldalsávot"
+	},
+	"CompactPostLinkPreview": {
+		"message": "Kompakt postlink előnézeti képei"
+	},
+	"Confirm": {
+		"message": "Megerősítés"
+	},
+	"Controversial": {
+		"message": "kontroverziális / Controversial"
+	},
+	"CopiedCleanLink": {
+		"message": "Másolt a tiszta link!"
+	},
+	"CopiedCleanLinkShort": {
+		"message": "Alapítéző link másolva (rövid)!"
+	},
+	"CopiedMessage": {
+		"message": "Üzenet másolva!"
+	},
+	"CopyCleanLink": {
+		"message": "Másolódja az „tisztább” linket"
+	},
+	"CopyCleanLinkShort": {
+		"message": "A tiszta link másolása (rövid)"
+	},
+	"CreatePost": {
+		"message": "Bejegyzés létrehozása"
+	},
+	"CreatePostBody": {
+		"message": "Cikksz létrehozása: Tartalom"
+	},
+	"CreatePostTitle": {
+		"message": "Bejegyzés létrehozása: Cím"
+	},
 	"CustomBgInputPlaceholder": {
 		"message": "Egyedi háttér hivatkozás"
+	},
+	"CustomCSS": {
+		"message": "Személyre szabott CSS"
+	},
+	"CustomFeedWidth": {
+		"message": "Egyedi feed szélesség"
+	},
+	"CustomHeaderLogo": {
+		"message": "Egyedi fejléctype"
 	},
 	"Dark": {
 		"message": "Sötét"
@@ -62,23 +260,272 @@
 	"DarkMode": {
 		"message": "Sötét mód"
 	},
+	"DefaultCommentsSortOption": {
+		"message": "Alaplagos kommentek rendezési opciója"
+	},
+	"DefaultFeedSortOption": {
+		"message": "Album minőségi sortálási opció"
+	},
+	"DefaultHomeFeedSortOption": {
+		"message": "Alapértelmezett kezdő tápláscsúfolási opció"
+	},
+	"Delete": {
+		"message": "Törölni"
+	},
 	"Disabled": {
 		"message": "Tiltva"
+	},
+	"DontShowAgain": {
+		"message": "Ne jeleníts meg újra"
+	},
+	"Drag": {
+		"message": "Húzz"
 	},
 	"DropShadow": {
 		"message": "Csepp árnyékok"
 	},
+	"Edit": {
+		"message": "szerkesztés"
+	},
+	"EditPost": {
+		"message": "Bejegyzés szerkesztése"
+	},
 	"EndTime": {
 		"message": "Idő vége (24)"
+	},
+	"Error": {
+		"message": "Hiba"
 	},
 	"ExtensionSettings": {
 		"message": "Kiegészítés beállításai"
 	},
+	"Feed": {
+		"message": "táplál"
+	},
+	"FeedKeyboardNavigation": {
+		"message": "Feed légnavigáció"
+	},
+	"FeedKeyboardNavigationInfo1": {
+		"message": "Következő poszt: (J / Lefelé). Előző poszt: (K / Felefelé). Kompakt poszt megjelenítése váltása: (Spaci)."
+	},
+	"FeedKeyboardNavigationInfo2": {
+		"message": "A J/K kulcsok használata interferálhat Reddit \"Shortcutok\" funkciójával, ha az engedélyezve; ilyenkor az időszivíró kulcsokat használja. Az RE verzió sima scrollolást használ, és kihagyja az összes elrejtett bejegyzést."
+	},
+	"FeedOffset": {
+		"message": "Adatellátó eltolás"
+	},
+	"FeedPostContent": {
+		"message": "Feed Bejegyzés: Tartalom"
+	},
+	"FeedPostTitle": {
+		"message": "Feed bejegyzés: Cím (en), Feed-bejegyzés: Cím (de), Feed-bejegyzés: Cím (es), Flux bejegyzés: Cím (fr), Feed bejegyzés: Cím (it), Feed jelentés: Cím (nl), Támogatottsági bejegyzés: Cím (pt), Feed bejegyzés: Cím (pl), Csatornabejegyzés: Cím (no), Adatfolyam-bejegyzés: Cím (sv), Hálózati feed bejegyzés címe (cs), Öslénybejegyzés: Cím (fi), Stream bejegyzés: Cím (uk)"
+	},
+	"FeedWidth": {
+		"message": "Tápor szélessége"
+	},
+	"FilterCommunities": {
+		"message": "Összes közösség szűrője..."
+	},
+	"FilterOptionsFor": {
+		"message": "Szűrőopciók"
+	},
+	"FollowComment": {
+		"message": "Követ egy hozzászólást"
+	},
+	"FollowPost": {
+		"message": "Követés"
+	},
+	"Font": {
+		"message": "font"
+	},
+	"FontWeight": {
+		"message": "Fontvastagság"
+	},
+	"FontWeightInfo": {
+		"message": "Nem minden betűkész támogatja az összes súlyt."
+	},
+	"ForceCustomBgOldUI": {
+		"message": "Kényszerített háttérképet a régi felhasználói felületen"
+	},
+	"ForceCustomBgOldUIInfo": {
+		"message": "A festett háttérkép csak az régi felhasználói felületen működik, ha aktiválva az 'Old Reddit modernizálás' funkció. Ezt bekapcsolásával a festett háttérképet köti értelmeződés az felhasználói felületen (nem ajánlott)."
+	},
+	"ForceDarkMode": {
+		"message": "Kényszeríti a Reddit sötét módját"
+	},
+	"ForceShowVoteButtons": {
+		"message": "A szavazógombok elköri megjelenítése"
+	},
+	"FullWidthBanner": {
+		"message": "Teljes szélességű Subreddit banner"
+	},
+	"FullWidthExpandos": {
+		"message": "Bővítse a bejegyzés előnézetét a kompakt nézetben"
+	},
+	"GalleryKeyboardNavigation": {
+		"message": "Galéria-billentyűvezérlés"
+	},
+	"GalleryKeyboardNavigationInfo": {
+		"message": "A bal és jobb nyíl billentyűk használatával navigálhat a bejegyzés képg#!/galériáján."
+	},
+	"GlobalWidth": {
+		"message": "Globális maximális szélesség"
+	},
+	"Grey": {
+		"message": "szürke"
+	},
+	"Header": {
+		"message": "Fejléc"
+	},
+	"HeaderBgColour": {
+		"message": "Háttérszín"
+	},
+	"HeaderTextColour": {
+		"message": "Három: A szöveg színe"
+	},
+	"Here": {
+		"message": "itt"
+	},
+	"Hide": {
+		"message": "elrejtés"
+	},
+	"HideAdvertiseButton": {
+		"message": "Rejtvelem a „Hirdetés” gombot"
+	},
+	"HideAnnouncementNotifications": {
+		"message": "Elrejteti Reddit-hirdetési értesítések"
+	},
+	"HideAwards": {
+		"message": "Rejtse az „Érdemek adása” gombot"
+	},
+	"HideBlockedKeywordsPosts": {
+		"message": "Bezárni a blokkolt kulcsszavakkal rendelkező bejegyzéseket"
+	},
+	"HideBlurredMediaBackground": {
+		"message": "Elrejtett háttér-elhúzás a képelőnézetek mögött"
+	},
+	"HideChatButton": {
+		"message": "Elrejtja a „Chat” gombot"
+	},
+	"HideCommentActionBarButtonsInfo": {
+		"message": "Rejtelenje a kommentmeneti műveletlépőiből"
+	},
+	"HideCommentKarma": {
+		"message": "Rejtettélni a kommentár karmáját"
+	},
+	"HideCommunityHighlights": {
+		"message": "Rejt elre \"Össgyű közreműködésének kiemelt tartalmai\""
+	},
+	"HideCommunityStatus": {
+		"message": "A közösségi státus elrejtése"
+	},
+	"HideCompactViewBlankThumbnails": {
+		"message": "Rejtse az üres miniátűrök megjelenítését a kompakt nézetben"
+	},
 	"HideCompactViewThumbnails": {
 		"message": "Elrejtse a miniatűrök kompakt nézetben"
 	},
+	"HideCreatePostButton": {
+		"message": "Írja el az „Bejegyzés létrehozása” gombot"
+	},
+	"HideCustomFeedSidebar": {
+		"message": "Rejtse el a benutzerdefinált feed oldalsávot"
+	},
+	"HideElements": {
+		"message": "Elrejt"
+	},
+	"HideFavouriteButtons": {
+		"message": "Rejtse el a kedvencek gombok"
+	},
+	"HideGamificationNotifications": {
+		"message": "Reddit gamifikációs értesítések elrejtése"
+	},
+	"HideGap": {
+		"message": "Rejtettje az adatmezők közötti réseket"
+	},
+	"HideGetAppButton": {
+		"message": "Rejtjezze az „App letöltése” gombot"
+	},
+	"HideGetNewReddit": {
+		"message": "Elre „Get New Reddit“"
+	},
+	"HideHeaderBar": {
+		"message": "Elrejtés a fejléc sávja"
+	},
+	"HideHeaderSubBar": {
+		"message": "Rejtés a fejezetlen subreddit listája"
+	},
+	"HideHomeFeed": {
+		"message": "Rejtjele a főoldali feed-et el"
+	},
+	"HideHomeSidebar": {
+		"message": "Rejtjezze az kezdőlap oldalsávját"
+	},
 	"HideJoinButtonOnPosts": {
 		"message": "Rejtsd el a „Csatlakozás” gombot a bejegyzéseken"
+	},
+	"HideJoinConversation": {
+		"message": "Rejtse el a „Csatlakozás a beszélgetéshez”"
+	},
+	"HideJoinConversationPageBottom": {
+		"message": "Rejtse el a „Csatlakozás a beszélgetéshez” lehetőséget az oldal alján"
+	},
+	"HideKarma": {
+		"message": "Karma elrejtése"
+	},
+	"HideLinkPostsByUrlKeyword": {
+		"message": "A „Link” posztokat az URL kulcsszavaink alapján elrejtése"
+	},
+	"HideLogoInTheSearchBar": {
+		"message": "Rejtse el a Reddit logót a keresőmezőből"
+	},
+	"HideModerationButton": {
+		"message": "Rejtse el az „Moderáció” gombot"
+	},
+	"HideNSFW": {
+		"message": "Elrejtett NSFW/L bejegyzéseket"
+	},
+	"HideNotificationButton": {
+		"message": "Választás „Értesítés” gomb elrejtése"
+	},
+	"HideNsfwInSearchResults": {
+		"message": "Rejtse az NSFW találatokat a keresőmezőből"
+	},
+	"HidePageFooter": {
+		"message": "Rejtse el az oldal lábléc szövegét"
+	},
+	"HidePostActionBarButtonsInfo": {
+		"message": "Váratlan gombok elrejtése a bejegyzés műveletpályájáról"
+	},
+	"HidePostBackButton": {
+		"message": "Írja el a bejegyzéshez vezető „Vissza” gombját"
+	},
+	"HidePostComments": {
+		"message": "Rejt minden kommentet egy poszt alatt"
+	},
+	"HidePostDivider": {
+		"message": "Rejtje el a bejegyzés és a sáv oldali osztóit"
+	},
+	"HidePostHiddenMessage": {
+		"message": "Címrejtés: „Bejegyzés elrejtése” üzenet"
+	},
+	"HidePostKarma": {
+		"message": "Bezitálni a bejegyzés karmaját"
+	},
+	"HidePostSidebar": {
+		"message": "Rejtse el a post oldali sávját"
+	},
+	"HidePostsByBlockedUser": {
+		"message": "Bejegyzések elrejtése blokkolt felhasználóktól"
+	},
+	"HidePostsBySubreddit": {
+		"message": "A subreddit szerint elrejtett bejegyzések"
+	},
+	"HidePromoted": {
+		"message": "Hirdetések/promóciós linkek elrejtése"
+	},
+	"HideRecentPosts": {
+		"message": "Rejtettem bejegyzések elrejtése"
 	},
 	"HideRecommended": {
 		"message": "Ajánlott elrejtése"
@@ -86,14 +533,83 @@
 	"HideRecommendedInfo": {
 		"message": "Az ajánlott bejegyzések elrejtése hivatalosan beállítható a reddit felhasználói beállításaiban."
 	},
+	"HideRedditPremium": {
+		"message": "Elrejtés „Reddit Premium”"
+	},
+	"HideRelatedCommunities": {
+		"message": "Elfújthatja az ide kapcsolódó közösségeket"
+	},
+	"HideRelatedPosts": {
+		"message": "Kapcsolódó bejegyzések elrejtése"
+	},
 	"HideSearchSidebar": {
 		"message": "A Keresés oldalsáv elrejtése"
+	},
+	"HideSearchSidebarNsfwUsers": {
+		"message": "Rejtse el a NSFW felhasználókat a kereső oldalsávban"
+	},
+	"HideSideMenu": {
+		"message": "Rejtse el külsősávot"
+	},
+	"HideSideMenuCommunitiesSection": {
+		"message": "Rejtse el Közösségi szekciót"
 	},
 	"HideSideMenuCustomFeedsSection": {
 		"message": "Az „Egyéni hírcsatornák” szakasz elrejtése"
 	},
+	"HideSideMenuGamesSection": {
+		"message": "Írja el a játékok szekcióját"
+	},
+	"HideSideMenuModerationSection": {
+		"message": "Rejtse el moderációs szekciót"
+	},
+	"HideSideMenuRecentSection": {
+		"message": "Választás elrejtése a 'Legutóbbi subredditek' szekcióját"
+	},
+	"HideSideMenuResourcesSection": {
+		"message": "Rejtjezze az „Anyagi források” szekciót"
+	},
+	"HideSideMenuTopSection": {
+		"message": "Rejtje el a felső részt"
+	},
+	"HideSideMenuTopicsSection": {
+		"message": "Az „Témák” szekció elrejtése"
+	},
+	"HideSubSidebar": {
+		"message": "Elrejtse a Subreddit oldal tábláját"
+	},
+	"HideSubSidebarBlacklistInfo": {
+		"message": "Árrazzuk meg a globális sávszínt, kivéve ezen subredditekre:"
+	},
+	"HideSubSidebarWhitelistInfo": {
+		"message": "Csak ezeken a subredditeken rejtőzz"
+	},
+	"HideTrendingTodayInSearchResults": {
+		"message": "A „Mai trendek” elrejtése a keresősávban"
+	},
+	"HideUserNameInTheFlairSection": {
+		"message": "A felhasználónevet elrejteni a subreddit oldalfüzete flair részében"
+	},
 	"HideUserProfilePics": {
-		"message": "Hide user profile pictures in the comments"
+		"message": "Rejtse el a felhasználói profilképeket a hozzászólásokban"
+	},
+	"HideUserSidebar": {
+		"message": "Elrejtés a felhasználói sávot"
+	},
+	"HideUsername": {
+		"message": "Felhasználónév elrejtése"
+	},
+	"HideVideoRecommendations": {
+		"message": "Rejtselem az ajánlott posztokat el a videó végén"
+	},
+	"HideVoteButtons": {
+		"message": "A szavazási gombok elrejtése"
+	},
+	"HighlightOp": {
+		"message": "Kiemelíteni az eredeti bejegyzés kommentjeit"
+	},
+	"HomeFeed": {
+		"message": "Kezdető лента"
 	},
 	"HomeFeedOffset": {
 		"message": "Kezdőlap hírfolyam eltolása"
@@ -101,20 +617,74 @@
 	"HomeFeedWidth": {
 		"message": "Kezdőlap hírfolyam szélessége"
 	},
+	"Hot": {
+		"message": "Forró / Hot"
+	},
 	"Image": {
 		"message": "Kép"
 	},
 	"ImageScroll": {
 		"message": "Adjon hozzá görgetősávokat a képekhez"
 	},
+	"Images": {
+		"message": "képek"
+	},
+	"JustOpenTheImage": {
+		"message": "Csak nyitssa meg a képet"
+	},
 	"JustOpenTheImageInfo": {
 		"message": "Ha képeket nyit egy új lapon, nyissa meg közvetlenül anélkül, hogy beágyazná őket egy Reddit oldalra."
+	},
+	"Keywords": {
+		"message": "kulcsszavak"
+	},
+	"KeywordsBlockInfo": {
+		"message": "Blokkolja a bejegyzéseket a cím alapján, nem az tartalom alapján. Listázza ki az egyes kulcsszavakat/regex-eket, vesszővel elválasztva."
 	},
 	"Language": {
 		"message": "Nyelv"
 	},
+	"LargerClassicPost": {
+		"message": "Nagyobb klasszikus bejegyzésnéz"
+	},
+	"Latest": {
+		"message": "Legfrissebb"
+	},
+	"LeftSideVoteButtons": {
+		"message": "Mutassa a szavazó gombok a bal oldalon"
+	},
 	"Light": {
 		"message": "Világos"
+	},
+	"LightMode": {
+		"message": "Világos mód"
+	},
+	"LimitCommentsInfo": {
+		"message": "Csak a kereskedelmi bejegyzések esetén működik, ha egy új fülben/ablakban van nyitva."
+	},
+	"LimitInfinityScroll": {
+		"message": "Korlátozza az „infinit scroll”-ot"
+	},
+	"LimitInfinityScrollInfo": {
+		"message": "Beta. Ez nem csökkenti elkötelezően a sávszéles felhasználást, hanem inkább megakadályozza, hogy az oldal lassuljon, abban hogy megakadályozza a Reddit által új bejegyzések hozzáadását, amíg nem kattint a „Több betöltése” gombra az étkezés alján. Amikor rákattintasz a „Több betöltése” gombra, az első 25 bejegyzés törlődik, és megjelennek a következő 25."
+	},
+	"Link": {
+		"message": "link"
+	},
+	"LocalStorage": {
+		"message": "Helyi tárhely"
+	},
+	"MainContainer": {
+		"message": "Főkonténer"
+	},
+	"MarkAsBrandAffiliate": {
+		"message": "Mint márkaaffiliátust jelölni"
+	},
+	"MarkReadOnOpenExpandos": {
+		"message": "Elolvadtákká jelölni a bejegyzéseket az expandos megnyitásakor a kompakt nézetben"
+	},
+	"MarkReadOnOpenExpandosHistoryPermission": {
+		"message": "Az „öltöltés” böngészőengedély szükséges. Kérem, engedélyezze újra az „elolvasottként jelölje a posztokat, amikor a kompaktabban nézelt expandosokat megnyitja” az bővítők beállításában, és fogadja el a pop-up kérést."
 	},
 	"MaxImagePostHeight": {
 		"message": "Maximális képoszlopmagasság"
@@ -129,7 +699,13 @@
 		"message": "Maximális videó szélessége"
 	},
 	"Media": {
-		"message": "Média"
+		"message": "média"
+	},
+	"ModerniseOldReddit": {
+		"message": "Modernizálja az old.reddit-et"
+	},
+	"ModerniseOldRedditInfo": {
+		"message": "Látek a régi Redditet hasonlóbbnak, mintha az új Reddit."
 	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Többszínű kommentárszál sorok"
@@ -137,38 +713,182 @@
 	"MulticolouredCommentThreadLinesInfo": {
 		"message": "Választható. Sorolja fel az egyedi színeket, vesszővel elválasztva. Ezek a színek elkészítik az alapértelmezett színeket, és sorrendben fogják használni."
 	},
-	"NewNewUI": {
-		"message": "Új Új UI"
+	"New": {
+		"message": "Új / New"
+	},
+	"NewUpdateAvailable": {
+		"message": "A <version> verziója már elérhető. A böngészője hamarosan automatikusan frissíteni devrait e bővítményt, ha be van kapcsolva az automatikus frissítés, ha nem, manuálisan kell ellenőriznie az automatikus frissítések menedzserében."
+	},
+	"NoSavedBackgrounds": {
+		"message": "Nincs mentett háttérkép"
+	},
+	"NonStickyHeaderBar": {
+		"message": "Nincs ragacsos fejlésti sáv"
+	},
+	"Off": {
+		"message": "Ki"
 	},
 	"Offset": {
 		"message": "Eltolás"
 	},
+	"Old": {
+		"message": "Régi / Old"
+	},
 	"OldUI": {
 		"message": "Régi UI"
 	},
+	"OldWww": {
+		"message": "Régi (csak www)"
+	},
+	"OnlyExpandNegativeKarmaComments": {
+		"message": "Csak a negatív karmás kommentek kibontása"
+	},
+	"OpenPostInNewTab": {
+		"message": "A bejegyzések megnyitása egy új faneban"
+	},
+	"OpenPostInNewTabInfo": {
+		"message": "Most hivatalosan aktiválható a Redditen belül."
+	},
+	"OpenPostInNewTabInfoLink": {
+		"message": "Felhasználói beállítások > Feed beállítások > Tartalmak új fülben megnyitása"
+	},
+	"OpenSubInNewTab": {
+		"message": "Összoldalra/Subredditre nyitó linkek új fülön"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Ne függessék ki oldali menüt a legördülő mintaoló panelekként"
+	},
+	"OptionsPage": {
+		"message": "Opções oldala"
+	},
+	"Or": {
+		"message": "vagy"
+	},
+	"Other": {
+		"message": "más"
+	},
+	"PositionHorizontally": {
+		"message": "Horizontális elhelyezés"
+	},
+	"PositionVertically": {
+		"message": "Vértikusan elhelyezése"
+	},
+	"Post": {
+		"message": "bejegyzés"
+	},
+	"PostBgColour": {
+		"message": "Bejegyzés: Háttérszín"
+	},
+	"PostBorderColour": {
+		"message": "kerete színe"
+	},
+	"PostCommentActionRowColour": {
+		"message": "Kommentárhoz aksiórsor színe"
+	},
 	"PostComments": {
-		"message": "Post Comments"
+		"message": "Bejegyzés: hozzászólások"
+	},
+	"PostCommentsColour": {
+		"message": "A komment szövegének színe"
+	},
+	"PostCommentsLimit": {
+		"message": "Korlátozni a poszt kommentekét"
+	},
+	"PostCommentsSecondaryColour": {
+		"message": "A hozzászólások másodlagos szöveg színe"
 	},
 	"PostContent": {
-		"message": "Post Content"
+		"message": "Bejegyzés: Tartalom"
+	},
+	"PostContentAndCommentsLinkColour": {
+		"message": "Tartalom és kommentek link színének"
+	},
+	"PostFollowedTextColour": {
+		"message": "Következő poszt: szöveg színe"
 	},
 	"PostOffset": {
 		"message": "Bejegyzés eltolása"
 	},
+	"PostSecondaryTextColour": {
+		"message": "Bejegyzés: Másodlag szöveg színe"
+	},
+	"PostSeparatorHeight": {
+		"message": "Bejegyzés-szeparátor"
+	},
+	"PostTableBorderColour": {
+		"message": "Táblák keretezés a posztokban"
+	},
 	"PostTitle": {
 		"message": "Postai cím"
+	},
+	"PostTitleContentColour": {
+		"message": "Bejegyzés: Cím és szöveg tartalmi színe"
+	},
+	"PostVisitedTextColour": {
+		"message": "Látogatott bejegyzés: szöveg színe"
 	},
 	"PostWidth": {
 		"message": "Bejegyzés szélessége"
 	},
+	"Posts": {
+		"message": "bejegyzések"
+	},
+	"Productivity": {
+		"message": "termelékenység"
+	},
+	"Qa": {
+		"message": "Q&a"
+	},
+	"RV1RedirectInfo": {
+		"message": "A „Régi (csak www)” átirányítási opció csak a www.reddit.com URL-eket irányítja át az old.reddit.com oldalra. Más előtagok, mint például az sh.reddit.com, nem változnak."
+	},
+	"RV3RedirectInfo": {
+		"message": "A „Legfrissebb” átirányítási opció a (sh|old|new).reddit.com URL-eket a www.reddit.com oldalra kényszeríti, amely a legújabb felhasználói felületet fogja használni."
+	},
 	"Rate": {
 		"message": "Értékelés / Vélemény"
+	},
+	"Redirect": {
+		"message": "Átalakítás"
 	},
 	"Relevance": {
 		"message": "Relevancia"
 	},
+	"ReloadPage": {
+		"message": "Oldal újra töltése"
+	},
+	"RememberSectionHiddenState": {
+		"message": "Ne felejtsd el meg a szakaszok elrejtett állapotait az oldalsáv menüben"
+	},
+	"RemoveCommentButtonIcons": {
+		"message": "Távolítsa el az ikonokat a legtöbb kommentelési gombról"
+	},
+	"ReplacePostImagesWithLinks": {
+		"message": "A képek helyettesítése linkekkel az étlapon"
+	},
+	"ReplacePostVideosWithLinks": {
+		"message": "A videók helyett linkeket helyezz be az övezetekre"
+	},
+	"ReplacePostVideosWithLinksInfo": {
+		"message": "Nem minden videóra érdemű"
+	},
+	"ReplaceSearchPlaceholder": {
+		"message": "Helyettesítse a keresőmező üres helyét"
+	},
+	"ReplaceSearchPlaceholderInfo": {
+		"message": "Cseréldje ki „Find anything”-et „Search Reddit”-re."
+	},
+	"ReplyNotifications": {
+		"message": "Válasz értesítések"
+	},
+	"Report": {
+		"message": "jelentés"
+	},
 	"ReportIssues": {
 		"message": "Problémák jelentése"
+	},
+	"ResetAllSettings": {
+		"message": "Adatok visszaállítása"
 	},
 	"ResizeFont": {
 		"message": "Betűtípus átméretezése"
@@ -176,11 +896,50 @@
 	"ResizeLayout": {
 		"message": "Feed / Bejegyzés átméretezése"
 	},
+	"Restore": {
+		"message": "megújítani"
+	},
+	"RestoreBackup": {
+		"message": "Váratkép visszaállítása"
+	},
+	"RestoreConfigTitle": {
+		"message": "Vissítse vissza a Reddit Enhancer biztonsági mentési konfigurációhoz"
+	},
+	"RightSidePostThumbnails": {
+		"message": "A poszt miniatűrjei megjelenítése a jobb oldalon"
+	},
+	"Rising": {
+		"message": "Felkelés / Rising"
+	},
+	"Save": {
+		"message": "mentés"
+	},
+	"ScalePostToFitImage": {
+		"message": "Skálázza a posztot a képhez igazítani"
+	},
 	"ScalePostToFitVideo": {
 		"message": "Skála hozzászólás a videó illesztéséhez"
 	},
+	"ScrollToNextRootComment": {
+		"message": "Mutassa a navigációs gombok a következő/előző fő kommentre"
+	},
+	"ScrollToNextRootCommentInfo": {
+		"message": "Opcionális billentyűvezetés. Következő gyökérkommentár: (J / Lele mező). Előző gyökérkommentár: (K / Megőle mező)."
+	},
+	"ScrollToTopFloat": {
+		"message": "Összehordozza az „Oldal tetejére ugrás” gombot"
+	},
+	"ScrollToTopHeader": {
+		"message": "Összeintezze 'Felső oldalra scroll' gombot a fejléccel"
+	},
+	"ScrollToTopInfo": {
+		"message": "Görje vissza az oldal tetejére"
+	},
 	"Search": {
-		"message": "Keresés"
+		"message": "keresés"
+	},
+	"SearchPageOffset": {
+		"message": "Keresőoldal eltolása"
 	},
 	"SearchbarBgColour": {
 		"message": "Kereső sáv: Háttérszín"
@@ -194,20 +953,113 @@
 	"SelectRedditVersion": {
 		"message": "Válassza a Reddit verziót"
 	},
+	"SelectRedirect": {
+		"message": "Áramlástolni"
+	},
 	"SetLanguageAndTheme": {
-		"message": "Teljes oldalbeállítások / Nyelv és téma beállítása"
+		"message": "Oldaltartalom beállításai / Nyelv és téma beállítása"
 	},
 	"SetSansSerifAsFont": {
-		"message": "Állítsa be a \"sans-serif\" et felhasználói felületként"
+		"message": "Állítsa be a \"sans-serif\"-t felhasználói felületként"
 	},
 	"Settings": {
 		"message": "Beállítások"
 	},
+	"Share": {
+		"message": "megosztás"
+	},
+	"ShortenCleanLink": {
+		"message": "Egyszerű/tiszta link rövidítése"
+	},
+	"ShowCommentAbsoluteTimestamp": {
+		"message": "Mutassa azonos időbélyegzőket a kommentek alatt"
+	},
+	"ShowComments": {
+		"message": "Kommentek megjelenítése"
+	},
+	"ShowCommunitiesFilter": {
+		"message": "Össgyelek listájának szűrése"
+	},
+	"ShowMemberCount": {
+		"message": "Mutatja meg a régi subreddit tagóinak számát"
+	},
+	"ShowPostAbsoluteTimestamp": {
+		"message": "Mutassa látható teljes időbélyegzés bejegyzéseken"
+	},
+	"ShowPostAuthor": {
+		"message": "Beonyvontató gösterése"
+	},
+	"ShowPostFlair": {
+		"message": "Mutassa a bejegyzés színét"
+	},
+	"ShowPostNumbers": {
+		"message": "Beolítási számok hozzáadása"
+	},
+	"ShowProfilePicturesOnComments": {
+		"message": "Profilkép megjelenítése a hozzászólásokban"
+	},
+	"ShowUpvoteRatio": {
+		"message": "A megjelenített upvote százalékot mutassa"
+	},
+	"SideMenu": {
+		"message": "Oldalsáv menü"
+	},
+	"SideMenuBackgroundColour": {
+		"message": "Oldaltérk: háttérszín"
+	},
+	"SideMenuButtonHoverColour": {
+		"message": "Oldalsó menü: Gombemrakolt színe"
+	},
+	"SideMenuIconsOnly": {
+		"message": "Csak oldalsáv menü ikonok"
+	},
+	"SideMenuTextColour": {
+		"message": "Oldaltjegye: szöveg színe"
+	},
+	"SideMenuToggleButton": {
+		"message": "Mutassa a házioldalmenü kapcsoló gomb megjelenítése"
+	},
+	"SideMenuWidth": {
+		"message": "Oldalsávszélesség"
+	},
+	"Sidebar": {
+		"message": "Házioldal"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Háttérszíne a sáv"
+	},
+	"SidebarTextColour": {
+		"message": "Házioldal: szöveg színe"
+	},
+	"SidebarToggleButton": {
+		"message": "Házioldalasztítható gomb"
+	},
+	"SnapSidebar": {
+		"message": "Csatlakoztassa a sávot a jobb oldalához"
+	},
+	"SolidColour": {
+		"message": "Egységes szín"
+	},
+	"Sort": {
+		"message": "rendezsírázás"
+	},
+	"SortBar": {
+		"message": "rendezőmező"
+	},
 	"StartTime": {
 		"message": "Kezdési idő (24)"
 	},
+	"StickySort": {
+		"message": "Ezöltölt rendezés"
+	},
+	"StorageUsage": {
+		"message": "Tárhelyhasználat"
+	},
+	"StyleOptions": {
+		"message": "Stílusopciók"
+	},
 	"StyleTweaks": {
-		"message": "Stílus"
+		"message": "stílus"
 	},
 	"SubFeedOffset": {
 		"message": "Al-hírfolyam eltolása"
@@ -215,17 +1067,65 @@
 	"SubFeedWidth": {
 		"message": "Al-hírfolyam szélessége"
 	},
+	"SubHeaderBgColour": {
+		"message": "Subreddit háttérszíne"
+	},
 	"Subreddit": {
 		"message": "Subreddit"
+	},
+	"SubredditBlockInfo": {
+		"message": "Először eltünteti minden posztot a listázott subredditekreken az étlekből, kivéve a subreddit étlekből."
+	},
+	"SubredditDisplayNameBanner": {
+		"message": "Mutassa a subreddit megjelenített nevét a bannerén"
+	},
+	"SyncStorage": {
+		"message": "Szinkronizációs tárhely"
+	},
+	"Text": {
+		"message": "szöveg"
+	},
+	"TextPostPreviewFade": {
+		"message": "Hozzáad egy elhalványulási hatást a szöveges poszt előnézéseihez (eksperimentális)"
+	},
+	"TextPostPreviewFadeHeight": {
+		"message": "háromszín csökkenő magassága"
+	},
+	"TextPostPreviewMaxHeight": {
+		"message": "Szöveg előnézeti magassága"
 	},
 	"Theme": {
 		"message": "Téma"
 	},
+	"ThemeBlacklistInfo": {
+		"message": "Használja a téma színeit globálisan, kivéve ezen subredditeket"
+	},
+	"ThemeBlur": {
+		"message": "Témaelhúzás"
+	},
+	"ThemeBlurInfo": {
+		"message": "Használjon áttetsző színeket „rgba(0,0,0,0.5)”, hogy lássa az elmosódási hatást."
+	},
+	"ThemeColours": {
+		"message": "Téma színei"
+	},
+	"ThemeDoesNotWorkWithCustomThemes": {
+		"message": "Jelenleg nem működik a felhasználó által létrehozott közösségtemákhoz. Kérjük, deaktiválja ezt az opciót az Ön Reddit preferenciáinak beállításában:"
+	},
+	"ThemeWhitelistInfo": {
+		"message": "Csak az előre létrehozott témák színeit használja ezen subredditekhez"
+	},
 	"TimeRange": {
 		"message": "Időtartományban"
 	},
+	"Top": {
+		"message": "Csúcs / Top"
+	},
 	"TopicFeedWidth": {
 		"message": "Téma feed szélessége"
+	},
+	"TranslationHelp": {
+		"message": "Fordítási segítség"
 	},
 	"UnderlineLinks": {
 		"message": "A hivatkozások aláhúzása"
@@ -233,17 +1133,53 @@
 	"UpdateFirefox": {
 		"message": "Kérjük, frissítsen a Firefox 121-re vagy újabbra, hogy egyes funkciók megfelelően működjenek."
 	},
+	"Upload": {
+		"message": "feltöltés"
+	},
+	"UploadedImage": {
+		"message": "Feltöltött kép"
+	},
+	"UpvoteColour": {
+		"message": "bejegyzés: színe pozitív ajánlás"
+	},
+	"UseOriginalSearchBar": {
+		"message": "Használja az eredeti keresőmezőt"
+	},
 	"UserProfileOffset": {
 		"message": "Felhasználói profil eltolása"
 	},
 	"UserProfileWidth": {
 		"message": "Felhasználói profil szélessége"
 	},
+	"UsernameHoverPopupDelay": {
+		"message": "Felhasználónév felugró ablakmező késlekedése"
+	},
+	"Users": {
+		"message": "felhasználók"
+	},
 	"Video": {
-		"message": "Videó"
+		"message": "videó"
+	},
+	"ViewCrossposts": {
+		"message": "Hozzáad egy linket, hogy megtekintse a más subredditek keresztbejegyzéseit"
+	},
+	"Welcome": {
+		"message": "Üdvözlöm!"
+	},
+	"Whitelist": {
+		"message": "fehér lista"
+	},
+	"WhitelistBlacklist": {
+		"message": "Fehérlista / Fióklista"
 	},
 	"Width": {
 		"message": "Szélesség"
+	},
+	"learnMore": {
+		"message": "Tudj meg többet"
+	},
+	"resizeHomeAlsoAffects": {
+		"message": "r/all, r/popular, Bejegyzés létrehozása, Keresési eredmények és Wikioldalak"
 	},
 	"seconds": {
 		"message": "másodperc"

@@ -1,8 +1,8 @@
 /**
- * Tweaks: Hide Elements - Hide Join Conversation Input
+ * Tweaks: Hide Elements - Hide "Join the conversation"
  *
  * @name hideJoinConversation
- * @description Hide the create new comment "Join Conversation" input box.
+ * @description Hide the create new comment "Join the conversation" input box.
  *
  * Compatibility: RV3 (New New UI) (2023-)
  */

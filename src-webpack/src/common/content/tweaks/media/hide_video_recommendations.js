@@ -29,7 +29,8 @@ function enableHideVideoRecommendations() {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-video-recommendations';
 		styleElement.textContent = `shreddit-aspect-ratio div[slot="recommendation-overlay"],
-									shreddit-player-2 .overlay-recommendations {
+									shreddit-player-2 .overlay-recommendations,
+									shreddit-player [slot="recommendation-overlay"] {
                                         display: none;
                                     }`;
 		document.head.insertBefore(styleElement, document.head.firstChild);

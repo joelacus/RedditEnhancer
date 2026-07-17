@@ -393,8 +393,9 @@ faceplate-hovercard div.max-w-\[360px\].-m-\[0\.5rem\] {
 	width: 2rem;
 	background-color: rgba(0, 0, 0, 0.4);
 	border-radius: var(--re-theme-border-radius, 4px);
+	backdrop-filter: blur(8px);
 	overflow: clip;
-	z-index: 9999;
+	z-index: 999;
 }
 #re-next-comment,
 #re-prev-comment {
@@ -434,8 +435,9 @@ faceplate-hovercard div.max-w-\[360px\].-m-\[0\.5rem\] {
 	width: 2rem;
 	background-color: rgba(0, 0, 0, 0.4);
 	border-radius: var(--re-theme-border-radius, 4px);
+	backdrop-filter: blur(8px);
 	overflow: clip;
-	z-index: 9999;
+	z-index: 999;
 }
 #re-scroll-to-top-float {
 	cursor: pointer;

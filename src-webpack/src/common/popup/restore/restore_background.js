@@ -43,40 +43,65 @@ export function restorePopupBackgroundOptions() {
 			document.querySelector('#no-saved-backgrounds-message').remove();
 			backgrounds.forEach(function (value) {
 				console.log('Custom Background URL: ' + value);
-				// create background element container
 				const node = document.createElement('div');
 				node.setAttribute('class', 'background');
-				// add image node
 				const background_img = document.createElement('div');
 				background_img.classList.add('background-img');
 				background_img.setAttribute('style', 'background-image: url("' + value + '");');
 				node.appendChild(background_img);
-				// append element to container
 				const container = document.querySelector('#backgrounds-container');
 				container.insertBefore(node, container.firstChild);
 			});
-		} else {
-			console.log('No Saved Custom Backgrounds');
 		}
-		addBackgroundListeners();
+
+		// Load Uploaded Backgrounds
+		BROWSER_API.storage.local.get('uploadedBackgrounds', function (localResult) {
+			const uploaded = localResult.uploadedBackgrounds;
+			if (typeof uploaded != 'undefined' && uploaded.length !== 0) {
+				if (document.querySelector('#no-saved-backgrounds-message')) {
+					document.querySelector('#no-saved-backgrounds-message').remove();
+				}
+				uploaded.forEach(function (value) {
+					console.log('Uploaded Background: ' + value.substring(0, 50) + '...');
+					const node = document.createElement('div');
+					node.setAttribute('class', 'background background-uploaded');
+					const background_img = document.createElement('div');
+					background_img.classList.add('background-img');
+					background_img.setAttribute('style', 'background-image: url(' + value + ');');
+					node.appendChild(background_img);
+					const container = document.querySelector('#backgrounds-container');
+					container.insertBefore(node, container.firstChild);
+				});
+			}
+			addBackgroundListeners();
+		});
 	});
 
 	// Set Selected Background
-	BROWSER_API.storage.sync.get(['customBackground'], function (result) {
-		// highlight chosen background
-		if (typeof result.customBackground != 'undefined') {
-			const url = `url("${result.customBackground}")`;
+	BROWSER_API.storage.sync.get(['customBackground'], function (syncResult) {
+		let selectedBg = syncResult.customBackground;
+
+		if (!selectedBg) {
+			BROWSER_API.storage.local.get('customBackground', function (localResult) {
+				selectedBg = localResult.customBackground;
+				highlightSelectedBackground(selectedBg);
+			});
+		} else {
+			highlightSelectedBackground(selectedBg);
+		}
+	});
+
+	function highlightSelectedBackground(value) {
+		if (typeof value != 'undefined') {
+			const url = `url("${value}")`;
 			const elms = document.querySelectorAll('*[style]');
 			Array.prototype.forEach.call(elms, function (elm) {
 				const bg = elm.style.backgroundImage || '';
 				if (url === bg) elm.parentNode.style.borderColor = 'var(--accent)';
 			});
-			var value = result.customBackground;
-		} else {
-			var value = 'none';
+			console.log('Selected Custom Background: ' + value);
 		}
-		console.log('Selected Custom Background: ' + value);
-	});
+	}
 
 	// Background Blur
 	BROWSER_API.storage.sync.get(['bgBlur'], function (result) {
@@ -108,7 +133,14 @@ function addBackgroundListeners() {
 			}
 			background[i].parentNode.style.borderColor = 'var(--accent)';
 			const url = background[i].style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
-			BROWSER_API.storage.sync.set({ customBackground: url });
+			const isUploaded = background[i].parentNode.classList.contains('background-uploaded');
+			if (isUploaded) {
+				BROWSER_API.storage.sync.set({ customBackground: '' });
+				BROWSER_API.storage.local.set({ customBackground: url });
+			} else {
+				BROWSER_API.storage.sync.set({ customBackground: url });
+				BROWSER_API.storage.local.set({ customBackground: url });
+			}
 			BROWSER_API.storage.sync.get(['useCustomBackground'], function (result) {
 				if (result.useCustomBackground == true) {
 					sendMessage({ setCustomBackground: url });

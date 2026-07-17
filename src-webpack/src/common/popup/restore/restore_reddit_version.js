@@ -40,16 +40,18 @@ export function restorePopupRedditVersionOptions() {
 
 	// Auto Redirect To Version
 	BROWSER_API.storage.sync.get(['autoRedirectVersion'], function (result) {
-		if (result.autoRedirectVersion === 'newnew') {
-			document.querySelector('#chosen-reddit-version').textContent = i18next.t('NewNewUI');
-		} else if (result.autoRedirectVersion === 'old') {
-			document.querySelector('#chosen-reddit-version').textContent = i18next.t('OldUI');
-		} else if (result.autoRedirectVersion === 'off') {
+		const version = result.autoRedirectVersion;
+		if (version === 'latest' || version === 'newnew') {
+			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Latest');
+		} else if (version === 'old' || version === 'old_www') {
+			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Old');
+		} else if (version === 'off') {
 			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Off');
 		} else {
 			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Off');
 			document.querySelector('#redirect-old-reddit').addEventListener('click', hideStartPage);
-			document.querySelector('#redirect-newnew-reddit').addEventListener('click', hideStartPage);
+			document.querySelector('#redirect-old-www-reddit').addEventListener('click', hideStartPage);
+			document.querySelector('#redirect-latest-reddit').addEventListener('click', hideStartPage);
 		}
 	});
 }

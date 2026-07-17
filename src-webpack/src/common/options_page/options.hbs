@@ -47,8 +47,9 @@
 					<input type="hidden" name="reddit-version" />
 					<ul id="select-reddit-version-menu" class="dropdown-menu">
 						<li id="redirect-off" data-version="off"><span data-lang="Off"></span></li>
-						<li id="redirect-newnew-reddit" data-version="newnew"><span data-lang="Latest"></span></li>
+						<li id="redirect-latest-reddit" data-version="latest"><span data-lang="Latest"></span></li>
 						<li id="redirect-old-reddit" data-version="old"><span data-lang="Old"></span></li>
+						<li id="redirect-old-www-reddit" data-version="old_www"><span data-lang="OldWww"></span></li>
 					</ul>
 				</div>
 			</div>
@@ -61,8 +62,15 @@
 				<div class="btn close" data-lang="Close"></div>
 			</div>
 		</div>
-		<div id="new-new-ui-message" class="banner-message amber" style="display: none">
-			<span data-lang="RUI3RedirectInfo"></span>
+		<div id="latest-ui-message" class="banner-message amber" style="display: none">
+			<span data-lang="RV3RedirectInfo"></span>
+			<div class="message-buttons">
+				<div class="btn close" data-lang="Close"></div>
+				<div class="btn dont-show-again" data-lang="DontShowAgain"></div>
+			</div>
+		</div>
+		<div id="old-www-ui-message" class="banner-message blue" style="display: none">
+			<span data-lang="RV1RedirectInfo"></span>
 			<div class="message-buttons">
 				<div class="btn close" data-lang="Close"></div>
 				<div class="btn dont-show-again" data-lang="DontShowAgain"></div>

@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 
 	"name": "__MSG_extensionName__",
-	"version": "3.2.2",
+	"version": "3.3.0",
 	"description": "__MSG_extensionDescription__",
 	"author": "github.com/joelacus",
 	"default_locale": "en",
@@ -74,6 +74,11 @@
 				"id": "rv3_ruleset",
 				"enabled": false,
 				"path": "rules/rv3_ruleset.json"
+			},
+			{
+				"id": "rv1_www_ruleset",
+				"enabled": false,
+				"path": "rules/rv1_www_ruleset.json"
 			}
 		]
 	}

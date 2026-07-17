@@ -35,10 +35,15 @@ redirect_dropdownMenu.addEventListener('click', function (e) {
 	}
 	if (version === 'old') {
 		selectFilterShowOldVersion(i18next.t('Old.message'));
-	} else if (version === 'newnew') {
+	} else if (version === 'old_www') {
+		selectFilterShowOldVersion(i18next.t('Old.message'));
+		if (localStorage.getItem('DontShowAgainOldWwwUiMessage') === null) {
+			document.querySelector('#old-www-ui-message').style.display = 'grid';
+		}
+	} else if (version === 'latest' || version === 'newnew') {
 		selectFilterShowNewNewVersion(i18next.t('Latest.message'));
-		if (localStorage.getItem('DontShowAgainNewNewUiMessage') === null) {
-			document.querySelector('#new-new-ui-message').style.display = 'grid';
+		if (localStorage.getItem('DontShowAgainLatestUiMessage') === null) {
+			document.querySelector('#latest-ui-message').style.display = 'grid';
 		}
 	} else if (version === 'off') {
 		selectFilterShowNewNewVersion(i18next.t('Latest.message'));

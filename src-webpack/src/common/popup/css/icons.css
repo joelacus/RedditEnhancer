@@ -604,3 +604,15 @@
 	mask: url('../../icons/ui/keyboard-solid-full.svg');
 	-webkit-mask: url('../../icons/ui/keyboard-solid-full.svg');
 }
+.icon-rotate-left {
+	mask: url('../../icons/ui/rotate-left-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/rotate-left-solid-full.svg');
+}
+.icon-edit {
+	mask: url('../../icons/ui/pen-to-square-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/pen-to-square-solid-full.svg');
+}
+.icon-upload-file {
+	mask: url('../../icons/ui/file-arrow-up-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/file-arrow-up-solid-full.svg');
+}

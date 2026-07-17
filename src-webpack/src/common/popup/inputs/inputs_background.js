@@ -5,6 +5,7 @@
 import i18next from 'i18next';
 import { debounce } from '../../utilities/debounce';
 import { sendMessage } from '../../utilities/send_message';
+import { base64ImageOptimiser } from '../../utilities/image_to_base64';
 
 // Toggle - Background Solid Colour
 document.querySelector('#checkbox-bg-solid-colour').addEventListener('change', function () {
@@ -55,8 +56,64 @@ document.querySelector('#input-bg-blur').addEventListener('input', function () {
 	saveBgBlur(this.value);
 });
 
+// Button - Upload Background Image
+const fileInput = document.createElement('input');
+fileInput.type = 'file';
+fileInput.accept = 'image/*';
+fileInput.style.display = 'none';
+document.body.appendChild(fileInput);
+
+document.querySelector('#btn-upload-background-image').addEventListener('click', function () {
+	if (document.querySelector('body#popup')) {
+		this.classList.add('disabled');
+		document.querySelector('#upload-background-image-info').style.display = '';
+		return;
+	}
+	fileInput.click();
+});
+
+fileInput.addEventListener('change', function () {
+	const file = this.files[0];
+	if (!file) return;
+
+	if (!file.type.startsWith('image/')) {
+		console.log('Not an image file');
+		this.value = '';
+		return;
+	}
+
+	base64ImageOptimiser(file)
+		.then(function (result) {
+			const base64 = result.base64;
+			const maxBytes = 10 * 1024 * 1024;
+
+			BROWSER_API.storage.local.get('uploadedBackgrounds', function (localResult) {
+				const uploaded = localResult.uploadedBackgrounds || [];
+				uploaded.push(base64);
+				BROWSER_API.storage.local.set({ uploadedBackgrounds: uploaded }, function () {
+					BROWSER_API.storage.local.getBytesInUse('uploadedBackgrounds', function (newUsage) {
+						if (newUsage > maxBytes) {
+							uploaded.pop();
+							BROWSER_API.storage.local.set({ uploadedBackgrounds: uploaded });
+							console.log('Upload would exceed 10MiB limit. Actual usage:', newUsage);
+							alert('Uploading this image would exceed the 10MiB storage limit. Please delete some uploaded backgrounds first.');
+							fileInput.value = '';
+							return;
+						}
+						addUploadedBgNode(base64);
+						fileInput.value = '';
+					});
+				});
+			});
+		})
+		.catch(function (error) {
+			console.log('Image upload failed:', error);
+			fileInput.value = '';
+		});
+});
+
 // Button - Add New Background Image
-document.querySelector('.btn-add-custom-background').addEventListener('click', addCustomBg);
+document.querySelector('#btn-add-custom-background').addEventListener('click', addCustomBg);
 
 // Function - Check and Save New Background Image
 function addCustomBg(e) {
@@ -121,6 +178,7 @@ function addCustomBgNode(imageURL) {
 	background_img.addEventListener('click', (e) => {
 		const url = e.target.style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
 		BROWSER_API.storage.sync.set({ customBackground: url });
+		BROWSER_API.storage.local.set({ customBackground: url });
 		// remove existing highlight
 		const backgrounds = document.querySelectorAll('.background-img');
 		for (let i = 0; i < backgrounds.length; i++) {
@@ -128,7 +186,6 @@ function addCustomBgNode(imageURL) {
 		}
 		// set
 		e.target.parentNode.style.borderColor = 'var(--accent)';
-		BROWSER_API.storage.sync.set({ customBackground: url });
 		BROWSER_API.storage.sync.get(['useCustomBackground'], function (result) {
 			if (result.useCustomBackground == true) {
 				sendMessage({ setCustomBackground: url });
@@ -142,12 +199,39 @@ function addCustomBgNode(imageURL) {
 	document.querySelector('#input-custom-background').value = '';
 }
 
+// Function - Add Uploaded Background Thumbnail to Popup Background Library
+function addUploadedBgNode(base64) {
+	const node = document.createElement('div');
+	node.setAttribute('class', 'background background-uploaded');
+	const background_img = document.createElement('div');
+	background_img.classList.add('background-img');
+	background_img.setAttribute('style', 'background-image: url(' + base64 + ');');
+	background_img.addEventListener('click', (e) => {
+		const url = e.target.style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
+		BROWSER_API.storage.sync.set({ customBackground: '' });
+		BROWSER_API.storage.local.set({ customBackground: url });
+		const backgrounds = document.querySelectorAll('.background-img');
+		for (let i = 0; i < backgrounds.length; i++) {
+			backgrounds[i].parentNode.style.borderColor = '#000';
+		}
+		e.target.parentNode.style.borderColor = 'var(--accent)';
+		BROWSER_API.storage.sync.get(['useCustomBackground'], function (result) {
+			if (result.useCustomBackground == true) {
+				sendMessage({ setCustomBackground: url });
+			}
+		});
+	});
+	node.appendChild(background_img);
+	const container = document.querySelector('#backgrounds-container');
+	container.insertBefore(node, container.firstChild);
+}
+
 // Button - Edit Backgrounds
-document.querySelector('.btn-edit-backgrounds').addEventListener('click', () => {
-	const btnEdit = document.querySelector('.btn-edit-backgrounds');
+document.querySelector('#btn-edit-backgrounds').addEventListener('click', () => {
+	const btnEdit = document.querySelector('#btn-edit-backgrounds');
 	btnEdit.style.display = 'none';
-	const btnSave = document.querySelector('.btn-edit-backgrounds-save');
-	btnSave.style.display = 'block';
+	const btnSave = document.querySelector('#btn-edit-backgrounds-save');
+	btnSave.style.display = '';
 	const background = document.querySelectorAll('.background');
 	for (let i = 0; i < background.length; i++) {
 		if (background[i].firstChild.id == '') {
@@ -164,10 +248,10 @@ document.querySelector('.btn-edit-backgrounds').addEventListener('click', () => 
 });
 
 // Button - Save Backgrounds
-document.querySelector('.btn-edit-backgrounds-save').addEventListener('click', () => {
-	const btnEdit = document.querySelector('.btn-edit-backgrounds');
-	btnEdit.style.display = 'block';
-	const btnSave = document.querySelector('.btn-edit-backgrounds-save');
+document.querySelector('#btn-edit-backgrounds-save').addEventListener('click', () => {
+	const btnEdit = document.querySelector('#btn-edit-backgrounds');
+	btnEdit.style.display = '';
+	const btnSave = document.querySelector('#btn-edit-backgrounds-save');
 	btnSave.style.display = 'none';
 	const background = document.querySelectorAll('.background');
 	for (let i = 0; i < background.length; i++) {
@@ -195,20 +279,42 @@ function addBackgroundDeleteListeners() {
 		btn.addEventListener('click', (e) => {
 			// delete link from save
 			const url = e.currentTarget.previousSibling.style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
-			BROWSER_API.storage.sync.get('customBackgrounds', function (result) {
-				const index = result.customBackgrounds.indexOf(url);
-				if (index > -1) {
-					result.customBackgrounds.splice(index, 1);
-					BROWSER_API.storage.sync.set({ customBackgrounds: result.customBackgrounds });
-				}
-			});
+			const isUploaded = e.currentTarget.parentNode.classList.contains('background-uploaded');
+
+			if (isUploaded) {
+				BROWSER_API.storage.local.get('uploadedBackgrounds', function (result) {
+					const uploaded = result.uploadedBackgrounds || [];
+					const index = uploaded.indexOf(url);
+					if (index > -1) {
+						uploaded.splice(index, 1);
+						BROWSER_API.storage.local.set({ uploadedBackgrounds: uploaded });
+					}
+				});
+			} else {
+				BROWSER_API.storage.sync.get('customBackgrounds', function (result) {
+					const index = result.customBackgrounds.indexOf(url);
+					if (index > -1) {
+						result.customBackgrounds.splice(index, 1);
+						BROWSER_API.storage.sync.set({ customBackgrounds: result.customBackgrounds });
+					}
+				});
+			}
+
 			// remove element
 			e.currentTarget.parentNode.remove();
-			BROWSER_API.storage.sync.get(['customBackground'], function (result) {
-				if (url == result.customBackground) {
+
+			// clear selected background if it was the deleted one
+			BROWSER_API.storage.sync.get(['customBackground'], function (syncResult) {
+				if (url == syncResult.customBackground) {
 					BROWSER_API.storage.sync.set({ customBackground: '' });
 				}
 			});
+			BROWSER_API.storage.local.get('customBackground', function (localResult) {
+				if (url == localResult.customBackground) {
+					BROWSER_API.storage.local.set({ customBackground: '' });
+				}
+			});
+
 			console.log('deleted: ' + url);
 		});
 	});

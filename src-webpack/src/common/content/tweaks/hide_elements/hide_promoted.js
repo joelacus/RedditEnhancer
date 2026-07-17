@@ -48,7 +48,8 @@ function enableHidePromotedPostsRV3() {
 									shreddit-comments-page-ad,
 									shreddit-sidebar-ad,
 									shreddit-comment-tree-ad,
-									shreddit-async-loader[bundlename="feed_announcement"] {
+									shreddit-async-loader[bundlename="feed_announcement"],
+									shreddit-dynamic-ad-link {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);

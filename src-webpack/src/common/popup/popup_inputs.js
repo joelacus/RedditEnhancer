@@ -27,6 +27,7 @@ import { export_backup } from './backup_config';
 import { restorePopupTheme } from './restore/restore_extension_theme';
 import { showChangelog } from './functions/show_changelog';
 import { initTopCategoryMenu } from './functions/init_top_category_menu';
+import { getStorageUsage } from '../utilities/storage_usage';
 
 // ─── Banner Message ─────────────────────────────────────────────────────────
 
@@ -34,14 +35,21 @@ import { initTopCategoryMenu } from './functions/init_top_category_menu';
 document.querySelector('#firefox-update-message .close').addEventListener('click', function (e) {
 	e.currentTarget.closest('.banner-message').style.display = 'none';
 });
-document.querySelector('#new-new-ui-message .close').addEventListener('click', function (e) {
+document.querySelector('#latest-ui-message .close').addEventListener('click', function (e) {
+	e.currentTarget.closest('.banner-message').style.display = 'none';
+});
+document.querySelector('#old-www-ui-message .close').addEventListener('click', function (e) {
 	e.currentTarget.closest('.banner-message').style.display = 'none';
 });
 
 // Don't Show Again
-document.querySelector('#new-new-ui-message .dont-show-again').addEventListener('click', function (e) {
+document.querySelector('#latest-ui-message .dont-show-again').addEventListener('click', function (e) {
 	e.currentTarget.closest('.banner-message').style.display = 'none';
-	localStorage.setItem('DontShowAgainNewNewUiMessage', true);
+	localStorage.setItem('DontShowAgainLatestUiMessage', true);
+});
+document.querySelector('#old-www-ui-message .dont-show-again').addEventListener('click', function (e) {
+	e.currentTarget.closest('.banner-message').style.display = 'none';
+	localStorage.setItem('DontShowAgainOldWwwUiMessage', true);
 });
 
 // ─── Header ─────────────────────────────────────────────────────────────────
@@ -89,6 +97,7 @@ document.querySelector('#btn-settings').addEventListener('click', function () {
 		const settingsPage = document.querySelector('#settings');
 		if (settingsPage.style.display === 'none' || settingsPage.style.display === '') {
 			settingsPage.style.display = 'flex';
+			updateAllStorageProgress();
 		} else {
 			settingsPage.style.display = 'none';
 		}
@@ -105,6 +114,7 @@ document.querySelector('#btn-settings').addEventListener('click', function () {
 			sub.classList.add('hidden');
 		});
 		restorePopupTheme();
+		updateAllStorageProgress();
 	}
 });
 
@@ -155,6 +165,72 @@ function getBrowserType() {
 }
 
 // ─── Extension Settings ─────────────────────────────────────────────────────
+
+// Dropdown - Background Upload Resolution
+const resolutionDropdown = document.querySelector('#select-background-resolution');
+if (resolutionDropdown) {
+	const chosenResolution = document.querySelector('#chosen-background-resolution');
+	const resolutionMenu = document.querySelector('#select-background-resolution-menu');
+	const resolutionItems = resolutionMenu.querySelectorAll('li');
+
+	resolutionDropdown.querySelector('.select').addEventListener('click', function () {
+		if (resolutionDropdown.classList.contains('active')) {
+			resolutionDropdown.classList.remove('active');
+			resolutionMenu.style.maxHeight = '0';
+		} else {
+			resolutionDropdown.classList.add('active');
+			resolutionMenu.style.maxHeight = resolutionMenu.scrollHeight + 'px';
+		}
+	});
+
+	resolutionItems.forEach(function (item) {
+		item.addEventListener('click', function () {
+			const resolution = item.id.replace('resolution-', '');
+			chosenResolution.textContent = item.querySelector('span').textContent;
+			BROWSER_API.storage.sync.set({ backgroundUploadResolution: resolution });
+			resolutionDropdown.classList.remove('active');
+			resolutionMenu.style.maxHeight = '0';
+		});
+	});
+
+	BROWSER_API.storage.sync.get('backgroundUploadResolution', function (result) {
+		const saved = result.backgroundUploadResolution || '1080p';
+		const savedItem = document.querySelector('#resolution-' + saved);
+		if (savedItem) {
+			chosenResolution.textContent = savedItem.querySelector('span').textContent;
+		}
+	});
+}
+
+// Storage Usage Progress Bars
+async function updateStorageProgress(type) {
+	const usage = await getStorageUsage(type);
+	const progressBar = document.querySelector('#' + type + '-storage-progress');
+	const progressText = document.querySelector('#' + type + '-storage-text');
+
+	if (progressBar && progressText) {
+		progressBar.style.width = usage.pct + '%';
+		progressBar.style.backgroundColor = usage.pct > 90 ? 'var(--red)' : usage.pct > 70 ? '#ff9800' : 'var(--accent)';
+		progressText.textContent = usage.usedValue + ' / ' + usage.totalValue + ' ' + usage.unit + ' (' + usage.pct.toFixed(1) + '%)';
+	}
+}
+
+async function updateAllStorageProgress() {
+	await updateStorageProgress('local');
+	await updateStorageProgress('sync');
+}
+
+updateAllStorageProgress();
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', function (e) {
+	if (!e.target.closest('.dropdown')) {
+		document.querySelectorAll('.dropdown.active').forEach(function (dropdown) {
+			dropdown.classList.remove('active');
+			dropdown.querySelector('.dropdown-menu').style.maxHeight = '';
+		});
+	}
+});
 
 // Button - Reset Settings
 document.querySelector('#btn-reset-settings').addEventListener('click', function () {

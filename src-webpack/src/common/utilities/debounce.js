@@ -3,7 +3,7 @@
 // ────────────────────────────────────────────────────────────────────────────
 
 /**
- * Creates a debounced function that delays invoking func until after wait milliseconds 
+ * Creates a debounced function that delays invoking func until after wait milliseconds
  * have elapsed since the last time the debounced function was invoked.
  * @param {Function} func - The function to debounce
  * @param {number} wait - The number of milliseconds to delay

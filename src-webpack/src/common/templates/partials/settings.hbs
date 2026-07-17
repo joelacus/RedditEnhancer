@@ -111,5 +111,50 @@
 				<div id='btn-import-backup' class='btn'><span class='btn-text' data-lang='Restore'></span></div>
 			</div>
 		</li>
+		<li class='sub-header' style='margin-top: 24px'>
+			<span data-lang='BackgroundUploadResolution'></span>
+		</li>
+		<li class='container' style='align-items: start'>
+			<div class='settings-resolution'>
+				<div id='select-background-resolution' class='dropdown'>
+					<div class='select'>
+						<div class='icon icon-images'></div>
+						<span id='chosen-background-resolution'>1080p</span>
+						<div class='icon dropdown-icon icon-chevron-down'></div>
+					</div>
+					<input type='hidden' name='backgroundResolution' />
+					<ul id='select-background-resolution-menu' class='dropdown-menu'>
+						<li id='resolution-original'><span>100%</span></li>
+						<li id='resolution-4k'><span>4K</span></li>
+						<li id='resolution-1440p'><span>1440p</span></li>
+						<li id='resolution-1080p'><span>1080p</span></li>
+					</ul>
+				</div>
+				<span class='info' data-lang='BackgroundUploadInfo2'></span>
+			</div>
+		</li>
+		<li class='sub-header' style='margin-top: 24px'>
+			<span data-lang='StorageUsage'></span>
+		</li>
+		<li class='container' style='align-items: start'>
+			<div class='settings-storage'>
+				<div id='storage-usage'>
+					<div class='storage-item' style='margin-bottom: 8px'>
+						<span data-lang='LocalStorage'></span>
+						<div class='progress-bar'>
+							<div id='local-storage-progress' class='progress-fill'></div>
+						</div>
+						<span id='local-storage-text'>0 / 10 MiB</span>
+					</div>
+					<div class='storage-item'>
+						<span data-lang='SyncStorage'></span>
+						<div class='progress-bar'>
+							<div id='sync-storage-progress' class='progress-fill'></div>
+						</div>
+						<span id='sync-storage-text'>0 / 100 KB</span>
+					</div>
+				</div>
+			</div>
+		</li>
 	</ul>
 </div>
