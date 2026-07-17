@@ -768,4 +768,15 @@ export function restorePopupHideElementsOptions() {
 		if (checked) highlightMenuIcon('hide-elements');
 		console.log('Hide Join Conversation Input: ' + checked);
 	});
+
+	// Hide Join Conversation Input at the Bottom of the Page
+	BROWSER_API.storage.sync.get(['hideJoinConversationPageBottom'], function (result) {
+		const checked = result.hideJoinConversationPageBottom === true;
+		document.querySelector('#checkbox-hide-join-conversation-page-bottom').checked = checked;
+		const icon = document.querySelector('.icon-hide-join-conversation-page-bottom');
+		icon.style.backgroundColor = checked === true ? 'var(--accent)' : '';
+		icon.classList.replace(checked ? 'icon-show' : 'icon-hide', checked ? 'icon-hide' : 'icon-show');
+		if (checked) highlightMenuIcon('hide-elements');
+		console.log('Hide Join Conversation Input at the Bottom of the Page: ' + checked);
+	});
 }

@@ -467,6 +467,9 @@
 	"HideJoinConversation": {
 		"message": "Ocultar \"Participar na conversa\""
 	},
+	"HideJoinConversationPageBottom": {
+		"message": "Ocultar \"Participar na conversa\" na parte inferior da página"
+	},
 	"HideKarma": {
 		"message": "Ocultar Karma"
 	},
@@ -713,9 +716,6 @@
 	"New": {
 		"message": "Novo / New"
 	},
-	"NewNewUI": {
-		"message": "Novo Novo UI"
-	},
 	"NewUpdateAvailable": {
 		"message": "A versão <version> já está disponível. O seu navegador deverá atualizar esta extensão automaticamente em breve se tiver as atualizações automáticas ativadas; caso contrário, terá de verificar manualmente se existem atualizações no gestor de extensões do navegador."
 	},
@@ -732,10 +732,13 @@
 		"message": "Deslocamento"
 	},
 	"Old": {
-		"message": "Velha / Old"
+		"message": "Antigo / Old"
 	},
 	"OldUI": {
-		"message": "Velho UI"
+		"message": "Antigo"
+	},
+	"OldWww": {
+		"message": "Antigo (apenas www)"
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Expandir apenas os comentários de karma negativo"
@@ -836,8 +839,11 @@
 	"Qa": {
 		"message": "Q&a"
 	},
-	"RUI3RedirectInfo": {
-		"message": "A opção de redireccionamento para Última UI (Nova Nova UI) já não é necessária, no entanto, pode utilizar esta opção para forçar links de (sh|old|new).reddit.com para www.reddit.com"
+	"RV1RedirectInfo": {
+		"message": "A opção de redireccionamento \"Antigo (apenas www)\" apenas redirecionará os URLs com www.reddit.com para old.reddit.com. Outros prefixos, como sh.reddit.com, não serão afetados."
+	},
+	"RV3RedirectInfo": {
+		"message": "A opção de redireccionamento \"Mais recente\" forçará os URLs (sh|old|new).reddit.com para www.reddit.com, que utilizará a interface de utilizador mais recente."
 	},
 	"Rate": {
 		"message": "Avaliar / Comentário"

@@ -226,6 +226,7 @@ async function restoreBackup(json) {
 				'hideHomeSidebar',
 				'hideJoinButtonOnPosts',
 				'hideJoinConversation',
+				'hideJoinConversationPageBottom',
 				'hideKarma',
 				'hideLogoInSearch',
 				'hideModerationButton',

@@ -4,9 +4,17 @@
 
 import ColorPicker from '../libs/colorpicker.js';
 import { sendMessage } from '../../utilities/send_message.js';
+import { debounce } from '../../utilities/debounce.js';
 
 // Create global colour picker element array for restoring colour values.
 window.colour_pickers = [];
+
+const storage = {};
+
+const saveStorage = debounce((data) => {
+	BROWSER_API.storage.sync.set(data);
+	for (const key in data) delete data[key];
+}, 250);
 
 // Init all colour pickers
 document.querySelectorAll('.colour-picker').forEach((input) => {
@@ -36,107 +44,108 @@ document.querySelectorAll('.colour-picker').forEach((input) => {
 		const rgba = colour.string('rgba') ?? '';
 		switch (id) {
 			case 'background':
-				BROWSER_API.storage.sync.set({ solidColourBackgroundCSS: hex });
+				storage.solidColourBackgroundCSS = hex;
 				sendMessage({ solidColourBackgroundCSS: hex });
 				break;
 			case 'header-bg':
-				BROWSER_API.storage.sync.set({ themeHeaderBackgroundColourCSS: rgba });
+				storage.themeHeaderBackgroundColourCSS = rgba;
 				sendMessage({ themeHeaderBackgroundColourCSS: rgba });
 				break;
 			case 'header-fg':
-				BROWSER_API.storage.sync.set({ themeHeaderTextColourCSS: hex });
+				storage.themeHeaderTextColourCSS = hex;
 				sendMessage({ themeHeaderTextColourCSS: hex });
 				break;
 			case 'searchbar-bg':
-				BROWSER_API.storage.sync.set({ themeSearchbarBgColourCSS: rgba });
+				storage.themeSearchbarBgColourCSS = rgba;
 				sendMessage({ themeSearchbarBgColourCSS: rgba });
 				break;
 			/*case 'searchbar-border':
-				BROWSER_API.storage.sync.set({ themeSearchbarBorderColourCSS: rgba });
+				storage.themeSearchbarBorderColourCSS = rgba;
 				sendMessage({ themeSearchbarBorderColourCSS: rgba });
 				break;*/
 			case 'searchbar-dropdown-bg':
-				BROWSER_API.storage.sync.set({ themeSearchbarDropdownBgColourCSS: rgba });
+				storage.themeSearchbarDropdownBgColourCSS = rgba;
 				sendMessage({ themeSearchbarDropdownBgColourCSS: rgba });
 				break;
 			case 'post-bg':
-				BROWSER_API.storage.sync.set({ themePostBackgroundColourCSS: rgba });
+				storage.themePostBackgroundColourCSS = rgba;
 				sendMessage({ themePostBackgroundColourCSS: rgba });
 				break;
 			case 'post-fg':
-				BROWSER_API.storage.sync.set({ themePostTextColour1CSS: hex });
+				storage.themePostTextColour1CSS = hex;
 				sendMessage({ themePostTextColour1CSS: hex });
 				break;
 			case 'post-fg-2':
-				BROWSER_API.storage.sync.set({ themePostTextColour2CSS: hex });
+				storage.themePostTextColour2CSS = hex;
 				sendMessage({ themePostTextColour2CSS: hex });
 				break;
 			case 'post-code-fg':
-				BROWSER_API.storage.sync.set({ themeCodeBlockColourCSS: hex });
+				storage.themeCodeBlockColourCSS = hex;
 				sendMessage({ themeCodeBlockColourCSS: hex });
 				break;
 			case 'post-fg-visited':
-				BROWSER_API.storage.sync.set({ themePostVisitedTextColourCSS: hex });
+				storage.themePostVisitedTextColourCSS = hex;
 				sendMessage({ themePostVisitedTextColourCSS: hex });
 				break;
 			case 'post-fg-followed':
-				BROWSER_API.storage.sync.set({ themePostFollowedTextColourCSS: hex });
+				storage.themePostFollowedTextColourCSS = hex;
 				sendMessage({ themePostFollowedTextColourCSS: hex });
 				break;
 			case 'post-comments-fg':
-				BROWSER_API.storage.sync.set({ themePostCommentsTextColour1CSS: hex });
+				storage.themePostCommentsTextColour1CSS = hex;
 				sendMessage({ themePostCommentsTextColour1CSS: hex });
 				break;
 			case 'post-comments-fg-2':
-				BROWSER_API.storage.sync.set({ themePostCommentsTextColour2CSS: hex });
+				storage.themePostCommentsTextColour2CSS = hex;
 				sendMessage({ themePostCommentsTextColour2CSS: hex });
 				break;
 			case 'post-comment-action-row-fg':
-				BROWSER_API.storage.sync.set({ themePostCommentActionRowColourCSS: hex });
+				storage.themePostCommentActionRowColourCSS = hex;
 				sendMessage({ themePostCommentActionRowColourCSS: hex });
 				break;
 			case 'post-border':
-				BROWSER_API.storage.sync.set({ themePostBorderColourCSS: rgba });
+				storage.themePostBorderColourCSS = rgba;
 				sendMessage({ themePostBorderColourCSS: rgba });
 				break;
 			case 'post-and-comment-links':
-				BROWSER_API.storage.sync.set({ themePostContentAndCommentsLinkColourCSS: hex });
+				storage.themePostContentAndCommentsLinkColourCSS = hex;
 				sendMessage({ themePostContentAndCommentsLinkColourCSS: hex });
 				break;
 			case 'post-upvote':
-				BROWSER_API.storage.sync.set({ themePostUpvoteColourCSS: hex });
+				storage.themePostUpvoteColourCSS = hex;
 				sendMessage({ themePostUpvoteColourCSS: hex });
 				break;
 			case 'sidebar-fg':
-				BROWSER_API.storage.sync.set({ themeSidebarTextColourCSS: hex });
+				storage.themeSidebarTextColourCSS = hex;
 				sendMessage({ themeSidebarTextColourCSS: hex });
 				break;
 			case 'sidebar-bg':
-				BROWSER_API.storage.sync.set({ themeSidebarBgColourCSS: rgba });
+				storage.themeSidebarBgColourCSS = rgba;
 				sendMessage({ themeSidebarBgColourCSS: rgba });
 				break;
 			case 'sidemenu-fg':
-				BROWSER_API.storage.sync.set({ themeSidemenuTextColourCSS: hex });
+				storage.themeSidemenuTextColourCSS = hex;
 				sendMessage({ themeSidemenuTextColourCSS: hex });
 				break;
 			case 'sidemenu-bg':
-				BROWSER_API.storage.sync.set({ themeSidemenuBgColourCSS: rgba });
+				storage.themeSidemenuBgColourCSS = rgba;
 				sendMessage({ themeSidemenuBgColourCSS: rgba });
 				break;
 			case 'sidemenu-btn-hover':
-				BROWSER_API.storage.sync.set({ themeSidemenuButtonHoverColourCSS: rgba });
+				storage.themeSidemenuButtonHoverColourCSS = rgba;
 				sendMessage({ themeSidemenuButtonHoverColourCSS: rgba });
 				break;
 			case 'op-comment-highlight':
-				BROWSER_API.storage.sync.set({ themeOpCommentHighlightColourCSS: rgba });
+				storage.themeOpCommentHighlightColourCSS = rgba;
 				sendMessage({ themeOpCommentHighlightColourCSS: rgba });
 				break;
 			case 'sub-header-bg':
-				BROWSER_API.storage.sync.set({ themeSubHeaderBackgroundColourCSS: rgba });
+				storage.themeSubHeaderBackgroundColourCSS = rgba;
 				sendMessage({ themeSubHeaderBackgroundColourCSS: rgba });
 				break;
 			default:
 				break;
 		}
+		saveStorage(storage);
 	});
 });

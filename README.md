@@ -66,6 +66,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide Posts by Blocked Users|Hide all posts that are created by a certain user(s), supports regex (regular expressions).|3<br>1|
 |Hide "Link" posts by keywords in the URL|Hide all posts that contain a URL containing certain keyword(s), supports regex (regular expressions).|3<br>1|
 |Hide Posts by Subreddit|Hide all posts from a certain subreddit(s), supports regex (regular expressions). Not enabled for subreddit feeds.|3<br>1|
+|Hide Comments by Keyword|Hide comments containing a certain keyword(s).|3<br>1|
 
 ## Resize Feed and Posts
 |Feature|Description|Reddit Version Support|
@@ -111,8 +112,13 @@ I welcome any help if you would like to improve or contribute new language trans
 ## Hide Elements
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
+|Hide "Get App" Button|Hides the "Get App" button in the head bar.|3|
 |Hide "Give Awards" button|Hides the 'Give Awards' button on comments and posts.|3|
+|Hide "Join the conversation" at the bottom of the page|Hide the create new comment "Join the conversation" input box from appearing at the bottom of the post page as you scroll.|3|
+|Hide "Join the conversation"|Hide the create new comment "Join the conversation" input box from the post page.|3|
 |Hide "Trending Today" in the Search Results|Hide the "Trending Today" section in the search bar.|3|
+|Hide all the comments under a post|Completely hide all the comments under a post, as well as the create new comment input.|3<br>1|
+|Hide Announcement Notifications|Hide Reddit announcement and gamification notifications from your notifications list.|3|
 |Hide Blank Thumbnails In Compact View|Hides the blank thumbnails on text posts in "compact view" feeds.|3<br>1|
 |Hide Buttons In The Header|This allows you to individually hide the buttons in the header you don't use to clean up the interface.|3|
 |Hide Comment Karma|Hide the karma on comments.|3<br>1|
@@ -121,12 +127,12 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide Get New Reddit|Hides the "Get New Reddit" button on old reddit.|1|
 |Hide Header subreddit List|Hides the sub reddit list in the header on old reddit.|1|
 |Hide Home Feed|Hides the home feed entirely.|3<br>1|
+|Hide Logo in the Search Bar|Hides the Reddit logo in the search bar.|3|
 |Hide NSFW in the Search Results|Hide the type-a-head NSFW search results in the search bar.|3|
 |Hide NSFW Users in the Search Page Sidebar|Hide the found NSFW users in the search results page sidebar.|3|
 |Hide NSFW/L Posts|Hide any posts marked as NSFW/L.|3<br>1|
 |Hide post and sidebar dividers|Hides the line between posts in feeds, also hides the dividers in the subreddit and post sidebars, separating sections into their own boxes.|3|
 |Hide Post Karma|Hides the karma on posts.|3<br>1|
-|Hide Announcement Notifications|Hide Reddit announcement notifications from your notifications list.|3|
 |Hide profile pictures in the comments|Simply hides the user profile pictures in the comments of a post.|3|
 |Hide Promoted Links|Hides the promoted links/posts in the main feed.|3<br>1|
 |Hide Recent Posts|Hide the recent posts section in the sidebar.|3|
@@ -139,20 +145,17 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide the Header Bar|Hide the header bar/panel at the top.|3|
 |Hide The Home Sidebar|Hides the sidebar on the reddit home page.|3<br>1|
 |Hide The Join Button On Posts|Hides the 'Join' button on posts on r/all and r/popular.|3|
+|Hide the page footer text|Hide the text at the bottom of the sidebars.|3|
 |Hide The Post Back Button|Hides the back button on posts.|3|
 |Hide The Post Sidebar|Hides the sidebar on post pages.|3|
 |Hide The Sub Reddit Sidebar|Hides the sidebar on sub reddit pages.|3|
 |Hide The User Sidebar|Hides the sidebar on profile/user pages.|3|
-|Hide the page footer text|Hide the text at the bottom of the sidebars.|3|
-|Hide "Get App" Button|Hides the "Get App" button in the head bar.|3|
-|Use the Original Search Bar|Hides the new AI "Ask" button and the orange glow from the search bar, returning it to how it was before.|3|
-|Hide Logo in the Search Bar|Hides the Reddit logo in the search bar.|3|
-|Replace Search Bar Placeholder|Change the "Find Anything" placeholder text in the search bar back to "Search Reddit".|3|
-|Hide all the comments under a post|Completely hide all the comments under a post, as well as the create new comment input.|3<br>1|
 |Hide Thumbnails in Compact View|Hides the thumbnails on posts when viewing a feed in compact view.|3<br>1|
 |Hide Username and/or Karma|You can hide your username and/or karma in the top bar.|1|
 |Hide username in the subreddit sidebar flair section|Hides the username and profile picture in the edit flair section of the subreddit sidebar.|3|
 |Hide Vote Buttons|Hide the vote buttons on posts and comments.|3<br>1|
+|Replace Search Bar Placeholder|Change the "Find Anything" placeholder text in the search bar back to "Search Reddit".|3|
+|Use the Original Search Bar|Hides the new AI "Ask" button and the orange glow from the search bar, returning it to how it was before.|3|
 
 
 ## Productivity

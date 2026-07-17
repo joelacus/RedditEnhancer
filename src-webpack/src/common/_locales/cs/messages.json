@@ -467,6 +467,9 @@
 	"HideJoinConversation": {
 		"message": "Skrýt „Přєднати do konverzace“"
 	},
+	"HideJoinConversationPageBottom": {
+		"message": "Skrýt „Přєднати do konverzace“ ve spodní části stránky"
+	},
 	"HideKarma": {
 		"message": "Skrýt karmu"
 	},
@@ -713,9 +716,6 @@
 	"New": {
 		"message": "Nový / New"
 	},
-	"NewNewUI": {
-		"message": "Nový Nový UI"
-	},
 	"NewUpdateAvailable": {
 		"message": "Verze nová verze <version> je nyní k dispozici. Váš prohlížeč by měl tuto rozšíření brzy automaticky aktualizovat, pokud máte povoleno automatické aktualizace. Pokud ne, musíte ručně ověřit aktualizace v spravci rozšíření prohlížeče."
 	},
@@ -735,7 +735,10 @@
 		"message": "Starý / Old"
 	},
 	"OldUI": {
-		"message": "Starý UI"
+		"message": "Staré"
+	},
+	"OldWww": {
+		"message": "Staré (pouze www)"
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Rozšiřit pouze komentáře s negativním karmou"
@@ -836,8 +839,11 @@
 	"Qa": {
 		"message": "Q&a"
 	},
-	"RUI3RedirectInfo": {
-		"message": "Možnost přesměrování na nejnovější UI (Nový Nový UI) již není nutná, ale můžete tuto možnost použít k vynucení odkazů ze (sh|old|new).reddit.com na www.reddit.com."
+	"RV1RedirectInfo": {
+		"message": "Možnost přesměrování „Staré (pouze www)“ přesměruje pouze adresy URL www.reddit.com na old.reddit.com. Ostatní prefixy, jako například sh.reddit.com, nebudou ovlivněny."
+	},
+	"RV3RedirectInfo": {
+		"message": "Možnost přesměrování „Nejnovější“ vynutí přesměrování URL adres (sh|old|new).reddit.com na www.reddit.com, které bude používat nejnovější uživatelské rozhraní."
 	},
 	"Rate": {
 		"message": "Ohodnoťte / Recenze"

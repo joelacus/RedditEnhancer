@@ -74,6 +74,11 @@
 				"id": "rv3_ruleset",
 				"enabled": false,
 				"path": "rules/rv3_ruleset.json"
+			},
+			{
+				"id": "rv1_www_ruleset",
+				"enabled": false,
+				"path": "rules/rv1_www_ruleset.json"
 			}
 		]
 	}

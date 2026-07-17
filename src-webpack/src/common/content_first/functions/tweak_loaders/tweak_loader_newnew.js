@@ -36,6 +36,7 @@ import { loadHideHomeFeed } from '../../../content/tweaks/hide_elements/hide_hom
 import { loadHideHomeSidebar, loadHidePostSidebar, loadHideRelatedPostsSection, loadHideSearchSidebar, loadHideSubSidebarException, loadHideUserSidebar, loadHideCustomFeedSidebar } from '../../../content/tweaks/hide_elements/hide_sidebar';
 import { loadHideJoinButtonOnPosts } from '../../../content/tweaks/hide_elements/hide_post_join_button';
 import { loadHideJoinConversation } from '../../../content/tweaks/hide_elements/hide_join_conversation';
+import { loadHideJoinConversationPageBottom } from '../../../content/tweaks/hide_elements/hide_join_conversation_page_bottom';
 import { loadHidePageFooter } from '../../../content/tweaks/hide_elements/hide_page_footer';
 import { loadHidePostBackButton } from '../../../content/tweaks/hide_elements/hide_post_back_button';
 import { loadHidePostComments } from '../../../content/tweaks/hide_elements/hide_post_comments';
@@ -119,4 +120,5 @@ export function tweakLoaderNewNew() {
 	loadHideAnnouncementNotifications();
 	loadHideGamificationNotifications();
 	loadHideJoinConversation();
+	loadHideJoinConversationPageBottom();
 }

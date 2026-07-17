@@ -35,14 +35,21 @@ import { getStorageUsage } from '../utilities/storage_usage';
 document.querySelector('#firefox-update-message .close').addEventListener('click', function (e) {
 	e.currentTarget.closest('.banner-message').style.display = 'none';
 });
-document.querySelector('#new-new-ui-message .close').addEventListener('click', function (e) {
+document.querySelector('#latest-ui-message .close').addEventListener('click', function (e) {
+	e.currentTarget.closest('.banner-message').style.display = 'none';
+});
+document.querySelector('#old-www-ui-message .close').addEventListener('click', function (e) {
 	e.currentTarget.closest('.banner-message').style.display = 'none';
 });
 
 // Don't Show Again
-document.querySelector('#new-new-ui-message .dont-show-again').addEventListener('click', function (e) {
+document.querySelector('#latest-ui-message .dont-show-again').addEventListener('click', function (e) {
 	e.currentTarget.closest('.banner-message').style.display = 'none';
-	localStorage.setItem('DontShowAgainNewNewUiMessage', true);
+	localStorage.setItem('DontShowAgainLatestUiMessage', true);
+});
+document.querySelector('#old-www-ui-message .dont-show-again').addEventListener('click', function (e) {
+	e.currentTarget.closest('.banner-message').style.display = 'none';
+	localStorage.setItem('DontShowAgainOldWwwUiMessage', true);
 });
 
 // ─── Header ─────────────────────────────────────────────────────────────────

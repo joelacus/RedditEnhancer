@@ -465,7 +465,10 @@
 		"message": "Göm 'Gå med'-knappen på inlägg"
 	},
 	"HideJoinConversation": {
-		"message": "Dölj Okej, hoppa in i konversationen"
+		"message": "Dölj \"Gå med i konversationen\""
+	},
+	"HideJoinConversationPageBottom": {
+		"message": "Dölj \"Gå med i konversationen\" längst ner på sidan"
 	},
 	"HideKarma": {
 		"message": "Dölj karma"
@@ -713,9 +716,6 @@
 	"New": {
 		"message": "Ny / New"
 	},
-	"NewNewUI": {
-		"message": "Ny Ny UI"
-	},
 	"NewUpdateAvailable": {
 		"message": "Version <version> är nu tillgänglig. Din webbläsare bör automatiskt uppdatera detta tillägg snart om du har aktiverat automatiska uppdateringar; annars måste du manuellt kontrollera uppdateringar i webbläsartilläggshanteraren."
 	},
@@ -735,7 +735,10 @@
 		"message": "Gammal / Old"
 	},
 	"OldUI": {
-		"message": "Gammal UI"
+		"message": "Gammal"
+	},
+	"OldWww": {
+		"message": "Gammal (endast www)"
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Utöka endast kommentarer med negativt karma"
@@ -836,8 +839,11 @@
 	"Qa": {
 		"message": "Q&a"
 	},
-	"RUI3RedirectInfo": {
-		"message": "Omdirigeringsalternativet till den senaste UI:n (Ny Ny UI) är inte längre nödvändigt, men du kan använda detta alternativ för att tvinga länkar från (sh|old|new).reddit.com till www.reddit.com."
+	"RV1RedirectInfo": {
+		"message": "Omdirigeringsalternativet \"Gammal (endast www)\" omdirigerar endast www.reddit.com-URL:er till old.reddit.com. Andra prefix som sh.reddit.com påverkas inte."
+	},
+	"RV3RedirectInfo": {
+		"message": "Omdirigeringsalternativet \"Senaste\" tvingar (sh|gamla|nya).reddit.com-URL:er till www.reddit.com, som använder det senaste användargränssnittet."
 	},
 	"Rate": {
 		"message": "Betygsätt / Recensera"

@@ -467,6 +467,9 @@
 	"HideJoinConversation": {
 		"message": "Ukryj „Dołącz do rozmowy“"
 	},
+	"HideJoinConversationPageBottom": {
+		"message": "Ukryj „Dołącz do rozmowy“ na dole strony"
+	},
 	"HideKarma": {
 		"message": "Ukryj Karma"
 	},
@@ -645,7 +648,7 @@
 		"message": "Większy klasyczny widok postu"
 	},
 	"Latest": {
-		"message": "najnowszy"
+		"message": "Najnowsze"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Wyświetl przyciski głosowania po lewej stronie"
@@ -713,9 +716,6 @@
 	"New": {
 		"message": "Nowy / New"
 	},
-	"NewNewUI": {
-		"message": "Nowy Nowy UI"
-	},
 	"NewUpdateAvailable": {
 		"message": "Wersja <version> jest już dostępna. Przeglądarka powinna automatycznie zaktualizować tę rozszerzenie wkrótce, jeśli masz włączone automatyczne aktualizacje; w przeciwnym razie będziesz musiał ręcznie sprawdzić aktualizacje w menedżerze rozszerzeń przeglądarki."
 	},
@@ -735,7 +735,10 @@
 		"message": "Stary / Old"
 	},
 	"OldUI": {
-		"message": "Stary UI"
+		"message": "Stary"
+	},
+	"OldWww": {
+		"message": "Stary (tylko www)"
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Rozszerzaj tylko komentarze z negatywnym karma"
@@ -836,8 +839,11 @@
 	"Qa": {
 		"message": "Q&a"
 	},
-	"RUI3RedirectInfo": {
-		"message": "Opcja przekierowania do Najnowszy UI (Nowy Nowy UI) nie jest już konieczna. Można jednak użyć tej opcji, aby wymusić linki z (sh|old|new).reddit.com do www.reddit.com"
+	"RV1RedirectInfo": {
+		"message": "Opcja przekierowania „Stary (tylko www)” przekierowuje wyłącznie adresy URL typu www.reddit.com na old.reddit.com. Inne prefiksy, takie jak sh.reddit.com, pozostaną bez zmian."
+	},
+	"RV3RedirectInfo": {
+		"message": "Opcja przekierowania „Najnowsze” wymusi przekierowanie adresów URL typu (sh|old|new).reddit.com na www.reddit.com, co spowoduje użycie najnowszej wersji interfejsu."
 	},
 	"Rate": {
 		"message": "Oceń / Recenzję"

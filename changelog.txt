@@ -1,10 +1,15 @@
 version 3.3.0
   - Added an option to upload images from your computer to use as the site background. Limited to local storage, will not sync to other devices. You can change the uploaded image quality in Settings to reduce space and store more images.
+  - Added progress bars on the Settings page to show how much local and sync storage has been used. 10MiB local, 100KiB sync.
+  - Added a "Reset" button to reset the default colour for "Highlight comments from original poster (OP)".
+  - Added a new option for the redirect feature, "Old (www only)". This will only redirect "www.reddit.com" to "old.reddit.com". Other prefixes such as "sh.reddit.com" will remain unaffected.
+  - Updated all locales to 100% (Translations mostly done by AI, so there may be some mistakes. Any help is very welcome to improve translation quality).
+v [Latest UI V3]
+  - Added an option to hide the "Join the conversation" input box at the bottom of a post page as you scroll down.
   - Fixed "Multicoloured Comment Thread Lines" not working due to a website update.
   - Fixed "Highlight comments from original poster (OP)" not working due to a website update.
-  - Added a "Reset" button to reset the default colour for "Highlight comments from original poster (OP)".
-  - Added progress bars on the Settings page to show how much local and sync storage has been used. 10MiB local, 100KiB sync.
-  - Updated all locales to 100% (Translations mostly done by AI, so there may be some mistakes. Any help is very welcome to improve translation quality).
+  - Fixed "Hide Video Recommendations" not working due to a website update.
+  - Fixed the floating "Scroll to top" button, and "Scroll to the next/previous root comment" buttons from appearing on top of the media lightbox.
 
 version 3.2.2
   - Bug fixes and improvements.
@@ -20,6 +25,7 @@ v [Latest UI V3]
   - Added an option to hide the footer text at the bottom of the sidebars.
   - Added an option to hide the Reddit announcement (u/reddit) notifications from your notifications list.
   - Added an option to hide the Reddit gamification (achievements, streaks) notifications from your notifications list.
+  - Added an option to hide the create new comment "Join the conversation" input box.
   - Fixed "Show vote buttons on the left" not working due to a website update.
   - Fixed "Post Followed Text Colour" incorrectly being applied as the normal post title colour when using "Compact View".
   - Removed "Hide the Search Banner on Home Feed" as this seemed to have been a failed Reddit experiment and is now obsolete, afaik.

@@ -354,7 +354,7 @@ function fetchText(url, sendResponse) {
 /* ===== Rules ===== */
 
 // ===== Race Condition Prevention =====
-// A global promise queue that serializes all ruleset updates.
+// A global promise queue that serialises all ruleset updates.
 // Without this, concurrent calls to addImageRules(), removeImageRules(), and
 // updateRedirectRuleset() could interleave and corrupt the ruleset state due to
 // the read-modify-write pattern when accessing storage.
@@ -483,33 +483,41 @@ BROWSER_API.runtime.onStartup.addListener(() => {
 });
 
 /**
- * Updates the redirect ruleset based on user preference (old/newnew/disabled).
+ * Updates the redirect ruleset based on user preference (old/latest/old_www).
  * Uses the queue to ensure atomic read-modify-write and prevent race conditions.
  * Preserves the image_ruleset state if it was previously enabled/disabled.
- * @param {string} version - 'old', 'newnew', or any other value to disable redirects
+ * @param {string} version - 'old', 'latest', 'old_www', 'off', or legacy 'newnew'
  */
 function updateRedirectRuleset(version) {
 	return queueRulesetUpdate(async () => {
-		// Read current state from storage (source of truth)
 		const { enableRulesetIds: currentEnable = [], disableRulesetIds: currentDisable = [] } = await BROWSER_API.storage.sync.get(['enableRulesetIds', 'disableRulesetIds']);
 
-		// Determine the new redirect ruleset configuration
+		const normalisedVersion = version === 'newnew' ? 'latest' : version;
+
 		let newEnable, newDisable;
 
-		if (version === 'old') {
-			newEnable = ['rv1_ruleset'];
-			newDisable = ['rv3_ruleset'];
-		} else if (version === 'newnew') {
-			newEnable = ['rv3_ruleset'];
-			newDisable = ['rv1_ruleset'];
-		} else {
-			// Disable both redirect rulesets
-			newEnable = [];
-			newDisable = ['rv1_ruleset', 'rv3_ruleset'];
+		switch (normalisedVersion) {
+			case 'old':
+				console.log(`${timestamp()} - Switching to Old redirect ruleset`);
+				newEnable = ['rv1_ruleset'];
+				newDisable = ['rv3_ruleset', 'rv1_www_ruleset'];
+				break;
+			case 'latest':
+				console.log(`${timestamp()} - Switching to Latest redirect ruleset`);
+				newEnable = ['rv3_ruleset'];
+				newDisable = ['rv1_ruleset', 'rv1_www_ruleset'];
+				break;
+			case 'old_www':
+				console.log(`${timestamp()} - Switching to Old (www only) redirect ruleset`);
+				newEnable = ['rv1_www_ruleset'];
+				newDisable = ['rv1_ruleset', 'rv3_ruleset'];
+				break;
+			default:
+				console.log(`${timestamp()} - Removed all redirect rulesets`);
+				newEnable = [];
+				newDisable = ['rv1_ruleset', 'rv3_ruleset', 'rv1_www_ruleset'];
 		}
 
-		// Preserve image_ruleset if it was previously enabled/disabled
-		// This ensures the "Just Open The Image" feature isn't affected by redirect changes
 		if (currentEnable.includes('image_ruleset') && !newEnable.includes('image_ruleset')) {
 			newEnable.push('image_ruleset');
 		}
@@ -517,21 +525,11 @@ function updateRedirectRuleset(version) {
 			newDisable.push('image_ruleset');
 		}
 
-		// Persist new state and update DNR
 		await BROWSER_API.storage.sync.set({ enableRulesetIds: newEnable, disableRulesetIds: newDisable });
 		await BROWSER_API.declarativeNetRequest.updateEnabledRulesets({
 			enableRulesetIds: newEnable,
 			disableRulesetIds: newDisable,
 		});
-
-		// Log the action
-		if (version === 'old') {
-			console.log(`${timestamp()} - Switching to RV1 (Old) redirect ruleset`);
-		} else if (version === 'newnew') {
-			console.log(`${timestamp()} - Switching to RV3 (Latest) redirect ruleset`);
-		} else {
-			console.log(`${timestamp()} - Removed RV1 (Old) and RV3 (Latest) rulesets`);
-		}
 	});
 }
 

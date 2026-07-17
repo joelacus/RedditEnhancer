@@ -467,6 +467,9 @@
 	"HideJoinConversation": {
 		"message": "Skjul «Bli med i samtalen»"
 	},
+	"HideJoinConversationPageBottom": {
+		"message": "Skjul «Bli med i samtalen» nederst på siden"
+	},
 	"HideKarma": {
 		"message": "Skjul karma"
 	},
@@ -713,9 +716,6 @@
 	"New": {
 		"message": "Ny / New"
 	},
-	"NewNewUI": {
-		"message": "Ny Ny UI"
-	},
 	"NewUpdateAvailable": {
 		"message": "Versjon <version> er nå tilgjengelig. Nettleseren din bør oppdatere denne utvidelsen automatisk snart hvis du har aktivert automatisk oppdatering, hvis ikke, må du manuelt sjekke etter oppdateringer i nettleserutvidelsesmanageren."
 	},
@@ -735,7 +735,10 @@
 		"message": "Gammel / Old"
 	},
 	"OldUI": {
-		"message": "Gammel UI"
+		"message": "Gammel"
+	},
+	"OldWww": {
+		"message": "Gammel (kun www)"
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Utvid kun kommentarer med negativ karma"
@@ -836,8 +839,11 @@
 	"Qa": {
 		"message": "Q&a"
 	},
-	"RUI3RedirectInfo": {
-		"message": "Omdirigeringsalternativet til den nyeste UI-en (Ny Ny UI) er ikke lenger nødvendig, men du kan bruke dette alternativet til å tvinge lenker fra (sh|old|new).reddit.com til www.reddit.com."
+	"RV1RedirectInfo": {
+		"message": "Omdirigeringsalternativet «Gammel (kun www)» omdirigerer bare www.reddit.com-nettadresser til gammel.reddit.com. Andre prefikser, som for eksempel sh.reddit.com, vil ikke bli påvirket."
+	},
+	"RV3RedirectInfo": {
+		"message": "Omdirigeringsalternativet «Nyeste» vil tvinge (sh|old|new).reddit.com-nettadresser til www.reddit.com, som vil bruke det nyeste brukergrensesnittet."
 	},
 	"Rate": {
 		"message": "Vurder / Anmeld"

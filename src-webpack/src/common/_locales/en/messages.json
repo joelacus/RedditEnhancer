@@ -470,6 +470,9 @@
 	"HideJoinConversation": {
 		"message": "Hide \"Join the conversation\""
 	},
+	"HideJoinConversationPageBottom": {
+		"message": "Hide \"Join the conversation\" at the bottom of the page"
+	},
 	"HideKarma": {
 		"message": "Hide Karma"
 	},
@@ -716,9 +719,6 @@
 	"New": {
 		"message": "New"
 	},
-	"NewNewUI": {
-		"message": "New New UI"
-	},
 	"NewUpdateAvailable": {
 		"message": "Version <version> is now available. Your browser should update this extension automatically soon if you have automatic updates enabled, if not, you will have to manually check for updates in the browser extension manager."
 	},
@@ -739,6 +739,9 @@
 	},
 	"OldUI": {
 		"message": "Old UI"
+	},
+	"OldWww": {
+		"message": "Old (www only)"
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Only expand negative karma comments"
@@ -839,8 +842,11 @@
 	"Qa": {
 		"message": "Q&a"
 	},
-	"RUI3RedirectInfo": {
-		"message": "The redirect option to the Latest UI (New New UI) is no longer necessary, however, you can use this option to force links from (sh|old|new).reddit.com to www.reddit.com"
+	"RV1RedirectInfo": {
+		"message": "The \"Old (www only)\" redirect option will only redirect www.reddit.com URLs to old.reddit.com. Other prefixes such as sh.reddit.com will be unaffected."
+	},
+	"RV3RedirectInfo": {
+		"message": "The \"Latest\" redirect option will force (sh|old|new).reddit.com URLs to www.reddit.com, which will use the latest UI."
 	},
 	"Rate": {
 		"message": "Rate / Review"

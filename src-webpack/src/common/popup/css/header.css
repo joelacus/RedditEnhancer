@@ -104,8 +104,14 @@
 	background-color: rgba(255, 152, 0, 0.1);
 }
 .banner-message.blue {
-	border: solid 1px #384f85;
-	background-color: #253d73;
+	border: solid 1px #36559f;
+	background-color: #4b6193;
+}
+.theme-light .banner-message.blue,
+.theme-classic-light .banner-message.blue,
+.theme-grey .banner-message.blue {
+	border: solid 1px #67a4d9;
+	background-color: #c3dffe;
 }
 .message-buttons {
 	display: flex;

@@ -467,6 +467,9 @@
 	"HideJoinConversation": {
 		"message": "Verstecke „Zum Gespräch beitreten“"
 	},
+	"HideJoinConversationPageBottom": {
+		"message": "Verstecke „Zum Gespräch beitreten“ am Ende der Seite"
+	},
 	"HideKarma": {
 		"message": "Karma Ausblenden"
 	},
@@ -645,7 +648,7 @@
 		"message": "Größere klassische Beitragsansicht"
 	},
 	"Latest": {
-		"message": "Letzte"
+		"message": "Aktuellste"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Abstimmungsschaltflächen links anzeigen"
@@ -713,9 +716,6 @@
 	"New": {
 		"message": "Neu / New"
 	},
-	"NewNewUI": {
-		"message": "Neuer Neuer UI"
-	},
 	"NewUpdateAvailable": {
 		"message": "Version <version> ist jetzt verfügbar. Ihr Browser sollte diese Erweiterung bald automatisch aktualisieren, wenn Sie automatische Updates aktiviert haben. Andernfalls müssen Sie im Browser-Erweiterungsmanager manuell nach Updates suchen."
 	},
@@ -735,7 +735,10 @@
 		"message": "Alt / Old"
 	},
 	"OldUI": {
-		"message": "Alter UI"
+		"message": "Alt"
+	},
+	"OldWww": {
+		"message": "Alt (nur www)"
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Nur Kommentare mit negativem Karma erweitern"
@@ -836,8 +839,11 @@
 	"Qa": {
 		"message": "Q&a"
 	},
-	"RUI3RedirectInfo": {
-		"message": "Die Umleitungsoption zu Letzte UI (Neuer Neuer UI) ist nicht mehr erforderlich. Sie können diese Option jedoch verwenden, um Links von (sh|old|new).reddit.com zu www.reddit.com zu erzwingen."
+	"RV1RedirectInfo": {
+		"message": "Die Weiterleitungsoption „Alt (nur www)“ leitet lediglich URLs der Form www.reddit.com auf old.reddit.com um. Andere Präfixe wie sh.reddit.com sind davon nicht betroffen."
+	},
+	"RV3RedirectInfo": {
+		"message": "Die Weiterleitungsoption „Aktuellste“ erzwingt die Umleitung von URLs der Form (sh|old|new).reddit.com auf www.reddit.com, wodurch die neueste Benutzeroberfläche verwendet wird."
 	},
 	"Rate": {
 		"message": "Bewerten / Rezension"

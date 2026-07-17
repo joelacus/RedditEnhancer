@@ -695,3 +695,12 @@ document.querySelector('#checkbox-hide-join-conversation').addEventListener('cha
 	icon.style.backgroundColor = this.checked ? 'var(--accent)' : '';
 	icon.classList.replace(this.checked ? 'icon-show' : 'icon-hide', this.checked ? 'icon-hide' : 'icon-show');
 });
+
+// Toggle - Join Conversation Input at the Bottom of the Page
+document.querySelector('#checkbox-hide-join-conversation-page-bottom').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ hideJoinConversationPageBottom: this.checked });
+	sendMessage({ hideJoinConversationPageBottom: this.checked });
+	const icon = document.querySelector('.icon-hide-join-conversation-page-bottom');
+	icon.style.backgroundColor = this.checked ? 'var(--accent)' : '';
+	icon.classList.replace(this.checked ? 'icon-show' : 'icon-hide', this.checked ? 'icon-hide' : 'icon-show');
+});

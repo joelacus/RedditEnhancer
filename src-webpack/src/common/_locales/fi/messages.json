@@ -467,6 +467,9 @@
 	"HideJoinConversation": {
 		"message": "Piilota ”Liity keskusteluun“"
 	},
+	"HideJoinConversationPageBottom": {
+		"message": "Piilota ”Liity keskusteluun“ sivun alareunassa"
+	},
 	"HideKarma": {
 		"message": "Piilota karma"
 	},
@@ -713,9 +716,6 @@
 	"New": {
 		"message": "Uusi / New"
 	},
-	"NewNewUI": {
-		"message": "Uusi Uusi UI"
-	},
 	"NewUpdateAvailable": {
 		"message": "Versio <version> on nyt saatavilla. Selain selaimesi pitäisi päivittää tämä laajennus automaattisesti pian, jos olet mahdollistanut automaattiset päivitykset, tai sinun on käsin tarkistettava päivitykset selaimen laajennusohjelmistossa. (tai vähintään se on näin, jos käännös on yleisempi)"
 	},
@@ -735,7 +735,10 @@
 		"message": "Vanha / Old"
 	},
 	"OldUI": {
-		"message": "Vanha UI"
+		"message": "Vanha"
+	},
+	"OldWww": {
+		"message": "Vanha (vain www)"
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Laajenna vain negatiivisen karman kommentit"
@@ -836,8 +839,11 @@
 	"Qa": {
 		"message": "Q&a"
 	},
-	"RUI3RedirectInfo": {
-		"message": "Ohjausvaihtoehto uusimpaan käyttöliittymään (Uusi Uusi UI) ei ole enää tarpeellinen, mutta voit käyttää tätä vaihtoehtoa pakottaaksesi linkit (sh|old|new).reddit.com:stä www.reddit.com:iin."
+	"RV1RedirectInfo": {
+		"message": "\"Vanha (vain www)\" -uudelleenohjausvaihtoehto ohjaa vain www.reddit.com-URL-osoitteet osoitteeseen old.reddit.com. Muut etuliitteet, kuten sh.reddit.com, eivät muutu."
+	},
+	"RV3RedirectInfo": {
+		"message": "\"Uusin\"-uudelleenohjausvaihtoehto pakottaa (sh|old|new).reddit.com-URL-osoitteet osoitteeseen www.reddit.com, joka käyttää uusinta käyttöliittymää."
 	},
 	"Rate": {
 		"message": "Arvostelu"

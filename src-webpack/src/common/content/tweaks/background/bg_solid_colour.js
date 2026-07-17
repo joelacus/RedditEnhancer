@@ -34,7 +34,10 @@ export function solidColourBackground(value) {
 function enableSolidBackgroundBackgroundRV3() {
 	const styleElement = document.createElement('style');
 	styleElement.id = 're-solid-colour-background';
-	styleElement.textContent = `body {
+	styleElement.textContent = `body,
+								shreddit-app[routename="post_page"] .main-container,
+								shreddit-app[routename="comments_page"] .main-container,
+								shreddit-app[routename="profile_post_page_comments"].main-container {
 									background: var(--re-background-colour) !important;
 								}`;
 	document.head.insertBefore(styleElement, document.head.firstChild);

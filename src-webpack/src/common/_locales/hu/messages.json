@@ -465,7 +465,10 @@
 		"message": "Rejtsd el a „Csatlakozás” gombot a bejegyzéseken"
 	},
 	"HideJoinConversation": {
-		"message": "Láremazni a beszélgetéshez"
+		"message": "Rejtse el a „Csatlakozás a beszélgetéshez”"
+	},
+	"HideJoinConversationPageBottom": {
+		"message": "Rejtse el a „Csatlakozás a beszélgetéshez” lehetőséget az oldal alján"
 	},
 	"HideKarma": {
 		"message": "Karma elrejtése"
@@ -645,7 +648,7 @@
 		"message": "Nagyobb klasszikus bejegyzésnéz"
 	},
 	"Latest": {
-		"message": "legfrisse"
+		"message": "Legfrissebb"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Mutassa a szavazó gombok a bal oldalon"
@@ -713,9 +716,6 @@
 	"New": {
 		"message": "Új / New"
 	},
-	"NewNewUI": {
-		"message": "Új Új UI"
-	},
 	"NewUpdateAvailable": {
 		"message": "A <version> verziója már elérhető. A böngészője hamarosan automatikusan frissíteni devrait e bővítményt, ha be van kapcsolva az automatikus frissítés, ha nem, manuálisan kell ellenőriznie az automatikus frissítések menedzserében."
 	},
@@ -736,6 +736,9 @@
 	},
 	"OldUI": {
 		"message": "Régi UI"
+	},
+	"OldWww": {
+		"message": "Régi (csak www)"
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Csak a negatív karmás kommentek kibontása"
@@ -836,8 +839,11 @@
 	"Qa": {
 		"message": "Q&a"
 	},
-	"RUI3RedirectInfo": {
-		"message": "Az „Új UI” felirányító lehet, hogy már nem szükséges, de ezt az opciót használhatja a (sh|old|new).reddit.com-ról www.reddit.com-ra irányuló linkek kötelező kikényszerítésére."
+	"RV1RedirectInfo": {
+		"message": "A „Régi (csak www)” átirányítási opció csak a www.reddit.com URL-eket irányítja át az old.reddit.com oldalra. Más előtagok, mint például az sh.reddit.com, nem változnak."
+	},
+	"RV3RedirectInfo": {
+		"message": "A „Legfrissebb” átirányítási opció a (sh|old|new).reddit.com URL-eket a www.reddit.com oldalra kényszeríti, amely a legújabb felhasználói felületet fogja használni."
 	},
 	"Rate": {
 		"message": "Értékelés / Vélemény"

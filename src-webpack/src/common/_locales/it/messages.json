@@ -467,6 +467,9 @@
 	"HideJoinConversation": {
 		"message": "Nascondi \"Partecipa alla conversazione\""
 	},
+	"HideJoinConversationPageBottom": {
+		"message": "Nascondi \"Partecipa alla conversazione\" in fondo alla pagina"
+	},
 	"HideKarma": {
 		"message": "Nascondi Karma"
 	},
@@ -645,7 +648,7 @@
 		"message": "Visualizzazione post classica più ampia"
 	},
 	"Latest": {
-		"message": "Ultimo"
+		"message": "Ultima"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Mostra i pulsanti di voto a sinistra"
@@ -713,9 +716,6 @@
 	"New": {
 		"message": "Nuovo / New"
 	},
-	"NewNewUI": {
-		"message": "Nuovo Nuovo UI"
-	},
 	"NewUpdateAvailable": {
 		"message": "La versione <version> è ora disponibile. Il tuo browser dovrebbe aggiornare questa estensione automaticamente tra poco, se hai abilitato gli aggiornamenti automatici; altrimenti, dovrai cercare manualmente gli aggiornamenti nel gestore estensioni del browser."
 	},
@@ -735,7 +735,10 @@
 		"message": "Vecchio / Old"
 	},
 	"OldUI": {
-		"message": "UI vecchio"
+		"message": "Vecchio"
+	},
+	"OldWww": {
+		"message": "Vecchio (solo www)"
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Espandi solo i commenti con karma negativo"
@@ -836,8 +839,11 @@
 	"Qa": {
 		"message": "Q&A"
 	},
-	"RUI3RedirectInfo": {
-		"message": "L'opzione di reindirizzamento a Ultima UI (Nuovo Nuovo UI) non è più necessaria, tuttavia, puoi utilizzare questa opzione per forzare i collegamenti da (sh|old|new).reddit.com a www.reddit.com"
+	"RV1RedirectInfo": {
+		"message": "L'opzione di reindirizzamento \"Vecchio (solo www)\" reindirizzerà a old.reddit.com esclusivamente gli URL del tipo www.reddit.com. Altri prefissi, come sh.reddit.com, non subiranno modifiche."
+	},
+	"RV3RedirectInfo": {
+		"message": "L'opzione di reindirizzamento \"Ultima\" forzerà gli URL (sh|old|new).reddit.com verso www.reddit.com, che utilizzerà l'interfaccia più recente."
 	},
 	"Rate": {
 		"message": "Vota / Recensione"

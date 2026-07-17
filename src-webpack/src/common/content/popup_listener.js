@@ -177,6 +177,7 @@ import { autoplayCommentGifs } from './tweaks/media/autoplay_comment_gifs';
 import { galleryKeyboardNavigation } from './tweaks/media/gallery_keyboard_navigation';
 import { hideAnnouncementNotifications } from './tweaks/hide_elements/hide_announcement_notifications';
 import { hideJoinConversation } from './tweaks/hide_elements/hide_join_conversation';
+import { hideJoinConversationPageBottom } from './tweaks/hide_elements/hide_join_conversation_page_bottom';
 import { hideGamificationNotifications } from './tweaks/hide_elements/hide_gamification_notifications';
 import { forceShowVoteButtons } from './tweaks/productivity/force_show_vote_buttons';
 
@@ -457,6 +458,7 @@ const functionRegistry = {
 	galleryKeyboardNavigation,
 	hideAnnouncementNotifications,
 	hideJoinConversation,
+	hideJoinConversationPageBottom,
 	hideGamificationNotifications,
 	forceShowVoteButtons,
 	// themeSearchbarBorderColour,

@@ -467,6 +467,9 @@
 	"HideJoinConversation": {
 		"message": "Masquer « Rejoindre la conversation»"
 	},
+	"HideJoinConversationPageBottom": {
+		"message": "Masquer « Rejoindre la conversation» au bas de la page"
+	},
 	"HideKarma": {
 		"message": "Masquer le karma"
 	},
@@ -645,7 +648,7 @@
 		"message": "Vue de Post classique plus grande"
 	},
 	"Latest": {
-		"message": "Dernier"
+		"message": "Derniers"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Afficher les boutons de vote à gauche"
@@ -713,9 +716,6 @@
 	"New": {
 		"message": "Nouvelles / New"
 	},
-	"NewNewUI": {
-		"message": "Nouveau Nouveau UI"
-	},
 	"NewUpdateAvailable": {
 		"message": "La version <version> est désormais disponible. Votre navigateur devrait bientôt mettre à jour cette extension automatiquement si vous avez activé les mises à jour automatiques. Dans le cas contraire, vous devrez rechercher manuellement les mises à jour dans le gestionnaire d'extensions du navigateur."
 	},
@@ -735,7 +735,10 @@
 		"message": "Ancien / Old"
 	},
 	"OldUI": {
-		"message": "Vieux UI"
+		"message": "Ancien"
+	},
+	"OldWww": {
+		"message": "Ancien (www uniquement)"
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Ne développez que les commentaires à karma négatif"
@@ -836,8 +839,11 @@
 	"Qa": {
 		"message": "Q&a"
 	},
-	"RUI3RedirectInfo": {
-		"message": "L'option de redirection vers Dernière UI (Nouvelle Nouvelle UI) n'est plus nécessaire, cependant, vous pouvez utiliser cette option pour forcer les liens de (sh|old|new).reddit.com vers www.reddit.com"
+	"RV1RedirectInfo": {
+		"message": "L'option de redirection « Ancien (www uniquement) » redirigera uniquement les URL www.reddit.com vers old.reddit.com. Les autres préfixes, tels que sh.reddit.com, ne seront pas affectés."
+	},
+	"RV3RedirectInfo": {
+		"message": "L'option de redirection « Derniers » forcera les URL du type (sh|old|new).reddit.com à pointer vers www.reddit.com, qui utilisera la dernière version de l'interface."
 	},
 	"Rate": {
 		"message": "Noter / Commentaire"

@@ -67,9 +67,6 @@ function enableHideGapRV3() {
 										margin-top: 0;
 										border-radius: 0;
 									}
-									#right-sidebar-container {
-										margin-top: 3rem !important;
-									}
 									#right-sidebar-container section {
 										margin: 0 !important;
 										border-radius: 0 !important;
@@ -106,6 +103,11 @@ function enableHideGapRV3() {
 									}
 									.main-container {
 										grid-gap: 0 !important;
+										padding: 0 !important;
+									}
+									#subreddit-right-rail__partial > aside,
+									#right-sidebar-contents > aside {
+										margin: 0 !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}

@@ -15,6 +15,8 @@ const body = document.querySelector('body');
 const observer = new MutationObserver((mutations) => {
 	mutations.forEach(() => {
 		if (oldHref !== document.location.href) {
+			if (document.location.href.endsWith('#lightbox')) return;
+
 			oldHref = document.location.href;
 
 			console.log('[RedditEnhancer] Detected page change. Reloading tweaks.');

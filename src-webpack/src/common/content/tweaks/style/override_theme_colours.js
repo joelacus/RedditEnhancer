@@ -290,13 +290,16 @@ export function themePostBackgroundColour(value) {
 		});
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-post-bg-colour';
-		styleElement.textContent = `:root shreddit-app[routename="post_page"] .grid-container.grid,
-									:root shreddit-app[routename="comments_page"] .grid-container.grid,
-									:root shreddit-app[routename="profile_post_page_comments"] .grid-container.grid,
+		styleElement.textContent = `:root shreddit-app[routename="post_page"] .grid-container .main,
+									:root shreddit-app[routename="comments_page"] .grid-container .main,
+									:root shreddit-app[routename="profile_post_page_comments"] .grid-container .main,
 									r-post-type-select + section {
 										--color-neutral-background: var(--re-theme-post-bg) !important;
 										--shreddit-content-background: transparent;
 										background-color: var(--re-theme-post-bg);
+									}
+									shreddit-app[routename="post_page"] [slot="credit-bar"] {
+										background: transparent;
 									}
 									r-post-type-select {
 										margin-left: 0;
