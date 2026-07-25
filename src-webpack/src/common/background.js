@@ -46,6 +46,12 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 		return true;
 	} else if (request.openOptionsPage === true) {
 		BROWSER_API.tabs.create({ url: `options.html` }, function (tab) {});
+	} else if (request.openUserTaggingManager === true) {
+		BROWSER_API.storage.sync.get(['language'], function (result) {
+			const lang = typeof result.language != 'undefined' ? '&lang=' + result.language : '';
+			const user = request.user ? '&user=' + encodeURIComponent(request.user) : '';
+			BROWSER_API.tabs.create({ url: `user_tagging_manager.html${lang || user ? '?' : ''}${lang}${user}` }, function (tab) {});
+		});
 	} else if (request.actions) {
 		for (const action of request.actions) {
 			if (action.action === 'fetchData' && action.url) {

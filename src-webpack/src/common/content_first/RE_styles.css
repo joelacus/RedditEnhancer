@@ -268,6 +268,8 @@ a.thumbnail > img {
 	z-index: 10;
 }
 .re-post-author {
+	display: flex;
+	align-items: center;
 	color: var(--color-neutral-content-weak);
 	z-index: 4;
 }

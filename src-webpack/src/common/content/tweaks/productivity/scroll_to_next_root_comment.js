@@ -133,7 +133,7 @@ function enableScrollToNextRootCommentRV3() {
 
 	const isInputFocused = () => {
 		const active = document.activeElement;
-		return active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable);
+		return active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.tagName === 'SHREDDIT-COMPOSER' || active.isContentEditable || active.shadowRoot?.querySelector('[data-testid="reddit-chat-client"]'));
 	};
 
 	function handleKeyPress(e) {
@@ -239,7 +239,7 @@ function enableScrollToNextRootCommentRV1() {
 	}
 
 	// Append container to body
-	document.querySelector('html').append(container);
+	document.querySelector('body').appendChild(container);
 
 	// Add key press event listener
 	document.addEventListener('keydown', handleKeyPress);

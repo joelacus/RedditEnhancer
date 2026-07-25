@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title data-lang="UserTaggingManagerTitle">User Tagging Manager</title>
+		<link rel="stylesheet" href="user_tagging_manager.css" />
+		<script src="user_tagging_manager.js" defer></script>
+	</head>
+	<body>
+		<div class="container">
+			<h1 data-lang="UserTaggingManagerTitle"></h1>
+
+			<div class="header-bar">
+				<div class="search-bar">
+					<input type="text" id="search-username" data-lang-placeholder="SearchUsername" placeholder="Search username..." />
+					<input type="text" id="search-tag" data-lang-placeholder="SearchTag" placeholder="Search tag..." />
+					<button id="btn-clear-search" class="btn" data-lang="Clear"></button>
+				</div>
+				<div class="table-actions">
+					<button id="btn-export-tags" class="btn" data-lang="ExportTags"></button>
+					<button id="btn-import-tags" class="btn" data-lang="ImportTags"></button>
+					<input type="file" id="file-import-tags" accept=".json,.resbackup" style="display: none" />
+				</div>
+			</div>
+
+			<div class="table-scroll">
+				<table id="user-tags-table">
+					<thead>
+						<tr>
+							<th>
+								<div>
+									<div>
+										<span data-lang="Username"></span>
+										<span id="user-count"></span>
+									</div>
+									<button class="sort-btn" data-sort="username" aria-label="Sort by username">
+										<i class="btn-icon icon-sort"></i>
+									</button>
+								</div>
+							</th>
+							<th>
+								<div>
+									<span data-lang="Tag"></span>
+									<button class="sort-btn" data-sort="tag" aria-label="Sort by tag">
+										<i class="btn-icon icon-sort"></i>
+									</button>
+								</div>
+							</th>
+							<th data-lang="Note"></th>
+							<th data-lang="Link"></th>
+							<th>
+								<div>
+									<span data-lang="Created"></span>
+									<button class="sort-btn" data-sort="created" aria-label="Sort by created">
+										<i class="btn-icon icon-sort"></i>
+									</button>
+								</div>
+							</th>
+							<th>
+								<div>
+									<span data-lang="Updated"></span>
+									<button class="sort-btn" data-sort="updated" aria-label="Sort by updated">
+										<i class="btn-icon icon-sort"></i>
+									</button>
+								</div>
+							</th>
+							<th class="actions-col"></th>
+						</tr>
+					</thead>
+					<tbody id="user-tags-tbody">
+						<!-- Rows injected by JS -->
+					</tbody>
+				</table>
+			</div>
+
+			<div class="bottom-bar">
+				<button id="btn-add-user-tag" class="btn" data-lang="AddUserTag"></button>
+				<button id="btn-delete-all-tags" class="btn btn-danger" data-lang="DeleteAllTags"></button>
+			</div>
+
+			<footer class="manager-footer">
+				<p data-lang="UserTaggingManagerInfo1">.</p>
+				<p data-lang="UserTaggingManagerInfo2"></p>
+			</footer>
+		</div>
+
+		<!-- Edit Tag Modal -->
+		<div id="edit-tag-modal" class="modal hidden">
+			<div class="modal-content">
+				<div class="header">
+					<h2 data-lang="EditTag"></h2>
+				</div>
+				<div class="re-edit-tag">
+					<div>
+						<label data-lang="Label"></label>
+						<input type="text" id="edit-tag-label" maxlength="30" />
+						<label data-lang="Icon"></label>
+						<select id="edit-tag-icon">
+							<option value="none">None</option>
+							<option value="star">Star</option>
+							<option value="heart">Heart</option>
+							<option value="crown">Crown</option>
+							<option value="peace">Peace</option>
+							<option value="tick">Tick</option>
+							<option value="thumbs-up">Thumbs Up</option>
+							<option value="thumbs-down">Thumbs Down</option>
+							<option value="ban">Ban</option>
+							<option value="swear">Swear</option>
+							<option value="toxic">Toxic</option>
+							<option value="paw">Paw</option>
+							<option value="lemon">Lemon</option>
+							<option value="rocket">Rocket</option>
+							<option value="pawn">Pawn</option>
+							<option value="game">Game</option>
+							<option value="car">Car</option>
+							<option value="user">User</option>
+							<option value="mod">Mod</option>
+						</select>
+					</div>
+					<div class="colour-col">
+						<label data-lang="LabelColour"></label>
+						<input type="text" id="edit-tag-colour-fg" />
+						<label data-lang="TagColour"></label>
+						<input type="text" id="edit-tag-colour" />
+					</div>
+				</div>
+				<label data-lang="Preview"></label>
+				<div class="re-tag-popover-preview">
+					<span id="tag-preview" class="tag-preview"></span>
+					<button id="btn-add-to-presets" class="btn" data-lang="AddToPresets"></button>
+				</div>
+				<div class="re-tag-popover-presets">
+					<label data-lang="PresetTags"></label>
+					<div id="presets-list" class="re-tag-popover-presets-list"></div>
+				</div>
+				<div class="re-tag-popover-actions">
+					<button id="btn-save-tag" class="btn btn-save" data-lang="Save"></button>
+					<button id="btn-cancel-tag" class="btn" data-lang="Cancel"></button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Delete Confirmation Modal -->
+		<div id="delete-confirm-modal" class="modal hidden">
+			<div class="modal-content">
+				<h2 data-lang="AreYouSure"></h2>
+				<p id="delete-confirm-text"></p>
+				<div class="re-tag-popover-actions">
+					<button id="btn-confirm-delete" class="btn btn-danger" data-lang="Delete"></button>
+					<button id="btn-cancel-delete" class="btn" data-lang="Cancel"></button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Info Modal -->
+		<div id="info-modal" class="modal hidden">
+			<div class="modal-content">
+				<h2></h2>
+				<p id="info-modal-text"></p>
+				<div class="re-tag-popover-actions">
+					<button id="btn-close-info" class="btn" data-lang="Close"></button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Edit Link Modal -->
+		<div id="edit-link-modal" class="modal hidden">
+			<div class="modal-content">
+				<h2 data-lang="EditLink"></h2>
+				<label data-lang="Link"></label>
+				<input type="text" id="edit-link-input" />
+				<button id="btn-clear-link" class="btn" data-lang="Clear" style="margin-top: 8px"></button>
+				<div class="re-tag-popover-actions">
+					<button id="btn-save-link" class="btn btn-save" data-lang="Save"></button>
+					<button id="btn-cancel-link" class="btn" data-lang="Cancel"></button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

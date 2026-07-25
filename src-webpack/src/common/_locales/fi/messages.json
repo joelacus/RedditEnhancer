@@ -26,8 +26,17 @@
 	"AddNsfwTag": {
 		"message": "Lisää NSFW-merkki"
 	},
+	"AddPresetTag": {
+		"message": "Lisää oletettu merkki"
+	},
 	"AddSpoilerTag": {
 		"message": "Lisää spoiler-merkki"
+	},
+	"AddToPresets": {
+		"message": "Lisää esiasetuksiin"
+	},
+	"AddUserTag": {
+		"message": "Lisää käyttäjän tagi"
 	},
 	"AlwaysShowCommentOptions": {
 		"message": "Näytä aina kommentointivaihtoehdot"
@@ -43,6 +52,9 @@
 	},
 	"AppendNumbersToPostImages": {
 		"message": "Numerooidut julkaisukuvat"
+	},
+	"AreYouSure": {
+		"message": "Oletko varma?"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Näytä sivun- ja käyttäjätiedot yläosassa"
@@ -161,6 +173,9 @@
 	"BuyMeACoffee": {
 		"message": "Osta minulle kahvia"
 	},
+	"Cancel": {
+		"message": "Peruuta"
+	},
 	"CannedMessages": {
 		"message": "Ennalaiset viestit"
 	},
@@ -185,14 +200,23 @@
 	"CleanLink": {
 		"message": "Lisää postauksen/kommentin jakovaihtoehto ilman seurantaa (Puhdas linkki)"
 	},
+	"Clear": {
+		"message": "Selkeä"
+	},
 	"Cleared": {
 		"message": "Poistettu"
+	},
+	"ClickToEdit": {
+		"message": "Klikkaa muokataksesi"
 	},
 	"Close": {
 		"message": "Sulkea"
 	},
 	"CloseTab": {
 		"message": "Voit nyt sulkea tämän välilehden/ikkunan."
+	},
+	"Colour": {
+		"message": "väri"
 	},
 	"Comments": {
 		"message": "Kommentit"
@@ -212,8 +236,14 @@
 	"CompactPostLinkPreview": {
 		"message": "Tiiviit postilinkkien esikatselut"
 	},
+	"Complete": {
+		"message": "Täydellinen"
+	},
 	"Confirm": {
 		"message": "Vahvista"
+	},
+	"ConfirmDeleteAll": {
+		"message": "Oletko varma, että haluat poistaa kaikki käyttäjätunnukset? Tämä on peruuttamaton, ellemme sinulla ole varmuuskertaa."
 	},
 	"Controversial": {
 		"message": "Kiistanalainen"
@@ -233,6 +263,9 @@
 	"CopyCleanLinkShort": {
 		"message": "Kopioi puhdas linkki (lyhyt)"
 	},
+	"Created": {
+		"message": "Luotu"
+	},
 	"CreatePost": {
 		"message": "Luo viesti"
 	},
@@ -241,6 +274,9 @@
 	},
 	"CreatePostTitle": {
 		"message": "Luo viesti: Otsikko"
+	},
+	"CreateTag": {
+		"message": "Luo tunniste"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Mukautettu taustalinkki"
@@ -272,6 +308,12 @@
 	"Delete": {
 		"message": "Poista"
 	},
+	"DeleteAllTags": {
+		"message": "Poista kaikki"
+	},
+	"Details": {
+		"message": "Yksityiskohdat"
+	},
 	"Disabled": {
 		"message": "Poistettu käytöstä"
 	},
@@ -287,8 +329,17 @@
 	"Edit": {
 		"message": "Muokkaa"
 	},
+	"EditLink": {
+		"message": "Muokkaa linkkiä"
+	},
 	"EditPost": {
 		"message": "Muokkaa viesti"
+	},
+	"EditTag": {
+		"message": "Muokkaa tunniste"
+	},
+	"EnableUserTagging": {
+		"message": "Mahdollista käyttäjien tunnistaa"
 	},
 	"EndTime": {
 		"message": "Loppu aika (24)"
@@ -296,8 +347,14 @@
 	"Error": {
 		"message": "Virhe"
 	},
+	"ExportTags": {
+		"message": "Vie tunnisteet"
+	},
 	"ExtensionSettings": {
 		"message": "Uson laajennukset"
+	},
+	"extensionVersionText": {
+		"message": "Lisäosan versio"
 	},
 	"Feed": {
 		"message": "Syöttää"
@@ -482,11 +539,11 @@
 	"HideModerationButton": {
 		"message": "Piilota \"Moderaatio\" -painike"
 	},
-	"HideNSFW": {
-		"message": "Piilota NSFW/L-viestit"
-	},
 	"HideNotificationButton": {
 		"message": "Piilota \"Ilmoitus\"-painike"
+	},
+	"HideNSFW": {
+		"message": "Piilota NSFW/L-viestit"
 	},
 	"HideNsfwInSearchResults": {
 		"message": "Piilota NSFW-tulokset hakupalkista"
@@ -512,14 +569,14 @@
 	"HidePostKarma": {
 		"message": "Piilota viestin karma"
 	},
-	"HidePostSidebar": {
-		"message": "Piilota viestin sivupalkki"
-	},
 	"HidePostsByBlockedUser": {
 		"message": "Piilota viestit estyneiltä käyttäjiltä"
 	},
 	"HidePostsBySubreddit": {
 		"message": "Piilota viestit subredditin mukaan"
+	},
+	"HidePostSidebar": {
+		"message": "Piilota viestin sivupalkki"
 	},
 	"HidePromoted": {
 		"message": "Piilota mainokset/mainostetut linkit"
@@ -569,11 +626,11 @@
 	"HideSideMenuResourcesSection": {
 		"message": "Piilota resurssiosio"
 	},
-	"HideSideMenuTopSection": {
-		"message": "Piilota yläosio"
-	},
 	"HideSideMenuTopicsSection": {
 		"message": "Piilota aiheosi osio"
+	},
+	"HideSideMenuTopSection": {
+		"message": "Piilota yläosio"
 	},
 	"HideSubSidebar": {
 		"message": "Piilota Subreddit-sivupalkki"
@@ -587,6 +644,9 @@
 	"HideTrendingTodayInSearchResults": {
 		"message": "Piilota 'Tänään suositut' hakupalkista"
 	},
+	"HideUsername": {
+		"message": "Piilota käyttäjänimi"
+	},
 	"HideUserNameInTheFlairSection": {
 		"message": "Piilota käyttäjätunnus subredditin sivupalkin flair-osiossa"
 	},
@@ -595,9 +655,6 @@
 	},
 	"HideUserSidebar": {
 		"message": "Piilota käyttäjäsivupaneeli"
-	},
-	"HideUsername": {
-		"message": "Piilota käyttäjänimi"
 	},
 	"HideVideoRecommendations": {
 		"message": "Piilota suositellut julkaisut, kun video päättyy"
@@ -620,14 +677,26 @@
 	"Hot": {
 		"message": "Kuuma / Hot"
 	},
+	"Icon": {
+		"message": "ikoni"
+	},
 	"Image": {
 		"message": "Kuva"
+	},
+	"Images": {
+		"message": "Kuvat"
 	},
 	"ImageScroll": {
 		"message": "Lisää kuvien vierityspalkit"
 	},
-	"Images": {
-		"message": "Kuvat"
+	"ImportInvalidFormat": {
+		"message": "Virheellinen tiedostomuoto."
+	},
+	"ImportSuccess": {
+		"message": "Tuotettiin {count} tunnisteella onnistuneesti."
+	},
+	"ImportTags": {
+		"message": "Tuon tunnisteet"
 	},
 	"JustOpenTheImage": {
 		"message": "Avaa kuva"
@@ -641,6 +710,12 @@
 	"KeywordsBlockInfo": {
 		"message": "Estää julkaisut otsikon perusteella, ei sisällön mukaan. Lista yksittäiset avainsanat/regex-säännöt, eroteltuna pilkulla."
 	},
+	"Label": {
+		"message": "Tunniste"
+	},
+	"LabelColour": {
+		"message": "Tarran väri"
+	},
 	"Language": {
 		"message": "Kieli"
 	},
@@ -649,6 +724,9 @@
 	},
 	"Latest": {
 		"message": "Uusin"
+	},
+	"learnMore": {
+		"message": "Lue lisää"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Näytä äänestyspainikkeet vasemmalla"
@@ -676,6 +754,9 @@
 	},
 	"MainContainer": {
 		"message": "Pääkontti"
+	},
+	"ManageTaggedUsers": {
+		"message": "Hallitse merkityt käyttäjät"
 	},
 	"MarkAsBrandAffiliate": {
 		"message": "Merkitse brändi-affiliateksi"
@@ -719,11 +800,20 @@
 	"NewUpdateAvailable": {
 		"message": "Versio <version> on nyt saatavilla. Selain selaimesi pitäisi päivittää tämä laajennus automaattisesti pian, jos olet mahdollistanut automaattiset päivitykset, tai sinun on käsin tarkistettava päivitykset selaimen laajennusohjelmistossa. (tai vähintään se on näin, jos käännös on yleisempi)"
 	},
+	"NonStickyHeaderBar": {
+		"message": "Ei-tarttu ylänauha"
+	},
+	"NoPresetsYet": {
+		"message": "Ei asetuksia"
+	},
 	"NoSavedBackgrounds": {
 		"message": "Ei tallennettuja taustoja"
 	},
-	"NonStickyHeaderBar": {
-		"message": "Ei-tarttu ylänauha"
+	"Note": {
+		"message": "Huomautus"
+	},
+	"NoTaggedUsers": {
+		"message": "Ei tunnistettuja käyttäjiä"
 	},
 	"Off": {
 		"message": "Poiski"
@@ -743,6 +833,9 @@
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Laajenna vain negatiivisen karman kommentit"
 	},
+	"OpenInManager": {
+		"message": "Avaa hallinnossa"
+	},
 	"OpenPostInNewTab": {
 		"message": "Avaa julkaisulinkit uudelle välilehdelle"
 	},
@@ -755,11 +848,11 @@
 	"OpenSubInNewTab": {
 		"message": "Avaa linkit subredditeille uudessa välilehdellä"
 	},
-	"OptOutAttachSideMenu": {
-		"message": "Älä liitä sivupalkkia pudotusvalikkopaneelina"
-	},
 	"OptionsPage": {
 		"message": "Asetukset-sivu"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Älä liitä sivupalkkia pudotusvalikkopaneelina"
 	},
 	"Or": {
 		"message": "tai"
@@ -809,6 +902,9 @@
 	"PostOffset": {
 		"message": "Viestin siirtymä"
 	},
+	"Posts": {
+		"message": "Julkaisut"
+	},
 	"PostSecondaryTextColour": {
 		"message": "Julkaisu: Toissijaisen tekstin väri"
 	},
@@ -830,20 +926,17 @@
 	"PostWidth": {
 		"message": "Julkaisun leveys"
 	},
-	"Posts": {
-		"message": "Julkaisut"
+	"PresetTags": {
+		"message": "Ennakkooletagiot"
+	},
+	"Preview": {
+		"message": "Esikatselu"
 	},
 	"Productivity": {
 		"message": "Tuottavuus"
 	},
 	"Qa": {
 		"message": "Q&a"
-	},
-	"RV1RedirectInfo": {
-		"message": "\"Vanha (vain www)\" -uudelleenohjausvaihtoehto ohjaa vain www.reddit.com-URL-osoitteet osoitteeseen old.reddit.com. Muut etuliitteet, kuten sh.reddit.com, eivät muutu."
-	},
-	"RV3RedirectInfo": {
-		"message": "\"Uusin\"-uudelleenohjausvaihtoehto pakottaa (sh|old|new).reddit.com-URL-osoitteet osoitteeseen www.reddit.com, joka käyttää uusinta käyttöliittymää."
 	},
 	"Rate": {
 		"message": "Arvostelu"
@@ -893,6 +986,9 @@
 	"ResizeFont": {
 		"message": "Muuta fonttikokoa"
 	},
+	"resizeHomeAlsoAffects": {
+		"message": "& r/all, r/popular, luo postitus, hakutulokset ja wikisivut"
+	},
 	"ResizeLayout": {
 		"message": "Muuta syötteen/viestin kokoa"
 	},
@@ -910,6 +1006,12 @@
 	},
 	"Rising": {
 		"message": "Nousema"
+	},
+	"RV1RedirectInfo": {
+		"message": "\"Vanha (vain www)\" -uudelleenohjausvaihtoehto ohjaa vain www.reddit.com-URL-osoitteet osoitteeseen old.reddit.com. Muut etuliitteet, kuten sh.reddit.com, eivät muutu."
+	},
+	"RV3RedirectInfo": {
+		"message": "\"Uusin\"-uudelleenohjausvaihtoehto pakottaa (sh|old|new).reddit.com-URL-osoitteet osoitteeseen www.reddit.com, joka käyttää uusinta käyttöliittymää."
 	},
 	"Save": {
 		"message": "Tallenna"
@@ -938,14 +1040,23 @@
 	"Search": {
 		"message": "Haku"
 	},
-	"SearchPageOffset": {
-		"message": "Hakemistosivun siirtymä"
-	},
 	"SearchbarBgColour": {
 		"message": "Hakupalkki: Taustaväri"
 	},
 	"SearchbarDropdownBgColour": {
 		"message": "Hakupalkki: Tarkennettu / pudotettava taustaväri"
+	},
+	"SearchPageOffset": {
+		"message": "Hakemistosivun siirtymä"
+	},
+	"SearchTag": {
+		"message": "Hae tunnisteetikko..."
+	},
+	"SearchUsername": {
+		"message": "Etsi käyttäjänimi..."
+	},
+	"seconds": {
+		"message": "sekuntia"
 	},
 	"Select": {
 		"message": "Valitse"
@@ -1001,6 +1112,18 @@
 	"ShowUpvoteRatio": {
 		"message": "Näytä upvote-prosentti viestinäkymässä"
 	},
+	"Sidebar": {
+		"message": "Sivupalkki"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Sivupaneeli: Taustan väri"
+	},
+	"SidebarTextColour": {
+		"message": "Sivupalkki: Tekstin väri"
+	},
+	"SidebarToggleButton": {
+		"message": "Sivupalkin kytkinpainike"
+	},
 	"SideMenu": {
 		"message": "Sivupalkki (vasen palkki)"
 	},
@@ -1021,18 +1144,6 @@
 	},
 	"SideMenuWidth": {
 		"message": "Sivupalkin leveys"
-	},
-	"Sidebar": {
-		"message": "Sivupalkki"
-	},
-	"SidebarBackgroundColour": {
-		"message": "Sivupaneeli: Taustan väri"
-	},
-	"SidebarTextColour": {
-		"message": "Sivupalkki: Tekstin väri"
-	},
-	"SidebarToggleButton": {
-		"message": "Sivupalkin kytkinpainike"
 	},
 	"SnapSidebar": {
 		"message": "Liitä sivupalkki oikeaan reunaan"
@@ -1082,6 +1193,12 @@
 	"SyncStorage": {
 		"message": "Synkronointitallennustila"
 	},
+	"Tag": {
+		"message": "Tunniste"
+	},
+	"TagColour": {
+		"message": "Brändin väri"
+	},
 	"Text": {
 		"message": "Teksti"
 	},
@@ -1130,6 +1247,9 @@
 	"UnderlineLinks": {
 		"message": "Alaaviivaa linkit"
 	},
+	"Updated": {
+		"message": "Päivitetty"
+	},
 	"UpdateFirefox": {
 		"message": "Päivitä Firefox 121:een tai uudempaan, jotta jotkin ominaisuudet toimivat oikein."
 	},
@@ -1145,17 +1265,32 @@
 	"UseOriginalSearchBar": {
 		"message": "Käytä alkuperäistä hakupalkkia"
 	},
+	"Username": {
+		"message": "Käyttäjätunnus"
+	},
+	"UsernameHoverPopupDelay": {
+		"message": "Käyttäjänimen leijuvan ponnahdusikkunan viive"
+	},
 	"UserProfileOffset": {
 		"message": "Käyttäjäprofiilin siirtymä"
 	},
 	"UserProfileWidth": {
 		"message": "Käyttäjäprofiilin leveys"
 	},
-	"UsernameHoverPopupDelay": {
-		"message": "Käyttäjänimen leijuvan ponnahdusikkunan viive"
-	},
 	"Users": {
 		"message": "Käyttäjät"
+	},
+	"UserTagging": {
+		"message": "Käyttäjän tunnistaminen"
+	},
+	"UserTaggingManagerInfo1": {
+		"message": "Voit tuoda käyttäjä tunnisteiden tiedot .resbackup-tiedostoista, jotka on viedä RES:n toimesta"
+	},
+	"UserTaggingManagerInfo2": {
+		"message": "Kaikki tiedot tallennetaan paikallisesti selaimeesi. Vie tagit välttääksesi mahdollisen tietojen menetyksen."
+	},
+	"UserTaggingManagerTitle": {
+		"message": "Käyttäjämerkinnän hallinta"
 	},
 	"Video": {
 		"message": "Video"
@@ -1174,17 +1309,5 @@
 	},
 	"Width": {
 		"message": "Leveys"
-	},
-	"extensionVersionText": {
-		"message": "Lisäosan versio"
-	},
-	"learnMore": {
-		"message": "Lue lisää"
-	},
-	"resizeHomeAlsoAffects": {
-		"message": "& r/all, r/popular, luo postitus, hakutulokset ja wikisivut"
-	},
-	"seconds": {
-		"message": "sekuntia"
 	}
 }

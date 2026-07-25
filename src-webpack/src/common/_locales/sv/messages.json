@@ -26,8 +26,17 @@
 	"AddNsfwTag": {
 		"message": "Lägg till NSFW-tagg"
 	},
+	"AddPresetTag": {
+		"message": "Lägg till fördefinierad tagg"
+	},
 	"AddSpoilerTag": {
 		"message": "Lägg till spoiler-tagg"
+	},
+	"AddToPresets": {
+		"message": "Lägg till i förinställningar"
+	},
+	"AddUserTag": {
+		"message": "Lägg till användartagg"
 	},
 	"AlwaysShowCommentOptions": {
 		"message": "Visa alltid kommenteralternativen"
@@ -43,6 +52,9 @@
 	},
 	"AppendNumbersToPostImages": {
 		"message": "Numrerade inläggsbilder"
+	},
+	"AreYouSure": {
+		"message": "Är du säker?"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Visa sidan och användarinformation i rubriken"
@@ -161,6 +173,9 @@
 	"BuyMeACoffee": {
 		"message": "Köp mig en kaffe"
 	},
+	"Cancel": {
+		"message": "Avbryt"
+	},
 	"CannedMessages": {
 		"message": "Förinspelade meddelanden"
 	},
@@ -185,14 +200,23 @@
 	"CleanLink": {
 		"message": "Lägg till alternativ för att dela inlägg/kommentar utan spårning (Ren länk)"
 	},
+	"Clear": {
+		"message": "Klar"
+	},
 	"Cleared": {
 		"message": "Rensad"
+	},
+	"ClickToEdit": {
+		"message": "Klicka för att redigera"
 	},
 	"Close": {
 		"message": "Nära"
 	},
 	"CloseTab": {
 		"message": "Du kan nu stänga fliken/fönstret."
+	},
+	"Colour": {
+		"message": "Färg"
 	},
 	"Comments": {
 		"message": "Kommentarer"
@@ -212,8 +236,14 @@
 	"CompactPostLinkPreview": {
 		"message": "Förhandsvisningar av kompakt postlänk"
 	},
+	"Complete": {
+		"message": "Komplett"
+	},
 	"Confirm": {
 		"message": "Bekräfta"
+	},
+	"ConfirmDeleteAll": {
+		"message": "Är du säker på att du vill ta bort alla användartaggar? Denna åtgärd kan inte ångras, om du inte har en säkerhetskopia."
 	},
 	"Controversial": {
 		"message": "Kontroversiell / Controversial"
@@ -233,6 +263,9 @@
 	"CopyCleanLinkShort": {
 		"message": "Kopiera länken (kort)"
 	},
+	"Created": {
+		"message": "Skapat"
+	},
 	"CreatePost": {
 		"message": "Skapa inlägg"
 	},
@@ -241,6 +274,9 @@
 	},
 	"CreatePostTitle": {
 		"message": "Skapa inlägg: Titel"
+	},
+	"CreateTag": {
+		"message": "Skapa tagg"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Anpassad bakgrundslänk"
@@ -272,6 +308,12 @@
 	"Delete": {
 		"message": "Ta bort"
 	},
+	"DeleteAllTags": {
+		"message": "Radera allt"
+	},
+	"Details": {
+		"message": "Detaljer"
+	},
 	"Disabled": {
 		"message": "Inaktiverad"
 	},
@@ -287,8 +329,17 @@
 	"Edit": {
 		"message": "Redigera"
 	},
+	"EditLink": {
+		"message": "Redigera länk"
+	},
 	"EditPost": {
 		"message": "Redigera inlägg"
+	},
+	"EditTag": {
+		"message": "Redigera tagg"
+	},
+	"EnableUserTagging": {
+		"message": "Aktiver användarmärkning"
 	},
 	"EndTime": {
 		"message": "Sluttid (24)"
@@ -296,8 +347,14 @@
 	"Error": {
 		"message": "Fel"
 	},
+	"ExportTags": {
+		"message": "Exportera taggar"
+	},
 	"ExtensionSettings": {
 		"message": "Inställningar för tillägg"
+	},
+	"extensionVersionText": {
+		"message": "Tilläggsversion"
 	},
 	"Feed": {
 		"message": "Ström"
@@ -482,11 +539,11 @@
 	"HideModerationButton": {
 		"message": "Dölj 'Måtta' knappen"
 	},
-	"HideNSFW": {
-		"message": "Dölj NSFW/L-inlägg"
-	},
 	"HideNotificationButton": {
 		"message": "Dölja knappen \"Notification\""
+	},
+	"HideNSFW": {
+		"message": "Dölj NSFW/L-inlägg"
 	},
 	"HideNsfwInSearchResults": {
 		"message": "Dölj NSFW-resultat i sökfältet"
@@ -512,14 +569,14 @@
 	"HidePostKarma": {
 		"message": "Dölja inläggskarma"
 	},
-	"HidePostSidebar": {
-		"message": "Dölja inläggsidofältet"
-	},
 	"HidePostsByBlockedUser": {
 		"message": "Dölj inlägg från blockerade användare"
 	},
 	"HidePostsBySubreddit": {
 		"message": "Dölja inlägg efter subreddit"
+	},
+	"HidePostSidebar": {
+		"message": "Dölja inläggsidofältet"
 	},
 	"HidePromoted": {
 		"message": "Dölj annonser/befordrade länkar"
@@ -569,11 +626,11 @@
 	"HideSideMenuResourcesSection": {
 		"message": "Dölj avsnittet Resurser"
 	},
-	"HideSideMenuTopSection": {
-		"message": "Dölj den övre delen"
-	},
 	"HideSideMenuTopicsSection": {
 		"message": "Dölj avsnittet Ämnen"
+	},
+	"HideSideMenuTopSection": {
+		"message": "Dölj den övre delen"
 	},
 	"HideSubSidebar": {
 		"message": "Dölj Sub Reddit sidofältet"
@@ -587,6 +644,9 @@
 	"HideTrendingTodayInSearchResults": {
 		"message": "Dölja 'Trending today' i sökfältet"
 	},
+	"HideUsername": {
+		"message": "Dölj användarnamn"
+	},
 	"HideUserNameInTheFlairSection": {
 		"message": "Dölja användarnamn i flair-avsnittet i subreddits sidofält"
 	},
@@ -595,9 +655,6 @@
 	},
 	"HideUserSidebar": {
 		"message": "Dölj användarsidomenyn"
-	},
-	"HideUsername": {
-		"message": "Dölj användarnamn"
 	},
 	"HideVideoRecommendations": {
 		"message": "Dölja rekommenderade inlägg när videon är slut"
@@ -620,14 +677,26 @@
 	"Hot": {
 		"message": "Varm / Hot"
 	},
+	"Icon": {
+		"message": "ikon"
+	},
 	"Image": {
 		"message": "Bild"
+	},
+	"Images": {
+		"message": "Bilder"
 	},
 	"ImageScroll": {
 		"message": "Lägg till Scrollbars till bilder"
 	},
-	"Images": {
-		"message": "Bilder"
+	"ImportInvalidFormat": {
+		"message": "Ogiltigt filformat."
+	},
+	"ImportSuccess": {
+		"message": "Importerade {count} taggar framgångsrikt."
+	},
+	"ImportTags": {
+		"message": "Importera taggar"
 	},
 	"JustOpenTheImage": {
 		"message": "Öppna bara bilden"
@@ -641,6 +710,12 @@
 	"KeywordsBlockInfo": {
 		"message": "Blockerar inlägg baserat på titeln, inte innehållet. Lista individuella nyckelord/regex, separerade med ett komma"
 	},
+	"Label": {
+		"message": "Etikett"
+	},
+	"LabelColour": {
+		"message": "Etikett Färger"
+	},
 	"Language": {
 		"message": "Språk"
 	},
@@ -649,6 +724,9 @@
 	},
 	"Latest": {
 		"message": "Senaste"
+	},
+	"learnMore": {
+		"message": "Läs mer"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Visa röstknappar till vänster"
@@ -676,6 +754,9 @@
 	},
 	"MainContainer": {
 		"message": "Huvudbehållare"
+	},
+	"ManageTaggedUsers": {
+		"message": "Hantera flaggade användare"
 	},
 	"MarkAsBrandAffiliate": {
 		"message": "Markera som varumärkesaffiliat"
@@ -719,11 +800,20 @@
 	"NewUpdateAvailable": {
 		"message": "Version <version> är nu tillgänglig. Din webbläsare bör automatiskt uppdatera detta tillägg snart om du har aktiverat automatiska uppdateringar; annars måste du manuellt kontrollera uppdateringar i webbläsartilläggshanteraren."
 	},
+	"NonStickyHeaderBar": {
+		"message": "Icke-fast sidhuvudfält"
+	},
+	"NoPresetsYet": {
+		"message": "Inga förinställningar än"
+	},
 	"NoSavedBackgrounds": {
 		"message": "Inga sparade bakgrunder"
 	},
-	"NonStickyHeaderBar": {
-		"message": "Icke-fast sidhuvudfält"
+	"Note": {
+		"message": "Notera"
+	},
+	"NoTaggedUsers": {
+		"message": "Inga taggade användare"
 	},
 	"Off": {
 		"message": "Av"
@@ -743,6 +833,9 @@
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Utöka endast kommentarer med negativt karma"
 	},
+	"OpenInManager": {
+		"message": "Öppna i hanteraren"
+	},
 	"OpenPostInNewTab": {
 		"message": "Öppna inlägg i ny flik"
 	},
@@ -755,11 +848,11 @@
 	"OpenSubInNewTab": {
 		"message": "Öppna länkar till subreddits i en ny flik"
 	},
-	"OptOutAttachSideMenu": {
-		"message": "Fäst inte sidomenyn som en rullgardinsmeny"
-	},
 	"OptionsPage": {
 		"message": "Inställningssida"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Fäst inte sidomenyn som en rullgardinsmeny"
 	},
 	"Or": {
 		"message": "eller"
@@ -809,6 +902,9 @@
 	"PostOffset": {
 		"message": "Inläggsförskjutning"
 	},
+	"Posts": {
+		"message": "inlägg"
+	},
 	"PostSecondaryTextColour": {
 		"message": "Inlägg: Sekundär textfärg"
 	},
@@ -830,20 +926,17 @@
 	"PostWidth": {
 		"message": "Inläggsbredd"
 	},
-	"Posts": {
-		"message": "inlägg"
+	"PresetTags": {
+		"message": "Förinställnings-taggar"
+	},
+	"Preview": {
+		"message": "Förhandsgranskning"
 	},
 	"Productivity": {
 		"message": "Produktivitet"
 	},
 	"Qa": {
 		"message": "Q&a"
-	},
-	"RV1RedirectInfo": {
-		"message": "Omdirigeringsalternativet \"Gammal (endast www)\" omdirigerar endast www.reddit.com-URL:er till old.reddit.com. Andra prefix som sh.reddit.com påverkas inte."
-	},
-	"RV3RedirectInfo": {
-		"message": "Omdirigeringsalternativet \"Senaste\" tvingar (sh|gamla|nya).reddit.com-URL:er till www.reddit.com, som använder det senaste användargränssnittet."
 	},
 	"Rate": {
 		"message": "Betygsätt / Recensera"
@@ -893,6 +986,9 @@
 	"ResizeFont": {
 		"message": "Ändra storlek på teckensnitt"
 	},
+	"resizeHomeAlsoAffects": {
+		"message": "r/all, r/popular, Skapa inlägg, Sökresultat och Wiki-sidor"
+	},
 	"ResizeLayout": {
 		"message": "Ändra Storlek på Feed / Inlägg"
 	},
@@ -910,6 +1006,12 @@
 	},
 	"Rising": {
 		"message": "Stigande / Rising"
+	},
+	"RV1RedirectInfo": {
+		"message": "Omdirigeringsalternativet \"Gammal (endast www)\" omdirigerar endast www.reddit.com-URL:er till old.reddit.com. Andra prefix som sh.reddit.com påverkas inte."
+	},
+	"RV3RedirectInfo": {
+		"message": "Omdirigeringsalternativet \"Senaste\" tvingar (sh|gamla|nya).reddit.com-URL:er till www.reddit.com, som använder det senaste användargränssnittet."
 	},
 	"Save": {
 		"message": "Spara"
@@ -938,14 +1040,23 @@
 	"Search": {
 		"message": "Sök"
 	},
-	"SearchPageOffset": {
-		"message": "Sidoffset för sökning"
-	},
 	"SearchbarBgColour": {
 		"message": "Sökruta: Bakgrundsfärg"
 	},
 	"SearchbarDropdownBgColour": {
 		"message": "Sökruta: Fokuserad/Dropdown bakgrundsfärg"
+	},
+	"SearchPageOffset": {
+		"message": "Sidoffset för sökning"
+	},
+	"SearchTag": {
+		"message": "Sök tagg..."
+	},
+	"SearchUsername": {
+		"message": "Sök användarnamn..."
+	},
+	"seconds": {
+		"message": "sekunder"
 	},
 	"Select": {
 		"message": "Välj"
@@ -1001,6 +1112,18 @@
 	"ShowUpvoteRatio": {
 		"message": "Visa uppröstningsprocenten i inläggsvyn"
 	},
+	"Sidebar": {
+		"message": "Sidofält"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Sidopanel: Bakgrundsfärg"
+	},
+	"SidebarTextColour": {
+		"message": "Sidfält: Textfärg"
+	},
+	"SidebarToggleButton": {
+		"message": "Sidomenycke växlingsknapp"
+	},
 	"SideMenu": {
 		"message": "Sidomeny (vänster meny)"
 	},
@@ -1021,18 +1144,6 @@
 	},
 	"SideMenuWidth": {
 		"message": "Sidomenybredd"
-	},
-	"Sidebar": {
-		"message": "Sidofält"
-	},
-	"SidebarBackgroundColour": {
-		"message": "Sidopanel: Bakgrundsfärg"
-	},
-	"SidebarTextColour": {
-		"message": "Sidfält: Textfärg"
-	},
-	"SidebarToggleButton": {
-		"message": "Sidomenycke växlingsknapp"
 	},
 	"SnapSidebar": {
 		"message": "Fäst sidopanelen mot högra kanten"
@@ -1082,6 +1193,12 @@
 	"SyncStorage": {
 		"message": "Synkroniseringslagring"
 	},
+	"Tag": {
+		"message": "etikett"
+	},
+	"TagColour": {
+		"message": "Varumärkesfärg"
+	},
 	"Text": {
 		"message": "Text"
 	},
@@ -1130,6 +1247,9 @@
 	"UnderlineLinks": {
 		"message": "Stryk under länkar"
 	},
+	"Updated": {
+		"message": "Uppdaterad"
+	},
 	"UpdateFirefox": {
 		"message": "Uppdatera till Firefox 121 eller senare för att vissa funktioner ska fungera korrekt."
 	},
@@ -1145,17 +1265,32 @@
 	"UseOriginalSearchBar": {
 		"message": "Använd det ursprungliga sökfältet"
 	},
+	"Username": {
+		"message": "Användarnamn"
+	},
+	"UsernameHoverPopupDelay": {
+		"message": "Fördröjning vid hovring över användarnamn-popup"
+	},
 	"UserProfileOffset": {
 		"message": "Användarprofilförskjutning"
 	},
 	"UserProfileWidth": {
 		"message": "Användarprofilbredd"
 	},
-	"UsernameHoverPopupDelay": {
-		"message": "Fördröjning vid hovring över användarnamn-popup"
-	},
 	"Users": {
 		"message": "användare"
+	},
+	"UserTagging": {
+		"message": "Användar-taggning"
+	},
+	"UserTaggingManagerInfo1": {
+		"message": "Du kan importera användartagdata från .resbackup-filer exporterade av RES"
+	},
+	"UserTaggingManagerInfo2": {
+		"message": "Alla data sparas lokalt i din webbläsare. Exportera taggar för att undvika potentiella dataförluster."
+	},
+	"UserTaggingManagerTitle": {
+		"message": "Användaretikettmanager"
 	},
 	"Video": {
 		"message": "Video"
@@ -1174,17 +1309,5 @@
 	},
 	"Width": {
 		"message": "Bredd"
-	},
-	"extensionVersionText": {
-		"message": "Tilläggsversion"
-	},
-	"learnMore": {
-		"message": "Läs mer"
-	},
-	"resizeHomeAlsoAffects": {
-		"message": "r/all, r/popular, Skapa inlägg, Sökresultat och Wiki-sidor"
-	},
-	"seconds": {
-		"message": "sekunder"
 	}
 }

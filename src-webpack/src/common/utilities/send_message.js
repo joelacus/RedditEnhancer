@@ -2,13 +2,16 @@
 // Utility / Send Message
 // ────────────────────────────────────────────────────────────────────────────
 
-export function sendMessage(message) {
+export async function sendMessage(message) {
 	//console.log(message);
-	BROWSER_API.tabs.query({}, function (tabs) {
-		tabs.forEach(function (tab) {
-			if (tab.url && tab.url.match('https://.*.reddit.com/.*') && tab.discarded == false) {
-				BROWSER_API.tabs.sendMessage(tab.id, message);
+	try {
+		const tabs = await BROWSER_API.tabs.query({ url: '*://*.reddit.com/*' });
+		tabs.forEach((tab) => {
+			if (tab.id && !tab.discarded) {
+				BROWSER_API.tabs.sendMessage(tab.id, message).catch(() => {});
 			}
 		});
-	});
+	} catch (e) {
+		// No Reddit tabs open — silent
+	}
 }

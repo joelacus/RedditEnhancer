@@ -44,7 +44,7 @@ async function attachProfilePicture(comment) {
 			// get comment author
 			const comment_author = comment.getAttribute('data-author');
 			const user_data = await fetchUserData(comment_author);
-			const icon_img = user_data.icon_img.split('?')[0];
+			const icon_img = user_data.icon_img?.split('?')[0];
 			// build <img>
 			let img = document.createElement('img');
 			img.classList.add('author-tooltip__avatar', 're-user-pic');

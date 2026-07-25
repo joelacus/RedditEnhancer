@@ -1,3 +1,9 @@
+version 3.4.0
+v [Latest UI V3 & Old UI V1]
+  - Added User Tagging. Adds options to create and show custom tags/labels next to usernames. Optionally add a longer note for more information. User tags are only stored locally and not synced with the browser, but supports exporting to a backup file. Also supports importing user tags from RES backup files. Create preset tags to quickly add frequently used tags to users.
+v [Latest UI V3]
+  - The user profile header background now inherits the post background colour.
+
 version 3.3.0
   - Added an option to upload images from your computer to use as the site background. Limited to local storage, will not sync to other devices. You can change the uploaded image quality in Settings to reduce space and store more images.
   - Added progress bars on the Settings page to show how much local and sync storage has been used. 10MiB local, 100KiB sync.

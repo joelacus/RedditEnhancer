@@ -8,11 +8,17 @@
 	"Centre": {
 		"message": "Center"
 	},
+	"Colour": {
+		"message": "Color"
+	},
 	"HeaderBgColour": {
 		"message": "Header Background Color"
 	},
 	"HeaderTextColour": {
 		"message": "Header Text Color"
+	},
+	"LabelColour": {
+		"message": "Label Color"
 	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Multicolored Comment Thread Lines"
@@ -53,6 +59,12 @@
 	"SearchbarDropdownBgColour": {
 		"message": "Searchbar: Focused/Dropdown Background Color"
 	},
+	"SidebarBackgroundColour": {
+		"message": "Sidebar: Background Color"
+	},
+	"SidebarTextColour": {
+		"message": "Sidebar: Text Color"
+	},
 	"SideMenuBackgroundColour": {
 		"message": "Side Menu: Background Color"
 	},
@@ -62,14 +74,11 @@
 	"SideMenuTextColour": {
 		"message": "Side Menu: Text Color"
 	},
-	"SidebarBackgroundColour": {
-		"message": "Sidebar: Background Color"
-	},
-	"SidebarTextColour": {
-		"message": "Sidebar: Text Color"
-	},
 	"SolidColour": {
 		"message": "Solid Color"
+	},
+	"TagColour": {
+		"message": "Tag Color"
 	},
 	"ThemeBlacklistInfo": {
 		"message": "Use theme colors globally, except for these subreddits:"

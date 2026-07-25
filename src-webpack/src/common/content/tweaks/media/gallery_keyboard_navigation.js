@@ -84,7 +84,7 @@ function enableGalleryKeyboardNavigation() {
 
 	const isInputFocused = () => {
 		const active = document.activeElement;
-		return active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable);
+		return active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.tagName === 'SHREDDIT-COMPOSER' || active.isContentEditable || active.shadowRoot?.querySelector('[data-testid="reddit-chat-client"]'));
 	};
 
 	const handler = (event) => {

@@ -403,6 +403,8 @@ async function restoreBackup(json) {
 				'underlineLinks',
 				'useCustomBackground',
 				'usernameHoverPopupDelay',
+				'userTaggingEnabled',
+				'userTaggingPresets',
 				'viewCrossposts',
 				//'themeSearchbarBorderColour',
 				//'themeSearchbarBorderColourCSS',

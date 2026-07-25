@@ -399,7 +399,8 @@ export function themePostBackgroundColour(value) {
 									community-recommendation {
 										background: var(--re-theme-post-bg);
 									}
-									rpl-menu {
+									rpl-menu,
+									.user-hover-card {
 										background: var(--re-theme-post-bg-opaque);
 									}
 									rpl-menu-item:hover {
@@ -409,6 +410,24 @@ export function themePostBackgroundColour(value) {
 									shreddit-overflow-menu {
 										--color-neutral-background-strong: var(--re-theme-post-bg-opaque);
 										--color-neutral-background-hover: oklch(from var(--re-theme-post-bg-opaque) clamp(0.20, calc(l + 0.05), 0.92) c h);
+									}
+									[routename="profile_overview"] main div:has(> #profile-feed-tabgroup) {
+										background: var(--re-theme-post-bg);
+										border-radius: var(--re-theme-border-radius) !important;
+										margin-left: 0;
+										margin-right: 0;
+									}
+									[routename="profile_overview"] main div:has(>[data-testid="profile-details-wrapper"]) {
+										background: var(--re-theme-post-bg);
+										border-bottom-left-radius: var(--re-theme-border-radius);
+										border-bottom-right-radius: var(--re-theme-border-radius);
+									}
+									[routename="profile_overview"] #subgrid-container div:has(div>create-post-entry-point-wrapper) {
+										background: var(--re-theme-post-bg) !important;
+										padding-left: 1rem;
+									}
+									#sticky-comment-composer-wrapper {
+										background: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else {

@@ -75,6 +75,7 @@ import { loadSidebarToggleButton } from './tweaks/hide_elements/sidebar_toggle_b
 import { loadSideMenuIconsOnly } from './tweaks/hide_elements/side_menu_icons_only';
 import { loadSideMenuToggleButton } from './tweaks/hide_elements/side_menu_toggle_button';
 import { loadUsernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
+import { loadUserTagging } from './tweaks/user_tagging/user_tagging';
 import { loadViewCrossposts } from './tweaks/productivity/view_crossposts';
 
 export function loadTweaks() {
@@ -96,6 +97,8 @@ export function loadTweaks() {
 		loadCleanLink();
 		loadHidePostComments();
 		loadNumberedPostImages();
+		loadScrollToNextRootComment();
+		loadUserTagging();
 	} else if (redditVersion === 'newnew') {
 		loadAddDownloadVideoButton();
 		loadBionicReader();
@@ -117,6 +120,7 @@ export function loadTweaks() {
 		loadShowToTopButtonFloat();
 		loadScrollToPost();
 		loadCleanLink();
+		loadUserTagging();
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);

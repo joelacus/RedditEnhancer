@@ -180,6 +180,7 @@ import { hideJoinConversation } from './tweaks/hide_elements/hide_join_conversat
 import { hideJoinConversationPageBottom } from './tweaks/hide_elements/hide_join_conversation_page_bottom';
 import { hideGamificationNotifications } from './tweaks/hide_elements/hide_gamification_notifications';
 import { forceShowVoteButtons } from './tweaks/productivity/force_show_vote_buttons';
+import { userTaggingEnabled } from './tweaks/user_tagging/user_tagging';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -188,7 +189,7 @@ BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
 	//console.log(key, value);
 
 	// Ignore
-	if (value === 'copyCannedMessage') return;
+	if (value === 'copyCannedMessage' || key === 'userTagging') return;
 
 	// Find the function in the registry matching the same name as the key.
 	if (typeof functionRegistry[key] === 'function') {
@@ -427,6 +428,7 @@ const functionRegistry = {
 	themeSubHeaderBackgroundColourCSS,
 	underlineLinks,
 	useCustomBackground,
+	userTaggingEnabled,
 	usernameHoverPopupDelay,
 	viewCrossposts,
 	showCommentAbsoluteTimestamp,

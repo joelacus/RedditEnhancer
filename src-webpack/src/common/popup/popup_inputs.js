@@ -18,6 +18,7 @@ import './inputs/inputs_font';
 import './inputs/inputs_hide_elements';
 import './inputs/inputs_media';
 import './inputs/inputs_productivity';
+import './inputs/inputs_user_tagging';
 import './inputs/inputs_style';
 import './inputs/language_select';
 import './inputs/menu';

@@ -1,0 +1,68 @@
+.user-tagging-presets-container {
+	padding: 0 8px;
+}
+
+.preset-tag-item {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 4px;
+	border-bottom: 1px solid var(--border);
+}
+
+.preset-tag-item:last-child {
+	border-bottom: none;
+}
+
+.preset-tag-handle {
+	cursor: grab;
+	display: flex;
+	align-items: center;
+}
+
+.preset-tag-label {
+	flex: 1;
+	min-width: 80px;
+}
+
+/*.preset-tag-note {
+	flex: 2;
+	min-width: 90px;
+}*/
+
+.preset-tag-colour {
+	width: 60px;
+}
+
+.preset-tag-colour-fg {
+	width: 60px;
+}
+
+.preset-tag-icon {
+	width: 100px;
+}
+
+.preset-tag-delete {
+	width: 26px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	aspect-ratio: 1;
+}
+
+.btn-add-preset-tag,
+.btn-manage-tagged-users {
+	padding: 6px 12px;
+	margin-top: 2px;
+}
+
+.btn-add-preset-tag {
+	align-self: start;
+	margin-left: 0.5rem;
+	margin-bottom: 0.25rem;
+}
+
+.container:has(#btn-add-preset-tag) {
+	flex-direction: row;
+	justify-content: space-around;
+}

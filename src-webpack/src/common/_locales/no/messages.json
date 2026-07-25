@@ -26,8 +26,17 @@
 	"AddNsfwTag": {
 		"message": "Legg til NSFW-merke"
 	},
+	"AddPresetTag": {
+		"message": "Legg til forhåndsdefinert merkelapp"
+	},
 	"AddSpoilerTag": {
 		"message": "Legg til spoiler-tagg"
+	},
+	"AddToPresets": {
+		"message": "Legg til i forhåndsinnstillinger"
+	},
+	"AddUserTag": {
+		"message": "Legg til brukeretikett"
 	},
 	"AlwaysShowCommentOptions": {
 		"message": "Vis alltid kommentarfeltalternativer"
@@ -43,6 +52,9 @@
 	},
 	"AppendNumbersToPostImages": {
 		"message": "Nummererte innleggsbilder"
+	},
+	"AreYouSure": {
+		"message": "Er er du sikker?"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Visningsside og brukerinformasjon i topptekst"
@@ -161,6 +173,9 @@
 	"BuyMeACoffee": {
 		"message": "Kjøp meg en kaffe"
 	},
+	"Cancel": {
+		"message": "Avbryt"
+	},
 	"CannedMessages": {
 		"message": "Lagrede meldinger"
 	},
@@ -185,14 +200,23 @@
 	"CleanLink": {
 		"message": "Legg til mulighet for å dele innlegg/kommentar uten sporing (Ren lenke)"
 	},
+	"Clear": {
+		"message": "Klar"
+	},
 	"Cleared": {
 		"message": "Slettet"
+	},
+	"ClickToEdit": {
+		"message": "Klikk for å redigere"
 	},
 	"Close": {
 		"message": "Nært"
 	},
 	"CloseTab": {
 		"message": "Du kan nå lukke denne fanen/vinduet."
+	},
+	"Colour": {
+		"message": "Farge"
 	},
 	"Comments": {
 		"message": "Kommentarer"
@@ -212,8 +236,14 @@
 	"CompactPostLinkPreview": {
 		"message": "Kompakte forhåndsvisninger av innleggslenker"
 	},
+	"Complete": {
+		"message": "Fullstendig"
+	},
 	"Confirm": {
 		"message": "Bekrefte"
+	},
+	"ConfirmDeleteAll": {
+		"message": "Er er sikker på at du vil slette alle bruketiketter? Denne handlingen kan ikke angres, med mindre du har en sikkerhetskopi."
 	},
 	"Controversial": {
 		"message": "Kontroversielt / Controversial"
@@ -233,6 +263,9 @@
 	"CopyCleanLinkShort": {
 		"message": "Kopier renkel lenke (kort)"
 	},
+	"Created": {
+		"message": "Opprettet"
+	},
 	"CreatePost": {
 		"message": "Opprett Innlegg"
 	},
@@ -241,6 +274,9 @@
 	},
 	"CreatePostTitle": {
 		"message": "Opprett innlegg: Tittel"
+	},
+	"CreateTag": {
+		"message": "Opprett tagg"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Tilpasset bakgrunnslenke"
@@ -272,6 +308,12 @@
 	"Delete": {
 		"message": "Slett"
 	},
+	"DeleteAllTags": {
+		"message": "Slett alt"
+	},
+	"Details": {
+		"message": "Detaljer"
+	},
 	"Disabled": {
 		"message": "Funksjonshemmet"
 	},
@@ -287,8 +329,17 @@
 	"Edit": {
 		"message": "Redigere"
 	},
+	"EditLink": {
+		"message": "Rediger lenke"
+	},
 	"EditPost": {
 		"message": "Rediger innlegg"
+	},
+	"EditTag": {
+		"message": "Rediger tag"
+	},
+	"EnableUserTagging": {
+		"message": "Aktiver brukeretikettering"
 	},
 	"EndTime": {
 		"message": "Sluttid (24)"
@@ -296,8 +347,14 @@
 	"Error": {
 		"message": "Feil"
 	},
+	"ExportTags": {
+		"message": "Eksporter merkelapper"
+	},
 	"ExtensionSettings": {
 		"message": "Utvidelsesinnstillinger"
+	},
+	"extensionVersionText": {
+		"message": "Tilleggversjon"
 	},
 	"Feed": {
 		"message": "Strøm"
@@ -482,11 +539,11 @@
 	"HideModerationButton": {
 		"message": "Skjul 'Moderasjon' knappen"
 	},
-	"HideNSFW": {
-		"message": "Skjul NSFW/L innlegg"
-	},
 	"HideNotificationButton": {
 		"message": "Skjul 'Varsling' knappen"
+	},
+	"HideNSFW": {
+		"message": "Skjul NSFW/L innlegg"
 	},
 	"HideNsfwInSearchResults": {
 		"message": "Skjul NSFW-resultater i søkefeltet"
@@ -512,14 +569,14 @@
 	"HidePostKarma": {
 		"message": "Skjul innleggskarma"
 	},
-	"HidePostSidebar": {
-		"message": "Skjul innleggssidefeltet"
-	},
 	"HidePostsByBlockedUser": {
 		"message": "Skjul innlegg fra blokkerte brukere"
 	},
 	"HidePostsBySubreddit": {
 		"message": "Skjul innlegg etter subreddit"
+	},
+	"HidePostSidebar": {
+		"message": "Skjul innleggssidefeltet"
 	},
 	"HidePromoted": {
 		"message": "Skjul annonser/promoterte lenker"
@@ -569,11 +626,11 @@
 	"HideSideMenuResourcesSection": {
 		"message": "Skjul Ressursseksjonen"
 	},
-	"HideSideMenuTopSection": {
-		"message": "Skjul den øverste delen"
-	},
 	"HideSideMenuTopicsSection": {
 		"message": "Skjul Emnedelen"
+	},
+	"HideSideMenuTopSection": {
+		"message": "Skjul den øverste delen"
 	},
 	"HideSubSidebar": {
 		"message": "Skjul Sub Reddit sidefeltet"
@@ -587,6 +644,9 @@
 	"HideTrendingTodayInSearchResults": {
 		"message": "Skjul «Populært i dag» i søkefeltet"
 	},
+	"HideUsername": {
+		"message": "Skjul brukernavn"
+	},
 	"HideUserNameInTheFlairSection": {
 		"message": "Skjul brukernavn i subreddit-sidestripen under flair-delen"
 	},
@@ -595,9 +655,6 @@
 	},
 	"HideUserSidebar": {
 		"message": "Skjul brukersidepanelet"
-	},
-	"HideUsername": {
-		"message": "Skjul brukernavn"
 	},
 	"HideVideoRecommendations": {
 		"message": "Skjul anbefalte innlegg når videoen er ferdig"
@@ -620,14 +677,26 @@
 	"Hot": {
 		"message": "Varm / Hot"
 	},
+	"Icon": {
+		"message": "Ikon"
+	},
 	"Image": {
 		"message": "Bilde"
+	},
+	"Images": {
+		"message": "Bilder"
 	},
 	"ImageScroll": {
 		"message": "Legg til rullefelt i bilder"
 	},
-	"Images": {
-		"message": "Bilder"
+	"ImportInvalidFormat": {
+		"message": "Ugyldig filformat."
+	},
+	"ImportSuccess": {
+		"message": "Det ble importert {count} tagger vellykket."
+	},
+	"ImportTags": {
+		"message": "Importer tagger"
 	},
 	"JustOpenTheImage": {
 		"message": "Bare åpne bildet"
@@ -641,6 +710,12 @@
 	"KeywordsBlockInfo": {
 		"message": "Blokker innlegg basert på tittelen, ikke innholdet. List individuelle nøkkelord/regulære uttrykk, adskilt med et komma."
 	},
+	"Label": {
+		"message": "Etikett"
+	},
+	"LabelColour": {
+		"message": "Etikettfarge"
+	},
 	"Language": {
 		"message": "Språk"
 	},
@@ -649,6 +724,9 @@
 	},
 	"Latest": {
 		"message": "Nyeste"
+	},
+	"learnMore": {
+		"message": "Lær mer"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Vis avstemmingsknapper til venstre"
@@ -676,6 +754,9 @@
 	},
 	"MainContainer": {
 		"message": "Hovedbeholder"
+	},
+	"ManageTaggedUsers": {
+		"message": "Administrer taggede brukere"
 	},
 	"MarkAsBrandAffiliate": {
 		"message": "Marker som merkeaffiliat"
@@ -719,11 +800,20 @@
 	"NewUpdateAvailable": {
 		"message": "Versjon <version> er nå tilgjengelig. Nettleseren din bør oppdatere denne utvidelsen automatisk snart hvis du har aktivert automatisk oppdatering, hvis ikke, må du manuelt sjekke etter oppdateringer i nettleserutvidelsesmanageren."
 	},
+	"NonStickyHeaderBar": {
+		"message": "Ikke-klistret Overskriftslinje"
+	},
+	"NoPresetsYet": {
+		"message": "Ingen forhåndsinnstillinger"
+	},
 	"NoSavedBackgrounds": {
 		"message": "Ingen lagrede bakgrunner"
 	},
-	"NonStickyHeaderBar": {
-		"message": "Ikke-klistret Overskriftslinje"
+	"Note": {
+		"message": "Merknad"
+	},
+	"NoTaggedUsers": {
+		"message": "Ingen merkede brukere"
 	},
 	"Off": {
 		"message": "Av"
@@ -743,6 +833,9 @@
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Utvid kun kommentarer med negativ karma"
 	},
+	"OpenInManager": {
+		"message": "Åpne i administrator"
+	},
 	"OpenPostInNewTab": {
 		"message": "Åpne innlegg i ny fane"
 	},
@@ -755,11 +848,11 @@
 	"OpenSubInNewTab": {
 		"message": "Åpne lenker til subreddits i en ny fane"
 	},
-	"OptOutAttachSideMenu": {
-		"message": "Ikke fest sidemenyen som rullegardinpanel"
-	},
 	"OptionsPage": {
 		"message": "Innstillingsside"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Ikke fest sidemenyen som rullegardinpanel"
 	},
 	"Or": {
 		"message": "eller"
@@ -809,6 +902,9 @@
 	"PostOffset": {
 		"message": "Forskyvning for innlegg"
 	},
+	"Posts": {
+		"message": "Innlegg"
+	},
 	"PostSecondaryTextColour": {
 		"message": "Innlegg: Sekundærfarge for tekst"
 	},
@@ -830,20 +926,17 @@
 	"PostWidth": {
 		"message": "Bredde på innlegg"
 	},
-	"Posts": {
-		"message": "Innlegg"
+	"PresetTags": {
+		"message": "Forhåndsdefinerte tagger"
+	},
+	"Preview": {
+		"message": "Forhåndsvisning"
 	},
 	"Productivity": {
 		"message": "Produktivitet"
 	},
 	"Qa": {
 		"message": "Q&a"
-	},
-	"RV1RedirectInfo": {
-		"message": "Omdirigeringsalternativet «Gammel (kun www)» omdirigerer bare www.reddit.com-nettadresser til gammel.reddit.com. Andre prefikser, som for eksempel sh.reddit.com, vil ikke bli påvirket."
-	},
-	"RV3RedirectInfo": {
-		"message": "Omdirigeringsalternativet «Nyeste» vil tvinge (sh|old|new).reddit.com-nettadresser til www.reddit.com, som vil bruke det nyeste brukergrensesnittet."
 	},
 	"Rate": {
 		"message": "Vurder / Anmeld"
@@ -893,6 +986,9 @@
 	"ResizeFont": {
 		"message": "Endre størrelse på skrift"
 	},
+	"resizeHomeAlsoAffects": {
+		"message": "r/all, r/popular, Opprett innlegg, søkeresultater og Wiki-sider og Wiki-sider"
+	},
 	"ResizeLayout": {
 		"message": "Endre Størrelse på Feed / Innlegg"
 	},
@@ -910,6 +1006,12 @@
 	},
 	"Rising": {
 		"message": "Stigende / Rising"
+	},
+	"RV1RedirectInfo": {
+		"message": "Omdirigeringsalternativet «Gammel (kun www)» omdirigerer bare www.reddit.com-nettadresser til gammel.reddit.com. Andre prefikser, som for eksempel sh.reddit.com, vil ikke bli påvirket."
+	},
+	"RV3RedirectInfo": {
+		"message": "Omdirigeringsalternativet «Nyeste» vil tvinge (sh|old|new).reddit.com-nettadresser til www.reddit.com, som vil bruke det nyeste brukergrensesnittet."
 	},
 	"Save": {
 		"message": "Lagre"
@@ -938,14 +1040,23 @@
 	"Search": {
 		"message": "Søk"
 	},
-	"SearchPageOffset": {
-		"message": "Offset for søkeside"
-	},
 	"SearchbarBgColour": {
 		"message": "Søkelinje: Bakgrunnsfarge"
 	},
 	"SearchbarDropdownBgColour": {
 		"message": "Søkelinje: Fokusert/Dropdown Bakgrunnsfarge"
+	},
+	"SearchPageOffset": {
+		"message": "Offset for søkeside"
+	},
+	"SearchTag": {
+		"message": "Søk tagg..."
+	},
+	"SearchUsername": {
+		"message": "Søk brukernavn..."
+	},
+	"seconds": {
+		"message": "sekunder"
 	},
 	"Select": {
 		"message": "Plukke ut"
@@ -1001,6 +1112,18 @@
 	"ShowUpvoteRatio": {
 		"message": "Vis oppstemmingsprosent i innleggsvisning"
 	},
+	"Sidebar": {
+		"message": "Sidefelt (høyre)"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Sidefelt: Bakgrunnsfarge"
+	},
+	"SidebarTextColour": {
+		"message": "Sidefelt: Tekstfarge"
+	},
+	"SidebarToggleButton": {
+		"message": "Knapp for å bytte sidestolpe"
+	},
 	"SideMenu": {
 		"message": "Sidemeny (igjen)"
 	},
@@ -1021,18 +1144,6 @@
 	},
 	"SideMenuWidth": {
 		"message": "Bredde på sidemenyen"
-	},
-	"Sidebar": {
-		"message": "Sidefelt (høyre)"
-	},
-	"SidebarBackgroundColour": {
-		"message": "Sidefelt: Bakgrunnsfarge"
-	},
-	"SidebarTextColour": {
-		"message": "Sidefelt: Tekstfarge"
-	},
-	"SidebarToggleButton": {
-		"message": "Knapp for å bytte sidestolpe"
 	},
 	"SnapSidebar": {
 		"message": "Fest sidefelt til høyre kant"
@@ -1082,6 +1193,12 @@
 	"SyncStorage": {
 		"message": "Synkroniseringslagring"
 	},
+	"Tag": {
+		"message": "etikett"
+	},
+	"TagColour": {
+		"message": "Merke-farge"
+	},
 	"Text": {
 		"message": "Tekst"
 	},
@@ -1130,6 +1247,9 @@
 	"UnderlineLinks": {
 		"message": "Understrek lenker"
 	},
+	"Updated": {
+		"message": "Oppdatert"
+	},
 	"UpdateFirefox": {
 		"message": "Oppdater til Firefox 121 eller nyere for at enkelte funksjoner skal fungere som de skal."
 	},
@@ -1145,17 +1265,32 @@
 	"UseOriginalSearchBar": {
 		"message": "Bruk den opprinnelige søkefeltet"
 	},
+	"Username": {
+		"message": "Brukernavn"
+	},
+	"UsernameHoverPopupDelay": {
+		"message": "Forsinkelse for pop-up ved hovring over brukernavn"
+	},
 	"UserProfileOffset": {
 		"message": "Forskyvning for brukerprofil"
 	},
 	"UserProfileWidth": {
 		"message": "Bredde på brukerprofil"
 	},
-	"UsernameHoverPopupDelay": {
-		"message": "Forsinkelse for pop-up ved hovring over brukernavn"
-	},
 	"Users": {
 		"message": "Brukere"
+	},
+	"UserTagging": {
+		"message": "Brukertagging"
+	},
+	"UserTaggingManagerInfo1": {
+		"message": "Du kan importere bruker-tagdata fra .resbackup-filer eksportert av RES"
+	},
+	"UserTaggingManagerInfo2": {
+		"message": "Alle data blir lagret lokalt i nettleseren din. Eksporter taggene for å unngå eventuelt tap av data."
+	},
+	"UserTaggingManagerTitle": {
+		"message": "Administrator for brukeretiketter"
 	},
 	"Video": {
 		"message": "Video"
@@ -1174,17 +1309,5 @@
 	},
 	"Width": {
 		"message": "Bredde"
-	},
-	"extensionVersionText": {
-		"message": "Tilleggversjon"
-	},
-	"learnMore": {
-		"message": "Lær mer"
-	},
-	"resizeHomeAlsoAffects": {
-		"message": "r/all, r/popular, Opprett innlegg, søkeresultater og Wiki-sider og Wiki-sider"
-	},
-	"seconds": {
-		"message": "sekunder"
 	}
 }
