@@ -6,7 +6,7 @@
 // ────────────────────────────────────────────────────────────────────────────
 
 import { addDropShadow } from './tweaks/style/drop_shadow';
-import { alwaysShowPostOptions, hidePostBrandAwarenessOption, hidePostDeleteOption, hidePostEditOption, hidePostHideOption, hidePostNotificationOption, hidePostNsfwOption, hidePostReportOption, hidePostSaveOption, hidePostSpoilerOption } from './tweaks/productivity/always_show_post_options';
+import { alwaysShowPostOptions, hidePostBrandAwarenessOption, hidePostDeleteOption, hidePostEditOption, hidePostHideOption, hidePostNotificationOption, hidePostNsfwOption, hidePostReportOption, hidePostSaveOption, hidePostSpoilerOption, hidePostAwardOption } from './tweaks/productivity/always_show_post_options';
 import { autoCollapseAutoModeratorComment } from './tweaks/productivity/auto_collapse_automod_comment';
 import { autoExpandValue } from './tweaks/resize_elements/auto_expand_value';
 import { autoLoadMoreComments, autoLoadMoreCommentsDownvotedOnly } from './tweaks/productivity/auto_load_more_comments';
@@ -52,28 +52,36 @@ import { showToTopButton } from './tweaks/productivity/scroll_to_top';
 import { stickySort } from './tweaks/productivity/sticky_sort';
 import {
 	themeBlur,
+	themeCodeBlockColourCSS,
 	themeHeaderBackgroundColour,
 	themeHeaderBackgroundColourCSS,
 	themeHeaderTextColour,
 	themeHeaderTextColourCSS,
+	themeOpCommentHighlightColour,
+	themeOpCommentHighlightColourCSS,
 	themePostBackgroundColour,
 	themePostBackgroundColourCSS,
 	themePostBorderColour,
 	themePostBorderColourCSS,
+	themePostCommentActionRowColour,
+	themePostCommentActionRowColourCSS,
 	themePostCommentsTextColour1,
 	themePostCommentsTextColour1CSS,
 	themePostCommentsTextColour2,
 	themePostCommentsTextColour2CSS,
 	themePostContentAndCommentsLinkColour,
 	themePostContentAndCommentsLinkColourCSS,
-	themePostTextColour1,
-	themePostTextColour1CSS,
-	themePostTableBorderColour,
-	themeCodeBlockColourCSS,
-	themePostTextColour2,
-	themePostTextColour2CSS,
+	themePostDownvoteColour,
+	themePostDownvoteColourCSS,
 	themePostFollowedTextColour,
 	themePostFollowedTextColourCSS,
+	themePostTableBorderColour,
+	themePostTextColour1,
+	themePostTextColour1CSS,
+	themePostTextColour2,
+	themePostTextColour2CSS,
+	themePostUpvoteColour,
+	themePostUpvoteColourCSS,
 	themePostVisitedTextColour,
 	themePostVisitedTextColourCSS,
 	themeSearchbarBgColour,
@@ -90,12 +98,6 @@ import {
 	themeSidemenuButtonHoverColourCSS,
 	themeSidemenuTextColour,
 	themeSidemenuTextColourCSS,
-	themePostUpvoteColourCSS,
-	themePostUpvoteColour,
-	themePostCommentActionRowColour,
-	themePostCommentActionRowColourCSS,
-	themeOpCommentHighlightColour,
-	themeOpCommentHighlightColourCSS,
 	themeSubHeaderBackgroundColour,
 	themeSubHeaderBackgroundColourCSS,
 } from './tweaks/style/override_theme_colours';
@@ -181,6 +183,7 @@ import { hideJoinConversationPageBottom } from './tweaks/hide_elements/hide_join
 import { hideGamificationNotifications } from './tweaks/hide_elements/hide_gamification_notifications';
 import { forceShowVoteButtons } from './tweaks/productivity/force_show_vote_buttons';
 import { userTaggingEnabled } from './tweaks/user_tagging/user_tagging';
+import { hideRepostButton } from './tweaks/hide_elements/hide_repost_button';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -285,6 +288,7 @@ const functionRegistry = {
 	hidePostKarma,
 	hidePostNotificationOption,
 	hidePostNsfwOption,
+	hidePostAwardOption,
 	hidePostReportOption,
 	hidePostSaveOption,
 	hidePostSidebar,
@@ -406,6 +410,8 @@ const functionRegistry = {
 	themePostTextColour2CSS,
 	themePostUpvoteColour,
 	themePostUpvoteColourCSS,
+	themePostDownvoteColour,
+	themePostDownvoteColourCSS,
 	themePostFollowedTextColour,
 	themePostFollowedTextColourCSS,
 	themePostVisitedTextColour,
@@ -463,6 +469,7 @@ const functionRegistry = {
 	hideJoinConversationPageBottom,
 	hideGamificationNotifications,
 	forceShowVoteButtons,
+	hideRepostButton,
 	// themeSearchbarBorderColour,
 	// themeSearchbarBorderColourCSS,
 	//breakReminder,

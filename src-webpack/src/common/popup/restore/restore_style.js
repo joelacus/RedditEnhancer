@@ -444,6 +444,24 @@ export function restorePopupStyleOptions() {
 		console.log('Post Upvote Colour CSS: ' + value);
 	});
 
+	// Post Downvote Colour
+	BROWSER_API.storage.sync.get(['themePostDownvoteColour'], function (result) {
+		const checked = result.themePostDownvoteColour === true;
+		document.querySelector('#checkbox-post-downvote-colour').checked = checked;
+		document.querySelector('.icon-post-downvote-colour').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('style-tweaks');
+		console.log('Post Downvote Colour: ' + checked);
+	});
+
+	// Theme Post Downvote Colour CSS
+	BROWSER_API.storage.sync.get(['themePostDownvoteColourCSS'], function (result) {
+		const raw = result.themePostDownvoteColourCSS ?? '';
+		const value = validateColour(raw);
+		const get_picker = colour_pickers.find((item) => item.id === 'post-downvote')?.picker;
+		if (get_picker) get_picker.setColor(value);
+		console.log('Post Downvote Colour CSS: ' + value);
+	});
+
 	// Theme OP Comment Highlight Colour
 	BROWSER_API.storage.sync.get(['themeOpCommentHighlightColour'], function (result) {
 		const checked = result.themeOpCommentHighlightColour === true;

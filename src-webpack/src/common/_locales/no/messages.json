@@ -320,6 +320,9 @@
 	"DontShowAgain": {
 		"message": "Ikke vis igjen"
 	},
+	"DownvoteColour": {
+		"message": "Innlegg: Farge for nedstemning"
+	},
 	"Drag": {
 		"message": "Dra"
 	},
@@ -453,7 +456,7 @@
 		"message": "Skjul Reddit annonseringsvarsler"
 	},
 	"HideAwards": {
-		"message": "Skjul «Gi utmerkelser»-knappen"
+		"message": "Skjul «Pris»-knappen i kommentarer"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Skjul Innlegg med Blokkerte Nøkkelord"
@@ -598,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Skjul relaterte innlegg"
+	},
+	"HideRepostButton": {
+		"message": "Skjul knappen «Repost»"
 	},
 	"HideSearchSidebar": {
 		"message": "Skjul søkesidefeltet"
@@ -871,6 +877,9 @@
 	},
 	"PostBgColour": {
 		"message": "Innlegg: Bakgrunnsfarge"
+	},
+	"PostBgColourInfo": {
+		"message": "Gjelder også for diverse andre UI-elementer."
 	},
 	"PostBorderColour": {
 		"message": "Innlegg: Kantfarge"

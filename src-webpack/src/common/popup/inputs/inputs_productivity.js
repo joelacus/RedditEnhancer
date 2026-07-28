@@ -126,6 +126,15 @@ document.querySelector('#checkbox-hide-post-nsfw-option').addEventListener('chan
 	icon.style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });
 
+// Toggle - Always Show Post Options - Hide "Award" Option
+document.querySelector('#checkbox-hide-post-award-option').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ hidePostAwardOption: this.checked });
+	sendMessage({ hidePostAwardOption: this.checked });
+	const icon = document.querySelector('.icon-hide-post-award-option');
+	icon.classList.replace(this.checked ? 'icon-award' : 'icon-award-slash', this.checked ? 'icon-award-slash' : 'icon-award');
+	icon.style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});
+
 // Toggle - Always Show Post Options - Hide "Brand Awareness" Option
 document.querySelector('#checkbox-hide-post-brand-awareness-option').addEventListener('change', function () {
 	BROWSER_API.storage.sync.set({ hidePostBrandAwarenessOption: this.checked });

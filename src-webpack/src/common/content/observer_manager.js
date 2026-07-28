@@ -236,6 +236,25 @@ class ObserverManager {
 			throw new Error('[ObserverManager] Callback must be a function');
 		}
 
+		if (tweakName) {
+			const tweakCallbacks = this.callbacksByTweak.get(tweakName);
+			if (tweakCallbacks) {
+				const toRemove = [];
+				tweakCallbacks.forEach((entry) => {
+					if (entry.target === target) {
+						toRemove.push(entry);
+						const targetData = this.observersByTarget.get(target);
+						if (targetData) targetData.callbacks.delete(entry.callbackInfo);
+					}
+				});
+				toRemove.forEach((entry) => tweakCallbacks.delete(entry));
+				if (tweakCallbacks.size === 0) {
+					this.callbacksByTweak.delete(tweakName);
+				}
+				this._cleanupObserverIfEmpty(target);
+			}
+		}
+
 		// Normalise options with defaults
 		const normalisedOptions = {
 			childList: true,

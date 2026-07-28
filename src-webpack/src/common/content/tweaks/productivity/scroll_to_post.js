@@ -115,7 +115,12 @@ function createKeyboardNavigator(containerSelector, elementSelector, RedditVersi
 		const elements = getElements();
 		if (elements.length === 0) return;
 
-		if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'REDDIT-SEARCH-LARGE') {
+		const isInputFocused = () => {
+			const active = document.activeElement;
+			return active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.tagName === 'REDDIT-SEARCH-LARGE' || active.tagName === 'SHREDDIT-COMPOSER' || active.isContentEditable || active.shadowRoot?.querySelector('[data-testid="reddit-chat-client"]'));
+		};
+
+		if (!isInputFocused()) {
 			if (e.key === 'j' || e.key === 'J' || e.key === 'ArrowDown') {
 				if (e.key === 'ArrowDown') e.preventDefault();
 				const current = findCurrentIndex(elements);

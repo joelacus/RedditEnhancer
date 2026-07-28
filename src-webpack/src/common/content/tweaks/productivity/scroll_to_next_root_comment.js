@@ -133,7 +133,7 @@ function enableScrollToNextRootCommentRV3() {
 
 	const isInputFocused = () => {
 		const active = document.activeElement;
-		return active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.tagName === 'SHREDDIT-COMPOSER' || active.isContentEditable || active.shadowRoot?.querySelector('[data-testid="reddit-chat-client"]'));
+		return active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.tagName === 'REDDIT-SEARCH-LARGE' || active.tagName === 'SHREDDIT-COMPOSER' || active.isContentEditable || active.shadowRoot?.querySelector('[data-testid="reddit-chat-client"]'));
 	};
 
 	function handleKeyPress(e) {

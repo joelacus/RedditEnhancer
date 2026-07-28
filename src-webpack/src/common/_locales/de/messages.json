@@ -320,6 +320,9 @@
 	"DontShowAgain": {
 		"message": "Nicht mehr anzeigen"
 	},
+	"DownvoteColour": {
+		"message": "Beitrag: Downvote Farbe"
+	},
 	"Drag": {
 		"message": "Ziehen"
 	},
@@ -453,7 +456,7 @@
 		"message": "Reddit Ankündigungsbenachrichtigungen ausblenden (u/reddit)"
 	},
 	"HideAwards": {
-		"message": "Schaltfläche „Auszeichnungen vergeben“ ausblenden"
+		"message": "„Auszeichnung“-Schaltfläche bei Kommentaren ausblenden"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Beiträge mit Blockierten Schlüsselwörtern Ausblenden"
@@ -598,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Verwandte Beiträge ausblenden"
+	},
+	"HideRepostButton": {
+		"message": "Die „Repost“-Schaltfläche ausblenden"
 	},
 	"HideSearchSidebar": {
 		"message": "Die Suchseitenleiste Ausblenden"
@@ -871,6 +877,9 @@
 	},
 	"PostBgColour": {
 		"message": "Beitrag: Hintergrundfarbe"
+	},
+	"PostBgColourInfo": {
+		"message": "Gilt auch für diverse andere UI-Elemente."
 	},
 	"PostBorderColour": {
 		"message": "Beitrag: Rahmenfarbe"

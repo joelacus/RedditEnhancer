@@ -320,6 +320,9 @@
 	"DontShowAgain": {
 		"message": "Nie pokazuj ponownie"
 	},
+	"DownvoteColour": {
+		"message": "Wpis: Kolor oceny negatywnej"
+	},
 	"Drag": {
 		"message": "Przeciągnij"
 	},
@@ -453,7 +456,7 @@
 		"message": "Ukryj powiadomienia o ogłoszeniach z Reddita"
 	},
 	"HideAwards": {
-		"message": "Ukryj przycisk „Nadawanie nagród“"
+		"message": "Ukryj przycisk „Nagroda” przy komentarzach"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Ukryj Posty z Zablokowanymi Słowami Kluczowymi"
@@ -598,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Ukryj powiązane posty"
+	},
+	"HideRepostButton": {
+		"message": "Ukryj przycisk „Udostępnij ponownie”"
 	},
 	"HideSearchSidebar": {
 		"message": "Ukryj pasek boczny wyszukiwania"
@@ -871,6 +877,9 @@
 	},
 	"PostBgColour": {
 		"message": "Post: Kolor tła"
+	},
+	"PostBgColourInfo": {
+		"message": "Dotyczy również różnych innych elementów interfejsu użytkownika."
 	},
 	"PostBorderColour": {
 		"message": "Post: Kolor obramowania"
@@ -1260,7 +1269,7 @@
 		"message": "Przesłany obraz"
 	},
 	"UpvoteColour": {
-		"message": "Post: Upvote Kolor"
+		"message": "Wpis: Upvote Kolor"
 	},
 	"UseOriginalSearchBar": {
 		"message": "Użyj oryginalnego paska wyszukiwania"

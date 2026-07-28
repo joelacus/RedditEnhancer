@@ -155,6 +155,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide The Post Sidebar|Hides the sidebar on post pages.|3|
 |Hide The Sub Reddit Sidebar|Hides the sidebar on sub reddit pages.|3|
 |Hide The User Sidebar|Hides the sidebar on profile/user pages.|3|
+|Hide the "Repost" Button|Hide the "Repost" button on posts.|3|
 |Hide Thumbnails in Compact View|Hides the thumbnails on posts when viewing a feed in compact view.|3<br>1|
 |Hide Username and/or Karma|You can hide your username and/or karma in the top bar.|1|
 |Hide username in the subreddit sidebar flair section|Hides the username and profile picture in the edit flair section of the subreddit sidebar.|3|

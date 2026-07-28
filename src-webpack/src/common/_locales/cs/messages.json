@@ -320,6 +320,9 @@
 	"DontShowAgain": {
 		"message": "Nezobrazovat znovu"
 	},
+	"DownvoteColour": {
+		"message": "Příspěvek: Downvote barevnost"
+	},
 	"Drag": {
 		"message": "Přetáhnout"
 	},
@@ -453,7 +456,7 @@
 		"message": "Skrýt oznámení o Ankunciích Reddit (u/reddit)"
 	},
 	"HideAwards": {
-		"message": "Skryjte tlačítko „Udělovat ceny“"
+		"message": "Skrýt tlačítko „Ocenění“ v komentářích"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Skrýt Příspěvky s Blokovanými Klíčovými Slovy"
@@ -598,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Skrýt související příspěvky"
+	},
+	"HideRepostButton": {
+		"message": "Skrýt tlačítko „Znovu zveřejnit“"
 	},
 	"HideSearchSidebar": {
 		"message": "Skryjte postranní panel vyhledávání"
@@ -871,6 +877,9 @@
 	},
 	"PostBgColour": {
 		"message": "Příspěvek: Barva pozadí"
+	},
+	"PostBgColourInfo": {
+		"message": "Platí také pro různé další prvky uživatelského rozhraní."
 	},
 	"PostBorderColour": {
 		"message": "Příspěvek: Barva okraje"

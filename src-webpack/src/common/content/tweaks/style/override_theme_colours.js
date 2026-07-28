@@ -52,7 +52,7 @@ function loadTheme() {
 	});
 
 	// Add theme styles while the page is still loading.
-	BROWSER_API.storage.sync.get(['themeHeaderBackgroundColour', 'themeHeaderTextColour', 'themePostBackgroundColour', 'themePostBorderColour', 'themePostCommentsTextColour1', 'themePostCommentsTextColour2', 'themePostContentAndCommentsLinkColour', 'themePostTextColour1', 'themePostTextColour1CSS', 'themeCodeBlockColourCSS', 'themePostTextColour2', 'themePostFollowedTextColour', 'themePostVisitedTextColour', 'themeSearchbarBgColour', 'themeSearchbarBorderColour', 'themeSearchbarDropdownBgColour', 'themeSidebarBgColour', 'themeSidebarTextColour', 'themeSidemenuBgColour', 'themeSidemenuButtonHoverColour', 'themeSidemenuTextColour', 'themePostUpvoteColour', 'themePostCommentActionRowColour', 'themePostCommentActionRowColourCSS', 'themePostTableBorderColour', 'themeSubHeaderBackgroundColour'], function (result) {
+	BROWSER_API.storage.sync.get(['themeHeaderBackgroundColour', 'themeHeaderTextColour', 'themePostBackgroundColour', 'themePostBorderColour', 'themePostCommentsTextColour1', 'themePostCommentsTextColour2', 'themePostContentAndCommentsLinkColour', 'themePostTextColour1', 'themePostTextColour1CSS', 'themeCodeBlockColourCSS', 'themePostTextColour2', 'themePostFollowedTextColour', 'themePostVisitedTextColour', 'themeSearchbarBgColour', 'themeSearchbarBorderColour', 'themeSearchbarDropdownBgColour', 'themeSidebarBgColour', 'themeSidebarTextColour', 'themeSidemenuBgColour', 'themeSidemenuButtonHoverColour', 'themeSidemenuTextColour', 'themePostUpvoteColour', 'themePostDownvoteColour', 'themePostCommentActionRowColour', 'themePostCommentActionRowColourCSS', 'themePostTableBorderColour', 'themeSubHeaderBackgroundColour'], function (result) {
 		themeHeaderBackgroundColour(result.themeHeaderBackgroundColour);
 		themeHeaderTextColour(result.themeHeaderTextColour);
 		themePostBackgroundColour(result.themePostBackgroundColour);
@@ -76,6 +76,7 @@ function loadTheme() {
 		themeSidemenuButtonHoverColour(result.themeSidemenuButtonHoverColour);
 		themeSidemenuTextColour(result.themeSidemenuTextColour);
 		themePostUpvoteColour(result.themePostUpvoteColour);
+		themePostDownvoteColour(result.themePostDownvoteColour);
 		themePostCommentActionRowColour(result.themePostCommentActionRowColour);
 		themePostCommentActionRowColourCSS(result.themePostCommentActionRowColourCSS);
 		themeSubHeaderBackgroundColour(result.themeSubHeaderBackgroundColour);
@@ -428,6 +429,9 @@ export function themePostBackgroundColour(value) {
 									}
 									#sticky-comment-composer-wrapper {
 										background: none !important;
+									}
+									[pagetype="moderation_pages_moderators"] #main-content div:has(>h1) > div {
+										background: var(--re-theme-post-bg);
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else {
@@ -1197,7 +1201,9 @@ export function themePostUpvoteColour(value) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-post-upvote-colour';
 		styleElement.textContent = `shreddit-post {
-										--color-action-upvote: var(--re-theme-post-upvote-colour) !important;
+										--color-upvote-background: var(--re-theme-post-upvote-colour) !important;
+										--color-upvote-plain-weaker: var(--re-theme-post-upvote-colour) !important;
+										--color-upvote-background-hover: var(--re-theme-post-upvote-colour) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else {
@@ -1214,6 +1220,39 @@ export function themePostUpvoteColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostUpvoteColour'], function (result) {
 			if (result.themePostUpvoteColour) document.documentElement.style.setProperty('--re-theme-post-upvote-colour', value);
+		});
+	}
+}
+
+// Post Downvote Colour
+export function themePostDownvoteColour(value) {
+	if (redditVersion === 'newnew' && value) {
+		BROWSER_API.storage.sync.get(['themePostDownvoteColourCSS'], function (result) {
+			themePostDownvoteColourCSS(result.themePostDownvoteColourCSS);
+		});
+		if (document.head.querySelector('style[id="re-theme-post-downvote-colour"]')) return;
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-theme-post-downvote-colour';
+		styleElement.textContent = `shreddit-post {
+										--color-downvote-background: var(--re-theme-post-downvote-colour) !important;
+										--color-downvote-plain-weaker: var(--re-theme-post-downvote-colour) !important;
+										--color-downvote-background-hover: var(--re-theme-post-downvote-colour) !important;
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	} else {
+		document.documentElement.style.removeProperty('--re-theme-post-downvote-colour');
+		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-post-downvote-colour"]');
+		dynamicStyleElements.forEach((element) => {
+			element.remove();
+		});
+	}
+}
+
+// Post Downvote Colour CSS
+export function themePostDownvoteColourCSS(value) {
+	if (redditVersion === 'newnew') {
+		BROWSER_API.storage.sync.get(['themePostDownvoteColour'], function (result) {
+			if (result.themePostDownvoteColour) document.documentElement.style.setProperty('--re-theme-post-downvote-colour', value);
 		});
 	}
 }

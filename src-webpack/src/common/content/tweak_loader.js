@@ -77,6 +77,7 @@ import { loadSideMenuToggleButton } from './tweaks/hide_elements/side_menu_toggl
 import { loadUsernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
 import { loadUserTagging } from './tweaks/user_tagging/user_tagging';
 import { loadViewCrossposts } from './tweaks/productivity/view_crossposts';
+import { loadHideRepostButton } from './tweaks/hide_elements/hide_repost_button';
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -256,6 +257,7 @@ export function loadTweaks() {
 					loadAutoplayGifs();
 					loadAutoplayCommentGifs();
 					loadGalleryKeyboardNavigation();
+					loadHideRepostButton();
 				}, 500);
 			},
 		});

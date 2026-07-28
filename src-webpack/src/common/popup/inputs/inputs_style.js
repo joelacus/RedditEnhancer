@@ -266,6 +266,13 @@ document.querySelector('#checkbox-post-upvote-colour').addEventListener('change'
 	document.querySelector('.icon-post-upvote-colour').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });
 
+// Toggle - Post Downvote Colour
+document.querySelector('#checkbox-post-downvote-colour').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ themePostDownvoteColour: this.checked });
+	sendMessage({ themePostDownvoteColour: this.checked });
+	document.querySelector('.icon-post-downvote-colour').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});
+
 // Toggle - OP Comment Highlight Colour
 document.querySelector('#checkbox-op-comment-highlight-colour').addEventListener('change', function () {
 	BROWSER_API.storage.sync.set({ themeOpCommentHighlightColour: this.checked });

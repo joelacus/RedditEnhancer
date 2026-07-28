@@ -320,6 +320,9 @@
 	"DontShowAgain": {
 		"message": "Не показувати знову"
 	},
+	"DownvoteColour": {
+		"message": "Пост: Проголосувати проти кольору"
+	},
 	"Drag": {
 		"message": "Перетягніть"
 	},
@@ -453,7 +456,7 @@
 		"message": "Приховувати сповіщення про анонси Reddit (u/reddit)"
 	},
 	"HideAwards": {
-		"message": "Приховати кнопку «Нагороджувати»"
+		"message": "Приховати кнопку «Нагорода» в коментарях"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Приховати Дописи з Заблокованими Ключовими Словами"
@@ -598,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Приховати пов'язані публікації"
+	},
+	"HideRepostButton": {
+		"message": "Приховати кнопку «Репост»"
 	},
 	"HideSearchSidebar": {
 		"message": "Приховати бічну панель пошуку"
@@ -871,6 +877,9 @@
 	},
 	"PostBgColour": {
 		"message": "Повідомлення: Колір фону"
+	},
+	"PostBgColourInfo": {
+		"message": "Також стосується різних інших елементів інтерфейсу користувача."
 	},
 	"PostBorderColour": {
 		"message": "Повідомлення: колір рамки"

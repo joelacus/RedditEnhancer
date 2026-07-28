@@ -320,6 +320,9 @@
 	"DontShowAgain": {
 		"message": "Älä näytä uudelleen"
 	},
+	"DownvoteColour": {
+		"message": "Viesti: Äänestä väriä vastaan"
+	},
 	"Drag": {
 		"message": "Vedä"
 	},
@@ -453,7 +456,7 @@
 		"message": "Piilota Reddit-ilmoitukset"
 	},
 	"HideAwards": {
-		"message": "Piilota \"Palkinto\"-painike"
+		"message": "Piilota \"Palkinto\"-painike kommenteista"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Piilota viestit, joissa on estetyt avainsanat"
@@ -598,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Piilota asiaan liittyvät viestit"
+	},
+	"HideRepostButton": {
+		"message": "Piilota \"Julkaise uudelleen\" -painike"
 	},
 	"HideSearchSidebar": {
 		"message": "Piilota hakusivupalkki"
@@ -871,6 +877,9 @@
 	},
 	"PostBgColour": {
 		"message": "Julkaisu: Taustan väri"
+	},
+	"PostBgColourInfo": {
+		"message": "Koskee myös useita muita käyttöliittymäelementtejä."
 	},
 	"PostBorderColour": {
 		"message": "Post: Reunan väri"
@@ -1260,7 +1269,7 @@
 		"message": "Ladattu kuva"
 	},
 	"UpvoteColour": {
-		"message": "Äänestä väriä"
+		"message": "Viesti: Äänestä värin puolesta"
 	},
 	"UseOriginalSearchBar": {
 		"message": "Käytä alkuperäistä hakupalkkia"

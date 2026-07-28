@@ -320,6 +320,9 @@
 	"DontShowAgain": {
 		"message": "Ne jeleníts meg újra"
 	},
+	"DownvoteColour": {
+		"message": "Bejegyzés: Szín negatív szavazat"
+	},
 	"Drag": {
 		"message": "Húzz"
 	},
@@ -453,7 +456,7 @@
 		"message": "Elrejteti Reddit-hirdetési értesítések"
 	},
 	"HideAwards": {
-		"message": "Rejtse az „Érdemek adása” gombot"
+		"message": "A „Díj” gomb elrejtése a hozzászólásokban"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Bezárni a blokkolt kulcsszavakkal rendelkező bejegyzéseket"
@@ -598,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Kapcsolódó bejegyzések elrejtése"
+	},
+	"HideRepostButton": {
+		"message": "Az „Újraküldés” gomb elrejtése"
 	},
 	"HideSearchSidebar": {
 		"message": "A Keresés oldalsáv elrejtése"
@@ -871,6 +877,9 @@
 	},
 	"PostBgColour": {
 		"message": "Bejegyzés: Háttérszín"
+	},
+	"PostBgColourInfo": {
+		"message": "Különböző más felhasználói felület elemekre is vonatkozik."
 	},
 	"PostBorderColour": {
 		"message": "kerete színe"
@@ -1260,7 +1269,7 @@
 		"message": "Feltöltött kép"
 	},
 	"UpvoteColour": {
-		"message": "bejegyzés: színe pozitív ajánlás"
+		"message": "Bejegyzés: színe pozitív ajánlás"
 	},
 	"UseOriginalSearchBar": {
 		"message": "Használja az eredeti keresőmezőt"

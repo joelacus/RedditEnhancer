@@ -30,7 +30,7 @@ function enableHideAnnouncementNotifications() {
 	if (!document.head.querySelector('style[id="re-hide-announcement-notifications"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-announcement-notifications';
-		styleElement.textContent = `notifications-main-manager notification-announcement {
+		styleElement.textContent = `notification-announcement {
 										display: none !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);

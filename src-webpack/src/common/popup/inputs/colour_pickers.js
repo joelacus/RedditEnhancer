@@ -21,7 +21,7 @@ document.querySelectorAll('.colour-picker').forEach((input) => {
 	const id = input.dataset.styleId;
 
 	// disable alpha for certain colour pickers
-	const hasAlpha = !['background', 'header-fg', 'post-fg', 'post-fg-2', 'post-code-fg', 'post-fg-visited', 'post-comments-fg', 'post-comments-fg-2', 'post-comment-action-row', 'post-and-comment-links', 'post-upvote', 'sidebar-fg', 'sidemenu-fg'].includes(id);
+	const hasAlpha = !['background', 'header-fg', 'post-fg', 'post-fg-2', 'post-code-fg', 'post-fg-visited', 'post-comments-fg', 'post-comments-fg-2', 'post-comment-action-row', 'post-and-comment-links', 'post-upvote', 'post-downvote', 'sidebar-fg', 'sidemenu-fg'].includes(id);
 
 	const picker = new ColorPicker(input, {
 		toggleStyle: 'input',
@@ -114,6 +114,10 @@ document.querySelectorAll('.colour-picker').forEach((input) => {
 			case 'post-upvote':
 				storage.themePostUpvoteColourCSS = hex;
 				sendMessage({ themePostUpvoteColourCSS: hex });
+				break;
+			case 'post-downvote':
+				storage.themePostDownvoteColourCSS = hex;
+				sendMessage({ themePostDownvoteColourCSS: hex });
 				break;
 			case 'sidebar-fg':
 				storage.themeSidebarTextColourCSS = hex;

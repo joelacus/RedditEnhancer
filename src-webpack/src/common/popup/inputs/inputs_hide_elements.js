@@ -642,11 +642,20 @@ document.querySelector('#checkbox-hide-community-status').addEventListener('chan
 	icon.classList.replace(this.checked ? 'icon-show' : 'icon-hide', this.checked ? 'icon-hide' : 'icon-show');
 });
 
-// Toggle - Hide Awards
+// Hide "Award" Button on Comments
 document.querySelector('#checkbox-hide-awards').addEventListener('change', function () {
 	BROWSER_API.storage.sync.set({ hideAwards: this.checked });
 	sendMessage({ hideAwards: this.checked });
 	const icon = document.querySelector('.icon-hide-awards');
+	icon.style.backgroundColor = this.checked ? 'var(--accent)' : '';
+	icon.classList.replace(this.checked ? 'icon-show' : 'icon-hide', this.checked ? 'icon-hide' : 'icon-show');
+});
+
+// Toggle - Hide "Repost" Button
+document.querySelector('#checkbox-hide-repost-button').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ hideRepostButton: this.checked });
+	sendMessage({ hideRepostButton: this.checked });
+	const icon = document.querySelector('.icon-hide-repost-button');
 	icon.style.backgroundColor = this.checked ? 'var(--accent)' : '';
 	icon.classList.replace(this.checked ? 'icon-show' : 'icon-hide', this.checked ? 'icon-hide' : 'icon-show');
 });

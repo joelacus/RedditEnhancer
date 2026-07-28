@@ -302,6 +302,14 @@
 					<span class='indicator'></span>
 				</label>
 			</li>
+			<li class='container-3 r-newnew' data-query-words='repost'>
+				<span class='menu-item-icon icon-show icon-hide-repost-button'></span>
+				<span data-lang='HideRepostButton'></span>
+				<label class='switch'>
+					<input id='checkbox-hide-repost-button' type='checkbox' />
+					<span class='indicator'></span>
+				</label>
+			</li>
 			<li class='container r-old r-newnew' data-query-words='votes,karma,upvote,downvote'>
 				<div class='container-3 r-old r-newnew'>
 					<span class='menu-item-icon icon-show icon-hide-vote-buttons'></span>
@@ -1381,6 +1389,14 @@
 						<span class='indicator'></span>
 					</label>
 				</div>
+				<div class='container-3 r-newnew' data-query-words='always,overflow,menu,buttons'>
+					<span class='menu-item-icon icon-award icon-hide-post-award-option'></span>
+					<span data-lang='Award'></span>
+					<label class='switch'>
+						<input id='checkbox-hide-post-award-option' type='checkbox' />
+						<span class='indicator'></span>
+					</label>
+				</div>
 			</li>
 			<li id='productivity-sort-bar' class='sub-header r-old r-newnew'>
 				<span data-lang='SortBar'></span>
@@ -2259,7 +2275,9 @@
 					<div class='container'>
 						<input class='colour-picker' data-style-id='post-bg' value='' />
 					</div>
+					<span class='info' data-lang='PostBgColourInfo' style='margin: 0 8px'></span>
 				</div>
+
 				<hr />
 				<div class='container r-newnew' data-query-words='theme,colour,post,text'>
 					<div class='container-3'>
@@ -2369,6 +2387,20 @@
 					</div>
 					<div class='container'>
 						<input class='colour-picker' data-style-id='post-upvote' value='' />
+					</div>
+				</div>
+				<hr />
+				<div class='container r-newnew' data-query-words='theme,colour,downvote'>
+					<div class='container-3'>
+						<span class='menu-item-icon icon-spray-can icon-post-downvote-colour'></span>
+						<span data-lang='DownvoteColour'></span>
+						<label class='switch'>
+							<input id='checkbox-post-downvote-colour' type='checkbox' />
+							<span class='indicator'></span>
+						</label>
+					</div>
+					<div class='container'>
+						<input class='colour-picker' data-style-id='post-downvote' value='' />
 					</div>
 				</div>
 			</li>

@@ -320,6 +320,9 @@
 	"DontShowAgain": {
 		"message": "Visa inte igen"
 	},
+	"DownvoteColour": {
+		"message": "Inlägg: Rösta ner Färg"
+	},
 	"Drag": {
 		"message": "Dra"
 	},
@@ -453,7 +456,7 @@
 		"message": "Dölja Reddit-annonseringsaviseringar"
 	},
 	"HideAwards": {
-		"message": "Dölj knappen ”Ge ut utmärkelser“"
+		"message": "Dölj knappen \"Utmärkelse\" i kommentarer"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Dölj Inlägg med Blockerade Nyckelord"
@@ -598,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Dölj relaterade inlägg"
+	},
+	"HideRepostButton": {
+		"message": "Dölj knappen \"Återpublicera\""
 	},
 	"HideSearchSidebar": {
 		"message": "Dölj sidofältet Sök"
@@ -871,6 +877,9 @@
 	},
 	"PostBgColour": {
 		"message": "Inlägg: Bakgrundsfärg"
+	},
+	"PostBgColourInfo": {
+		"message": "Gäller även för diverse andra UI-element."
 	},
 	"PostBorderColour": {
 		"message": "Inlägg: Ramfärg"

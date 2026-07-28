@@ -320,6 +320,9 @@
 	"DontShowAgain": {
 		"message": "Não mostre novamente"
 	},
+	"DownvoteColour": {
+		"message": "Postagem: Cor do voto negativo"
+	},
 	"Drag": {
 		"message": "Arraste"
 	},
@@ -453,7 +456,7 @@
 		"message": "Ocultar notificações de anúncios do Reddit"
 	},
 	"HideAwards": {
-		"message": "Ocultar botão \"Conceder Prêmios\""
+		"message": "Ocultar o botão \"Prémio\" nos comentários"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Ocultar Publicações com Palavras-Chave Bloqueadas"
@@ -598,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Ocultar postagens relacionadas"
+	},
+	"HideRepostButton": {
+		"message": "Ocultar o botão \"Repostar\""
 	},
 	"HideSearchSidebar": {
 		"message": "Ocultar a barra lateral de pesquisa"
@@ -871,6 +877,9 @@
 	},
 	"PostBgColour": {
 		"message": "Postagem: Cor de Fundo"
+	},
+	"PostBgColourInfo": {
+		"message": "Aplica-se também a vários outros elementos da interface do utilizador."
 	},
 	"PostBorderColour": {
 		"message": "Postagem: Cor da Borda"

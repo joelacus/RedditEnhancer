@@ -320,6 +320,9 @@
 	"DontShowAgain": {
 		"message": "Niet meer tonen"
 	},
+	"DownvoteColour": {
+		"message": "Bericht: Kleur van downvote"
+	},
 	"Drag": {
 		"message": "Sleep"
 	},
@@ -453,7 +456,7 @@
 		"message": "Verberg Reddit aankondigingenmeldingen"
 	},
 	"HideAwards": {
-		"message": "Verberg de Awards-knop"
+		"message": "Verberg de knop 'Award' bij reacties"
 	},
 	"HideBlockedKeywordsPosts": {
 		"message": "Berichten met Geblokkeerde Trefwoorden Verbergen"
@@ -598,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Verberg gerelateerde berichten"
+	},
+	"HideRepostButton": {
+		"message": "Verberg de knop 'Opnieuw plaatsen'"
 	},
 	"HideSearchSidebar": {
 		"message": "Verberg de zoekzijbalk"
@@ -871,6 +877,9 @@
 	},
 	"PostBgColour": {
 		"message": "Bericht: Achtergrondkleur"
+	},
+	"PostBgColourInfo": {
+		"message": "Dit geldt ook voor diverse andere UI-elementen."
 	},
 	"PostBorderColour": {
 		"message": "Bericht: Randkleur"

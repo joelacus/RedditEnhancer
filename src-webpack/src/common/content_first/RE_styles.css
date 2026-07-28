@@ -546,9 +546,9 @@ shreddit-composer::part(md-inner) {
 		margin: 0;
 		padding: 0;
 
-		& > :first-child {
+		/*& > :first-child {
 			padding-top: 0.75rem;
-		}
+		}*/
 	}
 }
 [routename='keyword-management'] main.main {

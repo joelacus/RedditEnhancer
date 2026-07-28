@@ -533,5 +533,8 @@ export function getUserTaggingCSS() {
 			display: inline-flex;
 			align-items: center;
 			gap: 2px;
+		}
+		shreddit-comment span:has(faceplate-hovercard):has(.re-user-tag){
+			display: flex;
 		}`;
 }
