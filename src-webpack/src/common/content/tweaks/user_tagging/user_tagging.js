@@ -131,7 +131,7 @@ function scanPage(refresh = false, username = '') {
 	if (redditVersion === 'newnew') {
 		links = Array.from(document.querySelectorAll(fetchUsernameTagsRV3(username)));
 	} else if (redditVersion === 'old') {
-		links = Array.from(document.querySelectorAll(usernameElementsRV1).join(','));
+		links = Array.from(document.querySelectorAll(usernameElementsRV1.join(',')));
 	}
 	links.forEach((link) => {
 		if (refresh) {

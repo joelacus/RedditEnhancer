@@ -205,7 +205,6 @@ document.querySelector('#checkbox-hide-blocked-keyword-comments-enable').addEven
 document.querySelector('#input-blocked-keyword-comments').addEventListener(
 	'input',
 	debounce(function () {
-		console.log(this.value);
 		const keywordsList = this.value;
 		// Validate regex patterns and show error message
 		const invalidEl = this.closest('li').querySelector('.info.invalid-regex');
@@ -222,6 +221,37 @@ document.querySelector('#input-blocked-keyword-comments').addEventListener(
 			console.log('Refreshing blocked posts...');
 			sendMessage({ hideBlockedKeywordComments: false });
 			sendMessage({ hideBlockedKeywordComments: true });
+		}
+	}, 1000),
+);
+
+// Toggle - Hide Blocked User Comments
+document.querySelector('#checkbox-hide-blocked-user-comments-enable').addEventListener('change', function () {
+	document.querySelector('.icon-hide-blocked-user-comments').style.backgroundColor = this.checked === true ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ hideBlockedUserComments: this.checked });
+	sendMessage({ hideBlockedUserComments: this.checked });
+});
+
+// Textarea - Hide Blocked User Comments
+document.querySelector('#input-blocked-user-comments').addEventListener(
+	'input',
+	debounce(function () {
+		const userList = this.value;
+		// Validate regex patterns and show error message
+		const invalidEl = this.closest('li').querySelector('.info.invalid-regex');
+		if (validateRegexList(userList)) {
+			this.classList.remove('invalid-regex');
+			if (invalidEl) invalidEl.textContent = '';
+		} else {
+			this.classList.add('invalid-regex');
+			if (invalidEl) invalidEl.textContent = 'Invalid regex: ' + getInvalidRegexPatterns(userList).join(', ');
+		}
+		BROWSER_API.storage.sync.set({ hideBlockedUserCommentsList: userList });
+		const enabled = document.querySelector('#checkbox-hide-blocked-user-comments-enable').checked;
+		if (enabled) {
+			console.log('Refreshing blocked posts...');
+			sendMessage({ hideBlockedUserComments: false });
+			sendMessage({ hideBlockedUserComments: true });
 		}
 	}, 1000),
 );

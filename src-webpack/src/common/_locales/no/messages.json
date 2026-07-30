@@ -150,7 +150,10 @@
 		"message": "Støtter nøyaktig nøkkelordmatch eller regulære uttrykk"
 	},
 	"BlocksCommentsByKeyword": {
-		"message": "Blokker kommentarfelt etter nøkkelord"
+		"message": "Blokkerer kommentarer etter nøkkelord"
+	},
+	"BlocksCommentsByUser": {
+		"message": "Blokkerer kommentarer fra brukeren"
 	},
 	"Blur": {
 		"message": "Uklarhet"

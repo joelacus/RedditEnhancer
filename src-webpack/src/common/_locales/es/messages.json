@@ -150,7 +150,10 @@
 		"message": "Soporta la coincidencia exacta de palabras clave o expresiones regulares."
 	},
 	"BlocksCommentsByKeyword": {
-		"message": "Bloquear comentarios por palabra clave"
+		"message": "Bloquear comentarios según palabras clave"
+	},
+	"BlocksCommentsByUser": {
+		"message": "Bloquear comentarios basados ​​en la usuario"
 	},
 	"Blur": {
 		"message": "Desenfoque"

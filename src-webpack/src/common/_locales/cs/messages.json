@@ -150,7 +150,10 @@
 		"message": "Podporuje přesné shoda klíčových slov nebo regulární výrazy."
 	},
 	"BlocksCommentsByKeyword": {
-		"message": "Blokování komentářů podle klíčového slova"
+		"message": "Blokovat komentáře na základě klíčového slova"
+	},
+	"BlocksCommentsByUser": {
+		"message": "Blokovat komentáře na základě uživatele"
 	},
 	"Blur": {
 		"message": "Rozmazat"

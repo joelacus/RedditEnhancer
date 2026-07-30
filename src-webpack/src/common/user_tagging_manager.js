@@ -34,10 +34,30 @@ let colourPickerBg = null;
 let colourPickerFg = null;
 let sortState = { column: 'updated', direction: 'desc' };
 
-// ─── i18n ───────────────────────────────────────────────────────────────────
-
 const url = window.location.href;
 const searchParams = new URLSearchParams(url);
+
+// ─── Theme ──────────────────────────────────────────────────────────────────
+
+let theme = searchParams.get('theme');
+const autoTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+if (theme === 'auto') {
+	theme = autoTheme;
+}
+
+if (theme === 'light') {
+	document.querySelector('body').classList.add('theme-light');
+} else if (theme === 'classic-light') {
+	document.querySelector('body').classList.add('theme-classic-light');
+} else if (theme === 'grey') {
+	document.querySelector('body').classList.add('theme-grey');
+} else {
+	document.querySelector('body').classList.add('theme-dark');
+}
+
+// ─── i18n ───────────────────────────────────────────────────────────────────
+
 const lang = searchParams.get('lang');
 init_i18n(lang);
 

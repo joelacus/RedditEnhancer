@@ -150,7 +150,10 @@
 		"message": "Tukee tarkan avainsanan vastaavuuden tai säännölliset lausekkeet"
 	},
 	"BlocksCommentsByKeyword": {
-		"message": "Estää kommentit avainsanan perusteella"
+		"message": "Estä kommentit avainsanan perusteella"
+	},
+	"BlocksCommentsByUser": {
+		"message": "Estä kommentit käyttäjän perusteella"
 	},
 	"Blur": {
 		"message": "Sumennuttaa"

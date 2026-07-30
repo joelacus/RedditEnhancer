@@ -138,6 +138,9 @@
 	scroll-margin-top: 45px;
 	margin-top: 10px;
 }
+.container .sub-header {
+	padding: 0 12px;
+}
 .sub-header[data-search-result] {
 	margin-top: 0;
 }

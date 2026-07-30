@@ -20,12 +20,10 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 	} else if (request.darkModeAutoTime === false) {
 		checkTime(false);
 	} else */ if (request.importBackupFile === true) {
-		BROWSER_API.storage.sync.get(['language'], function (result) {
-			if (typeof result.language != 'undefined') {
-				BROWSER_API.tabs.create({ url: `restore_config.html?&lang=` + result.language }, function (tab) {});
-			} else {
-				BROWSER_API.tabs.create({ url: `restore_config.html` }, function (tab) {});
-			}
+		BROWSER_API.storage.sync.get(['language', 'addonTheme'], function (result) {
+			const lang = typeof result.language != 'undefined' ? '&lang=' + result.language : '';
+			const theme = `&theme=${result.addonTheme}`;
+			BROWSER_API.tabs.create({ url: `restore_config.html?&lang=${lang || theme ? '?' : ''}${lang}${theme}` }, function (tab) {});
 		});
 	} else if (request.SaveScrollToNextRootCommentPosition) {
 		const pos = request.SaveScrollToNextRootCommentPosition;
@@ -47,10 +45,11 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 	} else if (request.openOptionsPage === true) {
 		BROWSER_API.tabs.create({ url: `options.html` }, function (tab) {});
 	} else if (request.openUserTaggingManager === true) {
-		BROWSER_API.storage.sync.get(['language'], function (result) {
+		BROWSER_API.storage.sync.get(['language', 'addonTheme'], function (result) {
 			const lang = typeof result.language != 'undefined' ? '&lang=' + result.language : '';
 			const user = request.user ? '&user=' + encodeURIComponent(request.user) : '';
-			BROWSER_API.tabs.create({ url: `user_tagging_manager.html${lang || user ? '?' : ''}${lang}${user}` }, function (tab) {});
+			const theme = `&theme=${result.addonTheme}`;
+			BROWSER_API.tabs.create({ url: `user_tagging_manager.html${lang || user || theme ? '?' : ''}${lang}${user}${theme}` }, function (tab) {});
 		});
 	} else if (request.actions) {
 		for (const action of request.actions) {

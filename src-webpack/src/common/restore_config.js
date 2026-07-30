@@ -1,7 +1,63 @@
+// ────────────────────────────────────────────────────────────────────────────
+// Restore Backup Config File
+// ────────────────────────────────────────────────────────────────────────────
+
 import i18next from 'i18next';
 import HttpBackend from 'i18next-http-backend';
+import './restore_config.css';
 
-// Import via button
+const url = window.location.href;
+const searchParams = new URLSearchParams(url);
+
+// ─── Theme ──────────────────────────────────────────────────────────────────
+
+let theme = searchParams.get('theme');
+const autoTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+if (theme === 'auto') {
+	theme = autoTheme;
+}
+
+if (theme === 'light') {
+	document.querySelector('body').classList.add('theme-light');
+} else if (theme === 'classic-light') {
+	document.querySelector('body').classList.add('theme-classic-light');
+} else if (theme === 'grey') {
+	document.querySelector('body').classList.add('theme-grey');
+} else {
+	document.querySelector('body').classList.add('theme-dark');
+}
+
+// ─── i18n ───────────────────────────────────────────────────────────────────
+
+const lang = searchParams.get('lang');
+init_i18n(lang);
+
+function init_i18n(lang) {
+	i18next
+		.use(HttpBackend)
+		.init({
+			lng: lang,
+			fallbackLng: 'en',
+			backend: {
+				loadPath: '/_locales/{{lng}}/messages.json',
+			},
+			showSupportNotice: false,
+		})
+		.then(() => {
+			translate();
+		});
+}
+
+function translate() {
+	document.querySelectorAll('[data-lang]').forEach(function (item) {
+		const text = item.getAttribute('data-lang');
+		item.textContent = i18next.t(text + '.message');
+	});
+}
+
+// ─── Import via button ──────────────────────────────────────────────────────
+
 let form = document.querySelector('#import-backup');
 let file = document.querySelector('#backup-file');
 form.addEventListener('submit', handleSubmit);
@@ -13,6 +69,17 @@ function handleSubmit(event) {
 	reader.readAsText(file.files[0]); // Read the file
 }
 
+// Add an event listener to the file input element
+const fileInput = document.getElementById('backup-file');
+const fileLabel = document.getElementById('file-label');
+fileInput.addEventListener('change', function () {
+	// Get the selected file name
+	const fileName = this.files[0].name;
+
+	// Update the label text with the selected file name
+	fileLabel.textContent = fileName;
+});
+
 // Disable drag/drop on body
 document.body.addEventListener('dragover', function (event) {
 	event.preventDefault();
@@ -21,7 +88,8 @@ document.body.addEventListener('drop', function (event) {
 	event.preventDefault();
 });
 
-// Import via drag/drop
+// ─── Import via drag/drop ───────────────────────────────────────────────────
+
 let dropArea = document.getElementById('drop-area');
 dropArea.addEventListener('dragenter', handleDragEnter, false);
 dropArea.addEventListener('dragleave', handleDragLeave, false);
@@ -73,7 +141,8 @@ function handleFiles(files) {
 	});
 }
 
-// Import via button file check
+// ─── Verify ─────────────────────────────────────────────────────────────────
+
 function checkFile(event) {
 	let str = event.target.result;
 	let json = JSON.parse(str);
@@ -116,6 +185,8 @@ function checkDroppedFile(event) {
 		document.querySelector('#restore-backup').setAttribute('disabled', 'disabled');
 	}
 }
+
+// ─── Restore ────────────────────────────────────────────────────────────────
 
 // Restore button
 document.querySelector('#restore-backup').addEventListener('click', function () {
@@ -203,8 +274,11 @@ async function restoreBackup(json) {
 				'hideBlockedSubredditPostsList',
 				'hideBlockedKeywordComments',
 				'hideBlockedKeywordCommentsList',
+				'hideBlockedUserComments',
+				'hideBlockedUserCommentsList',
 				'hideBlurredMediaBackground',
 				'hideChatButton',
+				'hideCommunityStatusIcon',
 				'hideCommentAwardOption',
 				'hideCommentFollowOption',
 				'hideCommentReportOption',
@@ -451,45 +525,3 @@ async function restoreBackup(json) {
 		console.error('[RedditEnhancer] Restore failed!');
 	}
 }
-
-// Get Language
-const url = window.location.href;
-const searchParams = new URLSearchParams(url);
-const lang = searchParams.get('lang');
-init_i18n(lang);
-
-// Init Translation
-function init_i18n(lang) {
-	i18next
-		.use(HttpBackend)
-		.init({
-			lng: lang,
-			fallbackLng: 'en',
-			backend: {
-				loadPath: '/_locales/{{lng}}/messages.json',
-			},
-			showSupportNotice: false,
-		})
-		.then(() => {
-			translate();
-		});
-}
-
-// Translate based on selected language
-function translate() {
-	document.querySelectorAll('[data-lang]').forEach(function (item) {
-		const text = item.getAttribute('data-lang');
-		item.textContent = i18next.t(text + '.message');
-	});
-}
-
-// Add an event listener to the file input element
-const fileInput = document.getElementById('backup-file');
-const fileLabel = document.getElementById('file-label');
-fileInput.addEventListener('change', function () {
-	// Get the selected file name
-	const fileName = this.files[0].name;
-
-	// Update the label text with the selected file name
-	fileLabel.textContent = fileName;
-});

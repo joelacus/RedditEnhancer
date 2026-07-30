@@ -2775,6 +2775,10 @@
 					</div>
 					<div class='r-old r-newnew'>
 						<a href='#block-comments-keyword'><span data-lang='Comments'></span>/<span data-lang='Keywords'></span></a>
+						<div class='vdivider'></div>
+					</div>
+					<div class='r-old r-newnew'>
+						<a href='#block-comments-user'><span data-lang='Comments'></span>/<span data-lang='Users'></span></a>
 					</div>
 				</div>
 			</li>
@@ -2852,6 +2856,21 @@
 					</label>
 					<div></div>
 					<textarea id='input-blocked-keyword-comments' rows='4' cols='auto' placeholder='keyword,keyword'></textarea>
+				</div>
+				<p class='info' data-lang='BlockInfo'></p>
+				<p class='info' data-lang='CommentsBlockInfo'></p>
+				<p class='info invalid-regex'></p>
+			</li>
+			<li id='block-comments-user' class='container r-old r-newnew' data-query-words='block,comments' style='scroll-margin-top: 70px'>
+				<div class='container-3'>
+					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-user-comments'></span>
+					<span data-lang='BlocksCommentsByUser'></span>
+					<label class='switch'>
+						<input id='checkbox-hide-blocked-user-comments-enable' type='checkbox' />
+						<span class='indicator'></span>
+					</label>
+					<div></div>
+					<textarea id='input-blocked-user-comments' rows='4' cols='auto' placeholder='user,user'></textarea>
 				</div>
 				<p class='info' data-lang='BlockInfo'></p>
 				<p class='info' data-lang='CommentsBlockInfo'></p>

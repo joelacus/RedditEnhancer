@@ -150,7 +150,10 @@
 		"message": "Supporta la corrispondenza esatta di parole chiave o le espressioni regolari"
 	},
 	"BlocksCommentsByKeyword": {
-		"message": "Blocca commenti per parola chiave"
+		"message": "Blocca i commenti in base alle parole chiave"
+	},
+	"BlocksCommentsByUser": {
+		"message": "Blocca i commenti in base all'utente"
 	},
 	"Blur": {
 		"message": "Sfocare"

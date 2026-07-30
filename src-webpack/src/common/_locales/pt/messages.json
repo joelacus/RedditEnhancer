@@ -152,6 +152,9 @@
 	"BlocksCommentsByKeyword": {
 		"message": "Bloquear comentários por palavra-chave"
 	},
+	"BlocksCommentsByUser": {
+		"message": "Bloquear comentários do utilizador"
+	},
 	"Blur": {
 		"message": "Desfocar"
 	},

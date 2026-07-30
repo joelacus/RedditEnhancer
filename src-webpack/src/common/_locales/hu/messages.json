@@ -150,7 +150,10 @@
 		"message": "Támogatja az exakt kulcsszó-lehjat vagy reguláris kifejezéseket."
 	},
 	"BlocksCommentsByKeyword": {
-		"message": "Hozzászólások blokkolása kulcsszó alapján"
+		"message": "Kulcsszó alapján blokkolja a megjegyzéseket"
+	},
+	"BlocksCommentsByUser": {
+		"message": "Felhasználói megjegyzések blokkolása"
 	},
 	"Blur": {
 		"message": "Elhomályosít"

@@ -150,7 +150,10 @@
 		"message": "Ondersteunt exacte trefwoordmatch of reguliere expressies"
 	},
 	"BlocksCommentsByKeyword": {
-		"message": "Commentaar blokkeren op basis van trefwoord"
+		"message": "Reacties blokkeren op basis van trefwoord"
+	},
+	"BlocksCommentsByUser": {
+		"message": "Reacties van gebruiker blokkeren"
 	},
 	"Blur": {
 		"message": "Vervagen"

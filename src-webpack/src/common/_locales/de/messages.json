@@ -150,7 +150,10 @@
 		"message": "Unterstützt exakte Schlüsselwortübereinstimmungen oder reguläre Ausdrücke."
 	},
 	"BlocksCommentsByKeyword": {
-		"message": "Kommentare nach Schlüsselwort blockieren"
+		"message": "Blockkommentare basierend auf Schlüsselwörtern"
+	},
+	"BlocksCommentsByUser": {
+		"message": "Kommentare basierend auf dem Benutzer blockieren"
 	},
 	"Blur": {
 		"message": "Verwischen"

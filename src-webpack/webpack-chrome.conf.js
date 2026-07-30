@@ -84,11 +84,6 @@ module.exports = {
 				},
 				{
 					context: path.resolve(__dirname, 'src/common'),
-					from: 'restore_config.css',
-					to: 'restore_config.css',
-				},
-				{
-					context: path.resolve(__dirname, 'src/common'),
 					from: 'user_tagging_manager.html',
 					to: 'user_tagging_manager.html',
 				},

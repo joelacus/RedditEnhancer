@@ -9,6 +9,7 @@ body {
 	--border-radius: 8px;
 	--accent: #ff4703;
 	--text: #fcfcfc;
+	--text-secondary: #fcfcfc;
 	--text-grey: #808080;
 	--header-fg: #fcfcfc;
 	--footer-fg: #fcfcfc;
@@ -42,6 +43,7 @@ body {
 	--border-radius: 8px;
 	--accent: #ff7650;
 	--text: #030303;
+	--text-secondary: #030303;
 	--text-grey: #626261;
 	--header-fg: #030303;
 	--footer-fg: #030303;
@@ -76,6 +78,7 @@ body {
 	--accent: #ff7650;
 	--bg-shade-1: #efefef;
 	--text: #030303;
+	--text-secondary: #030303;
 	--text-grey: #8e8e8e;
 	--header-fg: #030303;
 	--footer-fg: #030303;
@@ -108,6 +111,7 @@ body {
 	--border-radius: 8px;
 	--accent: #ff4703;
 	--text: #fff;
+	--text-secondary: #2d2d2d;
 	--text-grey: #dbdbdb;
 	--header-fg: #030303;
 	--footer-fg: #030303;

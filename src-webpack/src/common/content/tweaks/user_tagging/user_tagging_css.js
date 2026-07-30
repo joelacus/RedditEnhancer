@@ -42,6 +42,27 @@ export function getUserTaggingCSS() {
 			--btn-hover-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
 			--btn-active: color-mix(in srgb, #19191a 60%, #000000);
 		}
+
+		.theme-light {
+			--text: #030303;
+			--text-grey: #626261;
+
+			--bg: #f0f0f0;
+			--bg-shade-1: #d4d4d4;
+			--bg-tint-1: #e7e7e7;
+			--bg-tint-2: #e7e7e7;
+			--bg-tint-3: #ebebeb;
+			--bg-tint-4: #b3b3b3;
+
+			--btn-fg: var(--text);
+			--btn-secondary-fg: #999;
+			--btn-bg: var(--bg-tint-1);
+			--btn-border: color-mix(in srgb, var(--btn-bg), #000 5%);
+			--btn-hover: color-mix(in srgb, var(--btn-bg), #000 5%);
+			--btn-hover-border: color-mix(in srgb, var(--btn-bg), #666666 15%);
+			--btn-active: color-mix(in srgb, var(--btn-bg), #000 10%);
+		}
+
 		shreddit-app .re-user-tag {
 			margin-left: 4px;
 		}
@@ -281,7 +302,7 @@ export function getUserTaggingCSS() {
 			border: none;
 			border-bottom: 2px solid transparent;
 			border-radius: 0 !important;
-			color: #aaa;
+			color: var(--text-grey);
 			cursor: pointer;
 			font-family: Verdana, sans-serif;
 			font-size: 13px;
@@ -290,10 +311,10 @@ export function getUserTaggingCSS() {
 			transition: color 0.15s, border-color 0.15s;
 		}
 		.re-tag-tab:hover {
-			color: #fff;
+			color: var(--text);
 		}
 		.re-tag-tab.active {
-			color: #fff;
+			color: var(--text);
 			border-bottom-color: var(--accent);
 			font-weight: bold;
 		}
@@ -302,23 +323,6 @@ export function getUserTaggingCSS() {
 		}
 		.re-tab-pane.active {
 			display: block;
-		}
-		.re-tag-popover textarea {
-			width: 100%;
-			max-height: 300px;
-			padding: 8px;
-			box-sizing: border-box;
-			background: #19191a;
-			border: 1px solid #4c4c4c;
-			border-radius: 6px;
-			color: #fcfcfc;
-			font-family: Verdana, sans-serif;
-			font-size: 14px;
-			resize: vertical;
-			outline: none;
-		}
-		.re-tag-popover textarea:focus {
-			border-color: var(--accent);
 		}
 		.re-tag-details {
 			display: flex;
@@ -362,22 +366,29 @@ export function getUserTaggingCSS() {
 			margin-bottom: 0.25rem;
 			font-weight: bold;
 			font-size: 0.9em;
-			color: #fff;
+			color: var(--text);
 		}
 		.re-tag-popover input[type="text"],
-		.re-tag-popover select {
+		.re-tag-popover select,
+		.re-tag-popover textarea {
 			width: 100%;
 			padding: 6px 8px;
 			box-sizing: border-box;
-			background: #19191a;
-			border: 1px solid #4c4c4c;
+			background-color: var(--btn-bg);
+			border: solid 1px var(--btn-border);
 			border-radius: 6px;
-			color: #fcfcfc;
+			color: var(--text);
+			font-family: Verdana, sans-serif;
 			font-size: 14px;
 			outline: none;
 		}
+		.re-tag-popover textarea {
+			max-height: 300px;
+			resize: vertical;
+		}
 		.re-tag-popover input[type="text"]:focus,
-		.re-tag-popover select:focus {
+		.re-tag-popover select:focus,
+		.re-tag-popover textarea:focus {
 			border-color: var(--accent);
 		}
 		.re-edit-tag {

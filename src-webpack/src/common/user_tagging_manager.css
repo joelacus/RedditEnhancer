@@ -1,29 +1,6 @@
 @import './popup/css/icons.css';
 @import './popup/css/colorpicker.css';
-
-:root {
-	--border-radius: 8px;
-	--accent: #ff4703;
-	--red: #f44336;
-	--text: #fcfcfc;
-	--text-grey: #808080;
-	--shadow: rgba(0, 0, 0, 0.5);
-
-	--bg: #282828;
-	--bg-shade-1: #101010;
-	--bg-tint-1: #19191a;
-	--bg-tint-2: #242424;
-	--bg-tint-3: #141414;
-	--bg-tint-4: #4c4c4c;
-
-	--btn-fg: var(--text);
-	--btn-secondary-fg: #4d4d4d;
-	--btn-bg: var(--bg-tint-1);
-	--btn-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
-	--btn-hover: color-mix(in srgb, #19191a 80%, #000000);
-	--btn-hover-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
-	--btn-active: color-mix(in srgb, #19191a 60%, #000000);
-}
+@import './popup/css/themes.css';
 
 body {
 	background: var(--bg);
@@ -38,6 +15,10 @@ body {
 a,
 a:visited {
 	color: var(--text);
+}
+
+h1 {
+	color: var(--text-secondary);
 }
 
 .btn {
@@ -173,6 +154,13 @@ select option {
 .cp_wide.cp_input:hover {
 	background-color: var(--btn-hover) !important;
 }
+input.cp_value {
+	border: none !important;
+	background-color: var(--bg-tint-1);
+}
+.cp_dialog-inner button:hover {
+	background-color: var(--btn-hover) !important;
+}
 
 /* Table */
 
@@ -217,8 +205,10 @@ select option {
 	padding-top: 1rem;
 	border-top: 1px solid var(--bg-tint-4);
 	font-size: 0.85rem;
-	color: var(--text-grey);
 	flex-shrink: 0;
+}
+.manager-footer p {
+	color: var(--text-secondary);
 }
 
 .table-scroll {
@@ -233,6 +223,7 @@ select option {
 	width: 100%;
 	border-collapse: collapse;
 	table-layout: fixed;
+	background-color: var(--bg-tint-2);
 }
 
 #user-tags-table th,
@@ -240,13 +231,13 @@ select option {
 	padding: 0.5rem;
 	border-bottom: 1px solid var(--bg-tint-4);
 	text-align: left;
+	background-color: var(--bg-tint-2);
 }
 
 #user-tags-table th {
 	font-weight: bold;
 	position: sticky;
 	top: 0;
-	background: var(--bg);
 	z-index: 1;
 }
 
@@ -475,6 +466,7 @@ select option {
 	margin-bottom: 0.25rem;
 	font-weight: bold;
 	font-size: 0.9em;
+	color: var(--text-secondary);
 }
 
 .modal-content input,
@@ -488,6 +480,7 @@ select option {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	color: var(--text-secondary);
 }
 
 .re-tag-popover-actions {

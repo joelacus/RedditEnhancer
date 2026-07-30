@@ -243,11 +243,11 @@ export function themeSubHeaderBackgroundColour(value) {
 		});
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-sub-header-bg-colour';
-		styleElement.textContent = `.re-full-width-banner .masthead {
+		styleElement.textContent = `.re-full-width-banner .masthead,
+									#subreddit-banner-img {
 										background: none !important;
 									}
-									.masthead section,
-									#subreddit-banner-img,
+									.masthead,
 									div:has(>[bundlename="shreddit_sort_dropdown"]) {
 										background-color: var(--re-theme-sub-header-bg) !important;
 									}
@@ -256,6 +256,9 @@ export function themeSubHeaderBackgroundColour(value) {
 									}
 									div.masthead:not(:has(#subreddit-banner-img[class*="image:var"])) section{
 										margin-top: 0 !important;
+									}
+									div:has(>[bundlename="shreddit_sort_dropdown"]) {
+										border-radius: var(--re-theme-border-radius);
 									}
 									div.masthead:not(:has(#subreddit-banner-img[class*="image:var"])) #subreddit-banner-img {
 										border-bottom-left-radius: 0 !important;

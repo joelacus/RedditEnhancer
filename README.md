@@ -72,6 +72,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide "Link" posts by keywords in the URL|Hide all posts that contain a URL containing certain keyword(s), supports regex (regular expressions).|3<br>1|
 |Hide Posts by Subreddit|Hide all posts from a certain subreddit(s), supports regex (regular expressions). Not enabled for subreddit feeds.|3<br>1|
 |Hide Comments by Keyword|Hide comments containing a certain keyword(s).|3<br>1|
+|Hide Comments by User|Hide comments by a certain user(s).|3<br>1|
 
 ## Resize Feed and Posts
 |Feature|Description|Reddit Version Support|

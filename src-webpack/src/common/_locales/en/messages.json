@@ -153,7 +153,10 @@
 		"message": "Supports exact keyword match, or regular expressions."
 	},
 	"BlocksCommentsByKeyword": {
-		"message": "Blocks Comments by Keyword"
+		"message": "Block Comments by Keyword"
+	},
+	"BlocksCommentsByUser": {
+		"message": "Block Comments by User"
 	},
 	"Blur": {
 		"message": "Blur"

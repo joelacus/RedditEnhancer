@@ -203,11 +203,16 @@ shreddit-comment .re-hide-comment::before {
 	padding-left: 0.5rem;
 	opacity: 0.5;
 }
+.thing .re-hide-comment {
+	color: transparent;
+	font-size: 0;
+}
 .thing .re-hide-comment::before {
 	content: 'Hidden';
 	position: absolute;
 	margin: 0.1rem 0.25rem;
 	opacity: 0.5;
+	color: #000;
 }
 
 /* ========== FULL-WIDTH SORT DROPDOWN ========== */

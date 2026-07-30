@@ -329,6 +329,13 @@ async function enableAttachSideMenuHeader() {
 				display: block;
 				margin-bottom: .25rem;
 				font-size: small;
+			}
+			search-dynamic-id-cache-controller {
+				display: flex !important;
+				justify-content: center;
+			}
+			reddit-search-large {
+				max-width: 800px !important;
 			}`;
 		if (!optOutAttach) {
 			styleElement.textContent += `

@@ -191,6 +191,8 @@ function enableExpandContentRV3() {
             }
 			.masthead {
 				align-self: center;
+				padding: 0 !important;
+				background-color: var(--re-theme-sub-header-bg);
 			}
             .masthead > div,
             .masthead > section {

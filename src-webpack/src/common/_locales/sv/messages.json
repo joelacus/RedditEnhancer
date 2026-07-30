@@ -152,6 +152,9 @@
 	"BlocksCommentsByKeyword": {
 		"message": "Blockera kommentarer efter nyckelord"
 	},
+	"BlocksCommentsByUser": {
+		"message": "Blockera kommentarer av användaren"
+	},
 	"Blur": {
 		"message": "Fläck"
 	},

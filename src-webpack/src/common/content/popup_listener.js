@@ -184,6 +184,7 @@ import { hideGamificationNotifications } from './tweaks/hide_elements/hide_gamif
 import { forceShowVoteButtons } from './tweaks/productivity/force_show_vote_buttons';
 import { userTaggingEnabled } from './tweaks/user_tagging/user_tagging';
 import { hideRepostButton } from './tweaks/hide_elements/hide_repost_button';
+import { hideBlockedUserComments } from './tweaks/block/block_comments_by_user';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -459,6 +460,7 @@ const functionRegistry = {
 	hidePageFooter,
 	hidePostComments,
 	hideBlockedKeywordComments,
+	hideBlockedUserComments,
 	numberedPostImages,
 	autoplayVideos,
 	autoplayGifs,

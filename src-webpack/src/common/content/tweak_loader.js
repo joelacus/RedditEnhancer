@@ -78,6 +78,7 @@ import { loadUsernameHoverPopupDelay } from './tweaks/productivity/username_hove
 import { loadUserTagging } from './tweaks/user_tagging/user_tagging';
 import { loadViewCrossposts } from './tweaks/productivity/view_crossposts';
 import { loadHideRepostButton } from './tweaks/hide_elements/hide_repost_button';
+import { loadHideBlockedUserComments } from './tweaks/block/block_comments_by_user';
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -90,6 +91,7 @@ export function loadTweaks() {
 		loadHideBlockedLinkPosts();
 		loadHideBlockedSubredditPosts();
 		loadHideBlockedKeywordComments();
+		loadHideBlockedUserComments();
 		loadShowMemberCount();
 		loadShowPostAbsoluteTimestamp();
 		loadShowCommentAbsoluteTimestamp();
@@ -322,6 +324,7 @@ export function loadTweaks() {
 					loadFixThreadlinesForTranslucentPosts();
 					loadMulticolouredThreadLines();
 					loadHideBlockedKeywordComments();
+					loadHideBlockedUserComments();
 				}, 2000);
 				loadAutoLoadMoreComments();
 			},

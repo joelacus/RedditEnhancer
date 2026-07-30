@@ -150,7 +150,10 @@
 		"message": "Prend en charge la correspondance exacte des mots clés ou les expressions régulières."
 	},
 	"BlocksCommentsByKeyword": {
-		"message": "Bloquer les commentaires par mot-clé"
+		"message": "Bloquer les commentaires en fonction de mots-clés"
+	},
+	"BlocksCommentsByUser": {
+		"message": "Bloquer les commentaires en fonction de l'utilisateur"
 	},
 	"Blur": {
 		"message": "Flou"

@@ -150,7 +150,10 @@
 		"message": "Obsługuje dokładne dopasowanie kluczowych słów lub wyrażeń regularnych"
 	},
 	"BlocksCommentsByKeyword": {
-		"message": "Blokowanie komentarzy według słowa kluczowego"
+		"message": "Blokuj komentarze według słowa kluczowego"
+	},
+	"BlocksCommentsByUser": {
+		"message": "Blokuj komentarze użytkownika"
 	},
 	"Blur": {
 		"message": "Rozmazać"
