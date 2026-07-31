@@ -7,6 +7,8 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
+import { isInputFocused } from '../../../utilities/isInputFocused';
+
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
 export function loadScrollToNextRootComment() {
@@ -130,11 +132,6 @@ function enableScrollToNextRootCommentRV3() {
 
 	// Add key press event listener
 	document.addEventListener('keydown', handleKeyPress);
-
-	const isInputFocused = () => {
-		const active = document.activeElement;
-		return active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.tagName === 'REDDIT-SEARCH-LARGE' || active.tagName === 'SHREDDIT-COMPOSER' || active.isContentEditable || active.shadowRoot?.querySelector('[data-testid="reddit-chat-client"]'));
-	};
 
 	function handleKeyPress(e) {
 		if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'REDDIT-SEARCH-LARGE') {
