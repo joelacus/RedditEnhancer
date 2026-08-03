@@ -1277,6 +1277,9 @@
 	"UseOriginalSearchBar": {
 		"message": "Használja az eredeti keresőmezőt"
 	},
+	"UserAlreadyAdded": {
+		"message": "Felhasználó már hozzáadva"
+	},
 	"Username": {
 		"message": "felhasználónév"
 	},

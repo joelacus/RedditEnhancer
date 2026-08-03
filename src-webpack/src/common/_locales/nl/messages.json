@@ -1277,6 +1277,9 @@
 	"UseOriginalSearchBar": {
 		"message": "GebRVk de originele zoekbalk"
 	},
+	"UserAlreadyAdded": {
+		"message": "Gebruiker is al toegevoegd"
+	},
 	"Username": {
 		"message": "Gebruikersnaam"
 	},

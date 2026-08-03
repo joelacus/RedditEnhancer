@@ -1277,6 +1277,9 @@
 	"UseOriginalSearchBar": {
 		"message": "Використовуйте оригінальний рядок пошуку"
 	},
+	"UserAlreadyAdded": {
+		"message": "Користувача вже додано"
+	},
 	"Username": {
 		"message": "Ім'я користувача"
 	},

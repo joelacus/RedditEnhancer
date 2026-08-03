@@ -1277,6 +1277,9 @@
 	"UseOriginalSearchBar": {
 		"message": "Použijte původní vyhledávací lištu"
 	},
+	"UserAlreadyAdded": {
+		"message": "Uživatel již byl přidán"
+	},
 	"Username": {
 		"message": "Uživatelské jméno"
 	},

@@ -29,7 +29,7 @@ body {
 	--btn-secondary-fg: #4d4d4d;
 	--btn-bg: var(--bg-tint-1);
 	--btn-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
-	--btn-hover: color-mix(in srgb, #19191a 80%, #000000);
+	--btn-hover: color-mix(in srgb, #19191a 70%, #000000);
 	--btn-hover-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
 	--btn-active: color-mix(in srgb, #19191a 60%, #000000);
 

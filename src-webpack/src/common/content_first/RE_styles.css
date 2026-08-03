@@ -194,7 +194,7 @@ div[data-testid='search-results-sidebar'] {
 .re-invisible {
 	visibility: hidden !important;
 }
-.re-hide-comment p {
+.re-hide-comment * {
 	display: none !important;
 }
 shreddit-comment .re-hide-comment::before {

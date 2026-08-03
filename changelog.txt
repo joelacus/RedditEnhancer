@@ -1,7 +1,14 @@
 version 3.4.0
 v [Latest UI V3 & Old UI V1]
-  - Added User Tagging. Adds options to create and show custom tags/labels next to usernames. Optionally add a longer note for more information. User tags are only stored locally and not synced with the browser, but supports exporting to a backup file. Also supports importing user tags from RES backup files. Create preset tags to quickly add frequently used tags to users.
+  - User Tagging.
+    - Adds a tag button next to usernames, either to create a new tag, or show an existing tag.
+    - Tags can be fully customised (label text, background colour, foreground colour, and an optional icon).
+    - Optionally attach a note to a tagged user to show more information.
+    - Create preset tags, adding them to a list to quickly apply a frequently used tag to a user.
+    - Import and Export tags to a backup file. Supports importing tags from a RES backup file.
+    - Dedicated user tagging manager to view all tagged users, manually add new tags, or edit/delete existing tags.
   - Added an option to hide comments by certain users.
+  - Added "block" buttons next to usernames to quickly block/unblock users.
 v [Latest UI V3]
   - Added an option to hide the "Repost" button on posts.
   - Added an option to change the post downvote colour.

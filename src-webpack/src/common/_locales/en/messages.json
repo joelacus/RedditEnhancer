@@ -1280,6 +1280,9 @@
 	"UseOriginalSearchBar": {
 		"message": "Use the Original Search Bar"
 	},
+	"UserAlreadyAdded": {
+		"message": "User already added"
+	},
 	"Username": {
 		"message": "Username"
 	},

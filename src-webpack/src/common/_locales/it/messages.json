@@ -1277,6 +1277,9 @@
 	"UseOriginalSearchBar": {
 		"message": "Utilizza la barra di ricerca originale"
 	},
+	"UserAlreadyAdded": {
+		"message": "Utente già aggiunto"
+	},
 	"Username": {
 		"message": "nome utente"
 	},

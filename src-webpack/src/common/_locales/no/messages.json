@@ -1277,6 +1277,9 @@
 	"UseOriginalSearchBar": {
 		"message": "Bruk den opprinnelige søkefeltet"
 	},
+	"UserAlreadyAdded": {
+		"message": "Brukeren er allerede lagt til"
+	},
 	"Username": {
 		"message": "Brukernavn"
 	},

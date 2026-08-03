@@ -23,17 +23,14 @@ export function getUserTaggingCSS() {
 		:root {
 			--border-radius: 8px;
 			--accent: #ff4703;
-			--red: #f44336;
 			--text: #fcfcfc;
 			--text-grey: #808080;
-
 			--bg: #282828;
 			--bg-shade-1: #101010;
 			--bg-tint-1: #19191a;
 			--bg-tint-2: #242424;
 			--bg-tint-3: #141414;
 			--bg-tint-4: #4c4c4c;
-
 			--btn-fg: var(--text);
 			--btn-secondary-fg: #4d4d4d;
 			--btn-bg: var(--bg-tint-1);
@@ -46,14 +43,12 @@ export function getUserTaggingCSS() {
 		.theme-light {
 			--text: #030303;
 			--text-grey: #626261;
-
 			--bg: #f0f0f0;
 			--bg-shade-1: #d4d4d4;
 			--bg-tint-1: #e7e7e7;
 			--bg-tint-2: #e7e7e7;
 			--bg-tint-3: #ebebeb;
 			--bg-tint-4: #b3b3b3;
-
 			--btn-fg: var(--text);
 			--btn-secondary-fg: #999;
 			--btn-bg: var(--bg-tint-1);
@@ -245,50 +240,10 @@ export function getUserTaggingCSS() {
 			-webkit-mask-position: center;
 			mask-repeat: no-repeat;
 			-webkit-mask-repeat: no-repeat;
-		}
-		shreddit-app .re-create-tag-btn {
 			margin-left: 6px;
 		}
 		.re-create-tag-btn:hover {
 			opacity: 0.8;
-		}
-		.re-tag-popover {
-			position: absolute;
-			z-index: 99999;
-			background: var(--bg);
-			border: 1px solid var(--bg-tint-4);
-			border-radius: var(--border-radius);
-			padding: 20px;
-			box-shadow: 0 4px 14px rgba(0,0,0,0.5);
-			width: 360px;
-			max-width: calc(100vw - 24px);
-			max-height: calc(100vh - 24px);
-			overflow-y: hidden;
-			color: #fcfcfc;
-			font-family: Verdana, sans-serif;
-			font-size: 14px;
-		}
-		.re-tag-popover::before {
-			content: '';
-			position: absolute;
-			top: -8px;
-			left: 20px;
-			width: 0;
-			height: 0;
-			border-left: 8px solid transparent;
-			border-right: 8px solid transparent;
-			border-bottom: 8px solid #4c4c4c;
-		}
-		.re-tag-popover::after {
-			content: '';
-			position: absolute;
-			top: -7px;
-			left: 21px;
-			width: 0;
-			height: 0;
-			border-left: 7px solid transparent;
-			border-right: 7px solid transparent;
-			border-bottom: 7px solid #282828;
 		}
 		.re-tag-tabs {
 			display: flex;
@@ -351,46 +306,6 @@ export function getUserTaggingCSS() {
 		.re-tag-detail-value a:hover {
 			text-decoration: underline;
 		}
-		.re-tag-popover .btn-danger {
-			background-color: var(--red);
-			border-color: var(--red);
-			color: #fff;
-		}
-		.re-tag-popover .btn-danger:hover {
-			background-color: color-mix(in srgb, var(--red) 85%, #000000);
-			border-color: color-mix(in srgb, var(--red) 85%, #000000);
-		}
-		.re-tag-popover label {
-			display: block;
-			margin-top: 1rem;
-			margin-bottom: 0.25rem;
-			font-weight: bold;
-			font-size: 0.9em;
-			color: var(--text);
-		}
-		.re-tag-popover input[type="text"],
-		.re-tag-popover select,
-		.re-tag-popover textarea {
-			width: 100%;
-			padding: 6px 8px;
-			box-sizing: border-box;
-			background-color: var(--btn-bg);
-			border: solid 1px var(--btn-border);
-			border-radius: 6px;
-			color: var(--text);
-			font-family: Verdana, sans-serif;
-			font-size: 14px;
-			outline: none;
-		}
-		.re-tag-popover textarea {
-			max-height: 300px;
-			resize: vertical;
-		}
-		.re-tag-popover input[type="text"]:focus,
-		.re-tag-popover select:focus,
-		.re-tag-popover textarea:focus {
-			border-color: var(--accent);
-		}
 		.re-edit-tag {
 			display: flex;
 			gap: 1rem;
@@ -415,6 +330,7 @@ export function getUserTaggingCSS() {
 			display: flex;
 			flex-wrap: wrap;
 			gap: 6px;
+			margin-bottom: 2rem;
 		}
 		.re-tag-popover-presets-list > span {
 			font-size: 12px;
@@ -424,69 +340,11 @@ export function getUserTaggingCSS() {
 		.re-tag-popover-preset-chip:hover {
 			opacity: 0.85;
 		}
-		.re-tag-popover-actions {
-			display: flex;
-			justify-content: space-between;
-			gap: 0.5rem;
-			margin-top: 14px;
-		}
-		.re-tag-popover-actions > div {
-			display: flex;
-			gap: 8px;
-			justify-content: flex-end;
-		}
 		.color-picker {
 			width: fit-content;
 		}
 		.cp_dialog {
 			z-index: 100000 !important;
-		}
-		/* Buttons */
-		.re-tag-popover .btn {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: fit-content;
-			min-height: 36px;
-			background-color: var(--btn-bg);
-			border: solid 1px var(--btn-border);
-			border-radius: var(--border-radius) !important;
-			color: var(--btn-fg);
-			transition: background-color 0.1s ease-in-out;
-			padding: 0 12px;
-		}
-		.re-tag-popover .btn > .icon {
-			height: 20px;
-			width: 20px;
-			background-color: var(--btn-fg);
-		}
-		.re-tag-popover .btn-icon {
-			display: grid;
-			grid-template-columns: 22px auto;
-			grid-gap: 4px;
-			width: fit-content;
-			height: fit-content;
-			padding: 6px 10px !important;
-		}
-		.re-tag-popover .btn-icon .icon {
-			width: 22px;
-			height: 16px;
-			background-color: var(--text-grey);
-		}
-		.re-tag-popover .btn:hover {
-			cursor: pointer;
-			background-color: var(--btn-hover);
-			border-color: var(--btn-hover-border);
-		}
-		.re-tag-popover .btn:active {
-			background-color: var(--btn-active);
-		}
-		.re-tag-popover .btn-save {
-			background-color: #008b07;
-			color: #fff;
-		}
-		.re-tag-popover .btn-save:hover {
-			background-color: #03a000;
 		}
 		shreddit-post faceplate-hovercard > faceplate-tracker {
 			display: flex;

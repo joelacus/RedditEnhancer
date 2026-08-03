@@ -1277,6 +1277,9 @@
 	"UseOriginalSearchBar": {
 		"message": "Använd det ursprungliga sökfältet"
 	},
+	"UserAlreadyAdded": {
+		"message": "Användaren har redan tillagd"
+	},
 	"Username": {
 		"message": "Användarnamn"
 	},

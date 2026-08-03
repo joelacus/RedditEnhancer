@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="user_tagging_manager.css" />
 		<script src="user_tagging_manager.js" defer></script>
 	</head>
-	<body>
+	<body class="re-page">
 		<div class="container">
 			<h1 data-lang="UserTaggingManagerTitle"></h1>
 
@@ -76,7 +76,8 @@
 
 			<div class="bottom-bar">
 				<button id="btn-add-user-tag" class="btn" data-lang="AddUserTag"></button>
-				<button id="btn-delete-all-tags" class="btn btn-danger" data-lang="DeleteAllTags"></button>
+				<span id="user-already-added-warning" class="hidden text-red" data-lang="UserAlreadyAdded"></span>
+				<button id="btn-delete-all-tags" class="btn red" data-lang="DeleteAllTags"></button>
 			</div>
 
 			<footer class="manager-footer">
@@ -86,8 +87,8 @@
 		</div>
 
 		<!-- Edit Tag Modal -->
-		<div id="edit-tag-modal" class="modal hidden">
-			<div class="modal-content">
+		<div id="edit-tag-modal" class="re-confirm-modal hidden">
+			<div class="re-modal-content">
 				<div class="header">
 					<h2 data-lang="EditTag"></h2>
 				</div>
@@ -134,46 +135,60 @@
 					<label data-lang="PresetTags"></label>
 					<div id="presets-list" class="re-tag-popover-presets-list"></div>
 				</div>
-				<div class="re-tag-popover-actions">
-					<button id="btn-save-tag" class="btn btn-save" data-lang="Save"></button>
-					<button id="btn-cancel-tag" class="btn" data-lang="Cancel"></button>
+				<div class="re-modal-actions">
+					<div>
+						<button id="btn-save-tag" class="btn green" data-lang="Save"></button>
+						<button id="btn-cancel-tag" class="btn" data-lang="Cancel"></button>
+					</div>
 				</div>
 			</div>
 		</div>
 
 		<!-- Delete Confirmation Modal -->
-		<div id="delete-confirm-modal" class="modal hidden">
-			<div class="modal-content">
-				<h2 data-lang="AreYouSure"></h2>
+		<div id="delete-confirm-modal" class="re-confirm-modal hidden">
+			<div class="re-modal-content">
+				<div class="header">
+					<h2 data-lang="AreYouSure"></h2>
+				</div>
 				<p id="delete-confirm-text"></p>
-				<div class="re-tag-popover-actions">
-					<button id="btn-confirm-delete" class="btn btn-danger" data-lang="Delete"></button>
-					<button id="btn-cancel-delete" class="btn" data-lang="Cancel"></button>
+				<div class="re-modal-actions">
+					<div>
+						<button id="btn-confirm-delete" class="btn red" data-lang="Delete"></button>
+						<button id="btn-cancel-delete" class="btn" data-lang="Cancel"></button>
+					</div>
 				</div>
 			</div>
 		</div>
 
 		<!-- Info Modal -->
-		<div id="info-modal" class="modal hidden">
-			<div class="modal-content">
-				<h2></h2>
+		<div id="info-modal" class="re-confirm-modal hidden">
+			<div class="re-modal-content">
+				<div class="header">
+					<h2></h2>
+				</div>
 				<p id="info-modal-text"></p>
-				<div class="re-tag-popover-actions">
-					<button id="btn-close-info" class="btn" data-lang="Close"></button>
+				<div class="re-modal-actions">
+					<div>
+						<button id="btn-close-info" class="btn" data-lang="Close"></button>
+					</div>
 				</div>
 			</div>
 		</div>
 
 		<!-- Edit Link Modal -->
-		<div id="edit-link-modal" class="modal hidden">
-			<div class="modal-content">
-				<h2 data-lang="EditLink"></h2>
+		<div id="edit-link-modal" class="re-confirm-modal hidden">
+			<div class="re-modal-content">
+				<div class="header">
+					<h2 data-lang="EditLink"></h2>
+				</div>
 				<label data-lang="Link"></label>
 				<input type="text" id="edit-link-input" />
 				<button id="btn-clear-link" class="btn" data-lang="Clear" style="margin-top: 8px"></button>
-				<div class="re-tag-popover-actions">
-					<button id="btn-save-link" class="btn btn-save" data-lang="Save"></button>
-					<button id="btn-cancel-link" class="btn" data-lang="Cancel"></button>
+				<div class="re-modal-actions">
+					<div>
+						<button id="btn-save-link" class="btn green" data-lang="Save"></button>
+						<button id="btn-cancel-link" class="btn" data-lang="Cancel"></button>
+					</div>
 				</div>
 			</div>
 		</div>

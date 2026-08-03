@@ -8,6 +8,8 @@ import ColorPicker from './popup/libs/colorpicker.js';
 import './user_tagging_manager.css';
 import { escapeHtml } from './utilities/escape_html.js';
 import { sendMessage } from './utilities/send_message.js';
+import { getReUiCSS } from './content/re_ui_stylesheet.js';
+import { getContrastTextColour } from './utilities/colour_functions.js';
 
 // ─── Variables ──────────────────────────────────────────────────────────────
 
@@ -55,6 +57,16 @@ if (theme === 'light') {
 } else {
 	document.querySelector('body').classList.add('theme-dark');
 }
+
+function injectModalButtonStyles() {
+	if (!document.head.querySelector('style[id="re-modal-button"]')) {
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-modal-button';
+		styleElement.textContent = getReUiCSS();
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
+}
+injectModalButtonStyles();
 
 // ─── i18n ───────────────────────────────────────────────────────────────────
 
@@ -191,15 +203,15 @@ function renderTable(updatedUsername) {
 						<td class="link-cell" data-username="${username}">
 							<div>
 								${tagLink ? `<a href="${tagLink}" target="_blank" rel="noopener">${i18next.t('Link.message')}</a>` : '—'}
-								<button class="btn btn-icon-link" data-username="${username}" title="${i18next.t('EditLink.message')}">
+								<button class="btn-sm btn-icon-link" data-username="${username}" title="${i18next.t('EditLink.message')}">
 									<i class="btn-icon icon-pen"></i>
 								</button>
 							</div>
 						</td>
 						<td>${formatDateCell(tag.createdAt)}</td>
 						<td>${formatDateCell(tag.updatedAt)}</td>
-						<td>
-							<button class="btn row-delete" data-username="${username}" title="${i18next.t('Delete.message')}">
+						<td class="action-cell">
+							<button class="btn-sm row-delete" data-username="${username}" title="${i18next.t('Delete.message')}">
 								<div class="btn-icon icon-x"></div>
 							</button>
 						</td>`;
@@ -256,11 +268,10 @@ fileImport.addEventListener('change', async (e) => {
 					if (key.startsWith('tag.')) {
 						const username = key.slice(4).toLowerCase();
 						const bgColour = value.color || '#666';
-						const link = value.link || '';
 						imported[username] = {
 							label: value.text || username,
 							note: '',
-							link: link,
+							link: value.link || '',
 							colourBg: bgColour,
 							colourFg: getContrastTextColour(bgColour),
 							icon: 'none',
@@ -526,10 +537,10 @@ document.querySelector('#btn-add-user-tag').addEventListener('click', () => {
 					<td style="display: none"></td>
 					<td style="display: none"></td>
 					<td class="actions">
-						<button class="btn btn-row-save" title="Save">
+						<button class="btn-sm green btn-row-save" title="Save">
 							<i class="btn-icon icon-tick"></i>
 						</button>
-						<button class="btn btn-row-cancel" title="Cancel">
+						<button class="btn-sm btn-row-cancel" title="Cancel">
 							<i class="btn-icon icon-x"></i>
 						</button>
 					</td>`;
@@ -549,6 +560,26 @@ document.querySelector('#btn-add-user-tag').addEventListener('click', () => {
 		}
 
 		const username = normaliseUsername(rawUsername);
+
+		if (allTags[username]) {
+			const warning = document.querySelector('#user-already-added-warning');
+			warning.classList.remove('hidden');
+			setTimeout(() => {
+				warning.classList.add('hidden');
+			}, 5000);
+
+			const existingRow = tbody.querySelector(`tr[data-username="${username}"]`);
+			if (existingRow) {
+				existingRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+				existingRow.classList.remove('flash-warning');
+				void existingRow.offsetWidth;
+				existingRow.classList.add('flash-warning');
+			}
+
+			tr.remove();
+			return;
+		}
+
 		const timestamp = Date.now();
 		allTags[username] = {
 			label: label,
@@ -725,9 +756,10 @@ btnAddToPresets.addEventListener('click', async () => {
 	if (!label) return;
 
 	const presets = await readPresets();
-	const newColour = editColour.value || '#666';
-	const newColourFg = editColourFg.value || getContrastTextColour(newColour);
-	const exists = presets.some((p) => p.label.toLowerCase() === label.toLowerCase() && (p.icon || 'none') === (editIcon.value || 'none') && (p.colour || '#666').toLowerCase() === newColour.toLowerCase() && (p.colourFg || getContrastTextColour(p.colour || '#666')).toLowerCase() === newColourFg.toLowerCase());
+	const newColourBg = editColour.value || '#666';
+	const newColourFg = editColourFg.value || getContrastTextColour(newColourBg);
+
+	const exists = presets.some((p) => p.label.toLowerCase() === label.toLowerCase() && (p.icon || 'none') === (editIcon.value || 'none') && (p.colourBg || '#666').toLowerCase() === newColourBg.toLowerCase() && (p.colourFg || getContrastTextColour(p.colourBg || '#666')).toLowerCase() === newColourFg.toLowerCase());
 	if (exists) {
 		btnAddToPresets.textContent = 'Already exists';
 		btnAddToPresets.disabled = true;
@@ -742,12 +774,12 @@ btnAddToPresets.addEventListener('click', async () => {
 		id: 'preset_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9),
 		label: label,
 		defaultNote: tag.note || '',
-		colour: editColour.value || '#666',
-		colourFg: editColourFg.value || getContrastTextColour(editColour.value || '#666'),
+		colourBg: newColourBg,
+		colourFg: newColourFg,
 		icon: editIcon.value || 'none',
 	};
 
-	presets.push(newPreset);
+	presets.unshift(newPreset);
 	await new Promise((resolve) => {
 		BROWSER_API.storage.sync.set({ ['userTaggingPresets']: presets }, resolve);
 	});
@@ -769,8 +801,8 @@ async function loadPresetsList() {
 	presets.forEach((preset) => {
 		const tag = document.createElement('span');
 		tag.className = 'preset-tag';
-		tag.style.background = preset.colour || '#666';
-		tag.style.setProperty('--tag-fg', preset.colourFg || getContrastTextColour(preset.colour || '#666'));
+		tag.style.background = preset.colourBg || '#666';
+		tag.style.setProperty('--tag-fg', preset.colourFg || getContrastTextColour(preset.colourBg || '#666'));
 		tag.title = escapeHtml(preset.label);
 
 		if (preset.icon && preset.icon !== 'none') {
@@ -787,7 +819,7 @@ async function loadPresetsList() {
 			editLabel.value = preset.label || '';
 			editIcon.value = preset.icon || 'none';
 
-			const bgColour = preset.colour || '#666';
+			const bgColour = preset.colourBg || '#666';
 			const fgColour = preset.colourFg || getContrastTextColour(bgColour);
 
 			editColour.value = bgColour;

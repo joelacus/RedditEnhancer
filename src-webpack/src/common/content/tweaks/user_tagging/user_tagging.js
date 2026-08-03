@@ -1,6 +1,16 @@
-// ────────────────────────────────────────────────────────────────────────────
-// Content / Tweaks / User Tagging
-// ────────────────────────────────────────────────────────────────────────────
+/**
+ * Tweaks: User Tagging - User Tagging
+ *
+ * @name userTaggingEnabled
+ * @description - Adds a tag button next to usernames, either to create a new tag, or show an existing tag.
+ *              - Tags can be fully customised (label text, background colour, foreground colour, and an optional icon).
+ *              - Optionally attach a note to a tagged user to show more information.
+ *              - Create preset tags, adding them to a list to quickly apply a frequently used tag to a user.
+ *              - Import and Export tags to a backup file. Supports importing tags from a RES backup file.
+ *              - Dedicated user tagging manager to view all tagged users, manually add new tags, or edit/delete existing tags.
+ *
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
+ */
 
 import i18next from 'i18next';
 import ColorPicker from '../../../popup/libs/colorpicker.js';
@@ -38,6 +48,35 @@ const ICON_OPTIONS = [
 	['user', 'User'],
 	['mod', 'Mod'],
 ];
+
+// ─── Button Placement Rules ──────────────────────────────────────────────────
+// Maps username selectors to their tag button placement anchor.
+// Each rule matches a username element and returns the element after which
+// the tag/create button should be inserted. Defaults to the username element itself.
+
+const TAG_BUTTON_PLACEMENT = [
+	{
+		match: 'shreddit-post [noun="user_profile"] > a[href*="/user/"]',
+		getAnchor: (el) => el.closest('faceplate-hovercard') || el,
+	},
+	{
+		match: 'shreddit-comment [noun="comment_author"] a[href*="/user/"]',
+		getAnchor: (el) => el.closest('.author-hovercard-trigger') || el,
+	},
+	{
+		match: 'shreddit-post .re-post-author > a[href*="/user/"]',
+		getAnchor: (el) => el.closest('faceplate-hovercard') || el,
+	},
+];
+
+function getButtonAnchor(el) {
+	for (const rule of TAG_BUTTON_PLACEMENT) {
+		if (el.matches(rule.match)) {
+			return rule.getAnchor(el);
+		}
+	}
+	return el;
+}
 
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
@@ -135,10 +174,10 @@ function scanPage(refresh = false, username = '') {
 	}
 	links.forEach((link) => {
 		if (refresh) {
-			const next = link.nextElementSibling;
-			if (next && (next.classList.contains('re-user-tag') || next.classList.contains('re-create-tag-btn'))) {
-				next.remove();
-			}
+			const anchor = getButtonAnchor(link);
+			anchor.parentElement.querySelectorAll('.re-user-tag, .re-create-tag-btn').forEach((el) => {
+				el.remove();
+			});
 			delete link.dataset.reUserTagProcessed;
 			processUsernameElement(link);
 		} else {
@@ -180,11 +219,8 @@ function normaliseUsername(input) {
 // ─── Inline Rendering ───────────────────────────────────────────────────────
 
 function renderTag(usernameEl, tag) {
-	let existing = usernameEl.nextElementSibling;
-	if (usernameEl.closest('faceplate-hovercard')) {
-		existing = usernameEl.closest('faceplate-hovercard').nextElementSibling;
-	}
-
+	const anchor = getButtonAnchor(usernameEl);
+	const existing = anchor.nextElementSibling;
 	if (existing && (existing.classList.contains('re-user-tag') || existing.classList.contains('re-create-tag-btn'))) {
 		existing.remove();
 	}
@@ -227,15 +263,12 @@ function renderTag(usernameEl, tag) {
 		openTagPopover(e, uname, tag);
 	});
 
-	if (usernameEl.closest('faceplate-hovercard')) {
-		usernameEl.closest('faceplate-hovercard').insertAdjacentElement('afterend', chip);
-	} else {
-		usernameEl.insertAdjacentElement('afterend', chip);
-	}
+	anchor.insertAdjacentElement('afterend', chip);
 }
 
 function renderCreateButton(usernameEl) {
-	const existing = usernameEl.nextElementSibling;
+	const anchor = getButtonAnchor(usernameEl);
+	const existing = anchor.nextElementSibling;
 	if (existing && (existing.classList.contains('re-user-tag') || existing.classList.contains('re-create-tag-btn'))) {
 		existing.remove();
 	}
@@ -253,7 +286,7 @@ function renderCreateButton(usernameEl) {
 		openTagPopover(e, uname, null);
 	});
 
-	usernameEl.insertAdjacentElement('afterend', btn);
+	anchor.insertAdjacentElement('afterend', btn);
 }
 
 function removeAllInlineTags() {
@@ -270,7 +303,7 @@ function openTagPopover(event, username, existingTag) {
 	currentPopoverTag = existingTag ? { ...existingTag } : null;
 
 	const popover = document.createElement('div');
-	popover.className = 're-tag-popover';
+	popover.className = 're-tag-popover re-modal-content';
 	popover.innerHTML = buildPopoverHtml(username, existingTag);
 	document.body.appendChild(popover);
 
@@ -360,10 +393,10 @@ function buildPopoverHtml(username, existingTag) {
 					</div>
 				</div>
 			</div>
-			<div class="re-tag-popover-actions">
+			<div class="re-modal-actions">
 				<button id="re-popover-open-manager" class="btn">${i18next.t('OpenInManager.message')}</button>
 				<div>
-					<button id="re-popover-save" class="btn btn-save">${i18next.t('Save.message')}</button>
+					<button id="re-popover-save" class="btn green">${i18next.t('Save.message')}</button>
 					<button id="re-popover-cancel" class="btn">${i18next.t('Cancel.message')}</button>
 				</div>
 			</div>`;
@@ -478,7 +511,7 @@ function initPopoverFields(popover, existingTag, username) {
 		loadPopoverPresets(popover, (preset) => {
 			labelInput.value = preset.label || '';
 			iconSelect.value = preset.icon || 'none';
-			const bgColour = preset.colour || '#666';
+			const bgColour = preset.colourBg || '#666';
 			const fgColour = preset.colourFg || getContrastTextColour(bgColour);
 			colourInput.value = bgColour;
 			colourFgInput.value = fgColour;
@@ -503,10 +536,10 @@ function initPopoverFields(popover, existingTag, username) {
 	}
 
 	const openManagerBtn = popover.querySelector('#re-popover-open-manager');
-	if (openManagerBtn && existingTag) {
+	if (openManagerBtn) {
 		openManagerBtn.addEventListener('click', async () => {
 			closeTagPopover();
-			BROWSER_API.runtime.sendMessage({ openUserTaggingManager: true, user: username });
+			BROWSER_API.runtime.sendMessage({ openUserTaggingManager: true, user: existingTag ? username : '' });
 		});
 	}
 
@@ -552,7 +585,8 @@ async function saveTagFromPopover(username) {
 	const colourFg = popoverEl.querySelector('#re-popover-colour-fg').value;
 	const noteInput = popoverEl.querySelector('#re-popover-note');
 	const note = noteInput ? noteInput.value.trim() : currentPopoverTag ? currentPopoverTag.note || '' : '';
-	const link = currentPopoverTag?.link || window.location.href;
+	let link = currentPopoverTag?.link || window.location.href;
+	if (link === 'https://www.reddit.com/') link = '';
 
 	if (!label) return;
 
@@ -590,8 +624,8 @@ async function loadPopoverPresets(popover, onSelect) {
 	presets.forEach((preset) => {
 		const chip = document.createElement('button');
 		chip.className = 're-tag-popover-preset-chip';
-		chip.style.background = preset.colour || '#666';
-		chip.style.setProperty('--tag-fg', preset.colourFg || getContrastTextColour(preset.colour || '#666'));
+		chip.style.background = preset.colourBg || '#666';
+		chip.style.setProperty('--tag-fg', preset.colourFg || getContrastTextColour(preset.colourBg || '#666'));
 		chip.title = preset.label;
 
 		if (preset.icon && preset.icon !== 'none') {
@@ -619,7 +653,7 @@ async function addToPresets(popover) {
 
 	const presets = await readPresets();
 	const newColourFg = colourFg || getContrastTextColour(colourBg || '#666');
-	const exists = presets.some((p) => p.label.toLowerCase() === label.toLowerCase() && (p.icon || 'none') === (icon || 'none') && (p.colour || '#666').toLowerCase() === (colourBg || '#666').toLowerCase() && (p.colourFg || getContrastTextColour(p.colour || '#666')).toLowerCase() === newColourFg.toLowerCase());
+	const exists = presets.some((p) => p.label.toLowerCase() === label.toLowerCase() && (p.icon || 'none') === (icon || 'none') && (p.colourBg || '#666').toLowerCase() === (colourBg || '#666').toLowerCase() && (p.colourFg || getContrastTextColour(p.colourBg || '#666')).toLowerCase() === newColourFg.toLowerCase());
 	if (exists) {
 		const addBtn = popover.querySelector('#re-popover-add-preset');
 		if (addBtn) {
@@ -636,7 +670,7 @@ async function addToPresets(popover) {
 	const newPreset = {
 		id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7),
 		label,
-		colour: colourBg,
+		colourBg,
 		colourFg,
 		icon,
 		defaultNote: '',

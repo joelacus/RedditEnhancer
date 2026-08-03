@@ -87,7 +87,6 @@ function createPresetElement(tmpl) {
 	li.innerHTML = `
 		<div class='preset-tag-handle'><div class='menu-item-icon icon-handle'></div></div>
 		<input type='text' class='preset-tag-label' placeholder='Label' value='${escapeHtml(tmpl.label || '')}'  maxlength="50"/>
-		<!--<input type='text' class='preset-tag-note' placeholder='Note' value='${escapeHtml(tmpl.defaultNote || '')}'  maxlength="100"/>-->
 		<input type='text' class='colour-picker preset-tag-colour' data-style-id='preset-colour-${tmpl.id}' value='${tmpl.colourBg || '#666'}' />
 		<input type='text' class='colour-picker preset-tag-colour-fg' data-style-id='preset-colour-fg-${tmpl.id}' value='${tmpl.colourFg || getContrastTextColour(tmpl.colourBg || '#2e7d32')}' />
 		<select class='preset-tag-icon'>${iconOptions}</select>
@@ -100,12 +99,8 @@ function createPresetElement(tmpl) {
 		updatePresetTag(tmpl.id, { label: this.value });
 	});
 
-	/*li.querySelector('.preset-tag-note').addEventListener('input', function () {
-		updatePresetTag(tmpl.id, { defaultNote: this.value });
-	});*/
-
 	li.querySelector('.preset-tag-colour').addEventListener('input', function () {
-		updatePresetTag(tmpl.id, { colour: this.value });
+		updatePresetTag(tmpl.id, { colourBg: this.value });
 	});
 
 	li.querySelector('.preset-tag-colour-fg').addEventListener('input', function () {
@@ -161,7 +156,7 @@ export function addPresetTag() {
 		const newTemplate = {
 			id: 'preset_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9),
 			label: '',
-			defaultNote: '',
+			note: '',
 			colourBg: randomColour,
 			colourFg: getContrastTextColour(randomColour),
 			icon: 'none',
@@ -196,7 +191,7 @@ const colourPickers = [];
 
 function initColourPicker(input, id) {
 	const isFg = input.classList.contains('preset-tag-colour-fg');
-	const field = isFg ? 'colourFg' : 'colour';
+	const field = isFg ? 'colourFg' : 'colourBg';
 	const picker = new ColorPicker(input, {
 		toggleStyle: 'button',
 		enableAlpha: false,
