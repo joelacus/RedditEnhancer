@@ -1,31 +1,33 @@
-Vylepšete své zážitky z Reddit pomocí Reddit Enhancer! Rozšíření prohlížeče, které vám umožní přizpůsobit si stránku Reddit pomocí několika kliknutí.
-Podporuje všechny verze Reddit.
+Vylepšete si zážitek z Reddit s Reddit Enhancer! Rozšíření prohlížeče, které vám umožňuje přizpůsobit si stránku na Redditu jen několika kliknutími.
+Podporuje nejnovější i starší verze Reddit.
 
 S Reddit Enhancer můžete:
-• Změňte velikost kanálu a šířky příspěvku pro lepší zážitek ze sledování.
-• Přizpůsobte barvy motivu a přidejte tapetu na pozadí.
-• Skryjte propagované a doporučené příspěvky a také prémiové reklamy na redditu.
-• Skryjte mnoho dalších prvků, které nepoužíváte nebo nechcete vidět, abyste získali čistší a méně přeplněné rozhraní.
-• Otevírejte obrázky na nové kartě samostatně přímo, místo aby byly vkládány na stránku.
-• Změňte měřítko vysokých obrázků tak, aby se vešly do příspěvku, nebo přidejte posuvník pro zobrazení celé šířky obrázku a pouhým posunutím zobrazíte další.
-• Přejděte na další kořenový komentář kliknutím na tlačítko.
-• Povolte Bionické čtení pro příspěvky a komentáře a/nebo změňte velikost písma pro rychlejší a snadnější čtení.
-• Zobrazit chybějícího autora příspěvku na nejnovější verzi Redditu.
-• A mnohem víc! Úplný seznam funkcí naleznete na stránce podpory.
+• Změnit velikost kanálu a šířku příspěvku pro lepší zážitek ze sledování.
+• Přizpůsobit barvy motivu a přidat tapetu na pozadí.
+• Skrýt propagované a doporučené příspěvky a také prémiové reklamy Reddit.
+• Skrýt řadu dalších prvků, které nepoužíváte nebo nechcete vidět, pro čistší a méně přeplněné rozhraní.
+• Otevírat obrázky přímo na nové kartě, místo aby byly vloženy na stránku.
+• Přidávat vlastní štítky uživatelům s volitelnými poznámkami.
+• Blokovat uživatele, abyste skryli jejich příspěvky a/nebo komentáře, nebo skrýt příspěvky z blokovaných subredditů nebo pokud obsahují určitá klíčová slova.
+• Snadno přejít na další kořenový komentář nebo příspěvek ve kanálu pomocí klávesové zkratky.
+• Procházet galeriemi obrázků pomocí kláves se šipkami vlevo a vpravo.
+• Automaticky přehrávat GIFy a videa nezávisle na sobě.
+• Povolte bionické čtení pro příspěvky a komentáře a/nebo změňte velikost písma pro rychlejší a snadnější čtení.
+• A mnohem více! Úplný seznam funkcí naleznete na stránkách podpory.
 
 *ne všechny funkce podporují všechny verze Reddit.
 
 
-Jak používat:
-1. Nainstalujte doplněk.
-2. Navštivte stránku reddit.com
-3. Klikněte na Reddit Enhancer v nabídce Rozšíření na panelu nástrojů Chrome.
-4. Povolte funkce, které chcete :)
+Návod k použití:
+1. Nainstalujte si doplněk.
+2. Navštivte reddit.com
+3. Klikněte na Reddit Enhancer v nabídce Rozšíření na panelu nástrojů prohlížeče.
+4. Povolte požadované funkce :)
 
 
 
-Tento doplněk není přidružen ani schválen Redditem.
-Tento doplněk neshromažďuje data a respektuje soukromí uživatelů.
+Tento doplněk není přidružen k Reddit ani jím není schválen.
+Tento doplněk neshromažďuje data a respektuje soukromí uživatelů. Zásady ochrany osobních údajů a důvody požadovaných oprávnění prohlížeče naleznete na stránkách podpory/stránce Github.
 
-Aktualizace webu Reddit mohou tento doplněk v budoucnu přerušit. Pokud narazíte na nějaké chyby nebo máte nějaké návrhy na nové funkce, otevřete problém. Uvítám jakoukoli pomoc s překladem, pokud byste chtěli přispět ke zlepšení a/nebo přidání nových překladů.
-Viz odkaz na web v sekci Další informace.
+Aktualizace stránek Reddit mohou v budoucnu tento doplněk narušit. Pokud narazíte na nějaké chyby nebo máte návrhy na nové funkce, otevřete prosím problém na Githubu.
+Uvítám jakoukoli pomoc s překladem, pokud byste chtěli přispět ke zlepšení a/nebo přidání nových překladů.

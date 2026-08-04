@@ -1,31 +1,33 @@
-Förbättra din Reddit-upplevelse med Reddit Enhancer! En webbläsartillägg som låter dig anpassa din Reddit-sida med bara några få klick.
-Stöder alla versioner av Reddit.
+Förbättra din Reddit-upplevelse med Reddit Enhancer! Ett webbläsartillägg som låter dig anpassa din Reddit-sida med bara några få klick.
+Stöder de senaste och gamla versionerna av Reddit.
 
 Med Reddit Enhancer kan du:
-• Ändra storlek på flödet och inläggets bredd för en bättre tittarupplevelse.
-• Anpassa tema färger och lägg till en bakgrund bakgrund.
-• Dölj marknadsförda och rekommenderade inlägg, samt reddit premiumannonser.
-• Dölj många andra element som du inte använder eller vill se för ett renare och mindre rörigt gränssnitt.
-• Öppna bilder i en ny flik på egen hand direkt, istället för att bäddas in på en sida.
-• Skala höga bilder så att de passar i inlägget, eller lägg till en rullningslist för att se hela bildens bredd och rulla bara för att se mer.
-• Bläddra till nästa rotkommentar med ett klick på en knapp.
-• Aktivera Bionic Reading för inlägg och kommentarer, och/eller ändra teckenstorleken, för snabbare och enklare läsning.
-• Visa den saknade inläggsförfattaren på den senaste versionen av Reddit.
-• Och mycket mer! Se supportwebbplatsen för en fullständig lista över funktioner.
+• Ändra storlek på flödet och inläggets bredd för en bättre visningsupplevelse.
+• Anpassa temafärger och lägga till en bakgrundsbild.
+• Dölja marknadsförda och rekommenderade inlägg, samt premiumannonser på Reddit.
+• Dölja många andra element som du inte använder eller vill se för ett renare och mindre rörigt gränssnitt.
+• Öppna bilder direkt i en ny flik, istället för att de bäddas in på en sida.
+• Lägga till anpassade taggar för användare med valfria anteckningar.
+• Blockera användare för att dölja sina inlägg och/eller kommentarer, eller dölja inlägg från blockerade subreddits eller om de innehåller vissa nyckelord.
+• Bläddra enkelt till nästa rotkommentar, eller inlägg i ett flöde, med en kortkommando.
+• Använd vänster- och högerpiltangenterna för att navigera i bildgallerier.
+• Spela upp GIF-filer och videor automatiskt oberoende av varandra.
+• Aktivera bionisk läsning för inlägg och kommentarer, och/eller ändra teckenstorleken, för snabbare och enklare läsning.
+• Och mycket mer! Se supportsidan för en fullständig lista över funktioner.
 
-*inte alla funktioner stöder alla versioner av Reddit.
+*alla funktioner stöder inte alla versioner av Reddit.
 
 
-Hur man använder:
+Så här använder du:
 1. Installera tillägget.
 2. Besök reddit.com
-3. Klicka på Reddit Enhancer i Extensions-menyn i Chromes verktygsfält.
+3. Klicka på Reddit Enhancer i menyn Tillägg i webbläsarens verktygsfält.
 4. Aktivera de funktioner du vill ha :)
-
 
 
 Detta tillägg är inte anslutet till eller godkänt av Reddit.
 Detta tillägg samlar inte in data och respekterar användarnas integritet.
+Se supportsidan/Github-sidan för integritetspolicyn och orsakerna till de begärda webbläsarbehörigheterna.
 
-Uppdateringar av Reddit-webbplatsen kan bryta detta tillägg i framtiden, vänligen öppna ett problem om du stöter på några buggar eller har förslag på nya funktioner. Jag välkomnar all översättningshjälp om du vill bidra till att förbättra och/eller lägga till nya översättningar.
-Se webbplatslänk i avsnittet Ytterligare information.
+Uppdateringar av Reddit-sidan kan orsaka att det här tillägget inte fungerar i framtiden. Vänligen öppna ett ärende på Github om du stöter på några buggar eller har förslag på nya funktioner.
+Jag välkomnar all översättningshjälp om du vill bidra till att förbättra och/eller lägga till nya översättningar.

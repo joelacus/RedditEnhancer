@@ -1,31 +1,34 @@
-Popraw swoje wrażenia z Reddit dzięki Reddit Enhancer! Rozszerzenie przeglądarki, które pozwala dostosować stronę Reddit za pomocą zaledwie kilku kliknięć.
-Obsługuje wszystkie wersje Reddit.
+Ulepsz swoje korzystanie z Reddit dzięki Reddit Enhancer! To rozszerzenie przeglądarkowe pozwala dostosować wygląd strony Reddit za pomocą zaledwie kilku kliknięć.
+Obsługuje zarówno najnowszą, jak i starszą wersję serwisu Reddit.
 
 Dzięki Reddit Enhancer możesz:
-• Zmień rozmiar kanału i szerokości postu, aby uzyskać lepsze wrażenia wizualne.
-• Dostosuj kolory motywu i dodaj tapetę tła.
-• Ukryj promowane i polecane posty, a także reklamy premium Reddit.
-• Ukryj wiele innych elementów, których nie używasz lub które chcesz zobaczyć, aby uzyskać czystszy i mniej zaśmiecony interfejs.
-• Otwieraj obrazy bezpośrednio w nowej karcie, zamiast osadzać je na stronie.
-• Skaluj wysokie obrazy, aby zmieściły się w poście, lub dodaj pasek przewijania, aby zobaczyć pełną szerokość obrazu i po prostu przewiń, aby zobaczyć więcej.
-• Przewiń do następnego komentarza głównego jednym kliknięciem.
-• Włącz funkcję Bionic Reading dla postów i komentarzy i/lub zmień rozmiar czcionki, aby czytanie było szybsze i łatwiejsze.
-• Pokaż brakującego autora postu w najnowszej wersji Reddita.
-• I wiele więcej! Pełną listę funkcji znajdziesz na stronie pomocy technicznej.
+• Zmieniać szerokość kanału (feedu) i postów, aby poprawić komfort przeglądania.
+• ​​Dostosowywać kolory motywu i ustawiać własną tapetę w tle.
+• Ukrywać posty sponsorowane i polecane oraz reklamy Reddit Premium.
+• Ukrywać wiele innych elementów, których nie używasz lub nie chcesz widzieć, aby uzyskać bardziej przejrzysty interfejs.
+• Otwierać obrazy bezpośrednio w nowej karcie, zamiast wyświetlać je osadzone na stronie.
+• Dodawać własne etykiety do użytkowników wraz z opcjonalnymi notatkami.
+• Blokować użytkowników (ukrywając ich posty i/lub komentarze) oraz ukrywać posty z zablokowanych subredditów lub zawierające określone słowa kluczowe.
+• Łatwo przechodzić do kolejnego głównego komentarza lub posta w kanale za pomocą skrótu klawiszowego.
+• Nawigować po galeriach zdjęć za pomocą klawiszy strzałek (w lewo i w prawo).
+• Włączyć automatyczne odtwarzanie plików GIF i wideo.
+• Włączyć funkcję Bionic Reading dla postów i komentarzy oraz/lub zmienić rozmiar czcionki, aby czytanie było szybsze i łatwiejsze.
+• I wiele więcej! Pełną listę funkcji znajdziesz na stronie wsparcia.
 
-*nie wszystkie funkcje obsługują wszystkie wersje Reddit.
+*nie wszystkie funkcje działają we wszystkich wersjach serwisu Reddit.
 
 
-Jak korzystać:
+Jak korzystać z rozszerzenia:
 1. Zainstaluj dodatek.
-2. Odwiedź reddit.com.
-3. Kliknij Reddit Enhancer w menu Rozszerzenia na pasku narzędzi Chrome.
-4. Włącz funkcje, które chcesz używać :)
+2. Wejdź na stronę reddit.com.
+3. Kliknij ikonę Reddit Enhancer w menu rozszerzeń na pasku narzędzi przeglądarki.
+4. Włącz wybrane funkcje :)
 
 
 
-To rozszerzenie nie jest powiązane ani nie jest sponsorowane przez Reddit.
-Rozszerzenie to nie zbiera danych i szanuje prywatność użytkowników.
+Ten dodatek nie jest powiązany z serwisem Reddit ani przez niego wspierany.
+Dodatek nie gromadzi danych i szanuje prywatność użytkowników.
+Informacje na temat polityki prywatności oraz uzasadnienie wymaganych uprawnień przeglądarki znajdziesz na stronie wsparcia lub w serwisie GitHub.
 
-Aktualizacje na stronie Reddit mogą w przyszłości zakłócić działanie tego rozszerzenia. Proszę zgłaszać wszelkie błędy lub sugestie dotyczące nowych funkcji. Chętnie przyjmuję pomoc w tłumaczeniach, jeśli chcesz przyczynić się do ich poprawy i/lub dodać nowe tłumaczenia.
-Zobacz link do strony internetowej w sekcji Dodatkowe informacje.
+Aktualizacje serwisu Reddit mogą w przyszłości spowodować problemy z działaniem dodatku; jeśli napotkasz błędy lub masz pomysły na nowe funkcje, zgłoś to w serwisie GitHub.
+Chętnie przyjmę pomoc w tłumaczeniu, jeśli chcesz wesprzeć ulepszanie istniejących lub dodawanie nowych wersji językowych.

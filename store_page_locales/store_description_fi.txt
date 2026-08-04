@@ -1,31 +1,34 @@
-Paranna Reddit-kokemustasi Reddit Enhancer! Selainlaajennus, jonka avulla voit mukauttaa Reddit-sivuasi vain muutamalla napsautuksella.
-Tukee kaikkia Reddit versioita.
+Paranna Reddit-kokemustasi Reddit Enhancerilla! Selainlaajennus, jonka avulla voit mukauttaa Reddit-sivuasi vain muutamalla napsautuksella.
+Tukee Reddit uusimpia ja vanhoja versioita.
 
-Reddit Enhancer avulla voit:
-• Muuta syötteen kokoa ja tekstin leveyttä parantaaksesi katselukokemusta.
-• Mukauta teeman värejä ja lisää taustakuva.
-• Piilota korotetut ja suositellut viestit sekä reddit premium -mainokset.
-• Piilota lukuisia muita elementtejä, joita et käytä tai et halua nähdä, jotta käyttöliittymä on selkeämpi ja vähemmän sotkuinen.
-• Avaa kuvat uudella välilehdellä sellaisenaan suoraan sivulle upotuksen sijaan.
-• Skaalaa korkeat kuvat niin, että ne mahtuvat viestiin, tai lisää vierityspalkki nähdäksesi kuvan koko leveyden ja vieritä nähdäksesi lisää.
-• Selaa seuraavaan juurikommenttiin napin painalluksella.
-• Ota Bionic Reading käyttöön viesteissä ja kommenteissa ja/tai muuta kirjasinkokoa nopeuttaaksesi ja helpottaaksesi lukemista.
-• Näytä puuttuva viestin kirjoittaja Redditin uusimmassa versiossa.
-• Ja paljon enemmän! Katso tukisivustolta täydellinen luettelo ominaisuuksista.
+Reddit Enhancerin avulla voit:
+• Muuttaa syötteen ja viestin leveyttä paremman katselukokemuksen saavuttamiseksi.
+• Muokata teeman värejä ja lisätä taustakuvan.
+• Piilottaa mainostetut ja suositellut viestit sekä Reddit Premium -mainokset.
+• Piilottaa lukuisia muita elementtejä, joita et käytä tai haluat nähdä, puhtaamman ja vähemmän sotkuisen käyttöliittymän saavuttamiseksi.
+• Avata kuvia uudessa välilehdessä suoraan sen sijaan, että ne upotettaisiin sivulle.
+• Lisätä käyttäjille mukautettuja tunnisteita valinnaisilla huomautuksilla.
+• Estää käyttäjiä piilottamasta viestejään ja/tai kommenttejaan tai piilottaa viestejä estetyiltä subredditeiltä tai jos ne sisältävät tiettyjä avainsanoja.
+• Vieritä helposti seuraavaan pääkommenttiin tai viestiin syötteessä pikanäppäimellä.
+• Käytä vasenta ja oikeaa nuolinäppäintä navigoidaksesi kuvagallerioissa.
+• Toistaa GIF-kuvia ja videoita automaattisesti erikseen.
+• Ota käyttöön Bioninen lukeminen julkaisuissa ja kommenteissa ja/tai muuta fonttikokoa nopeamman ja helpomman lukemisen takaamiseksi.
+• Ja paljon muuta! Katso tukisivustolta täydellinen luettelo ominaisuuksista.
 
 *kaikki ominaisuudet eivät tue kaikkia Reddit versioita.
 
 
-Kuinka käyttää:
+Käyttöohjeet:
 1. Asenna lisäosa.
-2. Siirry osoitteeseen reddit.com
-3. Napsauta Reddit Enhancer Chrome-työkalupalkin Laajennukset-valikossa.
-4. Ota haluamasi ominaisuudet käyttöön :)
+2. Käy osoitteessa reddit.com
+3. Napsauta Reddit Enhancer -kohtaa selaimen työkalupalkin Laajennukset-valikossa.
+4. Ota käyttöön haluamasi ominaisuudet :)
 
 
 
-Tämä lisäosa ei ole Redditin sidos tai tukema.
+Tämä lisäosa ei ole Reddit sidoksissa eikä sitä tueta.
 Tämä lisäosa ei kerää tietoja ja kunnioittaa käyttäjien yksityisyyttä.
+Katso tietosuojakäytäntö ja syyt pyydetyille selainkäyttöoikeuksille tukisivustolta/Github-sivulta.
 
-Reddit-sivuston päivitykset voivat rikkoa tämän lisäosan tulevaisuudessa. Avaa ongelma, jos havaitset virheitä tai sinulla on ehdotuksia uusista ominaisuuksista. Otan mielelläni vastaan käännösapua, jos haluat parantaa ja/tai lisätä uusia käännöksiä.
-Katso verkkosivuston linkki Lisätiedot-osiosta.
+Reddit-sivuston päivitykset saattavat rikkoa tämän lisäosan tulevaisuudessa. Avaa ongelma Githubissa, jos kohtaat virheitä tai sinulla on ehdotuksia uusista ominaisuuksista.
+Otan mielelläni vastaan ​​käännösapua, jos haluat osallistua käännösten parantamiseen ja/tai uusien käännösten lisäämiseen.

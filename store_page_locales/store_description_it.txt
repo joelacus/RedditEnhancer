@@ -1,31 +1,34 @@
-Migliora la tua esperienza Reddit con Reddit Enhancer! Un'estensione del browser che ti consente di personalizzare la tua pagina Reddit con pochi clic.
-Supporta tutte le versioni di Reddit.
+Migliora la tua esperienza su Reddit con Reddit Enhancer! Un'estensione per browser che ti permette di personalizzare la tua pagina Reddit con pochi clic.
+Supporta sia la versione più recente che quella precedente di Reddit.
 
 Con Reddit Enhancer puoi:
-• Ridimensiona il feed e la larghezza del post per una migliore esperienza visiva.
-• Personalizza i colori del tema e aggiungi uno sfondo.
-• Nascondi i post promossi e consigliati, nonché gli annunci premium di Reddit.
-• Nascondi numerosi altri elementi che non usi o che non desideri vedere per un'interfaccia più pulita e meno ingombrante.
-• Aprire direttamente le immagini in una nuova scheda, anziché incorporarle in una pagina.
-• Ridimensiona le immagini alte per adattarle al post oppure aggiungi una barra di scorrimento per vedere l'intera larghezza dell'immagine e scorri semplicemente per vedere di più.
-• Scorrere fino al commento principale successivo con un clic di un pulsante.
-• Abilita la lettura bionica per post e commenti e/o modifica la dimensione del carattere, per una lettura più rapida e semplice.
-• Mostra l'autore del post mancante sull'ultima versione di Reddit.
-• E altro ancora! Consulta il sito di supporto per un elenco completo delle funzionalità.
+• Ridimensionare la larghezza del feed e dei post per una migliore esperienza di visualizzazione.
+• Personalizzare i colori del tema e aggiungere un'immagine di sfondo.
+• Nascondere post sponsorizzati e consigliati, nonché le pubblicità di Reddit Premium.
+• Nascondere numerosi altri elementi che non usi o non vuoi vedere, per un'interfaccia più pulita e ordinata.
+• Aprire le immagini direttamente in una nuova scheda, invece di visualizzarle incorporate nella pagina.
+• Aggiungere tag personalizzati agli utenti, con note opzionali.
+• Bloccare utenti per nascondere i loro post e/o commenti, oppure nascondere post provenienti da subreddit bloccati o contenenti determinate parole chiave.
+• Scorrere facilmente fino al successivo commento di primo livello o al post successivo nel feed, usando una scorciatoia da tastiera.
+• Usare i tasti freccia sinistra e destra per navigare nelle gallerie di immagini.
+• Riprodurre automaticamente GIF e video.
+• Abilitare la "Bionic Reading" (lettura bionica) per post e commenti e/o modificare la dimensione del carattere, per una lettura più rapida e agevole.
+• E molto altro ancora! Consulta il sito di supporto per l'elenco completo delle funzionalità.
 
-*non tutte le funzionalità supportano tutte le versioni di Reddit.
+*non tutte le funzionalità sono supportate su tutte le versioni di Reddit.
 
 
 Come usarlo:
 1. Installa l'estensione.
-2. Visita reddit.com.
-3. Clicca su Reddit Enhancer nel menu delle estensioni nella barra degli strumenti di Chrome.
-4. Attiva le funzionalità che desideri :)
+2. Visita reddit.com
+3. Clicca su Reddit Enhancer nel menu delle estensioni della barra degli strumenti del browser.
+4. Abilita le funzionalità che desideri :)
 
 
 
-Questa estensione non è affiliata o approvata da Reddit.
+Questa estensione non è affiliata né approvata da Reddit.
 Questa estensione non raccoglie dati e rispetta la privacy degli utenti.
+Consulta il sito di supporto o la pagina GitHub per l'informativa sulla privacy e le motivazioni relative alle autorizzazioni richieste al browser.
 
-Aggiornamenti al sito Reddit potrebbero rendere questa estensione non funzionante in futuro. Si prega di segnalare eventuali bug o suggerimenti per nuove funzionalità. Sono benvenuti contributi per traduzioni se desideri contribuire a migliorare e/o aggiungere nuove traduzioni.
-Consulta il link del sito web nella sezione Informazioni aggiuntive.
+Gli aggiornamenti del sito Reddit potrebbero compromettere il funzionamento di questa estensione in futuro; ti prego di aprire una segnalazione (issue) su GitHub in caso di bug o se hai suggerimenti per nuove funzionalità.
+Apprezzo qualsiasi aiuto per le traduzioni, qualora volessi contribuire a migliorare quelle esistenti o ad aggiungerne di nuove.
