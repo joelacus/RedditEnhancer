@@ -9,7 +9,6 @@
 
 import { debounce } from '../../../utilities/debounce.js';
 import { escapeHtml } from '../../../utilities/escape_html.js';
-import { getReUiCSS } from '../../re_ui_stylesheet.js';
 import { logToDevConsole } from '../../../utilities/logging';
 import { registerMutationCallback } from '../../observer_manager';
 let userList = [];
@@ -34,7 +33,6 @@ export function hideBlockedUserPosts(value) {
 			BROWSER_API.storage.sync.get(['hideBlockedUserPostsList'], function (result) {
 				updateUserList(result.hideBlockedUserPostsList);
 				logToDevConsole('log', `Blocked Users List (posts): ${userList}`);
-				injectModalButtonStyles();
 				enableHideBlockedUserPostsRV1();
 			});
 		} else {
@@ -45,7 +43,6 @@ export function hideBlockedUserPosts(value) {
 			BROWSER_API.storage.sync.get(['hideBlockedUserPostsList'], function (result) {
 				updateUserList(result.hideBlockedUserPostsList);
 				logToDevConsole('log', `Blocked Users List: ${userList}`);
-				injectModalButtonStyles();
 				scanPage();
 				setTimeout(() => {
 					scanPage();
@@ -106,19 +103,11 @@ export function hideBlockedUserPosts(value) {
 
 function scanPage() {
 	document.querySelectorAll('article:has(>shreddit-post)').forEach((post) => {
-		const authorEl = post.querySelector('shreddit-post [noun="user_profile"] a, shreddit-post .author, shreddit-post .re-post-author a');
+		let authorEl = post.querySelector('shreddit-post [noun="user_profile"] a, shreddit-post .author, shreddit-post .re-post-author a');
+		if (!authorEl) authorEl = post.querySelector('shreddit-post');
 		filterBlockedUserPost(post);
 		if (authorEl) addBlockButtonToPost(post, authorEl);
 	});
-}
-
-function injectModalButtonStyles() {
-	if (!document.head.querySelector('style[id="re-modal-button"]')) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-modal-button';
-		styleElement.textContent = getReUiCSS();
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
 }
 
 function removeModalButtonStyles() {
@@ -130,9 +119,9 @@ function removeModalButtonStyles() {
 }
 
 function addBlockButtonToPost(post, authorEl) {
-	if (post.querySelector('.re-block-user-btn')) return;
+	if (!userList || post.querySelector('.re-block-user-btn')) return;
 
-	const username = authorEl.textContent.replace('u/', '').trim();
+	const username = authorEl.getAttribute('author') || authorEl.textContent.replace('u/', '').trim();
 	const isBlocked = userList.some((pattern) => matchesPattern(username, pattern));
 
 	const btn = document.createElement('button');
@@ -148,9 +137,14 @@ function addBlockButtonToPost(post, authorEl) {
 		showBlockConfirmModal(username, isBlocked);
 	});
 
+	const userTag = post.querySelector('.re-create-tag-btn');
 	const hovercard = authorEl.closest('faceplate-hovercard');
-	if (hovercard) {
+	if (userTag) {
+		userTag.parentElement.insertBefore(btn, userTag);
+	} else if (hovercard) {
 		hovercard.insertAdjacentElement('afterend', btn);
+	} else if (authorEl.tagName === 'SHREDDIT-POST') {
+		authorEl.querySelector('faceplate-timeago').insertAdjacentElement('afterend', btn);
 	} else {
 		authorEl.insertAdjacentElement('afterend', btn);
 	}
@@ -244,9 +238,9 @@ function unblockUser(username) {
 	BROWSER_API.storage.sync.get(['hideBlockedUserPostsList'], function (result) {
 		let list = result.hideBlockedUserPostsList || '';
 		const users = list
-			.split(',')
-			.map((u) => u.trim())
-			.filter((u) => u !== '');
+			?.split(',')
+			?.map((u) => u.trim())
+			?.filter((u) => u !== '');
 
 		const index = users.indexOf(username);
 		if (index > -1) {
@@ -302,15 +296,16 @@ function matchesPattern(text, patternStr) {
 	}
 }
 
-function updateUserList(list) {
+function updateUserList(list = '') {
 	userList = list
-		.split(',')
-		.map((word) => word.trim())
-		.filter((item) => item !== '' && item !== '*');
+		?.split(',')
+		?.map((word) => word.trim())
+		?.filter((item) => item !== '' && item !== '*');
 }
 
 // Enable Hide Blocked User Posts - RV1
 function enableHideBlockedUserPostsRV1() {
+	if (!userList) return;
 	document.querySelectorAll('#siteTable > .thing').forEach((post) => {
 		const authorElement = post.querySelector('a.author');
 		if (!authorElement) return;
@@ -328,7 +323,7 @@ function enableHideBlockedUserPostsRV1() {
 
 // Enable Hide Blocked User Posts - RV3
 function filterBlockedUserPost(post) {
-	if (post.classList.contains('re-hide')) return;
+	if (!userList || post.classList.contains('re-hide')) return;
 
 	const authorText = post.querySelector('shreddit-post')?.getAttribute('author');
 	if (!authorText) return;

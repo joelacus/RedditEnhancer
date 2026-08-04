@@ -149,10 +149,10 @@
 	"BlockInfo": {
 		"message": "Unterstützt exakte Schlüsselwortübereinstimmungen oder reguläre Ausdrücke."
 	},
-	"BlocksCommentsByKeyword": {
+	"BlockCommentsByKeyword": {
 		"message": "Blockkommentare basierend auf Schlüsselwörtern"
 	},
-	"BlocksCommentsByUser": {
+	"BlockCommentsByUser": {
 		"message": "Kommentare basierend auf dem Benutzer blockieren"
 	},
 	"Blur": {

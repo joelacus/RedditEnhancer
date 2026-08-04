@@ -149,10 +149,10 @@
 	"BlockInfo": {
 		"message": "Ondersteunt exacte trefwoordmatch of reguliere expressies"
 	},
-	"BlocksCommentsByKeyword": {
+	"BlockCommentsByKeyword": {
 		"message": "Reacties blokkeren op basis van trefwoord"
 	},
-	"BlocksCommentsByUser": {
+	"BlockCommentsByUser": {
 		"message": "Reacties van gebruiker blokkeren"
 	},
 	"Blur": {

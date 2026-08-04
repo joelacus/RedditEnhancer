@@ -9,7 +9,6 @@
 
 import { debounce } from '../../../utilities/debounce';
 import { escapeHtml } from '../../../utilities/escape_html.js';
-import { getReUiCSS } from '../../re_ui_stylesheet.js';
 import { logToDevConsole } from '../../../utilities/logging';
 
 let userList = [];
@@ -33,7 +32,6 @@ export function hideBlockedUserComments(value) {
 			BROWSER_API.storage.sync.get(['hideBlockedUserCommentsList'], function (result) {
 				updateUserList(result.hideBlockedUserCommentsList);
 				logToDevConsole('log', `Blocked Users List (comments): ${userList}`);
-				injectModalButtonStyles();
 				enableHideBlockedUserCommentsRV1();
 			});
 		} else {
@@ -44,17 +42,14 @@ export function hideBlockedUserComments(value) {
 			BROWSER_API.storage.sync.get(['hideBlockedUserCommentsList'], function (result) {
 				updateUserList(result.hideBlockedUserCommentsList);
 				logToDevConsole('log', `Blocked Users List: ${userList}`);
-				injectModalButtonStyles();
 				document.querySelectorAll('shreddit-comment').forEach((comment) => {
 					filterBlockedUserPost(comment);
-					const authorEl = comment.querySelector('[noun="comment_author"] a');
-					addBlockButton(comment, authorEl);
+					addBlockButton(comment);
 				});
 				setTimeout(() => {
 					document.querySelectorAll('shreddit-comment').forEach((comment) => {
 						filterBlockedUserPost(comment);
-						const authorEl = comment.querySelector('[noun="comment_author"] a');
-						addBlockButton(comment, authorEl);
+						addBlockButton(comment);
 					});
 				}, 3000);
 
@@ -64,8 +59,7 @@ export function hideBlockedUserComments(value) {
 					const debouncedScrollHandler = debounce(() => {
 						document.querySelectorAll('shreddit-comment').forEach((comment) => {
 							filterBlockedUserPost(comment);
-							const authorEl = comment.querySelector('[noun="comment_author"] a');
-							addBlockButton(comment, authorEl);
+							addBlockButton(comment);
 						});
 					}, 200);
 
@@ -87,15 +81,6 @@ export function hideBlockedUserComments(value) {
 	}
 }
 
-function injectModalButtonStyles() {
-	if (!document.head.querySelector('style[id="re-modal-button"]')) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-modal-button';
-		styleElement.textContent = getReUiCSS();
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
-}
-
 function removeModalButtonStyles() {
 	const styleElement = document.head.querySelector('style[id="re-modal-button"]');
 	if (styleElement) {
@@ -104,10 +89,10 @@ function removeModalButtonStyles() {
 	document.querySelectorAll('.re-confirm-modal').forEach((m) => m.remove());
 }
 
-function addBlockButton(comment, authorEl) {
-	if (comment.dataset.reBlockBtnAdded) return;
+function addBlockButton(comment) {
+	if (!userList || comment.dataset.reBlockBtnAdded) return;
 
-	const username = authorEl.textContent.replace('u/', '').trim();
+	const username = comment.getAttribute('author') || comment.querySelector('[noun="comment_author"] a')?.textContent?.replace('u/', '')?.trim();
 	const isBlocked = userList.some((pattern) => matchesPattern(username, pattern));
 
 	const btn = document.createElement('button');
@@ -123,11 +108,14 @@ function addBlockButton(comment, authorEl) {
 		showBlockConfirmModal(username, isBlocked);
 	});
 
-	const anchor = authorEl.closest('.author-hovercard-trigger');
-	if (anchor) {
+	const userTag = comment.querySelector('.re-create-tag-btn, .re-user-tag');
+	const anchor = comment.querySelector('.author-hovercard-trigger');
+	if (userTag) {
+		userTag.parentElement.insertBefore(btn, userTag);
+	} else if (anchor) {
 		anchor.insertAdjacentElement('afterend', btn);
 	} else {
-		authorEl.insertAdjacentElement('afterend', btn);
+		comment.querySelector('[noun="comment_author"] a')?.insertAdjacentElement('afterend', btn);
 	}
 	comment.dataset.reBlockBtnAdded = 'true';
 }
@@ -189,9 +177,9 @@ function blockUser(username) {
 	BROWSER_API.storage.sync.get(['hideBlockedUserCommentsList'], function (result) {
 		let list = result.hideBlockedUserCommentsList || '';
 		const users = list
-			.split(',')
-			.map((u) => u.trim())
-			.filter((u) => u !== '');
+			?.split(',')
+			?.map((u) => u.trim())
+			?.filter((u) => u !== '');
 
 		if (!users.includes(username)) {
 			users.push(username);
@@ -278,17 +266,17 @@ function matchesPattern(text, patternStr) {
 	}
 }
 
-function updateUserList(list) {
+function updateUserList(list = '') {
 	userList = list
-		.split(',')
-		.map((word) => word.trim())
-		.filter((item) => item !== '' && item !== '*');
+		?.split(',')
+		?.map((word) => word.trim())
+		?.filter((item) => item !== '' && item !== '*');
 }
 
 // Enable Hide Blocked User Posts - RV1
 function enableHideBlockedUserCommentsRV1() {
 	document.querySelectorAll('.commentarea .entry').forEach((comment) => {
-		if (comment.classList.contains('re-hide-comment')) return;
+		if (!userList || comment.classList.contains('re-hide-comment')) return;
 
 		const authorEl = comment.querySelector('.author');
 		const author = authorEl?.textContent;
@@ -307,7 +295,7 @@ function enableHideBlockedUserCommentsRV1() {
 
 // Enable Hide Blocked User Posts - RV3
 function filterBlockedUserPost(comment) {
-	if (comment.classList.contains('re-hide-comment')) return;
+	if (!userList || comment.classList.contains('re-hide-comment')) return;
 
 	const author = comment.getAttribute('author');
 	const content = comment.querySelector('[slot="comment"]');

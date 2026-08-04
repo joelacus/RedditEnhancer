@@ -149,10 +149,10 @@
 	"BlockInfo": {
 		"message": "Støtter nøyaktig nøkkelordmatch eller regulære uttrykk"
 	},
-	"BlocksCommentsByKeyword": {
+	"BlockCommentsByKeyword": {
 		"message": "Blokkerer kommentarer etter nøkkelord"
 	},
-	"BlocksCommentsByUser": {
+	"BlockCommentsByUser": {
 		"message": "Blokkerer kommentarer fra brukeren"
 	},
 	"Blur": {

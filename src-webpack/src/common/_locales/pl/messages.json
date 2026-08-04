@@ -149,10 +149,10 @@
 	"BlockInfo": {
 		"message": "Obsługuje dokładne dopasowanie kluczowych słów lub wyrażeń regularnych"
 	},
-	"BlocksCommentsByKeyword": {
+	"BlockCommentsByKeyword": {
 		"message": "Blokuj komentarze według słowa kluczowego"
 	},
-	"BlocksCommentsByUser": {
+	"BlockCommentsByUser": {
 		"message": "Blokuj komentarze użytkownika"
 	},
 	"Blur": {

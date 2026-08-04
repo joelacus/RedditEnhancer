@@ -149,10 +149,10 @@
 	"BlockInfo": {
 		"message": "Támogatja az exakt kulcsszó-lehjat vagy reguláris kifejezéseket."
 	},
-	"BlocksCommentsByKeyword": {
+	"BlockCommentsByKeyword": {
 		"message": "Kulcsszó alapján blokkolja a megjegyzéseket"
 	},
-	"BlocksCommentsByUser": {
+	"BlockCommentsByUser": {
 		"message": "Felhasználói megjegyzések blokkolása"
 	},
 	"Blur": {

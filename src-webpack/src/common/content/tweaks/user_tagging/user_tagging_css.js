@@ -245,6 +245,10 @@ export function getUserTaggingCSS() {
 		.re-create-tag-btn:hover {
 			opacity: 0.8;
 		}
+		.re-title-username {
+			display: block;
+			margin-bottom: 0.5rem;
+		}
 		.re-tag-tabs {
 			display: flex;
 			gap: 4px;

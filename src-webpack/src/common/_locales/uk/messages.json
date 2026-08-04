@@ -149,10 +149,10 @@
 	"BlockInfo": {
 		"message": "Підтримує точне відповідність ключовим словам або регулярні вирази."
 	},
-	"BlocksCommentsByKeyword": {
+	"BlockCommentsByKeyword": {
 		"message": "Блокувати коментарі за ключовим словом"
 	},
-	"BlocksCommentsByUser": {
+	"BlockCommentsByUser": {
 		"message": "Блокувати коментарі користувачами"
 	},
 	"Blur": {

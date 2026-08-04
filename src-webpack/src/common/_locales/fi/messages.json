@@ -149,10 +149,10 @@
 	"BlockInfo": {
 		"message": "Tukee tarkan avainsanan vastaavuuden tai säännölliset lausekkeet"
 	},
-	"BlocksCommentsByKeyword": {
+	"BlockCommentsByKeyword": {
 		"message": "Estä kommentit avainsanan perusteella"
 	},
-	"BlocksCommentsByUser": {
+	"BlockCommentsByUser": {
 		"message": "Estä kommentit käyttäjän perusteella"
 	},
 	"Blur": {

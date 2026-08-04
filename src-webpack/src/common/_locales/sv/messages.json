@@ -149,10 +149,10 @@
 	"BlockInfo": {
 		"message": "Stöder exakt matchning av sökord eller reguljära uttryck"
 	},
-	"BlocksCommentsByKeyword": {
+	"BlockCommentsByKeyword": {
 		"message": "Blockera kommentarer efter nyckelord"
 	},
-	"BlocksCommentsByUser": {
+	"BlockCommentsByUser": {
 		"message": "Blockera kommentarer av användaren"
 	},
 	"Blur": {

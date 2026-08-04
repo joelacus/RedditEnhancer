@@ -415,27 +415,46 @@ export function themePostBackgroundColour(value) {
 										--color-neutral-background-strong: var(--re-theme-post-bg-opaque);
 										--color-neutral-background-hover: oklch(from var(--re-theme-post-bg-opaque) clamp(0.20, calc(l + 0.05), 0.92) c h);
 									}
-									[routename="profile_overview"] main div:has(> #profile-feed-tabgroup) {
-										background: var(--re-theme-post-bg);
-										border-radius: var(--re-theme-border-radius) !important;
-										margin-left: 0;
-										margin-right: 0;
-									}
-									[routename="profile_overview"] main div:has(>[data-testid="profile-details-wrapper"]) {
-										background: var(--re-theme-post-bg);
-										border-bottom-left-radius: var(--re-theme-border-radius);
-										border-bottom-right-radius: var(--re-theme-border-radius);
-									}
-									[routename="profile_overview"] #subgrid-container div:has(div>create-post-entry-point-wrapper) {
-										background: var(--re-theme-post-bg) !important;
-										padding-left: 1rem;
-									}
 									#sticky-comment-composer-wrapper {
 										background: none !important;
 									}
 									[pagetype="moderation_pages_moderators"] #main-content div:has(>h1) > div {
 										background: var(--re-theme-post-bg);
-									}`;
+									}
+
+									/* Profile Page */
+
+									div:has(> #profile-feed-tabgroup) {
+										background: var(--re-theme-post-bg);
+										border-radius: var(--re-theme-border-radius) !important;
+										margin-left: 0;
+										margin-right: 0;
+									}
+									#profile-feed-tabgroup {
+										padding: 0.25rem;
+									}
+									[routename="profile_overview"] main div:has(>[data-testid="profile-details-wrapper"]),
+									div:has(>[data-testid="profile-main"]) {
+										background: var(--re-theme-post-bg);
+										border-bottom-left-radius: var(--re-theme-border-radius);
+										border-bottom-right-radius: var(--re-theme-border-radius);
+									}
+									#subgrid-container div:has(>div>create-post-entry-point-wrapper) {
+										background: var(--re-theme-post-bg) !important;
+									}
+									div:has(>div>create-post-entry-point-wrapper) {
+										border-radius: var(--border-radius);
+										padding: 0 !important;
+										margin: 0 !important;
+									}
+									div:has(>create-post-entry-point-wrapper) {
+										padding: 0.5rem;
+									}
+									div:has(>[bundlename="shreddit_sort_dropdown"]) {
+										background: var(--re-theme-post-bg) !important;
+										margin: 0.5rem 0;
+									}
+									`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else {
 		document.documentElement.style.removeProperty('--re-theme-post-bg');

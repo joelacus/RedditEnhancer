@@ -3,11 +3,11 @@
  *
  * @name userTaggingEnabled
  * @description - Adds a tag button next to usernames, either to create a new tag, or show an existing tag.
- *              - Tags can be fully customised (label text, background colour, foreground colour, and an optional icon).
- *              - Optionally attach a note to a tagged user to show more information.
- *              - Create preset tags, adding them to a list to quickly apply a frequently used tag to a user.
- *              - Import and Export tags to a backup file. Supports importing tags from a RES backup file.
- *              - Dedicated user tagging manager to view all tagged users, manually add new tags, or edit/delete existing tags.
+				- Tags can be fully customised (label text, background colour, foreground colour, and an optional icon).
+				- Optionally add a note to a tagged user to show more information.
+				- Create preset tags, adding them to a list to quickly apply a frequently used tag to a user.
+				- Import and export tags to a backup file. Supports importing tags from a RES backup file.
+				- Added a User Tagging Manager to view all tagged users, manually add new tags, or edit/delete existing tags and notes.
  *
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
@@ -26,6 +26,7 @@ let popoverUsername = null;
 let colourPickerBg = null;
 let colourPickerFg = null;
 let currentPopoverTag = null;
+let messageListenerActive = false;
 
 const ICON_OPTIONS = [
 	['none', 'None'],
@@ -67,6 +68,10 @@ const TAG_BUTTON_PLACEMENT = [
 		match: 'shreddit-post .re-post-author > a[href*="/user/"]',
 		getAnchor: (el) => el.closest('faceplate-hovercard') || el,
 	},
+	{
+		match: 'shreddit-post[author]',
+		getAnchor: (el) => el.querySelector('faceplate-timeago') || el,
+	},
 ];
 
 function getButtonAnchor(el) {
@@ -89,12 +94,14 @@ export function loadUserTagging() {
 		}
 	});
 
-	BROWSER_API.runtime.onMessage.addListener((msg) => {
-		if (msg.userTagging === 'refresh') {
-			removeAllInlineTags();
-			scanPage();
-		}
-	});
+	if (!messageListenerActive) {
+		BROWSER_API.runtime.onMessage.addListener((msg) => {
+			if (msg.userTagging === 'refresh') {
+				scanPage(true);
+			}
+		});
+		messageListenerActive = true;
+	}
 }
 
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
@@ -105,6 +112,7 @@ export function userTaggingEnabled(value) {
 		if (scrollCleanup) {
 			scrollCleanup();
 		}
+		removeAllInlineTags();
 		injectStyles();
 		scanPage();
 		// Add scroll event listener for username with debounce
@@ -166,34 +174,29 @@ function fetchUsernameTagsRV3(username) {
 const usernameElementsRV1 = ['.entry .author', '.entry a.author'];
 
 function scanPage(refresh = false, username = '') {
+	if (refresh) {
+		removeAllInlineTags();
+	}
 	let links = [];
 	if (redditVersion === 'newnew') {
 		links = Array.from(document.querySelectorAll(fetchUsernameTagsRV3(username)));
+		if (links.length === 0) links = Array.from(document.querySelectorAll('shreddit-post[author]'));
 	} else if (redditVersion === 'old') {
 		links = Array.from(document.querySelectorAll(usernameElementsRV1.join(',')));
 	}
+
 	links.forEach((link) => {
-		if (refresh) {
-			const anchor = getButtonAnchor(link);
-			anchor.parentElement.querySelectorAll('.re-user-tag, .re-create-tag-btn').forEach((el) => {
-				el.remove();
-			});
-			delete link.dataset.reUserTagProcessed;
-			processUsernameElement(link);
-		} else {
-			processUsernameElement(link);
-		}
+		processUsernameElement(link);
 	});
 }
 
 // ─── Username Processing ────────────────────────────────────────────────────
 
 function processUsernameElement(el) {
-	if (el.dataset.reUserTagProcessed) return;
-	if (el.querySelector('.re-user-tag, .re-create-tag-btn')) return;
-
-	const href = el.getAttribute('href') || el.textContent || '';
-	const username = normaliseUsername(href);
+	if (el.dataset.reUserTagProcessed === 'true') return;
+	if (el.parentElement.querySelector('.re-user-tag, .re-create-tag-btn')) return;
+	const author = el.getAttribute('author') || el.getAttribute('href') || el.textContent || '';
+	const username = normaliseUsername(author);
 	if (!username) return;
 
 	readTags().then((tags) => {
@@ -203,8 +206,6 @@ function processUsernameElement(el) {
 			renderCreateButton(el);
 		}
 	});
-
-	el.dataset.reUserTagProcessed = 'true';
 }
 
 function normaliseUsername(input) {
@@ -254,7 +255,7 @@ function renderTag(usernameEl, tag) {
 	}
 	chip.append(tooltip);
 
-	chip.dataset.username = normaliseUsername(usernameEl.getAttribute('href') || usernameEl.textContent || '');
+	chip.dataset.username = normaliseUsername(usernameEl.closest('shreddit-post').getAttribute('author') || usernameEl.getAttribute('href') || '');
 
 	chip.addEventListener('click', (e) => {
 		e.preventDefault();
@@ -263,7 +264,13 @@ function renderTag(usernameEl, tag) {
 		openTagPopover(e, uname, tag);
 	});
 
-	anchor.insertAdjacentElement('afterend', chip);
+	const blockBtn = anchor.closest('shreddit-comment')?.querySelector('.re-block-user-btn');
+	if (blockBtn) {
+		blockBtn.parentElement.insertBefore(chip, blockBtn.nextSibling);
+	} else {
+		anchor.insertAdjacentElement('afterend', chip);
+	}
+	usernameEl.dataset.reUserTagProcessed = 'true';
 }
 
 function renderCreateButton(usernameEl) {
@@ -277,7 +284,7 @@ function renderCreateButton(usernameEl) {
 	btn.type = 'button';
 	btn.className = 're-create-tag-btn icon-tag';
 	btn.title = i18next.t('AddUserTag.message');
-	btn.dataset.username = normaliseUsername(usernameEl.getAttribute('href') || usernameEl.textContent || '');
+	btn.dataset.username = normaliseUsername(usernameEl.getAttribute('author') || usernameEl.closest('shreddit-post').getAttribute('author') || usernameEl.getAttribute('href') || '');
 
 	btn.addEventListener('click', (e) => {
 		e.preventDefault();
@@ -286,7 +293,13 @@ function renderCreateButton(usernameEl) {
 		openTagPopover(e, uname, null);
 	});
 
-	anchor.insertAdjacentElement('afterend', btn);
+	const blockBtn = anchor.closest('shreddit-comment')?.querySelector('.re-block-user-btn');
+	if (blockBtn) {
+		blockBtn.parentElement.insertBefore(btn, blockBtn.nextSibling);
+	} else {
+		anchor.insertAdjacentElement('afterend', btn);
+	}
+	usernameEl.dataset.reUserTagProcessed = 'true';
 }
 
 function removeAllInlineTags() {
@@ -340,8 +353,8 @@ function buildPopoverHtml(username, existingTag) {
 	const fgVal = existingTag ? existingTag.colourFg || getContrastTextColour(existingTag.colourBg || '#666') : '#fff';
 	const noteVal = existingTag ? escapeHtml(existingTag.note || '') : '';
 	const linkVal = existingTag ? escapeHtml(existingTag.link || '') : '';
-
-	return `<div class="re-tag-tabs">
+	return `<span class="re-title-username">${title} • u/${username}</span>
+			<div class="re-tag-tabs">
 				<button class="re-tag-tab active" data-tab="re-edit-tag">${i18next.t('Tag.message')}</button>
 				<button class="re-tag-tab" data-tab="re-tag-note">${i18next.t('Note.message')}</button>
 				<button class="re-tag-tab" data-tab="re-tag-details">${i18next.t('Details.message')}</button>

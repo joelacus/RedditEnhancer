@@ -8,7 +8,6 @@ import ColorPicker from './popup/libs/colorpicker.js';
 import './user_tagging_manager.css';
 import { escapeHtml } from './utilities/escape_html.js';
 import { sendMessage } from './utilities/send_message.js';
-import { getReUiCSS } from './content/re_ui_stylesheet.js';
 import { getContrastTextColour } from './utilities/colour_functions.js';
 
 // ─── Variables ──────────────────────────────────────────────────────────────
@@ -57,16 +56,6 @@ if (theme === 'light') {
 } else {
 	document.querySelector('body').classList.add('theme-dark');
 }
-
-function injectModalButtonStyles() {
-	if (!document.head.querySelector('style[id="re-modal-button"]')) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-modal-button';
-		styleElement.textContent = getReUiCSS();
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
-}
-injectModalButtonStyles();
 
 // ─── i18n ───────────────────────────────────────────────────────────────────
 

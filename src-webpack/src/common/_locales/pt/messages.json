@@ -149,10 +149,10 @@
 	"BlockInfo": {
 		"message": "Suporta correspondência exata de palavra-chave ou expressões regulares."
 	},
-	"BlocksCommentsByKeyword": {
+	"BlockCommentsByKeyword": {
 		"message": "Bloquear comentários por palavra-chave"
 	},
-	"BlocksCommentsByUser": {
+	"BlockCommentsByUser": {
 		"message": "Bloquear comentários do utilizador"
 	},
 	"Blur": {

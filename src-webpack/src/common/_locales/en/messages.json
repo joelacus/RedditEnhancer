@@ -152,10 +152,10 @@
 	"BlockInfo": {
 		"message": "Supports exact keyword match, or regular expressions."
 	},
-	"BlocksCommentsByKeyword": {
+	"BlockCommentsByKeyword": {
 		"message": "Block Comments by Keyword"
 	},
-	"BlocksCommentsByUser": {
+	"BlockCommentsByUser": {
 		"message": "Block Comments by User"
 	},
 	"Blur": {

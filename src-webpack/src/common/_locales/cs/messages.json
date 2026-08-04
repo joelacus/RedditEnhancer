@@ -149,10 +149,10 @@
 	"BlockInfo": {
 		"message": "Podporuje přesné shoda klíčových slov nebo regulární výrazy."
 	},
-	"BlocksCommentsByKeyword": {
+	"BlockCommentsByKeyword": {
 		"message": "Blokovat komentáře na základě klíčového slova"
 	},
-	"BlocksCommentsByUser": {
+	"BlockCommentsByUser": {
 		"message": "Blokovat komentáře na základě uživatele"
 	},
 	"Blur": {

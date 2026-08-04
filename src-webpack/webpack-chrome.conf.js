@@ -102,6 +102,11 @@ module.exports = {
 					from: 'content_first/RE_styles.css',
 					to: 'RE_styles.css',
 				},
+				{
+					context: path.resolve(__dirname, 'src/common'),
+					from: 'content_first/RE_UI_styles.css',
+					to: 'RE_UI_styles.css',
+				},
 			],
 		}),
 		new HtmlWebpackPlugin({

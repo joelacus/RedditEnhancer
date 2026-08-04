@@ -1,3 +1,4 @@
+@import '../common/content_first/RE_UI_styles.css';
 @import './popup/css/icons.css';
 @import './popup/css/colorpicker.css';
 @import './popup/css/themes.css';
@@ -194,6 +195,7 @@ h1 {
 	word-wrap: break-word;
 	white-space: pre-line;
 	cursor: text;
+	outline-offset: -2px;
 }
 
 .link-cell div {
