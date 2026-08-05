@@ -181,9 +181,13 @@
 /* Background  */
 #backgrounds-container {
 	display: grid;
-	grid-template-columns: auto auto auto auto;
+	grid-template-columns: repeat(4, auto);
 	grid-gap: 5px;
+	width: 100%;
 	padding: 5px;
+}
+#options-page #backgrounds-container {
+	grid-template-columns: repeat(6, auto);
 }
 .bg-input-container {
 	width: 100%;

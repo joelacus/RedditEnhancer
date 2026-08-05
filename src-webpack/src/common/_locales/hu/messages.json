@@ -149,12 +149,6 @@
 	"BlockInfo": {
 		"message": "Támogatja az exakt kulcsszó-lehjat vagy reguláris kifejezéseket."
 	},
-	"BlockCommentsByKeyword": {
-		"message": "Kulcsszó alapján blokkolja a megjegyzéseket"
-	},
-	"BlockCommentsByUser": {
-		"message": "Felhasználói megjegyzések blokkolása"
-	},
 	"Blur": {
 		"message": "Elhomályosít"
 	},
@@ -266,9 +260,6 @@
 	"CopyCleanLinkShort": {
 		"message": "A tiszta link másolása (rövid)"
 	},
-	"Created": {
-		"message": "Létrehozva"
-	},
 	"CreatePost": {
 		"message": "Bejegyzés létrehozása"
 	},
@@ -280,6 +271,9 @@
 	},
 	"CreateTag": {
 		"message": "Címke létrehozása"
+	},
+	"Created": {
+		"message": "Létrehozva"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Egyedi háttér hivatkozás"
@@ -358,9 +352,6 @@
 	},
 	"ExtensionSettings": {
 		"message": "Kiegészítés beállításai"
-	},
-	"extensionVersionText": {
-		"message": ""
 	},
 	"Feed": {
 		"message": "táplál"
@@ -461,9 +452,6 @@
 	"HideAwards": {
 		"message": "A „Díj” gomb elrejtése a hozzászólásokban"
 	},
-	"HideBlockedKeywordsPosts": {
-		"message": "Bezárni a blokkolt kulcsszavakkal rendelkező bejegyzéseket"
-	},
 	"HideBlurredMediaBackground": {
 		"message": "Elrejtett háttér-elhúzás a képelőnézetek mögött"
 	},
@@ -475,6 +463,12 @@
 	},
 	"HideCommentKarma": {
 		"message": "Rejtettélni a kommentár karmáját"
+	},
+	"HideCommentsByUser": {
+		"message": "Felhasználói megjegyzések elrejtése"
+	},
+	"HideCommentsContainingKeyword": {
+		"message": "Kulcsszót tartalmazó megjegyzések elrejtése"
 	},
 	"HideCommunityHighlights": {
 		"message": "Rejt elre \"Össgyű közreműködésének kiemelt tartalmai\""
@@ -545,11 +539,11 @@
 	"HideModerationButton": {
 		"message": "Rejtse el az „Moderáció” gombot"
 	},
-	"HideNotificationButton": {
-		"message": "Választás „Értesítés” gomb elrejtése"
-	},
 	"HideNSFW": {
 		"message": "Elrejtett NSFW/L bejegyzéseket"
+	},
+	"HideNotificationButton": {
+		"message": "Választás „Értesítés” gomb elrejtése"
 	},
 	"HideNsfwInSearchResults": {
 		"message": "Rejtse az NSFW találatokat a keresőmezőből"
@@ -575,14 +569,17 @@
 	"HidePostKarma": {
 		"message": "Bezitálni a bejegyzés karmaját"
 	},
-	"HidePostsByBlockedUser": {
-		"message": "Bejegyzések elrejtése blokkolt felhasználóktól"
+	"HidePostSidebar": {
+		"message": "Rejtse el a post oldali sávját"
 	},
 	"HidePostsBySubreddit": {
 		"message": "A subreddit szerint elrejtett bejegyzések"
 	},
-	"HidePostSidebar": {
-		"message": "Rejtse el a post oldali sávját"
+	"HidePostsByUser": {
+		"message": "Felhasználói bejegyzések elrejtése"
+	},
+	"HidePostsContainingKeyword": {
+		"message": "Kulcsszót tartalmazó bejegyzések elrejtése"
 	},
 	"HidePromoted": {
 		"message": "Hirdetések/promóciós linkek elrejtése"
@@ -635,11 +632,11 @@
 	"HideSideMenuResourcesSection": {
 		"message": "Rejtjezze az „Anyagi források” szekciót"
 	},
-	"HideSideMenuTopicsSection": {
-		"message": "Az „Témák” szekció elrejtése"
-	},
 	"HideSideMenuTopSection": {
 		"message": "Rejtje el a felső részt"
+	},
+	"HideSideMenuTopicsSection": {
+		"message": "Az „Témák” szekció elrejtése"
 	},
 	"HideSubSidebar": {
 		"message": "Elrejtse a Subreddit oldal tábláját"
@@ -653,9 +650,6 @@
 	"HideTrendingTodayInSearchResults": {
 		"message": "A „Mai trendek” elrejtése a keresősávban"
 	},
-	"HideUsername": {
-		"message": "Felhasználónév elrejtése"
-	},
 	"HideUserNameInTheFlairSection": {
 		"message": "A felhasználónevet elrejteni a subreddit oldalfüzete flair részében"
 	},
@@ -664,6 +658,9 @@
 	},
 	"HideUserSidebar": {
 		"message": "Elrejtés a felhasználói sávot"
+	},
+	"HideUsername": {
+		"message": "Felhasználónév elrejtése"
 	},
 	"HideVideoRecommendations": {
 		"message": "Rejtselem az ajánlott posztokat el a videó végén"
@@ -692,11 +689,11 @@
 	"Image": {
 		"message": "Kép"
 	},
-	"Images": {
-		"message": "képek"
-	},
 	"ImageScroll": {
 		"message": "Adjon hozzá görgetősávokat a képekhez"
+	},
+	"Images": {
+		"message": "képek"
 	},
 	"ImportInvalidFormat": {
 		"message": "Névleges fájlformát"
@@ -733,9 +730,6 @@
 	},
 	"Latest": {
 		"message": "Legfrissebb"
-	},
-	"learnMore": {
-		"message": "Tudj meg többet"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Mutassa a szavazó gombok a bal oldalon"
@@ -809,20 +803,20 @@
 	"NewUpdateAvailable": {
 		"message": "A <version> verziója már elérhető. A böngészője hamarosan automatikusan frissíteni devrait e bővítményt, ha be van kapcsolva az automatikus frissítés, ha nem, manuálisan kell ellenőriznie az automatikus frissítések menedzserében."
 	},
-	"NonStickyHeaderBar": {
-		"message": "Nincs ragacsos fejlésti sáv"
-	},
 	"NoPresetsYet": {
 		"message": "Még nincs előreállított beállítás"
 	},
 	"NoSavedBackgrounds": {
 		"message": "Nincs mentett háttérkép"
 	},
-	"Note": {
-		"message": "Megjegyzés"
-	},
 	"NoTaggedUsers": {
 		"message": "Nincsenek címkézett felhasználók"
+	},
+	"NonStickyHeaderBar": {
+		"message": "Nincs ragacsos fejlésti sáv"
+	},
+	"Note": {
+		"message": "Megjegyzés"
 	},
 	"Off": {
 		"message": "Ki"
@@ -857,11 +851,11 @@
 	"OpenSubInNewTab": {
 		"message": "Összoldalra/Subredditre nyitó linkek új fülön"
 	},
-	"OptionsPage": {
-		"message": "Opções oldala"
-	},
 	"OptOutAttachSideMenu": {
 		"message": "Ne függessék ki oldali menüt a legördülő mintaoló panelekként"
+	},
+	"OptionsPage": {
+		"message": "Opções oldala"
 	},
 	"Or": {
 		"message": "vagy"
@@ -914,9 +908,6 @@
 	"PostOffset": {
 		"message": "Bejegyzés eltolása"
 	},
-	"Posts": {
-		"message": "bejegyzések"
-	},
 	"PostSecondaryTextColour": {
 		"message": "Bejegyzés: Másodlag szöveg színe"
 	},
@@ -938,6 +929,9 @@
 	"PostWidth": {
 		"message": "Bejegyzés szélessége"
 	},
+	"Posts": {
+		"message": "bejegyzések"
+	},
 	"PresetTags": {
 		"message": "Előállított címkék"
 	},
@@ -949,6 +943,12 @@
 	},
 	"Qa": {
 		"message": "Q&a"
+	},
+	"RV1RedirectInfo": {
+		"message": "A „Régi (csak www)” átirányítási opció csak a www.reddit.com URL-eket irányítja át az old.reddit.com oldalra. Más előtagok, mint például az sh.reddit.com, nem változnak."
+	},
+	"RV3RedirectInfo": {
+		"message": "A „Legfrissebb” átirányítási opció a (sh|old|new).reddit.com URL-eket a www.reddit.com oldalra kényszeríti, amely a legújabb felhasználói felületet fogja használni."
 	},
 	"Rate": {
 		"message": "Értékelés / Vélemény"
@@ -998,9 +998,6 @@
 	"ResizeFont": {
 		"message": "Betűtípus átméretezése"
 	},
-	"resizeHomeAlsoAffects": {
-		"message": "r/all, r/popular, Bejegyzés létrehozása, Keresési eredmények és Wikioldalak"
-	},
 	"ResizeLayout": {
 		"message": "Feed / Bejegyzés átméretezése"
 	},
@@ -1018,12 +1015,6 @@
 	},
 	"Rising": {
 		"message": "Felkelés / Rising"
-	},
-	"RV1RedirectInfo": {
-		"message": "A „Régi (csak www)” átirányítási opció csak a www.reddit.com URL-eket irányítja át az old.reddit.com oldalra. Más előtagok, mint például az sh.reddit.com, nem változnak."
-	},
-	"RV3RedirectInfo": {
-		"message": "A „Legfrissebb” átirányítási opció a (sh|old|new).reddit.com URL-eket a www.reddit.com oldalra kényszeríti, amely a legújabb felhasználói felületet fogja használni."
 	},
 	"Save": {
 		"message": "mentés"
@@ -1052,12 +1043,6 @@
 	"Search": {
 		"message": "keresés"
 	},
-	"SearchbarBgColour": {
-		"message": "Kereső sáv: Háttérszín"
-	},
-	"SearchbarDropdownBgColour": {
-		"message": "Kereső sáv: Fókuszált/legördülő háttérszín"
-	},
 	"SearchPageOffset": {
 		"message": "Keresőoldal eltolása"
 	},
@@ -1067,8 +1052,11 @@
 	"SearchUsername": {
 		"message": "Keresd a felhasználónevet..."
 	},
-	"seconds": {
-		"message": "másodperc"
+	"SearchbarBgColour": {
+		"message": "Kereső sáv: Háttérszín"
+	},
+	"SearchbarDropdownBgColour": {
+		"message": "Kereső sáv: Fókuszált/legördülő háttérszín"
 	},
 	"Select": {
 		"message": "Válassza ki"
@@ -1124,18 +1112,6 @@
 	"ShowUpvoteRatio": {
 		"message": "A megjelenített upvote százalékot mutassa"
 	},
-	"Sidebar": {
-		"message": "Házioldal"
-	},
-	"SidebarBackgroundColour": {
-		"message": "Háttérszíne a sáv"
-	},
-	"SidebarTextColour": {
-		"message": "Házioldal: szöveg színe"
-	},
-	"SidebarToggleButton": {
-		"message": "Házioldalasztítható gomb"
-	},
 	"SideMenu": {
 		"message": "Oldalsáv menü"
 	},
@@ -1156,6 +1132,18 @@
 	},
 	"SideMenuWidth": {
 		"message": "Oldalsávszélesség"
+	},
+	"Sidebar": {
+		"message": "Házioldal"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Háttérszíne a sáv"
+	},
+	"SidebarTextColour": {
+		"message": "Házioldal: szöveg színe"
+	},
+	"SidebarToggleButton": {
+		"message": "Házioldalasztítható gomb"
 	},
 	"SnapSidebar": {
 		"message": "Csatlakoztassa a sávot a jobb oldalához"
@@ -1259,11 +1247,11 @@
 	"UnderlineLinks": {
 		"message": "A hivatkozások aláhúzása"
 	},
-	"Updated": {
-		"message": "Frissítvezet"
-	},
 	"UpdateFirefox": {
 		"message": "Kérjük, frissítsen a Firefox 121-re vagy újabbra, hogy egyes funkciók megfelelően működjenek."
+	},
+	"Updated": {
+		"message": "Frissítvezet"
 	},
 	"Upload": {
 		"message": "feltöltés"
@@ -1280,20 +1268,11 @@
 	"UserAlreadyAdded": {
 		"message": "Felhasználó már hozzáadva"
 	},
-	"Username": {
-		"message": "felhasználónév"
-	},
-	"UsernameHoverPopupDelay": {
-		"message": "Felhasználónév felugró ablakmező késlekedése"
-	},
 	"UserProfileOffset": {
 		"message": "Felhasználói profil eltolása"
 	},
 	"UserProfileWidth": {
 		"message": "Felhasználói profil szélessége"
-	},
-	"Users": {
-		"message": "felhasználók"
 	},
 	"UserTagging": {
 		"message": "Felhasználó címkézése"
@@ -1306,6 +1285,15 @@
 	},
 	"UserTaggingManagerTitle": {
 		"message": "Felhasználói címke oldal"
+	},
+	"Username": {
+		"message": "felhasználónév"
+	},
+	"UsernameHoverPopupDelay": {
+		"message": "Felhasználónév felugró ablakmező késlekedése"
+	},
+	"Users": {
+		"message": "felhasználók"
 	},
 	"Video": {
 		"message": "videó"
@@ -1324,5 +1312,17 @@
 	},
 	"Width": {
 		"message": "Szélesség"
+	},
+	"extensionVersionText": {
+		"message": ""
+	},
+	"learnMore": {
+		"message": "Tudj meg többet"
+	},
+	"resizeHomeAlsoAffects": {
+		"message": "r/all, r/popular, Bejegyzés létrehozása, Keresési eredmények és Wikioldalak"
+	},
+	"seconds": {
+		"message": "másodperc"
 	}
 }

@@ -255,7 +255,7 @@ function renderTag(usernameEl, tag) {
 	}
 	chip.append(tooltip);
 
-	chip.dataset.username = normaliseUsername(usernameEl.closest('shreddit-post').getAttribute('author') || usernameEl.getAttribute('href') || '');
+	chip.dataset.username = normaliseUsername(usernameEl.closest('shreddit-post')?.getAttribute('author') || usernameEl.getAttribute('href') || '');
 
 	chip.addEventListener('click', (e) => {
 		e.preventDefault();
@@ -284,7 +284,7 @@ function renderCreateButton(usernameEl) {
 	btn.type = 'button';
 	btn.className = 're-create-tag-btn icon-tag';
 	btn.title = i18next.t('AddUserTag.message');
-	btn.dataset.username = normaliseUsername(usernameEl.getAttribute('author') || usernameEl.closest('shreddit-post').getAttribute('author') || usernameEl.getAttribute('href') || '');
+	btn.dataset.username = normaliseUsername(usernameEl.getAttribute('author') || usernameEl.closest('shreddit-post')?.getAttribute('author') || usernameEl.getAttribute('href') || '');
 
 	btn.addEventListener('click', (e) => {
 		e.preventDefault();

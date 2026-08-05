@@ -109,7 +109,7 @@ function addBlockButton(comment) {
 	});
 
 	const userTag = comment.querySelector('.re-create-tag-btn, .re-user-tag');
-	const anchor = comment.querySelector('.author-hovercard-trigger');
+	const anchor = comment.querySelector('[slot="commentMeta"] .author-hovercard-trigger');
 	if (userTag) {
 		userTag.parentElement.insertBefore(btn, userTag);
 	} else if (anchor) {

@@ -4,6 +4,7 @@
 
 import { debounce } from '../../utilities/debounce';
 import { sendMessage } from '../../utilities/send_message';
+import { base64ImageOptimiser } from '../../utilities/image_to_base64';
 
 // Toggle - Mind The Gap
 document.querySelector('#checkbox-hide-gap').addEventListener('change', function () {
@@ -349,12 +350,59 @@ document.querySelector('#checkbox-custom-header-logo').addEventListener('change'
 });
 
 // Input - Custom Header Logo URL
-const saveCustomHeaderLogoUrl = debounce(function (url) {
-	sendMessage({ setCustomHeaderLogoUrl: this.value });
-	BROWSER_API.storage.sync.set({ customHeaderLogoUrl: url });
+const saveCustomHeaderLogoUrl = debounce(function (value) {
+	sendMessage({ setCustomHeaderLogoUrl: value });
+	BROWSER_API.storage.sync.set({ customHeaderLogoUrl: value });
 }, 500);
 document.querySelector('#input-custom-header-logo-url').addEventListener('input', function () {
 	saveCustomHeaderLogoUrl(this.value);
+});
+
+// Button - Upload Header Logo Image
+const fileInput = document.createElement('input');
+fileInput.type = 'file';
+fileInput.accept = 'image/*';
+fileInput.style.display = 'none';
+document.body.appendChild(fileInput);
+
+document.querySelector('#btn-upload-header-logo-image').addEventListener('click', function () {
+	if (document.querySelector('body#popup')) {
+		this.classList.add('disabled');
+		document.querySelector('#upload-header-logo-image-info').style.display = '';
+		return;
+	}
+	fileInput.click();
+});
+
+fileInput.addEventListener('change', function () {
+	const file = this.files[0];
+	if (!file) return;
+
+	if (!file.type.startsWith('image/')) {
+		console.log('Not an image file');
+		this.value = '';
+		return;
+	}
+
+	base64ImageOptimiser(file, 230, 47)
+		.then(function (result) {
+			const base64 = result.base64;
+			const maxBytes = 8192;
+
+			if (base64.length < maxBytes) {
+				BROWSER_API.storage.sync.set({ customHeaderLogoUrl: base64 });
+				fileInput.value = '';
+				document.querySelector('#input-custom-header-logo-url').value = base64;
+				sendMessage({ setCustomHeaderLogoUrl: base64 });
+			} else {
+				console.log(`Base64 too big. ${base64.length} < ${maxBytes} bytes`);
+			}
+		})
+		.catch(function (error) {
+			console.log('Image upload failed:', error);
+			fileInput.value = '';
+			document.querySelector('#input-custom-header-logo-url').value = '';
+		});
 });
 
 // Toggle - Attach Side Menu Header

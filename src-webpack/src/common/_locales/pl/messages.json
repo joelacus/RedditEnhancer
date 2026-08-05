@@ -149,12 +149,6 @@
 	"BlockInfo": {
 		"message": "Obsługuje dokładne dopasowanie kluczowych słów lub wyrażeń regularnych"
 	},
-	"BlockCommentsByKeyword": {
-		"message": "Blokuj komentarze według słowa kluczowego"
-	},
-	"BlockCommentsByUser": {
-		"message": "Blokuj komentarze użytkownika"
-	},
 	"Blur": {
 		"message": "Rozmazać"
 	},
@@ -266,9 +260,6 @@
 	"CopyCleanLinkShort": {
 		"message": "Skopiuj czysty link (krótki)"
 	},
-	"Created": {
-		"message": "Utworzono"
-	},
 	"CreatePost": {
 		"message": "Utwórz Post"
 	},
@@ -280,6 +271,9 @@
 	},
 	"CreateTag": {
 		"message": "Utwórz tag"
+	},
+	"Created": {
+		"message": "Utworzono"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Niestandardowy link w tle"
@@ -358,9 +352,6 @@
 	},
 	"ExtensionSettings": {
 		"message": "Ustawienia rozszerzenia"
-	},
-	"extensionVersionText": {
-		"message": "Wersja rozszerzenia"
 	},
 	"Feed": {
 		"message": "Strumień"
@@ -461,9 +452,6 @@
 	"HideAwards": {
 		"message": "Ukryj przycisk „Nagroda” przy komentarzach"
 	},
-	"HideBlockedKeywordsPosts": {
-		"message": "Ukryj Posty z Zablokowanymi Słowami Kluczowymi"
-	},
 	"HideBlurredMediaBackground": {
 		"message": "Ukryj tło Rozmycie za podglądami obrazów"
 	},
@@ -475,6 +463,12 @@
 	},
 	"HideCommentKarma": {
 		"message": "Ukryj komentarz karma"
+	},
+	"HideCommentsByUser": {
+		"message": "Ukryj komentarze użytkownika"
+	},
+	"HideCommentsContainingKeyword": {
+		"message": "Ukryj komentarze zawierające słowo kluczowe"
 	},
 	"HideCommunityHighlights": {
 		"message": "Ukryj „Najważniejsze wydarzenia społeczności”"
@@ -545,11 +539,11 @@
 	"HideModerationButton": {
 		"message": "Ukryj przycisk „Moderacja”"
 	},
-	"HideNotificationButton": {
-		"message": "Ukryj przycisk „Powiadomienie”"
-	},
 	"HideNSFW": {
 		"message": "Ukryj posty NSFW/L"
+	},
+	"HideNotificationButton": {
+		"message": "Ukryj przycisk „Powiadomienie”"
 	},
 	"HideNsfwInSearchResults": {
 		"message": "Ukryj wyniki NSFW w pasku wyszukiwania"
@@ -575,14 +569,17 @@
 	"HidePostKarma": {
 		"message": "Ukryj Post Karma"
 	},
-	"HidePostsByBlockedUser": {
-		"message": "Ukryj wpisy użytkowników zablokowanych"
+	"HidePostSidebar": {
+		"message": "Ukryj pasek boczny postu"
 	},
 	"HidePostsBySubreddit": {
 		"message": "Ukryj posty według subreddita"
 	},
-	"HidePostSidebar": {
-		"message": "Ukryj pasek boczny postu"
+	"HidePostsByUser": {
+		"message": "Ukryj posty użytkownika"
+	},
+	"HidePostsContainingKeyword": {
+		"message": "Ukryj posty zawierające słowo kluczowe"
 	},
 	"HidePromoted": {
 		"message": "Ukryj reklamy/promowane linki"
@@ -635,11 +632,11 @@
 	"HideSideMenuResourcesSection": {
 		"message": "Ukryj sekcję zasoby"
 	},
-	"HideSideMenuTopicsSection": {
-		"message": "Ukryj sekcję tematów"
-	},
 	"HideSideMenuTopSection": {
 		"message": "Ukryj górną sekcję"
+	},
+	"HideSideMenuTopicsSection": {
+		"message": "Ukryj sekcję tematów"
 	},
 	"HideSubSidebar": {
 		"message": "Ukryj pasek boczny Sub Reddit"
@@ -653,9 +650,6 @@
 	"HideTrendingTodayInSearchResults": {
 		"message": "Ukryj „Trendy dzisiaj” w pasku wyszukiwania"
 	},
-	"HideUsername": {
-		"message": "Ukryj nazwę użytkownika"
-	},
 	"HideUserNameInTheFlairSection": {
 		"message": "Ukryj nazwę użytkownika w sekcji flair w bocznej belce subreddita"
 	},
@@ -664,6 +658,9 @@
 	},
 	"HideUserSidebar": {
 		"message": "Ukryj pasek boczny użytkownika"
+	},
+	"HideUsername": {
+		"message": "Ukryj nazwę użytkownika"
 	},
 	"HideVideoRecommendations": {
 		"message": "Ukryj polecane posty po zakończeniu filmu"
@@ -692,11 +689,11 @@
 	"Image": {
 		"message": "Obraz"
 	},
-	"Images": {
-		"message": "Obrazy"
-	},
 	"ImageScroll": {
 		"message": "Dodaj paski przewijane do obrazów"
+	},
+	"Images": {
+		"message": "Obrazy"
 	},
 	"ImportInvalidFormat": {
 		"message": "Nieprawidłowy format pliku."
@@ -733,9 +730,6 @@
 	},
 	"Latest": {
 		"message": "Najnowsze"
-	},
-	"learnMore": {
-		"message": "Dowiedz się więcej"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Wyświetl przyciski głosowania po lewej stronie"
@@ -809,20 +803,20 @@
 	"NewUpdateAvailable": {
 		"message": "Wersja <version> jest już dostępna. Przeglądarka powinna automatycznie zaktualizować tę rozszerzenie wkrótce, jeśli masz włączone automatyczne aktualizacje; w przeciwnym razie będziesz musiał ręcznie sprawdzić aktualizacje w menedżerze rozszerzeń przeglądarki."
 	},
-	"NonStickyHeaderBar": {
-		"message": "Nieprzylepny pasek nagłówka"
-	},
 	"NoPresetsYet": {
 		"message": "Brak ustawień fabrycznych"
 	},
 	"NoSavedBackgrounds": {
 		"message": "Brak zapisanych tapet w tle"
 	},
-	"Note": {
-		"message": "Uwaga"
-	},
 	"NoTaggedUsers": {
 		"message": "Brak oznaczonych użytkowników"
+	},
+	"NonStickyHeaderBar": {
+		"message": "Nieprzylepny pasek nagłówka"
+	},
+	"Note": {
+		"message": "Uwaga"
 	},
 	"Off": {
 		"message": "Wyłączony"
@@ -857,11 +851,11 @@
 	"OpenSubInNewTab": {
 		"message": "Otwórz linki do Sub Reddit w nowej karcie"
 	},
-	"OptionsPage": {
-		"message": "Strona opcji"
-	},
 	"OptOutAttachSideMenu": {
 		"message": "Nie dołączaj menu bocznego jako rozwijane panele"
+	},
+	"OptionsPage": {
+		"message": "Strona opcji"
 	},
 	"Or": {
 		"message": "LUB"
@@ -914,9 +908,6 @@
 	"PostOffset": {
 		"message": "Przesunięcie posta"
 	},
-	"Posts": {
-		"message": "Posty"
-	},
 	"PostSecondaryTextColour": {
 		"message": "Post: Dodatkowy kolor tekstu"
 	},
@@ -938,6 +929,9 @@
 	"PostWidth": {
 		"message": "Szerokość słupka"
 	},
+	"Posts": {
+		"message": "Posty"
+	},
 	"PresetTags": {
 		"message": "Domyślne tagi"
 	},
@@ -949,6 +943,12 @@
 	},
 	"Qa": {
 		"message": "Q&a"
+	},
+	"RV1RedirectInfo": {
+		"message": "Opcja przekierowania „Stary (tylko www)” przekierowuje wyłącznie adresy URL typu www.reddit.com na old.reddit.com. Inne prefiksy, takie jak sh.reddit.com, pozostaną bez zmian."
+	},
+	"RV3RedirectInfo": {
+		"message": "Opcja przekierowania „Najnowsze” wymusi przekierowanie adresów URL typu (sh|old|new).reddit.com na www.reddit.com, co spowoduje użycie najnowszej wersji interfejsu."
 	},
 	"Rate": {
 		"message": "Oceń / Recenzję"
@@ -998,9 +998,6 @@
 	"ResizeFont": {
 		"message": "Zmień rozmiar czcionki"
 	},
-	"resizeHomeAlsoAffects": {
-		"message": "r/wszystkie, r/popularne, Utwórz post, Wyniki wyszukiwania i strony wiki"
-	},
 	"ResizeLayout": {
 		"message": "Zmień Rozmiar Kanału / Opublikuj"
 	},
@@ -1018,12 +1015,6 @@
 	},
 	"Rising": {
 		"message": "Rosnący / Rising"
-	},
-	"RV1RedirectInfo": {
-		"message": "Opcja przekierowania „Stary (tylko www)” przekierowuje wyłącznie adresy URL typu www.reddit.com na old.reddit.com. Inne prefiksy, takie jak sh.reddit.com, pozostaną bez zmian."
-	},
-	"RV3RedirectInfo": {
-		"message": "Opcja przekierowania „Najnowsze” wymusi przekierowanie adresów URL typu (sh|old|new).reddit.com na www.reddit.com, co spowoduje użycie najnowszej wersji interfejsu."
 	},
 	"Save": {
 		"message": "Zapisz"
@@ -1052,12 +1043,6 @@
 	"Search": {
 		"message": "Szukanie"
 	},
-	"SearchbarBgColour": {
-		"message": "Pasek wyszukiwania: Kolor tła"
-	},
-	"SearchbarDropdownBgColour": {
-		"message": "Pasek wyszukiwania: Kolor tła skupiony/rozwijany"
-	},
 	"SearchPageOffset": {
 		"message": "Przesunięcie strony wyszukiwania"
 	},
@@ -1067,8 +1052,11 @@
 	"SearchUsername": {
 		"message": "Szukaj nazwy użytkownika..."
 	},
-	"seconds": {
-		"message": "sekundy"
+	"SearchbarBgColour": {
+		"message": "Pasek wyszukiwania: Kolor tła"
+	},
+	"SearchbarDropdownBgColour": {
+		"message": "Pasek wyszukiwania: Kolor tła skupiony/rozwijany"
 	},
 	"Select": {
 		"message": "Wybierać"
@@ -1124,18 +1112,6 @@
 	"ShowUpvoteRatio": {
 		"message": "Pokaż procent upvote w widoku wpisu"
 	},
-	"Sidebar": {
-		"message": "Pasek boczny (prawidłowy)"
-	},
-	"SidebarBackgroundColour": {
-		"message": "Pasek boczny: Kolor tła"
-	},
-	"SidebarTextColour": {
-		"message": "Pasek boczny: Kolor tekstu"
-	},
-	"SidebarToggleButton": {
-		"message": "Przycisk przełączania panelu bocznego"
-	},
 	"SideMenu": {
 		"message": "Menu boczne (lewy)"
 	},
@@ -1156,6 +1132,18 @@
 	},
 	"SideMenuWidth": {
 		"message": "Szerokość menu bocznego"
+	},
+	"Sidebar": {
+		"message": "Pasek boczny (prawidłowy)"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Pasek boczny: Kolor tła"
+	},
+	"SidebarTextColour": {
+		"message": "Pasek boczny: Kolor tekstu"
+	},
+	"SidebarToggleButton": {
+		"message": "Przycisk przełączania panelu bocznego"
 	},
 	"SnapSidebar": {
 		"message": "Przyklej panel boczny do prawej krawędzi"
@@ -1259,11 +1247,11 @@
 	"UnderlineLinks": {
 		"message": "Podkreśl linki"
 	},
-	"Updated": {
-		"message": "Aktualizowane"
-	},
 	"UpdateFirefox": {
 		"message": "Aby niektóre funkcje działały poprawnie, zaktualizuj przeglądarkę Firefox do wersji 121 lub nowszej."
+	},
+	"Updated": {
+		"message": "Aktualizowane"
 	},
 	"Upload": {
 		"message": "Wgrywać"
@@ -1280,20 +1268,11 @@
 	"UserAlreadyAdded": {
 		"message": "Użytkownik został już dodany"
 	},
-	"Username": {
-		"message": "Nazwa użytkownika"
-	},
-	"UsernameHoverPopupDelay": {
-		"message": "Opóźnienie wysuwającego się okienka z nazwą użytkownika"
-	},
 	"UserProfileOffset": {
 		"message": "Przesunięcie profilu użytkownika"
 	},
 	"UserProfileWidth": {
 		"message": "Szerokość profilu użytkownika"
-	},
-	"Users": {
-		"message": "Użytkownicy"
 	},
 	"UserTagging": {
 		"message": "Oznaczanie użytkowników"
@@ -1306,6 +1285,15 @@
 	},
 	"UserTaggingManagerTitle": {
 		"message": "Administrator etykiet użytkowników"
+	},
+	"Username": {
+		"message": "Nazwa użytkownika"
+	},
+	"UsernameHoverPopupDelay": {
+		"message": "Opóźnienie wysuwającego się okienka z nazwą użytkownika"
+	},
+	"Users": {
+		"message": "Użytkownicy"
 	},
 	"Video": {
 		"message": "Wideo"
@@ -1324,5 +1312,17 @@
 	},
 	"Width": {
 		"message": "Szerokość"
+	},
+	"extensionVersionText": {
+		"message": "Wersja rozszerzenia"
+	},
+	"learnMore": {
+		"message": "Dowiedz się więcej"
+	},
+	"resizeHomeAlsoAffects": {
+		"message": "r/wszystkie, r/popularne, Utwórz post, Wyniki wyszukiwania i strony wiki"
+	},
+	"seconds": {
+		"message": "sekundy"
 	}
 }
