@@ -150,6 +150,17 @@ export function restorePopupProductivityOptions() {
 		console.log('Hide Post "NSFW" Option: ' + checked);
 	});
 
+	// Always Show Post Options - Hide "Award" Option
+	BROWSER_API.storage.sync.get(['hidePostAwardOption'], function (result) {
+		const checked = result.hidePostAwardOption === true;
+		document.querySelector('#checkbox-hide-post-award-option').checked = checked;
+		const icon = document.querySelector('.icon-hide-post-award-option');
+		icon.style.backgroundColor = checked === true ? 'var(--accent)' : '';
+		icon.classList.replace(checked ? 'icon-award' : 'icon-award-slash', checked ? 'icon-award-slash' : 'icon-award');
+		if (checked) highlightMenuIcon('productivity-tweaks');
+		console.log('Hide Post "Award" Option: ' + checked);
+	});
+
 	// Always Show Post Options - Hide "Brand Awareness" Option
 	BROWSER_API.storage.sync.get(['hidePostBrandAwarenessOption'], function (result) {
 		const checked = result.hidePostBrandAwarenessOption === true;

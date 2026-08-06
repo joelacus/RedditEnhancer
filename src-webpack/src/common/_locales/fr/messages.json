@@ -26,8 +26,17 @@
 	"AddNsfwTag": {
 		"message": "Ajouter la balise NSFW"
 	},
+	"AddPresetTag": {
+		"message": "Ajouter un étiquette prédéfini"
+	},
 	"AddSpoilerTag": {
 		"message": "Ajouter une balise de spoiler"
+	},
+	"AddToPresets": {
+		"message": "Ajouter aux préréglages"
+	},
+	"AddUserTag": {
+		"message": "Ajouter une étiquette utilisateur"
 	},
 	"AlwaysShowCommentOptions": {
 		"message": "Afficher toujours les options de commentaire"
@@ -43,6 +52,9 @@
 	},
 	"AppendNumbersToPostImages": {
 		"message": "Images de publications numérotées"
+	},
+	"AreYouSure": {
+		"message": "Es-tu sûr ?"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Page d'affichage et d'informations utilisateur dans l'en-tête"
@@ -137,9 +149,6 @@
 	"BlockInfo": {
 		"message": "Prend en charge la correspondance exacte des mots clés ou les expressions régulières."
 	},
-	"BlocksCommentsByKeyword": {
-		"message": "Bloquer les commentaires par mot-clé"
-	},
 	"Blur": {
 		"message": "Flou"
 	},
@@ -160,6 +169,9 @@
 	},
 	"BuyMeACoffee": {
 		"message": "Achetez-moi un café"
+	},
+	"Cancel": {
+		"message": "Annuler"
 	},
 	"CannedMessages": {
 		"message": "Messages prédéfinis"
@@ -185,14 +197,23 @@
 	"CleanLink": {
 		"message": "Ajouter une option de partage de publication/commentaire sans suivi (Lien propre)"
 	},
+	"Clear": {
+		"message": "Clair"
+	},
 	"Cleared": {
 		"message": "Effacée"
+	},
+	"ClickToEdit": {
+		"message": "Cliquez pour modifier"
 	},
 	"Close": {
 		"message": "Fermer"
 	},
 	"CloseTab": {
 		"message": "Vous pouvez maintenant fermer cet onglet/fenêtre."
+	},
+	"Colour": {
+		"message": "Couleur"
 	},
 	"Comments": {
 		"message": "Commentaires"
@@ -212,8 +233,14 @@
 	"CompactPostLinkPreview": {
 		"message": "Aperçu du lien de publication compact"
 	},
+	"Complete": {
+		"message": "Complète"
+	},
 	"Confirm": {
 		"message": "Confirmer"
+	},
+	"ConfirmDeleteAll": {
+		"message": "Êtes-tu sûr de vouloir supprimer tous les tags utilisateur ? Cette action est irréversible, sauf si vous avez une sauvegarde."
 	},
 	"Controversial": {
 		"message": "Controversés / Controversial"
@@ -241,6 +268,12 @@
 	},
 	"CreatePostTitle": {
 		"message": "Créer une post: Titre"
+	},
+	"CreateTag": {
+		"message": "Créer une étiquette"
+	},
+	"Created": {
+		"message": "Créé"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Lien d'arrière-plan personnalisé"
@@ -272,11 +305,20 @@
 	"Delete": {
 		"message": "Supprimer"
 	},
+	"DeleteAllTags": {
+		"message": "Tout supprimer"
+	},
+	"Details": {
+		"message": "Détails"
+	},
 	"Disabled": {
 		"message": "Désactivé"
 	},
 	"DontShowAgain": {
 		"message": "Ne plus afficher"
+	},
+	"DownvoteColour": {
+		"message": "Post : Couleur du vote négatif"
 	},
 	"Drag": {
 		"message": "Faites glisser"
@@ -287,14 +329,26 @@
 	"Edit": {
 		"message": "Modifier"
 	},
+	"EditLink": {
+		"message": "Modifier le lien"
+	},
 	"EditPost": {
 		"message": "Modifier la publication"
+	},
+	"EditTag": {
+		"message": "Modifier l'étiquette"
+	},
+	"EnableUserTagging": {
+		"message": "Activer l'étiquetage utilisateur"
 	},
 	"EndTime": {
 		"message": "Heure de Fin (24)"
 	},
 	"Error": {
 		"message": "Erreur"
+	},
+	"ExportTags": {
+		"message": "Exporter les étiquettes"
 	},
 	"ExtensionSettings": {
 		"message": "Paramètres de l'extension"
@@ -396,10 +450,7 @@
 		"message": "Masquer les notifications d'annonces Reddit (u/reddit)"
 	},
 	"HideAwards": {
-		"message": "Masquer le bouton « Donner des récompenses »"
-	},
-	"HideBlockedKeywordsPosts": {
-		"message": "Masquer les Publications avec des Mots-Clés Bloqués"
+		"message": "Masquer le bouton « Récompense » sur les commentaires"
 	},
 	"HideBlurredMediaBackground": {
 		"message": "Masquer le flou d’arrière-plan derrière les aperçus des images"
@@ -412,6 +463,12 @@
 	},
 	"HideCommentKarma": {
 		"message": "Masquer le commentaire Karma"
+	},
+	"HideCommentsByUser": {
+		"message": "Masquer les commentaires de l'utilisateur"
+	},
+	"HideCommentsContainingKeyword": {
+		"message": "Masquer les commentaires contenant un mot-clé"
 	},
 	"HideCommunityHighlights": {
 		"message": "Masquer « Temps forts de la communauté »"
@@ -515,11 +572,14 @@
 	"HidePostSidebar": {
 		"message": "Masquer la barre latérale de la page Post"
 	},
-	"HidePostsByBlockedUser": {
-		"message": "Masquer les publications des utilisateurs bloqués"
-	},
 	"HidePostsBySubreddit": {
 		"message": "Masquer les publications par subreddit"
+	},
+	"HidePostsByUser": {
+		"message": "Masquer les publications de l'utilisateur"
+	},
+	"HidePostsContainingKeyword": {
+		"message": "Masquer les posts contenant un mot-clé"
 	},
 	"HidePromoted": {
 		"message": "Masquer les publicités/liens sponsorisés"
@@ -541,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Masquer les articles associés"
+	},
+	"HideRepostButton": {
+		"message": "Masquer le bouton « Repost »"
 	},
 	"HideSearchSidebar": {
 		"message": "Masquer la barre latérale de recherche"
@@ -620,6 +683,9 @@
 	"Hot": {
 		"message": "Populaires / Hot"
 	},
+	"Icon": {
+		"message": "Icône"
+	},
 	"Image": {
 		"message": "Image"
 	},
@@ -628,6 +694,15 @@
 	},
 	"Images": {
 		"message": "Images"
+	},
+	"ImportInvalidFormat": {
+		"message": "Format de fichier invalide."
+	},
+	"ImportSuccess": {
+		"message": "Les {count} balises ont été importées avec succès."
+	},
+	"ImportTags": {
+		"message": "Importer les étiquettes"
 	},
 	"JustOpenTheImage": {
 		"message": "Ouvrez simplement l'image"
@@ -640,6 +715,12 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "Bloque les publications en fonction du titre, pas du contenu. Lister des mots-clés/expressions régulières individuels, séparés par une virgule."
+	},
+	"Label": {
+		"message": "Étiquette"
+	},
+	"LabelColour": {
+		"message": "Couleur de l'étiquette"
 	},
 	"Language": {
 		"message": "Langue"
@@ -676,6 +757,9 @@
 	},
 	"MainContainer": {
 		"message": "Conteneur principal"
+	},
+	"ManageTaggedUsers": {
+		"message": "Gérer les utilisateurs étiquetés"
 	},
 	"MarkAsBrandAffiliate": {
 		"message": "Marquez comme affilié de marque"
@@ -719,11 +803,20 @@
 	"NewUpdateAvailable": {
 		"message": "La version <version> est désormais disponible. Votre navigateur devrait bientôt mettre à jour cette extension automatiquement si vous avez activé les mises à jour automatiques. Dans le cas contraire, vous devrez rechercher manuellement les mises à jour dans le gestionnaire d'extensions du navigateur."
 	},
+	"NoPresetsYet": {
+		"message": "Aucun préréglage pour le moment"
+	},
 	"NoSavedBackgrounds": {
 		"message": "Aucun arrière-plan enregistré"
 	},
+	"NoTaggedUsers": {
+		"message": "Aucun utilisateur identifié"
+	},
 	"NonStickyHeaderBar": {
 		"message": "Barre d'en-tête non collante"
+	},
+	"Note": {
+		"message": "Note"
 	},
 	"Off": {
 		"message": "Désactivé"
@@ -742,6 +835,9 @@
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Ne développez que les commentaires à karma négatif"
+	},
+	"OpenInManager": {
+		"message": "Ouvrir dans le gestionnaire"
 	},
 	"OpenPostInNewTab": {
 		"message": "Ouvrir les liens vers les Posts dans un nouvel onglet"
@@ -778,6 +874,9 @@
 	},
 	"PostBgColour": {
 		"message": "Post : Couleur de fond"
+	},
+	"PostBgColourInfo": {
+		"message": "S'applique également à divers autres éléments de l'interface utilisateur."
 	},
 	"PostBorderColour": {
 		"message": "Post : Couleur de la bordure"
@@ -832,6 +931,12 @@
 	},
 	"Posts": {
 		"message": "Publications"
+	},
+	"PresetTags": {
+		"message": "Balises prédéfinies"
+	},
+	"Preview": {
+		"message": "Aperçu"
 	},
 	"Productivity": {
 		"message": "Productivité"
@@ -940,6 +1045,12 @@
 	},
 	"SearchPageOffset": {
 		"message": "Décalage de la page de recherche"
+	},
+	"SearchTag": {
+		"message": "Rechercher une étiquette..."
+	},
+	"SearchUsername": {
+		"message": "Rechercher un nom d'utilisateur..."
 	},
 	"SearchbarBgColour": {
 		"message": "Barre de recherche: La couleur d'arrière-plan"
@@ -1082,6 +1193,12 @@
 	"SyncStorage": {
 		"message": "Stockage de synchronisation"
 	},
+	"Tag": {
+		"message": "Étiquette"
+	},
+	"TagColour": {
+		"message": "Étiquette de couleur"
+	},
 	"Text": {
 		"message": "Texte"
 	},
@@ -1133,6 +1250,9 @@
 	"UpdateFirefox": {
 		"message": "Veuillez mettre à jour Firefox 121 ou version ultérieure pour que certaines fonctionnalités fonctionnent correctement."
 	},
+	"Updated": {
+		"message": "Mis à jour"
+	},
 	"Upload": {
 		"message": "Télécharger"
 	},
@@ -1145,11 +1265,29 @@
 	"UseOriginalSearchBar": {
 		"message": "Utilisez la barre de recherche d'origine"
 	},
+	"UserAlreadyAdded": {
+		"message": "Utilisateur déjà ajouté"
+	},
 	"UserProfileOffset": {
 		"message": "Décalage du profil utilisateur"
 	},
 	"UserProfileWidth": {
 		"message": "Largeur du profil utilisateur"
+	},
+	"UserTagging": {
+		"message": "Étiquetage utilisateur"
+	},
+	"UserTaggingManagerInfo1": {
+		"message": "Vous pouvez importer les données de étiquettes utilisateur à partir des fichiers .resbackup exportés par RES"
+	},
+	"UserTaggingManagerInfo2": {
+		"message": "Toutes les données sont enregistrées localement dans votre navigateur. Exportez les balises pour éviter toute perte potentielle de données."
+	},
+	"UserTaggingManagerTitle": {
+		"message": "Gestionnaire de étiquette utilisateur"
+	},
+	"Username": {
+		"message": "Nom d'utilisateur"
 	},
 	"UsernameHoverPopupDelay": {
 		"message": "Délai lors du survol du nom d'utilisateur pour ouvrir les informations contextuelles"

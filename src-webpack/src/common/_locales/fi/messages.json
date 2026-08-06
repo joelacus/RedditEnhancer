@@ -26,8 +26,17 @@
 	"AddNsfwTag": {
 		"message": "Lisää NSFW-merkki"
 	},
+	"AddPresetTag": {
+		"message": "Lisää oletettu merkki"
+	},
 	"AddSpoilerTag": {
 		"message": "Lisää spoiler-merkki"
+	},
+	"AddToPresets": {
+		"message": "Lisää esiasetuksiin"
+	},
+	"AddUserTag": {
+		"message": "Lisää käyttäjän tagi"
 	},
 	"AlwaysShowCommentOptions": {
 		"message": "Näytä aina kommentointivaihtoehdot"
@@ -43,6 +52,9 @@
 	},
 	"AppendNumbersToPostImages": {
 		"message": "Numerooidut julkaisukuvat"
+	},
+	"AreYouSure": {
+		"message": "Oletko varma?"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Näytä sivun- ja käyttäjätiedot yläosassa"
@@ -137,9 +149,6 @@
 	"BlockInfo": {
 		"message": "Tukee tarkan avainsanan vastaavuuden tai säännölliset lausekkeet"
 	},
-	"BlocksCommentsByKeyword": {
-		"message": "Estää kommentit avainsanan perusteella"
-	},
 	"Blur": {
 		"message": "Sumennuttaa"
 	},
@@ -160,6 +169,9 @@
 	},
 	"BuyMeACoffee": {
 		"message": "Osta minulle kahvia"
+	},
+	"Cancel": {
+		"message": "Peruuta"
 	},
 	"CannedMessages": {
 		"message": "Ennalaiset viestit"
@@ -185,14 +197,23 @@
 	"CleanLink": {
 		"message": "Lisää postauksen/kommentin jakovaihtoehto ilman seurantaa (Puhdas linkki)"
 	},
+	"Clear": {
+		"message": "Selkeä"
+	},
 	"Cleared": {
 		"message": "Poistettu"
+	},
+	"ClickToEdit": {
+		"message": "Klikkaa muokataksesi"
 	},
 	"Close": {
 		"message": "Sulkea"
 	},
 	"CloseTab": {
 		"message": "Voit nyt sulkea tämän välilehden/ikkunan."
+	},
+	"Colour": {
+		"message": "väri"
 	},
 	"Comments": {
 		"message": "Kommentit"
@@ -212,8 +233,14 @@
 	"CompactPostLinkPreview": {
 		"message": "Tiiviit postilinkkien esikatselut"
 	},
+	"Complete": {
+		"message": "Täydellinen"
+	},
 	"Confirm": {
 		"message": "Vahvista"
+	},
+	"ConfirmDeleteAll": {
+		"message": "Oletko varma, että haluat poistaa kaikki käyttäjätunnukset? Tämä on peruuttamaton, ellemme sinulla ole varmuuskertaa."
 	},
 	"Controversial": {
 		"message": "Kiistanalainen"
@@ -241,6 +268,12 @@
 	},
 	"CreatePostTitle": {
 		"message": "Luo viesti: Otsikko"
+	},
+	"CreateTag": {
+		"message": "Luo tunniste"
+	},
+	"Created": {
+		"message": "Luotu"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Mukautettu taustalinkki"
@@ -272,11 +305,20 @@
 	"Delete": {
 		"message": "Poista"
 	},
+	"DeleteAllTags": {
+		"message": "Poista kaikki"
+	},
+	"Details": {
+		"message": "Yksityiskohdat"
+	},
 	"Disabled": {
 		"message": "Poistettu käytöstä"
 	},
 	"DontShowAgain": {
 		"message": "Älä näytä uudelleen"
+	},
+	"DownvoteColour": {
+		"message": "Viesti: Äänestä väriä vastaan"
 	},
 	"Drag": {
 		"message": "Vedä"
@@ -287,14 +329,26 @@
 	"Edit": {
 		"message": "Muokkaa"
 	},
+	"EditLink": {
+		"message": "Muokkaa linkkiä"
+	},
 	"EditPost": {
 		"message": "Muokkaa viesti"
+	},
+	"EditTag": {
+		"message": "Muokkaa tunniste"
+	},
+	"EnableUserTagging": {
+		"message": "Mahdollista käyttäjien tunnistaa"
 	},
 	"EndTime": {
 		"message": "Loppu aika (24)"
 	},
 	"Error": {
 		"message": "Virhe"
+	},
+	"ExportTags": {
+		"message": "Vie tunnisteet"
 	},
 	"ExtensionSettings": {
 		"message": "Uson laajennukset"
@@ -396,10 +450,7 @@
 		"message": "Piilota Reddit-ilmoitukset"
 	},
 	"HideAwards": {
-		"message": "Piilota \"Palkinto\"-painike"
-	},
-	"HideBlockedKeywordsPosts": {
-		"message": "Piilota viestit, joissa on estetyt avainsanat"
+		"message": "Piilota \"Palkinto\"-painike kommenteista"
 	},
 	"HideBlurredMediaBackground": {
 		"message": "Piilota taustan sumeneminen kuvien esikatselmien takana"
@@ -412,6 +463,12 @@
 	},
 	"HideCommentKarma": {
 		"message": "Piilota kommenttikarmat"
+	},
+	"HideCommentsByUser": {
+		"message": "Piilota käyttäjän kommentit"
+	},
+	"HideCommentsContainingKeyword": {
+		"message": "Piilota avainsanan sisältävät kommentit"
 	},
 	"HideCommunityHighlights": {
 		"message": "Piilota \"Yhteisön kohokohdat\""
@@ -515,11 +572,14 @@
 	"HidePostSidebar": {
 		"message": "Piilota viestin sivupalkki"
 	},
-	"HidePostsByBlockedUser": {
-		"message": "Piilota viestit estyneiltä käyttäjiltä"
-	},
 	"HidePostsBySubreddit": {
 		"message": "Piilota viestit subredditin mukaan"
+	},
+	"HidePostsByUser": {
+		"message": "Piilota käyttäjän viestit"
+	},
+	"HidePostsContainingKeyword": {
+		"message": "Piilota avainsanan sisältävät viestit"
 	},
 	"HidePromoted": {
 		"message": "Piilota mainokset/mainostetut linkit"
@@ -541,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Piilota asiaan liittyvät viestit"
+	},
+	"HideRepostButton": {
+		"message": "Piilota \"Julkaise uudelleen\" -painike"
 	},
 	"HideSearchSidebar": {
 		"message": "Piilota hakusivupalkki"
@@ -620,6 +683,9 @@
 	"Hot": {
 		"message": "Kuuma / Hot"
 	},
+	"Icon": {
+		"message": "ikoni"
+	},
 	"Image": {
 		"message": "Kuva"
 	},
@@ -628,6 +694,15 @@
 	},
 	"Images": {
 		"message": "Kuvat"
+	},
+	"ImportInvalidFormat": {
+		"message": "Virheellinen tiedostomuoto."
+	},
+	"ImportSuccess": {
+		"message": "Tuotettiin {count} tunnisteella onnistuneesti."
+	},
+	"ImportTags": {
+		"message": "Tuon tunnisteet"
 	},
 	"JustOpenTheImage": {
 		"message": "Avaa kuva"
@@ -640,6 +715,12 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "Estää julkaisut otsikon perusteella, ei sisällön mukaan. Lista yksittäiset avainsanat/regex-säännöt, eroteltuna pilkulla."
+	},
+	"Label": {
+		"message": "Tunniste"
+	},
+	"LabelColour": {
+		"message": "Tarran väri"
 	},
 	"Language": {
 		"message": "Kieli"
@@ -676,6 +757,9 @@
 	},
 	"MainContainer": {
 		"message": "Pääkontti"
+	},
+	"ManageTaggedUsers": {
+		"message": "Hallitse merkityt käyttäjät"
 	},
 	"MarkAsBrandAffiliate": {
 		"message": "Merkitse brändi-affiliateksi"
@@ -719,11 +803,20 @@
 	"NewUpdateAvailable": {
 		"message": "Versio <version> on nyt saatavilla. Selain selaimesi pitäisi päivittää tämä laajennus automaattisesti pian, jos olet mahdollistanut automaattiset päivitykset, tai sinun on käsin tarkistettava päivitykset selaimen laajennusohjelmistossa. (tai vähintään se on näin, jos käännös on yleisempi)"
 	},
+	"NoPresetsYet": {
+		"message": "Ei asetuksia"
+	},
 	"NoSavedBackgrounds": {
 		"message": "Ei tallennettuja taustoja"
 	},
+	"NoTaggedUsers": {
+		"message": "Ei tunnistettuja käyttäjiä"
+	},
 	"NonStickyHeaderBar": {
 		"message": "Ei-tarttu ylänauha"
+	},
+	"Note": {
+		"message": "Huomautus"
 	},
 	"Off": {
 		"message": "Poiski"
@@ -742,6 +835,9 @@
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Laajenna vain negatiivisen karman kommentit"
+	},
+	"OpenInManager": {
+		"message": "Avaa hallinnossa"
 	},
 	"OpenPostInNewTab": {
 		"message": "Avaa julkaisulinkit uudelle välilehdelle"
@@ -778,6 +874,9 @@
 	},
 	"PostBgColour": {
 		"message": "Julkaisu: Taustan väri"
+	},
+	"PostBgColourInfo": {
+		"message": "Koskee myös useita muita käyttöliittymäelementtejä."
 	},
 	"PostBorderColour": {
 		"message": "Post: Reunan väri"
@@ -832,6 +931,12 @@
 	},
 	"Posts": {
 		"message": "Julkaisut"
+	},
+	"PresetTags": {
+		"message": "Ennakkooletagiot"
+	},
+	"Preview": {
+		"message": "Esikatselu"
 	},
 	"Productivity": {
 		"message": "Tuottavuus"
@@ -940,6 +1045,12 @@
 	},
 	"SearchPageOffset": {
 		"message": "Hakemistosivun siirtymä"
+	},
+	"SearchTag": {
+		"message": "Hae tunnisteetikko..."
+	},
+	"SearchUsername": {
+		"message": "Etsi käyttäjänimi..."
 	},
 	"SearchbarBgColour": {
 		"message": "Hakupalkki: Taustaväri"
@@ -1082,6 +1193,12 @@
 	"SyncStorage": {
 		"message": "Synkronointitallennustila"
 	},
+	"Tag": {
+		"message": "Tunniste"
+	},
+	"TagColour": {
+		"message": "Brändin väri"
+	},
 	"Text": {
 		"message": "Teksti"
 	},
@@ -1133,6 +1250,9 @@
 	"UpdateFirefox": {
 		"message": "Päivitä Firefox 121:een tai uudempaan, jotta jotkin ominaisuudet toimivat oikein."
 	},
+	"Updated": {
+		"message": "Päivitetty"
+	},
 	"Upload": {
 		"message": "Ladata"
 	},
@@ -1140,16 +1260,34 @@
 		"message": "Ladattu kuva"
 	},
 	"UpvoteColour": {
-		"message": "Äänestä väriä"
+		"message": "Viesti: Äänestä värin puolesta"
 	},
 	"UseOriginalSearchBar": {
 		"message": "Käytä alkuperäistä hakupalkkia"
+	},
+	"UserAlreadyAdded": {
+		"message": "Käyttäjä on jo lisätty"
 	},
 	"UserProfileOffset": {
 		"message": "Käyttäjäprofiilin siirtymä"
 	},
 	"UserProfileWidth": {
 		"message": "Käyttäjäprofiilin leveys"
+	},
+	"UserTagging": {
+		"message": "Käyttäjän tunnistaminen"
+	},
+	"UserTaggingManagerInfo1": {
+		"message": "Voit tuoda käyttäjä tunnisteiden tiedot .resbackup-tiedostoista, jotka on viedä RES:n toimesta"
+	},
+	"UserTaggingManagerInfo2": {
+		"message": "Kaikki tiedot tallennetaan paikallisesti selaimeesi. Vie tagit välttääksesi mahdollisen tietojen menetyksen."
+	},
+	"UserTaggingManagerTitle": {
+		"message": "Käyttäjämerkinnän hallinta"
+	},
+	"Username": {
+		"message": "Käyttäjätunnus"
 	},
 	"UsernameHoverPopupDelay": {
 		"message": "Käyttäjänimen leijuvan ponnahdusikkunan viive"

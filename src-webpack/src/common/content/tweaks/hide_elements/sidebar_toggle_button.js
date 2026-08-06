@@ -35,7 +35,7 @@ export function sidebarToggleButton(value) {
 	if (redditVersion === 'old') {
 		if (value) {
 			if (document.getElementById('_rst_button')) return;
-			console.log('RedditSidebarToggle: init');
+			//console.log('[RedditEnhancer] Sidebar Toggle: init');
 
 			// Appends the toggle button as a tab
 			const mainButton = document.createElement('a');
@@ -44,7 +44,7 @@ export function sidebarToggleButton(value) {
 			const listItem = document.createElement('li');
 			listItem.appendChild(mainButton);
 			tabmenu.appendChild(listItem);
-			console.log('RedditSidebarToggle: button appended');
+			//console.log('[RedditEnhancer] Sidebar Toggle: button appended');
 
 			// Check if it is already hidden, sets initial tab state
 			if (localStorage.getItem('_rst_sidebarvisibility') === 'hidden') {
@@ -57,7 +57,7 @@ export function sidebarToggleButton(value) {
 			// Tab Click event
 			sidebar.style.transition = 'width 0.2s';
 			mainButton.addEventListener('click', () => {
-				console.log('RedditSidebarToggle: button clicked');
+				//console.log('[RedditEnhancer] Sidebar Toggle: button clicked');
 				if (mainButton.classList.contains(CLASS_SHOW)) show(mainButton);
 				else hide(mainButton);
 			});
@@ -75,7 +75,7 @@ export function sidebarToggleButton(value) {
 }
 
 function hide(mainButton) {
-	console.log('RedditSidebarToggle: hiding sidebar');
+	//console.log('[RedditEnhancer] Sidebar Toggle: hiding sidebar');
 	localStorage.setItem('_rst_sidebarvisibility', 'hidden');
 	sidebar.style.width = '0';
 	setTimeout(() => {
@@ -85,7 +85,7 @@ function hide(mainButton) {
 }
 
 function show(mainButton) {
-	console.log('RedditSidebarToggle: showing sidebar');
+	//console.log('[RedditEnhancer] Sidebar Toggle: showing sidebar');
 	localStorage.setItem('_rst_sidebarvisibility', 'visible');
 	sidebar.style.display = 'block';
 	setTimeout(() => {

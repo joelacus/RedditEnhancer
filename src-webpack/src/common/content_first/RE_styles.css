@@ -194,7 +194,7 @@ div[data-testid='search-results-sidebar'] {
 .re-invisible {
 	visibility: hidden !important;
 }
-.re-hide-comment p {
+.re-hide-comment * {
 	display: none !important;
 }
 shreddit-comment .re-hide-comment::before {
@@ -203,11 +203,16 @@ shreddit-comment .re-hide-comment::before {
 	padding-left: 0.5rem;
 	opacity: 0.5;
 }
+.thing .re-hide-comment {
+	color: transparent;
+	font-size: 0;
+}
 .thing .re-hide-comment::before {
 	content: 'Hidden';
 	position: absolute;
 	margin: 0.1rem 0.25rem;
 	opacity: 0.5;
+	color: #000;
 }
 
 /* ========== FULL-WIDTH SORT DROPDOWN ========== */
@@ -268,6 +273,8 @@ a.thumbnail > img {
 	z-index: 10;
 }
 .re-post-author {
+	display: flex;
+	align-items: center;
 	color: var(--color-neutral-content-weak);
 	z-index: 4;
 }
@@ -544,9 +551,9 @@ shreddit-composer::part(md-inner) {
 		margin: 0;
 		padding: 0;
 
-		& > :first-child {
+		/*& > :first-child {
 			padding-top: 0.75rem;
-		}
+		}*/
 	}
 }
 [routename='keyword-management'] main.main {

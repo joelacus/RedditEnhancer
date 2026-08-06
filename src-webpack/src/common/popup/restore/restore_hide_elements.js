@@ -692,7 +692,7 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide Community Status: ' + checked);
 	});
 
-	// Hide Awards
+	// Hide "Award" Button on Comments
 	BROWSER_API.storage.sync.get(['hideAwards'], function (result) {
 		const checked = result.hideAwards === true;
 		document.querySelector('#checkbox-hide-awards').checked = checked;
@@ -701,6 +701,17 @@ export function restorePopupHideElementsOptions() {
 		icon.classList.replace(checked ? 'icon-show' : 'icon-hide', checked ? 'icon-hide' : 'icon-show');
 		if (checked) highlightMenuIcon('hide-elements');
 		console.log('Hide Awards: ' + checked);
+	});
+
+	// Hide "Repost" Button
+	BROWSER_API.storage.sync.get(['hideRepostButton'], function (result) {
+		const checked = result.hideRepostButton === true;
+		document.querySelector('#checkbox-hide-repost-button').checked = checked;
+		const icon = document.querySelector('.icon-hide-repost-button');
+		icon.style.backgroundColor = checked === true ? 'var(--accent)' : '';
+		icon.classList.replace(checked ? 'icon-show' : 'icon-hide', checked ? 'icon-hide' : 'icon-show');
+		if (checked) highlightMenuIcon('hide-elements');
+		console.log('Hide Repost Button: ' + checked);
 	});
 
 	// Hide Related Communities

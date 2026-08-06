@@ -18,6 +18,7 @@ const menuConfigs = [
 	{ btn: '.btn-productivity-tweaks', menu: '.menu-productivity-tweaks', scroll: '.btn-productivity-tweaks' },
 	{ btn: '.btn-resize-elements', menu: '.menu-resize-elements', scroll: '.btn-resize-elements' },
 	{ btn: '.btn-style-tweaks', menu: '.menu-style-tweaks', scroll: '.btn-style-tweaks' },
+	{ btn: '.btn-user-tagging', menu: '.menu-user-tagging', scroll: '.btn-user-tagging' },
 ];
 
 menuConfigs.forEach(({ btn, menu, scroll }) => {

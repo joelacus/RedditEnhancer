@@ -26,8 +26,17 @@
 	"AddNsfwTag": {
 		"message": "Hozzáadni NSFW címkét"
 	},
+	"AddPresetTag": {
+		"message": "Előre elkészített címkék hozzáadása"
+	},
 	"AddSpoilerTag": {
 		"message": "Spoiler-tag hozzáadása"
+	},
+	"AddToPresets": {
+		"message": "Hozzáadás az előreállításokhoz"
+	},
+	"AddUserTag": {
+		"message": "Felhasználó címkéj hozzáadása"
 	},
 	"AlwaysShowCommentOptions": {
 		"message": "Állandó megjelenítés a hozzászólási opciók"
@@ -43,6 +52,9 @@
 	},
 	"AppendNumbersToPostImages": {
 		"message": "Számozott bejegyzésképek"
+	},
+	"AreYouSure": {
+		"message": "Biztos vagy vele?"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Kijelölés a lap és a felhasználói adatok az üstmenüben"
@@ -137,9 +149,6 @@
 	"BlockInfo": {
 		"message": "Támogatja az exakt kulcsszó-lehjat vagy reguláris kifejezéseket."
 	},
-	"BlocksCommentsByKeyword": {
-		"message": "Hozzászólások blokkolása kulcsszó alapján"
-	},
 	"Blur": {
 		"message": "Elhomályosít"
 	},
@@ -160,6 +169,9 @@
 	},
 	"BuyMeACoffee": {
 		"message": "Vegyél nekem egy kávét"
+	},
+	"Cancel": {
+		"message": "Mégsem"
 	},
 	"CannedMessages": {
 		"message": "Előre elkészített üzenetek"
@@ -185,14 +197,23 @@
 	"CleanLink": {
 		"message": "Bejegyzés/kommentár megosztási opció hozzáadása nyomon követés nélkül (Tisztított link)"
 	},
+	"Clear": {
+		"message": "Tisztaság"
+	},
 	"Cleared": {
 		"message": "Törölve"
+	},
+	"ClickToEdit": {
+		"message": "Kattintson a szerkesztéshez"
 	},
 	"Close": {
 		"message": "Bezárni"
 	},
 	"CloseTab": {
 		"message": "Most bezeli zárni ezt az ablakot/lapot."
+	},
+	"Colour": {
+		"message": "szín"
 	},
 	"Comments": {
 		"message": "Megjegyzések"
@@ -212,8 +233,14 @@
 	"CompactPostLinkPreview": {
 		"message": "Kompakt postlink előnézeti képei"
 	},
+	"Complete": {
+		"message": "Teljes"
+	},
 	"Confirm": {
 		"message": "Megerősítés"
+	},
+	"ConfirmDeleteAll": {
+		"message": "Biztosan, hogy törölni szeretné az összes felhasználói címkét? Ez visszavonható, hacsak nincs biztonsági másolatod."
 	},
 	"Controversial": {
 		"message": "kontroverziális / Controversial"
@@ -241,6 +268,12 @@
 	},
 	"CreatePostTitle": {
 		"message": "Bejegyzés létrehozása: Cím"
+	},
+	"CreateTag": {
+		"message": "Címke létrehozása"
+	},
+	"Created": {
+		"message": "Létrehozva"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Egyedi háttér hivatkozás"
@@ -272,11 +305,20 @@
 	"Delete": {
 		"message": "Törölni"
 	},
+	"DeleteAllTags": {
+		"message": "Összes törlése"
+	},
+	"Details": {
+		"message": "Részletek"
+	},
 	"Disabled": {
 		"message": "Tiltva"
 	},
 	"DontShowAgain": {
 		"message": "Ne jeleníts meg újra"
+	},
+	"DownvoteColour": {
+		"message": "Bejegyzés: Szín negatív szavazat"
 	},
 	"Drag": {
 		"message": "Húzz"
@@ -287,14 +329,26 @@
 	"Edit": {
 		"message": "szerkesztés"
 	},
+	"EditLink": {
+		"message": "Link szerkesztése"
+	},
 	"EditPost": {
 		"message": "Bejegyzés szerkesztése"
+	},
+	"EditTag": {
+		"message": "Címkék szerkesztése"
+	},
+	"EnableUserTagging": {
+		"message": "Felhasználói címkézés engedélyezése"
 	},
 	"EndTime": {
 		"message": "Idő vége (24)"
 	},
 	"Error": {
 		"message": "Hiba"
+	},
+	"ExportTags": {
+		"message": "Címkék exportálása"
 	},
 	"ExtensionSettings": {
 		"message": "Kiegészítés beállításai"
@@ -396,10 +450,7 @@
 		"message": "Elrejteti Reddit-hirdetési értesítések"
 	},
 	"HideAwards": {
-		"message": "Rejtse az „Érdemek adása” gombot"
-	},
-	"HideBlockedKeywordsPosts": {
-		"message": "Bezárni a blokkolt kulcsszavakkal rendelkező bejegyzéseket"
+		"message": "A „Díj” gomb elrejtése a hozzászólásokban"
 	},
 	"HideBlurredMediaBackground": {
 		"message": "Elrejtett háttér-elhúzás a képelőnézetek mögött"
@@ -412,6 +463,12 @@
 	},
 	"HideCommentKarma": {
 		"message": "Rejtettélni a kommentár karmáját"
+	},
+	"HideCommentsByUser": {
+		"message": "Felhasználói megjegyzések elrejtése"
+	},
+	"HideCommentsContainingKeyword": {
+		"message": "Kulcsszót tartalmazó megjegyzések elrejtése"
 	},
 	"HideCommunityHighlights": {
 		"message": "Rejt elre \"Össgyű közreműködésének kiemelt tartalmai\""
@@ -515,11 +572,14 @@
 	"HidePostSidebar": {
 		"message": "Rejtse el a post oldali sávját"
 	},
-	"HidePostsByBlockedUser": {
-		"message": "Bejegyzések elrejtése blokkolt felhasználóktól"
-	},
 	"HidePostsBySubreddit": {
 		"message": "A subreddit szerint elrejtett bejegyzések"
+	},
+	"HidePostsByUser": {
+		"message": "Felhasználói bejegyzések elrejtése"
+	},
+	"HidePostsContainingKeyword": {
+		"message": "Kulcsszót tartalmazó bejegyzések elrejtése"
 	},
 	"HidePromoted": {
 		"message": "Hirdetések/promóciós linkek elrejtése"
@@ -541,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Kapcsolódó bejegyzések elrejtése"
+	},
+	"HideRepostButton": {
+		"message": "Az „Újraküldés” gomb elrejtése"
 	},
 	"HideSearchSidebar": {
 		"message": "A Keresés oldalsáv elrejtése"
@@ -620,6 +683,9 @@
 	"Hot": {
 		"message": "Forró / Hot"
 	},
+	"Icon": {
+		"message": "ikon"
+	},
 	"Image": {
 		"message": "Kép"
 	},
@@ -628,6 +694,15 @@
 	},
 	"Images": {
 		"message": "képek"
+	},
+	"ImportInvalidFormat": {
+		"message": "Névleges fájlformát"
+	},
+	"ImportSuccess": {
+		"message": "Sikeresen importáltak {count} címkét."
+	},
+	"ImportTags": {
+		"message": "Címkék importálása"
 	},
 	"JustOpenTheImage": {
 		"message": "Csak nyitssa meg a képet"
@@ -640,6 +715,12 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "Blokkolja a bejegyzéseket a cím alapján, nem az tartalom alapján. Listázza ki az egyes kulcsszavakat/regex-eket, vesszővel elválasztva."
+	},
+	"Label": {
+		"message": "Címke"
+	},
+	"LabelColour": {
+		"message": "Cím színe"
 	},
 	"Language": {
 		"message": "Nyelv"
@@ -676,6 +757,9 @@
 	},
 	"MainContainer": {
 		"message": "Főkonténer"
+	},
+	"ManageTaggedUsers": {
+		"message": "Címkézett felhasználók kezelése"
 	},
 	"MarkAsBrandAffiliate": {
 		"message": "Mint márkaaffiliátust jelölni"
@@ -719,11 +803,20 @@
 	"NewUpdateAvailable": {
 		"message": "A <version> verziója már elérhető. A böngészője hamarosan automatikusan frissíteni devrait e bővítményt, ha be van kapcsolva az automatikus frissítés, ha nem, manuálisan kell ellenőriznie az automatikus frissítések menedzserében."
 	},
+	"NoPresetsYet": {
+		"message": "Még nincs előreállított beállítás"
+	},
 	"NoSavedBackgrounds": {
 		"message": "Nincs mentett háttérkép"
 	},
+	"NoTaggedUsers": {
+		"message": "Nincsenek címkézett felhasználók"
+	},
 	"NonStickyHeaderBar": {
 		"message": "Nincs ragacsos fejlésti sáv"
+	},
+	"Note": {
+		"message": "Megjegyzés"
 	},
 	"Off": {
 		"message": "Ki"
@@ -742,6 +835,9 @@
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Csak a negatív karmás kommentek kibontása"
+	},
+	"OpenInManager": {
+		"message": "Összesen a kezelőben"
 	},
 	"OpenPostInNewTab": {
 		"message": "A bejegyzések megnyitása egy új faneban"
@@ -778,6 +874,9 @@
 	},
 	"PostBgColour": {
 		"message": "Bejegyzés: Háttérszín"
+	},
+	"PostBgColourInfo": {
+		"message": "Különböző más felhasználói felület elemekre is vonatkozik."
 	},
 	"PostBorderColour": {
 		"message": "kerete színe"
@@ -832,6 +931,12 @@
 	},
 	"Posts": {
 		"message": "bejegyzések"
+	},
+	"PresetTags": {
+		"message": "Előállított címkék"
+	},
+	"Preview": {
+		"message": "előnézet"
 	},
 	"Productivity": {
 		"message": "termelékenység"
@@ -940,6 +1045,12 @@
 	},
 	"SearchPageOffset": {
 		"message": "Keresőoldal eltolása"
+	},
+	"SearchTag": {
+		"message": "Keresett címke..."
+	},
+	"SearchUsername": {
+		"message": "Keresd a felhasználónevet..."
 	},
 	"SearchbarBgColour": {
 		"message": "Kereső sáv: Háttérszín"
@@ -1082,6 +1193,12 @@
 	"SyncStorage": {
 		"message": "Szinkronizációs tárhely"
 	},
+	"Tag": {
+		"message": "címke"
+	},
+	"TagColour": {
+		"message": "Márka színe"
+	},
 	"Text": {
 		"message": "szöveg"
 	},
@@ -1133,6 +1250,9 @@
 	"UpdateFirefox": {
 		"message": "Kérjük, frissítsen a Firefox 121-re vagy újabbra, hogy egyes funkciók megfelelően működjenek."
 	},
+	"Updated": {
+		"message": "Frissítvezet"
+	},
 	"Upload": {
 		"message": "feltöltés"
 	},
@@ -1140,16 +1260,34 @@
 		"message": "Feltöltött kép"
 	},
 	"UpvoteColour": {
-		"message": "bejegyzés: színe pozitív ajánlás"
+		"message": "Bejegyzés: színe pozitív ajánlás"
 	},
 	"UseOriginalSearchBar": {
 		"message": "Használja az eredeti keresőmezőt"
+	},
+	"UserAlreadyAdded": {
+		"message": "Felhasználó már hozzáadva"
 	},
 	"UserProfileOffset": {
 		"message": "Felhasználói profil eltolása"
 	},
 	"UserProfileWidth": {
 		"message": "Felhasználói profil szélessége"
+	},
+	"UserTagging": {
+		"message": "Felhasználó címkézése"
+	},
+	"UserTaggingManagerInfo1": {
+		"message": "Az felhasználói címkék adatait importálhatja a .resbackup fájlokból, amelyeket a RES exportált"
+	},
+	"UserTaggingManagerInfo2": {
+		"message": "Az összes adat helyileg a böngészőjében van mentve. Exportálja a címkéket, hogy elkerülje az esetleges adatveszteséget."
+	},
+	"UserTaggingManagerTitle": {
+		"message": "Felhasználói címke oldal"
+	},
+	"Username": {
+		"message": "felhasználónév"
 	},
 	"UsernameHoverPopupDelay": {
 		"message": "Felhasználónév felugró ablakmező késlekedése"
@@ -1174,6 +1312,9 @@
 	},
 	"Width": {
 		"message": "Szélesség"
+	},
+	"extensionVersionText": {
+		"message": ""
 	},
 	"learnMore": {
 		"message": "Tudj meg többet"

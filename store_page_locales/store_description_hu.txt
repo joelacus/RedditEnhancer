@@ -1,31 +1,34 @@
-Növelje Reddit élményét a Reddit Enhancer segítségével! Böngészőbővítmény, amellyel néhány kattintással testreszabhatja Reddit oldalát.
-Támogatja a Reddit összes verzióját.
+Fokozza Reddit-élményét a Reddit Enhancerrel! Egy böngészőbővítmény, amely lehetővé teszi Reddit-oldalának testreszabását mindössze néhány kattintással.
+Támogatja a Reddit legújabb és régebbi verzióit.
 
-A Reddit Enhancer segítségével:
-• A jobb megtekintési élmény érdekében méretezze át a hírcsatornát és a bejegyzés szélességét.
-• A téma színeinek testreszabása és háttérkép hozzáadása.
-• A kiemelt és ajánlott bejegyzések, valamint a reddit prémium hirdetések elrejtése.
-• A tisztább és kevésbé zsúfolt felület érdekében számos más olyan elem elrejtése, amelyet nem használ vagy látni szeretne.
-• Nyissa meg a képeket egy új lapon önmagukban, ahelyett, hogy egy oldalba ágyazná őket.
-• Méretezze át a magas képeket, hogy elférjen a bejegyzésben, vagy adjon hozzá egy görgetősávot a kép teljes szélességének megtekintéséhez, és görgessen tovább, ha többet szeretne látni.
-• Egy gombnyomással görgessen a következő gyökér megjegyzéshez.
-• Engedélyezze a Bionic Reading funkciót a bejegyzésekhez és megjegyzésekhez, és/vagy módosítsa a betűméretet a gyorsabb és egyszerűbb olvasás érdekében.
-• A hiányzó bejegyzés szerzőjének megjelenítése a Reddit legújabb verziójában.
-• És még sok más! Tekintse meg a támogatási webhelyet a szolgáltatások teljes listájáért.
+A Reddit Enhancerrel a következőket teheti:
+• Átméretezheti a hírfolyamot és a bejegyzés szélességét a jobb megtekintési élmény érdekében.
+• Testreszabhatja a téma színeit és hozzáadhat háttérképet.
+• Elrejtheti a promotált és ajánlott bejegyzéseket, valamint a reddit prémium hirdetéseket.
+• Elrejtheti számos más elemet, amelyeket nem használ, vagy látni szeretne egy tisztább és kevésbé zsúfolt felület érdekében.
+• Megnyithatja a képeket közvetlenül egy új lapon, ahelyett, hogy beágyaznák őket egy oldalra.
+• Egyéni címkéket adhat a felhasználókhoz opcionális megjegyzésekkel.
+• Blokkolhatja a felhasználókat, hogy elrejtsék bejegyzéseiket és/vagy hozzászólásaikat, vagy elrejtheti a bejegyzéseket a blokkolt subreddit elől, vagy ha bizonyos kulcsszavakat tartalmaznak.
+• Könnyen görgethet a következő gyökérhozzászólásra vagy bejegyzésre egy hírfolyamban egy billentyűparancs segítségével.
+• A bal és jobb nyílbillentyűkkel navigálhat a képgalériákban.
+• Automatikusan lejátszhatja a GIF-eket és videókat külön-külön. 
+• Engedélyezze a Bionikus Olvasást a bejegyzésekhez és hozzászólásokhoz, és/vagy módosítsa a betűméretet a gyorsabb és könnyebb olvasás érdekében.
+• És még sok más! A funkciók teljes listáját lásd a támogatási oldalon.
 
 *nem minden funkció támogatja a Reddit összes verzióját.
 
 
-Hogyan kell használni:
-1. Telepítse a kiegészítőt.
-2. Látogassa meg a reddit.com webhelyet.
-3. Kattintson a Reddit Enhancer elemre a Chrome eszköztár Bővítmények menüjében.
+Használat:
+1. Telepítse a bővítményt.
+2. Látogasson el a reddit.com oldalra.
+3. Kattintson a Reddit Enhancer elemre a böngésző eszköztárának Bővítmények menüjében.
 4. Engedélyezze a kívánt funkciókat :)
 
 
 
-Ez a kiegészítő nem kapcsolódik a Reddithez, és nem támogatja azt.
-Ez a kiegészítő nem gyűjt adatokat, és tiszteletben tartja a felhasználók adatait.
+Ez a bővítmény nem áll kapcsolatban a Reddit, és nem is támogatja azt.
+Ez a bővítmény nem gyűjt adatokat, és tiszteletben tartja a felhasználók adatainak védelmét.
 
-A Reddit webhely frissítései a jövőben megszakíthatják ezt a bővítményt. Kérjük, nyissa meg a problémát, ha hibákat észlel, vagy bármilyen új funkciójavaslata van. Szívesen veszek minden fordítási segítséget, ha hozzá szeretne járulni a fordítások javításához és/vagy új fordításokhoz.
-Lásd a weboldal hivatkozását a További információk részben.
+Az adatvédelmi irányelveket és a kért böngészőengedélyek okait lásd a támogatási oldalon/Github oldalon.
+A Reddit webhely frissítései a jövőben hibát okozhatnak ebben a bővítményben, kérjük, nyisson meg egy problémát a Githubon, ha bármilyen hibát észlel, vagy új funkciójavaslatai vannak.
+Szívesen fogadok minden fordítási segítséget, ha szeretne hozzájárulni a fordítások javításához és/vagy új fordítások hozzáadásához.

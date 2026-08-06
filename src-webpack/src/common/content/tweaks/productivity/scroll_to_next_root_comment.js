@@ -7,6 +7,8 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
+import { isInputFocused } from '../../../utilities/isInputFocused';
+
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
 export function loadScrollToNextRootComment() {
@@ -131,11 +133,6 @@ function enableScrollToNextRootCommentRV3() {
 	// Add key press event listener
 	document.addEventListener('keydown', handleKeyPress);
 
-	const isInputFocused = () => {
-		const active = document.activeElement;
-		return active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable);
-	};
-
 	function handleKeyPress(e) {
 		if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'REDDIT-SEARCH-LARGE') {
 			if (e.key === 'j' || e.key === 'J' || e.key === 'ArrowDown') {
@@ -239,7 +236,7 @@ function enableScrollToNextRootCommentRV1() {
 	}
 
 	// Append container to body
-	document.querySelector('html').append(container);
+	document.querySelector('body').appendChild(container);
 
 	// Add key press event listener
 	document.addEventListener('keydown', handleKeyPress);

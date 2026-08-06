@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "3.3.0"
+		"message": "3.4.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -29,8 +29,17 @@
 	"AddNsfwTag": {
 		"message": "Add NSFW tag"
 	},
+	"AddPresetTag": {
+		"message": "Add Preset Tag"
+	},
 	"AddSpoilerTag": {
 		"message": "Add spoiler tag"
+	},
+	"AddToPresets": {
+		"message": "Add to presets"
+	},
+	"AddUserTag": {
+		"message": "Add User Tag"
 	},
 	"AlwaysShowCommentOptions": {
 		"message": "Always Show Comment Options"
@@ -46,6 +55,9 @@
 	},
 	"AppendNumbersToPostImages": {
 		"message": "Numbered Post Images"
+	},
+	"AreYouSure": {
+		"message": "Are you sure?"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Display page and user info in header"
@@ -140,9 +152,6 @@
 	"BlockInfo": {
 		"message": "Supports exact keyword match, or regular expressions."
 	},
-	"BlocksCommentsByKeyword": {
-		"message": "Blocks Comments by Keyword"
-	},
 	"Blur": {
 		"message": "Blur"
 	},
@@ -163,6 +172,9 @@
 	},
 	"BuyMeACoffee": {
 		"message": "Buy Me A Coffee"
+	},
+	"Cancel": {
+		"message": "Cancel"
 	},
 	"CannedMessages": {
 		"message": "Canned Messages"
@@ -188,14 +200,23 @@
 	"CleanLink": {
 		"message": "Add post/comment share option without tracking (Clean Link)"
 	},
+	"Clear": {
+		"message": "Clear"
+	},
 	"Cleared": {
 		"message": "Cleared"
+	},
+	"ClickToEdit": {
+		"message": "Click to edit"
 	},
 	"Close": {
 		"message": "Close"
 	},
 	"CloseTab": {
 		"message": "You can now close this tab/window."
+	},
+	"Colour": {
+		"message": "Colour"
 	},
 	"Comments": {
 		"message": "Comments"
@@ -215,8 +236,14 @@
 	"CompactPostLinkPreview": {
 		"message": "Compact Post Link Previews"
 	},
+	"Complete": {
+		"message": "Complete"
+	},
 	"Confirm": {
 		"message": "Confirm"
+	},
+	"ConfirmDeleteAll": {
+		"message": "Are you sure you want to delete all user tags? This cannot be undone, unless you have a backup."
 	},
 	"Controversial": {
 		"message": "Controversial"
@@ -244,6 +271,12 @@
 	},
 	"CreatePostTitle": {
 		"message": "Create Post: Title"
+	},
+	"CreateTag": {
+		"message": "Create Tag"
+	},
+	"Created": {
+		"message": "Created"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Custom Background URL"
@@ -275,11 +308,20 @@
 	"Delete": {
 		"message": "Delete"
 	},
+	"DeleteAllTags": {
+		"message": "Delete All"
+	},
+	"Details": {
+		"message": "Details"
+	},
 	"Disabled": {
 		"message": "Disabled"
 	},
 	"DontShowAgain": {
 		"message": "Don't show again"
+	},
+	"DownvoteColour": {
+		"message": "Post: Downvote Colour"
 	},
 	"Drag": {
 		"message": "Drag"
@@ -290,14 +332,26 @@
 	"Edit": {
 		"message": "Edit"
 	},
+	"EditLink": {
+		"message": "Edit Link"
+	},
 	"EditPost": {
 		"message": "Edit post"
+	},
+	"EditTag": {
+		"message": "Edit Tag"
+	},
+	"EnableUserTagging": {
+		"message": "Enable User Tagging"
 	},
 	"EndTime": {
 		"message": "End Time (24)"
 	},
 	"Error": {
 		"message": "Error"
+	},
+	"ExportTags": {
+		"message": "Export Tags"
 	},
 	"ExtensionSettings": {
 		"message": "Extension Settings"
@@ -399,10 +453,7 @@
 		"message": "Hide Reddit Announcement Notifications (u/reddit)"
 	},
 	"HideAwards": {
-		"message": "Hide \"Give Awards\" Button"
-	},
-	"HideBlockedKeywordsPosts": {
-		"message": "Hide Posts with Blocked Keywords"
+		"message": "Hide the \"Award\" Button on Comments"
 	},
 	"HideBlurredMediaBackground": {
 		"message": "Hide Background Blur Behind Image Previews"
@@ -415,6 +466,12 @@
 	},
 	"HideCommentKarma": {
 		"message": "Hide Comment Karma"
+	},
+	"HideCommentsByUser": {
+		"message": "Hide Comments by User"
+	},
+	"HideCommentsContainingKeyword": {
+		"message": "Hide Comments containing a Keyword"
 	},
 	"HideCommunityHighlights": {
 		"message": "Hide \"Community Highlights\""
@@ -518,11 +575,14 @@
 	"HidePostSidebar": {
 		"message": "Hide the Post Sidebar"
 	},
-	"HidePostsByBlockedUser": {
-		"message": "Hide Posts by Blocked Users"
-	},
 	"HidePostsBySubreddit": {
 		"message": "Hide Posts by Subreddit"
+	},
+	"HidePostsByUser": {
+		"message": "Hide Posts by User"
+	},
+	"HidePostsContainingKeyword": {
+		"message": "Hide Posts containing a Keyword"
 	},
 	"HidePromoted": {
 		"message": "Hide Ads/Promoted Links"
@@ -544,6 +604,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Hide Related Posts"
+	},
+	"HideRepostButton": {
+		"message": "Hide the \"Repost\" Button"
 	},
 	"HideSearchSidebar": {
 		"message": "Hide the Search Sidebar"
@@ -623,6 +686,9 @@
 	"Hot": {
 		"message": "Hot"
 	},
+	"Icon": {
+		"message": "Icon"
+	},
 	"Image": {
 		"message": "Image"
 	},
@@ -631,6 +697,15 @@
 	},
 	"Images": {
 		"message": "Images"
+	},
+	"ImportInvalidFormat": {
+		"message": "Invalid file format."
+	},
+	"ImportSuccess": {
+		"message": "Imported {count} tags successfully."
+	},
+	"ImportTags": {
+		"message": "Import Tags"
 	},
 	"JustOpenTheImage": {
 		"message": "Just Open The Image"
@@ -643,6 +718,12 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "Blocks posts based on the title, not the content. List individual keywords/regex, separated by a comma."
+	},
+	"Label": {
+		"message": "Label"
+	},
+	"LabelColour": {
+		"message": "Label Colour"
 	},
 	"Language": {
 		"message": "Language"
@@ -679,6 +760,9 @@
 	},
 	"MainContainer": {
 		"message": "Main Container"
+	},
+	"ManageTaggedUsers": {
+		"message": "Manage Tagged Users"
 	},
 	"MarkAsBrandAffiliate": {
 		"message": "Mark as brand affiliate"
@@ -722,11 +806,20 @@
 	"NewUpdateAvailable": {
 		"message": "Version <version> is now available. Your browser should update this extension automatically soon if you have automatic updates enabled, if not, you will have to manually check for updates in the browser extension manager."
 	},
+	"NoPresetsYet": {
+		"message": "No presets yet"
+	},
 	"NoSavedBackgrounds": {
 		"message": "No Saved Backgrounds"
 	},
+	"NoTaggedUsers": {
+		"message": "No tagged users"
+	},
 	"NonStickyHeaderBar": {
 		"message": "Non Sticky Header Bar"
+	},
+	"Note": {
+		"message": "Note"
 	},
 	"Off": {
 		"message": "Off"
@@ -745,6 +838,9 @@
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Only expand negative karma comments"
+	},
+	"OpenInManager": {
+		"message": "Open in Manager"
 	},
 	"OpenPostInNewTab": {
 		"message": "Open Posts in New Tab"
@@ -781,6 +877,9 @@
 	},
 	"PostBgColour": {
 		"message": "Post: Background Colour"
+	},
+	"PostBgColourInfo": {
+		"message": "Also applies to various other UI elements."
 	},
 	"PostBorderColour": {
 		"message": "Post: Border Colour"
@@ -835,6 +934,12 @@
 	},
 	"Posts": {
 		"message": "Posts"
+	},
+	"PresetTags": {
+		"message": "Preset Tags"
+	},
+	"Preview": {
+		"message": "Preview"
 	},
 	"Productivity": {
 		"message": "Productivity"
@@ -943,6 +1048,12 @@
 	},
 	"SearchPageOffset": {
 		"message": "Search Page Offset"
+	},
+	"SearchTag": {
+		"message": "Search tag..."
+	},
+	"SearchUsername": {
+		"message": "Search username..."
 	},
 	"SearchbarBgColour": {
 		"message": "Search Bar: Background Colour"
@@ -1085,6 +1196,12 @@
 	"SyncStorage": {
 		"message": "Sync Storage"
 	},
+	"Tag": {
+		"message": "Tag"
+	},
+	"TagColour": {
+		"message": "Tag Colour"
+	},
 	"Text": {
 		"message": "Text"
 	},
@@ -1136,6 +1253,9 @@
 	"UpdateFirefox": {
 		"message": "Please update to Firefox 121 or greater for some features to work correctly."
 	},
+	"Updated": {
+		"message": "Updated"
+	},
 	"Upload": {
 		"message": "Upload"
 	},
@@ -1148,11 +1268,29 @@
 	"UseOriginalSearchBar": {
 		"message": "Use the Original Search Bar"
 	},
+	"UserAlreadyAdded": {
+		"message": "User already added"
+	},
 	"UserProfileOffset": {
 		"message": "User Profile Offset"
 	},
 	"UserProfileWidth": {
 		"message": "User Profile Width"
+	},
+	"UserTagging": {
+		"message": "User Tagging"
+	},
+	"UserTaggingManagerInfo1": {
+		"message": "You can import user tag data from .resbackup files exported by RES"
+	},
+	"UserTaggingManagerInfo2": {
+		"message": "All data is saved locally in your browser. Export tags to avoid any potential data loss."
+	},
+	"UserTaggingManagerTitle": {
+		"message": "User Tagging Manager"
+	},
+	"Username": {
+		"message": "Username"
 	},
 	"UsernameHoverPopupDelay": {
 		"message": "Username Hover Popup Delay"
@@ -1162,9 +1300,6 @@
 	},
 	"Video": {
 		"message": "Video"
-	},
-	"VideoPlayerInfo": {
-		"message": "Fast, lightweight video player with speed controls based on videojs. Try this if you have loading issues with reddit's own player."
 	},
 	"ViewCrossposts": {
 		"message": "Add link to view crossposts in other subreddits"

@@ -72,7 +72,7 @@ export function leftSideVoteButtons(value) {
 							author.childNodes[0].textContent = 'Posted by u/' + author.childNodes[0].textContent;
 						}
 					}
-					document.querySelector('shreddit-post span#time-ago-separator').insertAdjacentElement('afterend', tagline);
+					document.querySelector('shreddit-post faceplate-timeago').insertAdjacentElement('afterend', tagline);
 				}
 			}
 		} else {

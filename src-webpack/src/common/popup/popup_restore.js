@@ -16,6 +16,7 @@ import { detectFirefoxVersion } from '../content_first/functions/detect_browser_
 import { restorePopupFontOptions } from './restore/restore_font';
 import { fetchLatestVersion } from './functions/check_for_updates';
 import { restorePopupBlockOptions } from './restore/restore_block';
+import { restorePopupUserTaggingOptions } from './restore/restore_user_tagging';
 
 /* = Restore Tweak Options On Popup Load = */
 window.onload = function () {
@@ -45,6 +46,7 @@ function restoreOptions() {
 	restorePopupFontOptions();
 	restorePopupAccessibilityOptions();
 	restorePopupBlockOptions();
+	restorePopupUserTaggingOptions();
 
 	// Account Switcher
 	/*BROWSER_API.storage.local.get(['accounts'], function (result) {

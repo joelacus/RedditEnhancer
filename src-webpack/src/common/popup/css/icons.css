@@ -376,7 +376,7 @@
 	mask: url('../../icons/ui/grip-lines-solid.svg');
 	-webkit-mask: url('../../icons/ui/grip-lines-solid.svg');
 }
-.icon-delete {
+.icon-x {
 	mask: url('../../icons/ui/xmark-solid.svg');
 	-webkit-mask: url('../../icons/ui/xmark-solid.svg');
 }
@@ -615,4 +615,96 @@
 .icon-upload-file {
 	mask: url('../../icons/ui/file-arrow-up-solid-full.svg');
 	-webkit-mask: url('../../icons/ui/file-arrow-up-solid-full.svg');
+}
+.icon-tag {
+	mask: url('../../icons/ui/tag-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/tag-solid-full.svg');
+}
+.icon-tick {
+	mask: url('../../icons/ui/check-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/check-solid-full.svg');
+}
+.icon-star {
+	mask: url('../../icons/ui/star-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/star-solid-full.svg');
+}
+.icon-heart {
+	mask: url('../../icons/ui/heart-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/heart-solid-full.svg');
+}
+.icon-mod {
+	mask: url('../../icons/ui/user-shield-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/user-shield-solid-full.svg');
+}
+.icon-toxic {
+	mask: url('../../icons/ui/biohazard-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/biohazard-solid-full.svg');
+}
+.icon-game {
+	mask: url('../../icons/ui/gamepad-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/gamepad-solid-full.svg');
+}
+.icon-ban {
+	mask: url('../../icons/ui/ban-solid.svg');
+	-webkit-mask: url('../../icons/ui/ban-solid.svg');
+}
+.icon-paw {
+	mask: url('../../icons/ui/paw-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/paw-solid-full.svg');
+}
+.icon-car {
+	mask: url('../../icons/ui/car-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/car-solid-full.svg');
+}
+.icon-crown {
+	mask: url('../../icons/ui/crown-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/crown-solid-full.svg');
+}
+.icon-swear {
+	mask: url('../../icons/ui/hand-middle-finger-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/hand-middle-finger-solid-full.svg');
+}
+.icon-pawn {
+	mask: url('../../icons/ui/chess-pawn-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/chess-pawn-solid-full.svg');
+}
+.icon-peace {
+	mask: url('../../icons/ui/hand-peace-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/hand-peace-solid-full.svg');
+}
+.icon-rocket {
+	mask: url('../../icons/ui/rocket-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/rocket-solid-full.svg');
+}
+.icon-lemon {
+	mask: url('../../icons/ui/lemon-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/lemon-solid-full.svg');
+}
+.icon-thumbs-down {
+	mask: url('../../icons/ui/thumbs-down-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/thumbs-down-solid-full.svg');
+}
+.icon-thumbs-up {
+	mask: url('../../icons/ui/thumbs-up-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/thumbs-up-solid-full.svg');
+}
+.icon-sort {
+	mask: url('../../icons/ui/sort-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/sort-solid-full.svg');
+}
+.icon-sort-up {
+	mask: url('../../icons/ui/sort-up-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/sort-up-solid-full.svg');
+}
+.icon-sort-down {
+	mask: url('../../icons/ui/sort-down-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/sort-down-solid-full.svg');
+}
+.icon-sort-a-z {
+	mask: url('../../icons/ui/arrow-down-a-z-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/arrow-down-a-z-solid-full.svg');
+}
+.icon-sort-z-a {
+	mask: url('../../icons/ui/arrow-down-z-a-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/arrow-down-z-a-solid-full.svg');
 }

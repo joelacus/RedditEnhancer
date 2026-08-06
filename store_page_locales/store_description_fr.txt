@@ -1,31 +1,34 @@
-Améliorez votre expérience Reddit avec Reddit Enhancer ! Une extension de navigateur qui vous permet de personnaliser votre page Reddit en quelques clics.
-Prend en charge toutes les versions de Reddit.
+Améliorez votre expérience Reddit avec Reddit Enhancer ! Une extension de navigateur qui vous permet de personnaliser votre page Reddit en quelques clics seulement.
+Compatible avec les versions récentes et anciennes de Reddit.
 
-Avec Reddit Enhancer, vous pouvez :
-• Redimensionnez le flux et la largeur de la publication pour une meilleure expérience visuelle.
-• Personnalisez les couleurs du thème et ajoutez un fond d'écran.
-• Masquez les publications promues et recommandées, ainsi que les publicités premium Reddit.
-• Cachez de nombreux autres éléments que vous n'utilisez pas ou que vous souhaitez voir pour une interface plus propre et moins encombrée.
-• Ouvrez les images directement dans un nouvel onglet, plutôt que de les intégrer sur une page.
-• Redimensionnez les images hautes pour qu'elles tiennent dans la publication, ou ajoutez une barre de défilement pour voir toute la largeur de l'image et faites simplement défiler pour en voir plus.
-• Faites défiler jusqu'au commentaire racine suivant en cliquant sur un bouton.
-• Activez la lecture bionique pour les publications et les commentaires, et/ou modifiez la taille de la police, pour une lecture plus rapide et plus facile.
-• Afficher l'auteur du message manquant sur la dernière version de Reddit.
-• Et beaucoup plus! Consultez le site d'assistance pour une liste complète des fonctionnalités.
+Avec Reddit Enhancer, vous pouvez :
+• Redimensionner la largeur du fil d'actualité et des publications pour un meilleur confort visuel.
+• Personnaliser les couleurs du thème et ajouter une image d'arrière-plan.
+• Masquer les publications sponsorisées et recommandées, ainsi que les publicités pour Reddit Premium.
+• Masquer de nombreux autres éléments inutilisés ou indésirables pour une interface plus épurée.
+• Ouvrir directement les images dans un nouvel onglet, plutôt que de les afficher intégrées à la page.
+• Ajouter des étiquettes personnalisées aux utilisateurs, avec des notes optionnelles.
+• Bloquer des utilisateurs pour masquer leurs publications et/ou commentaires, ou masquer les publications provenant de subreddits bloqués ou contenant certains mots-clés.
+• Passer facilement au commentaire racine ou à la publication suivante dans le fil d'actualité grâce à un raccourci clavier.
+• Utiliser les touches fléchées gauche et droite pour naviguer dans les galeries d'images.
+• Activer la lecture automatique indépendante pour les GIFs et les vidéos.
+• Activer la lecture « Bionic Reading » pour les publications et commentaires, et/ou modifier la taille de la police, pour une lecture plus rapide et aisée.
+• Et bien plus encore ! Consultez le site d'assistance pour la liste complète des fonctionnalités.
 
-*toutes les fonctionnalités ne prennent pas en charge toutes les versions de Reddit.
+*Toutes les fonctionnalités ne sont pas compatibles avec toutes les versions de Reddit.
 
 
-Comment l'utiliser :
+Mode d'emploi :
 1. Installez l'extension.
-2. Visitez reddit.com.
-3. Cliquez sur Reddit Enhancer dans le menu Extensions de la barre d'outils de Chrome.
-4. Activez les fonctionnalités que vous souhaitez :)
+2. Rendez-vous sur reddit.com.
+3. Cliquez sur Reddit Enhancer dans le menu des extensions de la barre d'outils du navigateur.
+4. Activez les fonctionnalités de votre choix :)
 
 
 
-Cette extension n'est pas affiliée à Reddit et n'est pas soutenue par Reddit.
-Cette extension ne collecte pas de données et respecte la vie privée des utilisateurs.
+Cette extension n'est ni affiliée à Reddit ni approuvée par celui-ci.
+Cette extension ne collecte aucune donnée et respecte la confidentialité des utilisateurs.
+Consultez le site d'assistance ou la page GitHub pour consulter la politique de confidentialité et les raisons justifiant les autorisations demandées au navigateur.
 
-Les mises à jour du site Reddit pourraient rendre cette extension obsolète à l'avenir. Veuillez signaler un problème si vous rencontrez des bugs ou si vous avez des suggestions de nouvelles fonctionnalités. Je suis ouvert à toute aide pour la traduction si vous souhaitez contribuer à l'amélioration et/ou à l'ajout de nouvelles traductions.
-Consultez le lien vers le site Web dans la section Informations complémentaires.
+Les mises à jour du site Reddit pourraient rendre cette extension inopérante à l'avenir ; veuillez signaler tout bug ou suggérer de nouvelles fonctionnalités en ouvrant un ticket sur GitHub.
+Toute aide pour la traduction est la bienvenue si vous souhaitez contribuer à l'amélioration ou à l'ajout de nouvelles traductions.

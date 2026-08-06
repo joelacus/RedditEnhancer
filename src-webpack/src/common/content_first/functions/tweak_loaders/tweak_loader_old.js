@@ -34,7 +34,6 @@ import { loadLayoutCentre } from '../../../content/tweaks/resize_elements/layout
 import { loadPostFontWeight } from '../../../content/tweaks/font/font_weight';
 import { loadResizeFont } from '../../../content/tweaks/font/resize_font';
 import { loadRightSidePostThumbnails } from '../../../content/tweaks/style/right_side_post_thumbnails';
-import { loadScrollToNextRootComment } from '../../../content/tweaks/productivity/scroll_to_next_root_comment';
 import { loadSolidColourBackground } from '../../../content/tweaks/background/bg_solid_colour';
 import { loadStickySort } from '../../../content/tweaks/productivity/sticky_sort';
 import { moderniseOldReddit } from '../../../content/tweaks/style/modernise_old_reddit';
@@ -54,7 +53,6 @@ export function tweakLoaderOld() {
 	moderniseOldReddit();
 	loadResizeFont();
 	loadHideHomeFeed();
-	loadScrollToNextRootComment();
 	loadPostFontWeight();
 	loadCustomFonts();
 	loadHidePostKarma();

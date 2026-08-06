@@ -26,8 +26,17 @@
 	"AddNsfwTag": {
 		"message": "Lägg till NSFW-tagg"
 	},
+	"AddPresetTag": {
+		"message": "Lägg till fördefinierad tagg"
+	},
 	"AddSpoilerTag": {
 		"message": "Lägg till spoiler-tagg"
+	},
+	"AddToPresets": {
+		"message": "Lägg till i förinställningar"
+	},
+	"AddUserTag": {
+		"message": "Lägg till användartagg"
 	},
 	"AlwaysShowCommentOptions": {
 		"message": "Visa alltid kommenteralternativen"
@@ -43,6 +52,9 @@
 	},
 	"AppendNumbersToPostImages": {
 		"message": "Numrerade inläggsbilder"
+	},
+	"AreYouSure": {
+		"message": "Är du säker?"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Visa sidan och användarinformation i rubriken"
@@ -137,9 +149,6 @@
 	"BlockInfo": {
 		"message": "Stöder exakt matchning av sökord eller reguljära uttryck"
 	},
-	"BlocksCommentsByKeyword": {
-		"message": "Blockera kommentarer efter nyckelord"
-	},
 	"Blur": {
 		"message": "Fläck"
 	},
@@ -160,6 +169,9 @@
 	},
 	"BuyMeACoffee": {
 		"message": "Köp mig en kaffe"
+	},
+	"Cancel": {
+		"message": "Avbryt"
 	},
 	"CannedMessages": {
 		"message": "Förinspelade meddelanden"
@@ -185,14 +197,23 @@
 	"CleanLink": {
 		"message": "Lägg till alternativ för att dela inlägg/kommentar utan spårning (Ren länk)"
 	},
+	"Clear": {
+		"message": "Klar"
+	},
 	"Cleared": {
 		"message": "Rensad"
+	},
+	"ClickToEdit": {
+		"message": "Klicka för att redigera"
 	},
 	"Close": {
 		"message": "Nära"
 	},
 	"CloseTab": {
 		"message": "Du kan nu stänga fliken/fönstret."
+	},
+	"Colour": {
+		"message": "Färg"
 	},
 	"Comments": {
 		"message": "Kommentarer"
@@ -212,8 +233,14 @@
 	"CompactPostLinkPreview": {
 		"message": "Förhandsvisningar av kompakt postlänk"
 	},
+	"Complete": {
+		"message": "Komplett"
+	},
 	"Confirm": {
 		"message": "Bekräfta"
+	},
+	"ConfirmDeleteAll": {
+		"message": "Är du säker på att du vill ta bort alla användartaggar? Denna åtgärd kan inte ångras, om du inte har en säkerhetskopia."
 	},
 	"Controversial": {
 		"message": "Kontroversiell / Controversial"
@@ -241,6 +268,12 @@
 	},
 	"CreatePostTitle": {
 		"message": "Skapa inlägg: Titel"
+	},
+	"CreateTag": {
+		"message": "Skapa tagg"
+	},
+	"Created": {
+		"message": "Skapat"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Anpassad bakgrundslänk"
@@ -272,11 +305,20 @@
 	"Delete": {
 		"message": "Ta bort"
 	},
+	"DeleteAllTags": {
+		"message": "Radera allt"
+	},
+	"Details": {
+		"message": "Detaljer"
+	},
 	"Disabled": {
 		"message": "Inaktiverad"
 	},
 	"DontShowAgain": {
 		"message": "Visa inte igen"
+	},
+	"DownvoteColour": {
+		"message": "Inlägg: Rösta ner Färg"
 	},
 	"Drag": {
 		"message": "Dra"
@@ -287,14 +329,26 @@
 	"Edit": {
 		"message": "Redigera"
 	},
+	"EditLink": {
+		"message": "Redigera länk"
+	},
 	"EditPost": {
 		"message": "Redigera inlägg"
+	},
+	"EditTag": {
+		"message": "Redigera tagg"
+	},
+	"EnableUserTagging": {
+		"message": "Aktiver användarmärkning"
 	},
 	"EndTime": {
 		"message": "Sluttid (24)"
 	},
 	"Error": {
 		"message": "Fel"
+	},
+	"ExportTags": {
+		"message": "Exportera taggar"
 	},
 	"ExtensionSettings": {
 		"message": "Inställningar för tillägg"
@@ -396,10 +450,7 @@
 		"message": "Dölja Reddit-annonseringsaviseringar"
 	},
 	"HideAwards": {
-		"message": "Dölj knappen ”Ge ut utmärkelser“"
-	},
-	"HideBlockedKeywordsPosts": {
-		"message": "Dölj Inlägg med Blockerade Nyckelord"
+		"message": "Dölj knappen \"Utmärkelse\" i kommentarer"
 	},
 	"HideBlurredMediaBackground": {
 		"message": "Dölj bakgrundsblur bakom bildförhandsvisningar"
@@ -412,6 +463,12 @@
 	},
 	"HideCommentKarma": {
 		"message": "Dölj kommentarkarma"
+	},
+	"HideCommentsByUser": {
+		"message": "Dölj kommentarer från användaren"
+	},
+	"HideCommentsContainingKeyword": {
+		"message": "Dölj kommentarer som innehåller ett nyckelord"
 	},
 	"HideCommunityHighlights": {
 		"message": "Dölja \"Community Highlights\""
@@ -515,11 +572,14 @@
 	"HidePostSidebar": {
 		"message": "Dölja inläggsidofältet"
 	},
-	"HidePostsByBlockedUser": {
-		"message": "Dölj inlägg från blockerade användare"
-	},
 	"HidePostsBySubreddit": {
 		"message": "Dölja inlägg efter subreddit"
+	},
+	"HidePostsByUser": {
+		"message": "Dölj inlägg av användare"
+	},
+	"HidePostsContainingKeyword": {
+		"message": "Dölj inlägg som innehåller ett sökord"
 	},
 	"HidePromoted": {
 		"message": "Dölj annonser/befordrade länkar"
@@ -541,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Dölj relaterade inlägg"
+	},
+	"HideRepostButton": {
+		"message": "Dölj knappen \"Återpublicera\""
 	},
 	"HideSearchSidebar": {
 		"message": "Dölj sidofältet Sök"
@@ -620,6 +683,9 @@
 	"Hot": {
 		"message": "Varm / Hot"
 	},
+	"Icon": {
+		"message": "ikon"
+	},
 	"Image": {
 		"message": "Bild"
 	},
@@ -628,6 +694,15 @@
 	},
 	"Images": {
 		"message": "Bilder"
+	},
+	"ImportInvalidFormat": {
+		"message": "Ogiltigt filformat."
+	},
+	"ImportSuccess": {
+		"message": "Importerade {count} taggar framgångsrikt."
+	},
+	"ImportTags": {
+		"message": "Importera taggar"
 	},
 	"JustOpenTheImage": {
 		"message": "Öppna bara bilden"
@@ -640,6 +715,12 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "Blockerar inlägg baserat på titeln, inte innehållet. Lista individuella nyckelord/regex, separerade med ett komma"
+	},
+	"Label": {
+		"message": "Etikett"
+	},
+	"LabelColour": {
+		"message": "Etikett Färger"
 	},
 	"Language": {
 		"message": "Språk"
@@ -676,6 +757,9 @@
 	},
 	"MainContainer": {
 		"message": "Huvudbehållare"
+	},
+	"ManageTaggedUsers": {
+		"message": "Hantera flaggade användare"
 	},
 	"MarkAsBrandAffiliate": {
 		"message": "Markera som varumärkesaffiliat"
@@ -719,11 +803,20 @@
 	"NewUpdateAvailable": {
 		"message": "Version <version> är nu tillgänglig. Din webbläsare bör automatiskt uppdatera detta tillägg snart om du har aktiverat automatiska uppdateringar; annars måste du manuellt kontrollera uppdateringar i webbläsartilläggshanteraren."
 	},
+	"NoPresetsYet": {
+		"message": "Inga förinställningar än"
+	},
 	"NoSavedBackgrounds": {
 		"message": "Inga sparade bakgrunder"
 	},
+	"NoTaggedUsers": {
+		"message": "Inga taggade användare"
+	},
 	"NonStickyHeaderBar": {
 		"message": "Icke-fast sidhuvudfält"
+	},
+	"Note": {
+		"message": "Notera"
 	},
 	"Off": {
 		"message": "Av"
@@ -742,6 +835,9 @@
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Utöka endast kommentarer med negativt karma"
+	},
+	"OpenInManager": {
+		"message": "Öppna i hanteraren"
 	},
 	"OpenPostInNewTab": {
 		"message": "Öppna inlägg i ny flik"
@@ -778,6 +874,9 @@
 	},
 	"PostBgColour": {
 		"message": "Inlägg: Bakgrundsfärg"
+	},
+	"PostBgColourInfo": {
+		"message": "Gäller även för diverse andra UI-element."
 	},
 	"PostBorderColour": {
 		"message": "Inlägg: Ramfärg"
@@ -832,6 +931,12 @@
 	},
 	"Posts": {
 		"message": "inlägg"
+	},
+	"PresetTags": {
+		"message": "Förinställnings-taggar"
+	},
+	"Preview": {
+		"message": "Förhandsgranskning"
 	},
 	"Productivity": {
 		"message": "Produktivitet"
@@ -940,6 +1045,12 @@
 	},
 	"SearchPageOffset": {
 		"message": "Sidoffset för sökning"
+	},
+	"SearchTag": {
+		"message": "Sök tagg..."
+	},
+	"SearchUsername": {
+		"message": "Sök användarnamn..."
 	},
 	"SearchbarBgColour": {
 		"message": "Sökruta: Bakgrundsfärg"
@@ -1082,6 +1193,12 @@
 	"SyncStorage": {
 		"message": "Synkroniseringslagring"
 	},
+	"Tag": {
+		"message": "etikett"
+	},
+	"TagColour": {
+		"message": "Varumärkesfärg"
+	},
 	"Text": {
 		"message": "Text"
 	},
@@ -1133,6 +1250,9 @@
 	"UpdateFirefox": {
 		"message": "Uppdatera till Firefox 121 eller senare för att vissa funktioner ska fungera korrekt."
 	},
+	"Updated": {
+		"message": "Uppdaterad"
+	},
 	"Upload": {
 		"message": "Ladda upp"
 	},
@@ -1145,11 +1265,29 @@
 	"UseOriginalSearchBar": {
 		"message": "Använd det ursprungliga sökfältet"
 	},
+	"UserAlreadyAdded": {
+		"message": "Användaren har redan tillagd"
+	},
 	"UserProfileOffset": {
 		"message": "Användarprofilförskjutning"
 	},
 	"UserProfileWidth": {
 		"message": "Användarprofilbredd"
+	},
+	"UserTagging": {
+		"message": "Användar-taggning"
+	},
+	"UserTaggingManagerInfo1": {
+		"message": "Du kan importera användartagdata från .resbackup-filer exporterade av RES"
+	},
+	"UserTaggingManagerInfo2": {
+		"message": "Alla data sparas lokalt i din webbläsare. Exportera taggar för att undvika potentiella dataförluster."
+	},
+	"UserTaggingManagerTitle": {
+		"message": "Användaretikettmanager"
+	},
+	"Username": {
+		"message": "Användarnamn"
 	},
 	"UsernameHoverPopupDelay": {
 		"message": "Fördröjning vid hovring över användarnamn-popup"

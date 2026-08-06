@@ -26,8 +26,17 @@
 	"AddNsfwTag": {
 		"message": "Додати тег NSFW"
 	},
+	"AddPresetTag": {
+		"message": "Додати попередньо визначену мітку"
+	},
 	"AddSpoilerTag": {
 		"message": "Додати тег спойлер"
+	},
+	"AddToPresets": {
+		"message": "Додати до попередніх налаштувань"
+	},
+	"AddUserTag": {
+		"message": "Додати тег користувача"
 	},
 	"AlwaysShowCommentOptions": {
 		"message": "Завжди показувати параметри коментарів"
@@ -43,6 +52,9 @@
 	},
 	"AppendNumbersToPostImages": {
 		"message": "Нумеровані зображення дописів"
+	},
+	"AreYouSure": {
+		"message": "Ви впевнені?"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Відображати сторінку та інформацію про користувача в заголовку"
@@ -137,9 +149,6 @@
 	"BlockInfo": {
 		"message": "Підтримує точне відповідність ключовим словам або регулярні вирази."
 	},
-	"BlocksCommentsByKeyword": {
-		"message": "Блокувати коментарі за замовчуванням за ключовим словом"
-	},
 	"Blur": {
 		"message": "Розмиття"
 	},
@@ -160,6 +169,9 @@
 	},
 	"BuyMeACoffee": {
 		"message": "Купи мені каву"
+	},
+	"Cancel": {
+		"message": "Скасувати"
 	},
 	"CannedMessages": {
 		"message": "Приховані повідомлення"
@@ -185,14 +197,23 @@
 	"CleanLink": {
 		"message": "Додати опцію спільного посилання на допис/коментар без відстеження (Чисте посилання)"
 	},
+	"Clear": {
+		"message": "Чистий"
+	},
 	"Cleared": {
 		"message": "Очищено"
+	},
+	"ClickToEdit": {
+		"message": "Натисніть, щоб редагувати"
 	},
 	"Close": {
 		"message": "Закрити"
 	},
 	"CloseTab": {
 		"message": "Тепер ви можете закрити цю вкладку/вікно."
+	},
+	"Colour": {
+		"message": "Колір"
 	},
 	"Comments": {
 		"message": "Коментарі"
@@ -212,8 +233,14 @@
 	"CompactPostLinkPreview": {
 		"message": "Мініатюри попереднього перегляду компактних посилань на публікації"
 	},
+	"Complete": {
+		"message": "Завершено"
+	},
 	"Confirm": {
 		"message": "Підтвердити"
+	},
+	"ConfirmDeleteAll": {
+		"message": "Ви впевнені, що хочете видалити всі теги користувачів? Ця дія не може бути скасована, якщо у вас немає резервної копії."
 	},
 	"Controversial": {
 		"message": "Суперечливий / Controversial"
@@ -241,6 +268,12 @@
 	},
 	"CreatePostTitle": {
 		"message": "Створити допис: Заголовок"
+	},
+	"CreateTag": {
+		"message": "Створити тег"
+	},
+	"Created": {
+		"message": "Створено"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Спеціальне фонове посилання"
@@ -272,11 +305,20 @@
 	"Delete": {
 		"message": "Видалити"
 	},
+	"DeleteAllTags": {
+		"message": "Видалити все"
+	},
+	"Details": {
+		"message": "Деталі"
+	},
 	"Disabled": {
 		"message": "Вимкнено"
 	},
 	"DontShowAgain": {
 		"message": "Не показувати знову"
+	},
+	"DownvoteColour": {
+		"message": "Пост: Проголосувати проти кольору"
 	},
 	"Drag": {
 		"message": "Перетягніть"
@@ -287,14 +329,26 @@
 	"Edit": {
 		"message": "Редагувати"
 	},
+	"EditLink": {
+		"message": "Редагувати посилання"
+	},
 	"EditPost": {
 		"message": "Редагувати допис"
+	},
+	"EditTag": {
+		"message": "Редагувати тег"
+	},
+	"EnableUserTagging": {
+		"message": "Увімкнути тегування користувачів"
 	},
 	"EndTime": {
 		"message": "Час закінчення (24)"
 	},
 	"Error": {
 		"message": "Помилка"
+	},
+	"ExportTags": {
+		"message": "Експортувати теги"
 	},
 	"ExtensionSettings": {
 		"message": "Налаштування розширення"
@@ -396,10 +450,7 @@
 		"message": "Приховувати сповіщення про анонси Reddit (u/reddit)"
 	},
 	"HideAwards": {
-		"message": "Приховати кнопку «Нагороджувати»"
-	},
-	"HideBlockedKeywordsPosts": {
-		"message": "Приховати Дописи з Заблокованими Ключовими Словами"
+		"message": "Приховати кнопку «Нагорода» в коментарях"
 	},
 	"HideBlurredMediaBackground": {
 		"message": "Приховати розмиття фону за попереднім переглядом зображень"
@@ -412,6 +463,12 @@
 	},
 	"HideCommentKarma": {
 		"message": "Приховати коментар карма"
+	},
+	"HideCommentsByUser": {
+		"message": "Приховати коментарі користувача"
+	},
+	"HideCommentsContainingKeyword": {
+		"message": "Приховати коментарі, що містять ключове слово"
 	},
 	"HideCommunityHighlights": {
 		"message": "Приховати «Виділення спільноти»"
@@ -515,11 +572,14 @@
 	"HidePostSidebar": {
 		"message": "Приховати бічну панель публікації"
 	},
-	"HidePostsByBlockedUser": {
-		"message": "Приховувати дописи заблокованих користувачів"
-	},
 	"HidePostsBySubreddit": {
 		"message": "Приховати дописи за сабреддітом"
+	},
+	"HidePostsByUser": {
+		"message": "Приховати публікації користувача"
+	},
+	"HidePostsContainingKeyword": {
+		"message": "Приховати публікації, що містять ключове слово"
 	},
 	"HidePromoted": {
 		"message": "Приховати рекламу/рекламовані посилання"
@@ -541,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Приховати пов'язані публікації"
+	},
+	"HideRepostButton": {
+		"message": "Приховати кнопку «Репост»"
 	},
 	"HideSearchSidebar": {
 		"message": "Приховати бічну панель пошуку"
@@ -620,6 +683,9 @@
 	"Hot": {
 		"message": "Гаряче / Hot"
 	},
+	"Icon": {
+		"message": "іконка"
+	},
 	"Image": {
 		"message": "Зображення"
 	},
@@ -628,6 +694,15 @@
 	},
 	"Images": {
 		"message": "Зображення"
+	},
+	"ImportInvalidFormat": {
+		"message": "Недійсний формат файлу."
+	},
+	"ImportSuccess": {
+		"message": "Успішно імпортовано {count} тегів."
+	},
+	"ImportTags": {
+		"message": "Імпортувати теги"
 	},
 	"JustOpenTheImage": {
 		"message": "Просто відкрийте зображення"
@@ -640,6 +715,12 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "Блокувати дописи на основі заголовка, а не вмісту. Перерахуйте окремі ключові слова/регулярні вирази, розділені комою."
+	},
+	"Label": {
+		"message": "Мітка"
+	},
+	"LabelColour": {
+		"message": "Колір етикетки"
 	},
 	"Language": {
 		"message": "Мова"
@@ -676,6 +757,9 @@
 	},
 	"MainContainer": {
 		"message": "Головний контейнер"
+	},
+	"ManageTaggedUsers": {
+		"message": "Керувати позначеними користувачами"
 	},
 	"MarkAsBrandAffiliate": {
 		"message": "Позначити як афілієта бренду"
@@ -719,11 +803,20 @@
 	"NewUpdateAvailable": {
 		"message": "Версія <version> тепер доступна. Ваш браузер має автоматично оновити це розширення незабаром, якщо ви увімкнули автоматичні оновлення; якщо ні, вам доведеться вручну перевірити оновлення в менеджері розширень браузера."
 	},
+	"NoPresetsYet": {
+		"message": "Наразі немає попередніх налаштувань"
+	},
 	"NoSavedBackgrounds": {
 		"message": "Не збережено фони"
 	},
+	"NoTaggedUsers": {
+		"message": "Немає позначених користувачів"
+	},
 	"NonStickyHeaderBar": {
 		"message": "Нефіксована заголовна панель"
+	},
+	"Note": {
+		"message": "Примітка"
 	},
 	"Off": {
 		"message": "Вимкнено"
@@ -742,6 +835,9 @@
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Розширювати лише коментарі з негативним кармою"
+	},
+	"OpenInManager": {
+		"message": "Відкрити в менеджері"
 	},
 	"OpenPostInNewTab": {
 		"message": "Відкрийте посилання на публікації в новій вкладці"
@@ -778,6 +874,9 @@
 	},
 	"PostBgColour": {
 		"message": "Повідомлення: Колір фону"
+	},
+	"PostBgColourInfo": {
+		"message": "Також стосується різних інших елементів інтерфейсу користувача."
 	},
 	"PostBorderColour": {
 		"message": "Повідомлення: колір рамки"
@@ -832,6 +931,12 @@
 	},
 	"Posts": {
 		"message": "Публікації"
+	},
+	"PresetTags": {
+		"message": "Встановлені теги"
+	},
+	"Preview": {
+		"message": "Попередній перегляд"
 	},
 	"Productivity": {
 		"message": "Продуктивність"
@@ -940,6 +1045,12 @@
 	},
 	"SearchPageOffset": {
 		"message": "Зміщення сторінки пошуку"
+	},
+	"SearchTag": {
+		"message": "Знайти тег..."
+	},
+	"SearchUsername": {
+		"message": "Знайти ім'я користувача..."
 	},
 	"SearchbarBgColour": {
 		"message": "Панель пошуку: Колір фону"
@@ -1082,6 +1193,12 @@
 	"SyncStorage": {
 		"message": "Сховище синхронізації"
 	},
+	"Tag": {
+		"message": "етикетка"
+	},
+	"TagColour": {
+		"message": "Колір бренду"
+	},
 	"Text": {
 		"message": "текст"
 	},
@@ -1133,6 +1250,9 @@
 	"UpdateFirefox": {
 		"message": "Оновіть Firefox до версії 121 або новішої, щоб деякі функції працювали належним чином."
 	},
+	"Updated": {
+		"message": "Оновлено"
+	},
 	"Upload": {
 		"message": "Завантажити"
 	},
@@ -1145,11 +1265,29 @@
 	"UseOriginalSearchBar": {
 		"message": "Використовуйте оригінальний рядок пошуку"
 	},
+	"UserAlreadyAdded": {
+		"message": "Користувача вже додано"
+	},
 	"UserProfileOffset": {
 		"message": "Зсув профілю користувача"
 	},
 	"UserProfileWidth": {
 		"message": "Ширина профілю користувача"
+	},
+	"UserTagging": {
+		"message": "Тегування користувачів"
+	},
+	"UserTaggingManagerInfo1": {
+		"message": "Ви можете імпортувати дані тегів користувачів із файлів .resbackup, експортованих RES"
+	},
+	"UserTaggingManagerInfo2": {
+		"message": "Усі дані зберігаються локально у вашому браузері. Експортуйте теги, щоб запобігти будь-якій можливій втраті даних."
+	},
+	"UserTaggingManagerTitle": {
+		"message": "Керування тегами користувачів"
+	},
+	"Username": {
+		"message": "Ім'я користувача"
 	},
 	"UsernameHoverPopupDelay": {
 		"message": "Затримка вспливаючого вікна при наведенні курсору на ім'я користувача"

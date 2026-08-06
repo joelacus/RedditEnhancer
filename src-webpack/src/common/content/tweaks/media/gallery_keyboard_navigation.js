@@ -8,6 +8,7 @@
  */
 
 import { debounce } from '../../../utilities/debounce';
+import { isInputFocused } from '../../../utilities/isInputFocused';
 
 // Store cleanup functions for the keyboard and scroll event
 let scrollCleanup = null;
@@ -81,11 +82,6 @@ function enableGalleryKeyboardNavigation() {
 
 		button?.click();
 	}
-
-	const isInputFocused = () => {
-		const active = document.activeElement;
-		return active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable);
-	};
 
 	const handler = (event) => {
 		if (event.key === 'ArrowRight') {

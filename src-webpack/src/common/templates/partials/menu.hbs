@@ -302,6 +302,14 @@
 					<span class='indicator'></span>
 				</label>
 			</li>
+			<li class='container-3 r-newnew' data-query-words='repost'>
+				<span class='menu-item-icon icon-show icon-hide-repost-button'></span>
+				<span data-lang='HideRepostButton'></span>
+				<label class='switch'>
+					<input id='checkbox-hide-repost-button' type='checkbox' />
+					<span class='indicator'></span>
+				</label>
+			</li>
 			<li class='container r-old r-newnew' data-query-words='votes,karma,upvote,downvote'>
 				<div class='container-3 r-old r-newnew'>
 					<span class='menu-item-icon icon-show icon-hide-vote-buttons'></span>
@@ -1381,6 +1389,14 @@
 						<span class='indicator'></span>
 					</label>
 				</div>
+				<div class='container-3 r-newnew' data-query-words='always,overflow,menu,buttons'>
+					<span class='menu-item-icon icon-award icon-hide-post-award-option'></span>
+					<span data-lang='Award'></span>
+					<label class='switch'>
+						<input id='checkbox-hide-post-award-option' type='checkbox' />
+						<span class='indicator'></span>
+					</label>
+				</div>
 			</li>
 			<li id='productivity-sort-bar' class='sub-header r-old r-newnew'>
 				<span data-lang='SortBar'></span>
@@ -1979,9 +1995,16 @@
 						<span class='indicator'></span>
 					</label>
 				</div>
-				<div class='container-input'>
-					<input id='input-custom-header-logo-url' type='text' placeholder='Image URL' />
+				<div class='container-3'>
+					<div></div>
+					<div class='container-input' style='padding: 0'>
+						<input id='input-custom-header-logo-url' type='text' placeholder='Image URL' />
+					</div>
+					<button id='btn-upload-header-logo-image' class='btn' value='Upload image' title='Upload'>
+						<div class='icon icon-upload-file'></div>
+					</button>
 				</div>
+				<div id='upload-header-logo-image-info' class='banner-message blue' data-lang='BackgroundUploadInfo' style='width: 98%;display: none;'></div>
 			</li>
 			<li class='container-3 r-newnew' data-query-words='banner,subreddit'>
 				<span class='menu-item-icon icon-expand icon-full-width-banner'></span>
@@ -2259,7 +2282,9 @@
 					<div class='container'>
 						<input class='colour-picker' data-style-id='post-bg' value='' />
 					</div>
+					<span class='info' data-lang='PostBgColourInfo' style='margin: 0 8px'></span>
 				</div>
+
 				<hr />
 				<div class='container r-newnew' data-query-words='theme,colour,post,text'>
 					<div class='container-3'>
@@ -2369,6 +2394,20 @@
 					</div>
 					<div class='container'>
 						<input class='colour-picker' data-style-id='post-upvote' value='' />
+					</div>
+				</div>
+				<hr />
+				<div class='container r-newnew' data-query-words='theme,colour,downvote'>
+					<div class='container-3'>
+						<span class='menu-item-icon icon-spray-can icon-post-downvote-colour'></span>
+						<span data-lang='DownvoteColour'></span>
+						<label class='switch'>
+							<input id='checkbox-post-downvote-colour' type='checkbox' />
+							<span class='indicator'></span>
+						</label>
+					</div>
+					<div class='container'>
+						<input class='colour-picker' data-style-id='post-downvote' value='' />
 					</div>
 				</div>
 			</li>
@@ -2743,6 +2782,10 @@
 					</div>
 					<div class='r-old r-newnew'>
 						<a href='#block-comments-keyword'><span data-lang='Comments'></span>/<span data-lang='Keywords'></span></a>
+						<div class='vdivider'></div>
+					</div>
+					<div class='r-old r-newnew'>
+						<a href='#block-comments-user'><span data-lang='Comments'></span>/<span data-lang='Users'></span></a>
 					</div>
 				</div>
 			</li>
@@ -2752,7 +2795,7 @@
 			<li id='block-keywords' class='container r-old r-newnew' data-query-words='block,keywords' style='scroll-margin-top: 80px'>
 				<div class='container-3'>
 					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-keyword-posts'></span>
-					<span data-lang='HideBlockedKeywordsPosts'></span>
+					<span data-lang='HidePostsContainingKeyword'></span>
 					<label class='switch'>
 						<input id='checkbox-hide-blocked-keyword-posts-enable' type='checkbox' />
 						<span class='indicator'></span>
@@ -2767,7 +2810,7 @@
 			<li id='block-posts-users' class='container r-old r-newnew' data-query-words='block,users' style='scroll-margin-top: 90px'>
 				<div class='container-3'>
 					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-user-posts'></span>
-					<span data-lang='HidePostsByBlockedUser'></span>
+					<span data-lang='HidePostsByUser'></span>
 					<label class='switch'>
 						<input id='checkbox-hide-blocked-user-posts-enable' type='checkbox' />
 						<span class='indicator'></span>
@@ -2813,7 +2856,7 @@
 			<li id='block-comments-keyword' class='container r-old r-newnew' data-query-words='block,comments' style='scroll-margin-top: 70px'>
 				<div class='container-3'>
 					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-keyword-comments'></span>
-					<span data-lang='BlocksCommentsByKeyword'></span>
+					<span data-lang='HideCommentsContainingKeyword'></span>
 					<label class='switch'>
 						<input id='checkbox-hide-blocked-keyword-comments-enable' type='checkbox' />
 						<span class='indicator'></span>
@@ -2825,6 +2868,58 @@
 				<p class='info' data-lang='CommentsBlockInfo'></p>
 				<p class='info invalid-regex'></p>
 			</li>
+			<li id='block-comments-user' class='container r-old r-newnew' data-query-words='block,comments' style='scroll-margin-top: 70px'>
+				<div class='container-3'>
+					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-user-comments'></span>
+					<span data-lang='HideCommentsByUser'></span>
+					<label class='switch'>
+						<input id='checkbox-hide-blocked-user-comments-enable' type='checkbox' />
+						<span class='indicator'></span>
+					</label>
+					<div></div>
+					<textarea id='input-blocked-user-comments' rows='4' cols='auto' placeholder='user,user'></textarea>
+				</div>
+				<p class='info' data-lang='BlockInfo'></p>
+				<p class='info' data-lang='CommentsBlockInfo'></p>
+				<p class='info invalid-regex'></p>
+			</li>
+		</ul>
+	</li>
+
+	<li id='index-11' data-index='11'>
+		<!-- User Tagging -->
+		<div id='user-tagging' class='menu-item-link btn-user-tagging r-old r-newnew'>
+			<div class='menu-item-btn'>
+				<span class='menu-item-icon icon-tag'></span>
+				<span data-lang='UserTagging' class='menu-item-title'></span>
+				<div class='icon-chevron-down'></div>
+			</div>
+			<div class='menu-item-handle'><div class='menu-item-icon icon-handle'></div></div>
+		</div>
+		<!-- User Tagging Sub Menu -->
+		<ul class='sub-list menu-user-tagging hidden r-old r-newnew'>
+			<li class='sub-header sub-search-title'>
+				<span data-lang='UserTagging'></span>
+			</li>
+			<li class='container-3 r-old r-newnew'>
+				<span class='menu-item-icon icon-tag icon-user-tagging'></span>
+				<span data-lang='EnableUserTagging'></span>
+				<label class='switch'>
+					<input id='checkbox-user-tagging-enable' type='checkbox' />
+					<span class='indicator'></span>
+				</label>
+			</li>
+			<li class='container r-old r-newnew'>
+				<button id='btn-manage-tagged-users' class='btn btn-manage-tagged-users' data-lang='ManageTaggedUsers'></button>
+			</li>
+			<li class='sub-header r-old r-newnew'>
+				<span data-lang='PresetTags'></span>
+			</li>
+			<div class='container' style='flex-direction: column;'>
+				<button id='btn-add-preset-tag' class='btn btn-add-preset-tag' data-lang='AddPresetTag'></button>
+				<hr />
+				<div id='user-tagging-presets-container' class='user-tagging-presets-container'></div>
+			</div>
 		</ul>
 	</li>
 

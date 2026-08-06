@@ -1,31 +1,34 @@
-Melhore a sua experiência no Reddit com o Reddit Enhancer! Uma extensão de navegador que permite personalizar sua página do Reddit com apenas alguns cliques.
-Suporta todas as versões do Reddit.
+Melhore a sua experiência no Reddit com o Reddit Enhancer! Uma extensão para browser que permite personalizar a sua página Reddit com apenas alguns cliques.
+Compatível com as versões mais recentes e antigas do Reddit.
 
-Com o Reddit Enhancer, você pode:
-• Redimensione o feed e a largura da postagem para uma melhor experiência de visualização.
-• Personalize as cores do tema e adicione um papel de parede de fundo.
-• Oculte postagens promovidas e recomendadas, bem como anúncios premium do Reddit.
-• Oculte vários outros elementos que você não usa ou não deseja ver para obter uma interface mais limpa e menos confusa.
-• Abra imagens diretamente em uma nova guia, em vez de incorporá-las em uma página.
-• Dimensione imagens altas para caber na postagem ou adicione uma barra de rolagem para ver toda a largura da imagem e simplesmente role para ver mais.
-• Role até o próximo comentário raiz com o clique de um botão.
-• Ative a leitura biônica para postagens e comentários e/ou altere o tamanho da fonte para uma leitura mais rápida e fácil.
-• Mostrar o autor da postagem ausente na versão mais recente do Reddit.
-• E muito mais! Consulte o site de suporte para obter uma lista completa de recursos.
+Com o Reddit Enhancer, pode:
+• Redimensionar o feed e a largura das publicações para uma melhor experiência de visualização.
+• Personalizar as cores do tema e adicionar um papel de parede.
+• Ocultar publicações promovidas e recomendadas, bem como anúncios Reddit Premium.
+• Ocultar vários outros elementos que não utiliza ou não quer ver, para uma interface mais limpa e organizada.
+• Abrir imagens diretamente num novo separador, em vez de as incorporar na página.
+• Adicionar etiquetas personalizadas aos utilizadores com notas opcionais.
+• Bloquear utilizadores para ocultar as suas publicações e/ou comentários, ou ocultar publicações de subreddits bloqueados ou que contenham determinadas palavras-chave.
+• Desloque-se facilmente para o próximo comentário ou publicação principal num feed com um atalho de teclado.
+• Utilizar as setas esquerda e direita para navegar pelas galerias de imagens.
+• Reproduzir GIFs e vídeos automaticamente.
+• Ative a Leitura Biónica para posts e comentários e/ou altere o tamanho da letra para uma leitura mais rápida e fácil.
+• E muito mais! Consulte o site de suporte para obter uma lista completa de características.
 
-*nem todos os recursos suportam todas as versões do Reddit.
+*Nem todas as funcionalidades são compatíveis com todas as versões do Reddit.
 
 
 Como usar:
-1. Instale a extensão.
-2. Visite reddit.com.
-3. Clique em Reddit Enhancer no menu de extensões na barra de ferramentas do Chrome.
-4. Ative as funcionalidades que desejar :)
+1. Instale o suplemento.
+2. Acesse reddit.com
+3. Clique em Reddit Enhancer no menu Extensões da barra de ferramentas do browser.
+4. Ative os recursos pretendidos :)
 
 
 
-Esta extensão não está afiliada nem é endossada pelo Reddit.
-Esta extensão não coleta dados e respeita a privacidade dos usuários.
+Este complemento não é afiliado nem endossado pelo Reddit.
+Este complemento não recolhe dados e respeita a privacidade dos utilizadores.
+Consulte o site de suporte/página do Github para obter a política de privacidade e os motivos das permissões solicitadas pelo browser.
 
-Atualizações no site Reddit podem afetar esta extensão no futuro. Por favor, abra uma solicitação se encontrar algum bug ou tiver sugestões de novos recursos. Agradeço qualquer ajuda com traduções se você quiser contribuir para melhorar e/ou adicionar novas traduções.
-Consulte o link do site na seção de Informações Adicionais.
+As atualizações do site Reddit podem afetar o funcionamento deste add-on no futuro. Caso encontre algum bug ou tenha sugestões de novas funcionalidades, abra uma issue no Github.
+Agradeço qualquer ajuda com traduções, caso queira contribuir para melhorar e/ou adicionar novas traduções.

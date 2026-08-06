@@ -27,6 +27,7 @@
 }
 #settings .btn {
 	height: 40px;
+	text-align: center;
 }
 #settings .sub-list {
 	border-radius: var(--border-radius);

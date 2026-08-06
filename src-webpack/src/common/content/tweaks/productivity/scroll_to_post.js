@@ -7,6 +7,7 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
+import { isInputFocused } from '../../../utilities/isInputFocused';
 import { showBannerMessage } from '../../banner_message';
 
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
@@ -115,7 +116,7 @@ function createKeyboardNavigator(containerSelector, elementSelector, RedditVersi
 		const elements = getElements();
 		if (elements.length === 0) return;
 
-		if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'REDDIT-SEARCH-LARGE') {
+		if (!isInputFocused()) {
 			if (e.key === 'j' || e.key === 'J' || e.key === 'ArrowDown') {
 				if (e.key === 'ArrowDown') e.preventDefault();
 				const current = findCurrentIndex(elements);

@@ -26,8 +26,17 @@
 	"AddNsfwTag": {
 		"message": "Přidat tag NSFW"
 	},
+	"AddPresetTag": {
+		"message": "Přidat přednastavenou značku"
+	},
 	"AddSpoilerTag": {
 		"message": "Přidat spoiler tag"
+	},
+	"AddToPresets": {
+		"message": "Přidat do přednastavení"
+	},
+	"AddUserTag": {
+		"message": "Přidat tag uživatele"
 	},
 	"AlwaysShowCommentOptions": {
 		"message": "Vždy zobrazit možnosti komentáře"
@@ -43,6 +52,9 @@
 	},
 	"AppendNumbersToPostImages": {
 		"message": "Obrázky s číslem příspěvku"
+	},
+	"AreYouSure": {
+		"message": "Jsi jistý?"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Zobrazit stránku a informace o uživateli v záhlaví"
@@ -137,9 +149,6 @@
 	"BlockInfo": {
 		"message": "Podporuje přesné shoda klíčových slov nebo regulární výrazy."
 	},
-	"BlocksCommentsByKeyword": {
-		"message": "Blokování komentářů podle klíčového slova"
-	},
 	"Blur": {
 		"message": "Rozmazat"
 	},
@@ -160,6 +169,9 @@
 	},
 	"BuyMeACoffee": {
 		"message": "Kup mi kávu"
+	},
+	"Cancel": {
+		"message": "Zrušit"
 	},
 	"CannedMessages": {
 		"message": "Uložené zprávy"
@@ -185,14 +197,23 @@
 	"CleanLink": {
 		"message": "Přidat možnost sdílet příspěvek/komentář bez sledování (Čistý odkaz)"
 	},
+	"Clear": {
+		"message": "Čist"
+	},
 	"Cleared": {
 		"message": "Vymazáno"
+	},
+	"ClickToEdit": {
+		"message": "Kliknutím upravíte"
 	},
 	"Close": {
 		"message": "Zavřít"
 	},
 	"CloseTab": {
 		"message": "Nyní můžete tuto záložku/okno zavřít."
+	},
+	"Colour": {
+		"message": "Barva"
 	},
 	"Comments": {
 		"message": "Komentáře"
@@ -212,8 +233,14 @@
 	"CompactPostLinkPreview": {
 		"message": "Miniaturní náhledy odkazů na příspěvek"
 	},
+	"Complete": {
+		"message": "Kompletní"
+	},
 	"Confirm": {
 		"message": "Potvrdit"
+	},
+	"ConfirmDeleteAll": {
+		"message": "Jste si jisti, že chcete smazat všechny uživatelské tagy? Tato akce je ireverzibilní, pokud nemáte zálohu."
 	},
 	"Controversial": {
 		"message": "Kontroverzní / Controversial"
@@ -241,6 +268,12 @@
 	},
 	"CreatePostTitle": {
 		"message": "Vytvořit příspěvek: Název"
+	},
+	"CreateTag": {
+		"message": "Vytvořit tag"
+	},
+	"Created": {
+		"message": "Vytvořeno"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Vlastní odkaz na pozadí"
@@ -272,11 +305,20 @@
 	"Delete": {
 		"message": "Odstranit"
 	},
+	"DeleteAllTags": {
+		"message": "Smazat"
+	},
+	"Details": {
+		"message": "Detaily"
+	},
 	"Disabled": {
 		"message": "Deaktivované"
 	},
 	"DontShowAgain": {
 		"message": "Nezobrazovat znovu"
+	},
+	"DownvoteColour": {
+		"message": "Příspěvek: Downvote barevnost"
 	},
 	"Drag": {
 		"message": "Přetáhnout"
@@ -287,14 +329,26 @@
 	"Edit": {
 		"message": "Upravit"
 	},
+	"EditLink": {
+		"message": "Upravit odkaz"
+	},
 	"EditPost": {
 		"message": "Upravit příspěvek"
+	},
+	"EditTag": {
+		"message": "Upravit štítek"
+	},
+	"EnableUserTagging": {
+		"message": "Aktivovat označování uživatelů"
 	},
 	"EndTime": {
 		"message": "Ukončený čas (24)"
 	},
 	"Error": {
 		"message": "Chyba"
+	},
+	"ExportTags": {
+		"message": "Exportovat tagy"
 	},
 	"ExtensionSettings": {
 		"message": "Nastavení rozšíření"
@@ -396,10 +450,7 @@
 		"message": "Skrýt oznámení o Ankunciích Reddit (u/reddit)"
 	},
 	"HideAwards": {
-		"message": "Skryjte tlačítko „Udělovat ceny“"
-	},
-	"HideBlockedKeywordsPosts": {
-		"message": "Skrýt Příspěvky s Blokovanými Klíčovými Slovy"
+		"message": "Skrýt tlačítko „Ocenění“ v komentářích"
 	},
 	"HideBlurredMediaBackground": {
 		"message": "Skrýt rozmazání pozadí za náhledy obrázků"
@@ -412,6 +463,12 @@
 	},
 	"HideCommentKarma": {
 		"message": "Skrýt karma komentáře"
+	},
+	"HideCommentsByUser": {
+		"message": "Skrýt komentáře od uživatele"
+	},
+	"HideCommentsContainingKeyword": {
+		"message": "Skrýt komentáře obsahující klíčové slovo"
 	},
 	"HideCommunityHighlights": {
 		"message": "Skrýt „Zvýraznění komunity“"
@@ -515,11 +572,14 @@
 	"HidePostSidebar": {
 		"message": "Skrýt boční panel příspěvku"
 	},
-	"HidePostsByBlockedUser": {
-		"message": "Skrýt příspěvky z zablokovaných uživatelů"
-	},
 	"HidePostsBySubreddit": {
 		"message": "Skrýt příspěvky podle subreddit"
+	},
+	"HidePostsByUser": {
+		"message": "Skrýt příspěvky od uživatele"
+	},
+	"HidePostsContainingKeyword": {
+		"message": "Skrýt příspěvky obsahující klíčové slovo"
 	},
 	"HidePromoted": {
 		"message": "Skrýt reklamy/propadající odkazy"
@@ -541,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Skrýt související příspěvky"
+	},
+	"HideRepostButton": {
+		"message": "Skrýt tlačítko „Znovu zveřejnit“"
 	},
 	"HideSearchSidebar": {
 		"message": "Skryjte postranní panel vyhledávání"
@@ -620,6 +683,9 @@
 	"Hot": {
 		"message": "Horký / Hot"
 	},
+	"Icon": {
+		"message": "Ikona"
+	},
 	"Image": {
 		"message": "Obraz"
 	},
@@ -628,6 +694,15 @@
 	},
 	"Images": {
 		"message": "Obrázky"
+	},
+	"ImportInvalidFormat": {
+		"message": "Neplatný formát souboru."
+	},
+	"ImportSuccess": {
+		"message": "Importováno {count} tagů úspěšně."
+	},
+	"ImportTags": {
+		"message": "Importovat tagy"
 	},
 	"JustOpenTheImage": {
 		"message": "Stačí jen otevřít obrázek"
@@ -640,6 +715,12 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "Blokují příspěvky na základě titulku, ne obsahu. Seznamte jednotlivá klíčová slova/vyrazy s výraznými vzory oddělené čárkou."
+	},
+	"Label": {
+		"message": "Označení"
+	},
+	"LabelColour": {
+		"message": "Barva štítku"
 	},
 	"Language": {
 		"message": "Jazyk"
@@ -676,6 +757,9 @@
 	},
 	"MainContainer": {
 		"message": "Hlavní kontejner"
+	},
+	"ManageTaggedUsers": {
+		"message": "Spravovat označených uživatele"
 	},
 	"MarkAsBrandAffiliate": {
 		"message": "Označit jako afiliát značky"
@@ -719,11 +803,20 @@
 	"NewUpdateAvailable": {
 		"message": "Verze nová verze <version> je nyní k dispozici. Váš prohlížeč by měl tuto rozšíření brzy automaticky aktualizovat, pokud máte povoleno automatické aktualizace. Pokud ne, musíte ručně ověřit aktualizace v spravci rozšíření prohlížeče."
 	},
+	"NoPresetsYet": {
+		"message": "Žádné přednastavené hodnoty"
+	},
 	"NoSavedBackgrounds": {
 		"message": "Žádné uložené pozadí"
 	},
+	"NoTaggedUsers": {
+		"message": "Žádní označení uživatelé"
+	},
 	"NonStickyHeaderBar": {
 		"message": "Nepřilepitá lišta hlavičky"
+	},
+	"Note": {
+		"message": "Poznámka"
 	},
 	"Off": {
 		"message": "Vypnutý"
@@ -742,6 +835,9 @@
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Rozšiřit pouze komentáře s negativním karmou"
+	},
+	"OpenInManager": {
+		"message": "Otevírat v spravci"
 	},
 	"OpenPostInNewTab": {
 		"message": "Otevírat odkazy na příspěvky v nové záložce"
@@ -778,6 +874,9 @@
 	},
 	"PostBgColour": {
 		"message": "Příspěvek: Barva pozadí"
+	},
+	"PostBgColourInfo": {
+		"message": "Platí také pro různé další prvky uživatelského rozhraní."
 	},
 	"PostBorderColour": {
 		"message": "Příspěvek: Barva okraje"
@@ -832,6 +931,12 @@
 	},
 	"Posts": {
 		"message": "Příspěvky"
+	},
+	"PresetTags": {
+		"message": "Výchozí tagy"
+	},
+	"Preview": {
+		"message": "Náhled"
 	},
 	"Productivity": {
 		"message": "Produktivita"
@@ -940,6 +1045,12 @@
 	},
 	"SearchPageOffset": {
 		"message": "Přesun stránky vyhledávání"
+	},
+	"SearchTag": {
+		"message": "Vyhledat tag..."
+	},
+	"SearchUsername": {
+		"message": "Hledat uživatelské jméno..."
 	},
 	"SearchbarBgColour": {
 		"message": "Vyhledávací panel: Barva pozadí"
@@ -1082,6 +1193,12 @@
 	"SyncStorage": {
 		"message": "Synchronizační úložiště"
 	},
+	"Tag": {
+		"message": "Etikéta"
+	},
+	"TagColour": {
+		"message": "Barva značky"
+	},
 	"Text": {
 		"message": "Text"
 	},
@@ -1133,6 +1250,9 @@
 	"UpdateFirefox": {
 		"message": "Aktualizujte prosím na Firefox 121 nebo vyšší, aby některé funkce fungovaly správně."
 	},
+	"Updated": {
+		"message": "Aktualizováno"
+	},
 	"Upload": {
 		"message": "Nahraj"
 	},
@@ -1145,11 +1265,29 @@
 	"UseOriginalSearchBar": {
 		"message": "Použijte původní vyhledávací lištu"
 	},
+	"UserAlreadyAdded": {
+		"message": "Uživatel již byl přidán"
+	},
 	"UserProfileOffset": {
 		"message": "Posun uživatelského profilu"
 	},
 	"UserProfileWidth": {
 		"message": "Šířka uživatelského profilu"
+	},
+	"UserTagging": {
+		"message": "Tagování uživatelů"
+	},
+	"UserTaggingManagerInfo1": {
+		"message": "Můžete importovat údaje o uživatelských tagích ze souborů .resbackup exportovaných RES"
+	},
+	"UserTaggingManagerInfo2": {
+		"message": "Všechna data jsou uložena lokálně v prohlížeči. Exporujte tagy, abyste předešli jakékoli možné ztrátě dat."
+	},
+	"UserTaggingManagerTitle": {
+		"message": "Správce značek uživatelů"
+	},
+	"Username": {
+		"message": "Uživatelské jméno"
 	},
 	"UsernameHoverPopupDelay": {
 		"message": "Zpoždění vyskakovacího okna uživatelského jména při přejezdu"

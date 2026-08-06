@@ -264,6 +264,38 @@ input:disabled {
 }
 
 /* Select */
+select {
+	appearance: none;
+	-webkit-appearance: none;
+	background-color: var(--btn-bg);
+	border: solid 1px var(--btn-border);
+	border-radius: var(--border-radius);
+	color: var(--btn-fg);
+	padding: 8px 32px 8px 10px;
+	font-size: 16px;
+	cursor: pointer;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23fcfcfc' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 10px center;
+	transition: background-color 0.1s ease-in-out;
+}
+
+select:hover {
+	background-color: var(--btn-hover);
+	border-color: var(--btn-hover-border);
+}
+
+select:focus {
+	border-color: var(--accent) !important;
+	outline: none;
+	background-color: var(--btn-active);
+}
+
+select option {
+	background: var(--btn-bg);
+	color: var(--btn-fg);
+}
+
 .dropdown {
 	position: relative;
 	width: 100%;

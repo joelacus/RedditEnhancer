@@ -26,8 +26,17 @@
 	"AddNsfwTag": {
 		"message": "Aggiungi tag NSFW"
 	},
+	"AddPresetTag": {
+		"message": "Aggiungi etichetta predefinita"
+	},
 	"AddSpoilerTag": {
 		"message": "Aggiungi tag spoiler"
+	},
+	"AddToPresets": {
+		"message": "Aggiungi ai preset"
+	},
+	"AddUserTag": {
+		"message": "Aggiungi tag utente"
 	},
 	"AlwaysShowCommentOptions": {
 		"message": "Mostra sempre le opzioni commento"
@@ -43,6 +52,9 @@
 	},
 	"AppendNumbersToPostImages": {
 		"message": "Immagini di post numerate"
+	},
+	"AreYouSure": {
+		"message": "Sei sicuro?"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Visualizzare la pagina e le informazioni utente nell'intestazione"
@@ -137,9 +149,6 @@
 	"BlockInfo": {
 		"message": "Supporta la corrispondenza esatta di parole chiave o le espressioni regolari"
 	},
-	"BlocksCommentsByKeyword": {
-		"message": "Blocca commenti per parola chiave"
-	},
 	"Blur": {
 		"message": "Sfocare"
 	},
@@ -160,6 +169,9 @@
 	},
 	"BuyMeACoffee": {
 		"message": "Comprami un caffè"
+	},
+	"Cancel": {
+		"message": "Annullare"
 	},
 	"CannedMessages": {
 		"message": "Messaggi salvati"
@@ -185,14 +197,23 @@
 	"CleanLink": {
 		"message": "Aggiungi l'opzione di condivisione del post/commento senza tracciamento (Link pulito)"
 	},
+	"Clear": {
+		"message": "Chiaro"
+	},
 	"Cleared": {
 		"message": "Cancellato"
+	},
+	"ClickToEdit": {
+		"message": "Clicca per modificare"
 	},
 	"Close": {
 		"message": "Vicino"
 	},
 	"CloseTab": {
 		"message": "Ora puoi chiudere questa scheda/finestra."
+	},
+	"Colour": {
+		"message": "colore"
 	},
 	"Comments": {
 		"message": "Commenti"
@@ -212,8 +233,14 @@
 	"CompactPostLinkPreview": {
 		"message": "Anteprime del link di post compatto"
 	},
+	"Complete": {
+		"message": "Completare"
+	},
 	"Confirm": {
 		"message": "Confermare"
+	},
+	"ConfirmDeleteAll": {
+		"message": "Sei sicuro di voler eliminare tutti i tag utente? Questa azione è irreversibile, a meno che tu non abbia un backup."
 	},
 	"Controversial": {
 		"message": "Controverso / Controversial"
@@ -241,6 +268,12 @@
 	},
 	"CreatePostTitle": {
 		"message": "Crea post: Titolo"
+	},
+	"CreateTag": {
+		"message": "Crea tag"
+	},
+	"Created": {
+		"message": "Creato"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "URL dello sfondo personalizzato"
@@ -272,11 +305,20 @@
 	"Delete": {
 		"message": "Eliminare"
 	},
+	"DeleteAllTags": {
+		"message": "Elimina tutto"
+	},
+	"Details": {
+		"message": "Dettagli"
+	},
 	"Disabled": {
 		"message": "Disabilitato"
 	},
 	"DontShowAgain": {
 		"message": "Non mostrarlo più"
+	},
+	"DownvoteColour": {
+		"message": "Post: Colore del downvote"
 	},
 	"Drag": {
 		"message": "Trascina qui il"
@@ -287,14 +329,26 @@
 	"Edit": {
 		"message": "Modificare"
 	},
+	"EditLink": {
+		"message": "Modifica collegamento"
+	},
 	"EditPost": {
 		"message": "Modifica post"
+	},
+	"EditTag": {
+		"message": "Modifica tag"
+	},
+	"EnableUserTagging": {
+		"message": "Abilita l'etichettatura utente"
 	},
 	"EndTime": {
 		"message": "Ora di fine"
 	},
 	"Error": {
 		"message": "Errore"
+	},
+	"ExportTags": {
+		"message": "Esporta tag"
 	},
 	"ExtensionSettings": {
 		"message": "Impostazioni estensione"
@@ -396,10 +450,7 @@
 		"message": "Nascondi le notifiche di annunci di Reddit"
 	},
 	"HideAwards": {
-		"message": "Nascondi il pulsante \"Assegna premi\""
-	},
-	"HideBlockedKeywordsPosts": {
-		"message": "Nascondi post con parole chiave bloccate"
+		"message": "Nascondi il pulsante \"Premio\" sui commenti"
 	},
 	"HideBlurredMediaBackground": {
 		"message": "Nascondi sfocatura di sfondo dietro le anteprime delle immagini"
@@ -412,6 +463,12 @@
 	},
 	"HideCommentKarma": {
 		"message": "Nascondi commento karma"
+	},
+	"HideCommentsByUser": {
+		"message": "Nascondi i commenti dell'utente"
+	},
+	"HideCommentsContainingKeyword": {
+		"message": "Nascondi i commenti contenenti una parola chiave"
 	},
 	"HideCommunityHighlights": {
 		"message": "Nascondi \"Highlights della community\""
@@ -515,11 +572,14 @@
 	"HidePostSidebar": {
 		"message": "Nascondi la barra laterale del post"
 	},
-	"HidePostsByBlockedUser": {
-		"message": "Nascondi i post degli utenti bloccati"
-	},
 	"HidePostsBySubreddit": {
 		"message": "Nascondi post per subreddit"
+	},
+	"HidePostsByUser": {
+		"message": "Nascondi i post dell'utente"
+	},
+	"HidePostsContainingKeyword": {
+		"message": "Nascondi i post contenenti una parola chiave"
 	},
 	"HidePromoted": {
 		"message": "Nascondi annunci/link promossi"
@@ -541,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Nascondi post correlati"
+	},
+	"HideRepostButton": {
+		"message": "Nascondi il pulsante \"Ripubblica\""
 	},
 	"HideSearchSidebar": {
 		"message": "Nascondi la barra laterale di ricerca"
@@ -620,6 +683,9 @@
 	"Hot": {
 		"message": "Calda / Hot"
 	},
+	"Icon": {
+		"message": "icon"
+	},
 	"Image": {
 		"message": "Immagine"
 	},
@@ -628,6 +694,15 @@
 	},
 	"Images": {
 		"message": "Immagini"
+	},
+	"ImportInvalidFormat": {
+		"message": "Formato file non valido."
+	},
+	"ImportSuccess": {
+		"message": "Sono stati importati con successo {count} tag."
+	},
+	"ImportTags": {
+		"message": "Importa tag"
 	},
 	"JustOpenTheImage": {
 		"message": "Apri semplicemente l'immagine"
@@ -640,6 +715,12 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "Blocca i post in base al titolo, non al contenuto. Elenca singole parole chiave/espressioni regolari, separate da una virgola."
+	},
+	"Label": {
+		"message": "Etichetta"
+	},
+	"LabelColour": {
+		"message": "Colore dell'etichetta"
 	},
 	"Language": {
 		"message": "Lingua"
@@ -676,6 +757,9 @@
 	},
 	"MainContainer": {
 		"message": "Contenitore principale"
+	},
+	"ManageTaggedUsers": {
+		"message": "Gestisci utenti etichettati"
 	},
 	"MarkAsBrandAffiliate": {
 		"message": "Segna come affiliato del marchio"
@@ -719,11 +803,20 @@
 	"NewUpdateAvailable": {
 		"message": "La versione <version> è ora disponibile. Il tuo browser dovrebbe aggiornare questa estensione automaticamente tra poco, se hai abilitato gli aggiornamenti automatici; altrimenti, dovrai cercare manualmente gli aggiornamenti nel gestore estensioni del browser."
 	},
+	"NoPresetsYet": {
+		"message": "Nessuna impostazione predefinita"
+	},
 	"NoSavedBackgrounds": {
 		"message": "Nessuno sfondo salvato"
 	},
+	"NoTaggedUsers": {
+		"message": "Nessun utente taggato"
+	},
 	"NonStickyHeaderBar": {
 		"message": "Barra di intestazione non adesiva"
+	},
+	"Note": {
+		"message": "Nota"
 	},
 	"Off": {
 		"message": "Spento"
@@ -742,6 +835,9 @@
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Espandi solo i commenti con karma negativo"
+	},
+	"OpenInManager": {
+		"message": "Apri nel gestore"
 	},
 	"OpenPostInNewTab": {
 		"message": "Apri i link ai post in una nuova scheda"
@@ -778,6 +874,9 @@
 	},
 	"PostBgColour": {
 		"message": "Post: Colore di sfondo"
+	},
+	"PostBgColourInfo": {
+		"message": "Si applica anche a vari altri elementi dell'interfaccia utente."
 	},
 	"PostBorderColour": {
 		"message": "Post: Colore del bordo"
@@ -832,6 +931,12 @@
 	},
 	"Posts": {
 		"message": "Post"
+	},
+	"PresetTags": {
+		"message": "Tag predefiniti"
+	},
+	"Preview": {
+		"message": "Anteprima"
 	},
 	"Productivity": {
 		"message": "Produttività"
@@ -940,6 +1045,12 @@
 	},
 	"SearchPageOffset": {
 		"message": "Offset di pagina di ricerca"
+	},
+	"SearchTag": {
+		"message": "Cerca tag..."
+	},
+	"SearchUsername": {
+		"message": "Cercare nome utente..."
 	},
 	"SearchbarBgColour": {
 		"message": "Barra di ricerca: Colore dello sfondo"
@@ -1082,6 +1193,12 @@
 	"SyncStorage": {
 		"message": "Archiviazione di sincronizzazione"
 	},
+	"Tag": {
+		"message": "etichetta"
+	},
+	"TagColour": {
+		"message": "Colore del marchio"
+	},
 	"Text": {
 		"message": "Testo"
 	},
@@ -1133,6 +1250,9 @@
 	"UpdateFirefox": {
 		"message": "Aggiorna a Firefox versione 121 o successiva per garantire il corretto funzionamento di alcune funzionalità."
 	},
+	"Updated": {
+		"message": "Aggiornato"
+	},
 	"Upload": {
 		"message": "Caricare"
 	},
@@ -1145,11 +1265,29 @@
 	"UseOriginalSearchBar": {
 		"message": "Utilizza la barra di ricerca originale"
 	},
+	"UserAlreadyAdded": {
+		"message": "Utente già aggiunto"
+	},
 	"UserProfileOffset": {
 		"message": "Offset del profilo utente"
 	},
 	"UserProfileWidth": {
 		"message": "Larghezza del profilo utente"
+	},
+	"UserTagging": {
+		"message": "Etichettatura utente"
+	},
+	"UserTaggingManagerInfo1": {
+		"message": "È possibile importare i dati dei tag utente dai file .resbackup esportati da RES"
+	},
+	"UserTaggingManagerInfo2": {
+		"message": "Tutti i dati vengono salvati localmente nel tuo browser. Esporta i tag per evitare qualsiasi potenziale perdita di dati."
+	},
+	"UserTaggingManagerTitle": {
+		"message": "Gestore tag utente"
+	},
+	"Username": {
+		"message": "nome utente"
 	},
 	"UsernameHoverPopupDelay": {
 		"message": "Ritardo del popup al passaggio del mouse sul nome utente per aprire le informazioni"

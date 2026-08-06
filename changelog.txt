@@ -1,3 +1,24 @@
+version 3.4.0
+v [Latest UI V3 & Old UI V1]
+  - User Tagging.
+    - Adds a tag button next to usernames, either to create a new tag, or show an existing tag.
+    - Tags can be fully customised (label text, background colour, foreground colour, and an optional icon).
+    - Optionally add a note to a tagged user to show more information.
+    - Create preset tags, adding them to a list to quickly apply a frequently used tag to a user.
+    - Import and export tags to a backup file. Supports importing tags from a RES backup file.
+    - Added a User Tagging Manager to view all tagged users, manually add new tags, or edit/delete existing tags and notes.
+  - Added an option to hide comments by certain users.
+  - Added "block" buttons next to usernames to quickly block/unblock users. (Shows when "Hide Posts by User" and "Hide Comments by User" are enabled). 
+  - Added a button to upload an image file for the header logo.
+v [Latest UI V3]
+  - Added an option to hide the "Repost" button on posts.
+  - Added an option to change the post downvote colour.
+  - Fixed the custom post upvote colour not working due to a website update.
+  - Fixed "Hide Announcement Notifications" not working due to a website update.
+  - Fixed "Hide Community Status" not working due to a website update.
+  - The user profile header background, and moderator page background, now inherit the post background colour.
+  - Updated "Always Show Post Options" to support the "Awards" button.
+
 version 3.3.0
   - Added an option to upload images from your computer to use as the site background. Limited to local storage, will not sync to other devices. You can change the uploaded image quality in Settings to reduce space and store more images.
   - Added progress bars on the Settings page to show how much local and sync storage has been used. 10MiB local, 100KiB sync.

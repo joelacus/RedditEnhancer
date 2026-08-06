@@ -18,7 +18,7 @@ export async function base64ImageOptimiser(imageInput, width, height) {
 	blob = imageInput;
 
 	const originalSize = (blob.size / 1048576).toFixed(2);
-	console.log(`Original: ${originalSize} MiB`);
+	console.log(`Original file size: ${originalSize} MiB`);
 
 	const imageBitmap = await createImageBitmap(blob);
 
@@ -58,18 +58,60 @@ export async function base64ImageOptimiser(imageInput, width, height) {
 		targetWidth = Math.round(targetHeight * aspectRatio);
 	}
 
+	// Progressive downscaling to preserve detail better than a single large resize
+	let currentBitmap = imageBitmap;
+	let currentWidth = imageBitmap.width;
+	let currentHeight = imageBitmap.height;
+
+	while (currentWidth > targetWidth * 2 || currentHeight > targetHeight * 2) {
+		const stepWidth = Math.max(Math.floor(currentWidth / 2), targetWidth);
+		const stepHeight = Math.max(Math.floor(currentHeight / 2), targetHeight);
+
+		const stepCanvas = document.createElement('canvas');
+		stepCanvas.width = stepWidth;
+		stepCanvas.height = stepHeight;
+		const stepCtx = stepCanvas.getContext('2d');
+		stepCtx.imageSmoothingEnabled = true;
+		stepCtx.imageSmoothingQuality = 'high';
+		stepCtx.drawImage(currentBitmap, 0, 0, stepWidth, stepHeight);
+
+		currentBitmap = await createImageBitmap(stepCanvas);
+		currentWidth = stepWidth;
+		currentHeight = stepHeight;
+	}
+
 	const canvas = document.createElement('canvas');
 	canvas.width = targetWidth;
 	canvas.height = targetHeight;
-	canvas.getContext('2d').drawImage(imageBitmap, 0, 0, targetWidth, targetHeight);
+	const ctx = canvas.getContext('2d');
+	ctx.imageSmoothingEnabled = true;
+	ctx.imageSmoothingQuality = 'high';
+	ctx.drawImage(currentBitmap, 0, 0, targetWidth, targetHeight);
 
-	const dataUrl = canvas.toDataURL('image/jpeg', 0.9);
+	let imageType = 'image/jpeg';
+	const imageData = ctx.getImageData(0, 0, targetWidth, targetHeight);
+	const pixels = imageData.data;
+	for (let i = 3; i < pixels.length; i += 4) {
+		if (pixels[i] < 255) {
+			imageType = 'image/png';
+			break;
+		}
+	}
+
+	if (width || height) console.log(`Base64 target resolution: ${width}px x ${height}px`);
+
+	const dataUrl = canvas.toDataURL(imageType, 0.9);
 	const base64 = dataUrl.split(',')[1];
 	const base64SizeBytes = Math.ceil(base64.length * 0.75);
 
 	const base64Size = (base64SizeBytes / 1048576).toFixed(2);
-	console.log(`Base64: ${base64Size} MiB`);
-	const base64Result = canvas.toDataURL('image/jpeg', 0.9);
+	if (base64SizeBytes < 102400) {
+		console.log(`Base64 size: ${(base64SizeBytes / 1024).toFixed(2)} KiB`);
+	} else {
+		console.log(`Base64 size: ${base64Size} MiB`);
+	}
+
+	const base64Result = dataUrl;
 
 	const result = new Object();
 	result.base64 = base64Result;

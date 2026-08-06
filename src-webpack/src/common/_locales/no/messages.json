@@ -26,8 +26,17 @@
 	"AddNsfwTag": {
 		"message": "Legg til NSFW-merke"
 	},
+	"AddPresetTag": {
+		"message": "Legg til forhåndsdefinert merkelapp"
+	},
 	"AddSpoilerTag": {
 		"message": "Legg til spoiler-tagg"
+	},
+	"AddToPresets": {
+		"message": "Legg til i forhåndsinnstillinger"
+	},
+	"AddUserTag": {
+		"message": "Legg til brukeretikett"
 	},
 	"AlwaysShowCommentOptions": {
 		"message": "Vis alltid kommentarfeltalternativer"
@@ -43,6 +52,9 @@
 	},
 	"AppendNumbersToPostImages": {
 		"message": "Nummererte innleggsbilder"
+	},
+	"AreYouSure": {
+		"message": "Er er du sikker?"
 	},
 	"AttachSideMenuHeader": {
 		"message": "Visningsside og brukerinformasjon i topptekst"
@@ -137,9 +149,6 @@
 	"BlockInfo": {
 		"message": "Støtter nøyaktig nøkkelordmatch eller regulære uttrykk"
 	},
-	"BlocksCommentsByKeyword": {
-		"message": "Blokker kommentarfelt etter nøkkelord"
-	},
 	"Blur": {
 		"message": "Uklarhet"
 	},
@@ -160,6 +169,9 @@
 	},
 	"BuyMeACoffee": {
 		"message": "Kjøp meg en kaffe"
+	},
+	"Cancel": {
+		"message": "Avbryt"
 	},
 	"CannedMessages": {
 		"message": "Lagrede meldinger"
@@ -185,14 +197,23 @@
 	"CleanLink": {
 		"message": "Legg til mulighet for å dele innlegg/kommentar uten sporing (Ren lenke)"
 	},
+	"Clear": {
+		"message": "Klar"
+	},
 	"Cleared": {
 		"message": "Slettet"
+	},
+	"ClickToEdit": {
+		"message": "Klikk for å redigere"
 	},
 	"Close": {
 		"message": "Nært"
 	},
 	"CloseTab": {
 		"message": "Du kan nå lukke denne fanen/vinduet."
+	},
+	"Colour": {
+		"message": "Farge"
 	},
 	"Comments": {
 		"message": "Kommentarer"
@@ -212,8 +233,14 @@
 	"CompactPostLinkPreview": {
 		"message": "Kompakte forhåndsvisninger av innleggslenker"
 	},
+	"Complete": {
+		"message": "Fullstendig"
+	},
 	"Confirm": {
 		"message": "Bekrefte"
+	},
+	"ConfirmDeleteAll": {
+		"message": "Er er sikker på at du vil slette alle bruketiketter? Denne handlingen kan ikke angres, med mindre du har en sikkerhetskopi."
 	},
 	"Controversial": {
 		"message": "Kontroversielt / Controversial"
@@ -241,6 +268,12 @@
 	},
 	"CreatePostTitle": {
 		"message": "Opprett innlegg: Tittel"
+	},
+	"CreateTag": {
+		"message": "Opprett tagg"
+	},
+	"Created": {
+		"message": "Opprettet"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Tilpasset bakgrunnslenke"
@@ -272,11 +305,20 @@
 	"Delete": {
 		"message": "Slett"
 	},
+	"DeleteAllTags": {
+		"message": "Slett alt"
+	},
+	"Details": {
+		"message": "Detaljer"
+	},
 	"Disabled": {
 		"message": "Funksjonshemmet"
 	},
 	"DontShowAgain": {
 		"message": "Ikke vis igjen"
+	},
+	"DownvoteColour": {
+		"message": "Innlegg: Farge for nedstemning"
 	},
 	"Drag": {
 		"message": "Dra"
@@ -287,14 +329,26 @@
 	"Edit": {
 		"message": "Redigere"
 	},
+	"EditLink": {
+		"message": "Rediger lenke"
+	},
 	"EditPost": {
 		"message": "Rediger innlegg"
+	},
+	"EditTag": {
+		"message": "Rediger tag"
+	},
+	"EnableUserTagging": {
+		"message": "Aktiver brukeretikettering"
 	},
 	"EndTime": {
 		"message": "Sluttid (24)"
 	},
 	"Error": {
 		"message": "Feil"
+	},
+	"ExportTags": {
+		"message": "Eksporter merkelapper"
 	},
 	"ExtensionSettings": {
 		"message": "Utvidelsesinnstillinger"
@@ -396,10 +450,7 @@
 		"message": "Skjul Reddit annonseringsvarsler"
 	},
 	"HideAwards": {
-		"message": "Skjul «Gi utmerkelser»-knappen"
-	},
-	"HideBlockedKeywordsPosts": {
-		"message": "Skjul Innlegg med Blokkerte Nøkkelord"
+		"message": "Skjul «Pris»-knappen i kommentarer"
 	},
 	"HideBlurredMediaBackground": {
 		"message": "Skjul bakgrunnsutvisking bak bildevisninger"
@@ -412,6 +463,12 @@
 	},
 	"HideCommentKarma": {
 		"message": "Skjul kommentarkarma"
+	},
+	"HideCommentsByUser": {
+		"message": "Skjul kommentarer fra bruker"
+	},
+	"HideCommentsContainingKeyword": {
+		"message": "Skjul kommentarer som inneholder et nøkkelord"
 	},
 	"HideCommunityHighlights": {
 		"message": "Skjul «Community Highlights»"
@@ -515,11 +572,14 @@
 	"HidePostSidebar": {
 		"message": "Skjul innleggssidefeltet"
 	},
-	"HidePostsByBlockedUser": {
-		"message": "Skjul innlegg fra blokkerte brukere"
-	},
 	"HidePostsBySubreddit": {
 		"message": "Skjul innlegg etter subreddit"
+	},
+	"HidePostsByUser": {
+		"message": "Skjul innlegg etter bruker"
+	},
+	"HidePostsContainingKeyword": {
+		"message": "Skjul innlegg som inneholder et nøkkelord"
 	},
 	"HidePromoted": {
 		"message": "Skjul annonser/promoterte lenker"
@@ -541,6 +601,9 @@
 	},
 	"HideRelatedPosts": {
 		"message": "Skjul relaterte innlegg"
+	},
+	"HideRepostButton": {
+		"message": "Skjul knappen «Repost»"
 	},
 	"HideSearchSidebar": {
 		"message": "Skjul søkesidefeltet"
@@ -620,6 +683,9 @@
 	"Hot": {
 		"message": "Varm / Hot"
 	},
+	"Icon": {
+		"message": "Ikon"
+	},
 	"Image": {
 		"message": "Bilde"
 	},
@@ -628,6 +694,15 @@
 	},
 	"Images": {
 		"message": "Bilder"
+	},
+	"ImportInvalidFormat": {
+		"message": "Ugyldig filformat."
+	},
+	"ImportSuccess": {
+		"message": "Det ble importert {count} tagger vellykket."
+	},
+	"ImportTags": {
+		"message": "Importer tagger"
 	},
 	"JustOpenTheImage": {
 		"message": "Bare åpne bildet"
@@ -640,6 +715,12 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "Blokker innlegg basert på tittelen, ikke innholdet. List individuelle nøkkelord/regulære uttrykk, adskilt med et komma."
+	},
+	"Label": {
+		"message": "Etikett"
+	},
+	"LabelColour": {
+		"message": "Etikettfarge"
 	},
 	"Language": {
 		"message": "Språk"
@@ -676,6 +757,9 @@
 	},
 	"MainContainer": {
 		"message": "Hovedbeholder"
+	},
+	"ManageTaggedUsers": {
+		"message": "Administrer taggede brukere"
 	},
 	"MarkAsBrandAffiliate": {
 		"message": "Marker som merkeaffiliat"
@@ -719,11 +803,20 @@
 	"NewUpdateAvailable": {
 		"message": "Versjon <version> er nå tilgjengelig. Nettleseren din bør oppdatere denne utvidelsen automatisk snart hvis du har aktivert automatisk oppdatering, hvis ikke, må du manuelt sjekke etter oppdateringer i nettleserutvidelsesmanageren."
 	},
+	"NoPresetsYet": {
+		"message": "Ingen forhåndsinnstillinger"
+	},
 	"NoSavedBackgrounds": {
 		"message": "Ingen lagrede bakgrunner"
 	},
+	"NoTaggedUsers": {
+		"message": "Ingen merkede brukere"
+	},
 	"NonStickyHeaderBar": {
 		"message": "Ikke-klistret Overskriftslinje"
+	},
+	"Note": {
+		"message": "Merknad"
 	},
 	"Off": {
 		"message": "Av"
@@ -742,6 +835,9 @@
 	},
 	"OnlyExpandNegativeKarmaComments": {
 		"message": "Utvid kun kommentarer med negativ karma"
+	},
+	"OpenInManager": {
+		"message": "Åpne i administrator"
 	},
 	"OpenPostInNewTab": {
 		"message": "Åpne innlegg i ny fane"
@@ -778,6 +874,9 @@
 	},
 	"PostBgColour": {
 		"message": "Innlegg: Bakgrunnsfarge"
+	},
+	"PostBgColourInfo": {
+		"message": "Gjelder også for diverse andre UI-elementer."
 	},
 	"PostBorderColour": {
 		"message": "Innlegg: Kantfarge"
@@ -832,6 +931,12 @@
 	},
 	"Posts": {
 		"message": "Innlegg"
+	},
+	"PresetTags": {
+		"message": "Forhåndsdefinerte tagger"
+	},
+	"Preview": {
+		"message": "Forhåndsvisning"
 	},
 	"Productivity": {
 		"message": "Produktivitet"
@@ -940,6 +1045,12 @@
 	},
 	"SearchPageOffset": {
 		"message": "Offset for søkeside"
+	},
+	"SearchTag": {
+		"message": "Søk tagg..."
+	},
+	"SearchUsername": {
+		"message": "Søk brukernavn..."
 	},
 	"SearchbarBgColour": {
 		"message": "Søkelinje: Bakgrunnsfarge"
@@ -1082,6 +1193,12 @@
 	"SyncStorage": {
 		"message": "Synkroniseringslagring"
 	},
+	"Tag": {
+		"message": "etikett"
+	},
+	"TagColour": {
+		"message": "Merke-farge"
+	},
 	"Text": {
 		"message": "Tekst"
 	},
@@ -1133,6 +1250,9 @@
 	"UpdateFirefox": {
 		"message": "Oppdater til Firefox 121 eller nyere for at enkelte funksjoner skal fungere som de skal."
 	},
+	"Updated": {
+		"message": "Oppdatert"
+	},
 	"Upload": {
 		"message": "Laste opp"
 	},
@@ -1145,11 +1265,29 @@
 	"UseOriginalSearchBar": {
 		"message": "Bruk den opprinnelige søkefeltet"
 	},
+	"UserAlreadyAdded": {
+		"message": "Brukeren er allerede lagt til"
+	},
 	"UserProfileOffset": {
 		"message": "Forskyvning for brukerprofil"
 	},
 	"UserProfileWidth": {
 		"message": "Bredde på brukerprofil"
+	},
+	"UserTagging": {
+		"message": "Brukertagging"
+	},
+	"UserTaggingManagerInfo1": {
+		"message": "Du kan importere bruker-tagdata fra .resbackup-filer eksportert av RES"
+	},
+	"UserTaggingManagerInfo2": {
+		"message": "Alle data blir lagret lokalt i nettleseren din. Eksporter taggene for å unngå eventuelt tap av data."
+	},
+	"UserTaggingManagerTitle": {
+		"message": "Administrator for brukeretiketter"
+	},
+	"Username": {
+		"message": "Brukernavn"
 	},
 	"UsernameHoverPopupDelay": {
 		"message": "Forsinkelse for pop-up ved hovring over brukernavn"

@@ -46,7 +46,7 @@ I welcome any help if you would like to improve or contribute new language trans
 </table>
 
 # Features
-[Redirect](#redirect) |[Block](#block) | [Resize Feed](#resize-feed-and-posts) | [Background](#background) | [Hide Elements](#hide-elements) | [Productivity](#productivity) | [Font](#font) | [Style](#style) | [Accessibility](#accessibility) | [Other](#other)
+[Redirect](#redirect) |[User Tagging](#user-tagging) |[Block](#block) | [Resize Feed](#resize-feed-and-posts) | [Background](#background) | [Hide Elements](#hide-elements) | [Productivity](#productivity) | [Font](#font) | [Style](#style) | [Accessibility](#accessibility) | [Other](#other)
 
 ## Version Info
 |Reddit Version|Common Name|Official Name|
@@ -59,6 +59,11 @@ I welcome any help if you would like to improve or contribute new language trans
 |---|---|:---:|
 |Auto Redirect To Preferred Reddit Version/UI|Automatically redirect any reddit page to the old or latest version of Reddit (2/Version 2 of Reddit is no longer supported).|3<br>1|
 
+## User Tagging
+|Feature|Description|Reddit Version Support|
+|---|---|:---:|
+|Enable User Tagging|Adds options to create and show custom tags/labels next to usernames. Optionally add a longer note for more information. User tags are only stored locally and not synced with the browser, but supports exporting to a backup file. Also supports importing user tags from RES backup files. Create preset tags to quickly add frequently used tags to users.|3<br>1|
+
 ## Block
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
@@ -67,6 +72,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide "Link" posts by keywords in the URL|Hide all posts that contain a URL containing certain keyword(s), supports regex (regular expressions).|3<br>1|
 |Hide Posts by Subreddit|Hide all posts from a certain subreddit(s), supports regex (regular expressions). Not enabled for subreddit feeds.|3<br>1|
 |Hide Comments by Keyword|Hide comments containing a certain keyword(s).|3<br>1|
+|Hide Comments by User|Hide comments by a certain user(s).|3<br>1|
 
 ## Resize Feed and Posts
 |Feature|Description|Reddit Version Support|
@@ -150,6 +156,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Hide The Post Sidebar|Hides the sidebar on post pages.|3|
 |Hide The Sub Reddit Sidebar|Hides the sidebar on sub reddit pages.|3|
 |Hide The User Sidebar|Hides the sidebar on profile/user pages.|3|
+|Hide the "Repost" Button|Hide the "Repost" button on posts.|3|
 |Hide Thumbnails in Compact View|Hides the thumbnails on posts when viewing a feed in compact view.|3<br>1|
 |Hide Username and/or Karma|You can hide your username and/or karma in the top bar.|1|
 |Hide username in the subreddit sidebar flair section|Hides the username and profile picture in the edit flair section of the subreddit sidebar.|3|
@@ -275,12 +282,12 @@ Install dependencies:
 npm i
 ```
 Build for Firefox:
-- development: `npm run build-dev-m2`
-- production: `npm run build-m2`
+- development: `npm run build-dev-f`
+- production: `npm run build-f`
 
 Build for Chromium based browsers:
-- development: `npm run build-dev-m3`
-- production: `npm run build-m3`
+- development: `npm run build-dev-c`
+- production: `npm run build-c`
 
 # Privacy Policy
 Reddit Enhancer is a browser extension that provides tweaks and features for reddit.com. It is in no way officially endorsed or affiliated with Reddit in any way. 

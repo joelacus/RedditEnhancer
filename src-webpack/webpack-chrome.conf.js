@@ -17,6 +17,7 @@ module.exports = {
 		content_first: './src/common/content_first_index.js',
 		'popup/popup': './src/common/popup/popup_index.js',
 		restore_config: './src/common/restore_config.js',
+		user_tagging_manager: './src/common/user_tagging_manager.js',
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist/chrome'),
@@ -83,8 +84,8 @@ module.exports = {
 				},
 				{
 					context: path.resolve(__dirname, 'src/common'),
-					from: 'restore_config.css',
-					to: 'restore_config.css',
+					from: 'user_tagging_manager.html',
+					to: 'user_tagging_manager.html',
 				},
 				{
 					context: path.resolve(__dirname, 'src/common'),
@@ -100,6 +101,11 @@ module.exports = {
 					context: path.resolve(__dirname, 'src/common'),
 					from: 'content_first/RE_styles.css',
 					to: 'RE_styles.css',
+				},
+				{
+					context: path.resolve(__dirname, 'src/common'),
+					from: 'content_first/RE_UI_styles.css',
+					to: 'RE_UI_styles.css',
 				},
 			],
 		}),

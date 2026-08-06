@@ -146,6 +146,7 @@ function addCustomBg(e) {
 							console.log('adding new link');
 							result.customBackgrounds.push(imageURL);
 							addCustomBgNode(imageURL);
+							document.querySelector('#no-saved-backgrounds-message')?.remove();
 						} else {
 							console.log('background already added');
 							document.querySelector('#input-custom-background').value = '';
@@ -224,6 +225,7 @@ function addUploadedBgNode(base64) {
 	node.appendChild(background_img);
 	const container = document.querySelector('#backgrounds-container');
 	container.insertBefore(node, container.firstChild);
+	document.querySelector('#no-saved-backgrounds-message')?.remove();
 }
 
 // Button - Edit Backgrounds

@@ -75,7 +75,10 @@ import { loadSidebarToggleButton } from './tweaks/hide_elements/sidebar_toggle_b
 import { loadSideMenuIconsOnly } from './tweaks/hide_elements/side_menu_icons_only';
 import { loadSideMenuToggleButton } from './tweaks/hide_elements/side_menu_toggle_button';
 import { loadUsernameHoverPopupDelay } from './tweaks/productivity/username_hover_popup_delay';
+import { loadUserTagging } from './tweaks/user_tagging/user_tagging';
 import { loadViewCrossposts } from './tweaks/productivity/view_crossposts';
+import { loadHideRepostButton } from './tweaks/hide_elements/hide_repost_button';
+import { loadHideBlockedUserComments } from './tweaks/block/block_comments_by_user';
 
 export function loadTweaks() {
 	if (redditVersion === 'old') {
@@ -88,6 +91,7 @@ export function loadTweaks() {
 		loadHideBlockedLinkPosts();
 		loadHideBlockedSubredditPosts();
 		loadHideBlockedKeywordComments();
+		loadHideBlockedUserComments();
 		loadShowMemberCount();
 		loadShowPostAbsoluteTimestamp();
 		loadShowCommentAbsoluteTimestamp();
@@ -96,6 +100,8 @@ export function loadTweaks() {
 		loadCleanLink();
 		loadHidePostComments();
 		loadNumberedPostImages();
+		loadScrollToNextRootComment();
+		loadUserTagging();
 	} else if (redditVersion === 'newnew') {
 		loadAddDownloadVideoButton();
 		loadBionicReader();
@@ -117,6 +123,7 @@ export function loadTweaks() {
 		loadShowToTopButtonFloat();
 		loadScrollToPost();
 		loadCleanLink();
+		loadUserTagging();
 
 		// Wait for elements to load on the page before loading tweaks.
 		setTimeout(addBorderRadiusToShadowRootElements, 2000);
@@ -252,6 +259,7 @@ export function loadTweaks() {
 					loadAutoplayGifs();
 					loadAutoplayCommentGifs();
 					loadGalleryKeyboardNavigation();
+					loadHideRepostButton();
 				}, 500);
 			},
 		});
@@ -316,6 +324,7 @@ export function loadTweaks() {
 					loadFixThreadlinesForTranslucentPosts();
 					loadMulticolouredThreadLines();
 					loadHideBlockedKeywordComments();
+					loadHideBlockedUserComments();
 				}, 2000);
 				loadAutoLoadMoreComments();
 			},

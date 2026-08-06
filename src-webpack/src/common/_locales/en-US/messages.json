@@ -8,11 +8,17 @@
 	"Centre": {
 		"message": "Center"
 	},
+	"Colour": {
+		"message": "Color"
+	},
 	"HeaderBgColour": {
 		"message": "Header Background Color"
 	},
 	"HeaderTextColour": {
 		"message": "Header Text Color"
+	},
+	"LabelColour": {
+		"message": "Label Color"
 	},
 	"MulticolouredCommentThreadLines": {
 		"message": "Multicolored Comment Thread Lines"
@@ -70,6 +76,9 @@
 	},
 	"SolidColour": {
 		"message": "Solid Color"
+	},
+	"TagColour": {
+		"message": "Tag Color"
 	},
 	"ThemeBlacklistInfo": {
 		"message": "Use theme colors globally, except for these subreddits:"

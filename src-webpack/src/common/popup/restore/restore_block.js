@@ -13,6 +13,7 @@ export function restorePopupBlockOptions() {
 	restoreHideBlockedLinkPosts();
 	restoreHideBlockedSubredditPosts();
 	restoreHideBlockedKeywordComments();
+	restoreHideBlockedUserComments();
 }
 
 // Hide Blocked Keyword Posts Enable
@@ -142,5 +143,31 @@ function restoreHideBlockedKeywordComments() {
 			if (invalidEl) invalidEl.textContent = 'Invalid regex: ' + getInvalidRegexPatterns(list).join(', ');
 		}
 		console.log('Hide Blocked Keyword Comments List: ' + list);
+	});
+}
+
+// Hide Blocked User Comments Enable
+function restoreHideBlockedUserComments() {
+	BROWSER_API.storage.sync.get(['hideBlockedUserComments', 'hideBlockedUserCommentsList'], function (result) {
+		const checked = result.hideBlockedUserComments === true;
+		document.querySelector('#checkbox-hide-blocked-user-comments-enable').checked = checked;
+		document.querySelector('.icon-hide-blocked-user-comments').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('block');
+		console.log('Hide Blocked User Comments Enable: ' + checked);
+
+		// Hide Blocked Link Posts List
+		const list = result.hideBlockedUserCommentsList ?? '';
+		const textarea = document.querySelector('#input-blocked-user-comments');
+		textarea.value = list;
+		// Validate regex patterns and show error message
+		const invalidEl = textarea.closest('li').querySelector('.info.invalid-regex');
+		if (validateRegexList(list)) {
+			textarea.classList.remove('invalid-regex');
+			if (invalidEl) invalidEl.textContent = '';
+		} else {
+			textarea.classList.add('invalid-regex');
+			if (invalidEl) invalidEl.textContent = 'Invalid regex: ' + getInvalidRegexPatterns(list).join(', ');
+		}
+		console.log('Hide Blocked User Comments List: ' + list);
 	});
 }
