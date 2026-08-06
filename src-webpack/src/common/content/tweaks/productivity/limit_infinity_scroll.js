@@ -67,6 +67,8 @@ export function limitInfinityScroll(value) {
 				}
 				if (lang === 'en' || lang === 'en-GB' || lang === 'en-US') {
 					var loadMoreText = 'Load More';
+				} else if (lang === 'zh_CN') {
+					var loadMoreText = '加载更多';
 				} else if (lang === 'de') {
 					var loadMoreText = 'Mehr laden';
 				} else if (lang === 'es') {
