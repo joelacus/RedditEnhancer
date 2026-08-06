@@ -40,7 +40,7 @@ const i18nPlugin = {
 // initialises i18next without any network request, eliminating the Chrome MV3
 // content-script fetch restriction entirely.
 
-const ALL_LOCALES = ['en', 'en-GB', 'en-US', 'cs', 'de', 'es', 'es-MX', 'fi', 'fr', 'hu', 'it', 'nl', 'no', 'pl', 'pt', 'pt-BR', 'sv', 'uk'];
+const ALL_LOCALES = ['en', 'en-GB', 'en-US', 'zh_CN', 'cs', 'de', 'es', 'es-MX', 'fi', 'fr', 'hu', 'it', 'nl', 'no', 'pl', 'pt', 'pt-BR', 'sv', 'uk'];
 const CORE_NS = 'translation';
 
 // Pre-load all known locale files from webpack's module graph so the
@@ -61,6 +61,8 @@ function loadLocaleByKey(lang) {
 			return require('../../common/_locales/en-GB/messages.json');
 		case 'en-US':
 			return require('../../common/_locales/en-US/messages.json');
+		case 'zh_CN':
+			return require('../../common/_locales/zh_CN/messages.json');
 		case 'cs':
 			return require('../../common/_locales/cs/messages.json');
 		case 'de':
