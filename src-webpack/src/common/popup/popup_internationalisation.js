@@ -3,7 +3,16 @@
 // ────────────────────────────────────────────────────────────────────────────
 
 import i18next from 'i18next';
-import HttpBackend from 'i18next-http-backend';
+
+// Bundle every locale into the popup so first paint never waits for an
+// extension-URL fetch. require.context keeps the language list in one place:
+// adding a new _locales/<lang>/messages.json file automatically includes it.
+const localeContext = require.context('../_locales', true, /messages\.json$/);
+const localeResources = localeContext.keys().reduce((resources, localePath) => {
+	const match = localePath.match(/^\.\/([^/]+)\/messages\.json$/);
+	if (match) resources[match[1]] = { translation: localeContext(localePath) };
+	return resources;
+}, {});
 
 // Load Language From Save
 BROWSER_API.storage.sync.get(['language'], function (result) {
@@ -26,18 +35,28 @@ BROWSER_API.storage.sync.get(['language'], function (result) {
 
 // Init Internationalisation
 export function init_i18n(lang) {
-	i18next
-		.use(HttpBackend)
-		.init({
-			lng: lang,
-			fallbackLng: 'en',
-			backend: {
-				loadPath: '/_locales/{{lng}}/messages.json',
-			},
-		})
-		.then(() => {
-			translate();
-		});
+	try {
+		if (i18next.isInitialized) {
+			// All resources are already in memory, so this updates synchronously.
+			i18next.changeLanguage(lang);
+		} else {
+			i18next.init({
+				lng: lang,
+				fallbackLng: 'en',
+				resources: localeResources,
+				initAsync: false,
+			});
+		}
+
+		translate();
+		document.documentElement.lang = lang.replace('_', '-');
+	} catch (error) {
+		console.error('Failed to initialise popup translations:', error);
+	} finally {
+		// Translation and theme restoration can finish in either order. Removing
+		// this class only after translate() makes the first visible frame complete.
+		document.body.classList.remove('i18n-pending');
+	}
 }
 
 // Translate based on selected language
