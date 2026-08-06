@@ -1,5 +1,40 @@
 :root {
 	--icon-block: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z'/%3E%3C/svg%3E");
+	--border-radius: 8px;
+	--accent: #ff4703;
+	--text: #fcfcfc;
+	--text-grey: #808080;
+	--bg: #282828;
+	--bg-shade-1: #101010;
+	--bg-tint-1: #19191a;
+	--bg-tint-2: #242424;
+	--bg-tint-3: #141414;
+	--bg-tint-4: #4c4c4c;
+	--btn-fg: var(--text);
+	--btn-secondary-fg: #4d4d4d;
+	--btn-bg: var(--bg-tint-1);
+	--btn-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-hover: color-mix(in srgb, #19191a 80%, #000000);
+	--btn-hover-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-active: color-mix(in srgb, #19191a 60%, #000000);
+}
+
+.theme-light {
+	--text: #030303;
+	--text-grey: #626261;
+	--bg: #f0f0f0;
+	--bg-shade-1: #d4d4d4;
+	--bg-tint-1: #e7e7e7;
+	--bg-tint-2: #e7e7e7;
+	--bg-tint-3: #ebebeb;
+	--bg-tint-4: #b3b3b3;
+	--btn-fg: var(--text);
+	--btn-secondary-fg: #999;
+	--btn-bg: var(--bg-tint-1);
+	--btn-border: color-mix(in srgb, var(--btn-bg), #000 5%);
+	--btn-hover: color-mix(in srgb, var(--btn-bg), #000 5%);
+	--btn-hover-border: color-mix(in srgb, var(--btn-bg), #666666 15%);
+	--btn-active: color-mix(in srgb, var(--btn-bg), #000 10%);
 }
 
 .re-page .hidden {

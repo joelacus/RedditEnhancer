@@ -394,7 +394,7 @@ function buildPopoverHtml(username, existingTag) {
 				<div class="re-tag-details">
 					<div class="re-tag-detail-row">
 						<span class="re-tag-detail-label">${i18next.t('Link.message')}:</span>
-						<a href="${linkVal}" target="_blank" rel="noopener" class="re-tag-detail-value" id="re-popover-link">${linkVal || '—'}</a>
+						<a href="${linkVal}" target="_blank" rel="noopener" class="re-tag-detail-value" id="re-popover-link">${linkVal || ''}</a>
 					</div>
 					<div class="re-tag-detail-row">
 						<span class="re-tag-detail-label">${i18next.t('Created.message')}:</span>

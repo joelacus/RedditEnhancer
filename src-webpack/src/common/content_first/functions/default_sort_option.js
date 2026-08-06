@@ -67,7 +67,7 @@ export async function defaultSortOption() {
 				window.location.replace(url.href);
 			}
 		} catch (error) {
-			showBannerMessage('error', '[RedditEnhancer] An error occurred when redirecting to the preferred comment sort option.');
+			//showBannerMessage('error', '[RedditEnhancer] An error occurred when redirecting to the preferred comment sort option.');
 			console.error('[RedditEnhancer] Error occurred when redirecting to the preferred comment sort option: ' + error);
 		}
 	} else if (['', '/', '/best/', '/hot/', '/new/', '/top/', '/rising/'].includes(url.pathname)) {
@@ -81,7 +81,7 @@ export async function defaultSortOption() {
 				window.location.replace(url.href);
 			}
 		} catch (error) {
-			showBannerMessage('error', '[RedditEnhancer] An error occurred when redirecting to the preferred home feed sort option.');
+			//showBannerMessage('error', '[RedditEnhancer] An error occurred when redirecting to the preferred home feed sort option.');
 			console.error('[RedditEnhancer] Error occurred when redirecting to the preferred home feed sort option: ' + error);
 		}
 	} else if (url.searchParams.get('type') === 'posts' || /\/search\//.test(url.pathname) || /\/user\/(?!.*\/m\/)/.test(url.pathname)) {
@@ -97,7 +97,7 @@ export async function defaultSortOption() {
 				window.location.replace(url.href);
 			}
 		} catch (error) {
-			showBannerMessage('error', '[RedditEnhancer] An error occurred when redirecting to the preferred feed sort option.');
+			//showBannerMessage('error', '[RedditEnhancer] An error occurred when redirecting to the preferred feed sort option.');
 			console.error('[RedditEnhancer] Error occurred when redirecting to the preferred feed sort option: ' + error);
 		}
 	} else if (/^\/r\/[^\/]+\/(best|hot|new|top|rising)?\/?$|\/m\//.test(url.pathname)) {
@@ -116,7 +116,7 @@ export async function defaultSortOption() {
 				window.location.replace(url.href);
 			}
 		} catch (error) {
-			showBannerMessage('error', '[RedditEnhancer] An error occurred when redirecting to the preferred feed sort option.');
+			//showBannerMessage('error', '[RedditEnhancer] An error occurred when redirecting to the preferred feed sort option.');
 			console.error('[RedditEnhancer] Error occurred when redirecting to the preferred feed sort option: ' + error);
 		}
 	}

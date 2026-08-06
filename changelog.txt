@@ -9,10 +9,10 @@ v [Latest UI V3 & Old UI V1]
     - Added a User Tagging Manager to view all tagged users, manually add new tags, or edit/delete existing tags and notes.
   - Added an option to hide comments by certain users.
   - Added "block" buttons next to usernames to quickly block/unblock users. (Shows when "Hide Posts by User" and "Hide Comments by User" are enabled). 
+  - Added a button to upload an image file for the header logo.
 v [Latest UI V3]
   - Added an option to hide the "Repost" button on posts.
   - Added an option to change the post downvote colour.
-  - Added a button to upload an image file for the header logo.
   - Fixed the custom post upvote colour not working due to a website update.
   - Fixed "Hide Announcement Notifications" not working due to a website update.
   - Fixed "Hide Community Status" not working due to a website update.

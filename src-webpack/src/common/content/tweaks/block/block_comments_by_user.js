@@ -75,7 +75,9 @@ export function hideBlockedUserComments(value) {
 				scrollCleanup();
 				scrollCleanup = null;
 			}
-			removeModalButtonStyles();
+			BROWSER_API.storage.sync.get(['hideBlockedUserPosts'], function (result) {
+				if (!result.hideBlockedUserPosts) removeModalButtonStyles();
+			});
 			disableHideBlockedUserCommentsAll();
 		}
 	}
@@ -313,10 +315,10 @@ function disableHideBlockedUserCommentsAll() {
 	document.querySelectorAll('.re-hide-comment').forEach((comment) => {
 		comment.classList.remove('re-hide-comment');
 	});
-	document.querySelectorAll('.re-block-user-btn').forEach((btn) => {
+	document.querySelectorAll('shreddit-comment-tree .re-block-user-btn').forEach((btn) => {
 		btn.remove();
 	});
-	document.querySelectorAll('[data-re-block-btn-added]').forEach((el) => {
+	document.querySelectorAll('shreddit-comment-tree [data-re-block-btn-added]').forEach((el) => {
 		delete el.dataset.reBlockBtnAdded;
 	});
 }
