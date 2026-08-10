@@ -258,6 +258,7 @@ Feel free to add any new languages and/or region differences.
 |Language|Completion|
 |---|---|
 |[English](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/en/messages.json)|100%|
+|[Simplified Chinese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/zh_CN/messages.json)|100%|
 |[Czech](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/cs/messages.json)|100%|
 |[Dutch](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/nl/messages.json)|100%|
 |[Finnish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/fi/messages.json)|100%|

@@ -1,0 +1,1328 @@
+{
+	"extensionName": {
+		"message": "Reddit Enhancer"
+	},
+	"extensionDescription": {
+		"message": "用于自定义 Reddit 使用体验的多种增强功能，支持 Reddit 的所有版本。"
+	},
+	"About": {
+		"message": "关于"
+	},
+	"Accessibility": {
+		"message": "无障碍"
+	},
+	"AddDownloadVideoButton": {
+		"message": "在视频帖子中添加“下载视频”按钮"
+	},
+	"AddDownloadVideoButtonInfo": {
+		"message": "可能不适用于所有视频。"
+	},
+	"AddDownloadVideoButtonPermission": {
+		"message": "需要浏览器的“下载内容”权限。请在扩展设置中重新启用“在视频帖子中添加‘下载视频’按钮”，并接受弹出的权限请求。"
+	},
+	"AddMarkPostAsReadButton": {
+		"message": "在紧凑视图中为每个帖子添加一个按钮，将其标记为已读"
+	},
+	"AddNsfwTag": {
+		"message": "添加 NSFW 标签"
+	},
+	"AddPresetTag": {
+		"message": "添加预设标签"
+	},
+	"AddSpoilerTag": {
+		"message": "添加剧透标签"
+	},
+	"AddToPresets": {
+		"message": "添加到预设"
+	},
+	"AddUserTag": {
+		"message": "添加用户标签"
+	},
+	"AlwaysShowCommentOptions": {
+		"message": "始终显示评论选项"
+	},
+	"AlwaysShowCommentOptionsInfo": {
+		"message": "将按钮从评论溢出菜单移至评论操作栏。"
+	},
+	"AlwaysShowPostOptions": {
+		"message": "始终显示帖子选项"
+	},
+	"AlwaysShowPostOptionsInfo": {
+		"message": "将按钮从帖子溢出菜单移至帖子操作栏。"
+	},
+	"AppendNumbersToPostImages": {
+		"message": "为帖子图片编号"
+	},
+	"AreYouSure": {
+		"message": "你确定吗？"
+	},
+	"AttachSideMenuHeader": {
+		"message": "在标题栏中显示页面和用户信息"
+	},
+	"AttachSideMenuHeaderInfo": {
+		"message": "实验性功能，可能与隐藏侧边菜单的功能冲突。"
+	},
+	"Auto": {
+		"message": "自动"
+	},
+	"AutoCollapseAutoModeratorComment": {
+		"message": "自动折叠自动版主评论"
+	},
+	"AutoExpand": {
+		"message": "如果窗口/屏幕宽度小于以下值，则扩展至 100%："
+	},
+	"AutoLoadMoreComments": {
+		"message": "自动展开并加载更多评论"
+	},
+	"AutoLoadMoreCommentsInfo": {
+		"message": "这可能会导致页面速度变慢并使用大量 RAM，尤其是在有大量评论的情况下。"
+	},
+	"AutoplayCommentGifs": {
+		"message": "评论中自动播放 GIF"
+	},
+	"AutoplayGifs": {
+		"message": "自动播放 GIF"
+	},
+	"AutoplayMediaInfo": {
+		"message": "为了使这些选项正常工作，请在 Reddit 用户设置 > 首选项中禁用“自动播放媒体”。"
+	},
+	"AutoplayVideos": {
+		"message": "自动播放视频"
+	},
+	"Award": {
+		"message": "奖励"
+	},
+	"Background": {
+		"message": "背景"
+	},
+	"BackgroundUploadInfo": {
+		"message": "图像文件只能从选项页面上传。"
+	},
+	"BackgroundUploadInfo2": {
+		"message": "分辨率越低，占用的存储空间越少，可在容量限制内保存更多图片。上传的图片仅存储在本地。"
+	},
+	"BackgroundUploadResolution": {
+		"message": "背景图片上传分辨率"
+	},
+	"Backup": {
+		"message": "备份"
+	},
+	"BackupFailed": {
+		"message": "发生错误。请打开开发者控制台（F12）查看详情。"
+	},
+	"BackupRestoreConfig": {
+		"message": "备份/恢复配置"
+	},
+	"BackupRestored": {
+		"message": "备份已恢复！"
+	},
+	"Best": {
+		"message": "最佳"
+	},
+	"BetterCommentBox": {
+		"message": "更好的评论框"
+	},
+	"BetterCommentBoxInfo": {
+		"message": "评论时自动显示格式选项，添加 Ctrl/Cmd + Enter 快捷方式提交评论，并在将 Markdown 编辑器设置为默认时隐藏用于切换到富文本编辑器的工具栏。"
+	},
+	"BionicBackgroundColour": {
+		"message": "仿生背景颜色"
+	},
+	"BionicFontColour": {
+		"message": "仿生字体颜色"
+	},
+	"BionicReader": {
+		"message": "仿生阅读器"
+	},
+	"BionicReaderComments": {
+		"message": "对评论使用仿生阅读"
+	},
+	"BionicReaderPosts": {
+		"message": "对帖子使用仿生阅读"
+	},
+	"Blacklist": {
+		"message": "黑名单"
+	},
+	"Block": {
+		"message": "屏蔽"
+	},
+	"BlockInfo": {
+		"message": "支持精确匹配关键词或使用正则表达式。"
+	},
+	"Blur": {
+		"message": "模糊"
+	},
+	"BorderRadiusAmount": {
+		"message": "主题圆角半径"
+	},
+	"BreakReminder": {
+		"message": "休息提醒"
+	},
+	"BreakReminderFrequency": {
+		"message": "提醒频率"
+	},
+	"BreakReminderInfo": {
+		"message": "测试版。每浏览指定数量的帖子后显示休息提醒。"
+	},
+	"BrowserTheme": {
+		"message": "浏览器主题"
+	},
+	"BuyMeACoffee": {
+		"message": "请我喝杯咖啡"
+	},
+	"Cancel": {
+		"message": "取消"
+	},
+	"CannedMessages": {
+		"message": "预设消息"
+	},
+	"CannedMessagesInfo": {
+		"message": "每行输入一条预设消息。在 Reddit 页面任意位置点击右键，即可从右键菜单中选择预设消息并复制到剪贴板。"
+	},
+	"Centre": {
+		"message": "居中"
+	},
+	"Changelog": {
+		"message": "变更日志"
+	},
+	"ChooseBackupFile": {
+		"message": "选择备份文件"
+	},
+	"ClassicLight": {
+		"message": "经典浅色"
+	},
+	"ClassicOldUI": {
+		"message": "经典旧版界面"
+	},
+	"CleanLink": {
+		"message": "添加不含追踪参数的帖子/评论分享选项（纯净链接）"
+	},
+	"Clear": {
+		"message": "清除"
+	},
+	"Cleared": {
+		"message": "已清除"
+	},
+	"ClickToEdit": {
+		"message": "点击编辑"
+	},
+	"Close": {
+		"message": "关闭"
+	},
+	"CloseTab": {
+		"message": "您现在可以关闭此选项卡/窗口。"
+	},
+	"Colour": {
+		"message": "颜色"
+	},
+	"Comments": {
+		"message": "评论"
+	},
+	"CommentsBlockInfo": {
+		"message": "列出各个关键字/正则表达式，以逗号分隔。"
+	},
+	"CommentsCount": {
+		"message": "评论数"
+	},
+	"CommentsHidden": {
+		"message": "评论已隐藏"
+	},
+	"CompactHeaderSideMenu": {
+		"message": "精简标题栏和侧边菜单"
+	},
+	"CompactPostLinkPreview": {
+		"message": "精简帖子链接预览"
+	},
+	"Complete": {
+		"message": "完成"
+	},
+	"Confirm": {
+		"message": "确认"
+	},
+	"ConfirmDeleteAll": {
+		"message": "您确定要删除所有用户标签吗？除非您有备份，否则此操作无法撤消。"
+	},
+	"Controversial": {
+		"message": "有争议的"
+	},
+	"CopiedCleanLink": {
+		"message": "已复制纯净链接！"
+	},
+	"CopiedCleanLinkShort": {
+		"message": "已复制纯净短链接！"
+	},
+	"CopiedMessage": {
+		"message": "已复制消息！"
+	},
+	"CopyCleanLink": {
+		"message": "复制纯净链接"
+	},
+	"CopyCleanLinkShort": {
+		"message": "复制纯净短链接"
+	},
+	"CreatePost": {
+		"message": "创建帖子"
+	},
+	"CreatePostBody": {
+		"message": "创建帖子：正文"
+	},
+	"CreatePostTitle": {
+		"message": "创建帖子：标题"
+	},
+	"CreateTag": {
+		"message": "创建标签"
+	},
+	"Created": {
+		"message": "已创建"
+	},
+	"CustomBgInputPlaceholder": {
+		"message": "自定义背景 URL"
+	},
+	"CustomCSS": {
+		"message": "自定义 CSS"
+	},
+	"CustomFeedWidth": {
+		"message": "自定义信息流宽度"
+	},
+	"CustomHeaderLogo": {
+		"message": "自定义标题栏徽标"
+	},
+	"Dark": {
+		"message": "深色"
+	},
+	"DarkMode": {
+		"message": "深色模式"
+	},
+	"DefaultCommentsSortOption": {
+		"message": "默认评论排序选项"
+	},
+	"DefaultFeedSortOption": {
+		"message": "默认信息流排序方式"
+	},
+	"DefaultHomeFeedSortOption": {
+		"message": "默认主页信息流排序方式"
+	},
+	"Delete": {
+		"message": "删除"
+	},
+	"DeleteAllTags": {
+		"message": "全部删除"
+	},
+	"Details": {
+		"message": "详情"
+	},
+	"Disabled": {
+		"message": "已禁用"
+	},
+	"DontShowAgain": {
+		"message": "不再显示"
+	},
+	"DownvoteColour": {
+		"message": "帖子：点踩颜色"
+	},
+	"Drag": {
+		"message": "拖动"
+	},
+	"DropShadow": {
+		"message": "投影"
+	},
+	"Edit": {
+		"message": "编辑"
+	},
+	"EditLink": {
+		"message": "编辑链接"
+	},
+	"EditPost": {
+		"message": "编辑帖子"
+	},
+	"EditTag": {
+		"message": "编辑标签"
+	},
+	"EnableUserTagging": {
+		"message": "启用用户标记"
+	},
+	"EndTime": {
+		"message": "结束时间 (24)"
+	},
+	"Error": {
+		"message": "错误"
+	},
+	"ExportTags": {
+		"message": "导出标签"
+	},
+	"ExtensionSettings": {
+		"message": "扩展设置"
+	},
+	"Feed": {
+		"message": "信息流"
+	},
+	"FeedKeyboardNavigation": {
+		"message": "信息流键盘导航"
+	},
+	"FeedKeyboardNavigationInfo1": {
+		"message": "下一篇帖子：（J / 向下箭头）；上一篇帖子：（K / 向上箭头）；展开或收起紧凑帖子：（空格键）。"
+	},
+	"FeedKeyboardNavigationInfo2": {
+		"message": "如果启用了 Reddit 的“快捷键”功能，J/K 键会与之冲突，此时请使用方向键。Reddit Enhancer 会平滑滚动并跳过所有已隐藏的帖子。"
+	},
+	"FeedOffset": {
+		"message": "信息流偏移"
+	},
+	"FeedPostContent": {
+		"message": "信息流帖子：内容"
+	},
+	"FeedPostTitle": {
+		"message": "信息流帖子：标题"
+	},
+	"FeedWidth": {
+		"message": "信息流宽度"
+	},
+	"FilterCommunities": {
+		"message": "过滤社区..."
+	},
+	"FilterOptionsFor": {
+		"message": "筛选以下选项"
+	},
+	"FollowComment": {
+		"message": "关注评论"
+	},
+	"FollowPost": {
+		"message": "关注帖子"
+	},
+	"Font": {
+		"message": "字体"
+	},
+	"FontWeight": {
+		"message": "字体粗细"
+	},
+	"FontWeightInfo": {
+		"message": "并非所有字体都支持所有粗细。"
+	},
+	"ForceCustomBgOldUI": {
+		"message": "在旧 UI 上强制自定义背景"
+	},
+	"ForceCustomBgOldUIInfo": {
+		"message": "仅当启用“美化旧版 Reddit”后，自定义背景才会在旧版界面生效。开启此项可强制使用自定义背景（不推荐）。"
+	},
+	"ForceDarkMode": {
+		"message": "强制 Reddit 深色模式"
+	},
+	"ForceShowVoteButtons": {
+		"message": "强制显示投票按钮"
+	},
+	"FullWidthBanner": {
+		"message": "全宽子版块横幅"
+	},
+	"FullWidthExpandos": {
+		"message": "在紧凑视图中展开帖子预览"
+	},
+	"GalleryKeyboardNavigation": {
+		"message": "图库键盘导航"
+	},
+	"GalleryKeyboardNavigationInfo": {
+		"message": "使用向左和向右箭头键导航帖子图像库。"
+	},
+	"GlobalWidth": {
+		"message": "全局最大宽度"
+	},
+	"Grey": {
+		"message": "灰色"
+	},
+	"Header": {
+		"message": "标题栏"
+	},
+	"HeaderBgColour": {
+		"message": "标题栏：背景颜色"
+	},
+	"HeaderTextColour": {
+		"message": "标题栏：文本颜色"
+	},
+	"Here": {
+		"message": "这里"
+	},
+	"Hide": {
+		"message": "隐藏"
+	},
+	"HideAdvertiseButton": {
+		"message": "隐藏“广告”按钮"
+	},
+	"HideAnnouncementNotifications": {
+		"message": "隐藏 Reddit 公告通知 (u/reddit)"
+	},
+	"HideAwards": {
+		"message": "隐藏评论中的“奖励”按钮"
+	},
+	"HideBlurredMediaBackground": {
+		"message": "隐藏图像预览后面的背景模糊"
+	},
+	"HideChatButton": {
+		"message": "隐藏“聊天”按钮"
+	},
+	"HideCommentActionBarButtonsInfo": {
+		"message": "隐藏评论操作栏中的按钮"
+	},
+	"HideCommentKarma": {
+		"message": "隐藏评论 Karma"
+	},
+	"HideCommentsByUser": {
+		"message": "隐藏用户评论"
+	},
+	"HideCommentsContainingKeyword": {
+		"message": "隐藏包含关键字的评论"
+	},
+	"HideCommunityHighlights": {
+		"message": "隐藏“社区亮点”"
+	},
+	"HideCommunityStatus": {
+		"message": "隐藏社区状态"
+	},
+	"HideCompactViewBlankThumbnails": {
+		"message": "在紧凑视图中隐藏空白缩略图"
+	},
+	"HideCompactViewThumbnails": {
+		"message": "在紧凑视图中隐藏缩略图"
+	},
+	"HideCreatePostButton": {
+		"message": "隐藏“创建帖子”按钮"
+	},
+	"HideCustomFeedSidebar": {
+		"message": "隐藏自定义提要侧边栏"
+	},
+	"HideElements": {
+		"message": "隐藏"
+	},
+	"HideFavouriteButtons": {
+		"message": "隐藏收藏按钮"
+	},
+	"HideGamificationNotifications": {
+		"message": "隐藏 Reddit 游戏化通知"
+	},
+	"HideGap": {
+		"message": "隐藏界面间隙"
+	},
+	"HideGetAppButton": {
+		"message": "隐藏“获取应用程序”按钮"
+	},
+	"HideGetNewReddit": {
+		"message": "隐藏“获取新 Reddit”"
+	},
+	"HideHeaderBar": {
+		"message": "隐藏标题栏"
+	},
+	"HideHeaderSubBar": {
+		"message": "隐藏标题栏中的子版块列表"
+	},
+	"HideHomeFeed": {
+		"message": "隐藏主页源"
+	},
+	"HideHomeSidebar": {
+		"message": "隐藏主页侧边栏"
+	},
+	"HideJoinButtonOnPosts": {
+		"message": "隐藏帖子上的“加入”按钮"
+	},
+	"HideJoinConversation": {
+		"message": "隐藏“加入对话”"
+	},
+	"HideJoinConversationPageBottom": {
+		"message": "隐藏页面底部的“加入对话”"
+	},
+	"HideKarma": {
+		"message": "隐藏 Karma"
+	},
+	"HideLinkPostsByUrlKeyword": {
+		"message": "通过 URL 中的关键字隐藏“链接”帖子"
+	},
+	"HideLogoInTheSearchBar": {
+		"message": "隐藏搜索栏中的 Reddit 徽标"
+	},
+	"HideModerationButton": {
+		"message": "隐藏“审核”按钮"
+	},
+	"HideNSFW": {
+		"message": "隐藏 NSFW/L 帖子"
+	},
+	"HideNotificationButton": {
+		"message": "隐藏“通知”按钮"
+	},
+	"HideNsfwInSearchResults": {
+		"message": "在搜索栏中隐藏 NSFW 结果"
+	},
+	"HidePageFooter": {
+		"message": "隐藏页脚文本"
+	},
+	"HidePostActionBarButtonsInfo": {
+		"message": "隐藏帖子操作栏中的按钮"
+	},
+	"HidePostBackButton": {
+		"message": "隐藏帖子返回按钮"
+	},
+	"HidePostComments": {
+		"message": "隐藏帖子下的所有评论"
+	},
+	"HidePostDivider": {
+		"message": "隐藏帖子和侧边栏分隔线"
+	},
+	"HidePostHiddenMessage": {
+		"message": "隐藏“帖子隐藏”消息"
+	},
+	"HidePostKarma": {
+		"message": "隐藏帖子 Karma"
+	},
+	"HidePostSidebar": {
+		"message": "隐藏帖子侧边栏"
+	},
+	"HidePostsBySubreddit": {
+		"message": "按子版块隐藏帖子"
+	},
+	"HidePostsByUser": {
+		"message": "按用户隐藏帖子"
+	},
+	"HidePostsContainingKeyword": {
+		"message": "隐藏包含关键字的帖子"
+	},
+	"HidePromoted": {
+		"message": "隐藏广告/推广链接"
+	},
+	"HideRecentPosts": {
+		"message": "隐藏最近的帖子"
+	},
+	"HideRecommended": {
+		"message": "隐藏推荐/建议"
+	},
+	"HideRecommendedInfo": {
+		"message": "也可以在 Reddit 用户设置中关闭推荐帖子。"
+	},
+	"HideRedditPremium": {
+		"message": "隐藏“Reddit Premium”"
+	},
+	"HideRelatedCommunities": {
+		"message": "隐藏相关社区"
+	},
+	"HideRelatedPosts": {
+		"message": "隐藏相关帖子"
+	},
+	"HideRepostButton": {
+		"message": "隐藏“重新发布”按钮"
+	},
+	"HideSearchSidebar": {
+		"message": "隐藏搜索侧边栏"
+	},
+	"HideSearchSidebarNsfwUsers": {
+		"message": "在搜索边栏中隐藏 NSFW 用户"
+	},
+	"HideSideMenu": {
+		"message": "隐藏侧边菜单"
+	},
+	"HideSideMenuCommunitiesSection": {
+		"message": "隐藏社区部分"
+	},
+	"HideSideMenuCustomFeedsSection": {
+		"message": "隐藏自定义信息流部分"
+	},
+	"HideSideMenuGamesSection": {
+		"message": "隐藏游戏部分"
+	},
+	"HideSideMenuModerationSection": {
+		"message": "隐藏审核部分"
+	},
+	"HideSideMenuRecentSection": {
+		"message": "隐藏最近访问的子版块部分"
+	},
+	"HideSideMenuResourcesSection": {
+		"message": "隐藏资源部分"
+	},
+	"HideSideMenuTopSection": {
+		"message": "隐藏顶部部分"
+	},
+	"HideSideMenuTopicsSection": {
+		"message": "隐藏主题部分"
+	},
+	"HideSubSidebar": {
+		"message": "隐藏子版块侧边栏"
+	},
+	"HideSubSidebarBlacklistInfo": {
+		"message": "在所有位置隐藏侧边栏，但以下子版块除外："
+	},
+	"HideSubSidebarWhitelistInfo": {
+		"message": "仅在以下子版块中隐藏侧边栏："
+	},
+	"HideTrendingTodayInSearchResults": {
+		"message": "在搜索栏中隐藏“今日趋势”"
+	},
+	"HideUserNameInTheFlairSection": {
+		"message": "在子版块侧边栏的 Flair 区域隐藏用户名"
+	},
+	"HideUserProfilePics": {
+		"message": "在评论中隐藏用户个人资料图片"
+	},
+	"HideUserSidebar": {
+		"message": "隐藏用户侧边栏"
+	},
+	"HideUsername": {
+		"message": "隐藏用户名"
+	},
+	"HideVideoRecommendations": {
+		"message": "视频结束时隐藏推荐帖子"
+	},
+	"HideVoteButtons": {
+		"message": "隐藏投票按钮"
+	},
+	"HighlightOp": {
+		"message": "突出显示原帖作者（OP）的评论"
+	},
+	"HomeFeed": {
+		"message": "主页信息流"
+	},
+	"HomeFeedOffset": {
+		"message": "主页信息流偏移"
+	},
+	"HomeFeedWidth": {
+		"message": "主页信息流宽度"
+	},
+	"Hot": {
+		"message": "热门"
+	},
+	"Icon": {
+		"message": "图标"
+	},
+	"Image": {
+		"message": "图像"
+	},
+	"ImageScroll": {
+		"message": "为图像添加滚动条"
+	},
+	"Images": {
+		"message": "图片"
+	},
+	"ImportInvalidFormat": {
+		"message": "文件格式无效。"
+	},
+	"ImportSuccess": {
+		"message": "已成功导入 {count} 个标签。"
+	},
+	"ImportTags": {
+		"message": "导入标签"
+	},
+	"JustOpenTheImage": {
+		"message": "直接打开图片"
+	},
+	"JustOpenTheImageInfo": {
+		"message": "在新选项卡中打开图像时，直接打开它们，而不将它们嵌入 Reddit 页面中。"
+	},
+	"Keywords": {
+		"message": "关键词"
+	},
+	"KeywordsBlockInfo": {
+		"message": "根据标题而不是内容阻止帖子。列出各个关键字/正则表达式，以逗号分隔。"
+	},
+	"Label": {
+		"message": "标签"
+	},
+	"LabelColour": {
+		"message": "标签颜色"
+	},
+	"Language": {
+		"message": "语言"
+	},
+	"LargerClassicPost": {
+		"message": "更大的经典帖子视图"
+	},
+	"Latest": {
+		"message": "最新"
+	},
+	"LeftSideVoteButtons": {
+		"message": "在左侧显示投票按钮"
+	},
+	"Light": {
+		"message": "浅色"
+	},
+	"LightMode": {
+		"message": "浅色模式"
+	},
+	"LimitCommentsInfo": {
+		"message": "仅适用于在新选项卡/窗口中打开的帖子。"
+	},
+	"LimitInfinityScroll": {
+		"message": "限制无限滚动"
+	},
+	"LimitInfinityScrollInfo": {
+		"message": "测试版。此功能不一定能减少带宽占用，但会阻止 Reddit 继续添加新帖子，直到你点击信息流底部的“加载更多”，从而避免页面逐渐变慢。点击“加载更多”后，前 25 个帖子会被清除，并显示接下来的 25 个帖子。"
+	},
+	"Link": {
+		"message": "链接"
+	},
+	"LocalStorage": {
+		"message": "本地存储"
+	},
+	"MainContainer": {
+		"message": "主容器"
+	},
+	"ManageTaggedUsers": {
+		"message": "管理标记的用户"
+	},
+	"MarkAsBrandAffiliate": {
+		"message": "标记为品牌附属公司"
+	},
+	"MarkReadOnOpenExpandos": {
+		"message": "在紧凑视图中展开帖子预览时将其标记为已读"
+	},
+	"MarkReadOnOpenExpandosHistoryPermission": {
+		"message": "需要浏览器的“历史记录”权限。请在扩展设置中重新启用“在紧凑视图中展开帖子预览时将其标记为已读”，并接受弹出的权限请求。"
+	},
+	"MaxImagePostHeight": {
+		"message": "帖子图片最大高度"
+	},
+	"MaxImageWidth": {
+		"message": "最大图像宽度"
+	},
+	"MaxVideoPostHeight": {
+		"message": "帖子视频最大高度"
+	},
+	"MaxVideoWidth": {
+		"message": "最大视频宽度"
+	},
+	"Media": {
+		"message": "媒体"
+	},
+	"ModerniseOldReddit": {
+		"message": "美化 old.reddit"
+	},
+	"ModerniseOldRedditInfo": {
+		"message": "让旧版 Reddit 的外观更接近新版 Reddit。"
+	},
+	"MulticolouredCommentThreadLines": {
+		"message": "多彩评论层级线"
+	},
+	"MulticolouredCommentThreadLinesInfo": {
+		"message": "可选。用逗号分隔自定义颜色；这些颜色会添加到默认颜色之前并依次使用。"
+	},
+	"New": {
+		"message": "新"
+	},
+	"NewUpdateAvailable": {
+		"message": "新版本 <version> 已发布。如果启用了自动更新，浏览器很快会自动更新此扩展；否则需要在浏览器的扩展程序管理页面手动检查更新。"
+	},
+	"NoPresetsYet": {
+		"message": "还没有预设"
+	},
+	"NoSavedBackgrounds": {
+		"message": "没有保存的背景"
+	},
+	"NoTaggedUsers": {
+		"message": "没有标记的用户"
+	},
+	"NonStickyHeaderBar": {
+		"message": "非固定标题栏"
+	},
+	"Note": {
+		"message": "备注"
+	},
+	"Off": {
+		"message": "关闭"
+	},
+	"Offset": {
+		"message": "偏移"
+	},
+	"Old": {
+		"message": "旧版"
+	},
+	"OldUI": {
+		"message": "旧用户界面"
+	},
+	"OldWww": {
+		"message": "旧版（仅限 www）"
+	},
+	"OnlyExpandNegativeKarmaComments": {
+		"message": "仅展开负 Karma 评论"
+	},
+	"OpenInManager": {
+		"message": "在管理器中打开"
+	},
+	"OpenPostInNewTab": {
+		"message": "在新标签中打开帖子"
+	},
+	"OpenPostInNewTabInfo": {
+		"message": "现在可以直接在 Reddit 中启用此功能。"
+	},
+	"OpenPostInNewTabInfoLink": {
+		"message": "用户设置 > 信息流设置 > 在新标签页中打开帖子"
+	},
+	"OpenSubInNewTab": {
+		"message": "在新选项卡中打开 Reddit 子版块的链接"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "不要将侧边菜单附加为下拉面板"
+	},
+	"OptionsPage": {
+		"message": "选项页"
+	},
+	"Or": {
+		"message": "或者"
+	},
+	"Other": {
+		"message": "其他"
+	},
+	"PositionHorizontally": {
+		"message": "水平放置"
+	},
+	"PositionVertically": {
+		"message": "垂直放置"
+	},
+	"Post": {
+		"message": "帖子"
+	},
+	"PostBgColour": {
+		"message": "帖子：背景颜色"
+	},
+	"PostBgColourInfo": {
+		"message": "也适用于各种其他 UI 元素。"
+	},
+	"PostBorderColour": {
+		"message": "帖子：边框颜色"
+	},
+	"PostCommentActionRowColour": {
+		"message": "评论操作行颜色"
+	},
+	"PostComments": {
+		"message": "帖子：评论"
+	},
+	"PostCommentsColour": {
+		"message": "评论文字颜色"
+	},
+	"PostCommentsLimit": {
+		"message": "限制帖子评论"
+	},
+	"PostCommentsSecondaryColour": {
+		"message": "评论辅助文本颜色"
+	},
+	"PostContent": {
+		"message": "帖子：内容"
+	},
+	"PostContentAndCommentsLinkColour": {
+		"message": "帖子：内容和评论链接颜色"
+	},
+	"PostFollowedTextColour": {
+		"message": "关注的帖子：文字颜色"
+	},
+	"PostOffset": {
+		"message": "帖子偏移"
+	},
+	"PostSecondaryTextColour": {
+		"message": "帖子：辅助文本颜色"
+	},
+	"PostSeparatorHeight": {
+		"message": "帖子间距"
+	},
+	"PostTableBorderColour": {
+		"message": "为帖子中的表格添加边框"
+	},
+	"PostTitle": {
+		"message": "帖子：标题"
+	},
+	"PostTitleContentColour": {
+		"message": "帖子：标题和文字内容颜色"
+	},
+	"PostVisitedTextColour": {
+		"message": "访问过的帖子：文字颜色"
+	},
+	"PostWidth": {
+		"message": "帖子宽度"
+	},
+	"Posts": {
+		"message": "帖子"
+	},
+	"PresetTags": {
+		"message": "预设标签"
+	},
+	"Preview": {
+		"message": "预览"
+	},
+	"Productivity": {
+		"message": "效率"
+	},
+	"Qa": {
+		"message": "问答"
+	},
+	"RV1RedirectInfo": {
+		"message": "“旧（仅限 www）”重定向选项只会将 www.reddit.com URL 重定向到 old.reddit.com。其他前缀（例如 sh.reddit.com）将不受影响。"
+	},
+	"RV3RedirectInfo": {
+		"message": "“最新”重定向选项将强制 (sh|old|new).reddit.com URL 指向 www.reddit.com，这将使用最新的 UI。"
+	},
+	"Rate": {
+		"message": "评分/评论"
+	},
+	"Redirect": {
+		"message": "重定向"
+	},
+	"Relevance": {
+		"message": "相关度"
+	},
+	"ReloadPage": {
+		"message": "重新加载页面"
+	},
+	"RememberSectionHiddenState": {
+		"message": "记住侧边菜单中各部分的隐藏状态"
+	},
+	"RemoveCommentButtonIcons": {
+		"message": "删除大多数评论按钮的图标"
+	},
+	"ReplacePostImagesWithLinks": {
+		"message": "在信息流中用链接替换图片"
+	},
+	"ReplacePostVideosWithLinks": {
+		"message": "在信息流中用链接替换视频"
+	},
+	"ReplacePostVideosWithLinksInfo": {
+		"message": "可能不适用于所有视频。"
+	},
+	"ReplaceSearchPlaceholder": {
+		"message": "替换搜索栏占位符"
+	},
+	"ReplaceSearchPlaceholderInfo": {
+		"message": "将“查找任何内容”替换为“搜索 Reddit”。"
+	},
+	"ReplyNotifications": {
+		"message": "回复通知"
+	},
+	"Report": {
+		"message": "报告"
+	},
+	"ReportIssues": {
+		"message": "报告问题"
+	},
+	"ResetAllSettings": {
+		"message": "重置所有设置"
+	},
+	"ResizeFont": {
+		"message": "调整字体大小"
+	},
+	"ResizeLayout": {
+		"message": "调整提要/帖子的大小"
+	},
+	"Restore": {
+		"message": "恢复"
+	},
+	"RestoreBackup": {
+		"message": "恢复备份"
+	},
+	"RestoreConfigTitle": {
+		"message": "恢复 Reddit Enhancer 备份配置"
+	},
+	"RightSidePostThumbnails": {
+		"message": "在右侧显示帖子缩略图"
+	},
+	"Rising": {
+		"message": "热度上升"
+	},
+	"Save": {
+		"message": "保存"
+	},
+	"ScalePostToFitImage": {
+		"message": "缩放帖子以适合图像"
+	},
+	"ScalePostToFitVideo": {
+		"message": "缩放帖子以适合视频"
+	},
+	"ScrollToNextRootComment": {
+		"message": "显示下一个/上一个根评论的导航按钮"
+	},
+	"ScrollToNextRootCommentInfo": {
+		"message": "可选键盘导航。下一个根评论：（J/向下箭头）。上一个根评论：（K / 向上箭头）。"
+	},
+	"ScrollToTopFloat": {
+		"message": "添加浮动“滚动到顶部”按钮"
+	},
+	"ScrollToTopHeader": {
+		"message": "在标题中添加“滚动到顶部”按钮"
+	},
+	"ScrollToTopInfo": {
+		"message": "滚动到页面顶部"
+	},
+	"Search": {
+		"message": "搜索"
+	},
+	"SearchPageOffset": {
+		"message": "搜索页面偏移量"
+	},
+	"SearchTag": {
+		"message": "搜索标签..."
+	},
+	"SearchUsername": {
+		"message": "搜索用户名..."
+	},
+	"SearchbarBgColour": {
+		"message": "搜索栏：背景颜色"
+	},
+	"SearchbarDropdownBgColour": {
+		"message": "搜索栏：聚焦/下拉背景颜色"
+	},
+	"Select": {
+		"message": "选择"
+	},
+	"SelectRedditVersion": {
+		"message": "选择 Reddit 版本"
+	},
+	"SelectRedirect": {
+		"message": "重定向"
+	},
+	"SetLanguageAndTheme": {
+		"message": "整页设置/设置语言和主题"
+	},
+	"SetSansSerifAsFont": {
+		"message": "将“sans-serif”设置为 UI 字体"
+	},
+	"Settings": {
+		"message": "设置"
+	},
+	"Share": {
+		"message": "分享"
+	},
+	"ShortenCleanLink": {
+		"message": "缩短干净链接"
+	},
+	"ShowCommentAbsoluteTimestamp": {
+		"message": "在评论上显示绝对时间戳"
+	},
+	"ShowComments": {
+		"message": "显示评论"
+	},
+	"ShowCommunitiesFilter": {
+		"message": "过滤社区列表"
+	},
+	"ShowMemberCount": {
+		"message": "显示旧版 Reddit 子版块成员数量"
+	},
+	"ShowPostAbsoluteTimestamp": {
+		"message": "在帖子上显示绝对时间戳"
+	},
+	"ShowPostAuthor": {
+		"message": "显示帖子作者"
+	},
+	"ShowPostFlair": {
+		"message": "显示帖子 Flair"
+	},
+	"ShowPostNumbers": {
+		"message": "为帖子编号"
+	},
+	"ShowProfilePicturesOnComments": {
+		"message": "在评论中显示个人资料图片"
+	},
+	"ShowUpvoteRatio": {
+		"message": "在帖子视图中显示点赞百分比"
+	},
+	"SideMenu": {
+		"message": "侧边菜单（左侧栏）"
+	},
+	"SideMenuBackgroundColour": {
+		"message": "侧边菜单：背景颜色"
+	},
+	"SideMenuButtonHoverColour": {
+		"message": "侧边菜单：按钮悬停颜色"
+	},
+	"SideMenuIconsOnly": {
+		"message": "侧边菜单仅显示图标"
+	},
+	"SideMenuTextColour": {
+		"message": "侧边菜单：文本颜色"
+	},
+	"SideMenuToggleButton": {
+		"message": "显示侧边菜单开关按钮"
+	},
+	"SideMenuWidth": {
+		"message": "侧边菜单宽度"
+	},
+	"Sidebar": {
+		"message": "侧边栏（右栏）"
+	},
+	"SidebarBackgroundColour": {
+		"message": "侧边栏：背景颜色"
+	},
+	"SidebarTextColour": {
+		"message": "侧边栏：文本颜色"
+	},
+	"SidebarToggleButton": {
+		"message": "侧边栏切换按钮"
+	},
+	"SnapSidebar": {
+		"message": "将侧边栏对齐到右边缘"
+	},
+	"SolidColour": {
+		"message": "纯色"
+	},
+	"Sort": {
+		"message": "排序"
+	},
+	"SortBar": {
+		"message": "排序栏"
+	},
+	"StartTime": {
+		"message": "开始时间 (24)"
+	},
+	"StickySort": {
+		"message": "固定排序栏"
+	},
+	"StorageUsage": {
+		"message": "存储使用情况"
+	},
+	"StyleOptions": {
+		"message": "样式选项"
+	},
+	"StyleTweaks": {
+		"message": "样式"
+	},
+	"SubFeedOffset": {
+		"message": "子版块信息流偏移"
+	},
+	"SubFeedWidth": {
+		"message": "子版块信息流宽度"
+	},
+	"SubHeaderBgColour": {
+		"message": "子版块标题栏背景颜色"
+	},
+	"Subreddit": {
+		"message": "子版块"
+	},
+	"SubredditBlockInfo": {
+		"message": "隐藏信息流中来自所列子版块的所有帖子，但浏览这些子版块自身的信息流时除外。"
+	},
+	"SubredditDisplayNameBanner": {
+		"message": "在横幅中显示子版块名称"
+	},
+	"SyncStorage": {
+		"message": "同步存储"
+	},
+	"Tag": {
+		"message": "标签"
+	},
+	"TagColour": {
+		"message": "标签颜色"
+	},
+	"Text": {
+		"message": "文本"
+	},
+	"TextPostPreviewFade": {
+		"message": "为文本帖子预览添加淡入淡出效果（实验性）"
+	},
+	"TextPostPreviewFadeHeight": {
+		"message": "渐变高度"
+	},
+	"TextPostPreviewMaxHeight": {
+		"message": "文本预览高度"
+	},
+	"Theme": {
+		"message": "主题"
+	},
+	"ThemeBlacklistInfo": {
+		"message": "在所有位置使用主题颜色，但以下子版块除外："
+	},
+	"ThemeBlur": {
+		"message": "主题模糊"
+	},
+	"ThemeBlurInfo": {
+		"message": "使用半透明颜色“rgba(0,0,0,0.5)”来查看模糊效果。"
+	},
+	"ThemeColours": {
+		"message": "主题颜色"
+	},
+	"ThemeDoesNotWorkWithCustomThemes": {
+		"message": "目前不支持自定义社区主题。请在 Reddit 偏好设置中禁用以下选项："
+	},
+	"ThemeWhitelistInfo": {
+		"message": "仅在以下子版块中使用主题颜色："
+	},
+	"TimeRange": {
+		"message": "时间范围"
+	},
+	"Top": {
+		"message": "最高"
+	},
+	"TopicFeedWidth": {
+		"message": "主题信息流宽度"
+	},
+	"TranslationHelp": {
+		"message": "协助翻译"
+	},
+	"UnderlineLinks": {
+		"message": "下划线链接"
+	},
+	"UpdateFirefox": {
+		"message": "请更新至 Firefox 121 或更高版本，某些功能才能正常工作。"
+	},
+	"Updated": {
+		"message": "已更新"
+	},
+	"Upload": {
+		"message": "上传"
+	},
+	"UploadedImage": {
+		"message": "上传的图片"
+	},
+	"UpvoteColour": {
+		"message": "帖子：点赞颜色"
+	},
+	"UseOriginalSearchBar": {
+		"message": "使用原始搜索栏"
+	},
+	"UserAlreadyAdded": {
+		"message": "用户已添加"
+	},
+	"UserProfileOffset": {
+		"message": "用户主页偏移"
+	},
+	"UserProfileWidth": {
+		"message": "用户主页宽度"
+	},
+	"UserTagging": {
+		"message": "用户标签"
+	},
+	"UserTaggingManagerInfo1": {
+		"message": "可以导入由 RES 导出的 .resbackup 用户标签数据。"
+	},
+	"UserTaggingManagerInfo2": {
+		"message": "所有数据都保存在您的本地浏览器中。导出标签以避免任何潜在的数据丢失。"
+	},
+	"UserTaggingManagerTitle": {
+		"message": "用户标签管理器"
+	},
+	"Username": {
+		"message": "用户名"
+	},
+	"UsernameHoverPopupDelay": {
+		"message": "用户名悬停弹出延迟"
+	},
+	"Users": {
+		"message": "用户"
+	},
+	"Video": {
+		"message": "视频"
+	},
+	"ViewCrossposts": {
+		"message": "添加链接以查看其他 Reddit 子版块中的交叉帖子"
+	},
+	"Welcome": {
+		"message": "欢迎！"
+	},
+	"Whitelist": {
+		"message": "白名单"
+	},
+	"WhitelistBlacklist": {
+		"message": "白名单/黑名单"
+	},
+	"Width": {
+		"message": "宽度"
+	},
+	"extensionVersionText": {
+		"message": "扩展版本"
+	},
+	"learnMore": {
+		"message": "了解更多"
+	},
+	"resizeHomeAlsoAffects": {
+		"message": "同时影响 r/all、r/popular、创建帖子、搜索结果和 Wiki 页面"
+	},
+	"seconds": {
+		"message": "秒"
+	}
+}
