@@ -7,8 +7,6 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
-import { showBannerMessage } from '../../banner_message';
-
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
 export function loadShowUpvoteRatio() {
@@ -37,24 +35,42 @@ async function attachRatio(post) {
 	const postID = post.getAttribute('id');
 	let postData;
 
-	try {
-		postData = (
-			await BROWSER_API.runtime.sendMessage({
-				actions: [
-					{
-						action: 'fetchData',
-						url: `https://www.reddit.com/api/info.json?id=${postID}`,
-					},
-				],
-			})
-		).data;
-	} catch (e) {
-		console.error(`[RedditEnhancer] showUpvoteRatio: Error fetching post data for ID ${postID}`, error);
-		showBannerMessage('error', error.error || error);
-		return;
+	console.log(`[RedditEnhancer] showUpvoteRatio: Fetch post data for ID ${postID}.`);
+
+	let response = await BROWSER_API.runtime.sendMessage({
+		actions: [
+			{
+				action: 'fetchData',
+				url: `https://www.reddit.com/api/info.json?id=${postID}`,
+			},
+		],
+	});
+
+	if (response.error || !response) {
+		console.warn(`[RedditEnhancer] showUpvoteRatio: Reddit API fetch failed for post ID ${postID}. Trying secondary URL.`);
+		let fallbackUrl = document.URL.replace(/\/$/, '') + '.json';
+		response = await BROWSER_API.runtime.sendMessage({
+			actions: [
+				{
+					action: 'fetchData',
+					url: fallbackUrl,
+				},
+			],
+		});
+
+		if (response.error || !response) {
+			console.error(`[RedditEnhancer] showUpvoteRatio: Error fetching post data for post ID ${postID}.`, response.error);
+			return;
+		}
+
+		console.log(`[RedditEnhancer] showUpvoteRatio: Fetch succeeded for post ID ${postID}.`);
+		postData = response?.[0]?.data;
+	} else {
+		postData = response.data;
 	}
-	if (!postData || !postData.children || !postData.children[0]) {
-		console.warn(`[RedditEnhancer] showUpvoteRatio: No data found for post ID ${postID}`);
+
+	if (!postData) {
+		console.warn(`[RedditEnhancer] showUpvoteRatio: No data found for post ID ${postID}.`);
 		return;
 	}
 	const upvoteRatio = Math.round(postData.children[0].data.upvote_ratio * 100 || -1);

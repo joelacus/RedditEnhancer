@@ -26,11 +26,18 @@ document.querySelector('#checkbox-show-to-top-button-float').addEventListener('c
 	document.querySelector('.icon-scroll-to-top-button-float').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });
 
-// Toggle - Scroll To Next/Previous Post
+// Toggle - Feed Keyboard Navigation
 document.querySelector('#checkbox-scroll-to-post').addEventListener('change', function () {
 	BROWSER_API.storage.sync.set({ scrollToPost: this.checked });
 	sendMessage({ scrollToPost: this.checked });
 	document.querySelector('.icon-scroll-to-post').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});
+
+// Toggle - Feed Keyboard Navigation - Auto Expand Compact Posts
+document.querySelector('#checkbox-auto-expand-compact-posts').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ autoExpandCompactPosts: this.checked });
+	sendMessage({ autoExpandCompactPosts: this.checked });
+	document.querySelector('.icon-auto-expand-compact-posts').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });
 
 // Toggle - Open Sub Links In New Tab

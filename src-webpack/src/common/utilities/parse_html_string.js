@@ -3,12 +3,15 @@
 // ────────────────────────────────────────────────────────────────────────────
 
 /**
- * Parses an HTML string and returns the first DOM element.
+ * Parses an HTML string and returns a DocumentFragment containing the parsed nodes.
+ * Uses a <template> element to avoid innerHTML on live DOM nodes.
  * @param {string} htmlString - The HTML string to parse
- * @returns {Node} The first child node of the parsed document body
+ * @returns {DocumentFragment} A fragment containing the parsed nodes
  */
 export function parseHtmlString(htmlString) {
-	const parser = new DOMParser();
-	const doc = parser.parseFromString(htmlString, 'text/html');
-	return Array.from(doc.body.childNodes)[0];
+	const template = document.createElement('template');
+	template.innerHTML = htmlString.trim();
+	const fragment = document.createDocumentFragment();
+	Array.from(template.content.childNodes).forEach((node) => fragment.appendChild(node));
+	return fragment;
 }

@@ -405,6 +405,46 @@ div.container[style*='none'] + hr {
 	display: none;
 }
 
+/* Keyboard Shortcuts */
+.shortcuts-container {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	width: 100%;
+	padding: 0 60px;
+}
+.shortcuts-container .shortcut {
+	display: grid;
+	grid-template-columns: 100px auto;
+	gap: 24px;
+}
+.shortcuts-container div:has(> .pill) {
+	display: flex;
+	gap: 8px;
+}
+.shortcuts-container .pill {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 30px;
+	height: 30px;
+	padding: 4px 8px;
+	background-color: var(--accent);
+	border-radius: 4px;
+	font-family: 'Courier New', monospace;
+	font-size: 18px;
+	text-box: text trim-both;
+}
+.shortcuts-container .pill .icon {
+	background: white;
+	width: 25px;
+	height: 25px;
+	padding: 0 !important;
+}
+.shortcuts-container .pill:has(.icon) {
+	padding: 2px;
+}
+
 /* Temp */
 #index-9 {
 	display: none;

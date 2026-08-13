@@ -42,13 +42,13 @@ export function restorePopupRedditVersionOptions() {
 	BROWSER_API.storage.sync.get(['autoRedirectVersion'], function (result) {
 		const version = result.autoRedirectVersion;
 		if (version === 'latest' || version === 'newnew') {
-			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Latest');
+			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Latest.message');
 		} else if (version === 'old' || version === 'old_www') {
-			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Old');
+			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Old.message');
 		} else if (version === 'off') {
-			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Off');
+			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Off.message');
 		} else {
-			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Off');
+			document.querySelector('#chosen-reddit-version').textContent = i18next.t('Off.message');
 			document.querySelector('#redirect-old-reddit').addEventListener('click', hideStartPage);
 			document.querySelector('#redirect-old-www-reddit').addEventListener('click', hideStartPage);
 			document.querySelector('#redirect-latest-reddit').addEventListener('click', hideStartPage);

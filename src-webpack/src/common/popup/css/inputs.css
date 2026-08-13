@@ -363,13 +363,14 @@ select option {
 	top: 24px;
 	left: 0;
 	width: 100%;
-	overflow: hidden;
 	display: flex;
 	flex-direction: column;
+	gap: 4px;
 	max-height: 0;
-	background-color: var(--bg-tint-2);
+	background-color: var(--bg-tint-3);
 	border-radius: var(--border-radius);
 	transition: max-height 0.2s ease-in-out;
+	overflow: hidden;
 	list-style: none;
 	z-index: 999;
 	padding: 0;
@@ -393,12 +394,12 @@ select option {
 	margin: 0;
 	padding: 6px;
 	cursor: pointer;
-	background-color: var(--bg-tint-2);
+	background-color: var(--bg-tint-3);
 	border-radius: calc(var(--border-radius) - 2px);
 }
 .dropdown-menu li:hover,
 .dropdown-menu-up li:hover {
-	background-color: var(--btn-hover);
+	background-color: var(--bg-tint-2);
 }
 .dropdown-menu li:active,
 .dropdown-menu-up li:active {

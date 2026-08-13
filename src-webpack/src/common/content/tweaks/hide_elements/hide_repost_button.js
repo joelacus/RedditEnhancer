@@ -27,7 +27,9 @@ export function hideRepostButton(value) {
 		document.documentElement.classList.add('re-hide-repost-button');
 
 		// Initially remove repost buttons from existing posts
-		document.querySelectorAll('shreddit-post').forEach(enableHideRepostButton);
+		document.querySelectorAll('shreddit-post').forEach((post) => {
+			toggleHideRepostButton(post, true);
+		});
 
 		// Observe the feed for new posts and remove their award buttons
 		const feed = document.querySelector('shreddit-feed');
@@ -39,7 +41,10 @@ export function hideRepostButton(value) {
 						mutation.addedNodes.forEach((addedNode) => {
 							if (['TIME', 'ARTICLE', 'DIV', 'SPAN', 'FACEPLATE-PARTIAL', 'FACEPLATE-LOADER', 'SHREDDIT-COMMENT'].includes(addedNode.nodeName)) {
 								setTimeout(() => {
-									document.querySelectorAll('shreddit-post').forEach(enableHideRepostButton);
+									const feed = document.querySelector('shreddit-feed');
+									feed.querySelectorAll('shreddit-post').forEach((post) => {
+										toggleHideRepostButton(post, true);
+									});
 								}, 1000);
 							}
 						});
@@ -57,16 +62,13 @@ export function hideRepostButton(value) {
 			postObserverCleanup = null;
 		}
 
-		document.querySelectorAll('shreddit-post').forEach(disableHideRepostButton);
+		document.querySelectorAll('shreddit-post').forEach((post) => {
+			toggleHideRepostButton(post, false);
+		});
 	}
 }
 
-function enableHideRepostButton(post) {
+function toggleHideRepostButton(post, hidden) {
 	const button = post.querySelector('[slot="repost-button"]') || post.shadowRoot.querySelector('[slot="repost-button"]') || post.shadowRoot.querySelector('slot[name="repost-button"]');
-	button.style.display = 'none';
-}
-
-function disableHideRepostButton(post) {
-	const button = post.querySelector('[slot="repost-button"]') || post.shadowRoot.querySelector('[slot="repost-button"]') || post.shadowRoot.querySelector('slot[name="repost-button"]');
-	button.style.display = '';
+	if (button) button.style.display = hidden === true ? 'none' : '';
 }

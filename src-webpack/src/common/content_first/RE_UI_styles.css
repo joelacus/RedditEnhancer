@@ -109,7 +109,7 @@
 .re-modal-content .btn.green:hover,
 .re-page .btn.green:hover,
 .re-page .btn-sm.green:hover {
-	background-color: #03a000;
+	background-color: var(--green);
 }
 
 /* Input */
@@ -173,6 +173,8 @@
 
 .re-modal-content {
 	position: absolute;
+	display: flex;
+	flex-direction: column;
 	z-index: 99999;
 	background: var(--bg);
 	border: 1px solid var(--bg-tint-4);
@@ -182,10 +184,13 @@
 	width: 450px;
 	max-width: calc(100vw - 24px);
 	max-height: calc(100vh - 24px);
-	overflow-y: auto;
 	color: var(--text);
 	font-family: Verdana, sans-serif;
 	font-size: 16px;
+}
+
+#import-conflicts-list {
+	overflow-y: auto;
 }
 
 .re-modal-content .header {
@@ -200,7 +205,7 @@
 }
 
 .re-modal-content label {
-	display: block;
+	display: flex;
 	margin-top: 1rem;
 	margin-bottom: 0.25rem;
 	font-weight: bold;
@@ -221,9 +226,10 @@
 	width: 100%;
 }
 
-/* Block User Button */
+/* Block User/Subreddit Button */
 
-.re-block-user-btn {
+.re-block-user-btn,
+.re-block-subreddit-btn {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -247,9 +253,11 @@
 	-webkit-mask-repeat: no-repeat;
 	margin-left: 6px;
 }
-.re-block-user-btn:hover {
+.re-block-user-btn:hover,
+.re-block-subreddit-btn:hover {
 	opacity: 0.9;
 }
-.re-block-user-btn.is-blocked {
+.re-block-user-btn.is-blocked,
+.re-block-subreddit-btn.is-blocked {
 	background-color: #f44336;
 }

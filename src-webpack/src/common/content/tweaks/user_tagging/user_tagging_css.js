@@ -371,5 +371,12 @@ export function getUserTaggingCSS() {
 		}
 		shreddit-comment span:has(faceplate-hovercard):has(.re-user-tag){
 			display: flex;
+		}
+		shreddit-comment [source="post_detail"] mod-notes-opener {
+			display: flex;
+			align-items: center;
+		}
+		[id^="feed-post-credit-bar"] [source="post_credit_bar"] mod-notes-opener {
+			display: flex
 		}`;
 }

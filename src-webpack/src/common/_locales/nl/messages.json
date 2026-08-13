@@ -71,6 +71,9 @@
 	"AutoExpand": {
 		"message": "Uitbreiden tot 100% als de venster-/schermbreedte kleiner is dan:"
 	},
+	"AutoExpandCompactPosts": {
+		"message": "Compacte berichten automatisch uitvouwen"
+	},
 	"AutoLoadMoreComments": {
 		"message": "Laad automatisch meer reacties"
 	},
@@ -88,6 +91,9 @@
 	},
 	"AutoplayVideos": {
 		"message": "Automatische afspeelvideo's"
+	},
+	"AvatarScale": {
+		"message": "Avatar-schaal"
 	},
 	"Award": {
 		"message": "Prijs"
@@ -188,6 +194,9 @@
 	"ChooseBackupFile": {
 		"message": "Kies een back-upbestand"
 	},
+	"ChooseVersionForEachConflict": {
+		"message": "Kies voor elk conflict welke versie behouden moet blijven:"
+	},
 	"ClassicLight": {
 		"message": "Klassiek Licht"
 	},
@@ -260,6 +269,9 @@
 	"CopyCleanLinkShort": {
 		"message": "Schone link kopiëren (kort)"
 	},
+	"Created": {
+		"message": "Gemaakt"
+	},
 	"CreatePost": {
 		"message": "Bericht Maken"
 	},
@@ -271,9 +283,6 @@
 	},
 	"CreateTag": {
 		"message": "Tag aanmaken"
-	},
-	"Created": {
-		"message": "Gemaakt"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Aangepaste achtergrondlink"
@@ -305,8 +314,14 @@
 	"Delete": {
 		"message": "Verwijderen"
 	},
-	"DeleteAllTags": {
-		"message": "Alles verwijderen"
+	"DeleteSelectedTags": {
+		"message": "Geselecteerd verwijderen"
+	},
+	"DeleteSelectedTagsConfirm": {
+		"message": "Verwijder de {count} geselecteerde tag(s)?"
+	},
+	"DeleteTagForUser": {
+		"message": "Verwijder tag voor gebruiker u/{username}?"
 	},
 	"Details": {
 		"message": "Details"
@@ -335,6 +350,9 @@
 	"EditPost": {
 		"message": "Post bewerken"
 	},
+	"EditSelected": {
+		"message": "Geselecteerd bewerken"
+	},
 	"EditTag": {
 		"message": "Tag bewerken"
 	},
@@ -347,11 +365,17 @@
 	"Error": {
 		"message": "Fout"
 	},
+	"Existing": {
+		"message": "Bestaand"
+	},
 	"ExportTags": {
 		"message": "Export tags"
 	},
 	"ExtensionSettings": {
 		"message": "Extensie-instellingen"
+	},
+	"extensionVersionText": {
+		"message": "Extensieversie"
 	},
 	"Feed": {
 		"message": "Feed"
@@ -359,10 +383,7 @@
 	"FeedKeyboardNavigation": {
 		"message": "Toetsenbordnavigatie voor de feed"
 	},
-	"FeedKeyboardNavigationInfo1": {
-		"message": "Volgende bericht: (J / Pijl omlaag). Vorige bericht: (K / Pijl omhoog). Compact bericht in-/uitschakelen: (Spatie)."
-	},
-	"FeedKeyboardNavigationInfo2": {
+	"FeedKeyboardNavigationInfo": {
 		"message": "Het gebRVk van de J/K-toetsen zal de 'Shortcuts'-functie van Reddit verstoren, indien ingeschakeld. GebRVk in dat geval de pijltjestoetsen. De RE-versie maakt gebRVk van soepel scrollen en slaat alle verborgen berichten over."
 	},
 	"FeedOffset": {
@@ -448,6 +469,9 @@
 	},
 	"HideAnnouncementNotifications": {
 		"message": "Verberg Reddit aankondigingenmeldingen"
+	},
+	"HideAvatarBorder": {
+		"message": "Avatar-rand verbergen"
 	},
 	"HideAwards": {
 		"message": "Verberg de knop 'Award' bij reacties"
@@ -539,11 +563,11 @@
 	"HideModerationButton": {
 		"message": "Verberg de knop “Moderatie”"
 	},
-	"HideNSFW": {
-		"message": "Verberg NSFW/L berichten"
-	},
 	"HideNotificationButton": {
 		"message": "Knop “Melding” Verbergen"
+	},
+	"HideNSFW": {
+		"message": "Verberg NSFW/L berichten"
 	},
 	"HideNsfwInSearchResults": {
 		"message": "Verberg NSFW-resultaten in de zoekbalk"
@@ -569,9 +593,6 @@
 	"HidePostKarma": {
 		"message": "Bericht verbergen Karma"
 	},
-	"HidePostSidebar": {
-		"message": "Verberg de berichtzijbalk"
-	},
 	"HidePostsBySubreddit": {
 		"message": "Berichten over het subreddit verbergen"
 	},
@@ -580,6 +601,9 @@
 	},
 	"HidePostsContainingKeyword": {
 		"message": "Berichten met een trefwoord verbergen"
+	},
+	"HidePostSidebar": {
+		"message": "Verberg de berichtzijbalk"
 	},
 	"HidePromoted": {
 		"message": "Advertenties/gesponsorde links verbergen"
@@ -632,11 +656,11 @@
 	"HideSideMenuResourcesSection": {
 		"message": "Verberg de sectie Bronnen"
 	},
-	"HideSideMenuTopSection": {
-		"message": "Verberg het bovenste gedeelte"
-	},
 	"HideSideMenuTopicsSection": {
 		"message": "Verberg de sectie Onderwerpen"
+	},
+	"HideSideMenuTopSection": {
+		"message": "Verberg het bovenste gedeelte"
 	},
 	"HideSubSidebar": {
 		"message": "Verberg de zijbalk van Sub Reddit"
@@ -650,6 +674,9 @@
 	"HideTrendingTodayInSearchResults": {
 		"message": "Verberg 'trending vandaag' in de zoekbalk"
 	},
+	"HideUsername": {
+		"message": "Verberg gebRVkersnaam"
+	},
 	"HideUserNameInTheFlairSection": {
 		"message": "GebRVkersnaam verbergen in de subreddit-zijbalk flair-sectie"
 	},
@@ -658,9 +685,6 @@
 	},
 	"HideUserSidebar": {
 		"message": "Verberg de gebRVkerszijbalk"
-	},
-	"HideUsername": {
-		"message": "Verberg gebRVkersnaam"
 	},
 	"HideVideoRecommendations": {
 		"message": "Verberg aanbevolen berichten wanneer video eindigt"
@@ -689,14 +713,29 @@
 	"Image": {
 		"message": "Afbeelding"
 	},
-	"ImageScroll": {
-		"message": "Voeg schuifbars toe aan afbeeldingen"
-	},
 	"Images": {
 		"message": "Afbeeldingen"
 	},
+	"ImageScroll": {
+		"message": "Voeg schuifbars toe aan afbeeldingen"
+	},
+	"Import": {
+		"message": "Importeren"
+	},
+	"ImportConflicts": {
+		"message": "Importconflicten"
+	},
+	"ImportConflictsSummary": {
+		"message": "{totalNew} nieuwe tags geïmporteerd, {skippedExact} identieke tags bestaan al, en {conflictsCount} duplicaten gevonden."
+	},
+	"Imported": {
+		"message": "Geïmporteerd"
+	},
 	"ImportInvalidFormat": {
 		"message": "Ongeldig bestandsformaat."
+	},
+	"ImportSkippedExact": {
+		"message": "Er bestaan al {count} identieke tags en zijn overgeslagen."
 	},
 	"ImportSuccess": {
 		"message": "Er zijn {count} tags succesvol geïmporteerd."
@@ -730,6 +769,9 @@
 	},
 	"Latest": {
 		"message": "Recentste"
+	},
+	"learnMore": {
+		"message": "Meer informatie"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Toon stemknoppen aan de linkerkant"
@@ -803,6 +845,21 @@
 	"NewUpdateAvailable": {
 		"message": "Versie <version> is nu beschikbaar. Uw browser zou deze extensie binnenkort automatisch moeten updaten als u automatische updates hebt ingeschakeld. Als dat niet het geval is, moet u handmatig controleren op updates in de browserextensiemanager."
 	},
+	"NextImage": {
+		"message": "Volgende afbeelding"
+	},
+	"NextPost": {
+		"message": "Volgende bericht"
+	},
+	"NextRootComment": {
+		"message": "Volgende hoofdcommentaar"
+	},
+	"NoNote": {
+		"message": "Geen notitie"
+	},
+	"NonStickyHeaderBar": {
+		"message": "Niet-plakkerige kopbalk"
+	},
 	"NoPresetsYet": {
 		"message": "Nog geen vooringestelde instellingen"
 	},
@@ -812,11 +869,11 @@
 	"NoTaggedUsers": {
 		"message": "Geen getagde gebruikers"
 	},
-	"NonStickyHeaderBar": {
-		"message": "Niet-plakkerige kopbalk"
-	},
 	"Note": {
 		"message": "Opmerking"
+	},
+	"NoteOptional": {
+		"message": "Opmerking (optioneel)"
 	},
 	"Off": {
 		"message": "Uit"
@@ -851,11 +908,11 @@
 	"OpenSubInNewTab": {
 		"message": "Links naar Sub Reddit in een nieuw tabblad openen"
 	},
-	"OptOutAttachSideMenu": {
-		"message": "Bevestig het zijmenu niet als vervolgkeuze paneel"
-	},
 	"OptionsPage": {
 		"message": "Optiespagina"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Bevestig het zijmenu niet als vervolgkeuze paneel"
 	},
 	"Or": {
 		"message": "OF"
@@ -908,6 +965,9 @@
 	"PostOffset": {
 		"message": "Verschuiving van de post"
 	},
+	"Posts": {
+		"message": "Berichten"
+	},
 	"PostSecondaryTextColour": {
 		"message": "Bericht: Secundaire tekstkleur"
 	},
@@ -929,8 +989,8 @@
 	"PostWidth": {
 		"message": "Breedte van de post"
 	},
-	"Posts": {
-		"message": "Berichten"
+	"PresetAlreadyExists": {
+		"message": "Bestaan al"
 	},
 	"PresetTags": {
 		"message": "Voorgedefinieerde tags"
@@ -938,17 +998,26 @@
 	"Preview": {
 		"message": "Voorbeeld"
 	},
+	"PreviousImage": {
+		"message": "Vorige afbeelding"
+	},
+	"PreviousPost": {
+		"message": "Vorige bericht"
+	},
+	"PreviousRootComment": {
+		"message": "Vorgaand hoofdcommentaar"
+	},
 	"Productivity": {
 		"message": "productiviteit"
 	},
+	"ProfileHeader": {
+		"message": "Profielkoptekst"
+	},
+	"ProfileHeaderBgColour": {
+		"message": "Achtergrondkleur van de profielkoptekst"
+	},
 	"Qa": {
 		"message": "Q&a"
-	},
-	"RV1RedirectInfo": {
-		"message": "De omleidingsoptie \"Oud (alleen www)\" leidt alleen URL's met www.reddit.com om naar old.reddit.com. Andere voorvoegsels, zoals sh.reddit.com, blijven ongewijzigd."
-	},
-	"RV3RedirectInfo": {
-		"message": "De omleidingsoptie \"Recentste\" dwingt URL's van het type (sh|old|new).reddit.com om te leiden naar www.reddit.com, waar de nieuwste gebRVkersinterface wordt gebRVkt."
 	},
 	"Rate": {
 		"message": "Beoordeel / Recensie"
@@ -998,6 +1067,9 @@
 	"ResizeFont": {
 		"message": "Formaat van lettertype wijzigen"
 	},
+	"resizeHomeAlsoAffects": {
+		"message": "& r/all, r/populair, maak bericht, zoekresultaten en wiki-pagina's"
+	},
 	"ResizeLayout": {
 		"message": "Formaat van Feed / Post wijzigen"
 	},
@@ -1016,6 +1088,12 @@
 	"Rising": {
 		"message": "Stijgende / Rising"
 	},
+	"RV1RedirectInfo": {
+		"message": "De omleidingsoptie \"Oud (alleen www)\" leidt alleen URL's met www.reddit.com om naar old.reddit.com. Andere voorvoegsels, zoals sh.reddit.com, blijven ongewijzigd."
+	},
+	"RV3RedirectInfo": {
+		"message": "De omleidingsoptie \"Recentste\" dwingt URL's van het type (sh|old|new).reddit.com om te leiden naar www.reddit.com, waar de nieuwste gebRVkersinterface wordt gebRVkt."
+	},
 	"Save": {
 		"message": "Redden"
 	},
@@ -1027,9 +1105,6 @@
 	},
 	"ScrollToNextRootComment": {
 		"message": "Toon knoppen om naar de volgende/vorige root opmerking te scrollen"
-	},
-	"ScrollToNextRootCommentInfo": {
-		"message": "Optionele toetsenbordnavigatie. Volgende hoofdcommentaar: (J / Pijl naar beneden). Vorgaand hoofdcommentaar: (K / Pijl omhoog)."
 	},
 	"ScrollToTopFloat": {
 		"message": "Voeg een zwevende knop 'Scroll naar boven' toe"
@@ -1043,6 +1118,12 @@
 	"Search": {
 		"message": "Zoeken"
 	},
+	"SearchbarBgColour": {
+		"message": "Zoekbalk: Achtergrond kleur"
+	},
+	"SearchbarDropdownBgColour": {
+		"message": "Zoekbalk: Gefocust/Dropdown Achtergrondkleur"
+	},
 	"SearchPageOffset": {
 		"message": "Zoekpagina-offset"
 	},
@@ -1052,11 +1133,8 @@
 	"SearchUsername": {
 		"message": "Zoek gebruikersnaam..."
 	},
-	"SearchbarBgColour": {
-		"message": "Zoekbalk: Achtergrond kleur"
-	},
-	"SearchbarDropdownBgColour": {
-		"message": "Zoekbalk: Gefocust/Dropdown Achtergrondkleur"
+	"seconds": {
+		"message": "seconden"
 	},
 	"Select": {
 		"message": "Selecteer"
@@ -1072,6 +1150,12 @@
 	},
 	"SetSansSerifAsFont": {
 		"message": "Stel \"sans-serif\" in als ui-lettertype"
+	},
+	"SetTag": {
+		"message": "Tag instellen"
+	},
+	"SetTagForUsersConfirm": {
+		"message": "Stel deze tag in voor {count} gebruikers?"
 	},
 	"Settings": {
 		"message": "Instellingen"
@@ -1112,6 +1196,18 @@
 	"ShowUpvoteRatio": {
 		"message": "Toon het upvote percentage op de postpagina"
 	},
+	"Sidebar": {
+		"message": "Zijbalk (rechterbalk)"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Zijbalk: Achtergrond kleur"
+	},
+	"SidebarTextColour": {
+		"message": "Zijbalk: Tekstkleur"
+	},
+	"SidebarToggleButton": {
+		"message": "Zijbalkschakelknop"
+	},
 	"SideMenu": {
 		"message": "Zijmenu (linkerbalk)"
 	},
@@ -1132,18 +1228,6 @@
 	},
 	"SideMenuWidth": {
 		"message": "Breedte zijmenu"
-	},
-	"Sidebar": {
-		"message": "Zijbalk (rechterbalk)"
-	},
-	"SidebarBackgroundColour": {
-		"message": "Zijbalk: Achtergrond kleur"
-	},
-	"SidebarTextColour": {
-		"message": "Zijbalk: Tekstkleur"
-	},
-	"SidebarToggleButton": {
-		"message": "Zijbalkschakelknop"
 	},
 	"SnapSidebar": {
 		"message": "Bevestig de zijbalk aan de rechterrand"
@@ -1235,6 +1319,9 @@
 	"TimeRange": {
 		"message": "Tijdsbestek"
 	},
+	"ToggleCompactPost": {
+		"message": "Compact bericht in-/uitschakelen"
+	},
 	"Top": {
 		"message": "Bovenkant / Top"
 	},
@@ -1247,11 +1334,11 @@
 	"UnderlineLinks": {
 		"message": "Onderstreep koppelingen"
 	},
-	"UpdateFirefox": {
-		"message": "Update naar Firefox 121 of hoger zodat sommige functies correct werken."
-	},
 	"Updated": {
 		"message": "Bijgewerkt"
+	},
+	"UpdateFirefox": {
+		"message": "Update naar Firefox 121 of hoger zodat sommige functies correct werken."
 	},
 	"Upload": {
 		"message": "Uploaden"
@@ -1268,11 +1355,20 @@
 	"UserAlreadyAdded": {
 		"message": "Gebruiker is al toegevoegd"
 	},
+	"Username": {
+		"message": "Gebruikersnaam"
+	},
+	"UsernameHoverPopupDelay": {
+		"message": "Vertraging bij zwevende gebRVkersnaam-popup"
+	},
 	"UserProfileOffset": {
 		"message": "Verschuiving van de gebRVkersprofiel"
 	},
 	"UserProfileWidth": {
 		"message": "Breedte gebRVkersprofiel"
+	},
+	"Users": {
+		"message": "GebRVkers"
 	},
 	"UserTagging": {
 		"message": "Gebruikerslabeling"
@@ -1285,15 +1381,6 @@
 	},
 	"UserTaggingManagerTitle": {
 		"message": "Beheerder van gebruikerslabels"
-	},
-	"Username": {
-		"message": "Gebruikersnaam"
-	},
-	"UsernameHoverPopupDelay": {
-		"message": "Vertraging bij zwevende gebRVkersnaam-popup"
-	},
-	"Users": {
-		"message": "GebRVkers"
 	},
 	"Video": {
 		"message": "Video"
@@ -1312,17 +1399,5 @@
 	},
 	"Width": {
 		"message": "Breedte"
-	},
-	"extensionVersionText": {
-		"message": "Extensieversie"
-	},
-	"learnMore": {
-		"message": "Meer informatie"
-	},
-	"resizeHomeAlsoAffects": {
-		"message": "& r/all, r/populair, maak bericht, zoekresultaten en wiki-pagina's"
-	},
-	"seconds": {
-		"message": "seconden"
 	}
 }

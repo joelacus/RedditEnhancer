@@ -95,6 +95,7 @@ function addBlockButton(comment) {
 	if (!userList || comment.dataset.reBlockBtnAdded) return;
 
 	const username = comment.getAttribute('author') || comment.querySelector('[noun="comment_author"] a')?.textContent?.replace('u/', '')?.trim();
+	if (username === '[deleted]') return;
 	const isBlocked = userList.some((pattern) => matchesPattern(username, pattern));
 
 	const btn = document.createElement('button');

@@ -70,18 +70,14 @@
 }
 #select-lang-menu span {
 	font-size: 16px;
+	text-wrap: nowrap;
 }
 #select-lang-menu {
 	top: 36px;
-	min-width: 450px;
+	min-width: 430px;
 	left: -11px;
 	display: grid;
-	grid-template-rows: repeat(5, auto);
-	grid-auto-flow: column;
-}
-#select-lang-menu li:last-child {
-	border-top: none;
-	border-radius: 0;
+	grid-template-columns: repeat(3, auto);
 }
 #select-lang-menu .dropdown-menu li {
 	border: none !important;

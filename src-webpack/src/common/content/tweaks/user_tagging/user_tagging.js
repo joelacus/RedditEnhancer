@@ -200,8 +200,9 @@ function processUsernameElement(el) {
 	if (!username) return;
 
 	readTags().then((tags) => {
-		if (tags[username]) {
-			renderTag(el, tags[username]);
+		const match = getTagByCaseInsensitiveUsername(tags, username);
+		if (match) {
+			renderTag(el, match.tag);
 		} else {
 			renderCreateButton(el);
 		}
@@ -215,6 +216,17 @@ function normaliseUsername(input) {
 	if (username.startsWith('u/')) username = username.slice(2);
 	username = username.replace(/\/+$/, '');
 	return username;
+}
+
+function getTagByCaseInsensitiveUsername(tags, username) {
+	if (!username) return null;
+	const lowerUsername = username.toLowerCase();
+	for (const key of Object.keys(tags)) {
+		if (key.toLowerCase() === lowerUsername) {
+			return { storedUsername: key, tag: tags[key] };
+		}
+	}
+	return null;
 }
 
 // ─── Inline Rendering ───────────────────────────────────────────────────────
@@ -604,6 +616,10 @@ async function saveTagFromPopover(username) {
 	if (!label) return;
 
 	const tags = await readTags();
+	const existingMatch = getTagByCaseInsensitiveUsername(tags, username);
+	if (existingMatch && existingMatch.storedUsername !== username) {
+		delete tags[existingMatch.storedUsername];
+	}
 	tags[username] = {
 		label,
 		note,

@@ -71,6 +71,9 @@
 	"AutoExpand": {
 		"message": "Expandera till 100% om fönster/skärmbredd är mindre än:"
 	},
+	"AutoExpandCompactPosts": {
+		"message": "Expandera komprimerade inlägg automatiskt"
+	},
 	"AutoLoadMoreComments": {
 		"message": "Ladda fler kommentarer automatiskt"
 	},
@@ -88,6 +91,9 @@
 	},
 	"AutoplayVideos": {
 		"message": "Autoplay-videor"
+	},
+	"AvatarScale": {
+		"message": "Avatarskala"
 	},
 	"Award": {
 		"message": "utmärkelse"
@@ -188,6 +194,9 @@
 	"ChooseBackupFile": {
 		"message": "Välj säkerhetskopieringsfil"
 	},
+	"ChooseVersionForEachConflict": {
+		"message": "Välj vilken version som ska behållas för varje konflikt:"
+	},
 	"ClassicLight": {
 		"message": "Klassisk Ljus"
 	},
@@ -260,6 +269,9 @@
 	"CopyCleanLinkShort": {
 		"message": "Kopiera länken (kort)"
 	},
+	"Created": {
+		"message": "Skapat"
+	},
 	"CreatePost": {
 		"message": "Skapa inlägg"
 	},
@@ -271,9 +283,6 @@
 	},
 	"CreateTag": {
 		"message": "Skapa tagg"
-	},
-	"Created": {
-		"message": "Skapat"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Anpassad bakgrundslänk"
@@ -305,8 +314,14 @@
 	"Delete": {
 		"message": "Ta bort"
 	},
-	"DeleteAllTags": {
-		"message": "Radera allt"
+	"DeleteSelectedTags": {
+		"message": "Ta bort urval"
+	},
+	"DeleteSelectedTagsConfirm": {
+		"message": "Ta bort de {count} valda taggarna?"
+	},
+	"DeleteTagForUser": {
+		"message": "Ta bort taggen för användaren u/{username}?"
 	},
 	"Details": {
 		"message": "Detaljer"
@@ -335,6 +350,9 @@
 	"EditPost": {
 		"message": "Redigera inlägg"
 	},
+	"EditSelected": {
+		"message": "Redigera valt"
+	},
 	"EditTag": {
 		"message": "Redigera tagg"
 	},
@@ -347,11 +365,17 @@
 	"Error": {
 		"message": "Fel"
 	},
+	"Existing": {
+		"message": "Befintlig"
+	},
 	"ExportTags": {
 		"message": "Exportera taggar"
 	},
 	"ExtensionSettings": {
 		"message": "Inställningar för tillägg"
+	},
+	"extensionVersionText": {
+		"message": "Tilläggsversion"
 	},
 	"Feed": {
 		"message": "Ström"
@@ -359,10 +383,7 @@
 	"FeedKeyboardNavigation": {
 		"message": "Tangentbordsnavigering för flödet"
 	},
-	"FeedKeyboardNavigationInfo1": {
-		"message": "Nästa inlägg: (J / Nedåt pil). Föregående inlägg: (K / Uppåt pil). Växla till kompakt inlägg: (Mellanslag)."
-	},
-	"FeedKeyboardNavigationInfo2": {
+	"FeedKeyboardNavigationInfo": {
 		"message": "Att använda J/K-tangenterna stör Reddits funktionalitet \"Genvägar\" om den är aktiverad; i så fall, använd piltangenterna. RE-versionen använder smidig scrollning och hoppar över alla dolda inlägg."
 	},
 	"FeedOffset": {
@@ -448,6 +469,9 @@
 	},
 	"HideAnnouncementNotifications": {
 		"message": "Dölja Reddit-annonseringsaviseringar"
+	},
+	"HideAvatarBorder": {
+		"message": "Dölj avatarkanten"
 	},
 	"HideAwards": {
 		"message": "Dölj knappen \"Utmärkelse\" i kommentarer"
@@ -539,11 +563,11 @@
 	"HideModerationButton": {
 		"message": "Dölj 'Måtta' knappen"
 	},
-	"HideNSFW": {
-		"message": "Dölj NSFW/L-inlägg"
-	},
 	"HideNotificationButton": {
 		"message": "Dölja knappen \"Notification\""
+	},
+	"HideNSFW": {
+		"message": "Dölj NSFW/L-inlägg"
 	},
 	"HideNsfwInSearchResults": {
 		"message": "Dölj NSFW-resultat i sökfältet"
@@ -569,9 +593,6 @@
 	"HidePostKarma": {
 		"message": "Dölja inläggskarma"
 	},
-	"HidePostSidebar": {
-		"message": "Dölja inläggsidofältet"
-	},
 	"HidePostsBySubreddit": {
 		"message": "Dölja inlägg efter subreddit"
 	},
@@ -580,6 +601,9 @@
 	},
 	"HidePostsContainingKeyword": {
 		"message": "Dölj inlägg som innehåller ett sökord"
+	},
+	"HidePostSidebar": {
+		"message": "Dölja inläggsidofältet"
 	},
 	"HidePromoted": {
 		"message": "Dölj annonser/befordrade länkar"
@@ -632,11 +656,11 @@
 	"HideSideMenuResourcesSection": {
 		"message": "Dölj avsnittet Resurser"
 	},
-	"HideSideMenuTopSection": {
-		"message": "Dölj den övre delen"
-	},
 	"HideSideMenuTopicsSection": {
 		"message": "Dölj avsnittet Ämnen"
+	},
+	"HideSideMenuTopSection": {
+		"message": "Dölj den övre delen"
 	},
 	"HideSubSidebar": {
 		"message": "Dölj Sub Reddit sidofältet"
@@ -650,6 +674,9 @@
 	"HideTrendingTodayInSearchResults": {
 		"message": "Dölja 'Trending today' i sökfältet"
 	},
+	"HideUsername": {
+		"message": "Dölj användarnamn"
+	},
 	"HideUserNameInTheFlairSection": {
 		"message": "Dölja användarnamn i flair-avsnittet i subreddits sidofält"
 	},
@@ -658,9 +685,6 @@
 	},
 	"HideUserSidebar": {
 		"message": "Dölj användarsidomenyn"
-	},
-	"HideUsername": {
-		"message": "Dölj användarnamn"
 	},
 	"HideVideoRecommendations": {
 		"message": "Dölja rekommenderade inlägg när videon är slut"
@@ -689,14 +713,29 @@
 	"Image": {
 		"message": "Bild"
 	},
-	"ImageScroll": {
-		"message": "Lägg till Scrollbars till bilder"
-	},
 	"Images": {
 		"message": "Bilder"
 	},
+	"ImageScroll": {
+		"message": "Lägg till Scrollbars till bilder"
+	},
+	"Import": {
+		"message": "Importera"
+	},
+	"ImportConflicts": {
+		"message": "Import Konflikter"
+	},
+	"ImportConflictsSummary": {
+		"message": "{totalNew} nya etiketter importerade, {skippedExact} identiska etiketter existerar redan, och {conflictsCount} dubbletter hittades."
+	},
+	"Imported": {
+		"message": "Importerad"
+	},
 	"ImportInvalidFormat": {
 		"message": "Ogiltigt filformat."
+	},
+	"ImportSkippedExact": {
+		"message": "Finns redan {count} identiska taggar och har hoppats över."
 	},
 	"ImportSuccess": {
 		"message": "Importerade {count} taggar framgångsrikt."
@@ -730,6 +769,9 @@
 	},
 	"Latest": {
 		"message": "Senaste"
+	},
+	"learnMore": {
+		"message": "Läs mer"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Visa röstknappar till vänster"
@@ -803,6 +845,21 @@
 	"NewUpdateAvailable": {
 		"message": "Version <version> är nu tillgänglig. Din webbläsare bör automatiskt uppdatera detta tillägg snart om du har aktiverat automatiska uppdateringar; annars måste du manuellt kontrollera uppdateringar i webbläsartilläggshanteraren."
 	},
+	"NextImage": {
+		"message": "Nästa bild"
+	},
+	"NextPost": {
+		"message": "Nästa inlägg"
+	},
+	"NextRootComment": {
+		"message": "Nästa rotkommentar"
+	},
+	"NoNote": {
+		"message": "Ingen anteckning"
+	},
+	"NonStickyHeaderBar": {
+		"message": "Icke-fast sidhuvudfält"
+	},
 	"NoPresetsYet": {
 		"message": "Inga förinställningar än"
 	},
@@ -812,11 +869,11 @@
 	"NoTaggedUsers": {
 		"message": "Inga taggade användare"
 	},
-	"NonStickyHeaderBar": {
-		"message": "Icke-fast sidhuvudfält"
-	},
 	"Note": {
 		"message": "Notera"
+	},
+	"NoteOptional": {
+		"message": "Anteckning (valfritt)"
 	},
 	"Off": {
 		"message": "Av"
@@ -851,11 +908,11 @@
 	"OpenSubInNewTab": {
 		"message": "Öppna länkar till subreddits i en ny flik"
 	},
-	"OptOutAttachSideMenu": {
-		"message": "Fäst inte sidomenyn som en rullgardinsmeny"
-	},
 	"OptionsPage": {
 		"message": "Inställningssida"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Fäst inte sidomenyn som en rullgardinsmeny"
 	},
 	"Or": {
 		"message": "eller"
@@ -908,6 +965,9 @@
 	"PostOffset": {
 		"message": "Inläggsförskjutning"
 	},
+	"Posts": {
+		"message": "inlägg"
+	},
 	"PostSecondaryTextColour": {
 		"message": "Inlägg: Sekundär textfärg"
 	},
@@ -929,8 +989,8 @@
 	"PostWidth": {
 		"message": "Inläggsbredd"
 	},
-	"Posts": {
-		"message": "inlägg"
+	"PresetAlreadyExists": {
+		"message": "Redan existerar"
 	},
 	"PresetTags": {
 		"message": "Förinställnings-taggar"
@@ -938,17 +998,26 @@
 	"Preview": {
 		"message": "Förhandsgranskning"
 	},
+	"PreviousImage": {
+		"message": "Föregående bild"
+	},
+	"PreviousPost": {
+		"message": "Föregående inlägg"
+	},
+	"PreviousRootComment": {
+		"message": "Föregående rotkommentar"
+	},
 	"Productivity": {
 		"message": "Produktivitet"
 	},
+	"ProfileHeader": {
+		"message": "Profilrubrik"
+	},
+	"ProfileHeaderBgColour": {
+		"message": "Bakgrundsfärg för profilhuvud"
+	},
 	"Qa": {
 		"message": "Q&a"
-	},
-	"RV1RedirectInfo": {
-		"message": "Omdirigeringsalternativet \"Gammal (endast www)\" omdirigerar endast www.reddit.com-URL:er till old.reddit.com. Andra prefix som sh.reddit.com påverkas inte."
-	},
-	"RV3RedirectInfo": {
-		"message": "Omdirigeringsalternativet \"Senaste\" tvingar (sh|gamla|nya).reddit.com-URL:er till www.reddit.com, som använder det senaste användargränssnittet."
 	},
 	"Rate": {
 		"message": "Betygsätt / Recensera"
@@ -998,6 +1067,9 @@
 	"ResizeFont": {
 		"message": "Ändra storlek på teckensnitt"
 	},
+	"resizeHomeAlsoAffects": {
+		"message": "r/all, r/popular, Skapa inlägg, Sökresultat och Wiki-sidor"
+	},
 	"ResizeLayout": {
 		"message": "Ändra Storlek på Feed / Inlägg"
 	},
@@ -1016,6 +1088,12 @@
 	"Rising": {
 		"message": "Stigande / Rising"
 	},
+	"RV1RedirectInfo": {
+		"message": "Omdirigeringsalternativet \"Gammal (endast www)\" omdirigerar endast www.reddit.com-URL:er till old.reddit.com. Andra prefix som sh.reddit.com påverkas inte."
+	},
+	"RV3RedirectInfo": {
+		"message": "Omdirigeringsalternativet \"Senaste\" tvingar (sh|gamla|nya).reddit.com-URL:er till www.reddit.com, som använder det senaste användargränssnittet."
+	},
 	"Save": {
 		"message": "Spara"
 	},
@@ -1027,9 +1105,6 @@
 	},
 	"ScrollToNextRootComment": {
 		"message": "Visa navigationsknappar för nästa/föregående huvudkommentar"
-	},
-	"ScrollToNextRootCommentInfo": {
-		"message": "Valfri navigering med tangentbord. Nästa rotkommentar: (J / Nedåtpil). Föregående rotkommentar: (K / Uppåtpil)."
 	},
 	"ScrollToTopFloat": {
 		"message": "Lägg till flytande knapp 'Till toppen'"
@@ -1043,6 +1118,12 @@
 	"Search": {
 		"message": "Sök"
 	},
+	"SearchbarBgColour": {
+		"message": "Sökruta: Bakgrundsfärg"
+	},
+	"SearchbarDropdownBgColour": {
+		"message": "Sökruta: Fokuserad/Dropdown bakgrundsfärg"
+	},
 	"SearchPageOffset": {
 		"message": "Sidoffset för sökning"
 	},
@@ -1052,11 +1133,8 @@
 	"SearchUsername": {
 		"message": "Sök användarnamn..."
 	},
-	"SearchbarBgColour": {
-		"message": "Sökruta: Bakgrundsfärg"
-	},
-	"SearchbarDropdownBgColour": {
-		"message": "Sökruta: Fokuserad/Dropdown bakgrundsfärg"
+	"seconds": {
+		"message": "sekunder"
 	},
 	"Select": {
 		"message": "Välj"
@@ -1072,6 +1150,12 @@
 	},
 	"SetSansSerifAsFont": {
 		"message": "Ställ in \"sans-serif\" som ui-teckensnitt"
+	},
+	"SetTag": {
+		"message": "Ställa in etikett"
+	},
+	"SetTagForUsersConfirm": {
+		"message": "Sätt denna etikett för {count} användare?"
 	},
 	"Settings": {
 		"message": "Inställningar"
@@ -1112,6 +1196,18 @@
 	"ShowUpvoteRatio": {
 		"message": "Visa uppröstningsprocenten i inläggsvyn"
 	},
+	"Sidebar": {
+		"message": "Sidofält"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Sidopanel: Bakgrundsfärg"
+	},
+	"SidebarTextColour": {
+		"message": "Sidfält: Textfärg"
+	},
+	"SidebarToggleButton": {
+		"message": "Sidomenycke växlingsknapp"
+	},
 	"SideMenu": {
 		"message": "Sidomeny (vänster meny)"
 	},
@@ -1132,18 +1228,6 @@
 	},
 	"SideMenuWidth": {
 		"message": "Sidomenybredd"
-	},
-	"Sidebar": {
-		"message": "Sidofält"
-	},
-	"SidebarBackgroundColour": {
-		"message": "Sidopanel: Bakgrundsfärg"
-	},
-	"SidebarTextColour": {
-		"message": "Sidfält: Textfärg"
-	},
-	"SidebarToggleButton": {
-		"message": "Sidomenycke växlingsknapp"
 	},
 	"SnapSidebar": {
 		"message": "Fäst sidopanelen mot högra kanten"
@@ -1235,6 +1319,9 @@
 	"TimeRange": {
 		"message": "Tidsintervall"
 	},
+	"ToggleCompactPost": {
+		"message": "Växla till kompakt inlägg"
+	},
 	"Top": {
 		"message": "Topp / Top"
 	},
@@ -1247,11 +1334,11 @@
 	"UnderlineLinks": {
 		"message": "Stryk under länkar"
 	},
-	"UpdateFirefox": {
-		"message": "Uppdatera till Firefox 121 eller senare för att vissa funktioner ska fungera korrekt."
-	},
 	"Updated": {
 		"message": "Uppdaterad"
+	},
+	"UpdateFirefox": {
+		"message": "Uppdatera till Firefox 121 eller senare för att vissa funktioner ska fungera korrekt."
 	},
 	"Upload": {
 		"message": "Ladda upp"
@@ -1268,11 +1355,20 @@
 	"UserAlreadyAdded": {
 		"message": "Användaren har redan tillagd"
 	},
+	"Username": {
+		"message": "Användarnamn"
+	},
+	"UsernameHoverPopupDelay": {
+		"message": "Fördröjning vid hovring över användarnamn-popup"
+	},
 	"UserProfileOffset": {
 		"message": "Användarprofilförskjutning"
 	},
 	"UserProfileWidth": {
 		"message": "Användarprofilbredd"
+	},
+	"Users": {
+		"message": "användare"
 	},
 	"UserTagging": {
 		"message": "Användar-taggning"
@@ -1285,15 +1381,6 @@
 	},
 	"UserTaggingManagerTitle": {
 		"message": "Användaretikettmanager"
-	},
-	"Username": {
-		"message": "Användarnamn"
-	},
-	"UsernameHoverPopupDelay": {
-		"message": "Fördröjning vid hovring över användarnamn-popup"
-	},
-	"Users": {
-		"message": "användare"
 	},
 	"Video": {
 		"message": "Video"
@@ -1312,17 +1399,5 @@
 	},
 	"Width": {
 		"message": "Bredd"
-	},
-	"extensionVersionText": {
-		"message": "Tilläggsversion"
-	},
-	"learnMore": {
-		"message": "Läs mer"
-	},
-	"resizeHomeAlsoAffects": {
-		"message": "r/all, r/popular, Skapa inlägg, Sökresultat och Wiki-sidor"
-	},
-	"seconds": {
-		"message": "sekunder"
 	}
 }

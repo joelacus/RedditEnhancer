@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "3.4.0"
+		"message": "3.5.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -74,6 +74,9 @@
 	"AutoExpand": {
 		"message": "Expand to 100% if the window/screen width is less than:"
 	},
+	"AutoExpandCompactPosts": {
+		"message": "Auto Expand Compact Posts"
+	},
 	"AutoLoadMoreComments": {
 		"message": "Auto Expand & Load More Comments"
 	},
@@ -91,6 +94,9 @@
 	},
 	"AutoplayVideos": {
 		"message": "Autoplay Videos"
+	},
+	"AvatarScale": {
+		"message": "Avatar Scale"
 	},
 	"Award": {
 		"message": "Award"
@@ -191,6 +197,9 @@
 	"ChooseBackupFile": {
 		"message": "Choose backup file"
 	},
+	"ChooseVersionForEachConflict": {
+		"message": "Choose which version to keep for each conflict:"
+	},
 	"ClassicLight": {
 		"message": "Classic Light"
 	},
@@ -263,6 +272,9 @@
 	"CopyCleanLinkShort": {
 		"message": "Copy clean link (short)"
 	},
+	"Created": {
+		"message": "Created"
+	},
 	"CreatePost": {
 		"message": "Create Post"
 	},
@@ -274,9 +286,6 @@
 	},
 	"CreateTag": {
 		"message": "Create Tag"
-	},
-	"Created": {
-		"message": "Created"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Custom Background URL"
@@ -308,8 +317,14 @@
 	"Delete": {
 		"message": "Delete"
 	},
-	"DeleteAllTags": {
-		"message": "Delete All"
+	"DeleteSelectedTags": {
+		"message": "Delete Selected"
+	},
+	"DeleteSelectedTagsConfirm": {
+		"message": "Delete {count} selected tags?"
+	},
+	"DeleteTagForUser": {
+		"message": "Delete tag for u/{username}?"
 	},
 	"Details": {
 		"message": "Details"
@@ -338,6 +353,9 @@
 	"EditPost": {
 		"message": "Edit post"
 	},
+	"EditSelected": {
+		"message": "Edit Selected"
+	},
 	"EditTag": {
 		"message": "Edit Tag"
 	},
@@ -350,11 +368,17 @@
 	"Error": {
 		"message": "Error"
 	},
+	"Existing": {
+		"message": "Existing"
+	},
 	"ExportTags": {
 		"message": "Export Tags"
 	},
 	"ExtensionSettings": {
 		"message": "Extension Settings"
+	},
+	"extensionVersionText": {
+		"message": "Extension Version"
 	},
 	"Feed": {
 		"message": "Feed"
@@ -362,10 +386,7 @@
 	"FeedKeyboardNavigation": {
 		"message": "Feed Keyboard Navigation"
 	},
-	"FeedKeyboardNavigationInfo1": {
-		"message": "Next Post: (J / Down Arrow). Previous Post: (K / Up Arrow). Toggle Compact Post: (Space)."
-	},
-	"FeedKeyboardNavigationInfo2": {
+	"FeedKeyboardNavigationInfo": {
 		"message": "Using the J/K keys will interfere with Reddit's \"Shortcuts\" feature if enabled, in which case, use the arrow keys. The RE version uses smooth scrolling and skips any hidden posts."
 	},
 	"FeedOffset": {
@@ -451,6 +472,9 @@
 	},
 	"HideAnnouncementNotifications": {
 		"message": "Hide Reddit Announcement Notifications (u/reddit)"
+	},
+	"HideAvatarBorder": {
+		"message": "Hide Avatar Border"
 	},
 	"HideAwards": {
 		"message": "Hide the \"Award\" Button on Comments"
@@ -542,11 +566,11 @@
 	"HideModerationButton": {
 		"message": "Hide the \"Moderation\" Button"
 	},
-	"HideNSFW": {
-		"message": "Hide NSFW/L Posts"
-	},
 	"HideNotificationButton": {
 		"message": "Hide \"Notification\" Button"
+	},
+	"HideNSFW": {
+		"message": "Hide NSFW/L Posts"
 	},
 	"HideNsfwInSearchResults": {
 		"message": "Hide NSFW results in the Search Bar"
@@ -572,9 +596,6 @@
 	"HidePostKarma": {
 		"message": "Hide Post Karma"
 	},
-	"HidePostSidebar": {
-		"message": "Hide the Post Sidebar"
-	},
 	"HidePostsBySubreddit": {
 		"message": "Hide Posts by Subreddit"
 	},
@@ -583,6 +604,9 @@
 	},
 	"HidePostsContainingKeyword": {
 		"message": "Hide Posts containing a Keyword"
+	},
+	"HidePostSidebar": {
+		"message": "Hide the Post Sidebar"
 	},
 	"HidePromoted": {
 		"message": "Hide Ads/Promoted Links"
@@ -635,11 +659,11 @@
 	"HideSideMenuResourcesSection": {
 		"message": "Hide the Resources Section"
 	},
-	"HideSideMenuTopSection": {
-		"message": "Hide the Top Section"
-	},
 	"HideSideMenuTopicsSection": {
 		"message": "Hide the Topics Section"
+	},
+	"HideSideMenuTopSection": {
+		"message": "Hide the Top Section"
 	},
 	"HideSubSidebar": {
 		"message": "Hide the Subreddit Sidebar"
@@ -653,6 +677,9 @@
 	"HideTrendingTodayInSearchResults": {
 		"message": "Hide 'Trending Today' in the Search Bar"
 	},
+	"HideUsername": {
+		"message": "Hide Username"
+	},
 	"HideUserNameInTheFlairSection": {
 		"message": "Hide username in the subreddit sidebar flair section"
 	},
@@ -661,9 +688,6 @@
 	},
 	"HideUserSidebar": {
 		"message": "Hide the User Sidebar"
-	},
-	"HideUsername": {
-		"message": "Hide Username"
 	},
 	"HideVideoRecommendations": {
 		"message": "Hide recommended posts when video ends"
@@ -692,17 +716,32 @@
 	"Image": {
 		"message": "Image"
 	},
+	"Images": {
+		"message": "Images"
+	},
 	"ImageScroll": {
 		"message": "Add Scrollbars To Images"
 	},
-	"Images": {
-		"message": "Images"
+	"Import": {
+		"message": "Import"
+	},
+	"ImportConflicts": {
+		"message": "Import Conflicts"
+	},
+	"ImportConflictsSummary": {
+		"message": "{totalNew} new tags imported, {skippedExact} identical tags already exist, {conflictsCount} duplicates found."
+	},
+	"Imported": {
+		"message": "Imported"
 	},
 	"ImportInvalidFormat": {
 		"message": "Invalid file format."
 	},
+	"ImportSkippedExact": {
+		"message": "{count} identical tags already exist and were skipped."
+	},
 	"ImportSuccess": {
-		"message": "Imported {count} tags successfully."
+		"message": "Imported {count} tag(s)."
 	},
 	"ImportTags": {
 		"message": "Import Tags"
@@ -733,6 +772,9 @@
 	},
 	"Latest": {
 		"message": "Latest"
+	},
+	"learnMore": {
+		"message": "Learn More"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Show vote buttons on the left"
@@ -806,6 +848,21 @@
 	"NewUpdateAvailable": {
 		"message": "Version <version> is now available. Your browser should update this extension automatically soon if you have automatic updates enabled, if not, you will have to manually check for updates in the browser extension manager."
 	},
+	"NextImage": {
+		"message": "Next image"
+	},
+	"NextPost": {
+		"message": "Next Post"
+	},
+	"NextRootComment": {
+		"message": "Next Root Comment"
+	},
+	"NoNote": {
+		"message": "No note"
+	},
+	"NonStickyHeaderBar": {
+		"message": "Non Sticky Header Bar"
+	},
 	"NoPresetsYet": {
 		"message": "No presets yet"
 	},
@@ -815,11 +872,11 @@
 	"NoTaggedUsers": {
 		"message": "No tagged users"
 	},
-	"NonStickyHeaderBar": {
-		"message": "Non Sticky Header Bar"
-	},
 	"Note": {
 		"message": "Note"
+	},
+	"NoteOptional": {
+		"message": "Note (optional)"
 	},
 	"Off": {
 		"message": "Off"
@@ -854,11 +911,11 @@
 	"OpenSubInNewTab": {
 		"message": "Open Links to Subreddits in a New Tab"
 	},
-	"OptOutAttachSideMenu": {
-		"message": "Don't attach side menu as a dropdown panel"
-	},
 	"OptionsPage": {
 		"message": "Options Page"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Don't attach side menu as a dropdown panel"
 	},
 	"Or": {
 		"message": "OR"
@@ -911,6 +968,9 @@
 	"PostOffset": {
 		"message": "Post Offset"
 	},
+	"Posts": {
+		"message": "Posts"
+	},
 	"PostSecondaryTextColour": {
 		"message": "Post: Secondary Text Colour"
 	},
@@ -932,8 +992,8 @@
 	"PostWidth": {
 		"message": "Post Width"
 	},
-	"Posts": {
-		"message": "Posts"
+	"PresetAlreadyExists": {
+		"message": "Already exists"
 	},
 	"PresetTags": {
 		"message": "Preset Tags"
@@ -941,17 +1001,26 @@
 	"Preview": {
 		"message": "Preview"
 	},
+	"PreviousImage": {
+		"message": "Previous image"
+	},
+	"PreviousPost": {
+		"message": "Previous Post"
+	},
+	"PreviousRootComment": {
+		"message": "Previous Root Comment"
+	},
 	"Productivity": {
 		"message": "Productivity"
 	},
+	"ProfileHeader": {
+		"message": "Profile Header"
+	},
+	"ProfileHeaderBgColour": {
+		"message": "Profile Header Background Colour"
+	},
 	"Qa": {
 		"message": "Q&a"
-	},
-	"RV1RedirectInfo": {
-		"message": "The \"Old (www only)\" redirect option will only redirect www.reddit.com URLs to old.reddit.com. Other prefixes such as sh.reddit.com will be unaffected."
-	},
-	"RV3RedirectInfo": {
-		"message": "The \"Latest\" redirect option will force (sh|old|new).reddit.com URLs to www.reddit.com, which will use the latest UI."
 	},
 	"Rate": {
 		"message": "Rate / Review"
@@ -1001,6 +1070,9 @@
 	"ResizeFont": {
 		"message": "Resize Font"
 	},
+	"resizeHomeAlsoAffects": {
+		"message": "& r/all, r/popular, Create Post, Search Results, and Wiki pages"
+	},
 	"ResizeLayout": {
 		"message": "Resize Feed / Post"
 	},
@@ -1019,6 +1091,12 @@
 	"Rising": {
 		"message": "Rising"
 	},
+	"RV1RedirectInfo": {
+		"message": "The \"Old (www only)\" redirect option will only redirect www.reddit.com URLs to old.reddit.com. Other prefixes such as sh.reddit.com will be unaffected."
+	},
+	"RV3RedirectInfo": {
+		"message": "The \"Latest\" redirect option will force (sh|old|new).reddit.com URLs to www.reddit.com, which will use the latest UI."
+	},
 	"Save": {
 		"message": "Save"
 	},
@@ -1030,9 +1108,6 @@
 	},
 	"ScrollToNextRootComment": {
 		"message": "Show Navigation Buttons For The Next/Previous Root Comment"
-	},
-	"ScrollToNextRootCommentInfo": {
-		"message": "Optional keyboard navigation. Next root comment: (J / Down Arrow). Previous root comment: (K / Up Arrow)."
 	},
 	"ScrollToTopFloat": {
 		"message": "Add floating 'Scroll To Top' button"
@@ -1046,6 +1121,12 @@
 	"Search": {
 		"message": "Search"
 	},
+	"SearchbarBgColour": {
+		"message": "Search Bar: Background Colour"
+	},
+	"SearchbarDropdownBgColour": {
+		"message": "Search Bar: Focused/Dropdown Background Colour"
+	},
 	"SearchPageOffset": {
 		"message": "Search Page Offset"
 	},
@@ -1055,11 +1136,8 @@
 	"SearchUsername": {
 		"message": "Search username..."
 	},
-	"SearchbarBgColour": {
-		"message": "Search Bar: Background Colour"
-	},
-	"SearchbarDropdownBgColour": {
-		"message": "Search Bar: Focused/Dropdown Background Colour"
+	"seconds": {
+		"message": "seconds"
 	},
 	"Select": {
 		"message": "Select"
@@ -1075,6 +1153,12 @@
 	},
 	"SetSansSerifAsFont": {
 		"message": "Set \"sans-serif\" as UI font"
+	},
+	"SetTag": {
+		"message": "Set Tag"
+	},
+	"SetTagForUsersConfirm": {
+		"message": "Set this tag for {count} users?"
 	},
 	"Settings": {
 		"message": "Settings"
@@ -1115,6 +1199,18 @@
 	"ShowUpvoteRatio": {
 		"message": "Show Upvote Percentage in Post View"
 	},
+	"Sidebar": {
+		"message": "Sidebar (right bar)"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Sidebar: Background Colour"
+	},
+	"SidebarTextColour": {
+		"message": "Sidebar: Text Colour"
+	},
+	"SidebarToggleButton": {
+		"message": "Sidebar Toggle Button"
+	},
 	"SideMenu": {
 		"message": "Side Menu (left bar)"
 	},
@@ -1135,18 +1231,6 @@
 	},
 	"SideMenuWidth": {
 		"message": "Side Menu Width"
-	},
-	"Sidebar": {
-		"message": "Sidebar (right bar)"
-	},
-	"SidebarBackgroundColour": {
-		"message": "Sidebar: Background Colour"
-	},
-	"SidebarTextColour": {
-		"message": "Sidebar: Text Colour"
-	},
-	"SidebarToggleButton": {
-		"message": "Sidebar Toggle Button"
 	},
 	"SnapSidebar": {
 		"message": "Snap sidebar to the right edge"
@@ -1238,6 +1322,9 @@
 	"TimeRange": {
 		"message": "Time Range"
 	},
+	"ToggleCompactPost": {
+		"message": "Toggle Compact Post"
+	},
 	"Top": {
 		"message": "Top"
 	},
@@ -1250,11 +1337,11 @@
 	"UnderlineLinks": {
 		"message": "Underline Links"
 	},
-	"UpdateFirefox": {
-		"message": "Please update to Firefox 121 or greater for some features to work correctly."
-	},
 	"Updated": {
 		"message": "Updated"
+	},
+	"UpdateFirefox": {
+		"message": "Please update to Firefox 121 or greater for some features to work correctly."
 	},
 	"Upload": {
 		"message": "Upload"
@@ -1271,11 +1358,20 @@
 	"UserAlreadyAdded": {
 		"message": "User already added"
 	},
+	"Username": {
+		"message": "Username"
+	},
+	"UsernameHoverPopupDelay": {
+		"message": "Username Hover Popup Delay"
+	},
 	"UserProfileOffset": {
 		"message": "User Profile Offset"
 	},
 	"UserProfileWidth": {
 		"message": "User Profile Width"
+	},
+	"Users": {
+		"message": "Users"
 	},
 	"UserTagging": {
 		"message": "User Tagging"
@@ -1288,15 +1384,6 @@
 	},
 	"UserTaggingManagerTitle": {
 		"message": "User Tagging Manager"
-	},
-	"Username": {
-		"message": "Username"
-	},
-	"UsernameHoverPopupDelay": {
-		"message": "Username Hover Popup Delay"
-	},
-	"Users": {
-		"message": "Users"
 	},
 	"Video": {
 		"message": "Video"
@@ -1315,17 +1402,5 @@
 	},
 	"Width": {
 		"message": "Width"
-	},
-	"extensionVersionText": {
-		"message": "Extension Version"
-	},
-	"learnMore": {
-		"message": "Learn More"
-	},
-	"resizeHomeAlsoAffects": {
-		"message": "& r/all, r/popular, Create Post, Search Results, and Wiki pages"
-	},
-	"seconds": {
-		"message": "seconds"
 	}
 }

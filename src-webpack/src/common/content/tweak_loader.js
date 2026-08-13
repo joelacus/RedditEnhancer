@@ -61,7 +61,7 @@ import { loadReplaceSearchPlaceholderText } from './tweaks/hide_elements/replace
 import { loadScalePostToFitImage } from './tweaks/media/scale_post_to_fit_image';
 import { loadScalePostToFitVideo } from './tweaks/media/scale_post_to_fit_video';
 import { loadScrollToNextRootComment } from './tweaks/productivity/scroll_to_next_root_comment';
-import { loadScrollToPost } from './tweaks/productivity/scroll_to_post';
+import { loadScrollToPost } from './tweaks/productivity/feed_keyboard_navigation';
 import { loadShowCommentAbsoluteTimestamp, loadShowPostAbsoluteTimestamp } from './tweaks/productivity/show_absolute_timestamps';
 import { loadShowCommunitiesFilter } from './tweaks/productivity/community_filter';
 import { loadShowMemberCount } from './tweaks/productivity/show_member_count';
@@ -230,6 +230,7 @@ export function loadTweaks() {
 					loadHideBlockedKeywordPosts();
 					loadHideBlockedUserPosts();
 					loadHideBlockedLinkPosts();
+					loadHideBlockedSubredditPosts();
 					loadMarkReadOnOpenExpandos();
 				}, 500);
 				loadShowPostNumbers();

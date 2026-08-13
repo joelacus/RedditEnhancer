@@ -977,6 +977,25 @@
 						<span class='indicator'></span>
 					</label>
 				</div>
+				<hr />
+				<div class='shortcuts-container'>
+					<div class='shortcut'>
+						<div>
+							<div class='pill'>
+								<div class='icon icon-caret-left'></div>
+							</div>
+						</div>
+						<span data-lang='PreviousImage'></span>
+					</div>
+					<div class='shortcut'>
+						<div>
+							<div class='pill'>
+								<div class='icon icon-caret-right'></div>
+							</div>
+						</div>
+						<span data-lang='NextImage'></span>
+					</div>
+				</div>
 				<p class='info' data-lang='GalleryKeyboardNavigationInfo'></p>
 			</li>
 			<li id='media-video' class='sub-header r-newnew'>
@@ -1176,8 +1195,42 @@
 						<span class='indicator'></span>
 					</label>
 				</div>
-				<p class='info'><span data-lang='FeedKeyboardNavigationInfo1'></span><br /></p>
-				<p class='info'><span data-lang='FeedKeyboardNavigationInfo2'></span><br /></p>
+				<div class='shortcuts-container'>
+					<div class='shortcut'>
+						<div>
+							<div class='pill'>J</div>
+							<div class='pill'>
+								<div class='icon icon-caret-down'></div>
+							</div>
+						</div>
+						<span data-lang='NextPost'></span>
+					</div>
+					<div class='shortcut'>
+						<div>
+							<div class='pill'>K</div>
+							<div class='pill'>
+								<div class='icon icon-caret-up'></div>
+							</div>
+						</div>
+						<span data-lang='PreviousPost'></span>
+					</div>
+					<div class='shortcut'>
+						<div>
+							<div class='pill'>Space</div>
+						</div>
+						<span data-lang='ToggleCompactPost'></span>
+					</div>
+				</div>
+				<p class='info'><span data-lang='FeedKeyboardNavigationInfo'></span><br /></p>
+				<hr />
+				<div class='container-3'>
+					<span class='menu-item-icon icon-expand-arrows icon-auto-expand-compact-posts'></span>
+					<span data-lang='AutoExpandCompactPosts'></span>
+					<label class='switch'>
+						<input id='checkbox-auto-expand-compact-posts' type='checkbox' />
+						<span class='indicator'></span>
+					</label>
+				</div>
 			</li>
 			<li class='container r-newnew' data-query-words='read,expand,preview'>
 				<div class='container-3'>
@@ -1575,7 +1628,27 @@
 					<input type='range' min='-1' max='100' value='0' step='1' class='slider' id='input-scroll-to-root-comment-position-y' />
 					<span id='scroll-to-root-comment-position-y-value' class='input-value'></span>
 				</div>
-				<p class='info' data-lang='ScrollToNextRootCommentInfo'></p>
+				<hr />
+				<div class='shortcuts-container'>
+					<div class='shortcut'>
+						<div>
+							<div class='pill'>J</div>
+							<div class='pill'>
+								<div class='icon icon-caret-down'></div>
+							</div>
+						</div>
+						<span data-lang='NextRootComment'></span>
+					</div>
+					<div class='shortcut'>
+						<div>
+							<div class='pill'>K</div>
+							<div class='pill'>
+								<div class='icon icon-caret-up'></div>
+							</div>
+						</div>
+						<span data-lang='PreviousRootComment'></span>
+					</div>
+				</div>
 			</li>
 			<li class='container r-old' data-query-words='comments,limit'>
 				<div class='container-slider'>
@@ -1914,13 +1987,18 @@
 					</div>
 					<div class='r-old r-newnew'>
 						<a href='#style-header' data-lang='Header'></a>
-						<div class='vdivider r-newnew'></div>
+						<div class='vdivider'></div>
 					</div>
 					<div class='r-newnew'>
 						<a href='#style-drop-shadow' data-lang='DropShadow'></a>
 						<div class='vdivider'></div>
 					</div>
+					<div class='r-newnew'>
+						<a href='#style-profile-header' data-lang='ProfileHeader'></a>
+						<div class='vdivider'></div>
+					</div>
 					<div class='r-newnew'><a href='#style-theme' data-lang='Theme'></a></div>
+					<div class='r-old'><a href='#style-other' data-lang='Other'></a></div>
 				</div>
 			</li>
 			<li id='style-main' class='sub-header r-newnew'>
@@ -2085,6 +2163,39 @@
 					<span class='text-small'>box-shadow: </span>
 					<input id='input-shadow-override-css' type='text' placeholder='rgba(0,0,0,0.4) 0px 0px 100px' />
 				</div>
+			</li>
+			<li id='style-profile-header' class='sub-header r-newnew'>
+				<span data-lang='ProfileHeader'></span>
+			</li>
+			<li class='container-3 r-newnew' data-query-words='profile'>
+				<span class='menu-item-icon icon-show icon-hide-profile-avatar-border'></span>
+				<span data-lang='HideAvatarBorder'></span>
+				<label class='switch'>
+					<input id='checkbox-hide-profile-avatar-border' type='checkbox' />
+					<span class='indicator'></span>
+				</label>
+			</li>
+			<li class='container-slider r-newnew' data-query-words='profile'>
+				<span class='menu-item-icon icon-expand-arrows icon-scale-profile-avatar'></span>
+				<span data-lang='AvatarScale'></span>
+				<input type='range' min='1' max='5' value='0' step='0.1' class='slider' id='input-scale-profile-avatar' />
+				<span id='scale-profile-avatar-value' class='input-value'></span>
+			</li>
+			<li class='container r-newnew' data-query-words='theme,colour,profile,header,background'>
+				<div class='container-3'>
+					<span class='menu-item-icon icon-spray-can icon-profile-header-bg-colour'></span>
+					<span data-lang='ProfileHeaderBgColour'></span>
+					<label class='switch'>
+						<input id='checkbox-profile-header-bg-colour' type='checkbox' />
+						<span class='indicator'></span>
+					</label>
+				</div>
+				<div class='container'>
+					<input class='colour-picker' data-style-id='profile-header-bg' value='' />
+				</div>
+			</li>
+			<li id='style-other' class='sub-header r-old'>
+				<span data-lang='Other'></span>
 			</li>
 			<li class='container-3 r-old' data-query-words='modern,theme'>
 				<span class='menu-item-icon icon-spray-can icon-modern-old-reddit'></span>

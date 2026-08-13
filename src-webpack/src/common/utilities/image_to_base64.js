@@ -102,9 +102,8 @@ export async function base64ImageOptimiser(imageInput, width, height) {
 
 	const dataUrl = canvas.toDataURL(imageType, 0.9);
 	const base64 = dataUrl.split(',')[1];
-	const base64SizeBytes = Math.ceil(base64.length * 0.75);
+	const base64SizeBytes = base64.length;
 
-	const base64Size = (base64SizeBytes / 1048576).toFixed(2);
 	if (base64SizeBytes < 102400) {
 		console.log(`Base64 size: ${(base64SizeBytes / 1024).toFixed(2)} KiB`);
 	} else {
@@ -117,7 +116,7 @@ export async function base64ImageOptimiser(imageInput, width, height) {
 	result.base64 = base64Result;
 	result.originalRes = originalRes;
 	result.originalSize = originalSize;
-	result.base64Size = base64Size;
+	result.base64SizeBytes = base64SizeBytes;
 
 	return result;
 }

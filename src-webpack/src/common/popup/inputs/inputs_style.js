@@ -384,19 +384,22 @@ fileInput.addEventListener('change', function () {
 		return;
 	}
 
-	base64ImageOptimiser(file, 230, 47)
+	base64ImageOptimiser(file, 230, 48)
 		.then(function (result) {
 			const base64 = result.base64;
+			const bytes = parseInt(result.base64SizeBytes);
 			const maxBytes = 8192;
-
-			if (base64.length < maxBytes) {
+			if (bytes < maxBytes) {
 				BROWSER_API.storage.sync.set({ customHeaderLogoUrl: base64 });
-				fileInput.value = '';
-				document.querySelector('#input-custom-header-logo-url').value = base64;
-				sendMessage({ setCustomHeaderLogoUrl: base64 });
+				BROWSER_API.storage.local.set({ customHeaderLogoUrl: '' });
 			} else {
-				console.log(`Base64 too big. ${base64.length} < ${maxBytes} bytes`);
+				console.log(`Base64 too big for sync. ${bytes} < ${maxBytes} bytes. Saving to local storage instead.`);
+				BROWSER_API.storage.local.set({ customHeaderLogoUrl: base64 });
+				BROWSER_API.storage.sync.set({ customHeaderLogoUrl: '' });
 			}
+			fileInput.value = '';
+			document.querySelector('#input-custom-header-logo-url').value = base64;
+			sendMessage({ setCustomHeaderLogoUrl: base64 });
 		})
 		.catch(function (error) {
 			console.log('Image upload failed:', error);
@@ -454,4 +457,31 @@ document.querySelector('#checkbox-sub-header-bg-colour').addEventListener('chang
 	BROWSER_API.storage.sync.set({ themeSubHeaderBackgroundColour: this.checked });
 	sendMessage({ themeSubHeaderBackgroundColour: this.checked });
 	document.querySelector('.icon-sub-header-bg-colour').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});
+
+// Toggle - Profile Header Background Colour
+document.querySelector('#checkbox-profile-header-bg-colour').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ themeProfileHeaderBgColour: this.checked });
+	sendMessage({ themeProfileHeaderBgColour: this.checked });
+	document.querySelector('.icon-profile-header-bg-colour').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});
+
+// Toggle - Hide Profile Avatar Border
+document.querySelector('#checkbox-hide-profile-avatar-border').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ hideProfileAvatarBorder: this.checked });
+	sendMessage({ hideProfileAvatarBorder: this.checked });
+	const icon = document.querySelector('.icon-hide-profile-avatar-border');
+	icon.style.backgroundColor = this.checked ? 'var(--accent)' : '';
+	icon.classList.replace(this.checked ? 'icon-show' : 'icon-hide', this.checked ? 'icon-hide' : 'icon-show');
+});
+
+// Slider - Profile Avatar Scale
+const saveScaleProfileAvatar = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ scaleProfileAvatar: value });
+}, 500);
+document.querySelector('#input-scale-profile-avatar').addEventListener('input', function () {
+	document.querySelector('.icon-scale-profile-avatar').style.backgroundColor = this.value != 1 ? 'var(--accent)' : '';
+	document.querySelector('#scale-profile-avatar-value').innerText = `${this.value}x`;
+	sendMessage({ scaleProfileAvatar: this.value });
+	saveScaleProfileAvatar(this.value);
 });

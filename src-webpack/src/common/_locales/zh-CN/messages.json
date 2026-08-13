@@ -71,6 +71,9 @@
 	"AutoExpand": {
 		"message": "如果窗口/屏幕宽度小于以下值，则扩展至 100%："
 	},
+	"AutoExpandCompactPosts": {
+		"message": "自动展开折叠的帖子"
+	},
 	"AutoLoadMoreComments": {
 		"message": "自动展开并加载更多评论"
 	},
@@ -88,6 +91,9 @@
 	},
 	"AutoplayVideos": {
 		"message": "自动播放视频"
+	},
+	"AvatarScale": {
+		"message": "虚拟形象比例"
 	},
 	"Award": {
 		"message": "奖励"
@@ -188,6 +194,9 @@
 	"ChooseBackupFile": {
 		"message": "选择备份文件"
 	},
+	"ChooseVersionForEachConflict": {
+		"message": "针对每一处冲突，选择要保留的版本："
+	},
 	"ClassicLight": {
 		"message": "经典浅色"
 	},
@@ -260,6 +269,9 @@
 	"CopyCleanLinkShort": {
 		"message": "复制纯净短链接"
 	},
+	"Created": {
+		"message": "已创建"
+	},
 	"CreatePost": {
 		"message": "创建帖子"
 	},
@@ -271,9 +283,6 @@
 	},
 	"CreateTag": {
 		"message": "创建标签"
-	},
-	"Created": {
-		"message": "已创建"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "自定义背景 URL"
@@ -305,8 +314,14 @@
 	"Delete": {
 		"message": "删除"
 	},
-	"DeleteAllTags": {
-		"message": "全部删除"
+	"DeleteSelectedTags": {
+		"message": "删除所选项"
+	},
+	"DeleteSelectedTagsConfirm": {
+		"message": "删除 {count} 个选定的标签？"
+	},
+	"DeleteTagForUser": {
+		"message": "删除 u/{username} 的标签？"
 	},
 	"Details": {
 		"message": "详情"
@@ -335,6 +350,9 @@
 	"EditPost": {
 		"message": "编辑帖子"
 	},
+	"EditSelected": {
+		"message": "编辑所选项"
+	},
 	"EditTag": {
 		"message": "编辑标签"
 	},
@@ -347,11 +365,17 @@
 	"Error": {
 		"message": "错误"
 	},
+	"Existing": {
+		"message": "现有"
+	},
 	"ExportTags": {
 		"message": "导出标签"
 	},
 	"ExtensionSettings": {
 		"message": "扩展设置"
+	},
+	"extensionVersionText": {
+		"message": "扩展版本"
 	},
 	"Feed": {
 		"message": "信息流"
@@ -359,10 +383,7 @@
 	"FeedKeyboardNavigation": {
 		"message": "信息流键盘导航"
 	},
-	"FeedKeyboardNavigationInfo1": {
-		"message": "下一篇帖子：（J / 向下箭头）；上一篇帖子：（K / 向上箭头）；展开或收起紧凑帖子：（空格键）。"
-	},
-	"FeedKeyboardNavigationInfo2": {
+	"FeedKeyboardNavigationInfo": {
 		"message": "如果启用了 Reddit 的“快捷键”功能，J/K 键会与之冲突，此时请使用方向键。Reddit Enhancer 会平滑滚动并跳过所有已隐藏的帖子。"
 	},
 	"FeedOffset": {
@@ -448,6 +469,9 @@
 	},
 	"HideAnnouncementNotifications": {
 		"message": "隐藏 Reddit 公告通知 (u/reddit)"
+	},
+	"HideAvatarBorder": {
+		"message": "隐藏头像边框"
 	},
 	"HideAwards": {
 		"message": "隐藏评论中的“奖励”按钮"
@@ -539,11 +563,11 @@
 	"HideModerationButton": {
 		"message": "隐藏“审核”按钮"
 	},
-	"HideNSFW": {
-		"message": "隐藏 NSFW/L 帖子"
-	},
 	"HideNotificationButton": {
 		"message": "隐藏“通知”按钮"
+	},
+	"HideNSFW": {
+		"message": "隐藏 NSFW/L 帖子"
 	},
 	"HideNsfwInSearchResults": {
 		"message": "在搜索栏中隐藏 NSFW 结果"
@@ -569,9 +593,6 @@
 	"HidePostKarma": {
 		"message": "隐藏帖子 Karma"
 	},
-	"HidePostSidebar": {
-		"message": "隐藏帖子侧边栏"
-	},
 	"HidePostsBySubreddit": {
 		"message": "按子版块隐藏帖子"
 	},
@@ -580,6 +601,9 @@
 	},
 	"HidePostsContainingKeyword": {
 		"message": "隐藏包含关键字的帖子"
+	},
+	"HidePostSidebar": {
+		"message": "隐藏帖子侧边栏"
 	},
 	"HidePromoted": {
 		"message": "隐藏广告/推广链接"
@@ -632,11 +656,11 @@
 	"HideSideMenuResourcesSection": {
 		"message": "隐藏资源部分"
 	},
-	"HideSideMenuTopSection": {
-		"message": "隐藏顶部部分"
-	},
 	"HideSideMenuTopicsSection": {
 		"message": "隐藏主题部分"
+	},
+	"HideSideMenuTopSection": {
+		"message": "隐藏顶部部分"
 	},
 	"HideSubSidebar": {
 		"message": "隐藏子版块侧边栏"
@@ -650,6 +674,9 @@
 	"HideTrendingTodayInSearchResults": {
 		"message": "在搜索栏中隐藏“今日趋势”"
 	},
+	"HideUsername": {
+		"message": "隐藏用户名"
+	},
 	"HideUserNameInTheFlairSection": {
 		"message": "在子版块侧边栏的 Flair 区域隐藏用户名"
 	},
@@ -658,9 +685,6 @@
 	},
 	"HideUserSidebar": {
 		"message": "隐藏用户侧边栏"
-	},
-	"HideUsername": {
-		"message": "隐藏用户名"
 	},
 	"HideVideoRecommendations": {
 		"message": "视频结束时隐藏推荐帖子"
@@ -689,14 +713,29 @@
 	"Image": {
 		"message": "图像"
 	},
-	"ImageScroll": {
-		"message": "为图像添加滚动条"
-	},
 	"Images": {
 		"message": "图片"
 	},
+	"ImageScroll": {
+		"message": "为图像添加滚动条"
+	},
+	"Import": {
+		"message": "进口"
+	},
+	"ImportConflicts": {
+		"message": "导入冲突"
+	},
+	"ImportConflictsSummary": {
+		"message": "已导入 {totalNew} 个新标签，{skippedExact} 个完全相同的标签已存在，发现 {conflictsCount} 个重复项。"
+	},
+	"Imported": {
+		"message": "已导入"
+	},
 	"ImportInvalidFormat": {
 		"message": "文件格式无效。"
+	},
+	"ImportSkippedExact": {
+		"message": "已存在 {count} 个相同的标签，这些标签已被跳过。"
 	},
 	"ImportSuccess": {
 		"message": "已成功导入 {count} 个标签。"
@@ -730,6 +769,9 @@
 	},
 	"Latest": {
 		"message": "最新"
+	},
+	"learnMore": {
+		"message": "了解更多"
 	},
 	"LeftSideVoteButtons": {
 		"message": "在左侧显示投票按钮"
@@ -803,6 +845,21 @@
 	"NewUpdateAvailable": {
 		"message": "新版本 <version> 已发布。如果启用了自动更新，浏览器很快会自动更新此扩展；否则需要在浏览器的扩展程序管理页面手动检查更新。"
 	},
+	"NextImage": {
+		"message": "下一张图片"
+	},
+	"NextPost": {
+		"message": "下一篇帖子"
+	},
+	"NextRootComment": {
+		"message": "下一个根评论"
+	},
+	"NoNote": {
+		"message": "无备注"
+	},
+	"NonStickyHeaderBar": {
+		"message": "非固定标题栏"
+	},
 	"NoPresetsYet": {
 		"message": "还没有预设"
 	},
@@ -812,11 +869,11 @@
 	"NoTaggedUsers": {
 		"message": "没有标记的用户"
 	},
-	"NonStickyHeaderBar": {
-		"message": "非固定标题栏"
-	},
 	"Note": {
 		"message": "备注"
+	},
+	"NoteOptional": {
+		"message": "备注（可选）"
 	},
 	"Off": {
 		"message": "关闭"
@@ -851,11 +908,11 @@
 	"OpenSubInNewTab": {
 		"message": "在新选项卡中打开 Reddit 子版块的链接"
 	},
-	"OptOutAttachSideMenu": {
-		"message": "不要将侧边菜单附加为下拉面板"
-	},
 	"OptionsPage": {
 		"message": "选项页"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "不要将侧边菜单附加为下拉面板"
 	},
 	"Or": {
 		"message": "或者"
@@ -908,6 +965,9 @@
 	"PostOffset": {
 		"message": "帖子偏移"
 	},
+	"Posts": {
+		"message": "帖子"
+	},
 	"PostSecondaryTextColour": {
 		"message": "帖子：辅助文本颜色"
 	},
@@ -929,8 +989,8 @@
 	"PostWidth": {
 		"message": "帖子宽度"
 	},
-	"Posts": {
-		"message": "帖子"
+	"PresetAlreadyExists": {
+		"message": "已存在"
 	},
 	"PresetTags": {
 		"message": "预设标签"
@@ -938,17 +998,26 @@
 	"Preview": {
 		"message": "预览"
 	},
+	"PreviousImage": {
+		"message": "上一张图片"
+	},
+	"PreviousPost": {
+		"message": "上一篇帖子"
+	},
+	"PreviousRootComment": {
+		"message": "上一个根评论"
+	},
 	"Productivity": {
 		"message": "效率"
 	},
+	"ProfileHeader": {
+		"message": "个人资料页眉"
+	},
+	"ProfileHeaderBgColour": {
+		"message": "个人资料页眉背景颜色"
+	},
 	"Qa": {
 		"message": "问答"
-	},
-	"RV1RedirectInfo": {
-		"message": "“旧（仅限 www）”重定向选项只会将 www.reddit.com URL 重定向到 old.reddit.com。其他前缀（例如 sh.reddit.com）将不受影响。"
-	},
-	"RV3RedirectInfo": {
-		"message": "“最新”重定向选项将强制 (sh|old|new).reddit.com URL 指向 www.reddit.com，这将使用最新的 UI。"
 	},
 	"Rate": {
 		"message": "评分/评论"
@@ -998,6 +1067,9 @@
 	"ResizeFont": {
 		"message": "调整字体大小"
 	},
+	"resizeHomeAlsoAffects": {
+		"message": "同时影响 r/all、r/popular、创建帖子、搜索结果和 Wiki 页面"
+	},
 	"ResizeLayout": {
 		"message": "调整提要/帖子的大小"
 	},
@@ -1016,6 +1088,12 @@
 	"Rising": {
 		"message": "热度上升"
 	},
+	"RV1RedirectInfo": {
+		"message": "“旧（仅限 www）”重定向选项只会将 www.reddit.com URL 重定向到 old.reddit.com。其他前缀（例如 sh.reddit.com）将不受影响。"
+	},
+	"RV3RedirectInfo": {
+		"message": "“最新”重定向选项将强制 (sh|old|new).reddit.com URL 指向 www.reddit.com，这将使用最新的 UI。"
+	},
 	"Save": {
 		"message": "保存"
 	},
@@ -1027,9 +1105,6 @@
 	},
 	"ScrollToNextRootComment": {
 		"message": "显示下一个/上一个根评论的导航按钮"
-	},
-	"ScrollToNextRootCommentInfo": {
-		"message": "可选键盘导航。下一个根评论：（J/向下箭头）。上一个根评论：（K / 向上箭头）。"
 	},
 	"ScrollToTopFloat": {
 		"message": "添加浮动“滚动到顶部”按钮"
@@ -1043,6 +1118,12 @@
 	"Search": {
 		"message": "搜索"
 	},
+	"SearchbarBgColour": {
+		"message": "搜索栏：背景颜色"
+	},
+	"SearchbarDropdownBgColour": {
+		"message": "搜索栏：聚焦/下拉背景颜色"
+	},
 	"SearchPageOffset": {
 		"message": "搜索页面偏移量"
 	},
@@ -1052,11 +1133,8 @@
 	"SearchUsername": {
 		"message": "搜索用户名..."
 	},
-	"SearchbarBgColour": {
-		"message": "搜索栏：背景颜色"
-	},
-	"SearchbarDropdownBgColour": {
-		"message": "搜索栏：聚焦/下拉背景颜色"
+	"seconds": {
+		"message": "秒"
 	},
 	"Select": {
 		"message": "选择"
@@ -1072,6 +1150,12 @@
 	},
 	"SetSansSerifAsFont": {
 		"message": "将“sans-serif”设置为 UI 字体"
+	},
+	"SetTag": {
+		"message": "设置标签"
+	},
+	"SetTagForUsersConfirm": {
+		"message": "为 {count} 位用户设置此标签？"
 	},
 	"Settings": {
 		"message": "设置"
@@ -1112,6 +1196,18 @@
 	"ShowUpvoteRatio": {
 		"message": "在帖子视图中显示点赞百分比"
 	},
+	"Sidebar": {
+		"message": "侧边栏（右栏）"
+	},
+	"SidebarBackgroundColour": {
+		"message": "侧边栏：背景颜色"
+	},
+	"SidebarTextColour": {
+		"message": "侧边栏：文本颜色"
+	},
+	"SidebarToggleButton": {
+		"message": "侧边栏切换按钮"
+	},
 	"SideMenu": {
 		"message": "侧边菜单（左侧栏）"
 	},
@@ -1132,18 +1228,6 @@
 	},
 	"SideMenuWidth": {
 		"message": "侧边菜单宽度"
-	},
-	"Sidebar": {
-		"message": "侧边栏（右栏）"
-	},
-	"SidebarBackgroundColour": {
-		"message": "侧边栏：背景颜色"
-	},
-	"SidebarTextColour": {
-		"message": "侧边栏：文本颜色"
-	},
-	"SidebarToggleButton": {
-		"message": "侧边栏切换按钮"
 	},
 	"SnapSidebar": {
 		"message": "将侧边栏对齐到右边缘"
@@ -1235,6 +1319,9 @@
 	"TimeRange": {
 		"message": "时间范围"
 	},
+	"ToggleCompactPost": {
+		"message": "展开或收起紧凑帖子"
+	},
 	"Top": {
 		"message": "最高"
 	},
@@ -1247,11 +1334,11 @@
 	"UnderlineLinks": {
 		"message": "下划线链接"
 	},
-	"UpdateFirefox": {
-		"message": "请更新至 Firefox 121 或更高版本，某些功能才能正常工作。"
-	},
 	"Updated": {
 		"message": "已更新"
+	},
+	"UpdateFirefox": {
+		"message": "请更新至 Firefox 121 或更高版本，某些功能才能正常工作。"
 	},
 	"Upload": {
 		"message": "上传"
@@ -1268,11 +1355,20 @@
 	"UserAlreadyAdded": {
 		"message": "用户已添加"
 	},
+	"Username": {
+		"message": "用户名"
+	},
+	"UsernameHoverPopupDelay": {
+		"message": "用户名悬停弹出延迟"
+	},
 	"UserProfileOffset": {
 		"message": "用户主页偏移"
 	},
 	"UserProfileWidth": {
 		"message": "用户主页宽度"
+	},
+	"Users": {
+		"message": "用户"
 	},
 	"UserTagging": {
 		"message": "用户标签"
@@ -1285,15 +1381,6 @@
 	},
 	"UserTaggingManagerTitle": {
 		"message": "用户标签管理器"
-	},
-	"Username": {
-		"message": "用户名"
-	},
-	"UsernameHoverPopupDelay": {
-		"message": "用户名悬停弹出延迟"
-	},
-	"Users": {
-		"message": "用户"
 	},
 	"Video": {
 		"message": "视频"
@@ -1312,17 +1399,5 @@
 	},
 	"Width": {
 		"message": "宽度"
-	},
-	"extensionVersionText": {
-		"message": "扩展版本"
-	},
-	"learnMore": {
-		"message": "了解更多"
-	},
-	"resizeHomeAlsoAffects": {
-		"message": "同时影响 r/all、r/popular、创建帖子、搜索结果和 Wiki 页面"
-	},
-	"seconds": {
-		"message": "秒"
 	}
 }

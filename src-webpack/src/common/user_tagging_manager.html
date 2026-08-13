@@ -28,6 +28,9 @@
 				<table id="user-tags-table">
 					<thead>
 						<tr>
+							<th class="select-col">
+								<input type="checkbox" id="select-all-checkbox" />
+							</th>
 							<th>
 								<div>
 									<div>
@@ -77,7 +80,10 @@
 			<div class="bottom-bar">
 				<button id="btn-add-user-tag" class="btn" data-lang="AddUserTag"></button>
 				<span id="user-already-added-warning" class="hidden text-red" data-lang="UserAlreadyAdded"></span>
-				<button id="btn-delete-all-tags" class="btn red" data-lang="DeleteAllTags"></button>
+				<div>
+					<button id="btn-set-tag-selected" class="btn hidden" data-lang="EditSelected"></button>
+					<button id="btn-delete-selected-tags" class="btn red hidden" data-lang="DeleteSelectedTags"></button>
+				</div>
 			</div>
 
 			<footer class="manager-footer">
@@ -160,6 +166,22 @@
 			</div>
 		</div>
 
+		<!-- Batch Tag Confirmation Modal -->
+		<div id="batch-tag-confirm-modal" class="re-confirm-modal hidden">
+			<div class="re-modal-content">
+				<div class="header">
+					<h2 data-lang="AreYouSure"></h2>
+				</div>
+				<p id="batch-tag-confirm-text"></p>
+				<div class="re-modal-actions">
+					<div>
+						<button id="btn-confirm-batch-tag" class="btn green" data-lang="SetTag"></button>
+						<button id="btn-cancel-batch-tag" class="btn" data-lang="Cancel"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<!-- Info Modal -->
 		<div id="info-modal" class="re-confirm-modal hidden">
 			<div class="re-modal-content">
@@ -170,6 +192,24 @@
 				<div class="re-modal-actions">
 					<div>
 						<button id="btn-close-info" class="btn" data-lang="Close"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Import Conflicts Modal -->
+		<div id="import-conflicts-modal" class="re-confirm-modal hidden">
+			<div class="re-modal-content">
+				<div class="header">
+					<h2 data-lang="ImportConflicts"></h2>
+				</div>
+				<p id="import-conflicts-summary"></p>
+				<p data-lang="ChooseVersionForEachConflict"></p>
+				<div id="import-conflicts-list"></div>
+				<div class="re-modal-actions">
+					<div>
+						<button id="btn-import-commit" class="btn green" data-lang="Import"></button>
+						<button id="btn-import-cancel" class="btn" data-lang="Cancel"></button>
 					</div>
 				</div>
 			</div>

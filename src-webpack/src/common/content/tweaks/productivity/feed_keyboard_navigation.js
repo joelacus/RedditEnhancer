@@ -1,8 +1,9 @@
 /**
- * Tweaks: Productivity - Scroll to the next/previous post on keypress
+ * Tweaks: Productivity - Feed Keyboard Navigation
  *
  * @name scrollToPost
  * @description Scroll to the next/previous post on a feed with a keypress (J, K, Up Arrow, Down Arrow).
+ *              Expand compact posts with spacebar, or automatically if "Auto Expand Compact Posts" is enabled.
  *
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
@@ -12,11 +13,14 @@ import { showBannerMessage } from '../../banner_message';
 
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
-let showNsfw = true;
+let showNsfw, autoExpand;
+let navigationCleanup = null;
+
 export function loadScrollToPost() {
-	BROWSER_API.storage.sync.get(['scrollToPost', 'hideNSFW'], function (result) {
-		if (result.scrollToPost) scrollToPost(true);
+	BROWSER_API.storage.sync.get(['scrollToPost', 'hideNSFW', 'autoExpandCompactPosts'], function (result) {
+		if (result.scrollToPost === true) scrollToPost(true);
 		showNsfw = result.hideNSFW ?? true;
+		autoExpand = result.autoExpandCompactPosts ?? false;
 	});
 }
 
@@ -34,23 +38,25 @@ export function scrollToPost(value) {
 	}
 }
 
-let navigationCleanup = null;
+export function autoExpandCompactPosts(value) {
+	autoExpand = value;
+}
 
-// Enable Scroll To Post - RV3
+// Enable Feed Keyboard Navigation - RV3
 function enableScrollToPostRV3() {
 	if (!navigationCleanup) {
 		navigationCleanup = createKeyboardNavigator('shreddit-feed', 'article:has(shreddit-post)', 'RV3');
 	}
 }
 
-// Enable Scroll To Post - RV1
+// Enable Feed Keyboard Navigation - RV1
 function enableScrollToPostRV1() {
 	if (!navigationCleanup) {
 		navigationCleanup = createKeyboardNavigator('#siteTable', '[id^="thing"]', 'RV1');
 	}
 }
 
-// Disable Scroll To Post - All
+// Disable Feed Keyboard Navigation - All
 function disableScrollToPostAll() {
 	showBannerMessage('info', '[RedditEnhancer] Change requires a page refresh to take effect.');
 }
@@ -120,6 +126,15 @@ function createKeyboardNavigator(containerSelector, elementSelector, RedditVersi
 			if (e.key === 'j' || e.key === 'J' || e.key === 'ArrowDown') {
 				if (e.key === 'ArrowDown') e.preventDefault();
 				const current = findCurrentIndex(elements);
+				if (autoExpand) {
+					elements.forEach((el) => {
+						el?.querySelector('.expando-button.expanded')?.click();
+						el?.querySelector('shreddit-post')?.shadowRoot?.querySelector('.toggle__expando-button[aria-expanded="true"]')?.click();
+					});
+					elements[current + 1]?.querySelector('.expando-button.collapsed')?.click();
+					elements[current + 1]?.querySelector('shreddit-post')?.shadowRoot?.querySelector('.toggle__expando-button[aria-expanded="false"]')?.click();
+				}
+
 				if (current === -1) {
 					const firstValid = findNextValidIndex(elements, 0, 1);
 					if (firstValid !== -1) scrollToElement(elements, firstValid, 0);
@@ -130,6 +145,16 @@ function createKeyboardNavigator(containerSelector, elementSelector, RedditVersi
 			} else if (e.key === 'k' || e.key === 'K' || e.key === 'ArrowUp') {
 				if (e.key === 'ArrowUp') e.preventDefault();
 				const current = findCurrentIndex(elements);
+
+				if (autoExpand) {
+					elements.forEach((el) => {
+						el?.querySelector('.expando-button.expanded')?.click();
+						el?.querySelector('shreddit-post')?.shadowRoot?.querySelector('.toggle__expando-button[aria-expanded="true"]')?.click();
+					});
+					elements[current - 1]?.querySelector('.expando-button.collapsed')?.click();
+					elements[current - 1]?.querySelector('shreddit-post')?.shadowRoot?.querySelector('.toggle__expando-button[aria-expanded="false"]')?.click();
+				}
+
 				if (current === -1) {
 					const firstValid = findNextValidIndex(elements, 0, 1);
 					if (firstValid !== -1) scrollToElement(elements, firstValid, 0);

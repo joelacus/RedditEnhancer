@@ -603,10 +603,12 @@ export function restorePopupStyleOptions() {
 	});
 
 	// Custom Header Logo URL
-	BROWSER_API.storage.sync.get(['customHeaderLogoUrl'], function (result) {
-		const value = result.customHeaderLogoUrl ?? '';
-		document.querySelector('#input-custom-header-logo-url').value = value;
-		console.log('Custom Header Logo URL: ' + value);
+	BROWSER_API.storage.local.get(['customHeaderLogoUrl'], function (local) {
+		BROWSER_API.storage.sync.get(['customHeaderLogoUrl'], function (sync) {
+			const value = sync.customHeaderLogoUrl ?? local.customHeaderLogoUrl ?? '';
+			document.querySelector('#input-custom-header-logo-url').value = value;
+			console.log('Custom Header Logo URL: ' + value);
+		});
 	});
 
 	// Attach Side Menu Header
@@ -683,5 +685,43 @@ export function restorePopupStyleOptions() {
 		const get_picker = colour_pickers.find((item) => item.id === 'sub-header-bg')?.picker;
 		if (get_picker) get_picker.setColor(value);
 		console.log('Sub Header Background Colour CSS: ' + value);
+	});
+
+	// Profile Header Background Colour
+	BROWSER_API.storage.sync.get(['themeProfileHeaderBgColour'], function (result) {
+		const checked = result.themeProfileHeaderBgColour === true;
+		document.querySelector('#checkbox-profile-header-bg-colour').checked = checked;
+		document.querySelector('.icon-profile-header-bg-colour').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('style-tweaks');
+		console.log('Profile Header Background Colour: ' + checked);
+	});
+
+	// Profile Header Background Colour CSS
+	BROWSER_API.storage.sync.get(['themeProfileHeaderBgColourCSS'], function (result) {
+		const raw = result.themeProfileHeaderBgColourCSS ?? '';
+		const value = validateColour(raw);
+		const get_picker = colour_pickers.find((item) => item.id === 'profile-header-bg')?.picker;
+		if (get_picker) get_picker.setColor(value);
+		console.log('Profile Header Background Colour CSS: ' + value);
+	});
+
+	// Hide Profile Avatar Border
+	BROWSER_API.storage.sync.get(['hideProfileAvatarBorder'], function (result) {
+		const checked = result.hideProfileAvatarBorder === true;
+		document.querySelector('#checkbox-hide-profile-avatar-border').checked = checked;
+		const icon = document.querySelector('.icon-hide-profile-avatar-border');
+		icon.style.backgroundColor = checked ? 'var(--accent)' : '';
+		icon.classList.replace(checked ? 'icon-show' : 'icon-hide', checked ? 'icon-hide' : 'icon-show');
+		if (checked) highlightMenuIcon('style-tweaks');
+		console.log('Hide Profile Avatar Border: ' + checked);
+	});
+
+	// Scale Profile Avatar
+	BROWSER_API.storage.sync.get(['scaleProfileAvatar'], function (result) {
+		const value = result.scaleProfileAvatar ?? 0;
+		document.querySelector('#input-scale-profile-avatar').value = value;
+		document.querySelector('#scale-profile-avatar-value').innerText = value + 'x';
+		document.querySelector('.icon-scale-profile-avatar').style.backgroundColor = value != 0 ? 'var(--accent)' : '';
+		console.log('Scale Profile Avatar: ' + value + 'x');
 	});
 }
