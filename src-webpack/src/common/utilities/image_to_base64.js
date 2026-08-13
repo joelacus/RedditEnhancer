@@ -107,7 +107,7 @@ export async function base64ImageOptimiser(imageInput, width, height) {
 	if (base64SizeBytes < 102400) {
 		console.log(`Base64 size: ${(base64SizeBytes / 1024).toFixed(2)} KiB`);
 	} else {
-		console.log(`Base64 size: ${base64Size} MiB`);
+		console.log(`Base64 size: ${(base64SizeBytes / 1024 / 1024).toFixed(2)} MiB`);
 	}
 
 	const base64Result = dataUrl;

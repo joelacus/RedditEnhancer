@@ -605,7 +605,7 @@ export function restorePopupStyleOptions() {
 	// Custom Header Logo URL
 	BROWSER_API.storage.local.get(['customHeaderLogoUrl'], function (local) {
 		BROWSER_API.storage.sync.get(['customHeaderLogoUrl'], function (sync) {
-			const value = sync.customHeaderLogoUrl ?? local.customHeaderLogoUrl ?? '';
+			const value = sync.customHeaderLogoUrl || local.customHeaderLogoUrl || '';
 			document.querySelector('#input-custom-header-logo-url').value = value;
 			console.log('Custom Header Logo URL: ' + value);
 		});
