@@ -71,6 +71,9 @@
 	"AutoExpand": {
 		"message": "Auf 100% erweitern, wenn die Fenster-/Bildschirmbreite kleiner ist als:"
 	},
+	"AutoExpandCompactPosts": {
+		"message": "Kompakte Beiträge automatisch erweitern"
+	},
 	"AutoLoadMoreComments": {
 		"message": "Weitere Kommentare automatisch laden"
 	},
@@ -88,6 +91,9 @@
 	},
 	"AutoplayVideos": {
 		"message": "Automatische Wiedergabe von Videos"
+	},
+	"AvatarScale": {
+		"message": "Avatar-Skalierung"
 	},
 	"Award": {
 		"message": "Auszeichnung"
@@ -188,6 +194,9 @@
 	"ChooseBackupFile": {
 		"message": "Wählen Sie eine Sicherungsdatei"
 	},
+	"ChooseVersionForEachConflict": {
+		"message": "Wählen Sie für jeden Konflikt aus, welche Version beibehalten werden soll:"
+	},
 	"ClassicLight": {
 		"message": "Klassisch Hell"
 	},
@@ -260,6 +269,9 @@
 	"CopyCleanLinkShort": {
 		"message": "Sauberen Link kopieren (kurz)"
 	},
+	"Created": {
+		"message": "Erstellt"
+	},
 	"CreatePost": {
 		"message": "Beitrag Erstellen"
 	},
@@ -271,9 +283,6 @@
 	},
 	"CreateTag": {
 		"message": "Tag erstellen"
-	},
-	"Created": {
-		"message": "Erstellt"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Benutzerdefinierter Hintergrund Link"
@@ -305,8 +314,14 @@
 	"Delete": {
 		"message": "Löschen"
 	},
-	"DeleteAllTags": {
-		"message": "Alles löschen"
+	"DeleteSelectedTags": {
+		"message": "Ausgewählt löschen"
+	},
+	"DeleteSelectedTagsConfirm": {
+		"message": "Die {count} ausgewählten Tags löschen?"
+	},
+	"DeleteTagForUser": {
+		"message": "Tag für Benutzer u/{username} löschen?"
 	},
 	"Details": {
 		"message": "Details"
@@ -335,6 +350,9 @@
 	"EditPost": {
 		"message": "Beitrag bearbeiten"
 	},
+	"EditSelected": {
+		"message": "Ausswahl bearbeiten"
+	},
 	"EditTag": {
 		"message": "Tag bearbeiten"
 	},
@@ -347,11 +365,17 @@
 	"Error": {
 		"message": "Fehler"
 	},
+	"Existing": {
+		"message": "Vorhanden"
+	},
 	"ExportTags": {
 		"message": "Tags exportieren"
 	},
 	"ExtensionSettings": {
 		"message": "Erweiterungseinstellungen"
+	},
+	"extensionVersionText": {
+		"message": "Erweiterungsversion"
 	},
 	"Feed": {
 		"message": "Feed"
@@ -359,10 +383,7 @@
 	"FeedKeyboardNavigation": {
 		"message": "Feed-Tastaturnavigation"
 	},
-	"FeedKeyboardNavigationInfo1": {
-		"message": "Nächsten Beitrag: (J / Pfeil nach unten). Vorherigen Beitrag: (K / Pfeil nach oben). Kompakte Beitragsansicht umschalten: (Leertaste)."
-	},
-	"FeedKeyboardNavigationInfo2": {
+	"FeedKeyboardNavigationInfo": {
 		"message": "Die Verwendung der J/K-Tasten stört die „Shortcuts“-Funktion von Reddit, sofern diese aktiviert ist. Verwenden Sie in diesem Fall die Pfeiltasten. Die RE-Version verwendet sanftes Scrollen und überspringt alle ausgeblendeten Beiträge."
 	},
 	"FeedOffset": {
@@ -448,6 +469,9 @@
 	},
 	"HideAnnouncementNotifications": {
 		"message": "Reddit Ankündigungsbenachrichtigungen ausblenden (u/reddit)"
+	},
+	"HideAvatarBorder": {
+		"message": "Avatar-Rahmen ausblenden"
 	},
 	"HideAwards": {
 		"message": "„Auszeichnung“-Schaltfläche bei Kommentaren ausblenden"
@@ -539,11 +563,11 @@
 	"HideModerationButton": {
 		"message": "Ausblenden der „Moderation“ Schaltfläche"
 	},
-	"HideNSFW": {
-		"message": "Verstecken Sie NSFW/L Beiträge"
-	},
 	"HideNotificationButton": {
 		"message": "Schaltfläche „Benachrichtigung“ Ausblenden"
+	},
+	"HideNSFW": {
+		"message": "Verstecken Sie NSFW/L Beiträge"
 	},
 	"HideNsfwInSearchResults": {
 		"message": "„NSFW“ in den Suchergebnissen ausblenden"
@@ -569,9 +593,6 @@
 	"HidePostKarma": {
 		"message": "Beitragskarma verbergen"
 	},
-	"HidePostSidebar": {
-		"message": "Blenden Sie die Seitenleiste des Beitrags aus"
-	},
 	"HidePostsBySubreddit": {
 		"message": "Beiträge nach Subreddit ausblenden"
 	},
@@ -580,6 +601,9 @@
 	},
 	"HidePostsContainingKeyword": {
 		"message": "Beiträge mit einem bestimmten Schlagwort ausblenden"
+	},
+	"HidePostSidebar": {
+		"message": "Blenden Sie die Seitenleiste des Beitrags aus"
 	},
 	"HidePromoted": {
 		"message": "Anzeigen/beworbene Links ausblenden"
@@ -632,11 +656,11 @@
 	"HideSideMenuResourcesSection": {
 		"message": "Ressourcenbereich ausblenden"
 	},
-	"HideSideMenuTopSection": {
-		"message": "Obere Sektion ausblenden"
-	},
 	"HideSideMenuTopicsSection": {
 		"message": "Themenbereich ausblenden"
+	},
+	"HideSideMenuTopSection": {
+		"message": "Obere Sektion ausblenden"
 	},
 	"HideSubSidebar": {
 		"message": "Subreddit-Seitenleiste Ausblenden"
@@ -650,6 +674,9 @@
 	"HideTrendingTodayInSearchResults": {
 		"message": "„Trending Today“ in der Suchleiste ausblenden"
 	},
+	"HideUsername": {
+		"message": "Benutzernamen Ausblenden"
+	},
 	"HideUserNameInTheFlairSection": {
 		"message": "Benutzernamen im Flair-Bereich der Subreddit-Seitenleiste verbergen"
 	},
@@ -658,9 +685,6 @@
 	},
 	"HideUserSidebar": {
 		"message": "Blenden Sie die Benutzerseitenleiste aus"
-	},
-	"HideUsername": {
-		"message": "Benutzernamen Ausblenden"
 	},
 	"HideVideoRecommendations": {
 		"message": "Empfohlene Beiträge ausblenden, wenn das Video endet"
@@ -689,14 +713,29 @@
 	"Image": {
 		"message": "Bild"
 	},
-	"ImageScroll": {
-		"message": "Fügen Sie Bildern Scrollbars hinzu"
-	},
 	"Images": {
 		"message": "Bilder"
 	},
+	"ImageScroll": {
+		"message": "Fügen Sie Bildern Scrollbars hinzu"
+	},
+	"Import": {
+		"message": "Importieren"
+	},
+	"ImportConflicts": {
+		"message": "Importkonflikte"
+	},
+	"ImportConflictsSummary": {
+		"message": "{totalNew} neue Tags importiert, {skippedExact} identische Tags existieren bereits, {conflictsCount} Duplikate gefunden."
+	},
+	"Imported": {
+		"message": "Importiert"
+	},
 	"ImportInvalidFormat": {
 		"message": "Ungültiges Dateiformat."
+	},
+	"ImportSkippedExact": {
+		"message": "Es existieren bereits {count} identische Tags und wurden übersprungen."
 	},
 	"ImportSuccess": {
 		"message": "Die {count} Tags wurden erfolgreich importiert."
@@ -730,6 +769,9 @@
 	},
 	"Latest": {
 		"message": "Aktuellste"
+	},
+	"learnMore": {
+		"message": "Mehr erfahren"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Abstimmungsschaltflächen links anzeigen"
@@ -803,6 +845,21 @@
 	"NewUpdateAvailable": {
 		"message": "Version <version> ist jetzt verfügbar. Ihr Browser sollte diese Erweiterung bald automatisch aktualisieren, wenn Sie automatische Updates aktiviert haben. Andernfalls müssen Sie im Browser-Erweiterungsmanager manuell nach Updates suchen."
 	},
+	"NextImage": {
+		"message": "Nächstes Bild"
+	},
+	"NextPost": {
+		"message": "Nächsten Beitrag"
+	},
+	"NextRootComment": {
+		"message": "Nächster Stammkommentar"
+	},
+	"NoNote": {
+		"message": "Keine Anmerkung"
+	},
+	"NonStickyHeaderBar": {
+		"message": "Nicht klebende Kopfleiste"
+	},
 	"NoPresetsYet": {
 		"message": "Noch keine Voreinstellungen vorhanden"
 	},
@@ -812,11 +869,11 @@
 	"NoTaggedUsers": {
 		"message": "Keine markierten Benutzer"
 	},
-	"NonStickyHeaderBar": {
-		"message": "Nicht klebende Kopfleiste"
-	},
 	"Note": {
 		"message": "Notiz"
+	},
+	"NoteOptional": {
+		"message": "Notiz (optional)"
 	},
 	"Off": {
 		"message": "Aus"
@@ -851,11 +908,11 @@
 	"OpenSubInNewTab": {
 		"message": "Links zu Subreddits in neuem Tab öffnen"
 	},
-	"OptOutAttachSideMenu": {
-		"message": "Hängen sie das seitenmenü nicht als dropdown-panel an"
-	},
 	"OptionsPage": {
 		"message": "Seite „Optionen“"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Hängen sie das seitenmenü nicht als dropdown-panel an"
 	},
 	"Or": {
 		"message": "ODER"
@@ -908,6 +965,9 @@
 	"PostOffset": {
 		"message": "Versatz des Posts"
 	},
+	"Posts": {
+		"message": "Beiträge"
+	},
 	"PostSecondaryTextColour": {
 		"message": "Beitrag: Sekundäre Textfarbe"
 	},
@@ -929,8 +989,8 @@
 	"PostWidth": {
 		"message": "Beitragsbreite"
 	},
-	"Posts": {
-		"message": "Beiträge"
+	"PresetAlreadyExists": {
+		"message": "bereits vorhanden"
 	},
 	"PresetTags": {
 		"message": "Vordefinierte Tags"
@@ -938,17 +998,26 @@
 	"Preview": {
 		"message": "Vorschau"
 	},
+	"PreviousImage": {
+		"message": "Vorheriges Bild"
+	},
+	"PreviousPost": {
+		"message": "Vorherigen Beitrag"
+	},
+	"PreviousRootComment": {
+		"message": "Vorheriger Stammkommentar"
+	},
 	"Productivity": {
 		"message": "Produktivität"
 	},
+	"ProfileHeader": {
+		"message": "Profil-Kopfzeile"
+	},
+	"ProfileHeaderBgColour": {
+		"message": "Hintergrundfarbe des Profil-Headers"
+	},
 	"Qa": {
 		"message": "Q&a"
-	},
-	"RV1RedirectInfo": {
-		"message": "Die Weiterleitungsoption „Alt (nur www)“ leitet lediglich URLs der Form www.reddit.com auf old.reddit.com um. Andere Präfixe wie sh.reddit.com sind davon nicht betroffen."
-	},
-	"RV3RedirectInfo": {
-		"message": "Die Weiterleitungsoption „Aktuellste“ erzwingt die Umleitung von URLs der Form (sh|old|new).reddit.com auf www.reddit.com, wodurch die neueste Benutzeroberfläche verwendet wird."
 	},
 	"Rate": {
 		"message": "Bewerten / Rezension"
@@ -998,6 +1067,9 @@
 	"ResizeFont": {
 		"message": "Schriftgröße ändern"
 	},
+	"resizeHomeAlsoAffects": {
+		"message": "& r/all, r/popular, Beiträge, Suchergebnisse und Wiki-Seiten erstellen"
+	},
 	"ResizeLayout": {
 		"message": "Größe des Feeds/Beitrags ändern"
 	},
@@ -1016,6 +1088,12 @@
 	"Rising": {
 		"message": "Aufsteigend / Rising"
 	},
+	"RV1RedirectInfo": {
+		"message": "Die Weiterleitungsoption „Alt (nur www)“ leitet lediglich URLs der Form www.reddit.com auf old.reddit.com um. Andere Präfixe wie sh.reddit.com sind davon nicht betroffen."
+	},
+	"RV3RedirectInfo": {
+		"message": "Die Weiterleitungsoption „Aktuellste“ erzwingt die Umleitung von URLs der Form (sh|old|new).reddit.com auf www.reddit.com, wodurch die neueste Benutzeroberfläche verwendet wird."
+	},
 	"Save": {
 		"message": "Speichern"
 	},
@@ -1027,9 +1105,6 @@
 	},
 	"ScrollToNextRootComment": {
 		"message": "Zeigen Sie Schaltflächen an, um zum nächsten/vorherigen Root Kommentar zu scrollen"
-	},
-	"ScrollToNextRootCommentInfo": {
-		"message": "Optionale Tastaturnavigation. Nächster Stammkommentar: (J / Pfeil nach unten). Vorheriger Stammkommentar: (K / Pfeil nach oben)."
 	},
 	"ScrollToTopFloat": {
 		"message": "Fügen Sie die schwebende Schaltfläche „Nach oben scrollen“ hinzu"
@@ -1043,6 +1118,12 @@
 	"Search": {
 		"message": "Suche"
 	},
+	"SearchbarBgColour": {
+		"message": "Suchleiste: Hintergrundfarbe"
+	},
+	"SearchbarDropdownBgColour": {
+		"message": "Suchleiste: Fokussierte/Dropdown Hintergrundfarbe"
+	},
 	"SearchPageOffset": {
 		"message": "Suchseiten-Offset"
 	},
@@ -1052,11 +1133,8 @@
 	"SearchUsername": {
 		"message": "Benutzernamen suchen..."
 	},
-	"SearchbarBgColour": {
-		"message": "Suchleiste: Hintergrundfarbe"
-	},
-	"SearchbarDropdownBgColour": {
-		"message": "Suchleiste: Fokussierte/Dropdown Hintergrundfarbe"
+	"seconds": {
+		"message": "Sekunden"
 	},
 	"Select": {
 		"message": "Wählen"
@@ -1072,6 +1150,12 @@
 	},
 	"SetSansSerifAsFont": {
 		"message": "Setzen Sie \"sans-serif\" als UI-Schriftart"
+	},
+	"SetTag": {
+		"message": "Tag setzen"
+	},
+	"SetTagForUsersConfirm": {
+		"message": "Setzen Sie diesen Tag für {count} Benutzer?"
 	},
 	"Settings": {
 		"message": "Einstellungen"
@@ -1112,6 +1196,18 @@
 	"ShowUpvoteRatio": {
 		"message": "Zeigen Sie den Prozentsatz in der Postansicht an"
 	},
+	"Sidebar": {
+		"message": "Seitenleiste (rechte leiste)"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Seitenleiste: Hintergrundfarbe"
+	},
+	"SidebarTextColour": {
+		"message": "Seitenleiste: Textfarbe"
+	},
+	"SidebarToggleButton": {
+		"message": "Seitenleiste umschalten"
+	},
 	"SideMenu": {
 		"message": "Seitenmenü (linke leiste)"
 	},
@@ -1132,18 +1228,6 @@
 	},
 	"SideMenuWidth": {
 		"message": "Breite des Seitenmenüs"
-	},
-	"Sidebar": {
-		"message": "Seitenleiste (rechte leiste)"
-	},
-	"SidebarBackgroundColour": {
-		"message": "Seitenleiste: Hintergrundfarbe"
-	},
-	"SidebarTextColour": {
-		"message": "Seitenleiste: Textfarbe"
-	},
-	"SidebarToggleButton": {
-		"message": "Seitenleiste umschalten"
 	},
 	"SnapSidebar": {
 		"message": "Senden sie die seitenleiste zur rechten kante"
@@ -1235,6 +1319,9 @@
 	"TimeRange": {
 		"message": "Zeitspanne"
 	},
+	"ToggleCompactPost": {
+		"message": "Kompakte Beitragsansicht umschalten"
+	},
 	"Top": {
 		"message": "Top"
 	},
@@ -1247,11 +1334,11 @@
 	"UnderlineLinks": {
 		"message": "Unterstreichen Sie Links"
 	},
-	"UpdateFirefox": {
-		"message": "Bitte aktualisieren Sie auf Firefox 121 oder höher, damit einige Funktionen ordnungsgemäß funktionieren."
-	},
 	"Updated": {
 		"message": "Aktualisiert"
+	},
+	"UpdateFirefox": {
+		"message": "Bitte aktualisieren Sie auf Firefox 121 oder höher, damit einige Funktionen ordnungsgemäß funktionieren."
 	},
 	"Upload": {
 		"message": "Hochladen"
@@ -1268,11 +1355,20 @@
 	"UserAlreadyAdded": {
 		"message": "Benutzer bereits hinzugefügt"
 	},
+	"Username": {
+		"message": "Benutzername"
+	},
+	"UsernameHoverPopupDelay": {
+		"message": "Benutzername Hover Popup-Verzögerung"
+	},
 	"UserProfileOffset": {
 		"message": "Versatz des Benutzerprofil"
 	},
 	"UserProfileWidth": {
 		"message": "Breite des Benutzerprofils"
+	},
+	"Users": {
+		"message": "Benutzer"
 	},
 	"UserTagging": {
 		"message": "Benutzer-Tagging"
@@ -1285,15 +1381,6 @@
 	},
 	"UserTaggingManagerTitle": {
 		"message": "Benutzer-Tag-Manager"
-	},
-	"Username": {
-		"message": "Benutzername"
-	},
-	"UsernameHoverPopupDelay": {
-		"message": "Benutzername Hover Popup-Verzögerung"
-	},
-	"Users": {
-		"message": "Benutzer"
 	},
 	"Video": {
 		"message": "Video"
@@ -1312,17 +1399,5 @@
 	},
 	"Width": {
 		"message": "Breite"
-	},
-	"extensionVersionText": {
-		"message": "Erweiterungsversion"
-	},
-	"learnMore": {
-		"message": "Mehr erfahren"
-	},
-	"resizeHomeAlsoAffects": {
-		"message": "& r/all, r/popular, Beiträge, Suchergebnisse und Wiki-Seiten erstellen"
-	},
-	"seconds": {
-		"message": "Sekunden"
 	}
 }

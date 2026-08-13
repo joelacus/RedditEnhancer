@@ -147,6 +147,10 @@ document.querySelectorAll('.colour-picker').forEach((input) => {
 				storage.themeSubHeaderBackgroundColourCSS = rgba;
 				sendMessage({ themeSubHeaderBackgroundColourCSS: rgba });
 				break;
+			case 'profile-header-bg':
+				storage.themeProfileHeaderBgColourCSS = rgba;
+				sendMessage({ themeProfileHeaderBgColourCSS: rgba });
+				break;
 			default:
 				break;
 		}

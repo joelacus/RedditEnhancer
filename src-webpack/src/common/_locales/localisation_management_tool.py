@@ -9,7 +9,7 @@
 #  Localisation Management Tool
 #
 #  Author:        github.com/joelacus
-#  Version:       1.2
+#  Version:       1.3
 #  Description:   Easily manage localisation files.
 #
 #  Features:      Add a new translation into each localisation file.
@@ -164,6 +164,7 @@ def save_locale_file(flat_data: Dict[str, str], fmt: str, file_path: str):
     raw = unflatten_locale(flat_data, fmt)
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(raw, f, indent='\t', ensure_ascii=False)
+        f.write('\n')
 
 
 # Get list of all locale directories except master locale.
@@ -505,7 +506,7 @@ def alphabetise_locales():
     special_keys = ["extensionVersion", "extensionName", "extensionDescription"]
     special_items = {k: master_data[k] for k in special_keys if k in master_data}
     remaining_items = {k: v for k, v in master_data.items() if k not in special_keys}
-    sorted_master = special_items | dict(sorted(remaining_items.items()))
+    sorted_master = special_items | dict(sorted(remaining_items.items(), key=lambda x: x[0].lower()))
     save_locale_file(sorted_master, master_fmt, master_file)
     print(f"\n> Sorted {MASTER_LOCALE} translations")
 
@@ -516,7 +517,7 @@ def alphabetise_locales():
         special_keys = ["extensionName", "extensionDescription"]
         special_items = {k: locale_data[k] for k in special_keys if k in locale_data}
         remaining_items = {k: v for k, v in locale_data.items() if k not in special_keys}
-        sorted_locale = special_items | dict(sorted(remaining_items.items()))
+        sorted_locale = special_items | dict(sorted(remaining_items.items(), key=lambda x: x[0].lower()))
         save_locale_file(sorted_locale, locale_fmt, locale_file)
         print(f"> Sorted {locale}")
     input("\n> Press Enter to continue...")

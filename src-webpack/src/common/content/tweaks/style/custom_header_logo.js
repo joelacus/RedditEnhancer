@@ -45,9 +45,11 @@ export function enableCustomHeaderLogoRV3() {
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
-	BROWSER_API.storage.sync.get(['customHeaderLogoUrl'], function (result) {
-		const url = result.customHeaderLogoUrl || '';
-		setCustomHeaderLogoUrl(url);
+	BROWSER_API.storage.local.get(['customHeaderLogoUrl'], function (local) {
+		BROWSER_API.storage.sync.get(['customHeaderLogoUrl'], function (sync) {
+			const url = sync.customHeaderLogoUrl ?? local.sync.customHeaderLogoUrl ?? '';
+			setCustomHeaderLogoUrl(url);
+		});
 	});
 }
 

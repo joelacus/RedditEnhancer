@@ -124,6 +124,7 @@ function addBlockButtonToPost(post, authorEl) {
 	if (!userList || post.querySelector('.re-block-user-btn')) return;
 
 	const username = authorEl.getAttribute('author') || authorEl.textContent.replace('u/', '').trim();
+	if (username === '[deleted]') return;
 	const isBlocked = userList.some((pattern) => matchesPattern(username, pattern));
 
 	const btn = document.createElement('button');

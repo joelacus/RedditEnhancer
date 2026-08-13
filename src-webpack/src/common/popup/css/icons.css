@@ -708,3 +708,22 @@
 	mask: url('../../icons/ui/arrow-down-z-a-solid-full.svg');
 	-webkit-mask: url('../../icons/ui/arrow-down-z-a-solid-full.svg');
 }
+.icon-caret-up {
+	mask: url('../../icons/ui/caret-down-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/caret-down-solid-full.svg');
+	transform: rotate(180deg);
+}
+.icon-caret-down {
+	mask: url('../../icons/ui/caret-down-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/caret-down-solid-full.svg');
+}
+.icon-caret-left {
+	mask: url('../../icons/ui/caret-down-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/caret-down-solid-full.svg');
+	transform: rotate(90deg);
+}
+.icon-caret-right {
+	mask: url('../../icons/ui/caret-down-solid-full.svg');
+	-webkit-mask: url('../../icons/ui/caret-down-solid-full.svg');
+	transform: rotate(270deg);
+}

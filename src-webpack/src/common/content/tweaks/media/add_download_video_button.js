@@ -18,9 +18,17 @@ import { registerMutationCallback } from '../../observer_manager';
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
 export function loadAddDownloadVideoButton() {
-	BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
-		if (result.addDownloadVideoButton === true) addDownloadVideoButton(true);
-	});
+	try {
+		BROWSER_API.storage.sync.get(['addDownloadVideoButton'], function (result) {
+			if (BROWSER_API.runtime.lastError) {
+				console.warn('[RedditEnhancer] loadAddDownloadVideoButton: Extension context invalidated, skipping:', BROWSER_API.runtime.lastError.message);
+				return;
+			}
+			if (result.addDownloadVideoButton === true) addDownloadVideoButton(true);
+		});
+	} catch (error) {
+		console.warn('[RedditEnhancer] loadAddDownloadVideoButton: Extension context invalidated, skipping:', error.message);
+	}
 }
 
 // Store cleanup function for the observer

@@ -170,7 +170,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |---|---|:---:|
 |Add "Scroll To Top" Button|Adds a new button to the header to scroll the page to the top.|3<br>1|
 |Add floating "Scroll To Top" button|Adds a draggable scroll to top button on the webpage.|3<br>1|
-|Scroll to the next/previous post by pressing (J / Down Arrow) / (K / Up Arrow)|Scroll to the next/previous post in the feed with (J / Down Arrow) and (K / Up Arrow). Differs from Reddit's version by using smooth scroll, and skips over any hidden posts by RE (e.g. hide nsfw posts or blocked posts by keyword etc).|3<br>1|
+|Feed Keyboard Navigation|Scroll to the next/previous post in the feed with (J / Down Arrow) and (K / Up Arrow). Differs from Reddit's version by using smooth scroll, and skips over any hidden posts by RE (e.g. "Hide NSFW posts" or "Hide posts containing a keyword" etc). Optionally, auto expand compact posts when scrolling to them.|3<br>1|
 |Add a button to each post to mark it as read|Adds a button to each post to mark it as read by adding the post URL to the browser history (requires the history permission). Works with Compact and Card view posts.|3|
 |Add link to view crossposts in other subreddits|View crossposts of a post on the comments page, bringing back the "View discussions in other communities" link from "Old New UI".|3|
 |Add Post Numbers|Number each post to keep track of how many you have scrolled passed.|3|
@@ -234,6 +234,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Theme Colours + Blur|You can change various theme colours for the website, and add blur to translucent UI elements.|3|
 |Larger Classic Post View|Makes the classic post view style slightly larger and more readable.|1|
 |Modernise old reddit|Makes old reddit look more like new reddit.|1|
+|Scale Profile Avatar|Make the profile page avatar in the header up to 5 times larger.|3|
 
 ## Accessibility
 |Feature|Description|Reddit Version Support|
@@ -268,6 +269,7 @@ Feel free to add any new languages and/or region differences.
 |[Norwegian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/no/messages.json)|100%|
 |[Polish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pl/messages.json)|100%|
 |[Portuguese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/pt/messages.json)|100%|
+|[Simplified Chinese](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/zh-CN/messages.json)|100%|
 |[Spanish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/es/messages.json)|100%|
 |[Swedish](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/sv/messages.json)|100%|
 |[Ukrainian](https://github.com/joelacus/RedditEnhancer/blob/main/src-webpack/src/common/_locales/uk/messages.json)|100%|
@@ -275,7 +277,7 @@ Feel free to add any new languages and/or region differences.
 # Build
 Clone repo and cd to build directory:
 ```
-git clone https://github.com/joelacus/RedditEnhancer.git;cd RedditEnhancer/src-webpack
+git clone https://github.com/joelacus/RedditEnhancer.git;cd RedditEnhancer/src-webpack;git switch dev
 ```
 Install dependencies:
 ```

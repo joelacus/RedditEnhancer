@@ -52,7 +52,7 @@ function loadTheme() {
 	});
 
 	// Add theme styles while the page is still loading.
-	BROWSER_API.storage.sync.get(['themeHeaderBackgroundColour', 'themeHeaderTextColour', 'themePostBackgroundColour', 'themePostBorderColour', 'themePostCommentsTextColour1', 'themePostCommentsTextColour2', 'themePostContentAndCommentsLinkColour', 'themePostTextColour1', 'themePostTextColour1CSS', 'themeCodeBlockColourCSS', 'themePostTextColour2', 'themePostFollowedTextColour', 'themePostVisitedTextColour', 'themeSearchbarBgColour', 'themeSearchbarBorderColour', 'themeSearchbarDropdownBgColour', 'themeSidebarBgColour', 'themeSidebarTextColour', 'themeSidemenuBgColour', 'themeSidemenuButtonHoverColour', 'themeSidemenuTextColour', 'themePostUpvoteColour', 'themePostDownvoteColour', 'themePostCommentActionRowColour', 'themePostCommentActionRowColourCSS', 'themePostTableBorderColour', 'themeSubHeaderBackgroundColour'], function (result) {
+	BROWSER_API.storage.sync.get(['themeHeaderBackgroundColour', 'themeHeaderTextColour', 'themePostBackgroundColour', 'themePostBorderColour', 'themePostCommentsTextColour1', 'themePostCommentsTextColour2', 'themePostContentAndCommentsLinkColour', 'themePostTextColour1', 'themeCodeBlockColourCSS', 'themePostTextColour2', 'themePostFollowedTextColour', 'themePostVisitedTextColour', 'themeSearchbarBgColour', 'themeSearchbarBorderColour', 'themeSearchbarDropdownBgColour', 'themeSidebarBgColour', 'themeSidebarTextColour', 'themeSidemenuBgColour', 'themeSidemenuButtonHoverColour', 'themeSidemenuTextColour', 'themePostUpvoteColour', 'themePostDownvoteColour', 'themePostCommentActionRowColour', 'themePostTableBorderColour', 'themeSubHeaderBackgroundColour', 'themeProfileHeaderBgColour'], function (result) {
 		themeHeaderBackgroundColour(result.themeHeaderBackgroundColour);
 		themeHeaderTextColour(result.themeHeaderTextColour);
 		themePostBackgroundColour(result.themePostBackgroundColour);
@@ -61,7 +61,6 @@ function loadTheme() {
 		themePostCommentsTextColour2(result.themePostCommentsTextColour2);
 		themePostContentAndCommentsLinkColour(result.themePostContentAndCommentsLinkColour);
 		themePostTextColour1(result.themePostTextColour1);
-		themePostTextColour1CSS(result.themePostTextColour1CSS);
 		themePostTableBorderColour(result.themePostTableBorderColour);
 		themeCodeBlockColourCSS(result.themeCodeBlockColourCSS);
 		themePostTextColour2(result.themePostTextColour2);
@@ -78,8 +77,8 @@ function loadTheme() {
 		themePostUpvoteColour(result.themePostUpvoteColour);
 		themePostDownvoteColour(result.themePostDownvoteColour);
 		themePostCommentActionRowColour(result.themePostCommentActionRowColour);
-		themePostCommentActionRowColourCSS(result.themePostCommentActionRowColourCSS);
 		themeSubHeaderBackgroundColour(result.themeSubHeaderBackgroundColour);
+		themeProfileHeaderBgColour(result.themeProfileHeaderBgColour);
 	});
 }
 
@@ -311,7 +310,6 @@ export function themePostBackgroundColour(value) {
 									article shreddit-post,
 									shreddit-app[routename="comments_page"] #main-content,
 									[routename="post_page"] main.main,
-									shreddit-app[pagetype="post_submit"] #post-submit-form section,
 									community-highlight-carousel,
 									.subgrid-container > .masthead,
 									shreddit-profile-comment {
@@ -368,9 +366,15 @@ export function themePostBackgroundColour(value) {
 									}
 									main.main > a,
 									shreddit-profile-comment {
-										background-color: var(--re-theme-post-bg);
+										background-color: var(--re-theme-post-bg) !important;
 										border-radius: var(--re-theme-border-radius, 1rem);
 										margin-bottom: var(--re-post-separator-height, 10px);
+									}
+									shreddit-profile-comment > div {
+										background: transparent;
+									}
+									shreddit-profile-comment:hover {
+										background-color: color-mix(in srgb, var(--re-theme-post-bg) 95%, #000 5%) !important;
 									}
 									[routename="keyword-management"] post-consume-tracker > div {
 										background-color: var(--re-theme-post-bg);
@@ -424,20 +428,20 @@ export function themePostBackgroundColour(value) {
 
 									/* Profile Page */
 
+									div:has(>div>[name^="FeedOptionsDropdown_"]),
 									div:has(> #profile-feed-tabgroup) {
 										background: var(--re-theme-post-bg);
 										border-radius: var(--re-theme-border-radius) !important;
+										backdrop-filter: blur(var(--re-theme-blur)) !important;
 										margin-left: 0;
 										margin-right: 0;
 									}
-									#profile-feed-tabgroup {
-										padding: 0.25rem;
+									div:has(>[name^="FeedOptionsDropdown_"]){
+										margin: 0;
 									}
-									[routename="profile_overview"] main div:has(>[data-testid="profile-details-wrapper"]),
-									div:has(>[data-testid="profile-main"]) {
-										background: var(--re-theme-post-bg);
-										border-bottom-left-radius: var(--re-theme-border-radius);
-										border-bottom-right-radius: var(--re-theme-border-radius);
+									#profile-feed-tabgroup,
+									div:has(>div>[name^="FeedOptionsDropdown_"]) {
+										padding: 0.25rem;
 									}
 									#subgrid-container div:has(>div>create-post-entry-point-wrapper) {
 										background: var(--re-theme-post-bg) !important;
@@ -445,7 +449,6 @@ export function themePostBackgroundColour(value) {
 									div:has(>div>create-post-entry-point-wrapper) {
 										border-radius: var(--border-radius);
 										padding: 0 !important;
-										margin: 0 !important;
 									}
 									div:has(>create-post-entry-point-wrapper) {
 										padding: 0.5rem;
@@ -453,8 +456,7 @@ export function themePostBackgroundColour(value) {
 									div:has(>[bundlename="shreddit_sort_dropdown"]) {
 										background: var(--re-theme-post-bg) !important;
 										margin: 0.5rem 0;
-									}
-									`;
+									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else {
 		document.documentElement.style.removeProperty('--re-theme-post-bg');
@@ -573,6 +575,9 @@ export function themePostTextColour1(value) {
 									}
 									[data-testid="search-post"] > post-consume-tracker > div {
 										--color-neutral-content-strong: var(--re-theme-post-text) !important;
+									}
+									[bundlename="shreddit_sort_dropdown"] {
+										--color-neutral-content-weak: var(--re-theme-post-text) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else {
@@ -1344,6 +1349,41 @@ export function themeOpCommentHighlightColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostUpvoteColour'], function (result) {
 			if (result.themePostUpvoteColour) document.documentElement.style.setProperty('--re-theme-op-comment-highlight-colour', value);
+		});
+	}
+}
+
+// Profile Header Background Colour
+export function themeProfileHeaderBgColour(value) {
+	if (redditVersion === 'newnew' && value) {
+		BROWSER_API.storage.sync.get(['themeProfileHeaderBgColourCSS'], function (result) {
+			if (typeof result.themeProfileHeaderBgColourCSS !== 'undefined' && result.themeProfileHeaderBgColourCSS !== 'undefined') {
+				document.documentElement.style.setProperty('--re-theme-profile-header-bg', result.themeProfileHeaderBgColourCSS);
+			}
+		});
+		const styleElement = document.createElement('style');
+		styleElement.id = 're-theme-profile-header-bg-colour';
+		styleElement.textContent = `[routename="profile_overview"] main div:has(>[data-testid="profile-details-wrapper"]),
+									div:has(>[data-testid="profile-main"]) {
+										background: var(--re-theme-profile-header-bg);
+										border-bottom-left-radius: var(--re-theme-border-radius);
+										border-bottom-right-radius: var(--re-theme-border-radius);
+									}`;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	} else {
+		document.documentElement.style.removeProperty('--re-theme-profile-header-bg');
+		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-profile-header-bg-colour"]');
+		dynamicStyleElements.forEach((element) => {
+			element.remove();
+		});
+	}
+}
+
+// Profile Header Background Colour CSS
+export function themeProfileHeaderBgColourCSS(value) {
+	if (redditVersion === 'newnew') {
+		BROWSER_API.storage.sync.get(['themeProfileHeaderBgColour'], function (result) {
+			if (result.themeProfileHeaderBgColour) document.documentElement.style.setProperty('--re-theme-profile-header-bg', value);
 		});
 	}
 }

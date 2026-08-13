@@ -45,3 +45,10 @@ h3 {
 	color: var(--text-grey);
 	text-wrap-mode: nowrap;
 }
+
+/* Keep the popup out of the paint tree until its locale has been applied.
+ * Theme restoration may reveal the body first, so this separate class prevents
+ * empty data-lang elements and English fallback labels from flashing onscreen. */
+body.i18n-pending {
+	visibility: hidden;
+}

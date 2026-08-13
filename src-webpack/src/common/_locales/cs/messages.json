@@ -71,6 +71,9 @@
 	"AutoExpand": {
 		"message": "Rozbalit na 100 %, pokud šířka okna/obrazovky je menší než:"
 	},
+	"AutoExpandCompactPosts": {
+		"message": "Automaticky rozbalit kompaktní příspěvky"
+	},
 	"AutoLoadMoreComments": {
 		"message": "Automaticky načíst další komentáře"
 	},
@@ -88,6 +91,9 @@
 	},
 	"AutoplayVideos": {
 		"message": "Automatická videa s přehráváním"
+	},
+	"AvatarScale": {
+		"message": "Měřítko avatara"
 	},
 	"Award": {
 		"message": "Cena"
@@ -188,6 +194,9 @@
 	"ChooseBackupFile": {
 		"message": "Vybrat záložní soubor"
 	},
+	"ChooseVersionForEachConflict": {
+		"message": "Vyberte, kterou verzi si pro každý konflikt ponechat:"
+	},
 	"ClassicLight": {
 		"message": "Klasický Světlý"
 	},
@@ -260,6 +269,9 @@
 	"CopyCleanLinkShort": {
 		"message": "Kopírovat čistý odkaz"
 	},
+	"Created": {
+		"message": "Vytvořeno"
+	},
 	"CreatePost": {
 		"message": "Vytvořit příspěvek"
 	},
@@ -271,9 +283,6 @@
 	},
 	"CreateTag": {
 		"message": "Vytvořit tag"
-	},
-	"Created": {
-		"message": "Vytvořeno"
 	},
 	"CustomBgInputPlaceholder": {
 		"message": "Vlastní odkaz na pozadí"
@@ -305,8 +314,14 @@
 	"Delete": {
 		"message": "Odstranit"
 	},
-	"DeleteAllTags": {
-		"message": "Smazat"
+	"DeleteSelectedTags": {
+		"message": "Smazat vybrané"
+	},
+	"DeleteSelectedTagsConfirm": {
+		"message": "Smazat {count} vybraných štítek?"
+	},
+	"DeleteTagForUser": {
+		"message": "Smazat tag pro uživatele u/{username}?"
 	},
 	"Details": {
 		"message": "Detaily"
@@ -335,6 +350,9 @@
 	"EditPost": {
 		"message": "Upravit příspěvek"
 	},
+	"EditSelected": {
+		"message": "Upravit vybrané"
+	},
 	"EditTag": {
 		"message": "Upravit štítek"
 	},
@@ -347,11 +365,17 @@
 	"Error": {
 		"message": "Chyba"
 	},
+	"Existing": {
+		"message": "Existující"
+	},
 	"ExportTags": {
 		"message": "Exportovat tagy"
 	},
 	"ExtensionSettings": {
 		"message": "Nastavení rozšíření"
+	},
+	"extensionVersionText": {
+		"message": "Verzní verze"
 	},
 	"Feed": {
 		"message": "Feed"
@@ -359,10 +383,7 @@
 	"FeedKeyboardNavigation": {
 		"message": "Klávesová navigace v feedu"
 	},
-	"FeedKeyboardNavigationInfo1": {
-		"message": "Další příspěvek: (J / Šipka dolů). Předchozí příspěvek: (K / Šipka nahoru). Přepnout kompaktní zobrazení příspěvku: (Mezerník)."
-	},
-	"FeedKeyboardNavigationInfo2": {
+	"FeedKeyboardNavigationInfo": {
 		"message": "Používání kláves J/K zakáží funkci „Shortcuts“ Reddita, pokud je povoleno; v takovém případě použijte šipkové klávesy. Verze RE používá plynulé posouvání a přeskočí všechny skryté příspěvky."
 	},
 	"FeedOffset": {
@@ -448,6 +469,9 @@
 	},
 	"HideAnnouncementNotifications": {
 		"message": "Skrýt oznámení o Ankunciích Reddit (u/reddit)"
+	},
+	"HideAvatarBorder": {
+		"message": "Skrýt okraj avatara"
 	},
 	"HideAwards": {
 		"message": "Skrýt tlačítko „Ocenění“ v komentářích"
@@ -539,11 +563,11 @@
 	"HideModerationButton": {
 		"message": "Skryjte tlačítko „Moderování“"
 	},
-	"HideNSFW": {
-		"message": "Skrýt NSFW/L příspěvky"
-	},
 	"HideNotificationButton": {
 		"message": "Skrýt tlačítko „Upozornění“"
+	},
+	"HideNSFW": {
+		"message": "Skrýt NSFW/L příspěvky"
 	},
 	"HideNsfwInSearchResults": {
 		"message": "Skrýt výsledky NSFW v vyhledávacích výsledcích"
@@ -569,9 +593,6 @@
 	"HidePostKarma": {
 		"message": "Skrýt karma z příspěvku"
 	},
-	"HidePostSidebar": {
-		"message": "Skrýt boční panel příspěvku"
-	},
 	"HidePostsBySubreddit": {
 		"message": "Skrýt příspěvky podle subreddit"
 	},
@@ -580,6 +601,9 @@
 	},
 	"HidePostsContainingKeyword": {
 		"message": "Skrýt příspěvky obsahující klíčové slovo"
+	},
+	"HidePostSidebar": {
+		"message": "Skrýt boční panel příspěvku"
 	},
 	"HidePromoted": {
 		"message": "Skrýt reklamy/propadající odkazy"
@@ -632,11 +656,11 @@
 	"HideSideMenuResourcesSection": {
 		"message": "Skrýt sekci zdroje"
 	},
-	"HideSideMenuTopSection": {
-		"message": "Skrýt horní sekci"
-	},
 	"HideSideMenuTopicsSection": {
 		"message": "Skrýt sekci s tématy"
+	},
+	"HideSideMenuTopSection": {
+		"message": "Skrýt horní sekci"
 	},
 	"HideSubSidebar": {
 		"message": "Skryjte postranní panel Subreddit"
@@ -650,6 +674,9 @@
 	"HideTrendingTodayInSearchResults": {
 		"message": "Skryjte „Trendy dnes“ v liště vyhledávání"
 	},
+	"HideUsername": {
+		"message": "Skrýt uživatelské jméno"
+	},
 	"HideUserNameInTheFlairSection": {
 		"message": "Skrýt uživatelské jméno v sekci pro flair v boční liště subreddit"
 	},
@@ -658,9 +685,6 @@
 	},
 	"HideUserSidebar": {
 		"message": "Skrýt panel uživatele"
-	},
-	"HideUsername": {
-		"message": "Skrýt uživatelské jméno"
 	},
 	"HideVideoRecommendations": {
 		"message": "Skryjte doporučené příspěvky, když video skončí"
@@ -689,14 +713,29 @@
 	"Image": {
 		"message": "Obraz"
 	},
-	"ImageScroll": {
-		"message": "Přidejte svitky k obrázkům"
-	},
 	"Images": {
 		"message": "Obrázky"
 	},
+	"ImageScroll": {
+		"message": "Přidejte svitky k obrázkům"
+	},
+	"Import": {
+		"message": "Import"
+	},
+	"ImportConflicts": {
+		"message": "Konflikt importu"
+	},
+	"ImportConflictsSummary": {
+		"message": "{totalNew} nových štítek importováno, {skippedExact} identických štítek již existuje, nalezeno {conflictsCount} duplikátů."
+	},
+	"Imported": {
+		"message": "Importované"
+	},
 	"ImportInvalidFormat": {
 		"message": "Neplatný formát souboru."
+	},
+	"ImportSkippedExact": {
+		"message": "{count} identických štítek již existuje a byly přeskočeny."
 	},
 	"ImportSuccess": {
 		"message": "Importováno {count} tagů úspěšně."
@@ -730,6 +769,9 @@
 	},
 	"Latest": {
 		"message": "Nejnovější"
+	},
+	"learnMore": {
+		"message": "Zjistit více"
 	},
 	"LeftSideVoteButtons": {
 		"message": "Zobrazit tlačítka pro hlasování na levé straně"
@@ -803,6 +845,21 @@
 	"NewUpdateAvailable": {
 		"message": "Verze nová verze <version> je nyní k dispozici. Váš prohlížeč by měl tuto rozšíření brzy automaticky aktualizovat, pokud máte povoleno automatické aktualizace. Pokud ne, musíte ručně ověřit aktualizace v spravci rozšíření prohlížeče."
 	},
+	"NextImage": {
+		"message": "Další obrázek"
+	},
+	"NextPost": {
+		"message": "Další příspěvek"
+	},
+	"NextRootComment": {
+		"message": "Další kořenový komentář"
+	},
+	"NoNote": {
+		"message": "Žádná poznámka"
+	},
+	"NonStickyHeaderBar": {
+		"message": "Nepřilepitá lišta hlavičky"
+	},
 	"NoPresetsYet": {
 		"message": "Žádné přednastavené hodnoty"
 	},
@@ -812,11 +869,11 @@
 	"NoTaggedUsers": {
 		"message": "Žádní označení uživatelé"
 	},
-	"NonStickyHeaderBar": {
-		"message": "Nepřilepitá lišta hlavičky"
-	},
 	"Note": {
 		"message": "Poznámka"
+	},
+	"NoteOptional": {
+		"message": "Poznámka (volitelné)"
 	},
 	"Off": {
 		"message": "Vypnutý"
@@ -851,11 +908,11 @@
 	"OpenSubInNewTab": {
 		"message": "Otevírat odkazy na subreddity v nové záložce"
 	},
-	"OptOutAttachSideMenu": {
-		"message": "Nepřiložte boční menu jako rozbalovací panel"
-	},
 	"OptionsPage": {
 		"message": "Stránka sjištění"
+	},
+	"OptOutAttachSideMenu": {
+		"message": "Nepřiložte boční menu jako rozbalovací panel"
 	},
 	"Or": {
 		"message": "nebo"
@@ -908,6 +965,9 @@
 	"PostOffset": {
 		"message": "Posun příspěvku"
 	},
+	"Posts": {
+		"message": "Příspěvky"
+	},
 	"PostSecondaryTextColour": {
 		"message": "Příspěvek: Barva sekvenčního textu"
 	},
@@ -929,8 +989,8 @@
 	"PostWidth": {
 		"message": "Šířka příspěvku"
 	},
-	"Posts": {
-		"message": "Příspěvky"
+	"PresetAlreadyExists": {
+		"message": "Již existuje"
 	},
 	"PresetTags": {
 		"message": "Výchozí tagy"
@@ -938,17 +998,26 @@
 	"Preview": {
 		"message": "Náhled"
 	},
+	"PreviousImage": {
+		"message": "Předchozí obrázek"
+	},
+	"PreviousPost": {
+		"message": "Předchozí příspěvek"
+	},
+	"PreviousRootComment": {
+		"message": "Předchozí kořenový komentář"
+	},
 	"Productivity": {
 		"message": "Produktivita"
 	},
+	"ProfileHeader": {
+		"message": "Záhlaví profilu"
+	},
+	"ProfileHeaderBgColour": {
+		"message": "Barva pozadí záhlaví profilu"
+	},
 	"Qa": {
 		"message": "Q&a"
-	},
-	"RV1RedirectInfo": {
-		"message": "Možnost přesměrování „Staré (pouze www)“ přesměruje pouze adresy URL www.reddit.com na old.reddit.com. Ostatní prefixy, jako například sh.reddit.com, nebudou ovlivněny."
-	},
-	"RV3RedirectInfo": {
-		"message": "Možnost přesměrování „Nejnovější“ vynutí přesměrování URL adres (sh|old|new).reddit.com na www.reddit.com, které bude používat nejnovější uživatelské rozhraní."
 	},
 	"Rate": {
 		"message": "Ohodnoťte / Recenze"
@@ -998,6 +1067,9 @@
 	"ResizeFont": {
 		"message": "Změnit velikost písma"
 	},
+	"resizeHomeAlsoAffects": {
+		"message": "& r/all, r/popular, Vytvořit příspěvek, Výsledky vyhledávání a stránky wiki"
+	},
 	"ResizeLayout": {
 		"message": "Změnit Velikost Zdroje / Příspěvku"
 	},
@@ -1016,6 +1088,12 @@
 	"Rising": {
 		"message": "Povstání / Rising"
 	},
+	"RV1RedirectInfo": {
+		"message": "Možnost přesměrování „Staré (pouze www)“ přesměruje pouze adresy URL www.reddit.com na old.reddit.com. Ostatní prefixy, jako například sh.reddit.com, nebudou ovlivněny."
+	},
+	"RV3RedirectInfo": {
+		"message": "Možnost přesměrování „Nejnovější“ vynutí přesměrování URL adres (sh|old|new).reddit.com na www.reddit.com, které bude používat nejnovější uživatelské rozhraní."
+	},
 	"Save": {
 		"message": "Uložit"
 	},
@@ -1027,9 +1105,6 @@
 	},
 	"ScrollToNextRootComment": {
 		"message": "Zobrazit tlačítka pro přeskakování na další/předchozí kořenový komentář"
-	},
-	"ScrollToNextRootCommentInfo": {
-		"message": "Volitelné navigování pomocí klávesnice. Další kořenový komentář: (J / Šipka dolů). Předchozí kořenový komentář: (K / Šipka nahoru)."
 	},
 	"ScrollToTopFloat": {
 		"message": "Přidat plovoucí tlačítko „Návrat na začátek“"
@@ -1043,6 +1118,12 @@
 	"Search": {
 		"message": "Vyhledávání"
 	},
+	"SearchbarBgColour": {
+		"message": "Vyhledávací panel: Barva pozadí"
+	},
+	"SearchbarDropdownBgColour": {
+		"message": "Vyhledávací panel: Zaostřeno/rozbalovací barva pozadí"
+	},
 	"SearchPageOffset": {
 		"message": "Přesun stránky vyhledávání"
 	},
@@ -1052,11 +1133,8 @@
 	"SearchUsername": {
 		"message": "Hledat uživatelské jméno..."
 	},
-	"SearchbarBgColour": {
-		"message": "Vyhledávací panel: Barva pozadí"
-	},
-	"SearchbarDropdownBgColour": {
-		"message": "Vyhledávací panel: Zaostřeno/rozbalovací barva pozadí"
+	"seconds": {
+		"message": "sekundy"
 	},
 	"Select": {
 		"message": "Vybrat"
@@ -1072,6 +1150,12 @@
 	},
 	"SetSansSerifAsFont": {
 		"message": "Nastavte „sans-serif“ jako písmo UI"
+	},
+	"SetTag": {
+		"message": "Nastavit tag"
+	},
+	"SetTagForUsersConfirm": {
+		"message": "Nastavit tento štítek pro {count} uživatele?"
 	},
 	"Settings": {
 		"message": "Nastavení"
@@ -1112,6 +1196,18 @@
 	"ShowUpvoteRatio": {
 		"message": "Zobrazit procento upvote v pohledu na příspěvek"
 	},
+	"Sidebar": {
+		"message": "Boční panel (pravá lišta)"
+	},
+	"SidebarBackgroundColour": {
+		"message": "Boční panel: Barva pozadí"
+	},
+	"SidebarTextColour": {
+		"message": "Boční panel: Barva textu"
+	},
+	"SidebarToggleButton": {
+		"message": "Tlačítko přepínání bočního panelu"
+	},
 	"SideMenu": {
 		"message": "Boční menu (levní lišta)"
 	},
@@ -1132,18 +1228,6 @@
 	},
 	"SideMenuWidth": {
 		"message": "Šířka bočního menu"
-	},
-	"Sidebar": {
-		"message": "Boční panel (pravá lišta)"
-	},
-	"SidebarBackgroundColour": {
-		"message": "Boční panel: Barva pozadí"
-	},
-	"SidebarTextColour": {
-		"message": "Boční panel: Barva textu"
-	},
-	"SidebarToggleButton": {
-		"message": "Tlačítko přepínání bočního panelu"
 	},
 	"SnapSidebar": {
 		"message": "Připevnit panel na pravý okraj"
@@ -1235,6 +1319,9 @@
 	"TimeRange": {
 		"message": "Časový rozsah"
 	},
+	"ToggleCompactPost": {
+		"message": "Přepnout kompaktní zobrazení příspěvku"
+	},
 	"Top": {
 		"message": "Nahoru / Top"
 	},
@@ -1247,11 +1334,11 @@
 	"UnderlineLinks": {
 		"message": "Podtrhnout odkazy"
 	},
-	"UpdateFirefox": {
-		"message": "Aktualizujte prosím na Firefox 121 nebo vyšší, aby některé funkce fungovaly správně."
-	},
 	"Updated": {
 		"message": "Aktualizováno"
+	},
+	"UpdateFirefox": {
+		"message": "Aktualizujte prosím na Firefox 121 nebo vyšší, aby některé funkce fungovaly správně."
 	},
 	"Upload": {
 		"message": "Nahraj"
@@ -1268,11 +1355,20 @@
 	"UserAlreadyAdded": {
 		"message": "Uživatel již byl přidán"
 	},
+	"Username": {
+		"message": "Uživatelské jméno"
+	},
+	"UsernameHoverPopupDelay": {
+		"message": "Zpoždění vyskakovacího okna uživatelského jména při přejezdu"
+	},
 	"UserProfileOffset": {
 		"message": "Posun uživatelského profilu"
 	},
 	"UserProfileWidth": {
 		"message": "Šířka uživatelského profilu"
+	},
+	"Users": {
+		"message": "Uživatelé"
 	},
 	"UserTagging": {
 		"message": "Tagování uživatelů"
@@ -1285,15 +1381,6 @@
 	},
 	"UserTaggingManagerTitle": {
 		"message": "Správce značek uživatelů"
-	},
-	"Username": {
-		"message": "Uživatelské jméno"
-	},
-	"UsernameHoverPopupDelay": {
-		"message": "Zpoždění vyskakovacího okna uživatelského jména při přejezdu"
-	},
-	"Users": {
-		"message": "Uživatelé"
 	},
 	"Video": {
 		"message": "Video"
@@ -1312,17 +1399,5 @@
 	},
 	"Width": {
 		"message": "Šířka"
-	},
-	"extensionVersionText": {
-		"message": "Verzní verze"
-	},
-	"learnMore": {
-		"message": "Zjistit více"
-	},
-	"resizeHomeAlsoAffects": {
-		"message": "& r/all, r/popular, Vytvořit příspěvek, Výsledky vyhledávání a stránky wiki"
-	},
-	"seconds": {
-		"message": "sekundy"
 	}
 }

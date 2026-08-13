@@ -26,13 +26,22 @@ export function restorePopupProductivityOptions() {
 		console.log(`Show floating Scroll To Top button: ${checked}`);
 	});
 
-	// Scroll To Next/Previous Post
+	// Feed Keyboard Navigation
 	BROWSER_API.storage.sync.get(['scrollToPost'], function (result) {
 		const checked = result.scrollToPost === true;
 		document.querySelector('#checkbox-scroll-to-post').checked = checked;
 		document.querySelector('.icon-scroll-to-post').style.backgroundColor = checked === true ? 'var(--accent)' : '';
 		if (checked) highlightMenuIcon('productivity-tweaks');
-		console.log(`Scroll to next/previous post on keypress: ${checked}`);
+		console.log(`Feed Keyboard Navigation: ${checked}`);
+	});
+
+	// Feed Keyboard Navigation - Auto Expand Compact Posts
+	BROWSER_API.storage.sync.get(['autoExpandCompactPosts'], function (result) {
+		const checked = result.autoExpandCompactPosts === true;
+		document.querySelector('#checkbox-auto-expand-compact-posts').checked = checked;
+		document.querySelector('.icon-auto-expand-compact-posts').style.backgroundColor = checked === true ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('productivity-tweaks');
+		console.log(`Auto Expand Compact Posts: ${checked}`);
 	});
 
 	// Open Sub Links In New Tab

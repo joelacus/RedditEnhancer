@@ -83,6 +83,8 @@ export function limitInfinityScroll(value) {
 					var loadMoreText = 'Carregue mais';
 				} else if (lang === 'uk') {
 					var loadMoreText = 'Завантажити ще';
+				} else if (lang === 'zh-CN') {
+					var loadMoreText = '加载更多';
 				} else {
 					var loadMoreText = 'Load More';
 				}

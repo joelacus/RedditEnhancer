@@ -59,6 +59,8 @@ import { loadSideMenuWidth } from '../../../content/tweaks/resize_elements/side_
 import { loadSolidColourBackground } from '../../../content/tweaks/background/bg_solid_colour';
 import { loadTextPostPreviewFade } from '../../../content/tweaks/media/text_preview_fade';
 import { loadUnderlineLinks } from '../../../content/tweaks/accessibility/underline_links';
+import { loadHideProfileAvatarBorder } from '../../../content/tweaks/style/hide_profile_avatar_border';
+import { loadScaleProfileAvatar } from '../../../content/tweaks/style/scale_profile_avatar';
 
 export function tweakLoaderNewNew() {
 	loadForceDarkMode();
@@ -121,4 +123,6 @@ export function tweakLoaderNewNew() {
 	loadHideGamificationNotifications();
 	loadHideJoinConversation();
 	loadHideJoinConversationPageBottom();
+	loadHideProfileAvatarBorder();
+	loadScaleProfileAvatar();
 }

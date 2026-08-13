@@ -1,3 +1,22 @@
+version 3.5.0
+  - Usernames for tags are now handled as case insensitive to work correctly with imported tags from a RES backup that are saved as lowercase.
+    - Subsequent updates to the tag (from the edit tag popup on a Reddit page), will update the username to match the true username capitalisation.
+  - The User Tagging Manager will now highlight any duplicates, regardless of case.
+  - Importing user tags will now show a conflict resolver popup if a username already exists and the tag content/style is different.
+  - Added the ability to select multiple rows in the User Tagging Manager to edit or delete several tags at once.
+  - Added localisation to the User Tagging Manager page.
+  - If an uploaded image for "Custom Header Logo" is too large to fit within the sync storage limit (8KiB per value), it will now fail over to local storage, instead of just silently failing.
+  - Added Simplified Chinese localisation [credit: @nintendomustdie (Github)].
+  - Keyboard shortcuts, for features that support them, are now displayed much nicer and clearer in the extension.
+  - Minor bug fixes and improvements.
+v [Latest UI V3]
+  - Added an option to change the profile header background colour.
+  - Added an option to hide the profile page avatar border.
+  - Added an option to scale the profile page avatar.
+v [Latest UI V3 & Old UI V1]
+  - Added block buttons next to subreddits to easily add them to the block list for "Hide Post by Subreddit".
+  - Added an option to the "Feed Keyboard Navigation" feature to automatically expand compact posts after scrolling to the next/previous post.
+
 version 3.4.0
 v [Latest UI V3 & Old UI V1]
   - User Tagging.

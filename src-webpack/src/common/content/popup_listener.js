@@ -84,6 +84,8 @@ import {
 	themePostUpvoteColourCSS,
 	themePostVisitedTextColour,
 	themePostVisitedTextColourCSS,
+	themeProfileHeaderBgColour,
+	themeProfileHeaderBgColourCSS,
 	themeSearchbarBgColour,
 	themeSearchbarBgColourCSS,
 	themeSearchbarDropdownBgColour,
@@ -162,7 +164,7 @@ import { solidColourBackground, solidColourBackgroundCSS } from './tweaks/backgr
 import { hideGetAppButton } from './tweaks/hide_elements/hide_get_app_button';
 import { hideAiInSearch } from './tweaks/hide_elements/hide_ai_in_search';
 import { showToTopButtonFloat } from './tweaks/productivity/scroll_to_top_float';
-import { scrollToPost } from './tweaks/productivity/scroll_to_post';
+import { autoExpandCompactPosts, scrollToPost } from './tweaks/productivity/feed_keyboard_navigation';
 import { hideLogoInSearch } from './tweaks/hide_elements/hide_logo_in_search';
 import { replaceSearchPlaceholderText } from './tweaks/hide_elements/replace_search_placeholder';
 import { hideRelatedCommunities } from './tweaks/hide_elements/hide_related_communities';
@@ -185,6 +187,8 @@ import { forceShowVoteButtons } from './tweaks/productivity/force_show_vote_butt
 import { userTaggingEnabled } from './tweaks/user_tagging/user_tagging';
 import { hideRepostButton } from './tweaks/hide_elements/hide_repost_button';
 import { hideBlockedUserComments } from './tweaks/block/block_comments_by_user';
+import { hideProfileAvatarBorder } from './tweaks/style/hide_profile_avatar_border';
+import { scaleProfileAvatar } from './tweaks/style/scale_profile_avatar';
 
 /* = Listen For Settings Change = */
 BROWSER_API.runtime.onMessage.addListener((msg, sender, response) => {
@@ -404,6 +408,10 @@ const functionRegistry = {
 	themePostCommentsTextColour2CSS,
 	themePostContentAndCommentsLinkColour,
 	themePostContentAndCommentsLinkColourCSS,
+	themePostDownvoteColour,
+	themePostDownvoteColourCSS,
+	themePostFollowedTextColour,
+	themePostFollowedTextColourCSS,
 	themePostTableBorderColour,
 	themePostTextColour1,
 	themePostTextColour1CSS,
@@ -411,12 +419,10 @@ const functionRegistry = {
 	themePostTextColour2CSS,
 	themePostUpvoteColour,
 	themePostUpvoteColourCSS,
-	themePostDownvoteColour,
-	themePostDownvoteColourCSS,
-	themePostFollowedTextColour,
-	themePostFollowedTextColourCSS,
 	themePostVisitedTextColour,
 	themePostVisitedTextColourCSS,
+	themeProfileHeaderBgColour,
+	themeProfileHeaderBgColourCSS,
 	themeSearchbarBgColour,
 	themeSearchbarBgColourCSS,
 	themeSearchbarDropdownBgColour,
@@ -472,6 +478,9 @@ const functionRegistry = {
 	hideGamificationNotifications,
 	forceShowVoteButtons,
 	hideRepostButton,
+	hideProfileAvatarBorder,
+	scaleProfileAvatar,
+	autoExpandCompactPosts,
 	// themeSearchbarBorderColour,
 	// themeSearchbarBorderColourCSS,
 	//breakReminder,
