@@ -1,3 +1,6 @@
+version 3.5.1
+  - Minor bug fixes.
+
 version 3.5.0
   - Usernames for tags are now handled as case insensitive to work correctly with imported tags from a RES backup that are saved as lowercase.
     - Subsequent updates to the tag (from the edit tag popup on a Reddit page), will update the username to match the true username capitalisation.

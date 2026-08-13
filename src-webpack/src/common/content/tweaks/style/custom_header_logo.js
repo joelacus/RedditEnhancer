@@ -10,7 +10,7 @@
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
 export function loadCustomHeaderLogo() {
-	BROWSER_API.storage.sync.get(['customHeaderLogo', 'setCustomHeaderLogoUrl'], function (result) {
+	BROWSER_API.storage.sync.get(['customHeaderLogo'], function (result) {
 		if (result.customHeaderLogo === true) customHeaderLogo(true);
 	});
 }
@@ -45,12 +45,7 @@ export function enableCustomHeaderLogoRV3() {
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
-	BROWSER_API.storage.local.get(['customHeaderLogoUrl'], function (local) {
-		BROWSER_API.storage.sync.get(['customHeaderLogoUrl'], function (sync) {
-			const url = sync.customHeaderLogoUrl ?? local.sync.customHeaderLogoUrl ?? '';
-			setCustomHeaderLogoUrl(url);
-		});
-	});
+	setCustomHeaderLogoUrlFromSave();
 }
 
 // Enable Custom Header Logo - RV1
@@ -65,9 +60,15 @@ export function enableCustomHeaderLogoRV1() {
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
-	BROWSER_API.storage.sync.get(['customHeaderLogoUrl'], function (result) {
-		const url = result.customHeaderLogoUrl || '';
-		setCustomHeaderLogoUrl(url);
+	setCustomHeaderLogoUrlFromSave();
+}
+
+function setCustomHeaderLogoUrlFromSave() {
+	BROWSER_API.storage.local.get(['customHeaderLogoUrl'], function (local) {
+		BROWSER_API.storage.sync.get(['customHeaderLogoUrl'], function (sync) {
+			const url = sync.customHeaderLogoUrl || local.customHeaderLogoUrl || '';
+			setCustomHeaderLogoUrl(url);
+		});
 	});
 }
 
