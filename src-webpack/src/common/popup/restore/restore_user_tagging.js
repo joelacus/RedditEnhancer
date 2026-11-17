@@ -2,11 +2,11 @@
 // Popup / Restore / User Tagging
 // ────────────────────────────────────────────────────────────────────────────
 
-import i18next from 'i18next';
 import ColorPicker from '../libs/colorpicker.js';
 import Sortable from 'sortablejs';
 import { highlightMenuIcon } from '../popup_restore';
 import { escapeHtml } from '../../utilities/escape_html.js';
+import { parseHtmlString } from '../../utilities/parse_html_string.js';
 import { getContrastTextColour, getRandomColour } from '../../utilities/colour_functions.js';
 
 // Restore UI settings for "User Tagging".
@@ -41,10 +41,10 @@ function restoreUserTaggingPresets() {
 function renderPresetList(templates) {
 	const container = document.querySelector('#user-tagging-presets-container');
 	if (!container) return;
-	container.innerHTML = '';
+	container.replaceChildren();
 
 	if (templates.length === 0) {
-		container.innerHTML = `<p class="info" style="padding:8px;" data-lang="NoPresetsYet"></p>`;
+		container.append(parseHtmlString(`<p class="info" style="padding:8px;" data-lang="NoPresetsYet"></p>`));
 		return;
 	}
 
@@ -84,16 +84,18 @@ function createPresetElement(tmpl) {
 		.map(([val, lbl]) => `<option value='${val}' ${val === tmpl.icon ? 'selected' : ''}>${lbl}</option>`)
 		.join('');
 
-	li.innerHTML = `
+	li.append(
+		parseHtmlString(`
 		<div class='preset-tag-handle'><div class='menu-item-icon icon-handle'></div></div>
 		<input type='text' class='preset-tag-label' placeholder='Label' value='${escapeHtml(tmpl.label || '')}'  maxlength="50"/>
-		<input type='text' class='colour-picker preset-tag-colour' data-style-id='preset-colour-${tmpl.id}' value='${tmpl.colourBg || '#666'}' />
-		<input type='text' class='colour-picker preset-tag-colour-fg' data-style-id='preset-colour-fg-${tmpl.id}' value='${tmpl.colourFg || getContrastTextColour(tmpl.colourBg || '#2e7d32')}' />
+		<input type='text' class='colour-picker preset-tag-colour' data-style-id='preset-colour-${tmpl.id}' value='${escapeHtml(tmpl.colourBg || '#666')}' />
+		<input type='text' class='colour-picker preset-tag-colour-fg' data-style-id='preset-colour-fg-${tmpl.id}' value='${escapeHtml(tmpl.colourFg || getContrastTextColour(tmpl.colourBg || '#2e7d32'))}' />
 		<select class='preset-tag-icon'>${iconOptions}</select>
 		<button class='btn preset-tag-delete' title='Delete'>
 			<div class="btn-icon icon-x"></div>
 		</button>
-	`;
+	`),
+	);
 
 	li.querySelector('.preset-tag-label').addEventListener('input', function () {
 		updatePresetTag(tmpl.id, { label: this.value });

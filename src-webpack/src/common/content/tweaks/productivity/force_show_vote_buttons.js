@@ -1,5 +1,5 @@
 /**
- * Tweaks: Hide Elements - Force Show Vote Buttons
+ * Tweaks: Productivity - Force Show Vote Buttons
  *
  * @name forceShowVoteButtons
  * @description Force show the post vote buttons on old Reddit when some subreddit choose to hide them from the user.

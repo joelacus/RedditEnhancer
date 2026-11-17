@@ -113,6 +113,12 @@
 	"Backup": {
 		"message": "备份"
 	},
+	"BackupBlocksOnly": {
+		"message": "仅块"
+	},
+	"BackupEverything": {
+		"message": "一切"
+	},
 	"BackupFailed": {
 		"message": "发生错误。请打开开发者控制台（F12）查看详情。"
 	},
@@ -121,6 +127,12 @@
 	},
 	"BackupRestored": {
 		"message": "备份已恢复！"
+	},
+	"BackupSettingsOnly": {
+		"message": "仅设置"
+	},
+	"BackupUserTagsOnly": {
+		"message": "仅用户标签"
 	},
 	"Best": {
 		"message": "最佳"
@@ -152,8 +164,50 @@
 	"Block": {
 		"message": "屏蔽"
 	},
+	"BlockAdd": {
+		"message": "添加区块"
+	},
+	"BlockAlreadyAdded": {
+		"message": "已经在阻止列表中了。"
+	},
+	"BlockExport": {
+		"message": "导出块"
+	},
+	"BlockImport": {
+		"message": "导入块"
+	},
+	"BlockImportSuccess": {
+		"message": "已导入 {count} 个块。"
+	},
 	"BlockInfo": {
 		"message": "支持精确匹配关键词或使用正则表达式。"
+	},
+	"BlockKeywordsTab": {
+		"message": "关键词"
+	},
+	"BlockManagerInfo": {
+		"message": "被阻止的用户、子版块和关键字都存储在该设备本地。导出它们以避免任何潜在的数据丢失。"
+	},
+	"BlockManagerTitle": {
+		"message": "块管理器"
+	},
+	"BlockNoEntries": {
+		"message": "没有被阻止的条目"
+	},
+	"BlockPattern": {
+		"message": "图案"
+	},
+	"BlockPostsAndComments": {
+		"message": "帖子和评论"
+	},
+	"BlockScope": {
+		"message": "范围"
+	},
+	"BlockSubredditsTab": {
+		"message": "子版块"
+	},
+	"BlockUsersTab": {
+		"message": "用户"
 	},
 	"Blur": {
 		"message": "模糊"
@@ -227,9 +281,6 @@
 	"Comments": {
 		"message": "评论"
 	},
-	"CommentsBlockInfo": {
-		"message": "列出各个关键字/正则表达式，以逗号分隔。"
-	},
 	"CommentsCount": {
 		"message": "评论数"
 	},
@@ -302,6 +353,9 @@
 	"DarkMode": {
 		"message": "深色模式"
 	},
+	"DarkThemes": {
+		"message": "深色主题"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "默认评论排序选项"
 	},
@@ -314,11 +368,20 @@
 	"Delete": {
 		"message": "删除"
 	},
+	"DeleteLocalData": {
+		"message": "删除本地数据"
+	},
+	"DeleteSelectedBlocks": {
+		"message": "删除所选内容"
+	},
 	"DeleteSelectedTags": {
 		"message": "删除所选项"
 	},
 	"DeleteSelectedTagsConfirm": {
 		"message": "删除 {count} 个选定的标签？"
+	},
+	"DeleteSyncData": {
+		"message": "删除同步数据"
 	},
 	"DeleteTagForUser": {
 		"message": "删除 u/{username} 的标签？"
@@ -731,6 +794,9 @@
 	"Imported": {
 		"message": "已导入"
 	},
+	"Importing": {
+		"message": "输入..."
+	},
 	"ImportInvalidFormat": {
 		"message": "文件格式无效。"
 	},
@@ -749,11 +815,14 @@
 	"JustOpenTheImageInfo": {
 		"message": "在新选项卡中打开图像时，直接打开它们，而不将它们嵌入 Reddit 页面中。"
 	},
+	"JustOpenTheImagePermissions": {
+		"message": "未授予权限。 “Just Open The Image”需要访问 reddit.com 和 redd.it。在浏览器的扩展程序权限设置中为 RedditEnhancer 启用“访问 *://reddit.com 域中网站的数据”和“访问 *://redd.it 域中网站的数据”（Firefox：about:addons→RedditEnhancer→管理→权限）。"
+	},
 	"Keywords": {
 		"message": "关键词"
 	},
 	"KeywordsBlockInfo": {
-		"message": "根据标题而不是内容阻止帖子。列出各个关键字/正则表达式，以逗号分隔。"
+		"message": "根据标题而不是内容阻止帖子。"
 	},
 	"Label": {
 		"message": "标签"
@@ -782,6 +851,9 @@
 	"LightMode": {
 		"message": "浅色模式"
 	},
+	"LightThemes": {
+		"message": "浅色主题"
+	},
 	"LimitCommentsInfo": {
 		"message": "仅适用于在新选项卡/窗口中打开的帖子。"
 	},
@@ -794,11 +866,20 @@
 	"Link": {
 		"message": "链接"
 	},
+	"Loading": {
+		"message": "加载中..."
+	},
 	"LocalStorage": {
 		"message": "本地存储"
 	},
+	"LocalStorageInfo": {
+		"message": "10MiB 是典型的，但某些浏览器可能能够存储更多或更少，难以检测。"
+	},
 	"MainContainer": {
 		"message": "主容器"
+	},
+	"ManageBlocks": {
+		"message": "管理区块"
 	},
 	"ManageTaggedUsers": {
 		"message": "管理标记的用户"
@@ -826,6 +907,9 @@
 	},
 	"Media": {
 		"message": "媒体"
+	},
+	"MissingRequiredInput": {
+		"message": "填写所有必填字段。"
 	},
 	"ModerniseOldReddit": {
 		"message": "美化 old.reddit"
@@ -1321,6 +1405,9 @@
 	},
 	"ToggleCompactPost": {
 		"message": "展开或收起紧凑帖子"
+	},
+	"TooManyEntries": {
+		"message": "你有很多条目。这可能会降低性能，并为每个打开的 Reddit 选项卡使用更多 RAM。"
 	},
 	"Top": {
 		"message": "最高"

@@ -6,6 +6,7 @@ import i18next from 'i18next';
 import { debounce } from '../../utilities/debounce';
 import { sendMessage } from '../../utilities/send_message';
 import { base64ImageOptimiser } from '../../utilities/image_to_base64';
+import { validateBackgroundUrl } from '../restore/validation.js';
 
 // Toggle - Background Solid Colour
 document.querySelector('#checkbox-bg-solid-colour').addEventListener('change', function () {
@@ -119,7 +120,7 @@ document.querySelector('#btn-add-custom-background').addEventListener('click', a
 function addCustomBg(e) {
 	e.preventDefault();
 	const imageURL = document.querySelector('#input-custom-background').value;
-	if (imageURL.startsWith('data:image') || imageURL.length >= 1000) {
+	if (validateBackgroundUrl(imageURL, null) === null || imageURL.startsWith('data:image') || imageURL.length >= 1000) {
 		console.log('URL is too long and/or is a base64 string');
 		document.querySelector('#input-custom-background').value = '';
 	} else {
@@ -175,11 +176,11 @@ function addCustomBgNode(imageURL) {
 	// add image node
 	const background_img = document.createElement('div');
 	background_img.classList.add('background-img');
-	background_img.setAttribute('style', 'background-image: url(' + imageURL + ');');
+	background_img.setAttribute('style', 'background-image: url("' + validateBackgroundUrl(imageURL, '') + '");');
 	background_img.addEventListener('click', (e) => {
 		const url = e.target.style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
-		BROWSER_API.storage.sync.set({ customBackground: url });
-		BROWSER_API.storage.local.set({ customBackground: url });
+		BROWSER_API.storage.sync.set({ customBackground: validateBackgroundUrl(url, '') });
+		BROWSER_API.storage.local.set({ customBackground: validateBackgroundUrl(url, '') });
 		// remove existing highlight
 		const backgrounds = document.querySelectorAll('.background-img');
 		for (let i = 0; i < backgrounds.length; i++) {
@@ -206,9 +207,9 @@ function addUploadedBgNode(base64) {
 	node.setAttribute('class', 'background background-uploaded');
 	const background_img = document.createElement('div');
 	background_img.classList.add('background-img');
-	background_img.setAttribute('style', 'background-image: url(' + base64 + ');');
+	background_img.setAttribute('style', 'background-image: url("' + validateBackgroundUrl(base64, '') + '");');
 	background_img.addEventListener('click', (e) => {
-		const url = e.target.style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, '');
+		const url = validateBackgroundUrl(e.target.style.getPropertyValue('background-image').slice(4, -1).replace(/"/g, ''), '');
 		BROWSER_API.storage.sync.set({ customBackground: '' });
 		BROWSER_API.storage.local.set({ customBackground: url });
 		const backgrounds = document.querySelectorAll('.background-img');

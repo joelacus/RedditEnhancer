@@ -37,6 +37,7 @@ import { loadRightSidePostThumbnails } from '../../../content/tweaks/style/right
 import { loadSolidColourBackground } from '../../../content/tweaks/background/bg_solid_colour';
 import { loadStickySort } from '../../../content/tweaks/productivity/sticky_sort';
 import { moderniseOldReddit } from '../../../content/tweaks/style/modernise_old_reddit';
+import { loadLargerClassicPost } from '../../../content/tweaks/style/larger_classic_post';
 
 export function tweakLoaderOld() {
 	loadSolidColourBackground();
@@ -68,6 +69,7 @@ export function tweakLoaderOld() {
 	loadRightSidePostThumbnails();
 	loadHideRedditPremium();
 	loadForceShowVoteButtons();
+	loadLargerClassicPost();
 
 	// Body
 	waitForAddedNode({

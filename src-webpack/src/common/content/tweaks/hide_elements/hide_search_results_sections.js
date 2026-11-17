@@ -48,10 +48,10 @@ function disableHideNsfwSearchResults() {
 }
 
 /**
- * Tweaks: Hide Elements - Hide "Trending Today" in the searchbar.
+ * Tweaks: Hide Elements - Hide Search Bar Trending Sections in the searchbar.
  *
  * @name hideTrendingTodayInSearchResults
- * @description Hide the "Trending Today" section in the search bar dropdown.
+ * @description Hide the Search Bar Trending Sections in the search bar dropdown.
  *
  * Compatibility: RV3 (New New UI) (2023-)
  */
@@ -74,25 +74,22 @@ export function hideTrendingTodayInSearchResults(value) {
 	}
 }
 
-// Enable Hide "Trending Today" Section - RV3
+// Enable Hide Search Bar Trending Sections - RV3
 function enableHideTrendingTodaySearchResults() {
 	if (!document.querySelector('reddit-search-large').shadowRoot.querySelector('style[id="re-hide-trending-today-section"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-hide-trending-today-section';
-		styleElement.textContent = `/*#reddit-trending-searches-partial-container,*/
-									[id*="trending_query"],
-									#reddit-trending-searches-partial-container > div > search-telemetry-tracker,
-									div:has(>[icon-name="rising-outline"]) {
+		styleElement.textContent = `[id$="_trending_query"],
+									[id$="_trending_query"] ~ li,
+									[id="subreddit_typeahead_section"],
+									[id="subreddit_typeahead_section"] ~ search-telemetry-tracker {
 										display: none !important;
-									}
-									div:has(>#reddit-recent-searches-partial-container) {
-										border: none !important;
 									}`;
 		document.querySelector('reddit-search-large').shadowRoot.append(styleElement);
 	}
 }
 
-// Disable Hide "Trending Today" Section - RV3
+// Disable Hide Search Bar Trending Sections - RV3
 function disableHideTrendingTodaySearchResults() {
 	const dynamicStyleElements = document.querySelector('reddit-search-large').shadowRoot.querySelectorAll('style[id="re-hide-trending-today-section"]');
 	dynamicStyleElements.forEach((element) => {

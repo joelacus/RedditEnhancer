@@ -52,9 +52,11 @@
 }
 
 .btn-add-preset-tag,
-.btn-manage-tagged-users {
-	padding: 6px 12px;
+.btn-manage-tagged-users,
+.btn-open-block-manager {
+	padding: 6px 12px !important;
 	margin-top: 2px;
+	text-wrap: nowrap;
 }
 
 .btn-add-preset-tag {

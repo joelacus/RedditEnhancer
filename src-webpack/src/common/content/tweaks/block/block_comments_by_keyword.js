@@ -8,8 +8,26 @@
  */
 
 import { debounce } from '../../../utilities/debounce';
-import { logToDevConsole } from '../../../utilities/logging';
+//import { logToDevConsole } from '../../../utilities/logging';
+import { isSafeRegexPattern, reportUnsafeRegexPattern } from '../../../utilities/safe_regex.js';
+import { readBlocks, getCommentKeywordPatterns, BLOCK_STORE_KEY } from '../../../utilities/block_store.js';
 let keywordList = [];
+let keywordCommentsFilteringActive = false;
+
+// Re-filter when the block store changes elsewhere (e.g. Block Manager page).
+BROWSER_API.storage.onChanged.addListener((changes, area) => {
+	if (area !== 'local' || !changes[BLOCK_STORE_KEY] || !keywordCommentsFilteringActive) return;
+	readBlocks().then((store) => {
+		keywordList = getCommentKeywordPatterns(store);
+		// Re-scan both UIs: the RV1 re-scan re-runs the enable function, whose
+		// else branch removes stale classes from unblocked comments.
+		if (redditVersion === 'old') {
+			enableHideBlockedKeywordCommentsRV1();
+		} else {
+			document.querySelectorAll('shreddit-comment').forEach(filterBlockedKeywordPost);
+		}
+	});
+});
 
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
@@ -25,11 +43,12 @@ let scrollCleanup = null;
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 export function hideBlockedKeywordComments(value) {
+	keywordCommentsFilteringActive = value === true;
 	if (redditVersion === 'old') {
 		if (value) {
-			BROWSER_API.storage.sync.get(['hideBlockedKeywordCommentsList'], function (result) {
-				updateKeywordList(result.hideBlockedKeywordCommentsList);
-				logToDevConsole('log', `Blocked Keywords List: ${keywordList}`);
+			readBlocks().then((store) => {
+				keywordList = getCommentKeywordPatterns(store);
+				//logToDevConsole('log', `Blocked Keywords List: ${keywordList}`);
 				enableHideBlockedKeywordCommentsRV1();
 			});
 		} else {
@@ -37,9 +56,9 @@ export function hideBlockedKeywordComments(value) {
 		}
 	} else if (redditVersion === 'newnew') {
 		if (value) {
-			BROWSER_API.storage.sync.get(['hideBlockedKeywordCommentsList'], function (result) {
-				updateKeywordList(result.hideBlockedKeywordCommentsList);
-				logToDevConsole('log', `Blocked Keywords List: ${keywordList}`);
+			readBlocks().then((store) => {
+				keywordList = getCommentKeywordPatterns(store);
+				//logToDevConsole('log', `Blocked Keywords List: ${keywordList}`);
 				document.querySelectorAll('shreddit-comment').forEach(filterBlockedKeywordPost);
 				setTimeout(() => {
 					document.querySelectorAll('shreddit-comment').forEach(filterBlockedKeywordPost);
@@ -81,6 +100,10 @@ function matchesPattern(text, patternStr) {
 	if (regexMatch) {
 		const pattern = regexMatch[1];
 		const flags = regexMatch[2] || 'i';
+		if (!isSafeRegexPattern(pattern, flags)) {
+			reportUnsafeRegexPattern(patternStr);
+			return false;
+		}
 		try {
 			const regex = new RegExp(pattern, flags);
 			return regex.test(text);
@@ -97,42 +120,41 @@ function matchesPattern(text, patternStr) {
 	}
 }
 
-function updateKeywordList(list) {
-	keywordList = list
-		.split(',')
-		.map((word) => word.trim())
-		.filter((item) => item !== '' && item !== '*');
-}
+// In-memory pattern list, refreshed from the block store on load.
 
-// Enable Hide Blocked Keyword Posts - RV1
+// Enable Hide Blocked Keyword Comments - RV1
 function enableHideBlockedKeywordCommentsRV1() {
 	document.querySelectorAll('.commentarea .entry').forEach((post) => {
 		const commentText = post.querySelector('.usertext-body p');
 		if (!commentText) return;
 
 		if (keywordList.some((word) => matchesPattern(commentText.textContent, word))) {
-			post.classList.add('re-hide-comment');
+			post.classList.add('re-hide-comment-keyword');
+		} else {
+			post.classList.remove('re-hide-comment-keyword');
 		}
 	});
 }
 
-// Enable Hide Blocked Keyword Posts - RV3
+// Enable Hide Blocked Keyword Comments - RV3
 function filterBlockedKeywordPost(comment) {
-	if (comment.classList.contains('re-hide-comment')) return;
-
 	const content = comment.querySelector('p')?.parentElement;
 	if (!content) return;
 
 	if (keywordList.some((word) => matchesPattern(content.textContent, word))) {
-		content.classList.add('re-hide-comment');
+		content.classList.add('re-hide-comment-keyword');
 	} else {
-		content.classList.remove('re-hide-comment');
+		content.classList.remove('re-hide-comment-keyword');
 	}
 }
 
-// Disable Hide Blocked Keyword Posts - All
+// Disable Hide Blocked Keyword Comments - All
 function disableHideBlockedKeywordCommentsAll() {
-	document.querySelectorAll('.re-hide-comment').forEach((comment) => {
-		comment.classList.remove('re-hide-comment');
+	// Only remove this filter's own class: the user-comment filter marks its
+	// comments with re-hide-comment-user, and both classes can sit on nodes in
+	// the same comment tree. Removing .re-hide-comment* here would un-hide the
+	// other filter's comments.
+	document.querySelectorAll('.re-hide-comment-keyword').forEach((comment) => {
+		comment.classList.remove('re-hide-comment-keyword');
 	});
 }

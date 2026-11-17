@@ -18,6 +18,7 @@ module.exports = {
 		'popup/popup': './src/common/popup/popup_index.js',
 		restore_config: './src/common/restore_config.js',
 		user_tagging_manager: './src/common/user_tagging_manager.js',
+		block_manager: './src/common/block_manager.js',
 		system_theme_detector: './src/common/content/system_theme_detector.js',
 	},
 	output: {
@@ -87,6 +88,11 @@ module.exports = {
 					context: path.resolve(__dirname, 'src/common'),
 					from: 'user_tagging_manager.html',
 					to: 'user_tagging_manager.html',
+				},
+				{
+					context: path.resolve(__dirname, 'src/common'),
+					from: 'block_manager.html',
+					to: 'block_manager.html',
 				},
 				{
 					context: path.resolve(__dirname, 'src/common'),

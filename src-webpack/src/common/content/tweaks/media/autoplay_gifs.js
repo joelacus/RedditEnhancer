@@ -1,5 +1,5 @@
 /**
- * Tweaks: Hide Elements - Autoplay GIFs
+ * Tweaks: Media - Autoplay GIFs
  *
  * @name autoplayGifs
  * @description Autoplay GIFs on a feed (not videos).

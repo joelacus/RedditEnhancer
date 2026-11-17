@@ -140,3 +140,409 @@ body {
 	--menu-item-active: color-mix(in srgb, var(--menu-item), #fff 25%);
 	--item-bg: var(--bg-shade-1);
 }
+
+/* ─── Catppuccin — https://catppuccin.com/palette/ ────────────────────────── */
+
+.theme-catppuccin-latte {
+	--border-radius: 8px;
+	--accent: #8839ef;
+	--red: #d20f39;
+	--green: #40a02b;
+	--text: #4c4f69;
+	--text-secondary: #4c4f69;
+	--text-grey: #6c6f85;
+	--header-fg: #4c4f69;
+	--footer-fg: #4c4f69;
+	--extension-title: #6c6f85;
+	--shadow: rgba(255, 255, 255, 0.5);
+	--top-menu-chevron: var(--extension-title);
+	--shade: var(--extension-title);
+
+	--bg: #eff1f5;
+	--bg-shade-1: #ccd0da;
+	--bg-tint-1: #e6e9ef;
+	--bg-tint-2: #dce0e8;
+	--bg-tint-3: #ccd0da;
+	--bg-tint-4: #acb0be;
+
+	--btn-fg: var(--text);
+	--btn-secondary-fg: color-mix(in srgb, var(--text-grey), #ffffff 30%);
+	--btn-bg: var(--bg-tint-1);
+	--btn-border: color-mix(in srgb, var(--btn-bg), #000 5%);
+	--btn-hover: color-mix(in srgb, var(--btn-bg), #000 5%);
+	--btn-hover-border: color-mix(in srgb, var(--btn-bg), #666666 15%);
+	--btn-active: color-mix(in srgb, var(--btn-bg), #000 10%);
+
+	--menu-item: var(--bg-shade-1);
+	--menu-item-hover: color-mix(in srgb, var(--menu-item), #000 5%);
+	--menu-item-active: color-mix(in srgb, var(--menu-item), #000 10%);
+	--item-bg: var(--bg-shade-1);
+}
+
+.theme-catppuccin-frappe {
+	--border-radius: 8px;
+	--accent: #ca9ee6;
+	--red: #e78284;
+	--green: #a6d189;
+	--text: #c6d0f5;
+	--text-secondary: #c6d0f5;
+	--text-grey: #737994;
+	--header-fg: #c6d0f5;
+	--footer-fg: #c6d0f5;
+	--extension-title: #000;
+	--shadow: rgba(0, 0, 0, 0.5);
+	--top-menu-chevron: var(--extension-title);
+	--shade: var(--extension-title);
+
+	--bg: #303446;
+	--bg-shade-1: #232634;
+	--bg-tint-1: #292c3c;
+	--bg-tint-2: #414559;
+	--bg-tint-3: color-mix(in srgb, var(--bg) 45%, var(--bg-shade-1));
+	--bg-tint-4: #51576d;
+
+	--btn-fg: var(--text);
+	--btn-secondary-fg: color-mix(in srgb, var(--text-grey), #000000 40%);
+	--btn-bg: var(--bg-tint-1);
+	--btn-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-hover: color-mix(in srgb, var(--btn-bg) 70%, #000000);
+	--btn-hover-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-active: color-mix(in srgb, var(--btn-bg) 60%, #000000);
+
+	--menu-item: var(--bg-shade-1);
+	--menu-item-hover: var(--bg-tint-3);
+	--menu-item-active: var(--bg-tint-1);
+	--item-bg: var(--bg-shade-1);
+}
+
+.theme-catppuccin-macchiato {
+	--border-radius: 8px;
+	--accent: #c6a0f6;
+	--red: #ed8796;
+	--green: #a6da95;
+	--text: #cad3f5;
+	--text-secondary: #cad3f5;
+	--text-grey: #6e738d;
+	--header-fg: #cad3f5;
+	--footer-fg: #cad3f5;
+	--extension-title: #000;
+	--shadow: rgba(0, 0, 0, 0.5);
+	--top-menu-chevron: var(--extension-title);
+	--shade: var(--extension-title);
+
+	--bg: #24273a;
+	--bg-shade-1: #181926;
+	--bg-tint-1: #1e2030;
+	--bg-tint-2: #363a4f;
+	--bg-tint-3: color-mix(in srgb, var(--bg) 45%, var(--bg-shade-1));
+	--bg-tint-4: #494d64;
+
+	--btn-fg: var(--text);
+	--btn-secondary-fg: color-mix(in srgb, var(--text-grey), #000000 40%);
+	--btn-bg: var(--bg-tint-1);
+	--btn-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-hover: color-mix(in srgb, var(--btn-bg) 70%, #000000);
+	--btn-hover-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-active: color-mix(in srgb, var(--btn-bg) 60%, #000000);
+
+	--menu-item: var(--bg-shade-1);
+	--menu-item-hover: var(--bg-tint-3);
+	--menu-item-active: var(--bg-tint-1);
+	--item-bg: var(--bg-shade-1);
+}
+
+.theme-catppuccin-mocha {
+	--border-radius: 8px;
+	--accent: #cba6f7;
+	--red: #f38ba8;
+	--green: #a6e3a1;
+	--text: #cdd6f4;
+	--text-secondary: #cdd6f4;
+	--text-grey: #6c7086;
+	--header-fg: #cdd6f4;
+	--footer-fg: #cdd6f4;
+	--extension-title: #000;
+	--shadow: rgba(0, 0, 0, 0.5);
+	--top-menu-chevron: var(--extension-title);
+	--shade: var(--extension-title);
+
+	--bg: #1e1e2e;
+	--bg-shade-1: #11111b;
+	--bg-tint-1: #181825;
+	--bg-tint-2: #313244;
+	--bg-tint-3: color-mix(in srgb, var(--bg) 45%, var(--bg-shade-1));
+	--bg-tint-4: #45475a;
+
+	--btn-fg: var(--text);
+	--btn-secondary-fg: color-mix(in srgb, var(--text-grey), #000000 40%);
+	--btn-bg: var(--bg-tint-1);
+	--btn-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-hover: color-mix(in srgb, var(--btn-bg) 70%, #000000);
+	--btn-hover-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-active: color-mix(in srgb, var(--btn-bg) 60%, #000000);
+
+	--menu-item: var(--bg-shade-1);
+	--menu-item-hover: var(--bg-tint-3);
+	--menu-item-active: var(--bg-tint-1);
+	--item-bg: var(--bg-shade-1);
+}
+
+/* ─── Nord — https://colorvio.com/nord-colors ─────────────────────────────── */
+
+.theme-nord {
+	--border-radius: 8px;
+	--accent: #88c0d0;
+	--red: #bf616a;
+	--green: #a3be8c;
+	--text: #eceff4;
+	--text-secondary: #eceff4;
+	--text-grey: color-mix(in srgb, var(--text), var(--bg) 55%);
+	--header-fg: #eceff4;
+	--footer-fg: #eceff4;
+	--extension-title: #000;
+	--shadow: rgba(0, 0, 0, 0.5);
+	--top-menu-chevron: var(--extension-title);
+	--shade: var(--extension-title);
+
+	--bg: #2e3440;
+	--bg-shade-1: color-mix(in srgb, var(--bg), #000000 35%);
+	--bg-tint-1: #3b4252;
+	--bg-tint-2: #434c5e;
+	--bg-tint-3: color-mix(in srgb, var(--bg), #000000 20%);
+	--bg-tint-4: #4c566a;
+
+	--btn-fg: var(--text);
+	--btn-secondary-fg: color-mix(in srgb, var(--text-grey), #000000 40%);
+	--btn-bg: var(--bg-tint-1);
+	--btn-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-hover: color-mix(in srgb, var(--btn-bg) 70%, #000000);
+	--btn-hover-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-active: color-mix(in srgb, var(--btn-bg) 60%, #000000);
+
+	--menu-item: var(--bg-shade-1);
+	--menu-item-hover: var(--bg-tint-3);
+	--menu-item-active: var(--bg-tint-1);
+	--item-bg: var(--bg-shade-1);
+}
+
+/* ─── Dracula — https://draculatheme.com/spec (light variant: Alucard) ────── */
+
+.theme-dracula-light {
+	--border-radius: 8px;
+	--accent: #644ac9;
+	--red: #cb3a2a;
+	--green: #14710a;
+	--text: #1f1f1f;
+	--text-secondary: #1f1f1f;
+	--text-grey: #6c664b;
+	--header-fg: #1f1f1f;
+	--footer-fg: #1f1f1f;
+	--extension-title: #6c664b;
+	--shadow: rgba(255, 255, 255, 0.5);
+	--top-menu-chevron: var(--extension-title);
+	--shade: var(--extension-title);
+
+	--bg: #fffbeb;
+	--bg-shade-1: #dedccf;
+	--bg-tint-1: #ece9df;
+	--bg-tint-2: #ceccc0;
+	--bg-tint-3: #e2deca;
+	--bg-tint-4: #bcbab3;
+
+	--btn-fg: var(--text);
+	--btn-secondary-fg: color-mix(in srgb, var(--text-grey), #ffffff 30%);
+	--btn-bg: var(--bg-tint-1);
+	--btn-border: color-mix(in srgb, var(--btn-bg), #000 5%);
+	--btn-hover: color-mix(in srgb, var(--btn-bg), #000 5%);
+	--btn-hover-border: color-mix(in srgb, var(--btn-bg), #666666 15%);
+	--btn-active: color-mix(in srgb, var(--btn-bg), #000 10%);
+
+	--menu-item: var(--bg-shade-1);
+	--menu-item-hover: color-mix(in srgb, var(--menu-item), #000 5%);
+	--menu-item-active: color-mix(in srgb, var(--menu-item), #000 10%);
+	--item-bg: var(--bg-shade-1);
+}
+
+.theme-dracula {
+	--border-radius: 8px;
+	--accent: #bd93f9;
+	--red: #ff5555;
+	--green: #50fa7b;
+	--text: #f8f8f2;
+	--text-secondary: #f8f8f2;
+	--text-grey: #6272a4;
+	--header-fg: #f8f8f2;
+	--footer-fg: #f8f8f2;
+	--extension-title: #000;
+	--shadow: rgba(0, 0, 0, 0.5);
+	--top-menu-chevron: var(--extension-title);
+	--shade: var(--extension-title);
+
+	--bg: #282a36;
+	--bg-shade-1: #191a21;
+	--bg-tint-1: #21222c;
+	--bg-tint-2: #343746;
+	--bg-tint-3: color-mix(in srgb, var(--bg) 45%, var(--bg-shade-1));
+	--bg-tint-4: #44475a;
+
+	--btn-fg: var(--text);
+	--btn-secondary-fg: color-mix(in srgb, var(--text-grey), #000000 40%);
+	--btn-bg: var(--bg-tint-1);
+	--btn-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-hover: color-mix(in srgb, var(--btn-bg) 70%, #000000);
+	--btn-hover-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-active: color-mix(in srgb, var(--btn-bg) 60%, #000000);
+
+	--menu-item: var(--bg-shade-1);
+	--menu-item-hover: var(--bg-tint-3);
+	--menu-item-active: var(--bg-tint-1);
+	--item-bg: var(--bg-shade-1);
+}
+
+/* ─── Monokai Pro (Classic filter) — gist.github.com/brayevalerien ────────── */
+
+.theme-monokai {
+	--border-radius: 8px;
+	--accent: #e2e22e;
+	--red: #f92672;
+	--green: #a6e22e;
+	--text: #f8f8f2;
+	--text-secondary: #f8f8f2;
+	--text-grey: #90908a;
+	--header-fg: #f8f8f2;
+	--footer-fg: #f8f8f2;
+	--extension-title: #000;
+	--shadow: rgba(0, 0, 0, 0.5);
+	--top-menu-chevron: var(--extension-title);
+	--shade: var(--extension-title);
+
+	--bg: #272822;
+	--bg-shade-1: #1e1f1c;
+	--bg-tint-1: #34352f;
+	--bg-tint-2: #3e3d32;
+	--bg-tint-3: color-mix(in srgb, var(--bg) 45%, var(--bg-shade-1));
+	--bg-tint-4: #414339;
+
+	--btn-fg: var(--text);
+	--btn-secondary-fg: color-mix(in srgb, var(--text-grey), #000000 40%);
+	--btn-bg: var(--bg-tint-1);
+	--btn-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-hover: color-mix(in srgb, var(--btn-bg) 70%, #000000);
+	--btn-hover-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-active: color-mix(in srgb, var(--btn-bg) 60%, #000000);
+
+	--menu-item: var(--bg-shade-1);
+	--menu-item-hover: var(--bg-tint-3);
+	--menu-item-active: var(--bg-tint-1);
+	--item-bg: var(--bg-shade-1);
+}
+
+/* ─── Rosé Pine — https://rosepinetheme.com/palette/ ──────────────────────── */
+
+.theme-rose-pine {
+	--border-radius: 8px;
+	--accent: #c4a7e7;
+	--red: #eb6f92;
+	--green: #9ccfd8;
+	--text: #e0def4;
+	--text-secondary: #e0def4;
+	--text-grey: #6e6a86;
+	--header-fg: #e0def4;
+	--footer-fg: #e0def4;
+	--extension-title: #000;
+	--shadow: rgba(0, 0, 0, 0.5);
+	--top-menu-chevron: var(--extension-title);
+	--shade: var(--extension-title);
+
+	--bg: #191724;
+	--bg-shade-1: color-mix(in srgb, var(--bg), #000000 30%);
+	--bg-tint-1: #1f1d2e;
+	--bg-tint-2: #26233a;
+	--bg-tint-3: color-mix(in srgb, var(--bg) 45%, var(--bg-shade-1));
+	--bg-tint-4: color-mix(in srgb, var(--bg), #ffffff 10%);
+
+	--btn-fg: var(--text);
+	--btn-secondary-fg: color-mix(in srgb, var(--text-grey), #000000 40%);
+	--btn-bg: var(--bg-tint-1);
+	--btn-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-hover: color-mix(in srgb, var(--btn-bg) 70%, #000000);
+	--btn-hover-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-active: color-mix(in srgb, var(--btn-bg) 60%, #000000);
+
+	--menu-item: var(--bg-shade-1);
+	--menu-item-hover: var(--bg-tint-3);
+	--menu-item-active: var(--bg-tint-1);
+	--item-bg: var(--bg-shade-1);
+}
+
+.theme-rose-pine-moon {
+	--border-radius: 8px;
+	--accent: #c4a7e7;
+	--red: #eb6f92;
+	--green: #9ccfd8;
+	--text: #e0def4;
+	--text-secondary: #e0def4;
+	--text-grey: #6e6a86;
+	--header-fg: #e0def4;
+	--footer-fg: #e0def4;
+	--extension-title: #000;
+	--shadow: rgba(0, 0, 0, 0.5);
+	--top-menu-chevron: var(--extension-title);
+	--shade: var(--extension-title);
+
+	--bg: #232136;
+	--bg-shade-1: color-mix(in srgb, var(--bg), #000000 30%);
+	--bg-tint-1: #2a273f;
+	--bg-tint-2: #393552;
+	--bg-tint-3: color-mix(in srgb, var(--bg) 45%, var(--bg-shade-1));
+	--bg-tint-4: color-mix(in srgb, var(--bg), #ffffff 10%);
+
+	--btn-fg: var(--text);
+	--btn-secondary-fg: color-mix(in srgb, var(--text-grey), #000000 40%);
+	--btn-bg: var(--bg-tint-1);
+	--btn-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-hover: color-mix(in srgb, var(--btn-bg) 70%, #000000);
+	--btn-hover-border: color-mix(in srgb, var(--btn-bg), #fff 10%);
+	--btn-active: color-mix(in srgb, var(--btn-bg) 60%, #000000);
+
+	--menu-item: var(--bg-shade-1);
+	--menu-item-hover: var(--bg-tint-3);
+	--menu-item-active: var(--bg-tint-1);
+	--item-bg: var(--bg-shade-1);
+}
+
+.theme-rose-pine-dawn {
+	--border-radius: 8px;
+	--accent: #286983;
+	--red: #b4637a;
+	--green: #56949f;
+	--text: #464261;
+	--text-secondary: #464261;
+	--text-grey: #9893a5;
+	--header-fg: #464261;
+	--footer-fg: #464261;
+	--extension-title: #9893a5;
+	--shadow: rgba(255, 255, 255, 0.5);
+	--top-menu-chevron: var(--extension-title);
+	--shade: var(--extension-title);
+
+	--bg: #faf4ed;
+	--bg-shade-1: #f2e9e1;
+	--bg-tint-1: #fffaf3;
+	--bg-tint-2: #f2e9e1;
+	--bg-tint-3: #f2e9e1;
+	--bg-tint-4: color-mix(in srgb, var(--bg), #000000 18%);
+
+	--btn-fg: var(--text);
+	--btn-secondary-fg: color-mix(in srgb, var(--text-grey), #ffffff 30%);
+	--btn-bg: var(--bg-tint-1);
+	--btn-border: color-mix(in srgb, var(--btn-bg), #000 5%);
+	--btn-hover: color-mix(in srgb, var(--btn-bg), #000 5%);
+	--btn-hover-border: color-mix(in srgb, var(--btn-bg), #666666 15%);
+	--btn-active: color-mix(in srgb, var(--btn-bg), #000 10%);
+
+	--menu-item: var(--bg-shade-1);
+	--menu-item-hover: color-mix(in srgb, var(--menu-item), #000 5%);
+	--menu-item-active: color-mix(in srgb, var(--menu-item), #000 10%);
+	--item-bg: var(--bg-shade-1);
+}

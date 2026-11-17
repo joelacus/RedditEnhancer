@@ -4,7 +4,7 @@
  * @name hidePostComments
  * @description Completely hide the comments on a post page.
  *
- * Compatibility: RV3 (New New UI) (2023-)
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
 import i18next from 'i18next';

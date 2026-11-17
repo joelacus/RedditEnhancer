@@ -1,5 +1,5 @@
 /**
- * Tweaks: Hide Elements - Gallery Keyboard Navigation
+ * Tweaks: Media - Gallery Keyboard Navigation
  *
  * @name galleryKeyboardNavigation
  * @description Use the left and right arrow keys to navigation to the next/previous image in a post image gallery.

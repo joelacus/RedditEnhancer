@@ -7,6 +7,7 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
+import { escapeHtml } from '../../../utilities/escape_html.js';
 import { parseHtmlString } from '../../../utilities/parse_html_string';
 import { showBannerMessage } from '../../banner_message';
 
@@ -381,9 +382,10 @@ async function attachUserInfo() {
 	let karma = sessionStorage.getItem('karma');
 	let link_karma = sessionStorage.getItem('link_karma');
 	let comment_karma = sessionStorage.getItem('comment_karma');
-	let is_suspended = sessionStorage.getItem('is_suspended') === 'true';
+	const cachedSuspension = sessionStorage.getItem('is_suspended');
+	let is_suspended = cachedSuspension === 'true';
 
-	if (!username || !karma || !link_karma || !comment_karma || !is_suspended) {
+	if (!username || !karma || !link_karma || !comment_karma || cachedSuspension === null) {
 		console.debug('[RedditEnhancer] attachUserInfo: no cached user data found, fetching data from Reddit API');
 		const user = (await BROWSER_API.runtime.sendMessage({ actions: [{ action: 'fetchData', url: 'https://www.reddit.com/api/me.json' }] }))?.data;
 		if (user && user.name && user.total_karma && user.link_karma && user.comment_karma && typeof user.is_suspended === 'boolean') {
@@ -391,7 +393,7 @@ async function attachUserInfo() {
 			karma = user.total_karma;
 			link_karma = user.link_karma;
 			comment_karma = user.comment_karma;
-			is_suspended = user.is_suspended === 'true';
+			is_suspended = user.is_suspended;
 			sessionStorage.setItem('current-user', user.name);
 			sessionStorage.setItem('karma', user.total_karma);
 			sessionStorage.setItem('link_karma', user.link_karma);
@@ -404,7 +406,7 @@ async function attachUserInfo() {
 	const a = document.createElement('div');
 	a.id = 're-user-info';
 	a.className = 'inline-block ml-2xs text-12 font-normal';
-	a.append(parseHtmlString(`<abbr class="block font-semibold overflow-hidden text-ellipsis${is_suspended ? ' text-danger-content' : ''}" ${is_suspended ? 'title="Reddit suspended your account (reddit.com/appeal)"' : ''}>${username}</abbr><span class="text-neutral-content-weak">${formatNumber(karma)} karma (${link_karma} &middot; ${comment_karma})</span>`));
+	a.append(parseHtmlString(`<abbr class="block font-semibold overflow-hidden text-ellipsis${is_suspended ? ' text-danger-content' : ''}" ${is_suspended ? 'title="Reddit suspended your account (reddit.com/appeal)"' : ''}>${escapeHtml(username)}</abbr><span class="text-neutral-content-weak">${escapeHtml(formatNumber(karma))} karma (${escapeHtml(link_karma)} &middot; ${escapeHtml(comment_karma)})</span>`));
 
 	document.querySelector('button#expand-user-drawer-button:not(:has(#re-user-info))')?.appendChild(a);
 	document.documentElement.style.setProperty('--re-username', "'" + username + "'");
@@ -457,7 +459,8 @@ async function attachPageTitle() {
 			case 'post_submit_subreddit':
 			case 'wiki_page':
 			case 'mod_queue':
-				title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2];
+				const subredditMatch = window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2];
+				title = subredditMatch ? 'r/' + subredditMatch : '';
 				if (title)
 					data = (
 						await BROWSER_API.runtime.sendMessage({
@@ -468,18 +471,18 @@ async function attachPageTitle() {
 								},
 							],
 						})
-					).data;
+					)?.data;
 				if (title && data && (data.community_icon || data.icon_img)) {
-					logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon ? data.community_icon : data.icon_img}">`;
+					logo = `<img alt="${escapeHtml(title)} logo" class="rounded-full h-lg w-lg mb-0" src="${escapeHtml(data.community_icon ? data.community_icon : data.icon_img)}">`;
 				} else {
-					logo = document.querySelector('.shreddit-subreddit-icon__icon').outerHTML;
+					logo = document.querySelector('.shreddit-subreddit-icon__icon')?.outerHTML ?? '';
 				}
 				break;
 			case 'post_stats':
 				const hovercard = document.querySelector('faceplate-hovercard');
 				if (hovercard) {
-					logo = hovercard.querySelector('.shreddit-subreddit-icon__icon').outerHTML;
-					title = hovercard.querySelector('a').textContent;
+					logo = hovercard.querySelector('.shreddit-subreddit-icon__icon')?.outerHTML ?? '';
+					title = hovercard.querySelector('a')?.textContent ?? 'Post Insights';
 				} else {
 					title = 'Post Insights';
 					logo = `<svg rpl="" fill="currentColor" height="20" icon-name="statistics-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M3 16H1.75v-6H3v6Zm5-9H6.75v9H8V7Zm5-3h-1.25v12H13V4Zm5-3h-1.25v15H18V1ZM1.01 17.75V19h17.9v-1.25H1.01Z"></path></svg>`;
@@ -500,6 +503,11 @@ async function attachPageTitle() {
 			case 'profile_post_page_comments':
 			case 'profile_serp':
 				const username = window.location.pathname.match(/^\/(?:u|user)\/([^\/]+)\/?/)?.[1];
+				if (!username) {
+					title = currentPage.charAt(0).toUpperCase() + currentPage.slice(1);
+					logo = '';
+					break;
+				}
 				title = 'u/' + username;
 				data = (
 					await BROWSER_API.runtime.sendMessage({
@@ -512,8 +520,8 @@ async function attachPageTitle() {
 					})
 				).data;
 				if (title && data && (data.snoovatar_img || data.icon_img)) {
-					logo = `<img alt="${title} user avatar" class="${data.snoovatar_img ? '' : 'rounded-full'} h-lg w-lg mb-0" 
-						src="${data.snoovatar_img ? data.snoovatar_img : data.icon_img}">`;
+					logo = `<img alt="${escapeHtml(title)} user avatar" class="${data.snoovatar_img ? '' : 'rounded-full'} h-lg w-lg mb-0"
+						src="${escapeHtml(data.snoovatar_img ? data.snoovatar_img : data.icon_img)}">`;
 				} else logo = '';
 				break;
 			case 'global_serp':
@@ -521,8 +529,8 @@ async function attachPageTitle() {
 				logo = '';
 				break;
 			case 'custom_feed':
-				title = document.querySelector('custom-feed-header').getAttribute('display-name');
-				logo = `<img alt="${title} icon" class="rounded-sm h-lg w-lg mb-0" src=${document.querySelector('custom-feed-header').getAttribute('icon')}>`;
+				title = document.querySelector('custom-feed-header')?.getAttribute('display-name') ?? 'Custom Feed';
+				logo = `<img alt="${escapeHtml(title)} icon" class="rounded-sm h-lg w-lg mb-0" src="${escapeHtml(document.querySelector('custom-feed-header')?.getAttribute('icon'))}">`;
 				break;
 			case 'post_submit':
 				title = 'Create post';
@@ -552,7 +560,8 @@ async function attachPageTitle() {
 				break;
 			default:
 				if (window.location.pathname.includes('/mod/')) {
-					title = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2];
+					const modMatch = window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2];
+					title = modMatch ? 'r/' + modMatch : '';
 					if (title)
 						data = (
 							await BROWSER_API.runtime.sendMessage({
@@ -563,8 +572,8 @@ async function attachPageTitle() {
 									},
 								],
 							})
-						).data;
-					if (title && data) logo = `<img alt="${title} logo" class="rounded-full h-lg w-lg mb-0" src="${data.community_icon}">`;
+						)?.data;
+					if (title && data) logo = `<img alt="${escapeHtml(title)} logo" class="rounded-full h-lg w-lg mb-0" src="${escapeHtml(data.community_icon)}">`;
 				} else {
 					// Fallback for unknown pages
 					title = currentPage.charAt(0).toUpperCase() + currentPage.slice(1);
@@ -580,7 +589,7 @@ async function attachPageTitle() {
 	if (document.querySelector('.re-header-menu')) return;
 	const sideMenu = document.createElement('nav');
 	sideMenu.className = 're-header-menu mb-0 h-[40px] mr-md text-neutral-content-strong box-border';
-	sideMenu.append(parseHtmlString(`<div class="flex items-center gap-xs px-xs h-full">${logo}<span>${title}</span></div>`));
+	sideMenu.append(parseHtmlString(`<div class="flex items-center gap-xs px-xs h-full">${logo}<span>${escapeHtml(title)}</span></div>`));
 
 	// Attach the side menu to the header
 	if (!optOutAttach) attachSideMenu(sideMenu);
@@ -688,10 +697,11 @@ export function subredditDisplayNameBanner(value) {
 				document.head.insertBefore(styleElement, document.head.firstChild);
 			}
 			const route = document.querySelector('shreddit-app')?.getAttribute('routename');
-			if (route.startsWith('subreddit')) {
+			if (route && route.startsWith('subreddit')) {
 				const subredditName = document.querySelector('shreddit-subreddit-header')?.getAttribute('display-name');
 				if (subredditName && subredditName.length > 0) {
-					document.querySelector('div.masthead h1').textContent = subredditName;
+					const mastheadTitle = document.querySelector('div.masthead h1');
+					if (mastheadTitle) mastheadTitle.textContent = subredditName;
 					document.querySelector('div.masthead div:has(> h1)')?.setAttribute('data-sub-name', 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2]);
 				}
 			}
@@ -701,7 +711,8 @@ export function subredditDisplayNameBanner(value) {
 				element.remove();
 			});
 			const title = document.querySelector('div.masthead h1');
-			if (title) title.textContent = 'r/' + window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2];
+			const fallbackName = window.location.pathname.match(/^\/?(r|mod)\/([^/?#]+)/)?.[2];
+			if (title && fallbackName) title.textContent = 'r/' + fallbackName;
 		}
 	}
 }

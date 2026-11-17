@@ -1,93 +1,95 @@
 <!doctype html>
-<html lang="en" style="background-color: #282828;">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="stylesheet" href="popup/popup.css" />
-		<link rel="stylesheet" href="options.css" />
-		<title>Reddit Enhancer - Settings</title>
-	</head>
-	<body id="options-page" class="theme-dark">
-		<!-- = Title = -->
-		<div class="menu-title-container">
-			<span class="menu-title">
-				<span data-lang="extensionName"></span>
-			</span>
-		</div>
+<html lang="en">
 
-		<!-- = Top Menu Bar = -->
-		<div class="top-menu-bar">
-			<!-- = Search and Version Filter = -->
-			<div class="search-container">
-				<input id="search" type="text" name="search" autocomplete="off" />
-				<div id="btn-clear-search" class="btn-icon icon-delete-left hidden"></div>
-			</div>
-			<div class="version-and-redirect-container">
-				<div><span data-lang="FilterOptionsFor" style="text-wrap: nowrap"></span><span>:</span></div>
-				<div id="select-version" class="dropdown" style="max-width: 220px">
-					<div class="select">
-						<div class="icon icon-filter"></div>
-						<span id="chosen-version"></span>
-						<div class="icon dropdown-icon icon-chevron-down"></div>
-					</div>
-					<input type="hidden" name="version" />
-					<ul id="select-version-menu" class="dropdown-menu">
-						<li id="newnew-reddit"><span data-lang="Latest"></span></li>
-						<li id="old-reddit"><span data-lang="Old"></span></li>
-					</ul>
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="popup/popup.css" />
+	<link rel="stylesheet" href="options.css" />
+	<title>Reddit Enhancer - Settings</title>
+</head>
+
+<body id="options-page" class="theme-dark">
+	<!-- = Title = -->
+	<div class="menu-title-container">
+		<span class="menu-title">
+			<span data-lang="extensionName"></span>
+		</span>
+	</div>
+
+	<!-- = Top Menu Bar = -->
+	<div class="top-menu-bar">
+		<!-- = Search and Version Filter = -->
+		<div class="search-container">
+			<input id="search" type="text" name="search" autocomplete="off" />
+			<div id="btn-clear-search" class="btn-icon icon-delete-left hidden"></div>
+		</div>
+		<div class="version-and-redirect-container">
+			<div><span data-lang="FilterOptionsFor" style="text-wrap: nowrap"></span><span>:</span></div>
+			<div id="select-version" class="dropdown" style="max-width: 220px">
+				<div class="select">
+					<div class="icon icon-filter"></div>
+					<span id="chosen-version"></span>
+					<div class="icon dropdown-icon icon-chevron-down"></div>
 				</div>
+				<input type="hidden" name="version" />
+				<ul id="select-version-menu" class="dropdown-menu">
+					<li id="newnew-reddit"><span data-lang="Latest"></span></li>
+					<li id="old-reddit"><span data-lang="Old"></span></li>
+				</ul>
+			</div>
 
-				<!-- = Redirect = -->
-				<div><span data-lang="Redirect"></span><span>:</span></div>
-				<div id="select-reddit-version" class="dropdown" style="max-width: 220px">
-					<div class="select">
-						<div class="icon icon-redirect"></div>
-						<span id="chosen-reddit-version"></span>
-						<div class="icon dropdown-icon icon-chevron-down"></div>
-					</div>
-					<input type="hidden" name="reddit-version" />
-					<ul id="select-reddit-version-menu" class="dropdown-menu">
-						<li id="redirect-off" data-version="off"><span data-lang="Off"></span></li>
-						<li id="redirect-latest-reddit" data-version="latest"><span data-lang="Latest"></span></li>
-						<li id="redirect-old-reddit" data-version="old"><span data-lang="Old"></span></li>
-						<li id="redirect-old-www-reddit" data-version="old_www"><span data-lang="OldWww"></span></li>
-					</ul>
+			<!-- = Redirect = -->
+			<div><span data-lang="Redirect"></span><span>:</span></div>
+			<div id="select-reddit-version" class="dropdown" style="max-width: 220px">
+				<div class="select">
+					<div class="icon icon-redirect"></div>
+					<span id="chosen-reddit-version"></span>
+					<div class="icon dropdown-icon icon-chevron-down"></div>
 				</div>
+				<input type="hidden" name="reddit-version" />
+				<ul id="select-reddit-version-menu" class="dropdown-menu">
+					<li id="redirect-off" data-version="off"><span data-lang="Off"></span></li>
+					<li id="redirect-latest-reddit" data-version="latest"><span data-lang="Latest"></span></li>
+					<li id="redirect-old-reddit" data-version="old"><span data-lang="Old"></span></li>
+					<li id="redirect-old-www-reddit" data-version="old_www"><span data-lang="OldWww"></span></li>
+				</ul>
 			</div>
 		</div>
+	</div>
 
-		<!-- = Banner Messages = -->
-		<div id="firefox-update-message" class="banner-message" style="display: none">
-			<span data-lang="UpdateFirefox"></span>
-			<div class="message-buttons">
-				<div class="btn close" data-lang="Close"></div>
-			</div>
+	<!-- = Banner Messages = -->
+	<div id="firefox-update-message" class="banner-message" style="display: none">
+		<span data-lang="UpdateFirefox"></span>
+		<div class="message-buttons">
+			<div class="btn close" data-lang="Close"></div>
 		</div>
-		<div id="latest-ui-message" class="banner-message amber" style="display: none">
-			<span data-lang="RV3RedirectInfo"></span>
-			<div class="message-buttons">
-				<div class="btn close" data-lang="Close"></div>
-				<div class="btn dont-show-again" data-lang="DontShowAgain"></div>
-			</div>
+	</div>
+	<div id="latest-ui-message" class="banner-message amber" style="display: none">
+		<span data-lang="RV3RedirectInfo"></span>
+		<div class="message-buttons">
+			<div class="btn close" data-lang="Close"></div>
+			<div class="btn dont-show-again" data-lang="DontShowAgain"></div>
 		</div>
-		<div id="old-www-ui-message" class="banner-message blue" style="display: none">
-			<span data-lang="RV1RedirectInfo"></span>
-			<div class="message-buttons">
-				<div class="btn close" data-lang="Close"></div>
-				<div class="btn dont-show-again" data-lang="DontShowAgain"></div>
-			</div>
+	</div>
+	<div id="old-www-ui-message" class="banner-message blue" style="display: none">
+		<span data-lang="RV1RedirectInfo"></span>
+		<div class="message-buttons">
+			<div class="btn close" data-lang="Close"></div>
+			<div class="btn dont-show-again" data-lang="DontShowAgain"></div>
 		</div>
+	</div>
 
-		<div id="colour-picker-bg"></div>
+	<div id="colour-picker-bg"></div>
 
-		<!-- = Container = -->
+	<!-- = Container = -->
 
-		<div class="options-page-menu-container menu-list">
-			<!-- = Side Menu = -->
-			<div class="menu side-menu">
-				<div>
-					<ul>
-						<li data-index="0">
-							<!-- Dark Mode 
+	<div class="options-page-menu-container menu-list">
+		<!-- = Side Menu = -->
+		<div class="menu side-menu">
+			<div>
+				<ul>
+					<li data-index="0">
+						<!-- Dark Mode 
 							<div id="dark-mode" class="menu-item-link btn-dark-mode r-new">
 								<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
 								<div class="menu-item-btn">
@@ -96,120 +98,140 @@
 									<div class="icon-chevron-down"></div>
 								</div>
 							</div>-->
-						</li>
-						<li data-index="1">
-							<!-- Resize Feed/Post -->
-							<div id="expand-view" class="menu-item-link btn-resize-elements r-old r-new r-newnew">
-								<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
-								<div class="menu-item-btn">
-									<span class="menu-item-icon icon-resize-feed icon-expand-layout"></span>
-									<span data-lang="ResizeLayout" class="menu-item-title"></span>
-									<div class="icon-chevron-down"></div>
-								</div>
+					</li>
+					<li data-index="1">
+						<!-- Resize Feed/Post -->
+						<div id="expand-view" class="menu-item-link btn-resize-elements r-old r-new r-newnew">
+							<div class="menu-item-handle">
+								<div class="menu-item-icon icon-handle"></div>
 							</div>
-						</li>
-						<li data-index="2">
-							<!-- Hide Elements -->
-							<div id="hide-elements" class="menu-item-link btn-hide-elements r-old r-new r-newnew">
-								<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
-								<div class="menu-item-btn">
-									<span class="menu-item-icon icon-hide icon-hide-elements"></span>
-									<span data-lang="HideElements" class="menu-item-title"></span>
-									<div class="icon-chevron-down"></div>
-								</div>
+							<div class="menu-item-btn">
+								<span class="menu-item-icon icon-resize-feed icon-expand-layout"></span>
+								<span data-lang="ResizeLayout" class="menu-item-title"></span>
+								<div class="icon-chevron-down"></div>
 							</div>
-						</li>
-						<li data-index="7">
-							<!-- Font Tweaks -->
-							<div id="font-tweaks" class="menu-item-link btn-font r-old r-new r-newnew">
-								<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
-								<div class="menu-item-btn">
-									<span class="menu-item-icon icon-paint-roller icon-font"></span>
-									<span data-lang="Font" class="menu-item-title"></span>
-									<div class="icon-chevron-down"></div>
-								</div>
+						</div>
+					</li>
+					<li data-index="2">
+						<!-- Hide Elements -->
+						<div id="hide-elements" class="menu-item-link btn-hide-elements r-old r-new r-newnew">
+							<div class="menu-item-handle">
+								<div class="menu-item-icon icon-handle"></div>
 							</div>
-						</li>
-						<li data-index="8">
-							<!-- Media Tweaks -->
-							<div id="media-tweaks" class="menu-item-link btn-media-tweaks r-old r-new r-newnew">
-								<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
-								<div class="menu-item-btn">
-									<span class="menu-item-icon icon-photo-video icon-media-tweaks"></span>
-									<span data-lang="Media" class="menu-item-title"></span>
-									<div class="icon-chevron-down"></div>
-								</div>
+							<div class="menu-item-btn">
+								<span class="menu-item-icon icon-hide icon-hide-elements"></span>
+								<span data-lang="HideElements" class="menu-item-title"></span>
+								<div class="icon-chevron-down"></div>
 							</div>
-						</li>
-						<li data-index="3">
-							<!-- Productivity Tweaks -->
-							<div id="productivity-tweaks" class="menu-item-link btn-productivity-tweaks r-old r-new r-newnew">
-								<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
-								<div class="menu-item-btn">
-									<span class="menu-item-icon icon-gear icon-productivity-tweaks"></span>
-									<span data-lang="Productivity" class="menu-item-title"></span>
-									<div class="icon-chevron-down"></div>
-								</div>
+						</div>
+					</li>
+					<li data-index="7">
+						<!-- Font Tweaks -->
+						<div id="font-tweaks" class="menu-item-link btn-font r-old r-new r-newnew">
+							<div class="menu-item-handle">
+								<div class="menu-item-icon icon-handle"></div>
 							</div>
-						</li>
-						<li data-index="4">
-							<!-- Style Tweaks -->
-							<div id="style-tweaks" class="menu-item-link btn-style-tweaks r-old r-new r-newnew">
-								<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
-								<div class="menu-item-btn">
-									<span class="menu-item-icon icon-paint-roller icon-style-tweaks"></span>
-									<span data-lang="StyleTweaks" class="menu-item-title"></span>
-									<div class="icon-chevron-down"></div>
-								</div>
+							<div class="menu-item-btn">
+								<span class="menu-item-icon icon-paint-roller icon-font"></span>
+								<span data-lang="Font" class="menu-item-title"></span>
+								<div class="icon-chevron-down"></div>
 							</div>
-						</li>
-						<li data-index="5">
-							<!-- Background -->
-							<div id="background" class="menu-item-link btn-background r-old r-new r-newnew">
-								<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
-								<div class="menu-item-btn">
-									<span class="menu-item-icon icon-background"></span>
-									<span data-lang="Background" class="menu-item-title"></span>
-									<div class="icon-chevron-down"></div>
-								</div>
+						</div>
+					</li>
+					<li data-index="8">
+						<!-- Media Tweaks -->
+						<div id="media-tweaks" class="menu-item-link btn-media-tweaks r-old r-new r-newnew">
+							<div class="menu-item-handle">
+								<div class="menu-item-icon icon-handle"></div>
 							</div>
-						</li>
-						<li data-index="6">
-							<!-- Accessibility Tweaks -->
-							<div id="accessibility-tweaks" class="menu-item-link btn-accessibility r-new r-newnew">
-								<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
-								<div class="menu-item-btn">
-									<span class="menu-item-icon icon-paint-roller icon-accessibility"></span>
-									<span data-lang="Accessibility" class="menu-item-title"></span>
-									<div class="icon-chevron-down"></div>
-								</div>
+							<div class="menu-item-btn">
+								<span class="menu-item-icon icon-photo-video icon-media-tweaks"></span>
+								<span data-lang="Media" class="menu-item-title"></span>
+								<div class="icon-chevron-down"></div>
 							</div>
-						</li>
-						<li data-index="10">
-							<!-- Block -->
-							<div id="block" class="menu-item-link btn-block r-old r-newnew">
-								<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
-								<div class="menu-item-btn">
-									<span class="menu-item-icon icon-block icon-block"></span>
-									<span data-lang="Block" class="menu-item-title"></span>
-									<div class="icon-chevron-down"></div>
-								</div>
+						</div>
+					</li>
+					<li data-index="3">
+						<!-- Productivity Tweaks -->
+						<div id="productivity-tweaks" class="menu-item-link btn-productivity-tweaks r-old r-new r-newnew">
+							<div class="menu-item-handle">
+								<div class="menu-item-icon icon-handle"></div>
 							</div>
-						</li>
-						<li data-index="11">
-							<!-- User Tagging -->
-							<div id="user-tagging" class="menu-item-link btn-user-tagging r-old r-newnew">
-								<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
-								<div class="menu-item-btn">
-									<span class="menu-item-icon icon-tag icon-user-tagging"></span>
-									<span data-lang="UserTagging" class="menu-item-title"></span>
-									<div class="icon-chevron-down"></div>
-								</div>
+							<div class="menu-item-btn">
+								<span class="menu-item-icon icon-gear icon-productivity-tweaks"></span>
+								<span data-lang="Productivity" class="menu-item-title"></span>
+								<div class="icon-chevron-down"></div>
 							</div>
-						</li>
-						<li data-index="9">
-							<!-- Account Switcher -->
-							<!--<div id="account-switcher-tweaks" class="menu-item-link btn-account-switcher r-new r-newnew">
+						</div>
+					</li>
+					<li data-index="4">
+						<!-- Style Tweaks -->
+						<div id="style-tweaks" class="menu-item-link btn-style-tweaks r-old r-new r-newnew">
+							<div class="menu-item-handle">
+								<div class="menu-item-icon icon-handle"></div>
+							</div>
+							<div class="menu-item-btn">
+								<span class="menu-item-icon icon-paint-roller icon-style-tweaks"></span>
+								<span data-lang="StyleTweaks" class="menu-item-title"></span>
+								<div class="icon-chevron-down"></div>
+							</div>
+						</div>
+					</li>
+					<li data-index="5">
+						<!-- Background -->
+						<div id="background" class="menu-item-link btn-background r-old r-new r-newnew">
+							<div class="menu-item-handle">
+								<div class="menu-item-icon icon-handle"></div>
+							</div>
+							<div class="menu-item-btn">
+								<span class="menu-item-icon icon-background"></span>
+								<span data-lang="Background" class="menu-item-title"></span>
+								<div class="icon-chevron-down"></div>
+							</div>
+						</div>
+					</li>
+					<li data-index="6">
+						<!-- Accessibility Tweaks -->
+						<div id="accessibility-tweaks" class="menu-item-link btn-accessibility r-new r-newnew">
+							<div class="menu-item-handle">
+								<div class="menu-item-icon icon-handle"></div>
+							</div>
+							<div class="menu-item-btn">
+								<span class="menu-item-icon icon-paint-roller icon-accessibility"></span>
+								<span data-lang="Accessibility" class="menu-item-title"></span>
+								<div class="icon-chevron-down"></div>
+							</div>
+						</div>
+					</li>
+					<li data-index="10">
+						<!-- Block -->
+						<div id="block" class="menu-item-link btn-block r-old r-newnew">
+							<div class="menu-item-handle">
+								<div class="menu-item-icon icon-handle"></div>
+							</div>
+							<div class="menu-item-btn">
+								<span class="menu-item-icon icon-block icon-block"></span>
+								<span data-lang="Block" class="menu-item-title"></span>
+								<div class="icon-chevron-down"></div>
+							</div>
+						</div>
+					</li>
+					<li data-index="11">
+						<!-- User Tagging -->
+						<div id="user-tagging" class="menu-item-link btn-user-tagging r-old r-newnew">
+							<div class="menu-item-handle">
+								<div class="menu-item-icon icon-handle"></div>
+							</div>
+							<div class="menu-item-btn">
+								<span class="menu-item-icon icon-tag icon-user-tagging"></span>
+								<span data-lang="UserTagging" class="menu-item-title"></span>
+								<div class="icon-chevron-down"></div>
+							</div>
+						</div>
+					</li>
+					<li data-index="9">
+						<!-- Account Switcher -->
+						<!--<div id="account-switcher-tweaks" class="menu-item-link btn-account-switcher r-new r-newnew">
 								<div class="menu-item-handle"><div class="menu-item-icon icon-handle"></div></div>
 								<div class="menu-item-btn">
 									<span class="menu-item-icon icon-account-switcher icon-account-switcher"></span>
@@ -217,78 +239,79 @@
 									<div class="icon-chevron-down"></div>
 								</div>
 							</div>-->
-						</li>
-					</ul>
-					<!-- Extension Settings -->
-					<div id="btn-settings" class="menu-item-link active" style="margin-bottom: 8px">
-						<div class="menu-item-btn" style="margin-left: 50px">
-							<span class="menu-item-icon icon-gear"></span>
-							<span data-lang="Settings" class="menu-item-title"></span>
-							<div class="icon-chevron-down"></div>
-						</div>
-					</div>
-					<!-- Changelog -->
-					<div id="btn-changelog" class="menu-item-link btn-changelog">
-						<div class="menu-item-btn" style="margin-left: 50px">
-							<span class="menu-item-icon icon-file"></span>
-							<span data-lang="Changelog" class="menu-item-title"></span>
-							<div class="icon-chevron-down"></div>
-						</div>
+					</li>
+				</ul>
+				<!-- Extension Settings -->
+				<div id="btn-settings" class="menu-item-link active" style="margin-bottom: 8px">
+					<div class="menu-item-btn" style="margin-left: 50px">
+						<span class="menu-item-icon icon-gear"></span>
+						<span data-lang="Settings" class="menu-item-title"></span>
+						<div class="icon-chevron-down"></div>
 					</div>
 				</div>
-				<div class="footer-links">
-					<a class="donate" href="https://ko-fi.com/T6T1A9BIL" target="_blank">
-						<div class="kofi-logo"></div>
-						<div data-lang="BuyMeACoffee"></div>
-					</a>
-					<a href="https://github.com/joelacus/RedditEnhancer" target="_blank">
-						<div class="link-icon icon icon-github"></div>
-						<span><span data-lang="ReportIssues"></span> / GitHub</span>
-					</a>
-					<div id="btn-rate" class="link">
-						<div class="link-icon icon icon-star"></div>
-						<span data-lang="Rate"></span>
-					</div>
-					<a href="https://www.reddit.com/r/RedditEnhancer" target="_blank">
-						<div class="link-icon icon icon-reddit"></div>
-						<span>r/RedditEnhancer</span>
-					</a>
-					<div class="btn-changelog" style="margin-top: 8px">
-						<div>
-							<span data-lang="extensionVersionText"></span>:
-							<span data-lang="extensionVersion"></span>
-						</div>
-						<span id="new-update" class="hidden">Update Available!</span>
+				<!-- Changelog -->
+				<div id="btn-changelog" class="menu-item-link btn-changelog">
+					<div class="menu-item-btn" style="margin-left: 50px">
+						<span class="menu-item-icon icon-file"></span>
+						<span data-lang="Changelog" class="menu-item-title"></span>
+						<div class="icon-chevron-down"></div>
 					</div>
 				</div>
 			</div>
-
-			<!-- = Pages = -->
-			<div class="menu pages">
-				{{> menu}} <!-- add inputs to /src/common/templates/partials/menu.hbs -->
-
-				<!-- = Settings Page = -->
-				{{> settings}} <!-- /src/common/templates/partials/settings.hbs -->
-
-				<!-- = Changelog Page = -->
-				<div id="changelog" class="hidden">
-					<div id="new-update-message" class="banner-message amber hidden">
-						<span data-lang="NewUpdateAvailable"></span>
-					</div>
-					<div class="log"></div>
+			<div class="footer-links">
+				<a class="donate" href="https://ko-fi.com/T6T1A9BIL" target="_blank">
+					<div class="kofi-logo"></div>
+					<div data-lang="BuyMeACoffee"></div>
+				</a>
+				<a href="https://github.com/joelacus/RedditEnhancer" target="_blank">
+					<div class="link-icon icon icon-github"></div>
+					<span><span data-lang="ReportIssues"></span> / GitHub</span>
+				</a>
+				<div id="btn-rate" class="link">
+					<div class="link-icon icon icon-star"></div>
+					<span data-lang="Rate"></span>
 				</div>
-
-				<!-- = No Search Results Page = -->
-				<div id="no-search-results" class="hidden">
-					<span>¯\_(ツ)_/¯</span>
+				<a href="https://www.reddit.com/r/RedditEnhancer" target="_blank">
+					<div class="link-icon icon icon-reddit"></div>
+					<span>r/RedditEnhancer</span>
+				</a>
+				<div class="btn-changelog" style="margin-top: 8px">
+					<div>
+						<span data-lang="extensionVersionText"></span>:
+						<span data-lang="extensionVersion"></span>
+					</div>
+					<span id="new-update" class="hidden">Update Available!</span>
 				</div>
 			</div>
 		</div>
 
-		<!-- = Footer = -->
-		<div class="footer"></div>
-	</body>
+		<!-- = Pages = -->
+		<div class="menu pages">
+			{{> menu}} <!-- add inputs to /src/common/templates/partials/menu.hbs -->
 
-	<!-- = Scripts = -->
-	<script src="popup/popup.js"></script>
+			<!-- = Settings Page = -->
+			{{> settings}} <!-- /src/common/templates/partials/settings.hbs -->
+
+			<!-- = Changelog Page = -->
+			<div id="changelog" class="hidden">
+				<div id="new-update-message" class="banner-message amber hidden">
+					<span data-lang="NewUpdateAvailable"></span>
+				</div>
+				<div class="log"></div>
+			</div>
+
+			<!-- = No Search Results Page = -->
+			<div id="no-search-results" class="hidden">
+				<span>¯\_(ツ)_/¯</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- = Footer = -->
+	<div class="footer"></div>
+</body>
+
+<!-- = Scripts = -->
+<script src="popup/popup.js"></script>
+
 </html>

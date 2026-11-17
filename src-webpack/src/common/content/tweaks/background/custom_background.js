@@ -7,7 +7,7 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-import { validateInt } from '../../../popup/restore/validation';
+import { validateBackgroundUrl, validateInt } from '../../../popup/restore/validation';
 
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
@@ -54,8 +54,9 @@ function setBackgroundAndBlur() {
 
 // Set Custom Background Property
 export function setCustomBackground(value) {
-	if (value !== '') {
-		document.documentElement.style.setProperty('--re-background-image', `url("${value}") no-repeat center center / cover`);
+	const url = validateBackgroundUrl(value, '');
+	if (url !== '') {
+		document.documentElement.style.setProperty('--re-background-image', `url("${url}") no-repeat center center / cover`);
 	}
 }
 

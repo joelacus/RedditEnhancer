@@ -8,10 +8,24 @@
  */
 
 import { logToDevConsole } from '../../../utilities/logging';
+import { isSafeRegexPattern, reportUnsafeRegexPattern } from '../../../utilities/safe_regex.js';
+import { readBlocks, writeBlocks, getBlockedSubredditPatterns, addSubredditBlock, removeSubredditBlock, BLOCK_STORE_KEY } from '../../../utilities/block_store.js';
+import { showToast } from '../../../utilities/toast_notification.js';
 import { registerMutationCallback } from '../../observer_manager';
 import { escapeHtml } from '../../../utilities/escape_html.js';
+import { parseHtmlString } from '../../../utilities/parse_html_string.js';
 import { debounce } from '../../../utilities/debounce.js';
 let subredditList = [];
+let subredditFilteringActive = false;
+
+// Re-filter when the block store changes elsewhere (e.g. Block Manager page).
+BROWSER_API.storage.onChanged.addListener((changes, area) => {
+	if (area !== 'local' || !changes[BLOCK_STORE_KEY] || !subredditFilteringActive) return;
+	readBlocks().then((store) => {
+		subredditList = getBlockedSubredditPatterns(store);
+		scanPage();
+	});
+});
 
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
@@ -28,11 +42,12 @@ let scrollCleanup = null;
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 export function hideBlockedSubredditPosts(value) {
+	subredditFilteringActive = value === true;
 	if (redditVersion === 'old') {
 		if (value) {
-			BROWSER_API.storage.sync.get(['hideBlockedSubredditPostsList'], function (result) {
-				updateSubredditList(result.hideBlockedSubredditPostsList);
-				logToDevConsole('log', `Blocked Subreddits List: ${subredditList}`);
+			readBlocks().then((store) => {
+				subredditList = getBlockedSubredditPatterns(store);
+				//logToDevConsole('log', `Blocked Subreddits List: ${subredditList}`);
 				enableHideBlockedSubredditPostsRV1();
 			});
 		} else {
@@ -40,9 +55,9 @@ export function hideBlockedSubredditPosts(value) {
 		}
 	} else if (redditVersion === 'newnew') {
 		if (value) {
-			BROWSER_API.storage.sync.get(['hideBlockedSubredditPostsList'], function (result) {
-				updateSubredditList(result.hideBlockedSubredditPostsList);
-				logToDevConsole('log', `Blocked Subreddits List: ${subredditList}`);
+			readBlocks().then((store) => {
+				subredditList = getBlockedSubredditPatterns(store);
+				//logToDevConsole('log', `Blocked Subreddits List: ${subredditList}`);
 				scanPage();
 				setTimeout(scanPage, 3000);
 
@@ -112,6 +127,10 @@ function matchesPattern(text, patternStr) {
 	if (regexMatch) {
 		const pattern = regexMatch[1];
 		const flags = regexMatch[2] || 'i';
+		if (!isSafeRegexPattern(pattern, flags)) {
+			reportUnsafeRegexPattern(patternStr);
+			return false;
+		}
 		try {
 			const regex = new RegExp(pattern, flags);
 			return regex.test(text);
@@ -128,14 +147,15 @@ function matchesPattern(text, patternStr) {
 	}
 }
 
-function updateSubredditList(list) {
-	subredditList = list
-		.split(',')
-		.map((word) => word.trim())
-		.filter((item) => item !== '' && item !== '*');
-}
+// In-memory pattern list, refreshed from the block store on load and on every block/unblock action.
 
 function scanPage() {
+	// Re-scan both UIs: the RV1 re-scan re-runs the enable function, whose
+	// else branch removes stale classes from unblocked posts.
+	if (redditVersion === 'old') {
+		enableHideBlockedSubredditPostsRV1();
+		return;
+	}
 	document.querySelectorAll('article:has(>shreddit-post)').forEach((post) => {
 		const subredditLink = post.querySelector('shreddit-post a[data-testid="subreddit-name"]');
 		filterBlockedSubredditPost(post);
@@ -180,7 +200,8 @@ function showBlockConfirmModal(subredditName, isBlocked) {
 
 	const modal = document.createElement('div');
 	modal.className = 're-confirm-modal';
-	modal.innerHTML = `
+	modal.append(
+		parseHtmlString(`
 		<div class="re-modal-content">
 			<p>Are you sure you want to ${action} this subreddit?</p>
 			<p><strong>${escapeHtml(subredditName)}</strong></p>
@@ -191,7 +212,8 @@ function showBlockConfirmModal(subredditName, isBlocked) {
 					<button class="btn btn-cancel" type="button">Cancel</button>
 				</div>
 			</div>
-		</div>`;
+		</div>`),
+	);
 
 	document.body.appendChild(modal);
 
@@ -223,68 +245,53 @@ function toggleBlockSubreddit(subredditName, isBlocked) {
 }
 
 function blockSubreddit(subredditName) {
-	BROWSER_API.storage.sync.get(['hideBlockedSubredditPostsList'], function (result) {
-		let list = result.hideBlockedSubredditPostsList || '';
-		const subreddits = list
-			.split(',')
-			.map((s) => s.trim())
-			.filter((s) => s !== '');
-
-		if (!subreddits.includes(subredditName)) {
-			subreddits.push(subredditName);
-			const newList = subreddits.join(',');
-
-			BROWSER_API.storage.sync.set({ hideBlockedSubredditPostsList: newList }, function () {
-				updateSubredditList(newList);
-				logToDevConsole('log', `Blocked subreddit: ${subredditName}. Updated list: ${subredditList}`);
-				document.querySelectorAll('.re-block-subreddit-btn').forEach((btn) => {
-					if (btn.dataset.subreddit === subredditName) {
-						btn.classList.add('is-blocked');
-						btn.title = 'Unblock subreddit';
-					}
-				});
-				if (redditVersion === 'old') {
-					document.querySelectorAll('.re-block-subreddit-btn').forEach((btn) => {
-						if (btn.dataset.subreddit === subredditName) {
-							btn.closest('.thing').classList.add('re-hide');
-						}
-					});
-				} else {
-					document.querySelectorAll('article:has(>shreddit-post)').forEach(filterBlockedSubredditPost);
+	readBlocks().then(async (store) => {
+		addSubredditBlock(store, subredditName);
+		const result = await writeBlocks(store);
+		if (!result.ok) {
+			showToast('error', 'Could not save the block list (storage is full).');
+			return;
+		}
+		subredditList = getBlockedSubredditPatterns(store);
+		logToDevConsole('log', `Blocked subreddit: ${subredditName}`);
+		document.querySelectorAll('.re-block-subreddit-btn').forEach((btn) => {
+			if (btn.dataset.subreddit === subredditName) {
+				btn.classList.add('is-blocked');
+				btn.title = 'Unblock subreddit';
+			}
+		});
+		if (redditVersion === 'old') {
+			document.querySelectorAll('.re-block-subreddit-btn').forEach((btn) => {
+				if (btn.dataset.subreddit === subredditName) {
+					btn.closest('.thing').classList.add('re-hide-subreddit');
 				}
 			});
+		} else {
+			document.querySelectorAll('article:has(>shreddit-post)').forEach(filterBlockedSubredditPost);
 		}
 	});
 }
 
 function unblockSubreddit(subredditName) {
-	BROWSER_API.storage.sync.get(['hideBlockedSubredditPostsList'], function (result) {
-		let list = result.hideBlockedSubredditPostsList || '';
-		const subreddits = list
-			?.split(',')
-			?.map((s) => s.trim())
-			?.filter((s) => s !== '');
-
-		const index = subreddits.indexOf(subredditName);
-		if (index > -1) {
-			subreddits.splice(index, 1);
-			const newList = subreddits.join(',');
-
-			BROWSER_API.storage.sync.set({ hideBlockedSubredditPostsList: newList }, function () {
-				updateSubredditList(newList);
-				logToDevConsole('log', `Unblocked subreddit: ${subredditName}. Updated list: ${subredditList}`);
-				document.querySelectorAll('.re-block-subreddit-btn').forEach((btn) => {
-					if (btn.dataset.subreddit === subredditName) {
-						btn.classList.remove('is-blocked');
-						btn.title = 'Block subreddit';
-					}
-				});
-				if (redditVersion === 'old') {
-					enableHideBlockedSubredditPostsRV1();
-				} else {
-					document.querySelectorAll('article:has(>shreddit-post)').forEach(filterBlockedSubredditPost);
-				}
-			});
+	readBlocks().then(async (store) => {
+		removeSubredditBlock(store, subredditName);
+		const result = await writeBlocks(store);
+		if (!result.ok) {
+			showToast('error', 'Could not save the block list (storage is full).');
+			return;
+		}
+		subredditList = getBlockedSubredditPatterns(store);
+		logToDevConsole('log', `Unblocked subreddit: ${subredditName}`);
+		document.querySelectorAll('.re-block-subreddit-btn').forEach((btn) => {
+			if (btn.dataset.subreddit === subredditName) {
+				btn.classList.remove('is-blocked');
+				btn.title = 'Block subreddit';
+			}
+		});
+		if (redditVersion === 'old') {
+			enableHideBlockedSubredditPostsRV1();
+		} else {
+			document.querySelectorAll('article:has(>shreddit-post)').forEach(filterBlockedSubredditPost);
 		}
 	});
 }
@@ -298,9 +305,9 @@ function enableHideBlockedSubredditPostsRV1() {
 		if (pageSub === subredditName) return;
 
 		if (subredditList.some((word) => matchesPattern(subredditName, word))) {
-			post.classList.add('re-hide');
+			post.classList.add('re-hide-subreddit');
 		} else {
-			post.classList.remove('re-hide');
+			post.classList.remove('re-hide-subreddit');
 		}
 		addBlockButtonToSubredditRV1(post);
 	});
@@ -338,15 +345,14 @@ function addBlockButtonToSubredditRV1(post) {
 // Enable Hide Blocked User Posts - RV3
 function filterBlockedSubredditPost(post) {
 	if (document.querySelector('shreddit-app').getAttribute('pagetype') === 'community') return;
-	if (post.classList.contains('re-hide')) return;
 
 	const subredditName = post.querySelector('shreddit-post')?.getAttribute('subreddit-name');
 	if (!subredditName) return;
 
 	if (subredditList.some((word) => matchesPattern(subredditName, word))) {
-		post.classList.add('re-hide');
+		post.classList.add('re-hide-subreddit');
 	} else {
-		post.classList.remove('re-hide');
+		post.classList.remove('re-hide-subreddit');
 	}
 }
 
@@ -355,8 +361,8 @@ function disableHideBlockedSubredditPostsAll() {
 	const existing = document.querySelector('.re-confirm-modal');
 	if (existing) existing.remove();
 
-	document.querySelectorAll('#siteTable > .thing, article.re-hide').forEach((post) => {
-		post.classList.remove('re-hide');
+	document.querySelectorAll('#siteTable > .thing, article.re-hide-subreddit').forEach((post) => {
+		post.classList.remove('re-hide-subreddit');
 	});
 	document.querySelectorAll('shreddit-post .re-block-subreddit-btn, #siteTable > .thing .re-block-subreddit-btn').forEach((btn) => {
 		btn.remove();

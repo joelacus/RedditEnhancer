@@ -96,31 +96,28 @@ export function restorePopupMediaOptions() {
 
 	// Just Open The Image
 	BROWSER_API.storage.sync.get(['justOpenTheImage'], function (result) {
+		const warning = document.querySelector('#perm-warning-just-open-the-image');
+		let value = false;
 		if (result.justOpenTheImage === true) {
-			if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
-				BROWSER_API.permissions.contains(
-					{
-						permissions: ['webRequest', 'webRequestBlocking'],
-						origins: ['*://*.redd.it/*'],
-					},
-					(result) => {
-						if (result) {
-							document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
-							document.querySelector('#checkbox-just-open-the-image').checked = true;
-							highlightMenuIcon('media-tweaks');
-							console.log('Just Open The Image: true');
-						} else {
-							console.log('[RedditEnhancer] autoplayVideos: "webRequest" and "webRequestBlocking" permissions not granted');
-						}
-					},
-				);
-			} else if (BROWSER_API.runtime.getManifest().manifest_version === 3) {
-				document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
-				document.querySelector('#checkbox-just-open-the-image').checked = true;
-				highlightMenuIcon('media-tweaks');
-				console.log('Just Open The Image: (true)');
-			}
+			// Reflect the effective state: the DNR image ruleset needs host
+			// access to reddit.com and redd.it, so only show the feature as
+			// enabled when both are granted.
+			BROWSER_API.permissions.contains({ origins: ['*://*.reddit.com/*', '*://*.redd.it/*'] }, (granted) => {
+				if (granted) {
+					console.debug('[RedditEnhancer] justOpenTheImage: reddit.com/redd.it host permissions granted');
+					document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
+					highlightMenuIcon('media-tweaks');
+					value = true;
+				} else {
+					// Explain why the stored feature cannot be used.
+					console.debug('[RedditEnhancer] justOpenTheImage: reddit.com/redd.it host permissions not granted');
+					warning.hidden = false;
+				}
+				document.querySelector('#checkbox-just-open-the-image').checked = value;
+				console.log('Just Open The Image: ' + value);
+			});
 		} else {
+			warning.hidden = true;
 			document.querySelector('#checkbox-just-open-the-image').checked = false;
 			console.log('Just Open The Image: false');
 		}

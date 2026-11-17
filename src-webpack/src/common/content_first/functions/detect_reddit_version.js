@@ -46,34 +46,3 @@ export function detectRedditVersion() {
 		});
 	}
 }
-
-// Return the Reddit version
-export function getRedditVersion() {
-	const hostname = window.location.href;
-	if (hostname === 'old.reddit.com') {
-		return 1;
-	} else if (hostname === 'sh.reddit.com') {
-		return 3;
-	} else {
-		// New New UI (SH)
-		waitForAddedNode({
-			query: 'shreddit-app',
-			parent: document.querySelector('body'),
-			recursive: true,
-			done: function () {
-				return 3;
-			},
-		});
-
-		// Old UI
-		waitForAddedNode({
-			id: true,
-			query: 'siteTable',
-			parent: document.querySelector('body'),
-			recursive: true,
-			done: function () {
-				return 1;
-			},
-		});
-	}
-}

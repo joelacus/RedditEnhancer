@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title data-lang="BlockManagerTitle">Block Manager</title>
+		<link rel="stylesheet" href="block_manager.css" />
+		<script src="block_manager.js" defer></script>
+	</head>
+	<body class="re-page">
+		<div class="container">
+			<h1 data-lang="BlockManagerTitle">Block Manager</h1>
+
+			<div class="header-bar">
+				<div class="search-bar">
+					<input type="text" id="search-blocks" data-lang-placeholder="Search" placeholder="Search..." />
+					<button id="btn-clear-search" class="btn" data-lang="Clear">Clear</button>
+				</div>
+				<div class="table-actions">
+					<button id="btn-export-blocks" class="btn" data-lang="BlockExport">Export blocks</button>
+					<button id="btn-import-blocks" class="btn" data-lang="BlockImport">Import blocks</button>
+					<input type="file" id="file-import-blocks" accept=".json" style="display: none" />
+				</div>
+			</div>
+
+			<div class="re-tag-tabs" id="block-tabs">
+				<button class="re-tag-tab active" data-tab="users" data-lang="BlockUsersTab">Users</button>
+				<button class="re-tag-tab" data-tab="subreddits" data-lang="BlockSubredditsTab">Subreddits</button>
+				<button class="re-tag-tab" data-tab="keywords" data-lang="BlockKeywordsTab">Keywords</button>
+			</div>
+
+			<div class="table-scroll">
+				<table id="block-users-table" class="block-table" data-tab-pane="users">
+					<thead>
+						<tr>
+							<th class="select-col">
+								<input type="checkbox" id="select-all-users" />
+							</th>
+							<th>
+								<div>
+									<span data-lang="Username">Username</span>
+									<span id="user-count"></span>
+									<button class="sort-btn" data-sort="username" aria-label="Sort by username">
+										<i class="btn-icon icon-sort"></i>
+									</button>
+								</div>
+							</th>
+							<th>
+								<div>
+									<span data-lang="Posts">Posts</span>
+									<button class="sort-btn" data-sort="posts" aria-label="Sort by posts">
+										<i class="btn-icon icon-sort"></i>
+									</button>
+								</div>
+							</th>
+							<th>
+								<div>
+									<span data-lang="Comments">Comments</span>
+									<button class="sort-btn" data-sort="comments" aria-label="Sort by comments">
+										<i class="btn-icon icon-sort"></i>
+									</button>
+								</div>
+							</th>
+							<th class="actions-col"></th>
+						</tr>
+					</thead>
+					<tbody id="block-users-tbody">
+						<!-- Rows injected by JS -->
+					</tbody>
+				</table>
+
+				<table id="block-subreddits-table" class="block-table hidden" data-tab-pane="subreddits">
+					<thead>
+						<tr>
+							<th class="select-col">
+								<input type="checkbox" id="select-all-subreddits" />
+							</th>
+							<th>
+								<div>
+									<span data-lang="Subreddit">Subreddit</span>
+									<span id="subreddit-count"></span>
+									<button class="sort-btn" data-sort="subreddit" aria-label="Sort by subreddit">
+										<i class="btn-icon icon-sort"></i>
+									</button>
+								</div>
+							</th>
+							<th class="actions-col"></th>
+						</tr>
+					</thead>
+					<tbody id="block-subreddits-tbody">
+						<!-- Rows injected by JS -->
+					</tbody>
+				</table>
+
+				<table id="block-keywords-table" class="block-table hidden" data-tab-pane="keywords">
+					<thead>
+						<tr>
+							<th class="select-col">
+								<input type="checkbox" id="select-all-keywords" />
+							</th>
+							<th>
+								<div>
+									<span data-lang="BlockPattern">Pattern</span>
+									<span id="keyword-count"></span>
+									<button class="sort-btn" data-sort="pattern" aria-label="Sort by pattern">
+										<i class="btn-icon icon-sort"></i>
+									</button>
+								</div>
+							</th>
+							<th>
+								<div>
+									<span data-lang="Posts">Posts</span>
+									<button class="sort-btn" data-sort="title" aria-label="Sort by title">
+										<i class="btn-icon icon-sort"></i>
+									</button>
+								</div>
+							</th>
+							<th>
+								<div>
+									<span data-lang="Link">Link</span>
+									<button class="sort-btn" data-sort="url" aria-label="Sort by link">
+										<i class="btn-icon icon-sort"></i>
+									</button>
+								</div>
+							</th>
+							<th>
+								<div>
+									<span data-lang="Comments">Comments</span>
+									<button class="sort-btn" data-sort="comments" aria-label="Sort by comments">
+										<i class="btn-icon icon-sort"></i>
+									</button>
+								</div>
+							</th>
+							<th class="actions-col"></th>
+						</tr>
+					</thead>
+					<tbody id="block-keywords-tbody">
+						<!-- Rows injected by JS -->
+					</tbody>
+				</table>
+			</div>
+
+			<div class="bottom-bar">
+				<button id="btn-add-block" class="btn" data-lang="BlockAdd">Add block</button>
+				<span id="block-already-added-warning" class="hidden text-red" data-lang="BlockAlreadyAdded">Already in the block list.</span>
+				<span id="block-input-missing-warning" class="hidden text-red" data-lang="MissingRequiredInput">Fill in all required fields.</span>
+				<span id="block-count-warning" class="hidden text-red" data-lang="TooManyEntries"></span>
+				<div>
+					<button id="btn-delete-selected-blocks" class="btn red hidden" data-lang="DeleteSelectedBlocks">Delete selected</button>
+				</div>
+			</div>
+
+			<footer class="manager-footer">
+				<p data-lang="BlockManagerInfo">Blocked users, subreddits and keywords are stored locally on this device.</p>
+				<p data-lang="BlockInfo">Supports exact keyword match, or regular expressions.</p>
+			</footer>
+		</div>
+
+		<!-- Delete Confirmation Modal -->
+		<div id="delete-confirm-modal" class="re-confirm-modal hidden">
+			<div class="re-modal-content">
+				<div class="header">
+					<h2 data-lang="AreYouSure">Are you sure?</h2>
+				</div>
+				<p id="delete-confirm-text"></p>
+				<div class="re-modal-actions">
+					<div>
+						<button id="btn-confirm-delete" class="btn red" data-lang="Delete">Delete</button>
+						<button id="btn-cancel-delete" class="btn" data-lang="Cancel">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Info Modal -->
+		<div id="info-modal" class="re-confirm-modal hidden">
+			<div class="re-modal-content">
+				<div class="header">
+					<h2></h2>
+				</div>
+				<p id="info-modal-text"></p>
+				<div class="re-modal-actions">
+					<div>
+						<button id="btn-close-info" class="btn" data-lang="Close">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

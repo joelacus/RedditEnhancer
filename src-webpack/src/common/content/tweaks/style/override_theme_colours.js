@@ -6,6 +6,18 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
+import { validateColour } from '../../../popup/restore/validation';
+import { registerMutationCallback } from '../../observer_manager';
+
+// Set a theme custom property, ignoring missing or invalid colour values
+// (e.g. corrupted sync data) instead of applying them to the page.
+function setThemeProperty(name, value) {
+	if (typeof value !== 'string' || value === '') return;
+	const colour = validateColour(value, '');
+	if (colour === '') return;
+	document.documentElement.style.setProperty(name, colour);
+}
+
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
 // Theme Exception
@@ -84,7 +96,7 @@ function loadTheme() {
 
 // Load theme tweaks that require the page to be fully loaded first.
 export function loadThemeAfterPageLoad() {
-	BROWSER_API.storage.sync.get(['themeOpCommentHighlightColour', 'highlightOp', 'themeOpCommentHighlightColourCSS'], function (result) {
+	BROWSER_API.storage.sync.get(['themeOpCommentHighlightColour', 'themeOpCommentHighlightColourCSS'], function (result) {
 		themeOpCommentHighlightColour(result.themeOpCommentHighlightColour === true);
 		themeOpCommentHighlightColourCSS(result.themeOpCommentHighlightColourCSS);
 	});
@@ -132,7 +144,7 @@ export function themeHeaderBackgroundColour(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themeHeaderBackgroundColourCSS'], function (result) {
 			if (typeof result.themeHeaderBackgroundColourCSS !== 'undefined' && result.themeHeaderBackgroundColourCSS !== 'undefined') {
-				document.documentElement.style.setProperty('--re-theme-header-bg', result.themeHeaderBackgroundColourCSS);
+				setThemeProperty('--re-theme-header-bg', result.themeHeaderBackgroundColourCSS);
 			}
 		});
 		const styleElement = document.createElement('style');
@@ -185,7 +197,7 @@ export function themeHeaderBackgroundColour(value) {
 export function themeHeaderBackgroundColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themeHeaderBackgroundColour'], function (result) {
-			if (result.themeHeaderBackgroundColour) document.documentElement.style.setProperty('--re-theme-header-bg', value);
+			if (result.themeHeaderBackgroundColour) setThemeProperty('--re-theme-header-bg', value);
 		});
 	}
 }
@@ -195,7 +207,7 @@ export function themeHeaderTextColour(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themeHeaderTextColourCSS'], function (result) {
 			if (typeof result.themeHeaderTextColourCSS !== 'undefined' && result.themeHeaderTextColourCSS !== 'undefined') {
-				document.documentElement.style.setProperty('--re-theme-header-text', result.themeHeaderTextColourCSS);
+				setThemeProperty('--re-theme-header-text', result.themeHeaderTextColourCSS);
 			}
 		});
 		const styleElement = document.createElement('style');
@@ -227,7 +239,7 @@ export function themeHeaderTextColour(value) {
 export function themeHeaderTextColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themeHeaderTextColour'], function (result) {
-			if (result.themeHeaderTextColour) document.documentElement.style.setProperty('--re-theme-header-text', value);
+			if (result.themeHeaderTextColour) setThemeProperty('--re-theme-header-text', value);
 		});
 	}
 }
@@ -237,7 +249,7 @@ export function themeSubHeaderBackgroundColour(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themeSubHeaderBackgroundColourCSS'], function (result) {
 			if (typeof result.themeSubHeaderBackgroundColourCSS !== 'undefined' && result.themeSubHeaderBackgroundColourCSS !== 'undefined') {
-				document.documentElement.style.setProperty('--re-theme-sub-header-bg', result.themeSubHeaderBackgroundColourCSS);
+				setThemeProperty('--re-theme-sub-header-bg', result.themeSubHeaderBackgroundColourCSS);
 			}
 		});
 		const styleElement = document.createElement('style');
@@ -277,7 +289,7 @@ export function themeSubHeaderBackgroundColour(value) {
 export function themeSubHeaderBackgroundColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themeSubHeaderBackgroundColour'], function (result) {
-			if (result.themeSubHeaderBackgroundColour) document.documentElement.style.setProperty('--re-theme-sub-header-bg', value);
+			if (result.themeSubHeaderBackgroundColour) setThemeProperty('--re-theme-sub-header-bg', value);
 		});
 	}
 }
@@ -287,7 +299,7 @@ export function themePostBackgroundColour(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themePostBackgroundColourCSS'], function (result) {
 			if (typeof result.themePostBackgroundColourCSS !== 'undefined' && result.themePostBackgroundColourCSS !== 'undefined') {
-				document.documentElement.style.setProperty('--re-theme-post-bg', result.themePostBackgroundColourCSS);
+				setThemeProperty('--re-theme-post-bg', result.themePostBackgroundColourCSS);
 				document.documentElement.style.setProperty('--re-theme-post-bg-opaque', 'oklch(from var(--re-theme-post-bg) l c h / 100%)');
 			}
 		});
@@ -472,7 +484,8 @@ export function themePostBackgroundColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostBackgroundColour'], function (result) {
 			if (result.themePostBackgroundColour === true) {
-				document.documentElement.style.setProperty('--re-theme-post-bg', value);
+				setThemeProperty('--re-theme-post-bg', value);
+				setThemeProperty('--re-theme-post-bg-opaque', `oklch(from ${value} l c h / 100%)`);
 				if (value.includes('rgba')) {
 					fixThreadlinesForTranslucentPosts();
 				} else {
@@ -486,18 +499,25 @@ export function themePostBackgroundColourCSS(value) {
 // Run After Page Has Loaded Comments
 export function loadFixThreadlinesForTranslucentPosts() {
 	BROWSER_API.storage.sync.get(['themePostBackgroundColourCSS'], function (result) {
+		if (commentObserverCleanup) {
+			commentObserverCleanup();
+			commentObserverCleanup = null;
+		}
 		if (result.themePostBackgroundColourCSS?.includes('rgba') || result.themePostBackgroundColourCSS?.includes('transparent')) {
 			fixThreadlinesForTranslucentPosts();
-			comment_observer.observe(document.querySelector('shreddit-comment-tree'), { childList: true, subtree: true });
+			const tree = document.querySelector('shreddit-comment-tree');
+			if (tree) {
+				commentObserverCleanup = registerMutationCallback(tree, handleNewComments, { childList: true, subtree: true }, 'fixThreadlinesForTranslucentPosts');
+			}
 		} else {
-			comment_observer.disconnect();
 			undoFixThreadlinesForTranslucentPosts();
 		}
 	});
 }
 
-// Observe Feed For New Comments
-const comment_observer = new MutationObserver(function (mutations) {
+// Handle New Comments via the central observer manager
+let commentObserverCleanup = null;
+function handleNewComments(mutations) {
 	mutations.forEach(function (mutation) {
 		mutation.addedNodes.forEach(function (addedNode) {
 			if (addedNode.nodeName === '#comment') {
@@ -511,7 +531,7 @@ const comment_observer = new MutationObserver(function (mutations) {
 			}
 		});
 	});
-});
+}
 
 // Fix Comment Threadlines For Translucent Post Background Colours
 function fixThreadlinesForTranslucentPosts() {
@@ -555,7 +575,7 @@ function undoFixThreadlinesForTranslucentPosts() {
 export function themePostTextColour1(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themePostTextColour1CSS'], function (result) {
-			document.documentElement.style.setProperty('--re-theme-post-text', result.themePostTextColour1CSS);
+			setThemeProperty('--re-theme-post-text', result.themePostTextColour1CSS);
 		});
 		if (document.head.querySelector('style[id="re-theme-post-text-colour"]')) return;
 		let styleElement = document.createElement('style');
@@ -593,7 +613,7 @@ export function themePostTextColour1(value) {
 export function themePostTextColour1CSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostTextColour1'], function (result) {
-			if (result.themePostTextColour1) document.documentElement.style.setProperty('--re-theme-post-text', value);
+			if (result.themePostTextColour1) setThemeProperty('--re-theme-post-text', value);
 		});
 	}
 }
@@ -602,7 +622,7 @@ export function themePostTextColour1CSS(value) {
 export function themeCodeBlockColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostTextColour1'], function (result) {
-			if (result.themePostTextColour1) document.documentElement.style.setProperty('--re-theme-code-block-text', value);
+			if (result.themePostTextColour1) setThemeProperty('--re-theme-code-block-text', value);
 		});
 	}
 }
@@ -637,7 +657,7 @@ export function themePostCommentsTextColour1(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themePostCommentsTextColour1CSS'], function (result) {
 			if (typeof result.themePostCommentsTextColour1CSS !== 'undefined' && result.themePostCommentsTextColour1CSS !== 'undefined') {
-				document.documentElement.style.setProperty('--re-theme-post-comments-text', result.themePostCommentsTextColour1CSS);
+				setThemeProperty('--re-theme-post-comments-text', result.themePostCommentsTextColour1CSS);
 			}
 		});
 		if (document.head.querySelector('style[id="re-theme-post-comments-text-colour"]')) return;
@@ -677,7 +697,7 @@ export function themePostCommentsTextColour1(value) {
 export function themePostCommentsTextColour1CSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostCommentsTextColour1'], function (result) {
-			if (result.themePostCommentsTextColour1) document.documentElement.style.setProperty('--re-theme-post-comments-text', value);
+			if (result.themePostCommentsTextColour1) setThemeProperty('--re-theme-post-comments-text', value);
 		});
 	}
 }
@@ -687,7 +707,7 @@ export function themePostCommentsTextColour2(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themePostCommentsTextColour2CSS'], function (result) {
 			if (typeof result.themePostCommentsTextColour2CSS !== 'undefined' && result.themePostCommentsTextColour2CSS !== 'undefined') {
-				document.documentElement.style.setProperty('--re-theme-post-comments-text-2', result.themePostCommentsTextColour2CSS);
+				setThemeProperty('--re-theme-post-comments-text-2', result.themePostCommentsTextColour2CSS);
 			}
 		});
 		if (document.head.querySelector('style[id="re-theme-post-comments-text-2-colour"]')) return;
@@ -714,7 +734,7 @@ export function themePostCommentsTextColour2(value) {
 export function themePostCommentsTextColour2CSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostCommentsTextColour2'], function (result) {
-			if (result.themePostCommentsTextColour2) document.documentElement.style.setProperty('--re-theme-post-comments-text-2', value);
+			if (result.themePostCommentsTextColour2) setThemeProperty('--re-theme-post-comments-text-2', value);
 		});
 	}
 }
@@ -723,7 +743,7 @@ export function themePostCommentsTextColour2CSS(value) {
 export function themePostFollowedTextColour(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themePostFollowedTextColourCSS'], function (result) {
-			document.documentElement.style.setProperty('--re-theme-post-followed-text', result.themePostFollowedTextColourCSS);
+			setThemeProperty('--re-theme-post-followed-text', result.themePostFollowedTextColourCSS);
 		});
 		if (document.head.querySelector('style[id="re-theme-post-followed-text-colour"]')) return;
 		const styleElement = document.createElement('style');
@@ -746,7 +766,7 @@ export function themePostFollowedTextColour(value) {
 export function themePostFollowedTextColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostFollowedTextColour'], function (result) {
-			if (result.themePostFollowedTextColour) document.documentElement.style.setProperty('--re-theme-post-followed-text', value);
+			if (result.themePostFollowedTextColour) setThemeProperty('--re-theme-post-followed-text', value);
 		});
 	}
 }
@@ -755,7 +775,7 @@ export function themePostFollowedTextColourCSS(value) {
 export function themePostVisitedTextColour(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themePostVisitedTextColourCSS'], function (result) {
-			document.documentElement.style.setProperty('--re-theme-post-visited-text', result.themePostVisitedTextColourCSS);
+			setThemeProperty('--re-theme-post-visited-text', result.themePostVisitedTextColourCSS);
 		});
 		if (document.head.querySelector('style[id="re-theme-post-visited-text-colour"]')) return;
 		const styleElement = document.createElement('style');
@@ -780,7 +800,7 @@ export function themePostVisitedTextColour(value) {
 export function themePostVisitedTextColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostVisitedTextColour'], function (result) {
-			if (result.themePostVisitedTextColour) document.documentElement.style.setProperty('--re-theme-post-visited-text', value);
+			if (result.themePostVisitedTextColour) setThemeProperty('--re-theme-post-visited-text', value);
 		});
 	}
 }
@@ -789,7 +809,7 @@ export function themePostVisitedTextColourCSS(value) {
 export function themePostTextColour2(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themePostTextColour2CSS'], function (result) {
-			document.documentElement.style.setProperty('--re-theme-post-text-2', result.themePostTextColour2CSS);
+			setThemeProperty('--re-theme-post-text-2', result.themePostTextColour2CSS);
 		});
 		if (document.head.querySelector('style[id="re-theme-post-text-colour-2"]')) return;
 		const styleElement = document.createElement('style');
@@ -831,7 +851,7 @@ export function themePostTextColour2(value) {
 export function themePostTextColour2CSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostTextColour2'], function (result) {
-			if (result.themePostTextColour2) document.documentElement.style.setProperty('--re-theme-post-text-2', value);
+			if (result.themePostTextColour2) setThemeProperty('--re-theme-post-text-2', value);
 		});
 	}
 }
@@ -841,7 +861,7 @@ export function themePostBorderColour(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themePostBorderColourCSS'], function (result) {
 			const colour = result.themePostBorderColourCSS ?? '';
-			if (colour) document.documentElement.style.setProperty('--re-theme-post-border', colour);
+			if (colour) setThemeProperty('--re-theme-post-border', colour);
 		});
 		if (document.head.querySelector('style[id="re-theme-post-border-colour"]')) return;
 		const styleElement = document.createElement('style');
@@ -867,21 +887,23 @@ export function themePostBorderColour(value) {
 export function themePostBorderColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostBorderColour'], function (result) {
-			if (result.themePostBorderColour) document.documentElement.style.setProperty('--re-theme-post-border', value);
+			if (result.themePostBorderColour) setThemeProperty('--re-theme-post-border', value);
 		});
 	}
 }
 
 // Theme Blur Variable
 export function themeBlur(value) {
-	if (value) document.documentElement.style.setProperty('--re-theme-blur', `${value}px`);
+	const amount = parseFloat(value);
+	if (!Number.isFinite(amount) || amount < 0) return;
+	document.documentElement.style.setProperty('--re-theme-blur', `${amount}px`);
 }
 
 // Sidebar Text Colour
 export function themeSidebarTextColour(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themeSidebarTextColourCSS'], function (result) {
-			document.documentElement.style.setProperty('--re-theme-sidebar-text', result.themeSidebarTextColourCSS);
+			setThemeProperty('--re-theme-sidebar-text', result.themeSidebarTextColourCSS);
 		});
 		if (document.head.querySelector('style[id="re-theme-sidebar-text-colour"]')) return;
 		const styleElement = document.createElement('style');
@@ -914,7 +936,7 @@ export function themeSidebarTextColour(value) {
 export function themeSidebarTextColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themeSidebarTextColour'], function (result) {
-			if (result.themeSidebarTextColour) document.documentElement.style.setProperty('--re-theme-sidebar-text', value);
+			if (result.themeSidebarTextColour) setThemeProperty('--re-theme-sidebar-text', value);
 		});
 	}
 }
@@ -923,7 +945,7 @@ export function themeSidebarTextColourCSS(value) {
 export function themeSidebarBgColour(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themeSidebarBgColourCSS'], function (result) {
-			document.documentElement.style.setProperty('--re-theme-sidebar-bg', result.themeSidebarBgColourCSS);
+			setThemeProperty('--re-theme-sidebar-bg', result.themeSidebarBgColourCSS);
 		});
 		if (document.head.querySelector('style[id="re-theme-sidebar-bg-colour"]')) return;
 		const styleElement = document.createElement('style');
@@ -969,7 +991,7 @@ export function themeSidebarBgColour(value) {
 export function themeSidebarBgColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themeSidebarBgColour'], function (result) {
-			if (result.themeSidebarBgColour) document.documentElement.style.setProperty('--re-theme-sidebar-bg', value);
+			if (result.themeSidebarBgColour) setThemeProperty('--re-theme-sidebar-bg', value);
 		});
 	}
 }
@@ -978,7 +1000,7 @@ export function themeSidebarBgColourCSS(value) {
 export function themeSidemenuTextColour(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themeSidemenuTextColourCSS'], function (result) {
-			document.documentElement.style.setProperty('--re-theme-sidemenu-text', result.themeSidemenuTextColourCSS);
+			setThemeProperty('--re-theme-sidemenu-text', result.themeSidemenuTextColourCSS);
 		});
 		if (document.head.querySelector('style[id="re-theme-sidemenu-text-colour"]')) return;
 		const styleElement = document.createElement('style');
@@ -1003,7 +1025,7 @@ export function themeSidemenuTextColour(value) {
 export function themeSidemenuTextColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themeSidemenuTextColour'], function (result) {
-			if (result.themeSidemenuTextColour) document.documentElement.style.setProperty('--re-theme-sidemenu-text', value);
+			if (result.themeSidemenuTextColour) setThemeProperty('--re-theme-sidemenu-text', value);
 		});
 	}
 }
@@ -1012,7 +1034,7 @@ export function themeSidemenuTextColourCSS(value) {
 export function themeSidemenuBgColour(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themeSidemenuBgColourCSS'], function (result) {
-			document.documentElement.style.setProperty('--re-theme-sidemenu-bg', result.themeSidemenuBgColourCSS);
+			setThemeProperty('--re-theme-sidemenu-bg', result.themeSidemenuBgColourCSS);
 		});
 		if (document.head.querySelector('style[id="re-theme-sidemenu-bg-colour"]')) return;
 		const styleElement = document.createElement('style');
@@ -1038,7 +1060,7 @@ export function themeSidemenuBgColour(value) {
 export function themeSidemenuBgColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themeSidemenuBgColour'], function (result) {
-			if (result.themeSidemenuBgColour) document.documentElement.style.setProperty('--re-theme-sidemenu-bg', value);
+			if (result.themeSidemenuBgColour) setThemeProperty('--re-theme-sidemenu-bg', value);
 		});
 	}
 }
@@ -1078,7 +1100,7 @@ export function themeSidemenuButtonHoverColour(value) {
 export function themeSidemenuButtonHoverColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themeSidemenuButtonHoverColour'], function (result) {
-			if (result.themeSidemenuButtonHoverColour) document.documentElement.style.setProperty('--re-theme-sidemenu-btn-hover', value);
+			if (result.themeSidemenuButtonHoverColour) setThemeProperty('--re-theme-sidemenu-btn-hover', value);
 		});
 	}
 }
@@ -1113,7 +1135,7 @@ export function themePostContentAndCommentsLinkColour(value) {
 export function themePostContentAndCommentsLinkColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostContentAndCommentsLinkColour'], function (result) {
-			document.documentElement.style.setProperty('--re-theme-post-content-and-comments-link', result.themePostContentAndCommentsLinkColour === true ? value : '#629fff');
+			setThemeProperty('--re-theme-post-content-and-comments-link', result.themePostContentAndCommentsLinkColour === true ? value : '#629fff');
 		});
 	}
 }
@@ -1129,7 +1151,8 @@ export function themeSearchbarBgColour(value) {
 		styleElement.id = 're-theme-searchbar-bg-colour';
 		styleElement.textContent = `reddit-search-large {
 										--color-secondary-background: var(--re-theme-searchbar-bg) !important;
-										--color-input-secondary-hover: color-mix(in srgb, var(--re-theme-searchbar-bg), #000 5%) !important;
+										--color-input-secondary-hover: oklch(from var(--re-theme-searchbar-bg) clamp(0.25, calc(l + 0.3), 0.95) c h) !important;
+										--color-neutral-background: var(--re-theme-searchbar-bg-opaque);
 									}
 									html.theme-dark reddit-search-large,
 									html.theme-light reddit-search-large {
@@ -1149,7 +1172,10 @@ export function themeSearchbarBgColour(value) {
 export function themeSearchbarBgColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themeSearchbarBgColour'], function (result) {
-			if (result.themeSearchbarBgColour) document.documentElement.style.setProperty('--re-theme-searchbar-bg', value);
+			if (result.themeSearchbarBgColour) {
+				setThemeProperty('--re-theme-searchbar-bg', value);
+				setThemeProperty('--re-theme-searchbar-bg-opaque', `oklch(from ${value} l c h / 100%)`);
+			}
 		});
 	}
 }
@@ -1180,7 +1206,7 @@ export function themeSearchbarBgColourCSS(value) {
 export function themeSearchbarBorderColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themeSearchbarBorderColour'], function (result) {
-			if (result.themeSearchbarBorderColour) document.documentElement.style.setProperty('--re-theme-searchbar-border', value);
+			if (result.themeSearchbarBorderColour) setThemeProperty('--re-theme-searchbar-border', value);
 		});
 	}
 }*/
@@ -1194,10 +1220,8 @@ export function themeSearchbarDropdownBgColour(value) {
 		if (document.head.querySelector('style[id="re-theme-searchbar-dropdown-bg-colour"]')) return;
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-theme-searchbar-dropdown-bg-colour';
-		styleElement.textContent = `reddit-search-large,
-									html.theme-light reddit-search-large,
-									html.theme-dark reddit-search-large {
-										--color-neutral-background-strong: var(--re-theme-searchbar-dropdown-bg) !important;
+		styleElement.textContent = `reddit-search-large {
+										--color-neutral-background: var(--re-theme-searchbar-dropdown-bg) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	} else {
@@ -1213,7 +1237,7 @@ export function themeSearchbarDropdownBgColour(value) {
 export function themeSearchbarDropdownBgColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themeSearchbarDropdownBgColour'], function (result) {
-			if (result.themeSearchbarDropdownBgColour) document.documentElement.style.setProperty('--re-theme-searchbar-dropdown-bg', value);
+			if (result.themeSearchbarDropdownBgColour) setThemeProperty('--re-theme-searchbar-dropdown-bg', value);
 		});
 	}
 }
@@ -1246,7 +1270,7 @@ export function themePostUpvoteColour(value) {
 export function themePostUpvoteColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostUpvoteColour'], function (result) {
-			if (result.themePostUpvoteColour) document.documentElement.style.setProperty('--re-theme-post-upvote-colour', value);
+			if (result.themePostUpvoteColour) setThemeProperty('--re-theme-post-upvote-colour', value);
 		});
 	}
 }
@@ -1279,7 +1303,7 @@ export function themePostDownvoteColour(value) {
 export function themePostDownvoteColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostDownvoteColour'], function (result) {
-			if (result.themePostDownvoteColour) document.documentElement.style.setProperty('--re-theme-post-downvote-colour', value);
+			if (result.themePostDownvoteColour) setThemeProperty('--re-theme-post-downvote-colour', value);
 		});
 	}
 }
@@ -1289,7 +1313,7 @@ export function themePostCommentActionRowColour(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themePostCommentActionRowCSS'], function (result) {
 			if (typeof result.themePostCommentActionRowCSS !== 'undefined' && result.themePostCommentActionRowCSS !== 'undefined') {
-				document.documentElement.style.setProperty('--re-theme-post-comment-action-row-colour', result.themePostCommentActionRowCSS);
+				setThemeProperty('--re-theme-post-comment-action-row-colour', result.themePostCommentActionRowCSS);
 			}
 		});
 		if (document.head.querySelector('style[id="re-theme-post-comment-action-row-colour"]')) return;
@@ -1313,7 +1337,7 @@ export function themePostCommentActionRowColour(value) {
 export function themePostCommentActionRowColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostCommentActionRowColour'], function (result) {
-			if (result.themePostCommentActionRowColour) document.documentElement.style.setProperty('--re-theme-post-comment-action-row-colour', value);
+			if (result.themePostCommentActionRowColour) setThemeProperty('--re-theme-post-comment-action-row-colour', value);
 		});
 	}
 }
@@ -1348,7 +1372,7 @@ export function themeOpCommentHighlightColour(value) {
 export function themeOpCommentHighlightColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themePostUpvoteColour'], function (result) {
-			if (result.themePostUpvoteColour) document.documentElement.style.setProperty('--re-theme-op-comment-highlight-colour', value);
+			if (result.themePostUpvoteColour) setThemeProperty('--re-theme-op-comment-highlight-colour', value);
 		});
 	}
 }
@@ -1358,7 +1382,7 @@ export function themeProfileHeaderBgColour(value) {
 	if (redditVersion === 'newnew' && value) {
 		BROWSER_API.storage.sync.get(['themeProfileHeaderBgColourCSS'], function (result) {
 			if (typeof result.themeProfileHeaderBgColourCSS !== 'undefined' && result.themeProfileHeaderBgColourCSS !== 'undefined') {
-				document.documentElement.style.setProperty('--re-theme-profile-header-bg', result.themeProfileHeaderBgColourCSS);
+				setThemeProperty('--re-theme-profile-header-bg', result.themeProfileHeaderBgColourCSS);
 			}
 		});
 		const styleElement = document.createElement('style');
@@ -1383,7 +1407,7 @@ export function themeProfileHeaderBgColour(value) {
 export function themeProfileHeaderBgColourCSS(value) {
 	if (redditVersion === 'newnew') {
 		BROWSER_API.storage.sync.get(['themeProfileHeaderBgColour'], function (result) {
-			if (result.themeProfileHeaderBgColour) document.documentElement.style.setProperty('--re-theme-profile-header-bg', value);
+			if (result.themeProfileHeaderBgColour) setThemeProperty('--re-theme-profile-header-bg', value);
 		});
 	}
 }

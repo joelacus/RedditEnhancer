@@ -10,6 +10,13 @@ import { escapeHtml } from './utilities/escape_html.js';
 import { sendMessage } from './utilities/send_message.js';
 import { getContrastTextColour } from './utilities/colour_functions.js';
 import { parseHtmlString } from './utilities/parse_html_string.js';
+import { validateColour } from './popup/restore/validation.js';
+import { backupFilename, backupEnvelope } from './utilities/backup_format.js';
+import { applyPageTheme } from './utilities/theme_list.js';
+import { readTags, writeTags as writeTagStore } from './utilities/tag_store.js';
+import { isSafeMapKey, sanitiseMap } from './utilities/safe_map_key.js';
+import { createWindowedTable } from './utilities/virtual_list.js';
+import { showToast, showLoadingOverlay, hideLoadingOverlay } from './utilities/toast_notification.js';
 
 // ─── Variables ──────────────────────────────────────────────────────────────
 
@@ -48,32 +55,21 @@ let editingUsername = null;
 let pendingBatchTag = null;
 let selectedUsernames = new Set();
 let sortState = { column: 'updated', direction: 'desc' };
+let lastFilter = null;
+let sortDirty = false;
 
 const selectAllCheckbox = document.querySelector('#select-all-checkbox');
 const btnDeleteSelected = document.querySelector('#btn-delete-selected-tags');
 const btnSetTagSelected = document.querySelector('#btn-set-tag-selected');
 
-const url = window.location.href;
-const searchParams = new URLSearchParams(url);
+const searchParams = new URLSearchParams(window.location.search);
+
+// Show a loading overlay until the first render completes.
+showLoadingOverlay('Loading...');
 
 // ─── Theme ──────────────────────────────────────────────────────────────────
 
-let theme = searchParams.get('theme');
-const autoTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-
-if (theme === 'auto') {
-	theme = autoTheme;
-}
-
-if (theme === 'light') {
-	document.querySelector('body').classList.add('theme-light');
-} else if (theme === 'classic-light') {
-	document.querySelector('body').classList.add('theme-classic-light');
-} else if (theme === 'grey') {
-	document.querySelector('body').classList.add('theme-grey');
-} else {
-	document.querySelector('body').classList.add('theme-dark');
-}
+applyPageTheme(searchParams.get('theme'));
 
 // ─── i18n ───────────────────────────────────────────────────────────────────
 
@@ -93,6 +89,7 @@ function init_i18n(lng) {
 		})
 		.then(() => {
 			translate();
+			showLoadingOverlay(i18next.t('Loading.message'));
 			load();
 		});
 }
@@ -138,21 +135,14 @@ function tagsAreEqual(a, b) {
 	return fields.every((field) => (a[field] ?? '') === (b[field] ?? ''));
 }
 
-function readTags() {
-	return new Promise((resolve) => {
-		BROWSER_API.storage.local.get(['redditUserTags'], (result) => {
-			resolve(result['redditUserTags'] || {});
-		});
-	});
-}
-
-function writeTags(tags) {
-	return new Promise((resolve) => {
-		BROWSER_API.storage.local.set({ ['redditUserTags']: tags }, () => {
-			sendMessage({ userTagging: 'refresh' });
-			resolve();
-		});
-	});
+// Storage lives in utilities/tag_store.js; this wrapper adds the UI feedback
+// (toast on failure) and tells the content script to refresh its tag cache.
+async function writeTags(tags) {
+	const result = await writeTagStore(tags);
+	if (!result.ok) {
+		showToast('error', result.reason === 'read' ? 'Could not save user tags (the stored data could not be read).' : 'Could not save user tags (storage is full).');
+	}
+	sendMessage({ userTagging: 'refresh' });
 }
 
 function readPresets() {
@@ -175,10 +165,10 @@ async function load() {
 		searchUsername.value = prefillUser;
 		renderTable();
 	}
+	hideLoadingOverlay();
 }
 
 function renderTable(updatedUsername) {
-	tbody.textContent = '';
 	const usernameFilter = searchUsername.value.toLowerCase();
 	const tagFilter = searchTag.value.toLowerCase();
 
@@ -214,100 +204,119 @@ function renderTable(updatedUsername) {
 		}
 	});
 
-	if (entries.length === 0) {
-		const tr = document.createElement('tr');
-		const emptyRowHtml = `<td colspan="8" class="empty-row">${i18next.t('NoTaggedUsers.message')}</td>`;
-		tr.appendChild(parseHtmlString(emptyRowHtml));
-		tbody.appendChild(tr);
-	}
-
-	entries.forEach(([username, tag]) => {
-		const tr = document.createElement('tr');
-		tr.dataset.username = username;
-		if (duplicateUsernames.has(username)) {
-			tr.classList.add('duplicate-row');
-		}
-		if (updatedUsername && username === updatedUsername) {
-			tr.classList.add('flash-update');
-		}
-		if (selectedUsernames.has(username)) {
-			tr.classList.add('row-selected');
-		}
-
-		const userLink = 'https://www.reddit.com/user/' + username + '/';
-		const tagLink = tag.link || '';
-		const isChecked = selectedUsernames.has(username) ? 'checked' : '';
-
-		const rowHtml = `<td class="select-col">
-							<input type="checkbox" class="row-select-checkbox" data-username="${username}" ${isChecked} />
-						</td>
-						<td>
-							<a href="${userLink}" target="_blank" rel="noopener">u/${escapeHtml(username)}</a>
-						</td>
-						<td>
-							<span class="tag-badge" title="${escapeHtml(tag.label)}" style="background: ${tag.colourBg || '#666'};--tag-fg: ${tag.colourFg || getContrastTextColour(tag.colourBg || '#666')}" data-username="${username}">
-								${tag.icon && tag.icon !== 'none' ? `<span class="${getIconClass(tag.icon)}"></span>` : ''}
-								<span>${escapeHtml(tag.label)}</span>
-							</span>
-						</td>
-						<td class="note-cell" data-username="${username}" title="${i18next.t('ClickToEdit.message')}">${escapeHtml((tag.note || '').trim())}</td>
-						<td class="link-cell" data-username="${username}">
-							<div>
-								${tagLink ? `<a href="${tagLink}" target="_blank" rel="noopener">${i18next.t('Link.message')}</a>` : '—'}
-								<button class="btn-sm btn-icon-link" data-username="${username}" title="${i18next.t('EditLink.message')}">
-									<i class="btn-icon icon-pen"></i>
-								</button>
-							</div>
-						</td>
-						<td>${formatDateCell(tag.createdAt)}</td>
-						<td>${formatDateCell(tag.updatedAt)}</td>
-						<td class="action-cell">
-							<button class="btn-sm row-delete" data-username="${username}" title="${i18next.t('Delete.message')}">
-								<div class="btn-icon icon-x"></div>
-							</button>
-						</td>`;
-		tr.appendChild(parseHtmlString(rowHtml));
-
-		tr.querySelector('.row-select-checkbox').addEventListener('change', (e) => {
-			if (e.target.checked) {
-				selectedUsernames.add(username);
-				tr.classList.add('row-selected');
-			} else {
-				selectedUsernames.delete(username);
-				tr.classList.remove('row-selected');
-			}
-			updateSelectionUI();
-		});
-
-		tr.querySelector('.tag-badge').addEventListener('click', () => {
-			batchTagMode = false;
-			openEditModal(username, tag);
-		});
-
-		tr.querySelector('.note-cell').addEventListener('click', () => startInlineEdit(tr, username));
-
-		tr.querySelector('.btn-icon-link').addEventListener('click', () => openLinkModal(username, tag));
-
-		tr.querySelector('.row-delete').addEventListener('click', () => showDeleteConfirm(username));
-
-		tbody.appendChild(tr);
-	});
-
+	tagRenderContext.duplicates = duplicateUsernames;
+	lastTagKeys = entries.map(([username]) => username);
+	// Only reset the scroll when the view definition (filter or sort) changed;
+	// a data mutation keeps the position.
+	const filterKey = usernameFilter + '\n' + tagFilter;
+	const resetScroll = filterKey !== lastFilter || sortDirty;
+	lastFilter = filterKey;
+	sortDirty = false;
+	tagsTable.setItems(entries, { resetScroll, flash: updatedUsername || null });
 	updateSelectionUI();
 	updateUserCount();
+}
+
+function renderTagRow([username, tag], tr) {
+	tr.dataset.username = username;
+	if (tagRenderContext.duplicates.has(username)) {
+		tr.classList.add('duplicate-row');
+	}
+	if (selectedUsernames.has(username)) {
+		tr.classList.add('row-selected');
+	}
+
+	const userLink = 'https://www.reddit.com/user/' + escapeHtml(username) + '/';
+	const tagLink = tag.link || '';
+	const isChecked = selectedUsernames.has(username) ? 'checked' : '';
+	// Colours come from storage (or an imported backup file) — validate them
+	// before interpolating into a style attribute.
+	const badgeBg = validateColour(tag.colourBg, '') || '#666';
+	const badgeFg = validateColour(tag.colourFg, '') || getContrastTextColour(badgeBg);
+
+	const rowHtml = `<td class="select-col">
+						<input type="checkbox" class="row-select-checkbox" data-username="${escapeHtml(username)}" ${isChecked} />
+					</td>
+					<td>
+						<a href="${userLink}" target="_blank" rel="noopener">u/${escapeHtml(username)}</a>
+					</td>
+					<td>
+						<span class="tag-badge" title="${escapeHtml(tag.label)}" style="background: ${badgeBg};--tag-fg: ${badgeFg}" data-username="${escapeHtml(username)}">
+							${tag.icon && tag.icon !== 'none' ? `<span class="${escapeHtml(getIconClass(tag.icon))}"></span>` : ''}
+							<span>${escapeHtml(tag.label)}</span>
+						</span>
+					</td>
+					<td class="note-cell" data-username="${escapeHtml(username)}" title="${i18next.t('ClickToEdit.message')}">${escapeHtml((tag.note || '').trim())}</td>
+					<td class="link-cell" data-username="${escapeHtml(username)}">
+						<div>
+							${tagLink ? `<a href="${escapeHtml(tagLink)}" target="_blank" rel="noopener">${i18next.t('Link.message')}</a>` : '—'}
+							<button class="btn-sm btn-icon-link" data-username="${escapeHtml(username)}" title="${i18next.t('EditLink.message')}">
+								<i class="btn-icon icon-pen"></i>
+							</button>
+						</div>
+					</td>
+					<td>${formatDateCell(tag.createdAt)}</td>
+					<td>${formatDateCell(tag.updatedAt)}</td>
+					<td class="action-cell">
+						<button class="btn-sm row-delete" data-username="${escapeHtml(username)}" title="${i18next.t('Delete.message')}">
+							<div class="btn-icon icon-x"></div>
+						</button>
+					</td>`;
+	tr.appendChild(parseHtmlString(rowHtml));
+
+	tr.querySelector('.row-select-checkbox').addEventListener('change', (e) => {
+		if (e.target.checked) {
+			selectedUsernames.add(username);
+			tr.classList.add('row-selected');
+		} else {
+			selectedUsernames.delete(username);
+			tr.classList.remove('row-selected');
+		}
+		updateSelectionUI();
+	});
+
+	tr.querySelector('.tag-badge').addEventListener('click', () => {
+		batchTagMode = false;
+		openEditModal(username, tag);
+	});
+
+	tr.querySelector('.note-cell').addEventListener('click', () => startInlineEdit(tr, username));
+
+	tr.querySelector('.btn-icon-link').addEventListener('click', () => openLinkModal(username, tag));
+
+	tr.querySelector('.row-delete').addEventListener('click', () => showDeleteConfirm(username));
 }
 
 function updateUserCount() {
 	const countEl = document.querySelector('#user-count');
 	if (countEl) {
-		countEl.textContent = '(' + Object.keys(allTags).length + ')';
+		countEl.textContent = '(' + Object.keys(allTags).length.toLocaleString() + ')';
+	}
+	const warningEl = document.querySelector('#tag-count-warning');
+	if (warningEl) {
+		warningEl.classList.toggle('hidden', Object.keys(allTags).length <= 5000);
 	}
 }
 
+// Only visible table rows exist in the DOM (see utilities/virtual_list.js).
+let lastTagKeys = [];
+const tagRenderContext = { duplicates: new Set() };
+const tagsTable = createWindowedTable({
+	tbody,
+	scroller: document.querySelector('#user-tags-table').closest('.table-scroll'),
+	colSpan: 8,
+	renderRow: renderTagRow,
+	keyOf: ([username]) => username,
+	emptyRow: () => {
+		const tr = document.createElement('tr');
+		tr.appendChild(parseHtmlString(`<td colspan="8" class="empty-row">${i18next.t('NoTaggedUsers.message')}</td>`));
+		return tr;
+	},
+});
+
 function updateSelectionUI() {
-	const visibleRows = tbody.querySelectorAll('tr[data-username]');
-	const totalVisible = visibleRows.length;
-	const selectedVisible = Array.from(visibleRows).filter((tr) => selectedUsernames.has(tr.dataset.username)).length;
+	const totalVisible = lastTagKeys.length;
+	const selectedVisible = lastTagKeys.filter((username) => selectedUsernames.has(username)).length;
 
 	if (selectAllCheckbox) {
 		selectAllCheckbox.checked = totalVisible > 0 && selectedVisible === totalVisible;
@@ -345,22 +354,12 @@ function deleteSelected() {
 
 if (selectAllCheckbox) {
 	selectAllCheckbox.addEventListener('change', () => {
-		const visibleRows = tbody.querySelectorAll('tr[data-username]');
 		if (selectAllCheckbox.checked) {
-			visibleRows.forEach((tr) => {
-				selectedUsernames.add(tr.dataset.username);
-				tr.classList.add('row-selected');
-				const checkbox = tr.querySelector('.row-select-checkbox');
-				if (checkbox) checkbox.checked = true;
-			});
+			lastTagKeys.forEach((username) => selectedUsernames.add(username));
 		} else {
-			visibleRows.forEach((tr) => {
-				selectedUsernames.delete(tr.dataset.username);
-				tr.classList.remove('row-selected');
-				const checkbox = tr.querySelector('.row-select-checkbox');
-				if (checkbox) checkbox.checked = false;
-			});
+			lastTagKeys.forEach((username) => selectedUsernames.delete(username));
 		}
+		tagsTable.refresh();
 		updateSelectionUI();
 	});
 }
@@ -414,17 +413,21 @@ fileImport.addEventListener('change', async (e) => {
 
 	const reader = new FileReader();
 	reader.onload = async (event) => {
+		showLoadingOverlay(i18next.t('Importing.message'));
+		// Let the overlay paint before the synchronous merge work below.
+		await new Promise((resolve) => setTimeout(resolve, 30));
 		try {
 			const parsed = JSON.parse(event.target.result);
 			let imported = {};
 
 			if (parsed.redditUserTags) {
-				imported = parsed.redditUserTags;
+				imported = sanitiseMap(parsed.redditUserTags);
 			} else if (parsed.data) {
 				for (const [key, value] of Object.entries(parsed.data)) {
 					if (key.startsWith('tag.')) {
 						const username = key.slice(4).toLowerCase();
-						const bgColour = value.color || '#666';
+						if (!isSafeMapKey(username)) continue;
+						const bgColour = validateColour(value.color, '#666');
 						imported[username] = {
 							label: value.text || username,
 							note: '',
@@ -513,16 +516,18 @@ fileImport.addEventListener('change', async (e) => {
 				await writeTags(allTags);
 				renderTable();
 				const totalImported = nonConflicting.length;
-				let message = i18next.t('ImportSuccess.message').replace('{count}', totalImported);
+				let message = i18next.t('ImportSuccess.message').replace('{count}', totalImported.toLocaleString());
 				if (skippedExact > 0) {
-					message += `\n${i18next.t('ImportSkippedExact.message').replace('{count}', skippedExact)}`;
+					message += `\n${i18next.t('ImportSkippedExact.message').replace('{count}', skippedExact.toLocaleString())}`;
 				}
 				showInfoModal(i18next.t('Complete.message'), message);
 			}
 		} catch (err) {
 			showInfoModal(i18next.t('Error.message'), i18next.t('ImportInvalidFormat.message'));
+		} finally {
+			hideLoadingOverlay();
+			fileImport.value = '';
 		}
-		fileImport.value = '';
 	};
 	reader.onerror = () => {
 		showInfoModal(i18next.t('Error.message'), 'Failed to read file.');
@@ -531,12 +536,12 @@ fileImport.addEventListener('change', async (e) => {
 });
 
 btnExport.addEventListener('click', () => {
-	const exportData = { redditUserTags: allTags };
+	const exportData = backupEnvelope('user_tags', { redditUserTags: allTags });
 	const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
 	const url = URL.createObjectURL(blob);
 	const a = document.createElement('a');
 	a.href = url;
-	a.download = 'RE_user_tags_' + new Date().toISOString().slice(0, 10) + '.json';
+	a.download = backupFilename('user_tags', exportData.backup_time);
 	document.body.appendChild(a);
 	a.click();
 	document.body.removeChild(a);
@@ -570,6 +575,7 @@ document.querySelectorAll('.sort-btn').forEach((btn) => {
 			sortState.column = column;
 			sortState.direction = 'asc';
 		}
+		sortDirty = true;
 		updateSortButtons();
 		renderTable();
 	});
@@ -605,11 +611,24 @@ function startInlineEdit(tr, username) {
 	cell.textContent = currentNote;
 	cell.focus();
 
-	const finish = async () => {
+	// AbortController lets finish() and cancel() remove every edit listener
+	// at once (avoids accumulation when a row is edited more than once).
+	const editListeners = new AbortController();
+	const { signal } = editListeners;
+
+	const stopEditing = () => {
+		// Remove the listeners BEFORE making the cell non-editable: changing
+		// contentEditable on a focused element fires blur, and the blur
+		// listener would otherwise commit the edit (or double-run finish).
+		editListeners.abort();
 		cell.contentEditable = 'false';
 		cell.dataset.editing = 'false';
 		cell.title = i18next.t('ClickToEdit.message');
+	};
+
+	const finish = async () => {
 		const newNote = (cell.innerText || '').trim();
+		stopEditing();
 		if (allTags[username] && newNote !== (allTags[username].note || '')) {
 			allTags[username].note = newNote;
 			allTags[username].updatedAt = Date.now();
@@ -618,22 +637,30 @@ function startInlineEdit(tr, username) {
 		}
 	};
 
-	cell.addEventListener('blur', finish, { once: true });
+	// Escape cancels: restore the previous note without saving.
+	const cancel = () => {
+		stopEditing();
+		cell.textContent = currentNote;
+	};
 
-	cell.addEventListener('keydown', (e) => {
-		if (e.key === 'Enter') {
-			if (e.shiftKey) {
+	cell.addEventListener('blur', finish, { signal });
+
+	cell.addEventListener(
+		'keydown',
+		(e) => {
+			if (e.key === 'Enter') {
 				e.preventDefault();
-				document.execCommand('insertLineBreak');
+				if (e.shiftKey) {
+					document.execCommand('insertLineBreak');
+				} else {
+					cell.blur(); // blur triggers finish
+				}
 			} else if (e.key === 'Escape') {
-				cell.textContent = currentNote; // revert
-				cell.blur();
-			} else {
-				e.preventDefault();
-				cell.blur();
+				cancel();
 			}
-		}
-	});
+		},
+		{ signal },
+	);
 }
 
 // ─── Delete User ────────────────────────────────────────────────────────────
@@ -774,7 +801,7 @@ btnImportCommit.addEventListener('click', async () => {
 	pendingImportTags = null;
 	pendingImportConflicts = [];
 	pendingSkippedExact = 0;
-	let message = i18next.t('ImportSuccess.message').replace('{count}', importedCount);
+	let message = i18next.t('ImportSuccess.message').replace('{count}', importedCount.toLocaleString());
 	showInfoModal(i18next.t('Complete.message'), message);
 });
 
@@ -807,19 +834,19 @@ function showImportConflictsModal(nonConflicting, conflicts, skippedExact) {
 			const variantsHtml = conflict.variants
 				.map((variant, variantIndex) => {
 					console.log(variant);
-					const tagPreviewHtml = variant.tag.icon && variant.tag.icon !== 'none' ? `<span class="icon icon-${variant.tag.icon}"></span>` : '';
+					const tagPreviewHtml = variant.tag.icon && variant.tag.icon !== 'none' ? `<span class="icon icon-${escapeHtml(variant.tag.icon)}"></span>` : '';
 					const noteHtml = variant.tag.note ? escapeHtml(variant.tag.note) : `<span class="import-conflict-empty">${i18next.t('NoNote.message')}</span>`;
-					const linkHtml = variant.tag.link ? `<a href="${variant.tag.link}" target="_blank" rel="noopener" class="import-conflict-link">${escapeHtml(variant.tag.link)}</a>` : '<span class="import-conflict-empty">No link</span>';
+					const linkHtml = variant.tag.link ? `<a href="${escapeHtml(variant.tag.link)}" target="_blank" rel="noopener" class="import-conflict-link">${escapeHtml(variant.tag.link)}</a>` : '<span class="import-conflict-empty">No link</span>';
 					return `<label class="import-conflict-option">
 								<input type="radio" name="conflict-${index}" value="${variantIndex}" ${variantIndex === 0 ? 'checked' : ''} />
 								<div class="import-conflict-details">
 									<div class="import-conflict-field-label">
 										<span>${i18next.t('Username.message')}</span>
-										<div class="import-conflict-note">${variant.username}</div>
+										<div class="import-conflict-note">${escapeHtml(variant.username)}</div>
 									</div>
 									<div class="import-conflict-field-label">
 										<span>${i18next.t('Tag.message')}</span>
-										<div class="import-conflict-tag-preview" style="background:${variant.tag.colourBg || '#666'};--tag-fg:${variant.tag.colourFg || getContrastTextColour(variant.tag.colourBg || '#666')}">
+										<div class="import-conflict-tag-preview" style="background:${validateColour(variant.tag.colourBg, '') || '#666'};--tag-fg:${validateColour(variant.tag.colourFg, '') || getContrastTextColour(validateColour(variant.tag.colourBg, '') || '#666')}">
 											${tagPreviewHtml}
 											<span>${escapeHtml(variant.tag.label)}</span>
 										</div>
@@ -839,7 +866,7 @@ function showImportConflictsModal(nonConflicting, conflicts, skippedExact) {
 				.join('');
 
 			return `<div class="import-conflict">
-						<div class="import-conflict-header">u/${normaliseUsername(conflict.username)}</div>
+						<div class="import-conflict-header">u/${escapeHtml(normaliseUsername(conflict.username))}</div>
 						<div class="import-conflict-options">${variantsHtml}</div>
 					</div>`;
 		})
@@ -914,8 +941,24 @@ linkModal.addEventListener('click', (e) => {
 
 // ─── Add User Tag ───────────────────────────────────────────────────────────
 
+// Outlines a missing required input instead of silently closing the row.
+let missingInputTimeout = 0;
+function showMissingInputWarning() {
+	const warning = document.querySelector('#tag-input-missing-warning');
+	warning.classList.remove('hidden');
+	clearTimeout(missingInputTimeout);
+	missingInputTimeout = setTimeout(() => warning.classList.add('hidden'), 5000);
+}
+
+function markMissingInput(input) {
+	input.classList.add('missing-input');
+	input.focus();
+	showMissingInputWarning();
+}
+
 document.querySelector('#btn-add-user-tag').addEventListener('click', () => {
-	const existing = tbody.querySelector('.add-user-row');
+	const table = document.querySelector('#user-tags-table');
+	const existing = table.querySelector('.add-user-row');
 	if (existing) {
 		existing.querySelector('input').focus();
 		return;
@@ -927,20 +970,23 @@ document.querySelector('#btn-add-user-tag').addEventListener('click', () => {
 						<td><input type="text" data-field="username" placeholder="${i18next.t('Username.message')}" /></td>
 						<td><input type="text" data-field="label" placeholder="${i18next.t('Label.message')}" /></td>
 						<td><input type="text" data-field="note" placeholder="${i18next.t('NoteOptional.message')}" /></td>
-						<td style="display: none"></td>
-						<td style="display: none"></td>
-						<td style="display: none"></td>
-						<td class="actions" style="margin-top: 1px;">
+						<td></td>
+						<td></td>
+						<td></td>
+						<td class="actions">
 							<button class="btn-sm green btn-row-save" title="${i18next.t('Save.message')}">
 								<i class="btn-icon icon-tick"></i>
 							</button>
-							<button class="btn-sm btn-row-cancel" title="${i18next.t('Cancel.message')}">
+							<button class="btn-sm btn-row-cancel" title="${i18next.t('Cancel.message')}" style="display: none">
 								<i class="btn-icon icon-x"></i>
 							</button>
 						</td>`;
 	tr.appendChild(parseHtmlString(addRowHtml));
 
-	tbody.appendChild(tr);
+	// The add row lives in the <thead>, outside the virtualised <tbody>:
+	// virtual_list.js rebuilds the tbody on every scroll/render, which would
+	// otherwise destroy the row (and focus() would trigger that via scroll).
+	table.querySelector('thead').appendChild(tr);
 	tr.querySelector('input').focus();
 
 	const saveNewTag = async () => {
@@ -949,11 +995,17 @@ document.querySelector('#btn-add-user-tag').addEventListener('click', () => {
 		const note = tr.querySelector('input[data-field="note"]').value.trim();
 
 		if (!rawUsername || !label) {
-			tr.remove();
+			// Outline the missing required inputs instead of silently closing the row and losing what was typed.
+			if (!rawUsername) markMissingInput(tr.querySelector('input[data-field="username"]'));
+			if (!label) markMissingInput(tr.querySelector('input[data-field="label"]'));
 			return;
 		}
 
 		const username = normaliseUsername(rawUsername);
+		if (!isSafeMapKey(username)) {
+			showToast('error', 'Invalid username.');
+			return;
+		}
 
 		const existingMatch = getTagByCaseInsensitiveUsername(allTags, rawUsername);
 		if (existingMatch) {
@@ -987,6 +1039,11 @@ document.querySelector('#btn-add-user-tag').addEventListener('click', () => {
 		};
 		await writeTags(allTags);
 		renderTable(username);
+		// The add row now lives outside the virtualised tbody, so the
+		// re-render no longer removes it — close it explicitly on success.
+		tr.remove();
+		clearTimeout(missingInputTimeout);
+		document.querySelector('#tag-input-missing-warning').classList.add('hidden');
 		const tableScroll = document.querySelector('.table-scroll');
 		if (tableScroll) tableScroll.scrollTo({ top: 0, behavior: 'smooth' });
 	};
@@ -995,6 +1052,17 @@ document.querySelector('#btn-add-user-tag').addEventListener('click', () => {
 
 	tr.querySelector('.btn-row-save').addEventListener('click', saveNewTag);
 	tr.querySelector('.btn-row-cancel').addEventListener('click', cancelNewTag);
+	tr.querySelectorAll('input').forEach((input) => {
+		input.addEventListener('keydown', (e) => {
+			if (e.key === 'Enter') {
+				e.preventDefault();
+				saveNewTag();
+			} else if (e.key === 'Escape') {
+				tr.remove();
+			}
+		});
+		input.addEventListener('input', () => input.classList.remove('missing-input'));
+	});
 });
 
 // ─── Edit Modal ─────────────────────────────────────────────────────────────

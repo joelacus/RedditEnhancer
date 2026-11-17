@@ -7,6 +7,7 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
+import { escapeHtml } from '../../../utilities/escape_html.js';
 import { parseHtmlString } from '../../../utilities/parse_html_string';
 
 let running = false;
@@ -44,14 +45,19 @@ async function enableViewCrossposts() {
 		if (!post) {
 			return console.warn('[RedditEnhancer] viewCrossposts: current page seems to be a post page, but no shreddit-post found');
 		}
-		const id = post.getAttribute('id').match(/t3_([^\/]+)/)[1];
+		const idAttr = post.getAttribute('id');
+		const idMatch = idAttr ? idAttr.match(/t3_([^\/]+)/) : null;
+		if (!idMatch) {
+			return console.warn('[RedditEnhancer] viewCrossposts: current post has no usable ID, cannot fetch crossposts');
+		}
+		const id = idMatch[1];
 		console.debug(`[RedditEnhancer] viewCrossposts: Fetching crosspost data for post ID ${id}`);
 		const data = await BROWSER_API.runtime.sendMessage({ actions: [{ action: 'fetchData', url: `https://www.reddit.com/duplicates/${id}.json` }] });
 		if (!data || !Array.isArray(data) || data.length < 2) {
 			throw new TypeError('[RedditEnhancer] viewCrossposts: no crossposts found, Reddit API returned no data or unexpected data format');
 		}
-		const crossposts = data[1].data.children;
-		if (crossposts.length === 0) {
+		const crossposts = data[1]?.data?.children;
+		if (!crossposts || crossposts.length === 0) {
 			return console.log('[RedditEnhancer] viewCrossposts: no crossposts found for this post');
 		}
 		console.debug(`[RedditEnhancer] viewCrossposts: Reddit API returned ${crossposts.length} crossposts for post ID ${id}. Creating container...`);
@@ -66,6 +72,8 @@ async function enableViewCrossposts() {
 			// Skip if the item has already been added
 			if (uniqueItems.has(item.data.permalink)) continue;
 			uniqueItems.add(item.data.permalink);
+			// Only accept relative permalinks from the API (property assignment below does not go through the HTML sanitiser).
+			if (typeof item.data.permalink !== 'string' || !item.data.permalink.startsWith('/')) continue;
 			// Create a link item for each crosspost
 			const link = Object.assign(document.createElement('a'), {
 				href: `https://${window.location.hostname}${item.data.permalink}`,
@@ -76,7 +84,7 @@ async function enableViewCrossposts() {
 			const title = document.createElement('span');
 			title.className = 'text-tone-1 font-semibold hover:underline';
 			title.append(
-				parseHtmlString(`${item.data.title} 
+				parseHtmlString(`${escapeHtml(item.data.title)}
 									${item.data.over_18 ? ' <span class="text-category-nsfw" aria-label="NSFW">NSFW</span>' : ''}
 									${item.data.spoiler ? ' <span style="color:#888;" aria-label="Spoiler">SPOILER</span>' : ''}`),
 			);
@@ -84,8 +92,8 @@ async function enableViewCrossposts() {
 			const tagline = document.createElement('span');
 			tagline.className = 'block text-secondary-weak';
 			tagline.append(
-				parseHtmlString(`${item.data.subreddit_name_prefixed} &middot; Posted by u/${item.data.author} ${getRelativeTime(item.data.created_utc * 1000)}
-                            		&middot; ${item.data.score} points &middot; ${item.data.num_comments} comments
+				parseHtmlString(`${escapeHtml(item.data.subreddit_name_prefixed)} &middot; Posted by u/${escapeHtml(item.data.author)} ${getRelativeTime(item.data.created_utc * 1000)}
+                            		&middot; ${escapeHtml(item.data.score)} points &middot; ${escapeHtml(item.data.num_comments)} comments
                             		${item.data.archived ? '&#x1F5C4;' : ''}${item.data.locked ? ' &#x1F512;' : ''}`),
 			);
 			link.appendChild(title);

@@ -4,6 +4,9 @@
 
 //import { darkModeTimeCalc } from './content/tweaks/dark_mode/dark_mode_time_calc';
 
+import { importLegacyBackup, restoreLocalBackupStores } from './utilities/block_store';
+import { restoreLocalBackupData } from './utilities/local_data';
+
 // Logging
 function timestamp() {
 	const D = new Date();
@@ -33,9 +36,34 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 		BROWSER_API.storage.sync.set({ scrollToTopFloatPosition: { x: pos.x, y: pos.y } });
 	} else if (request.restore) {
 		const json = Object.values(request)[0];
+		// Block lists and user tags live in storage.local; the restore page
+		// passes them through the same payload and they are routed here
+		// (replacing the stored state to reproduce the backup), while the
+		// settings go to storage.sync. The local image data
+		// (uploaded header logo and backgrounds) rides in `localData` and
+		// must not land in the sync write below.
+		const { blockStore, redditUserTags, localData, ...syncData } = json;
 		BROWSER_API.storage.sync
-			.set(json)
-			.then(() => {
+			.set(syncData)
+			.then(async () => {
+				// Restore the storage.local stores from the backup.
+				try {
+					await restoreLocalBackupStores(json);
+				} catch (e) {
+					console.error(`${timestamp()} - Local backup store restore failed:`, e);
+				}
+				// Restore the storage.local image data from the backup.
+				try {
+					await restoreLocalBackupData(localData);
+				} catch (e) {
+					console.error(`${timestamp()} - Local backup data restore failed:`, e);
+				}
+				// Fold any restored legacy block lists into the compressed block store.
+				try {
+					await importLegacyBackup();
+				} catch (e) {
+					console.error(`${timestamp()} - Block list import failed:`, e);
+				}
 				sendResponse({ success: true, message: 'All data stored successfully' });
 			})
 			.catch((error) => {
@@ -43,13 +71,20 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 			});
 		return true;
 	} else if (request.openOptionsPage === true) {
-		BROWSER_API.tabs.create({ url: `options.html` }, function (tab) {});
+		BROWSER_API.tabs.create({ url: 'options.html' }, function (tab) {});
 	} else if (request.openUserTaggingManager === true) {
 		BROWSER_API.storage.sync.get(['language', 'addonTheme'], function (result) {
 			const lang = typeof result.language != 'undefined' ? '&lang=' + result.language : '';
 			const user = request.user ? '&user=' + encodeURIComponent(request.user) : '';
 			const theme = `&theme=${result.addonTheme}`;
 			BROWSER_API.tabs.create({ url: `user_tagging_manager.html${lang || user || theme ? '?' : ''}${lang}${user}${theme}` }, function (tab) {});
+		});
+	} else if (request.openBlockManager === true) {
+		BROWSER_API.storage.sync.get(['language', 'addonTheme'], function (result) {
+			const lang = typeof result.language != 'undefined' ? '&lang=' + result.language : '';
+			const tab = request.tab ? '&tab=' + encodeURIComponent(request.tab) : '';
+			const theme = `&theme=${result.addonTheme}`;
+			BROWSER_API.tabs.create({ url: `block_manager.html${lang || tab || theme ? '?' : ''}${lang}${tab}${theme}` }, function (tab) {});
 		});
 	} else if (request.actions) {
 		for (const action of request.actions) {
@@ -360,7 +395,7 @@ function fetchText(url, sendResponse) {
 
 // ===== Race Condition Prevention =====
 // A global promise queue that serialises all ruleset updates.
-// Without this, concurrent calls to addImageRules(), removeImageRules(), and
+// Without this, concurrent calls to enableJustOpenTheImage(), disableJustOpenTheImage(), and
 // updateRedirectRuleset() could interleave and corrupt the ruleset state due to
 // the read-modify-write pattern when accessing storage.
 // Each queued operation completes fully before the next one begins, ensuring
@@ -388,55 +423,11 @@ BROWSER_API.storage.sync.get(['justOpenTheImage'], function (result) {
 	}
 });
 
-// Enable
-function enableJustOpenTheImage() {
-	addImageRules();
-}
-
-// Disable
-function disableJustOpenTheImage() {
-	if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
-		BROWSER_API.webRequest.onBeforeRequest.removeListener(redirectToImageUrl, { urls: ['*://www.reddit.com/media*'], types: ['main_frame'] }, ['blocking']);
-		BROWSER_API.webRequest.onBeforeSendHeaders.removeListener(modifyHeader, { urls: ['*://*.redd.it/*'] }, ['blocking', 'requestHeaders']);
-	} else if (BROWSER_API.runtime.getManifest().manifest_version === 3) {
-		removeImageRules();
-	}
-}
-
-// Manifest V2
-function redirectToImageUrl(details) {
-	const url = new URL(details.url);
-	const imageURL = url.searchParams.get('url');
-	if (imageURL) {
-		// Security: Validate that the redirect target is a trusted Reddit domain
-		try {
-			const targetUrl = new URL(imageURL);
-			const hostname = targetUrl.hostname;
-			// Only allow redirects to *.redd.it domains
-			if (hostname === 'redd.it' || hostname.endsWith('.redd.it')) {
-				return { redirectUrl: imageURL };
-			}
-			// Invalid target - do not redirect
-			console.warn(`${timestamp()} - Blocked redirect to untrusted domain: ${hostname}`);
-		} catch (e) {
-			console.error(`${timestamp()} - Invalid URL in redirect: ${imageURL}`);
-		}
-	}
-}
-function modifyHeader(details) {
-	const acceptHeaderIndex = details.requestHeaders.findIndex((header) => header.name.toLowerCase() === 'accept');
-	if (acceptHeaderIndex !== -1) {
-		details.requestHeaders[acceptHeaderIndex].value += 'image/avif,image/webp,*/*';
-	}
-	return { requestHeaders: details.requestHeaders };
-}
-
-// Manifest V3
 /**
  * Disables the image_ruleset.
  * Uses the queue to ensure atomic read-modify-write and prevent race conditions.
  */
-function removeImageRules() {
+function disableJustOpenTheImage() {
 	return queueRulesetUpdate(async () => {
 		// Read current state from storage (source of truth)
 		const { enableRulesetIds: enable = [], disableRulesetIds: disable = [] } = await BROWSER_API.storage.sync.get(['enableRulesetIds', 'disableRulesetIds']);
@@ -459,7 +450,7 @@ function removeImageRules() {
  * Enables the image_ruleset.
  * Uses the queue to ensure atomic read-modify-write and prevent race conditions.
  */
-function addImageRules() {
+function enableJustOpenTheImage() {
 	return queueRulesetUpdate(async () => {
 		// Read current state from storage (source of truth)
 		const { enableRulesetIds: enable = [], disableRulesetIds: disable = [] } = await BROWSER_API.storage.sync.get(['enableRulesetIds', 'disableRulesetIds']);

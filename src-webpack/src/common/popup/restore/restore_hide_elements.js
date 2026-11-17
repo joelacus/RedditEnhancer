@@ -563,7 +563,7 @@ export function restorePopupHideElementsOptions() {
 		console.log('Hide "NSFW" In The Search Results: ' + checked);
 	});
 
-	// Hide "Trending Today" In The Search Results
+	// Hide Hide Trending in the Search Bar
 	BROWSER_API.storage.sync.get(['hideTrendingTodayInSearchResults'], function (result) {
 		const checked = result.hideTrendingTodayInSearchResults === true;
 		document.querySelector('#checkbox-hide-trending-today-in-search-results').checked = checked;
@@ -571,7 +571,7 @@ export function restorePopupHideElementsOptions() {
 		icon.style.backgroundColor = checked === true ? 'var(--accent)' : '';
 		icon.classList.replace(checked ? 'icon-show' : 'icon-hide', checked ? 'icon-hide' : 'icon-show');
 		if (checked) highlightMenuIcon('hide-elements');
-		console.log('Hide "Trending Today" In The Search Results: ' + checked);
+		console.log('Hide Trending in the Search Bar: ' + checked);
 	});
 
 	// Hide Community Highlights

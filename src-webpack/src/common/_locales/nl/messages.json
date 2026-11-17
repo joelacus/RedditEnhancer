@@ -113,6 +113,12 @@
 	"Backup": {
 		"message": "Backup"
 	},
+	"BackupBlocksOnly": {
+		"message": "Alleen blokken"
+	},
+	"BackupEverything": {
+		"message": "Alles"
+	},
 	"BackupFailed": {
 		"message": "Er is iets misgegaan. Controleer de ontwikkelaarsconsole (F12) op fouten."
 	},
@@ -121,6 +127,12 @@
 	},
 	"BackupRestored": {
 		"message": "Back-up hersteld!"
+	},
+	"BackupSettingsOnly": {
+		"message": "Alleen instellingen"
+	},
+	"BackupUserTagsOnly": {
+		"message": "Alleen gebruikerstags"
 	},
 	"Best": {
 		"message": "Best"
@@ -152,8 +164,50 @@
 	"Block": {
 		"message": "Blok"
 	},
+	"BlockAdd": {
+		"message": "Blok toevoegen"
+	},
+	"BlockAlreadyAdded": {
+		"message": "Staat al in de blokkeerlijst."
+	},
+	"BlockExport": {
+		"message": "Blokken exporteren"
+	},
+	"BlockImport": {
+		"message": "Blokken importeren"
+	},
+	"BlockImportSuccess": {
+		"message": "Geïmporteerde {count} blok(ken)."
+	},
 	"BlockInfo": {
 		"message": "Ondersteunt exacte trefwoordmatch of reguliere expressies"
+	},
+	"BlockKeywordsTab": {
+		"message": "Trefwoorden"
+	},
+	"BlockManagerInfo": {
+		"message": "Geblokkeerde gebruikers, subreddits en trefwoorden worden lokaal op dit apparaat opgeslagen. Exporteer ze om mogelijk gegevensverlies te voorkomen."
+	},
+	"BlockManagerTitle": {
+		"message": "Blokbeheerder"
+	},
+	"BlockNoEntries": {
+		"message": "Geen geblokkeerde vermeldingen"
+	},
+	"BlockPattern": {
+		"message": "Patroon"
+	},
+	"BlockPostsAndComments": {
+		"message": "Berichten en opmerkingen"
+	},
+	"BlockScope": {
+		"message": "Domein"
+	},
+	"BlockSubredditsTab": {
+		"message": "Subreddits"
+	},
+	"BlockUsersTab": {
+		"message": "Gebruikers"
 	},
 	"Blur": {
 		"message": "Vervagen"
@@ -227,9 +281,6 @@
 	"Comments": {
 		"message": "Opmerkingen"
 	},
-	"CommentsBlockInfo": {
-		"message": "Noem individuele trefwoorden/regex, gescheiden door een komma."
-	},
 	"CommentsCount": {
 		"message": "Reacties tellen"
 	},
@@ -302,6 +353,9 @@
 	"DarkMode": {
 		"message": "Donkere Modus"
 	},
+	"DarkThemes": {
+		"message": "Donker thema"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "Standaardopmerkingen Sorteeroptie"
 	},
@@ -314,11 +368,20 @@
 	"Delete": {
 		"message": "Verwijderen"
 	},
+	"DeleteLocalData": {
+		"message": "Lokale gegevens verwijderen"
+	},
+	"DeleteSelectedBlocks": {
+		"message": "Geselecteerde verwijderen"
+	},
 	"DeleteSelectedTags": {
 		"message": "Geselecteerd verwijderen"
 	},
 	"DeleteSelectedTagsConfirm": {
 		"message": "Verwijder de {count} geselecteerde tag(s)?"
+	},
+	"DeleteSyncData": {
+		"message": "Synchronisatiegegevens verwijderen"
 	},
 	"DeleteTagForUser": {
 		"message": "Verwijder tag voor gebruiker u/{username}?"
@@ -731,6 +794,9 @@
 	"Imported": {
 		"message": "Geïmporteerd"
 	},
+	"Importing": {
+		"message": "Importeren..."
+	},
 	"ImportInvalidFormat": {
 		"message": "Ongeldig bestandsformaat."
 	},
@@ -749,11 +815,14 @@
 	"JustOpenTheImageInfo": {
 		"message": "Bij het openen van afbeeldingen op een nieuw tabblad, open ze rechtstreeks zonder ze op een Reddit-pagina in te bedden."
 	},
+	"JustOpenTheImagePermissions": {
+		"message": "Machtigingen niet verleend. \"Just Open The Image\" heeft toegang nodig tot reddit.com en redd.it. Schakel \"Toegang tot uw gegevens voor sites in het *://reddit.com-domein\" en \"Toegang tot uw gegevens voor sites in het *://redd.it-domein\" in voor Reddit Enhancer in de toestemmingsinstellingen voor extensies van uw browser (Firefox: about:addons → Reddit Enhancer → Beheren → Machtigingen)."
+	},
 	"Keywords": {
 		"message": "Trefwoorden"
 	},
 	"KeywordsBlockInfo": {
-		"message": "Blokkeer berichten op basis van de titel, niet op de inhoud. Noem individuele trefwoorden/regexen op, gescheiden door een komma."
+		"message": "Blokkeer berichten op basis van de titel, niet op de inhoud."
 	},
 	"Label": {
 		"message": "Label"
@@ -782,6 +851,9 @@
 	"LightMode": {
 		"message": "Lichte modus"
 	},
+	"LightThemes": {
+		"message": "Licht thema"
+	},
 	"LimitCommentsInfo": {
 		"message": "Werkt alleen voor berichten die in een nieuw tabblad/venster zijn geopend."
 	},
@@ -794,11 +866,20 @@
 	"Link": {
 		"message": "Link"
 	},
+	"Loading": {
+		"message": "Laden..."
+	},
 	"LocalStorage": {
 		"message": "Lokale opslag"
 	},
+	"LocalStorageInfo": {
+		"message": "10MiB is normaal, maar sommige browsers kunnen mogelijk meer of minder opslaan, wat moeilijk te detecteren is."
+	},
 	"MainContainer": {
 		"message": "Hoofdcontainer"
+	},
+	"ManageBlocks": {
+		"message": "Beheer blokken"
 	},
 	"ManageTaggedUsers": {
 		"message": "Beheer getagde gebruikers"
@@ -826,6 +907,9 @@
 	},
 	"Media": {
 		"message": "Media"
+	},
+	"MissingRequiredInput": {
+		"message": "Vul alle verplichte velden in."
 	},
 	"ModerniseOldReddit": {
 		"message": "Moderniseer old.reddit"
@@ -1321,6 +1405,9 @@
 	},
 	"ToggleCompactPost": {
 		"message": "Compact bericht in-/uitschakelen"
+	},
+	"TooManyEntries": {
+		"message": "Je hebt veel aanmeldingen. Dit kan de prestaties verslechteren en meer RAM gebruiken voor elk geopend tabblad van Reddit."
 	},
 	"Top": {
 		"message": "Bovenkant / Top"

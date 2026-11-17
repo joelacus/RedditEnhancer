@@ -5,28 +5,13 @@
 import i18next from 'i18next';
 import HttpBackend from 'i18next-http-backend';
 import './restore_config.css';
+import { applyPageTheme } from './utilities/theme_list.js';
 
-const url = window.location.href;
-const searchParams = new URLSearchParams(url);
+const searchParams = new URLSearchParams(window.location.search);
 
 // ─── Theme ──────────────────────────────────────────────────────────────────
 
-let theme = searchParams.get('theme');
-const autoTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-
-if (theme === 'auto') {
-	theme = autoTheme;
-}
-
-if (theme === 'light') {
-	document.querySelector('body').classList.add('theme-light');
-} else if (theme === 'classic-light') {
-	document.querySelector('body').classList.add('theme-classic-light');
-} else if (theme === 'grey') {
-	document.querySelector('body').classList.add('theme-grey');
-} else {
-	document.querySelector('body').classList.add('theme-dark');
-}
+applyPageTheme(searchParams.get('theme'));
 
 // ─── i18n ───────────────────────────────────────────────────────────────────
 
@@ -147,7 +132,10 @@ function checkFile(event) {
 	let str = event.target.result;
 	let json = JSON.parse(str);
 	const file = json.file;
-	if (file === 'RedditEnhancer_backup') {
+	// Full config backups and the Block Manager / Tag Manager single-store
+	// backups are all restorable here.
+	const validFiles = ['RedditEnhancer_backup', 'RedditEnhancer_blocks', 'RedditEnhancer_user_tags'];
+	if (validFiles.includes(file)) {
 		console.log('[RedditEnhancer] Backup file loaded');
 		document.querySelector('.form-container').classList.remove('red');
 		document.querySelector('.form-container').classList.add('green');
@@ -165,7 +153,10 @@ function checkDroppedFile(event) {
 	let str = event.target.result;
 	let json = JSON.parse(str);
 	const file = json.file;
-	if (file === 'RedditEnhancer_backup') {
+	// Full config backups and the Block Manager / Tag Manager single-store
+	// backups are all restorable here.
+	const validFiles = ['RedditEnhancer_backup', 'RedditEnhancer_blocks', 'RedditEnhancer_user_tags'];
+	if (validFiles.includes(file)) {
 		console.log('[RedditEnhancer] Backup file loaded');
 		if (typeof inputFile != 'undefined') {
 			const name = inputFile.name;
@@ -193,6 +184,8 @@ document.querySelector('#restore-backup').addEventListener('click', function () 
 	restoreBackup(jsonData);
 });
 
+// Local image data: uploaded header logo and backgrounds, routed to storage.local by the background handler.
+
 // Restore Backup
 async function restoreBackup(json) {
 	var validKeys = [];
@@ -202,6 +195,8 @@ async function restoreBackup(json) {
 				'addDownloadVideoButton',
 				'addDropShadow',
 				'addonTheme',
+				'addonThemeDark',
+				'addonThemeLight',
 				'addProfilePicturesToComments',
 				'alwaysShowCommentOptions',
 				'alwaysShowPostOptions',
@@ -216,6 +211,7 @@ async function restoreBackup(json) {
 				'autoplayVideos',
 				'autoRedirectVersion',
 				'betterCommentBox',
+				'blockStore',
 				'bgBlur',
 				'bionicReaderBgColour',
 				'bionicReaderBgColourCSS',
@@ -232,7 +228,6 @@ async function restoreBackup(json) {
 				'commentsLimit',
 				'compactHeaderSideMenu',
 				'compactPostLinkPreview',
-				'compactSubRuleList',
 				'createPostBodyFontSize',
 				'createPostTitleFontSize',
 				'customBackground',
@@ -245,6 +240,7 @@ async function restoreBackup(json) {
 				'defaultHomeFeedSortOption',
 				'enableDefaultCommentsSortOption',
 				'enableDefaultFeedSortOption',
+				'enableDefaultHomeFeedSortOption',
 				'expandCustomFeedWidth',
 				'expandLayout',
 				'expandLayoutWidth',
@@ -355,7 +351,6 @@ async function restoreBackup(json) {
 				'hideUserProfilePics',
 				'hideUserSidebar',
 				'hideVideoRecommendations',
-				'highlightOp',
 				'imageScroll',
 				'justOpenTheImage',
 				'language',
@@ -363,6 +358,7 @@ async function restoreBackup(json) {
 				'layoutCentre',
 				'layoutOffset',
 				'layoutPostOffset',
+				'localData',
 				'layoutSearchPageOffset',
 				'layoutSubOffset',
 				'layoutUserProfileOffset',
@@ -391,10 +387,11 @@ async function restoreBackup(json) {
 				'postContentFontSize',
 				'postContentFontWeight',
 				'postSeparatorHeight',
-				'postTableBorderColour',
+				'themePostTableBorderColour',
 				'postTitleFontSize',
 				'postTitleFontWeight',
 				'redditVersion',
+				'redditUserTags',
 				'rememberSideMenuSectionHiddenState',
 				'rememberSideMenuSectionHiddenStateValues',
 				'removeCommentButtonIcons',
