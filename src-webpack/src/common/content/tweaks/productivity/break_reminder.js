@@ -7,6 +7,8 @@
  * Compatibility: Needs rewriting to work with RV3
  */
 
+import { registerMutationCallback } from '../../observer_manager';
+
 /* === Run by Tweak Loader when the Page Loads === 
 export function loadBreakReminder() {
 	BROWSER_API.storage.sync.get(['breakReminder'], function (result) {
@@ -52,8 +54,8 @@ export function breakReminder(value) {
 	}
 }
 
-// Observe for posts added to post container
-const observer = new MutationObserver(function (mutations_list) {
+// Callback for posts added to post container (registered via the central observer manager when the tweak is enabled)
+function handleFeedMutations(mutations_list) {
 	BROWSER_API.storage.sync.get(['breakReminderFrequency', 'language'], function (result) {
 		if (typeof result.breakReminderFrequency == 'undefined') {
 			var freq = 50;
@@ -81,16 +83,24 @@ const observer = new MutationObserver(function (mutations_list) {
 			});
 		});
 	});
-});
+}
+
+let observerCleanup = null;
 
 // Toggle Observer
 function postObserver(i) {
 	if (i === true) {
-		// start observer
-		observer.observe(document.querySelector('.ListingLayout-backgroundContainer + div > :last-child > :first-child > div:has(.Post)'), { childList: true, subtree: true });
+		// start observer via the central observer manager
+		const feed = document.querySelector('.ListingLayout-backgroundContainer + div > :last-child > :first-child > div:has(.Post)');
+		if (feed) {
+			observerCleanup = registerMutationCallback(feed, handleFeedMutations, { childList: true, subtree: true }, 'breakReminder');
+		}
 	} else if (i === false) {
 		// stop observer
-		observer.disconnect();
+		if (observerCleanup) {
+			observerCleanup();
+			observerCleanup = null;
+		}
 	}
 }
 

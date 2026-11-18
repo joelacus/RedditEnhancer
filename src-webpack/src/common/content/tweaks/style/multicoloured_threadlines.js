@@ -7,8 +7,10 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
+import { registerMutationCallback } from '../../observer_manager';
+
 // Module state
-let observer = null;
+let observerCleanups = [];
 let currentColours = [];
 
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
@@ -74,22 +76,30 @@ function enableMulticolouredThreadLinesRV3() {
 			});
 		}
 
-		// Setup MutationObserver to handle dynamically added comments
-		observer = new MutationObserver((mutations) => {
-			mutations.forEach((mutation) => {
-				mutation.addedNodes.forEach((addedNode) => {
-					if (addedNode.nodeType !== Node.ELEMENT_NODE) return;
-					if (addedNode.matches('shreddit-comment')) {
-						processNewComment(addedNode);
-					}
-					addedNode.querySelectorAll('shreddit-comment').forEach(processNewComment);
-				});
-			});
-		});
+		// Setup observation of dynamically added comments via the central observer manager
+		observerCleanups.forEach((cleanup) => cleanup());
+		observerCleanups = [];
 
 		// Observe all comment trees
 		document.querySelectorAll('shreddit-comment-tree').forEach((tree) => {
-			observer.observe(tree, { childList: true, subtree: true });
+			observerCleanups.push(
+				registerMutationCallback(
+					tree,
+					(mutations) => {
+						mutations.forEach((mutation) => {
+							mutation.addedNodes.forEach((addedNode) => {
+								if (addedNode.nodeType !== Node.ELEMENT_NODE) return;
+								if (addedNode.matches('shreddit-comment')) {
+									processNewComment(addedNode);
+								}
+								addedNode.querySelectorAll('shreddit-comment').forEach(processNewComment);
+							});
+						});
+					},
+					{ childList: true, subtree: true },
+					'multicolouredThreadlines',
+				),
+			);
 		});
 	});
 }
@@ -99,9 +109,9 @@ function disableMulticolouredThreadLinesRV3() {
 	document.querySelectorAll('shreddit-comment').forEach((comment) => {
 		comment.style.removeProperty('--color-tone-4');
 	});
-	if (observer) {
-		observer.disconnect();
-		observer = null;
+	if (observerCleanups.length > 0) {
+		observerCleanups.forEach((cleanup) => cleanup());
+		observerCleanups = [];
 	}
 }
 

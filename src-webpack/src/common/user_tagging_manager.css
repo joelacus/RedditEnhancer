@@ -104,7 +104,6 @@ h1 {
 #user-tags-table th > div {
 	display: flex;
 	align-content: center;
-	justify-content: space-between;
 }
 
 #user-tags-table th:nth-child(2),
@@ -146,10 +145,6 @@ h1 {
 
 #user-tags-table tr.row-selected:hover td {
 	background-color: rgba(0, 120, 215, 0.25) !important;
-}
-
-#select-all-checkbox {
-	cursor: pointer;
 }
 
 #user-count {
@@ -267,10 +262,9 @@ h1 {
 	box-sizing: border-box;
 }
 
-.add-user-row .actions {
-	display: flex;
-	gap: 0.25rem;
-	border: none;
+.add-user-row input.missing-input {
+	border-color: #e53e3e;
+	background-color: rgba(229, 57, 53, 0.1);
 }
 
 .table-actions {
@@ -282,11 +276,6 @@ h1 {
 .empty-row {
 	text-align: center;
 	color: var(--text-grey);
-}
-
-.btn.btn-row-save,
-.btn.btn-row-cancel {
-	aspect-ratio: 1;
 }
 
 /* Tag */
@@ -363,6 +352,10 @@ h1 {
 	width: fit-content;
 }
 
+.re-tag-popover {
+	max-height: 600px;
+}
+
 .re-tag-popover-preview {
 	display: flex;
 	align-items: center;
@@ -375,7 +368,9 @@ h1 {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.5rem;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
+	max-height: 150px;
+	overflow-y: auto;
 }
 
 .re-tag-popover-presets-list .no-presets {
@@ -550,4 +545,11 @@ input.cp_value {
 .import-conflict-empty {
 	color: var(--text-grey);
 	font-style: italic;
+}
+
+#user-tags-table td {
+	max-width: 320px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }

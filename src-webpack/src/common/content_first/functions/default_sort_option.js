@@ -9,7 +9,7 @@
  * User can change the feed sort option manually at any time.
  */
 
-import { showBannerMessage } from '../../content/banner_message';
+//import { showBannerMessage } from '../../content/banner_message';
 import { registerMutationCallback } from '../../content/observer_manager';
 
 // Store cleanup function for the observer
@@ -226,7 +226,6 @@ function classify(url) {
 	subreddit = url.pathname.match(/^\/r\/([^\/]+)\//)?.[1];
 
 	if (navigationEntries.length > 0 && navigationEntries[0].type === 'reload') {
-		// Page reload (#213: only detect "reload" PerformanceNavigationTiming instead of "navigate" or "back_forward")
 		return false;
 	} else if (['/', '/best/', '/hot/', '/new/', '/top/', '/rising/'].includes(url.pathname) && previousType !== 'home') {
 		sessionStorage.setItem('RE.page', 'home');

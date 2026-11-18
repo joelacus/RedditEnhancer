@@ -4,7 +4,7 @@
  * @name hideHomeFeed
  * @description Hide home feed to prevent distraction.
  *
- * Compatibility: RV3 (New New UI) (2023-)
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────

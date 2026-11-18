@@ -7,9 +7,27 @@
  * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
-import { logToDevConsole } from '../../../utilities/logging';
+//import { logToDevConsole } from '../../../utilities/logging';
+import { isSafeRegexPattern, reportUnsafeRegexPattern } from '../../../utilities/safe_regex.js';
+import { readBlocks, getUrlKeywordPatterns, BLOCK_STORE_KEY } from '../../../utilities/block_store.js';
 import { registerMutationCallback } from '../../observer_manager';
 let urlKeywordsList = [];
+let linkFilteringActive = false;
+
+// Re-filter when the block store changes elsewhere (e.g. Block Manager page).
+BROWSER_API.storage.onChanged.addListener((changes, area) => {
+	if (area !== 'local' || !changes[BLOCK_STORE_KEY] || !linkFilteringActive) return;
+	readBlocks().then((store) => {
+		urlKeywordsList = getUrlKeywordPatterns(store);
+		// Re-scan both UIs: the RV1 re-scan re-runs the enable function, whose
+		// else branch removes stale classes from unblocked posts.
+		if (redditVersion === 'old') {
+			enableHideBlockedLinkPostsRV1();
+		} else {
+			document.querySelectorAll('article:has(>shreddit-post)').forEach(filterBlockedLinkPost);
+		}
+	});
+});
 
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
@@ -25,11 +43,12 @@ let observerCleanup = null;
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 export function hideBlockedLinkPosts(value) {
+	linkFilteringActive = value === true;
 	if (redditVersion === 'old') {
 		if (value) {
-			BROWSER_API.storage.sync.get(['hideBlockedLinkPostsList'], function (result) {
-				updateLinkList(result.hideBlockedLinkPostsList);
-				logToDevConsole('log', `Blocked Link Keywords List: ${urlKeywordsList}`);
+			readBlocks().then((store) => {
+				urlKeywordsList = getUrlKeywordPatterns(store);
+				//logToDevConsole('log', `Blocked Link Keywords List: ${urlKeywordsList}`);
 				enableHideBlockedLinkPostsRV1();
 			});
 		} else {
@@ -37,9 +56,9 @@ export function hideBlockedLinkPosts(value) {
 		}
 	} else if (redditVersion === 'newnew') {
 		if (value) {
-			BROWSER_API.storage.sync.get(['hideBlockedLinkPostsList'], function (result) {
-				updateLinkList(result.hideBlockedLinkPostsList);
-				logToDevConsole('log', `Blocked Link Keywords List: ${urlKeywordsList}`);
+			readBlocks().then((store) => {
+				urlKeywordsList = getUrlKeywordPatterns(store);
+				//logToDevConsole('log', `Blocked Link Keywords List: ${urlKeywordsList}`);
 				document.querySelectorAll('article:has(>shreddit-post)').forEach(filterBlockedLinkPost);
 				setTimeout(() => {
 					document.querySelectorAll('article:has(>shreddit-post)').forEach(filterBlockedLinkPost);
@@ -94,6 +113,10 @@ function matchesPattern(text, patternStr) {
 	if (regexMatch) {
 		const pattern = regexMatch[1];
 		const flags = regexMatch[2] || 'i';
+		if (!isSafeRegexPattern(pattern, flags)) {
+			reportUnsafeRegexPattern(patternStr);
+			return false;
+		}
 		try {
 			const regex = new RegExp(pattern, flags);
 			return regex.test(text);
@@ -110,12 +133,7 @@ function matchesPattern(text, patternStr) {
 	}
 }
 
-function updateLinkList(list) {
-	urlKeywordsList = list
-		.split(',')
-		.map((word) => word.trim())
-		.filter((item) => item !== '' && item !== '*');
-}
+// In-memory pattern list, refreshed from the block store on load.
 
 // Enable Hide Blocked Link Posts - RV1
 function enableHideBlockedLinkPostsRV1() {
@@ -124,30 +142,28 @@ function enableHideBlockedLinkPostsRV1() {
 		if (!url) return;
 
 		if (urlKeywordsList.some((word) => matchesPattern(url, word))) {
-			post.classList.add('re-hide');
+			post.classList.add('re-hide-url');
 		} else {
-			post.classList.remove('re-hide');
+			post.classList.remove('re-hide-url');
 		}
 	});
 }
 
 // Enable Hide Blocked Link Posts - RV3
 function filterBlockedLinkPost(post) {
-	if (post.classList.contains('re-hide')) return;
-
 	const url = post.querySelector('.post-link')?.href;
 	if (!url) return;
 
 	if (urlKeywordsList.some((word) => matchesPattern(url, word))) {
-		post.classList.add('re-hide');
+		post.classList.add('re-hide-url');
 	} else {
-		post.classList.remove('re-hide');
+		post.classList.remove('re-hide-url');
 	}
 }
 
 // Disable Hide Blocked Link Posts - All
 function disableHideBlockedLinkPostsAll() {
-	document.querySelectorAll('#siteTable > .thing, article.re-hide').forEach((post) => {
-		post.classList.remove('re-hide');
+	document.querySelectorAll('#siteTable > .thing, article.re-hide-url').forEach((post) => {
+		post.classList.remove('re-hide-url');
 	});
 }

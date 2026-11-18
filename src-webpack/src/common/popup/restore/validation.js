@@ -17,18 +17,45 @@ export function validateInt(value, min, max, defaultValue) {
 }
 
 /**
- * Validates that a value is a safe colour string for use with color pickers.
- * Accepts any CSS colour format (hex, named colours, rgb(), rgba(), hsl(), etc.)
- * but rejects obviously malicious or corrupted values.
+ * Validates that a value is a safe CSS colour for use in stylesheets and
+ * inline styles. Accepts any CSS colour format the browser understands
+ * (hex, named colours, rgb(), hsl(), color-mix(), oklch(), etc.) but rejects
+ * values containing characters that could break out of a declaration or URL
+ * context, or that fail the browser's own CSS parser.
  * @param {*} value - The value to validate
  * @param {string} defaultValue - Value to return if validation fails
  * @returns {string} Validated colour string or defaultValue
  */
 export function validateColour(value, defaultValue = '') {
 	if (typeof value !== 'string') return defaultValue;
-	if (value.length > 100) return defaultValue; // Prevent excessively long strings
-	if (/[<>]/.test(value)) return defaultValue; // Basic XSS protection - reject HTML tags
-	// Empty string is acceptable (means no colour set)
+	if (value === '') return value; // Empty string is acceptable (means no colour set)
+	if (value.length > 200) return defaultValue; // Prevent excessively long strings
+	if (/["'\\;<>]/.test(value)) return defaultValue; // Reject declaration/attribute breakout characters
+	if (typeof CSS !== 'undefined' && typeof CSS.supports === 'function') {
+		try {
+			if (!CSS.supports('color', value)) return defaultValue;
+		} catch (e) {
+			return defaultValue;
+		}
+	}
+	return value;
+}
+
+/**
+ * Validates that a value is a safe image URL for use inside a CSS url("...")
+ * context. Accepts data:image/, blob:, and http(s) URLs; rejects anything
+ * that could break out of the quoted url() string or trigger script execution.
+ * @param {*} value - The value to validate
+ * @param {string} defaultValue - Value to return if validation fails
+ * @returns {string} Validated URL string or defaultValue
+ */
+export function validateBackgroundUrl(value, defaultValue = '') {
+	if (typeof value !== 'string') return defaultValue;
+	if (value === '') return value; // Empty string is acceptable (means no background set)
+	if (value.length > 2000000) return defaultValue; // Allow large base64 uploads, reject absurd values
+	if (/["'\\\n\r<>]/.test(value)) return defaultValue; // Reject url("...") breakout characters
+	if (/^\s*(javascript|vbscript|file)\s*:/i.test(value)) return defaultValue; // Reject script schemes
+	if (/^\s*data\s*:(?!image\/)/i.test(value)) return defaultValue; // Only data:image/ is allowed
 	return value;
 }
 

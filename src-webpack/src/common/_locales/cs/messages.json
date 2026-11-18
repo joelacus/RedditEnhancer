@@ -113,6 +113,12 @@
 	"Backup": {
 		"message": "Záloha"
 	},
+	"BackupBlocksOnly": {
+		"message": "Pouze bloky"
+	},
+	"BackupEverything": {
+		"message": "Všechno"
+	},
 	"BackupFailed": {
 		"message": "Došlo k chybě. Zkontrolujte konzoli pro vývojáře (F12) pro chybu."
 	},
@@ -121,6 +127,12 @@
 	},
 	"BackupRestored": {
 		"message": "Záloha obnovena!"
+	},
+	"BackupSettingsOnly": {
+		"message": "Pouze nastavení"
+	},
+	"BackupUserTagsOnly": {
+		"message": "Pouze uživatelské značky"
 	},
 	"Best": {
 		"message": "Nejlepší / Best"
@@ -152,8 +164,50 @@
 	"Block": {
 		"message": "Blok"
 	},
+	"BlockAdd": {
+		"message": "Přidat blok"
+	},
+	"BlockAlreadyAdded": {
+		"message": "Již v seznamu blokovaných."
+	},
+	"BlockExport": {
+		"message": "Export bloků"
+	},
+	"BlockImport": {
+		"message": "Import bloků"
+	},
+	"BlockImportSuccess": {
+		"message": "Počet importovaných bloků: {count}."
+	},
 	"BlockInfo": {
 		"message": "Podporuje přesné shoda klíčových slov nebo regulární výrazy."
+	},
+	"BlockKeywordsTab": {
+		"message": "Klíčová slova"
+	},
+	"BlockManagerInfo": {
+		"message": "Blokovaní uživatelé, subreddits a klíčová slova jsou uloženy lokálně na tomto zařízení. Exportujte je, abyste předešli případné ztrátě dat."
+	},
+	"BlockManagerTitle": {
+		"message": "Správce bloků"
+	},
+	"BlockNoEntries": {
+		"message": "Žádné blokované záznamy"
+	},
+	"BlockPattern": {
+		"message": "Vzor"
+	},
+	"BlockPostsAndComments": {
+		"message": "Příspěvky a komentáře"
+	},
+	"BlockScope": {
+		"message": "Rozsah"
+	},
+	"BlockSubredditsTab": {
+		"message": "Subreddits"
+	},
+	"BlockUsersTab": {
+		"message": "Uživatelé"
 	},
 	"Blur": {
 		"message": "Rozmazat"
@@ -227,9 +281,6 @@
 	"Comments": {
 		"message": "Komentáře"
 	},
-	"CommentsBlockInfo": {
-		"message": "Seznam jednotlivých klíčových slov/regex, oddělených čárkou"
-	},
 	"CommentsCount": {
 		"message": "Počet komentářů"
 	},
@@ -302,6 +353,9 @@
 	"DarkMode": {
 		"message": "Tmavý režim"
 	},
+	"DarkThemes": {
+		"message": "Tmavé téma"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "Výchozí možnost třídění komentářů"
 	},
@@ -314,11 +368,20 @@
 	"Delete": {
 		"message": "Odstranit"
 	},
+	"DeleteLocalData": {
+		"message": "Smazat místní data"
+	},
+	"DeleteSelectedBlocks": {
+		"message": "Smazat vybrané"
+	},
 	"DeleteSelectedTags": {
 		"message": "Smazat vybrané"
 	},
 	"DeleteSelectedTagsConfirm": {
 		"message": "Smazat {count} vybraných štítek?"
+	},
+	"DeleteSyncData": {
+		"message": "Smazat synchronizační data"
 	},
 	"DeleteTagForUser": {
 		"message": "Smazat tag pro uživatele u/{username}?"
@@ -731,6 +794,9 @@
 	"Imported": {
 		"message": "Importované"
 	},
+	"Importing": {
+		"message": "Import..."
+	},
 	"ImportInvalidFormat": {
 		"message": "Neplatný formát souboru."
 	},
@@ -749,11 +815,14 @@
 	"JustOpenTheImageInfo": {
 		"message": "Při otevírání obrázků na nové kartě je otevřete přímo bez jejich vložení na stránku Reddit."
 	},
+	"JustOpenTheImagePermissions": {
+		"message": "Oprávnění nebyla udělena. \"Just Open The Image\" potřebuje přístup k reddit.com a redd.it. Povolte „Přístup k vašim datům pro weby v doméně *://reddit.com“ a „Přístup k vašim datům pro weby v doméně *://redd.it“ pro Reddit Enhancer v nastavení oprávnění rozšíření vašeho prohlížeče (Firefox: about:addons → Reddit Enhancer → Spravovat → Oprávnění)."
+	},
 	"Keywords": {
 		"message": "Klíčová slova"
 	},
 	"KeywordsBlockInfo": {
-		"message": "Blokují příspěvky na základě titulku, ne obsahu. Seznamte jednotlivá klíčová slova/vyrazy s výraznými vzory oddělené čárkou."
+		"message": "Blokují příspěvky na základě titulku, ne obsahu."
 	},
 	"Label": {
 		"message": "Označení"
@@ -765,7 +834,7 @@
 		"message": "Jazyk"
 	},
 	"LargerClassicPost": {
-		"message": "Larger Classic Post View"
+		"message": "Větší zobrazení klasického příspěvku"
 	},
 	"Latest": {
 		"message": "Nejnovější"
@@ -782,6 +851,9 @@
 	"LightMode": {
 		"message": "Světelný režim"
 	},
+	"LightThemes": {
+		"message": "Světlé téma"
+	},
 	"LimitCommentsInfo": {
 		"message": "Funkční pouze pro příspěvky otevřené v nové záložce/okně."
 	},
@@ -794,11 +866,20 @@
 	"Link": {
 		"message": "Odkaz"
 	},
+	"Loading": {
+		"message": "Načítání..."
+	},
 	"LocalStorage": {
 		"message": "Lokální úložiště"
 	},
+	"LocalStorageInfo": {
+		"message": "Typické je 10 MiB, ale některé prohlížeče mohou být schopny uložit více nebo méně, což je obtížné zjistit."
+	},
 	"MainContainer": {
 		"message": "Hlavní kontejner"
+	},
+	"ManageBlocks": {
+		"message": "Správa bloků"
 	},
 	"ManageTaggedUsers": {
 		"message": "Spravovat označených uživatele"
@@ -826,6 +907,9 @@
 	},
 	"Media": {
 		"message": "Média"
+	},
+	"MissingRequiredInput": {
+		"message": "Vyplňte všechna povinná pole."
 	},
 	"ModerniseOldReddit": {
 		"message": "Modernizovat old.reddit"
@@ -1321,6 +1405,9 @@
 	},
 	"ToggleCompactPost": {
 		"message": "Přepnout kompaktní zobrazení příspěvku"
+	},
+	"TooManyEntries": {
+		"message": "Máte mnoho záznamů. To může snížit výkon a použít více paměti RAM pro každou otevřenou kartu Reddit."
 	},
 	"Top": {
 		"message": "Nahoru / Top"

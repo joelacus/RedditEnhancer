@@ -103,32 +103,39 @@ document.querySelector('#checkbox-hide-blurred-media-background').addEventListen
 // Toggle - Just Open The Image
 document.querySelector('#checkbox-just-open-the-image').addEventListener('change', function () {
 	if (this.checked) {
-		// Detect addon manifest version
-		if (BROWSER_API.runtime.getManifest().manifest_version === 2) {
-			// Request the optional permissions for Firefox
-			BROWSER_API.permissions
-				.request({
-					permissions: ['webRequest', 'webRequestBlocking'],
-					origins: ['*://*.redd.it/*'],
-				})
-				.then((granted) => {
-					if (granted) {
-						console.log('[RedditEnhancer] justOpenTheImage: "webRequest" and "webRequestBlocking" permissions granted');
-						BROWSER_API.storage.sync.set({ justOpenTheImage: true });
-						document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
-						BROWSER_API.runtime.sendMessage({ justOpenTheImage: true });
-					} else {
-						console.log('[RedditEnhancer] justOpenTheImage: "webRequest" and "webRequestBlocking" permissions not granted');
-						document.querySelector('#checkbox-just-open-the-image').checked = false;
-					}
-				});
-		} else if (BROWSER_API.runtime.getManifest().manifest_version === 3) {
+		// The DNR image ruleset only applies when the extension has host access
+		// to reddit.com and redd.it. On Firefox these are revocable, so verify
+		// (and prompt for) them before enabling; without them the Accept header
+		// rewrite never matches and reddit serves its HTML viewer instead.
+		const origins = ['*://*.reddit.com/*', '*://*.redd.it/*'];
+		const warning = document.querySelector('#perm-warning-just-open-the-image');
+		const proceed = (granted) => {
+			if (!granted) {
+				console.log('[RedditEnhancer] justOpenTheImage: reddit.com/redd.it host permissions not granted');
+				this.checked = false;
+				// The permission prompt does not always appear (e.g. after a
+				// revocation via the permissions panel), so tell the user why
+				// the toggle cannot be enabled and how to fix it.
+				warning.hidden = false;
+				return;
+			}
+			warning.hidden = true;
 			BROWSER_API.storage.sync.set({ justOpenTheImage: true });
 			document.querySelector('.icon-just-open-the-image').style.backgroundColor = 'var(--accent)';
 			BROWSER_API.runtime.sendMessage({ justOpenTheImage: true });
-		}
+		};
+		BROWSER_API.permissions.contains({ origins }, (alreadyGranted) => {
+			if (alreadyGranted) {
+				proceed(true);
+			} else {
+				// permissions.request must be called from a user gesture; the
+				// checkbox change handler qualifies in both browsers.
+				BROWSER_API.permissions.request({ origins }, proceed);
+			}
+		});
 	} else if (!this.checked) {
 		BROWSER_API.storage.sync.set({ justOpenTheImage: false });
+		document.querySelector('#perm-warning-just-open-the-image').hidden = true;
 		document.querySelector('.icon-just-open-the-image').style.backgroundColor = '';
 		BROWSER_API.runtime.sendMessage({ justOpenTheImage: false });
 		if (IS_CHROME) alert('Changes will take effect after a reload or the next time you load Reddit.');
@@ -210,7 +217,7 @@ document.querySelector('#checkbox-scale-post-to-fit-video').addEventListener('ch
 
 // Slider - Max Video Width (Scale Post To Fit Video must be enabled)
 document.querySelector('#input-max-video-width').addEventListener('input', function () {
-	if (this.checked) {
+	if (document.querySelector('#checkbox-scale-post-to-fit-video').checked) {
 		document.querySelector('.icon-max-video-width').style.backgroundColor = this.value != 9 ? 'var(--accent)' : '';
 	}
 	sendMessage({ setMaxVideoWidth: this.value });

@@ -113,6 +113,12 @@
 	"Backup": {
 		"message": "Varmistus"
 	},
+	"BackupBlocksOnly": {
+		"message": "Vain lohkot"
+	},
+	"BackupEverything": {
+		"message": "Kaikki"
+	},
 	"BackupFailed": {
 		"message": "Jokin meni pieeksä. Tarkista kehittäjäkonsoli (F12) virheilmoitusten varalta."
 	},
@@ -121,6 +127,12 @@
 	},
 	"BackupRestored": {
 		"message": "Varmuuppaakkautuminen valmis!"
+	},
+	"BackupSettingsOnly": {
+		"message": "Vain asetukset"
+	},
+	"BackupUserTagsOnly": {
+		"message": "Vain käyttäjätunnisteet"
 	},
 	"Best": {
 		"message": "Paras / Best"
@@ -152,8 +164,50 @@
 	"Block": {
 		"message": "lohko"
 	},
+	"BlockAdd": {
+		"message": "Lisää lohko"
+	},
+	"BlockAlreadyAdded": {
+		"message": "Estoluettelossa jo."
+	},
+	"BlockExport": {
+		"message": "Vie lohkot"
+	},
+	"BlockImport": {
+		"message": "Tuo lohkot"
+	},
+	"BlockImportSuccess": {
+		"message": "Tuotu {count} lohko(a)."
+	},
 	"BlockInfo": {
 		"message": "Tukee tarkan avainsanan vastaavuuden tai säännölliset lausekkeet"
+	},
+	"BlockKeywordsTab": {
+		"message": "Avainsanat"
+	},
+	"BlockManagerInfo": {
+		"message": "Estetyt käyttäjät, subreddits ja avainsanat tallennetaan paikallisesti tälle laitteelle. Vie ne mahdollisen tietojen häviämisen välttämiseksi."
+	},
+	"BlockManagerTitle": {
+		"message": "Block Manager"
+	},
+	"BlockNoEntries": {
+		"message": "Ei estettyjä merkintöjä"
+	},
+	"BlockPattern": {
+		"message": "Kuvio"
+	},
+	"BlockPostsAndComments": {
+		"message": "Viestit & Kommentit"
+	},
+	"BlockScope": {
+		"message": "Laajuus"
+	},
+	"BlockSubredditsTab": {
+		"message": "Subreddits"
+	},
+	"BlockUsersTab": {
+		"message": "Käyttäjät"
 	},
 	"Blur": {
 		"message": "Sumennuttaa"
@@ -227,9 +281,6 @@
 	"Comments": {
 		"message": "Kommentit"
 	},
-	"CommentsBlockInfo": {
-		"message": "Luista yksittäiset avainsanat/regex-säännöt, eroteltuna pilkulla"
-	},
 	"CommentsCount": {
 		"message": "Kommenttien lukumäärä"
 	},
@@ -302,6 +353,9 @@
 	"DarkMode": {
 		"message": "Tumma tila"
 	},
+	"DarkThemes": {
+		"message": "Tumma teema"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "Oletuskommenttien lajitteluvaihtoehto"
 	},
@@ -314,11 +368,20 @@
 	"Delete": {
 		"message": "Poista"
 	},
+	"DeleteLocalData": {
+		"message": "Poista paikalliset tiedot"
+	},
+	"DeleteSelectedBlocks": {
+		"message": "Poista valitut"
+	},
 	"DeleteSelectedTags": {
 		"message": "Poista valitut"
 	},
 	"DeleteSelectedTagsConfirm": {
 		"message": "Poista valitut {{count}} tunnisteet?"
+	},
+	"DeleteSyncData": {
+		"message": "Poista synkronointitiedot"
 	},
 	"DeleteTagForUser": {
 		"message": "Poista käyttäjältä u/{username}?"
@@ -731,6 +794,9 @@
 	"Imported": {
 		"message": "Tuotu"
 	},
+	"Importing": {
+		"message": "Tuodaan..."
+	},
 	"ImportInvalidFormat": {
 		"message": "Virheellinen tiedostomuoto."
 	},
@@ -749,11 +815,14 @@
 	"JustOpenTheImageInfo": {
 		"message": "Kun avaat kuvia uudessa välilehdessä, avaa ne suoraan ilman että upotat niitä Reddit-sivulle."
 	},
+	"JustOpenTheImagePermissions": {
+		"message": "Lupia ei myönnetty. \"Just Open The Image\" tarvitsee pääsyn osoitteeseen reddit.com ja redd.it. Ota käyttöön \"Pääsy tietoihisi *://reddit.com-verkkotunnuksen sivustoille\" ja \"Käytä tietoja *://redd.it-verkkotunnuksen sivustoille\" Reddit Enhancerille selaimesi laajennuslupa-asetuksissa (Firefox: about:addons → Reddit Enhancer → Hallitse → Luvat)."
+	},
 	"Keywords": {
 		"message": "Avainsanat"
 	},
 	"KeywordsBlockInfo": {
-		"message": "Estää julkaisut otsikon perusteella, ei sisällön mukaan. Lista yksittäiset avainsanat/regex-säännöt, eroteltuna pilkulla."
+		"message": "Estää julkaisut otsikon perusteella, ei sisällön mukaan."
 	},
 	"Label": {
 		"message": "Tunniste"
@@ -782,6 +851,9 @@
 	"LightMode": {
 		"message": "Vaalea tila"
 	},
+	"LightThemes": {
+		"message": "Kevyt teema"
+	},
 	"LimitCommentsInfo": {
 		"message": "Toimii vain julkaisuissa, jotka on avattu uudessa välilehdessä/ikkunassa."
 	},
@@ -794,11 +866,20 @@
 	"Link": {
 		"message": "linkki"
 	},
+	"Loading": {
+		"message": "Ladataan..."
+	},
 	"LocalStorage": {
 		"message": "Paikallinen tallennustila"
 	},
+	"LocalStorageInfo": {
+		"message": "10 MiB on tyypillistä, mutta jotkin selaimet saattavat pystyä tallentamaan enemmän tai vähemmän, mutta niitä on vaikea havaita."
+	},
 	"MainContainer": {
 		"message": "Pääkontti"
+	},
+	"ManageBlocks": {
+		"message": "Hallitse lohkoja"
 	},
 	"ManageTaggedUsers": {
 		"message": "Hallitse merkityt käyttäjät"
@@ -826,6 +907,9 @@
 	},
 	"Media": {
 		"message": "Media"
+	},
+	"MissingRequiredInput": {
+		"message": "Täytä kaikki pakolliset kentät."
 	},
 	"ModerniseOldReddit": {
 		"message": "Modernisoida old.reddit"
@@ -1321,6 +1405,9 @@
 	},
 	"ToggleCompactPost": {
 		"message": "Vaihda tiivis viestinäyttö"
+	},
+	"TooManyEntries": {
+		"message": "Sinulla on paljon merkintöjä. Tämä voi heikentää suorituskykyä ja käyttää enemmän RAM-muistia jokaiselle Redditin avoimelle välilehdelle."
 	},
 	"Top": {
 		"message": "Suosituimmat / Top"

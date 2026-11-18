@@ -718,10 +718,10 @@ export function restorePopupStyleOptions() {
 
 	// Scale Profile Avatar
 	BROWSER_API.storage.sync.get(['scaleProfileAvatar'], function (result) {
-		const value = result.scaleProfileAvatar ?? 0;
+		const value = result.scaleProfileAvatar ?? 1;
 		document.querySelector('#input-scale-profile-avatar').value = value;
 		document.querySelector('#scale-profile-avatar-value').innerText = value + 'x';
-		document.querySelector('.icon-scale-profile-avatar').style.backgroundColor = value != 0 ? 'var(--accent)' : '';
+		document.querySelector('.icon-scale-profile-avatar').style.backgroundColor = value != 1 ? 'var(--accent)' : '';
 		console.log('Scale Profile Avatar: ' + value + 'x');
 	});
 }

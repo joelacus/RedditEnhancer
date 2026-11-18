@@ -113,6 +113,12 @@
 	"Backup": {
 		"message": "Sauvegarde"
 	},
+	"BackupBlocksOnly": {
+		"message": "Blocs uniquement"
+	},
+	"BackupEverything": {
+		"message": "Tout"
+	},
 	"BackupFailed": {
 		"message": "Quelque chose s'est mal passé. Vérifiez la console de développement (F12) pour l'erreur."
 	},
@@ -121,6 +127,12 @@
 	},
 	"BackupRestored": {
 		"message": "Sauvegarde restaurée!"
+	},
+	"BackupSettingsOnly": {
+		"message": "Paramètres uniquement"
+	},
+	"BackupUserTagsOnly": {
+		"message": "Balises utilisateur uniquement"
 	},
 	"Best": {
 		"message": "Meilleurs / Best"
@@ -152,8 +164,50 @@
 	"Block": {
 		"message": "Bloc"
 	},
+	"BlockAdd": {
+		"message": "Ajouter un bloc"
+	},
+	"BlockAlreadyAdded": {
+		"message": "Déjà dans la liste de blocage."
+	},
+	"BlockExport": {
+		"message": "Exporter des blocs"
+	},
+	"BlockImport": {
+		"message": "Importer des blocs"
+	},
+	"BlockImportSuccess": {
+		"message": "{count} bloc(s) importé(s)."
+	},
 	"BlockInfo": {
 		"message": "Prend en charge la correspondance exacte des mots clés ou les expressions régulières."
+	},
+	"BlockKeywordsTab": {
+		"message": "Mots-clés"
+	},
+	"BlockManagerInfo": {
+		"message": "Les utilisateurs bloqués, les sous-reddits et les mots-clés sont stockés localement sur cet appareil. Exportez-les pour éviter toute perte potentielle de données."
+	},
+	"BlockManagerTitle": {
+		"message": "Gestionnaire de blocs"
+	},
+	"BlockNoEntries": {
+		"message": "Aucune entrée bloquée"
+	},
+	"BlockPattern": {
+		"message": "Modèle"
+	},
+	"BlockPostsAndComments": {
+		"message": "Messages et commentaires"
+	},
+	"BlockScope": {
+		"message": "Portée"
+	},
+	"BlockSubredditsTab": {
+		"message": "Subreddits"
+	},
+	"BlockUsersTab": {
+		"message": "Utilisateurs"
 	},
 	"Blur": {
 		"message": "Flou"
@@ -227,9 +281,6 @@
 	"Comments": {
 		"message": "Commentaires"
 	},
-	"CommentsBlockInfo": {
-		"message": "Énumérez les mots-clés/expressions régulières individuels, séparés par une virgule."
-	},
 	"CommentsCount": {
 		"message": "Les commentaires comptent"
 	},
@@ -302,6 +353,9 @@
 	"DarkMode": {
 		"message": "Thème Sombre"
 	},
+	"DarkThemes": {
+		"message": "Thème sombre"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "Option de tri des commentaires par défaut"
 	},
@@ -314,11 +368,20 @@
 	"Delete": {
 		"message": "Supprimer"
 	},
+	"DeleteLocalData": {
+		"message": "Supprimer les données locales"
+	},
+	"DeleteSelectedBlocks": {
+		"message": "Supprimer la sélection"
+	},
 	"DeleteSelectedTags": {
 		"message": "Supprimer la sélection"
 	},
 	"DeleteSelectedTagsConfirm": {
 		"message": "Supprimer les {count} étiquette(s) sélectionnée(s) ?"
+	},
+	"DeleteSyncData": {
+		"message": "Supprimer les données de synchronisation"
 	},
 	"DeleteTagForUser": {
 		"message": "Supprimer le tag pour l'utilisateur u/{username} ?"
@@ -731,6 +794,9 @@
 	"Imported": {
 		"message": "Importé"
 	},
+	"Importing": {
+		"message": "Importation..."
+	},
 	"ImportInvalidFormat": {
 		"message": "Format de fichier invalide."
 	},
@@ -749,11 +815,14 @@
 	"JustOpenTheImageInfo": {
 		"message": "Lorsque vous ouvrez des images dans un nouvel onglet, ouvrez-les directement sans les intégrer sur une page Reddit."
 	},
+	"JustOpenTheImagePermissions": {
+		"message": "Autorisations non accordées. \"Just Open The Image\" doit accéder à reddit.com et redd.it. Activez « Accéder à vos données pour les sites du domaine *://reddit.com » et « Accéder à vos données pour les sites du domaine *://redd.it » pour Reddit Enhancer dans les paramètres d'autorisation d'extension de votre navigateur (Firefox : à propos de : addons → Reddit Enhancer → Gérer → Autorisations)."
+	},
 	"Keywords": {
 		"message": "Mots-clés"
 	},
 	"KeywordsBlockInfo": {
-		"message": "Bloque les publications en fonction du titre, pas du contenu. Lister des mots-clés/expressions régulières individuels, séparés par une virgule."
+		"message": "Bloque les publications en fonction du titre, pas du contenu."
 	},
 	"Label": {
 		"message": "Étiquette"
@@ -782,6 +851,9 @@
 	"LightMode": {
 		"message": "Mode clair"
 	},
+	"LightThemes": {
+		"message": "Thème lumière"
+	},
 	"LimitCommentsInfo": {
 		"message": "Fonctionne uniquement pour les Posts ouvertes dans un nouvel onglet/fenêtre."
 	},
@@ -794,11 +866,20 @@
 	"Link": {
 		"message": "Lien"
 	},
+	"Loading": {
+		"message": "Chargement..."
+	},
 	"LocalStorage": {
 		"message": "Stockage local"
 	},
+	"LocalStorageInfo": {
+		"message": "10 Mo est typique, mais certains navigateurs peuvent être capables de stocker plus ou moins, ce qui est difficile à détecter."
+	},
 	"MainContainer": {
 		"message": "Conteneur principal"
+	},
+	"ManageBlocks": {
+		"message": "Gérer les blocs"
 	},
 	"ManageTaggedUsers": {
 		"message": "Gérer les utilisateurs étiquetés"
@@ -826,6 +907,9 @@
 	},
 	"Media": {
 		"message": "Médias"
+	},
+	"MissingRequiredInput": {
+		"message": "Remplissez tous les champs obligatoires."
 	},
 	"ModerniseOldReddit": {
 		"message": "Moderniser old.reddit"
@@ -1321,6 +1405,9 @@
 	},
 	"ToggleCompactPost": {
 		"message": "Basculer vers l'affichage compact"
+	},
+	"TooManyEntries": {
+		"message": "Vous avez beaucoup d'entrées. Cela peut dégrader les performances et utiliser plus de RAM pour chaque onglet ouvert de Reddit."
 	},
 	"Top": {
 		"message": "Top"

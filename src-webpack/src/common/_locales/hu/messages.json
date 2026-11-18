@@ -113,6 +113,12 @@
 	"Backup": {
 		"message": "Adatvazár"
 	},
+	"BackupBlocksOnly": {
+		"message": "Csak blokkok"
+	},
+	"BackupEverything": {
+		"message": "Minden"
+	},
 	"BackupFailed": {
 		"message": "Valami hiba történt. Nézze meg a fejlesztői konzolt (F12) a hiba után."
 	},
@@ -121,6 +127,12 @@
 	},
 	"BackupRestored": {
 		"message": "A biztonsági másolat visszaállítva!"
+	},
+	"BackupSettingsOnly": {
+		"message": "Csak beállítások"
+	},
+	"BackupUserTagsOnly": {
+		"message": "Csak felhasználói címkék"
 	},
 	"Best": {
 		"message": "Legjobb / Best"
@@ -152,8 +164,50 @@
 	"Block": {
 		"message": "Tömb"
 	},
+	"BlockAdd": {
+		"message": "Blokk hozzáadása"
+	},
+	"BlockAlreadyAdded": {
+		"message": "Már benne van a tiltólistában."
+	},
+	"BlockExport": {
+		"message": "Blokkok exportálása"
+	},
+	"BlockImport": {
+		"message": "Blokkok importálása"
+	},
+	"BlockImportSuccess": {
+		"message": "{count} blokk importálva."
+	},
 	"BlockInfo": {
 		"message": "Támogatja az exakt kulcsszó-lehjat vagy reguláris kifejezéseket."
+	},
+	"BlockKeywordsTab": {
+		"message": "Kulcsszavak"
+	},
+	"BlockManagerInfo": {
+		"message": "A blokkolt felhasználókat, alredditeket és kulcsszavakat a rendszer helyileg tárolja ezen az eszközön. Exportálja őket az esetleges adatvesztés elkerülése érdekében."
+	},
+	"BlockManagerTitle": {
+		"message": "Blokkkezelő"
+	},
+	"BlockNoEntries": {
+		"message": "Nincsenek blokkolt bejegyzések"
+	},
+	"BlockPattern": {
+		"message": "Minta"
+	},
+	"BlockPostsAndComments": {
+		"message": "Bejegyzések és megjegyzések"
+	},
+	"BlockScope": {
+		"message": "Hatály"
+	},
+	"BlockSubredditsTab": {
+		"message": "Subreddits"
+	},
+	"BlockUsersTab": {
+		"message": "Felhasználók"
 	},
 	"Blur": {
 		"message": "Elhomályosít"
@@ -227,9 +281,6 @@
 	"Comments": {
 		"message": "Megjegyzések"
 	},
-	"CommentsBlockInfo": {
-		"message": "Lista individual kulcsszó/regex, a vesszővel elválasztva"
-	},
 	"CommentsCount": {
 		"message": "A megjegyzések számítanak"
 	},
@@ -302,6 +353,9 @@
 	"DarkMode": {
 		"message": "Sötét mód"
 	},
+	"DarkThemes": {
+		"message": "Sötét téma"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "Alaplagos kommentek rendezési opciója"
 	},
@@ -314,11 +368,20 @@
 	"Delete": {
 		"message": "Törölni"
 	},
+	"DeleteLocalData": {
+		"message": "Helyi adatok törlése"
+	},
+	"DeleteSelectedBlocks": {
+		"message": "Kijelölt törlése"
+	},
 	"DeleteSelectedTags": {
 		"message": "Törölni a kiválasztottat"
 	},
 	"DeleteSelectedTagsConfirm": {
 		"message": "Törölni a kiválasztott {count} címkét?"
+	},
+	"DeleteSyncData": {
+		"message": "Szinkronizálási adatok törlése"
 	},
 	"DeleteTagForUser": {
 		"message": "Törli a címkét ehhez a felhasználóhoz u/{username}?"
@@ -375,7 +438,7 @@
 		"message": "Kiegészítés beállításai"
 	},
 	"extensionVersionText": {
-		"message": ""
+		"message": "Kiterjesztés verzió"
 	},
 	"Feed": {
 		"message": "táplál"
@@ -731,6 +794,9 @@
 	"Imported": {
 		"message": "Importált"
 	},
+	"Importing": {
+		"message": "Importálás..."
+	},
 	"ImportInvalidFormat": {
 		"message": "Névleges fájlformát"
 	},
@@ -749,11 +815,14 @@
 	"JustOpenTheImageInfo": {
 		"message": "Ha képeket nyit egy új lapon, nyissa meg közvetlenül anélkül, hogy beágyazná őket egy Reddit oldalra."
 	},
+	"JustOpenTheImagePermissions": {
+		"message": "Nincs megadva engedély. A „Just Open The Image” programnak hozzá kell férnie a reddit.com és a redd.it webhelyekhez. Engedélyezze az \"Adatok elérése a *://reddit.com tartományban lévő webhelyekhez\" és a \"Hozzáférés az adatokhoz a *://redd.it domain webhelyeihez\" lehetőséget a Reddit Enhancer számára a böngésző bővítményengedély-beállításaiban (Firefox: about:addons → Reddit Enhancer → Kezelés → Engedélyek)."
+	},
 	"Keywords": {
 		"message": "kulcsszavak"
 	},
 	"KeywordsBlockInfo": {
-		"message": "Blokkolja a bejegyzéseket a cím alapján, nem az tartalom alapján. Listázza ki az egyes kulcsszavakat/regex-eket, vesszővel elválasztva."
+		"message": "Blokkolja a bejegyzéseket a cím alapján, nem az tartalom alapján."
 	},
 	"Label": {
 		"message": "Címke"
@@ -782,6 +851,9 @@
 	"LightMode": {
 		"message": "Világos mód"
 	},
+	"LightThemes": {
+		"message": "Világos téma"
+	},
 	"LimitCommentsInfo": {
 		"message": "Csak a kereskedelmi bejegyzések esetén működik, ha egy új fülben/ablakban van nyitva."
 	},
@@ -794,11 +866,20 @@
 	"Link": {
 		"message": "link"
 	},
+	"Loading": {
+		"message": "Terhelés..."
+	},
 	"LocalStorage": {
 		"message": "Helyi tárhely"
 	},
+	"LocalStorageInfo": {
+		"message": "A 10 MiB jellemző, de egyes böngészők képesek lehetnek több vagy kevesebb tárolására, amit nehéz észlelni."
+	},
 	"MainContainer": {
 		"message": "Főkonténer"
+	},
+	"ManageBlocks": {
+		"message": "Blokkok kezelése"
 	},
 	"ManageTaggedUsers": {
 		"message": "Címkézett felhasználók kezelése"
@@ -826,6 +907,9 @@
 	},
 	"Media": {
 		"message": "média"
+	},
+	"MissingRequiredInput": {
+		"message": "Töltse ki az összes kötelező mezőt."
 	},
 	"ModerniseOldReddit": {
 		"message": "Modernizálja az old.reddit-et"
@@ -1321,6 +1405,9 @@
 	},
 	"ToggleCompactPost": {
 		"message": "Kompakt poszt megjelenítése váltása"
+	},
+	"TooManyEntries": {
+		"message": "Sok bejegyzésed van. Ez ronthatja a teljesítményt, és több RAM-ot használhat a Reddit minden egyes megnyitott lapjához."
 	},
 	"Top": {
 		"message": "Csúcs / Top"

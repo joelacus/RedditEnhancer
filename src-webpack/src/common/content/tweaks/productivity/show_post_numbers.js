@@ -14,7 +14,7 @@
  * NOTE: on v3 UI, posts are dynamically loaded and replaced with a placeholder (i.e. not shreddit-post). Post number
  * track therefore may be lost if something wrong happens while user scrolls mid-page.
  *
- * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
 import { registerMutationCallback } from '../../observer_manager';
@@ -131,6 +131,6 @@ function attachPostCountRV3() {
 		}
 	});
 
-	// Done attaching post numbers. Let's reset the flag
+	// Finished attaching post numbers. Let's reset the flag
 	isAttaching = false;
 }

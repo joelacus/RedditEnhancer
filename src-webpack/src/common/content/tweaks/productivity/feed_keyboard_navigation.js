@@ -78,7 +78,10 @@ function createKeyboardNavigator(containerSelector, elementSelector, RedditVersi
 		let index = startIndex;
 
 		while (index >= 0 && index < elements.length) {
-			const notHidden = !elements[index].classList.contains('re-hide');
+			// The plain "re-hide" class is added by limit_infinity_scroll; the
+			// block filters add per-filter classes, so all of them mean hidden.
+			const classList = elements[index].classList;
+			const notHidden = !(classList.contains('re-hide') || classList.contains('re-hide-keyword') || classList.contains('re-hide-user') || classList.contains('re-hide-subreddit') || classList.contains('re-hide-url'));
 			if (RedditVersion === 'RV3') {
 				const isNsfw = elements[index].querySelector('shreddit-blurred-container[reason="nsfw"]') ?? elements[index].querySelector('shreddit-post[nsfw]') ?? false;
 				const showNsfwPost = isNsfw ? showNsfw : true;
@@ -89,7 +92,6 @@ function createKeyboardNavigator(containerSelector, elementSelector, RedditVersi
 			} else if (RedditVersion === 'RV1') {
 				const isNsfw = elements[index].querySelector('.nsfw-stamp') ?? false;
 				const showNsfwPost = isNsfw ? showNsfw : true;
-				const notDisplayNone = !window.getComputedStyle(elements[index]).display === 'none';
 				if (showNsfwPost && notHidden && !elements[index].classList.contains('promoted')) {
 					return index;
 				}

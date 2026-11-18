@@ -556,7 +556,7 @@ document.querySelector('#checkbox-hide-nsfw-search-results').addEventListener('c
 	icon.classList.replace(this.checked ? 'icon-show' : 'icon-hide', this.checked ? 'icon-hide' : 'icon-show');
 });
 
-// Toggle - Hide "Trending Today" In The Search Results
+// Toggle - Hide Trending in the Search Bar
 document.querySelector('#checkbox-hide-trending-today-in-search-results').addEventListener('change', function () {
 	BROWSER_API.storage.sync.set({ hideTrendingTodayInSearchResults: this.checked });
 	sendMessage({ hideTrendingTodayInSearchResults: this.checked });

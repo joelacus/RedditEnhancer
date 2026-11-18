@@ -46,6 +46,7 @@
 .re-modal-content .btn,
 .re-page .btn,
 .re-page .btn-sm {
+	width: fit-content;
 	min-width: fit-content;
 	max-width: 200px;
 	padding: 8px 16px;
@@ -78,7 +79,7 @@
 }
 
 .text-red {
-	color: #a00000;
+	color: #f00;
 }
 
 .re-modal-content .btn.red,
@@ -109,7 +110,7 @@
 .re-modal-content .btn.green:hover,
 .re-page .btn.green:hover,
 .re-page .btn-sm.green:hover {
-	background-color: var(--green);
+	background-color: #03a000;
 }
 
 /* Input */
@@ -187,6 +188,7 @@
 	color: var(--text);
 	font-family: Verdana, sans-serif;
 	font-size: 16px;
+	box-shadow: 10px 10px 38px -9px rgba(0, 0, 0, 0.75);
 }
 
 #import-conflicts-list {

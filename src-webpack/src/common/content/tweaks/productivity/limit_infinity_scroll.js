@@ -7,6 +7,8 @@
  * Compatibility: Needs rewriting to work with RV3, unless we just have "Break Reminder" as this could be more trouble than it's worth.
  */
 
+import { registerMutationCallback } from '../../observer_manager';
+
 /* === Run by Tweak Loader when the Page Loads === 
 export function loadLimitInfinityScroll() {
 	BROWSER_API.storage.sync.get(['limitInfinityScroll'], function (result) {
@@ -115,8 +117,8 @@ export function limitInfinityScroll(value) {
 	}
 }
 
-// Observe for posts added to post container
-const observer = new MutationObserver(function (mutations_list) {
+// Callback for posts added to post container (registered via the central observer manager when the tweak is enabled)
+function handleFeedMutations(mutations_list) {
 	// detect post and hide it
 	mutations_list.forEach(function (mutation) {
 		mutation.addedNodes.forEach(function (node) {
@@ -146,24 +148,28 @@ const observer = new MutationObserver(function (mutations_list) {
 	//		}
 	//	}
 	//});
-});
+}
+
+let observerCleanup = null;
 
 // Toggle Observer
 function postObserver(i) {
 	if (i === true) {
 		// get existing posts
-		document
-			.querySelector('.re-feed-container')
-			.querySelectorAll(':scope > div')
-			.forEach((div) => {
-				if (div.querySelector('.Post:not(.promotedlink)')) {
-					div.classList.add('re-post', 'hidden');
-				}
-			});
-		// start observer
-		observer.observe(document.querySelector('.re-feed-container'), { childList: true, subtree: true });
+		const feedContainer = document.querySelector('.re-feed-container');
+		if (!feedContainer) return;
+		feedContainer.querySelectorAll(':scope > div').forEach((div) => {
+			if (div.querySelector('.Post:not(.promotedlink)')) {
+				div.classList.add('re-post', 'hidden');
+			}
+		});
+		// start observer via the central observer manager
+		observerCleanup = registerMutationCallback(feedContainer, handleFeedMutations, { childList: true, subtree: true }, 'limitInfinityScroll');
 	} else if (i === false) {
 		// stop observer
-		observer.disconnect();
+		if (observerCleanup) {
+			observerCleanup();
+			observerCleanup = null;
+		}
 	}
 }*/

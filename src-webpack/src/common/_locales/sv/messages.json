@@ -113,6 +113,12 @@
 	"Backup": {
 		"message": "Säkerhetskopiering"
 	},
+	"BackupBlocksOnly": {
+		"message": "Endast block"
+	},
+	"BackupEverything": {
+		"message": "Allt"
+	},
 	"BackupFailed": {
 		"message": "Något gick fel. Kontrollera utvecklingskonsolen (F12) för felet."
 	},
@@ -121,6 +127,12 @@
 	},
 	"BackupRestored": {
 		"message": "Säkerhetskopiering återställd!"
+	},
+	"BackupSettingsOnly": {
+		"message": "Endast inställningar"
+	},
+	"BackupUserTagsOnly": {
+		"message": "Endast användartaggar"
 	},
 	"Best": {
 		"message": "Bäst / Best"
@@ -152,8 +164,50 @@
 	"Block": {
 		"message": "Blockera"
 	},
+	"BlockAdd": {
+		"message": "Lägg till block"
+	},
+	"BlockAlreadyAdded": {
+		"message": "Redan i blocklistan."
+	},
+	"BlockExport": {
+		"message": "Exportera block"
+	},
+	"BlockImport": {
+		"message": "Importera block"
+	},
+	"BlockImportSuccess": {
+		"message": "Importerade {count} block(er)."
+	},
 	"BlockInfo": {
 		"message": "Stöder exakt matchning av sökord eller reguljära uttryck"
+	},
+	"BlockKeywordsTab": {
+		"message": "Nyckelord"
+	},
+	"BlockManagerInfo": {
+		"message": "Blockerade användare, subreddits och nyckelord lagras lokalt på den här enheten. Exportera dem för att undvika eventuell dataförlust."
+	},
+	"BlockManagerTitle": {
+		"message": "Block Manager"
+	},
+	"BlockNoEntries": {
+		"message": "Inga blockerade poster"
+	},
+	"BlockPattern": {
+		"message": "Mönster"
+	},
+	"BlockPostsAndComments": {
+		"message": "Inlägg och kommentarer"
+	},
+	"BlockScope": {
+		"message": "Omfattning"
+	},
+	"BlockSubredditsTab": {
+		"message": "Subreddits"
+	},
+	"BlockUsersTab": {
+		"message": "Användare"
 	},
 	"Blur": {
 		"message": "Fläck"
@@ -227,9 +281,6 @@
 	"Comments": {
 		"message": "Kommentarer"
 	},
-	"CommentsBlockInfo": {
-		"message": "Lista enskilda nyckelord/regex, separerade med ett komma"
-	},
 	"CommentsCount": {
 		"message": "Kommentarer räknas"
 	},
@@ -302,6 +353,9 @@
 	"DarkMode": {
 		"message": "Mörkt läge"
 	},
+	"DarkThemes": {
+		"message": "Mörkt tema"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "Standardkommentarer Sortalternativ"
 	},
@@ -314,11 +368,20 @@
 	"Delete": {
 		"message": "Ta bort"
 	},
+	"DeleteLocalData": {
+		"message": "Ta bort lokal data"
+	},
+	"DeleteSelectedBlocks": {
+		"message": "Ta bort markerade"
+	},
 	"DeleteSelectedTags": {
 		"message": "Ta bort urval"
 	},
 	"DeleteSelectedTagsConfirm": {
 		"message": "Ta bort de {count} valda taggarna?"
+	},
+	"DeleteSyncData": {
+		"message": "Ta bort synkroniseringsdata"
 	},
 	"DeleteTagForUser": {
 		"message": "Ta bort taggen för användaren u/{username}?"
@@ -731,6 +794,9 @@
 	"Imported": {
 		"message": "Importerad"
 	},
+	"Importing": {
+		"message": "Importerar..."
+	},
 	"ImportInvalidFormat": {
 		"message": "Ogiltigt filformat."
 	},
@@ -749,11 +815,14 @@
 	"JustOpenTheImageInfo": {
 		"message": "När du öppnar bilder i en ny flik öppnar du dem direkt utan att bädda in dem på en Reddit-sida."
 	},
+	"JustOpenTheImagePermissions": {
+		"message": "Tillstånd inte beviljade. \"Just Open The Image\" behöver tillgång till reddit.com och redd.it. Aktivera \"Åtkomst till dina data för webbplatser i *://reddit.com-domänen\" och \"Åtkomst till dina data för webbplatser i *://redd.it-domänen\" för Reddit Enhancer i din webbläsares tilläggsbehörighetsinställningar (Firefox: about:addons → Reddit Enhancer → Hantera → Behörigheter)."
+	},
 	"Keywords": {
 		"message": "Nyckelord"
 	},
 	"KeywordsBlockInfo": {
-		"message": "Blockerar inlägg baserat på titeln, inte innehållet. Lista individuella nyckelord/regex, separerade med ett komma"
+		"message": "Blockerar inlägg baserat på titeln, inte innehållet."
 	},
 	"Label": {
 		"message": "Etikett"
@@ -782,6 +851,9 @@
 	"LightMode": {
 		"message": "Ljusläge"
 	},
+	"LightThemes": {
+		"message": "Lätt tema"
+	},
 	"LimitCommentsInfo": {
 		"message": "Fungerar endast för inlägg som öppnas i ett nytt flik/fönster"
 	},
@@ -794,11 +866,20 @@
 	"Link": {
 		"message": "Länk"
 	},
+	"Loading": {
+		"message": "Belastning..."
+	},
 	"LocalStorage": {
 		"message": "Lokal lagring"
 	},
+	"LocalStorageInfo": {
+		"message": "10MiB är typiskt, men vissa webbläsare kanske kan lagra mer, eller mindre, svårt att upptäcka."
+	},
 	"MainContainer": {
 		"message": "Huvudbehållare"
+	},
+	"ManageBlocks": {
+		"message": "Hantera block"
 	},
 	"ManageTaggedUsers": {
 		"message": "Hantera flaggade användare"
@@ -826,6 +907,9 @@
 	},
 	"Media": {
 		"message": "Media"
+	},
+	"MissingRequiredInput": {
+		"message": "Fyll i alla obligatoriska fält."
 	},
 	"ModerniseOldReddit": {
 		"message": "Modernisera old.reddit"
@@ -1321,6 +1405,9 @@
 	},
 	"ToggleCompactPost": {
 		"message": "Växla till kompakt inlägg"
+	},
+	"TooManyEntries": {
+		"message": "Du har många poster. Detta kan försämra prestanda och använda mer RAM-minne för varje öppen flik i Reddit."
 	},
 	"Top": {
 		"message": "Topp / Top"

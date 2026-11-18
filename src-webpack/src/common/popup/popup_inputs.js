@@ -24,11 +24,12 @@ import './inputs/language_select';
 import './inputs/menu';
 import './inputs/reddit_version_redirect';
 import './inputs/search_filter';
-import { export_backup } from './backup_config';
+import { export_backup, setupBackupTypeDropdown } from './backup_config';
 import { restorePopupTheme } from './restore/restore_extension_theme';
 import { showChangelog } from './functions/show_changelog';
 import { initTopCategoryMenu } from './functions/init_top_category_menu';
 import { getStorageUsage } from '../utilities/storage_usage';
+import { LEGACY_LIST_KEYS, invalidateBlockCache } from '../utilities/block_store';
 
 // ─── Banner Message ─────────────────────────────────────────────────────────
 
@@ -233,39 +234,57 @@ document.addEventListener('click', function (e) {
 	}
 });
 
-// Button - Reset Settings
-document.querySelector('#btn-reset-settings').addEventListener('click', function () {
-	document.querySelector('#btn-reset-settings').classList.add('hidden');
-	document.querySelector('#btn-reset-settings-confirm').classList.remove('hidden');
-	setTimeout(() => {
-		document.querySelector('#btn-reset-settings').classList.remove('hidden');
-		document.querySelector('#btn-reset-settings-confirm').classList.add('hidden');
-	}, 10000);
-});
-
-// Button - Reset Settings Confirm
-document.querySelector('#btn-reset-settings-confirm').addEventListener('click', function () {
-	localStorage.clear();
-	BROWSER_API.storage.sync.clear(function () {
-		var error = BROWSER_API.runtime.lastError;
-		if (error) {
-			document.querySelector('#reset-settings-error-message').classList.remove('hidden');
-		} else {
-			document.querySelector('#reset-settings-cleared-message').classList.remove('hidden');
-		}
+// Button - Delete Storage Data (two-step confirm shared by both buttons)
+function setupDeleteStorageButton(buttonId, confirmId, clearedId, errorId, clearStorage) {
+	document.querySelector('#' + buttonId).addEventListener('click', function () {
+		document.querySelector('#' + buttonId).classList.add('hidden');
+		document.querySelector('#' + confirmId).classList.remove('hidden');
+		setTimeout(() => {
+			document.querySelector('#' + buttonId).classList.remove('hidden');
+			document.querySelector('#' + confirmId).classList.add('hidden');
+		}, 10000);
 	});
-	document.querySelector('#btn-reset-settings-confirm').classList.add('hidden');
-	setTimeout(() => {
-		document.querySelector('#reset-settings-cleared-message').classList.add('hidden');
-		document.querySelector('#reset-settings-error-message').classList.add('hidden');
-		document.querySelector('#btn-reset-settings').classList.remove('hidden');
-	}, 5000);
+
+	document.querySelector('#' + confirmId).addEventListener('click', function () {
+		clearStorage(function () {
+			var error = BROWSER_API.runtime.lastError;
+			if (error) {
+				document.querySelector('#' + errorId).classList.remove('hidden');
+			} else {
+				document.querySelector('#' + clearedId).classList.remove('hidden');
+			}
+			updateAllStorageProgress();
+		});
+		document.querySelector('#' + confirmId).classList.add('hidden');
+		setTimeout(() => {
+			document.querySelector('#' + clearedId).classList.add('hidden');
+			document.querySelector('#' + errorId).classList.add('hidden');
+			document.querySelector('#' + buttonId).classList.remove('hidden');
+		}, 5000);
+	});
+}
+
+// Button - Delete Sync Data
+setupDeleteStorageButton('btn-delete-sync-data', 'btn-delete-sync-data-confirm', 'delete-sync-data-cleared-message', 'delete-sync-data-error-message', (done) => BROWSER_API.storage.sync.clear(done));
+
+// Button - Delete Local Data (block lists, user tags, uploaded backgrounds, custom images)
+setupDeleteStorageButton('btn-delete-local-data', 'btn-delete-local-data-confirm', 'delete-local-data-cleared-message', 'delete-local-data-error-message', async (done) => {
+	// The legacy block-list keys live in storage.sync until the one-shot
+	// migration removes them; leaving them behind would re-import the blocks
+	// on the next read. Remove them before clearing local, and drop
+	// this context's cached migration so nothing re-imports afterwards.
+	await new Promise((resolve) => BROWSER_API.storage.sync.remove(LEGACY_LIST_KEYS, () => resolve()));
+	invalidateBlockCache();
+	BROWSER_API.storage.local.clear(done);
 });
 
 // Button - Export Backup
 document.querySelector('#btn-export-backup').addEventListener('click', function () {
 	export_backup();
 });
+
+// Dropdown - Backup Type (what the Backup button exports)
+setupBackupTypeDropdown();
 
 // Button - Import Backup
 document.querySelector('#btn-import-backup').addEventListener('click', function () {

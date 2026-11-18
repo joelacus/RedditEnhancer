@@ -113,6 +113,12 @@
 	"Backup": {
 		"message": "Sikkerhetskopiering"
 	},
+	"BackupBlocksOnly": {
+		"message": "Bare blokker"
+	},
+	"BackupEverything": {
+		"message": "Alt"
+	},
 	"BackupFailed": {
 		"message": "Noe noe gikk galt. Sjekk utviklerkonsollen (F12) for feil."
 	},
@@ -121,6 +127,12 @@
 	},
 	"BackupRestored": {
 		"message": "Sikkerhetskopien gjenopprettet!"
+	},
+	"BackupSettingsOnly": {
+		"message": "Bare innstillinger"
+	},
+	"BackupUserTagsOnly": {
+		"message": "Kun brukertagger"
 	},
 	"Best": {
 		"message": "Beste / Best"
@@ -152,8 +164,50 @@
 	"Block": {
 		"message": "Blokkere"
 	},
+	"BlockAdd": {
+		"message": "Legg til blokk"
+	},
+	"BlockAlreadyAdded": {
+		"message": "Allerede i blokkeringslisten."
+	},
+	"BlockExport": {
+		"message": "Eksporter blokker"
+	},
+	"BlockImport": {
+		"message": "Importer blokker"
+	},
+	"BlockImportSuccess": {
+		"message": "Importerte {count} blokk(er)."
+	},
 	"BlockInfo": {
 		"message": "Støtter nøyaktig nøkkelordmatch eller regulære uttrykk"
+	},
+	"BlockKeywordsTab": {
+		"message": "Nøkkelord"
+	},
+	"BlockManagerInfo": {
+		"message": "Blokkerte brukere, subreddits og nøkkelord lagres lokalt på denne enheten. Eksporter dem for å unngå potensielt tap av data."
+	},
+	"BlockManagerTitle": {
+		"message": "Block Manager"
+	},
+	"BlockNoEntries": {
+		"message": "Ingen blokkerte oppføringer"
+	},
+	"BlockPattern": {
+		"message": "Mønster"
+	},
+	"BlockPostsAndComments": {
+		"message": "Innlegg og kommentarer"
+	},
+	"BlockScope": {
+		"message": "Omfang"
+	},
+	"BlockSubredditsTab": {
+		"message": "Subreddits"
+	},
+	"BlockUsersTab": {
+		"message": "Brukere"
 	},
 	"Blur": {
 		"message": "Uklarhet"
@@ -227,9 +281,6 @@
 	"Comments": {
 		"message": "Kommentarer"
 	},
-	"CommentsBlockInfo": {
-		"message": "List individuelle nøkkelord/regex, adskilt med et komma"
-	},
 	"CommentsCount": {
 		"message": "Kommentarer teller"
 	},
@@ -302,6 +353,9 @@
 	"DarkMode": {
 		"message": "Mørk modus"
 	},
+	"DarkThemes": {
+		"message": "Mørkt tema"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "Standard sorteringsalternativ for kommentarer"
 	},
@@ -314,11 +368,20 @@
 	"Delete": {
 		"message": "Slett"
 	},
+	"DeleteLocalData": {
+		"message": "Slett lokale data"
+	},
+	"DeleteSelectedBlocks": {
+		"message": "Slett valgte"
+	},
 	"DeleteSelectedTags": {
 		"message": "Slett utvalgt"
 	},
 	"DeleteSelectedTagsConfirm": {
 		"message": "Slett {count} valgt tag?"
+	},
+	"DeleteSyncData": {
+		"message": "Slett synkroniseringsdata"
 	},
 	"DeleteTagForUser": {
 		"message": "Fjerne merket for brukeren u/{username}?"
@@ -731,6 +794,9 @@
 	"Imported": {
 		"message": "Importert"
 	},
+	"Importing": {
+		"message": "Importerer..."
+	},
 	"ImportInvalidFormat": {
 		"message": "Ugyldig filformat."
 	},
@@ -749,11 +815,14 @@
 	"JustOpenTheImageInfo": {
 		"message": "Når du åpner bilder i en ny fane, må du åpne dem direkte uten å legge dem inn på en Reddit-side."
 	},
+	"JustOpenTheImagePermissions": {
+		"message": "Tillatelser ikke gitt. \"Just Open The Image\" trenger tilgang til reddit.com og redd.it. Aktiver \"Få tilgang til dataene dine for nettsteder i *://reddit.com-domenet\" og \"Få tilgang til dataene dine for nettsteder i *://redd.it-domenet\" for Reddit Enhancer i nettleserens utvidelsestillatelsesinnstillinger (Firefox: about:addons → Reddit Enhancer → Administrer → Tillatelser)."
+	},
 	"Keywords": {
 		"message": "Nøkkelord"
 	},
 	"KeywordsBlockInfo": {
-		"message": "Blokker innlegg basert på tittelen, ikke innholdet. List individuelle nøkkelord/regulære uttrykk, adskilt med et komma."
+		"message": "Blokker innlegg basert på tittelen, ikke innholdet."
 	},
 	"Label": {
 		"message": "Etikett"
@@ -782,6 +851,9 @@
 	"LightMode": {
 		"message": "Lysmodus"
 	},
+	"LightThemes": {
+		"message": "Lett tema"
+	},
 	"LimitCommentsInfo": {
 		"message": "Fungerer kun for innlegg åpnet i en ny fane/vindu."
 	},
@@ -794,11 +866,20 @@
 	"Link": {
 		"message": "lenke"
 	},
+	"Loading": {
+		"message": "Laster inn..."
+	},
 	"LocalStorage": {
 		"message": "Lokal lagring"
 	},
+	"LocalStorageInfo": {
+		"message": "10MiB er typisk, men noen nettlesere kan være i stand til å lagre mer, eller mindre, vanskelig å oppdage."
+	},
 	"MainContainer": {
 		"message": "Hovedbeholder"
+	},
+	"ManageBlocks": {
+		"message": "Administrer blokker"
 	},
 	"ManageTaggedUsers": {
 		"message": "Administrer taggede brukere"
@@ -826,6 +907,9 @@
 	},
 	"Media": {
 		"message": "Media"
+	},
+	"MissingRequiredInput": {
+		"message": "Fyll ut alle obligatoriske felt."
 	},
 	"ModerniseOldReddit": {
 		"message": "Modernisere old.reddit"
@@ -1321,6 +1405,9 @@
 	},
 	"ToggleCompactPost": {
 		"message": "Bytt til kompakt innlegg"
+	},
+	"TooManyEntries": {
+		"message": "Du har mange oppføringer. Dette kan redusere ytelsen og bruke mer RAM for hver åpne fane i Reddit."
 	},
 	"Top": {
 		"message": "Topp / Top"

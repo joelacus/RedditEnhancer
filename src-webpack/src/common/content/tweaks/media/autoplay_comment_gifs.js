@@ -1,5 +1,5 @@
 /**
- * Tweaks: Hide Elements - Autoplay CommentGIFs
+ * Tweaks: Media - Autoplay CommentGIFs
  *
  * @name autoplayCommentGifs
  * @description Autoplay GIFs in comments on the post page.

@@ -1,0 +1,291 @@
+@import '../common/content_first/RE_UI_styles.css';
+@import './popup/css/icons.css';
+@import './popup/css/themes.css';
+
+body {
+	background: var(--bg);
+	color: var(--text);
+	font-family: Verdana, sans-serif;
+	font-size: 16px;
+	margin: 0;
+}
+
+a,
+a:visited {
+	color: var(--text);
+}
+
+h1 {
+	color: var(--text-secondary);
+}
+
+.container {
+	max-width: 1600px;
+	margin: 0 auto;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+/* Header & Footer */
+
+.header-bar {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 1rem;
+	margin-bottom: 1rem;
+	flex-shrink: 0;
+}
+
+.search-bar {
+	display: grid;
+	grid-template-columns: repeat(3, auto);
+	gap: 0.5rem;
+	width: 600px;
+}
+
+#btn-clear-search {
+	width: fit-content;
+}
+
+.bottom-bar {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1rem;
+	flex-shrink: 0;
+}
+
+.manager-footer {
+	margin-top: 1rem;
+	padding-top: 1rem;
+	border-top: 1px solid var(--bg-tint-4);
+	font-size: 0.85rem;
+	flex-shrink: 0;
+}
+.manager-footer p {
+	color: var(--text-secondary);
+}
+
+/* Table */
+
+.table-scroll {
+	flex: 1;
+	min-height: 0;
+	overflow-y: auto;
+	border: 1px solid var(--bg-tint-4);
+	border-radius: var(--border-radius);
+}
+
+.block-table {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+	background-color: var(--bg-tint-2);
+}
+
+.block-table th,
+.block-table td {
+	padding: 0.5rem;
+	border-bottom: 1px solid var(--bg-tint-4);
+	text-align: left;
+	background-color: var(--bg-tint-2);
+}
+
+.block-table th {
+	font-weight: bold;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
+.block-table th > div {
+	display: flex;
+	align-content: center;
+}
+
+.block-table th.select-col,
+.block-table td.select-col {
+	width: 40px;
+	text-align: center;
+}
+
+#block-users-table th:nth-child(2) {
+	width: 400px;
+}
+#block-users-table th:nth-child(3) {
+	width: 100px;
+}
+#block-users-table th:nth-child(4) {
+	width: auto;
+}
+#block-users-table th:nth-child(5) {
+	width: 80px;
+	text-align: center;
+}
+
+#block-subreddits-table th:nth-child(2) {
+	width: auto;
+}
+#block-subreddits-table th:nth-child(3) {
+	width: 80px;
+	text-align: center;
+}
+
+#block-keywords-table th:nth-child(2) {
+	width: 400px;
+}
+#block-keywords-table th:nth-child(3),
+#block-keywords-table th:nth-child(4) {
+	width: 100px;
+}
+#block-keywords-table th:nth-child(5) {
+	width: auto;
+}
+#block-keywords-table th:nth-child(6) {
+	width: 80px;
+	text-align: center;
+}
+
+.block-table tr.row-selected td {
+	background-color: rgba(0, 120, 215, 0.15);
+}
+
+.block-table tr.row-selected:hover td {
+	background-color: rgba(0, 120, 215, 0.25) !important;
+}
+
+#user-count,
+#subreddit-count,
+#keyword-count {
+	color: var(--text-grey);
+	margin-left: 0.5rem;
+}
+
+.sort-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	padding: 0;
+	margin-left: 6px;
+	background: transparent;
+	border: none;
+	border-radius: 3px;
+	color: var(--text-grey);
+	cursor: pointer;
+	transition:
+		color 0.15s,
+		background-color 0.15s;
+}
+
+.sort-btn:hover {
+	color: var(--text);
+	background: var(--btn-hover);
+}
+
+.block-table tr.flash-update td {
+	animation: flashRow 0.8s ease-out;
+}
+
+@keyframes flashRow {
+	0% {
+		background-color: rgba(3, 160, 0, 0.35);
+	}
+	100% {
+		background-color: transparent;
+	}
+}
+
+.block-table tr.flash-warning td {
+	animation: flashWarning 0.8s ease-out;
+}
+
+@keyframes flashWarning {
+	0% {
+		background-color: rgba(255, 165, 0, 0.35);
+	}
+	100% {
+		background-color: transparent;
+	}
+}
+
+.action-cell .row-delete {
+	background: none;
+	cursor: pointer;
+	aspect-ratio: 1;
+	opacity: 0;
+}
+
+.block-table tr:hover td {
+	background: var(--bg-tint-1);
+}
+
+.block-table tr:hover .action-cell .row-delete {
+	opacity: 1;
+}
+
+/* Red feedback for a refused regex or a missing required input
+   (mirrors popup/css/inputs.css, which this page does not load) */
+.add-block-row input.invalid-regex,
+.add-block-row input.missing-input {
+	border-color: #e53e3e;
+	background-color: rgba(229, 57, 53, 0.1);
+}
+
+.info.invalid-regex {
+	color: #ff0000;
+}
+
+.table-actions {
+	display: flex;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+.empty-row {
+	text-align: center;
+	color: var(--text-grey);
+}
+
+/* Block manager tabs */
+.re-tag-tabs {
+	display: flex;
+	gap: 4px;
+	margin-bottom: 12px;
+	padding-bottom: 4px;
+	border-bottom: 1px solid var(--bg-tint-4);
+}
+.re-tag-tab {
+	background: transparent;
+	border: none;
+	border-bottom: 2px solid transparent;
+	border-radius: 0 !important;
+	color: var(--text-grey);
+	cursor: pointer;
+	font-family: Verdana, sans-serif;
+	font-size: 13px;
+	padding: 6px 12px;
+	margin-bottom: -1px;
+	transition:
+		color 0.15s,
+		border-color 0.15s;
+}
+.re-tag-tab:hover {
+	color: var(--text);
+}
+.re-tag-tab.active {
+	color: var(--text);
+	border-bottom-color: var(--accent);
+	font-weight: bold;
+}
+
+/* Virtualised tables require uniform single-line rows for measurement */
+.block-table td.block-name-cell {
+	max-width: 320px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

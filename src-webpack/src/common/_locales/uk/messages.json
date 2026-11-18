@@ -113,6 +113,12 @@
 	"Backup": {
 		"message": "Резервне копіювання"
 	},
+	"BackupBlocksOnly": {
+		"message": "Лише блоки"
+	},
+	"BackupEverything": {
+		"message": "все"
+	},
 	"BackupFailed": {
 		"message": "Щось пішло не так. Перевірте консоль розробника (F12) на помилку."
 	},
@@ -121,6 +127,12 @@
 	},
 	"BackupRestored": {
 		"message": "Резервну копію відновлено!"
+	},
+	"BackupSettingsOnly": {
+		"message": "Лише налаштування"
+	},
+	"BackupUserTagsOnly": {
+		"message": "Лише теги користувача"
 	},
 	"Best": {
 		"message": "Найкращий / Best"
@@ -152,8 +164,50 @@
 	"Block": {
 		"message": "Блок"
 	},
+	"BlockAdd": {
+		"message": "Додати блок"
+	},
+	"BlockAlreadyAdded": {
+		"message": "Вже в списку блокувань."
+	},
+	"BlockExport": {
+		"message": "Експорт блоків"
+	},
+	"BlockImport": {
+		"message": "Імпорт блоків"
+	},
+	"BlockImportSuccess": {
+		"message": "Імпортовано {count} блок(ів)."
+	},
 	"BlockInfo": {
 		"message": "Підтримує точне відповідність ключовим словам або регулярні вирази."
+	},
+	"BlockKeywordsTab": {
+		"message": "Ключові слова"
+	},
+	"BlockManagerInfo": {
+		"message": "Заблоковані користувачі, субредити та ключові слова зберігаються локально на цьому пристрої. Експортуйте їх, щоб уникнути потенційної втрати даних."
+	},
+	"BlockManagerTitle": {
+		"message": "Менеджер блоків"
+	},
+	"BlockNoEntries": {
+		"message": "Немає заблокованих записів"
+	},
+	"BlockPattern": {
+		"message": "Візерунок"
+	},
+	"BlockPostsAndComments": {
+		"message": "Дописи та коментарі"
+	},
+	"BlockScope": {
+		"message": "Область застосування"
+	},
+	"BlockSubredditsTab": {
+		"message": "Субредити"
+	},
+	"BlockUsersTab": {
+		"message": "Користувачі"
 	},
 	"Blur": {
 		"message": "Розмиття"
@@ -227,9 +281,6 @@
 	"Comments": {
 		"message": "Коментарі"
 	},
-	"CommentsBlockInfo": {
-		"message": "Перерахуйте окремі ключові слова/регулярні вирази, розділені комами."
-	},
 	"CommentsCount": {
 		"message": "Коментарі враховуються / Comments count"
 	},
@@ -302,6 +353,9 @@
 	"DarkMode": {
 		"message": "Темний режим"
 	},
+	"DarkThemes": {
+		"message": "Темна тема"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "Параметр сортування коментарів за замовчуванням"
 	},
@@ -314,11 +368,20 @@
 	"Delete": {
 		"message": "Видалити"
 	},
+	"DeleteLocalData": {
+		"message": "Видалити локальні дані"
+	},
+	"DeleteSelectedBlocks": {
+		"message": "Видалити вибране"
+	},
 	"DeleteSelectedTags": {
 		"message": "Видалити вибрані"
 	},
 	"DeleteSelectedTagsConfirm": {
 		"message": "Видалити {count} вибрані мітки?"
+	},
+	"DeleteSyncData": {
+		"message": "Видалити дані синхронізації"
 	},
 	"DeleteTagForUser": {
 		"message": "Видалити мітку для користувача u/{username}?"
@@ -731,6 +794,9 @@
 	"Imported": {
 		"message": "Імпортоване"
 	},
+	"Importing": {
+		"message": "Імпорт..."
+	},
 	"ImportInvalidFormat": {
 		"message": "Недійсний формат файлу."
 	},
@@ -749,11 +815,14 @@
 	"JustOpenTheImageInfo": {
 		"message": "Відкриваючи зображення на новій вкладці, відкрийте їх безпосередньо, не вбудовуючи їх на сторінку Reddit."
 	},
+	"JustOpenTheImagePermissions": {
+		"message": "Дозволи не надано. \"Just Open The Image\" потребує доступу до reddit.com і redd.it. Увімкніть «Доступ до ваших даних для сайтів у домені *://reddit.com» і «Доступ до ваших даних для сайтів у домені *://redd.it» для Reddit Enhancer у налаштуваннях дозволів розширення вашого браузера (Firefox: about:addons → Reddit Enhancer → Керувати → Дозволи)."
+	},
 	"Keywords": {
 		"message": "Ключові слова"
 	},
 	"KeywordsBlockInfo": {
-		"message": "Блокувати дописи на основі заголовка, а не вмісту. Перерахуйте окремі ключові слова/регулярні вирази, розділені комою."
+		"message": "Блокувати дописи на основі заголовка, а не вмісту."
 	},
 	"Label": {
 		"message": "Мітка"
@@ -782,6 +851,9 @@
 	"LightMode": {
 		"message": "Світлий режим"
 	},
+	"LightThemes": {
+		"message": "Світла тема"
+	},
 	"LimitCommentsInfo": {
 		"message": "Працює лише для публікацій, відкритих у новій вкладці/вікні."
 	},
@@ -794,11 +866,20 @@
 	"Link": {
 		"message": "Посилання"
 	},
+	"Loading": {
+		"message": "Завантаження..."
+	},
 	"LocalStorage": {
 		"message": "Локальне сховище"
 	},
+	"LocalStorageInfo": {
+		"message": "Типовим є 10 МБ, але деякі браузери можуть зберігати більше або менше, що важко виявити."
+	},
 	"MainContainer": {
 		"message": "Головний контейнер"
+	},
+	"ManageBlocks": {
+		"message": "Керуйте блоками"
 	},
 	"ManageTaggedUsers": {
 		"message": "Керувати позначеними користувачами"
@@ -826,6 +907,9 @@
 	},
 	"Media": {
 		"message": "ЗМІ"
+	},
+	"MissingRequiredInput": {
+		"message": "Заповніть усі необхідні поля."
 	},
 	"ModerniseOldReddit": {
 		"message": "Модернізуйте old.reddit"
@@ -1321,6 +1405,9 @@
 	},
 	"ToggleCompactPost": {
 		"message": "Перемикач компактного допису"
+	},
+	"TooManyEntries": {
+		"message": "У вас багато записів. Це може знизити продуктивність і використовувати більше оперативної пам’яті для кожної відкритої вкладки Reddit."
 	},
 	"Top": {
 		"message": "Топ / Top"

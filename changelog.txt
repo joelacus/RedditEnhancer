@@ -1,5 +1,22 @@
-version 3.5.1
-  - Minor bug fixes.
+version 3.6.0
+  - Added a Block Manager page to view, add, filter and remove blocked users, subreddits and keywords, replacing the popup text inputs. Block lists will be migrated transparently and consolidated into a single object which is now stored compressed locally, allowing significantly larger lists. For reference, you can now fit 50,000 blocks in ~10% of the local storage (~1MiB). You can fit even more, but performance starts to become the limiting factor. The block list no longer syncs to your other devices (100KiB limit), but you can easily save and restore backups from the Block Manager or the Settings page.
+  - The block user button now opens one dialogue with Posts and Comments checkboxes instead of separate posts-only and comments-only confirms.
+  - User Tags are already saved in local storage, but are now also compressed to save space.
+  - The Settings > Backup section now has a backup type dropdown: "Everything" (settings, block lists and user tags), "Settings Only", "Blocks Only" or "User Tags Only". The restore page now accepts all backup file types.
+  - The extension theme setting now offers 15 colour themes: the old theme buttons were replaced by Auto/Light/Dark buttons with a light and a dark theme dropdown menu underneath. The Light and Dark buttons apply the theme picked in their dropdown menus, "Auto" follows the system preference.
+    - New themes: Catppuccin Latte/Frappé/Macchiato/Mocha, Nord, Dracula light and dark, Monokai, and Rosé Pine/Moon/Dawn.
+  - Security: content built from Reddit data (post titles, author names, avatars) is now sanitised to block potential script injection.
+  - Security: custom theme colours and background images are now validated before being applied to the page.
+  - Improved performance by consolidating page observers into a central manager.
+  - Removed some dead code regarding manifest v2, not used since the RE version 3.0.0 update.
+  - "Reset All Settings" is now two separate buttons: "Delete Sync Data" and "Delete Local Data" (block lists, user tags, uploaded backgrounds and custom images live in local storage).
+  - Minor bug fixes, security and performance improvements.
+v [Latest UI V3]
+  - Fixed the search bar and search dropdown theme colours.
+  - Fixed "Hide Trending in the Search Bar" to hide trending searches and subreddits. The option has been renamed from "Hide 'Trending Today' in the Search Bar".
+  - Fixed "Scale Post To Fit Video" not working due to a website update.
+v [Old UI V1]
+  - Fixed "Larger Classic Post View" not loading when the page loads.
 
 version 3.5.0
   - Usernames for tags are now handled as case insensitive to work correctly with imported tags from a RES backup that are saved as lowercase.
@@ -108,7 +125,7 @@ v [Old UI V1]
 
 version 3.0.1
   - Minor fixes.
-  
+
 version 3.0.0
   - The "downloads" and "history" permissions are now optional for Chromium based browsers since manifest v3 has added support for optional permissions.
   - The Firefox addon now uses manifest v3. (Support was added to Firefox in version 109).
@@ -189,7 +206,6 @@ v [Latest UI V3]
   - Other bug fixes.
 v [Old UI V1]
   - Added thousands separators for the number of members when using "Show legacy subreddit member count".
-
 
 version 2.3.1
 v [Latest UI V3]

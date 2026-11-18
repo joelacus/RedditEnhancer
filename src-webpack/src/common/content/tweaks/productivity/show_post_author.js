@@ -7,6 +7,7 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
+import { escapeHtml } from '../../../utilities/escape_html.js';
 import { parseHtmlString } from '../../../utilities/parse_html_string';
 import { registerMutationCallback } from '../../observer_manager';
 
@@ -92,7 +93,8 @@ export async function attachUsername(post) {
 								},
 							],
 						})
-					).data.children[0].data ?? null;
+					)?.data?.children?.[0]?.data ?? null;
+				if (!postData || !postData.author) return;
 				author = postData.author;
 			}
 		} catch (error) {
@@ -100,10 +102,12 @@ export async function attachUsername(post) {
 		}
 	}
 
+	if (!author) return;
+
 	if (!post.querySelector('.re-post-author')) {
 		const a = document.createElement('span');
 		a.classList.add('re-post-author');
-		a.append(parseHtmlString(`<a href="/user/${author}">u/${author}</a>`));
+		a.append(parseHtmlString(`<a href="/user/${escapeHtml(author)}">u/${escapeHtml(author)}</a>`));
 
 		let hoverTimer;
 		if (author !== '[deleted]') {
@@ -185,11 +189,11 @@ function createHoverCard(userData) {
 	});
 	let userDisplayName, userProfileLink, userCommentKarama;
 	if (!userData.subreddit) {
-		userDisplayName = userData.name;
-		userProfileLink = 'https://www.reddit.com/user/' + userData.name;
+		userDisplayName = escapeHtml(userData.name);
+		userProfileLink = 'https://www.reddit.com/user/' + escapeHtml(userData.name);
 	} else {
-		userDisplayName = userData.subreddit.display_name_prefixed;
-		userProfileLink = userData.subreddit.url;
+		userDisplayName = escapeHtml(userData.subreddit.display_name_prefixed);
+		userProfileLink = escapeHtml(userData.subreddit.url);
 	}
 	if (!userData.comment_karma) {
 		userCommentKarama = 0;
@@ -199,12 +203,12 @@ function createHoverCard(userData) {
 	const hoverCardHtmlString = `
 		<div class="flex flex-row justify-items-start items-center">
 			<div class="mr-sm">
-				<img class="mb-0" src="${userData.snoovatar_img ? userData.snoovatar_img : userData.icon_img}" alt="User Avatar">
+				<img class="mb-0" src="${escapeHtml(userData.snoovatar_img ? userData.snoovatar_img : userData.icon_img)}" alt="User Avatar">
 			</div>
 			<div class="flex flex-col max-w-[calc(100%-60px)] mr-[-4px]">
 				<div class="flex overflow-hidden text-ellipsis w-[calc(100%+4px)]">
 					<div class="flex items-center">
-						<a rpl="" class="font-bold text-18 text-neutral-content-strong a no-visited hover:underline" href="${userProfileLink}">${userData.name}</a>
+						<a rpl="" class="font-bold text-18 text-neutral-content-strong a no-visited hover:underline" href="${userProfileLink}">${escapeHtml(userData.name)}</a>
 					</div>
 				</div>
 				<div class="flex items-start justify-start text-neutral-content-weak">
@@ -230,7 +234,7 @@ function createHoverCard(userData) {
 				<div class="text-neutral-content-weak text-12">Comment karma</div>
 			</div>
 		</div>
-		<a rpl="" aria-label="Open chat" class="button-small px-[var(--rem10)] button-secondary button inline-flex items-center justify-center mt-md" href="https://chat.reddit.com/user/${userData.name}" target="_blank">
+		<a rpl="" aria-label="Open chat" class="button-small px-[var(--rem10)] button-secondary button inline-flex items-center justify-center mt-md" href="https://chat.reddit.com/user/${escapeHtml(userData.name)}" target="_blank">
 			<span class="flex items-center justify-center">
 				<span class="flex mr-xs">
 					<svg rpl="" aria-hidden="true" fill="currentColor" height="16" icon-name="chat-outline" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">

@@ -7,7 +7,9 @@
 				<span data-lang='ResizeLayout' class='menu-item-title'></span>
 				<div class='icon-chevron-down'></div>
 			</div>
-			<div class='menu-item-handle'><div class='menu-item-icon icon-handle'></div></div>
+			<div class='menu-item-handle'>
+				<div class='menu-item-icon icon-handle'></div>
+			</div>
 		</div>
 		<!-- Resize Feed/Post Sub Menu -->
 		<ul class='sub-list menu-resize-elements hidden r-old r-newnew'>
@@ -173,7 +175,9 @@
 				<span data-lang='HideElements' class='menu-item-title'></span>
 				<div class='icon-chevron-down'></div>
 			</div>
-			<div class='menu-item-handle'><div class='menu-item-icon icon-handle'></div></div>
+			<div class='menu-item-handle'>
+				<div class='menu-item-icon icon-handle'></div>
+			</div>
 		</div>
 		<!-- Hide Elements Sub Menu -->
 		<ul class='sub-list menu-hide-elements hidden r-old r-newnew'>
@@ -731,7 +735,8 @@
 					<div></div>
 					<div class='tab-switcher'>
 						<div id='btn-hide-sub-sidebar-whitelist'><span data-lang='Whitelist'></span></div>
-						<div id='btn-hide-sub-sidebar-blacklist' class='tab-active'><span data-lang='Blacklist'></span></div>
+						<div id='btn-hide-sub-sidebar-blacklist' class='tab-active'><span data-lang='Blacklist'></span>
+						</div>
 					</div>
 					<div></div>
 					<div></div>
@@ -836,7 +841,9 @@
 				<span data-lang='Media' class='menu-item-title'></span>
 				<div class='icon-chevron-down'></div>
 			</div>
-			<div class='menu-item-handle'><div class='menu-item-icon icon-handle'></div></div>
+			<div class='menu-item-handle'>
+				<div class='menu-item-icon icon-handle'></div>
+			</div>
 		</div>
 		<!-- Media Tweaks Sub Menu -->
 		<ul class='sub-list menu-media-tweaks hidden r-old r-newnew'>
@@ -959,6 +966,7 @@
 					</label>
 				</div>
 				<p class='info' data-lang='JustOpenTheImageInfo'></p>
+				<p class='warning info-warning' id='perm-warning-just-open-the-image' data-lang='JustOpenTheImagePermissions' hidden></p>
 			</li>
 			<li class='container-3 r-newnew' data-query-words='media,numbered,images'>
 				<span class='menu-item-icon icon-numbers icon-numbered-post-images'></span>
@@ -1136,7 +1144,9 @@
 				<span data-lang='Productivity' class='menu-item-title'></span>
 				<div class='icon-chevron-down'></div>
 			</div>
-			<div class='menu-item-handle'><div class='menu-item-icon icon-handle'></div></div>
+			<div class='menu-item-handle'>
+				<div class='menu-item-icon icon-handle'></div>
+			</div>
 		</div>
 		<!-- Productivity Tweaks Sub Menu -->
 		<ul class='sub-list menu-productivity-tweaks hidden r-old r-newnew'>
@@ -1850,7 +1860,9 @@
 				<span data-lang='Font' class='menu-item-title'></span>
 				<div class='icon-chevron-down'></div>
 			</div>
-			<div class='menu-item-handle'><div class='menu-item-icon icon-handle'></div></div>
+			<div class='menu-item-handle'>
+				<div class='menu-item-icon icon-handle'></div>
+			</div>
 		</div>
 		<!-- Font Sub Menu -->
 		<ul class='sub-list menu-font hidden r-old r-newnew'>
@@ -1968,7 +1980,9 @@
 				<span data-lang='StyleTweaks' class='menu-item-title'></span>
 				<div class='icon-chevron-down'></div>
 			</div>
-			<div class='menu-item-handle'><div class='menu-item-icon icon-handle'></div></div>
+			<div class='menu-item-handle'>
+				<div class='menu-item-icon icon-handle'></div>
+			</div>
 		</div>
 		<!-- Style Tweaks Sub Menu -->
 		<ul id='category-style' class='sub-list menu-style-tweaks hidden r-old r-newnew'>
@@ -2702,7 +2716,9 @@
 				<span data-lang='Background' class='menu-item-title'></span>
 				<div class='icon-chevron-down'></div>
 			</div>
-			<div class='menu-item-handle'><div class='menu-item-icon icon-handle'></div></div>
+			<div class='menu-item-handle'>
+				<div class='menu-item-icon icon-handle'></div>
+			</div>
 		</div>
 		<!-- Background Sub Menu -->
 		<ul class='sub-list menu-background hidden r-old r-newnew'>
@@ -2792,7 +2808,9 @@
 				<span data-lang='Accessibility' class='menu-item-title'></span>
 				<div class='icon-chevron-down'></div>
 			</div>
-			<div class='menu-item-handle'><div class='menu-item-icon icon-handle'></div></div>
+			<div class='menu-item-handle'>
+				<div class='menu-item-icon icon-handle'></div>
+			</div>
 		</div>
 		<!-- Accessibility Sub Menu -->
 		<ul class='sub-list menu-accessibility hidden r-newnew'>
@@ -2866,7 +2884,9 @@
 				<span data-lang='Block' class='menu-item-title'></span>
 				<div class='icon-chevron-down'></div>
 			</div>
-			<div class='menu-item-handle'><div class='menu-item-icon icon-handle'></div></div>
+			<div class='menu-item-handle'>
+				<div class='menu-item-icon icon-handle'></div>
+			</div>
 		</div>
 		<!-- Block Sub Menu -->
 		<ul class='sub-list menu-block hidden r-old r-newnew'>
@@ -2874,51 +2894,9 @@
 				<span data-lang='Block'></span>
 			</li>
 			<li class='sub-header r-old r-newnew'>
-				<div class='sub-header-menu'>
-					<div class='r-old r-newnew'>
-						<a href='#block-keywords'><span data-lang='Posts'></span>/<span data-lang='Keywords'></span></a>
-						<div class='vdivider'></div>
-					</div>
-					<div class='r-old r-newnew'>
-						<a href='#block-posts-users'><span data-lang='Posts'></span>/<span data-lang='Users'></span></a>
-						<div class='vdivider'></div>
-					</div>
-					<div class='r-old r-newnew'>
-						<a href='#block-posts-subreddit'><span data-lang='Posts'></span>/<span data-lang='Subreddit'></span></a>
-						<div class='vdivider'></div>
-					</div>
-					<div class='r-old r-newnew'>
-						<a href='#block-posts-link'><span data-lang='Posts'></span>/<span data-lang='Link'></span></a>
-						<div class='vdivider'></div>
-					</div>
-					<div class='r-old r-newnew'>
-						<a href='#block-comments-keyword'><span data-lang='Comments'></span>/<span data-lang='Keywords'></span></a>
-						<div class='vdivider'></div>
-					</div>
-					<div class='r-old r-newnew'>
-						<a href='#block-comments-user'><span data-lang='Comments'></span>/<span data-lang='Users'></span></a>
-					</div>
-				</div>
+				<span data-lang='Users'></span>
 			</li>
-			<li class='sub-header r-old r-newnew'>
-				<span data-lang='Posts'></span>
-			</li>
-			<li id='block-keywords' class='container r-old r-newnew' data-query-words='block,keywords' style='scroll-margin-top: 80px'>
-				<div class='container-3'>
-					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-keyword-posts'></span>
-					<span data-lang='HidePostsContainingKeyword'></span>
-					<label class='switch'>
-						<input id='checkbox-hide-blocked-keyword-posts-enable' type='checkbox' />
-						<span class='indicator'></span>
-					</label>
-					<div></div>
-					<textarea id='input-blocked-keyword-posts' rows='4' cols='auto' placeholder='keyword,keyword'></textarea>
-				</div>
-				<p class='info' data-lang='BlockInfo'></p>
-				<p class='info' data-lang='KeywordsBlockInfo'></p>
-				<p class='info invalid-regex'></p>
-			</li>
-			<li id='block-posts-users' class='container r-old r-newnew' data-query-words='block,users' style='scroll-margin-top: 90px'>
+			<li class='container r-old r-newnew' data-query-words='block,users' style='scroll-margin-top: 90px'>
 				<div class='container-3'>
 					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-user-posts'></span>
 					<span data-lang='HidePostsByUser'></span>
@@ -2926,28 +2904,43 @@
 						<input id='checkbox-hide-blocked-user-posts-enable' type='checkbox' />
 						<span class='indicator'></span>
 					</label>
-					<div></div>
-					<textarea id='input-blocked-user-posts' rows='4' cols='auto' placeholder='user,user'></textarea>
 				</div>
-				<p class='info' data-lang='BlockInfo'></p>
-				<p class='info invalid-regex'></p>
-			</li>
-			<li id='block-posts-subreddit' class='container r-old r-newnew' data-query-words='block,subreddit' style='scroll-margin-top: 90px'>
 				<div class='container-3'>
-					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-subreddit-posts'></span>
-					<span data-lang='HidePostsBySubreddit'></span>
+					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-user-comments'></span>
+					<span data-lang='HideCommentsByUser'></span>
 					<label class='switch'>
-						<input id='checkbox-hide-blocked-subreddit-posts-enable' type='checkbox' />
+						<input id='checkbox-hide-blocked-user-comments-enable' type='checkbox' />
 						<span class='indicator'></span>
 					</label>
-					<div></div>
-					<textarea id='input-blocked-subreddit-posts' rows='4' cols='auto' placeholder='subreddit,subreddit'></textarea>
 				</div>
-				<p class='info' data-lang='BlockInfo'></p>
-				<p class='info' data-lang='SubredditBlockInfo'></p>
-				<p class='info invalid-regex'></p>
+				<hr>
+				<button class='btn btn-open-block-manager' data-tab='users' data-lang='ManageBlocks'></button>
 			</li>
-			<li id='block-posts-link' class='container r-old r-newnew' data-query-words='block,link,url' style='scroll-margin-top: 90px'>
+			<li class='sub-header r-old r-newnew'>
+				<span data-lang='Keywords'></span>
+			</li>
+			<li class='container r-old r-newnew' data-query-words='block,keywords' style='scroll-margin-top: 80px'>
+				<div class='container-3'>
+					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-keyword-posts'></span>
+					<span data-lang='HidePostsContainingKeyword'></span>
+					<label class='switch'>
+						<input id='checkbox-hide-blocked-keyword-posts-enable' type='checkbox' />
+						<span class='indicator'></span>
+					</label>
+				</div>
+				<div class='container-3'>
+					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-keyword-comments'></span>
+					<span data-lang='HideCommentsContainingKeyword'></span>
+					<label class='switch'>
+						<input id='checkbox-hide-blocked-keyword-comments-enable' type='checkbox' />
+						<span class='indicator'></span>
+					</label>
+				</div>
+				<hr>
+				<button class='btn btn-open-block-manager' data-tab='keywords' data-lang='ManageBlocks'></button>
+				<p class='info' data-lang='KeywordsBlockInfo'></p>
+			</li>
+			<li class='container r-old r-newnew' data-query-words='block,link,url' style='scroll-margin-top: 90px'>
 				<div class='container-3'>
 					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-link-posts'></span>
 					<span data-lang='HideLinkPostsByUrlKeyword'></span>
@@ -2956,43 +2949,24 @@
 						<span class='indicator'></span>
 					</label>
 					<div></div>
-					<textarea id='input-blocked-link-posts' rows='4' cols='auto' placeholder='keyword,keyword'></textarea>
+					<button class='btn btn-open-block-manager' data-tab='keywords' data-lang='ManageBlocks'></button>
 				</div>
-				<p class='info' data-lang='BlockInfo'></p>
-				<p class='info invalid-regex'></p>
 			</li>
 			<li class='sub-header r-old r-newnew'>
-				<span data-lang='Comments'></span>
+				<span data-lang='Subreddit'></span>
 			</li>
-			<li id='block-comments-keyword' class='container r-old r-newnew' data-query-words='block,comments' style='scroll-margin-top: 70px'>
+			<li class='container r-old r-newnew' data-query-words='block,subreddit' style='scroll-margin-top: 90px'>
 				<div class='container-3'>
-					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-keyword-comments'></span>
-					<span data-lang='HideCommentsContainingKeyword'></span>
+					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-subreddit-posts'></span>
+					<span data-lang='HidePostsBySubreddit'></span>
 					<label class='switch'>
-						<input id='checkbox-hide-blocked-keyword-comments-enable' type='checkbox' />
+						<input id='checkbox-hide-blocked-subreddit-posts-enable' type='checkbox' />
 						<span class='indicator'></span>
 					</label>
 					<div></div>
-					<textarea id='input-blocked-keyword-comments' rows='4' cols='auto' placeholder='keyword,keyword'></textarea>
+					<button class='btn btn-open-block-manager' data-tab='subreddits' data-lang='ManageBlocks'></button>
 				</div>
-				<p class='info' data-lang='BlockInfo'></p>
-				<p class='info' data-lang='CommentsBlockInfo'></p>
-				<p class='info invalid-regex'></p>
-			</li>
-			<li id='block-comments-user' class='container r-old r-newnew' data-query-words='block,comments' style='scroll-margin-top: 70px'>
-				<div class='container-3'>
-					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-user-comments'></span>
-					<span data-lang='HideCommentsByUser'></span>
-					<label class='switch'>
-						<input id='checkbox-hide-blocked-user-comments-enable' type='checkbox' />
-						<span class='indicator'></span>
-					</label>
-					<div></div>
-					<textarea id='input-blocked-user-comments' rows='4' cols='auto' placeholder='user,user'></textarea>
-				</div>
-				<p class='info' data-lang='BlockInfo'></p>
-				<p class='info' data-lang='CommentsBlockInfo'></p>
-				<p class='info invalid-regex'></p>
+				<p class='info' data-lang='SubredditBlockInfo'></p>
 			</li>
 		</ul>
 	</li>
@@ -3005,22 +2979,25 @@
 				<span data-lang='UserTagging' class='menu-item-title'></span>
 				<div class='icon-chevron-down'></div>
 			</div>
-			<div class='menu-item-handle'><div class='menu-item-icon icon-handle'></div></div>
+			<div class='menu-item-handle'>
+				<div class='menu-item-icon icon-handle'></div>
+			</div>
 		</div>
 		<!-- User Tagging Sub Menu -->
 		<ul class='sub-list menu-user-tagging hidden r-old r-newnew'>
 			<li class='sub-header sub-search-title'>
 				<span data-lang='UserTagging'></span>
 			</li>
-			<li class='container-3 r-old r-newnew'>
-				<span class='menu-item-icon icon-tag icon-user-tagging'></span>
-				<span data-lang='EnableUserTagging'></span>
-				<label class='switch'>
-					<input id='checkbox-user-tagging-enable' type='checkbox' />
-					<span class='indicator'></span>
-				</label>
-			</li>
 			<li class='container r-old r-newnew'>
+				<div class="container-3">
+					<span class='menu-item-icon icon-tag icon-user-tagging'></span>
+					<span data-lang='EnableUserTagging'></span>
+					<label class='switch'>
+						<input id='checkbox-user-tagging-enable' type='checkbox' />
+						<span class='indicator'></span>
+					</label>
+				</div>
+				<hr>
 				<button id='btn-manage-tagged-users' class='btn btn-manage-tagged-users' data-lang='ManageTaggedUsers'></button>
 			</li>
 			<li class='sub-header r-old r-newnew'>

@@ -1,218 +1,221 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="stylesheet" href="popup.css" />
-	</head>
-	<body id="popup" class="theme-dark i18n-pending" style="display: none">
-		<!-- = Title = -->
-		<div class="menu-title-container">
-			<span class="menu-title">
-				<span data-lang="extensionName"></span>
-			</span>
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="popup.css" />
+</head>
+
+<body id="popup" class="theme-dark i18n-pending" style="display: none">
+	<!-- = Title = -->
+	<div class="menu-title-container">
+		<span class="menu-title">
+			<span data-lang="extensionName"></span>
+		</span>
+	</div>
+
+	<!-- = Shade = -->
+	<div id="shade">
+		<div id="btn-shade" class="btn-icon icon-chevron-up"></div>
+		<div id="btn-unshade" class="btn-icon icon-chevron-down" style="display: none"></div>
+	</div>
+
+	<!-- = Top Menu Bar = -->
+	<div class="top-menu-bar">
+		<!-- = Search and Version Filter = -->
+		<div class="search-container">
+			<input id="search" type="text" name="search" autocomplete="off" />
+			<div id="btn-clear-search" class="btn-icon icon-delete-left hidden"></div>
 		</div>
 
-		<!-- = Shade = -->
-		<div id="shade">
-			<div id="btn-shade" class="btn-icon icon-chevron-up"></div>
-			<div id="btn-unshade" class="btn-icon icon-chevron-down" style="display: none"></div>
-		</div>
-
-		<!-- = Top Menu Bar = -->
-		<div class="top-menu-bar">
-			<!-- = Search and Version Filter = -->
-			<div class="search-container">
-				<input id="search" type="text" name="search" autocomplete="off" />
-				<div id="btn-clear-search" class="btn-icon icon-delete-left hidden"></div>
+		<div id="select-version" class="dropdown">
+			<div class="select">
+				<div class="icon icon-filter"></div>
+				<span id="chosen-version"></span>
+				<div class="icon dropdown-icon icon-chevron-down"></div>
 			</div>
+			<input type="hidden" name="version" />
+			<ul id="select-version-menu" class="dropdown-menu">
+				<li id="newnew-reddit"><span data-lang="Latest"></span></li>
+				<li id="old-reddit"><span data-lang="Old"></span></li>
+			</ul>
+			<div id="start-page-select-version" class="start-page-info hidden">
+				<div class="icon icon-arrow-up"></div>
+				<span data-lang="SelectRedditVersion"></span>
+			</div>
+		</div>
 
-			<div id="select-version" class="dropdown">
-				<div class="select">
-					<div class="icon icon-filter"></div>
-					<span id="chosen-version"></span>
-					<div class="icon dropdown-icon icon-chevron-down"></div>
+		<!-- = Redirect = -->
+		<div id="select-reddit-version" class="dropdown">
+			<div class="select">
+				<div class="icon icon-redirect"></div>
+				<span id="chosen-reddit-version"></span>
+				<div class="icon dropdown-icon icon-chevron-down"></div>
+			</div>
+			<input type="hidden" name="reddit-version" />
+			<ul id="select-reddit-version-menu" class="dropdown-menu">
+				<li id="redirect-off" data-version="off"><span data-lang="Off"></span></li>
+				<li id="redirect-latest-reddit" data-version="latest"><span data-lang="Latest"></span></li>
+				<li id="redirect-old-reddit" data-version="old"><span data-lang="Old"></span></li>
+				<li id="redirect-old-www-reddit" data-version="old_www"><span data-lang="OldWww"></span></li>
+			</ul>
+			<div id="start-page-select-redirect" class="start-page-info hidden">
+				<div class="icon icon-arrow-up"></div>
+				<span data-lang="SelectRedirect"></span>
+			</div>
+		</div>
+	</div>
+
+	<!-- = Banner Messages = -->
+	<div id="firefox-update-message" class="banner-message" style="display: none">
+		<span data-lang="UpdateFirefox"></span>
+		<div class="message-buttons">
+			<div class="btn close" data-lang="Close"></div>
+		</div>
+	</div>
+	<div id="latest-ui-message" class="banner-message blue" style="display: none">
+		<span data-lang="RV3RedirectInfo"></span>
+		<div class="message-buttons">
+			<div class="btn close" data-lang="Close"></div>
+			<div class="btn dont-show-again" data-lang="DontShowAgain"></div>
+		</div>
+	</div>
+	<div id="old-www-ui-message" class="banner-message blue" style="display: none">
+		<span data-lang="RV1RedirectInfo"></span>
+		<div class="message-buttons">
+			<div class="btn close" data-lang="Close"></div>
+			<div class="btn dont-show-again" data-lang="DontShowAgain"></div>
+		</div>
+	</div>
+
+	<!-- = Start Page = -->
+	<div id="start-page" class="hidden">
+		<span data-lang="Welcome"></span>
+	</div>
+
+	<!-- = Quick Category Menu Selector = -->
+	<div>
+		<div id="top-menu-accordion" class="accordion">
+			<div class="accordion-header">
+				<span class="accordion-btn"></span>
+			</div>
+			<div id="top-menu" class="sub-header-menu accordion-content">
+				<div data-index="1" class="r-old r-newnew">
+					<a href="#index-1" data-lang="ResizeLayout"></a>
+					<div class="vdivider"></div>
 				</div>
-				<input type="hidden" name="version" />
-				<ul id="select-version-menu" class="dropdown-menu">
-					<li id="newnew-reddit"><span data-lang="Latest"></span></li>
-					<li id="old-reddit"><span data-lang="Old"></span></li>
-				</ul>
-				<div id="start-page-select-version" class="start-page-info hidden">
-					<div class="icon icon-arrow-up"></div>
-					<span data-lang="SelectRedditVersion"></span>
+				<div data-index="2" class="r-old r-newnew">
+					<a href="#index-2" data-lang="HideElements"></a>
+					<div class="vdivider"></div>
 				</div>
-			</div>
-
-			<!-- = Redirect = -->
-			<div id="select-reddit-version" class="dropdown">
-				<div class="select">
-					<div class="icon icon-redirect"></div>
-					<span id="chosen-reddit-version"></span>
-					<div class="icon dropdown-icon icon-chevron-down"></div>
+				<div data-index="8" class="r-old r-newnew">
+					<a href="#index-8" data-lang="Media"></a>
+					<div class="vdivider"></div>
 				</div>
-				<input type="hidden" name="reddit-version" />
-				<ul id="select-reddit-version-menu" class="dropdown-menu">
-					<li id="redirect-off" data-version="off"><span data-lang="Off"></span></li>
-					<li id="redirect-latest-reddit" data-version="latest"><span data-lang="Latest"></span></li>
-					<li id="redirect-old-reddit" data-version="old"><span data-lang="Old"></span></li>
-					<li id="redirect-old-www-reddit" data-version="old_www"><span data-lang="OldWww"></span></li>
-				</ul>
-				<div id="start-page-select-redirect" class="start-page-info hidden">
-					<div class="icon icon-arrow-up"></div>
-					<span data-lang="SelectRedirect"></span>
+				<div data-index="3" class="r-old r-newnew">
+					<a href="#index-3" data-lang="Productivity"></a>
+					<div class="vdivider"></div>
 				</div>
-			</div>
-		</div>
-
-		<!-- = Banner Messages = -->
-		<div id="firefox-update-message" class="banner-message" style="display: none">
-			<span data-lang="UpdateFirefox"></span>
-			<div class="message-buttons">
-				<div class="btn close" data-lang="Close"></div>
-			</div>
-		</div>
-		<div id="latest-ui-message" class="banner-message blue" style="display: none">
-			<span data-lang="RV3RedirectInfo"></span>
-			<div class="message-buttons">
-				<div class="btn close" data-lang="Close"></div>
-				<div class="btn dont-show-again" data-lang="DontShowAgain"></div>
-			</div>
-		</div>
-		<div id="old-www-ui-message" class="banner-message blue" style="display: none">
-			<span data-lang="RV1RedirectInfo"></span>
-			<div class="message-buttons">
-				<div class="btn close" data-lang="Close"></div>
-				<div class="btn dont-show-again" data-lang="DontShowAgain"></div>
-			</div>
-		</div>
-
-		<!-- = Start Page = -->
-		<div id="start-page" class="hidden">
-			<span data-lang="Welcome"></span>
-		</div>
-
-		<!-- = Quick Category Menu Selector = -->
-		<div>
-			<div id="top-menu-accordion" class="accordion">
-				<div class="accordion-header">
-					<span class="accordion-btn"></span>
+				<div data-index="7" class="r-old r-newnew">
+					<a href="#index-7" data-lang="Font"></a>
+					<div class="vdivider"></div>
 				</div>
-				<div id="top-menu" class="sub-header-menu accordion-content">
-					<div data-index="1" class="r-old r-newnew">
-						<a href="#index-1" data-lang="ResizeLayout"></a>
-						<div class="vdivider"></div>
-					</div>
-					<div data-index="2" class="r-old r-newnew">
-						<a href="#index-2" data-lang="HideElements"></a>
-						<div class="vdivider"></div>
-					</div>
-					<div data-index="8" class="r-old r-newnew">
-						<a href="#index-8" data-lang="Media"></a>
-						<div class="vdivider"></div>
-					</div>
-					<div data-index="3" class="r-old r-newnew">
-						<a href="#index-3" data-lang="Productivity"></a>
-						<div class="vdivider"></div>
-					</div>
-					<div data-index="7" class="r-old r-newnew">
-						<a href="#index-7" data-lang="Font"></a>
-						<div class="vdivider"></div>
-					</div>
-					<div data-index="4" class="r-old r-newnew">
-						<a href="#index-4" data-lang="StyleTweaks"></a>
-						<div class="vdivider"></div>
-					</div>
-					<div data-index="5" class="r-old r-newnew">
-						<a href="#index-5" data-lang="Background"></a>
-						<div class="vdivider"></div>
-					</div>
-					<div data-index="6" class="r-old r-newnew">
-						<a href="#index-6" data-lang="Accessibility"></a>
-						<div class="vdivider"></div>
-					</div>
-					<div data-index="10" class="r-old r-newnew">
-						<a href="#index-10" data-lang="Block"></a>
-						<div class="vdivider"></div>
-					</div>
-					<div data-index="11" class="r-old r-newnew">
-						<a href="#index-11" data-lang="UserTagging"></a>
-						<div class="vdivider"></div>
-					</div>
-					<!--<div data-index="0" class="r-new">
+				<div data-index="4" class="r-old r-newnew">
+					<a href="#index-4" data-lang="StyleTweaks"></a>
+					<div class="vdivider"></div>
+				</div>
+				<div data-index="5" class="r-old r-newnew">
+					<a href="#index-5" data-lang="Background"></a>
+					<div class="vdivider"></div>
+				</div>
+				<div data-index="6" class="r-old r-newnew">
+					<a href="#index-6" data-lang="Accessibility"></a>
+					<div class="vdivider"></div>
+				</div>
+				<div data-index="10" class="r-old r-newnew">
+					<a href="#index-10" data-lang="Block"></a>
+					<div class="vdivider"></div>
+				</div>
+				<div data-index="11" class="r-old r-newnew">
+					<a href="#index-11" data-lang="UserTagging"></a>
+					<div class="vdivider"></div>
+				</div>
+				<!--<div data-index="0" class="r-new">
 						<a href="#index-0" data-lang="DarkMode"></a>
 						<div class="vdivider"></div>
 					</div>-->
-					<!--<div data-index="9" class="r-old r-newnew">
+				<!--<div data-index="9" class="r-old r-newnew">
 					<a href="#index-9" data-lang="AccountSwitcher"></a>
 					<div class="vdivider"></div>
 				</div>-->
-				</div>
 			</div>
 		</div>
+	</div>
 
-		<!-- = Menu = -->
-		<div id="colour-picker-bg"></div>
-		{{> menu}} <!-- add inputs to /src/common/templates/partials/menu.hbs -->
+	<!-- = Menu = -->
+	<div id="colour-picker-bg"></div>
+	{{> menu}} <!-- add inputs to /src/common/templates/partials/menu.hbs -->
 
-		<!-- = No Search Results Page = -->
-		<div id="no-search-results" class="hidden">
-			<span>¯\_(ツ)_/¯</span>
+	<!-- = No Search Results Page = -->
+	<div id="no-search-results" class="hidden">
+		<span>¯\_(ツ)_/¯</span>
+	</div>
+
+	<!-- = Changelog Page = -->
+	<div id="changelog" style="display: none">
+		<h3 data-lang="Changelog"></h3>
+		<div id="new-update-message" class="banner-message amber hidden">
+			<span data-lang="NewUpdateAvailable"></span>
 		</div>
-
-		<!-- = Changelog Page = -->
-		<div id="changelog" style="display: none">
-			<h3 data-lang="Changelog"></h3>
-			<div id="new-update-message" class="banner-message amber hidden">
-				<span data-lang="NewUpdateAvailable"></span>
-			</div>
-			<div class="log-container">
-				<div class="log"></div>
-			</div>
+		<div class="log-container">
+			<div class="log"></div>
 		</div>
+	</div>
 
-		<!-- = Settings Page = -->
-		{{> settings}} <!-- /src/common/templates/partials/settings.hbs -->
+	<!-- = Settings Page = -->
+	{{> settings}} <!-- /src/common/templates/partials/settings.hbs -->
 
-		<!-- = Footer = -->
-		<div class="footer">
-			<div id="btn-settings-container">
-				<div id="btn-open-options-page" class="btn btn-icon">
-					<div class="icon icon-arrow-square"></div>
-					<span data-lang="OptionsPage"></span>
-				</div>
-				<div id="start-page-set-language" class="start-page-info hidden">
-					<span data-lang="SetLanguageAndTheme"></span>
-					<div class="icon icon-arrow-down" style="margin-left: 50px"></div>
-				</div>
-				<div id="btn-settings" class="btn btn-icon">
-					<div class="icon icon-gear"></div>
-					<span data-lang="Settings"></span>
-				</div>
+	<!-- = Footer = -->
+	<div class="footer">
+		<div id="btn-settings-container">
+			<div id="btn-open-options-page" class="btn btn-icon">
+				<div class="icon icon-arrow-square"></div>
+				<span data-lang="OptionsPage"></span>
 			</div>
-			<div class="footer-links">
-				<a class="donate" href="https://ko-fi.com/T6T1A9BIL" target="_blank">
-					<div class="kofi-logo"></div>
-					<div data-lang="BuyMeACoffee"></div>
-				</a>
-				<a href="https://github.com/joelacus/RedditEnhancer" target="_blank">
-					<div class="link-icon icon icon-github"></div>
-					<span><span data-lang="ReportIssues"></span> / GitHub</span>
-				</a>
-				<div id="btn-rate" class="link">
-					<div class="link-icon icon icon-star"></div>
-					<span data-lang="Rate"></span>
-				</div>
-				<a href="https://www.reddit.com/r/RedditEnhancer" target="_blank">
-					<div class="link-icon icon icon-reddit"></div>
-					<span>r/RedditEnhancer</span>
-				</a>
-				<div class="version">
-					<span class="btn-changelog link" data-lang="extensionVersion" style="text-decoration: underline"></span>
-					<span id="new-update" class="hidden">!</span>
-				</div>
+			<div id="start-page-set-language" class="start-page-info hidden">
+				<span data-lang="SetLanguageAndTheme"></span>
+				<div class="icon icon-arrow-down" style="margin-left: 50px"></div>
+			</div>
+			<div id="btn-settings" class="btn btn-icon">
+				<div class="icon icon-gear"></div>
+				<span data-lang="Settings"></span>
 			</div>
 		</div>
-	</body>
-	
-		<!-- = Scripts (automatically injected by HtmlWebpackPlugin) = -->
-	</html>
+		<div class="footer-links">
+			<a class="donate" href="https://ko-fi.com/T6T1A9BIL" target="_blank">
+				<div class="kofi-logo"></div>
+				<div data-lang="BuyMeACoffee"></div>
+			</a>
+			<a href="https://github.com/joelacus/RedditEnhancer" target="_blank">
+				<div class="link-icon icon icon-github"></div>
+				<span><span data-lang="ReportIssues"></span> / GitHub</span>
+			</a>
+			<div id="btn-rate" class="link">
+				<div class="link-icon icon icon-star"></div>
+				<span data-lang="Rate"></span>
+			</div>
+			<a href="https://www.reddit.com/r/RedditEnhancer" target="_blank">
+				<div class="link-icon icon icon-reddit"></div>
+				<span>r/RedditEnhancer</span>
+			</a>
+			<div class="version">
+				<span class="btn-changelog link" data-lang="extensionVersion" style="text-decoration: underline"></span>
+				<span id="new-update" class="hidden">!</span>
+			</div>
+		</div>
+	</div>
+</body>
+
+<!-- = Scripts (automatically injected by HtmlWebpackPlugin) = -->
+
+</html>

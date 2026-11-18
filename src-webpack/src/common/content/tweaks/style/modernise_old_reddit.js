@@ -1,7 +1,7 @@
 /**
  * Tweaks: Style - Modernise Old Reddit
  *
- * @name largerClassicPost
+ * @name moderniseOldReddit
  * @description Style old Reddit look and feel like new Reddit.
  *
  * Compatibility: RV1 (Old UI) (2005-)

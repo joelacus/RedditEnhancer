@@ -190,3 +190,62 @@ export function removeToast(toast) {
 		});
 	}, 300);
 }
+
+// Full-screen loading overlay with a spinner and message, for operations that
+// would otherwise leave the page looking frozen (e.g. importing large backups).
+export function showLoadingOverlay(message) {
+	let overlay = document.getElementById('re-loading-overlay');
+	if (!overlay) {
+		const style = document.createElement('style');
+		style.id = 're-loading-overlay-style';
+		style.textContent = `
+			#re-loading-overlay {
+				position: fixed;
+				inset: 0;
+				background: rgba(0, 0, 0, 0.6);
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 16px;
+				z-index: 999997;
+			}
+			#re-loading-overlay .re-loading-spinner {
+				width: 48px;
+				height: 48px;
+				border: 5px solid rgba(255, 255, 255, 0.3);
+				border-top-color: white;
+				border-radius: 50%;
+				animation: re-loading-spin 0.8s linear infinite;
+			}
+			@keyframes re-loading-spin {
+				to { transform: rotate(360deg); }
+			}
+			#re-loading-overlay .re-loading-text {
+				color: white;
+				font-size: 16px;
+				font-weight: 600;
+				font-family: Verdana, sans-serif;
+			}
+		`;
+		document.head.appendChild(style);
+
+		overlay = document.createElement('div');
+		overlay.id = 're-loading-overlay';
+		overlay.style.display = 'none';
+		const spinner = document.createElement('div');
+		spinner.className = 're-loading-spinner';
+		const text = document.createElement('div');
+		text.className = 're-loading-text';
+		overlay.appendChild(spinner);
+		overlay.appendChild(text);
+		document.body.appendChild(overlay);
+	}
+	overlay.querySelector('.re-loading-text').textContent = message || '';
+	overlay.style.display = 'flex';
+	return overlay;
+}
+
+export function hideLoadingOverlay() {
+	document.getElementById('re-loading-overlay')?.style.setProperty('display', 'none');
+}

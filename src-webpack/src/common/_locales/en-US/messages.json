@@ -11,6 +11,9 @@
 	"Colour": {
 		"message": "Color"
 	},
+	"DownvoteColour": {
+		"message": "Post: Downvote Color"
+	},
 	"HeaderBgColour": {
 		"message": "Header Background Color"
 	},
@@ -43,6 +46,9 @@
 	},
 	"PostContentAndCommentsLinkColour": {
 		"message": "Post: Content And Comments Link Color"
+	},
+	"PostFollowedTextColour": {
+		"message": "Followed Post: Text Color"
 	},
 	"PostSecondaryTextColour": {
 		"message": "Post: Secondary Text Color"
@@ -79,6 +85,9 @@
 	},
 	"SolidColour": {
 		"message": "Solid Color"
+	},
+	"SubHeaderBgColour": {
+		"message": "Subreddit Header Background Color"
 	},
 	"TagColour": {
 		"message": "Tag Color"

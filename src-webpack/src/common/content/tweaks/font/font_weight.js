@@ -3,7 +3,7 @@
  *
  * @description Change some of the font weights on the website.
  *
- * Compatibility: RV1 (Old UI) (2005-)
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
 import { validateEnum } from '../../../popup/restore/validation';

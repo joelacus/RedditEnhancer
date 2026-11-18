@@ -11,8 +11,8 @@
 
 export function loadScaleProfileAvatar() {
 	BROWSER_API.storage.sync.get(['scaleProfileAvatar'], function (result) {
-		const value = result.scaleProfileAvatar;
-		if (value) scaleProfileAvatar(value);
+		const value = result.scaleProfileAvatar ?? 1;
+		if (value >= 1.1 && value <= 5) scaleProfileAvatar(value);
 	});
 }
 

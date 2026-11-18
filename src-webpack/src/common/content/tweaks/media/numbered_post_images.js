@@ -1,10 +1,10 @@
 /**
- * Tweaks: Hide Elements - Numbered Post Images
+ * Tweaks: Media - Numbered Post Images
  *
  * @name numberedPostImages
  * @description Append numbers to image posts with multiple images.
  *
- * Compatibility: RV3 (New New UI) (2023-)
+ * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
  */
 
 import { debounce } from '../../../utilities/debounce';

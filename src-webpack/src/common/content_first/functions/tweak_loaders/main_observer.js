@@ -13,7 +13,7 @@
  * @param {boolean} [params.shadowRoot] - Whether to wait for the element's shadowRoot to initialise.
  * @param {string} [params.shadowChild] - CSS selector for a child inside the shadowRoot to wait for.
  * @param {function} params.done - Callback invoked with the found result (element, shadowRoot, or shadow child).
- * @param {number|false} [timeout=10000] - Maximum time to wait in milliseconds. Pass `false` to disable.
+ * @param {number|false} [timeout=10000] - Optional second argument (not a property of `params`): maximum time to wait in milliseconds before aborting. Pass `false` to disable.
  */
 
 export function waitForAddedNode(params, timeout) {
@@ -24,7 +24,7 @@ export function waitForAddedNode(params, timeout) {
 	let innerObserver; // Watches a shadowRoot for the shadowChild being added.
 	let shadowCheckInterval; // Polls the host for its shadowRoot to initialise.
 
-	// ─── Helpers ──────────────────────────────────────────────────────────────
+	// ─── Helpers ────────────────────────────────────────────────────────────
 
 	// Tears down all active observers/intervals/timeouts.
 	function cleanup() {
@@ -82,7 +82,7 @@ export function waitForAddedNode(params, timeout) {
 		}
 	}
 
-	// ─── Initial check ────────────────────────────────────────────────────────
+	// ─── Initial check ──────────────────────────────────────────────────────
 
 	// If the host element already exists, bypass the observer entirely.
 	if (targetNode) {
@@ -90,7 +90,7 @@ export function waitForAddedNode(params, timeout) {
 		return;
 	}
 
-	// ─── Wait for element to load ─────────────────────────────────────────────
+	// ─── Wait for element to load ───────────────────────────────────────────
 
 	// Observes the parent for the host node to be appended, then processes it.
 	outerObserver = new MutationObserver(function () {
@@ -107,9 +107,9 @@ export function waitForAddedNode(params, timeout) {
 	});
 
 	if (timeout !== false) {
-		// Abort and clean up if the element/shadowRoot is not found within 10 seconds.
+		// Abort and clean up if the element/shadowRoot is not found within the timeout (10 seconds unless overridden).
 		timer = setTimeout(() => {
 			cleanup();
-		}, 10000);
+		}, typeof timeout === 'number' ? timeout : 10000);
 	}
 }

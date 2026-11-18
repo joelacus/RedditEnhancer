@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "3.5.1"
+		"message": "3.6.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -116,6 +116,12 @@
 	"Backup": {
 		"message": "Backup"
 	},
+	"BackupBlocksOnly": {
+		"message": "Blocks Only"
+	},
+	"BackupEverything": {
+		"message": "Everything"
+	},
 	"BackupFailed": {
 		"message": "Something went wrong. Check the dev console (F12) for the error."
 	},
@@ -124,6 +130,12 @@
 	},
 	"BackupRestored": {
 		"message": "Backup Restored!"
+	},
+	"BackupSettingsOnly": {
+		"message": "Settings Only"
+	},
+	"BackupUserTagsOnly": {
+		"message": "User Tags Only"
 	},
 	"Best": {
 		"message": "Best"
@@ -155,8 +167,50 @@
 	"Block": {
 		"message": "Block"
 	},
+	"BlockAdd": {
+		"message": "Add block"
+	},
+	"BlockAlreadyAdded": {
+		"message": "Already in the block list."
+	},
+	"BlockExport": {
+		"message": "Export blocks"
+	},
+	"BlockImport": {
+		"message": "Import blocks"
+	},
+	"BlockImportSuccess": {
+		"message": "Imported {count} block(s)."
+	},
 	"BlockInfo": {
-		"message": "Supports exact keyword match, or regular expressions."
+		"message": "Supports exact keyword match, or regular expressions. \"*\" can be used as wildcards, e.g. \"user*\" (\"user\" with anything after will be blocked)."
+	},
+	"BlockKeywordsTab": {
+		"message": "Keywords"
+	},
+	"BlockManagerInfo": {
+		"message": "Blocked users, subreddits and keywords are stored locally on this device. Export them to avoid any potential data loss."
+	},
+	"BlockManagerTitle": {
+		"message": "Block Manager"
+	},
+	"BlockNoEntries": {
+		"message": "No blocked entries"
+	},
+	"BlockPattern": {
+		"message": "Pattern"
+	},
+	"BlockPostsAndComments": {
+		"message": "Posts & Comments"
+	},
+	"BlockScope": {
+		"message": "Scope"
+	},
+	"BlockSubredditsTab": {
+		"message": "Subreddits"
+	},
+	"BlockUsersTab": {
+		"message": "Users"
 	},
 	"Blur": {
 		"message": "Blur"
@@ -200,9 +254,6 @@
 	"ChooseVersionForEachConflict": {
 		"message": "Choose which version to keep for each conflict:"
 	},
-	"ClassicLight": {
-		"message": "Classic Light"
-	},
 	"ClassicOldUI": {
 		"message": "Classic Old UI"
 	},
@@ -229,9 +280,6 @@
 	},
 	"Comments": {
 		"message": "Comments"
-	},
-	"CommentsBlockInfo": {
-		"message": "List individual keywords/regex, separated by a comma."
 	},
 	"CommentsCount": {
 		"message": "Comments count"
@@ -305,6 +353,9 @@
 	"DarkMode": {
 		"message": "Dark Mode"
 	},
+	"DarkThemes": {
+		"message": "Dark theme"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "Default Comments Sort Option"
 	},
@@ -317,11 +368,20 @@
 	"Delete": {
 		"message": "Delete"
 	},
+	"DeleteLocalData": {
+		"message": "Delete Local Data"
+	},
+	"DeleteSelectedBlocks": {
+		"message": "Delete selected"
+	},
 	"DeleteSelectedTags": {
 		"message": "Delete Selected"
 	},
 	"DeleteSelectedTagsConfirm": {
 		"message": "Delete {count} selected tags?"
+	},
+	"DeleteSyncData": {
+		"message": "Delete Sync Data"
 	},
 	"DeleteTagForUser": {
 		"message": "Delete tag for u/{username}?"
@@ -448,9 +508,6 @@
 	},
 	"GlobalWidth": {
 		"message": "Global Max. Width"
-	},
-	"Grey": {
-		"message": "Grey"
 	},
 	"Header": {
 		"message": "Header"
@@ -675,7 +732,7 @@
 		"message": "Only hide the sidebar on these subreddits:"
 	},
 	"HideTrendingTodayInSearchResults": {
-		"message": "Hide 'Trending Today' in the Search Bar"
+		"message": "Hide \"Trending\" in the Search Bar"
 	},
 	"HideUsername": {
 		"message": "Hide Username"
@@ -734,6 +791,9 @@
 	"Imported": {
 		"message": "Imported"
 	},
+	"Importing": {
+		"message": "Importing..."
+	},
 	"ImportInvalidFormat": {
 		"message": "Invalid file format."
 	},
@@ -752,11 +812,14 @@
 	"JustOpenTheImageInfo": {
 		"message": "When opening images in a new tab, open them directly without embedding them on a Reddit page."
 	},
+	"JustOpenTheImagePermissions": {
+		"message": "Permissions not granted. \"Just Open The Image\" needs access to reddit.com and redd.it. Enable \"Access your data for sites in the *://reddit.com domain\" and \"Access your data for sites in the *://redd.it domain\" for Reddit Enhancer in your browser's extension permission settings (Firefox: about:addons → Reddit Enhancer → Manage → Permissions)."
+	},
 	"Keywords": {
 		"message": "Keywords"
 	},
 	"KeywordsBlockInfo": {
-		"message": "Blocks posts based on the title, not the content. List individual keywords/regex, separated by a comma."
+		"message": "Blocks posts based on the title, not the content."
 	},
 	"Label": {
 		"message": "Label"
@@ -785,6 +848,9 @@
 	"LightMode": {
 		"message": "Light mode"
 	},
+	"LightThemes": {
+		"message": "Light theme"
+	},
 	"LimitCommentsInfo": {
 		"message": "Only works for posts opened in a new tab/window."
 	},
@@ -797,11 +863,20 @@
 	"Link": {
 		"message": "Link"
 	},
+	"Loading": {
+		"message": "Loading..."
+	},
 	"LocalStorage": {
 		"message": "Local Storage"
 	},
+	"LocalStorageInfo": {
+		"message": "10MiB is typical, but some browsers might be able to store more, or less, hard to detect."
+	},
 	"MainContainer": {
 		"message": "Main Container"
+	},
+	"ManageBlocks": {
+		"message": "Manage blocks"
 	},
 	"ManageTaggedUsers": {
 		"message": "Manage Tagged Users"
@@ -829,6 +904,9 @@
 	},
 	"Media": {
 		"message": "Media"
+	},
+	"MissingRequiredInput": {
+		"message": "Fill in all required fields."
 	},
 	"ModerniseOldReddit": {
 		"message": "Modernise old.reddit"
@@ -1324,6 +1402,9 @@
 	},
 	"ToggleCompactPost": {
 		"message": "Toggle Compact Post"
+	},
+	"TooManyEntries": {
+		"message": "You have a lot of entries. This can degrade performance and use more RAM for each open tab of Reddit."
 	},
 	"Top": {
 		"message": "Top"

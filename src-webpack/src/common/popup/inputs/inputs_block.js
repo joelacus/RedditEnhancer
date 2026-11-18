@@ -2,63 +2,7 @@
 // Popup / Inputs / Block
 // ────────────────────────────────────────────────────────────────────────────
 
-import { debounce } from '../../utilities/debounce';
 import { sendMessage } from '../../utilities/send_message';
-
-// Validate regex patterns in a comma-separated list.
-// Returns true if all patterns that look like regex (starting with '/') are valid.
-export function validateRegexList(value) {
-	if (!value) return true;
-	const patterns = value
-		.split(',')
-		.map((p) => p.trim())
-		.filter((p) => p !== '' && p !== '*');
-	for (const pattern of patterns) {
-		const trimmed = pattern.trim();
-		if (trimmed.startsWith('/')) {
-			const match = trimmed.match(/^\/(.+?)\/([a-z]*)$/i);
-			if (!match) {
-				return false;
-			}
-			const patternBody = match[1];
-			const flags = match[2] || 'i';
-			try {
-				new RegExp(patternBody, flags);
-			} catch (e) {
-				return false;
-			}
-		}
-	}
-	return true;
-}
-
-// Returns an array of invalid regex pattern strings from a comma-separated list.
-export function getInvalidRegexPatterns(value) {
-	if (!value) return [];
-	const patterns = value
-		.split(',')
-		.map((p) => p.trim())
-		.filter((p) => p !== '' && p !== '*');
-	const invalid = [];
-	for (const pattern of patterns) {
-		const trimmed = pattern.trim();
-		if (trimmed.startsWith('/')) {
-			const match = trimmed.match(/^\/(.+?)\/([a-z]*)$/i);
-			if (!match) {
-				invalid.push(trimmed);
-			} else {
-				const patternBody = match[1];
-				const flags = match[2] || 'i';
-				try {
-					new RegExp(patternBody, flags);
-				} catch (e) {
-					invalid.push(trimmed);
-				}
-			}
-		}
-	}
-	return invalid;
-}
 
 // ─── Keywords ───────────────────────────────────────────────────────────────
 
@@ -69,30 +13,6 @@ document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').addEventLi
 	sendMessage({ hideBlockedKeywordPosts: this.checked });
 });
 
-// Textarea - Hide Blocked Keyword Posts
-document.querySelector('#input-blocked-keyword-posts').addEventListener(
-	'input',
-	debounce(function () {
-		const keywordList = this.value;
-		// Validate regex patterns and show error message
-		const invalidEl = this.closest('li').querySelector('.info.invalid-regex');
-		if (validateRegexList(keywordList)) {
-			this.classList.remove('invalid-regex');
-			if (invalidEl) invalidEl.textContent = '';
-		} else {
-			this.classList.add('invalid-regex');
-			if (invalidEl) invalidEl.textContent = 'Invalid regex: ' + getInvalidRegexPatterns(keywordList).join(', ');
-		}
-		BROWSER_API.storage.sync.set({ hideBlockedKeywordPostsList: keywordList });
-		const enabled = document.querySelector('#checkbox-hide-blocked-keyword-posts-enable').checked;
-		if (enabled) {
-			console.log('Refreshing blocked posts...');
-			sendMessage({ hideBlockedKeywordPosts: false });
-			sendMessage({ hideBlockedKeywordPosts: true });
-		}
-	}, 1000),
-);
-
 // ─── Users ──────────────────────────────────────────────────────────────────
 
 // Toggle - Hide Blocked Users Posts
@@ -101,30 +21,6 @@ document.querySelector('#checkbox-hide-blocked-user-posts-enable').addEventListe
 	BROWSER_API.storage.sync.set({ hideBlockedUserPosts: this.checked });
 	sendMessage({ hideBlockedUserPosts: this.checked });
 });
-
-// Textarea - Hide Blocked Users Posts
-document.querySelector('#input-blocked-user-posts').addEventListener(
-	'input',
-	debounce(function () {
-		const userList = this.value;
-		// Validate regex patterns and show error message
-		const invalidEl = this.closest('li').querySelector('.info.invalid-regex');
-		if (validateRegexList(userList)) {
-			this.classList.remove('invalid-regex');
-			if (invalidEl) invalidEl.textContent = '';
-		} else {
-			this.classList.add('invalid-regex');
-			if (invalidEl) invalidEl.textContent = 'Invalid regex: ' + getInvalidRegexPatterns(userList).join(', ');
-		}
-		BROWSER_API.storage.sync.set({ hideBlockedUserPostsList: userList });
-		const enabled = document.querySelector('#checkbox-hide-blocked-user-posts-enable').checked;
-		if (enabled) {
-			console.log('Refreshing blocked posts...');
-			sendMessage({ hideBlockedUserPosts: false });
-			sendMessage({ hideBlockedUserPosts: true });
-		}
-	}, 1000),
-);
 
 // ─── Links ──────────────────────────────────────────────────────────────────
 
@@ -135,30 +31,6 @@ document.querySelector('#checkbox-hide-blocked-link-posts-enable').addEventListe
 	sendMessage({ hideBlockedLinkPosts: this.checked });
 });
 
-// Textarea - Hide Blocked Link Posts
-document.querySelector('#input-blocked-link-posts').addEventListener(
-	'input',
-	debounce(function () {
-		const linkKeywordsList = this.value;
-		// Validate regex patterns and show error message
-		const invalidEl = this.closest('li').querySelector('.info.invalid-regex');
-		if (validateRegexList(linkKeywordsList)) {
-			this.classList.remove('invalid-regex');
-			if (invalidEl) invalidEl.textContent = '';
-		} else {
-			this.classList.add('invalid-regex');
-			if (invalidEl) invalidEl.textContent = 'Invalid regex: ' + getInvalidRegexPatterns(linkKeywordsList).join(', ');
-		}
-		BROWSER_API.storage.sync.set({ hideBlockedLinkPostsList: linkKeywordsList });
-		const enabled = document.querySelector('#checkbox-hide-blocked-link-posts-enable').checked;
-		if (enabled) {
-			console.log('Refreshing blocked posts...');
-			sendMessage({ hideBlockedLinkPosts: false });
-			sendMessage({ hideBlockedLinkPosts: true });
-		}
-	}, 1000),
-);
-
 // ─── Subreddits ─────────────────────────────────────────────────────────────
 
 // Toggle - Hide Blocked Subreddit Posts
@@ -167,30 +39,6 @@ document.querySelector('#checkbox-hide-blocked-subreddit-posts-enable').addEvent
 	BROWSER_API.storage.sync.set({ hideBlockedSubredditPosts: this.checked });
 	sendMessage({ hideBlockedSubredditPosts: this.checked });
 });
-
-// Textarea - Hide Blocked Subreddit Posts
-document.querySelector('#input-blocked-subreddit-posts').addEventListener(
-	'input',
-	debounce(function () {
-		const subredditList = this.value;
-		// Validate regex patterns and show error message
-		const invalidEl = this.closest('li').querySelector('.info.invalid-regex');
-		if (validateRegexList(subredditList)) {
-			this.classList.remove('invalid-regex');
-			if (invalidEl) invalidEl.textContent = '';
-		} else {
-			this.classList.add('invalid-regex');
-			if (invalidEl) invalidEl.textContent = 'Invalid regex: ' + getInvalidRegexPatterns(subredditList).join(', ');
-		}
-		BROWSER_API.storage.sync.set({ hideBlockedSubredditPostsList: subredditList });
-		const enabled = document.querySelector('#checkbox-hide-blocked-subreddit-posts-enable').checked;
-		if (enabled) {
-			console.log('Refreshing blocked posts...');
-			sendMessage({ hideBlockedSubredditPosts: false });
-			sendMessage({ hideBlockedSubredditPosts: true });
-		}
-	}, 1000),
-);
 
 // ─── Comments ───────────────────────────────────────────────────────────────
 
@@ -201,30 +49,6 @@ document.querySelector('#checkbox-hide-blocked-keyword-comments-enable').addEven
 	sendMessage({ hideBlockedKeywordComments: this.checked });
 });
 
-// Textarea - Hide Blocked Keyword Comments
-document.querySelector('#input-blocked-keyword-comments').addEventListener(
-	'input',
-	debounce(function () {
-		const keywordsList = this.value;
-		// Validate regex patterns and show error message
-		const invalidEl = this.closest('li').querySelector('.info.invalid-regex');
-		if (validateRegexList(keywordsList)) {
-			this.classList.remove('invalid-regex');
-			if (invalidEl) invalidEl.textContent = '';
-		} else {
-			this.classList.add('invalid-regex');
-			if (invalidEl) invalidEl.textContent = 'Invalid regex: ' + getInvalidRegexPatterns(keywordsList).join(', ');
-		}
-		BROWSER_API.storage.sync.set({ hideBlockedKeywordCommentsList: keywordsList });
-		const enabled = document.querySelector('#checkbox-hide-blocked-keyword-comments-enable').checked;
-		if (enabled) {
-			console.log('Refreshing blocked posts...');
-			sendMessage({ hideBlockedKeywordComments: false });
-			sendMessage({ hideBlockedKeywordComments: true });
-		}
-	}, 1000),
-);
-
 // Toggle - Hide Blocked User Comments
 document.querySelector('#checkbox-hide-blocked-user-comments-enable').addEventListener('change', function () {
 	document.querySelector('.icon-hide-blocked-user-comments').style.backgroundColor = this.checked === true ? 'var(--accent)' : '';
@@ -232,26 +56,11 @@ document.querySelector('#checkbox-hide-blocked-user-comments-enable').addEventLi
 	sendMessage({ hideBlockedUserComments: this.checked });
 });
 
-// Textarea - Hide Blocked User Comments
-document.querySelector('#input-blocked-user-comments').addEventListener(
-	'input',
-	debounce(function () {
-		const userList = this.value;
-		// Validate regex patterns and show error message
-		const invalidEl = this.closest('li').querySelector('.info.invalid-regex');
-		if (validateRegexList(userList)) {
-			this.classList.remove('invalid-regex');
-			if (invalidEl) invalidEl.textContent = '';
-		} else {
-			this.classList.add('invalid-regex');
-			if (invalidEl) invalidEl.textContent = 'Invalid regex: ' + getInvalidRegexPatterns(userList).join(', ');
-		}
-		BROWSER_API.storage.sync.set({ hideBlockedUserCommentsList: userList });
-		const enabled = document.querySelector('#checkbox-hide-blocked-user-comments-enable').checked;
-		if (enabled) {
-			console.log('Refreshing blocked posts...');
-			sendMessage({ hideBlockedUserComments: false });
-			sendMessage({ hideBlockedUserComments: true });
-		}
-	}, 1000),
-);
+// ─── Block Manager ──────────────────────────────────────────────────────────
+
+// Open the Block Manager on the relevant tab for each section button.
+document.querySelectorAll('.btn-open-block-manager').forEach((button) => {
+	button.addEventListener('click', function () {
+		BROWSER_API.runtime.sendMessage({ openBlockManager: true, tab: this.dataset.tab || 'users' });
+	});
+});

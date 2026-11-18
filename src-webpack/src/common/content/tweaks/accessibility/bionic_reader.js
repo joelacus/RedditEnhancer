@@ -5,7 +5,7 @@
  * @description Makes the first two letters of a word bold to increase reading efficiency.
  *              Additionally, can change the font colour and text background colour to increase the contrast for easier reading.
  *
- * Compatibility: RV1 (Old UI) (2005-), RV3 (New New UI) (2023-)
+ * Compatibility: RV3 (New New UI) (2023-)
  */
 
 import { debounce } from '../../../utilities/debounce';

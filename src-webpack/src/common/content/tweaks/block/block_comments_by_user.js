@@ -9,9 +9,32 @@
 
 import { debounce } from '../../../utilities/debounce';
 import { escapeHtml } from '../../../utilities/escape_html.js';
+import { parseHtmlString } from '../../../utilities/parse_html_string.js';
 import { logToDevConsole } from '../../../utilities/logging';
+import { isSafeRegexPattern, reportUnsafeRegexPattern } from '../../../utilities/safe_regex.js';
+import { readBlocks, writeBlocks, findKey, getBlockedUserPatterns, addUserBlock, removeUserBlock, BLOCK_STORE_KEY } from '../../../utilities/block_store.js';
+import { showToast } from '../../../utilities/toast_notification.js';
 
 let userList = [];
+let userCommentsFilteringActive = false;
+
+// Re-filter when the block store changes elsewhere (e.g. Block Manager page).
+BROWSER_API.storage.onChanged.addListener((changes, area) => {
+	if (area !== 'local' || !changes[BLOCK_STORE_KEY] || !userCommentsFilteringActive) return;
+	readBlocks().then((store) => {
+		userList = getBlockedUserPatterns(store, 'comments');
+		// Re-scan both UIs: the RV1 re-scan re-runs the enable function, whose
+		// else branch removes stale classes from unblocked comments.
+		if (redditVersion === 'old') {
+			enableHideBlockedUserCommentsRV1();
+		} else {
+			document.querySelectorAll('shreddit-comment').forEach((comment) => {
+				filterBlockedUserComment(comment);
+				addBlockButton(comment);
+			});
+		}
+	});
+});
 
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
@@ -27,11 +50,12 @@ let scrollCleanup = null;
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 export function hideBlockedUserComments(value) {
+	userCommentsFilteringActive = value === true;
 	if (redditVersion === 'old') {
 		if (value) {
-			BROWSER_API.storage.sync.get(['hideBlockedUserCommentsList'], function (result) {
-				updateUserList(result.hideBlockedUserCommentsList);
-				logToDevConsole('log', `Blocked Users List (comments): ${userList}`);
+			readBlocks().then((store) => {
+				userList = getBlockedUserPatterns(store, 'comments');
+				//logToDevConsole('log', `Blocked Users List (comments): ${userList}`);
 				enableHideBlockedUserCommentsRV1();
 			});
 		} else {
@@ -39,26 +63,25 @@ export function hideBlockedUserComments(value) {
 		}
 	} else if (redditVersion === 'newnew') {
 		if (value) {
-			BROWSER_API.storage.sync.get(['hideBlockedUserCommentsList'], function (result) {
-				updateUserList(result.hideBlockedUserCommentsList);
-				logToDevConsole('log', `Blocked Users List: ${userList}`);
+			readBlocks().then((store) => {
+				userList = getBlockedUserPatterns(store, 'comments');
+				//logToDevConsole('log', `Blocked Users List: ${userList}`);
 				document.querySelectorAll('shreddit-comment').forEach((comment) => {
-					filterBlockedUserPost(comment);
+					filterBlockedUserComment(comment);
 					addBlockButton(comment);
 				});
 				setTimeout(() => {
 					document.querySelectorAll('shreddit-comment').forEach((comment) => {
-						filterBlockedUserPost(comment);
+						filterBlockedUserComment(comment);
 						addBlockButton(comment);
 					});
 				}, 3000);
 
-				// === Run again on page scroll ===
 				// Add scroll event listener with debounce to make sure no posts have been missed
 				if (document.querySelector('shreddit-comment-tree')) {
 					const debouncedScrollHandler = debounce(() => {
 						document.querySelectorAll('shreddit-comment').forEach((comment) => {
-							filterBlockedUserPost(comment);
+							filterBlockedUserComment(comment);
 							addBlockButton(comment);
 						});
 					}, 200);
@@ -107,8 +130,7 @@ function addBlockButton(comment) {
 	btn.addEventListener('click', (e) => {
 		e.preventDefault();
 		e.stopPropagation();
-		const isBlocked = userList.some((pattern) => matchesPattern(username, pattern));
-		showBlockConfirmModal(username, isBlocked);
+		showBlockConfirmModal(username);
 	});
 
 	const userTag = comment.querySelector('.re-create-tag-btn, .re-user-tag');
@@ -123,36 +145,42 @@ function addBlockButton(comment) {
 	comment.dataset.reBlockBtnAdded = 'true';
 }
 
-function showBlockConfirmModal(username, isBlocked) {
+function showBlockConfirmModal(username) {
 	const existing = document.querySelector('.re-confirm-modal');
 	if (existing) existing.remove();
 
-	const action = isBlocked ? 'unblock' : 'block';
-	const confirmLabel = isBlocked ? 'Unblock User' : 'Block User';
-	const confirmClass = isBlocked ? 'btn-confirm-unblock' : 'btn-confirm-block';
-	const actionText = isBlocked ? 'visible' : 'hidden';
-
 	const modal = document.createElement('div');
 	modal.className = 're-confirm-modal';
-	modal.innerHTML = `
+	modal.append(
+		parseHtmlString(`
 		<div class="re-modal-content">
-			<p>Are you sure you want to ${action} this user?</p>
-			<p><strong>${escapeHtml(username)}</strong></p>
-			<p>Their comments will be ${actionText}.</p>
+			<p>Block user <strong>${escapeHtml(username)}</strong>?</p>
+			<label><input type="checkbox" class="re-scope-posts" checked /> Hide their posts</label>
+			<label><input type="checkbox" class="re-scope-comments" checked /> Hide their comments</label>
 			<div class="re-modal-actions">
 				<div>
-					<button class="btn red ${confirmClass}" type="button">${confirmLabel}</button>
+					<button class="btn red btn-confirm-block" type="button">Block User</button>
 					<button class="btn btn-cancel" type="button">Cancel</button>
 				</div>
 			</div>
-		</div>`;
+		</div>`),
+	);
 
 	document.body.appendChild(modal);
 
+	// Reflect the user's current block scopes (both boxes stay checked for new entries).
+	readBlocks().then((store) => {
+		const key = findKey(store.users, username);
+		if (key) {
+			modal.querySelector('.re-scope-posts').checked = !!store.users[key].posts;
+			modal.querySelector('.re-scope-comments').checked = !!store.users[key].comments;
+		}
+	});
+
 	const closeModal = () => modal.remove();
 	modal.querySelector('.btn-cancel').addEventListener('click', closeModal);
-	modal.querySelector(`.${confirmClass}`).addEventListener('click', () => {
-		toggleBlockUser(username, isBlocked);
+	modal.querySelector('.btn-confirm-block').addEventListener('click', async () => {
+		await applyUserBlock(username, modal.querySelector('.re-scope-posts').checked, modal.querySelector('.re-scope-comments').checked);
 		closeModal();
 	});
 	modal.addEventListener('click', (e) => {
@@ -168,75 +196,31 @@ function showBlockConfirmModal(username, isBlocked) {
 	document.addEventListener('keydown', escHandler);
 }
 
-function toggleBlockUser(username, isBlocked) {
-	if (isBlocked) {
-		unblockUser(username);
-	} else {
-		blockUser(username);
+async function applyUserBlock(username, wantPosts, wantComments) {
+	const store = await readBlocks();
+	if (wantPosts) addUserBlock(store, username, 'posts');
+	else removeUserBlock(store, username, 'posts');
+	if (wantComments) addUserBlock(store, username, 'comments');
+	else removeUserBlock(store, username, 'comments');
+	const result = await writeBlocks(store);
+	if (!result.ok) {
+		showToast('error', 'Could not save the block list (storage is full).');
+		return;
 	}
-}
-
-function blockUser(username) {
-	BROWSER_API.storage.sync.get(['hideBlockedUserCommentsList'], function (result) {
-		let list = result.hideBlockedUserCommentsList || '';
-		const users = list
-			?.split(',')
-			?.map((u) => u.trim())
-			?.filter((u) => u !== '');
-
-		if (!users.includes(username)) {
-			users.push(username);
-			const newList = users.join(',');
-
-			BROWSER_API.storage.sync.set({ hideBlockedUserCommentsList: newList }, function () {
-				updateUserList(newList);
-				logToDevConsole('log', `Blocked user: ${username}. Updated list: ${userList}`);
-				document.querySelectorAll('.re-block-user-btn').forEach((btn) => {
-					if (btn.dataset.username === username) {
-						btn.classList.add('is-blocked');
-						btn.title = 'Unblock user';
-					}
-				});
-				if (redditVersion === 'newnew') {
-					document.querySelectorAll('shreddit-comment').forEach(filterBlockedUserPost);
-				} else if (redditVersion === 'old') {
-					enableHideBlockedUserCommentsRV1();
-				}
-			});
+	userList = getBlockedUserPatterns(store, 'comments');
+	logToDevConsole('log', `Updated block scopes for user: ${username}.`);
+	document.querySelectorAll('.re-block-user-btn').forEach((btn) => {
+		if (btn.dataset.username === username) {
+			const blocked = userList.some((pattern) => matchesPattern(username, pattern));
+			btn.classList.toggle('is-blocked', blocked);
+			btn.title = blocked ? 'Unblock user' : 'Block user';
 		}
 	});
-}
-
-function unblockUser(username) {
-	BROWSER_API.storage.sync.get(['hideBlockedUserCommentsList'], function (result) {
-		let list = result.hideBlockedUserCommentsList || '';
-		const users = list
-			.split(',')
-			.map((u) => u.trim())
-			.filter((u) => u !== '');
-
-		const index = users.indexOf(username);
-		if (index > -1) {
-			users.splice(index, 1);
-			const newList = users.join(',');
-
-			BROWSER_API.storage.sync.set({ hideBlockedUserCommentsList: newList }, function () {
-				updateUserList(newList);
-				logToDevConsole('log', `Unblocked user: ${username}. Updated list: ${userList}`);
-				document.querySelectorAll('.re-block-user-btn').forEach((btn) => {
-					if (btn.dataset.username === username) {
-						btn.classList.remove('is-blocked');
-						btn.title = 'Block user';
-					}
-				});
-				if (redditVersion === 'newnew') {
-					document.querySelectorAll('shreddit-comment').forEach(filterBlockedUserPost);
-				} else if (redditVersion === 'old') {
-					enableHideBlockedUserCommentsRV1();
-				}
-			});
-		}
-	});
+	if (redditVersion === 'newnew') {
+		document.querySelectorAll('shreddit-comment').forEach(filterBlockedUserComment);
+	} else if (redditVersion === 'old') {
+		enableHideBlockedUserCommentsRV1();
+	}
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
@@ -253,6 +237,10 @@ function matchesPattern(text, patternStr) {
 	if (regexMatch) {
 		const pattern = regexMatch[1];
 		const flags = regexMatch[2] || 'i';
+		if (!isSafeRegexPattern(pattern, flags)) {
+			reportUnsafeRegexPattern(patternStr);
+			return false;
+		}
 		try {
 			const regex = new RegExp(pattern, flags);
 			return regex.test(text);
@@ -269,17 +257,12 @@ function matchesPattern(text, patternStr) {
 	}
 }
 
-function updateUserList(list = '') {
-	userList = list
-		?.split(',')
-		?.map((word) => word.trim())
-		?.filter((item) => item !== '' && item !== '*');
-}
+// In-memory pattern list, refreshed from the block store on load and on every block/unblock action.
 
-// Enable Hide Blocked User Posts - RV1
+// Enable Hide Blocked User Comments - RV1
 function enableHideBlockedUserCommentsRV1() {
 	document.querySelectorAll('.commentarea .entry').forEach((comment) => {
-		if (!userList || comment.classList.contains('re-hide-comment')) return;
+		if (!userList) return;
 
 		const authorEl = comment.querySelector('.author');
 		const author = authorEl?.textContent;
@@ -287,34 +270,37 @@ function enableHideBlockedUserCommentsRV1() {
 		if (!author || !content) return;
 
 		if (userList.some((word) => matchesPattern(author, word))) {
-			content.classList.add('re-hide-comment');
+			content.classList.add('re-hide-comment-user');
 		} else {
-			content.classList.remove('re-hide-comment');
+			content.classList.remove('re-hide-comment-user');
 		}
 
 		addBlockButton(comment, authorEl);
 	});
 }
 
-// Enable Hide Blocked User Posts - RV3
-function filterBlockedUserPost(comment) {
-	if (!userList || comment.classList.contains('re-hide-comment')) return;
+// Enable Hide Blocked User Comments - RV3
+function filterBlockedUserComment(comment) {
+	if (!userList) return;
 
 	const author = comment.getAttribute('author');
 	const content = comment.querySelector('[slot="comment"]');
 	if (!author || !content) return;
 
 	if (userList.some((word) => matchesPattern(author, word))) {
-		content.classList.add('re-hide-comment');
+		content.classList.add('re-hide-comment-user');
 	} else {
-		content.classList.remove('re-hide-comment');
+		content.classList.remove('re-hide-comment-user');
 	}
 }
 
-// Disable Hide Blocked User Posts - All
+// Disable Hide Blocked User Comments - All
 function disableHideBlockedUserCommentsAll() {
-	document.querySelectorAll('.re-hide-comment').forEach((comment) => {
-		comment.classList.remove('re-hide-comment');
+	// Only remove this filter's own class: the keyword-comment filter marks
+	// its comments with re-hide-comment-keyword, and both classes can sit on
+	// nodes in the same comment tree.
+	document.querySelectorAll('.re-hide-comment-user').forEach((comment) => {
+		comment.classList.remove('re-hide-comment-user');
 	});
 	document.querySelectorAll('shreddit-comment-tree .re-block-user-btn').forEach((btn) => {
 		btn.remove();

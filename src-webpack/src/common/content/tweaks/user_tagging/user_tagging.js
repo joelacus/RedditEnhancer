@@ -16,6 +16,11 @@ import i18next from 'i18next';
 import ColorPicker from '../../../popup/libs/colorpicker.js';
 import { debounce } from '../../../utilities/debounce.js';
 import { escapeHtml } from '../../../utilities/escape_html.js';
+import { parseHtmlString } from '../../../utilities/parse_html_string.js';
+import { validateColour } from '../../../popup/restore/validation.js';
+import { readTags, invalidateTagsCache, writeTags as writeTagStore } from '../../../utilities/tag_store.js';
+import { isSafeMapKey } from '../../../utilities/safe_map_key.js';
+import { showToast } from '../../../utilities/toast_notification.js';
 import { getColourPickerCSS } from './colour_picker._css.js';
 import { getContrastTextColour } from '../../../utilities/colour_functions.js';
 import { getUserTaggingCSS } from './user_tagging_css.js';
@@ -97,6 +102,11 @@ export function loadUserTagging() {
 	if (!messageListenerActive) {
 		BROWSER_API.runtime.onMessage.addListener((msg) => {
 			if (msg.userTagging === 'refresh') {
+				// The manager page (another JS context) just wrote the store;
+				// drop the decoded-map cache so the re-scan reads fresh data
+				// (the runtime message and the storage.onChanged event can
+				// arrive in either order).
+				invalidateTagsCache();
 				scanPage(true);
 			}
 		});
@@ -250,19 +260,19 @@ function renderTag(usernameEl, tag) {
 	}
 
 	const label = document.createElement('span');
-	label.textContent = escapeHtml(tag.label);
+	label.textContent = tag.label ?? '';
 	chip.append(label);
 
 	const tooltip = document.createElement('div');
 	tooltip.className = 're-user-tag-tooltip';
 	const tooltipLabel = document.createElement('div');
 	tooltipLabel.className = 're-tooltip-label';
-	tooltipLabel.textContent = escapeHtml(tag.label);
+	tooltipLabel.textContent = tag.label ?? '';
 	tooltip.append(tooltipLabel);
 	if (tag.note) {
 		const tooltipNote = document.createElement('div');
 		tooltipNote.className = 're-tooltip-note';
-		tooltipNote.innerHTML = escapeHtml(tag.note).replace(/\n/g, '<br>');
+		tooltipNote.replaceChildren(parseHtmlString(escapeHtml(tag.note).replace(/\n/g, '<br>')));
 		tooltip.append(tooltipNote);
 	}
 	chip.append(tooltip);
@@ -329,7 +339,7 @@ function openTagPopover(event, username, existingTag) {
 
 	const popover = document.createElement('div');
 	popover.className = 're-tag-popover re-modal-content';
-	popover.innerHTML = buildPopoverHtml(username, existingTag);
+	popover.replaceChildren(parseHtmlString(buildPopoverHtml(username, existingTag)));
 	document.body.appendChild(popover);
 
 	document.body.style.position = 'relative';
@@ -361,11 +371,11 @@ function buildPopoverHtml(username, existingTag) {
 	const title = existingTag ? i18next.t('EditTag.message') : i18next.t('CreateTag.message');
 	const iconOptions = ICON_OPTIONS.map(([val, lbl]) => `<option value="${val}">${lbl}</option>`).join('');
 	const labelVal = existingTag ? escapeHtml(existingTag.label) : '';
-	const bgVal = existingTag ? existingTag.colourBg || '#666' : '#666';
-	const fgVal = existingTag ? existingTag.colourFg || getContrastTextColour(existingTag.colourBg || '#666') : '#fff';
+	const bgVal = existingTag ? escapeHtml(validateColour(existingTag.colourBg || '#666', '#666')) : '#666';
+	const fgVal = existingTag ? escapeHtml(validateColour(existingTag.colourFg || getContrastTextColour(existingTag.colourBg || '#666'), '#fff')) : '#fff';
 	const noteVal = existingTag ? escapeHtml(existingTag.note || '') : '';
 	const linkVal = existingTag ? escapeHtml(existingTag.link || '') : '';
-	return `<span class="re-title-username">${title} • u/${username}</span>
+	return `<span class="re-title-username">${title} • u/${escapeHtml(username)}</span>
 			<div class="re-tag-tabs">
 				<button class="re-tag-tab active" data-tab="re-edit-tag">${i18next.t('Tag.message')}</button>
 				<button class="re-tag-tab" data-tab="re-tag-note">${i18next.t('Note.message')}</button>
@@ -521,7 +531,7 @@ function initPopoverFields(popover, existingTag, username) {
 		}
 
 		const labelEl = document.createElement('span');
-		labelEl.textContent = escapeHtml(label);
+		labelEl.textContent = label;
 		preview.appendChild(labelEl);
 	}
 	updatePopoverPreview();
@@ -615,6 +625,11 @@ async function saveTagFromPopover(username) {
 
 	if (!label) return;
 
+	if (!isSafeMapKey(username)) {
+		showToast('error', 'Invalid username.');
+		return;
+	}
+
 	const tags = await readTags();
 	const existingMatch = getTagByCaseInsensitiveUsername(tags, username);
 	if (existingMatch && existingMatch.storedUsername !== username) {
@@ -642,11 +657,11 @@ async function saveTagFromPopover(username) {
 async function loadPopoverPresets(popover, onSelect) {
 	const container = popover.querySelector('#re-popover-presets');
 	if (!container) return;
-	container.innerHTML = '';
+	container.replaceChildren();
 
 	const presets = await readPresets();
 	if (presets.length === 0) {
-		container.innerHTML = `<span>${i18next.t('NoPresetsYet.message')}</span>`;
+		container.append(parseHtmlString(`<span>${i18next.t('NoPresetsYet.message')}</span>`));
 		return;
 	}
 
@@ -664,7 +679,7 @@ async function loadPopoverPresets(popover, onSelect) {
 		}
 
 		const label = document.createElement('span');
-		label.textContent = escapeHtml(preset.label);
+		label.textContent = preset.label ?? '';
 		chip.append(label);
 		chip.addEventListener('click', () => onSelect(preset));
 
@@ -720,18 +735,12 @@ async function addToPresets(popover) {
 
 // ─── Storage ────────────────────────────────────────────────────────────────
 
-function readTags() {
-	return new Promise((resolve) => {
-		BROWSER_API.storage.local.get(['redditUserTags'], (result) => {
-			resolve(result['redditUserTags'] || {});
-		});
-	});
-}
-
-function writeTags(tags) {
-	return new Promise((resolve) => {
-		BROWSER_API.storage.local.set({ ['redditUserTags']: tags }, resolve);
-	});
+// Storage lives in utilities/tag_store.js; this wrapper adds the toast on failure.
+async function writeTags(tags) {
+	const result = await writeTagStore(tags);
+	if (!result.ok) {
+		showToast('error', result.reason === 'read' ? 'Could not save user tags (the stored data could not be read).' : 'Could not save user tags (storage is full).');
+	}
 }
 
 function readPresets() {

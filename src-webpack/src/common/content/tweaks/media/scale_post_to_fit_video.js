@@ -35,7 +35,15 @@ function enableScalePostToFitVideoRV3() {
 	if (!document.head.querySelector('style[id="re-scale-post-to-fit-video"]')) {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-scale-post-to-fit-video';
-		styleElement.textContent = `shreddit-aspect-ratio:has(shreddit-player-2) {
+		styleElement.textContent = `shreddit-post [id$="-aspect-ratio"] {
+										min-height: fit-content !important;
+										max-height: var(--re-max-video-post-height, fit-content) !important;
+										max-width: var(--re-limit-video-width, 100%) !important;
+										margin: 0 auto;
+									}
+									
+									/* LEGACY
+									shreddit-aspect-ratio:has(shreddit-player-2) {
 										min-height: fit-content !important;
 										padding: 0 !important;
 									}
@@ -72,7 +80,7 @@ function enableScalePostToFitVideoRV3() {
 									shreddit-post [slot="expando"] > [class="max-h-[540px]"] {
 										max-height: fit-content !important;
    										aspect-ratio: unset !important;
-									}`;
+									}*/`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
 	// Replace all instances of <shreddit-aspect-ratio> with <div>
