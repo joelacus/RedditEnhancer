@@ -2,7 +2,7 @@
  * Tweaks: Productivity - Show Post Author
  *
  * @name showPostAuthor
- * @description Show missing post author on Home/Popular/Search feeds.
+ * @description Show missing post author on Home/Popular/Search/News feeds.
  *
  * Compatibility: RV3 (New New UI) (2023-)
  */
@@ -21,55 +21,93 @@ export function loadShowPostAuthor() {
 
 // Store cleanup function for the observer
 let observerCleanup = null;
+let feedSetupTimer = null;
+let observedFeed = null;
 
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
+
+function attachAllPostAuthors() {
+	if (!document.documentElement.classList.contains('re-post-author-active')) return;
+	document.querySelectorAll('shreddit-post, #main-content > div > search-telemetry-tracker').forEach(attachUsername);
+}
+
+// SPA navigation can run the tweak loader before the new feed exists, and the
+// outgoing feed may still be attached. Retry briefly so the observer always
+// ends up on the feed that is actually in the page.
+function setupPostAuthorFeed(routeName, attempt = 0) {
+	if (!document.documentElement.classList.contains('re-post-author-active')) return;
+	if (document.querySelector('shreddit-app')?.getAttribute('routename') !== routeName) return;
+
+	const feed = routeName === 'global_serp' ? document.querySelector('#main-content') : document.querySelector('shreddit-feed');
+	if (!feed) {
+		if (attempt < 2) feedSetupTimer = setTimeout(() => setupPostAuthorFeed(routeName, attempt + 1), 500);
+		return;
+	}
+
+	attachAllPostAuthors();
+	if (feed !== observedFeed) {
+		if (observerCleanup) observerCleanup();
+		observedFeed = feed;
+		observerCleanup = registerMutationCallback(
+			feed,
+			(mutations) => {
+				mutations.forEach((mutation) => {
+					mutation.addedNodes.forEach((addedNode) => {
+						if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
+							setTimeout(attachAllPostAuthors, 1000);
+						}
+					});
+				});
+			},
+			{ childList: true, subtree: true },
+			'showPostAuthor',
+		);
+	}
+
+	if (attempt < 2) feedSetupTimer = setTimeout(() => setupPostAuthorFeed(routeName, attempt + 1), 1000);
+}
 
 let hover_delay = 500;
 export function showPostAuthor(value, delay) {
 	if (delay) hover_delay = delay * 1000;
 	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
-	const feedRoutes = ['frontpage', 'popular', 'custom_feed', 'profile_saved'];
+	// /news and its sort tabs (/news/best/, /news/hot/, …) all report "news".
+	const feedRoutes = ['frontpage', 'popular', 'custom_feed', 'profile_saved', 'news'];
 	const searchRoutes = ['global_serp', 'community_serp', 'custom_feed_serp'];
 
 	if (redditVersion === 'newnew' && value === true) {
 		document.documentElement.classList.add('re-post-author-active');
 		if (feedRoutes.includes(routeName) || searchRoutes.includes(routeName)) {
-			// Initial pass
-			document.querySelectorAll('shreddit-post, #main-content > div > search-telemetry-tracker').forEach(attachUsername);
-			// Register with centralised observer manager
-			// Clean up any existing observer first
-			if (observerCleanup) {
-				observerCleanup();
+			if (feedSetupTimer) {
+				clearTimeout(feedSetupTimer);
+				feedSetupTimer = null;
 			}
-			const feed = routeName === 'global_serp' ? document.querySelector('#main-content') : document.querySelector('shreddit-feed');
-			if (feed) {
-				observerCleanup = registerMutationCallback(
-					feed,
-					(mutations) => {
-						mutations.forEach((mutation) => {
-							mutation.addedNodes.forEach((addedNode) => {
-								if (['TIME', 'ARTICLE', 'DIV', 'SPAN'].includes(addedNode.nodeName)) {
-									setTimeout(() => {
-										document.querySelectorAll('shreddit-post, #main-content > div > search-telemetry-tracker').forEach(attachUsername);
-									}, 1000);
-								}
-							});
-						});
-					},
-					{ childList: true, subtree: true },
-					'showPostAuthor',
-				);
-			}
+			setupPostAuthorFeed(routeName);
 		}
 	} else {
-		// Cleanup observer
+		// Cleanup observer and any pending feed retry
+		if (feedSetupTimer) {
+			clearTimeout(feedSetupTimer);
+			feedSetupTimer = null;
+		}
 		if (observerCleanup) {
 			observerCleanup();
 			observerCleanup = null;
 		}
+		observedFeed = null;
 		// Remove all post author names and hovercards.
 		document.documentElement.classList.remove('re-post-author-active');
-		document.querySelectorAll('.re-post-author').forEach((item) => item.remove());
+		document.querySelectorAll('.re-post-author').forEach((item) => {
+			// Move the extension's post controls out of the span before removing
+			// it, otherwise they disappear until the next block/tag scan.
+			const controls = [...item.querySelectorAll('.re-block-user-btn, .re-user-tag, .re-create-tag-btn')];
+			if (controls.length > 0) {
+				const timeago = item.parentElement?.querySelector('faceplate-timeago');
+				const anchor = timeago && !item.contains(timeago) ? timeago : item;
+				anchor.after(...controls);
+			}
+			item.remove();
+		});
 	}
 }
 

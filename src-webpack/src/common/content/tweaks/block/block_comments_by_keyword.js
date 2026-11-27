@@ -9,7 +9,7 @@
 
 import { debounce } from '../../../utilities/debounce';
 //import { logToDevConsole } from '../../../utilities/logging';
-import { isSafeRegexPattern, reportUnsafeRegexPattern } from '../../../utilities/safe_regex.js';
+import { matchesPattern } from '../../../utilities/block_pattern_match.js';
 import { readBlocks, getCommentKeywordPatterns, BLOCK_STORE_KEY } from '../../../utilities/block_store.js';
 let keywordList = [];
 let keywordCommentsFilteringActive = false;
@@ -85,38 +85,6 @@ export function hideBlockedKeywordComments(value) {
 			}
 			disableHideBlockedKeywordCommentsAll();
 		}
-	}
-}
-
-function escapeRegExp(string) {
-	// Escape regex metacharacters to prevent ReDoS
-	return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function matchesPattern(text, patternStr) {
-	if (!text) return false;
-	// Check if pattern is regex format: /pattern/flags
-	const regexMatch = patternStr.match(/^\/(.+?)\/([a-z]*)$/i);
-	if (regexMatch) {
-		const pattern = regexMatch[1];
-		const flags = regexMatch[2] || 'i';
-		if (!isSafeRegexPattern(pattern, flags)) {
-			reportUnsafeRegexPattern(patternStr);
-			return false;
-		}
-		try {
-			const regex = new RegExp(pattern, flags);
-			return regex.test(text);
-		} catch (e) {
-			console.warn('Invalid regex pattern:', patternStr, e);
-			return false;
-		}
-	} else {
-		// Plain pattern with wildcard support
-		const escaped = escapeRegExp(patternStr);
-		const regexPattern = escaped.replace(/\\\*/g, '.*');
-		const regex = new RegExp(`\\b${regexPattern}\\b`, 'i');
-		return regex.test(text);
 	}
 }
 

@@ -27,10 +27,11 @@ if (!document.querySelector('head')) {
 
 // Init Tweaks
 export function init() {
-	// Detect outdated web browser versions. Some features require the :has() selector and may not work correctly.
+	// Detect outdated web browser versions. Some features require the :has() selector
+	// (Firefox 121+) or optional host permissions (Firefox 128+) and may not work correctly.
 	if (CHECK_LEGACY_FIREFOX) {
 		if (detectFirefoxVersion()) {
-			console.log('[RedditEnhancer] Firefox is outdated. Please update to version 121 or newer.');
+			console.log('[RedditEnhancer] Firefox is outdated. Please update to version 128 or newer.');
 		}
 	}
 

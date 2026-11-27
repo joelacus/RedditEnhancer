@@ -421,3 +421,60 @@ document.querySelector('#checkbox-gallery-keyboard-navigation').addEventListener
 	sendMessage({ galleryKeyboardNavigation: this.checked });
 	document.querySelector('.icon-gallery-keyboard-navigation').style.backgroundColor = this.checked ? 'var(--accent)' : '';
 });
+
+// Toggle - Click Lightbox Background To Close
+document.querySelector('#checkbox-click-lightbox-background-to-close').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ clickLightboxBackgroundToClose: this.checked });
+	sendMessage({ clickLightboxBackgroundToClose: this.checked });
+	document.querySelector('.icon-click-lightbox-background-to-close').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});
+
+// Toggle - Comment Image Hyperlink Thumbnails
+document.querySelector('#checkbox-comment-image-thumbnails').addEventListener('change', function () {
+	const origins = ['*://*.imgur.com/*', '*://*.postimg.cc/*', '*://*.ibb.co/*'];
+	const warning = document.querySelector('#perm-warning-comment-image-thumbnails');
+	const enable = (pageLinksGranted) => {
+		// Direct image links work without host access; the warning explains that
+		// imgur/postimg/ibb page links are the part that needs it.
+		warning.hidden = pageLinksGranted === true;
+		BROWSER_API.storage.sync.set({ commentImageThumbnails: true });
+		sendMessage({ commentImageThumbnails: true });
+		document.querySelector('.icon-comment-image-thumbnails').style.backgroundColor = 'var(--accent)';
+	};
+
+	if (this.checked) {
+		BROWSER_API.permissions.contains({ origins }, (alreadyGranted) => {
+			if (alreadyGranted) {
+				enable(true);
+			} else {
+				// permissions.request must be called from a user gesture; the checkbox change handler qualifies in both browsers.
+				BROWSER_API.permissions.request({ origins }, enable);
+			}
+		});
+	} else {
+		warning.hidden = true;
+		BROWSER_API.storage.sync.set({ commentImageThumbnails: false });
+		sendMessage({ commentImageThumbnails: false });
+		document.querySelector('.icon-comment-image-thumbnails').style.backgroundColor = '';
+	}
+});
+
+// Toggle - Hide Original Comment Image Links
+document.querySelector('#checkbox-hide-comment-image-links').addEventListener('change', function () {
+	BROWSER_API.storage.sync.set({ hideCommentImageLinks: this.checked });
+	sendMessage({ hideCommentImageLinks: this.checked });
+	const icon = document.querySelector('.icon-hide-comment-image-links');
+	icon.style.backgroundColor = this.checked ? 'var(--accent)' : '';
+	icon.classList.replace(this.checked ? 'icon-link' : 'icon-link-slash', this.checked ? 'icon-link-slash' : 'icon-link');
+});
+
+// Slider - Comment Image Thumbnail Width
+document.querySelector('#input-comment-image-thumbnail-width').addEventListener('input', function () {
+	const isDefault = this.value == 40;
+	document.querySelector('.icon-comment-image-thumbnail-width').style.backgroundColor = isDefault ? '' : 'var(--accent)';
+	document.querySelector('#comment-image-thumbnail-width-value').textContent = this.value == 40 ? '200px' : `${this.value}px`;
+	sendMessage({ setCommentImageThumbnailWidth: this.value });
+});
+document.querySelector('#input-comment-image-thumbnail-width').addEventListener('mouseup', function () {
+	BROWSER_API.storage.sync.set({ commentImageThumbnailWidth: this.value });
+});

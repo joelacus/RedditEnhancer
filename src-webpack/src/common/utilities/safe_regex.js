@@ -27,13 +27,17 @@
  * @returns {boolean} True if the pattern is safe to compile
  */
 
-// Maximum allowed pattern length.
-const MAX_PATTERN_LENGTH = 200;
+// Maximum allowed pattern length. A plain alternation of blocked words
+// easily exceeds 200 characters and is not a backtracking risk, so the cap
+// sits high enough for real lists while still bounding the scan.
+const MAX_PATTERN_LENGTH = 2000;
 
 // Maximum number of real quantifiers in a single pattern (rejects
 // a*a*a*a*…-style stacked repetition). Quantifiers that are part of a group
 // intro — the "?" of (?:, (?=, (?!, (?<=, (?<name> — are not counted.
-const MAX_QUANTIFIERS = 10;
+// The cap is deliberately generous: URL, date and phone patterns can carry a
+// dozen quantifiers without being anywhere near catastrophic.
+const MAX_QUANTIFIERS = 40;
 
 // Valid RegExp flags (d and v were added in ES2023 / ES2024).
 const VALID_FLAGS = /^[dgimsuvy]*$/;
@@ -198,6 +202,11 @@ function scanRegexBody(p) {
 		const c = p[i];
 		if (escaped) {
 			escaped = false;
+			// \b and \B are zero-width assertions: they consume no character,
+			// so they must not be recorded as a literal "b". Treating them as
+			// atoms made the overlap test reject valid groups and misjudged a
+			// branch's first/trailing character.
+			if (c === 'b' || c === 'B') continue;
 			const f = cur();
 			const qInfo = readQuant(p, i + 1);
 			if (ESC_DESC[c] !== undefined) recordToken(f, { t: 'sh', s: ESC_DESC[c] }, { t: 'sh', s: ESC_DESC[c] }, qInfo?.q, false);
@@ -259,6 +268,9 @@ function scanRegexBody(p) {
 			if (qInfo) i += qInfo.len;
 			continue;
 		}
+		// Anchors are zero-width too. They can follow an opening "(" (e.g.
+		// ^(?:…)), so they are handled here as neutral tokens.
+		if (c === '^' || c === '$') continue;
 		if (c === '|') {
 			f.firsts.push(null);
 			f.trails.push(null);
@@ -294,13 +306,33 @@ function scanRegexBody(p) {
 	return { quantifiers, catastrophic };
 }
 
-export function isSafeRegexPattern(pattern, flags = '') {
-	if (typeof pattern !== 'string' || typeof flags !== 'string') return false;
-	if (pattern.length === 0 || pattern.length > MAX_PATTERN_LENGTH) return false;
-	if (!VALID_FLAGS.test(flags)) return false;
+// Parses the block-list regex form "/pattern/flags". Returns the body and
+// lowercased flags, or null when the string is not in that form. Flags are
+// lowercased so "/pattern/G" behaves like "/pattern/g" — the delimiter match
+// is case-insensitive but RegExp itself only accepts lowercase flags.
+export function parseRegexPattern(patternStr) {
+	if (typeof patternStr !== 'string') return null;
+	const match = /^\/([\s\S]+?)\/([a-z]*)$/i.exec(patternStr);
+	if (!match) return null;
+	return { body: match[1], flags: match[2].toLowerCase() };
+}
+
+// Returns null when the regex body/flags are allowed, or a short reason.
+// isSafeRegexPattern() keeps the boolean contract used by the matcher; the
+// Block Manager uses the reason so a rejected pattern is not silently dead.
+export function getRegexPatternError(pattern, flags = '') {
+	if (typeof pattern !== 'string' || typeof flags !== 'string') return 'invalid pattern';
+	if (!VALID_FLAGS.test(flags)) return `unsupported flag(s) "${flags}"`;
+	if (pattern.length === 0) return 'empty pattern';
+	if (pattern.length > MAX_PATTERN_LENGTH) return `pattern too long (${MAX_PATTERN_LENGTH} characters max)`;
 	const { quantifiers, catastrophic } = scanRegexBody(pattern);
-	if (catastrophic || quantifiers > MAX_QUANTIFIERS) return false;
-	return true;
+	if (catastrophic) return 'unsafe pattern (catastrophic backtracking risk)';
+	if (quantifiers > MAX_QUANTIFIERS) return `too many quantifiers (${MAX_QUANTIFIERS} max)`;
+	return null;
+}
+
+export function isSafeRegexPattern(pattern, flags = '') {
+	return getRegexPatternError(pattern, flags) === null;
 }
 
 // Warns about an unsafe pattern once per unique pattern string. Used by the
@@ -315,64 +347,63 @@ export function reportUnsafeRegexPattern(patternStr) {
 	console.warn('Unsafe regex pattern rejected (it will never match):', patternStr);
 }
 
-// Validate regex patterns in a comma-separated block list.
-// Returns true if all patterns that look like regex (starting with '/') are valid and safe.
-export function validateRegexList(value) {
-	if (!value) return true;
-	const patterns = value
-		.split(',')
-		.map((p) => p.trim())
-		.filter((p) => p !== '' && p !== '*');
-	for (const pattern of patterns) {
-		const trimmed = pattern.trim();
-		if (trimmed.startsWith('/')) {
-			const match = trimmed.match(/^\/(.+?)\/([a-z]*)$/i);
-			if (!match) {
-				return false;
-			}
-			const patternBody = match[1];
-			const flags = match[2] || 'i';
-			try {
-				new RegExp(patternBody, flags);
-			} catch (e) {
-				return false;
-			}
-			if (!isSafeRegexPattern(patternBody, flags)) {
-				return false;
-			}
-		}
+// Validates one block-list pattern. Plain text with "*" wildcards, and any
+// value not starting with "/", is always valid; "/pattern/flags" must parse,
+// compile and pass the safety guard. Returns null when valid, otherwise a
+// short reason for the UI. This deliberately validates a single pattern:
+// splitting on commas (as the old comma-separated list validation did) broke
+// every regex containing "{2,4}", "[.,]", "(a,b)" or an IP address.
+export function getBlockPatternError(value) {
+	if (typeof value !== 'string') return 'invalid pattern';
+	const trimmed = value.trim();
+	const parsed = parseRegexPattern(trimmed);
+	if (!parsed) return trimmed.startsWith('/') ? 'missing closing "/" or invalid flags' : null;
+	const error = getRegexPatternError(parsed.body, parsed.flags);
+	if (error) return error;
+	try {
+		new RegExp(parsed.body, parsed.flags);
+	} catch (e) {
+		return 'invalid syntax';
 	}
-	return true;
+	return null;
 }
 
-// Returns an array of invalid regex pattern strings from a comma-separated block list.
-export function getInvalidRegexPatterns(value) {
-	if (!value) return [];
-	const patterns = value
-		.split(',')
-		.map((p) => p.trim())
-		.filter((p) => p !== '' && p !== '*');
-	const invalid = [];
-	for (const pattern of patterns) {
-		const trimmed = pattern.trim();
-		if (trimmed.startsWith('/')) {
-			const match = trimmed.match(/^\/(.+?)\/([a-z]*)$/i);
-			if (!match) {
-				invalid.push(trimmed);
-			} else {
-				const patternBody = match[1];
-				const flags = match[2] || 'i';
-				try {
-					new RegExp(patternBody, flags);
-				} catch (e) {
-					invalid.push(trimmed);
-					continue;
-				}
-				if (!isSafeRegexPattern(patternBody, flags)) {
-					invalid.push(trimmed);
-				}
-			}
-		}
-	}
-	return invalid;
+// Characters that can never appear in a real Reddit username or subreddit
+// name. "*" is deliberately absent: "user*" and "2*" are the wildcard form the
+// block lists already support, not a regex.
+const BARE_REGEX_CHARS = /[\\^$()\[\]{}|+?.]/;
+
+// True when a username/subreddit entry was typed as a regex but without the
+// /…/ delimiters — e.g. "\b\w*\d\w*\b" or "^(foo|bar)$". Used to wrap it
+// instead of storing it as literal text that can never match a name.
+export function looksLikeBareRegex(value) {
+	if (typeof value !== 'string') return false;
+	const trimmed = value.trim();
+	if (!trimmed || trimmed.startsWith('/')) return false;
+	return BARE_REGEX_CHARS.test(trimmed);
+}
+
+// Syntax that only makes sense as a regex. Used for the Keywords tab hint
+// only: "c++", "$100" and ".net" are legitimate literal keywords and must not
+// be flagged, while "\d+", "[aeiou]" and "{2,4}" almost certainly mean a
+// regex the user forgot to wrap.
+const REGEX_ONLY_SYNTAX = /\\.|\[[^\]]*\]|\(\?|\{\d+(?:,\d*)?\}/;
+
+export function looksLikeUnwrappedRegex(value) {
+	if (typeof value !== 'string') return false;
+	const trimmed = value.trim();
+	if (!trimmed || trimmed.startsWith('/')) return false;
+	return REGEX_ONLY_SYNTAX.test(trimmed);
+}
+
+// Normalises a username/subreddit entry before it is stored: trims, strips
+// the "u/"/"r/" prefix and trailing slashes, keeps "/pattern/flags" verbatim,
+// and wraps a bare regex in slashes. Callers still run getBlockPatternError()
+// on the result, so an invalid wrapped value (e.g. "c++" in the Users tab) is
+// reported instead of being saved as dead literal text.
+export function normaliseBlockName(value) {
+	const trimmed = value.trim();
+	if (trimmed.startsWith('/')) return trimmed;
+	const name = trimmed.replace(/^[ur]\//i, '').replace(/\/+$/, '');
+	return looksLikeBareRegex(name) ? `/${name}/` : name;
 }

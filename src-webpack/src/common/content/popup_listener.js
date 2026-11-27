@@ -51,6 +51,8 @@ import { showPostNumbers } from './tweaks/productivity/show_post_numbers';
 import { showToTopButton } from './tweaks/productivity/scroll_to_top';
 import { stickySort } from './tweaks/productivity/sticky_sort';
 import {
+	themeBase,
+	themeBaseOpacity,
 	themeBlur,
 	themeCodeBlockColourCSS,
 	themeHeaderBackgroundColour,
@@ -125,6 +127,8 @@ import { hideHomeFeed } from './tweaks/hide_elements/hide_home_feed';
 import { addProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
 import { hidePostDivider, postSeparatorHeight } from './tweaks/hide_elements/hide_post_divider';
 import { hideBlurredMediaBackground } from './tweaks/media/hide_blurred_media_background';
+import { clickLightboxBackgroundToClose } from './tweaks/media/click_lightbox_background_to_close';
+import { commentImageThumbnails, hideCommentImageLinks, setCommentImageThumbnailWidth } from './tweaks/media/comment_image_thumbnails';
 import { fullWidthBanner, compactHeaderSideMenu, attachSideMenuHeader, optOutAttachSideMenu, subredditDisplayNameBanner } from './tweaks/style/old_new_ui';
 import { textPostPreviewFade, setTextPostPreviewFadeHeight } from './tweaks/media/text_preview_fade';
 import { hideVoteButtons } from './tweaks/hide_elements/hide_vote_buttons';
@@ -145,6 +149,7 @@ import { hideBlockedKeywordPosts } from './tweaks/block/block_posts_by_keyword';
 import { hideBlockedUserPosts } from './tweaks/block/block_posts_by_user';
 import { hideBlockedLinkPosts } from './tweaks/block/block_posts_by_url';
 import { hideBlockedSubredditPosts } from './tweaks/block/block_posts_by_subreddit';
+import { hideBlockedSearchEntries } from './tweaks/block/block_search_entries';
 import { hideVideoRecommendations } from './tweaks/media/hide_video_recommendations';
 import { leftSideVoteButtons } from './tweaks/style/left_side_vote_buttons';
 import { hideCommunityStatus } from './tweaks/hide_elements/hide_community_status';
@@ -231,6 +236,8 @@ const functionRegistry = {
 	borderRadiusAmount,
 	classicOldUI,
 	cleanLink,
+	clickLightboxBackgroundToClose,
+	commentImageThumbnails,
 	compactHeaderSideMenu,
 	compactPostLinkPreview,
 	createPostBodyFontSize,
@@ -258,8 +265,10 @@ const functionRegistry = {
 	hideBlockedUserPosts,
 	hideBlockedLinkPosts,
 	hideBlockedSubredditPosts,
+	hideBlockedSearchEntries,
 	hideBlurredMediaBackground,
 	hideChatButton,
+	hideCommentImageLinks,
 	hideCommentKarma,
 	hideCommunityHighlights,
 	hideCommunityStatus,
@@ -366,6 +375,7 @@ const functionRegistry = {
 	scrollToNextRootCommentRemoveStyle,
 	scrollToPost,
 	shortenCleanLink,
+	setCommentImageThumbnailWidth,
 	setCustomBackground,
 	setCustomHeaderLogoUrl,
 	setMaxImagePostHeight,
@@ -390,6 +400,8 @@ const functionRegistry = {
 	textPostPreviewFade,
 	textPostPreviewFadeHeight,
 	textPostPreviewMaxHeight,
+	themeBase,
+	themeBaseOpacity,
 	themeBlur,
 	themeCodeBlockColourCSS,
 	themeHeaderBackgroundColour,

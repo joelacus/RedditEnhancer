@@ -488,6 +488,10 @@
 	mask: url('../../icons/ui/link-solid.svg');
 	-webkit-mask: url('../../icons/ui/link-solid.svg');
 }
+.icon-link-slash {
+	mask: url('../../icons/ui/icon-link-slash.svg');
+	-webkit-mask: url('../../icons/ui/icon-link-slash.svg');
+}
 .icon-film {
 	mask: url('../../icons/ui/film-solid.svg');
 	-webkit-mask: url('../../icons/ui/film-solid.svg');

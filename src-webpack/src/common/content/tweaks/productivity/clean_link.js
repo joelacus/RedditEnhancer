@@ -16,9 +16,15 @@ import { showToast } from '../../../utilities/toast_notification';
 let cleanLinkEnabled = false;
 let shortenCleanLinkEnabled = false;
 
-// Observer cleanup handles
-let observerCleanupNewnew = null;
+// Observer/listener cleanup handles
+let cleanLinkRV3Cleanup = null;
 let observerCleanupOld = null;
+
+// Share menu items injected into the v3 UI, kept so they can be updated or removed
+const injectedMenuItems = new Set();
+
+// Dropdowns waiting for their menu to render, mapped to their cleanup function
+const pendingDropdowns = new Map();
 
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
@@ -38,10 +44,12 @@ export function loadCleanLink() {
 
 export function cleanLink(value) {
 	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
-	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed', 'post_page', 'comments_page'];
+	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed', 'post_page', 'comments_page', 'global_serp', 'community_serp', 'custom_feed_serp'];
+	// Every profile tab (overview, posts, comments, saved, ...) uses a "profile_" route
+	const isSupportedRouteV3 = feedRoutesv3.includes(routeName) || routeName?.startsWith('profile_');
 	if (value) {
 		if (redditVersion === 'newnew') {
-			if (feedRoutesv3.includes(routeName)) enableCleanLinkRV3();
+			if (isSupportedRouteV3) enableCleanLinkRV3();
 		} else if (redditVersion === 'old') {
 			enableCleanLinkRV1();
 		}
@@ -53,9 +61,13 @@ export function cleanLink(value) {
 // Called when the shorten sub-option changes while the feature is active
 export function shortenCleanLink(value) {
 	shortenCleanLinkEnabled = value === true;
-	// Update label on any existing newnew UI menu items
-	document.querySelectorAll('.re-clean-link-option .text-14, .re-clean-link-option .text-body-2 span').forEach((el) => {
-		el.textContent = shortenCleanLinkEnabled ? 'Copy clean link (short)' : 'Copy clean link';
+	// Update the label on any RV3 share menu items that are still in the page
+	injectedMenuItems.forEach((item) => {
+		if (!item.isConnected) {
+			injectedMenuItems.delete(item);
+			return;
+		}
+		updateMenuItemLabel(item);
 	});
 	// Update any existing old UI share inputs
 	document.querySelectorAll('.post-sharing.re-clean-link-modified input.post-sharing-link-input').forEach((input) => {
@@ -97,67 +109,126 @@ function cleanUrl(url, shorten) {
 // ─── New New UI Implementation ──────────────────────────────────────────────
 
 function enableCleanLinkRV3() {
-	if (observerCleanupNewnew) return;
+	if (cleanLinkRV3Cleanup) return;
 
-	observerCleanupNewnew = registerMutationCallback(
-		document.body,
-		(mutations) => {
-			mutations.forEach((mutation) => {
-				mutation.addedNodes.forEach((node) => {
-					if (node.nodeType !== Node.ELEMENT_NODE) return;
-					let menus = [];
-					if (node.tagName === 'FACEPLATE-MENU') {
-						menus.push(node);
-					} else if (node.querySelectorAll) {
-						// Check if this node or its descendants contain a share menu
-						menus = Array.from(node.querySelectorAll('faceplate-menu'));
-					}
-					menus.forEach((menu) => {
-						// Only process if the menu contains a copy link option
-						if (menu.querySelector('.share-menu-copy-link-option')) {
-							addCleanLinkOption(menu);
-						}
-					});
-				});
-			});
-		},
-		{ childList: true, subtree: true },
-		'cleanLink',
-	);
+	// Share menus are rendered lazily when the share button is clicked, and on feed cards they live inside
+	// open shadow roots, so watch clicks (composed path crosses shadow boundaries) instead of body mutations.
+	const onClick = (event) => {
+		const dropdown = event.composedPath().find((el) => el instanceof Element && el.matches?.('rpl-dropdown.share-dropdown-menu'));
+		if (dropdown) enhanceShareMenu(dropdown);
+	};
+	document.addEventListener('click', onClick, true);
+
+	cleanLinkRV3Cleanup = () => {
+		document.removeEventListener('click', onClick, true);
+		removeInjectedMenuItems();
+	};
 }
 
-function addCleanLinkOption(menu) {
-	// Avoid duplicate insertion
-	if (menu.querySelector('.re-clean-link-option')) return;
+// Wait for the menu contents to render, then add the extra item
+function enhanceShareMenu(dropdown) {
+	if (pendingDropdowns.has(dropdown) || dropdown.querySelector('.re-clean-link-option')) return;
 
-	const copyLi = menu.querySelector('li.share-menu-copy-link-option');
-	let permaLink = copyLi.closest('[permalink]')?.getAttribute('permalink') ?? '';
-	if (permaLink) permaLink = 'https://www.reddit.com' + permaLink;
-	const isComment = menu.closest('shreddit-comment-share-button') ?? false;
-	if (!copyLi) return;
+	const observer = new MutationObserver(tryAdd);
+	const timeout = setTimeout(cleanup, 5000);
 
-	// Clone the original li
-	const newLi = copyLi.cloneNode(true);
-	newLi.classList.add('re-clean-link-option');
-	newLi.removeAttribute('id');
-
-	// Update label text
-	const labelSpan = newLi.querySelector('.text-14, .text-body-2 span');
-	if (labelSpan) {
-		labelSpan.textContent = shortenCleanLinkEnabled && !isComment ? i18next.t('CopyCleanLinkShort.message') : i18next.t('CopyCleanLink.message');
+	function cleanup() {
+		observer.disconnect();
+		clearTimeout(timeout);
+		pendingDropdowns.delete(dropdown);
 	}
 
-	// Attach click handler to copy cleaned URL
-	const clickTarget = newLi.querySelector('[role="menuitem"]') || newLi;
-	clickTarget.addEventListener('click', () => {
-		const rawUrl = permaLink ?? window.location.href;
-		const cleaned = cleanUrl(rawUrl, shortenCleanLinkEnabled && !isComment);
-		copyToClipboard(cleaned);
-		showToast('success', shortenCleanLinkEnabled && !isComment ? i18next.t('CopiedCleanLinkShort.message') : i18next.t('CopiedCleanLink.message'));
+	function tryAdd() {
+		if (!dropdown.isConnected) {
+			cleanup();
+			return;
+		}
+		const menu = dropdown.querySelector('rpl-menu');
+		const nativeItem = dropdown.querySelector('rpl-menu-item.share-menu-copy-link-option');
+		if (!menu || !nativeItem) return;
+		addCleanLinkOption(dropdown, menu, nativeItem);
+		cleanup();
+	}
+
+	pendingDropdowns.set(dropdown, cleanup);
+	observer.observe(dropdown, { childList: true, subtree: true });
+	tryAdd();
+}
+
+function addCleanLinkOption(dropdown, menu, nativeItem) {
+	if (menu.querySelector('.re-clean-link-option')) return;
+
+	const context = getShareContext(dropdown);
+	if (!context?.permalink) return;
+
+	// Clone the native "Copy link" item so the styling and behaviour match
+	const item = nativeItem.cloneNode(true);
+	item.classList.add('re-clean-link-option');
+	item.removeAttribute('id');
+	// A different value prevents Reddit's own "copy-link" handler from running
+	item.setAttribute('value', 're-clean-link');
+	item.dataset.rePermalink = context.permalink;
+	item.dataset.reIsComment = String(context.isComment);
+	updateMenuItemLabel(item);
+
+	// Do not preventDefault() the click: Reddit's dropdown uses it to decide
+	// whether to close the menu, and cancelling it leaves the menu open.
+	item.addEventListener('click', () => copyCleanLink(item));
+	// rpl-menu-item closes the menu on Enter/Space but does not dispatch a click,
+	// and it already stops Space from scrolling, so the key event is not cancelled
+	item.addEventListener('keydown', (event) => {
+		if (event.key === 'Enter' || event.key === ' ') copyCleanLink(item);
 	});
 
-	// Insert as first item in the menu
-	menu.insertBefore(newLi, menu.firstChild);
+	// Add as the first item in the share menu
+	menu.insertBefore(item, menu.firstChild);
+	injectedMenuItems.add(item);
+}
+
+function getShareContext(dropdown) {
+	// Feed cards render the share button and its menu inside open shadow roots,
+	// so read the permalink from the shadow host instead of using closest()
+	const host = dropdown.getRootNode()?.host;
+	if (host?.matches?.('shreddit-post-share-button, shreddit-comment-share-button')) {
+		return {
+			permalink: host.getAttribute('permalink'),
+			isComment: host.tagName === 'SHREDDIT-COMMENT-SHARE-BUTTON',
+		};
+	}
+	// Post pages and comments render the share button in the light DOM
+	const commentButton = dropdown.closest('shreddit-comment-share-button');
+	if (commentButton) {
+		return { permalink: commentButton.getAttribute('permalink'), isComment: true };
+	}
+	const post = dropdown.closest('shreddit-post, shreddit-ad-post');
+	if (post) {
+		return { permalink: post.getAttribute('permalink'), isComment: false };
+	}
+	return null;
+}
+
+function updateMenuItemLabel(item) {
+	const shorten = shortenCleanLinkEnabled && item.dataset.reIsComment !== 'true';
+	const label = i18next.t(shorten ? 'CopyCleanLinkShort.message' : 'CopyCleanLink.message');
+	const labelSpan = item.querySelector(':scope > span:not([slot])');
+	if (labelSpan) labelSpan.textContent = label;
+	item.setAttribute('aria-label', label);
+}
+
+function copyCleanLink(item) {
+	const isComment = item.dataset.reIsComment === 'true';
+	const shorten = shortenCleanLinkEnabled && !isComment;
+	const permalink = item.dataset.rePermalink;
+	const rawUrl = permalink?.startsWith('/') ? `https://www.reddit.com${permalink}` : permalink || window.location.href;
+	copyToClipboard(cleanUrl(rawUrl, shorten));
+	showToast('success', i18next.t(shorten ? 'CopiedCleanLinkShort.message' : 'CopiedCleanLink.message'));
+}
+
+function removeInjectedMenuItems() {
+	injectedMenuItems.forEach((item) => item.remove());
+	injectedMenuItems.clear();
+	pendingDropdowns.forEach((cleanup) => cleanup());
+	pendingDropdowns.clear();
 }
 
 // ─── Old UI Implementation ──────────────────────────────────────────────────
@@ -200,9 +271,9 @@ function modifyOldSharing(sharingEl) {
 // ─── Disable Feature ────────────────────────────────────────────────────────
 
 function disableCleanLinkAll() {
-	if (observerCleanupNewnew) {
-		observerCleanupNewnew();
-		observerCleanupNewnew = null;
+	if (cleanLinkRV3Cleanup) {
+		cleanLinkRV3Cleanup();
+		cleanLinkRV3Cleanup = null;
 	}
 	if (observerCleanupOld) {
 		observerCleanupOld();

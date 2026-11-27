@@ -1,5 +1,12 @@
 /* Some CSS tweaks, in the order of display (header, content layout, post, side menu/sidebar) */
 
+/* ========== BLOCKED SUBREDDIT PAGE ========== */
+/* content_first/functions/block_subreddit_page.js hides the page while the
+   block list is read, so a blocked subreddit cannot flash before redirecting. */
+html.re-block-page-checking {
+	visibility: hidden !important;
+}
+
 /* ========== BANNER MESSAGE ========== */
 /* Display a stickied banner message at the top of the page for 7s. Banner types can be '', 'warning' or 'error'
    Banner will be removed off the page after 10s. @see content/banner_message.js  */
@@ -195,9 +202,66 @@ div[data-testid='search-results-sidebar'] {
 .re-hide-url {
 	display: none !important;
 }
+.re-hide-search-blocked,
+.re-hide-search-blocked-section {
+	display: none !important;
+}
 .re-invisible {
 	visibility: hidden !important;
 }
+
+/* A blocked user's username is replaced with "hidden" by the block scope. */
+.re-hide-blocked-username {
+	opacity: 0.5 !important;
+}
+
+/* ========== BLOCK FEED GUARD ========== */
+/* Reddit's next-page partial fetches a page whenever it is in the viewport.
+   When every post is hidden the feed collapses, so the partial never leaves
+   the viewport and the feed reloads forever. The guard hides the partial until
+   the user asks for one more page. */
+.re-feed-blocked-pause {
+	display: none !important;
+}
+.re-feed-blocked-notice {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.75rem;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 1rem 0;
+	padding: 1rem 1.25rem;
+	border: 1px solid var(--color-border-secondary, #ccc);
+	border-radius: 1rem;
+	background: var(--color-neutral-background, #fff);
+	color: var(--color-neutral-content, #1c1c1c);
+	font-size: 0.875rem;
+	line-height: 1.4;
+}
+.re-feed-blocked-notice p {
+	flex: 1 1 100%;
+	margin: 0;
+}
+.re-feed-blocked-notice button {
+	padding: 0.4rem 0.9rem;
+	border: 1px solid var(--color-border-secondary, #ccc);
+	border-radius: 9999px;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	font-weight: 600;
+	cursor: pointer;
+}
+.re-feed-blocked-notice button:hover {
+	border-color: var(--color-border-hover, #999);
+	background: var(--color-neutral-background-hover, rgba(128, 128, 128, 0.12));
+}
+.re-feed-blocked-notice button:focus-visible {
+	outline: 2px solid var(--color-accent, #0079d3);
+	outline-offset: 2px;
+}
+
 .re-hide-comment-keyword *,
 .re-hide-comment-user * {
 	display: none !important;
@@ -608,7 +672,7 @@ div.invisible[slot='editor-helper-text'] {
 }
 
 /* ========== Default Old New UI theme colours ========== */
-.theme-dark {
+/*.theme-dark {
 	--re-theme-header-bg: #1a1a1b;
 	--re-theme-searchbar-bg: #272729;
 	--re-theme-searchbar-dropdown-bg: #1a1a1b;
@@ -636,7 +700,7 @@ div.invisible[slot='editor-helper-text'] {
 	--re-theme-sidebar-bg: white;
 	--re-theme-sidemenu-bg: white;
 	--re-background-image: #dae0e6;
-}
+}*/
 
 /* Reddit's changes for signed-out users */
 .\@container\/story-cluster div {

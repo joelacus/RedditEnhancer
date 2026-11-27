@@ -74,7 +74,7 @@ h1 {
 .table-scroll {
 	flex: 1;
 	min-height: 0;
-	overflow-y: auto;
+	overflow: auto;
 	border: 1px solid var(--bg-tint-4);
 	border-radius: var(--border-radius);
 }
@@ -83,6 +83,7 @@ h1 {
 	width: 100%;
 	border-collapse: collapse;
 	table-layout: fixed;
+	min-width: calc(970px + 8rem + 200px);
 	background-color: var(--bg-tint-2);
 }
 
@@ -235,12 +236,17 @@ h1 {
 	text-decoration: underline;
 }
 
-.link-cell .btn-icon-link,
 .action-cell .row-delete {
-	background: none;
+	background: var(--red);
 	cursor: pointer;
 	aspect-ratio: 1;
 	opacity: 0;
+}
+.action-cell .row-delete .icon-x {
+	background: var(--bg-tint-2);
+}
+.action-cell .row-delete:hover {
+	background: color-mix(in srgb, var(--red) 70%, #000000);
 }
 
 #user-tags-table tr[data-username]:hover td {

@@ -7,6 +7,9 @@
  * Compatibility: RV3 (New New UI) (2023-)
  */
 
+const STYLE_ID = 're-compact-post-link-display';
+const POST_ROUTES = ['post_page', 'comments_page', 'profile_post_page'];
+
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
 export function loadCompactPostLinkPreview() {
@@ -18,90 +21,133 @@ export function loadCompactPostLinkPreview() {
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
 export function compactPostLinkPreview(value) {
-	if (redditVersion === 'newnew') {
-		const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
-		const postRoutes = ['post_page', 'comments_page', 'profile_post_page'];
-		// Do not compact e.g. YouTube video embeds
-		if (value && postRoutes.includes(routeName) && !document.querySelector('shreddit-embed')) {
-			const post = document.querySelector('shreddit-post[post-type="link"]');
-			if (!post) return;
+	if (redditVersion !== 'newnew') return;
 
-			// Remove the original post link
-			let postLink = post.getAttribute('content-href');
-			document.querySelector('div:has(> faceplate-tracker[source="post_lightbox"])')?.remove();
+	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
+	const post = document.querySelector('shreddit-post[post-type="link"]');
+	const postLink = post?.getAttribute('content-href');
+	const isUnsupportedPost =
+		!value ||
+		!POST_ROUTES.includes(routeName) ||
+		!post ||
+		!postLink ||
+		post.querySelector('shreddit-embed') ||
+		post.querySelector('div[slot="text-body"]') ||
+		isImageHost(postLink);
 
-			if (/(imgur\.com|imgur\.io|ibb\.co)/.test(new URL(postLink).hostname)) return;
-
-			// Append Stylesheet
-			if (!document.head.querySelector('style[id="re-compact-post-link-display"]')) {
-				const styleElement = document.createElement('style');
-				styleElement.id = 're-compact-post-link-display';
-				styleElement.textContent = `shreddit-app[routename="post_page"] shreddit-post[post-type="link"] img.preview-img,
-		 							        shreddit-app[routename="comments_page"] shreddit-post[post-type="link"] img.preview-img {
-									        	width: 144px;
-									        	height: 116px;
-									        	object-fit: cover;
-									        	float: right;
-									        	border-radius: var(--re-theme-border-radius, 4px);
-									        	border: 1px solid var(--color-neutral-border-weak);
-									        	margin: 0;
-									        }
-									        [routename="post_page"] shreddit-post[post-type="link"] div[slot="post-media-container"]:has(img#post-image),
-									        [routename="comments_page"] shreddit-post[post-type="link"] div[slot="post-media-container"]:has(img#post-image) {
-									            margin-top: calc(var(--re-post-media-container-margin) * -1);
-									        	margin-left: auto;
-									        	width: 144px;
-									        	height: 116px;
-									        }
-									        [routename="post_page"] shreddit-post[post-type="link"]:has(img#post-image) h1,
-									        [routename="comments_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 {
-									        	margin-right: 152px;
-									        }
-									        [routename="post_page"] shreddit-post[post-type="link"] shreddit-aspect-ratio,
-									        [routename="comments_page"] shreddit-post[post-type="link"] shreddit-aspect-ratio {
-                                            	--max-height: 116px !important;
-                                            }
-									        [routename="post_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 + a,
-									        [routename="comments_page"] shreddit-post[post-type="link"]:has(img#post-image) h1 + a {
-									        	float: left;
-									        	margin-top: calc(-116px + var(--re-post-media-container-margin));
-									        	max-width: calc(100% - 144px - 1rem);
-									        }`;
-				document.head.insertBefore(styleElement, document.head.firstChild);
-			}
-
-			if (post.querySelector('div[slot="text-body"]') || window.innerWidth < 768) {
-				const dynamicStyleElements = document.head.querySelectorAll('style[id="re-compact-post-link-display"]');
-				dynamicStyleElements.forEach((element) => {
-					element.remove();
-				});
-			}
-
-			// Get the height of post title, link and flair (if exists)
-			const tagHeight = post.getAttribute('spoiler') !== null || post.getAttribute('nsfw') !== null ? 24 : 0;
-			const titleHeight = post.querySelector('h1').offsetHeight;
-			const flairHeight = post.querySelector('shreddit-post-flair') ? document.querySelector('shreddit-post shreddit-post-flair').offsetHeight + 8 : 0;
-			document.documentElement.style.setProperty('--re-post-media-container-margin', `calc(${tagHeight}px + ${titleHeight}px + ${flairHeight}px)`);
-
-			if (document.querySelector('shreddit-post a.re-post-link')) return;
-
-			// Append the new post link
-			let postLink2 = Object.assign(document.createElement('a'), {
-				href: postLink,
-				textContent: postLink,
-				className: 'relative text-12 xs:text-14 ml-md xs:ml-0 font-semibold mb-xs post-link max-w-full truncate a cursor-pointer hover:underline re-post-link',
-				target: '_blank',
-				rel: 'noopener noreferrer ugc',
-			});
-			post.insertBefore(postLink2, document.querySelector('shreddit-post h1').nextSibling);
-		} else {
-			const dynamicStyleElements = document.head.querySelectorAll('style[id="re-compact-post-link-display"]');
-			dynamicStyleElements.forEach((element) => {
-				element.remove();
-			});
-
-			// Remove the new post link
-			document.querySelector('shreddit-post .re-post-link')?.remove();
-		}
+	if (isUnsupportedPost) {
+		disableCompactPostLinkPreview();
+		return;
 	}
+
+	let styleElement = document.head.querySelector(`style[id="${STYLE_ID}"]`);
+	if (!styleElement) {
+		styleElement = document.createElement('style');
+		styleElement.id = STYLE_ID;
+		document.head.insertBefore(styleElement, document.head.firstChild);
+	}
+
+	// The link preview is a fixed-height shell with a media row and a CTA row.
+	// Lay the rows out side by side and let the 16:9 thumbnail size the card.
+	styleElement.textContent = `@media (min-width: 768px) {
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [data-link-preview-empty-media-sizer],
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [data-link-preview-empty-cta-sizer] {
+		display: none !important;
+	}
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [data-link-preview-fixed-height-shell] {
+		height: auto !important;
+		min-height: 0 !important;
+		max-height: none !important;
+		overflow: visible !important;
+	}
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [data-link-preview-content-grid] {
+		position: static !important;
+		display: flex !important;
+		align-items: stretch;
+	}
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [data-link-preview-media-row] {
+		flex: 0 0 144px;
+		width: 144px;
+		height: auto;
+		aspect-ratio: 16 / 9;
+		align-self: center;
+	}
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [data-link-preview-media-row] img.post-background-image-filter {
+		display: none !important;
+	}
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [data-link-preview-media-row] img.preview-img {
+		height: 100% !important;
+		object-fit: cover !important;
+	}
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [data-link-preview-cta-row] {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [data-link-preview-cta-row] > div,
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [data-link-preview-cta-row] > div > div {
+		height: 100%;
+	}
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [data-link-preview-cta-row] > div > div {
+		border-top: 0 !important;
+	}
+	/* Comment permalinks render a full-width hero image and a link bar below it,
+	   without the data-link-preview-* attributes. Lay those two out side by side
+	   like the compact shell above. The img in the :has() guard keeps video-only
+	   previews untouched. */
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [slot="post-media-container"] > div:has(> [data-aspect-ratio-container]:not([data-link-preview-fixed-height-shell]) img) {
+		display: flex !important;
+		align-items: stretch !important;
+	}
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [slot="post-media-container"] > div > [data-aspect-ratio-container]:not([data-link-preview-fixed-height-shell]) {
+		flex: 0 0 144px !important;
+		width: 144px !important;
+		height: auto !important;
+		min-height: 0 !important;
+		max-height: none !important;
+		aspect-ratio: 16 / 9 !important;
+		align-self: center !important;
+	}
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [data-aspect-ratio-container]:not([data-link-preview-fixed-height-shell]) img.post-background-image-filter {
+		display: none !important;
+	}
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [data-aspect-ratio-container]:not([data-link-preview-fixed-height-shell]) img.preview-img,
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [data-aspect-ratio-container]:not([data-link-preview-fixed-height-shell]) img[data-post-media-primary] {
+		width: 100% !important;
+		height: 100% !important;
+		max-height: none !important;
+		object-fit: cover !important;
+	}
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [slot="post-media-container"] > div > div:has(> faceplate-tracker) {
+		flex: 1 1 auto !important;
+		min-width: 0 !important;
+		display: flex !important;
+		align-items: center !important;
+	}
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [slot="post-media-container"] > div > div:has(> faceplate-tracker) > faceplate-tracker,
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [slot="post-media-container"] > div > div:has(> faceplate-tracker) a {
+		width: 100% !important;
+	}
+	shreddit-app:is([routename="post_page"], [routename="comments_page"], [routename="profile_post_page"]) shreddit-post[post-type="link"] [slot="post-media-container"] > div > div:has(> faceplate-tracker) a {
+		border-top: 0 !important;
+	}
+}`;
+}
+
+// ─── Helpers ────────────────────────────────────────────────────────────────
+
+function isImageHost(url) {
+	try {
+		return /(imgur\.com|imgur\.io|ibb\.co)/.test(new URL(url).hostname);
+	} catch {
+		return false;
+	}
+}
+
+function disableCompactPostLinkPreview() {
+	document.head.querySelectorAll(`style[id="${STYLE_ID}"]`).forEach((element) => element.remove());
+
+	// Remove the URL link inserted by versions before 3.7.0, without touching
+	// [slot="full-post-link"] links marked by "Open Post Links in New Tab".
+	document.querySelectorAll('shreddit-post > a.re-post-link:not([slot])').forEach((link) => link.remove());
+	document.documentElement.style.removeProperty('--re-post-media-container-margin');
 }

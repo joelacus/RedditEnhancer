@@ -197,13 +197,17 @@ function disableCompactHeaderSideMenu() {
  */
 
 let optOutAttach;
+let appliedOptOutAttach;
+let attachedSideMenu;
+let sideMenuPlaceholder;
+let sideMenuOutsideClickHandler;
 
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
 export function loadAttachSideMenuHeader() {
 	BROWSER_API.storage.sync.get(['attachSideMenuHeader', 'optOutAttachSideMenu'], function (result) {
-		if (result.optOutAttachSideMenu === true) optOutAttachSideMenu(true);
-		if (result.optOutAttachSideMenu === true) attachSideMenuHeader(true);
+		optOutAttachSideMenu(result.optOutAttachSideMenu === true);
+		attachSideMenuHeader(result.attachSideMenuHeader === true);
 	});
 }
 
@@ -218,6 +222,12 @@ export function attachSideMenuHeader(value) {
 // Set the opt-out state for attaching the side menu to the header (while still keeping page title and user info)
 export function optOutAttachSideMenu(value) {
 	optOutAttach = value;
+	// Rebuild the header when the option changes while the feature is active, so
+	// the side menu is attached or detached immediately instead of on reload.
+	if (appliedOptOutAttach !== undefined && appliedOptOutAttach !== value && document.head.querySelector('style[id="re-attach-side-menu-header"]')) {
+		disableAttachSideMenuHeader();
+		enableAttachSideMenuHeader();
+	}
 }
 
 // Enable Attach Side Menu to the Header
@@ -256,6 +266,9 @@ async function enableAttachSideMenuHeader() {
 			}
 			.re-header-menu > div > span {
 				font-weight: 600;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
 			}
 			.re-header-menu #left-nav-persistent-container,
 			.re-header-menu #profile-left-nav-persistent-container {
@@ -331,11 +344,11 @@ async function enableAttachSideMenuHeader() {
 				margin-bottom: .25rem;
 				font-size: small;
 			}
-			search-dynamic-id-cache-controller {
+			nav.h-header-large search-dynamic-id-cache-controller {
 				display: flex !important;
 				justify-content: center;
 			}
-			reddit-search-large {
+			nav.h-header-large reddit-search-large {
 				max-width: 800px !important;
 			}`;
 		if (!optOutAttach) {
@@ -357,6 +370,7 @@ async function enableAttachSideMenuHeader() {
 		}
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
+	appliedOptOutAttach = optOutAttach;
 
 	try {
 		await Promise.all([attachUserInfo(), attachPageTitle()]);
@@ -372,8 +386,38 @@ function disableAttachSideMenuHeader() {
 	dynamicStyleElements.forEach((element) => {
 		element.remove();
 	});
+	restoreSideMenu();
 	if (document.querySelector('.re-header-menu')) document.querySelector('.re-header-menu').remove();
 	if (document.querySelector('#re-user-info')) document.querySelector('#re-user-info').remove();
+	appliedOptOutAttach = undefined;
+}
+
+// Move the side menu back to where it was before it was attached to the header.
+function restoreSideMenu() {
+	const sideMenuInHeader = document.querySelector('.re-header-menu #left-nav-persistent-container, .re-header-menu #profile-left-nav-persistent-container');
+	const detachedSideMenu = attachedSideMenu && !attachedSideMenu.isConnected ? attachedSideMenu : null;
+	const sideMenuToRestore = sideMenuInHeader ?? detachedSideMenu;
+
+	if (sideMenuToRestore) {
+		const existingSideMenu = document.querySelector('#left-nav-persistent-container, #profile-left-nav-persistent-container');
+		if (existingSideMenu && existingSideMenu !== sideMenuToRestore) {
+			// Reddit re-created the side menu after the header was re-rendered,
+			// so drop the stale copy instead of duplicating it.
+			sideMenuToRestore.remove();
+		} else if (sideMenuPlaceholder?.isConnected) {
+			sideMenuPlaceholder.parentNode.insertBefore(sideMenuToRestore, sideMenuPlaceholder);
+			sideMenuPlaceholder.remove();
+		} else {
+			const sideMenuContainer = document.querySelector('#flex-left-nav-contents') ?? document.querySelector('flex-left-nav-container') ?? document.querySelector('#left-sidebar-container');
+			if (sideMenuContainer) sideMenuContainer.appendChild(sideMenuToRestore);
+		}
+	}
+	attachedSideMenu = null;
+	sideMenuPlaceholder = null;
+	if (sideMenuOutsideClickHandler) {
+		window.removeEventListener('click', sideMenuOutsideClickHandler);
+		sideMenuOutsideClickHandler = null;
+	}
 }
 
 // Display username and karma within the toggle user drawer button
@@ -414,7 +458,10 @@ async function attachUserInfo() {
 
 // Attach the side menu to the header
 async function attachPageTitle() {
-	const currentPage = document.querySelector('shreddit-app').getAttribute('routename');
+	const currentPage = document.querySelector('shreddit-app')?.getAttribute('routename');
+	// Wait for Reddit to set the route name; otherwise the fallback title below
+	// has nothing to work with and the menu would show a bogus name.
+	if (!currentPage) return;
 	let logo = '',
 		title = '',
 		data;
@@ -587,16 +634,21 @@ async function attachPageTitle() {
 	}
 
 	if (document.querySelector('.re-header-menu')) return;
+	// If Reddit re-rendered the header, the side menu was removed with it. Put
+	// it back before rebuilding the header menu so it can be attached again.
+	if (attachedSideMenu && !attachedSideMenu.isConnected) restoreSideMenu();
 	const sideMenu = document.createElement('nav');
 	sideMenu.className = 're-header-menu mb-0 h-[40px] mr-md text-neutral-content-strong box-border';
 	sideMenu.append(parseHtmlString(`<div class="flex items-center gap-xs px-xs h-full">${logo}<span>${escapeHtml(title)}</span></div>`));
 
+	// Insert the side menu into the header. Do this before attaching the side
+	// menu so it is never moved into a menu that cannot be inserted.
+	const searchBar = document.querySelector('reddit-header-large header > nav.h-header-large > div.justify-stretch');
+	if (!searchBar) return;
+	searchBar.parentNode.insertBefore(sideMenu, searchBar);
+
 	// Attach the side menu to the header
 	if (!optOutAttach) attachSideMenu(sideMenu);
-
-	// Finally, insert the side menu into the header
-	const searchBar = document.querySelector('reddit-header-large header > nav.h-header-large > div.justify-stretch');
-	if (searchBar) searchBar.parentNode.insertBefore(sideMenu, searchBar);
 }
 
 function attachSideMenu(sideMenu) {
@@ -604,8 +656,13 @@ function attachSideMenu(sideMenu) {
 	const banner = () => showBannerMessage('warning', "Reddit Enhancer wasn't able to attach the side menu. Please refresh the page. Sorry!");
 	sideMenu.querySelector('div').addEventListener('click', banner);
 
-	const sideMenu2 = document.querySelector('flex-left-nav-container #left-nav-persistent-container, #profile-left-nav-persistent-container');
+	const sideMenu2 = document.querySelector('#left-nav-persistent-container, #profile-left-nav-persistent-container');
 	if (sideMenu2) {
+		// Remember where the side menu came from so it can be put back when the
+		// feature is disabled or the side menu is opted out.
+		attachedSideMenu = sideMenu2;
+		sideMenuPlaceholder = document.createComment('re-side-menu-placeholder');
+		sideMenu2.parentNode.insertBefore(sideMenuPlaceholder, sideMenu2);
 		sideMenu2.setAttribute('style', '');
 		sideMenu.appendChild(sideMenu2);
 		// Display or hide the side menu when clicking on the header button
@@ -615,9 +672,11 @@ function attachSideMenu(sideMenu) {
 			if (menu) menu.style.display = getComputedStyle(menu).display === 'none' ? 'block' : 'none';
 		});
 		// Hide the side menu when clicking outside of it
-		window.addEventListener('click', (e) => {
+		if (sideMenuOutsideClickHandler) window.removeEventListener('click', sideMenuOutsideClickHandler);
+		sideMenuOutsideClickHandler = (e) => {
 			if (!sideMenu.contains(e.target) || !sideMenu2.contains(e.target)) sideMenu2.style.display = 'none';
-		});
+		};
+		window.addEventListener('click', sideMenuOutsideClickHandler);
 		sideMenu.querySelector('div').removeEventListener('click', banner);
 	}
 }

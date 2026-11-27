@@ -262,7 +262,7 @@ export function getUserTaggingCSS() {
 			min-width: 70px;
 		}
 		.re-tag-detail-value {
-			color: #var(--text);
+			color: var(--text);
 			word-break: break-all;
 		}
 		.re-tag-detail-value a {

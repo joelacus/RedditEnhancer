@@ -59,9 +59,6 @@
 	"AttachSideMenuHeader": {
 		"message": "Visa sidan och användarinformation i rubriken"
 	},
-	"AttachSideMenuHeaderInfo": {
-		"message": "Experimentellt. Kan potentiellt komma i konflikt med att dölja sidomenyfuktioner."
-	},
 	"Auto": {
 		"message": "Automatisk"
 	},
@@ -134,6 +131,12 @@
 	"BackupUserTagsOnly": {
 		"message": "Endast användartaggar"
 	},
+	"BaseTheme": {
+		"message": "Bastema"
+	},
+	"BaseThemeInfo": {
+		"message": "Välj ett inbyggt färgtema för sidan. De individuella färgalternativen nedan åsidosätter det när de är aktiverade. Välj \"Inget\" för att ta bort grundtemat."
+	},
 	"Best": {
 		"message": "Bäst / Best"
 	},
@@ -170,20 +173,44 @@
 	"BlockAlreadyAdded": {
 		"message": "Redan i blocklistan."
 	},
+	"BlockedSubredditInfo": {
+		"message": "Denna subreddit finns i din blockeringslista. Avblockera den i Blockeringshanteraren för att besöka den igen."
+	},
+	"BlockedSubredditTitle": {
+		"message": "Denna subreddit har blockerats"
+	},
 	"BlockExport": {
 		"message": "Exportera block"
+	},
+	"BlockFeedAllHidden": {
+		"message": "Varje inlägg i det här flödet är dolt av dina blockeringsfilter."
+	},
+	"BlockFeedLoadMore": {
+		"message": "Ladda fler inlägg"
 	},
 	"BlockImport": {
 		"message": "Importera block"
 	},
-	"BlockImportSuccess": {
-		"message": "Importerade {count} block(er)."
+	"BlockImportEmpty": {
+		"message": "Inga block importerades från denna säkerhetskopia."
+	},
+	"BlockImportTypeSummary": {
+		"message": "{type}: {newCount} ny, {updatedCount} uppdaterad, {existingCount} fanns redan."
 	},
 	"BlockInfo": {
-		"message": "Stöder exakt matchning av sökord eller reguljära uttryck"
+		"message": "Stöder exakt sökordsmatchning eller reguljära uttryck inlindade i snedstreck, t.ex. \"/^user\\d+$/i\" (flaggor är valfria). \"*\" kan användas som jokertecken, t.ex. \"user*\" (\"user\" med något efter kommer att blockeras). Vanliga textblock är skiftlägesokänsliga; Regex-mönster använder sina egna flaggor, så lägg till \"/i\" för att matcha skiftlägeskänsligt."
+	},
+	"BlockKeywordContent": {
+		"message": "Lägg upp innehåll"
+	},
+	"BlockKeywordLink": {
+		"message": "Länk i inlägget"
 	},
 	"BlockKeywordsTab": {
 		"message": "Nyckelord"
+	},
+	"BlockKeywordTitle": {
+		"message": "Inläggets titel"
 	},
 	"BlockManagerInfo": {
 		"message": "Blockerade användare, subreddits och nyckelord lagras lokalt på den här enheten. Exportera dem för att undvika eventuell dataförlust."
@@ -200,8 +227,17 @@
 	"BlockPostsAndComments": {
 		"message": "Inlägg och kommentarer"
 	},
+	"BlockRegexHint": {
+		"message": "Det här ser ut som ett reguljärt uttryck. Slå in den i /…/ för att använda den som en."
+	},
+	"BlockRegexValid": {
+		"message": "Regex giltigt"
+	},
 	"BlockScope": {
 		"message": "Omfattning"
+	},
+	"BlockSubreddits": {
+		"message": "Blockera subreddits"
 	},
 	"BlockSubredditsTab": {
 		"message": "Subreddits"
@@ -266,6 +302,9 @@
 	"Cleared": {
 		"message": "Rensad"
 	},
+	"ClickLightboxBackgroundToClose": {
+		"message": "Klicka på Lightbox-bakgrund för att stänga"
+	},
 	"ClickToEdit": {
 		"message": "Klicka för att redigera"
 	},
@@ -277,6 +316,18 @@
 	},
 	"Colour": {
 		"message": "Färg"
+	},
+	"CommentImageThumbnails": {
+		"message": "Kommentera bildminiatyrer"
+	},
+	"CommentImageThumbnailsInfo": {
+		"message": "Visa en inbäddad miniatyrbild för bildlänkar i kommentarer. Klicka på en miniatyrbild för att öppna en förhandsvisning i helskärm. Imgur, Postimg och IBB sidlänkar är också lösta."
+	},
+	"CommentImageThumbnailsPermissions": {
+		"message": "Imgur-albumlänkar, Postimg och IBB-sidlänkar behöver tillstånd för att omvandlas till miniatyrer. Direkta bildlänkar och enbilds Imgur-länkar fungerar fortfarande. Bevilja åtkomst från tilläggets behörighetsinställningar, eller stäng av och aktivera det här alternativet igen för att bli tillfrågad."
+	},
+	"CommentImageThumbnailWidth": {
+		"message": "Miniatyrbildsbredd"
 	},
 	"Comments": {
 		"message": "Kommentarer"
@@ -356,14 +407,26 @@
 	"DarkThemes": {
 		"message": "Mörkt tema"
 	},
+	"Default": {
+		"message": "Standard"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "Standardkommentarer Sortalternativ"
 	},
 	"DefaultFeedSortOption": {
 		"message": "Standardfoder Sorteringsalternativ"
 	},
+	"DefaultFeedTab": {
+		"message": "Standardflik för flöde"
+	},
+	"DefaultFeedTabInfo": {
+		"message": "Välj den flik som startflödet öppnas på. Den här inställningen ignoreras när alternativet \"Standardalternativ för sortering av startflöde\" är aktiverat."
+	},
 	"DefaultHomeFeedSortOption": {
 		"message": "Standardalternativ för hemmatning"
+	},
+	"DefaultHomeFeedSortOptionInfo": {
+		"message": "Sortering av hemflödet tvinger Följer-flödet, så detta har prioritet över \"Standardflik för flöde\"."
 	},
 	"Delete": {
 		"message": "Ta bort"
@@ -470,6 +533,9 @@
 	"FollowComment": {
 		"message": "Följ kommentaren"
 	},
+	"Following": {
+		"message": "Följande"
+	},
 	"FollowPost": {
 		"message": "Följ inlägg"
 	},
@@ -494,6 +560,9 @@
 	"ForceShowVoteButtons": {
 		"message": "Tvinga visning av röstknappar"
 	},
+	"ForYou": {
+		"message": "För dig"
+	},
 	"FullWidthBanner": {
 		"message": "Subreddit-banner i full bredd"
 	},
@@ -508,6 +577,9 @@
 	},
 	"GlobalWidth": {
 		"message": "Global max. bredd"
+	},
+	"GoToRedditHome": {
+		"message": "Gå till Reddits startsida"
 	},
 	"Grey": {
 		"message": "Grå"
@@ -539,6 +611,12 @@
 	"HideAwards": {
 		"message": "Dölj knappen \"Utmärkelse\" i kommentarer"
 	},
+	"HideBlockedSearchEntries": {
+		"message": "Dölj blockerade poster i sökfältet och resultatsidan"
+	},
+	"HideBlockedSearchEntriesInfo": {
+		"message": "Döljer blockerade sökord, subreddits och användare från sökfältsförslagen och sökresultatsidan, inklusive dess högra sidofält."
+	},
 	"HideBlurredMediaBackground": {
 		"message": "Dölj bakgrundsblur bakom bildförhandsvisningar"
 	},
@@ -547,6 +625,9 @@
 	},
 	"HideCommentActionBarButtonsInfo": {
 		"message": "Dölj knappar från kommentarfältets åtgärdsfält"
+	},
+	"HideCommentImageLinks": {
+		"message": "Dölj originalkommentarbildlänkar"
 	},
 	"HideCommentKarma": {
 		"message": "Dölj kommentarkarma"
@@ -655,9 +736,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Dölja inläggskarma"
-	},
-	"HidePostsBySubreddit": {
-		"message": "Dölja inlägg efter subreddit"
 	},
 	"HidePostsByUser": {
 		"message": "Dölj inlägg av användare"
@@ -797,6 +875,9 @@
 	"Importing": {
 		"message": "Importerar..."
 	},
+	"ImportingLargeBackup": {
+		"message": "Importerar. Stora säkerhetskopior kan ta ett tag och sidan kan verka frusen."
+	},
 	"ImportInvalidFormat": {
 		"message": "Ogiltigt filformat."
 	},
@@ -823,6 +904,9 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "Blockerar inlägg baserat på titeln, inte innehållet."
+	},
+	"KeywordsBlockInfoScopes": {
+		"message": "Blockerar inlägg när ett nyckelord matchar inläggets titel eller innehåll, beroende på de områden som valts i blockhanteraren."
 	},
 	"Label": {
 		"message": "Etikett"
@@ -938,6 +1022,9 @@
 	"NextRootComment": {
 		"message": "Nästa rotkommentar"
 	},
+	"None": {
+		"message": "Ingen"
+	},
 	"NoNote": {
 		"message": "Ingen anteckning"
 	},
@@ -1003,6 +1090,9 @@
 	},
 	"Other": {
 		"message": "annan"
+	},
+	"Page": {
+		"message": "Sida"
 	},
 	"PositionHorizontally": {
 		"message": "Placera Horisontellt"
@@ -1102,6 +1192,9 @@
 	},
 	"Qa": {
 		"message": "Q&a"
+	},
+	"Radius": {
+		"message": "Radie"
 	},
 	"Rate": {
 		"message": "Betygsätt / Recensera"
@@ -1353,7 +1446,10 @@
 		"message": "Subreddit"
 	},
 	"SubredditBlockInfo": {
-		"message": "Döljer alla inlägg från de listade subredditsen i flöden, utom subredditsflöden"
+		"message": "Döljer inlägg från de listade subredditerna i flöden och kan blockera deras sidor helt. Ställ in omfattningen för varje subreddit i Blockeringshanteraren."
+	},
+	"SubredditBlockInfoScopes": {
+		"message": "Döljer inlägg från de listade subreddits i flöden och blockerar deras inläggs-/kommentarsidor. Sidavgränsade blockeringar blockerar även subredditets egna sidor. Ange varje subreddits omfattningar i Blockhanteraren."
 	},
 	"SubredditDisplayNameBanner": {
 		"message": "Visa subreddits visningsnamn i dess banderoll"
@@ -1397,6 +1493,12 @@
 	"ThemeDoesNotWorkWithCustomThemes": {
 		"message": "Fungerar för närvarande inte med anpassade community-teman. Vänligen inaktivera det här alternativet i dina Reddit-inställningar."
 	},
+	"ThemeOpacity": {
+		"message": "Tema Opacitet"
+	},
+	"ThemeOpacityInfo": {
+		"message": "Gör rubrikfältet, inläggets bakgrunder och sidofältet genomskinliga. Lägre värden visar mer av sidbakgrunden."
+	},
 	"ThemeWhitelistInfo": {
 		"message": "Använd endast tematfärger för dessa subreddits"
 	},
@@ -1425,7 +1527,7 @@
 		"message": "Uppdaterad"
 	},
 	"UpdateFirefox": {
-		"message": "Uppdatera till Firefox 121 eller senare för att vissa funktioner ska fungera korrekt."
+		"message": "Uppdatera till Firefox 128 eller senare för att vissa funktioner ska fungera korrekt."
 	},
 	"Upload": {
 		"message": "Ladda upp"

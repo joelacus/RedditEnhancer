@@ -59,9 +59,6 @@
 	"AttachSideMenuHeader": {
 		"message": "Wyświetl stronę i informacje o użytkowniku w nagłówku"
 	},
-	"AttachSideMenuHeaderInfo": {
-		"message": "Eksperymentalne. Może kolidować z ukrywaniem funkcji menu bocznego."
-	},
 	"Auto": {
 		"message": "Auto"
 	},
@@ -134,6 +131,12 @@
 	"BackupUserTagsOnly": {
 		"message": "Tylko tagi użytkownika"
 	},
+	"BaseTheme": {
+		"message": "Motyw bazowy"
+	},
+	"BaseThemeInfo": {
+		"message": "Wybierz wbudowany motyw kolorów strony. Poszczególne opcje kolorów poniżej zastępują je, gdy są włączone. Wybierz opcję „Brak”, aby usunąć motyw podstawowy."
+	},
 	"Best": {
 		"message": "Najlepsze / Best"
 	},
@@ -170,20 +173,44 @@
 	"BlockAlreadyAdded": {
 		"message": "Już na liście zablokowanych."
 	},
+	"BlockedSubredditInfo": {
+		"message": "Ten subreddit znajduje się na Twojej liście blokad. Odblokuj go w Menedżerze blokowania, aby go ponownie odwiedzić."
+	},
+	"BlockedSubredditTitle": {
+		"message": "Ten subreddit został zablokowany"
+	},
 	"BlockExport": {
 		"message": "Eksportuj bloki"
+	},
+	"BlockFeedAllHidden": {
+		"message": "Każdy post w tym kanale jest ukryty przez twoje filtry blokowania."
+	},
+	"BlockFeedLoadMore": {
+		"message": "Załaduj więcej postów"
 	},
 	"BlockImport": {
 		"message": "Importuj bloki"
 	},
-	"BlockImportSuccess": {
-		"message": "Zaimportowano bloki ({count})."
+	"BlockImportEmpty": {
+		"message": "Z tej kopii zapasowej nie zaimportowano żadnych bloków."
+	},
+	"BlockImportTypeSummary": {
+		"message": "{type}: {newCount} nowy, {updatedCount} zaktualizowany, {existingCount} już istniał."
 	},
 	"BlockInfo": {
-		"message": "Obsługuje dokładne dopasowanie kluczowych słów lub wyrażeń regularnych"
+		"message": "Obsługuje dokładne dopasowanie słów kluczowych lub wyrażenia regularne zawijane w ukośniki, np. „/^user\\d+$/i” (flagi są opcjonalne). „*” może być używane jako symbole wieloznaczne, np. „user*” („user” z dowolną treścią po nim zostanie zablokowany). W blokach zwykłego tekstu wielkość liter nie jest uwzględniana; wzorce wyrażeń regularnych używają własnych flag, więc dodaj „/i”, aby dopasować wielkość liter bez uwzględniania wielkości liter."
+	},
+	"BlockKeywordContent": {
+		"message": "Opublikuj treść"
+	},
+	"BlockKeywordLink": {
+		"message": "Link w poście"
 	},
 	"BlockKeywordsTab": {
 		"message": "Słowa kluczowe"
+	},
+	"BlockKeywordTitle": {
+		"message": "Tytuł posta"
 	},
 	"BlockManagerInfo": {
 		"message": "Zablokowani użytkownicy, subreddity i słowa kluczowe są przechowywane lokalnie na tym urządzeniu. Wyeksportuj je, aby uniknąć potencjalnej utraty danych."
@@ -200,8 +227,17 @@
 	"BlockPostsAndComments": {
 		"message": "Posty i komentarze"
 	},
+	"BlockRegexHint": {
+		"message": "To wygląda na wyrażenie regularne. Zawiń go w /…/, aby używać go jako jednego."
+	},
+	"BlockRegexValid": {
+		"message": "Regex prawidłowy"
+	},
 	"BlockScope": {
 		"message": "Zakres"
+	},
+	"BlockSubreddits": {
+		"message": "Blokuj subreddity"
 	},
 	"BlockSubredditsTab": {
 		"message": "Subreddity"
@@ -266,6 +302,9 @@
 	"Cleared": {
 		"message": "Wyczyszczone"
 	},
+	"ClickLightboxBackgroundToClose": {
+		"message": "Kliknij Tło Lightbox, aby zamknąć"
+	},
 	"ClickToEdit": {
 		"message": "Kliknij, aby edytować"
 	},
@@ -277,6 +316,18 @@
 	},
 	"Colour": {
 		"message": "Kolor"
+	},
+	"CommentImageThumbnails": {
+		"message": "Miniatury obrazów komentarzy"
+	},
+	"CommentImageThumbnailsInfo": {
+		"message": "Pokaż wbudowaną miniaturę linków do obrazów w komentarzach. Kliknij miniaturę, aby otworzyć podgląd pełnoekranowy. Linki do stron Imgur, Postimg i IBB również zostały rozwiązane."
+	},
+	"CommentImageThumbnailsPermissions": {
+		"message": "Linki do albumów Imgur, linki do stron Postimg i IBB wymagają pozwolenia, aby można je było przekształcić w miniatury. Bezpośrednie linki do obrazów i linki do pojedynczych obrazów Imgur nadal działają. Przyznaj dostęp w ustawieniach uprawnień rozszerzenia lub wyłącz tę opcję i włącz ją ponownie, aby wyświetlić pytanie."
+	},
+	"CommentImageThumbnailWidth": {
+		"message": "Szerokość miniatury"
 	},
 	"Comments": {
 		"message": "Uwagi"
@@ -356,14 +407,26 @@
 	"DarkThemes": {
 		"message": "Ciemny motyw"
 	},
+	"Default": {
+		"message": "Domyślny"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "Domyślna opcja sortowania komentarzy"
 	},
 	"DefaultFeedSortOption": {
 		"message": "Domyślna opcja sortowania kanałów"
 	},
+	"DefaultFeedTab": {
+		"message": "Domyślna karta kanału"
+	},
+	"DefaultFeedTabInfo": {
+		"message": "Wybierz kartę, na której otwiera się kanał główny. To ustawienie jest ignorowane, gdy włączona jest opcja \"Domyślna opcja sortowania kanału głównego\"."
+	},
 	"DefaultHomeFeedSortOption": {
 		"message": "Domyślna opcja sortowania kanału domowego"
+	},
+	"DefaultHomeFeedSortOptionInfo": {
+		"message": "Sortowanie kanału głównego wymusza kanał Obserwowane, więc to ma pierwszeństwo przed \"Domyślna karta kanału\"."
 	},
 	"Delete": {
 		"message": "Usuń"
@@ -470,6 +533,9 @@
 	"FollowComment": {
 		"message": "Obserwuj komentarz"
 	},
+	"Following": {
+		"message": "Następny"
+	},
 	"FollowPost": {
 		"message": "Obserwuj post"
 	},
@@ -494,6 +560,9 @@
 	"ForceShowVoteButtons": {
 		"message": "Wymuszenie wyświetlania przycisków głosu"
 	},
+	"ForYou": {
+		"message": "Dla Ciebie"
+	},
 	"FullWidthBanner": {
 		"message": "Sztandar Subreddit pełnej szerokości"
 	},
@@ -508,6 +577,9 @@
 	},
 	"GlobalWidth": {
 		"message": "Globalna maksymalna szerokość"
+	},
+	"GoToRedditHome": {
+		"message": "Przejdź do strony głównej Reddita"
 	},
 	"Grey": {
 		"message": "Szary"
@@ -539,6 +611,12 @@
 	"HideAwards": {
 		"message": "Ukryj przycisk „Nagroda” przy komentarzach"
 	},
+	"HideBlockedSearchEntries": {
+		"message": "Ukryj zablokowane wpisy na pasku wyszukiwania i na stronie wyników"
+	},
+	"HideBlockedSearchEntriesInfo": {
+		"message": "Ukrywa zablokowane słowa kluczowe, subreddity i użytkowników przed sugestiami paska wyszukiwania i stroną wyników wyszukiwania, w tym prawym paskiem bocznym."
+	},
 	"HideBlurredMediaBackground": {
 		"message": "Ukryj tło Rozmycie za podglądami obrazów"
 	},
@@ -547,6 +625,9 @@
 	},
 	"HideCommentActionBarButtonsInfo": {
 		"message": "Ukryj przyciski z pasku akcji komentarzy"
+	},
+	"HideCommentImageLinks": {
+		"message": "Ukryj linki do oryginalnych komentarzy do obrazów"
 	},
 	"HideCommentKarma": {
 		"message": "Ukryj komentarz karma"
@@ -655,9 +736,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Ukryj Post Karma"
-	},
-	"HidePostsBySubreddit": {
-		"message": "Ukryj posty według subreddita"
 	},
 	"HidePostsByUser": {
 		"message": "Ukryj posty użytkownika"
@@ -797,6 +875,9 @@
 	"Importing": {
 		"message": "Importowanie..."
 	},
+	"ImportingLargeBackup": {
+		"message": "Importowanie. Tworzenie dużych kopii zapasowych może zająć trochę czasu, a strona może wyglądać na zamrożoną."
+	},
 	"ImportInvalidFormat": {
 		"message": "Nieprawidłowy format pliku."
 	},
@@ -823,6 +904,9 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "Blokuje posty na podstawie tytułu, a nie treści."
+	},
+	"KeywordsBlockInfoScopes": {
+		"message": "Blokuje posty, gdy słowo kluczowe pasuje do tytułu lub treści postu, w zależności od zakresów wybranych w Menedżerze blokowania."
 	},
 	"Label": {
 		"message": "Etykieta"
@@ -938,6 +1022,9 @@
 	"NextRootComment": {
 		"message": "Następny główny komentarz"
 	},
+	"None": {
+		"message": "Nic"
+	},
 	"NoNote": {
 		"message": "Brak notatki"
 	},
@@ -1003,6 +1090,9 @@
 	},
 	"Other": {
 		"message": "Inny"
+	},
+	"Page": {
+		"message": "Strona"
 	},
 	"PositionHorizontally": {
 		"message": "Ustaw poziomo"
@@ -1102,6 +1192,9 @@
 	},
 	"Qa": {
 		"message": "Q&a"
+	},
+	"Radius": {
+		"message": "Promień"
 	},
 	"Rate": {
 		"message": "Oceń / Recenzję"
@@ -1353,7 +1446,10 @@
 		"message": "Subreddit"
 	},
 	"SubredditBlockInfo": {
-		"message": "Ukrywa wszystkie wpisy z wymienionych subredditów z feedów, z wyłączeniem feedów subredditów."
+		"message": "Ukrywa posty z wymienionych subredditów w feedach i może całkowicie zablokować ich strony. Ustaw zakres dla każdego subreddita w Menedżerze blokowania."
+	},
+	"SubredditBlockInfoScopes": {
+		"message": "Ukrywa posty z wymienionych subredditów w feedach i blokuje ich strony postów/komentarzy. Blokady o zakresie strony blokują również własne strony subredditu. Ustaw zakresy dla każdego subredditu w Menedżerze blokad."
 	},
 	"SubredditDisplayNameBanner": {
 		"message": "Pokaż nazwę wyświetlania subreddita na jego banerze"
@@ -1397,6 +1493,12 @@
 	"ThemeDoesNotWorkWithCustomThemes": {
 		"message": "Obecnie nie działa z niestandardowymi tematami społeczności. Proszę wyłączyć tę opcję w preferencjach Reddit."
 	},
+	"ThemeOpacity": {
+		"message": "Nieprzezroczystość motywu"
+	},
+	"ThemeOpacityInfo": {
+		"message": "Spraw, aby pasek nagłówka, tła postów i pasek boczny były półprzezroczyste. Niższe wartości pokazują większą część tła strony."
+	},
 	"ThemeWhitelistInfo": {
 		"message": "Używaj kolorów motywu tylko dla tych subredditów:"
 	},
@@ -1425,7 +1527,7 @@
 		"message": "Aktualizowane"
 	},
 	"UpdateFirefox": {
-		"message": "Aby niektóre funkcje działały poprawnie, zaktualizuj przeglądarkę Firefox do wersji 121 lub nowszej."
+		"message": "Aby niektóre funkcje działały poprawnie, zaktualizuj przeglądarkę Firefox do wersji 128 lub nowszej."
 	},
 	"Upload": {
 		"message": "Wgrywać"

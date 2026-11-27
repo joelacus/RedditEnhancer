@@ -407,8 +407,23 @@ select option {
 }
 #select-home-feed-sort-option-menu,
 #select-feed-sort-option-menu,
-#select-comments-sort-option-menu {
+#select-comments-sort-option-menu,
+#select-theme-preset-menu {
 	top: 35px;
+}
+#select-theme-preset-menu {
+	overflow-y: auto;
+}
+#select-theme-preset-menu li {
+	flex-shrink: 0;
+}
+#input-theme-opacity:disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+.container-slider.theme-opacity-row.disabled > span,
+.container-slider.theme-opacity-row.disabled > .input-value {
+	opacity: 0.5;
 }
 #select-feed-sort-option .select span,
 #select-comments-sort-option .select span {

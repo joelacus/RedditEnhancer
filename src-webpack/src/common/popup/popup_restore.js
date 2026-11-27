@@ -58,7 +58,7 @@ function restoreOptions() {
 if (CHECK_LEGACY_FIREFOX) {
 	const firefox_outdated = detectFirefoxVersion();
 	if (firefox_outdated) {
-		console.log('Firefox version is below 121. Please update.');
+		console.log('Firefox version is below 128. Please update.');
 		document.querySelector('#firefox-update-message').style.display = 'grid';
 	}
 }

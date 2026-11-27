@@ -35,8 +35,17 @@ export const THEME_LIST = [
 	{ id: 'rose-pine-dawn', label: 'Rosé Pine Dawn', mode: 'light' },
 ];
 
+// The themes offered by the popup "Base Theme" dropdown. 'light', 'dark',
+// 'classic-light' and 'grey' are the popup UI's own defaults, not Reddit
+// base themes.
+export const PRESET_THEME_LIST = THEME_LIST.filter((theme) => !['light', 'dark', 'classic-light', 'grey'].includes(theme.id));
+
 export function isValidThemeId(id) {
 	return THEME_LIST.some((theme) => theme.id === id);
+}
+
+export function isPresetThemeId(id) {
+	return PRESET_THEME_LIST.some((theme) => theme.id === id);
 }
 
 // Label shown for a theme id in the menus (also used for the dropdown

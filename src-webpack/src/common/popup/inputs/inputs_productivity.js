@@ -267,6 +267,33 @@ document.querySelector('#input-post-comments-limit').addEventListener('mouseup',
 	BROWSER_API.storage.sync.set({ commentsLimit: this.value });
 });
 
+// Dropdown - Default Feed Tab
+const default_feed_tab_dropdown = document.querySelector('#select-default-feed-tab');
+const default_feed_tab_dropdownMenu = document.querySelector('#select-default-feed-tab-menu');
+document.querySelector('#select-default-feed-tab .select').addEventListener('click', function () {
+	default_feed_tab_dropdown.classList.toggle('active');
+	default_feed_tab_dropdownMenu.style.maxHeight = default_feed_tab_dropdown.classList.contains('active') ? default_feed_tab_dropdownMenu.scrollHeight + 'px' : '0';
+});
+document.addEventListener('click', function (event) {
+	if (!default_feed_tab_dropdown.contains(event.target)) {
+		default_feed_tab_dropdown.classList.remove('active');
+		default_feed_tab_dropdownMenu.style.maxHeight = '0';
+	}
+});
+default_feed_tab_dropdownMenu.addEventListener('click', function (event) {
+	const btn = event.target.tagName.toLowerCase();
+	let defaultFeedTab;
+	if (btn === 'li') {
+		defaultFeedTab = event.target.getAttribute('data-value');
+	} else if (btn === 'span') {
+		defaultFeedTab = event.target.parentNode.getAttribute('data-value');
+	}
+	document.querySelector('#select-default-feed-tab .select').querySelector('span').textContent = event.target.textContent;
+	default_feed_tab_dropdown.classList.remove('active');
+	default_feed_tab_dropdownMenu.style.maxHeight = '0';
+	BROWSER_API.storage.sync.set({ defaultFeedTab: defaultFeedTab });
+});
+
 // Toggle - Enable Default Home Feed Sort Option
 document.querySelector('#checkbox-default-home-feed-sort-option').addEventListener('change', function () {
 	BROWSER_API.storage.sync.set({ enableDefaultHomeFeedSortOption: this.checked });

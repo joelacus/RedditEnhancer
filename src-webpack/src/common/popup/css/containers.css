@@ -58,7 +58,8 @@
 	margin: 16px 0 16px 0;
 }
 .container-3 .dropdown {
-	width: 200px;
+	min-width: 200px;
+	width: fit-content;
 }
 .container-3 .select {
 	grid-template-columns: auto 22px;

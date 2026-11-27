@@ -1,9 +1,11 @@
 :root {
 	--icon-block: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z'/%3E%3C/svg%3E");
+	--icon-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/%3E%3C/svg%3E");
 	--border-radius: 8px;
 	--accent: #ff4703;
 	--text: #fcfcfc;
 	--text-grey: #808080;
+	--text-secondary: #fcfcfc;
 	--bg: #282828;
 	--bg-shade-1: #101010;
 	--bg-tint-1: #19191a;
@@ -22,6 +24,7 @@
 .theme-light {
 	--text: #030303;
 	--text-grey: #626261;
+	--text-secondary: #030303;
 	--bg: #f0f0f0;
 	--bg-shade-1: #d4d4d4;
 	--bg-tint-1: #e7e7e7;
@@ -86,20 +89,21 @@
 .re-page .btn.red,
 .re-page .btn-sm.red {
 	color: #fff;
-	background: #8b0000;
-	border-color: #8b0000;
+	background: var(--re-p-red, #8b0000);
+	border-color: var(--re-p-red, #8b0000);
 }
 .re-modal-content .btn.red:hover,
 .re-page .btn.red:hover,
 .re-page .btn-sm.red:hover {
-	background: #a00000;
-	border-color: #a00000;
+	background: var(--re-p-red-hover, #a00000);
+	border-color: var(--re-p-red-hover, #a00000);
 }
 .re-modal-content .btn.green,
 .re-page .btn.green,
 .re-page .btn-sm.green {
 	color: #fff;
-	background-color: #008b07;
+	background-color: var(--re-p-green, #008b07);
+	border-color: var(--re-p-green, #008b07);
 }
 .re-page .btn.red .btn-icon,
 .re-page .btn.green .btn-icon,
@@ -110,7 +114,8 @@
 .re-modal-content .btn.green:hover,
 .re-page .btn.green:hover,
 .re-page .btn-sm.green:hover {
-	background-color: #03a000;
+	background-color: var(--re-p-green-hover, #03a000);
+	border-color: var(--re-p-green-hover, #03a000);
 }
 
 /* Input */
@@ -206,6 +211,10 @@
 	margin: 0 0 1rem;
 }
 
+#info-modal-text {
+	white-space: pre-line;
+}
+
 .re-modal-content label {
 	display: flex;
 	margin-top: 1rem;
@@ -262,4 +271,13 @@
 .re-block-user-btn.is-blocked,
 .re-block-subreddit-btn.is-blocked {
 	background-color: #f44336;
+}
+
+/* Larger icon when it sits inline with the subreddit masthead h1. */
+.re-block-subreddit-masthead-btn {
+	width: 20px;
+	height: 20px;
+	margin-left: 8px;
+	vertical-align: middle;
+	flex-shrink: 0;
 }

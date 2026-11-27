@@ -7,12 +7,8 @@ export function detectFirefoxVersion() {
 	const match = userAgent.match(/Firefox\/(\d+)/);
 	if (match && match[1]) {
 		const firefoxVersion = parseInt(match[1], 10);
-		if (firefoxVersion !== null && firefoxVersion < 121) {
-			var isPre121 = true;
-		} else {
-			var isPre121 = false;
-		}
-		return isPre121;
+		// Firefox 128 is the first version that supports optional_host_permissions in Manifest V3.
+		return firefoxVersion < 128;
 	}
 	return null;
 }

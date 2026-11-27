@@ -54,6 +54,12 @@ export function galleryKeyboardNavigation(value) {
 function enableGalleryKeyboardNavigation() {
 	if (keyboardCleanup) return;
 
+	function carouselButton(carousel, direction) {
+		const shadow = carousel?.shadowRoot;
+		if (!shadow) return null;
+		return direction === 'right' ? shadow.querySelector('span[slot="nextButton"]') : shadow.querySelector('span[slot="prevButton"]');
+	}
+
 	function navigate(direction) {
 		const posts = Array.from(document.querySelectorAll('shreddit-post:has(gallery-carousel)'));
 		const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -72,34 +78,41 @@ function enableGalleryKeyboardNavigation() {
 		const bestPost = visiblePosts[0]?.post;
 		if (!bestPost) return;
 
-		const carousel = bestPost.querySelector('gallery-carousel');
-		if (!carousel) return;
+		carouselButton(bestPost.querySelector('gallery-carousel'), direction)?.click();
+	}
 
-		const shadow = carousel.shadowRoot;
-		if (!shadow) return;
-
-		const button = direction === 'right' ? shadow.querySelector('span[slot="nextButton"]') : shadow.querySelector('span[slot="prevButton"]');
-
-		button?.click();
+	// A lightbox has its own gallery. Navigate that one, because clicking the post gallery underneath the lightbox closes it.
+	function navigateLightbox(lightbox, direction) {
+		if (lightbox.querySelector('video, shreddit-player-2, shreddit-player-iframe')) return false;
+		const button = carouselButton(lightbox.querySelector('gallery-carousel'), direction);
+		if (!button) return false;
+		button.click();
+		return true;
 	}
 
 	const handler = (event) => {
-		if (event.key === 'ArrowRight') {
-			if (!isInputFocused()) {
-				event.preventDefault();
-				navigate('right');
-			}
-		} else if (event.key === 'ArrowLeft') {
-			if (!isInputFocused()) {
-				event.preventDefault();
-				navigate('left');
-			}
+		if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+		// Reddit handles the arrow keys inside the lightbox itself; don't move twice.
+		if (event.defaultPrevented) return;
+		if (isInputFocused()) return;
+
+		const direction = event.key === 'ArrowRight' ? 'right' : 'left';
+		const lightbox = document.querySelector('#shreddit-media-lightbox');
+
+		if (lightbox) {
+			if (!navigateLightbox(lightbox, direction)) return;
+		} else {
+			navigate(direction);
 		}
+
+		event.preventDefault();
+		// Capture phase: keep Reddit's own handler from moving the gallery a second time.
+		event.stopPropagation();
 	};
 
-	window.addEventListener('keydown', handler);
+	document.addEventListener('keydown', handler, true);
 	keyboardCleanup = () => {
-		window.removeEventListener('keydown', handler);
+		document.removeEventListener('keydown', handler, true);
 		keyboardCleanup = null;
 	};
 }

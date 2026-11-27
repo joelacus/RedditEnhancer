@@ -71,11 +71,12 @@
 	flex-direction: row;
 	justify-self: flex-end;
 }
-
 .donate:hover {
 	cursor: pointer;
 }
-
+.donate .kofi-logo {
+	background-position-y: -3px;
+}
 .donate:hover .kofi-logo {
 	animation: shake 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }

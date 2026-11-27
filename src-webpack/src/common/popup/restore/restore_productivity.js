@@ -335,6 +335,20 @@ export function restorePopupProductivityOptions() {
 		console.log('Limit Infinity Scroll: ' + checked);
 	});*/
 
+	// Default Feed Tab
+	BROWSER_API.storage.sync.get(['defaultFeedTab'], function (result) {
+		setTimeout(() => {
+			// delay for translation
+			let value = result.defaultFeedTab;
+			if (value !== 'following' && value !== 'for-you') {
+				value = 'default';
+			}
+			const text = document.querySelector(`#select-default-feed-tab-menu [data-value="${value}"]`).textContent;
+			document.querySelector('#select-default-feed-tab .select').querySelector('span').textContent = text;
+			console.log('Default Feed Tab: ' + value);
+		}, 500);
+	});
+
 	// Enable Default Home Feed Sort Option
 	BROWSER_API.storage.sync.get(['enableDefaultHomeFeedSortOption'], function (result) {
 		const checked = result.enableDefaultHomeFeedSortOption === true;
@@ -345,7 +359,7 @@ export function restorePopupProductivityOptions() {
 	});
 
 	// Default Home Feed Sort Option
-	BROWSER_API.storage.sync.get(['defaultHomeFeedSortOption'], function (result) {
+	BROWSER_API.storage.sync.get(['defaultHomeFeedSortOption', 'redditVersion'], function (result) {
 		setTimeout(() => {
 			// delay for translation
 			if (typeof result.defaultHomeFeedSortOption != 'undefined') {
@@ -353,7 +367,7 @@ export function restorePopupProductivityOptions() {
 				if (value === 'relevance') {
 					value = 'best';
 				}
-				if (value === 'rising') {
+				if (value === 'rising' && result.redditVersion !== 'old') {
 					value = 'hot';
 				}
 				const text = document.querySelector(`#select-home-feed-sort-option-menu [data-value="${value}"]`).textContent;

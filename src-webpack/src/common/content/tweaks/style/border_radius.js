@@ -8,6 +8,17 @@
  */
 
 import { validateInt } from '../../../popup/restore/validation';
+import { setPostOverflowMenuShadowStyle, removePostOverflowMenuShadowStyle } from './helpers/post_overflow_menu_shadow';
+
+const OVERFLOW_RADIUS_STYLE_ID = 're-theme-border-radius-overflow-menu';
+const OVERFLOW_RADIUS_HOST_CSS = `
+	faceplate-menu {
+		border-radius: var(--re-theme-border-radius, var(--radius-md, 1.25rem)) !important;
+	}`;
+const OVERFLOW_RADIUS_DROPDOWN_CSS = `
+	.hovercard-body {
+		border-radius: var(--re-theme-border-radius, var(--radius-md, 1.25rem)) !important;
+	}`;
 
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 export function loadBorderRadiusAmount() {
@@ -26,9 +37,11 @@ export function borderRadiusAmount(value) {
 			if (!document.querySelector('style[id="re-theme-border-radius"]')) {
 				addBorderRadiusAmountStylesheet();
 			}
+			setPostOverflowMenuShadowStyle(OVERFLOW_RADIUS_STYLE_ID, OVERFLOW_RADIUS_HOST_CSS, OVERFLOW_RADIUS_DROPDOWN_CSS);
 		} else {
 			document.documentElement.style.removeProperty('--re-theme-border-radius');
 			removeBorderRadiusAmountStylesheet();
+			removePostOverflowMenuShadowStyle(OVERFLOW_RADIUS_STYLE_ID);
 		}
 	}
 }
@@ -114,7 +127,9 @@ function addBorderRadiusAmountStylesheet() {
 			shreddit-app[pagetype="post_submit"] #post-submit-form section,
 			#right-sidebar-contents > [id^="subreddit-right"],
 			#right-sidebar-contents > [id^="subreddit-right"] > aside > div,
-			shreddit-feed > article {
+			shreddit-feed > article,
+			shreddit-app[routename='post_page'] #main-content,
+			shreddit-app[pagetype='single_comment_thread'] #main-content {
 				border-radius: var(--re-theme-border-radius) !important;
 			}
 			article > shreddit-post[view-type="compactView"] {
@@ -166,7 +181,13 @@ function addBorderRadiusAmountStylesheet() {
 				border-radius: 50% !important;
 			}
 			rpl-menu {
-				border-radius: var(--re-theme-border-radius) !important;;
+				border-radius: var(--re-theme-border-radius) !important;
+			}
+			shreddit-app[pagetype="search_results"] main#main-content > div {
+				border-radius: var(--re-theme-border-radius);
+			}
+			shreddit-app[pagetype="search_results"] #right-sidebar-container section h2 {
+				border-radius: var(--re-theme-border-radius) var(--re-theme-border-radius) 0 0;
 			}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
 	}
@@ -213,7 +234,7 @@ export function addBorderRadiusToShadowRootElements() {
 	];
 	shadowRootElements.forEach((element) => {
 		if (element) {
-			element.style.borderRadius = 'var(--re-theme-border-radius, var(--radius-md))';
+			element.style.borderRadius = 'var(--re-theme-border-radius, var(--radius-md, 1.25rem))';
 			element.classList.forEach((cls) => {
 				if (/^rounded-/.test(cls)) {
 					element.classList.replace(cls, 'rounded-none');

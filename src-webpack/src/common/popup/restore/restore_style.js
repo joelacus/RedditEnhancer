@@ -3,6 +3,7 @@
 // ────────────────────────────────────────────────────────────────────────────
 
 import { highlightMenuIcon } from '../popup_restore';
+import { isPresetThemeId } from '../../utilities/theme_list';
 import { validateColour, validateInt } from './validation';
 
 // Restore UI settings for "Style" options.
@@ -487,6 +488,24 @@ export function restorePopupStyleOptions() {
 		document.querySelector('#theme-blur-value').innerText = value + 'px';
 		document.querySelector('.icon-theme-blur').style.backgroundColor = value != 0 ? 'var(--accent)' : '';
 		console.log('Theme Blur: ' + value + 'px');
+	});
+
+	// Base Theme + Opacity
+	BROWSER_API.storage.sync.get(['themeBase', 'themeBaseOpacity'], function (result) {
+		const preset = isPresetThemeId(result.themeBase) ? result.themeBase : 'none';
+		const isNone = preset === 'none';
+		const opacity = validateInt(parseInt(result.themeBaseOpacity), 0, 100, 100);
+		const item = document.querySelector(`#select-theme-preset-menu li[data-value="${preset}"]`);
+		const slider = document.querySelector('#input-theme-opacity');
+		document.querySelector('#chosen-theme-preset').textContent = item ? item.querySelector('span').textContent : 'None';
+		slider.value = opacity;
+		slider.disabled = isNone;
+		document.querySelector('#theme-opacity-value').textContent = `${opacity}%`;
+		document.querySelector('.theme-opacity-row').classList.toggle('disabled', isNone);
+		document.querySelector('.icon-theme-preset').style.backgroundColor = isNone ? '' : 'var(--accent)';
+		document.querySelector('.icon-theme-opacity').style.setProperty('--text-grey', !isNone && opacity !== 100 ? 'var(--accent)' : '');
+		if (!isNone) highlightMenuIcon('style-tweaks');
+		console.log('Base Theme: ' + preset + ' (' + opacity + '%)');
 	});
 
 	// Theme Exceptions Enable

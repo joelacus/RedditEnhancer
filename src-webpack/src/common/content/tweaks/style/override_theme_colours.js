@@ -7,7 +7,19 @@
  */
 
 import { validateColour } from '../../../popup/restore/validation';
-import { registerMutationCallback } from '../../observer_manager';
+import { loadFixThreadlinesForTranslucentPosts } from './helpers/fix_threadlines_for_translucent_posts';
+import { setPostOverflowMenuShadowStyle, removePostOverflowMenuShadowStyle } from './helpers/post_overflow_menu_shadow';
+import { applyPresetTheme, clearPresetSelected, isPresetThemeApplied, normalisePresetId, removePresetTheme, setPresetOpacity, setPresetSelected } from './preset_themes';
+
+const POST_BG_OVERFLOW_STYLE_ID = 're-theme-post-bg-overflow-menu';
+const POST_BG_OVERFLOW_HOST_CSS = `
+	faceplate-menu {
+		background-color: var(--re-theme-post-bg-opaque, var(--re-p-surface)) !important;
+	}`;
+const POST_BG_OVERFLOW_DROPDOWN_CSS = `
+	.hovercard-body {
+		background-color: var(--re-theme-post-bg-opaque, var(--re-p-surface)) !important;
+	}`;
 
 // Set a theme custom property, ignoring missing or invalid colour values
 // (e.g. corrupted sync data) instead of applying them to the page.
@@ -20,36 +32,76 @@ function setThemeProperty(name, value) {
 
 // ─── Run by Tweak Loader when the Page Loads ────────────────────────────────
 
-// Theme Exception
+// Theme exception check, shared by the page load and popup messages.
+function isThemeAllowedOnPage(result) {
+	if (result.themeExceptionsEnable != true) return true;
+	const list = String(result.themeExceptionSubList || '')
+		.replaceAll(' ', '')
+		.split(',')
+		.filter(Boolean);
+	if (list.length === 0) return true;
+	const link = window.location.href;
+	const matches = list.some((sub) => link.includes('r/' + sub + '/'));
+	if (result.themeExceptionMode === 'whitelist') return matches;
+	if (result.themeExceptionMode === 'blacklist') return !matches;
+	return true;
+}
+
+// Theme Exception + Base Theme
 export function loadCustomTheme() {
-	BROWSER_API.storage.sync.get(['themeExceptionsEnable', 'themeExceptionMode', 'themeExceptionSubList'], function (result) {
-		const link = window.location.href;
-		if (redditVersion === 'newnew') {
-			if (result.themeExceptionsEnable == true) {
-				// check exception mode
-				if (result.themeExceptionMode === 'whitelist') {
-					// only load theme for listed sub reddits
-					const list = result.themeExceptionSubList.replaceAll(' ', '').split(',');
-					if (list.some((sub) => link.includes('r/' + sub + '/'))) {
-						loadTheme();
-					} else {
-						removeTheme();
-					}
-				} else if (result.themeExceptionMode === 'blacklist') {
-					// show theme globally except listed sub reddits
-					const list = result.themeExceptionSubList.replaceAll(' ', '').split(',');
-					if (!list.some((sub) => link.includes('r/' + sub + '/'))) {
-						loadTheme();
-					} else {
-						removeTheme();
-					}
-				}
-			} else {
-				// load theme for all sub reddits
-				loadTheme();
-			}
+	BROWSER_API.storage.sync.get(['themeExceptionsEnable', 'themeExceptionMode', 'themeExceptionSubList', 'themeBase', 'themeBaseOpacity'], function (result) {
+		const preset = normalisePresetId(result.themeBase);
+		const allowed = isThemeAllowedOnPage(result);
+		removeTheme();
+		if (preset) {
+			setPresetSelected(preset);
+		} else {
+			clearPresetSelected();
+		}
+		if (!allowed) {
+			removePresetTheme();
+			return;
+		}
+		// The individual colour options layer on top of the base theme, so they
+		// are loaded whether or not a base theme is selected.
+		if (redditVersion === 'newnew') loadTheme();
+		if (preset) {
+			applyPresetTheme(preset, result.themeBaseOpacity);
+		} else {
+			removePresetTheme();
 		}
 	});
+}
+
+// Apply a base theme change from the popup. The message value is used
+// directly instead of re-reading storage, so a fast theme switch cannot race
+// the storage write. "None" removes the base theme and leaves the individual
+// colour options in place.
+export function themeBase(value) {
+	const preset = normalisePresetId(value);
+	BROWSER_API.storage.sync.get(['themeExceptionsEnable', 'themeExceptionMode', 'themeExceptionSubList', 'themeBaseOpacity'], function (result) {
+		const allowed = isThemeAllowedOnPage(result);
+		if (preset) {
+			setPresetSelected(preset);
+		} else {
+			clearPresetSelected();
+		}
+		if (!allowed) {
+			removePresetTheme();
+			removeTheme();
+		} else if (preset) {
+			applyPresetTheme(preset, result.themeBaseOpacity);
+		} else {
+			removePresetTheme();
+		}
+		loadFixThreadlinesForTranslucentPosts({ preset });
+	});
+}
+
+export function themeBaseOpacity(value) {
+	if (!isPresetThemeApplied()) return;
+	setPresetOpacity(value);
+	loadFixThreadlinesForTranslucentPosts({ opacity: value });
 }
 
 // Load Theme
@@ -102,38 +154,24 @@ export function loadThemeAfterPageLoad() {
 	});
 }
 
-// Remove Theme
+// Remove all per-element theme colours. The OP comment highlight and the
+// translucent-comment threadline fix are independent tweaks that must keep
+// working while a base theme is active, so they are left alone.
 function removeTheme() {
-	// remove element properties
-	document.documentElement.style.removeProperty('--re-theme-header-bg');
-	document.documentElement.style.removeProperty('--re-theme-header-text');
-	document.documentElement.style.removeProperty('--re-theme-sort-bg');
-	document.documentElement.style.removeProperty('--re-theme-sort-text');
-	document.documentElement.style.removeProperty('--re-theme-sort-text-2');
-	document.documentElement.style.removeProperty('--re-theme-sort-border');
-	document.documentElement.style.removeProperty('--re-theme-post-bg');
-	document.documentElement.style.removeProperty('--re-theme-post-text');
-	document.documentElement.style.removeProperty('--re-theme-post-visited-text');
-	document.documentElement.style.removeProperty('--re-theme-post-text-2');
-	document.documentElement.style.removeProperty('--re-theme-post-border');
-	document.documentElement.style.removeProperty('--re-theme-sub-header-bg');
-	// remove stylesheets
-	const dynamicStyleElements = document.querySelectorAll(
-		`style[id="re-theme-header-bg-colour"],
-		style[id="re-theme-header-text-colour"],
-		style[id="re-theme-sort-bg-colour"],
-		style[id="re-theme-sort-text-colour"],
-		style[id="re-theme-sort-text-colour-2"],
-		style[id="re-theme-sort-border-colour"],
-		style[id="re-theme-post-bg-colour"],
-		style[id="re-theme-post-text-colour"],
-		style[id="re-theme-post-visited-text-colour"],
-		style[id="re-theme-post-text-colour-2"],
-		style[id="re-theme-post-border-colour"],
-		style[id="re-theme-sub-header-bg-colour"]`,
-	);
-	dynamicStyleElements.forEach((element) => {
-		element.remove();
+	const root = document.documentElement;
+	const properties = [];
+	for (let i = 0; i < root.style.length; i++) {
+		const name = root.style[i];
+		if (name.startsWith('--re-theme-') && name !== '--re-theme-op-comment-highlight-colour') {
+			properties.push(name);
+		}
+	}
+	properties.forEach((name) => root.style.removeProperty(name));
+
+	document.querySelectorAll('style[id^="re-theme-"]').forEach((element) => {
+		if (element.id !== 're-theme-op-comment-highlight-colour' && element.id !== 're-theme-fix-comment-threadline') {
+			element.remove();
+		}
 	});
 }
 
@@ -427,7 +465,8 @@ export function themePostBackgroundColour(value) {
 										cursor: pointer;
 										background: oklch(from var(--re-theme-post-bg-opaque) clamp(0.20, calc(l + 0.05), 0.92) c h);
 									}
-									shreddit-overflow-menu {
+									shreddit-overflow-menu,
+									shreddit-post-overflow-menu {
 										--color-neutral-background-strong: var(--re-theme-post-bg-opaque);
 										--color-neutral-background-hover: oklch(from var(--re-theme-post-bg-opaque) clamp(0.20, calc(l + 0.05), 0.92) c h);
 									}
@@ -465,17 +504,26 @@ export function themePostBackgroundColour(value) {
 									div:has(>create-post-entry-point-wrapper) {
 										padding: 0.5rem;
 									}
-									div:has(>[bundlename="shreddit_sort_dropdown"]) {
+									div:has(>[bundlename="shreddit_sort_dropdown"]),
+									#interest-feed-header {
+										border-radius: var(--re-theme-border-radius, var(--radius-md, 1.25rem));
 										background: var(--re-theme-post-bg) !important;
 										margin: 0.5rem 0;
+									}
+									#user-drawer-content {
+										backdrop-filter: blur(var(--re-theme-blur)) !important;
 									}`;
 		document.head.insertBefore(styleElement, document.head.firstChild);
+		setPostOverflowMenuShadowStyle(POST_BG_OVERFLOW_STYLE_ID, POST_BG_OVERFLOW_HOST_CSS, POST_BG_OVERFLOW_DROPDOWN_CSS);
+		loadFixThreadlinesForTranslucentPosts({ customEnabled: true });
 	} else {
 		document.documentElement.style.removeProperty('--re-theme-post-bg');
 		const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-post-bg-colour"]');
 		dynamicStyleElements.forEach((element) => {
 			element.remove();
 		});
+		removePostOverflowMenuShadowStyle(POST_BG_OVERFLOW_STYLE_ID);
+		if (redditVersion === 'newnew') loadFixThreadlinesForTranslucentPosts({ customEnabled: false });
 	}
 }
 
@@ -486,89 +534,10 @@ export function themePostBackgroundColourCSS(value) {
 			if (result.themePostBackgroundColour === true) {
 				setThemeProperty('--re-theme-post-bg', value);
 				setThemeProperty('--re-theme-post-bg-opaque', `oklch(from ${value} l c h / 100%)`);
-				if (value.includes('rgba')) {
-					fixThreadlinesForTranslucentPosts();
-				} else {
-					undoFixThreadlinesForTranslucentPosts();
-				}
+				loadFixThreadlinesForTranslucentPosts({ customEnabled: true, postBg: value });
 			}
 		});
 	}
-}
-
-// Run After Page Has Loaded Comments
-export function loadFixThreadlinesForTranslucentPosts() {
-	BROWSER_API.storage.sync.get(['themePostBackgroundColourCSS'], function (result) {
-		if (commentObserverCleanup) {
-			commentObserverCleanup();
-			commentObserverCleanup = null;
-		}
-		if (result.themePostBackgroundColourCSS?.includes('rgba') || result.themePostBackgroundColourCSS?.includes('transparent')) {
-			fixThreadlinesForTranslucentPosts();
-			const tree = document.querySelector('shreddit-comment-tree');
-			if (tree) {
-				commentObserverCleanup = registerMutationCallback(tree, handleNewComments, { childList: true, subtree: true }, 'fixThreadlinesForTranslucentPosts');
-			}
-		} else {
-			undoFixThreadlinesForTranslucentPosts();
-		}
-	});
-}
-
-// Handle New Comments via the central observer manager
-let commentObserverCleanup = null;
-function handleNewComments(mutations) {
-	mutations.forEach(function (mutation) {
-		mutation.addedNodes.forEach(function (addedNode) {
-			if (addedNode.nodeName === '#comment') {
-				fixThreadlinesForTranslucentPosts();
-				setTimeout(() => {
-					fixThreadlinesForTranslucentPosts();
-				}, 100);
-				setTimeout(() => {
-					fixThreadlinesForTranslucentPosts();
-				}, 1000);
-			}
-		});
-	});
-}
-
-// Fix Comment Threadlines For Translucent Post Background Colours
-function fixThreadlinesForTranslucentPosts() {
-	if (!document.head.querySelector('style[id="re-theme-fix-comment-threadline"]')) {
-		const styleElement = document.createElement('style');
-		styleElement.id = 're-theme-fix-comment-threadline';
-		styleElement.textContent = `shreddit-comment {
-										--color-neutral-background: transparent !important;
-									}`;
-		document.head.insertBefore(styleElement, document.head.firstChild);
-	}
-	document.querySelectorAll('shreddit-comment').forEach((comment) => {
-		const main_thread = comment?.shadowRoot?.querySelector('[data-testid="main-thread-line"]');
-		const last_thread = comment?.shadowRoot?.querySelector('#comment-children .threadline:last-of-type');
-		if (main_thread && last_thread) {
-			const last_thread_height = last_thread.offsetHeight;
-			main_thread.style.position = 'absolute';
-			main_thread.style.top = '0';
-			main_thread.style.height = `calc(100% - ${last_thread_height}px + 13px)`;
-		}
-	});
-}
-
-// Undo Fix Comment Threadlines For Translucent Post Background Colours
-function undoFixThreadlinesForTranslucentPosts() {
-	const dynamicStyleElements = document.querySelectorAll('style[id="re-theme-fix-comment-threadline"]');
-	dynamicStyleElements.forEach((element) => {
-		element.remove();
-	});
-	document.querySelectorAll('shreddit-comment').forEach((comment) => {
-		const main_thread = comment.shadowRoot?.querySelector('[data-testid="main-thread-line"]');
-		const last_thread = comment.shadowRoot?.querySelector('#comment-children .threadline:last-of-type');
-		if (main_thread && last_thread) {
-			main_thread.removeAttribute('style');
-			last_thread.removeAttribute('style');
-		}
-	});
 }
 
 // Post Text Colour

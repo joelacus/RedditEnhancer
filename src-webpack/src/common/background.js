@@ -95,6 +95,9 @@ BROWSER_API.runtime.onMessage.addListener(function (request, sender, sendRespons
 			} else if (action.action === 'fetchText' && action.url) {
 				fetchText(action.url, sendResponse);
 				return true;
+			} else if (action.action === 'resolveImagePage' && action.url) {
+				resolveImagePage(action.url, sendResponse);
+				return true;
 			} else if (action.action === 'checkVisited' && action.url) {
 				BROWSER_API.history.search({ text: action.url, maxResults: 1 }, function (data) {
 					if (data.length > 0) {
@@ -389,6 +392,163 @@ function fetchText(url, sendResponse) {
 
 			sendResponse({ success: false, error: userMessage });
 		});
+}
+
+// Resolve an imgur/postimg/ibb page URL to its preview image URL.
+// The content script uses this for comment links that point at a page rather
+// than at an image file. Host access is optional: without it the content
+// script keeps the original link and only thumbnails direct image URLs.
+const IMAGE_PAGE_ORIGINS = ['*://*.imgur.com/*', '*://*.postimg.cc/*', '*://*.ibb.co/*'];
+const IMAGE_PAGE_HOSTS = new Set(['imgur.com', 'www.imgur.com', 'postimg.cc', 'www.postimg.cc', 'ibb.co', 'www.ibb.co']);
+const imagePageCache = new Map();
+
+function resolveImagePage(url, sendResponse) {
+	let pageUrl;
+	try {
+		pageUrl = new URL(url);
+	} catch {
+		sendResponse({ success: false, error: 'Invalid URL' });
+		return;
+	}
+	if (!/^https?:$/i.test(pageUrl.protocol) || !IMAGE_PAGE_HOSTS.has(pageUrl.hostname.toLowerCase())) {
+		sendResponse({ success: false, error: 'Unsupported image host' });
+		return;
+	}
+	if (imagePageCache.has(pageUrl.href)) {
+		sendResponse({ success: true, imageUrl: imagePageCache.get(pageUrl.href) });
+		return;
+	}
+
+	BROWSER_API.permissions.contains({ origins: IMAGE_PAGE_ORIGINS }, (granted) => {
+		if (!granted) {
+			sendResponse({ success: false, missingPermission: true });
+			return;
+		}
+
+		const controller = new AbortController();
+		const timeout = setTimeout(() => controller.abort(), 10000);
+		resolveImagePageImage(pageUrl, controller.signal)
+			.then((imageUrl) => {
+				if (!imageUrl) {
+					sendResponse({ success: false, error: 'No preview image found' });
+					return;
+				}
+				if (imagePageCache.size >= 100) imagePageCache.delete(imagePageCache.keys().next().value);
+				imagePageCache.set(pageUrl.href, imageUrl);
+				sendResponse({ success: true, imageUrl });
+			})
+			.catch((error) => {
+				console.debug(`${timestamp()} - resolveImagePage: ${pageUrl.href}: ${error.message || error}`);
+				sendResponse({ success: false, error: error.name === 'AbortError' ? 'Timed out fetching the page' : error.message || 'Could not fetch the page' });
+			})
+			.finally(() => clearTimeout(timeout));
+	});
+}
+
+async function resolveImagePageImage(pageUrl, signal) {
+	// imgur albums: the download redirect names the first image, and it usually
+	// answers while the album page itself is rate-limited.
+	const imgurImage = await resolveImgurAlbumZip(pageUrl, signal);
+	if (imgurImage) return imgurImage;
+
+	return fetchImagePage(imagePageCandidates(pageUrl), signal);
+}
+
+async function resolveImgurAlbumZip(pageUrl, signal) {
+	const host = pageUrl.hostname.replace(/^www\./i, '').toLowerCase();
+	if (host !== 'imgur.com') return null;
+	const match = pageUrl.pathname.match(/^\/(?:a|gallery)\/([A-Za-z0-9]+)/i);
+	if (!match) return null;
+
+	try {
+		// HEAD keeps the redirect chain without downloading the album archive.
+		// The final URL is /download/<first image id>/ even when the download
+		// itself is refused.
+		const response = await fetch(`https://imgur.com/a/${match[1]}/zip`, {
+			method: 'HEAD',
+			credentials: 'omit',
+			redirect: 'follow',
+			signal,
+		});
+		const imageId = response.url.match(/\/download\/([A-Za-z0-9]+)/i)?.[1];
+		return imageId ? `https://i.imgur.com/${imageId}.jpg` : null;
+	} catch (error) {
+		if (error.name === 'AbortError') throw error;
+		console.debug(`${timestamp()} - resolveImagePage: imgur zip: ${error.message || error}`);
+		return null;
+	}
+}
+
+// imgur serves its app shell (with the OG image meta tags) from an album URL
+// with a ".json" suffix, and that route often answers while the normal page is
+// rate-limited. Gallery URLs use the same album id.
+function imagePageCandidates(pageUrl) {
+	const candidates = [pageUrl.href];
+	const host = pageUrl.hostname.replace(/^www\./i, '').toLowerCase();
+
+	if (host === 'imgur.com') {
+		const match = pageUrl.pathname.match(/^\/(?:a|gallery)\/([A-Za-z0-9]+)/i);
+		if (match) {
+			const jsonUrl = `https://imgur.com/a/${match[1]}.json`;
+			if (!candidates.includes(jsonUrl)) candidates.push(jsonUrl);
+		}
+	}
+	return candidates;
+}
+
+async function fetchImagePage(candidates, signal) {
+	for (const candidate of candidates) {
+		try {
+			const response = await fetch(candidate, { credentials: 'omit', redirect: 'follow', signal });
+			if (!response.ok) continue;
+			const html = (await response.text()).slice(0, 1000000);
+			const imageUrl = extractImagePageImage(html, candidate);
+			if (imageUrl) return imageUrl;
+		} catch (error) {
+			if (error.name === 'AbortError') throw error;
+			console.debug(`${timestamp()} - resolveImagePage: ${candidate}: ${error.message || error}`);
+		}
+	}
+	return null;
+}
+
+function extractImagePageImage(html, baseUrl) {
+	const metaTags = html.match(/<meta\b[^>]*>/gi) || [];
+	let twitterImage = null;
+
+	for (const tag of metaTags) {
+		const key = tag.match(/(?:property|name)\s*=\s*["']([^"']+)["']/i)?.[1]?.toLowerCase();
+		if (key !== 'og:image' && key !== 'og:image:secure_url' && key !== 'twitter:image') continue;
+
+		const content = tag.match(/content\s*=\s*["']([^"']+)["']/i)?.[1];
+		if (!content) continue;
+
+		const imageUrl = toAbsoluteImageUrl(decodeHtmlEntities(content), baseUrl);
+		if (!imageUrl) continue;
+		// Empty/deleted Imgur pages fall back to the generic logo; don't use it.
+		if (/^https:\/\/s\.imgur\.com\/images\/logo/i.test(imageUrl)) continue;
+		if (key === 'twitter:image') {
+			if (!twitterImage) twitterImage = imageUrl;
+		} else {
+			return imageUrl;
+		}
+	}
+	return twitterImage;
+}
+
+function toAbsoluteImageUrl(value, baseUrl) {
+	try {
+		const imageUrl = new URL(value, baseUrl);
+		if (imageUrl.protocol === 'http:' && baseUrl.startsWith('https:')) imageUrl.protocol = 'https:';
+		if (imageUrl.protocol !== 'http:' && imageUrl.protocol !== 'https:') return null;
+		return imageUrl.href;
+	} catch {
+		return null;
+	}
+}
+
+function decodeHtmlEntities(value) {
+	return value.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#x2F;/gi, '/').replace(/&#47;/g, '/').replace(/&#x3A;/gi, ':').replace(/&#58;/g, ':');
 }
 
 /* ===== Rules ===== */
