@@ -11,7 +11,7 @@ import { debounce } from '../../../utilities/debounce';
 import { escapeHtml } from '../../../utilities/escape_html.js';
 import { parseHtmlString } from '../../../utilities/parse_html_string.js';
 import { logToDevConsole } from '../../../utilities/logging';
-import { isSafeRegexPattern, reportUnsafeRegexPattern } from '../../../utilities/safe_regex.js';
+import { matchesPattern } from '../../../utilities/block_pattern_match.js';
 import { readBlocks, writeBlocks, findKey, getBlockedUserPatterns, addUserBlock, removeUserBlock, BLOCK_STORE_KEY } from '../../../utilities/block_store.js';
 import { showToast } from '../../../utilities/toast_notification.js';
 
@@ -157,6 +157,7 @@ function showBlockConfirmModal(username) {
 			<p>Block user <strong>${escapeHtml(username)}</strong>?</p>
 			<label><input type="checkbox" class="re-scope-posts" checked /> Hide their posts</label>
 			<label><input type="checkbox" class="re-scope-comments" checked /> Hide their comments</label>
+			<label><input type="checkbox" class="re-scope-hide-username" checked /> Hide their username</label>
 			<div class="re-modal-actions">
 				<div>
 					<button class="btn red btn-confirm-block" type="button">Block User</button>
@@ -168,19 +169,25 @@ function showBlockConfirmModal(username) {
 
 	document.body.appendChild(modal);
 
-	// Reflect the user's current block scopes (both boxes stay checked for new entries).
+	// Reflect the user's current block scopes (all boxes stay checked for new entries).
 	readBlocks().then((store) => {
 		const key = findKey(store.users, username);
 		if (key) {
 			modal.querySelector('.re-scope-posts').checked = !!store.users[key].posts;
 			modal.querySelector('.re-scope-comments').checked = !!store.users[key].comments;
+			modal.querySelector('.re-scope-hide-username').checked = store.users[key].hide_username !== false;
 		}
 	});
 
 	const closeModal = () => modal.remove();
 	modal.querySelector('.btn-cancel').addEventListener('click', closeModal);
 	modal.querySelector('.btn-confirm-block').addEventListener('click', async () => {
-		await applyUserBlock(username, modal.querySelector('.re-scope-posts').checked, modal.querySelector('.re-scope-comments').checked);
+		await applyUserBlock(
+			username,
+			modal.querySelector('.re-scope-posts').checked,
+			modal.querySelector('.re-scope-comments').checked,
+			modal.querySelector('.re-scope-hide-username').checked,
+		);
 		closeModal();
 	});
 	modal.addEventListener('click', (e) => {
@@ -196,12 +203,14 @@ function showBlockConfirmModal(username) {
 	document.addEventListener('keydown', escHandler);
 }
 
-async function applyUserBlock(username, wantPosts, wantComments) {
+async function applyUserBlock(username, wantPosts, wantComments, wantHideUsername) {
 	const store = await readBlocks();
 	if (wantPosts) addUserBlock(store, username, 'posts');
 	else removeUserBlock(store, username, 'posts');
 	if (wantComments) addUserBlock(store, username, 'comments');
 	else removeUserBlock(store, username, 'comments');
+	if (wantHideUsername) addUserBlock(store, username, 'hide_username');
+	else removeUserBlock(store, username, 'hide_username');
 	const result = await writeBlocks(store);
 	if (!result.ok) {
 		showToast('error', 'Could not save the block list (storage is full).');
@@ -224,38 +233,6 @@ async function applyUserBlock(username, wantPosts, wantComments) {
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
-
-function escapeRegExp(string) {
-	// Escape regex metacharacters to prevent ReDoS
-	return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function matchesPattern(text, patternStr) {
-	if (!text) return false;
-	// Check if pattern is regex format: /pattern/flags
-	const regexMatch = patternStr.match(/^\/(.+?)\/([a-z]*)$/i);
-	if (regexMatch) {
-		const pattern = regexMatch[1];
-		const flags = regexMatch[2] || 'i';
-		if (!isSafeRegexPattern(pattern, flags)) {
-			reportUnsafeRegexPattern(patternStr);
-			return false;
-		}
-		try {
-			const regex = new RegExp(pattern, flags);
-			return regex.test(text);
-		} catch (e) {
-			console.warn('Invalid regex pattern:', patternStr, e);
-			return false;
-		}
-	} else {
-		// Plain pattern with wildcard support
-		const escaped = escapeRegExp(patternStr);
-		const regexPattern = escaped.replace(/\\\*/g, '.*');
-		const regex = new RegExp(`\\b${regexPattern}\\b`, 'i');
-		return regex.test(text);
-	}
-}
 
 // In-memory pattern list, refreshed from the block store on load and on every block/unblock action.
 

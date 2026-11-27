@@ -59,9 +59,6 @@
 	"AttachSideMenuHeader": {
 		"message": "Page d'affichage et d'informations utilisateur dans l'en-tête"
 	},
-	"AttachSideMenuHeaderInfo": {
-		"message": "Expérimental. Pourrait entrer en conflit avec les fonctions de menu latéral de cachette."
-	},
 	"Auto": {
 		"message": "Auto"
 	},
@@ -134,6 +131,12 @@
 	"BackupUserTagsOnly": {
 		"message": "Balises utilisateur uniquement"
 	},
+	"BaseTheme": {
+		"message": "Thème de base"
+	},
+	"BaseThemeInfo": {
+		"message": "Choisissez un thème de couleur intégré pour la page. Les options de couleur individuelles ci-dessous la remplacent lorsqu'elles sont activées. Sélectionnez \"Aucun\" pour supprimer le thème de base."
+	},
 	"Best": {
 		"message": "Meilleurs / Best"
 	},
@@ -170,20 +173,44 @@
 	"BlockAlreadyAdded": {
 		"message": "Déjà dans la liste de blocage."
 	},
+	"BlockedSubredditInfo": {
+		"message": "Ce subreddit figure dans votre liste de blocages. Débloquez-le dans le gestionnaire de blocages pour le consulter à nouveau."
+	},
+	"BlockedSubredditTitle": {
+		"message": "Ce subreddit a été bloqué"
+	},
 	"BlockExport": {
 		"message": "Exporter des blocs"
+	},
+	"BlockFeedAllHidden": {
+		"message": "Chaque post de ce fil est masquée par vos filtres de blocage."
+	},
+	"BlockFeedLoadMore": {
+		"message": "Charger plus de post"
 	},
 	"BlockImport": {
 		"message": "Importer des blocs"
 	},
-	"BlockImportSuccess": {
-		"message": "{count} bloc(s) importé(s)."
+	"BlockImportEmpty": {
+		"message": "Aucun bloc n'a été importé de cette sauvegarde."
+	},
+	"BlockImportTypeSummary": {
+		"message": "{type} : {newCount} nouveau, {updatedCount} mis à jour, {existingCount} existait déjà."
 	},
 	"BlockInfo": {
-		"message": "Prend en charge la correspondance exacte des mots clés ou les expressions régulières."
+		"message": "Prend en charge la correspondance exacte des mots clés ou les expressions régulières entourées de barres obliques, par ex. \"/^user\\d+$/i\" (les indicateurs sont facultatifs). \"*\" peut être utilisé comme caractère générique, par ex. \"user*\" (\"user\" avec tout ce qui suit sera bloqué). Les blocs de texte brut ne sont pas sensibles à la casse ; Les modèles d'expression régulière utilisent leurs propres indicateurs, ajoutez donc \"/i\" pour faire correspondre la casse sans tenir compte."
+	},
+	"BlockKeywordContent": {
+		"message": "Contenu du post"
+	},
+	"BlockKeywordLink": {
+		"message": "Lien dans le message"
 	},
 	"BlockKeywordsTab": {
 		"message": "Mots-clés"
+	},
+	"BlockKeywordTitle": {
+		"message": "Titre du post"
 	},
 	"BlockManagerInfo": {
 		"message": "Les utilisateurs bloqués, les sous-reddits et les mots-clés sont stockés localement sur cet appareil. Exportez-les pour éviter toute perte potentielle de données."
@@ -200,8 +227,17 @@
 	"BlockPostsAndComments": {
 		"message": "Messages et commentaires"
 	},
+	"BlockRegexHint": {
+		"message": "Cela ressemble à une expression régulière. Enveloppez-le dans /…/ pour l'utiliser comme tel."
+	},
+	"BlockRegexValid": {
+		"message": "Regex valide"
+	},
 	"BlockScope": {
 		"message": "Portée"
+	},
+	"BlockSubreddits": {
+		"message": "Bloquer des subreddits"
 	},
 	"BlockSubredditsTab": {
 		"message": "Subreddits"
@@ -266,6 +302,9 @@
 	"Cleared": {
 		"message": "Effacée"
 	},
+	"ClickLightboxBackgroundToClose": {
+		"message": "Cliquez sur l'arrière-plan de la Lightbox pour fermer"
+	},
 	"ClickToEdit": {
 		"message": "Cliquez pour modifier"
 	},
@@ -277,6 +316,18 @@
 	},
 	"Colour": {
 		"message": "Couleur"
+	},
+	"CommentImageThumbnails": {
+		"message": "Vignettes des images des commentaires"
+	},
+	"CommentImageThumbnailsInfo": {
+		"message": "Afficher une miniature en ligne pour les liens d'images dans les commentaires. Cliquez sur une vignette pour ouvrir un aperçu en plein écran. Les liens vers les pages Imgur, Postimg et IBB sont également résolus."
+	},
+	"CommentImageThumbnailsPermissions": {
+		"message": "Les liens vers les albums Imgur, les liens vers les pages Postimg et IBB nécessitent une autorisation pour être transformés en vignettes. Les liens d’image directs et les liens Imgur d’image unique fonctionnent toujours. Accordez l'accès à partir des paramètres d'autorisations de l'extension, ou désactivez et réactivez cette option pour être invité."
+	},
+	"CommentImageThumbnailWidth": {
+		"message": "Largeur de la vignette"
 	},
 	"Comments": {
 		"message": "Commentaires"
@@ -356,14 +407,26 @@
 	"DarkThemes": {
 		"message": "Thème sombre"
 	},
+	"Default": {
+		"message": "Défaut"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "Option de tri des commentaires par défaut"
 	},
 	"DefaultFeedSortOption": {
 		"message": "Option de tri des flux par défaut"
 	},
+	"DefaultFeedTab": {
+		"message": "Onglet de flux par défaut"
+	},
+	"DefaultFeedTabInfo": {
+		"message": "Choisissez l'onglet sur lequel s'ouvre le flux d'accueil. Ce paramètre est ignoré lorsque l'option \"Option de tri par défaut du flux d'accueil\" est activée."
+	},
 	"DefaultHomeFeedSortOption": {
 		"message": "Option de tri de flux à domicile par défaut"
+	},
+	"DefaultHomeFeedSortOptionInfo": {
+		"message": "Le tri du fil d'actualité d'accueil force le fil Abonnements, donc cela a la priorité sur \"Onglet de flux par défaut\"."
 	},
 	"Delete": {
 		"message": "Supprimer"
@@ -470,6 +533,9 @@
 	"FollowComment": {
 		"message": "Suivre le commentaire"
 	},
+	"Following": {
+		"message": "Suivant"
+	},
 	"FollowPost": {
 		"message": "Suivre"
 	},
@@ -494,6 +560,9 @@
 	"ForceShowVoteButtons": {
 		"message": "Forcer l'affichage des boutons de vote"
 	},
+	"ForYou": {
+		"message": "Pour toi"
+	},
 	"FullWidthBanner": {
 		"message": "Bannière de subreddit pleine largeur"
 	},
@@ -508,6 +577,9 @@
 	},
 	"GlobalWidth": {
 		"message": "Global Max. Largeur"
+	},
+	"GoToRedditHome": {
+		"message": "Aller à l'accueil de Reddit"
 	},
 	"Grey": {
 		"message": "Gris"
@@ -539,6 +611,12 @@
 	"HideAwards": {
 		"message": "Masquer le bouton « Récompense » sur les commentaires"
 	},
+	"HideBlockedSearchEntries": {
+		"message": "Masquer les entrées bloquées dans la barre de recherche et la page de résultats"
+	},
+	"HideBlockedSearchEntriesInfo": {
+		"message": "Masque les mots-clés, les sous-reddits et les utilisateurs bloqués des suggestions de la barre de recherche et de la page de résultats de recherche, y compris sa barre latérale droite."
+	},
 	"HideBlurredMediaBackground": {
 		"message": "Masquer le flou d’arrière-plan derrière les aperçus des images"
 	},
@@ -547,6 +625,9 @@
 	},
 	"HideCommentActionBarButtonsInfo": {
 		"message": "Masquer les boutons de la barre d'actions des commentaires"
+	},
+	"HideCommentImageLinks": {
+		"message": "Masquer les liens vers les images des commentaires d'origine"
 	},
 	"HideCommentKarma": {
 		"message": "Masquer le commentaire Karma"
@@ -655,9 +736,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Masquer le karma de post"
-	},
-	"HidePostsBySubreddit": {
-		"message": "Masquer les publications par subreddit"
 	},
 	"HidePostsByUser": {
 		"message": "Masquer les publications de l'utilisateur"
@@ -797,6 +875,9 @@
 	"Importing": {
 		"message": "Importation..."
 	},
+	"ImportingLargeBackup": {
+		"message": "Importation. Les sauvegardes volumineuses peuvent prendre un certain temps et la page peut sembler gelée."
+	},
 	"ImportInvalidFormat": {
 		"message": "Format de fichier invalide."
 	},
@@ -823,6 +904,9 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "Bloque les publications en fonction du titre, pas du contenu."
+	},
+	"KeywordsBlockInfoScopes": {
+		"message": "Bloque les messages lorsqu'un mot-clé correspond au titre ou au contenu du message, en fonction des portées sélectionnées dans le Gestionnaire de blocage."
 	},
 	"Label": {
 		"message": "Étiquette"
@@ -938,6 +1022,9 @@
 	"NextRootComment": {
 		"message": "Commentaire racine suivant"
 	},
+	"None": {
+		"message": "Aucun"
+	},
 	"NoNote": {
 		"message": "Aucune note"
 	},
@@ -1003,6 +1090,9 @@
 	},
 	"Other": {
 		"message": "Autre"
+	},
+	"Page": {
+		"message": "Page"
 	},
 	"PositionHorizontally": {
 		"message": "Positionner horizontalement"
@@ -1102,6 +1192,9 @@
 	},
 	"Qa": {
 		"message": "Q&a"
+	},
+	"Radius": {
+		"message": "Rayon"
 	},
 	"Rate": {
 		"message": "Noter / Commentaire"
@@ -1353,7 +1446,10 @@
 		"message": "Subreddit"
 	},
 	"SubredditBlockInfo": {
-		"message": "Masque tous les posts des subreddits listés sur les fils d'actualité, sauf les fils d'actualité des subreddits."
+		"message": "Masque les publications des subreddits listés dans les fils et peut bloquer entièrement leurs pages. Choisissez la portée de chaque subreddit dans le gestionnaire de blocages."
+	},
+	"SubredditBlockInfoScopes": {
+		"message": "Masque les publications des subreddits listés dans les flux et bloque leurs pages de publication/commentaire. Les blocages limités à une page bloquent également les pages propres du subreddit. Définissez la portée de chaque subreddit dans le gestionnaire de blocage."
 	},
 	"SubredditDisplayNameBanner": {
 		"message": "Afficher le nom d'affichage subreddit  dans sa bannière"
@@ -1397,6 +1493,12 @@
 	"ThemeDoesNotWorkWithCustomThemes": {
 		"message": "Ne fonctionne pas actuellement avec les thèmes communautaires personnalisés. Veuillez désactiver cette option dans vos préférences Reddit."
 	},
+	"ThemeOpacity": {
+		"message": "Opacité du thème"
+	},
+	"ThemeOpacityInfo": {
+		"message": "Rendre la barre d'en-tête, les arrière-plans de publication et la barre latérale translucides. Les valeurs inférieures affichent une plus grande partie de l'arrière-plan de la page."
+	},
 	"ThemeWhitelistInfo": {
 		"message": "Utilisez uniquement les couleurs de thème pour ces subreddits:"
 	},
@@ -1425,7 +1527,7 @@
 		"message": "Mis à jour"
 	},
 	"UpdateFirefox": {
-		"message": "Veuillez mettre à jour Firefox 121 ou version ultérieure pour que certaines fonctionnalités fonctionnent correctement."
+		"message": "Veuillez mettre à jour Firefox 128 ou version ultérieure pour que certaines fonctionnalités fonctionnent correctement."
 	},
 	"Upload": {
 		"message": "Télécharger"

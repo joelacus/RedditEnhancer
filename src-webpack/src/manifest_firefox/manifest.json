@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 
 	"name": "__MSG_extensionName__",
-	"version": "3.6.0",
+	"version": "3.7.0",
 	"description": "__MSG_extensionDescription__",
 	"author": "github.com/joelacus",
 	"default_locale": "en",
@@ -18,6 +18,8 @@
 	"permissions": ["storage", "tabs", "declarativeNetRequest", "contextMenus"],
 
 	"optional_permissions": ["downloads", "history", "scripting"],
+
+	"optional_host_permissions": ["*://*.imgur.com/*", "*://*.postimg.cc/*", "*://*.ibb.co/*"],
 
 	"host_permissions": ["*://*.reddit.com/*", "*://*.redd.it/*"],
 
@@ -41,7 +43,7 @@
 
 	"web_accessible_resources": [
 		{
-			"resources": ["_locales/**/*", "changelog.txt", "RE_styles.css", "RE_UI_styles.css"],
+			"resources": ["_locales/**/*", "changelog.txt", "RE_styles.css", "RE_UI_styles.css", "blocked_subreddit.html"],
 			"matches": ["<all_urls>"]
 		}
 	],

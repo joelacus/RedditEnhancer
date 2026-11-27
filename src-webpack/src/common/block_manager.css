@@ -73,7 +73,7 @@ h1 {
 .table-scroll {
 	flex: 1;
 	min-height: 0;
-	overflow-y: auto;
+	overflow: auto;
 	border: 1px solid var(--bg-tint-4);
 	border-radius: var(--border-radius);
 }
@@ -111,24 +111,46 @@ h1 {
 	text-align: center;
 }
 
+#block-users-table {
+	min-width: calc(920px + 5rem + 140px);
+}
+
+#block-subreddits-table {
+	min-width: calc(640px + 5rem + 140px);
+}
+
+#block-keywords-table {
+	min-width: calc(960px + 7rem + 140px);
+}
+
 #block-users-table th:nth-child(2) {
 	width: 400px;
 }
 #block-users-table th:nth-child(3) {
-	width: 100px;
+	width: 160px;
 }
 #block-users-table th:nth-child(4) {
-	width: auto;
+	width: 160px;
 }
 #block-users-table th:nth-child(5) {
+	min-width: 120px;
+	width: auto;
+}
+#block-users-table th:nth-child(6) {
 	width: 80px;
 	text-align: center;
 }
 
 #block-subreddits-table th:nth-child(2) {
-	width: auto;
+	width: 400px;
 }
 #block-subreddits-table th:nth-child(3) {
+	width: 160px;
+}
+#block-subreddits-table th:nth-child(4) {
+	width: auto;
+}
+#block-subreddits-table th:nth-child(5) {
 	width: 80px;
 	text-align: center;
 }
@@ -137,13 +159,14 @@ h1 {
 	width: 400px;
 }
 #block-keywords-table th:nth-child(3),
-#block-keywords-table th:nth-child(4) {
-	width: 100px;
-}
+#block-keywords-table th:nth-child(4),
 #block-keywords-table th:nth-child(5) {
-	width: auto;
+	width: 160px;
 }
 #block-keywords-table th:nth-child(6) {
+	width: auto;
+}
+#block-keywords-table th:nth-child(7) {
 	width: 80px;
 	text-align: center;
 }
@@ -213,10 +236,16 @@ h1 {
 }
 
 .action-cell .row-delete {
-	background: none;
+	background: var(--red);
 	cursor: pointer;
 	aspect-ratio: 1;
 	opacity: 0;
+}
+.action-cell .row-delete .icon-x {
+	background: var(--bg-tint-2);
+}
+.action-cell .row-delete:hover {
+	background: color-mix(in srgb, var(--red) 70%, #000000);
 }
 
 .block-table tr:hover td {
@@ -237,6 +266,11 @@ h1 {
 
 .info.invalid-regex {
 	color: #ff0000;
+}
+
+.info.regex-hint {
+	color: var(--text-secondary);
+	margin-left: 0.4rem;
 }
 
 .table-actions {
@@ -286,6 +320,25 @@ h1 {
 .block-table td.block-name-cell {
 	max-width: 320px;
 	overflow: hidden;
+	white-space: nowrap;
+}
+
+/* Flex wrapper so a long pattern's ellipsis never clips the regex tick */
+.block-name-inner {
+	display: flex;
+	align-items: center;
+	min-width: 0;
+}
+.block-name-text {
+	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+.block-name-inner .block-regex-valid {
+	display: inline-block;
+	flex: 0 0 auto;
+	width: 12px;
+	height: 12px;
+	margin-left: 0.4rem;
+	background-color: var(--green);
 }

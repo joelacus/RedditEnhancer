@@ -1,6 +1,6 @@
 {
 	"extensionVersion": {
-		"message": "3.6.0"
+		"message": "3.7.0"
 	},
 	"extensionName": {
 		"message": "Reddit Enhancer"
@@ -61,9 +61,6 @@
 	},
 	"AttachSideMenuHeader": {
 		"message": "Display page and user info in header"
-	},
-	"AttachSideMenuHeaderInfo": {
-		"message": "Experimental. Might conflict with hiding side menu functions."
 	},
 	"Auto": {
 		"message": "Auto"
@@ -137,6 +134,12 @@
 	"BackupUserTagsOnly": {
 		"message": "User Tags Only"
 	},
+	"BaseTheme": {
+		"message": "Base Theme"
+	},
+	"BaseThemeInfo": {
+		"message": "Choose a built-in colour theme for the page. The individual colour options below override it when they are enabled. Select \"None\" to remove the base theme."
+	},
 	"Best": {
 		"message": "Best"
 	},
@@ -173,20 +176,44 @@
 	"BlockAlreadyAdded": {
 		"message": "Already in the block list."
 	},
+	"BlockedSubredditInfo": {
+		"message": "This subreddit is in your block list. Unblock it in the Block Manager to visit it again."
+	},
+	"BlockedSubredditTitle": {
+		"message": "This subreddit has been blocked"
+	},
 	"BlockExport": {
 		"message": "Export blocks"
+	},
+	"BlockFeedAllHidden": {
+		"message": "Every post in this feed is hidden by your block filters."
+	},
+	"BlockFeedLoadMore": {
+		"message": "Load more posts"
 	},
 	"BlockImport": {
 		"message": "Import blocks"
 	},
-	"BlockImportSuccess": {
-		"message": "Imported {count} block(s)."
+	"BlockImportEmpty": {
+		"message": "No blocks were imported from this backup."
+	},
+	"BlockImportTypeSummary": {
+		"message": "{type}: {newCount} new, {updatedCount} updated, {existingCount} already existed."
 	},
 	"BlockInfo": {
-		"message": "Supports exact keyword match, or regular expressions. \"*\" can be used as wildcards, e.g. \"user*\" (\"user\" with anything after will be blocked)."
+		"message": "Supports exact keyword match, or regular expressions wrapped in slashes, e.g. \"/^user\\d+$/i\" (flags are optional). \"*\" can be used as wildcards, e.g. \"user*\" (\"user\" with anything after will be blocked). Plain-text blocks are case insensitive; regex patterns use their own flags, so add \"/i\" to match case insensitively."
+	},
+	"BlockKeywordContent": {
+		"message": "Post content"
+	},
+	"BlockKeywordLink": {
+		"message": "Link in post"
 	},
 	"BlockKeywordsTab": {
 		"message": "Keywords"
+	},
+	"BlockKeywordTitle": {
+		"message": "Post title"
 	},
 	"BlockManagerInfo": {
 		"message": "Blocked users, subreddits and keywords are stored locally on this device. Export them to avoid any potential data loss."
@@ -203,8 +230,17 @@
 	"BlockPostsAndComments": {
 		"message": "Posts & Comments"
 	},
+	"BlockRegexHint": {
+		"message": "This looks like a regular expression. Wrap it in /…/ to use it as one."
+	},
+	"BlockRegexValid": {
+		"message": "Regex valid"
+	},
 	"BlockScope": {
 		"message": "Scope"
+	},
+	"BlockSubreddits": {
+		"message": "Block Subreddits"
 	},
 	"BlockSubredditsTab": {
 		"message": "Subreddits"
@@ -254,6 +290,9 @@
 	"ChooseVersionForEachConflict": {
 		"message": "Choose which version to keep for each conflict:"
 	},
+	"ClassicLight": {
+		"message": "Classic Light"
+	},
 	"ClassicOldUI": {
 		"message": "Classic Old UI"
 	},
@@ -266,6 +305,9 @@
 	"Cleared": {
 		"message": "Cleared"
 	},
+	"ClickLightboxBackgroundToClose": {
+		"message": "Click Lightbox Background To Close"
+	},
 	"ClickToEdit": {
 		"message": "Click to edit"
 	},
@@ -277,6 +319,18 @@
 	},
 	"Colour": {
 		"message": "Colour"
+	},
+	"CommentImageThumbnails": {
+		"message": "Comment Image Hyperlink Thumbnails"
+	},
+	"CommentImageThumbnailsInfo": {
+		"message": "Show an inline thumbnail for image links in comments. Click a thumbnail to open a fullscreen preview. Imgur, Postimg and IBB page links are resolved too."
+	},
+	"CommentImageThumbnailsPermissions": {
+		"message": "Imgur album links, Postimg and IBB page links need permission to be turned into thumbnails. Direct image links and single-image Imgur links still work. Grant access from the extension's permissions settings, or turn this option off and on again to be asked."
+	},
+	"CommentImageThumbnailWidth": {
+		"message": "Thumbnail Width"
 	},
 	"Comments": {
 		"message": "Comments"
@@ -356,14 +410,26 @@
 	"DarkThemes": {
 		"message": "Dark theme"
 	},
+	"Default": {
+		"message": "Default"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "Default Comments Sort Option"
 	},
 	"DefaultFeedSortOption": {
 		"message": "Default Feed Sort Option"
 	},
+	"DefaultFeedTab": {
+		"message": "Default Feed Tab"
+	},
+	"DefaultFeedTabInfo": {
+		"message": "Choose the tab the home feed opens on. This setting is ignored while \"Default Home Feed Sort Option\" is enabled."
+	},
 	"DefaultHomeFeedSortOption": {
 		"message": "Default Home Feed Sort Option"
+	},
+	"DefaultHomeFeedSortOptionInfo": {
+		"message": "Sorting the home feed forces the Following feed, so this takes precedence over \"Default Feed Tab\"."
 	},
 	"Delete": {
 		"message": "Delete"
@@ -470,6 +536,9 @@
 	"FollowComment": {
 		"message": "Follow Comment"
 	},
+	"Following": {
+		"message": "Following"
+	},
 	"FollowPost": {
 		"message": "Follow Post"
 	},
@@ -494,6 +563,9 @@
 	"ForceShowVoteButtons": {
 		"message": "Force Show Vote Buttons"
 	},
+	"ForYou": {
+		"message": "For You"
+	},
 	"FullWidthBanner": {
 		"message": "Full Width Subreddit Banner"
 	},
@@ -508,6 +580,12 @@
 	},
 	"GlobalWidth": {
 		"message": "Global Max. Width"
+	},
+	"GoToRedditHome": {
+		"message": "Go to Reddit home"
+	},
+	"Grey": {
+		"message": "Grey"
 	},
 	"Header": {
 		"message": "Header"
@@ -536,6 +614,12 @@
 	"HideAwards": {
 		"message": "Hide the \"Award\" Button on Comments"
 	},
+	"HideBlockedSearchEntries": {
+		"message": "Hide Blocked Entries in Search"
+	},
+	"HideBlockedSearchEntriesInfo": {
+		"message": "Hides blocked keywords, subreddits and users from the search bar suggestions and the search results page, including its right sidebar."
+	},
 	"HideBlurredMediaBackground": {
 		"message": "Hide Background Blur Behind Image Previews"
 	},
@@ -544,6 +628,9 @@
 	},
 	"HideCommentActionBarButtonsInfo": {
 		"message": "Hide buttons from comment action bar"
+	},
+	"HideCommentImageLinks": {
+		"message": "Hide Original Comment Image Links"
 	},
 	"HideCommentKarma": {
 		"message": "Hide Comment Karma"
@@ -652,9 +739,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Hide Post Karma"
-	},
-	"HidePostsBySubreddit": {
-		"message": "Hide Posts by Subreddit"
 	},
 	"HidePostsByUser": {
 		"message": "Hide Posts by User"
@@ -794,6 +878,9 @@
 	"Importing": {
 		"message": "Importing..."
 	},
+	"ImportingLargeBackup": {
+		"message": "Importing. Large backups may take a while and the page may appear frozen."
+	},
 	"ImportInvalidFormat": {
 		"message": "Invalid file format."
 	},
@@ -820,6 +907,9 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "Blocks posts based on the title, not the content."
+	},
+	"KeywordsBlockInfoScopes": {
+		"message": "Blocks posts when a keyword matches the post title or content, depending on the scopes selected in the Block Manager."
 	},
 	"Label": {
 		"message": "Label"
@@ -935,6 +1025,9 @@
 	"NextRootComment": {
 		"message": "Next Root Comment"
 	},
+	"None": {
+		"message": "None"
+	},
 	"NoNote": {
 		"message": "No note"
 	},
@@ -1000,6 +1093,9 @@
 	},
 	"Other": {
 		"message": "Other"
+	},
+	"Page": {
+		"message": "Page"
 	},
 	"PositionHorizontally": {
 		"message": "Position Horizontally"
@@ -1099,6 +1195,9 @@
 	},
 	"Qa": {
 		"message": "Q&a"
+	},
+	"Radius": {
+		"message": "Radius"
 	},
 	"Rate": {
 		"message": "Rate / Review"
@@ -1350,7 +1449,10 @@
 		"message": "Subreddit"
 	},
 	"SubredditBlockInfo": {
-		"message": "Hides all posts from the listed subreddits on feeds, except subreddit feeds."
+		"message": "Hides posts from the listed subreddits in feeds and can block their pages entirely. Set each subreddit's scope in the Block Manager."
+	},
+	"SubredditBlockInfoScopes": {
+		"message": "Hides posts from the listed subreddits in feeds and blocks their post/comment pages. Page-scoped blocks also block the subreddit's own pages. Set each subreddit's scopes in the Block Manager."
 	},
 	"SubredditDisplayNameBanner": {
 		"message": "Show the subreddit display name in its banner"
@@ -1394,6 +1496,12 @@
 	"ThemeDoesNotWorkWithCustomThemes": {
 		"message": "Does not currently work with custom community themes. Please disable this option in your reddit preferences:"
 	},
+	"ThemeOpacity": {
+		"message": "Theme Opacity"
+	},
+	"ThemeOpacityInfo": {
+		"message": "Make the header bar, post backgrounds and sidebar translucent. Lower values show more of the page background."
+	},
 	"ThemeWhitelistInfo": {
 		"message": "Only use the theme colours for these subreddits:"
 	},
@@ -1422,7 +1530,7 @@
 		"message": "Updated"
 	},
 	"UpdateFirefox": {
-		"message": "Please update to Firefox 121 or greater for some features to work correctly."
+		"message": "Please update to Firefox 128 or greater for some features to work correctly."
 	},
 	"Upload": {
 		"message": "Upload"

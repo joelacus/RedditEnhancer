@@ -11,7 +11,7 @@ export function restorePopupTheme() {
 		// addonTheme holds the display mode and addonThemeLight/addonThemeDark
 		// the theme selected in each menu. Older builds stored a single value
 		// that could also be a theme id ('classic-light', 'grey'): split it
-		// into the new format and write the normalized keys back.
+		// into the new format and write the normalised keys back.
 		const split = splitAddonTheme(result.addonTheme || 'dark');
 		const mode = split.mode;
 		const lightTheme = result.addonThemeLight || split.lightTheme;

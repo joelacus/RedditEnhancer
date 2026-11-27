@@ -12,6 +12,7 @@ import './tweaks/productivity/canned_messages';
 //import { loadDarkModeAuto } from './tweaks/dark_mode/dark_mode';
 //import { loadLimitInfinityScroll } from './tweaks/productivity/limit_infinity_scroll';
 import { addBorderRadiusToShadowRootElements } from './tweaks/style/border_radius';
+import { syncPresetShadowStyle } from './tweaks/style/preset_themes';
 import { loadAddDownloadVideoButton } from './tweaks/media/add_download_video_button';
 import { loadAddProfilePicturesToComments } from './tweaks/productivity/add_profile_picture_to_comments';
 import { loadAlwaysShowCommentOptions } from './tweaks/productivity/always_show_comment_options';
@@ -26,8 +27,11 @@ import { loadAutoplayVideos } from './tweaks/media/autoplay_videos';
 import { loadBetterCommentBox } from './tweaks/productivity/better_comment_box';
 import { loadBionicReader } from './tweaks/accessibility/bionic_reader';
 import { loadCleanLink } from './tweaks/productivity/clean_link';
+import { loadClickLightboxBackgroundToClose } from './tweaks/media/click_lightbox_background_to_close';
+import { loadCommentImageThumbnails } from './tweaks/media/comment_image_thumbnails';
 import { loadCompactPostLinkPreview } from './tweaks/media/compact_post_link_preview';
-import { loadFixThreadlinesForTranslucentPosts, loadThemeAfterPageLoad } from './tweaks/style/override_theme_colours';
+import { loadFixThreadlinesForTranslucentPosts } from './tweaks/style/helpers/fix_threadlines_for_translucent_posts';
+import { loadThemeAfterPageLoad } from './tweaks/style/override_theme_colours';
 import { loadFullWidthExpandos } from './tweaks/media/full_width_expandos';
 import { loadGalleryKeyboardNavigation } from './tweaks/media/gallery_keyboard_navigation';
 import { loadHideAiInSearch } from './tweaks/hide_elements/hide_ai_in_search';
@@ -35,8 +39,11 @@ import { loadHideAwards } from './tweaks/hide_elements/hide_awards';
 import { loadHideBlockedKeywordComments } from './tweaks/block/block_comments_by_keyword';
 import { loadHideBlockedKeywordPosts } from './tweaks/block/block_posts_by_keyword';
 import { loadHideBlockedLinkPosts } from './tweaks/block/block_posts_by_url';
-import { loadHideBlockedSubredditPosts } from './tweaks/block/block_posts_by_subreddit';
+import { loadHideBlockedSubredditPosts, loadBlockedSubredditMastheadButton } from './tweaks/block/block_posts_by_subreddit';
+import { loadHideBlockedSearchEntries } from './tweaks/block/block_search_entries';
+import { loadHideBlockedSubredditRecent } from './tweaks/block/block_subreddit_recent';
 import { loadHideBlockedUserPosts } from './tweaks/block/block_posts_by_user';
+import { loadHideBlockedUsernames } from './tweaks/block/block_usernames_by_user';
 import { loadHideLogoInSearch } from './tweaks/hide_elements/hide_logo_in_search';
 import { loadHideNSFW } from './tweaks/hide_elements/hide_nsfw';
 import { loadHideNsfwInSearchResults, loadHideTrendingTodayInSearchResults } from './tweaks/hide_elements/hide_search_results_sections';
@@ -100,10 +107,13 @@ export function loadTweaks() {
 		loadCleanLink();
 		loadHidePostComments();
 		loadNumberedPostImages();
+		loadCommentImageThumbnails();
 		loadScrollToNextRootComment();
 		loadUserTagging();
 	} else if (redditVersion === 'newnew') {
 		loadAddDownloadVideoButton();
+		loadClickLightboxBackgroundToClose();
+		loadCommentImageThumbnails();
 		loadBionicReader();
 		loadScrollToNextRootComment();
 		loadShowPostAuthor();
@@ -119,6 +129,7 @@ export function loadTweaks() {
 		loadHideAiInSearch();
 		loadHideLogoInSearch();
 		loadReplaceSearchPlaceholderText();
+		loadHideBlockedSearchEntries();
 		loadHideRelatedCommunities();
 		loadShowToTopButtonFloat();
 		loadScrollToPost();
@@ -184,6 +195,16 @@ export function loadTweaks() {
 				setTimeout(() => {
 					loadRememberSideMenuSectionHiddenState();
 				}, 500);
+				loadHideBlockedSubredditRecent();
+			},
+		});
+
+		waitForAddedNode({
+			query: '#recent-communities-section',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function (el) {
+				loadHideBlockedSubredditRecent();
 			},
 		});
 
@@ -217,6 +238,7 @@ export function loadTweaks() {
 					loadHideAiInSearch();
 					loadHideLogoInSearch();
 					loadReplaceSearchPlaceholderText();
+					syncPresetShadowStyle();
 				}, 1000);
 			},
 		});
@@ -228,7 +250,6 @@ export function loadTweaks() {
 			done: function () {
 				setTimeout(() => {
 					loadHideBlockedKeywordPosts();
-					loadHideBlockedUserPosts();
 					loadHideBlockedLinkPosts();
 					loadHideBlockedSubredditPosts();
 					loadMarkReadOnOpenExpandos();
@@ -236,6 +257,15 @@ export function loadTweaks() {
 				loadShowPostNumbers();
 				moveSortDropdown();
 				loadFullWidthExpandos();
+			},
+		});
+
+		waitForAddedNode({
+			query: 'subreddit-feed-masthead h1',
+			parent: document.querySelector('body'),
+			recursive: true,
+			done: function () {
+				loadBlockedSubredditMastheadButton();
 			},
 		});
 
@@ -261,6 +291,7 @@ export function loadTweaks() {
 					loadAutoplayCommentGifs();
 					loadGalleryKeyboardNavigation();
 					loadHideRepostButton();
+					loadHideBlockedUserPosts();
 				}, 500);
 			},
 		});
@@ -355,6 +386,7 @@ export function loadTweaks() {
 	loadAutoExpandValue();
 	// loadDarkModeAuto();
 	loadHideNSFW();
+	loadHideBlockedUsernames();
 	loadShowToTopButton();
 
 	// Run again (make sure it loaded correctly)

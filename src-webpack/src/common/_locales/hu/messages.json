@@ -59,9 +59,6 @@
 	"AttachSideMenuHeader": {
 		"message": "Kijelölés a lap és a felhasználói adatok az üstmenüben"
 	},
-	"AttachSideMenuHeaderInfo": {
-		"message": "Kísérleti. Konfliktot okozhat a s oldalmenü funkciók elrejtésével."
-	},
 	"Auto": {
 		"message": "Automatikus"
 	},
@@ -134,6 +131,12 @@
 	"BackupUserTagsOnly": {
 		"message": "Csak felhasználói címkék"
 	},
+	"BaseTheme": {
+		"message": "Alap téma"
+	},
+	"BaseThemeInfo": {
+		"message": "Válasszon beépített színtémát az oldalhoz. Az alábbi egyedi színbeállítások felülírják, ha engedélyezve vannak. Válassza a „Nincs” lehetőséget az alaptéma eltávolításához."
+	},
 	"Best": {
 		"message": "Legjobb / Best"
 	},
@@ -170,20 +173,44 @@
 	"BlockAlreadyAdded": {
 		"message": "Már benne van a tiltólistában."
 	},
+	"BlockedSubredditInfo": {
+		"message": "Ez a subreddit szerepel a tiltólistádon. A Blokkoláskezelőben oldhatod fel, ha újra meg akarod látogatni."
+	},
+	"BlockedSubredditTitle": {
+		"message": "Ez a subreddit le lett tiltva"
+	},
 	"BlockExport": {
 		"message": "Blokkok exportálása"
+	},
+	"BlockFeedAllHidden": {
+		"message": "Minden bejegyzés el van rejtve ebben a hírfolyamban a blokkolási szűrőiddel."
+	},
+	"BlockFeedLoadMore": {
+		"message": "További bejegyzések betöltése"
 	},
 	"BlockImport": {
 		"message": "Blokkok importálása"
 	},
-	"BlockImportSuccess": {
-		"message": "{count} blokk importálva."
+	"BlockImportEmpty": {
+		"message": "Ebből a biztonsági másolatból nem importáltak blokkot."
+	},
+	"BlockImportTypeSummary": {
+		"message": "{type}: {newCount} új, {updatedCount} frissítve, {existingCount} már létezett."
 	},
 	"BlockInfo": {
-		"message": "Támogatja az exakt kulcsszó-lehjat vagy reguláris kifejezéseket."
+		"message": "Támogatja a pontos kulcsszóegyezést, vagy a perjelekbe burkolt reguláris kifejezéseket, pl. \"/^user\\d+$/i\" (a jelzők nem kötelezőek). A \"*\" helyettesítő karakterként használható, pl. \"user*\" (a \"user\" és bármi utána blokkolva lesz). Az egyszerű szöveges blokkok nem tesznek különbséget a kis- és nagybetűk között; a regex minták saját zászlókat használnak, ezért adjon hozzá \"/i\"-t, hogy a kis- és nagybetűk nem egyeznek meg."
+	},
+	"BlockKeywordContent": {
+		"message": "Tartalom közzététele"
+	},
+	"BlockKeywordLink": {
+		"message": "Link a bejegyzésben"
 	},
 	"BlockKeywordsTab": {
 		"message": "Kulcsszavak"
+	},
+	"BlockKeywordTitle": {
+		"message": "Hozzászólás címe"
 	},
 	"BlockManagerInfo": {
 		"message": "A blokkolt felhasználókat, alredditeket és kulcsszavakat a rendszer helyileg tárolja ezen az eszközön. Exportálja őket az esetleges adatvesztés elkerülése érdekében."
@@ -200,8 +227,17 @@
 	"BlockPostsAndComments": {
 		"message": "Bejegyzések és megjegyzések"
 	},
+	"BlockRegexHint": {
+		"message": "Ez úgy néz ki, mint egy reguláris kifejezés. Csomagolja be /…/-be, hogy egyként használhassa."
+	},
+	"BlockRegexValid": {
+		"message": "Regex érvényes"
+	},
 	"BlockScope": {
 		"message": "Hatály"
+	},
+	"BlockSubreddits": {
+		"message": "Subredditek blokkolása"
 	},
 	"BlockSubredditsTab": {
 		"message": "Subreddits"
@@ -266,6 +302,9 @@
 	"Cleared": {
 		"message": "Törölve"
 	},
+	"ClickLightboxBackgroundToClose": {
+		"message": "A bezáráshoz kattintson a Lightbox háttér elemre"
+	},
 	"ClickToEdit": {
 		"message": "Kattintson a szerkesztéshez"
 	},
@@ -277,6 +316,18 @@
 	},
 	"Colour": {
 		"message": "szín"
+	},
+	"CommentImageThumbnails": {
+		"message": "Hozzászólás Kép miniatűrök"
+	},
+	"CommentImageThumbnailsInfo": {
+		"message": "Soron belüli miniatűr megjelenítése a megjegyzésekben található képhivatkozásokhoz. Kattintson egy miniatűrre a teljes képernyős előnézet megnyitásához. Az Imgur, Postimg és IBB oldalhivatkozások is megoldottak."
+	},
+	"CommentImageThumbnailsPermissions": {
+		"message": "Az Imgur-albumhivatkozások, a Postimg- és az IBB-oldalhivatkozások miniatűrökké alakításához engedélyre van szükség. A közvetlen képhivatkozások és az egyképes Imgur-hivatkozások továbbra is működnek. Adjon hozzáférést a bővítmény engedélybeállításaiból, vagy kapcsolja ki, majd be újra ezt a lehetőséget, hogy a rendszer rákérdezzen."
+	},
+	"CommentImageThumbnailWidth": {
+		"message": "Bélyegkép szélessége"
 	},
 	"Comments": {
 		"message": "Megjegyzések"
@@ -356,14 +407,26 @@
 	"DarkThemes": {
 		"message": "Sötét téma"
 	},
+	"Default": {
+		"message": "Alapértelmezett"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "Alaplagos kommentek rendezési opciója"
 	},
 	"DefaultFeedSortOption": {
 		"message": "Album minőségi sortálási opció"
 	},
+	"DefaultFeedTab": {
+		"message": "Alapértelmezett hírfolyam lap"
+	},
+	"DefaultFeedTabInfo": {
+		"message": "Válaszd ki a lapot, amelyen a kezdőlap hírfolyam megnyílik. Ez a beállítás figyelmen kívül marad, amíg az \"Alapértelmezett kezdőlap-hírfolyam rendezési beállítás\" engedélyezve van."
+	},
 	"DefaultHomeFeedSortOption": {
 		"message": "Alapértelmezett kezdő tápláscsúfolási opció"
+	},
+	"DefaultHomeFeedSortOptionInfo": {
+		"message": "A kezdőlap hírfolyamának rendezése kikényszeríti a Követett hírfolyamot, ezért ez elsőbbséget élvez a \"Alapértelmezett hírfolyam lap\" beállítással szemben."
 	},
 	"Delete": {
 		"message": "Törölni"
@@ -470,6 +533,9 @@
 	"FollowComment": {
 		"message": "Követ egy hozzászólást"
 	},
+	"Following": {
+		"message": "Következő"
+	},
 	"FollowPost": {
 		"message": "Követés"
 	},
@@ -494,6 +560,9 @@
 	"ForceShowVoteButtons": {
 		"message": "A szavazógombok elköri megjelenítése"
 	},
+	"ForYou": {
+		"message": "Neked"
+	},
 	"FullWidthBanner": {
 		"message": "Teljes szélességű Subreddit banner"
 	},
@@ -508,6 +577,9 @@
 	},
 	"GlobalWidth": {
 		"message": "Globális maximális szélesség"
+	},
+	"GoToRedditHome": {
+		"message": "Ugrás a Reddit kezdőlapjára"
 	},
 	"Grey": {
 		"message": "szürke"
@@ -539,6 +611,12 @@
 	"HideAwards": {
 		"message": "A „Díj” gomb elrejtése a hozzászólásokban"
 	},
+	"HideBlockedSearchEntries": {
+		"message": "A blokkolt bejegyzések elrejtése a keresősávban és az eredményoldalon"
+	},
+	"HideBlockedSearchEntriesInfo": {
+		"message": "Elrejti a blokkolt kulcsszavakat, alredditeket és felhasználókat a keresősáv javaslatairól és a keresési eredményoldalról, beleértve a jobb oldalsávot is."
+	},
 	"HideBlurredMediaBackground": {
 		"message": "Elrejtett háttér-elhúzás a képelőnézetek mögött"
 	},
@@ -547,6 +625,9 @@
 	},
 	"HideCommentActionBarButtonsInfo": {
 		"message": "Rejtelenje a kommentmeneti műveletlépőiből"
+	},
+	"HideCommentImageLinks": {
+		"message": "Az eredeti megjegyzés képlinkjei elrejtése"
 	},
 	"HideCommentKarma": {
 		"message": "Rejtettélni a kommentár karmáját"
@@ -655,9 +736,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Bezitálni a bejegyzés karmaját"
-	},
-	"HidePostsBySubreddit": {
-		"message": "A subreddit szerint elrejtett bejegyzések"
 	},
 	"HidePostsByUser": {
 		"message": "Felhasználói bejegyzések elrejtése"
@@ -797,6 +875,9 @@
 	"Importing": {
 		"message": "Importálás..."
 	},
+	"ImportingLargeBackup": {
+		"message": "Importálás. A nagy biztonsági mentések eltarthat egy ideig, és az oldal lefagyottnak tűnhet."
+	},
 	"ImportInvalidFormat": {
 		"message": "Névleges fájlformát"
 	},
@@ -823,6 +904,9 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "Blokkolja a bejegyzéseket a cím alapján, nem az tartalom alapján."
+	},
+	"KeywordsBlockInfoScopes": {
+		"message": "Letiltja a bejegyzéseket, amikor egy kulcsszó egyezik a bejegyzés címével vagy tartalmával, a Blokkkezelőben kiválasztott hatókörök függvényében."
 	},
 	"Label": {
 		"message": "Címke"
@@ -938,6 +1022,9 @@
 	"NextRootComment": {
 		"message": "Következő gyökérkommentár"
 	},
+	"None": {
+		"message": "Egyik sem"
+	},
 	"NoNote": {
 		"message": "Nincs jegyzet"
 	},
@@ -1003,6 +1090,9 @@
 	},
 	"Other": {
 		"message": "más"
+	},
+	"Page": {
+		"message": "Oldal"
 	},
 	"PositionHorizontally": {
 		"message": "Horizontális elhelyezés"
@@ -1102,6 +1192,9 @@
 	},
 	"Qa": {
 		"message": "Q&a"
+	},
+	"Radius": {
+		"message": "Sugár"
 	},
 	"Rate": {
 		"message": "Értékelés / Vélemény"
@@ -1353,7 +1446,10 @@
 		"message": "Subreddit"
 	},
 	"SubredditBlockInfo": {
-		"message": "Először eltünteti minden posztot a listázott subredditekreken az étlekből, kivéve a subreddit étlekből."
+		"message": "Elrejti a listázott subredditek bejegyzéseit a hírfolyamokból, és teljesen blokkolhatja az oldalaikat. A hatókört a Blokkoláskezelőben állíthatja be."
+	},
+	"SubredditBlockInfoScopes": {
+		"message": "Elrejti a felsorolt subredditok bejegyzéseit a hírfolyamokból, és letiltja azok bejegyzés-/megjegyzésoldalait. Az oldalhatókörű tiltások a subreddit saját oldalait is letiltják. Állítsa be az egyes subredditok hatóköreit a Tiltáskezelőben."
 	},
 	"SubredditDisplayNameBanner": {
 		"message": "Mutassa a subreddit megjelenített nevét a bannerén"
@@ -1397,6 +1493,12 @@
 	"ThemeDoesNotWorkWithCustomThemes": {
 		"message": "Jelenleg nem működik a felhasználó által létrehozott közösségtemákhoz. Kérjük, deaktiválja ezt az opciót az Ön Reddit preferenciáinak beállításában:"
 	},
+	"ThemeOpacity": {
+		"message": "Az átlátszatlanság téma"
+	},
+	"ThemeOpacityInfo": {
+		"message": "Tegye áttetszővé a fejlécsávot, a bejegyzés hátterét és az oldalsávot. Az alacsonyabb értékek az oldal hátterének nagyobb részét mutatják."
+	},
 	"ThemeWhitelistInfo": {
 		"message": "Csak az előre létrehozott témák színeit használja ezen subredditekhez"
 	},
@@ -1425,7 +1527,7 @@
 		"message": "Frissítvezet"
 	},
 	"UpdateFirefox": {
-		"message": "Kérjük, frissítsen a Firefox 121-re vagy újabbra, hogy egyes funkciók megfelelően működjenek."
+		"message": "Kérjük, frissítsen a Firefox 128-re vagy újabbra, hogy egyes funkciók megfelelően működjenek."
 	},
 	"Upload": {
 		"message": "feltöltés"

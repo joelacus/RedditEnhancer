@@ -56,6 +56,15 @@ document.querySelector('#checkbox-hide-blocked-user-comments-enable').addEventLi
 	sendMessage({ hideBlockedUserComments: this.checked });
 });
 
+// ─── Search ─────────────────────────────────────────────────────────────────
+
+// Toggle - Hide Blocked Entries in Search
+document.querySelector('#checkbox-hide-blocked-search-entries-enable').addEventListener('change', function () {
+	document.querySelector('.icon-hide-blocked-search-entries').style.backgroundColor = this.checked === true ? 'var(--accent)' : '';
+	BROWSER_API.storage.sync.set({ hideBlockedSearchEntries: this.checked });
+	sendMessage({ hideBlockedSearchEntries: this.checked });
+});
+
 // ─── Block Manager ──────────────────────────────────────────────────────────
 
 // Open the Block Manager on the relevant tab for each section button.

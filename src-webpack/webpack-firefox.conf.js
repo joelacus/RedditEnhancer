@@ -19,6 +19,7 @@ module.exports = {
 		restore_config: './src/common/restore_config.js',
 		user_tagging_manager: './src/common/user_tagging_manager.js',
 		block_manager: './src/common/block_manager.js',
+		blocked_subreddit: './src/common/blocked_subreddit.js',
 		system_theme_detector: './src/common/content/system_theme_detector.js',
 	},
 	output: {
@@ -93,6 +94,11 @@ module.exports = {
 					context: path.resolve(__dirname, 'src/common'),
 					from: 'block_manager.html',
 					to: 'block_manager.html',
+				},
+				{
+					context: path.resolve(__dirname, 'src/common'),
+					from: 'blocked_subreddit.html',
+					to: 'blocked_subreddit.html',
 				},
 				{
 					context: path.resolve(__dirname, 'src/common'),

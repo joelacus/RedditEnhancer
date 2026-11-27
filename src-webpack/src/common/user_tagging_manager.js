@@ -413,7 +413,7 @@ fileImport.addEventListener('change', async (e) => {
 
 	const reader = new FileReader();
 	reader.onload = async (event) => {
-		showLoadingOverlay(i18next.t('Importing.message'));
+		showLoadingOverlay(i18next.t('ImportingLargeBackup.message'));
 		// Let the overlay paint before the synchronous merge work below.
 		await new Promise((resolve) => setTimeout(resolve, 30));
 		try {
@@ -833,7 +833,6 @@ function showImportConflictsModal(nonConflicting, conflicts, skippedExact) {
 		.map((conflict, index) => {
 			const variantsHtml = conflict.variants
 				.map((variant, variantIndex) => {
-					console.log(variant);
 					const tagPreviewHtml = variant.tag.icon && variant.tag.icon !== 'none' ? `<span class="icon icon-${escapeHtml(variant.tag.icon)}"></span>` : '';
 					const noteHtml = variant.tag.note ? escapeHtml(variant.tag.note) : `<span class="import-conflict-empty">${i18next.t('NoNote.message')}</span>`;
 					const linkHtml = variant.tag.link ? `<a href="${escapeHtml(variant.tag.link)}" target="_blank" rel="noopener" class="import-conflict-link">${escapeHtml(variant.tag.link)}</a>` : '<span class="import-conflict-empty">No link</span>';

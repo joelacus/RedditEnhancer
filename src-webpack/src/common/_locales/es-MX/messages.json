@@ -1,5 +1,17 @@
 {
+	"BlockFeedAllHidden": {
+		"message": "Cada publicación en este feed está oculta por tus filtros de bloqueo."
+	},
+	"DefaultFeedTabInfo": {
+		"message": "Elige la pestaña en la que se abre el feed de inicio. Esta configuración se ignora mientras la opción \"Opción de ordenación predeterminada del feed de inicio\" esté activa."
+	},
+	"KeywordsBlockInfoScopes": {
+		"message": "Bloquea publicaciones cuando una palabra clave coincide con el título o el contenido de la publicación, según los ámbitos seleccionados en el Administrador de bloqueos."
+	},
 	"OpenPostInNewTabInfoLink": {
 		"message": "Ajustes de usuario > Ajustes de feed > Abrir posts en pestañas nuevas"
+	},
+	"SubredditBlockInfoScopes": {
+		"message": "Oculta las publicaciones de los subreddits listados en los feeds y bloquea sus páginas de publicaciones/comentarios. Los bloqueos con alcance de página también bloquean las páginas propias del subreddit. Define los alcances de cada subreddit en el Administrador de bloqueos."
 	}
 }

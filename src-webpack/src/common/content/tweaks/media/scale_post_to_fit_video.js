@@ -36,7 +36,7 @@ function enableScalePostToFitVideoRV3() {
 		const styleElement = document.createElement('style');
 		styleElement.id = 're-scale-post-to-fit-video';
 		styleElement.textContent = `shreddit-post [id$="-aspect-ratio"] {
-										min-height: fit-content !important;
+										min-height: 0 !important;
 										max-height: var(--re-max-video-post-height, fit-content) !important;
 										max-width: var(--re-limit-video-width, 100%) !important;
 										margin: 0 auto;

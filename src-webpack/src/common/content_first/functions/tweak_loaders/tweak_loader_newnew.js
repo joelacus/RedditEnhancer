@@ -17,6 +17,7 @@ import { loadBorderRadiusAmount } from '../../../content/tweaks/style/border_rad
 import { loadCustomBackground } from '../../../content/tweaks/background/custom_background';
 import { loadCustomHeaderLogo } from '../../../content/tweaks/style/custom_header_logo';
 import { loadCustomTheme } from '../../../content/tweaks/style/override_theme_colours';
+import { loadDefaultFeedTab } from '../default_feed_tab';
 import { loadDropShadow } from '../../../content/tweaks/style/drop_shadow';
 import { loadExpandContent } from '../../../content/tweaks/resize_elements/expand_content';
 import { loadForceDarkMode } from '../../../content/tweaks/style/force_dark_mode';
@@ -63,6 +64,7 @@ import { loadHideProfileAvatarBorder } from '../../../content/tweaks/style/hide_
 import { loadScaleProfileAvatar } from '../../../content/tweaks/style/scale_profile_avatar';
 
 export function tweakLoaderNewNew() {
+	loadDefaultFeedTab();
 	loadForceDarkMode();
 	loadSolidColourBackground();
 	loadCustomBackground();

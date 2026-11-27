@@ -59,9 +59,6 @@
 	"AttachSideMenuHeader": {
 		"message": "在标题栏中显示页面和用户信息"
 	},
-	"AttachSideMenuHeaderInfo": {
-		"message": "实验性功能，可能与隐藏侧边菜单的功能冲突。"
-	},
 	"Auto": {
 		"message": "自动"
 	},
@@ -134,6 +131,12 @@
 	"BackupUserTagsOnly": {
 		"message": "仅用户标签"
 	},
+	"BaseTheme": {
+		"message": "基础主题"
+	},
+	"BaseThemeInfo": {
+		"message": "为页面选择内置颜色主题。下面的各个颜色选项在启用时会覆盖它。选择“无”以删除基本主题。"
+	},
 	"Best": {
 		"message": "最佳"
 	},
@@ -170,20 +173,44 @@
 	"BlockAlreadyAdded": {
 		"message": "已经在阻止列表中了。"
 	},
+	"BlockedSubredditInfo": {
+		"message": "该子版块在您的屏蔽列表中。请在屏蔽管理器中取消屏蔽以再次访问。"
+	},
+	"BlockedSubredditTitle": {
+		"message": "该子版块已被屏蔽"
+	},
 	"BlockExport": {
 		"message": "导出块"
+	},
+	"BlockFeedAllHidden": {
+		"message": "此动态中的每个帖子都被您的屏蔽过滤器隐藏了。"
+	},
+	"BlockFeedLoadMore": {
+		"message": "加载更多帖子"
 	},
 	"BlockImport": {
 		"message": "导入块"
 	},
-	"BlockImportSuccess": {
-		"message": "已导入 {count} 个块。"
+	"BlockImportEmpty": {
+		"message": "没有从此备份导入任何块。"
+	},
+	"BlockImportTypeSummary": {
+		"message": "{type}：{newCount} 新，{updatedCount} 已更新，{existingCount} 已存在。"
 	},
 	"BlockInfo": {
-		"message": "支持精确匹配关键词或使用正则表达式。"
+		"message": "支持精确的关键字匹配，或用斜杠括起来的正则表达式，例如“/^user\\d+$/i”（标志是可选的）。 “*”可以用作通配符，例如“user*”（“user”后面的任何内容都将被阻止）。纯文本块不区分大小写；正则表达式模式使用自己的标志，因此添加“/i”以不区分大小写地匹配。"
+	},
+	"BlockKeywordContent": {
+		"message": "帖子内容"
+	},
+	"BlockKeywordLink": {
+		"message": "链接在帖子里"
 	},
 	"BlockKeywordsTab": {
 		"message": "关键词"
+	},
+	"BlockKeywordTitle": {
+		"message": "帖子标题"
 	},
 	"BlockManagerInfo": {
 		"message": "被阻止的用户、子版块和关键字都存储在该设备本地。导出它们以避免任何潜在的数据丢失。"
@@ -200,8 +227,17 @@
 	"BlockPostsAndComments": {
 		"message": "帖子和评论"
 	},
+	"BlockRegexHint": {
+		"message": "这看起来像一个正则表达式。将其包裹在 /…/ 中以将其用作一个。"
+	},
+	"BlockRegexValid": {
+		"message": "正则表达式有效"
+	},
 	"BlockScope": {
 		"message": "范围"
+	},
+	"BlockSubreddits": {
+		"message": "屏蔽子版块"
 	},
 	"BlockSubredditsTab": {
 		"message": "子版块"
@@ -266,6 +302,9 @@
 	"Cleared": {
 		"message": "已清除"
 	},
+	"ClickLightboxBackgroundToClose": {
+		"message": "单击灯箱背景关闭"
+	},
 	"ClickToEdit": {
 		"message": "点击编辑"
 	},
@@ -277,6 +316,18 @@
 	},
 	"Colour": {
 		"message": "颜色"
+	},
+	"CommentImageThumbnails": {
+		"message": "评论图像缩略图"
+	},
+	"CommentImageThumbnailsInfo": {
+		"message": "在评论中显示图像链接的内嵌缩略图。单击缩略图可打开全屏预览。 Imgur、Postimg 和 IBB 页面链接也已解决。"
+	},
+	"CommentImageThumbnailsPermissions": {
+		"message": "Imgur 专辑链接、Postimg 和 IBB 页面链接需要获得许可才能变成缩略图。直接图像链接和单图像 Imgur 链接仍然有效。从扩展程序的权限设置授予访问权限，或者关闭并再次打开此选项以进行询问。"
+	},
+	"CommentImageThumbnailWidth": {
+		"message": "缩略图宽度"
 	},
 	"Comments": {
 		"message": "评论"
@@ -356,14 +407,26 @@
 	"DarkThemes": {
 		"message": "深色主题"
 	},
+	"Default": {
+		"message": "默认"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "默认评论排序选项"
 	},
 	"DefaultFeedSortOption": {
 		"message": "默认信息流排序方式"
 	},
+	"DefaultFeedTab": {
+		"message": "默认信息流标签页"
+	},
+	"DefaultFeedTabInfo": {
+		"message": "选择主页动态流打开时所在的标签页。当启用\"默认主页动态流排序选项\"时，此设置将被忽略。"
+	},
 	"DefaultHomeFeedSortOption": {
 		"message": "默认主页信息流排序方式"
+	},
+	"DefaultHomeFeedSortOptionInfo": {
+		"message": "对主页动态排序会强制使用\"正在关注\"动态，因此此项优先于 \"默认信息流标签页\"。"
 	},
 	"Delete": {
 		"message": "删除"
@@ -470,6 +533,9 @@
 	"FollowComment": {
 		"message": "关注评论"
 	},
+	"Following": {
+		"message": "下列的"
+	},
 	"FollowPost": {
 		"message": "关注帖子"
 	},
@@ -494,6 +560,9 @@
 	"ForceShowVoteButtons": {
 		"message": "强制显示投票按钮"
 	},
+	"ForYou": {
+		"message": "为你"
+	},
 	"FullWidthBanner": {
 		"message": "全宽子版块横幅"
 	},
@@ -508,6 +577,9 @@
 	},
 	"GlobalWidth": {
 		"message": "全局最大宽度"
+	},
+	"GoToRedditHome": {
+		"message": "前往 Reddit 首页"
 	},
 	"Grey": {
 		"message": "灰色"
@@ -539,6 +611,12 @@
 	"HideAwards": {
 		"message": "隐藏评论中的“奖励”按钮"
 	},
+	"HideBlockedSearchEntries": {
+		"message": "隐藏搜索栏和结果页面中被阻止的条目"
+	},
+	"HideBlockedSearchEntriesInfo": {
+		"message": "从搜索栏建议和搜索结果页面（包括其右侧边栏）中隐藏被阻止的关键字、子版块和用户。"
+	},
 	"HideBlurredMediaBackground": {
 		"message": "隐藏图像预览后面的背景模糊"
 	},
@@ -547,6 +625,9 @@
 	},
 	"HideCommentActionBarButtonsInfo": {
 		"message": "隐藏评论操作栏中的按钮"
+	},
+	"HideCommentImageLinks": {
+		"message": "隐藏原始评论图片链接"
 	},
 	"HideCommentKarma": {
 		"message": "隐藏评论 Karma"
@@ -655,9 +736,6 @@
 	},
 	"HidePostKarma": {
 		"message": "隐藏帖子 Karma"
-	},
-	"HidePostsBySubreddit": {
-		"message": "按子版块隐藏帖子"
 	},
 	"HidePostsByUser": {
 		"message": "按用户隐藏帖子"
@@ -797,6 +875,9 @@
 	"Importing": {
 		"message": "输入..."
 	},
+	"ImportingLargeBackup": {
+		"message": "输入。大型备份可能需要一段时间，并且页面可能会显示为冻结状态。"
+	},
 	"ImportInvalidFormat": {
 		"message": "文件格式无效。"
 	},
@@ -823,6 +904,9 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "根据标题而不是内容阻止帖子。"
+	},
+	"KeywordsBlockInfoScopes": {
+		"message": "当关键词与帖子的标题或内容匹配时阻止帖子，具体取决于在屏蔽管理器中选择的适用范围。"
 	},
 	"Label": {
 		"message": "标签"
@@ -938,6 +1022,9 @@
 	"NextRootComment": {
 		"message": "下一个根评论"
 	},
+	"None": {
+		"message": "没有任何"
+	},
 	"NoNote": {
 		"message": "无备注"
 	},
@@ -1003,6 +1090,9 @@
 	},
 	"Other": {
 		"message": "其他"
+	},
+	"Page": {
+		"message": "页面"
 	},
 	"PositionHorizontally": {
 		"message": "水平放置"
@@ -1102,6 +1192,9 @@
 	},
 	"Qa": {
 		"message": "问答"
+	},
+	"Radius": {
+		"message": "半径"
 	},
 	"Rate": {
 		"message": "评分/评论"
@@ -1353,7 +1446,10 @@
 		"message": "子版块"
 	},
 	"SubredditBlockInfo": {
-		"message": "隐藏信息流中来自所列子版块的所有帖子，但浏览这些子版块自身的信息流时除外。"
+		"message": "在信息流中隐藏所列子版块的帖子，并可完全屏蔽其页面。在屏蔽管理器中设置每个子版块的范围。"
+	},
+	"SubredditBlockInfoScopes": {
+		"message": "隐藏所列 subreddit 在信息流中的帖子，并屏蔽其帖子/评论页面。按页面范围的屏蔽也会屏蔽 subreddit 自身的页面。在屏蔽管理器中设置每个 subreddit 的作用范围。"
 	},
 	"SubredditDisplayNameBanner": {
 		"message": "在横幅中显示子版块名称"
@@ -1397,6 +1493,12 @@
 	"ThemeDoesNotWorkWithCustomThemes": {
 		"message": "目前不支持自定义社区主题。请在 Reddit 偏好设置中禁用以下选项："
 	},
+	"ThemeOpacity": {
+		"message": "主题不透明度"
+	},
+	"ThemeOpacityInfo": {
+		"message": "使标题栏、帖子背景和侧边栏半透明。较低的值显示更多的页面背景。"
+	},
 	"ThemeWhitelistInfo": {
 		"message": "仅在以下子版块中使用主题颜色："
 	},
@@ -1425,7 +1527,7 @@
 		"message": "已更新"
 	},
 	"UpdateFirefox": {
-		"message": "请更新至 Firefox 121 或更高版本，某些功能才能正常工作。"
+		"message": "请更新至 Firefox 128 或更高版本，某些功能才能正常工作。"
 	},
 	"Upload": {
 		"message": "上传"

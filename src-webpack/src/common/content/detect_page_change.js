@@ -7,6 +7,8 @@
 import { init } from '../content_first/init';
 import { loadTweaks } from './tweak_loader';
 import { defaultSortOption } from '../content_first/functions/default_sort_option';
+import { loadDefaultFeedTab } from '../content_first/functions/default_feed_tab';
+import { checkBlockedSubredditPage } from '../content_first/functions/block_subreddit_page';
 import { i18nReady } from './i18n';
 
 // Detect mutation in page url
@@ -25,14 +27,21 @@ const observer = new MutationObserver((mutations) => {
 				document.querySelector('.re-scroll-to-comment-container').remove();
 			}
 
-			defaultSortOption();
+			// Check for a page-scoped blocked subreddit before doing any other
+			// navigation work: a redirect makes the rest of this run pointless.
+			checkBlockedSubredditPage().then((redirected) => {
+				if (redirected) return;
 
-			waitForPageLoaded().then(() => {
-				init();
-				// Wait for i18next to be ready before loading tweaks to avoid
-				// translation errors in clean_link, canned_messages, etc.
-				i18nReady.then(() => {
-					loadTweaks();
+				defaultSortOption();
+				loadDefaultFeedTab();
+
+				waitForPageLoaded().then(() => {
+					init();
+					// Wait for i18next to be ready before loading tweaks to avoid
+					// translation errors in clean_link, canned_messages, etc.
+					i18nReady.then(() => {
+						loadTweaks();
+					});
 				});
 			});
 		}

@@ -44,28 +44,28 @@ function enableScalePostToFitImageRV3() {
 										--re-max-image-post-height: unset;
 									}
 									/* single image */
-									div[id*="aspect-ratio"]:has(img.preview-img) {
-										min-height: fit-content !important;
+									div[id*="aspect-ratio"]:not([data-link-preview-fixed-height-shell]):has(img.preview-img) {
+										min-height: 0 !important;
 										max-height: var(--re-max-image-post-height) !important;
 										padding: 0 !important;
 									}
-									div[id*="aspect-ratio"]:has(img.preview-img) shreddit-media-lightbox-listener {
+									div[id*="aspect-ratio"]:not([data-link-preview-fixed-height-shell]):has(img.preview-img) shreddit-media-lightbox-listener {
 										display: block !important;
 										height: fit-content !important;
 									}
-									div[id*="aspect-ratio"]:has(img.preview-img) shreddit-media-lightbox-listener div {
+									div[id*="aspect-ratio"]:not([data-link-preview-fixed-height-shell]):has(img.preview-img) shreddit-media-lightbox-listener div {
 										height: fit-content !important;
 										max-width: var(--re-limit-image-width, fit-content);
 										margin: 0 auto;
 										background-color: transparent !important;
 									}
-									div[id*="aspect-ratio"]:has(img.preview-img) shreddit-media-lightbox-listener .post-background-image-filter {
+									div[id*="aspect-ratio"]:not([data-link-preview-fixed-height-shell]):has(img.preview-img) shreddit-media-lightbox-listener .post-background-image-filter {
 										display: none;
 									}
-									div[id*="aspect-ratio"]:has(img.preview-img) div:has(>img.preview-img) {
+									div[id*="aspect-ratio"]:not([data-link-preview-fixed-height-shell]):has(img.preview-img) div:has(>img.preview-img) {
 										height: fit-content !important;
 									}
-									div[id*="aspect-ratio"]:has(img.preview-img) img {
+									div[id*="aspect-ratio"]:not([data-link-preview-fixed-height-shell]):has(img.preview-img) img {
 										margin-bottom: 0 !important;
 										max-height: var(--re-max-image-post-height) !important;
 									}
@@ -207,7 +207,7 @@ export function disableScalePostToFitImageAll() {
 	dynamicStyleElements.forEach((element) => {
 		element.remove();
 	});
-	document.querySelectorAll('div[id*="aspect-ratio"]:has(img.preview-img)').forEach(function (tag) {
+	document.querySelectorAll('div[id*="aspect-ratio"]:not([data-link-preview-fixed-height-shell]):has(img.preview-img)').forEach(function (tag) {
 		revertTag(tag);
 	});
 }

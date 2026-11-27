@@ -16,7 +16,8 @@ import { registerMutationCallback } from '../../content/observer_manager';
 let observerCleanup = null;
 
 // Preload home feed and comment sorting options to attach to Reddit logo and posts
-const { enableDefaultHomeFeedSortOption: homeFeedSort, defaultHomeFeedSortOption: homeFeedSortOption, enableDefaultCommentsSortOption: commentSort, defaultCommentsSortOption: commentSortOption } = await getStorage(['enableDefaultHomeFeedSortOption', 'defaultHomeFeedSortOption', 'enableDefaultCommentsSortOption', 'defaultCommentsSortOption']);
+const { enableDefaultHomeFeedSortOption: homeFeedSort, defaultHomeFeedSortOption: storedHomeFeedSortOption, enableDefaultCommentsSortOption: commentSort, defaultCommentsSortOption: commentSortOption } = await getStorage(['enableDefaultHomeFeedSortOption', 'defaultHomeFeedSortOption', 'enableDefaultCommentsSortOption', 'defaultCommentsSortOption']);
+const homeFeedSortOption = removeUnsupportedRisingSortOption(storedHomeFeedSortOption);
 let subreddit,
 	popstate = false;
 
@@ -73,7 +74,8 @@ export async function defaultSortOption() {
 	} else if (['', '/', '/best/', '/hot/', '/new/', '/top/', '/rising/'].includes(url.pathname)) {
 		// Home page
 		try {
-			const { enableDefaultHomeFeedSortOption: sort, defaultHomeFeedSortOption: sortOption } = await getStorage(['enableDefaultHomeFeedSortOption', 'defaultHomeFeedSortOption']);
+			const { enableDefaultHomeFeedSortOption: sort, defaultHomeFeedSortOption: storedSortOption } = await getStorage(['enableDefaultHomeFeedSortOption', 'defaultHomeFeedSortOption']);
+			const sortOption = removeUnsupportedRisingSortOption(storedSortOption);
 			console.debug(`[RedditEnhancer] Detected home feed. Sorting enabled: ${sort}, target sort: ${sortOption}`);
 			if (sort && sortOption && !url.pathname.includes(sortOption)) {
 				url.pathname = sortOption;
@@ -195,6 +197,18 @@ export function changePostURLToSort() {
 defaultSortOption()
 	.then(() => {})
 	.catch(console.error);
+
+/**
+ * "Rising" is no longer offered as a home feed sort option on RV3. Values saved
+ * before it was removed fall back to "Hot" instead of redirecting to a sort
+ * that RV3 no longer supports.
+ *
+ * @param {string} sortOption Saved home feed sort option
+ * @returns {string} Sort option to apply
+ */
+function removeUnsupportedRisingSortOption(sortOption) {
+	return sortOption === 'rising' && redditVersion !== 'old' ? 'hot' : sortOption;
+}
 
 /**
  * Get the feature state from browser sync storage

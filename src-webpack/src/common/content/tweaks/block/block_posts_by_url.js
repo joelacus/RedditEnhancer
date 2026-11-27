@@ -8,9 +8,10 @@
  */
 
 //import { logToDevConsole } from '../../../utilities/logging';
-import { isSafeRegexPattern, reportUnsafeRegexPattern } from '../../../utilities/safe_regex.js';
+import { matchesPattern } from '../../../utilities/block_pattern_match.js';
 import { readBlocks, getUrlKeywordPatterns, BLOCK_STORE_KEY } from '../../../utilities/block_store.js';
 import { registerMutationCallback } from '../../observer_manager';
+import { acquireBlockFeedGuard, releaseBlockFeedGuard } from './block_feed_guard.js';
 let urlKeywordsList = [];
 let linkFilteringActive = false;
 
@@ -44,6 +45,8 @@ let observerCleanup = null;
 
 export function hideBlockedLinkPosts(value) {
 	linkFilteringActive = value === true;
+	if (value) acquireBlockFeedGuard('hideBlockedLinkPosts');
+	else releaseBlockFeedGuard('hideBlockedLinkPosts');
 	if (redditVersion === 'old') {
 		if (value) {
 			readBlocks().then((store) => {
@@ -98,38 +101,6 @@ export function hideBlockedLinkPosts(value) {
 			}
 			disableHideBlockedLinkPostsAll();
 		}
-	}
-}
-
-function escapeRegExp(string) {
-	// Escape regex metacharacters to prevent ReDoS
-	return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function matchesPattern(text, patternStr) {
-	if (!text) return false;
-	// Check if pattern is regex format: /pattern/flags
-	const regexMatch = patternStr.match(/^\/(.+?)\/([a-z]*)$/i);
-	if (regexMatch) {
-		const pattern = regexMatch[1];
-		const flags = regexMatch[2] || 'i';
-		if (!isSafeRegexPattern(pattern, flags)) {
-			reportUnsafeRegexPattern(patternStr);
-			return false;
-		}
-		try {
-			const regex = new RegExp(pattern, flags);
-			return regex.test(text);
-		} catch (e) {
-			console.warn('Invalid regex pattern:', patternStr, e);
-			return false;
-		}
-	} else {
-		// Plain pattern with wildcard support
-		const escaped = escapeRegExp(patternStr);
-		const regexPattern = escaped.replace(/\\\*/g, '.*');
-		const regex = new RegExp(`\\b${regexPattern}\\b`, 'i');
-		return regex.test(text);
 	}
 }
 

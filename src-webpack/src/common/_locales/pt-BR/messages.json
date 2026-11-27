@@ -2,16 +2,37 @@
 	"Best": {
 		"message": "Melhores"
 	},
+	"BlockFeedAllHidden": {
+		"message": "Cada postagem neste feed está oculta pelos seus filtros de bloqueio."
+	},
+	"BlockKeywordLink": {
+		"message": "Link na publicação"
+	},
 	"BuyMeACoffee": {
 		"message": "Me compre um café"
 	},
 	"Controversial": {
 		"message": "Polêmicos"
 	},
+	"DefaultFeedTab": {
+		"message": "Aba de feed padrão"
+	},
+	"DefaultFeedTabInfo": {
+		"message": "Escolha a aba na qual o feed inicial é aberto. Esta configuração é ignorada enquanto a opção \"Opção de ordenação padrão do feed inicial\" está ativada."
+	},
+	"DefaultHomeFeedSortOptionInfo": {
+		"message": "A ordenação do feed inicial força o feed Seguindo, portanto isso tem precedência sobre \"Aba de feed padrão\"."
+	},
+	"KeywordsBlockInfoScopes": {
+		"message": "Bloqueia publicações quando uma palavra-chave corresponde ao título ou ao conteúdo da publicação, dependendo dos escopos selecionados no Gerenciador de bloqueio."
+	},
 	"New": {
 		"message": "Novos"
 	},
 	"OpenPostInNewTabInfoLink": {
 		"message": "Configurações de usuário > Configurações dos feeds > Abrir posts em nova aba"
+	},
+	"SubredditBlockInfoScopes": {
+		"message": "Oculta as publicações dos subreddits listados nos feeds e bloqueia suas páginas de publicações/comentários. Os bloqueios com escopo de página também bloqueiam as páginas próprias do subreddit. Defina os escopos de cada subreddit no Gerenciador de Bloqueios."
 	}
 }

@@ -5,6 +5,7 @@
 import { debounce } from '../../utilities/debounce';
 import { sendMessage } from '../../utilities/send_message';
 import { base64ImageOptimiser } from '../../utilities/image_to_base64';
+import { isPresetThemeId } from '../../utilities/theme_list';
 
 // Toggle - Mind The Gap
 document.querySelector('#checkbox-hide-gap').addEventListener('change', function () {
@@ -134,6 +135,60 @@ document.querySelector('#checkbox-post-border-colour').addEventListener('change'
 	BROWSER_API.storage.sync.set({ themePostBorderColour: this.checked });
 	sendMessage({ themePostBorderColour: this.checked });
 	document.querySelector('.icon-post-border-colour').style.backgroundColor = this.checked ? 'var(--accent)' : '';
+});
+
+// Dropdown - Base Theme
+const presetDropdown = document.querySelector('#select-theme-preset');
+const presetMenu = document.querySelector('#select-theme-preset-menu');
+const presetOpacitySlider = document.querySelector('#input-theme-opacity');
+const presetOpacityRow = document.querySelector('.theme-opacity-row');
+
+function themeBaseLabel(value) {
+	const item = document.querySelector(`#select-theme-preset-menu li[data-value="${value}"]`);
+	return item ? item.querySelector('span').textContent : 'None';
+}
+
+function updateThemeBaseUi(preset) {
+	const isNone = !isPresetThemeId(preset);
+	presetOpacitySlider.disabled = isNone;
+	presetOpacityRow.classList.toggle('disabled', isNone);
+	document.querySelector('#chosen-theme-preset').textContent = themeBaseLabel(preset);
+	document.querySelector('.icon-theme-preset').style.backgroundColor = isNone ? '' : 'var(--accent)';
+	document.querySelector('.icon-theme-opacity').style.setProperty('--text-grey', !isNone && parseInt(presetOpacitySlider.value, 10) !== 100 ? 'var(--accent)' : '');
+}
+
+presetDropdown.querySelector('.select').addEventListener('click', function () {
+	if (presetDropdown.classList.contains('active')) {
+		presetDropdown.classList.remove('active');
+		presetMenu.style.maxHeight = '0';
+	} else {
+		presetDropdown.classList.add('active');
+		presetMenu.style.maxHeight = Math.min(presetMenu.scrollHeight, 280) + 'px';
+	}
+});
+
+presetMenu.querySelectorAll('li').forEach(function (item) {
+	item.addEventListener('click', function () {
+		const value = item.dataset.value;
+		const preset = isPresetThemeId(value) ? value : 'none';
+		BROWSER_API.storage.sync.set({ themeBase: preset });
+		sendMessage({ themeBase: preset });
+		updateThemeBaseUi(preset);
+		presetDropdown.classList.remove('active');
+		presetMenu.style.maxHeight = '0';
+	});
+});
+
+// Slider - Base Theme Opacity
+const saveThemeBaseOpacity = debounce(function (value) {
+	BROWSER_API.storage.sync.set({ themeBaseOpacity: value });
+}, 250);
+presetOpacitySlider.addEventListener('input', function () {
+	const value = parseInt(this.value, 10);
+	document.querySelector('#theme-opacity-value').textContent = `${value}%`;
+	document.querySelector('.icon-theme-opacity').style.setProperty('--text-grey', !this.disabled && value !== 100 ? 'var(--accent)' : '');
+	sendMessage({ themeBaseOpacity: value });
+	saveThemeBaseOpacity(value);
 });
 
 // Slider - Theme Blur

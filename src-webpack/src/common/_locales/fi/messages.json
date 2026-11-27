@@ -59,9 +59,6 @@
 	"AttachSideMenuHeader": {
 		"message": "Näytä sivun- ja käyttäjätiedot yläosassa"
 	},
-	"AttachSideMenuHeaderInfo": {
-		"message": "Kokeellinen. Saattaa olla ristiriidassa sivupalkun piilotusfunktioiden kanssa."
-	},
 	"Auto": {
 		"message": "Automaattinen"
 	},
@@ -134,6 +131,12 @@
 	"BackupUserTagsOnly": {
 		"message": "Vain käyttäjätunnisteet"
 	},
+	"BaseTheme": {
+		"message": "Perusteema"
+	},
+	"BaseThemeInfo": {
+		"message": "Valitse sivulle sisäänrakennettu väriteema. Alla olevat yksittäiset värivaihtoehdot ohittavat sen, kun ne ovat käytössä. Valitse \"Ei mitään\" poistaaksesi perusteeman."
+	},
 	"Best": {
 		"message": "Paras / Best"
 	},
@@ -170,20 +173,44 @@
 	"BlockAlreadyAdded": {
 		"message": "Estoluettelossa jo."
 	},
+	"BlockedSubredditInfo": {
+		"message": "Tämä subreddit on estolistallasi. Poista esto Estohallinnassa, jos haluat käydä siellä uudelleen."
+	},
+	"BlockedSubredditTitle": {
+		"message": "Tämä subreddit on estetty"
+	},
 	"BlockExport": {
 		"message": "Vie lohkot"
+	},
+	"BlockFeedAllHidden": {
+		"message": "Jokainen julkaisu tässä syötteessä on piilotettu esto-suodattimillasi."
+	},
+	"BlockFeedLoadMore": {
+		"message": "Lataa lisää julkaisuja"
 	},
 	"BlockImport": {
 		"message": "Tuo lohkot"
 	},
-	"BlockImportSuccess": {
-		"message": "Tuotu {count} lohko(a)."
+	"BlockImportEmpty": {
+		"message": "Tästä varmuuskopiosta ei tuotu lohkoja."
+	},
+	"BlockImportTypeSummary": {
+		"message": "{type}: {newCount} uutta, {updatedCount} päivitetty, {existingCount} oli jo olemassa."
 	},
 	"BlockInfo": {
-		"message": "Tukee tarkan avainsanan vastaavuuden tai säännölliset lausekkeet"
+		"message": "Tukee tarkkaa avainsanahakua tai kauttaviivalla käärittyjä säännöllisiä lausekkeita, esim. \"/^user\\d+$/i\" (liput ovat valinnaisia). \"*\" voidaan käyttää jokerimerkkinä, esim. \"user*\" (\"user\", jonka jälkeen on mitä tahansa, estetään). Pelkän tekstin lohkoissa kirjainkoko ei erota; regex-mallit käyttävät omia lippujaan, joten lisää \"/i\" vastaamaan kirjainkokoa erottelematta."
+	},
+	"BlockKeywordContent": {
+		"message": "Lähetä sisältöä"
+	},
+	"BlockKeywordLink": {
+		"message": "Linkki postauksessa"
 	},
 	"BlockKeywordsTab": {
 		"message": "Avainsanat"
+	},
+	"BlockKeywordTitle": {
+		"message": "Viestin otsikko"
 	},
 	"BlockManagerInfo": {
 		"message": "Estetyt käyttäjät, subreddits ja avainsanat tallennetaan paikallisesti tälle laitteelle. Vie ne mahdollisen tietojen häviämisen välttämiseksi."
@@ -200,8 +227,17 @@
 	"BlockPostsAndComments": {
 		"message": "Viestit & Kommentit"
 	},
+	"BlockRegexHint": {
+		"message": "Tämä näyttää säännölliseltä lausekkeelta. Kääri se /…/ käyttääksesi sitä yhtenä."
+	},
+	"BlockRegexValid": {
+		"message": "Regex voimassa"
+	},
 	"BlockScope": {
 		"message": "Laajuus"
+	},
+	"BlockSubreddits": {
+		"message": "Estä subredditit"
 	},
 	"BlockSubredditsTab": {
 		"message": "Subreddits"
@@ -266,6 +302,9 @@
 	"Cleared": {
 		"message": "Poistettu"
 	},
+	"ClickLightboxBackgroundToClose": {
+		"message": "Napsauta Lightboxin tausta sulkeaksesi"
+	},
 	"ClickToEdit": {
 		"message": "Klikkaa muokataksesi"
 	},
@@ -277,6 +316,18 @@
 	},
 	"Colour": {
 		"message": "väri"
+	},
+	"CommentImageThumbnails": {
+		"message": "Kommentoi kuvien pikkukuvat"
+	},
+	"CommentImageThumbnailsInfo": {
+		"message": "Näytä kuvalinkkien upotettu pikkukuva kommenteissa. Napsauta pikkukuvaa avataksesi koko näytön esikatselun. Myös Imgur-, Postimg- ja IBB-sivulinkit on ratkaistu."
+	},
+	"CommentImageThumbnailsPermissions": {
+		"message": "Imgur-albumin linkit, Postimg- ja IBB-sivulinkit tarvitsevat luvan muuttaakseen pikkukuvia. Suorat kuvalinkit ja yhden kuvan Imgur-linkit toimivat edelleen. Myönnä käyttöoikeus laajennuksen käyttöoikeusasetuksista tai ota tämä vaihtoehto pois päältä ja uudelleen käyttöön, jotta sinua pyydetään."
+	},
+	"CommentImageThumbnailWidth": {
+		"message": "Pikkukuvan leveys"
 	},
 	"Comments": {
 		"message": "Kommentit"
@@ -356,14 +407,26 @@
 	"DarkThemes": {
 		"message": "Tumma teema"
 	},
+	"Default": {
+		"message": "Oletus"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "Oletuskommenttien lajitteluvaihtoehto"
 	},
 	"DefaultFeedSortOption": {
 		"message": "Oletusjärjestys syötölle"
 	},
+	"DefaultFeedTab": {
+		"message": "Oletussyöte Välilehti"
+	},
+	"DefaultFeedTabInfo": {
+		"message": "Valitse välilehti, jolla aloitus­syöte avautuu. Tämä asetus ohitetaan, kun \"Aloitussyötteen oletuslajitteluasetus\" on käytössä."
+	},
 	"DefaultHomeFeedSortOption": {
 		"message": "Oletusjärjestely vaihtoehto etusivun syötteelle"
+	},
+	"DefaultHomeFeedSortOptionInfo": {
+		"message": "Etusivusyötteen lajittelu pakotta Seuraa-syötteen, joten tämä on etusijalla \"Oletussyöte Välilehti\" -asetukseen nähden."
 	},
 	"Delete": {
 		"message": "Poista"
@@ -470,6 +533,9 @@
 	"FollowComment": {
 		"message": "Seuraa kommenttia"
 	},
+	"Following": {
+		"message": "Jälkeen"
+	},
 	"FollowPost": {
 		"message": "Seuraa julkaisua"
 	},
@@ -494,6 +560,9 @@
 	"ForceShowVoteButtons": {
 		"message": "Pakota äänestyspainikkeet näkyviin"
 	},
+	"ForYou": {
+		"message": "Sinulle"
+	},
 	"FullWidthBanner": {
 		"message": "Subreddit-banneri täyden leveyden"
 	},
@@ -508,6 +577,9 @@
 	},
 	"GlobalWidth": {
 		"message": "Globaali maksimileveys"
+	},
+	"GoToRedditHome": {
+		"message": "Siirry Redditin etusivulle"
 	},
 	"Grey": {
 		"message": "harmaa"
@@ -539,6 +611,12 @@
 	"HideAwards": {
 		"message": "Piilota \"Palkinto\"-painike kommenteista"
 	},
+	"HideBlockedSearchEntries": {
+		"message": "Piilota estetyt merkinnät hakupalkissa ja tulossivulla"
+	},
+	"HideBlockedSearchEntriesInfo": {
+		"message": "Piilottaa estetyt avainsanat, alikirjoitukset ja käyttäjät hakupalkin ehdotuksista ja hakutulossivulta, mukaan lukien sen oikea sivupalkki."
+	},
 	"HideBlurredMediaBackground": {
 		"message": "Piilota taustan sumeneminen kuvien esikatselmien takana"
 	},
@@ -547,6 +625,9 @@
 	},
 	"HideCommentActionBarButtonsInfo": {
 		"message": "Piilota kommenttitoimintapalkin painikkeet"
+	},
+	"HideCommentImageLinks": {
+		"message": "Piilota alkuperäiset kommenttikuvalinkit"
 	},
 	"HideCommentKarma": {
 		"message": "Piilota kommenttikarmat"
@@ -655,9 +736,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Piilota viestin karma"
-	},
-	"HidePostsBySubreddit": {
-		"message": "Piilota viestit subredditin mukaan"
 	},
 	"HidePostsByUser": {
 		"message": "Piilota käyttäjän viestit"
@@ -797,6 +875,9 @@
 	"Importing": {
 		"message": "Tuodaan..."
 	},
+	"ImportingLargeBackup": {
+		"message": "Tuodaan. Suuret varmuuskopiot voivat kestää hetken ja sivu saattaa näyttää jäätyneeltä."
+	},
 	"ImportInvalidFormat": {
 		"message": "Virheellinen tiedostomuoto."
 	},
@@ -823,6 +904,9 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "Estää julkaisut otsikon perusteella, ei sisällön mukaan."
+	},
+	"KeywordsBlockInfoScopes": {
+		"message": "Estää viestit, kun avainsana vastaa viestin otsikkoa tai sisältöä riippuen Lohkonsäädössä valituista laajuuksista."
 	},
 	"Label": {
 		"message": "Tunniste"
@@ -938,6 +1022,9 @@
 	"NextRootComment": {
 		"message": "Seuraava juurikommentti"
 	},
+	"None": {
+		"message": "Ei mitään"
+	},
 	"NoNote": {
 		"message": "Ei muistiinpanoa"
 	},
@@ -1003,6 +1090,9 @@
 	},
 	"Other": {
 		"message": "muu"
+	},
+	"Page": {
+		"message": "Sivu"
 	},
 	"PositionHorizontally": {
 		"message": "Horisontaalinen paikan asettaminen"
@@ -1102,6 +1192,9 @@
 	},
 	"Qa": {
 		"message": "Q&a"
+	},
+	"Radius": {
+		"message": "Säde"
 	},
 	"Rate": {
 		"message": "Arvostelu"
@@ -1353,7 +1446,10 @@
 		"message": "Subreddit"
 	},
 	"SubredditBlockInfo": {
-		"message": "Piilottaa kaikki luetelluista subredditeistä syötteissä, paitsi subredditeiden syötteissä"
+		"message": "Piilottaa lueteltujen subredditien viestit syötteissä ja voi estää niiden sivut kokonaan. Aseta kunkin subredditin laajuus Estohallinnassa."
+	},
+	"SubredditBlockInfoScopes": {
+		"message": "Piilottaa luetelluista subredditeistä tulevat julkaisut syötteistä ja estää niiden julkaisu-/komenttisivut. Sivukohtaiset estot estävät juga subredditien omia sivuja. Määritä kunkin subredditin laajuudet Estohallinnassa."
 	},
 	"SubredditDisplayNameBanner": {
 		"message": "Näytä subredditin näkyvä nimi sen bannerissa"
@@ -1397,6 +1493,12 @@
 	"ThemeDoesNotWorkWithCustomThemes": {
 		"message": "Ei toimi tällä hetkellä räätälöidyillä yhteisöteemoilla. Poista tämä vaihtoehto Reddit-asetuksistasi."
 	},
+	"ThemeOpacity": {
+		"message": "Teema Opacity"
+	},
+	"ThemeOpacityInfo": {
+		"message": "Make the header bar, post backgrounds and sidebar translucent. Pienemmät arvot näyttävät suuremman osan sivun taustasta."
+	},
 	"ThemeWhitelistInfo": {
 		"message": "Käytä näille subreddit-osastoille vain teeman värejä"
 	},
@@ -1425,7 +1527,7 @@
 		"message": "Päivitetty"
 	},
 	"UpdateFirefox": {
-		"message": "Päivitä Firefox 121:een tai uudempaan, jotta jotkin ominaisuudet toimivat oikein."
+		"message": "Päivitä Firefox 128:een tai uudempaan, jotta jotkin ominaisuudet toimivat oikein."
 	},
 	"Upload": {
 		"message": "Ladata"

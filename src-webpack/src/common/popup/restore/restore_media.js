@@ -301,6 +301,47 @@ export function restorePopupMediaOptions() {
 		console.log('Gallery Keyboard Navigation: ' + checked);
 	});
 
+	// Click Lightbox Background To Close
+	BROWSER_API.storage.sync.get(['clickLightboxBackgroundToClose'], function (result) {
+		const checked = result.clickLightboxBackgroundToClose === true;
+		document.querySelector('#checkbox-click-lightbox-background-to-close').checked = checked;
+		document.querySelector('.icon-click-lightbox-background-to-close').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('media-tweaks');
+		console.log('Click Lightbox Background To Close: ' + checked);
+	});
+
+	// Comment Image Hyperlink Thumbnails
+	BROWSER_API.storage.sync.get(['commentImageThumbnails'], function (result) {
+		const checked = result.commentImageThumbnails === true;
+		document.querySelector('#checkbox-comment-image-thumbnails').checked = checked;
+		document.querySelector('.icon-comment-image-thumbnails').style.backgroundColor = checked ? 'var(--accent)' : '';
+		BROWSER_API.permissions.contains({ origins: ['*://*.imgur.com/*', '*://*.postimg.cc/*', '*://*.ibb.co/*'] }, (granted) => {
+			document.querySelector('#perm-warning-comment-image-thumbnails').hidden = !checked || granted;
+		});
+		if (checked) highlightMenuIcon('media-tweaks');
+		console.log('Comment Image Hyperlink Thumbnails: ' + checked);
+	});
+
+	// Hide Original Comment Image Links
+	BROWSER_API.storage.sync.get(['hideCommentImageLinks'], function (result) {
+		const checked = result.hideCommentImageLinks === true;
+		document.querySelector('#checkbox-hide-comment-image-links').checked = checked;
+		const icon = document.querySelector('.icon-hide-comment-image-links');
+		icon.style.backgroundColor = checked ? 'var(--accent)' : '';
+		icon.classList.replace(checked ? 'icon-link' : 'icon-link-slash', checked ? 'icon-link-slash' : 'icon-link');
+		console.log('Hide Comment Image Links: ' + checked);
+	});
+
+	// Comment Image Thumbnail Width
+	BROWSER_API.storage.sync.get(['commentImageThumbnailWidth'], function (result) {
+		const value = validateInt(parseInt(result.commentImageThumbnailWidth), 40, 600, 200);
+		const isDefault = value === 40;
+		document.querySelector('#input-comment-image-thumbnail-width').value = value;
+		document.querySelector('#comment-image-thumbnail-width-value').innerText = value === 40 ? '200px' : `${value}px`;
+		document.querySelector('.icon-comment-image-thumbnail-width').style.backgroundColor = isDefault ? '' : 'var(--accent)';
+		console.log(`Comment Image Thumbnail Width: ${value === 40 ? 'Off (200px)' : value + 'px'}`);
+	});
+
 	// Autoplay Videos
 	BROWSER_API.storage.sync.get(['autoplayVideos'], function (result) {
 		let checked = false;

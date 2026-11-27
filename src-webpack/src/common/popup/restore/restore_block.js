@@ -14,6 +14,7 @@ export function restorePopupBlockOptions() {
 	restoreHideBlockedSubredditPosts();
 	restoreHideBlockedKeywordComments();
 	restoreHideBlockedUserComments();
+	restoreHideBlockedSearchEntries();
 }
 
 // Hide Blocked Keyword Posts Enable
@@ -79,5 +80,16 @@ function restoreHideBlockedUserComments() {
 		document.querySelector('.icon-hide-blocked-user-comments').style.backgroundColor = checked ? 'var(--accent)' : '';
 		if (checked) highlightMenuIcon('block');
 		console.log('Hide Blocked User Comments Enable: ' + checked);
+	});
+}
+
+// Hide Blocked Entries in Search Enable
+function restoreHideBlockedSearchEntries() {
+	BROWSER_API.storage.sync.get(['hideBlockedSearchEntries'], function (result) {
+		const checked = result.hideBlockedSearchEntries === true;
+		document.querySelector('#checkbox-hide-blocked-search-entries-enable').checked = checked;
+		document.querySelector('.icon-hide-blocked-search-entries').style.backgroundColor = checked ? 'var(--accent)' : '';
+		if (checked) highlightMenuIcon('block');
+		console.log('Hide Blocked Entries in Search Enable: ' + checked);
 	});
 }

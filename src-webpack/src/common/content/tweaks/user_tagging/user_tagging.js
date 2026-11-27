@@ -210,6 +210,7 @@ function processUsernameElement(el) {
 	if (!username) return;
 
 	readTags().then((tags) => {
+		removeStaleCreditBarTagUI(el, username);
 		const match = getTagByCaseInsensitiveUsername(tags, username);
 		if (match) {
 			renderTag(el, match.tag);
@@ -240,6 +241,32 @@ function getTagByCaseInsensitiveUsername(tags, username) {
 }
 
 // ─── Inline Rendering ───────────────────────────────────────────────────────
+
+// The fallback post button sits in the credit bar. When Show Post Author adds
+// its own span later, the tag UI moves inside it; drop the stale credit bar
+// button for the same user so the post only has one.
+function removeStaleCreditBarTagUI(usernameEl, username) {
+	if (!usernameEl.closest('.re-post-author')) return;
+	const creditBar = usernameEl.closest('shreddit-post')?.querySelector('[slot="credit-bar"]');
+	if (!creditBar) return;
+	const lowerUsername = username.toLowerCase();
+	creditBar.querySelectorAll('.re-user-tag, .re-create-tag-btn').forEach((el) => {
+		if (el.closest('.re-post-author')) return;
+		if ((el.dataset.username || '').toLowerCase() !== lowerUsername) return;
+		el.remove();
+	});
+}
+
+// Place the tag UI after the block button when it is already next to the
+// author, so the block button stays directly after the username.
+function insertTagUI(anchor, el) {
+	const blockBtn = anchor.parentElement?.querySelector(':scope > .re-block-user-btn') ?? anchor.closest('shreddit-comment')?.querySelector('.re-block-user-btn');
+	if (blockBtn) {
+		blockBtn.insertAdjacentElement('afterend', el);
+	} else {
+		anchor.insertAdjacentElement('afterend', el);
+	}
+}
 
 function renderTag(usernameEl, tag) {
 	const anchor = getButtonAnchor(usernameEl);
@@ -286,12 +313,7 @@ function renderTag(usernameEl, tag) {
 		openTagPopover(e, uname, tag);
 	});
 
-	const blockBtn = anchor.closest('shreddit-comment')?.querySelector('.re-block-user-btn');
-	if (blockBtn) {
-		blockBtn.parentElement.insertBefore(chip, blockBtn.nextSibling);
-	} else {
-		anchor.insertAdjacentElement('afterend', chip);
-	}
+	insertTagUI(anchor, chip);
 	usernameEl.dataset.reUserTagProcessed = 'true';
 }
 
@@ -315,12 +337,7 @@ function renderCreateButton(usernameEl) {
 		openTagPopover(e, uname, null);
 	});
 
-	const blockBtn = anchor.closest('shreddit-comment')?.querySelector('.re-block-user-btn');
-	if (blockBtn) {
-		blockBtn.parentElement.insertBefore(btn, blockBtn.nextSibling);
-	} else {
-		anchor.insertAdjacentElement('afterend', btn);
-	}
+	insertTagUI(anchor, btn);
 	usernameEl.dataset.reUserTagProcessed = 'true';
 }
 

@@ -7,9 +7,9 @@ import HttpBackend from 'i18next-http-backend';
 import './block_manager.css';
 import { escapeHtml } from './utilities/escape_html.js';
 import { parseHtmlString } from './utilities/parse_html_string.js';
-import { validateRegexList, getInvalidRegexPatterns } from './utilities/safe_regex.js';
+import { getBlockPatternError, parseRegexPattern, normaliseBlockName, looksLikeUnwrappedRegex } from './utilities/safe_regex.js';
 import { applyPageTheme } from './utilities/theme_list.js';
-import { readBlocks, writeBlocks, findKey, addUserBlock, removeUserBlock, addSubredditBlock, removeSubredditBlock, addKeywordBlock, removeKeywordBlock } from './utilities/block_store.js';
+import { readBlocks, writeBlocks, findKey, addUserBlock, removeUserBlock, addSubredditBlock, removeSubredditBlock, addKeywordBlock, removeKeywordBlock, normaliseSubredditEntry, normaliseKeywordEntry } from './utilities/block_store.js';
 import { isSafeMapKey } from './utilities/safe_map_key.js';
 import { backupTimestamp, backupFilename, backupEnvelope } from './utilities/backup_format.js';
 import { createWindowedTable } from './utilities/virtual_list.js';
@@ -99,11 +99,43 @@ function syncTabUI() {
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
-function normaliseName(value) {
-	return value
-		.trim()
-		.replace(/^[ur]\//i, '')
-		.replace(/\/+$/, '');
+// A "/pattern/flags" entry that passes the same guard as the add row. Plain
+// names and "*" wildcards are not regexes, so they get no tick.
+function isValidRegexEntry(value) {
+	return typeof value === 'string' && parseRegexPattern(value) !== null && getBlockPatternError(value) === null;
+}
+
+// Builds a name cell with the row's key as its tooltip. Valid regex entries
+// show a tick after the text; regex entries are displayed verbatim instead of
+// being prefixed with "u/"/"r/", which would read as "u//pattern/".
+function makeNameCell(kind, key, label) {
+	const cell = document.createElement('td');
+	cell.className = 'editable-cell block-name-cell';
+	cell.title = key;
+	const inner = document.createElement('span');
+	inner.className = 'block-name-inner';
+	const text = document.createElement('span');
+	text.className = 'block-name-text';
+	text.textContent = label;
+	inner.appendChild(text);
+	if (isValidRegexEntry(key)) {
+		const tick = document.createElement('i');
+		tick.className = 'icon icon-tick block-regex-valid';
+		tick.title = i18next.t('BlockRegexValid.message');
+		inner.appendChild(tick);
+	}
+	cell.appendChild(inner);
+	cell.addEventListener('click', () => startInlineEdit(cell, kind, key));
+	return cell;
+}
+
+// Returns a user-facing error for a "/pattern/flags" entry, or '' when the
+// value is a valid pattern (plain names, plain keywords and "*" wildcards are
+// always valid). Used by the add and inline-edit rows so a dead regex cannot
+// be saved.
+function patternErrorMessage(value) {
+	const error = getBlockPatternError(value);
+	return error ? `Invalid regex: ${value} — ${error}` : '';
 }
 
 async function saveStore(store, successMessage) {
@@ -164,13 +196,8 @@ const tableScroller = document.querySelector('.table-scroll');
 function renderUserRow([key, entry], tr) {
 	tr.appendChild(makeSelectCell('user', key));
 	tr.classList.toggle('row-selected', selectedBlocks.has(selectionKey('user', key)));
-	const nameCell = document.createElement('td');
-	nameCell.className = 'editable-cell block-name-cell';
-	nameCell.textContent = 'u/' + key;
-	nameCell.title = key;
-	nameCell.addEventListener('click', () => startInlineEdit(nameCell, 'user', key));
-	tr.appendChild(nameCell);
-	for (const scope of ['posts', 'comments']) {
+	tr.appendChild(makeNameCell('user', key, key.startsWith('/') ? key : 'u/' + key));
+	for (const scope of ['posts', 'comments', 'hide_username']) {
 		const cell = document.createElement('td');
 		const checkbox = document.createElement('input');
 		checkbox.type = 'checkbox';
@@ -190,15 +217,19 @@ function renderUserRow([key, entry], tr) {
 	tr.appendChild(actionCell);
 }
 
-function renderSubredditRow([key], tr) {
+function renderSubredditRow([key, entry], tr) {
 	tr.appendChild(makeSelectCell('subreddit', key));
 	tr.classList.toggle('row-selected', selectedBlocks.has(selectionKey('subreddit', key)));
-	const nameCell = document.createElement('td');
-	nameCell.className = 'editable-cell block-name-cell';
-	nameCell.textContent = 'r/' + key;
-	nameCell.title = key;
-	nameCell.addEventListener('click', () => startInlineEdit(nameCell, 'subreddit', key));
-	tr.appendChild(nameCell);
+	tr.appendChild(makeNameCell('subreddit', key, key.startsWith('/') ? key : 'r/' + key));
+	for (const scope of ['posts', 'page']) {
+		const cell = document.createElement('td');
+		const checkbox = document.createElement('input');
+		checkbox.type = 'checkbox';
+		checkbox.checked = !!entry[scope];
+		checkbox.addEventListener('change', () => toggleSubredditScope(key, scope, checkbox.checked));
+		cell.appendChild(checkbox);
+		tr.appendChild(cell);
+	}
 	const actionCell = document.createElement('td');
 	actionCell.className = 'action-cell';
 	actionCell.appendChild(
@@ -213,13 +244,8 @@ function renderSubredditRow([key], tr) {
 function renderKeywordRow(entry, tr) {
 	tr.appendChild(makeSelectCell('keyword', entry.pattern));
 	tr.classList.toggle('row-selected', selectedBlocks.has(selectionKey('keyword', entry.pattern)));
-	const patternCell = document.createElement('td');
-	patternCell.className = 'editable-cell block-name-cell';
-	patternCell.textContent = entry.pattern;
-	patternCell.title = entry.pattern;
-	patternCell.addEventListener('click', () => startInlineEdit(patternCell, 'keyword', entry.pattern));
-	tr.appendChild(patternCell);
-	for (const scope of ['title', 'url', 'comments']) {
+	tr.appendChild(makeNameCell('keyword', entry.pattern, entry.pattern));
+	for (const scope of ['title', 'content', 'url', 'comments']) {
 		const cell = document.createElement('td');
 		const checkbox = document.createElement('input');
 		checkbox.type = 'checkbox';
@@ -242,28 +268,28 @@ function renderKeywordRow(entry, tr) {
 const usersTable = createWindowedTable({
 	tbody: document.querySelector('#block-users-tbody'),
 	scroller: tableScroller,
-	colSpan: 5,
+	colSpan: 6,
 	renderRow: renderUserRow,
 	keyOf: ([key]) => key,
-	emptyRow: () => emptyRowNode(5),
+	emptyRow: () => emptyRowNode(6),
 });
 
 const subredditsTable = createWindowedTable({
 	tbody: document.querySelector('#block-subreddits-tbody'),
 	scroller: tableScroller,
-	colSpan: 3,
+	colSpan: 5,
 	renderRow: renderSubredditRow,
 	keyOf: ([key]) => key,
-	emptyRow: () => emptyRowNode(3),
+	emptyRow: () => emptyRowNode(5),
 });
 
 const keywordsTable = createWindowedTable({
 	tbody: document.querySelector('#block-keywords-tbody'),
 	scroller: tableScroller,
-	colSpan: 6,
+	colSpan: 7,
 	renderRow: renderKeywordRow,
 	keyOf: (entry) => entry.pattern,
-	emptyRow: () => emptyRowNode(6),
+	emptyRow: () => emptyRowNode(7),
 });
 
 function renderUsers(store, filter, resetScroll, flash) {
@@ -283,7 +309,7 @@ function renderUsers(store, filter, resetScroll, flash) {
 
 function renderSubreddits(store, filter, resetScroll, flash) {
 	const entries = Object.entries(store.subreddits || {}).filter(([name]) => !filter || name.toLowerCase().includes(filter));
-	applySort(entries, sortState.subreddits, 'subreddit', (e) => e[0], null);
+	applySort(entries, sortState.subreddits, 'subreddit', (e) => e[0], (e, c) => e[1][c]);
 	document.querySelector('#subreddit-count').textContent = `(${entries.length.toLocaleString()})`;
 	lastKeys.subreddits = entries.map(([key]) => selectionKey('subreddit', key));
 	subredditsTable.setItems(entries, { resetScroll, flash: flash ? flash.key : null, flashWarning: !!(flash && flash.warning) });
@@ -310,6 +336,17 @@ async function toggleUserScope(name, scope, enabled) {
 	const key = findStoreKey(store.users, name);
 	const entry = key ? store.users[key] : null;
 	if (!entry) return;
+	entry[scope] = enabled;
+	await saveStore(store);
+}
+
+async function toggleSubredditScope(name, scope, enabled) {
+	const store = await readBlocks();
+	const key = findStoreKey(store.subreddits, name);
+	const entry = key ? store.subreddits[key] : null;
+	if (!entry) return;
+	// Turning the last scope off keeps the entry as a disabled block, so the
+	// user can re-enable it later without retyping the name.
 	entry[scope] = enabled;
 	await saveStore(store);
 }
@@ -412,8 +449,14 @@ function startInlineEdit(cell, kind, oldKey) {
 		}
 		const store = await readBlocks();
 		if (kind === 'user') {
-			const name = normaliseName(value);
+			const name = normaliseBlockName(value);
 			if (!isSafeMapKey(name)) {
+				render();
+				return;
+			}
+			const patternError = patternErrorMessage(name);
+			if (patternError) {
+				showToast('error', patternError);
 				render();
 				return;
 			}
@@ -427,15 +470,26 @@ function startInlineEdit(cell, kind, oldKey) {
 				if (existing && existing !== oldEntry) {
 					store.users[existing].posts = store.users[existing].posts || store.users[oldEntry].posts;
 					store.users[existing].comments = store.users[existing].comments || store.users[oldEntry].comments;
+					store.users[existing].hide_username = store.users[existing].hide_username || store.users[oldEntry].hide_username;
 				} else if (!existing) {
-					store.users[name] = { posts: store.users[oldEntry].posts, comments: store.users[oldEntry].comments };
+					store.users[name] = {
+						posts: store.users[oldEntry].posts,
+						comments: store.users[oldEntry].comments,
+						hide_username: store.users[oldEntry].hide_username,
+					};
 				}
 				delete store.users[oldEntry];
 			}
 			await saveStore(store);
 		} else if (kind === 'subreddit') {
-			const name = normaliseName(value);
+			const name = normaliseBlockName(value);
 			if (!isSafeMapKey(name)) {
+				render();
+				return;
+			}
+			const patternError = patternErrorMessage(name);
+			if (patternError) {
+				showToast('error', patternError);
 				render();
 				return;
 			}
@@ -445,13 +499,23 @@ function startInlineEdit(cell, kind, oldKey) {
 				return;
 			}
 			if (name.toLowerCase() !== oldKey.toLowerCase()) {
+				const scopes = normaliseSubredditEntry(store.subreddits[oldEntry]);
+				const existing = findStoreKey(store.subreddits, name);
+				if (existing && existing !== oldEntry) {
+					const target = normaliseSubredditEntry(store.subreddits[existing]);
+					target.posts = target.posts || scopes.posts;
+					target.page = target.page || scopes.page;
+					store.subreddits[existing] = target;
+				} else if (!existing) {
+					store.subreddits[name] = scopes;
+				}
 				delete store.subreddits[oldEntry];
-				if (!findStoreKey(store.subreddits, name)) store.subreddits[name] = { posts: true };
 			}
 			await saveStore(store);
 		} else {
-			if (!validateRegexList(value)) {
-				showToast('error', 'Invalid regex: ' + getInvalidRegexPatterns(value).join(', '));
+			const patternError = patternErrorMessage(value);
+			if (patternError) {
+				showToast('error', patternError);
 				render();
 				return;
 			}
@@ -464,6 +528,7 @@ function startInlineEdit(cell, kind, oldKey) {
 				const duplicate = store.keywords.find((e) => e.pattern === value);
 				if (duplicate && duplicate !== entry) {
 					duplicate.title = duplicate.title || entry.title;
+					duplicate.content = duplicate.content || entry.content;
 					duplicate.url = duplicate.url || entry.url;
 					duplicate.comments = duplicate.comments || entry.comments;
 					store.keywords = store.keywords.filter((e) => e !== entry);
@@ -526,6 +591,7 @@ document.querySelector('#btn-add-block').addEventListener('click', () => {
 							<td><input type="text" data-field="name" placeholder="${escapeHtml(i18next.t('Username.message'))}" /></td>
 							<td><input type="checkbox" data-field="posts" checked /></td>
 							<td><input type="checkbox" data-field="comments" checked /></td>
+							<td><input type="checkbox" data-field="hide_username" checked /></td>
 							<td class="actions">
 								<button class="btn-sm green btn-row-save" title="${escapeHtml(i18next.t('Save.message'))}">
 									<i class="btn-icon icon-tick"></i>
@@ -539,6 +605,8 @@ document.querySelector('#btn-add-block').addEventListener('click', () => {
 		tr.appendChild(
 			parseHtmlString(`<td></td>
 							<td><input type="text" data-field="name" placeholder="${escapeHtml(i18next.t('Subreddit.message'))}" /></td>
+							<td><input type="checkbox" data-field="posts" checked /></td>
+							<td><input type="checkbox" data-field="page" checked /></td>
 							<td class="actions">
 								<button class="btn-sm green btn-row-save" title="${escapeHtml(i18next.t('Save.message'))}">
 									<i class="btn-icon icon-tick"></i>
@@ -552,10 +620,11 @@ document.querySelector('#btn-add-block').addEventListener('click', () => {
 		tr.appendChild(
 			parseHtmlString(`<td></td>
 							<td><input type="text" data-field="pattern" placeholder="${escapeHtml(i18next.t('BlockPattern.message'))}" />
-								<span class="info invalid-regex"></span></td>
+								<span class="info invalid-regex"></span><span class="info regex-hint"></span></td>
 							<td><input type="checkbox" data-field="title" checked /></td>
-							<td><input type="checkbox" data-field="url" /></td>
-							<td><input type="checkbox" data-field="comments" /></td>
+							<td><input type="checkbox" data-field="content" checked /></td>
+							<td><input type="checkbox" data-field="url" checked /></td>
+							<td><input type="checkbox" data-field="comments" checked /></td>
 							<td class="actions">
 								<button class="btn-sm green btn-row-save" title="${escapeHtml(i18next.t('Save.message'))}">
 									<i class="btn-icon icon-tick"></i>
@@ -573,15 +642,21 @@ document.querySelector('#btn-add-block').addEventListener('click', () => {
 	tr.querySelector('input').focus();
 
 	const invalidEl = tr.querySelector('.info.invalid-regex');
+	const hintEl = tr.querySelector('.info.regex-hint');
 	const patternInput = tr.querySelector('input[data-field="pattern"]');
 	if (patternInput && invalidEl) {
 		patternInput.addEventListener('input', () => {
-			if (validateRegexList(patternInput.value)) {
+			const message = patternErrorMessage(patternInput.value);
+			if (!message) {
 				patternInput.classList.remove('invalid-regex');
 				invalidEl.textContent = '';
+				// Keywords are not auto-wrapped: c++, $100 and .net are valid
+				// literal text, so only unmistakable regex syntax gets a hint.
+				if (hintEl) hintEl.textContent = looksLikeUnwrappedRegex(patternInput.value) ? i18next.t('BlockRegexHint.message') : '';
 			} else {
 				patternInput.classList.add('invalid-regex');
-				invalidEl.textContent = 'Invalid regex: ' + getInvalidRegexPatterns(patternInput.value).join(', ');
+				invalidEl.textContent = message;
+				if (hintEl) hintEl.textContent = '';
 			}
 		});
 	}
@@ -607,21 +682,33 @@ document.querySelector('#btn-add-block').addEventListener('click', () => {
 	tr.querySelector('.btn-row-save').addEventListener('click', async () => {
 		if (activeTab === 'users') {
 			const raw = tr.querySelector('input[data-field="name"]').value;
-			const name = normaliseName(raw);
+			const name = normaliseBlockName(raw);
 			if (!name) {
 				markMissingInput(tr.querySelector('input[data-field="name"]'));
 				return;
 			}
+			const patternError = patternErrorMessage(name);
+			if (patternError) {
+				showToast('error', patternError);
+				return;
+			}
 			const posts = tr.querySelector('input[data-field="posts"]').checked;
 			const comments = tr.querySelector('input[data-field="comments"]').checked;
-			if (!posts && !comments) {
+			const hideUsername = tr.querySelector('input[data-field="hide_username"]').checked;
+			if (!posts && !comments && !hideUsername) {
 				markMissingInput(tr.querySelector('input[data-field="posts"]'));
 				markMissingInput(tr.querySelector('input[data-field="comments"]'));
+				markMissingInput(tr.querySelector('input[data-field="hide_username"]'));
 				return;
 			}
 			const store = await readBlocks();
 			const existingKey = findKey(store.users, name);
-			addUserBlock(store, name, posts && comments ? 'both' : posts ? 'posts' : 'comments');
+			if (posts) addUserBlock(store, name, 'posts');
+			if (comments) addUserBlock(store, name, 'comments');
+			if (hideUsername) addUserBlock(store, name, 'hide_username');
+			// hide_username defaults to on for a new entry, so an unchecked box
+			// has to turn it off explicitly. An existing entry keeps its scope.
+			else if (!existingKey) removeUserBlock(store, name, 'hide_username');
 			// Warn and merge: an existing block (case-insensitive) flashes
 			// orange instead of green, and the new scopes merge into it.
 			flashTarget = { tab: 'users', key: existingKey ?? name, warning: !!existingKey };
@@ -629,14 +716,28 @@ document.querySelector('#btn-add-block').addEventListener('click', () => {
 			await saveStore(store);
 		} else if (activeTab === 'subreddits') {
 			const raw = tr.querySelector('input[data-field="name"]').value;
-			const name = normaliseName(raw);
+			const name = normaliseBlockName(raw);
 			if (!name) {
 				markMissingInput(tr.querySelector('input[data-field="name"]'));
 				return;
 			}
+			const patternError = patternErrorMessage(name);
+			if (patternError) {
+				showToast('error', patternError);
+				return;
+			}
+			const posts = tr.querySelector('input[data-field="posts"]').checked;
+			const page = tr.querySelector('input[data-field="page"]').checked;
+			// A block with neither scope would be dead weight, so require at
+			// least one — matching the Users add row.
+			if (!posts && !page) {
+				markMissingInput(tr.querySelector('input[data-field="posts"]'));
+				markMissingInput(tr.querySelector('input[data-field="page"]'));
+				return;
+			}
 			const store = await readBlocks();
 			const existingKey = findKey(store.subreddits, name);
-			addSubredditBlock(store, name);
+			addSubredditBlock(store, name, posts && page ? 'both' : posts ? 'posts' : 'page');
 			flashTarget = { tab: 'subreddits', key: existingKey ?? name, warning: !!existingKey };
 			if (existingKey) showAlreadyAddedWarning();
 			await saveStore(store);
@@ -646,19 +747,20 @@ document.querySelector('#btn-add-block').addEventListener('click', () => {
 				markMissingInput(tr.querySelector('input[data-field="pattern"]'));
 				return;
 			}
-			if (!validateRegexList(pattern)) {
-				const message = 'Invalid regex: ' + getInvalidRegexPatterns(pattern).join(', ');
+			const patternError = patternErrorMessage(pattern);
+			if (patternError) {
 				const rowInvalidEl = tr.querySelector('.info.invalid-regex');
-				if (rowInvalidEl) rowInvalidEl.textContent = message;
-				showToast('error', message);
+				if (rowInvalidEl) rowInvalidEl.textContent = patternError;
+				showToast('error', patternError);
 				return;
 			}
 			const scopes = {
 				title: tr.querySelector('input[data-field="title"]').checked,
+				content: tr.querySelector('input[data-field="content"]').checked,
 				url: tr.querySelector('input[data-field="url"]').checked,
 				comments: tr.querySelector('input[data-field="comments"]').checked,
 			};
-			if (!scopes.title && !scopes.url && !scopes.comments) {
+			if (!scopes.title && !scopes.content && !scopes.url && !scopes.comments) {
 				tr.remove();
 				return;
 			}
@@ -787,7 +889,7 @@ document.querySelector('#file-import-blocks').addEventListener('change', async (
 	const file = e.target.files[0];
 	e.target.value = '';
 	if (!file) return;
-	showLoadingOverlay(i18next.t('Importing.message'));
+	showLoadingOverlay(i18next.t('ImportingLargeBackup.message'));
 	// Let the overlay paint before the synchronous merge work below.
 	await new Promise((resolve) => setTimeout(resolve, 30));
 	try {
@@ -804,20 +906,30 @@ document.querySelector('#file-import-blocks').addEventListener('change', async (
 			return;
 		}
 		const store = await readBlocks();
-		// added counts entries (a new one, or an existing one whose scopes
-		// grew), not individual scope flips: importing one existing user with
-		// two new scopes reports "Imported 1 block(s)", not 2.
-		let added = 0;
+		// Count entries, not individual scope flips, and keep the three types
+		// apart so the summary can say what changed in each list.
+		const stats = {
+			users: { new: 0, updated: 0, existing: 0 },
+			subreddits: { new: 0, updated: 0, existing: 0 },
+			keywords: { new: 0, updated: 0, existing: 0 },
+		};
+		// Regex entries that fail validation are skipped instead of silently
+		// entering the store, where they would match nothing.
+		const skippedRegexes = [];
 		for (const [key, entry] of Object.entries(imported.users)) {
 			// Names are normalised the same way the add row does, so keys like
 			// "u/Bob" land as "Bob" — the raw key is one the runtime matcher
 			// (which reads plain usernames from the page) can never match.
-			const name = normaliseName(entry && typeof entry.name === 'string' ? entry.name : key);
+			const name = normaliseBlockName(entry && typeof entry.name === 'string' ? entry.name : key);
 			if (name === '') continue;
+			if (patternErrorMessage(name)) {
+				skippedRegexes.push(name);
+				continue;
+			}
 			const existing = findStoreKey(store.users, name);
 			if (!existing) {
-				store.users[name] = { posts: !!entry?.posts, comments: !!entry?.comments };
-				added++;
+				store.users[name] = { posts: !!entry?.posts, comments: !!entry?.comments, hide_username: entry?.hide_username !== false };
+				stats.users.new++;
 			} else {
 				let merged = false;
 				if (entry?.posts && !store.users[existing].posts) {
@@ -828,48 +940,93 @@ document.querySelector('#file-import-blocks').addEventListener('change', async (
 					store.users[existing].comments = true;
 					merged = true;
 				}
-				if (merged) added++;
+				if (entry?.hide_username !== false && !store.users[existing].hide_username) {
+					store.users[existing].hide_username = true;
+					merged = true;
+				}
+				if (merged) stats.users.updated++;
+				else stats.users.existing++;
 			}
 		}
 		for (const [key, entry] of Object.entries(imported.subreddits)) {
-			const name = normaliseName(entry && typeof entry.name === 'string' ? entry.name : key);
+			const name = normaliseBlockName(entry && typeof entry.name === 'string' ? entry.name : key);
 			if (name === '') continue;
-			if (!findStoreKey(store.subreddits, name)) {
-				store.subreddits[name] = { posts: true };
-				added++;
+			if (patternErrorMessage(name)) {
+				skippedRegexes.push(name);
+				continue;
+			}
+			// Old backups have no page scope, so a missing scope means "on".
+			const scopes = normaliseSubredditEntry(entry);
+			const existing = findStoreKey(store.subreddits, name);
+			if (!existing) {
+				store.subreddits[name] = scopes;
+				stats.subreddits.new++;
+			} else {
+				const target = normaliseSubredditEntry(store.subreddits[existing]);
+				let merged = false;
+				for (const scope of ['posts', 'page']) {
+					if (scopes[scope] && !target[scope]) {
+						target[scope] = true;
+						merged = true;
+					}
+				}
+				store.subreddits[existing] = target;
+				if (merged) stats.subreddits.updated++;
+				else stats.subreddits.existing++;
 			}
 		}
-		// Regex patterns that fail validation are skipped instead of silently
-		// entering the store, where they would match nothing.
-		const skippedRegexes = [];
 		for (const entry of imported.keywords) {
 			if (!entry || typeof entry.pattern !== 'string' || entry.pattern === '') continue;
-			if (entry.pattern.startsWith('/') && !validateRegexList(entry.pattern)) {
+			if (patternErrorMessage(entry.pattern)) {
 				skippedRegexes.push(entry.pattern);
 				continue;
 			}
+			// Old backups have no content scope, so a missing value inherits
+			// the title scope, matching the runtime store migration.
+			const scopes = normaliseKeywordEntry(entry);
 			const existing = store.keywords.find((x) => x.pattern === entry.pattern);
 			if (!existing) {
-				store.keywords.push({ pattern: entry.pattern, title: !!entry.title, url: !!entry.url, comments: !!entry.comments });
-				added++;
+				store.keywords.push(scopes);
+				stats.keywords.new++;
 			} else {
 				let merged = false;
-				for (const scope of ['title', 'url', 'comments']) {
-					if (entry[scope] && !existing[scope]) {
+				for (const scope of ['title', 'content', 'url', 'comments']) {
+					if (scopes[scope] && !existing[scope]) {
 						existing[scope] = true;
 						merged = true;
 					}
 				}
-				if (merged) added++;
+				if (merged) stats.keywords.updated++;
+				else stats.keywords.existing++;
 			}
 		}
 		const ok = await saveStore(store);
 		if (ok) {
 			const modal = document.querySelector('#info-modal');
 			modal.querySelector('h2').textContent = i18next.t('Complete.message');
-			let importMessage = i18next.t('BlockImportSuccess.message').replace('{count}', added.toLocaleString());
+			// One line per type that contributed entries. The tab labels name the
+			// lists, and zero counts are shown so an unchanged list is explicit.
+			const typeRows = [
+				['users', 'BlockUsersTab'],
+				['subreddits', 'BlockSubredditsTab'],
+				['keywords', 'BlockKeywordsTab'],
+			];
+			const lines = [];
+			for (const [type, labelKey] of typeRows) {
+				const counts = stats[type];
+				if (counts.new + counts.updated + counts.existing === 0) continue;
+				lines.push(
+					i18next
+						.t('BlockImportTypeSummary.message')
+						.replace('{type}', i18next.t(labelKey + '.message'))
+						.replace('{newCount}', counts.new.toLocaleString())
+						.replace('{updatedCount}', counts.updated.toLocaleString())
+						.replace('{existingCount}', counts.existing.toLocaleString())
+				);
+			}
+			let importMessage = lines.length ? lines.join('\n') : i18next.t('BlockImportEmpty.message');
 			if (skippedRegexes.length) {
-				importMessage += ` Skipped ${skippedRegexes.length} invalid regex pattern(s): ${skippedRegexes.slice(0, 3).join(', ')}${skippedRegexes.length > 3 ? ', …' : ''}`;
+				importMessage += `\nSkipped ${skippedRegexes.length} invalid regex pattern(s): ${skippedRegexes.slice(0, 3).join(', ')}${skippedRegexes.length > 3 ? ', …' : ''}`;
 			}
 			document.querySelector('#info-modal-text').textContent = importMessage;
 			modal.classList.remove('hidden');

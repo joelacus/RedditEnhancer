@@ -59,9 +59,6 @@
 	"AttachSideMenuHeader": {
 		"message": "Zobrazit stránku a informace o uživateli v záhlaví"
 	},
-	"AttachSideMenuHeaderInfo": {
-		"message": "Experimentální. Mohlo by dojít ke konfliktu s funkcemi skrytého bočního menu."
-	},
 	"Auto": {
 		"message": "Automatický"
 	},
@@ -134,6 +131,12 @@
 	"BackupUserTagsOnly": {
 		"message": "Pouze uživatelské značky"
 	},
+	"BaseTheme": {
+		"message": "Základní téma"
+	},
+	"BaseThemeInfo": {
+		"message": "Vyberte pro stránku integrovaný barevný motiv. Jednotlivé možnosti barev níže je přepíší, když jsou povoleny. Chcete-li odebrat základní motiv, vyberte možnost „Žádný“."
+	},
 	"Best": {
 		"message": "Nejlepší / Best"
 	},
@@ -170,20 +173,44 @@
 	"BlockAlreadyAdded": {
 		"message": "Již v seznamu blokovaných."
 	},
+	"BlockedSubredditInfo": {
+		"message": "Tento subreddit je ve vašem seznamu blokovaných. Chcete-li jej znovu navštívit, odblokujte jej ve Správci blokování."
+	},
+	"BlockedSubredditTitle": {
+		"message": "Tento subreddit byl zablokován"
+	},
 	"BlockExport": {
 		"message": "Export bloků"
+	},
+	"BlockFeedAllHidden": {
+		"message": "Všechny příspěvky v tomto kanálu jsou skryté tvými blokovacími filtry."
+	},
+	"BlockFeedLoadMore": {
+		"message": "Načíst další příspěvky"
 	},
 	"BlockImport": {
 		"message": "Import bloků"
 	},
-	"BlockImportSuccess": {
-		"message": "Počet importovaných bloků: {count}."
+	"BlockImportEmpty": {
+		"message": "Z této zálohy nebyly importovány žádné bloky."
+	},
+	"BlockImportTypeSummary": {
+		"message": "{type}: {newCount} nové, {updatedCount} aktualizováno, {existingCount} již existuje."
 	},
 	"BlockInfo": {
-		"message": "Podporuje přesné shoda klíčových slov nebo regulární výrazy."
+		"message": "Podporuje přesnou shodu klíčových slov nebo regulární výrazy zabalené do lomítek, např. \"/^user\\d+$/i\" (příznaky jsou volitelné). \"*\" lze použít jako zástupné znaky, např. \"user*\" (\"user\" s čímkoli po bude zablokován). Bloky prostého textu nerozlišují malá a velká písmena; Vzory regulárních výrazů používají své vlastní příznaky, takže přidejte „/i“, aby se nerozlišovala velká a malá písmena."
+	},
+	"BlockKeywordContent": {
+		"message": "Obsah příspěvku"
+	},
+	"BlockKeywordLink": {
+		"message": "Odkaz v příspěvku"
 	},
 	"BlockKeywordsTab": {
 		"message": "Klíčová slova"
+	},
+	"BlockKeywordTitle": {
+		"message": "Název příspěvku"
 	},
 	"BlockManagerInfo": {
 		"message": "Blokovaní uživatelé, subreddits a klíčová slova jsou uloženy lokálně na tomto zařízení. Exportujte je, abyste předešli případné ztrátě dat."
@@ -200,8 +227,17 @@
 	"BlockPostsAndComments": {
 		"message": "Příspěvky a komentáře"
 	},
+	"BlockRegexHint": {
+		"message": "Vypadá to jako regulární výraz. Zabalte jej do /…/ a použijte jej jako jeden."
+	},
+	"BlockRegexValid": {
+		"message": "Regex platný"
+	},
 	"BlockScope": {
 		"message": "Rozsah"
+	},
+	"BlockSubreddits": {
+		"message": "Blokovat subreddity"
 	},
 	"BlockSubredditsTab": {
 		"message": "Subreddits"
@@ -266,6 +302,9 @@
 	"Cleared": {
 		"message": "Vymazáno"
 	},
+	"ClickLightboxBackgroundToClose": {
+		"message": "Zavřete kliknutím na Pozadí Lightboxu"
+	},
 	"ClickToEdit": {
 		"message": "Kliknutím upravíte"
 	},
@@ -277,6 +316,18 @@
 	},
 	"Colour": {
 		"message": "Barva"
+	},
+	"CommentImageThumbnails": {
+		"message": "Komentář Miniatury obrázků"
+	},
+	"CommentImageThumbnailsInfo": {
+		"message": "Zobrazit vložený náhled pro odkazy na obrázky v komentářích. Kliknutím na miniaturu otevřete náhled na celou obrazovku. Odkazy na stránky Imgur, Potimg a IBB jsou také vyřešeny."
+	},
+	"CommentImageThumbnailsPermissions": {
+		"message": "Odkazy na alba Imgur, odkazy na stránky Potimg a IBB potřebují povolení, aby mohly být převedeny na miniatury. Přímé odkazy na obrázky a odkazy na Imgur s jedním obrázkem stále fungují. Udělte přístup z nastavení oprávnění rozšíření nebo tuto možnost vypněte a znovu zapněte, abyste byli požádáni."
+	},
+	"CommentImageThumbnailWidth": {
+		"message": "Šířka miniatury"
 	},
 	"Comments": {
 		"message": "Komentáře"
@@ -356,14 +407,26 @@
 	"DarkThemes": {
 		"message": "Tmavé téma"
 	},
+	"Default": {
+		"message": "Výchozí"
+	},
 	"DefaultCommentsSortOption": {
 		"message": "Výchozí možnost třídění komentářů"
 	},
 	"DefaultFeedSortOption": {
 		"message": "Výchozí možnost seřazení feedu"
 	},
+	"DefaultFeedTab": {
+		"message": "Výchozí karta feedu"
+	},
+	"DefaultFeedTabInfo": {
+		"message": "Vyberte kartu, na které se otevře domácí feed. Toto nastavení se ignoruje, pokud je povolena možnost \"Výchozí možnost řazení domácího feedu\"."
+	},
 	"DefaultHomeFeedSortOption": {
 		"message": "Výchozí možnost seřazení domovského feedu"
+	},
+	"DefaultHomeFeedSortOptionInfo": {
+		"message": "Řazení hlavního feedu vynutí feed Sledují, takže to má přednost před \"Výchozí karta feedu\"."
 	},
 	"Delete": {
 		"message": "Odstranit"
@@ -470,6 +533,9 @@
 	"FollowComment": {
 		"message": "Sledovat komentář"
 	},
+	"Following": {
+		"message": "Následující"
+	},
 	"FollowPost": {
 		"message": "Sledovat příspěvek"
 	},
@@ -494,6 +560,9 @@
 	"ForceShowVoteButtons": {
 		"message": "Způsobit vynucené zobrazení tlačítek pro hlasování"
 	},
+	"ForYou": {
+		"message": "Pro vás"
+	},
 	"FullWidthBanner": {
 		"message": "Název baneru subreddita plné šířky"
 	},
@@ -508,6 +577,9 @@
 	},
 	"GlobalWidth": {
 		"message": "Globální maximální šířka"
+	},
+	"GoToRedditHome": {
+		"message": "Přejít na domovskou stránku Redditu"
 	},
 	"Grey": {
 		"message": "šedý"
@@ -539,6 +611,12 @@
 	"HideAwards": {
 		"message": "Skrýt tlačítko „Ocenění“ v komentářích"
 	},
+	"HideBlockedSearchEntries": {
+		"message": "Skrýt zablokované položky na vyhledávacím panelu a na stránce s výsledky"
+	},
+	"HideBlockedSearchEntriesInfo": {
+		"message": "Skryje blokovaná klíčová slova, dílčí reddity a uživatele z návrhů vyhledávacího panelu a stránky s výsledky vyhledávání, včetně pravého postranního panelu."
+	},
 	"HideBlurredMediaBackground": {
 		"message": "Skrýt rozmazání pozadí za náhledy obrázků"
 	},
@@ -547,6 +625,9 @@
 	},
 	"HideCommentActionBarButtonsInfo": {
 		"message": "Skrýt tlačítka z lišty akcí komentáře"
+	},
+	"HideCommentImageLinks": {
+		"message": "Skrýt původní odkazy na obrázky komentáře"
 	},
 	"HideCommentKarma": {
 		"message": "Skrýt karma komentáře"
@@ -655,9 +736,6 @@
 	},
 	"HidePostKarma": {
 		"message": "Skrýt karma z příspěvku"
-	},
-	"HidePostsBySubreddit": {
-		"message": "Skrýt příspěvky podle subreddit"
 	},
 	"HidePostsByUser": {
 		"message": "Skrýt příspěvky od uživatele"
@@ -797,6 +875,9 @@
 	"Importing": {
 		"message": "Import..."
 	},
+	"ImportingLargeBackup": {
+		"message": "Import. Velké zálohy mohou chvíli trvat a stránka se může zdát zamrzlá."
+	},
 	"ImportInvalidFormat": {
 		"message": "Neplatný formát souboru."
 	},
@@ -823,6 +904,9 @@
 	},
 	"KeywordsBlockInfo": {
 		"message": "Blokují příspěvky na základě titulku, ne obsahu."
+	},
+	"KeywordsBlockInfoScopes": {
+		"message": "Blokuje příspěvky, když klíčové slovo odpovídá názvu nebo obsahu příspěvku, v závislosti na oblastech vybraných ve Správci blokování."
 	},
 	"Label": {
 		"message": "Označení"
@@ -938,6 +1022,9 @@
 	"NextRootComment": {
 		"message": "Další kořenový komentář"
 	},
+	"None": {
+		"message": "Žádný"
+	},
 	"NoNote": {
 		"message": "Žádná poznámka"
 	},
@@ -1003,6 +1090,9 @@
 	},
 	"Other": {
 		"message": "jiný"
+	},
+	"Page": {
+		"message": "Stránka"
 	},
 	"PositionHorizontally": {
 		"message": "Horizontální umístění pozice"
@@ -1102,6 +1192,9 @@
 	},
 	"Qa": {
 		"message": "Q&a"
+	},
+	"Radius": {
+		"message": "Poloměr"
 	},
 	"Rate": {
 		"message": "Ohodnoťte / Recenze"
@@ -1353,7 +1446,10 @@
 		"message": "Subreddit"
 	},
 	"SubredditBlockInfo": {
-		"message": "Skrývá všechny příspěvky z uvedených subredditu na feedech, kromě feedů subredditů."
+		"message": "Skryje příspěvky z uvedených subredditů ve feedech a může zcela zablokovat jejich stránky. Rozsah pro každý subreddit nastavíte ve Správci blokování."
+	},
+	"SubredditBlockInfoScopes": {
+		"message": "Skryje příspěvky z uvedených subredditů ve feedech a blokuje jejich stránky příspěvků/komentářů. Blokování s rozsahem na stránku také blokuje vlastní stránky subredditu. Rozsahy jednotlivých subredditů nastavíte ve Správci blokování."
 	},
 	"SubredditDisplayNameBanner": {
 		"message": "Zobrazit zobrazené jméno subreddita v jeho banneru"
@@ -1397,6 +1493,12 @@
 	"ThemeDoesNotWorkWithCustomThemes": {
 		"message": "V současné době nefunguje s vlastními komunickými tématy. Prosím, vypněte tuto možnost ve vašich preferencích Reddit:"
 	},
+	"ThemeOpacity": {
+		"message": "Neprůhlednost tématu"
+	},
+	"ThemeOpacityInfo": {
+		"message": "Zprůhledněte záhlaví, pozadí příspěvků a postranní panel. Nižší hodnoty zobrazují více pozadí stránky."
+	},
 	"ThemeWhitelistInfo": {
 		"message": "Použijte pouze barvy témat pro tyto subreddit:"
 	},
@@ -1425,7 +1527,7 @@
 		"message": "Aktualizováno"
 	},
 	"UpdateFirefox": {
-		"message": "Aktualizujte prosím na Firefox 121 nebo vyšší, aby některé funkce fungovaly správně."
+		"message": "Aktualizujte prosím na Firefox 128 nebo vyšší, aby některé funkce fungovaly správně."
 	},
 	"Upload": {
 		"message": "Nahraj"

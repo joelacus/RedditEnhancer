@@ -1006,6 +1006,42 @@
 				</div>
 				<p class='info' data-lang='GalleryKeyboardNavigationInfo'></p>
 			</li>
+			<li class='container-3 r-newnew' data-query-words='media,image,lightbox,background,close,click'>
+				<span class='menu-item-icon icon-x icon-click-lightbox-background-to-close'></span>
+				<span data-lang='ClickLightboxBackgroundToClose'></span>
+				<label class='switch'>
+					<input id='checkbox-click-lightbox-background-to-close' type='checkbox' />
+					<span class='indicator'></span>
+				</label>
+			</li>
+			<li class='container r-old r-newnew' data-query-words='comment,image,link,thumbnail,preview,imgur,postimg,ibb'>
+				<div class='container-3'>
+					<span class='menu-item-icon icon-images icon-comment-image-thumbnails'></span>
+					<span data-lang='CommentImageThumbnails'></span>
+					<label class='switch'>
+						<input id='checkbox-comment-image-thumbnails' type='checkbox' />
+						<span class='indicator'></span>
+					</label>
+				</div>
+				<p class='info' data-lang='CommentImageThumbnailsInfo'></p>
+				<p class='warning info-warning' id='perm-warning-comment-image-thumbnails' data-lang='CommentImageThumbnailsPermissions' hidden></p>
+				<hr />
+				<div class='container-3'>
+					<span class='menu-item-icon icon-link icon-hide-comment-image-links'></span>
+					<span data-lang='HideCommentImageLinks'></span>
+					<label class='switch'>
+						<input id='checkbox-hide-comment-image-links' type='checkbox' />
+						<span class='indicator'></span>
+					</label>
+				</div>
+				<hr />
+				<div class='container-slider'>
+					<span class='menu-item-icon icon-ruler-horizontal icon-comment-image-thumbnail-width'></span>
+					<span data-lang='CommentImageThumbnailWidth'></span>
+					<input id='input-comment-image-thumbnail-width' class='slider' type='range' min='40' max='600' value='200' step='10' />
+					<span id='comment-image-thumbnail-width-value' class='input-value'></span>
+				</div>
+			</li>
 			<li id='media-video' class='sub-header r-newnew'>
 				<span data-lang='Video'></span>
 			</li>
@@ -1464,6 +1500,27 @@
 			<li id='productivity-sort-bar' class='sub-header r-old r-newnew'>
 				<span data-lang='SortBar'></span>
 			</li>
+			<li class='container r-newnew' data-query-words='default,feed,tab,home,following,for,you'>
+				<div class='container-3'>
+					<span class='menu-item-icon icon-list-check-solid icon-default-feed-tab'></span>
+					<span data-lang='DefaultFeedTab'></span>
+					<div></div>
+					<div></div>
+					<div id='select-default-feed-tab' class='dropdown'>
+						<div class='select'>
+							<span id='chosen-default-feed-tab'>Reddit Default</span>
+							<div class='icon dropdown-icon icon-chevron-down'></div>
+						</div>
+						<input type='hidden' name='feed-tab' />
+						<ul id='select-default-feed-tab-menu' class='dropdown-menu'>
+							<li data-value='default'><span data-lang='Default'></span></li>
+							<li data-value='for-you'><span data-lang='ForYou'></span></li>
+							<li data-value='following'><span data-lang='Following'></span></li>
+						</ul>
+					</div>
+				</div>
+				<p class='info' data-lang='DefaultFeedTabInfo'></p>
+			</li>
 			<li class='container-3 r-old' data-query-words='fix,top,sticky,filter'>
 				<span class='menu-item-icon icon-sticky-note sticky-sort'></span>
 				<span data-lang='StickySort'></span>
@@ -1472,29 +1529,32 @@
 					<span class='indicator'></span>
 				</label>
 			</li>
-			<li class='container-3 r-old r-newnew' data-query-words=''>
-				<span class='menu-item-icon icon-sort icon-default-home-feed-sort-option'></span>
-				<span data-lang='DefaultHomeFeedSortOption'></span>
-				<div></div>
-				<div></div>
-				<div id='select-home-feed-sort-option' class='dropdown'>
-					<div class='select'>
-						<span id='chosen-home-feed-sort-option'>Best</span>
-						<div class='icon dropdown-icon icon-chevron-down'></div>
+			<li class='container r-old r-newnew' data-query-words='default,home,feed,sort'>
+				<div class='container-3'>
+					<span class='menu-item-icon icon-sort icon-default-home-feed-sort-option'></span>
+					<span data-lang='DefaultHomeFeedSortOption'></span>
+					<div></div>
+					<div></div>
+					<div id='select-home-feed-sort-option' class='dropdown'>
+						<div class='select'>
+							<span id='chosen-home-feed-sort-option'>Best</span>
+							<div class='icon dropdown-icon icon-chevron-down'></div>
+						</div>
+						<input type='hidden' name='version' />
+						<ul id='select-home-feed-sort-option-menu' class='dropdown-menu'>
+							<li data-value='best' class='r-newnew r-old'><span data-lang='Best'></span></li>
+							<li data-value='hot' class='r-newnew'><span data-lang='Hot'></span></li>
+							<li data-value='new' class='r-newnew r-old'><span data-lang='New'></span></li>
+							<li data-value='top' class='r-newnew r-old'><span data-lang='Top'></span></li>
+							<li data-value='rising' class='r-old'><span data-lang='Rising'></span></li>
+						</ul>
 					</div>
-					<input type='hidden' name='version' />
-					<ul id='select-home-feed-sort-option-menu' class='dropdown-menu'>
-						<li data-value='best' class='r-newnew r-old'><span data-lang='Best'></span></li>
-						<li data-value='hot' class='r-newnew'><span data-lang='Hot'></span></li>
-						<li data-value='new' class='r-newnew r-old'><span data-lang='New'></span></li>
-						<li data-value='top' class='r-newnew r-old'><span data-lang='Top'></span></li>
-						<li data-value='rising' class='r-newnew r-old'><span data-lang='Rising'></span></li>
-					</ul>
+					<label class='switch'>
+						<input id='checkbox-default-home-feed-sort-option' type='checkbox' />
+						<span class='indicator'></span>
+					</label>
 				</div>
-				<label class='switch'>
-					<input id='checkbox-default-home-feed-sort-option' type='checkbox' />
-					<span class='indicator'></span>
-				</label>
+				<p class='info r-newnew' data-lang='DefaultHomeFeedSortOptionInfo'></p>
 			</li>
 			<li class='container-3 r-old r-newnew' data-query-words=''>
 				<span class='menu-item-icon icon-sort icon-default-feed-sort-option'></span>
@@ -2011,7 +2071,10 @@
 						<a href='#style-profile-header' data-lang='ProfileHeader'></a>
 						<div class='vdivider'></div>
 					</div>
-					<div class='r-newnew'><a href='#style-theme' data-lang='Theme'></a></div>
+					<div class='r-old r-newnew'>
+						<a href='#style-theme' data-lang='Theme'></a>
+						<div class='vdivider r-old'></div>
+					</div>
 					<div class='r-old'><a href='#style-other' data-lang='Other'></a></div>
 				</div>
 			</li>
@@ -2025,12 +2088,6 @@
 					<input id='checkbox-hide-gap' type='checkbox' />
 					<span class='indicator'></span>
 				</label>
-			</li>
-			<li class='container-slider r-newnew' data-query-words='corner,radius'>
-				<span class='menu-item-icon icon-square icon-border-radius-amount'></span>
-				<span data-lang='BorderRadiusAmount'></span>
-				<input type='range' min='-1' max='40' value='0' step='1' class='slider' id='input-border-radius-amount' />
-				<span id='border-radius-amount-value' class='input-value'></span>
 			</li>
 			<li class='container-3 r-newnew' data-query-words='dark,mode,theme'>
 				<span class='menu-item-icon icon-dark-mode icon-force-dark-mode'></span>
@@ -2122,9 +2179,6 @@
 						<input id='checkbox-attach-side-menu-header' type='checkbox' />
 						<span class='indicator'></span>
 					</label>
-					<div style='position: relative; margin-top: 16px; width: 400px'>
-						<p class='info' data-lang='AttachSideMenuHeaderInfo'></p>
-					</div>
 				</div>
 				<hr />
 				<div class='container-3'>
@@ -2208,52 +2262,22 @@
 					<input class='colour-picker' data-style-id='profile-header-bg' value='' />
 				</div>
 			</li>
-			<li id='style-other' class='sub-header r-old'>
-				<span data-lang='Other'></span>
-			</li>
-			<li class='container-3 r-old' data-query-words='modern,theme'>
-				<span class='menu-item-icon icon-spray-can icon-modern-old-reddit'></span>
-				<span data-lang='ModerniseOldReddit'></span>
-				<label class='switch' style='margin-bottom: 16px;'>
-					<input id='checkbox-modern-old-reddit' type='checkbox' />
-					<span class='indicator'></span>
-				</label>
-				<span class='menu-item-icon icon-sun icon-modern-old-reddit-light'></span>
-				<span data-lang='LightMode'></span>
-				<label class='switch'>
-					<input id='checkbox-modern-old-reddit-light' type='checkbox' />
-					<span class='indicator'></span>
-				</label>
-				<div style='position: relative; margin-top: 16px; width: 400px'>
-					<p class='info' data-lang='ModerniseOldRedditInfo'></p>
-					<p class='info' data-lang='ThemeDoesNotWorkWithCustomThemes'></p>
-					<p class='info'><b>"allow subreddits to show me custom themes"</b></p>
-				</div>
-			</li>
-			<li class='container-3 r-old' data-query-words=''>
-				<span class='menu-item-icon icon-spray-can icon-classic-old-ui'></span>
-				<span data-lang='ClassicOldUI'></span>
-				<label class='switch'>
-					<input id='checkbox-classic-old-ui' type='checkbox' />
-					<span class='indicator'></span>
-				</label>
-			</li>
-			<li class='container-3 r-old' data-query-words='right,post,thumbnail'>
-				<span class='menu-item-icon icon-spray-can icon-right-side-post-thumbnails'></span>
-				<span data-lang='RightSidePostThumbnails'></span>
-				<label class='switch'>
-					<input id='checkbox-right-side-post-thumbnails' type='checkbox' />
-					<span class='indicator'></span>
-				</label>
-			</li>
 			<!-- Theme -->
-			<li id='style-theme' class='sub-header r-newnew'>
+			<li id='style-theme' class='sub-header r-old r-newnew'>
 				<span data-lang='Theme'></span>
 			</li>
 			<li class='sub-header r-newnew' style='margin-bottom: 16px; top: 24px'>
 				<div class='sub-header-menu'>
 					<div class='r-newnew'>
 						<a href='#theme-blur' data-lang='Blur'></a>
+						<div class='vdivider'></div>
+					</div>
+					<div class='r-newnew'>
+						<a href='#theme-corner-radius' data-lang='Radius'></a>
+						<div class='vdivider'></div>
+					</div>
+					<div class='r-newnew'>
+						<a href='#theme-preset' data-lang='BaseTheme'></a>
 						<div class='vdivider'></div>
 					</div>
 					<div class='r-newnew'>
@@ -2299,6 +2323,77 @@
 					<span id='theme-blur-value' class='input-value'></span>
 				</div>
 				<p class='info' data-lang='ThemeBlurInfo'></p>
+			</li>
+			<!-- Theme Corner Radius -->
+			<li id='theme-corner-radius' class='sub-header r-newnew' style='scroll-margin-top: 70px'>
+				<span data-lang='Radius'></span>
+			</li>
+			<li class='container-slider r-newnew' data-query-words='corner,radius'>
+				<span class='menu-item-icon icon-square icon-border-radius-amount'></span>
+				<span data-lang='BorderRadiusAmount'></span>
+				<input type='range' min='-1' max='40' value='0' step='1' class='slider' id='input-border-radius-amount' />
+				<span id='border-radius-amount-value' class='input-value'></span>
+			</li>
+			<!-- Base Theme -->
+			<li id='theme-preset' class='sub-header' style='scroll-margin-top: 70px'>
+				<span data-lang='BaseTheme'></span>
+			</li>
+			<li class='container' data-query-words='theme,base,preset,colour,color,catppuccin,nord,dracula,monokai,rose,pine,opacity'>
+				<div class='container-3'>
+					<span class='menu-item-icon icon-spray-can icon-theme-preset'></span>
+					<span data-lang='BaseTheme'></span>
+					<div></div>
+					<div></div>
+					<div id='select-theme-preset' class='dropdown'>
+						<div class='select'>
+							<span id='chosen-theme-preset' data-lang='None'></span>
+							<div class='icon dropdown-icon icon-chevron-down'></div>
+						</div>
+						<input type='hidden' name='theme-preset' />
+						<ul id='select-theme-preset-menu' class='dropdown-menu'>
+							<li data-value='none'><span data-lang='None'></span></li>
+							<li data-value='catppuccin-latte'><span>Catppuccin Latte</span></li>
+							<li data-value='catppuccin-frappe'><span>Catppuccin Frappé</span></li>
+							<li data-value='catppuccin-macchiato'><span>Catppuccin Macchiato</span></li>
+							<li data-value='catppuccin-mocha'><span>Catppuccin Mocha</span></li>
+							<li data-value='nord'><span>Nord</span></li>
+							<li data-value='dracula-light'><span>Dracula Light</span></li>
+							<li data-value='dracula'><span>Dracula</span></li>
+							<li data-value='monokai'><span>Monokai</span></li>
+							<li data-value='rose-pine'><span>Rosé Pine</span></li>
+							<li data-value='rose-pine-moon'><span>Rosé Pine Moon</span></li>
+							<li data-value='rose-pine-dawn'><span>Rosé Pine Dawn</span></li>
+						</ul>
+					</div>
+				</div>
+				<p class='info' data-lang='BaseThemeInfo'></p>
+				<div class='container-slider theme-opacity-row'>
+					<span class='menu-item-icon icon-fade icon-theme-opacity'></span>
+					<span data-lang='ThemeOpacity'></span>
+					<input type='range' min='0' max='100' value='100' step='1' class='slider' id='input-theme-opacity' />
+					<span id='theme-opacity-value' class='input-value'>100%</span>
+				</div>
+				<p class='info' data-lang='ThemeOpacityInfo'></p>
+			</li>
+			<!-- Modernise Old Reddit -->
+			<li class='container-3 r-old' data-query-words='modern,theme'>
+				<span class='menu-item-icon icon-spray-can icon-modern-old-reddit'></span>
+				<span data-lang='ModerniseOldReddit'></span>
+				<label class='switch' style='margin-bottom: 16px;'>
+					<input id='checkbox-modern-old-reddit' type='checkbox' />
+					<span class='indicator'></span>
+				</label>
+				<span class='menu-item-icon icon-sun icon-modern-old-reddit-light'></span>
+				<span data-lang='LightMode'></span>
+				<label class='switch'>
+					<input id='checkbox-modern-old-reddit-light' type='checkbox' />
+					<span class='indicator'></span>
+				</label>
+				<div style='position: relative; margin-top: 16px; width: 400px'>
+					<p class='info' data-lang='ModerniseOldRedditInfo'></p>
+					<p class='info' data-lang='ThemeDoesNotWorkWithCustomThemes'></p>
+					<p class='info'><b>"allow subreddits to show me custom themes"</b></p>
+				</div>
 			</li>
 			<!-- Header Style -->
 			<li id='theme-header' class='sub-header r-newnew' style='scroll-margin-top: 70px'>
@@ -2705,6 +2800,26 @@
 				<div></div>
 				<textarea id='input-theme-exceptions' rows='4' cols='auto' placeholder='subreddit,subreddit'></textarea>
 			</li>
+			<!-- Other -->
+			<li id='style-other' class='sub-header r-old'>
+				<span data-lang='Other'></span>
+			</li>
+			<li class='container-3 r-old' data-query-words=''>
+				<span class='menu-item-icon icon-spray-can icon-classic-old-ui'></span>
+				<span data-lang='ClassicOldUI'></span>
+				<label class='switch'>
+					<input id='checkbox-classic-old-ui' type='checkbox' />
+					<span class='indicator'></span>
+				</label>
+			</li>
+			<li class='container-3 r-old' data-query-words='right,post,thumbnail'>
+				<span class='menu-item-icon icon-spray-can icon-right-side-post-thumbnails'></span>
+				<span data-lang='RightSidePostThumbnails'></span>
+				<label class='switch'>
+					<input id='checkbox-right-side-post-thumbnails' type='checkbox' />
+					<span class='indicator'></span>
+				</label>
+			</li>
 		</ul>
 	</li>
 
@@ -2914,7 +3029,7 @@
 					</label>
 				</div>
 				<hr>
-				<button class='btn btn-open-block-manager' data-tab='users' data-lang='ManageBlocks'></button>
+				<button class='btn btn-open-block-manager' data-tab='users' data-lang='ManageBlocks' style="margin-bottom:8px"></button>
 			</li>
 			<li class='sub-header r-old r-newnew'>
 				<span data-lang='Keywords'></span>
@@ -2928,6 +3043,8 @@
 						<span class='indicator'></span>
 					</label>
 				</div>
+				<p class='info' data-lang='KeywordsBlockInfoScopes'></p>
+				<hr>
 				<div class='container-3'>
 					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-keyword-comments'></span>
 					<span data-lang='HideCommentsContainingKeyword'></span>
@@ -2937,8 +3054,7 @@
 					</label>
 				</div>
 				<hr>
-				<button class='btn btn-open-block-manager' data-tab='keywords' data-lang='ManageBlocks'></button>
-				<p class='info' data-lang='KeywordsBlockInfo'></p>
+				<button class='btn btn-open-block-manager' data-tab='keywords' data-lang='ManageBlocks' style="margin-bottom:8px"></button>
 			</li>
 			<li class='container r-old r-newnew' data-query-words='block,link,url' style='scroll-margin-top: 90px'>
 				<div class='container-3'>
@@ -2949,7 +3065,7 @@
 						<span class='indicator'></span>
 					</label>
 					<div></div>
-					<button class='btn btn-open-block-manager' data-tab='keywords' data-lang='ManageBlocks'></button>
+					<button class='btn btn-open-block-manager' data-tab='keywords' data-lang='ManageBlocks' style="margin-bottom:8px"></button>
 				</div>
 			</li>
 			<li class='sub-header r-old r-newnew'>
@@ -2958,15 +3074,29 @@
 			<li class='container r-old r-newnew' data-query-words='block,subreddit' style='scroll-margin-top: 90px'>
 				<div class='container-3'>
 					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-subreddit-posts'></span>
-					<span data-lang='HidePostsBySubreddit'></span>
+					<span data-lang='BlockSubreddits'></span>
 					<label class='switch'>
 						<input id='checkbox-hide-blocked-subreddit-posts-enable' type='checkbox' />
 						<span class='indicator'></span>
 					</label>
-					<div></div>
-					<button class='btn btn-open-block-manager' data-tab='subreddits' data-lang='ManageBlocks'></button>
 				</div>
-				<p class='info' data-lang='SubredditBlockInfo'></p>
+				<p class='info' data-lang='SubredditBlockInfoScopes'></p>
+				<hr>
+				<button class='btn btn-open-block-manager' data-tab='subreddits' data-lang='ManageBlocks' style="margin-bottom:8px"></button>
+			</li>
+			<li class='sub-header r-newnew'>
+				<span data-lang='Search'></span>
+			</li>
+			<li class='container r-newnew' data-query-words='block,search' style='scroll-margin-top: 90px'>
+				<div class='container-3'>
+					<span class='menu-item-icon icon-list-check-solid icon-hide-blocked-search-entries'></span>
+					<span data-lang='HideBlockedSearchEntries'></span>
+					<label class='switch'>
+						<input id='checkbox-hide-blocked-search-entries-enable' type='checkbox' />
+						<span class='indicator'></span>
+					</label>
+				</div>
+				<p class='info' data-lang='HideBlockedSearchEntriesInfo'></p>
 			</li>
 		</ul>
 	</li>

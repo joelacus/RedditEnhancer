@@ -1,3 +1,33 @@
+version 3.7.0
+v [Latest UI V3 & Old UI V1]
+  - Added 11 base themes: Catppuccin Latte, Frappé, Macchiato and Mocha, Nord, Dracula Light and Dark, Monokai, and Rosé Pine, Moon and Dawn. These themes style the Reddit UI, but can be overridden by the individual theme colour pickers.
+    - Added a "Theme Opacity" slider that makes the header bar, post backgrounds and sidebars translucent (when using a base theme).
+    - Base themes also colour the extension's confirmation dialogues and the user tag popover.
+  - Added "Comment Image Hyperlink Thumbnails" to show inline thumbnails for image links in comments. Click a thumbnail to open a fullscreen preview; includes a thumbnail width slider and an option to hide the original text link. Imgur, Postimg and IBB page links are resolved too (optional host permission required). (minimum Firefox version raised to 128 to support optional host permissions).
+  - Renamed "Hide Posts by Subreddit" to "Block Subreddits". Each subreddit block now has separate "Posts" and "Page" scopes: "Posts" hides it in feeds and blocks direct post links, while "Page" blocks the subreddit's own listing, wiki and about pages. A "Page" only block still lets individual posts open, and a "Posts" only block leaves the subreddit listing visible. "Page" scoped subreddits are removed from the RV3 side menu's "Recent" section.
+  - Added a block button to the subreddit listing/page header.
+  - Keyword blocks now have separate "Post title", "Post content", "Link in post" and "Comments" checkboxes in the Block Manager. All four scopes are enabled by default.
+  - Added a per-user "Hide Username" scope to the Block Manager's Users tab. A blocked user's name is replaced with "hidden" in feeds, comments and profiles; user hover cards keep the real username. This scope is enabled by default.
+ - Fixed several issues with the regex (regular expressions) filter for the Block feature. The Block Manager now indicates a valid regex expression, and warns about invalid expressions.
+v [Latest UI V3]
+  - Added "Default Feed Tab" to open the home feed on "For You" or "Following" every time, or leave Reddit's remembered tab alone.
+  - Added "Click Lightbox Background To Close" to close the image lightbox by clicking the background outside the image.
+  - Added "Hide Blocked Entries in Search" to apply block filters to the search bar suggestions and the search results page, including its right sidebar.
+  - "Gallery Keyboard Navigation" now also navigates the fullscreen lightbox gallery.
+  - "Show Post Author" now also works on the news feed.
+  - "Show Absolute Timestamps On Posts" now also works on the news feed.
+  - "Rising" is no longer offered for the RV3 home feed sort option (it remains available on RV1).
+  - Fixed comment thread lines running past the last reply when using "Multicoloured Comment Thread Lines".
+  - Fixed "Compact Post Link Previews" not working correctly due to a website update.
+  - Fixed the block user button sometimes appearing twice on a post, or not appearing on post pages.
+  - Fixed the RV3 feed reloading endlessly when the block filters hide every post. After two auto-loaded pages with no visible posts, the feed now pauses and offers a "Load more posts" button instead of fetching pages forever.
+  - Fixed duplicate user tag buttons after enabling "Show Post Author".
+  - Fixed "Copy Clean Link" not appearing in post and comment share menus after a Reddit change to the share menu. It now also works on profile feeds and search pages where a share menu is available.
+  - "Display Page and User Info in the Header" is no longer marked as experimental. Fixed it not loading unless "Opt Out of the Header Side Menu" was also enabled, and the side menu now attaches or detaches immediately when the opt-out option is changed or the feature is turned off.
+  - Fixed "Max Image Post Height" and "Max Video Post Height" not working correctly on Chromium based browsers.
+v [Old UI V1]
+  - Improved "Modernise Old Reddit".
+
 version 3.6.0
   - Added a Block Manager page to view, add, filter and remove blocked users, subreddits and keywords, replacing the popup text inputs. Block lists will be migrated transparently and consolidated into a single object which is now stored compressed locally, allowing significantly larger lists. For reference, you can now fit 50,000 blocks in ~10% of the local storage (~1MiB). You can fit even more, but performance starts to become the limiting factor. The block list no longer syncs to your other devices (100KiB limit), but you can easily save and restore backups from the Block Manager or the Settings page.
   - The block user button now opens one dialogue with Posts and Comments checkboxes instead of separate posts-only and comments-only confirms.

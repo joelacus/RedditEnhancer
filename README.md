@@ -67,12 +67,14 @@ I welcome any help if you would like to improve or contribute new language trans
 ## Block
 |Feature|Description|Reddit Version Support|
 |---|---|:---:|
-|Hide Posts with Blocked Keywords|Hide all posts whose title contains a certain keyword(s). Supports regex (regular expressions) and `*` wildcards.|3<br>1|
+|Hide Posts with Blocked Keywords|Hide all posts whose title or text content contains a certain keyword(s). The Block Manager has separate Post title and Post content checkboxes for each keyword. Supports regex (regular expressions) and `*` wildcards.|3<br>1|
 |Hide Posts by Blocked Users|Hide all posts that are created by a certain user(s). Supports regex (regular expressions) and `*` wildcards. An inline "Block user" button is added next to each post author.|3<br>1|
 |Hide "Link" Posts by Keywords in URL|Hide all posts that link to a URL containing certain keyword(s). Supports regex (regular expressions) and `*` wildcards.|3<br>1|
-|Hide Posts by Subreddit|Hide all posts from a certain subreddit(s). Supports regex (regular expressions) and `*` wildcards. Not enabled for subreddit feeds. An inline "Block subreddit" button is added next to the subreddit name.|3<br>1|
+|Block Subreddits|Hide posts from a certain subreddit(s) in feeds and block their post/comment pages, and optionally block the subreddit's own pages with a redirect to an extension page. Supports regex (regular expressions) and `*` wildcards. Inline "Block subreddit" buttons with "Posts" and "Page" checkboxes are added next to post subreddit names and in the RV3 subreddit page header, and page-scoped blocks are removed from the RV3 "Recent" side-menu section.|3<br>1|
 |Hide Comments by Keyword|Hide all comments whose text contains a certain keyword(s). Supports regex (regular expressions) and `*` wildcards.|3<br>1|
 |Hide Comments by User|Hide all comments created by a certain user(s). Supports regex (regular expressions) and `*` wildcards. An inline "Block user" button is also added next to each comment author.|3<br>1|
+|Hide Blocked Users' Usernames|Replace a blocked user's username with "hidden" everywhere it appears, including posts, comments and profiles; user hover cards keep the real username. Each user in the Block Manager's Users tab has a "Hide Username" checkbox, enabled by default.|3<br>1|
+|Hide Blocked Entries in Search|Hide blocked keywords, subreddits and users from the search bar suggestions and the search results page, including its right sidebar.|3|
 
 ## Resize Feed and Posts
 |Feature|Description|Reddit Version Support|
@@ -111,6 +113,8 @@ I welcome any help if you would like to improve or contribute new language trans
 |Max Video Post Height|Sets the maximum height of the post content. Note: This may set the video width to less than the "Max Video Width" value to keep the correct aspect ratio if "Scale Post To Fit Video" is enabled.|3|
 |Max Video Width|Limits the maximum post video content width relative to the post.|3|
 |Gallery Keyboard Navigation|Use the left and right arrow keys to navigate post image galleries.|3|
+|Click Lightbox Background To Close|Close the image lightbox by clicking the background outside the image.|3|
+|Comment Image Hyperlink Thumbnails|Show an inline thumbnail for image links in comments. Click a thumbnail to open a fullscreen preview; imgur, postimg and ibb page links are resolved too. Includes a thumbnail width slider and an option to hide the original link.|3<br>1|
 |Replace Images with Links on Feeds|Hide post images and show text links instead on feeds. (Currently does not work with NSFW images).|3|
 |Replace Videos with Links on Feeds|Hide post videos and show text links instead on feeds. (Only works with .mp4 and .gif videos, .m3u8 links may be unplayable in other players).|3|
 |Scale Post To Fit Image|Dynamically scale the post vertically to fit the maximum height of the image.|3|
@@ -195,6 +199,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Better Comment Box|Automatically shows the formatting options when commenting, adds a Ctrl/Cmd + Enter shortcut to submit the comment, and hides the rich-text-editor toolbar toggle.|3|
 |Canned Messages|Create a list of frequently used messages/comments and copy them to the clipboard from the right click menu.|3<br>1|
 |Clean Link|Add a share option to copy post/comment links without tracking parameters. Optionally shorten to redd.it format.|3<br>1|
+|Default Feed Tab|Choose whether the home feed opens on "For You" or "Following" every time, or leave Reddit's remembered tab alone. Ignored while "Default Home Feed Sort Option" is enabled.|3|
 |Default Home Feed Sort Option|Set how you want the home feed to be sorted automatically when the page loads.|3<br>1|
 |Default Feed Sort Option|Set how you want the subreddit and custom feeds to be sorted automatically when the page loads.|3<br>1|
 |Default Comments Sort Option|Set how you want the comments to be sorted automatically when the page loads.|3<br>1|
@@ -207,7 +212,7 @@ I welcome any help if you would like to improve or contribute new language trans
 |Show Absolute Timestamps On Comments|Show the full time and date a comment was published next to the relative timestamp. The date and time format can be customised.|3<br>1|
 |Show Absolute Timestamps On Posts|Show the full time and date a post was published next to the relative timestamp in the post credit bar. The date and time format can be customised.|3<br>1|
 |Show navigation buttons to scroll to the next/previous root comment on a post|Scroll to the next/previous root/first comments on a post.|3<br>1|
-|Show Post Author|Shows the missing post author on the home and other feeds.|3|
+|Show Post Author|Shows the missing post author on the home, news and other feeds.|3|
 |Show Post Flair|Shows the missing post flair on the home and other feeds.|3|
 |Show Subreddit Member Count|Show the legacy subreddit member count on subreddit pages.|3<br>1|
 |Show Upvote Percentage in Post View|Show the upvote ratio/percentage next to the post karma. Also applied to comment pages.|3|
@@ -238,8 +243,9 @@ I welcome any help if you would like to improve or contribute new language trans
 |Show vote buttons on the left|Move the post vote buttons to the left of the post instead of at the bottom.|3|
 |Highlight comments from the original poster (OP)|On a post comment page, highlight any comments made by the original poster.|3|
 |Hide The Interface Gaps|This will remove all the gaps between the interface elements if you do not like that style.|3|
+|Base Themes|Apply one of 11 built-in colour themes as a base for the page. The opacity slider makes the header, posts and sidebar translucent. Enabled Theme Colours options override the matching parts of the base theme. It also colours the extension's dialogues and the user tag popup.|3<br>1|
 |Theme Colours + Blur|You can change various theme colours for the website, and add blur to translucent UI elements.|3|
-|Theme Colour Whitelist / Blacklist|Apply the custom theme colours only to the subreddits you list, or to all of them except the ones you list.|3|
+|Theme Colour Whitelist / Blacklist|Apply the base theme or the individual theme colours only to the subreddits you list, or to all of them except the ones you list.|3|
 |Hide Avatar Border|Remove the border around the profile avatar.|3|
 |Scale Profile Avatar|Make the profile page avatar in the header up to 5 times larger.|3|
 |Show Post Thumbnails on the Right Side|Move the post thumbnails to the right-hand side of the post listing.|1|

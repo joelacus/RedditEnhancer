@@ -26,40 +26,60 @@ export function loadShowPostAbsoluteTimestamp() {
 // Store cleanup functions for the observers
 let observerRV3Cleanup = null;
 let observerRV1Cleanup = null;
+let feedSetupTimer = null;
+let observedFeed = null;
+let postTimestampsActive = false;
 
 // ─── Enable/Disable The Feature ─────────────────────────────────────────────
 
+// SPA navigation can run the tweak loader before the new feed exists, and the
+// outgoing feed may still be attached. Retry briefly so the observer always
+// ends up on the feed that is actually in the page.
+function setupPostTimestampFeed(routeName, attempt = 0) {
+	if (!postTimestampsActive) return;
+	if (document.querySelector('shreddit-app')?.getAttribute('routename') !== routeName) return;
+
+	displayPostAbsoluteTimestampsRV3();
+
+	const feed = routeName === 'global_serp' ? document.querySelector('#main-content') : document.querySelector('shreddit-feed');
+	if (feed && feed !== observedFeed) {
+		if (observerRV3Cleanup) observerRV3Cleanup();
+		observedFeed = feed;
+		observerRV3Cleanup = registerMutationCallback(
+			feed,
+			(mutations) => {
+				mutations.forEach((mutation) => {
+					mutation.addedNodes.forEach((addedNode) => {
+						if (['TIME', 'ARTICLE', 'DIV', 'SPAN', 'SEARCH-TELEMETRY-TRACKER'].includes(addedNode.nodeName)) {
+							setTimeout(() => {
+								if (postTimestampsActive) displayPostAbsoluteTimestampsRV3();
+							}, 1000);
+						}
+					});
+				});
+			},
+			{ childList: true, subtree: true },
+			'showPostAbsoluteTimestamp',
+		);
+	}
+
+	if (attempt < 2) {
+		feedSetupTimer = setTimeout(() => setupPostTimestampFeed(routeName, attempt + 1), attempt === 0 ? 500 : 1000);
+	}
+}
+
 export function showPostAbsoluteTimestamp(value) {
 	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
-	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed', 'post_page', 'comments_page', 'global_serp'];
+	// /news and its sort tabs (/news/best/, /news/hot/, …) all report "news".
+	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed', 'post_page', 'comments_page', 'global_serp', 'news'];
 
 	if (redditVersion === 'newnew' && feedRoutesv3.includes(routeName) && value) {
-		// Initial pass
-		displayPostAbsoluteTimestampsRV3();
-		// Register with centralised observer manager
-		// Clean up any existing observer first
-		if (observerRV3Cleanup) {
-			observerRV3Cleanup();
+		postTimestampsActive = true;
+		if (feedSetupTimer) {
+			clearTimeout(feedSetupTimer);
+			feedSetupTimer = null;
 		}
-		const feed = routeName === 'global_serp' ? document.querySelector('#main-content') : document.querySelector('shreddit-feed');
-		if (feed) {
-			observerRV3Cleanup = registerMutationCallback(
-				feed,
-				(mutations) => {
-					mutations.forEach((mutation) => {
-						mutation.addedNodes.forEach((addedNode) => {
-							if (['TIME', 'ARTICLE', 'DIV', 'SPAN', 'SEARCH-TELEMETRY-TRACKER'].includes(addedNode.nodeName)) {
-								setTimeout(() => {
-									displayPostAbsoluteTimestampsRV3();
-								}, 1000);
-							}
-						});
-					});
-				},
-				{ childList: true, subtree: true },
-				'showPostAbsoluteTimestamp',
-			);
-		}
+		setupPostTimestampFeed(routeName);
 	} else if (redditVersion === 'old' && value) {
 		// Initial pass
 		displayPostAbsoluteTimestampsRV1();
@@ -88,11 +108,18 @@ export function showPostAbsoluteTimestamp(value) {
 			);
 		}
 	} else if (redditVersion === 'newnew' && !value) {
+		postTimestampsActive = false;
+		if (feedSetupTimer) {
+			clearTimeout(feedSetupTimer);
+			feedSetupTimer = null;
+		}
+
 		// Cleanup observer
 		if (observerRV3Cleanup) {
 			observerRV3Cleanup();
 			observerRV3Cleanup = null;
 		}
+		observedFeed = null;
 
 		// Remove all added absolute timestamps and restore relative timestamps
 		document.querySelectorAll('.re-post-absolute-timestamp').forEach((el) => {
@@ -192,7 +219,7 @@ function displayPostAbsoluteTimestampsRV1() {
 // Update Post Absolute Timestamps
 export function updatePostAbsoluteTimestamps(format) {
 	const routeName = document.querySelector('shreddit-app')?.getAttribute('routename');
-	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed', 'post_page'];
+	const feedRoutesv3 = ['frontpage', 'popular', 'subreddit', 'custom_feed', 'post_page', 'news'];
 	if (redditVersion === 'newnew' && feedRoutesv3.includes(routeName)) {
 		// Remove current timestamps
 		const posts = document.querySelectorAll('shreddit-post');
